@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from wb_api_client.orders_fbs.models.shipping_point import ShippingPoint
 from typing import Optional, Set
 from typing_extensions import Self
@@ -29,8 +29,8 @@ class ShippingPointsResponse(BaseModel):
     ShippingPointsResponse
     """  # noqa: E501
 
-    shipping_points: List[ShippingPoint] = Field(
-        description="Список пунктов отгрузки", alias="shippingPoints"
+    shipping_points: Optional[List[ShippingPoint]] = Field(
+        default=None, description="Список пунктов отгрузки", alias="shippingPoints"
     )
     __properties: ClassVar[List[str]] = ["shippingPoints"]
 

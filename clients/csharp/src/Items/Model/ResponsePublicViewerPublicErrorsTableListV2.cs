@@ -34,63 +34,43 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ResponsePublicViewerPublicErrorsTableListV2" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected ResponsePublicViewerPublicErrorsTableListV2() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ResponsePublicViewerPublicErrorsTableListV2" /> class.
-        /// </summary>
-        /// <param name="data">data (required).</param>
-        /// <param name="error">Флаг ошибки (required).</param>
-        /// <param name="errorText">Описание ошибки (required).</param>
-        /// <param name="additionalErrors">Дополнительные ошибки (required).</param>
+        /// <param name="data">data.</param>
+        /// <param name="error">Флаг ошибки.</param>
+        /// <param name="errorText">Описание ошибки.</param>
+        /// <param name="additionalErrors">Дополнительные ошибки.</param>
         public ResponsePublicViewerPublicErrorsTableListV2(ModelsErrorTableListPublicRespV2 data = default(ModelsErrorTableListPublicRespV2), bool error = default(bool), string errorText = default(string), Object additionalErrors = default(Object))
         {
-            // to ensure "data" is required (not null)
-            if (data == null)
-            {
-                throw new ArgumentNullException("data is a required property for ResponsePublicViewerPublicErrorsTableListV2 and cannot be null");
-            }
             this.Data = data;
             this.Error = error;
-            // to ensure "errorText" is required (not null)
-            if (errorText == null)
-            {
-                throw new ArgumentNullException("errorText is a required property for ResponsePublicViewerPublicErrorsTableListV2 and cannot be null");
-            }
             this.ErrorText = errorText;
-            // to ensure "additionalErrors" is required (not null)
-            if (additionalErrors == null)
-            {
-                throw new ArgumentNullException("additionalErrors is a required property for ResponsePublicViewerPublicErrorsTableListV2 and cannot be null");
-            }
             this.AdditionalErrors = additionalErrors;
         }
 
         /// <summary>
         /// Gets or Sets Data
         /// </summary>
-        [DataMember(Name = "data", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "data", EmitDefaultValue = false)]
         public ModelsErrorTableListPublicRespV2 Data { get; set; }
 
         /// <summary>
         /// Флаг ошибки
         /// </summary>
         /// <value>Флаг ошибки</value>
-        [DataMember(Name = "error", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "error", EmitDefaultValue = true)]
         public bool Error { get; set; }
 
         /// <summary>
         /// Описание ошибки
         /// </summary>
         /// <value>Описание ошибки</value>
-        [DataMember(Name = "errorText", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "errorText", EmitDefaultValue = false)]
         public string ErrorText { get; set; }
 
         /// <summary>
         /// Дополнительные ошибки
         /// </summary>
         /// <value>Дополнительные ошибки</value>
-        [DataMember(Name = "additionalErrors", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "additionalErrors", EmitDefaultValue = true)]
         public Object AdditionalErrors { get; set; }
 
         /// <summary>

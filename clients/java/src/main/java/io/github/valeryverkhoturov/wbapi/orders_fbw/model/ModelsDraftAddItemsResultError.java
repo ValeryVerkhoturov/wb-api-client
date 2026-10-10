@@ -36,18 +36,18 @@ public class ModelsDraftAddItemsResultError {
   public static final String SERIALIZED_NAME_DETAIL = "detail";
 
   @SerializedName(SERIALIZED_NAME_DETAIL)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String detail;
 
   public static final String SERIALIZED_NAME_TITLE = "title";
 
   @SerializedName(SERIALIZED_NAME_TITLE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String title;
 
   public ModelsDraftAddItemsResultError() {}
 
-  public ModelsDraftAddItemsResultError detail(@jakarta.annotation.Nonnull String detail) {
+  public ModelsDraftAddItemsResultError detail(@jakarta.annotation.Nullable String detail) {
     this.detail = detail;
     return this;
   }
@@ -57,16 +57,16 @@ public class ModelsDraftAddItemsResultError {
    *
    * @return detail
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getDetail() {
     return detail;
   }
 
-  public void setDetail(@jakarta.annotation.Nonnull String detail) {
+  public void setDetail(@jakarta.annotation.Nullable String detail) {
     this.detail = detail;
   }
 
-  public ModelsDraftAddItemsResultError title(@jakarta.annotation.Nonnull String title) {
+  public ModelsDraftAddItemsResultError title(@jakarta.annotation.Nullable String title) {
     this.title = title;
     return this;
   }
@@ -76,12 +76,12 @@ public class ModelsDraftAddItemsResultError {
    *
    * @return title
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getTitle() {
     return title;
   }
 
-  public void setTitle(@jakarta.annotation.Nonnull String title) {
+  public void setTitle(@jakarta.annotation.Nullable String title) {
     this.title = title;
   }
 
@@ -135,8 +135,6 @@ public class ModelsDraftAddItemsResultError {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("detail");
-    openapiRequiredFields.add("title");
   }
 
   /**
@@ -167,24 +165,16 @@ public class ModelsDraftAddItemsResultError {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : ModelsDraftAddItemsResultError.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    if (!jsonObj.get("detail").isJsonPrimitive()) {
+    if ((jsonObj.get("detail") != null && !jsonObj.get("detail").isJsonNull())
+        && !jsonObj.get("detail").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `detail` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("detail").toString()));
     }
-    if (!jsonObj.get("title").isJsonPrimitive()) {
+    if ((jsonObj.get("title") != null && !jsonObj.get("title").isJsonNull())
+        && !jsonObj.get("title").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `title` to be a primitive type in the JSON string but got `%s`",

@@ -39,18 +39,18 @@ public class GoodsReturn200Response {
   public static final String SERIALIZED_NAME_COUNT = "count";
 
   @SerializedName(SERIALIZED_NAME_COUNT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer count;
 
   public static final String SERIALIZED_NAME_REPORT = "report";
 
   @SerializedName(SERIALIZED_NAME_REPORT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private List<GoodsReturn200ResponseReportInner> report = new ArrayList<>();
 
   public GoodsReturn200Response() {}
 
-  public GoodsReturn200Response count(@jakarta.annotation.Nonnull Integer count) {
+  public GoodsReturn200Response count(@jakarta.annotation.Nullable Integer count) {
     this.count = count;
     return this;
   }
@@ -60,17 +60,17 @@ public class GoodsReturn200Response {
    *
    * @return count
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getCount() {
     return count;
   }
 
-  public void setCount(@jakarta.annotation.Nonnull Integer count) {
+  public void setCount(@jakarta.annotation.Nullable Integer count) {
     this.count = count;
   }
 
   public GoodsReturn200Response report(
-      @jakarta.annotation.Nonnull List<GoodsReturn200ResponseReportInner> report) {
+      @jakarta.annotation.Nullable List<GoodsReturn200ResponseReportInner> report) {
     this.report = report;
     return this;
   }
@@ -88,13 +88,13 @@ public class GoodsReturn200Response {
    *
    * @return report
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public List<GoodsReturn200ResponseReportInner> getReport() {
     return report;
   }
 
   public void setReport(
-      @jakarta.annotation.Nonnull List<GoodsReturn200ResponseReportInner> report) {
+      @jakarta.annotation.Nullable List<GoodsReturn200ResponseReportInner> report) {
     this.report = report;
   }
 
@@ -147,8 +147,6 @@ public class GoodsReturn200Response {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("count");
-    openapiRequiredFields.add("report");
   }
 
   /**
@@ -178,31 +176,25 @@ public class GoodsReturn200Response {
                 entry.getKey(), jsonElement.toString()));
       }
     }
+    JsonObject jsonObj = jsonElement.getAsJsonObject();
+    if (jsonObj.get("report") != null && !jsonObj.get("report").isJsonNull()) {
+      JsonArray jsonArrayreport = jsonObj.getAsJsonArray("report");
+      if (jsonArrayreport != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("report").isJsonArray()) {
+          throw new IllegalArgumentException(
+              String.format(
+                  "Expected the field `report` to be an array in the JSON string but got `%s`",
+                  jsonObj.get("report").toString()));
+        }
 
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : GoodsReturn200Response.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
+        // validate the optional field `report` (array)
+        for (int i = 0; i < jsonArrayreport.size(); i++) {
+          GoodsReturn200ResponseReportInner.validateJsonElement(jsonArrayreport.get(i));
+        }
+        ;
       }
     }
-    JsonObject jsonObj = jsonElement.getAsJsonObject();
-    // ensure the json data is an array
-    if (!jsonObj.get("report").isJsonArray()) {
-      throw new IllegalArgumentException(
-          String.format(
-              "Expected the field `report` to be an array in the JSON string but got `%s`",
-              jsonObj.get("report").toString()));
-    }
-
-    JsonArray jsonArrayreport = jsonObj.getAsJsonArray("report");
-    // validate the required field `report` (array)
-    for (int i = 0; i < jsonArrayreport.size(); i++) {
-      GoodsReturn200ResponseReportInner.validateJsonElement(jsonArrayreport.get(i));
-    }
-    ;
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

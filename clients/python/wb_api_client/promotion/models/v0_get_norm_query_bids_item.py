@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,17 +28,22 @@ class V0GetNormQueryBidsItem(BaseModel):
     V0GetNormQueryBidsItem
     """  # noqa: E501
 
-    advert_id: StrictInt = Field(description="ID кампании")
-    nm_id: StrictInt = Field(description="Артикул WB")
-    norm_query: StrictStr = Field(description="Поисковый кластер")
-    bid: StrictInt = Field(
-        description="Текущая ставка в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) за тысячу показов"
+    advert_id: Optional[StrictInt] = Field(default=None, description="ID кампании")
+    nm_id: Optional[StrictInt] = Field(default=None, description="Артикул WB")
+    norm_query: Optional[StrictStr] = Field(
+        default=None, description="Поисковый кластер"
     )
-    bid_kopecks: StrictInt = Field(
-        description="Текущая ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) за тысячу показов"
+    bid: Optional[StrictInt] = Field(
+        default=None,
+        description="Текущая ставка в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) за тысячу показов",
     )
-    currency: StrictStr = Field(
-        description="Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)"
+    bid_kopecks: Optional[StrictInt] = Field(
+        default=None,
+        description="Текущая ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) за тысячу показов",
+    )
+    currency: Optional[StrictStr] = Field(
+        default=None,
+        description="Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)",
     )
     __properties: ClassVar[List[str]] = [
         "advert_id",

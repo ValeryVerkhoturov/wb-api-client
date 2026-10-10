@@ -30,9 +30,12 @@ class V3ArchiveOrders(BaseModel):
     """  # noqa: E501
 
     next: Optional[StrictInt] = Field(
-        description="Параметр пагинации. Содержит значение, которое необходимо указать в запросе для получения следующего пакета данных"
+        default=None,
+        description="Параметр пагинации. Содержит значение, которое необходимо указать в запросе для получения следующего пакета данных",
     )
-    orders: List[V3ArchiveOrder] = Field(description="Архивные сборочные задания")
+    orders: Optional[List[V3ArchiveOrder]] = Field(
+        default=None, description="Архивные сборочные задания"
+    )
     __properties: ClassVar[List[str]] = ["next", "orders"]
 
     model_config = ConfigDict(

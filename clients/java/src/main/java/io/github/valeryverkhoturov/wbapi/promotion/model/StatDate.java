@@ -39,7 +39,7 @@ public class StatDate {
   public static final String SERIALIZED_NAME_DATES = "dates";
 
   @SerializedName(SERIALIZED_NAME_DATES)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private List<String> dates = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_STATS = "stats";
@@ -50,7 +50,7 @@ public class StatDate {
 
   public StatDate() {}
 
-  public StatDate dates(@jakarta.annotation.Nonnull List<String> dates) {
+  public StatDate dates(@jakarta.annotation.Nullable List<String> dates) {
     this.dates = dates;
     return this;
   }
@@ -68,12 +68,12 @@ public class StatDate {
    *
    * @return dates
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public List<String> getDates() {
     return dates;
   }
 
-  public void setDates(@jakarta.annotation.Nonnull List<String> dates) {
+  public void setDates(@jakarta.annotation.Nullable List<String> dates) {
     this.dates = dates;
   }
 
@@ -152,7 +152,6 @@ public class StatDate {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("dates");
   }
 
   /**
@@ -182,22 +181,11 @@ public class StatDate {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : StatDate.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    // ensure the required json array is present
-    if (jsonObj.get("dates") == null) {
-      throw new IllegalArgumentException(
-          "Expected the field `linkedContent` to be an array in the JSON string but got `null`");
-    } else if (!jsonObj.get("dates").isJsonArray()) {
+    // ensure the optional json data is an array if present
+    if (jsonObj.get("dates") != null
+        && !jsonObj.get("dates").isJsonNull()
+        && !jsonObj.get("dates").isJsonArray()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `dates` to be an array in the JSON string but got `%s`",

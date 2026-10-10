@@ -11,9 +11,7 @@ API version: items
 package items
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the GetV2DirectoryTnvedAllResponse200DataInner type satisfies the MappedNullable interface at compile time
@@ -22,21 +20,17 @@ var _ MappedNullable = &GetV2DirectoryTnvedAllResponse200DataInner{}
 // GetV2DirectoryTnvedAllResponse200DataInner struct for GetV2DirectoryTnvedAllResponse200DataInner
 type GetV2DirectoryTnvedAllResponse200DataInner struct {
 	// Код ТН ВЭД
-	Tnved string `json:"tnved"`
+	Tnved *string `json:"tnved,omitempty"`
 	// Текстовое описание товаров, которые входят в группу
-	Description string `json:"description"`
+	Description *string `json:"description,omitempty"`
 }
-
-type _GetV2DirectoryTnvedAllResponse200DataInner GetV2DirectoryTnvedAllResponse200DataInner
 
 // NewGetV2DirectoryTnvedAllResponse200DataInner instantiates a new GetV2DirectoryTnvedAllResponse200DataInner object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetV2DirectoryTnvedAllResponse200DataInner(tnved string, description string) *GetV2DirectoryTnvedAllResponse200DataInner {
+func NewGetV2DirectoryTnvedAllResponse200DataInner() *GetV2DirectoryTnvedAllResponse200DataInner {
 	this := GetV2DirectoryTnvedAllResponse200DataInner{}
-	this.Tnved = tnved
-	this.Description = description
 	return &this
 }
 
@@ -48,52 +42,68 @@ func NewGetV2DirectoryTnvedAllResponse200DataInnerWithDefaults() *GetV2Directory
 	return &this
 }
 
-// GetTnved returns the Tnved field value
+// GetTnved returns the Tnved field value if set, zero value otherwise.
 func (o *GetV2DirectoryTnvedAllResponse200DataInner) GetTnved() string {
-	if o == nil {
+	if o == nil || IsNil(o.Tnved) {
 		var ret string
 		return ret
 	}
-
-	return o.Tnved
+	return *o.Tnved
 }
 
-// GetTnvedOk returns a tuple with the Tnved field value
+// GetTnvedOk returns a tuple with the Tnved field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetV2DirectoryTnvedAllResponse200DataInner) GetTnvedOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Tnved) {
 		return nil, false
 	}
-	return &o.Tnved, true
+	return o.Tnved, true
 }
 
-// SetTnved sets field value
+// HasTnved returns a boolean if a field has been set.
+func (o *GetV2DirectoryTnvedAllResponse200DataInner) HasTnved() bool {
+	if o != nil && !IsNil(o.Tnved) {
+		return true
+	}
+
+	return false
+}
+
+// SetTnved gets a reference to the given string and assigns it to the Tnved field.
 func (o *GetV2DirectoryTnvedAllResponse200DataInner) SetTnved(v string) {
-	o.Tnved = v
+	o.Tnved = &v
 }
 
-// GetDescription returns the Description field value
+// GetDescription returns the Description field value if set, zero value otherwise.
 func (o *GetV2DirectoryTnvedAllResponse200DataInner) GetDescription() string {
-	if o == nil {
+	if o == nil || IsNil(o.Description) {
 		var ret string
 		return ret
 	}
-
-	return o.Description
+	return *o.Description
 }
 
-// GetDescriptionOk returns a tuple with the Description field value
+// GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetV2DirectoryTnvedAllResponse200DataInner) GetDescriptionOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Description) {
 		return nil, false
 	}
-	return &o.Description, true
+	return o.Description, true
 }
 
-// SetDescription sets field value
+// HasDescription returns a boolean if a field has been set.
+func (o *GetV2DirectoryTnvedAllResponse200DataInner) HasDescription() bool {
+	if o != nil && !IsNil(o.Description) {
+		return true
+	}
+
+	return false
+}
+
+// SetDescription gets a reference to the given string and assigns it to the Description field.
 func (o *GetV2DirectoryTnvedAllResponse200DataInner) SetDescription(v string) {
-	o.Description = v
+	o.Description = &v
 }
 
 func (o GetV2DirectoryTnvedAllResponse200DataInner) MarshalJSON() ([]byte, error) {
@@ -106,47 +116,13 @@ func (o GetV2DirectoryTnvedAllResponse200DataInner) MarshalJSON() ([]byte, error
 
 func (o GetV2DirectoryTnvedAllResponse200DataInner) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["tnved"] = o.Tnved
-	toSerialize["description"] = o.Description
+	if !IsNil(o.Tnved) {
+		toSerialize["tnved"] = o.Tnved
+	}
+	if !IsNil(o.Description) {
+		toSerialize["description"] = o.Description
+	}
 	return toSerialize, nil
-}
-
-func (o *GetV2DirectoryTnvedAllResponse200DataInner) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"tnved",
-		"description",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varGetV2DirectoryTnvedAllResponse200DataInner := _GetV2DirectoryTnvedAllResponse200DataInner{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varGetV2DirectoryTnvedAllResponse200DataInner)
-
-	if err != nil {
-		return err
-	}
-
-	*o = GetV2DirectoryTnvedAllResponse200DataInner(varGetV2DirectoryTnvedAllResponse200DataInner)
-
-	return err
 }
 
 type NullableGetV2DirectoryTnvedAllResponse200DataInner struct {

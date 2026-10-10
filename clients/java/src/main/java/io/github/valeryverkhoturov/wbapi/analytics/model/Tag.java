@@ -36,18 +36,18 @@ public class Tag {
   public static final String SERIALIZED_NAME_ID = "id";
 
   @SerializedName(SERIALIZED_NAME_ID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer id;
 
   public static final String SERIALIZED_NAME_NAME = "name";
 
   @SerializedName(SERIALIZED_NAME_NAME)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String name;
 
   public Tag() {}
 
-  public Tag id(@jakarta.annotation.Nonnull Integer id) {
+  public Tag id(@jakarta.annotation.Nullable Integer id) {
     this.id = id;
     return this;
   }
@@ -57,16 +57,16 @@ public class Tag {
    *
    * @return id
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getId() {
     return id;
   }
 
-  public void setId(@jakarta.annotation.Nonnull Integer id) {
+  public void setId(@jakarta.annotation.Nullable Integer id) {
     this.id = id;
   }
 
-  public Tag name(@jakarta.annotation.Nonnull String name) {
+  public Tag name(@jakarta.annotation.Nullable String name) {
     this.name = name;
     return this;
   }
@@ -76,12 +76,12 @@ public class Tag {
    *
    * @return name
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getName() {
     return name;
   }
 
-  public void setName(@jakarta.annotation.Nonnull String name) {
+  public void setName(@jakarta.annotation.Nullable String name) {
     this.name = name;
   }
 
@@ -133,8 +133,6 @@ public class Tag {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("id");
-    openapiRequiredFields.add("name");
   }
 
   /**
@@ -163,18 +161,9 @@ public class Tag {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : Tag.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    if (!jsonObj.get("name").isJsonPrimitive()) {
+    if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull())
+        && !jsonObj.get("name").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `name` to be a primitive type in the JSON string but got `%s`",

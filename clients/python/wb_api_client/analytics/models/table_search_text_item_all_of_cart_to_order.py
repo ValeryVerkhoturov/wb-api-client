@@ -28,12 +28,13 @@ class TableSearchTextItemAllOfCartToOrder(BaseModel):
     Конверсия в заказ из поиска — доля заказов товара по отношению ко всем добавлениям товара из поиска в корзину
     """  # noqa: E501
 
-    current: StrictInt = Field(description="Текущая конверсия")
+    current: Optional[StrictInt] = Field(default=None, description="Текущая конверсия")
     dynamics: Optional[StrictInt] = Field(
         default=None, description="Динамика по сравнению с предыдущим периодом, %"
     )
-    percentile: StrictInt = Field(
-        description="Процент, на который показатель конверсии в заказ выше, чем у карточек других продавцов по поисковому запросу"
+    percentile: Optional[StrictInt] = Field(
+        default=None,
+        description="Процент, на который показатель конверсии в заказ выше, чем у карточек других продавцов по поисковому запросу",
     )
     __properties: ClassVar[List[str]] = ["current", "dynamics", "percentile"]
 

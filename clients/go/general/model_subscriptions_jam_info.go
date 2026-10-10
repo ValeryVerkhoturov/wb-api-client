@@ -11,9 +11,7 @@ API version: general
 package general
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the SubscriptionsJamInfo type satisfies the MappedNullable interface at compile time
@@ -22,30 +20,23 @@ var _ MappedNullable = &SubscriptionsJamInfo{}
 // SubscriptionsJamInfo Информация о подписке Джем
 type SubscriptionsJamInfo struct {
 	// Статус подписки:   - `active` — активна   - `inactive` — истекла или отменена
-	State string `json:"state"`
+	State *string `json:"state,omitempty"`
 	// Источник подключения подписки:   - `constructor` — покупка через раздел **Конструктор тарифов**   - `jam` — покупка через раздел **Подписка «Джем»**
-	ActivationSource string `json:"activationSource"`
+	ActivationSource *string `json:"activationSource,omitempty"`
 	// Уровень подписки:   - `standard`   - `advanced`   - `premium`
-	Level string `json:"level"`
+	Level *string `json:"level,omitempty"`
 	// Дата и время первой активации подписки. Не меняется при продлении или повторной активации
-	Since string `json:"since"`
+	Since *string `json:"since,omitempty"`
 	// Дата и время окончания подписки
-	Till string `json:"till"`
+	Till *string `json:"till,omitempty"`
 }
-
-type _SubscriptionsJamInfo SubscriptionsJamInfo
 
 // NewSubscriptionsJamInfo instantiates a new SubscriptionsJamInfo object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSubscriptionsJamInfo(state string, activationSource string, level string, since string, till string) *SubscriptionsJamInfo {
+func NewSubscriptionsJamInfo() *SubscriptionsJamInfo {
 	this := SubscriptionsJamInfo{}
-	this.State = state
-	this.ActivationSource = activationSource
-	this.Level = level
-	this.Since = since
-	this.Till = till
 	return &this
 }
 
@@ -57,124 +48,164 @@ func NewSubscriptionsJamInfoWithDefaults() *SubscriptionsJamInfo {
 	return &this
 }
 
-// GetState returns the State field value
+// GetState returns the State field value if set, zero value otherwise.
 func (o *SubscriptionsJamInfo) GetState() string {
-	if o == nil {
+	if o == nil || IsNil(o.State) {
 		var ret string
 		return ret
 	}
-
-	return o.State
+	return *o.State
 }
 
-// GetStateOk returns a tuple with the State field value
+// GetStateOk returns a tuple with the State field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SubscriptionsJamInfo) GetStateOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.State) {
 		return nil, false
 	}
-	return &o.State, true
+	return o.State, true
 }
 
-// SetState sets field value
+// HasState returns a boolean if a field has been set.
+func (o *SubscriptionsJamInfo) HasState() bool {
+	if o != nil && !IsNil(o.State) {
+		return true
+	}
+
+	return false
+}
+
+// SetState gets a reference to the given string and assigns it to the State field.
 func (o *SubscriptionsJamInfo) SetState(v string) {
-	o.State = v
+	o.State = &v
 }
 
-// GetActivationSource returns the ActivationSource field value
+// GetActivationSource returns the ActivationSource field value if set, zero value otherwise.
 func (o *SubscriptionsJamInfo) GetActivationSource() string {
-	if o == nil {
+	if o == nil || IsNil(o.ActivationSource) {
 		var ret string
 		return ret
 	}
-
-	return o.ActivationSource
+	return *o.ActivationSource
 }
 
-// GetActivationSourceOk returns a tuple with the ActivationSource field value
+// GetActivationSourceOk returns a tuple with the ActivationSource field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SubscriptionsJamInfo) GetActivationSourceOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ActivationSource) {
 		return nil, false
 	}
-	return &o.ActivationSource, true
+	return o.ActivationSource, true
 }
 
-// SetActivationSource sets field value
+// HasActivationSource returns a boolean if a field has been set.
+func (o *SubscriptionsJamInfo) HasActivationSource() bool {
+	if o != nil && !IsNil(o.ActivationSource) {
+		return true
+	}
+
+	return false
+}
+
+// SetActivationSource gets a reference to the given string and assigns it to the ActivationSource field.
 func (o *SubscriptionsJamInfo) SetActivationSource(v string) {
-	o.ActivationSource = v
+	o.ActivationSource = &v
 }
 
-// GetLevel returns the Level field value
+// GetLevel returns the Level field value if set, zero value otherwise.
 func (o *SubscriptionsJamInfo) GetLevel() string {
-	if o == nil {
+	if o == nil || IsNil(o.Level) {
 		var ret string
 		return ret
 	}
-
-	return o.Level
+	return *o.Level
 }
 
-// GetLevelOk returns a tuple with the Level field value
+// GetLevelOk returns a tuple with the Level field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SubscriptionsJamInfo) GetLevelOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Level) {
 		return nil, false
 	}
-	return &o.Level, true
+	return o.Level, true
 }
 
-// SetLevel sets field value
+// HasLevel returns a boolean if a field has been set.
+func (o *SubscriptionsJamInfo) HasLevel() bool {
+	if o != nil && !IsNil(o.Level) {
+		return true
+	}
+
+	return false
+}
+
+// SetLevel gets a reference to the given string and assigns it to the Level field.
 func (o *SubscriptionsJamInfo) SetLevel(v string) {
-	o.Level = v
+	o.Level = &v
 }
 
-// GetSince returns the Since field value
+// GetSince returns the Since field value if set, zero value otherwise.
 func (o *SubscriptionsJamInfo) GetSince() string {
-	if o == nil {
+	if o == nil || IsNil(o.Since) {
 		var ret string
 		return ret
 	}
-
-	return o.Since
+	return *o.Since
 }
 
-// GetSinceOk returns a tuple with the Since field value
+// GetSinceOk returns a tuple with the Since field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SubscriptionsJamInfo) GetSinceOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Since) {
 		return nil, false
 	}
-	return &o.Since, true
+	return o.Since, true
 }
 
-// SetSince sets field value
+// HasSince returns a boolean if a field has been set.
+func (o *SubscriptionsJamInfo) HasSince() bool {
+	if o != nil && !IsNil(o.Since) {
+		return true
+	}
+
+	return false
+}
+
+// SetSince gets a reference to the given string and assigns it to the Since field.
 func (o *SubscriptionsJamInfo) SetSince(v string) {
-	o.Since = v
+	o.Since = &v
 }
 
-// GetTill returns the Till field value
+// GetTill returns the Till field value if set, zero value otherwise.
 func (o *SubscriptionsJamInfo) GetTill() string {
-	if o == nil {
+	if o == nil || IsNil(o.Till) {
 		var ret string
 		return ret
 	}
-
-	return o.Till
+	return *o.Till
 }
 
-// GetTillOk returns a tuple with the Till field value
+// GetTillOk returns a tuple with the Till field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SubscriptionsJamInfo) GetTillOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Till) {
 		return nil, false
 	}
-	return &o.Till, true
+	return o.Till, true
 }
 
-// SetTill sets field value
+// HasTill returns a boolean if a field has been set.
+func (o *SubscriptionsJamInfo) HasTill() bool {
+	if o != nil && !IsNil(o.Till) {
+		return true
+	}
+
+	return false
+}
+
+// SetTill gets a reference to the given string and assigns it to the Till field.
 func (o *SubscriptionsJamInfo) SetTill(v string) {
-	o.Till = v
+	o.Till = &v
 }
 
 func (o SubscriptionsJamInfo) MarshalJSON() ([]byte, error) {
@@ -187,53 +218,22 @@ func (o SubscriptionsJamInfo) MarshalJSON() ([]byte, error) {
 
 func (o SubscriptionsJamInfo) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["state"] = o.State
-	toSerialize["activationSource"] = o.ActivationSource
-	toSerialize["level"] = o.Level
-	toSerialize["since"] = o.Since
-	toSerialize["till"] = o.Till
+	if !IsNil(o.State) {
+		toSerialize["state"] = o.State
+	}
+	if !IsNil(o.ActivationSource) {
+		toSerialize["activationSource"] = o.ActivationSource
+	}
+	if !IsNil(o.Level) {
+		toSerialize["level"] = o.Level
+	}
+	if !IsNil(o.Since) {
+		toSerialize["since"] = o.Since
+	}
+	if !IsNil(o.Till) {
+		toSerialize["till"] = o.Till
+	}
 	return toSerialize, nil
-}
-
-func (o *SubscriptionsJamInfo) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"state",
-		"activationSource",
-		"level",
-		"since",
-		"till",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varSubscriptionsJamInfo := _SubscriptionsJamInfo{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varSubscriptionsJamInfo)
-
-	if err != nil {
-		return err
-	}
-
-	*o = SubscriptionsJamInfo(varSubscriptionsJamInfo)
-
-	return err
 }
 
 type NullableSubscriptionsJamInfo struct {

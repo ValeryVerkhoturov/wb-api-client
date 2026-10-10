@@ -36,7 +36,7 @@ public class V1GetNormQueryStatsResponseItemDailyStat {
   public static final String SERIALIZED_NAME_DATE = "date";
 
   @SerializedName(SERIALIZED_NAME_DATE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String date;
 
   public static final String SERIALIZED_NAME_STAT = "stat";
@@ -47,7 +47,7 @@ public class V1GetNormQueryStatsResponseItemDailyStat {
 
   public V1GetNormQueryStatsResponseItemDailyStat() {}
 
-  public V1GetNormQueryStatsResponseItemDailyStat date(@jakarta.annotation.Nonnull String date) {
+  public V1GetNormQueryStatsResponseItemDailyStat date(@jakarta.annotation.Nullable String date) {
     this.date = date;
     return this;
   }
@@ -57,12 +57,12 @@ public class V1GetNormQueryStatsResponseItemDailyStat {
    *
    * @return date
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getDate() {
     return date;
   }
 
-  public void setDate(@jakarta.annotation.Nonnull String date) {
+  public void setDate(@jakarta.annotation.Nullable String date) {
     this.date = date;
   }
 
@@ -136,7 +136,6 @@ public class V1GetNormQueryStatsResponseItemDailyStat {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("date");
   }
 
   /**
@@ -167,18 +166,9 @@ public class V1GetNormQueryStatsResponseItemDailyStat {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : V1GetNormQueryStatsResponseItemDailyStat.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    if (!jsonObj.get("date").isJsonPrimitive()) {
+    if ((jsonObj.get("date") != null && !jsonObj.get("date").isJsonNull())
+        && !jsonObj.get("date").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `date` to be a primitive type in the JSON string but got `%s`",

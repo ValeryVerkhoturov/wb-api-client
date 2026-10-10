@@ -34,30 +34,20 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="BrandsResponse" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected BrandsResponse() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="BrandsResponse" /> class.
-        /// </summary>
-        /// <param name="brands">brands (required).</param>
+        /// <param name="brands">brands.</param>
         /// <param name="next">Параметр пагинации. Укажите это значение в запросе, чтобы получить следующий пакет данных. Если поле отсутствует, вы получили все данные.</param>
-        /// <param name="total">Общее количество брендов предмета (required).</param>
+        /// <param name="total">Общее количество брендов предмета.</param>
         public BrandsResponse(List<BrandsResponseBrandsInner> brands = default(List<BrandsResponseBrandsInner>), int next = default(int), int total = default(int))
         {
-            // to ensure "brands" is required (not null)
-            if (brands == null)
-            {
-                throw new ArgumentNullException("brands is a required property for BrandsResponse and cannot be null");
-            }
             this.Brands = brands;
-            this.Total = total;
             this.Next = next;
+            this.Total = total;
         }
 
         /// <summary>
         /// Gets or Sets Brands
         /// </summary>
-        [DataMember(Name = "brands", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "brands", EmitDefaultValue = false)]
         public List<BrandsResponseBrandsInner> Brands { get; set; }
 
         /// <summary>
@@ -77,7 +67,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /*
         <example>344534</example>
         */
-        [DataMember(Name = "total", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "total", EmitDefaultValue = false)]
         public int Total { get; set; }
 
         /// <summary>

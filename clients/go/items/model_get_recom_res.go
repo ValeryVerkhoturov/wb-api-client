@@ -11,9 +11,7 @@ API version: items
 package items
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the GetRecomRes type satisfies the MappedNullable interface at compile time
@@ -22,21 +20,17 @@ var _ MappedNullable = &GetRecomRes{}
 // GetRecomRes Товары с рекомендациями
 type GetRecomRes struct {
 	// Данные о товарах и их рекомендациях
-	Data []GetRecomResDataInner `json:"data"`
+	Data []GetRecomResDataInner `json:"data,omitempty"`
 	// Курсор. Последний `nmId` в ответе
-	Next int32 `json:"next"`
+	Next *int32 `json:"next,omitempty"`
 }
-
-type _GetRecomRes GetRecomRes
 
 // NewGetRecomRes instantiates a new GetRecomRes object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetRecomRes(data []GetRecomResDataInner, next int32) *GetRecomRes {
+func NewGetRecomRes() *GetRecomRes {
 	this := GetRecomRes{}
-	this.Data = data
-	this.Next = next
 	return &this
 }
 
@@ -48,52 +42,68 @@ func NewGetRecomResWithDefaults() *GetRecomRes {
 	return &this
 }
 
-// GetData returns the Data field value
+// GetData returns the Data field value if set, zero value otherwise.
 func (o *GetRecomRes) GetData() []GetRecomResDataInner {
-	if o == nil {
+	if o == nil || IsNil(o.Data) {
 		var ret []GetRecomResDataInner
 		return ret
 	}
-
 	return o.Data
 }
 
-// GetDataOk returns a tuple with the Data field value
+// GetDataOk returns a tuple with the Data field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetRecomRes) GetDataOk() ([]GetRecomResDataInner, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Data) {
 		return nil, false
 	}
 	return o.Data, true
 }
 
-// SetData sets field value
+// HasData returns a boolean if a field has been set.
+func (o *GetRecomRes) HasData() bool {
+	if o != nil && !IsNil(o.Data) {
+		return true
+	}
+
+	return false
+}
+
+// SetData gets a reference to the given []GetRecomResDataInner and assigns it to the Data field.
 func (o *GetRecomRes) SetData(v []GetRecomResDataInner) {
 	o.Data = v
 }
 
-// GetNext returns the Next field value
+// GetNext returns the Next field value if set, zero value otherwise.
 func (o *GetRecomRes) GetNext() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.Next) {
 		var ret int32
 		return ret
 	}
-
-	return o.Next
+	return *o.Next
 }
 
-// GetNextOk returns a tuple with the Next field value
+// GetNextOk returns a tuple with the Next field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetRecomRes) GetNextOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Next) {
 		return nil, false
 	}
-	return &o.Next, true
+	return o.Next, true
 }
 
-// SetNext sets field value
+// HasNext returns a boolean if a field has been set.
+func (o *GetRecomRes) HasNext() bool {
+	if o != nil && !IsNil(o.Next) {
+		return true
+	}
+
+	return false
+}
+
+// SetNext gets a reference to the given int32 and assigns it to the Next field.
 func (o *GetRecomRes) SetNext(v int32) {
-	o.Next = v
+	o.Next = &v
 }
 
 func (o GetRecomRes) MarshalJSON() ([]byte, error) {
@@ -106,47 +116,13 @@ func (o GetRecomRes) MarshalJSON() ([]byte, error) {
 
 func (o GetRecomRes) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["data"] = o.Data
-	toSerialize["next"] = o.Next
+	if !IsNil(o.Data) {
+		toSerialize["data"] = o.Data
+	}
+	if !IsNil(o.Next) {
+		toSerialize["next"] = o.Next
+	}
 	return toSerialize, nil
-}
-
-func (o *GetRecomRes) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"data",
-		"next",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varGetRecomRes := _GetRecomRes{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varGetRecomRes)
-
-	if err != nil {
-		return err
-	}
-
-	*o = GetRecomRes(varGetRecomRes)
-
-	return err
 }
 
 type NullableGetRecomRes struct {

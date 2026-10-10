@@ -11,9 +11,7 @@ API version: communication
 package communications
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the RespondSuccessResponse type satisfies the MappedNullable interface at compile time
@@ -21,18 +19,15 @@ var _ MappedNullable = &RespondSuccessResponse{}
 
 // RespondSuccessResponse struct for RespondSuccessResponse
 type RespondSuccessResponse struct {
-	Data map[string]interface{} `json:"data"`
+	Data map[string]interface{} `json:"data,omitempty"`
 }
-
-type _RespondSuccessResponse RespondSuccessResponse
 
 // NewRespondSuccessResponse instantiates a new RespondSuccessResponse object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewRespondSuccessResponse(data map[string]interface{}) *RespondSuccessResponse {
+func NewRespondSuccessResponse() *RespondSuccessResponse {
 	this := RespondSuccessResponse{}
-	this.Data = data
 	return &this
 }
 
@@ -44,26 +39,34 @@ func NewRespondSuccessResponseWithDefaults() *RespondSuccessResponse {
 	return &this
 }
 
-// GetData returns the Data field value
+// GetData returns the Data field value if set, zero value otherwise.
 func (o *RespondSuccessResponse) GetData() map[string]interface{} {
-	if o == nil {
+	if o == nil || IsNil(o.Data) {
 		var ret map[string]interface{}
 		return ret
 	}
-
 	return o.Data
 }
 
-// GetDataOk returns a tuple with the Data field value
+// GetDataOk returns a tuple with the Data field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *RespondSuccessResponse) GetDataOk() (map[string]interface{}, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Data) {
 		return map[string]interface{}{}, false
 	}
 	return o.Data, true
 }
 
-// SetData sets field value
+// HasData returns a boolean if a field has been set.
+func (o *RespondSuccessResponse) HasData() bool {
+	if o != nil && !IsNil(o.Data) {
+		return true
+	}
+
+	return false
+}
+
+// SetData gets a reference to the given map[string]interface{} and assigns it to the Data field.
 func (o *RespondSuccessResponse) SetData(v map[string]interface{}) {
 	o.Data = v
 }
@@ -78,45 +81,10 @@ func (o RespondSuccessResponse) MarshalJSON() ([]byte, error) {
 
 func (o RespondSuccessResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["data"] = o.Data
+	if !IsNil(o.Data) {
+		toSerialize["data"] = o.Data
+	}
 	return toSerialize, nil
-}
-
-func (o *RespondSuccessResponse) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"data",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varRespondSuccessResponse := _RespondSuccessResponse{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varRespondSuccessResponse)
-
-	if err != nil {
-		return err
-	}
-
-	*o = RespondSuccessResponse(varRespondSuccessResponse)
-
-	return err
 }
 
 type NullableRespondSuccessResponse struct {

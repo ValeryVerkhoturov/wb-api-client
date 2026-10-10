@@ -34,26 +34,11 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GetV2DirectoryTnvedAllResponse200DataInner" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected GetV2DirectoryTnvedAllResponse200DataInner() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="GetV2DirectoryTnvedAllResponse200DataInner" /> class.
-        /// </summary>
-        /// <param name="tnved">Код ТН ВЭД (required).</param>
-        /// <param name="description">Текстовое описание товаров, которые входят в группу (required).</param>
+        /// <param name="tnved">Код ТН ВЭД.</param>
+        /// <param name="description">Текстовое описание товаров, которые входят в группу.</param>
         public GetV2DirectoryTnvedAllResponse200DataInner(string tnved = default(string), string description = default(string))
         {
-            // to ensure "tnved" is required (not null)
-            if (tnved == null)
-            {
-                throw new ArgumentNullException("tnved is a required property for GetV2DirectoryTnvedAllResponse200DataInner and cannot be null");
-            }
             this.Tnved = tnved;
-            // to ensure "description" is required (not null)
-            if (description == null)
-            {
-                throw new ArgumentNullException("description is a required property for GetV2DirectoryTnvedAllResponse200DataInner and cannot be null");
-            }
             this.Description = description;
         }
 
@@ -64,7 +49,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /*
         <example>6106903001</example>
         */
-        [DataMember(Name = "tnved", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "tnved", EmitDefaultValue = false)]
         public string Tnved { get; set; }
 
         /// <summary>
@@ -74,7 +59,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /*
         <example>Бумага для офисной техники прочая</example>
         */
-        [DataMember(Name = "description", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "description", EmitDefaultValue = false)]
         public string Description { get; set; }
 
         /// <summary>

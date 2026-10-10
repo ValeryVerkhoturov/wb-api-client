@@ -36,25 +36,25 @@ public class PostV1BidsMinResponse200BidsInnerBidsInner {
   public static final String SERIALIZED_NAME_CURRENCY = "currency";
 
   @SerializedName(SERIALIZED_NAME_CURRENCY)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String currency;
 
   public static final String SERIALIZED_NAME_TYPE = "type";
 
   @SerializedName(SERIALIZED_NAME_TYPE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private PlacementType type;
 
   public static final String SERIALIZED_NAME_VALUE = "value";
 
   @SerializedName(SERIALIZED_NAME_VALUE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer value;
 
   public PostV1BidsMinResponse200BidsInnerBidsInner() {}
 
   public PostV1BidsMinResponse200BidsInnerBidsInner currency(
-      @jakarta.annotation.Nonnull String currency) {
+      @jakarta.annotation.Nullable String currency) {
     this.currency = currency;
     return this;
   }
@@ -64,17 +64,17 @@ public class PostV1BidsMinResponse200BidsInnerBidsInner {
    *
    * @return currency
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getCurrency() {
     return currency;
   }
 
-  public void setCurrency(@jakarta.annotation.Nonnull String currency) {
+  public void setCurrency(@jakarta.annotation.Nullable String currency) {
     this.currency = currency;
   }
 
   public PostV1BidsMinResponse200BidsInnerBidsInner type(
-      @jakarta.annotation.Nonnull PlacementType type) {
+      @jakarta.annotation.Nullable PlacementType type) {
     this.type = type;
     return this;
   }
@@ -84,17 +84,17 @@ public class PostV1BidsMinResponse200BidsInnerBidsInner {
    *
    * @return type
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public PlacementType getType() {
     return type;
   }
 
-  public void setType(@jakarta.annotation.Nonnull PlacementType type) {
+  public void setType(@jakarta.annotation.Nullable PlacementType type) {
     this.type = type;
   }
 
   public PostV1BidsMinResponse200BidsInnerBidsInner value(
-      @jakarta.annotation.Nonnull Integer value) {
+      @jakarta.annotation.Nullable Integer value) {
     this.value = value;
     return this;
   }
@@ -105,12 +105,12 @@ public class PostV1BidsMinResponse200BidsInnerBidsInner {
    *
    * @return value
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getValue() {
     return value;
   }
 
-  public void setValue(@jakarta.annotation.Nonnull Integer value) {
+  public void setValue(@jakarta.annotation.Nullable Integer value) {
     this.value = value;
   }
 
@@ -167,9 +167,6 @@ public class PostV1BidsMinResponse200BidsInnerBidsInner {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("currency");
-    openapiRequiredFields.add("type");
-    openapiRequiredFields.add("value");
   }
 
   /**
@@ -200,25 +197,18 @@ public class PostV1BidsMinResponse200BidsInnerBidsInner {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : PostV1BidsMinResponse200BidsInnerBidsInner.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    if (!jsonObj.get("currency").isJsonPrimitive()) {
+    if ((jsonObj.get("currency") != null && !jsonObj.get("currency").isJsonNull())
+        && !jsonObj.get("currency").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `currency` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("currency").toString()));
     }
-    // validate the required field `type`
-    PlacementType.validateJsonElement(jsonObj.get("type"));
+    // validate the optional field `type`
+    if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()) {
+      PlacementType.validateJsonElement(jsonObj.get("type"));
+    }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

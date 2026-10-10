@@ -28,7 +28,7 @@ class TableGroupItemMetricsCartToOrder(BaseModel):
     Конверсия в заказ из поиска — доля заказов товара по отношению ко всем добавлениям товара из поиска в корзину
     """  # noqa: E501
 
-    current: StrictInt = Field(description="Текущая конверсия")
+    current: Optional[StrictInt] = Field(default=None, description="Текущая конверсия")
     dynamics: Optional[StrictInt] = Field(
         default=None, description="Динамика по сравнению с предыдущим периодом, %"
     )

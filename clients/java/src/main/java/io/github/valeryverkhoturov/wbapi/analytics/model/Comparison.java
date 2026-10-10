@@ -36,105 +36,105 @@ public class Comparison {
   public static final String SERIALIZED_NAME_OPEN_COUNT_DYNAMIC = "openCountDynamic";
 
   @SerializedName(SERIALIZED_NAME_OPEN_COUNT_DYNAMIC)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer openCountDynamic;
 
   public static final String SERIALIZED_NAME_CART_COUNT_DYNAMIC = "cartCountDynamic";
 
   @SerializedName(SERIALIZED_NAME_CART_COUNT_DYNAMIC)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer cartCountDynamic;
 
   public static final String SERIALIZED_NAME_ORDER_COUNT_DYNAMIC = "orderCountDynamic";
 
   @SerializedName(SERIALIZED_NAME_ORDER_COUNT_DYNAMIC)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer orderCountDynamic;
 
   public static final String SERIALIZED_NAME_ORDER_SUM_DYNAMIC = "orderSumDynamic";
 
   @SerializedName(SERIALIZED_NAME_ORDER_SUM_DYNAMIC)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer orderSumDynamic;
 
   public static final String SERIALIZED_NAME_BUYOUT_COUNT_DYNAMIC = "buyoutCountDynamic";
 
   @SerializedName(SERIALIZED_NAME_BUYOUT_COUNT_DYNAMIC)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer buyoutCountDynamic;
 
   public static final String SERIALIZED_NAME_BUYOUT_SUM_DYNAMIC = "buyoutSumDynamic";
 
   @SerializedName(SERIALIZED_NAME_BUYOUT_SUM_DYNAMIC)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer buyoutSumDynamic;
 
   public static final String SERIALIZED_NAME_CANCEL_COUNT_DYNAMIC = "cancelCountDynamic";
 
   @SerializedName(SERIALIZED_NAME_CANCEL_COUNT_DYNAMIC)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer cancelCountDynamic;
 
   public static final String SERIALIZED_NAME_CANCEL_SUM_DYNAMIC = "cancelSumDynamic";
 
   @SerializedName(SERIALIZED_NAME_CANCEL_SUM_DYNAMIC)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer cancelSumDynamic;
 
   public static final String SERIALIZED_NAME_AVG_ORDERS_COUNT_PER_DAY_DYNAMIC =
       "avgOrdersCountPerDayDynamic";
 
   @SerializedName(SERIALIZED_NAME_AVG_ORDERS_COUNT_PER_DAY_DYNAMIC)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer avgOrdersCountPerDayDynamic;
 
   public static final String SERIALIZED_NAME_AVG_PRICE_DYNAMIC = "avgPriceDynamic";
 
   @SerializedName(SERIALIZED_NAME_AVG_PRICE_DYNAMIC)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer avgPriceDynamic;
 
   public static final String SERIALIZED_NAME_SHARE_ORDER_PERCENT_DYNAMIC =
       "shareOrderPercentDynamic";
 
   @SerializedName(SERIALIZED_NAME_SHARE_ORDER_PERCENT_DYNAMIC)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer shareOrderPercentDynamic;
 
   public static final String SERIALIZED_NAME_ADD_TO_WISHLIST_DYNAMIC = "addToWishlistDynamic";
 
   @SerializedName(SERIALIZED_NAME_ADD_TO_WISHLIST_DYNAMIC)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer addToWishlistDynamic;
 
   public static final String SERIALIZED_NAME_TIME_TO_READY_DYNAMIC = "timeToReadyDynamic";
 
   @SerializedName(SERIALIZED_NAME_TIME_TO_READY_DYNAMIC)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private ComparisonTimeToReadyDynamic timeToReadyDynamic;
 
   public static final String SERIALIZED_NAME_LOCALIZATION_PERCENT_DYNAMIC =
       "localizationPercentDynamic";
 
   @SerializedName(SERIALIZED_NAME_LOCALIZATION_PERCENT_DYNAMIC)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer localizationPercentDynamic;
 
   public static final String SERIALIZED_NAME_WB_CLUB_DYNAMIC = "wbClubDynamic";
 
   @SerializedName(SERIALIZED_NAME_WB_CLUB_DYNAMIC)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private ComparisonWbClubDynamic wbClubDynamic;
 
   public static final String SERIALIZED_NAME_CONVERSIONS = "conversions";
 
   @SerializedName(SERIALIZED_NAME_CONVERSIONS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private StatisticConversions conversions;
 
   public Comparison() {}
 
-  public Comparison openCountDynamic(@jakarta.annotation.Nonnull Integer openCountDynamic) {
+  public Comparison openCountDynamic(@jakarta.annotation.Nullable Integer openCountDynamic) {
     this.openCountDynamic = openCountDynamic;
     return this;
   }
@@ -144,16 +144,16 @@ public class Comparison {
    *
    * @return openCountDynamic
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getOpenCountDynamic() {
     return openCountDynamic;
   }
 
-  public void setOpenCountDynamic(@jakarta.annotation.Nonnull Integer openCountDynamic) {
+  public void setOpenCountDynamic(@jakarta.annotation.Nullable Integer openCountDynamic) {
     this.openCountDynamic = openCountDynamic;
   }
 
-  public Comparison cartCountDynamic(@jakarta.annotation.Nonnull Integer cartCountDynamic) {
+  public Comparison cartCountDynamic(@jakarta.annotation.Nullable Integer cartCountDynamic) {
     this.cartCountDynamic = cartCountDynamic;
     return this;
   }
@@ -163,16 +163,16 @@ public class Comparison {
    *
    * @return cartCountDynamic
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getCartCountDynamic() {
     return cartCountDynamic;
   }
 
-  public void setCartCountDynamic(@jakarta.annotation.Nonnull Integer cartCountDynamic) {
+  public void setCartCountDynamic(@jakarta.annotation.Nullable Integer cartCountDynamic) {
     this.cartCountDynamic = cartCountDynamic;
   }
 
-  public Comparison orderCountDynamic(@jakarta.annotation.Nonnull Integer orderCountDynamic) {
+  public Comparison orderCountDynamic(@jakarta.annotation.Nullable Integer orderCountDynamic) {
     this.orderCountDynamic = orderCountDynamic;
     return this;
   }
@@ -182,16 +182,16 @@ public class Comparison {
    *
    * @return orderCountDynamic
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getOrderCountDynamic() {
     return orderCountDynamic;
   }
 
-  public void setOrderCountDynamic(@jakarta.annotation.Nonnull Integer orderCountDynamic) {
+  public void setOrderCountDynamic(@jakarta.annotation.Nullable Integer orderCountDynamic) {
     this.orderCountDynamic = orderCountDynamic;
   }
 
-  public Comparison orderSumDynamic(@jakarta.annotation.Nonnull Integer orderSumDynamic) {
+  public Comparison orderSumDynamic(@jakarta.annotation.Nullable Integer orderSumDynamic) {
     this.orderSumDynamic = orderSumDynamic;
     return this;
   }
@@ -201,16 +201,16 @@ public class Comparison {
    *
    * @return orderSumDynamic
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getOrderSumDynamic() {
     return orderSumDynamic;
   }
 
-  public void setOrderSumDynamic(@jakarta.annotation.Nonnull Integer orderSumDynamic) {
+  public void setOrderSumDynamic(@jakarta.annotation.Nullable Integer orderSumDynamic) {
     this.orderSumDynamic = orderSumDynamic;
   }
 
-  public Comparison buyoutCountDynamic(@jakarta.annotation.Nonnull Integer buyoutCountDynamic) {
+  public Comparison buyoutCountDynamic(@jakarta.annotation.Nullable Integer buyoutCountDynamic) {
     this.buyoutCountDynamic = buyoutCountDynamic;
     return this;
   }
@@ -220,16 +220,16 @@ public class Comparison {
    *
    * @return buyoutCountDynamic
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getBuyoutCountDynamic() {
     return buyoutCountDynamic;
   }
 
-  public void setBuyoutCountDynamic(@jakarta.annotation.Nonnull Integer buyoutCountDynamic) {
+  public void setBuyoutCountDynamic(@jakarta.annotation.Nullable Integer buyoutCountDynamic) {
     this.buyoutCountDynamic = buyoutCountDynamic;
   }
 
-  public Comparison buyoutSumDynamic(@jakarta.annotation.Nonnull Integer buyoutSumDynamic) {
+  public Comparison buyoutSumDynamic(@jakarta.annotation.Nullable Integer buyoutSumDynamic) {
     this.buyoutSumDynamic = buyoutSumDynamic;
     return this;
   }
@@ -239,16 +239,16 @@ public class Comparison {
    *
    * @return buyoutSumDynamic
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getBuyoutSumDynamic() {
     return buyoutSumDynamic;
   }
 
-  public void setBuyoutSumDynamic(@jakarta.annotation.Nonnull Integer buyoutSumDynamic) {
+  public void setBuyoutSumDynamic(@jakarta.annotation.Nullable Integer buyoutSumDynamic) {
     this.buyoutSumDynamic = buyoutSumDynamic;
   }
 
-  public Comparison cancelCountDynamic(@jakarta.annotation.Nonnull Integer cancelCountDynamic) {
+  public Comparison cancelCountDynamic(@jakarta.annotation.Nullable Integer cancelCountDynamic) {
     this.cancelCountDynamic = cancelCountDynamic;
     return this;
   }
@@ -258,16 +258,16 @@ public class Comparison {
    *
    * @return cancelCountDynamic
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getCancelCountDynamic() {
     return cancelCountDynamic;
   }
 
-  public void setCancelCountDynamic(@jakarta.annotation.Nonnull Integer cancelCountDynamic) {
+  public void setCancelCountDynamic(@jakarta.annotation.Nullable Integer cancelCountDynamic) {
     this.cancelCountDynamic = cancelCountDynamic;
   }
 
-  public Comparison cancelSumDynamic(@jakarta.annotation.Nonnull Integer cancelSumDynamic) {
+  public Comparison cancelSumDynamic(@jakarta.annotation.Nullable Integer cancelSumDynamic) {
     this.cancelSumDynamic = cancelSumDynamic;
     return this;
   }
@@ -277,17 +277,17 @@ public class Comparison {
    *
    * @return cancelSumDynamic
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getCancelSumDynamic() {
     return cancelSumDynamic;
   }
 
-  public void setCancelSumDynamic(@jakarta.annotation.Nonnull Integer cancelSumDynamic) {
+  public void setCancelSumDynamic(@jakarta.annotation.Nullable Integer cancelSumDynamic) {
     this.cancelSumDynamic = cancelSumDynamic;
   }
 
   public Comparison avgOrdersCountPerDayDynamic(
-      @jakarta.annotation.Nonnull Integer avgOrdersCountPerDayDynamic) {
+      @jakarta.annotation.Nullable Integer avgOrdersCountPerDayDynamic) {
     this.avgOrdersCountPerDayDynamic = avgOrdersCountPerDayDynamic;
     return this;
   }
@@ -297,17 +297,17 @@ public class Comparison {
    *
    * @return avgOrdersCountPerDayDynamic
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getAvgOrdersCountPerDayDynamic() {
     return avgOrdersCountPerDayDynamic;
   }
 
   public void setAvgOrdersCountPerDayDynamic(
-      @jakarta.annotation.Nonnull Integer avgOrdersCountPerDayDynamic) {
+      @jakarta.annotation.Nullable Integer avgOrdersCountPerDayDynamic) {
     this.avgOrdersCountPerDayDynamic = avgOrdersCountPerDayDynamic;
   }
 
-  public Comparison avgPriceDynamic(@jakarta.annotation.Nonnull Integer avgPriceDynamic) {
+  public Comparison avgPriceDynamic(@jakarta.annotation.Nullable Integer avgPriceDynamic) {
     this.avgPriceDynamic = avgPriceDynamic;
     return this;
   }
@@ -317,17 +317,17 @@ public class Comparison {
    *
    * @return avgPriceDynamic
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getAvgPriceDynamic() {
     return avgPriceDynamic;
   }
 
-  public void setAvgPriceDynamic(@jakarta.annotation.Nonnull Integer avgPriceDynamic) {
+  public void setAvgPriceDynamic(@jakarta.annotation.Nullable Integer avgPriceDynamic) {
     this.avgPriceDynamic = avgPriceDynamic;
   }
 
   public Comparison shareOrderPercentDynamic(
-      @jakarta.annotation.Nonnull Integer shareOrderPercentDynamic) {
+      @jakarta.annotation.Nullable Integer shareOrderPercentDynamic) {
     this.shareOrderPercentDynamic = shareOrderPercentDynamic;
     return this;
   }
@@ -337,17 +337,18 @@ public class Comparison {
    *
    * @return shareOrderPercentDynamic
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getShareOrderPercentDynamic() {
     return shareOrderPercentDynamic;
   }
 
   public void setShareOrderPercentDynamic(
-      @jakarta.annotation.Nonnull Integer shareOrderPercentDynamic) {
+      @jakarta.annotation.Nullable Integer shareOrderPercentDynamic) {
     this.shareOrderPercentDynamic = shareOrderPercentDynamic;
   }
 
-  public Comparison addToWishlistDynamic(@jakarta.annotation.Nonnull Integer addToWishlistDynamic) {
+  public Comparison addToWishlistDynamic(
+      @jakarta.annotation.Nullable Integer addToWishlistDynamic) {
     this.addToWishlistDynamic = addToWishlistDynamic;
     return this;
   }
@@ -357,17 +358,17 @@ public class Comparison {
    *
    * @return addToWishlistDynamic
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getAddToWishlistDynamic() {
     return addToWishlistDynamic;
   }
 
-  public void setAddToWishlistDynamic(@jakarta.annotation.Nonnull Integer addToWishlistDynamic) {
+  public void setAddToWishlistDynamic(@jakarta.annotation.Nullable Integer addToWishlistDynamic) {
     this.addToWishlistDynamic = addToWishlistDynamic;
   }
 
   public Comparison timeToReadyDynamic(
-      @jakarta.annotation.Nonnull ComparisonTimeToReadyDynamic timeToReadyDynamic) {
+      @jakarta.annotation.Nullable ComparisonTimeToReadyDynamic timeToReadyDynamic) {
     this.timeToReadyDynamic = timeToReadyDynamic;
     return this;
   }
@@ -377,18 +378,18 @@ public class Comparison {
    *
    * @return timeToReadyDynamic
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public ComparisonTimeToReadyDynamic getTimeToReadyDynamic() {
     return timeToReadyDynamic;
   }
 
   public void setTimeToReadyDynamic(
-      @jakarta.annotation.Nonnull ComparisonTimeToReadyDynamic timeToReadyDynamic) {
+      @jakarta.annotation.Nullable ComparisonTimeToReadyDynamic timeToReadyDynamic) {
     this.timeToReadyDynamic = timeToReadyDynamic;
   }
 
   public Comparison localizationPercentDynamic(
-      @jakarta.annotation.Nonnull Integer localizationPercentDynamic) {
+      @jakarta.annotation.Nullable Integer localizationPercentDynamic) {
     this.localizationPercentDynamic = localizationPercentDynamic;
     return this;
   }
@@ -399,18 +400,18 @@ public class Comparison {
    *
    * @return localizationPercentDynamic
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getLocalizationPercentDynamic() {
     return localizationPercentDynamic;
   }
 
   public void setLocalizationPercentDynamic(
-      @jakarta.annotation.Nonnull Integer localizationPercentDynamic) {
+      @jakarta.annotation.Nullable Integer localizationPercentDynamic) {
     this.localizationPercentDynamic = localizationPercentDynamic;
   }
 
   public Comparison wbClubDynamic(
-      @jakarta.annotation.Nonnull ComparisonWbClubDynamic wbClubDynamic) {
+      @jakarta.annotation.Nullable ComparisonWbClubDynamic wbClubDynamic) {
     this.wbClubDynamic = wbClubDynamic;
     return this;
   }
@@ -420,16 +421,16 @@ public class Comparison {
    *
    * @return wbClubDynamic
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public ComparisonWbClubDynamic getWbClubDynamic() {
     return wbClubDynamic;
   }
 
-  public void setWbClubDynamic(@jakarta.annotation.Nonnull ComparisonWbClubDynamic wbClubDynamic) {
+  public void setWbClubDynamic(@jakarta.annotation.Nullable ComparisonWbClubDynamic wbClubDynamic) {
     this.wbClubDynamic = wbClubDynamic;
   }
 
-  public Comparison conversions(@jakarta.annotation.Nonnull StatisticConversions conversions) {
+  public Comparison conversions(@jakarta.annotation.Nullable StatisticConversions conversions) {
     this.conversions = conversions;
     return this;
   }
@@ -439,12 +440,12 @@ public class Comparison {
    *
    * @return conversions
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public StatisticConversions getConversions() {
     return conversions;
   }
 
-  public void setConversions(@jakarta.annotation.Nonnull StatisticConversions conversions) {
+  public void setConversions(@jakarta.annotation.Nullable StatisticConversions conversions) {
     this.conversions = conversions;
   }
 
@@ -563,22 +564,6 @@ public class Comparison {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("openCountDynamic");
-    openapiRequiredFields.add("cartCountDynamic");
-    openapiRequiredFields.add("orderCountDynamic");
-    openapiRequiredFields.add("orderSumDynamic");
-    openapiRequiredFields.add("buyoutCountDynamic");
-    openapiRequiredFields.add("buyoutSumDynamic");
-    openapiRequiredFields.add("cancelCountDynamic");
-    openapiRequiredFields.add("cancelSumDynamic");
-    openapiRequiredFields.add("avgOrdersCountPerDayDynamic");
-    openapiRequiredFields.add("avgPriceDynamic");
-    openapiRequiredFields.add("shareOrderPercentDynamic");
-    openapiRequiredFields.add("addToWishlistDynamic");
-    openapiRequiredFields.add("timeToReadyDynamic");
-    openapiRequiredFields.add("localizationPercentDynamic");
-    openapiRequiredFields.add("wbClubDynamic");
-    openapiRequiredFields.add("conversions");
   }
 
   /**
@@ -608,23 +593,20 @@ public class Comparison {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : Comparison.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    // validate the required field `timeToReadyDynamic`
-    ComparisonTimeToReadyDynamic.validateJsonElement(jsonObj.get("timeToReadyDynamic"));
-    // validate the required field `wbClubDynamic`
-    ComparisonWbClubDynamic.validateJsonElement(jsonObj.get("wbClubDynamic"));
-    // validate the required field `conversions`
-    StatisticConversions.validateJsonElement(jsonObj.get("conversions"));
+    // validate the optional field `timeToReadyDynamic`
+    if (jsonObj.get("timeToReadyDynamic") != null
+        && !jsonObj.get("timeToReadyDynamic").isJsonNull()) {
+      ComparisonTimeToReadyDynamic.validateJsonElement(jsonObj.get("timeToReadyDynamic"));
+    }
+    // validate the optional field `wbClubDynamic`
+    if (jsonObj.get("wbClubDynamic") != null && !jsonObj.get("wbClubDynamic").isJsonNull()) {
+      ComparisonWbClubDynamic.validateJsonElement(jsonObj.get("wbClubDynamic"));
+    }
+    // validate the optional field `conversions`
+    if (jsonObj.get("conversions") != null && !jsonObj.get("conversions").isJsonNull()) {
+      StatisticConversions.validateJsonElement(jsonObj.get("conversions"));
+    }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

@@ -36,42 +36,42 @@ public class ModelsDraftItem {
   public static final String SERIALIZED_NAME_DRAFT_ID = "draftId";
 
   @SerializedName(SERIALIZED_NAME_DRAFT_ID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String draftId;
 
   public static final String SERIALIZED_NAME_PHONE = "phone";
 
   @SerializedName(SERIALIZED_NAME_PHONE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String phone;
 
   public static final String SERIALIZED_NAME_CREATED_AT = "createdAt";
 
   @SerializedName(SERIALIZED_NAME_CREATED_AT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String createdAt;
 
   public static final String SERIALIZED_NAME_UPDATED_AT = "updatedAt";
 
   @SerializedName(SERIALIZED_NAME_UPDATED_AT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String updatedAt;
 
   public static final String SERIALIZED_NAME_SKU_QUANTITY = "skuQuantity";
 
   @SerializedName(SERIALIZED_NAME_SKU_QUANTITY)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer skuQuantity;
 
   public static final String SERIALIZED_NAME_ITEM_QUANTITY = "itemQuantity";
 
   @SerializedName(SERIALIZED_NAME_ITEM_QUANTITY)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer itemQuantity;
 
   public ModelsDraftItem() {}
 
-  public ModelsDraftItem draftId(@jakarta.annotation.Nonnull String draftId) {
+  public ModelsDraftItem draftId(@jakarta.annotation.Nullable String draftId) {
     this.draftId = draftId;
     return this;
   }
@@ -81,16 +81,16 @@ public class ModelsDraftItem {
    *
    * @return draftId
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getDraftId() {
     return draftId;
   }
 
-  public void setDraftId(@jakarta.annotation.Nonnull String draftId) {
+  public void setDraftId(@jakarta.annotation.Nullable String draftId) {
     this.draftId = draftId;
   }
 
-  public ModelsDraftItem phone(@jakarta.annotation.Nonnull String phone) {
+  public ModelsDraftItem phone(@jakarta.annotation.Nullable String phone) {
     this.phone = phone;
     return this;
   }
@@ -100,16 +100,16 @@ public class ModelsDraftItem {
    *
    * @return phone
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getPhone() {
     return phone;
   }
 
-  public void setPhone(@jakarta.annotation.Nonnull String phone) {
+  public void setPhone(@jakarta.annotation.Nullable String phone) {
     this.phone = phone;
   }
 
-  public ModelsDraftItem createdAt(@jakarta.annotation.Nonnull String createdAt) {
+  public ModelsDraftItem createdAt(@jakarta.annotation.Nullable String createdAt) {
     this.createdAt = createdAt;
     return this;
   }
@@ -119,16 +119,16 @@ public class ModelsDraftItem {
    *
    * @return createdAt
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getCreatedAt() {
     return createdAt;
   }
 
-  public void setCreatedAt(@jakarta.annotation.Nonnull String createdAt) {
+  public void setCreatedAt(@jakarta.annotation.Nullable String createdAt) {
     this.createdAt = createdAt;
   }
 
-  public ModelsDraftItem updatedAt(@jakarta.annotation.Nonnull String updatedAt) {
+  public ModelsDraftItem updatedAt(@jakarta.annotation.Nullable String updatedAt) {
     this.updatedAt = updatedAt;
     return this;
   }
@@ -138,16 +138,16 @@ public class ModelsDraftItem {
    *
    * @return updatedAt
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getUpdatedAt() {
     return updatedAt;
   }
 
-  public void setUpdatedAt(@jakarta.annotation.Nonnull String updatedAt) {
+  public void setUpdatedAt(@jakarta.annotation.Nullable String updatedAt) {
     this.updatedAt = updatedAt;
   }
 
-  public ModelsDraftItem skuQuantity(@jakarta.annotation.Nonnull Integer skuQuantity) {
+  public ModelsDraftItem skuQuantity(@jakarta.annotation.Nullable Integer skuQuantity) {
     this.skuQuantity = skuQuantity;
     return this;
   }
@@ -157,16 +157,16 @@ public class ModelsDraftItem {
    *
    * @return skuQuantity
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getSkuQuantity() {
     return skuQuantity;
   }
 
-  public void setSkuQuantity(@jakarta.annotation.Nonnull Integer skuQuantity) {
+  public void setSkuQuantity(@jakarta.annotation.Nullable Integer skuQuantity) {
     this.skuQuantity = skuQuantity;
   }
 
-  public ModelsDraftItem itemQuantity(@jakarta.annotation.Nonnull Integer itemQuantity) {
+  public ModelsDraftItem itemQuantity(@jakarta.annotation.Nullable Integer itemQuantity) {
     this.itemQuantity = itemQuantity;
     return this;
   }
@@ -176,12 +176,12 @@ public class ModelsDraftItem {
    *
    * @return itemQuantity
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getItemQuantity() {
     return itemQuantity;
   }
 
-  public void setItemQuantity(@jakarta.annotation.Nonnull Integer itemQuantity) {
+  public void setItemQuantity(@jakarta.annotation.Nullable Integer itemQuantity) {
     this.itemQuantity = itemQuantity;
   }
 
@@ -246,12 +246,6 @@ public class ModelsDraftItem {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("draftId");
-    openapiRequiredFields.add("phone");
-    openapiRequiredFields.add("createdAt");
-    openapiRequiredFields.add("updatedAt");
-    openapiRequiredFields.add("skuQuantity");
-    openapiRequiredFields.add("itemQuantity");
   }
 
   /**
@@ -281,36 +275,30 @@ public class ModelsDraftItem {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : ModelsDraftItem.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    if (!jsonObj.get("draftId").isJsonPrimitive()) {
+    if ((jsonObj.get("draftId") != null && !jsonObj.get("draftId").isJsonNull())
+        && !jsonObj.get("draftId").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `draftId` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("draftId").toString()));
     }
-    if (!jsonObj.get("phone").isJsonPrimitive()) {
+    if ((jsonObj.get("phone") != null && !jsonObj.get("phone").isJsonNull())
+        && !jsonObj.get("phone").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `phone` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("phone").toString()));
     }
-    if (!jsonObj.get("createdAt").isJsonPrimitive()) {
+    if ((jsonObj.get("createdAt") != null && !jsonObj.get("createdAt").isJsonNull())
+        && !jsonObj.get("createdAt").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `createdAt` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("createdAt").toString()));
     }
-    if (!jsonObj.get("updatedAt").isJsonPrimitive()) {
+    if ((jsonObj.get("updatedAt") != null && !jsonObj.get("updatedAt").isJsonNull())
+        && !jsonObj.get("updatedAt").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `updatedAt` to be a primitive type in the JSON string but got `%s`",

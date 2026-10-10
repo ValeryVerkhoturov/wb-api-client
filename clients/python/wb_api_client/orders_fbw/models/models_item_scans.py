@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr, field_validator
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,18 +28,25 @@ class ModelsItemScans(BaseModel):
     ModelsItemScans
     """  # noqa: E501
 
-    scan_id: StrictInt = Field(description="ID сканирования", alias="scanId")
-    declared_sku: StrictStr = Field(
-        description="Баркод, заявленный при формировании поставки", alias="declaredSku"
+    scan_id: Optional[StrictInt] = Field(
+        default=None, description="ID сканирования", alias="scanId"
     )
-    scan_time: StrictStr = Field(
-        description="Дата и время сканирования", alias="scanTime"
+    declared_sku: Optional[StrictStr] = Field(
+        default=None,
+        description="Баркод, заявленный при формировании поставки",
+        alias="declaredSku",
     )
-    discrepancy_label: StrictStr = Field(
+    scan_time: Optional[StrictStr] = Field(
+        default=None, description="Дата и время сканирования", alias="scanTime"
+    )
+    discrepancy_label: Optional[StrictStr] = Field(
+        default=None,
         description="Тип расхождения товара:  - `surplus` — товара больше, чем заявлено  - `shortage` — товара меньше, чем заявлено  - `re-sorting` — баркод принятого товара не соответствует заявленному при формировании поставки ",
         alias="discrepancyLabel",
     )
-    actual_sku: StrictStr = Field(description="Фактический баркод", alias="actualSku")
+    actual_sku: Optional[StrictStr] = Field(
+        default=None, description="Фактический баркод", alias="actualSku"
+    )
     __properties: ClassVar[List[str]] = [
         "scanId",
         "declaredSku",
@@ -51,6 +58,9 @@ class ModelsItemScans(BaseModel):
     @field_validator("discrepancy_label")
     def discrepancy_label_validate_enum(cls, value):
         """Validates the enum"""
+        if value is None:
+            return value
+
         if value not in set(["surplus", "shortage", "re-sorting"]):
             raise ValueError(
                 "must be one of enum values ('surplus', 'shortage', 're-sorting')"

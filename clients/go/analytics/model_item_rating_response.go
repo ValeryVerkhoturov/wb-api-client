@@ -11,9 +11,7 @@ API version: analytics
 package analytics
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the ItemRatingResponse type satisfies the MappedNullable interface at compile time
@@ -21,23 +19,18 @@ var _ MappedNullable = &ItemRatingResponse{}
 
 // ItemRatingResponse Данные ответа
 type ItemRatingResponse struct {
-	SellerRating     TableItemFloat        `json:"sellerRating"`
-	FeedbackIncrease FeedbacksIncreaseItem `json:"feedbackIncrease"`
+	SellerRating     *TableItemFloat        `json:"sellerRating,omitempty"`
+	FeedbackIncrease *FeedbacksIncreaseItem `json:"feedbackIncrease,omitempty"`
 	// Данные по товарам
-	Items []DistributionTableItem `json:"items"`
+	Items []DistributionTableItem `json:"items,omitempty"`
 }
-
-type _ItemRatingResponse ItemRatingResponse
 
 // NewItemRatingResponse instantiates a new ItemRatingResponse object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewItemRatingResponse(sellerRating TableItemFloat, feedbackIncrease FeedbacksIncreaseItem, items []DistributionTableItem) *ItemRatingResponse {
+func NewItemRatingResponse() *ItemRatingResponse {
 	this := ItemRatingResponse{}
-	this.SellerRating = sellerRating
-	this.FeedbackIncrease = feedbackIncrease
-	this.Items = items
 	return &this
 }
 
@@ -49,74 +42,98 @@ func NewItemRatingResponseWithDefaults() *ItemRatingResponse {
 	return &this
 }
 
-// GetSellerRating returns the SellerRating field value
+// GetSellerRating returns the SellerRating field value if set, zero value otherwise.
 func (o *ItemRatingResponse) GetSellerRating() TableItemFloat {
-	if o == nil {
+	if o == nil || IsNil(o.SellerRating) {
 		var ret TableItemFloat
 		return ret
 	}
-
-	return o.SellerRating
+	return *o.SellerRating
 }
 
-// GetSellerRatingOk returns a tuple with the SellerRating field value
+// GetSellerRatingOk returns a tuple with the SellerRating field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ItemRatingResponse) GetSellerRatingOk() (*TableItemFloat, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.SellerRating) {
 		return nil, false
 	}
-	return &o.SellerRating, true
+	return o.SellerRating, true
 }
 
-// SetSellerRating sets field value
+// HasSellerRating returns a boolean if a field has been set.
+func (o *ItemRatingResponse) HasSellerRating() bool {
+	if o != nil && !IsNil(o.SellerRating) {
+		return true
+	}
+
+	return false
+}
+
+// SetSellerRating gets a reference to the given TableItemFloat and assigns it to the SellerRating field.
 func (o *ItemRatingResponse) SetSellerRating(v TableItemFloat) {
-	o.SellerRating = v
+	o.SellerRating = &v
 }
 
-// GetFeedbackIncrease returns the FeedbackIncrease field value
+// GetFeedbackIncrease returns the FeedbackIncrease field value if set, zero value otherwise.
 func (o *ItemRatingResponse) GetFeedbackIncrease() FeedbacksIncreaseItem {
-	if o == nil {
+	if o == nil || IsNil(o.FeedbackIncrease) {
 		var ret FeedbacksIncreaseItem
 		return ret
 	}
-
-	return o.FeedbackIncrease
+	return *o.FeedbackIncrease
 }
 
-// GetFeedbackIncreaseOk returns a tuple with the FeedbackIncrease field value
+// GetFeedbackIncreaseOk returns a tuple with the FeedbackIncrease field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ItemRatingResponse) GetFeedbackIncreaseOk() (*FeedbacksIncreaseItem, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.FeedbackIncrease) {
 		return nil, false
 	}
-	return &o.FeedbackIncrease, true
+	return o.FeedbackIncrease, true
 }
 
-// SetFeedbackIncrease sets field value
+// HasFeedbackIncrease returns a boolean if a field has been set.
+func (o *ItemRatingResponse) HasFeedbackIncrease() bool {
+	if o != nil && !IsNil(o.FeedbackIncrease) {
+		return true
+	}
+
+	return false
+}
+
+// SetFeedbackIncrease gets a reference to the given FeedbacksIncreaseItem and assigns it to the FeedbackIncrease field.
 func (o *ItemRatingResponse) SetFeedbackIncrease(v FeedbacksIncreaseItem) {
-	o.FeedbackIncrease = v
+	o.FeedbackIncrease = &v
 }
 
-// GetItems returns the Items field value
+// GetItems returns the Items field value if set, zero value otherwise.
 func (o *ItemRatingResponse) GetItems() []DistributionTableItem {
-	if o == nil {
+	if o == nil || IsNil(o.Items) {
 		var ret []DistributionTableItem
 		return ret
 	}
-
 	return o.Items
 }
 
-// GetItemsOk returns a tuple with the Items field value
+// GetItemsOk returns a tuple with the Items field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ItemRatingResponse) GetItemsOk() ([]DistributionTableItem, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Items) {
 		return nil, false
 	}
 	return o.Items, true
 }
 
-// SetItems sets field value
+// HasItems returns a boolean if a field has been set.
+func (o *ItemRatingResponse) HasItems() bool {
+	if o != nil && !IsNil(o.Items) {
+		return true
+	}
+
+	return false
+}
+
+// SetItems gets a reference to the given []DistributionTableItem and assigns it to the Items field.
 func (o *ItemRatingResponse) SetItems(v []DistributionTableItem) {
 	o.Items = v
 }
@@ -131,49 +148,16 @@ func (o ItemRatingResponse) MarshalJSON() ([]byte, error) {
 
 func (o ItemRatingResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["sellerRating"] = o.SellerRating
-	toSerialize["feedbackIncrease"] = o.FeedbackIncrease
-	toSerialize["items"] = o.Items
+	if !IsNil(o.SellerRating) {
+		toSerialize["sellerRating"] = o.SellerRating
+	}
+	if !IsNil(o.FeedbackIncrease) {
+		toSerialize["feedbackIncrease"] = o.FeedbackIncrease
+	}
+	if !IsNil(o.Items) {
+		toSerialize["items"] = o.Items
+	}
 	return toSerialize, nil
-}
-
-func (o *ItemRatingResponse) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"sellerRating",
-		"feedbackIncrease",
-		"items",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varItemRatingResponse := _ItemRatingResponse{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varItemRatingResponse)
-
-	if err != nil {
-		return err
-	}
-
-	*o = ItemRatingResponse(varItemRatingResponse)
-
-	return err
 }
 
 type NullableItemRatingResponse struct {

@@ -120,11 +120,6 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Supply" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected Supply() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Supply" /> class.
-        /// </summary>
         /// <param name="id">ID поставки.</param>
         /// <param name="isB2b">Признак B2B-продажи:   - &#x60;true&#x60; — B2B-продажа   - &#x60;false&#x60; — не B2B-продажа   - &#x60;null&#x60; — признак отсутствует, сборочные задания не добавлены к поставке .</param>
         /// <param name="isPickupPointShipmentAllowed">Можно ли отгрузить заказ на ПВЗ:   - &#x60;false&#x60; — нет   - &#x60;true&#x60; — да .</param>
@@ -141,10 +136,9 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// <param name="shippingPointId">ID пункта отгрузки. Можно получить в методе получения [пунктов отгрузки поставок](./orders-fbs#tag/fbsSupplies/operation/getV3FbsShippingPoints).</param>
         /// <param name="shippingType">Способ доставки до пункта отгрузки:   - &#x60;selfShipping&#x60; — доставка силами продавца   - &#x60;transportCompany&#x60; — доставка через транспортную компанию .</param>
         /// <param name="waybillUuid">ID ЭТрН — электронной транспортной накладной.</param>
-        /// <param name="spotAvailable">Доступен ли СПОТ для этой поставки:   - &#x60;true&#x60; — да. Используйте метод [получения данных СПОТ](./orders-fbs#tag/fbsSupplies/operation/postV3FbsSuppliesSpotList)   - &#x60;false&#x60; — нет  (required).</param>
+        /// <param name="spotAvailable">Доступен ли СПОТ для этой поставки:   - &#x60;true&#x60; — да. Используйте метод [получения данных СПОТ](./orders-fbs#tag/fbsSupplies/operation/postV3FbsSuppliesSpotList)   - &#x60;false&#x60; — нет .</param>
         public Supply(string id = default(string), bool? isB2b = default(bool?), bool isPickupPointShipmentAllowed = default(bool), bool done = default(bool), string createdAt = default(string), string closedAt = default(string), string scanDt = default(string), string name = default(string), CargoTypeEnum? cargoType = default(CargoTypeEnum?), CrossBorderTypeEnum? crossBorderType = default(CrossBorderTypeEnum?), long? destinationOfficeId = default(long?), long recommendedWhId = default(long), string shippingDt = default(string), int? shippingPointId = default(int?), ShippingTypeEnum? shippingType = default(ShippingTypeEnum?), string waybillUuid = default(string), bool spotAvailable = default(bool))
         {
-            this.SpotAvailable = spotAvailable;
             this.Id = id;
             this.IsB2b = isB2b;
             this.IsPickupPointShipmentAllowed = isPickupPointShipmentAllowed;
@@ -161,6 +155,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
             this.ShippingPointId = shippingPointId;
             this.ShippingType = shippingType;
             this.WaybillUuid = waybillUuid;
+            this.SpotAvailable = spotAvailable;
         }
 
         /// <summary>
@@ -294,7 +289,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /*
         <example>true</example>
         */
-        [DataMember(Name = "spotAvailable", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "spotAvailable", EmitDefaultValue = true)]
         public bool SpotAvailable { get; set; }
 
         /// <summary>

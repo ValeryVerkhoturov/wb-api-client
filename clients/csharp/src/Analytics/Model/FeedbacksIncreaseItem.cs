@@ -34,53 +34,23 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FeedbacksIncreaseItem" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected FeedbacksIncreaseItem() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="FeedbacksIncreaseItem" /> class.
-        /// </summary>
-        /// <param name="current">Прирост оценок за период (required).</param>
-        /// <param name="total">Всего оценок (required).</param>
-        /// <param name="dynamics">Динамика по сравнению с предыдущим периодом, % (required).</param>
-        /// <param name="fiveStar">fiveStar (required).</param>
-        /// <param name="fourStar">fourStar (required).</param>
-        /// <param name="threeStar">threeStar (required).</param>
-        /// <param name="twoStar">twoStar (required).</param>
-        /// <param name="oneStar">oneStar (required).</param>
+        /// <param name="current">Прирост оценок за период.</param>
+        /// <param name="total">Всего оценок.</param>
+        /// <param name="dynamics">Динамика по сравнению с предыдущим периодом, %.</param>
+        /// <param name="fiveStar">fiveStar.</param>
+        /// <param name="fourStar">fourStar.</param>
+        /// <param name="threeStar">threeStar.</param>
+        /// <param name="twoStar">twoStar.</param>
+        /// <param name="oneStar">oneStar.</param>
         public FeedbacksIncreaseItem(int current = default(int), int total = default(int), int dynamics = default(int), FeedbacksIncreaseItemFiveStar fiveStar = default(FeedbacksIncreaseItemFiveStar), FeedbacksIncreaseItemFourStar fourStar = default(FeedbacksIncreaseItemFourStar), FeedbacksIncreaseItemThreeStar threeStar = default(FeedbacksIncreaseItemThreeStar), FeedbacksIncreaseItemTwoStar twoStar = default(FeedbacksIncreaseItemTwoStar), FeedbacksIncreaseItemOneStar oneStar = default(FeedbacksIncreaseItemOneStar))
         {
             this.Current = current;
             this.Total = total;
             this.Dynamics = dynamics;
-            // to ensure "fiveStar" is required (not null)
-            if (fiveStar == null)
-            {
-                throw new ArgumentNullException("fiveStar is a required property for FeedbacksIncreaseItem and cannot be null");
-            }
             this.FiveStar = fiveStar;
-            // to ensure "fourStar" is required (not null)
-            if (fourStar == null)
-            {
-                throw new ArgumentNullException("fourStar is a required property for FeedbacksIncreaseItem and cannot be null");
-            }
             this.FourStar = fourStar;
-            // to ensure "threeStar" is required (not null)
-            if (threeStar == null)
-            {
-                throw new ArgumentNullException("threeStar is a required property for FeedbacksIncreaseItem and cannot be null");
-            }
             this.ThreeStar = threeStar;
-            // to ensure "twoStar" is required (not null)
-            if (twoStar == null)
-            {
-                throw new ArgumentNullException("twoStar is a required property for FeedbacksIncreaseItem and cannot be null");
-            }
             this.TwoStar = twoStar;
-            // to ensure "oneStar" is required (not null)
-            if (oneStar == null)
-            {
-                throw new ArgumentNullException("oneStar is a required property for FeedbacksIncreaseItem and cannot be null");
-            }
             this.OneStar = oneStar;
         }
 
@@ -91,7 +61,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>26</example>
         */
-        [DataMember(Name = "current", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "current", EmitDefaultValue = false)]
         public int Current { get; set; }
 
         /// <summary>
@@ -101,7 +71,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>116</example>
         */
-        [DataMember(Name = "total", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "total", EmitDefaultValue = false)]
         public int Total { get; set; }
 
         /// <summary>
@@ -111,37 +81,37 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>23</example>
         */
-        [DataMember(Name = "dynamics", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "dynamics", EmitDefaultValue = false)]
         public int Dynamics { get; set; }
 
         /// <summary>
         /// Gets or Sets FiveStar
         /// </summary>
-        [DataMember(Name = "fiveStar", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "fiveStar", EmitDefaultValue = false)]
         public FeedbacksIncreaseItemFiveStar FiveStar { get; set; }
 
         /// <summary>
         /// Gets or Sets FourStar
         /// </summary>
-        [DataMember(Name = "fourStar", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "fourStar", EmitDefaultValue = false)]
         public FeedbacksIncreaseItemFourStar FourStar { get; set; }
 
         /// <summary>
         /// Gets or Sets ThreeStar
         /// </summary>
-        [DataMember(Name = "threeStar", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "threeStar", EmitDefaultValue = false)]
         public FeedbacksIncreaseItemThreeStar ThreeStar { get; set; }
 
         /// <summary>
         /// Gets or Sets TwoStar
         /// </summary>
-        [DataMember(Name = "twoStar", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "twoStar", EmitDefaultValue = false)]
         public FeedbacksIncreaseItemTwoStar TwoStar { get; set; }
 
         /// <summary>
         /// Gets or Sets OneStar
         /// </summary>
-        [DataMember(Name = "oneStar", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "oneStar", EmitDefaultValue = false)]
         public FeedbacksIncreaseItemOneStar OneStar { get; set; }
 
         /// <summary>

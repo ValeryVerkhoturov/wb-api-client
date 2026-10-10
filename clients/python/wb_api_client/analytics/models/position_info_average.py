@@ -28,7 +28,9 @@ class PositionInfoAverage(BaseModel):
     Средняя позиция товара в результатах поиска
     """  # noqa: E501
 
-    current: StrictInt = Field(description="Текущая средняя позиция товара")
+    current: Optional[StrictInt] = Field(
+        default=None, description="Текущая средняя позиция товара"
+    )
     dynamics: Optional[StrictInt] = Field(
         default=None, description="Динамика по сравнению с предыдущим периодом, %"
     )

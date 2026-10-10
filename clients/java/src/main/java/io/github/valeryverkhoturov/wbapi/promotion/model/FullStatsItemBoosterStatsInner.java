@@ -36,25 +36,25 @@ public class FullStatsItemBoosterStatsInner {
   public static final String SERIALIZED_NAME_AVG_POSITION = "avg_position";
 
   @SerializedName(SERIALIZED_NAME_AVG_POSITION)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer avgPosition;
 
   public static final String SERIALIZED_NAME_DATE = "date";
 
   @SerializedName(SERIALIZED_NAME_DATE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String date;
 
   public static final String SERIALIZED_NAME_NM = "nm";
 
   @SerializedName(SERIALIZED_NAME_NM)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer nm;
 
   public FullStatsItemBoosterStatsInner() {}
 
   public FullStatsItemBoosterStatsInner avgPosition(
-      @jakarta.annotation.Nonnull Integer avgPosition) {
+      @jakarta.annotation.Nullable Integer avgPosition) {
     this.avgPosition = avgPosition;
     return this;
   }
@@ -64,16 +64,16 @@ public class FullStatsItemBoosterStatsInner {
    *
    * @return avgPosition
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getAvgPosition() {
     return avgPosition;
   }
 
-  public void setAvgPosition(@jakarta.annotation.Nonnull Integer avgPosition) {
+  public void setAvgPosition(@jakarta.annotation.Nullable Integer avgPosition) {
     this.avgPosition = avgPosition;
   }
 
-  public FullStatsItemBoosterStatsInner date(@jakarta.annotation.Nonnull String date) {
+  public FullStatsItemBoosterStatsInner date(@jakarta.annotation.Nullable String date) {
     this.date = date;
     return this;
   }
@@ -83,16 +83,16 @@ public class FullStatsItemBoosterStatsInner {
    *
    * @return date
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getDate() {
     return date;
   }
 
-  public void setDate(@jakarta.annotation.Nonnull String date) {
+  public void setDate(@jakarta.annotation.Nullable String date) {
     this.date = date;
   }
 
-  public FullStatsItemBoosterStatsInner nm(@jakarta.annotation.Nonnull Integer nm) {
+  public FullStatsItemBoosterStatsInner nm(@jakarta.annotation.Nullable Integer nm) {
     this.nm = nm;
     return this;
   }
@@ -102,12 +102,12 @@ public class FullStatsItemBoosterStatsInner {
    *
    * @return nm
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getNm() {
     return nm;
   }
 
-  public void setNm(@jakarta.annotation.Nonnull Integer nm) {
+  public void setNm(@jakarta.annotation.Nullable Integer nm) {
     this.nm = nm;
   }
 
@@ -164,9 +164,6 @@ public class FullStatsItemBoosterStatsInner {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("avg_position");
-    openapiRequiredFields.add("date");
-    openapiRequiredFields.add("nm");
   }
 
   /**
@@ -197,18 +194,9 @@ public class FullStatsItemBoosterStatsInner {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : FullStatsItemBoosterStatsInner.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    if (!jsonObj.get("date").isJsonPrimitive()) {
+    if ((jsonObj.get("date") != null && !jsonObj.get("date").isJsonNull())
+        && !jsonObj.get("date").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `date` to be a primitive type in the JSON string but got `%s`",

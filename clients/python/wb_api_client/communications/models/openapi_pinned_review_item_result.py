@@ -33,28 +33,38 @@ class OpenapiPinnedReviewItemResult(BaseModel):
     OpenapiPinnedReviewItemResult
     """  # noqa: E501
 
-    change_state_at: StrictStr = Field(
-        description="Дата и время закрепления или открепления", alias="changeStateAt"
+    change_state_at: Optional[StrictStr] = Field(
+        default=None,
+        description="Дата и время закрепления или открепления",
+        alias="changeStateAt",
     )
-    imt_id: StrictInt = Field(
+    imt_id: Optional[StrictInt] = Field(
+        default=None,
         description="ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров",
         alias="imtId",
     )
-    nm_id: StrictInt = Field(description="Артикул WB", alias="nmId")
-    pin_id: StrictInt = Field(
-        description="ID операции закрепления отзыва", alias="pinId"
+    nm_id: Optional[StrictInt] = Field(
+        default=None, description="Артикул WB", alias="nmId"
     )
-    pin_method: DomainReviewPinMethod = Field(
+    pin_id: Optional[StrictInt] = Field(
+        default=None, description="ID операции закрепления отзыва", alias="pinId"
+    )
+    pin_method: Optional[DomainReviewPinMethod] = Field(
+        default=None,
         description="Метод закрепления:   - `subscription` — подписка Джем   - `tariff` — тарифная опция ",
         alias="pinMethod",
     )
-    pin_on: DomainReviewPinOn = Field(
+    pin_on: Optional[DomainReviewPinOn] = Field(
+        default=None,
         description="Место закрепления отзыва:   - `nm` — карточка товара   - `imt` — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров ",
         alias="pinOn",
     )
-    feedback_id: StrictStr = Field(description="ID отзыва", alias="feedbackId")
-    state: DomainReviewState = Field(
-        description="Закреплён ли отзыв:   - `pinned` — да   - `unpinned` — нет "
+    feedback_id: Optional[StrictStr] = Field(
+        default=None, description="ID отзыва", alias="feedbackId"
+    )
+    state: Optional[DomainReviewState] = Field(
+        default=None,
+        description="Закреплён ли отзыв:   - `pinned` — да   - `unpinned` — нет ",
     )
     unpinned_cause: Optional[StrictStr] = Field(
         default=None,

@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,18 +28,24 @@ class OpenapiSellerLimitsResponseDataSubscription(BaseModel):
     OpenapiSellerLimitsResponseDataSubscription
     """  # noqa: E501
 
-    per_unit_limit: StrictInt = Field(
+    per_unit_limit: Optional[StrictInt] = Field(
+        default=None,
         description="Максимальное количество закреплённых отзывов в одной карточке товара или в группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек",
         alias="perUnitLimit",
     )
-    remaining: StrictInt = Field(description="Сколько ещё отзывов можно закрепить")
-    total_limit: StrictInt = Field(
-        description="Общий лимит закреплений", alias="totalLimit"
+    remaining: Optional[StrictInt] = Field(
+        default=None, description="Сколько ещё отзывов можно закрепить"
     )
-    unlimited: StrictBool = Field(
-        description="Количество закреплённых отзывов не ограничено:   - `true` — да   - `false` — нет "
+    total_limit: Optional[StrictInt] = Field(
+        default=None, description="Общий лимит закреплений", alias="totalLimit"
     )
-    used: StrictInt = Field(description="Текущее количество закреплённых отзывов")
+    unlimited: Optional[StrictBool] = Field(
+        default=None,
+        description="Количество закреплённых отзывов не ограничено:   - `true` — да   - `false` — нет ",
+    )
+    used: Optional[StrictInt] = Field(
+        default=None, description="Текущее количество закреплённых отзывов"
+    )
     __properties: ClassVar[List[str]] = [
         "perUnitLimit",
         "remaining",

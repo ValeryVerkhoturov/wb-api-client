@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,8 +28,8 @@ class ItemSearchTextsResponse(BaseModel):
     ItemSearchTextsResponse
     """  # noqa: E501
 
-    items: List[object] = Field(description="Элементы таблицы")
-    currency: StrictStr = Field(description="Валюта отчёта")
+    items: Optional[List[object]] = Field(default=None, description="Элементы таблицы")
+    currency: Optional[StrictStr] = Field(default=None, description="Валюта отчёта")
     __properties: ClassVar[List[str]] = ["items", "currency"]
 
     model_config = ConfigDict(

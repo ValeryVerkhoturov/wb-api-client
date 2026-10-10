@@ -34,20 +34,15 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="StatisticWbClub" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected StatisticWbClub() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="StatisticWbClub" /> class.
-        /// </summary>
-        /// <param name="orderCount">Заказали товаров с WB Клубом, шт. (required).</param>
-        /// <param name="orderSum">Заказали с WB Клубом на сумму (required).</param>
-        /// <param name="buyoutSum">Выкупили с WB Клубом на сумму (required).</param>
-        /// <param name="buyoutCount">Выкупили товаров с WB Клубом, шт. (required).</param>
-        /// <param name="cancelSum">Отменили и вернули с WB Клубом на сумму (required).</param>
-        /// <param name="cancelCount">Отменили и вернули товаров с WB Клубом, шт. (required).</param>
-        /// <param name="avgPrice">Средняя цена с WB Клубом (required).</param>
-        /// <param name="buyoutPercent">Процент выкупа с WB Клубом (required).</param>
-        /// <param name="avgOrderCountPerDay">Среднее количество заказов с WB Клубом в день, шт. (required).</param>
+        /// <param name="orderCount">Заказали товаров с WB Клубом, шт..</param>
+        /// <param name="orderSum">Заказали с WB Клубом на сумму.</param>
+        /// <param name="buyoutSum">Выкупили с WB Клубом на сумму.</param>
+        /// <param name="buyoutCount">Выкупили товаров с WB Клубом, шт..</param>
+        /// <param name="cancelSum">Отменили и вернули с WB Клубом на сумму.</param>
+        /// <param name="cancelCount">Отменили и вернули товаров с WB Клубом, шт..</param>
+        /// <param name="avgPrice">Средняя цена с WB Клубом.</param>
+        /// <param name="buyoutPercent">Процент выкупа с WB Клубом.</param>
+        /// <param name="avgOrderCountPerDay">Среднее количество заказов с WB Клубом в день, шт..</param>
         public StatisticWbClub(int orderCount = default(int), int orderSum = default(int), int buyoutSum = default(int), int buyoutCount = default(int), int cancelSum = default(int), int cancelCount = default(int), int avgPrice = default(int), int buyoutPercent = default(int), decimal avgOrderCountPerDay = default(decimal))
         {
             this.OrderCount = orderCount;
@@ -68,7 +63,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>19</example>
         */
-        [DataMember(Name = "orderCount", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "orderCount", EmitDefaultValue = false)]
         public int OrderCount { get; set; }
 
         /// <summary>
@@ -78,7 +73,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>1262</example>
         */
-        [DataMember(Name = "orderSum", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "orderSum", EmitDefaultValue = false)]
         public int OrderSum { get; set; }
 
         /// <summary>
@@ -88,7 +83,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>1262</example>
         */
-        [DataMember(Name = "buyoutSum", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "buyoutSum", EmitDefaultValue = false)]
         public int BuyoutSum { get; set; }
 
         /// <summary>
@@ -98,7 +93,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>19</example>
         */
-        [DataMember(Name = "buyoutCount", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "buyoutCount", EmitDefaultValue = false)]
         public int BuyoutCount { get; set; }
 
         /// <summary>
@@ -108,7 +103,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>0</example>
         */
-        [DataMember(Name = "cancelSum", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "cancelSum", EmitDefaultValue = false)]
         public int CancelSum { get; set; }
 
         /// <summary>
@@ -118,7 +113,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>0</example>
         */
-        [DataMember(Name = "cancelCount", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "cancelCount", EmitDefaultValue = false)]
         public int CancelCount { get; set; }
 
         /// <summary>
@@ -128,7 +123,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>1262</example>
         */
-        [DataMember(Name = "avgPrice", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "avgPrice", EmitDefaultValue = false)]
         public int AvgPrice { get; set; }
 
         /// <summary>
@@ -138,7 +133,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>43</example>
         */
-        [DataMember(Name = "buyoutPercent", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "buyoutPercent", EmitDefaultValue = false)]
         public int BuyoutPercent { get; set; }
 
         /// <summary>
@@ -148,7 +143,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>0.04</example>
         */
-        [DataMember(Name = "avgOrderCountPerDay", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "avgOrderCountPerDay", EmitDefaultValue = false)]
         public decimal AvgOrderCountPerDay { get; set; }
 
         /// <summary>

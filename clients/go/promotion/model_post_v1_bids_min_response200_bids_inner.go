@@ -11,9 +11,7 @@ API version: promotion
 package promotion
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the PostV1BidsMinResponse200BidsInner type satisfies the MappedNullable interface at compile time
@@ -22,21 +20,17 @@ var _ MappedNullable = &PostV1BidsMinResponse200BidsInner{}
 // PostV1BidsMinResponse200BidsInner struct for PostV1BidsMinResponse200BidsInner
 type PostV1BidsMinResponse200BidsInner struct {
 	// Список ставок по местам размещения
-	Bids []PostV1BidsMinResponse200BidsInnerBidsInner `json:"bids"`
+	Bids []PostV1BidsMinResponse200BidsInnerBidsInner `json:"bids,omitempty"`
 	// Артикул WB
-	NmId int64 `json:"nm_id"`
+	NmId *int64 `json:"nm_id,omitempty"`
 }
-
-type _PostV1BidsMinResponse200BidsInner PostV1BidsMinResponse200BidsInner
 
 // NewPostV1BidsMinResponse200BidsInner instantiates a new PostV1BidsMinResponse200BidsInner object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPostV1BidsMinResponse200BidsInner(bids []PostV1BidsMinResponse200BidsInnerBidsInner, nmId int64) *PostV1BidsMinResponse200BidsInner {
+func NewPostV1BidsMinResponse200BidsInner() *PostV1BidsMinResponse200BidsInner {
 	this := PostV1BidsMinResponse200BidsInner{}
-	this.Bids = bids
-	this.NmId = nmId
 	return &this
 }
 
@@ -48,52 +42,68 @@ func NewPostV1BidsMinResponse200BidsInnerWithDefaults() *PostV1BidsMinResponse20
 	return &this
 }
 
-// GetBids returns the Bids field value
+// GetBids returns the Bids field value if set, zero value otherwise.
 func (o *PostV1BidsMinResponse200BidsInner) GetBids() []PostV1BidsMinResponse200BidsInnerBidsInner {
-	if o == nil {
+	if o == nil || IsNil(o.Bids) {
 		var ret []PostV1BidsMinResponse200BidsInnerBidsInner
 		return ret
 	}
-
 	return o.Bids
 }
 
-// GetBidsOk returns a tuple with the Bids field value
+// GetBidsOk returns a tuple with the Bids field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PostV1BidsMinResponse200BidsInner) GetBidsOk() ([]PostV1BidsMinResponse200BidsInnerBidsInner, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Bids) {
 		return nil, false
 	}
 	return o.Bids, true
 }
 
-// SetBids sets field value
+// HasBids returns a boolean if a field has been set.
+func (o *PostV1BidsMinResponse200BidsInner) HasBids() bool {
+	if o != nil && !IsNil(o.Bids) {
+		return true
+	}
+
+	return false
+}
+
+// SetBids gets a reference to the given []PostV1BidsMinResponse200BidsInnerBidsInner and assigns it to the Bids field.
 func (o *PostV1BidsMinResponse200BidsInner) SetBids(v []PostV1BidsMinResponse200BidsInnerBidsInner) {
 	o.Bids = v
 }
 
-// GetNmId returns the NmId field value
+// GetNmId returns the NmId field value if set, zero value otherwise.
 func (o *PostV1BidsMinResponse200BidsInner) GetNmId() int64 {
-	if o == nil {
+	if o == nil || IsNil(o.NmId) {
 		var ret int64
 		return ret
 	}
-
-	return o.NmId
+	return *o.NmId
 }
 
-// GetNmIdOk returns a tuple with the NmId field value
+// GetNmIdOk returns a tuple with the NmId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PostV1BidsMinResponse200BidsInner) GetNmIdOk() (*int64, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.NmId) {
 		return nil, false
 	}
-	return &o.NmId, true
+	return o.NmId, true
 }
 
-// SetNmId sets field value
+// HasNmId returns a boolean if a field has been set.
+func (o *PostV1BidsMinResponse200BidsInner) HasNmId() bool {
+	if o != nil && !IsNil(o.NmId) {
+		return true
+	}
+
+	return false
+}
+
+// SetNmId gets a reference to the given int64 and assigns it to the NmId field.
 func (o *PostV1BidsMinResponse200BidsInner) SetNmId(v int64) {
-	o.NmId = v
+	o.NmId = &v
 }
 
 func (o PostV1BidsMinResponse200BidsInner) MarshalJSON() ([]byte, error) {
@@ -106,47 +116,13 @@ func (o PostV1BidsMinResponse200BidsInner) MarshalJSON() ([]byte, error) {
 
 func (o PostV1BidsMinResponse200BidsInner) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["bids"] = o.Bids
-	toSerialize["nm_id"] = o.NmId
+	if !IsNil(o.Bids) {
+		toSerialize["bids"] = o.Bids
+	}
+	if !IsNil(o.NmId) {
+		toSerialize["nm_id"] = o.NmId
+	}
 	return toSerialize, nil
-}
-
-func (o *PostV1BidsMinResponse200BidsInner) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"bids",
-		"nm_id",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varPostV1BidsMinResponse200BidsInner := _PostV1BidsMinResponse200BidsInner{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varPostV1BidsMinResponse200BidsInner)
-
-	if err != nil {
-		return err
-	}
-
-	*o = PostV1BidsMinResponse200BidsInner(varPostV1BidsMinResponse200BidsInner)
-
-	return err
 }
 
 type NullablePostV1BidsMinResponse200BidsInner struct {

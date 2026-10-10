@@ -11,9 +11,7 @@ API version: promotion
 package promotion
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the V1SetNormQueryBidsResponse type satisfies the MappedNullable interface at compile time
@@ -21,20 +19,16 @@ var _ MappedNullable = &V1SetNormQueryBidsResponse{}
 
 // V1SetNormQueryBidsResponse struct for V1SetNormQueryBidsResponse
 type V1SetNormQueryBidsResponse struct {
-	Success []V1SetNormQueryBidsSuccessResponseItem `json:"success"`
-	Failed  []NormQueryBidFailResponseItem          `json:"failed"`
+	Success []V1SetNormQueryBidsSuccessResponseItem `json:"success,omitempty"`
+	Failed  []NormQueryBidFailResponseItem          `json:"failed,omitempty"`
 }
-
-type _V1SetNormQueryBidsResponse V1SetNormQueryBidsResponse
 
 // NewV1SetNormQueryBidsResponse instantiates a new V1SetNormQueryBidsResponse object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewV1SetNormQueryBidsResponse(success []V1SetNormQueryBidsSuccessResponseItem, failed []NormQueryBidFailResponseItem) *V1SetNormQueryBidsResponse {
+func NewV1SetNormQueryBidsResponse() *V1SetNormQueryBidsResponse {
 	this := V1SetNormQueryBidsResponse{}
-	this.Success = success
-	this.Failed = failed
 	return &this
 }
 
@@ -46,50 +40,66 @@ func NewV1SetNormQueryBidsResponseWithDefaults() *V1SetNormQueryBidsResponse {
 	return &this
 }
 
-// GetSuccess returns the Success field value
+// GetSuccess returns the Success field value if set, zero value otherwise.
 func (o *V1SetNormQueryBidsResponse) GetSuccess() []V1SetNormQueryBidsSuccessResponseItem {
-	if o == nil {
+	if o == nil || IsNil(o.Success) {
 		var ret []V1SetNormQueryBidsSuccessResponseItem
 		return ret
 	}
-
 	return o.Success
 }
 
-// GetSuccessOk returns a tuple with the Success field value
+// GetSuccessOk returns a tuple with the Success field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *V1SetNormQueryBidsResponse) GetSuccessOk() ([]V1SetNormQueryBidsSuccessResponseItem, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Success) {
 		return nil, false
 	}
 	return o.Success, true
 }
 
-// SetSuccess sets field value
+// HasSuccess returns a boolean if a field has been set.
+func (o *V1SetNormQueryBidsResponse) HasSuccess() bool {
+	if o != nil && !IsNil(o.Success) {
+		return true
+	}
+
+	return false
+}
+
+// SetSuccess gets a reference to the given []V1SetNormQueryBidsSuccessResponseItem and assigns it to the Success field.
 func (o *V1SetNormQueryBidsResponse) SetSuccess(v []V1SetNormQueryBidsSuccessResponseItem) {
 	o.Success = v
 }
 
-// GetFailed returns the Failed field value
+// GetFailed returns the Failed field value if set, zero value otherwise.
 func (o *V1SetNormQueryBidsResponse) GetFailed() []NormQueryBidFailResponseItem {
-	if o == nil {
+	if o == nil || IsNil(o.Failed) {
 		var ret []NormQueryBidFailResponseItem
 		return ret
 	}
-
 	return o.Failed
 }
 
-// GetFailedOk returns a tuple with the Failed field value
+// GetFailedOk returns a tuple with the Failed field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *V1SetNormQueryBidsResponse) GetFailedOk() ([]NormQueryBidFailResponseItem, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Failed) {
 		return nil, false
 	}
 	return o.Failed, true
 }
 
-// SetFailed sets field value
+// HasFailed returns a boolean if a field has been set.
+func (o *V1SetNormQueryBidsResponse) HasFailed() bool {
+	if o != nil && !IsNil(o.Failed) {
+		return true
+	}
+
+	return false
+}
+
+// SetFailed gets a reference to the given []NormQueryBidFailResponseItem and assigns it to the Failed field.
 func (o *V1SetNormQueryBidsResponse) SetFailed(v []NormQueryBidFailResponseItem) {
 	o.Failed = v
 }
@@ -104,47 +114,13 @@ func (o V1SetNormQueryBidsResponse) MarshalJSON() ([]byte, error) {
 
 func (o V1SetNormQueryBidsResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["success"] = o.Success
-	toSerialize["failed"] = o.Failed
+	if !IsNil(o.Success) {
+		toSerialize["success"] = o.Success
+	}
+	if !IsNil(o.Failed) {
+		toSerialize["failed"] = o.Failed
+	}
 	return toSerialize, nil
-}
-
-func (o *V1SetNormQueryBidsResponse) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"success",
-		"failed",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varV1SetNormQueryBidsResponse := _V1SetNormQueryBidsResponse{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varV1SetNormQueryBidsResponse)
-
-	if err != nil {
-		return err
-	}
-
-	*o = V1SetNormQueryBidsResponse(varV1SetNormQueryBidsResponse)
-
-	return err
 }
 
 type NullableV1SetNormQueryBidsResponse struct {

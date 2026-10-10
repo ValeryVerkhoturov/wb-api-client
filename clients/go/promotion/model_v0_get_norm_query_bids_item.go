@@ -11,9 +11,7 @@ API version: promotion
 package promotion
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the V0GetNormQueryBidsItem type satisfies the MappedNullable interface at compile time
@@ -22,33 +20,25 @@ var _ MappedNullable = &V0GetNormQueryBidsItem{}
 // V0GetNormQueryBidsItem struct for V0GetNormQueryBidsItem
 type V0GetNormQueryBidsItem struct {
 	// ID кампании
-	AdvertId int32 `json:"advert_id"`
+	AdvertId *int32 `json:"advert_id,omitempty"`
 	// Артикул WB
-	NmId int32 `json:"nm_id"`
+	NmId *int32 `json:"nm_id,omitempty"`
 	// Поисковый кластер
-	NormQuery string `json:"norm_query"`
+	NormQuery *string `json:"norm_query,omitempty"`
 	// Текущая ставка в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) за тысячу показов
-	Bid int32 `json:"bid"`
+	Bid *int32 `json:"bid,omitempty"`
 	// Текущая ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) за тысячу показов
-	BidKopecks int32 `json:"bid_kopecks"`
+	BidKopecks *int32 `json:"bid_kopecks,omitempty"`
 	// Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
-	Currency string `json:"currency"`
+	Currency *string `json:"currency,omitempty"`
 }
-
-type _V0GetNormQueryBidsItem V0GetNormQueryBidsItem
 
 // NewV0GetNormQueryBidsItem instantiates a new V0GetNormQueryBidsItem object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewV0GetNormQueryBidsItem(advertId int32, nmId int32, normQuery string, bid int32, bidKopecks int32, currency string) *V0GetNormQueryBidsItem {
+func NewV0GetNormQueryBidsItem() *V0GetNormQueryBidsItem {
 	this := V0GetNormQueryBidsItem{}
-	this.AdvertId = advertId
-	this.NmId = nmId
-	this.NormQuery = normQuery
-	this.Bid = bid
-	this.BidKopecks = bidKopecks
-	this.Currency = currency
 	return &this
 }
 
@@ -60,148 +50,196 @@ func NewV0GetNormQueryBidsItemWithDefaults() *V0GetNormQueryBidsItem {
 	return &this
 }
 
-// GetAdvertId returns the AdvertId field value
+// GetAdvertId returns the AdvertId field value if set, zero value otherwise.
 func (o *V0GetNormQueryBidsItem) GetAdvertId() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.AdvertId) {
 		var ret int32
 		return ret
 	}
-
-	return o.AdvertId
+	return *o.AdvertId
 }
 
-// GetAdvertIdOk returns a tuple with the AdvertId field value
+// GetAdvertIdOk returns a tuple with the AdvertId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *V0GetNormQueryBidsItem) GetAdvertIdOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AdvertId) {
 		return nil, false
 	}
-	return &o.AdvertId, true
+	return o.AdvertId, true
 }
 
-// SetAdvertId sets field value
+// HasAdvertId returns a boolean if a field has been set.
+func (o *V0GetNormQueryBidsItem) HasAdvertId() bool {
+	if o != nil && !IsNil(o.AdvertId) {
+		return true
+	}
+
+	return false
+}
+
+// SetAdvertId gets a reference to the given int32 and assigns it to the AdvertId field.
 func (o *V0GetNormQueryBidsItem) SetAdvertId(v int32) {
-	o.AdvertId = v
+	o.AdvertId = &v
 }
 
-// GetNmId returns the NmId field value
+// GetNmId returns the NmId field value if set, zero value otherwise.
 func (o *V0GetNormQueryBidsItem) GetNmId() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.NmId) {
 		var ret int32
 		return ret
 	}
-
-	return o.NmId
+	return *o.NmId
 }
 
-// GetNmIdOk returns a tuple with the NmId field value
+// GetNmIdOk returns a tuple with the NmId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *V0GetNormQueryBidsItem) GetNmIdOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.NmId) {
 		return nil, false
 	}
-	return &o.NmId, true
+	return o.NmId, true
 }
 
-// SetNmId sets field value
+// HasNmId returns a boolean if a field has been set.
+func (o *V0GetNormQueryBidsItem) HasNmId() bool {
+	if o != nil && !IsNil(o.NmId) {
+		return true
+	}
+
+	return false
+}
+
+// SetNmId gets a reference to the given int32 and assigns it to the NmId field.
 func (o *V0GetNormQueryBidsItem) SetNmId(v int32) {
-	o.NmId = v
+	o.NmId = &v
 }
 
-// GetNormQuery returns the NormQuery field value
+// GetNormQuery returns the NormQuery field value if set, zero value otherwise.
 func (o *V0GetNormQueryBidsItem) GetNormQuery() string {
-	if o == nil {
+	if o == nil || IsNil(o.NormQuery) {
 		var ret string
 		return ret
 	}
-
-	return o.NormQuery
+	return *o.NormQuery
 }
 
-// GetNormQueryOk returns a tuple with the NormQuery field value
+// GetNormQueryOk returns a tuple with the NormQuery field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *V0GetNormQueryBidsItem) GetNormQueryOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.NormQuery) {
 		return nil, false
 	}
-	return &o.NormQuery, true
+	return o.NormQuery, true
 }
 
-// SetNormQuery sets field value
+// HasNormQuery returns a boolean if a field has been set.
+func (o *V0GetNormQueryBidsItem) HasNormQuery() bool {
+	if o != nil && !IsNil(o.NormQuery) {
+		return true
+	}
+
+	return false
+}
+
+// SetNormQuery gets a reference to the given string and assigns it to the NormQuery field.
 func (o *V0GetNormQueryBidsItem) SetNormQuery(v string) {
-	o.NormQuery = v
+	o.NormQuery = &v
 }
 
-// GetBid returns the Bid field value
+// GetBid returns the Bid field value if set, zero value otherwise.
 func (o *V0GetNormQueryBidsItem) GetBid() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.Bid) {
 		var ret int32
 		return ret
 	}
-
-	return o.Bid
+	return *o.Bid
 }
 
-// GetBidOk returns a tuple with the Bid field value
+// GetBidOk returns a tuple with the Bid field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *V0GetNormQueryBidsItem) GetBidOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Bid) {
 		return nil, false
 	}
-	return &o.Bid, true
+	return o.Bid, true
 }
 
-// SetBid sets field value
+// HasBid returns a boolean if a field has been set.
+func (o *V0GetNormQueryBidsItem) HasBid() bool {
+	if o != nil && !IsNil(o.Bid) {
+		return true
+	}
+
+	return false
+}
+
+// SetBid gets a reference to the given int32 and assigns it to the Bid field.
 func (o *V0GetNormQueryBidsItem) SetBid(v int32) {
-	o.Bid = v
+	o.Bid = &v
 }
 
-// GetBidKopecks returns the BidKopecks field value
+// GetBidKopecks returns the BidKopecks field value if set, zero value otherwise.
 func (o *V0GetNormQueryBidsItem) GetBidKopecks() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.BidKopecks) {
 		var ret int32
 		return ret
 	}
-
-	return o.BidKopecks
+	return *o.BidKopecks
 }
 
-// GetBidKopecksOk returns a tuple with the BidKopecks field value
+// GetBidKopecksOk returns a tuple with the BidKopecks field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *V0GetNormQueryBidsItem) GetBidKopecksOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.BidKopecks) {
 		return nil, false
 	}
-	return &o.BidKopecks, true
+	return o.BidKopecks, true
 }
 
-// SetBidKopecks sets field value
+// HasBidKopecks returns a boolean if a field has been set.
+func (o *V0GetNormQueryBidsItem) HasBidKopecks() bool {
+	if o != nil && !IsNil(o.BidKopecks) {
+		return true
+	}
+
+	return false
+}
+
+// SetBidKopecks gets a reference to the given int32 and assigns it to the BidKopecks field.
 func (o *V0GetNormQueryBidsItem) SetBidKopecks(v int32) {
-	o.BidKopecks = v
+	o.BidKopecks = &v
 }
 
-// GetCurrency returns the Currency field value
+// GetCurrency returns the Currency field value if set, zero value otherwise.
 func (o *V0GetNormQueryBidsItem) GetCurrency() string {
-	if o == nil {
+	if o == nil || IsNil(o.Currency) {
 		var ret string
 		return ret
 	}
-
-	return o.Currency
+	return *o.Currency
 }
 
-// GetCurrencyOk returns a tuple with the Currency field value
+// GetCurrencyOk returns a tuple with the Currency field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *V0GetNormQueryBidsItem) GetCurrencyOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Currency) {
 		return nil, false
 	}
-	return &o.Currency, true
+	return o.Currency, true
 }
 
-// SetCurrency sets field value
+// HasCurrency returns a boolean if a field has been set.
+func (o *V0GetNormQueryBidsItem) HasCurrency() bool {
+	if o != nil && !IsNil(o.Currency) {
+		return true
+	}
+
+	return false
+}
+
+// SetCurrency gets a reference to the given string and assigns it to the Currency field.
 func (o *V0GetNormQueryBidsItem) SetCurrency(v string) {
-	o.Currency = v
+	o.Currency = &v
 }
 
 func (o V0GetNormQueryBidsItem) MarshalJSON() ([]byte, error) {
@@ -214,55 +252,25 @@ func (o V0GetNormQueryBidsItem) MarshalJSON() ([]byte, error) {
 
 func (o V0GetNormQueryBidsItem) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["advert_id"] = o.AdvertId
-	toSerialize["nm_id"] = o.NmId
-	toSerialize["norm_query"] = o.NormQuery
-	toSerialize["bid"] = o.Bid
-	toSerialize["bid_kopecks"] = o.BidKopecks
-	toSerialize["currency"] = o.Currency
+	if !IsNil(o.AdvertId) {
+		toSerialize["advert_id"] = o.AdvertId
+	}
+	if !IsNil(o.NmId) {
+		toSerialize["nm_id"] = o.NmId
+	}
+	if !IsNil(o.NormQuery) {
+		toSerialize["norm_query"] = o.NormQuery
+	}
+	if !IsNil(o.Bid) {
+		toSerialize["bid"] = o.Bid
+	}
+	if !IsNil(o.BidKopecks) {
+		toSerialize["bid_kopecks"] = o.BidKopecks
+	}
+	if !IsNil(o.Currency) {
+		toSerialize["currency"] = o.Currency
+	}
 	return toSerialize, nil
-}
-
-func (o *V0GetNormQueryBidsItem) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"advert_id",
-		"nm_id",
-		"norm_query",
-		"bid",
-		"bid_kopecks",
-		"currency",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varV0GetNormQueryBidsItem := _V0GetNormQueryBidsItem{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varV0GetNormQueryBidsItem)
-
-	if err != nil {
-		return err
-	}
-
-	*o = V0GetNormQueryBidsItem(varV0GetNormQueryBidsItem)
-
-	return err
 }
 
 type NullableV0GetNormQueryBidsItem struct {

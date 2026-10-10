@@ -36,12 +36,12 @@ public class ModelsDraftCreateResponse {
   public static final String SERIALIZED_NAME_DRAFT_ID = "draftId";
 
   @SerializedName(SERIALIZED_NAME_DRAFT_ID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String draftId;
 
   public ModelsDraftCreateResponse() {}
 
-  public ModelsDraftCreateResponse draftId(@jakarta.annotation.Nonnull String draftId) {
+  public ModelsDraftCreateResponse draftId(@jakarta.annotation.Nullable String draftId) {
     this.draftId = draftId;
     return this;
   }
@@ -51,12 +51,12 @@ public class ModelsDraftCreateResponse {
    *
    * @return draftId
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getDraftId() {
     return draftId;
   }
 
-  public void setDraftId(@jakarta.annotation.Nonnull String draftId) {
+  public void setDraftId(@jakarta.annotation.Nullable String draftId) {
     this.draftId = draftId;
   }
 
@@ -106,7 +106,6 @@ public class ModelsDraftCreateResponse {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("draftId");
   }
 
   /**
@@ -136,18 +135,9 @@ public class ModelsDraftCreateResponse {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : ModelsDraftCreateResponse.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    if (!jsonObj.get("draftId").isJsonPrimitive()) {
+    if ((jsonObj.get("draftId") != null && !jsonObj.get("draftId").isJsonNull())
+        && !jsonObj.get("draftId").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `draftId` to be a primitive type in the JSON string but got `%s`",

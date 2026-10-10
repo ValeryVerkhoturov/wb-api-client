@@ -32,10 +32,12 @@ class TableSizeResponseSizesInner(BaseModel):
     TableSizeResponseSizesInner
     """  # noqa: E501
 
-    name: StrictStr = Field(description="Название размера")
-    chrt_id: StrictInt = Field(description="ID размера", alias="chrtID")
+    name: Optional[StrictStr] = Field(default=None, description="Название размера")
+    chrt_id: Optional[StrictInt] = Field(
+        default=None, description="ID размера", alias="chrtID"
+    )
     offices: Optional[List[TableOfficeItem]] = Field(default=None, description="Склады")
-    metrics: TableSizeResponseSizesInnerMetrics
+    metrics: Optional[TableSizeResponseSizesInnerMetrics] = None
     __properties: ClassVar[List[str]] = ["name", "chrtID", "offices", "metrics"]
 
     model_config = ConfigDict(

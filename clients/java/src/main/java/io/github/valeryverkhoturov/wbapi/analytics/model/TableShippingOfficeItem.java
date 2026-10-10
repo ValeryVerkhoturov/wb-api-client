@@ -39,24 +39,24 @@ public class TableShippingOfficeItem {
   public static final String SERIALIZED_NAME_REGION_NAME = "regionName";
 
   @SerializedName(SERIALIZED_NAME_REGION_NAME)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String regionName;
 
   public static final String SERIALIZED_NAME_METRICS = "metrics";
 
   @SerializedName(SERIALIZED_NAME_METRICS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private TableShippingOfficeMetrics metrics;
 
   public static final String SERIALIZED_NAME_OFFICES = "offices";
 
   @SerializedName(SERIALIZED_NAME_OFFICES)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private List<TableShippingOfficeItemOfficesInner> offices = new ArrayList<>();
 
   public TableShippingOfficeItem() {}
 
-  public TableShippingOfficeItem regionName(@jakarta.annotation.Nonnull String regionName) {
+  public TableShippingOfficeItem regionName(@jakarta.annotation.Nullable String regionName) {
     this.regionName = regionName;
     return this;
   }
@@ -67,17 +67,17 @@ public class TableShippingOfficeItem {
    *
    * @return regionName
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getRegionName() {
     return regionName;
   }
 
-  public void setRegionName(@jakarta.annotation.Nonnull String regionName) {
+  public void setRegionName(@jakarta.annotation.Nullable String regionName) {
     this.regionName = regionName;
   }
 
   public TableShippingOfficeItem metrics(
-      @jakarta.annotation.Nonnull TableShippingOfficeMetrics metrics) {
+      @jakarta.annotation.Nullable TableShippingOfficeMetrics metrics) {
     this.metrics = metrics;
     return this;
   }
@@ -87,17 +87,17 @@ public class TableShippingOfficeItem {
    *
    * @return metrics
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public TableShippingOfficeMetrics getMetrics() {
     return metrics;
   }
 
-  public void setMetrics(@jakarta.annotation.Nonnull TableShippingOfficeMetrics metrics) {
+  public void setMetrics(@jakarta.annotation.Nullable TableShippingOfficeMetrics metrics) {
     this.metrics = metrics;
   }
 
   public TableShippingOfficeItem offices(
-      @jakarta.annotation.Nonnull List<TableShippingOfficeItemOfficesInner> offices) {
+      @jakarta.annotation.Nullable List<TableShippingOfficeItemOfficesInner> offices) {
     this.offices = offices;
     return this;
   }
@@ -116,13 +116,13 @@ public class TableShippingOfficeItem {
    *
    * @return offices
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public List<TableShippingOfficeItemOfficesInner> getOffices() {
     return offices;
   }
 
   public void setOffices(
-      @jakarta.annotation.Nonnull List<TableShippingOfficeItemOfficesInner> offices) {
+      @jakarta.annotation.Nullable List<TableShippingOfficeItemOfficesInner> offices) {
     this.offices = offices;
   }
 
@@ -178,9 +178,6 @@ public class TableShippingOfficeItem {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("regionName");
-    openapiRequiredFields.add("metrics");
-    openapiRequiredFields.add("offices");
   }
 
   /**
@@ -210,39 +207,36 @@ public class TableShippingOfficeItem {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : TableShippingOfficeItem.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    if (!jsonObj.get("regionName").isJsonPrimitive()) {
+    if ((jsonObj.get("regionName") != null && !jsonObj.get("regionName").isJsonNull())
+        && !jsonObj.get("regionName").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `regionName` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("regionName").toString()));
     }
-    // validate the required field `metrics`
-    TableShippingOfficeMetrics.validateJsonElement(jsonObj.get("metrics"));
-    // ensure the json data is an array
-    if (!jsonObj.get("offices").isJsonArray()) {
-      throw new IllegalArgumentException(
-          String.format(
-              "Expected the field `offices` to be an array in the JSON string but got `%s`",
-              jsonObj.get("offices").toString()));
+    // validate the optional field `metrics`
+    if (jsonObj.get("metrics") != null && !jsonObj.get("metrics").isJsonNull()) {
+      TableShippingOfficeMetrics.validateJsonElement(jsonObj.get("metrics"));
     }
+    if (jsonObj.get("offices") != null && !jsonObj.get("offices").isJsonNull()) {
+      JsonArray jsonArrayoffices = jsonObj.getAsJsonArray("offices");
+      if (jsonArrayoffices != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("offices").isJsonArray()) {
+          throw new IllegalArgumentException(
+              String.format(
+                  "Expected the field `offices` to be an array in the JSON string but got `%s`",
+                  jsonObj.get("offices").toString()));
+        }
 
-    JsonArray jsonArrayoffices = jsonObj.getAsJsonArray("offices");
-    // validate the required field `offices` (array)
-    for (int i = 0; i < jsonArrayoffices.size(); i++) {
-      TableShippingOfficeItemOfficesInner.validateJsonElement(jsonArrayoffices.get(i));
+        // validate the optional field `offices` (array)
+        for (int i = 0; i < jsonArrayoffices.size(); i++) {
+          TableShippingOfficeItemOfficesInner.validateJsonElement(jsonArrayoffices.get(i));
+        }
+        ;
+      }
     }
-    ;
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

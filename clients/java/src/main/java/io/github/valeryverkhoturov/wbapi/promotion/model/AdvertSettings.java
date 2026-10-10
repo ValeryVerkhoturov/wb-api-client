@@ -36,24 +36,24 @@ public class AdvertSettings {
   public static final String SERIALIZED_NAME_PAYMENT_TYPE = "payment_type";
 
   @SerializedName(SERIALIZED_NAME_PAYMENT_TYPE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String paymentType;
 
   public static final String SERIALIZED_NAME_NAME = "name";
 
   @SerializedName(SERIALIZED_NAME_NAME)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String name;
 
   public static final String SERIALIZED_NAME_PLACEMENTS = "placements";
 
   @SerializedName(SERIALIZED_NAME_PLACEMENTS)
-  @jakarta.annotation.Nonnull
-  private PutV0AuctionPlacementsRequestPlacementsInnerPlacements placements;
+  @jakarta.annotation.Nullable
+  private AdvertSettingsPlacements placements;
 
   public AdvertSettings() {}
 
-  public AdvertSettings paymentType(@jakarta.annotation.Nonnull String paymentType) {
+  public AdvertSettings paymentType(@jakarta.annotation.Nullable String paymentType) {
     this.paymentType = paymentType;
     return this;
   }
@@ -63,16 +63,16 @@ public class AdvertSettings {
    *
    * @return paymentType
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getPaymentType() {
     return paymentType;
   }
 
-  public void setPaymentType(@jakarta.annotation.Nonnull String paymentType) {
+  public void setPaymentType(@jakarta.annotation.Nullable String paymentType) {
     this.paymentType = paymentType;
   }
 
-  public AdvertSettings name(@jakarta.annotation.Nonnull String name) {
+  public AdvertSettings name(@jakarta.annotation.Nullable String name) {
     this.name = name;
     return this;
   }
@@ -82,18 +82,17 @@ public class AdvertSettings {
    *
    * @return name
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getName() {
     return name;
   }
 
-  public void setName(@jakarta.annotation.Nonnull String name) {
+  public void setName(@jakarta.annotation.Nullable String name) {
     this.name = name;
   }
 
   public AdvertSettings placements(
-      @jakarta.annotation.Nonnull
-          PutV0AuctionPlacementsRequestPlacementsInnerPlacements placements) {
+      @jakarta.annotation.Nullable AdvertSettingsPlacements placements) {
     this.placements = placements;
     return this;
   }
@@ -103,14 +102,12 @@ public class AdvertSettings {
    *
    * @return placements
    */
-  @jakarta.annotation.Nonnull
-  public PutV0AuctionPlacementsRequestPlacementsInnerPlacements getPlacements() {
+  @jakarta.annotation.Nullable
+  public AdvertSettingsPlacements getPlacements() {
     return placements;
   }
 
-  public void setPlacements(
-      @jakarta.annotation.Nonnull
-          PutV0AuctionPlacementsRequestPlacementsInnerPlacements placements) {
+  public void setPlacements(@jakarta.annotation.Nullable AdvertSettingsPlacements placements) {
     this.placements = placements;
   }
 
@@ -166,9 +163,6 @@ public class AdvertSettings {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("payment_type");
-    openapiRequiredFields.add("name");
-    openapiRequiredFields.add("placements");
   }
 
   /**
@@ -198,32 +192,25 @@ public class AdvertSettings {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : AdvertSettings.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    if (!jsonObj.get("payment_type").isJsonPrimitive()) {
+    if ((jsonObj.get("payment_type") != null && !jsonObj.get("payment_type").isJsonNull())
+        && !jsonObj.get("payment_type").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `payment_type` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("payment_type").toString()));
     }
-    if (!jsonObj.get("name").isJsonPrimitive()) {
+    if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull())
+        && !jsonObj.get("name").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `name` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("name").toString()));
     }
-    // validate the required field `placements`
-    PutV0AuctionPlacementsRequestPlacementsInnerPlacements.validateJsonElement(
-        jsonObj.get("placements"));
+    // validate the optional field `placements`
+    if (jsonObj.get("placements") != null && !jsonObj.get("placements").isJsonNull()) {
+      AdvertSettingsPlacements.validateJsonElement(jsonObj.get("placements"));
+    }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

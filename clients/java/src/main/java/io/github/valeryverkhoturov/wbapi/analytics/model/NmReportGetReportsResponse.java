@@ -39,13 +39,13 @@ public class NmReportGetReportsResponse {
   public static final String SERIALIZED_NAME_DATA = "data";
 
   @SerializedName(SERIALIZED_NAME_DATA)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private List<NmReportGetReportsResponseDataInner> data = new ArrayList<>();
 
   public NmReportGetReportsResponse() {}
 
   public NmReportGetReportsResponse data(
-      @jakarta.annotation.Nonnull List<NmReportGetReportsResponseDataInner> data) {
+      @jakarta.annotation.Nullable List<NmReportGetReportsResponseDataInner> data) {
     this.data = data;
     return this;
   }
@@ -63,12 +63,12 @@ public class NmReportGetReportsResponse {
    *
    * @return data
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public List<NmReportGetReportsResponseDataInner> getData() {
     return data;
   }
 
-  public void setData(@jakarta.annotation.Nonnull List<NmReportGetReportsResponseDataInner> data) {
+  public void setData(@jakarta.annotation.Nullable List<NmReportGetReportsResponseDataInner> data) {
     this.data = data;
   }
 
@@ -118,7 +118,6 @@ public class NmReportGetReportsResponse {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("data");
   }
 
   /**
@@ -148,31 +147,25 @@ public class NmReportGetReportsResponse {
                 entry.getKey(), jsonElement.toString()));
       }
     }
+    JsonObject jsonObj = jsonElement.getAsJsonObject();
+    if (jsonObj.get("data") != null && !jsonObj.get("data").isJsonNull()) {
+      JsonArray jsonArraydata = jsonObj.getAsJsonArray("data");
+      if (jsonArraydata != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("data").isJsonArray()) {
+          throw new IllegalArgumentException(
+              String.format(
+                  "Expected the field `data` to be an array in the JSON string but got `%s`",
+                  jsonObj.get("data").toString()));
+        }
 
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : NmReportGetReportsResponse.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
+        // validate the optional field `data` (array)
+        for (int i = 0; i < jsonArraydata.size(); i++) {
+          NmReportGetReportsResponseDataInner.validateJsonElement(jsonArraydata.get(i));
+        }
+        ;
       }
     }
-    JsonObject jsonObj = jsonElement.getAsJsonObject();
-    // ensure the json data is an array
-    if (!jsonObj.get("data").isJsonArray()) {
-      throw new IllegalArgumentException(
-          String.format(
-              "Expected the field `data` to be an array in the JSON string but got `%s`",
-              jsonObj.get("data").toString()));
-    }
-
-    JsonArray jsonArraydata = jsonObj.getAsJsonArray("data");
-    // validate the required field `data` (array)
-    for (int i = 0; i < jsonArraydata.size(); i++) {
-      NmReportGetReportsResponseDataInner.validateJsonElement(jsonArraydata.get(i));
-    }
-    ;
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

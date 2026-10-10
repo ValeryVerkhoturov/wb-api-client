@@ -11,9 +11,7 @@ API version: analytics
 package analytics
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the VisibilityInfoVisibility type satisfies the MappedNullable interface at compile time
@@ -22,20 +20,17 @@ var _ MappedNullable = &VisibilityInfoVisibility{}
 // VisibilityInfoVisibility Видимость — процент вероятности, что пользователь увидит карточку товара. Зависит от средней позиции
 type VisibilityInfoVisibility struct {
 	// Видимость в текущий период
-	Current int32 `json:"current"`
+	Current *int32 `json:"current,omitempty"`
 	// Динамика по сравнению с предыдущим периодом, %
 	Dynamics *int32 `json:"dynamics,omitempty"`
 }
-
-type _VisibilityInfoVisibility VisibilityInfoVisibility
 
 // NewVisibilityInfoVisibility instantiates a new VisibilityInfoVisibility object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewVisibilityInfoVisibility(current int32) *VisibilityInfoVisibility {
+func NewVisibilityInfoVisibility() *VisibilityInfoVisibility {
 	this := VisibilityInfoVisibility{}
-	this.Current = current
 	return &this
 }
 
@@ -47,28 +42,36 @@ func NewVisibilityInfoVisibilityWithDefaults() *VisibilityInfoVisibility {
 	return &this
 }
 
-// GetCurrent returns the Current field value
+// GetCurrent returns the Current field value if set, zero value otherwise.
 func (o *VisibilityInfoVisibility) GetCurrent() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.Current) {
 		var ret int32
 		return ret
 	}
-
-	return o.Current
+	return *o.Current
 }
 
-// GetCurrentOk returns a tuple with the Current field value
+// GetCurrentOk returns a tuple with the Current field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VisibilityInfoVisibility) GetCurrentOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Current) {
 		return nil, false
 	}
-	return &o.Current, true
+	return o.Current, true
 }
 
-// SetCurrent sets field value
+// HasCurrent returns a boolean if a field has been set.
+func (o *VisibilityInfoVisibility) HasCurrent() bool {
+	if o != nil && !IsNil(o.Current) {
+		return true
+	}
+
+	return false
+}
+
+// SetCurrent gets a reference to the given int32 and assigns it to the Current field.
 func (o *VisibilityInfoVisibility) SetCurrent(v int32) {
-	o.Current = v
+	o.Current = &v
 }
 
 // GetDynamics returns the Dynamics field value if set, zero value otherwise.
@@ -113,48 +116,13 @@ func (o VisibilityInfoVisibility) MarshalJSON() ([]byte, error) {
 
 func (o VisibilityInfoVisibility) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["current"] = o.Current
+	if !IsNil(o.Current) {
+		toSerialize["current"] = o.Current
+	}
 	if !IsNil(o.Dynamics) {
 		toSerialize["dynamics"] = o.Dynamics
 	}
 	return toSerialize, nil
-}
-
-func (o *VisibilityInfoVisibility) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"current",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varVisibilityInfoVisibility := _VisibilityInfoVisibility{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varVisibilityInfoVisibility)
-
-	if err != nil {
-		return err
-	}
-
-	*o = VisibilityInfoVisibility(varVisibilityInfoVisibility)
-
-	return err
 }
 
 type NullableVisibilityInfoVisibility struct {

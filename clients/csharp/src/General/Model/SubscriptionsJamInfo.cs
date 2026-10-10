@@ -59,8 +59,8 @@ namespace ValeryVerkhoturov.WbApiClient.General.Model
         /*
         <example>active</example>
         */
-        [DataMember(Name = "state", IsRequired = true, EmitDefaultValue = true)]
-        public StateEnum State { get; set; }
+        [DataMember(Name = "state", EmitDefaultValue = false)]
+        public StateEnum? State { get; set; }
         /// <summary>
         /// Источник подключения подписки:   - &#x60;constructor&#x60; — покупка через раздел **Конструктор тарифов**   - &#x60;jam&#x60; — покупка через раздел **Подписка «Джем»** 
         /// </summary>
@@ -89,8 +89,8 @@ namespace ValeryVerkhoturov.WbApiClient.General.Model
         /*
         <example>jam</example>
         */
-        [DataMember(Name = "activationSource", IsRequired = true, EmitDefaultValue = true)]
-        public ActivationSourceEnum ActivationSource { get; set; }
+        [DataMember(Name = "activationSource", EmitDefaultValue = false)]
+        public ActivationSourceEnum? ActivationSource { get; set; }
         /// <summary>
         /// Уровень подписки:   - &#x60;standard&#x60;   - &#x60;advanced&#x60;   - &#x60;premium&#x60; 
         /// </summary>
@@ -125,37 +125,22 @@ namespace ValeryVerkhoturov.WbApiClient.General.Model
         /*
         <example>premium</example>
         */
-        [DataMember(Name = "level", IsRequired = true, EmitDefaultValue = true)]
-        public LevelEnum Level { get; set; }
+        [DataMember(Name = "level", EmitDefaultValue = false)]
+        public LevelEnum? Level { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="SubscriptionsJamInfo" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected SubscriptionsJamInfo() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="SubscriptionsJamInfo" /> class.
-        /// </summary>
-        /// <param name="state">Статус подписки:   - &#x60;active&#x60; — активна   - &#x60;inactive&#x60; — истекла или отменена  (required).</param>
-        /// <param name="activationSource">Источник подключения подписки:   - &#x60;constructor&#x60; — покупка через раздел **Конструктор тарифов**   - &#x60;jam&#x60; — покупка через раздел **Подписка «Джем»**  (required).</param>
-        /// <param name="level">Уровень подписки:   - &#x60;standard&#x60;   - &#x60;advanced&#x60;   - &#x60;premium&#x60;  (required).</param>
-        /// <param name="since">Дата и время первой активации подписки. Не меняется при продлении или повторной активации (required).</param>
-        /// <param name="till">Дата и время окончания подписки (required).</param>
-        public SubscriptionsJamInfo(StateEnum state = default(StateEnum), ActivationSourceEnum activationSource = default(ActivationSourceEnum), LevelEnum level = default(LevelEnum), string since = default(string), string till = default(string))
+        /// <param name="state">Статус подписки:   - &#x60;active&#x60; — активна   - &#x60;inactive&#x60; — истекла или отменена .</param>
+        /// <param name="activationSource">Источник подключения подписки:   - &#x60;constructor&#x60; — покупка через раздел **Конструктор тарифов**   - &#x60;jam&#x60; — покупка через раздел **Подписка «Джем»** .</param>
+        /// <param name="level">Уровень подписки:   - &#x60;standard&#x60;   - &#x60;advanced&#x60;   - &#x60;premium&#x60; .</param>
+        /// <param name="since">Дата и время первой активации подписки. Не меняется при продлении или повторной активации.</param>
+        /// <param name="till">Дата и время окончания подписки.</param>
+        public SubscriptionsJamInfo(StateEnum? state = default(StateEnum?), ActivationSourceEnum? activationSource = default(ActivationSourceEnum?), LevelEnum? level = default(LevelEnum?), string since = default(string), string till = default(string))
         {
             this.State = state;
             this.ActivationSource = activationSource;
             this.Level = level;
-            // to ensure "since" is required (not null)
-            if (since == null)
-            {
-                throw new ArgumentNullException("since is a required property for SubscriptionsJamInfo and cannot be null");
-            }
             this.Since = since;
-            // to ensure "till" is required (not null)
-            if (till == null)
-            {
-                throw new ArgumentNullException("till is a required property for SubscriptionsJamInfo and cannot be null");
-            }
             this.Till = till;
         }
 
@@ -166,7 +151,7 @@ namespace ValeryVerkhoturov.WbApiClient.General.Model
         /*
         <example>2026-03-16T08:38:08.056406Z</example>
         */
-        [DataMember(Name = "since", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "since", EmitDefaultValue = false)]
         public string Since { get; set; }
 
         /// <summary>
@@ -176,7 +161,7 @@ namespace ValeryVerkhoturov.WbApiClient.General.Model
         /*
         <example>2026-04-25T14:44:28.393587Z</example>
         */
-        [DataMember(Name = "till", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "till", EmitDefaultValue = false)]
         public string Till { get; set; }
 
         /// <summary>

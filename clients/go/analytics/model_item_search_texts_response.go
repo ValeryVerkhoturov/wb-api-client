@@ -11,9 +11,7 @@ API version: analytics
 package analytics
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the ItemSearchTextsResponse type satisfies the MappedNullable interface at compile time
@@ -22,21 +20,17 @@ var _ MappedNullable = &ItemSearchTextsResponse{}
 // ItemSearchTextsResponse struct for ItemSearchTextsResponse
 type ItemSearchTextsResponse struct {
 	// Элементы таблицы
-	Items []TableSearchTextItem `json:"items"`
+	Items []TableSearchTextItem `json:"items,omitempty"`
 	// Валюта отчёта
-	Currency string `json:"currency"`
+	Currency *string `json:"currency,omitempty"`
 }
-
-type _ItemSearchTextsResponse ItemSearchTextsResponse
 
 // NewItemSearchTextsResponse instantiates a new ItemSearchTextsResponse object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewItemSearchTextsResponse(items []TableSearchTextItem, currency string) *ItemSearchTextsResponse {
+func NewItemSearchTextsResponse() *ItemSearchTextsResponse {
 	this := ItemSearchTextsResponse{}
-	this.Items = items
-	this.Currency = currency
 	return &this
 }
 
@@ -48,52 +42,68 @@ func NewItemSearchTextsResponseWithDefaults() *ItemSearchTextsResponse {
 	return &this
 }
 
-// GetItems returns the Items field value
+// GetItems returns the Items field value if set, zero value otherwise.
 func (o *ItemSearchTextsResponse) GetItems() []TableSearchTextItem {
-	if o == nil {
+	if o == nil || IsNil(o.Items) {
 		var ret []TableSearchTextItem
 		return ret
 	}
-
 	return o.Items
 }
 
-// GetItemsOk returns a tuple with the Items field value
+// GetItemsOk returns a tuple with the Items field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ItemSearchTextsResponse) GetItemsOk() ([]TableSearchTextItem, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Items) {
 		return nil, false
 	}
 	return o.Items, true
 }
 
-// SetItems sets field value
+// HasItems returns a boolean if a field has been set.
+func (o *ItemSearchTextsResponse) HasItems() bool {
+	if o != nil && !IsNil(o.Items) {
+		return true
+	}
+
+	return false
+}
+
+// SetItems gets a reference to the given []TableSearchTextItem and assigns it to the Items field.
 func (o *ItemSearchTextsResponse) SetItems(v []TableSearchTextItem) {
 	o.Items = v
 }
 
-// GetCurrency returns the Currency field value
+// GetCurrency returns the Currency field value if set, zero value otherwise.
 func (o *ItemSearchTextsResponse) GetCurrency() string {
-	if o == nil {
+	if o == nil || IsNil(o.Currency) {
 		var ret string
 		return ret
 	}
-
-	return o.Currency
+	return *o.Currency
 }
 
-// GetCurrencyOk returns a tuple with the Currency field value
+// GetCurrencyOk returns a tuple with the Currency field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ItemSearchTextsResponse) GetCurrencyOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Currency) {
 		return nil, false
 	}
-	return &o.Currency, true
+	return o.Currency, true
 }
 
-// SetCurrency sets field value
+// HasCurrency returns a boolean if a field has been set.
+func (o *ItemSearchTextsResponse) HasCurrency() bool {
+	if o != nil && !IsNil(o.Currency) {
+		return true
+	}
+
+	return false
+}
+
+// SetCurrency gets a reference to the given string and assigns it to the Currency field.
 func (o *ItemSearchTextsResponse) SetCurrency(v string) {
-	o.Currency = v
+	o.Currency = &v
 }
 
 func (o ItemSearchTextsResponse) MarshalJSON() ([]byte, error) {
@@ -106,47 +116,13 @@ func (o ItemSearchTextsResponse) MarshalJSON() ([]byte, error) {
 
 func (o ItemSearchTextsResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["items"] = o.Items
-	toSerialize["currency"] = o.Currency
+	if !IsNil(o.Items) {
+		toSerialize["items"] = o.Items
+	}
+	if !IsNil(o.Currency) {
+		toSerialize["currency"] = o.Currency
+	}
 	return toSerialize, nil
-}
-
-func (o *ItemSearchTextsResponse) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"items",
-		"currency",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varItemSearchTextsResponse := _ItemSearchTextsResponse{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varItemSearchTextsResponse)
-
-	if err != nil {
-		return err
-	}
-
-	*o = ItemSearchTextsResponse(varItemSearchTextsResponse)
-
-	return err
 }
 
 type NullableItemSearchTextsResponse struct {

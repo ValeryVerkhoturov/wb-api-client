@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,9 +28,9 @@ class ApiOrdersErrorResponse(BaseModel):
     ApiOrdersErrorResponse
     """  # noqa: E501
 
-    code: StrictInt = Field(description="Код ошибки")
-    detail: StrictStr = Field(
-        description="- `NotFound` — сборочное задание не найдено "
+    code: Optional[StrictInt] = Field(default=None, description="Код ошибки")
+    detail: Optional[StrictStr] = Field(
+        default=None, description="- `NotFound` — сборочное задание не найдено "
     )
     __properties: ClassVar[List[str]] = ["code", "detail"]
 

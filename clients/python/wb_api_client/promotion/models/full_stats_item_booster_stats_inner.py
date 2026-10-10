@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,11 +28,13 @@ class FullStatsItemBoosterStatsInner(BaseModel):
     FullStatsItemBoosterStatsInner
     """  # noqa: E501
 
-    avg_position: StrictInt = Field(description="Средняя позиция товара")
-    var_date: StrictStr = Field(
-        description="Дата, за которую предоставлены данные", alias="date"
+    avg_position: Optional[StrictInt] = Field(
+        default=None, description="Средняя позиция товара"
     )
-    nm: StrictInt = Field(description="Артикул WB")
+    var_date: Optional[StrictStr] = Field(
+        default=None, description="Дата, за которую предоставлены данные", alias="date"
+    )
+    nm: Optional[StrictInt] = Field(default=None, description="Артикул WB")
     __properties: ClassVar[List[str]] = ["avg_position", "date", "nm"]
 
     model_config = ConfigDict(

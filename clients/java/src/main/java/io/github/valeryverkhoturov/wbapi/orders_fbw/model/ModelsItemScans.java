@@ -37,19 +37,19 @@ public class ModelsItemScans {
   public static final String SERIALIZED_NAME_SCAN_ID = "scanId";
 
   @SerializedName(SERIALIZED_NAME_SCAN_ID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer scanId;
 
   public static final String SERIALIZED_NAME_DECLARED_SKU = "declaredSku";
 
   @SerializedName(SERIALIZED_NAME_DECLARED_SKU)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String declaredSku;
 
   public static final String SERIALIZED_NAME_SCAN_TIME = "scanTime";
 
   @SerializedName(SERIALIZED_NAME_SCAN_TIME)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String scanTime;
 
   /**
@@ -112,18 +112,18 @@ public class ModelsItemScans {
   public static final String SERIALIZED_NAME_DISCREPANCY_LABEL = "discrepancyLabel";
 
   @SerializedName(SERIALIZED_NAME_DISCREPANCY_LABEL)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private DiscrepancyLabelEnum discrepancyLabel;
 
   public static final String SERIALIZED_NAME_ACTUAL_SKU = "actualSku";
 
   @SerializedName(SERIALIZED_NAME_ACTUAL_SKU)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String actualSku;
 
   public ModelsItemScans() {}
 
-  public ModelsItemScans scanId(@jakarta.annotation.Nonnull Integer scanId) {
+  public ModelsItemScans scanId(@jakarta.annotation.Nullable Integer scanId) {
     this.scanId = scanId;
     return this;
   }
@@ -133,16 +133,16 @@ public class ModelsItemScans {
    *
    * @return scanId
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getScanId() {
     return scanId;
   }
 
-  public void setScanId(@jakarta.annotation.Nonnull Integer scanId) {
+  public void setScanId(@jakarta.annotation.Nullable Integer scanId) {
     this.scanId = scanId;
   }
 
-  public ModelsItemScans declaredSku(@jakarta.annotation.Nonnull String declaredSku) {
+  public ModelsItemScans declaredSku(@jakarta.annotation.Nullable String declaredSku) {
     this.declaredSku = declaredSku;
     return this;
   }
@@ -152,16 +152,16 @@ public class ModelsItemScans {
    *
    * @return declaredSku
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getDeclaredSku() {
     return declaredSku;
   }
 
-  public void setDeclaredSku(@jakarta.annotation.Nonnull String declaredSku) {
+  public void setDeclaredSku(@jakarta.annotation.Nullable String declaredSku) {
     this.declaredSku = declaredSku;
   }
 
-  public ModelsItemScans scanTime(@jakarta.annotation.Nonnull String scanTime) {
+  public ModelsItemScans scanTime(@jakarta.annotation.Nullable String scanTime) {
     this.scanTime = scanTime;
     return this;
   }
@@ -171,17 +171,17 @@ public class ModelsItemScans {
    *
    * @return scanTime
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getScanTime() {
     return scanTime;
   }
 
-  public void setScanTime(@jakarta.annotation.Nonnull String scanTime) {
+  public void setScanTime(@jakarta.annotation.Nullable String scanTime) {
     this.scanTime = scanTime;
   }
 
   public ModelsItemScans discrepancyLabel(
-      @jakarta.annotation.Nonnull DiscrepancyLabelEnum discrepancyLabel) {
+      @jakarta.annotation.Nullable DiscrepancyLabelEnum discrepancyLabel) {
     this.discrepancyLabel = discrepancyLabel;
     return this;
   }
@@ -193,17 +193,17 @@ public class ModelsItemScans {
    *
    * @return discrepancyLabel
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public DiscrepancyLabelEnum getDiscrepancyLabel() {
     return discrepancyLabel;
   }
 
   public void setDiscrepancyLabel(
-      @jakarta.annotation.Nonnull DiscrepancyLabelEnum discrepancyLabel) {
+      @jakarta.annotation.Nullable DiscrepancyLabelEnum discrepancyLabel) {
     this.discrepancyLabel = discrepancyLabel;
   }
 
-  public ModelsItemScans actualSku(@jakarta.annotation.Nonnull String actualSku) {
+  public ModelsItemScans actualSku(@jakarta.annotation.Nullable String actualSku) {
     this.actualSku = actualSku;
     return this;
   }
@@ -213,12 +213,12 @@ public class ModelsItemScans {
    *
    * @return actualSku
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getActualSku() {
     return actualSku;
   }
 
-  public void setActualSku(@jakarta.annotation.Nonnull String actualSku) {
+  public void setActualSku(@jakarta.annotation.Nullable String actualSku) {
     this.actualSku = actualSku;
   }
 
@@ -280,11 +280,6 @@ public class ModelsItemScans {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("scanId");
-    openapiRequiredFields.add("declaredSku");
-    openapiRequiredFields.add("scanTime");
-    openapiRequiredFields.add("discrepancyLabel");
-    openapiRequiredFields.add("actualSku");
   }
 
   /**
@@ -314,38 +309,34 @@ public class ModelsItemScans {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : ModelsItemScans.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    if (!jsonObj.get("declaredSku").isJsonPrimitive()) {
+    if ((jsonObj.get("declaredSku") != null && !jsonObj.get("declaredSku").isJsonNull())
+        && !jsonObj.get("declaredSku").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `declaredSku` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("declaredSku").toString()));
     }
-    if (!jsonObj.get("scanTime").isJsonPrimitive()) {
+    if ((jsonObj.get("scanTime") != null && !jsonObj.get("scanTime").isJsonNull())
+        && !jsonObj.get("scanTime").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `scanTime` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("scanTime").toString()));
     }
-    if (!jsonObj.get("discrepancyLabel").isJsonPrimitive()) {
+    if ((jsonObj.get("discrepancyLabel") != null && !jsonObj.get("discrepancyLabel").isJsonNull())
+        && !jsonObj.get("discrepancyLabel").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `discrepancyLabel` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("discrepancyLabel").toString()));
     }
-    // validate the required field `discrepancyLabel`
-    DiscrepancyLabelEnum.validateJsonElement(jsonObj.get("discrepancyLabel"));
-    if (!jsonObj.get("actualSku").isJsonPrimitive()) {
+    // validate the optional field `discrepancyLabel`
+    if (jsonObj.get("discrepancyLabel") != null && !jsonObj.get("discrepancyLabel").isJsonNull()) {
+      DiscrepancyLabelEnum.validateJsonElement(jsonObj.get("discrepancyLabel"));
+    }
+    if ((jsonObj.get("actualSku") != null && !jsonObj.get("actualSku").isJsonNull())
+        && !jsonObj.get("actualSku").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `actualSku` to be a primitive type in the JSON string but got `%s`",

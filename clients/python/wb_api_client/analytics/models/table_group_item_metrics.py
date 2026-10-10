@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from wb_api_client.analytics.models.table_group_item_metrics_add_to_cart import (
     TableGroupItemMetricsAddToCart,
 )
@@ -49,13 +49,21 @@ class TableGroupItemMetrics(BaseModel):
     Метрики товара в таблице
     """  # noqa: E501
 
-    avg_position: TableGroupItemMetricsAvgPosition = Field(alias="avgPosition")
-    open_card: VisibilityInfoOpenCard = Field(alias="openCard")
-    add_to_cart: TableGroupItemMetricsAddToCart = Field(alias="addToCart")
-    open_to_cart: TableGroupItemMetricsOpenToCart = Field(alias="openToCart")
-    orders: TableGroupItemMetricsOrders
-    cart_to_order: TableGroupItemMetricsCartToOrder = Field(alias="cartToOrder")
-    visibility: TableGroupItemMetricsVisibility
+    avg_position: Optional[TableGroupItemMetricsAvgPosition] = Field(
+        default=None, alias="avgPosition"
+    )
+    open_card: Optional[VisibilityInfoOpenCard] = Field(default=None, alias="openCard")
+    add_to_cart: Optional[TableGroupItemMetricsAddToCart] = Field(
+        default=None, alias="addToCart"
+    )
+    open_to_cart: Optional[TableGroupItemMetricsOpenToCart] = Field(
+        default=None, alias="openToCart"
+    )
+    orders: Optional[TableGroupItemMetricsOrders] = None
+    cart_to_order: Optional[TableGroupItemMetricsCartToOrder] = Field(
+        default=None, alias="cartToOrder"
+    )
+    visibility: Optional[TableGroupItemMetricsVisibility] = None
     __properties: ClassVar[List[str]] = [
         "avgPosition",
         "openCard",

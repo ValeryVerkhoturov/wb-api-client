@@ -39,13 +39,13 @@ public class ApiOrdersMetaDetailsResponseOrdersInner {
   public static final String SERIALIZED_NAME_ORDER_ID = "orderId";
 
   @SerializedName(SERIALIZED_NAME_ORDER_ID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer orderId;
 
   public static final String SERIALIZED_NAME_IS_ERROR = "isError";
 
   @SerializedName(SERIALIZED_NAME_IS_ERROR)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Boolean isError;
 
   public static final String SERIALIZED_NAME_ERRORS = "errors";
@@ -57,14 +57,14 @@ public class ApiOrdersMetaDetailsResponseOrdersInner {
   public static final String SERIALIZED_NAME_META_DETAILS = "metaDetails";
 
   @SerializedName(SERIALIZED_NAME_META_DETAILS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private List<ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner> metaDetails =
       new ArrayList<>();
 
   public ApiOrdersMetaDetailsResponseOrdersInner() {}
 
   public ApiOrdersMetaDetailsResponseOrdersInner orderId(
-      @jakarta.annotation.Nonnull Integer orderId) {
+      @jakarta.annotation.Nullable Integer orderId) {
     this.orderId = orderId;
     return this;
   }
@@ -74,17 +74,17 @@ public class ApiOrdersMetaDetailsResponseOrdersInner {
    *
    * @return orderId
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getOrderId() {
     return orderId;
   }
 
-  public void setOrderId(@jakarta.annotation.Nonnull Integer orderId) {
+  public void setOrderId(@jakarta.annotation.Nullable Integer orderId) {
     this.orderId = orderId;
   }
 
   public ApiOrdersMetaDetailsResponseOrdersInner isError(
-      @jakarta.annotation.Nonnull Boolean isError) {
+      @jakarta.annotation.Nullable Boolean isError) {
     this.isError = isError;
     return this;
   }
@@ -94,12 +94,12 @@ public class ApiOrdersMetaDetailsResponseOrdersInner {
    *
    * @return isError
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Boolean getIsError() {
     return isError;
   }
 
-  public void setIsError(@jakarta.annotation.Nonnull Boolean isError) {
+  public void setIsError(@jakarta.annotation.Nullable Boolean isError) {
     this.isError = isError;
   }
 
@@ -136,7 +136,7 @@ public class ApiOrdersMetaDetailsResponseOrdersInner {
   }
 
   public ApiOrdersMetaDetailsResponseOrdersInner metaDetails(
-      @jakarta.annotation.Nonnull
+      @jakarta.annotation.Nullable
           List<ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner> metaDetails) {
     this.metaDetails = metaDetails;
     return this;
@@ -156,13 +156,13 @@ public class ApiOrdersMetaDetailsResponseOrdersInner {
    *
    * @return metaDetails
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public List<ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner> getMetaDetails() {
     return metaDetails;
   }
 
   public void setMetaDetails(
-      @jakarta.annotation.Nonnull
+      @jakarta.annotation.Nullable
           List<ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner> metaDetails) {
     this.metaDetails = metaDetails;
   }
@@ -223,9 +223,6 @@ public class ApiOrdersMetaDetailsResponseOrdersInner {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("orderId");
-    openapiRequiredFields.add("isError");
-    openapiRequiredFields.add("metaDetails");
   }
 
   /**
@@ -256,16 +253,6 @@ public class ApiOrdersMetaDetailsResponseOrdersInner {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : ApiOrdersMetaDetailsResponseOrdersInner.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
     if (jsonObj.get("errors") != null && !jsonObj.get("errors").isJsonNull()) {
       JsonArray jsonArrayerrors = jsonObj.getAsJsonArray("errors");
@@ -286,21 +273,25 @@ public class ApiOrdersMetaDetailsResponseOrdersInner {
         ;
       }
     }
-    // ensure the json data is an array
-    if (!jsonObj.get("metaDetails").isJsonArray()) {
-      throw new IllegalArgumentException(
-          String.format(
-              "Expected the field `metaDetails` to be an array in the JSON string but got `%s`",
-              jsonObj.get("metaDetails").toString()));
-    }
+    if (jsonObj.get("metaDetails") != null && !jsonObj.get("metaDetails").isJsonNull()) {
+      JsonArray jsonArraymetaDetails = jsonObj.getAsJsonArray("metaDetails");
+      if (jsonArraymetaDetails != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("metaDetails").isJsonArray()) {
+          throw new IllegalArgumentException(
+              String.format(
+                  "Expected the field `metaDetails` to be an array in the JSON string but got `%s`",
+                  jsonObj.get("metaDetails").toString()));
+        }
 
-    JsonArray jsonArraymetaDetails = jsonObj.getAsJsonArray("metaDetails");
-    // validate the required field `metaDetails` (array)
-    for (int i = 0; i < jsonArraymetaDetails.size(); i++) {
-      ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner.validateJsonElement(
-          jsonArraymetaDetails.get(i));
+        // validate the optional field `metaDetails` (array)
+        for (int i = 0; i < jsonArraymetaDetails.size(); i++) {
+          ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner.validateJsonElement(
+              jsonArraymetaDetails.get(i));
+        }
+        ;
+      }
     }
-    ;
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

@@ -34,51 +34,21 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TableGroupItemSt" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected TableGroupItemSt() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="TableGroupItemSt" /> class.
-        /// </summary>
-        /// <param name="subjectID">ID предмета (required).</param>
-        /// <param name="subjectName">Название предмета (required).</param>
-        /// <param name="brandName">Бренд (required).</param>
-        /// <param name="tagID">ID ярлыка (required).</param>
-        /// <param name="tagName">Название ярлыка (required).</param>
-        /// <param name="metrics">Метрики группы (required).</param>
-        /// <param name="items">Товары группы (required).</param>
+        /// <param name="subjectID">ID предмета.</param>
+        /// <param name="subjectName">Название предмета.</param>
+        /// <param name="brandName">Бренд.</param>
+        /// <param name="tagID">ID ярлыка.</param>
+        /// <param name="tagName">Название ярлыка.</param>
+        /// <param name="metrics">Метрики группы.</param>
+        /// <param name="items">Товары группы.</param>
         public TableGroupItemSt(int subjectID = default(int), string subjectName = default(string), string brandName = default(string), long tagID = default(long), string tagName = default(string), TableCommonMetrics metrics = default(TableCommonMetrics), List<TableItemItemSt> items = default(List<TableItemItemSt>))
         {
             this.SubjectID = subjectID;
-            // to ensure "subjectName" is required (not null)
-            if (subjectName == null)
-            {
-                throw new ArgumentNullException("subjectName is a required property for TableGroupItemSt and cannot be null");
-            }
             this.SubjectName = subjectName;
-            // to ensure "brandName" is required (not null)
-            if (brandName == null)
-            {
-                throw new ArgumentNullException("brandName is a required property for TableGroupItemSt and cannot be null");
-            }
             this.BrandName = brandName;
             this.TagID = tagID;
-            // to ensure "tagName" is required (not null)
-            if (tagName == null)
-            {
-                throw new ArgumentNullException("tagName is a required property for TableGroupItemSt and cannot be null");
-            }
             this.TagName = tagName;
-            // to ensure "metrics" is required (not null)
-            if (metrics == null)
-            {
-                throw new ArgumentNullException("metrics is a required property for TableGroupItemSt and cannot be null");
-            }
             this.Metrics = metrics;
-            // to ensure "items" is required (not null)
-            if (items == null)
-            {
-                throw new ArgumentNullException("items is a required property for TableGroupItemSt and cannot be null");
-            }
             this.Items = items;
         }
 
@@ -89,7 +59,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>123456789</example>
         */
-        [DataMember(Name = "subjectID", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "subjectID", EmitDefaultValue = false)]
         public int SubjectID { get; set; }
 
         /// <summary>
@@ -99,7 +69,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>Кружка</example>
         */
-        [DataMember(Name = "subjectName", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "subjectName", EmitDefaultValue = false)]
         public string SubjectName { get; set; }
 
         /// <summary>
@@ -109,7 +79,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>Крутая посуда</example>
         */
-        [DataMember(Name = "brandName", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "brandName", EmitDefaultValue = false)]
         public string BrandName { get; set; }
 
         /// <summary>
@@ -119,7 +89,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>12345</example>
         */
-        [DataMember(Name = "tagID", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "tagID", EmitDefaultValue = false)]
         public long TagID { get; set; }
 
         /// <summary>
@@ -129,21 +99,21 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>Человек-Паук</example>
         */
-        [DataMember(Name = "tagName", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "tagName", EmitDefaultValue = false)]
         public string TagName { get; set; }
 
         /// <summary>
         /// Метрики группы
         /// </summary>
         /// <value>Метрики группы</value>
-        [DataMember(Name = "metrics", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "metrics", EmitDefaultValue = false)]
         public TableCommonMetrics Metrics { get; set; }
 
         /// <summary>
         /// Товары группы
         /// </summary>
         /// <value>Товары группы</value>
-        [DataMember(Name = "items", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "items", EmitDefaultValue = false)]
         public List<TableItemItemSt> Items { get; set; }
 
         /// <summary>

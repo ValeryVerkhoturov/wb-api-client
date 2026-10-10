@@ -34,37 +34,22 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TableGroupItem" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected TableGroupItem() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="TableGroupItem" /> class.
-        /// </summary>
         /// <param name="subjectName">Название предмета.</param>
         /// <param name="subjectId">ID предмета.</param>
         /// <param name="brandName">Бренд.</param>
         /// <param name="tagName">Название ярлыка.</param>
         /// <param name="tagId">ID ярлыка.</param>
-        /// <param name="metrics">metrics (required).</param>
-        /// <param name="items">Массив товаров группы (required).</param>
+        /// <param name="metrics">metrics.</param>
+        /// <param name="items">Массив товаров группы.</param>
         public TableGroupItem(string subjectName = default(string), int subjectId = default(int), string brandName = default(string), string tagName = default(string), long tagId = default(long), TableGroupItemMetrics metrics = default(TableGroupItemMetrics), List<TableItemItem> items = default(List<TableItemItem>))
         {
-            // to ensure "metrics" is required (not null)
-            if (metrics == null)
-            {
-                throw new ArgumentNullException("metrics is a required property for TableGroupItem and cannot be null");
-            }
-            this.Metrics = metrics;
-            // to ensure "items" is required (not null)
-            if (items == null)
-            {
-                throw new ArgumentNullException("items is a required property for TableGroupItem and cannot be null");
-            }
-            this.Items = items;
             this.SubjectName = subjectName;
             this.SubjectId = subjectId;
             this.BrandName = brandName;
             this.TagName = tagName;
             this.TagId = tagId;
+            this.Metrics = metrics;
+            this.Items = items;
         }
 
         /// <summary>
@@ -120,14 +105,14 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <summary>
         /// Gets or Sets Metrics
         /// </summary>
-        [DataMember(Name = "metrics", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "metrics", EmitDefaultValue = false)]
         public TableGroupItemMetrics Metrics { get; set; }
 
         /// <summary>
         /// Массив товаров группы
         /// </summary>
         /// <value>Массив товаров группы</value>
-        [DataMember(Name = "items", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "items", EmitDefaultValue = false)]
         public List<TableItemItem> Items { get; set; }
 
         /// <summary>

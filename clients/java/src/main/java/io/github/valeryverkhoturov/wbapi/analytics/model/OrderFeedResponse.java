@@ -39,24 +39,24 @@ public class OrderFeedResponse {
   public static final String SERIALIZED_NAME_SNAPSHOT_TIME = "snapshotTime";
 
   @SerializedName(SERIALIZED_NAME_SNAPSHOT_TIME)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String snapshotTime;
 
   public static final String SERIALIZED_NAME_CURRENCY = "currency";
 
   @SerializedName(SERIALIZED_NAME_CURRENCY)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String currency;
 
   public static final String SERIALIZED_NAME_ORDERS = "orders";
 
   @SerializedName(SERIALIZED_NAME_ORDERS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private List<Order> orders = new ArrayList<>();
 
   public OrderFeedResponse() {}
 
-  public OrderFeedResponse snapshotTime(@jakarta.annotation.Nonnull String snapshotTime) {
+  public OrderFeedResponse snapshotTime(@jakarta.annotation.Nullable String snapshotTime) {
     this.snapshotTime = snapshotTime;
     return this;
   }
@@ -66,16 +66,16 @@ public class OrderFeedResponse {
    *
    * @return snapshotTime
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getSnapshotTime() {
     return snapshotTime;
   }
 
-  public void setSnapshotTime(@jakarta.annotation.Nonnull String snapshotTime) {
+  public void setSnapshotTime(@jakarta.annotation.Nullable String snapshotTime) {
     this.snapshotTime = snapshotTime;
   }
 
-  public OrderFeedResponse currency(@jakarta.annotation.Nonnull String currency) {
+  public OrderFeedResponse currency(@jakarta.annotation.Nullable String currency) {
     this.currency = currency;
     return this;
   }
@@ -85,16 +85,16 @@ public class OrderFeedResponse {
    *
    * @return currency
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getCurrency() {
     return currency;
   }
 
-  public void setCurrency(@jakarta.annotation.Nonnull String currency) {
+  public void setCurrency(@jakarta.annotation.Nullable String currency) {
     this.currency = currency;
   }
 
-  public OrderFeedResponse orders(@jakarta.annotation.Nonnull List<Order> orders) {
+  public OrderFeedResponse orders(@jakarta.annotation.Nullable List<Order> orders) {
     this.orders = orders;
     return this;
   }
@@ -112,12 +112,12 @@ public class OrderFeedResponse {
    *
    * @return orders
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public List<Order> getOrders() {
     return orders;
   }
 
-  public void setOrders(@jakarta.annotation.Nonnull List<Order> orders) {
+  public void setOrders(@jakarta.annotation.Nullable List<Order> orders) {
     this.orders = orders;
   }
 
@@ -173,9 +173,6 @@ public class OrderFeedResponse {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("snapshotTime");
-    openapiRequiredFields.add("currency");
-    openapiRequiredFields.add("orders");
   }
 
   /**
@@ -205,43 +202,39 @@ public class OrderFeedResponse {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : OrderFeedResponse.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    if (!jsonObj.get("snapshotTime").isJsonPrimitive()) {
+    if ((jsonObj.get("snapshotTime") != null && !jsonObj.get("snapshotTime").isJsonNull())
+        && !jsonObj.get("snapshotTime").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `snapshotTime` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("snapshotTime").toString()));
     }
-    if (!jsonObj.get("currency").isJsonPrimitive()) {
+    if ((jsonObj.get("currency") != null && !jsonObj.get("currency").isJsonNull())
+        && !jsonObj.get("currency").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `currency` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("currency").toString()));
     }
-    // ensure the json data is an array
-    if (!jsonObj.get("orders").isJsonArray()) {
-      throw new IllegalArgumentException(
-          String.format(
-              "Expected the field `orders` to be an array in the JSON string but got `%s`",
-              jsonObj.get("orders").toString()));
-    }
+    if (jsonObj.get("orders") != null && !jsonObj.get("orders").isJsonNull()) {
+      JsonArray jsonArrayorders = jsonObj.getAsJsonArray("orders");
+      if (jsonArrayorders != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("orders").isJsonArray()) {
+          throw new IllegalArgumentException(
+              String.format(
+                  "Expected the field `orders` to be an array in the JSON string but got `%s`",
+                  jsonObj.get("orders").toString()));
+        }
 
-    JsonArray jsonArrayorders = jsonObj.getAsJsonArray("orders");
-    // validate the required field `orders` (array)
-    for (int i = 0; i < jsonArrayorders.size(); i++) {
-      Order.validateJsonElement(jsonArrayorders.get(i));
+        // validate the optional field `orders` (array)
+        for (int i = 0; i < jsonArrayorders.size(); i++) {
+          Order.validateJsonElement(jsonArrayorders.get(i));
+        }
+        ;
+      }
     }
-    ;
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

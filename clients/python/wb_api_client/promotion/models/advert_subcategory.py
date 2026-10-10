@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,8 +28,8 @@ class AdvertSubcategory(BaseModel):
     Предмет
     """  # noqa: E501
 
-    id: StrictInt = Field(description="ID предмета")
-    name: StrictStr = Field(description="Название предмета")
+    id: Optional[StrictInt] = Field(default=None, description="ID предмета")
+    name: Optional[StrictStr] = Field(default=None, description="Название предмета")
     __properties: ClassVar[List[str]] = ["id", "name"]
 
     model_config = ConfigDict(

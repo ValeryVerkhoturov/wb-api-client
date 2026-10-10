@@ -34,24 +34,19 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MeasurementPenaltiesDataReportsInner" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected MeasurementPenaltiesDataReportsInner() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="MeasurementPenaltiesDataReportsInner" /> class.
-        /// </summary>
-        /// <param name="nmId">Артикул WB (required).</param>
-        /// <param name="subjectName">Предмет (required).</param>
-        /// <param name="dimId">ID замера (required).</param>
-        /// <param name="prcOver">Разница в габаритах, % (required).</param>
-        /// <param name="volume">Объём, л (фактические габариты по замеру на складе) (required).</param>
-        /// <param name="width">Ширина, см (фактические габариты по замеру на складе) (required).</param>
-        /// <param name="length">Длина, см (фактические габариты по замеру на складе) (required).</param>
-        /// <param name="height">Высота, см (фактические габариты по замеру на складе) (required).</param>
-        /// <param name="volumeSup">Объём, л (габариты карточки товара) (required).</param>
-        /// <param name="widthSup">Ширина, см (габариты карточки товара) (required).</param>
-        /// <param name="lengthSup">Длина, см (габариты карточки товара) (required).</param>
-        /// <param name="heightSup">Высота, см (габариты карточки товара) (required).</param>
-        /// <param name="photoUrls">Фото замеров (required).</param>
+        /// <param name="nmId">Артикул WB.</param>
+        /// <param name="subjectName">Предмет.</param>
+        /// <param name="dimId">ID замера.</param>
+        /// <param name="prcOver">Разница в габаритах, %.</param>
+        /// <param name="volume">Объём, л (фактические габариты по замеру на складе).</param>
+        /// <param name="width">Ширина, см (фактические габариты по замеру на складе).</param>
+        /// <param name="length">Длина, см (фактические габариты по замеру на складе).</param>
+        /// <param name="height">Высота, см (фактические габариты по замеру на складе).</param>
+        /// <param name="volumeSup">Объём, л (габариты карточки товара).</param>
+        /// <param name="widthSup">Ширина, см (габариты карточки товара).</param>
+        /// <param name="lengthSup">Длина, см (габариты карточки товара).</param>
+        /// <param name="heightSup">Высота, см (габариты карточки товара).</param>
+        /// <param name="photoUrls">Фото замеров.</param>
         /// <param name="dtBonus">Дата штрафа.</param>
         /// <param name="isValid">Статус обмера:   - &#x60;false&#x60; — отменён   - &#x60;true&#x60; — подтверждён .</param>
         /// <param name="isValidDt">Дата и время подтверждения или отмены обмера.</param>
@@ -62,11 +57,6 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         public MeasurementPenaltiesDataReportsInner(int nmId = default(int), string subjectName = default(string), int dimId = default(int), decimal prcOver = default(decimal), decimal volume = default(decimal), int width = default(int), int length = default(int), int height = default(int), decimal volumeSup = default(decimal), int widthSup = default(int), int lengthSup = default(int), int heightSup = default(int), List<string> photoUrls = default(List<string>), string dtBonus = default(string), bool isValid = default(bool), string isValidDt = default(string), decimal reversalAmount = default(decimal), decimal penaltyAmount = default(decimal), string dateStart = default(string), string dateEnd = default(string))
         {
             this.NmId = nmId;
-            // to ensure "subjectName" is required (not null)
-            if (subjectName == null)
-            {
-                throw new ArgumentNullException("subjectName is a required property for MeasurementPenaltiesDataReportsInner and cannot be null");
-            }
             this.SubjectName = subjectName;
             this.DimId = dimId;
             this.PrcOver = prcOver;
@@ -78,11 +68,6 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
             this.WidthSup = widthSup;
             this.LengthSup = lengthSup;
             this.HeightSup = heightSup;
-            // to ensure "photoUrls" is required (not null)
-            if (photoUrls == null)
-            {
-                throw new ArgumentNullException("photoUrls is a required property for MeasurementPenaltiesDataReportsInner and cannot be null");
-            }
             this.PhotoUrls = photoUrls;
             this.DtBonus = dtBonus;
             this.IsValid = isValid;
@@ -100,7 +85,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /*
         <example>123456789</example>
         */
-        [DataMember(Name = "nmId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "nmId", EmitDefaultValue = false)]
         public int NmId { get; set; }
 
         /// <summary>
@@ -110,7 +95,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /*
         <example>Костюмы спортивные</example>
         */
-        [DataMember(Name = "subjectName", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "subjectName", EmitDefaultValue = false)]
         public string SubjectName { get; set; }
 
         /// <summary>
@@ -120,7 +105,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /*
         <example>123456789</example>
         */
-        [DataMember(Name = "dimId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "dimId", EmitDefaultValue = false)]
         public int DimId { get; set; }
 
         /// <summary>
@@ -130,7 +115,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /*
         <example>130.71</example>
         */
-        [DataMember(Name = "prcOver", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "prcOver", EmitDefaultValue = false)]
         public decimal PrcOver { get; set; }
 
         /// <summary>
@@ -140,7 +125,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /*
         <example>6.47</example>
         */
-        [DataMember(Name = "volume", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "volume", EmitDefaultValue = false)]
         public decimal Volume { get; set; }
 
         /// <summary>
@@ -150,7 +135,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /*
         <example>7</example>
         */
-        [DataMember(Name = "width", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "width", EmitDefaultValue = false)]
         public int Width { get; set; }
 
         /// <summary>
@@ -160,7 +145,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /*
         <example>28</example>
         */
-        [DataMember(Name = "length", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "length", EmitDefaultValue = false)]
         public int Length { get; set; }
 
         /// <summary>
@@ -170,7 +155,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /*
         <example>33</example>
         */
-        [DataMember(Name = "height", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "height", EmitDefaultValue = false)]
         public int Height { get; set; }
 
         /// <summary>
@@ -180,7 +165,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /*
         <example>4.95</example>
         */
-        [DataMember(Name = "volumeSup", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "volumeSup", EmitDefaultValue = false)]
         public decimal VolumeSup { get; set; }
 
         /// <summary>
@@ -190,7 +175,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /*
         <example>8</example>
         */
-        [DataMember(Name = "widthSup", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "widthSup", EmitDefaultValue = false)]
         public int WidthSup { get; set; }
 
         /// <summary>
@@ -200,7 +185,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /*
         <example>33</example>
         */
-        [DataMember(Name = "lengthSup", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "lengthSup", EmitDefaultValue = false)]
         public int LengthSup { get; set; }
 
         /// <summary>
@@ -210,7 +195,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /*
         <example>33</example>
         */
-        [DataMember(Name = "heightSup", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "heightSup", EmitDefaultValue = false)]
         public int HeightSup { get; set; }
 
         /// <summary>
@@ -220,7 +205,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /*
         <example>[&quot;https://static-basket-09.wbbasket.ru/vol184/obmer-tovarov/measurement_on_table/wbs35154094220_em907759_n1_b2eaa5ed-bf21-4c58-b419-b5b5ec6f29ee.webp&quot;,&quot;https://static-basket-09.wbbasket.ru/vol184/obmer-tovarov/measurement_on_table/wbs35159094420_em907759_n2_040407b0-7752-4ae7-a4a4-7ec016e86511.webp&quot;,&quot;https://static-basket-09.wbbasket.ru/vol184/obmer-tovarov/measurement_on_table/wbs35189094220_em904757_n3_9f502e24-3b3e-4efd-9hac-802813046ac3.webp&quot;]</example>
         */
-        [DataMember(Name = "photoUrls", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "photoUrls", EmitDefaultValue = false)]
         public List<string> PhotoUrls { get; set; }
 
         /// <summary>

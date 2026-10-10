@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from wb_api_client.analytics.models.order_feed_response import OrderFeedResponse
 from typing import Optional, Set
 from typing_extensions import Self
@@ -29,7 +29,7 @@ class PostV1OrderFeedResponse200(BaseModel):
     PostV1OrderFeedResponse200
     """  # noqa: E501
 
-    data: OrderFeedResponse
+    data: Optional[OrderFeedResponse] = None
     __properties: ClassVar[List[str]] = ["data"]
 
     model_config = ConfigDict(

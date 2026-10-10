@@ -36,31 +36,31 @@ public class V3ArchiveOrderPriceInfo {
   public static final String SERIALIZED_NAME_CONVERTED_CURRENCY_CODE = "convertedCurrencyCode";
 
   @SerializedName(SERIALIZED_NAME_CONVERTED_CURRENCY_CODE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer convertedCurrencyCode;
 
   public static final String SERIALIZED_NAME_CONVERTED_PRICE = "convertedPrice";
 
   @SerializedName(SERIALIZED_NAME_CONVERTED_PRICE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer convertedPrice;
 
   public static final String SERIALIZED_NAME_CURRENCY_CODE = "currencyCode";
 
   @SerializedName(SERIALIZED_NAME_CURRENCY_CODE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer currencyCode;
 
   public static final String SERIALIZED_NAME_PRICE = "price";
 
   @SerializedName(SERIALIZED_NAME_PRICE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer price;
 
   public V3ArchiveOrderPriceInfo() {}
 
   public V3ArchiveOrderPriceInfo convertedCurrencyCode(
-      @jakarta.annotation.Nonnull Integer convertedCurrencyCode) {
+      @jakarta.annotation.Nullable Integer convertedCurrencyCode) {
     this.convertedCurrencyCode = convertedCurrencyCode;
     return this;
   }
@@ -70,17 +70,17 @@ public class V3ArchiveOrderPriceInfo {
    *
    * @return convertedCurrencyCode
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getConvertedCurrencyCode() {
     return convertedCurrencyCode;
   }
 
-  public void setConvertedCurrencyCode(@jakarta.annotation.Nonnull Integer convertedCurrencyCode) {
+  public void setConvertedCurrencyCode(@jakarta.annotation.Nullable Integer convertedCurrencyCode) {
     this.convertedCurrencyCode = convertedCurrencyCode;
   }
 
   public V3ArchiveOrderPriceInfo convertedPrice(
-      @jakarta.annotation.Nonnull Integer convertedPrice) {
+      @jakarta.annotation.Nullable Integer convertedPrice) {
     this.convertedPrice = convertedPrice;
     return this;
   }
@@ -91,16 +91,16 @@ public class V3ArchiveOrderPriceInfo {
    *
    * @return convertedPrice
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getConvertedPrice() {
     return convertedPrice;
   }
 
-  public void setConvertedPrice(@jakarta.annotation.Nonnull Integer convertedPrice) {
+  public void setConvertedPrice(@jakarta.annotation.Nullable Integer convertedPrice) {
     this.convertedPrice = convertedPrice;
   }
 
-  public V3ArchiveOrderPriceInfo currencyCode(@jakarta.annotation.Nonnull Integer currencyCode) {
+  public V3ArchiveOrderPriceInfo currencyCode(@jakarta.annotation.Nullable Integer currencyCode) {
     this.currencyCode = currencyCode;
     return this;
   }
@@ -110,16 +110,16 @@ public class V3ArchiveOrderPriceInfo {
    *
    * @return currencyCode
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getCurrencyCode() {
     return currencyCode;
   }
 
-  public void setCurrencyCode(@jakarta.annotation.Nonnull Integer currencyCode) {
+  public void setCurrencyCode(@jakarta.annotation.Nullable Integer currencyCode) {
     this.currencyCode = currencyCode;
   }
 
-  public V3ArchiveOrderPriceInfo price(@jakarta.annotation.Nonnull Integer price) {
+  public V3ArchiveOrderPriceInfo price(@jakarta.annotation.Nullable Integer price) {
     this.price = price;
     return this;
   }
@@ -129,12 +129,12 @@ public class V3ArchiveOrderPriceInfo {
    *
    * @return price
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getPrice() {
     return price;
   }
 
-  public void setPrice(@jakarta.annotation.Nonnull Integer price) {
+  public void setPrice(@jakarta.annotation.Nullable Integer price) {
     this.price = price;
   }
 
@@ -195,10 +195,6 @@ public class V3ArchiveOrderPriceInfo {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("convertedCurrencyCode");
-    openapiRequiredFields.add("convertedPrice");
-    openapiRequiredFields.add("currencyCode");
-    openapiRequiredFields.add("price");
   }
 
   /**
@@ -226,16 +222,6 @@ public class V3ArchiveOrderPriceInfo {
             String.format(
                 "The field `%s` in the JSON string is not defined in the `V3ArchiveOrderPriceInfo` properties. JSON: %s",
                 entry.getKey(), jsonElement.toString()));
-      }
-    }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : V3ArchiveOrderPriceInfo.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
       }
     }
     JsonObject jsonObj = jsonElement.getAsJsonObject();

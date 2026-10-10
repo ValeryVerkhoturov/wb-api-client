@@ -36,7 +36,7 @@ public class ItemsResponseProductsInnerStatistic {
   public static final String SERIALIZED_NAME_SELECTED = "selected";
 
   @SerializedName(SERIALIZED_NAME_SELECTED)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private StatisticsSelected selected;
 
   public static final String SERIALIZED_NAME_PAST = "past";
@@ -54,7 +54,7 @@ public class ItemsResponseProductsInnerStatistic {
   public ItemsResponseProductsInnerStatistic() {}
 
   public ItemsResponseProductsInnerStatistic selected(
-      @jakarta.annotation.Nonnull StatisticsSelected selected) {
+      @jakarta.annotation.Nullable StatisticsSelected selected) {
     this.selected = selected;
     return this;
   }
@@ -64,12 +64,12 @@ public class ItemsResponseProductsInnerStatistic {
    *
    * @return selected
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public StatisticsSelected getSelected() {
     return selected;
   }
 
-  public void setSelected(@jakarta.annotation.Nonnull StatisticsSelected selected) {
+  public void setSelected(@jakarta.annotation.Nullable StatisticsSelected selected) {
     this.selected = selected;
   }
 
@@ -166,7 +166,6 @@ public class ItemsResponseProductsInnerStatistic {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("selected");
   }
 
   /**
@@ -197,19 +196,11 @@ public class ItemsResponseProductsInnerStatistic {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : ItemsResponseProductsInnerStatistic.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    // validate the required field `selected`
-    StatisticsSelected.validateJsonElement(jsonObj.get("selected"));
+    // validate the optional field `selected`
+    if (jsonObj.get("selected") != null && !jsonObj.get("selected").isJsonNull()) {
+      StatisticsSelected.validateJsonElement(jsonObj.get("selected"));
+    }
     // validate the optional field `past`
     if (jsonObj.get("past") != null && !jsonObj.get("past").isJsonNull()) {
       StatisticsPast.validateJsonElement(jsonObj.get("past"));

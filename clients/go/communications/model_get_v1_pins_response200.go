@@ -11,9 +11,7 @@ API version: communication
 package communications
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the GetV1PinsResponse200 type satisfies the MappedNullable interface at compile time
@@ -21,20 +19,17 @@ var _ MappedNullable = &GetV1PinsResponse200{}
 
 // GetV1PinsResponse200 struct for GetV1PinsResponse200
 type GetV1PinsResponse200 struct {
-	Data []OpenapiPinnedReviewItemResult `json:"data"`
+	Data []OpenapiPinnedReviewItemResult `json:"data,omitempty"`
 	// Параметр пагинации. Укажите это значение в запросе, чтобы получить следующий пакет данных. Если поле отсутствует, вы получили все данные
 	Next *int32 `json:"next,omitempty"`
 }
-
-type _GetV1PinsResponse200 GetV1PinsResponse200
 
 // NewGetV1PinsResponse200 instantiates a new GetV1PinsResponse200 object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetV1PinsResponse200(data []OpenapiPinnedReviewItemResult) *GetV1PinsResponse200 {
+func NewGetV1PinsResponse200() *GetV1PinsResponse200 {
 	this := GetV1PinsResponse200{}
-	this.Data = data
 	return &this
 }
 
@@ -46,26 +41,34 @@ func NewGetV1PinsResponse200WithDefaults() *GetV1PinsResponse200 {
 	return &this
 }
 
-// GetData returns the Data field value
+// GetData returns the Data field value if set, zero value otherwise.
 func (o *GetV1PinsResponse200) GetData() []OpenapiPinnedReviewItemResult {
-	if o == nil {
+	if o == nil || IsNil(o.Data) {
 		var ret []OpenapiPinnedReviewItemResult
 		return ret
 	}
-
 	return o.Data
 }
 
-// GetDataOk returns a tuple with the Data field value
+// GetDataOk returns a tuple with the Data field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetV1PinsResponse200) GetDataOk() ([]OpenapiPinnedReviewItemResult, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Data) {
 		return nil, false
 	}
 	return o.Data, true
 }
 
-// SetData sets field value
+// HasData returns a boolean if a field has been set.
+func (o *GetV1PinsResponse200) HasData() bool {
+	if o != nil && !IsNil(o.Data) {
+		return true
+	}
+
+	return false
+}
+
+// SetData gets a reference to the given []OpenapiPinnedReviewItemResult and assigns it to the Data field.
 func (o *GetV1PinsResponse200) SetData(v []OpenapiPinnedReviewItemResult) {
 	o.Data = v
 }
@@ -112,48 +115,13 @@ func (o GetV1PinsResponse200) MarshalJSON() ([]byte, error) {
 
 func (o GetV1PinsResponse200) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["data"] = o.Data
+	if !IsNil(o.Data) {
+		toSerialize["data"] = o.Data
+	}
 	if !IsNil(o.Next) {
 		toSerialize["next"] = o.Next
 	}
 	return toSerialize, nil
-}
-
-func (o *GetV1PinsResponse200) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"data",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varGetV1PinsResponse200 := _GetV1PinsResponse200{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varGetV1PinsResponse200)
-
-	if err != nil {
-		return err
-	}
-
-	*o = GetV1PinsResponse200(varGetV1PinsResponse200)
-
-	return err
 }
 
 type NullableGetV1PinsResponse200 struct {

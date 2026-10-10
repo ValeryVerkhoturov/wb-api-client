@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,12 +28,14 @@ class V3ArchiveOrderProduct(BaseModel):
     Информация о товаре
     """  # noqa: E501
 
-    article: StrictStr = Field(description="Артикул продавца")
-    chrt_id: StrictInt = Field(
-        description="ID размера товара в системе WB", alias="chrtId"
+    article: Optional[StrictStr] = Field(default=None, description="Артикул продавца")
+    chrt_id: Optional[StrictInt] = Field(
+        default=None, description="ID размера товара в системе WB", alias="chrtId"
     )
-    nm_id: StrictInt = Field(description="Артикул WB", alias="nmId")
-    skus: List[StrictStr] = Field(description="Список баркодов")
+    nm_id: Optional[StrictInt] = Field(
+        default=None, description="Артикул WB", alias="nmId"
+    )
+    skus: Optional[List[StrictStr]] = Field(default=None, description="Список баркодов")
     __properties: ClassVar[List[str]] = ["article", "chrtId", "nmId", "skus"]
 
     model_config = ConfigDict(

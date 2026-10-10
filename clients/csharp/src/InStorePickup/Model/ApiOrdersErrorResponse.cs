@@ -34,21 +34,11 @@ namespace ValeryVerkhoturov.WbApiClient.InStorePickup.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiOrdersErrorResponse" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected ApiOrdersErrorResponse() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ApiOrdersErrorResponse" /> class.
-        /// </summary>
-        /// <param name="code">Код ошибки (required).</param>
-        /// <param name="detail">- &#x60;NotFound&#x60; — сборочное задание не найдено  (required).</param>
+        /// <param name="code">Код ошибки.</param>
+        /// <param name="detail">- &#x60;NotFound&#x60; — сборочное задание не найдено .</param>
         public ApiOrdersErrorResponse(int code = default(int), string detail = default(string))
         {
             this.Code = code;
-            // to ensure "detail" is required (not null)
-            if (detail == null)
-            {
-                throw new ArgumentNullException("detail is a required property for ApiOrdersErrorResponse and cannot be null");
-            }
             this.Detail = detail;
         }
 
@@ -59,7 +49,7 @@ namespace ValeryVerkhoturov.WbApiClient.InStorePickup.Model
         /*
         <example>404</example>
         */
-        [DataMember(Name = "code", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "code", EmitDefaultValue = false)]
         public int Code { get; set; }
 
         /// <summary>
@@ -69,7 +59,7 @@ namespace ValeryVerkhoturov.WbApiClient.InStorePickup.Model
         /*
         <example>NotFound</example>
         */
-        [DataMember(Name = "detail", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "detail", EmitDefaultValue = false)]
         public string Detail { get; set; }
 
         /// <summary>

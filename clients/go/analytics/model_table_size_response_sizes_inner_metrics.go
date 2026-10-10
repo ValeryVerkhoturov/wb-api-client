@@ -11,9 +11,7 @@ API version: analytics
 package analytics
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the TableSizeResponseSizesInnerMetrics type satisfies the MappedNullable interface at compile time
@@ -22,68 +20,47 @@ var _ MappedNullable = &TableSizeResponseSizesInnerMetrics{}
 // TableSizeResponseSizesInnerMetrics Метрики размера
 type TableSizeResponseSizesInnerMetrics struct {
 	// Заказы, шт.
-	OrdersCount int32 `json:"ordersCount"`
+	OrdersCount *int32 `json:"ordersCount,omitempty"`
 	// Заказы, сумма
-	OrdersSum int32 `json:"ordersSum"`
+	OrdersSum *int32 `json:"ordersSum,omitempty"`
 	// Среднее количество заказов в день
-	AvgOrders float32 `json:"avgOrders"`
+	AvgOrders *float32 `json:"avgOrders,omitempty"`
 	// Среднее количество заказов по месяцам
-	AvgOrdersByMonth []FloatGraphByPeriodItem `json:"avgOrdersByMonth"`
+	AvgOrdersByMonth []FloatGraphByPeriodItem `json:"avgOrdersByMonth,omitempty"`
 	// Выкупы, шт.
-	BuyoutCount int32 `json:"buyoutCount"`
+	BuyoutCount *int32 `json:"buyoutCount,omitempty"`
 	// Выкупы, сумма
-	BuyoutSum int32 `json:"buyoutSum"`
+	BuyoutSum *int32 `json:"buyoutSum,omitempty"`
 	// Процент выкупа
-	BuyoutPercent int32 `json:"buyoutPercent"`
+	BuyoutPercent *int32 `json:"buyoutPercent,omitempty"`
 	// Остатки на текущий день, шт.
-	StockCount int32 `json:"stockCount"`
+	StockCount *int32 `json:"stockCount,omitempty"`
 	// Стоимость остатков на текущий день
-	StockSum         int32                              `json:"stockSum"`
-	SaleRate         TableCommonMetricsSaleRate         `json:"saleRate"`
-	AvgStockTurnover TableCommonMetricsAvgStockTurnover `json:"avgStockTurnover"`
+	StockSum         *int32                              `json:"stockSum,omitempty"`
+	SaleRate         *TableCommonMetricsSaleRate         `json:"saleRate,omitempty"`
+	AvgStockTurnover *TableCommonMetricsAvgStockTurnover `json:"avgStockTurnover,omitempty"`
 	// В пути к клиенту, шт.
-	ToClientCount int32 `json:"toClientCount"`
+	ToClientCount *int32 `json:"toClientCount,omitempty"`
 	// В пути от клиента, шт.
-	FromClientCount   int32                               `json:"fromClientCount"`
-	OfficeMissingTime TableCommonMetricsOfficeMissingTime `json:"officeMissingTime"`
+	FromClientCount   *int32                               `json:"fromClientCount,omitempty"`
+	OfficeMissingTime *TableCommonMetricsOfficeMissingTime `json:"officeMissingTime,omitempty"`
 	// Упущенные заказы, шт. Особые случаи:   1. Значение меньше `0` и не равно `-2` — значение не рассчитано   2. Значение `-2` — нулевое значение
-	LostOrdersCount float32 `json:"lostOrdersCount"`
+	LostOrdersCount *float32 `json:"lostOrdersCount,omitempty"`
 	// Упущенные заказы, сумма. Особые случаи:   1. Значение меньше `0` и не равно `-2` — значение не рассчитано   2. Значение `-2` — нулевое значение
-	LostOrdersSum float32 `json:"lostOrdersSum"`
+	LostOrdersSum *float32 `json:"lostOrdersSum,omitempty"`
 	// Упущенные выкупы, шт. Особые случаи:   1. Значение меньше `0` и не равно `-2` — значение не рассчитано   2. Значение `-2` — нулевое значение
-	LostBuyoutsCount float32 `json:"lostBuyoutsCount"`
+	LostBuyoutsCount *float32 `json:"lostBuyoutsCount,omitempty"`
 	// Упущенные выкупы, сумма. Особые случаи:   1. Значение меньше `0` и не равно `-2` — значение не рассчитано   2. Значение `-2` — нулевое значение
-	LostBuyoutsSum float32                                 `json:"lostBuyoutsSum"`
-	CurrentPrice   TableItemItemStMetricsAllOfCurrentPrice `json:"currentPrice"`
+	LostBuyoutsSum *float32                                 `json:"lostBuyoutsSum,omitempty"`
+	CurrentPrice   *TableItemItemStMetricsAllOfCurrentPrice `json:"currentPrice,omitempty"`
 }
-
-type _TableSizeResponseSizesInnerMetrics TableSizeResponseSizesInnerMetrics
 
 // NewTableSizeResponseSizesInnerMetrics instantiates a new TableSizeResponseSizesInnerMetrics object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTableSizeResponseSizesInnerMetrics(ordersCount int32, ordersSum int32, avgOrders float32, avgOrdersByMonth []FloatGraphByPeriodItem, buyoutCount int32, buyoutSum int32, buyoutPercent int32, stockCount int32, stockSum int32, saleRate TableCommonMetricsSaleRate, avgStockTurnover TableCommonMetricsAvgStockTurnover, toClientCount int32, fromClientCount int32, officeMissingTime TableCommonMetricsOfficeMissingTime, lostOrdersCount float32, lostOrdersSum float32, lostBuyoutsCount float32, lostBuyoutsSum float32, currentPrice TableItemItemStMetricsAllOfCurrentPrice) *TableSizeResponseSizesInnerMetrics {
+func NewTableSizeResponseSizesInnerMetrics() *TableSizeResponseSizesInnerMetrics {
 	this := TableSizeResponseSizesInnerMetrics{}
-	this.OrdersCount = ordersCount
-	this.OrdersSum = ordersSum
-	this.AvgOrders = avgOrders
-	this.AvgOrdersByMonth = avgOrdersByMonth
-	this.BuyoutCount = buyoutCount
-	this.BuyoutSum = buyoutSum
-	this.BuyoutPercent = buyoutPercent
-	this.StockCount = stockCount
-	this.StockSum = stockSum
-	this.SaleRate = saleRate
-	this.AvgStockTurnover = avgStockTurnover
-	this.ToClientCount = toClientCount
-	this.FromClientCount = fromClientCount
-	this.OfficeMissingTime = officeMissingTime
-	this.LostOrdersCount = lostOrdersCount
-	this.LostOrdersSum = lostOrdersSum
-	this.LostBuyoutsCount = lostBuyoutsCount
-	this.LostBuyoutsSum = lostBuyoutsSum
-	this.CurrentPrice = currentPrice
 	return &this
 }
 
@@ -95,460 +72,612 @@ func NewTableSizeResponseSizesInnerMetricsWithDefaults() *TableSizeResponseSizes
 	return &this
 }
 
-// GetOrdersCount returns the OrdersCount field value
+// GetOrdersCount returns the OrdersCount field value if set, zero value otherwise.
 func (o *TableSizeResponseSizesInnerMetrics) GetOrdersCount() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.OrdersCount) {
 		var ret int32
 		return ret
 	}
-
-	return o.OrdersCount
+	return *o.OrdersCount
 }
 
-// GetOrdersCountOk returns a tuple with the OrdersCount field value
+// GetOrdersCountOk returns a tuple with the OrdersCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableSizeResponseSizesInnerMetrics) GetOrdersCountOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.OrdersCount) {
 		return nil, false
 	}
-	return &o.OrdersCount, true
+	return o.OrdersCount, true
 }
 
-// SetOrdersCount sets field value
+// HasOrdersCount returns a boolean if a field has been set.
+func (o *TableSizeResponseSizesInnerMetrics) HasOrdersCount() bool {
+	if o != nil && !IsNil(o.OrdersCount) {
+		return true
+	}
+
+	return false
+}
+
+// SetOrdersCount gets a reference to the given int32 and assigns it to the OrdersCount field.
 func (o *TableSizeResponseSizesInnerMetrics) SetOrdersCount(v int32) {
-	o.OrdersCount = v
+	o.OrdersCount = &v
 }
 
-// GetOrdersSum returns the OrdersSum field value
+// GetOrdersSum returns the OrdersSum field value if set, zero value otherwise.
 func (o *TableSizeResponseSizesInnerMetrics) GetOrdersSum() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.OrdersSum) {
 		var ret int32
 		return ret
 	}
-
-	return o.OrdersSum
+	return *o.OrdersSum
 }
 
-// GetOrdersSumOk returns a tuple with the OrdersSum field value
+// GetOrdersSumOk returns a tuple with the OrdersSum field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableSizeResponseSizesInnerMetrics) GetOrdersSumOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.OrdersSum) {
 		return nil, false
 	}
-	return &o.OrdersSum, true
+	return o.OrdersSum, true
 }
 
-// SetOrdersSum sets field value
+// HasOrdersSum returns a boolean if a field has been set.
+func (o *TableSizeResponseSizesInnerMetrics) HasOrdersSum() bool {
+	if o != nil && !IsNil(o.OrdersSum) {
+		return true
+	}
+
+	return false
+}
+
+// SetOrdersSum gets a reference to the given int32 and assigns it to the OrdersSum field.
 func (o *TableSizeResponseSizesInnerMetrics) SetOrdersSum(v int32) {
-	o.OrdersSum = v
+	o.OrdersSum = &v
 }
 
-// GetAvgOrders returns the AvgOrders field value
+// GetAvgOrders returns the AvgOrders field value if set, zero value otherwise.
 func (o *TableSizeResponseSizesInnerMetrics) GetAvgOrders() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.AvgOrders) {
 		var ret float32
 		return ret
 	}
-
-	return o.AvgOrders
+	return *o.AvgOrders
 }
 
-// GetAvgOrdersOk returns a tuple with the AvgOrders field value
+// GetAvgOrdersOk returns a tuple with the AvgOrders field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableSizeResponseSizesInnerMetrics) GetAvgOrdersOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AvgOrders) {
 		return nil, false
 	}
-	return &o.AvgOrders, true
+	return o.AvgOrders, true
 }
 
-// SetAvgOrders sets field value
+// HasAvgOrders returns a boolean if a field has been set.
+func (o *TableSizeResponseSizesInnerMetrics) HasAvgOrders() bool {
+	if o != nil && !IsNil(o.AvgOrders) {
+		return true
+	}
+
+	return false
+}
+
+// SetAvgOrders gets a reference to the given float32 and assigns it to the AvgOrders field.
 func (o *TableSizeResponseSizesInnerMetrics) SetAvgOrders(v float32) {
-	o.AvgOrders = v
+	o.AvgOrders = &v
 }
 
-// GetAvgOrdersByMonth returns the AvgOrdersByMonth field value
+// GetAvgOrdersByMonth returns the AvgOrdersByMonth field value if set, zero value otherwise.
 func (o *TableSizeResponseSizesInnerMetrics) GetAvgOrdersByMonth() []FloatGraphByPeriodItem {
-	if o == nil {
+	if o == nil || IsNil(o.AvgOrdersByMonth) {
 		var ret []FloatGraphByPeriodItem
 		return ret
 	}
-
 	return o.AvgOrdersByMonth
 }
 
-// GetAvgOrdersByMonthOk returns a tuple with the AvgOrdersByMonth field value
+// GetAvgOrdersByMonthOk returns a tuple with the AvgOrdersByMonth field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableSizeResponseSizesInnerMetrics) GetAvgOrdersByMonthOk() ([]FloatGraphByPeriodItem, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AvgOrdersByMonth) {
 		return nil, false
 	}
 	return o.AvgOrdersByMonth, true
 }
 
-// SetAvgOrdersByMonth sets field value
+// HasAvgOrdersByMonth returns a boolean if a field has been set.
+func (o *TableSizeResponseSizesInnerMetrics) HasAvgOrdersByMonth() bool {
+	if o != nil && !IsNil(o.AvgOrdersByMonth) {
+		return true
+	}
+
+	return false
+}
+
+// SetAvgOrdersByMonth gets a reference to the given []FloatGraphByPeriodItem and assigns it to the AvgOrdersByMonth field.
 func (o *TableSizeResponseSizesInnerMetrics) SetAvgOrdersByMonth(v []FloatGraphByPeriodItem) {
 	o.AvgOrdersByMonth = v
 }
 
-// GetBuyoutCount returns the BuyoutCount field value
+// GetBuyoutCount returns the BuyoutCount field value if set, zero value otherwise.
 func (o *TableSizeResponseSizesInnerMetrics) GetBuyoutCount() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.BuyoutCount) {
 		var ret int32
 		return ret
 	}
-
-	return o.BuyoutCount
+	return *o.BuyoutCount
 }
 
-// GetBuyoutCountOk returns a tuple with the BuyoutCount field value
+// GetBuyoutCountOk returns a tuple with the BuyoutCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableSizeResponseSizesInnerMetrics) GetBuyoutCountOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.BuyoutCount) {
 		return nil, false
 	}
-	return &o.BuyoutCount, true
+	return o.BuyoutCount, true
 }
 
-// SetBuyoutCount sets field value
+// HasBuyoutCount returns a boolean if a field has been set.
+func (o *TableSizeResponseSizesInnerMetrics) HasBuyoutCount() bool {
+	if o != nil && !IsNil(o.BuyoutCount) {
+		return true
+	}
+
+	return false
+}
+
+// SetBuyoutCount gets a reference to the given int32 and assigns it to the BuyoutCount field.
 func (o *TableSizeResponseSizesInnerMetrics) SetBuyoutCount(v int32) {
-	o.BuyoutCount = v
+	o.BuyoutCount = &v
 }
 
-// GetBuyoutSum returns the BuyoutSum field value
+// GetBuyoutSum returns the BuyoutSum field value if set, zero value otherwise.
 func (o *TableSizeResponseSizesInnerMetrics) GetBuyoutSum() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.BuyoutSum) {
 		var ret int32
 		return ret
 	}
-
-	return o.BuyoutSum
+	return *o.BuyoutSum
 }
 
-// GetBuyoutSumOk returns a tuple with the BuyoutSum field value
+// GetBuyoutSumOk returns a tuple with the BuyoutSum field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableSizeResponseSizesInnerMetrics) GetBuyoutSumOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.BuyoutSum) {
 		return nil, false
 	}
-	return &o.BuyoutSum, true
+	return o.BuyoutSum, true
 }
 
-// SetBuyoutSum sets field value
+// HasBuyoutSum returns a boolean if a field has been set.
+func (o *TableSizeResponseSizesInnerMetrics) HasBuyoutSum() bool {
+	if o != nil && !IsNil(o.BuyoutSum) {
+		return true
+	}
+
+	return false
+}
+
+// SetBuyoutSum gets a reference to the given int32 and assigns it to the BuyoutSum field.
 func (o *TableSizeResponseSizesInnerMetrics) SetBuyoutSum(v int32) {
-	o.BuyoutSum = v
+	o.BuyoutSum = &v
 }
 
-// GetBuyoutPercent returns the BuyoutPercent field value
+// GetBuyoutPercent returns the BuyoutPercent field value if set, zero value otherwise.
 func (o *TableSizeResponseSizesInnerMetrics) GetBuyoutPercent() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.BuyoutPercent) {
 		var ret int32
 		return ret
 	}
-
-	return o.BuyoutPercent
+	return *o.BuyoutPercent
 }
 
-// GetBuyoutPercentOk returns a tuple with the BuyoutPercent field value
+// GetBuyoutPercentOk returns a tuple with the BuyoutPercent field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableSizeResponseSizesInnerMetrics) GetBuyoutPercentOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.BuyoutPercent) {
 		return nil, false
 	}
-	return &o.BuyoutPercent, true
+	return o.BuyoutPercent, true
 }
 
-// SetBuyoutPercent sets field value
+// HasBuyoutPercent returns a boolean if a field has been set.
+func (o *TableSizeResponseSizesInnerMetrics) HasBuyoutPercent() bool {
+	if o != nil && !IsNil(o.BuyoutPercent) {
+		return true
+	}
+
+	return false
+}
+
+// SetBuyoutPercent gets a reference to the given int32 and assigns it to the BuyoutPercent field.
 func (o *TableSizeResponseSizesInnerMetrics) SetBuyoutPercent(v int32) {
-	o.BuyoutPercent = v
+	o.BuyoutPercent = &v
 }
 
-// GetStockCount returns the StockCount field value
+// GetStockCount returns the StockCount field value if set, zero value otherwise.
 func (o *TableSizeResponseSizesInnerMetrics) GetStockCount() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.StockCount) {
 		var ret int32
 		return ret
 	}
-
-	return o.StockCount
+	return *o.StockCount
 }
 
-// GetStockCountOk returns a tuple with the StockCount field value
+// GetStockCountOk returns a tuple with the StockCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableSizeResponseSizesInnerMetrics) GetStockCountOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.StockCount) {
 		return nil, false
 	}
-	return &o.StockCount, true
+	return o.StockCount, true
 }
 
-// SetStockCount sets field value
+// HasStockCount returns a boolean if a field has been set.
+func (o *TableSizeResponseSizesInnerMetrics) HasStockCount() bool {
+	if o != nil && !IsNil(o.StockCount) {
+		return true
+	}
+
+	return false
+}
+
+// SetStockCount gets a reference to the given int32 and assigns it to the StockCount field.
 func (o *TableSizeResponseSizesInnerMetrics) SetStockCount(v int32) {
-	o.StockCount = v
+	o.StockCount = &v
 }
 
-// GetStockSum returns the StockSum field value
+// GetStockSum returns the StockSum field value if set, zero value otherwise.
 func (o *TableSizeResponseSizesInnerMetrics) GetStockSum() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.StockSum) {
 		var ret int32
 		return ret
 	}
-
-	return o.StockSum
+	return *o.StockSum
 }
 
-// GetStockSumOk returns a tuple with the StockSum field value
+// GetStockSumOk returns a tuple with the StockSum field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableSizeResponseSizesInnerMetrics) GetStockSumOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.StockSum) {
 		return nil, false
 	}
-	return &o.StockSum, true
+	return o.StockSum, true
 }
 
-// SetStockSum sets field value
+// HasStockSum returns a boolean if a field has been set.
+func (o *TableSizeResponseSizesInnerMetrics) HasStockSum() bool {
+	if o != nil && !IsNil(o.StockSum) {
+		return true
+	}
+
+	return false
+}
+
+// SetStockSum gets a reference to the given int32 and assigns it to the StockSum field.
 func (o *TableSizeResponseSizesInnerMetrics) SetStockSum(v int32) {
-	o.StockSum = v
+	o.StockSum = &v
 }
 
-// GetSaleRate returns the SaleRate field value
+// GetSaleRate returns the SaleRate field value if set, zero value otherwise.
 func (o *TableSizeResponseSizesInnerMetrics) GetSaleRate() TableCommonMetricsSaleRate {
-	if o == nil {
+	if o == nil || IsNil(o.SaleRate) {
 		var ret TableCommonMetricsSaleRate
 		return ret
 	}
-
-	return o.SaleRate
+	return *o.SaleRate
 }
 
-// GetSaleRateOk returns a tuple with the SaleRate field value
+// GetSaleRateOk returns a tuple with the SaleRate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableSizeResponseSizesInnerMetrics) GetSaleRateOk() (*TableCommonMetricsSaleRate, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.SaleRate) {
 		return nil, false
 	}
-	return &o.SaleRate, true
+	return o.SaleRate, true
 }
 
-// SetSaleRate sets field value
+// HasSaleRate returns a boolean if a field has been set.
+func (o *TableSizeResponseSizesInnerMetrics) HasSaleRate() bool {
+	if o != nil && !IsNil(o.SaleRate) {
+		return true
+	}
+
+	return false
+}
+
+// SetSaleRate gets a reference to the given TableCommonMetricsSaleRate and assigns it to the SaleRate field.
 func (o *TableSizeResponseSizesInnerMetrics) SetSaleRate(v TableCommonMetricsSaleRate) {
-	o.SaleRate = v
+	o.SaleRate = &v
 }
 
-// GetAvgStockTurnover returns the AvgStockTurnover field value
+// GetAvgStockTurnover returns the AvgStockTurnover field value if set, zero value otherwise.
 func (o *TableSizeResponseSizesInnerMetrics) GetAvgStockTurnover() TableCommonMetricsAvgStockTurnover {
-	if o == nil {
+	if o == nil || IsNil(o.AvgStockTurnover) {
 		var ret TableCommonMetricsAvgStockTurnover
 		return ret
 	}
-
-	return o.AvgStockTurnover
+	return *o.AvgStockTurnover
 }
 
-// GetAvgStockTurnoverOk returns a tuple with the AvgStockTurnover field value
+// GetAvgStockTurnoverOk returns a tuple with the AvgStockTurnover field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableSizeResponseSizesInnerMetrics) GetAvgStockTurnoverOk() (*TableCommonMetricsAvgStockTurnover, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AvgStockTurnover) {
 		return nil, false
 	}
-	return &o.AvgStockTurnover, true
+	return o.AvgStockTurnover, true
 }
 
-// SetAvgStockTurnover sets field value
+// HasAvgStockTurnover returns a boolean if a field has been set.
+func (o *TableSizeResponseSizesInnerMetrics) HasAvgStockTurnover() bool {
+	if o != nil && !IsNil(o.AvgStockTurnover) {
+		return true
+	}
+
+	return false
+}
+
+// SetAvgStockTurnover gets a reference to the given TableCommonMetricsAvgStockTurnover and assigns it to the AvgStockTurnover field.
 func (o *TableSizeResponseSizesInnerMetrics) SetAvgStockTurnover(v TableCommonMetricsAvgStockTurnover) {
-	o.AvgStockTurnover = v
+	o.AvgStockTurnover = &v
 }
 
-// GetToClientCount returns the ToClientCount field value
+// GetToClientCount returns the ToClientCount field value if set, zero value otherwise.
 func (o *TableSizeResponseSizesInnerMetrics) GetToClientCount() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.ToClientCount) {
 		var ret int32
 		return ret
 	}
-
-	return o.ToClientCount
+	return *o.ToClientCount
 }
 
-// GetToClientCountOk returns a tuple with the ToClientCount field value
+// GetToClientCountOk returns a tuple with the ToClientCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableSizeResponseSizesInnerMetrics) GetToClientCountOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ToClientCount) {
 		return nil, false
 	}
-	return &o.ToClientCount, true
+	return o.ToClientCount, true
 }
 
-// SetToClientCount sets field value
+// HasToClientCount returns a boolean if a field has been set.
+func (o *TableSizeResponseSizesInnerMetrics) HasToClientCount() bool {
+	if o != nil && !IsNil(o.ToClientCount) {
+		return true
+	}
+
+	return false
+}
+
+// SetToClientCount gets a reference to the given int32 and assigns it to the ToClientCount field.
 func (o *TableSizeResponseSizesInnerMetrics) SetToClientCount(v int32) {
-	o.ToClientCount = v
+	o.ToClientCount = &v
 }
 
-// GetFromClientCount returns the FromClientCount field value
+// GetFromClientCount returns the FromClientCount field value if set, zero value otherwise.
 func (o *TableSizeResponseSizesInnerMetrics) GetFromClientCount() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.FromClientCount) {
 		var ret int32
 		return ret
 	}
-
-	return o.FromClientCount
+	return *o.FromClientCount
 }
 
-// GetFromClientCountOk returns a tuple with the FromClientCount field value
+// GetFromClientCountOk returns a tuple with the FromClientCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableSizeResponseSizesInnerMetrics) GetFromClientCountOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.FromClientCount) {
 		return nil, false
 	}
-	return &o.FromClientCount, true
+	return o.FromClientCount, true
 }
 
-// SetFromClientCount sets field value
+// HasFromClientCount returns a boolean if a field has been set.
+func (o *TableSizeResponseSizesInnerMetrics) HasFromClientCount() bool {
+	if o != nil && !IsNil(o.FromClientCount) {
+		return true
+	}
+
+	return false
+}
+
+// SetFromClientCount gets a reference to the given int32 and assigns it to the FromClientCount field.
 func (o *TableSizeResponseSizesInnerMetrics) SetFromClientCount(v int32) {
-	o.FromClientCount = v
+	o.FromClientCount = &v
 }
 
-// GetOfficeMissingTime returns the OfficeMissingTime field value
+// GetOfficeMissingTime returns the OfficeMissingTime field value if set, zero value otherwise.
 func (o *TableSizeResponseSizesInnerMetrics) GetOfficeMissingTime() TableCommonMetricsOfficeMissingTime {
-	if o == nil {
+	if o == nil || IsNil(o.OfficeMissingTime) {
 		var ret TableCommonMetricsOfficeMissingTime
 		return ret
 	}
-
-	return o.OfficeMissingTime
+	return *o.OfficeMissingTime
 }
 
-// GetOfficeMissingTimeOk returns a tuple with the OfficeMissingTime field value
+// GetOfficeMissingTimeOk returns a tuple with the OfficeMissingTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableSizeResponseSizesInnerMetrics) GetOfficeMissingTimeOk() (*TableCommonMetricsOfficeMissingTime, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.OfficeMissingTime) {
 		return nil, false
 	}
-	return &o.OfficeMissingTime, true
+	return o.OfficeMissingTime, true
 }
 
-// SetOfficeMissingTime sets field value
+// HasOfficeMissingTime returns a boolean if a field has been set.
+func (o *TableSizeResponseSizesInnerMetrics) HasOfficeMissingTime() bool {
+	if o != nil && !IsNil(o.OfficeMissingTime) {
+		return true
+	}
+
+	return false
+}
+
+// SetOfficeMissingTime gets a reference to the given TableCommonMetricsOfficeMissingTime and assigns it to the OfficeMissingTime field.
 func (o *TableSizeResponseSizesInnerMetrics) SetOfficeMissingTime(v TableCommonMetricsOfficeMissingTime) {
-	o.OfficeMissingTime = v
+	o.OfficeMissingTime = &v
 }
 
-// GetLostOrdersCount returns the LostOrdersCount field value
+// GetLostOrdersCount returns the LostOrdersCount field value if set, zero value otherwise.
 func (o *TableSizeResponseSizesInnerMetrics) GetLostOrdersCount() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.LostOrdersCount) {
 		var ret float32
 		return ret
 	}
-
-	return o.LostOrdersCount
+	return *o.LostOrdersCount
 }
 
-// GetLostOrdersCountOk returns a tuple with the LostOrdersCount field value
+// GetLostOrdersCountOk returns a tuple with the LostOrdersCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableSizeResponseSizesInnerMetrics) GetLostOrdersCountOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.LostOrdersCount) {
 		return nil, false
 	}
-	return &o.LostOrdersCount, true
+	return o.LostOrdersCount, true
 }
 
-// SetLostOrdersCount sets field value
+// HasLostOrdersCount returns a boolean if a field has been set.
+func (o *TableSizeResponseSizesInnerMetrics) HasLostOrdersCount() bool {
+	if o != nil && !IsNil(o.LostOrdersCount) {
+		return true
+	}
+
+	return false
+}
+
+// SetLostOrdersCount gets a reference to the given float32 and assigns it to the LostOrdersCount field.
 func (o *TableSizeResponseSizesInnerMetrics) SetLostOrdersCount(v float32) {
-	o.LostOrdersCount = v
+	o.LostOrdersCount = &v
 }
 
-// GetLostOrdersSum returns the LostOrdersSum field value
+// GetLostOrdersSum returns the LostOrdersSum field value if set, zero value otherwise.
 func (o *TableSizeResponseSizesInnerMetrics) GetLostOrdersSum() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.LostOrdersSum) {
 		var ret float32
 		return ret
 	}
-
-	return o.LostOrdersSum
+	return *o.LostOrdersSum
 }
 
-// GetLostOrdersSumOk returns a tuple with the LostOrdersSum field value
+// GetLostOrdersSumOk returns a tuple with the LostOrdersSum field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableSizeResponseSizesInnerMetrics) GetLostOrdersSumOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.LostOrdersSum) {
 		return nil, false
 	}
-	return &o.LostOrdersSum, true
+	return o.LostOrdersSum, true
 }
 
-// SetLostOrdersSum sets field value
+// HasLostOrdersSum returns a boolean if a field has been set.
+func (o *TableSizeResponseSizesInnerMetrics) HasLostOrdersSum() bool {
+	if o != nil && !IsNil(o.LostOrdersSum) {
+		return true
+	}
+
+	return false
+}
+
+// SetLostOrdersSum gets a reference to the given float32 and assigns it to the LostOrdersSum field.
 func (o *TableSizeResponseSizesInnerMetrics) SetLostOrdersSum(v float32) {
-	o.LostOrdersSum = v
+	o.LostOrdersSum = &v
 }
 
-// GetLostBuyoutsCount returns the LostBuyoutsCount field value
+// GetLostBuyoutsCount returns the LostBuyoutsCount field value if set, zero value otherwise.
 func (o *TableSizeResponseSizesInnerMetrics) GetLostBuyoutsCount() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.LostBuyoutsCount) {
 		var ret float32
 		return ret
 	}
-
-	return o.LostBuyoutsCount
+	return *o.LostBuyoutsCount
 }
 
-// GetLostBuyoutsCountOk returns a tuple with the LostBuyoutsCount field value
+// GetLostBuyoutsCountOk returns a tuple with the LostBuyoutsCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableSizeResponseSizesInnerMetrics) GetLostBuyoutsCountOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.LostBuyoutsCount) {
 		return nil, false
 	}
-	return &o.LostBuyoutsCount, true
+	return o.LostBuyoutsCount, true
 }
 
-// SetLostBuyoutsCount sets field value
+// HasLostBuyoutsCount returns a boolean if a field has been set.
+func (o *TableSizeResponseSizesInnerMetrics) HasLostBuyoutsCount() bool {
+	if o != nil && !IsNil(o.LostBuyoutsCount) {
+		return true
+	}
+
+	return false
+}
+
+// SetLostBuyoutsCount gets a reference to the given float32 and assigns it to the LostBuyoutsCount field.
 func (o *TableSizeResponseSizesInnerMetrics) SetLostBuyoutsCount(v float32) {
-	o.LostBuyoutsCount = v
+	o.LostBuyoutsCount = &v
 }
 
-// GetLostBuyoutsSum returns the LostBuyoutsSum field value
+// GetLostBuyoutsSum returns the LostBuyoutsSum field value if set, zero value otherwise.
 func (o *TableSizeResponseSizesInnerMetrics) GetLostBuyoutsSum() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.LostBuyoutsSum) {
 		var ret float32
 		return ret
 	}
-
-	return o.LostBuyoutsSum
+	return *o.LostBuyoutsSum
 }
 
-// GetLostBuyoutsSumOk returns a tuple with the LostBuyoutsSum field value
+// GetLostBuyoutsSumOk returns a tuple with the LostBuyoutsSum field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableSizeResponseSizesInnerMetrics) GetLostBuyoutsSumOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.LostBuyoutsSum) {
 		return nil, false
 	}
-	return &o.LostBuyoutsSum, true
+	return o.LostBuyoutsSum, true
 }
 
-// SetLostBuyoutsSum sets field value
+// HasLostBuyoutsSum returns a boolean if a field has been set.
+func (o *TableSizeResponseSizesInnerMetrics) HasLostBuyoutsSum() bool {
+	if o != nil && !IsNil(o.LostBuyoutsSum) {
+		return true
+	}
+
+	return false
+}
+
+// SetLostBuyoutsSum gets a reference to the given float32 and assigns it to the LostBuyoutsSum field.
 func (o *TableSizeResponseSizesInnerMetrics) SetLostBuyoutsSum(v float32) {
-	o.LostBuyoutsSum = v
+	o.LostBuyoutsSum = &v
 }
 
-// GetCurrentPrice returns the CurrentPrice field value
+// GetCurrentPrice returns the CurrentPrice field value if set, zero value otherwise.
 func (o *TableSizeResponseSizesInnerMetrics) GetCurrentPrice() TableItemItemStMetricsAllOfCurrentPrice {
-	if o == nil {
+	if o == nil || IsNil(o.CurrentPrice) {
 		var ret TableItemItemStMetricsAllOfCurrentPrice
 		return ret
 	}
-
-	return o.CurrentPrice
+	return *o.CurrentPrice
 }
 
-// GetCurrentPriceOk returns a tuple with the CurrentPrice field value
+// GetCurrentPriceOk returns a tuple with the CurrentPrice field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableSizeResponseSizesInnerMetrics) GetCurrentPriceOk() (*TableItemItemStMetricsAllOfCurrentPrice, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.CurrentPrice) {
 		return nil, false
 	}
-	return &o.CurrentPrice, true
+	return o.CurrentPrice, true
 }
 
-// SetCurrentPrice sets field value
+// HasCurrentPrice returns a boolean if a field has been set.
+func (o *TableSizeResponseSizesInnerMetrics) HasCurrentPrice() bool {
+	if o != nil && !IsNil(o.CurrentPrice) {
+		return true
+	}
+
+	return false
+}
+
+// SetCurrentPrice gets a reference to the given TableItemItemStMetricsAllOfCurrentPrice and assigns it to the CurrentPrice field.
 func (o *TableSizeResponseSizesInnerMetrics) SetCurrentPrice(v TableItemItemStMetricsAllOfCurrentPrice) {
-	o.CurrentPrice = v
+	o.CurrentPrice = &v
 }
 
 func (o TableSizeResponseSizesInnerMetrics) MarshalJSON() ([]byte, error) {
@@ -561,81 +690,64 @@ func (o TableSizeResponseSizesInnerMetrics) MarshalJSON() ([]byte, error) {
 
 func (o TableSizeResponseSizesInnerMetrics) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["ordersCount"] = o.OrdersCount
-	toSerialize["ordersSum"] = o.OrdersSum
-	toSerialize["avgOrders"] = o.AvgOrders
-	toSerialize["avgOrdersByMonth"] = o.AvgOrdersByMonth
-	toSerialize["buyoutCount"] = o.BuyoutCount
-	toSerialize["buyoutSum"] = o.BuyoutSum
-	toSerialize["buyoutPercent"] = o.BuyoutPercent
-	toSerialize["stockCount"] = o.StockCount
-	toSerialize["stockSum"] = o.StockSum
-	toSerialize["saleRate"] = o.SaleRate
-	toSerialize["avgStockTurnover"] = o.AvgStockTurnover
-	toSerialize["toClientCount"] = o.ToClientCount
-	toSerialize["fromClientCount"] = o.FromClientCount
-	toSerialize["officeMissingTime"] = o.OfficeMissingTime
-	toSerialize["lostOrdersCount"] = o.LostOrdersCount
-	toSerialize["lostOrdersSum"] = o.LostOrdersSum
-	toSerialize["lostBuyoutsCount"] = o.LostBuyoutsCount
-	toSerialize["lostBuyoutsSum"] = o.LostBuyoutsSum
-	toSerialize["currentPrice"] = o.CurrentPrice
+	if !IsNil(o.OrdersCount) {
+		toSerialize["ordersCount"] = o.OrdersCount
+	}
+	if !IsNil(o.OrdersSum) {
+		toSerialize["ordersSum"] = o.OrdersSum
+	}
+	if !IsNil(o.AvgOrders) {
+		toSerialize["avgOrders"] = o.AvgOrders
+	}
+	if !IsNil(o.AvgOrdersByMonth) {
+		toSerialize["avgOrdersByMonth"] = o.AvgOrdersByMonth
+	}
+	if !IsNil(o.BuyoutCount) {
+		toSerialize["buyoutCount"] = o.BuyoutCount
+	}
+	if !IsNil(o.BuyoutSum) {
+		toSerialize["buyoutSum"] = o.BuyoutSum
+	}
+	if !IsNil(o.BuyoutPercent) {
+		toSerialize["buyoutPercent"] = o.BuyoutPercent
+	}
+	if !IsNil(o.StockCount) {
+		toSerialize["stockCount"] = o.StockCount
+	}
+	if !IsNil(o.StockSum) {
+		toSerialize["stockSum"] = o.StockSum
+	}
+	if !IsNil(o.SaleRate) {
+		toSerialize["saleRate"] = o.SaleRate
+	}
+	if !IsNil(o.AvgStockTurnover) {
+		toSerialize["avgStockTurnover"] = o.AvgStockTurnover
+	}
+	if !IsNil(o.ToClientCount) {
+		toSerialize["toClientCount"] = o.ToClientCount
+	}
+	if !IsNil(o.FromClientCount) {
+		toSerialize["fromClientCount"] = o.FromClientCount
+	}
+	if !IsNil(o.OfficeMissingTime) {
+		toSerialize["officeMissingTime"] = o.OfficeMissingTime
+	}
+	if !IsNil(o.LostOrdersCount) {
+		toSerialize["lostOrdersCount"] = o.LostOrdersCount
+	}
+	if !IsNil(o.LostOrdersSum) {
+		toSerialize["lostOrdersSum"] = o.LostOrdersSum
+	}
+	if !IsNil(o.LostBuyoutsCount) {
+		toSerialize["lostBuyoutsCount"] = o.LostBuyoutsCount
+	}
+	if !IsNil(o.LostBuyoutsSum) {
+		toSerialize["lostBuyoutsSum"] = o.LostBuyoutsSum
+	}
+	if !IsNil(o.CurrentPrice) {
+		toSerialize["currentPrice"] = o.CurrentPrice
+	}
 	return toSerialize, nil
-}
-
-func (o *TableSizeResponseSizesInnerMetrics) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"ordersCount",
-		"ordersSum",
-		"avgOrders",
-		"avgOrdersByMonth",
-		"buyoutCount",
-		"buyoutSum",
-		"buyoutPercent",
-		"stockCount",
-		"stockSum",
-		"saleRate",
-		"avgStockTurnover",
-		"toClientCount",
-		"fromClientCount",
-		"officeMissingTime",
-		"lostOrdersCount",
-		"lostOrdersSum",
-		"lostBuyoutsCount",
-		"lostBuyoutsSum",
-		"currentPrice",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varTableSizeResponseSizesInnerMetrics := _TableSizeResponseSizesInnerMetrics{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varTableSizeResponseSizesInnerMetrics)
-
-	if err != nil {
-		return err
-	}
-
-	*o = TableSizeResponseSizesInnerMetrics(varTableSizeResponseSizesInnerMetrics)
-
-	return err
 }
 
 type NullableTableSizeResponseSizesInnerMetrics struct {

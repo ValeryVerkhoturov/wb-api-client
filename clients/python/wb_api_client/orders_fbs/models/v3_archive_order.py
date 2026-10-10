@@ -44,44 +44,60 @@ class V3ArchiveOrder(BaseModel):
     Архивное сборочное задание
     """  # noqa: E501
 
-    cargo_type: StrictStr = Field(
+    cargo_type: Optional[StrictStr] = Field(
+        default=None,
         description="Тип товара:   - `mgt` — малогабаритный товар (МГТ)   - `sgt` — сверхгабаритный товар (СГТ)   - `kgtPlus` — крупногабаритный товар (КГТ+) ",
         alias="cargoType",
     )
     color_code: Optional[StrictStr] = Field(
-        description="Код цвета для колеруемых товаров", alias="colorCode"
+        default=None, description="Код цвета для колеруемых товаров", alias="colorCode"
     )
-    created_at: StrictStr = Field(description="Дата создания заказа", alias="createdAt")
-    cross_border: Optional[V3ArchiveOrderCrossBorder] = Field(alias="crossBorder")
-    cross_border_type: StrictStr = Field(
+    created_at: Optional[StrictStr] = Field(
+        default=None, description="Дата создания заказа", alias="createdAt"
+    )
+    cross_border: Optional[V3ArchiveOrderCrossBorder] = Field(
+        default=None, alias="crossBorder"
+    )
+    cross_border_type: Optional[StrictStr] = Field(
+        default=None,
         description="Тип сборочного задания:   - `local` — внутренняя поставка   - `crossBorder` — трансграничная поставка ",
         alias="crossBorderType",
     )
-    id: StrictInt = Field(description="ID сборочного задания")
-    is_zero_order: StrictBool = Field(
+    id: Optional[StrictInt] = Field(default=None, description="ID сборочного задания")
+    is_zero_order: Optional[StrictBool] = Field(
+        default=None,
         description="Признак заказа товара с нулевым остатком:   - `false` — заказ сделан на товар с ненулевым остатком   - `true` — заказ сделан на товар с нулевым остатком ",
         alias="isZeroOrder",
     )
-    meta_details: List[V3ArchiveOrderMetaDetailsInner] = Field(
-        description="Детали маркировки", alias="metaDetails"
+    meta_details: Optional[List[V3ArchiveOrderMetaDetailsInner]] = Field(
+        default=None, description="Детали маркировки", alias="metaDetails"
     )
-    options: V3ArchiveOrderOptions
-    order_uid: StrictStr = Field(
+    options: Optional[V3ArchiveOrderOptions] = None
+    order_uid: Optional[StrictStr] = Field(
+        default=None,
         description="ID транзакции для группировки сборочных заданий. Сборочные задания в одной корзине покупателя будут иметь одинаковый `orderUid`",
         alias="orderUid",
     )
-    price_info: V3ArchiveOrderPriceInfo = Field(alias="priceInfo")
-    product: V3ArchiveOrderProduct
-    rid: StrictStr = Field(
-        description="Уникальный ID заказа. Примечание: `rid` — это `srid` в ответах методов: - [Заявки покупателей на возврат](./customer-communication#tag/buyersReturns/operation/getV1Claims) - [Лента заказов](./analytics#tag/orderFeed/operation/postV1OrderFeed) - [Заказы](./reports#tag/mainReports/operation/getV1SupplierOrders) - [Продажи](./reports#tag/mainReports/operation/getV1SupplierSales) - [Отчёт о возвратах и перемещении товаров](./reports#tag/returnsAndItemMovementReport) - [Детализации к отчётам реализации по ID отчётов](./documents-and-accounting#tag/financialReports/operation/postV1SalesReportsDetailedReportId) - [Детализации к отчётам реализации за период](./documents-and-accounting#tag/financialReports/operation/postV1SalesReportsDetailed) - [Детализации к отчётам об издержках на приём платежей по ID отчётов](./documents-and-accounting#tag/financialReports/operation/postV1AcquiringDetailedReportId) - [Детализации к отчётам об издержках на приём платежей за период](./documents-and-accounting#tag/financialReports/operation/postV1AcquiringDetailed)"
+    price_info: Optional[V3ArchiveOrderPriceInfo] = Field(
+        default=None, alias="priceInfo"
+    )
+    product: Optional[V3ArchiveOrderProduct] = None
+    rid: Optional[StrictStr] = Field(
+        default=None,
+        description="Уникальный ID заказа. Примечание: `rid` — это `srid` в ответах методов: - [Заявки покупателей на возврат](./customer-communication#tag/buyersReturns/operation/getV1Claims) - [Лента заказов](./analytics#tag/orderFeed/operation/postV1OrderFeed) - [Заказы](./reports#tag/mainReports/operation/getV1SupplierOrders) - [Продажи](./reports#tag/mainReports/operation/getV1SupplierSales) - [Отчёт о возвратах и перемещении товаров](./reports#tag/returnsAndItemMovementReport) - [Детализации к отчётам реализации по ID отчётов](./documents-and-accounting#tag/financialReports/operation/postV1SalesReportsDetailedReportId) - [Детализации к отчётам реализации за период](./documents-and-accounting#tag/financialReports/operation/postV1SalesReportsDetailed) - [Детализации к отчётам об издержках на приём платежей по ID отчётов](./documents-and-accounting#tag/financialReports/operation/postV1AcquiringDetailedReportId) - [Детализации к отчётам об издержках на приём платежей за период](./documents-and-accounting#tag/financialReports/operation/postV1AcquiringDetailed)",
     )
     scan_price: Optional[StrictInt] = Field(
-        description="Цена приёмки заказа в копейках", alias="scanPrice"
+        default=None, description="Цена приёмки заказа в копейках", alias="scanPrice"
     )
-    status: V3ArchiveOrderStatus
-    sticker_id: StrictInt = Field(description="ID стикера", alias="stickerId")
-    supply_id: Optional[StrictStr] = Field(description="ID поставки", alias="supplyId")
-    warehouse_id: StrictInt = Field(
+    status: Optional[V3ArchiveOrderStatus] = None
+    sticker_id: Optional[StrictInt] = Field(
+        default=None, description="ID стикера", alias="stickerId"
+    )
+    supply_id: Optional[StrictStr] = Field(
+        default=None, description="ID поставки", alias="supplyId"
+    )
+    warehouse_id: Optional[StrictInt] = Field(
+        default=None,
         description="ID склада продавца, с которого был отгружен товар",
         alias="warehouseId",
     )

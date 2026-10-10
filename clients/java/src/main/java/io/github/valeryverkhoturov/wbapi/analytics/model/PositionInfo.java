@@ -39,30 +39,30 @@ public class PositionInfo {
   public static final String SERIALIZED_NAME_AVERAGE = "average";
 
   @SerializedName(SERIALIZED_NAME_AVERAGE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private PositionInfoAverage average;
 
   public static final String SERIALIZED_NAME_MEDIAN = "median";
 
   @SerializedName(SERIALIZED_NAME_MEDIAN)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private PositionInfoMedian median;
 
   public static final String SERIALIZED_NAME_CHART_ITEMS = "chartItems";
 
   @SerializedName(SERIALIZED_NAME_CHART_ITEMS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private List<SearchReportPositionChartItem> chartItems = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_CLUSTERS = "clusters";
 
   @SerializedName(SERIALIZED_NAME_CLUSTERS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private SearchReportPositionClusters clusters;
 
   public PositionInfo() {}
 
-  public PositionInfo average(@jakarta.annotation.Nonnull PositionInfoAverage average) {
+  public PositionInfo average(@jakarta.annotation.Nullable PositionInfoAverage average) {
     this.average = average;
     return this;
   }
@@ -72,16 +72,16 @@ public class PositionInfo {
    *
    * @return average
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public PositionInfoAverage getAverage() {
     return average;
   }
 
-  public void setAverage(@jakarta.annotation.Nonnull PositionInfoAverage average) {
+  public void setAverage(@jakarta.annotation.Nullable PositionInfoAverage average) {
     this.average = average;
   }
 
-  public PositionInfo median(@jakarta.annotation.Nonnull PositionInfoMedian median) {
+  public PositionInfo median(@jakarta.annotation.Nullable PositionInfoMedian median) {
     this.median = median;
     return this;
   }
@@ -91,17 +91,17 @@ public class PositionInfo {
    *
    * @return median
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public PositionInfoMedian getMedian() {
     return median;
   }
 
-  public void setMedian(@jakarta.annotation.Nonnull PositionInfoMedian median) {
+  public void setMedian(@jakarta.annotation.Nullable PositionInfoMedian median) {
     this.median = median;
   }
 
   public PositionInfo chartItems(
-      @jakarta.annotation.Nonnull List<SearchReportPositionChartItem> chartItems) {
+      @jakarta.annotation.Nullable List<SearchReportPositionChartItem> chartItems) {
     this.chartItems = chartItems;
     return this;
   }
@@ -119,17 +119,17 @@ public class PositionInfo {
    *
    * @return chartItems
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public List<SearchReportPositionChartItem> getChartItems() {
     return chartItems;
   }
 
   public void setChartItems(
-      @jakarta.annotation.Nonnull List<SearchReportPositionChartItem> chartItems) {
+      @jakarta.annotation.Nullable List<SearchReportPositionChartItem> chartItems) {
     this.chartItems = chartItems;
   }
 
-  public PositionInfo clusters(@jakarta.annotation.Nonnull SearchReportPositionClusters clusters) {
+  public PositionInfo clusters(@jakarta.annotation.Nullable SearchReportPositionClusters clusters) {
     this.clusters = clusters;
     return this;
   }
@@ -139,12 +139,12 @@ public class PositionInfo {
    *
    * @return clusters
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public SearchReportPositionClusters getClusters() {
     return clusters;
   }
 
-  public void setClusters(@jakarta.annotation.Nonnull SearchReportPositionClusters clusters) {
+  public void setClusters(@jakarta.annotation.Nullable SearchReportPositionClusters clusters) {
     this.clusters = clusters;
   }
 
@@ -203,10 +203,6 @@ public class PositionInfo {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("average");
-    openapiRequiredFields.add("median");
-    openapiRequiredFields.add("chartItems");
-    openapiRequiredFields.add("clusters");
   }
 
   /**
@@ -236,37 +232,37 @@ public class PositionInfo {
                 entry.getKey(), jsonElement.toString()));
       }
     }
+    JsonObject jsonObj = jsonElement.getAsJsonObject();
+    // validate the optional field `average`
+    if (jsonObj.get("average") != null && !jsonObj.get("average").isJsonNull()) {
+      PositionInfoAverage.validateJsonElement(jsonObj.get("average"));
+    }
+    // validate the optional field `median`
+    if (jsonObj.get("median") != null && !jsonObj.get("median").isJsonNull()) {
+      PositionInfoMedian.validateJsonElement(jsonObj.get("median"));
+    }
+    if (jsonObj.get("chartItems") != null && !jsonObj.get("chartItems").isJsonNull()) {
+      JsonArray jsonArraychartItems = jsonObj.getAsJsonArray("chartItems");
+      if (jsonArraychartItems != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("chartItems").isJsonArray()) {
+          throw new IllegalArgumentException(
+              String.format(
+                  "Expected the field `chartItems` to be an array in the JSON string but got `%s`",
+                  jsonObj.get("chartItems").toString()));
+        }
 
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : PositionInfo.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
+        // validate the optional field `chartItems` (array)
+        for (int i = 0; i < jsonArraychartItems.size(); i++) {
+          SearchReportPositionChartItem.validateJsonElement(jsonArraychartItems.get(i));
+        }
+        ;
       }
     }
-    JsonObject jsonObj = jsonElement.getAsJsonObject();
-    // validate the required field `average`
-    PositionInfoAverage.validateJsonElement(jsonObj.get("average"));
-    // validate the required field `median`
-    PositionInfoMedian.validateJsonElement(jsonObj.get("median"));
-    // ensure the json data is an array
-    if (!jsonObj.get("chartItems").isJsonArray()) {
-      throw new IllegalArgumentException(
-          String.format(
-              "Expected the field `chartItems` to be an array in the JSON string but got `%s`",
-              jsonObj.get("chartItems").toString()));
+    // validate the optional field `clusters`
+    if (jsonObj.get("clusters") != null && !jsonObj.get("clusters").isJsonNull()) {
+      SearchReportPositionClusters.validateJsonElement(jsonObj.get("clusters"));
     }
-
-    JsonArray jsonArraychartItems = jsonObj.getAsJsonArray("chartItems");
-    // validate the required field `chartItems` (array)
-    for (int i = 0; i < jsonArraychartItems.size(); i++) {
-      SearchReportPositionChartItem.validateJsonElement(jsonArraychartItems.get(i));
-    }
-    ;
-    // validate the required field `clusters`
-    SearchReportPositionClusters.validateJsonElement(jsonObj.get("clusters"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

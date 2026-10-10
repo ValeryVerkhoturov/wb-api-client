@@ -11,9 +11,7 @@ API version: promotion
 package promotion
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the AdvertSettings type satisfies the MappedNullable interface at compile time
@@ -22,23 +20,18 @@ var _ MappedNullable = &AdvertSettings{}
 // AdvertSettings Настройки кампании
 type AdvertSettings struct {
 	// Тип оплаты: - `cpm` — за показы - `cpc` — за клик
-	PaymentType string `json:"payment_type"`
+	PaymentType *string `json:"payment_type,omitempty"`
 	// Название кампании
-	Name       string                                                 `json:"name"`
-	Placements PutV0AuctionPlacementsRequestPlacementsInnerPlacements `json:"placements"`
+	Name       *string                   `json:"name,omitempty"`
+	Placements *AdvertSettingsPlacements `json:"placements,omitempty"`
 }
-
-type _AdvertSettings AdvertSettings
 
 // NewAdvertSettings instantiates a new AdvertSettings object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAdvertSettings(paymentType string, name string, placements PutV0AuctionPlacementsRequestPlacementsInnerPlacements) *AdvertSettings {
+func NewAdvertSettings() *AdvertSettings {
 	this := AdvertSettings{}
-	this.PaymentType = paymentType
-	this.Name = name
-	this.Placements = placements
 	return &this
 }
 
@@ -50,76 +43,100 @@ func NewAdvertSettingsWithDefaults() *AdvertSettings {
 	return &this
 }
 
-// GetPaymentType returns the PaymentType field value
+// GetPaymentType returns the PaymentType field value if set, zero value otherwise.
 func (o *AdvertSettings) GetPaymentType() string {
-	if o == nil {
+	if o == nil || IsNil(o.PaymentType) {
 		var ret string
 		return ret
 	}
-
-	return o.PaymentType
+	return *o.PaymentType
 }
 
-// GetPaymentTypeOk returns a tuple with the PaymentType field value
+// GetPaymentTypeOk returns a tuple with the PaymentType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *AdvertSettings) GetPaymentTypeOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.PaymentType) {
 		return nil, false
 	}
-	return &o.PaymentType, true
+	return o.PaymentType, true
 }
 
-// SetPaymentType sets field value
+// HasPaymentType returns a boolean if a field has been set.
+func (o *AdvertSettings) HasPaymentType() bool {
+	if o != nil && !IsNil(o.PaymentType) {
+		return true
+	}
+
+	return false
+}
+
+// SetPaymentType gets a reference to the given string and assigns it to the PaymentType field.
 func (o *AdvertSettings) SetPaymentType(v string) {
-	o.PaymentType = v
+	o.PaymentType = &v
 }
 
-// GetName returns the Name field value
+// GetName returns the Name field value if set, zero value otherwise.
 func (o *AdvertSettings) GetName() string {
-	if o == nil {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
-
-	return o.Name
+	return *o.Name
 }
 
-// GetNameOk returns a tuple with the Name field value
+// GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *AdvertSettings) GetNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Name) {
 		return nil, false
 	}
-	return &o.Name, true
+	return o.Name, true
 }
 
-// SetName sets field value
+// HasName returns a boolean if a field has been set.
+func (o *AdvertSettings) HasName() bool {
+	if o != nil && !IsNil(o.Name) {
+		return true
+	}
+
+	return false
+}
+
+// SetName gets a reference to the given string and assigns it to the Name field.
 func (o *AdvertSettings) SetName(v string) {
-	o.Name = v
+	o.Name = &v
 }
 
-// GetPlacements returns the Placements field value
-func (o *AdvertSettings) GetPlacements() PutV0AuctionPlacementsRequestPlacementsInnerPlacements {
-	if o == nil {
-		var ret PutV0AuctionPlacementsRequestPlacementsInnerPlacements
+// GetPlacements returns the Placements field value if set, zero value otherwise.
+func (o *AdvertSettings) GetPlacements() AdvertSettingsPlacements {
+	if o == nil || IsNil(o.Placements) {
+		var ret AdvertSettingsPlacements
 		return ret
 	}
-
-	return o.Placements
+	return *o.Placements
 }
 
-// GetPlacementsOk returns a tuple with the Placements field value
+// GetPlacementsOk returns a tuple with the Placements field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AdvertSettings) GetPlacementsOk() (*PutV0AuctionPlacementsRequestPlacementsInnerPlacements, bool) {
-	if o == nil {
+func (o *AdvertSettings) GetPlacementsOk() (*AdvertSettingsPlacements, bool) {
+	if o == nil || IsNil(o.Placements) {
 		return nil, false
 	}
-	return &o.Placements, true
+	return o.Placements, true
 }
 
-// SetPlacements sets field value
-func (o *AdvertSettings) SetPlacements(v PutV0AuctionPlacementsRequestPlacementsInnerPlacements) {
-	o.Placements = v
+// HasPlacements returns a boolean if a field has been set.
+func (o *AdvertSettings) HasPlacements() bool {
+	if o != nil && !IsNil(o.Placements) {
+		return true
+	}
+
+	return false
+}
+
+// SetPlacements gets a reference to the given AdvertSettingsPlacements and assigns it to the Placements field.
+func (o *AdvertSettings) SetPlacements(v AdvertSettingsPlacements) {
+	o.Placements = &v
 }
 
 func (o AdvertSettings) MarshalJSON() ([]byte, error) {
@@ -132,49 +149,16 @@ func (o AdvertSettings) MarshalJSON() ([]byte, error) {
 
 func (o AdvertSettings) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["payment_type"] = o.PaymentType
-	toSerialize["name"] = o.Name
-	toSerialize["placements"] = o.Placements
+	if !IsNil(o.PaymentType) {
+		toSerialize["payment_type"] = o.PaymentType
+	}
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
+	}
+	if !IsNil(o.Placements) {
+		toSerialize["placements"] = o.Placements
+	}
 	return toSerialize, nil
-}
-
-func (o *AdvertSettings) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"payment_type",
-		"name",
-		"placements",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varAdvertSettings := _AdvertSettings{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varAdvertSettings)
-
-	if err != nil {
-		return err
-	}
-
-	*o = AdvertSettings(varAdvertSettings)
-
-	return err
 }
 
 type NullableAdvertSettings struct {

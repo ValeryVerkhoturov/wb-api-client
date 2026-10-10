@@ -34,7 +34,9 @@ class ApiOrderStatusV2(BaseModel):
     errors: Optional[List[ApiOrdersErrorResponse]] = Field(
         default=None, description="Информация об ошибке"
     )
-    order_id: StrictInt = Field(description="ID сборочного задания", alias="orderId")
+    order_id: Optional[StrictInt] = Field(
+        default=None, description="ID сборочного задания", alias="orderId"
+    )
     supplier_status: Optional[StrictStr] = Field(
         default=None,
         description="Статус сборочного задания, установленный продавцом",

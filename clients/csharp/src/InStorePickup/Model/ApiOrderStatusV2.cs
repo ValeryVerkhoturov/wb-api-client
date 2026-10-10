@@ -34,19 +34,14 @@ namespace ValeryVerkhoturov.WbApiClient.InStorePickup.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiOrderStatusV2" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected ApiOrderStatusV2() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ApiOrderStatusV2" /> class.
-        /// </summary>
         /// <param name="errors">Информация об ошибке.</param>
-        /// <param name="orderId">ID сборочного задания (required).</param>
+        /// <param name="orderId">ID сборочного задания.</param>
         /// <param name="supplierStatus">Статус сборочного задания, установленный продавцом.</param>
         /// <param name="wbStatus">Статус сборочного задания в системе Wildberries.</param>
         public ApiOrderStatusV2(List<ApiOrdersErrorResponse> errors = default(List<ApiOrdersErrorResponse>), int orderId = default(int), string supplierStatus = default(string), string wbStatus = default(string))
         {
-            this.OrderId = orderId;
             this.Errors = errors;
+            this.OrderId = orderId;
             this.SupplierStatus = supplierStatus;
             this.WbStatus = wbStatus;
         }
@@ -62,7 +57,7 @@ namespace ValeryVerkhoturov.WbApiClient.InStorePickup.Model
         /// ID сборочного задания
         /// </summary>
         /// <value>ID сборочного задания</value>
-        [DataMember(Name = "orderId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "orderId", EmitDefaultValue = false)]
         public int OrderId { get; set; }
 
         /// <summary>

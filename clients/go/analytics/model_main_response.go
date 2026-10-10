@@ -11,9 +11,7 @@ API version: analytics
 package analytics
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the MainResponse type satisfies the MappedNullable interface at compile time
@@ -21,27 +19,21 @@ var _ MappedNullable = &MainResponse{}
 
 // MainResponse struct for MainResponse
 type MainResponse struct {
-	CommonInfo     CommonInfo     `json:"commonInfo"`
-	PositionInfo   PositionInfo   `json:"positionInfo"`
-	VisibilityInfo VisibilityInfo `json:"visibilityInfo"`
+	CommonInfo     *CommonInfo     `json:"commonInfo,omitempty"`
+	PositionInfo   *PositionInfo   `json:"positionInfo,omitempty"`
+	VisibilityInfo *VisibilityInfo `json:"visibilityInfo,omitempty"`
 	// Список элементов таблицы
 	Groups []TableGroupItem `json:"groups,omitempty"`
 	// Валюта отчёта
-	Currency string `json:"currency"`
+	Currency *string `json:"currency,omitempty"`
 }
-
-type _MainResponse MainResponse
 
 // NewMainResponse instantiates a new MainResponse object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewMainResponse(commonInfo CommonInfo, positionInfo PositionInfo, visibilityInfo VisibilityInfo, currency string) *MainResponse {
+func NewMainResponse() *MainResponse {
 	this := MainResponse{}
-	this.CommonInfo = commonInfo
-	this.PositionInfo = positionInfo
-	this.VisibilityInfo = visibilityInfo
-	this.Currency = currency
 	return &this
 }
 
@@ -53,76 +45,100 @@ func NewMainResponseWithDefaults() *MainResponse {
 	return &this
 }
 
-// GetCommonInfo returns the CommonInfo field value
+// GetCommonInfo returns the CommonInfo field value if set, zero value otherwise.
 func (o *MainResponse) GetCommonInfo() CommonInfo {
-	if o == nil {
+	if o == nil || IsNil(o.CommonInfo) {
 		var ret CommonInfo
 		return ret
 	}
-
-	return o.CommonInfo
+	return *o.CommonInfo
 }
 
-// GetCommonInfoOk returns a tuple with the CommonInfo field value
+// GetCommonInfoOk returns a tuple with the CommonInfo field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MainResponse) GetCommonInfoOk() (*CommonInfo, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.CommonInfo) {
 		return nil, false
 	}
-	return &o.CommonInfo, true
+	return o.CommonInfo, true
 }
 
-// SetCommonInfo sets field value
+// HasCommonInfo returns a boolean if a field has been set.
+func (o *MainResponse) HasCommonInfo() bool {
+	if o != nil && !IsNil(o.CommonInfo) {
+		return true
+	}
+
+	return false
+}
+
+// SetCommonInfo gets a reference to the given CommonInfo and assigns it to the CommonInfo field.
 func (o *MainResponse) SetCommonInfo(v CommonInfo) {
-	o.CommonInfo = v
+	o.CommonInfo = &v
 }
 
-// GetPositionInfo returns the PositionInfo field value
+// GetPositionInfo returns the PositionInfo field value if set, zero value otherwise.
 func (o *MainResponse) GetPositionInfo() PositionInfo {
-	if o == nil {
+	if o == nil || IsNil(o.PositionInfo) {
 		var ret PositionInfo
 		return ret
 	}
-
-	return o.PositionInfo
+	return *o.PositionInfo
 }
 
-// GetPositionInfoOk returns a tuple with the PositionInfo field value
+// GetPositionInfoOk returns a tuple with the PositionInfo field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MainResponse) GetPositionInfoOk() (*PositionInfo, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.PositionInfo) {
 		return nil, false
 	}
-	return &o.PositionInfo, true
+	return o.PositionInfo, true
 }
 
-// SetPositionInfo sets field value
+// HasPositionInfo returns a boolean if a field has been set.
+func (o *MainResponse) HasPositionInfo() bool {
+	if o != nil && !IsNil(o.PositionInfo) {
+		return true
+	}
+
+	return false
+}
+
+// SetPositionInfo gets a reference to the given PositionInfo and assigns it to the PositionInfo field.
 func (o *MainResponse) SetPositionInfo(v PositionInfo) {
-	o.PositionInfo = v
+	o.PositionInfo = &v
 }
 
-// GetVisibilityInfo returns the VisibilityInfo field value
+// GetVisibilityInfo returns the VisibilityInfo field value if set, zero value otherwise.
 func (o *MainResponse) GetVisibilityInfo() VisibilityInfo {
-	if o == nil {
+	if o == nil || IsNil(o.VisibilityInfo) {
 		var ret VisibilityInfo
 		return ret
 	}
-
-	return o.VisibilityInfo
+	return *o.VisibilityInfo
 }
 
-// GetVisibilityInfoOk returns a tuple with the VisibilityInfo field value
+// GetVisibilityInfoOk returns a tuple with the VisibilityInfo field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MainResponse) GetVisibilityInfoOk() (*VisibilityInfo, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.VisibilityInfo) {
 		return nil, false
 	}
-	return &o.VisibilityInfo, true
+	return o.VisibilityInfo, true
 }
 
-// SetVisibilityInfo sets field value
+// HasVisibilityInfo returns a boolean if a field has been set.
+func (o *MainResponse) HasVisibilityInfo() bool {
+	if o != nil && !IsNil(o.VisibilityInfo) {
+		return true
+	}
+
+	return false
+}
+
+// SetVisibilityInfo gets a reference to the given VisibilityInfo and assigns it to the VisibilityInfo field.
 func (o *MainResponse) SetVisibilityInfo(v VisibilityInfo) {
-	o.VisibilityInfo = v
+	o.VisibilityInfo = &v
 }
 
 // GetGroups returns the Groups field value if set, zero value otherwise.
@@ -157,28 +173,36 @@ func (o *MainResponse) SetGroups(v []TableGroupItem) {
 	o.Groups = v
 }
 
-// GetCurrency returns the Currency field value
+// GetCurrency returns the Currency field value if set, zero value otherwise.
 func (o *MainResponse) GetCurrency() string {
-	if o == nil {
+	if o == nil || IsNil(o.Currency) {
 		var ret string
 		return ret
 	}
-
-	return o.Currency
+	return *o.Currency
 }
 
-// GetCurrencyOk returns a tuple with the Currency field value
+// GetCurrencyOk returns a tuple with the Currency field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MainResponse) GetCurrencyOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Currency) {
 		return nil, false
 	}
-	return &o.Currency, true
+	return o.Currency, true
 }
 
-// SetCurrency sets field value
+// HasCurrency returns a boolean if a field has been set.
+func (o *MainResponse) HasCurrency() bool {
+	if o != nil && !IsNil(o.Currency) {
+		return true
+	}
+
+	return false
+}
+
+// SetCurrency gets a reference to the given string and assigns it to the Currency field.
 func (o *MainResponse) SetCurrency(v string) {
-	o.Currency = v
+	o.Currency = &v
 }
 
 func (o MainResponse) MarshalJSON() ([]byte, error) {
@@ -191,54 +215,22 @@ func (o MainResponse) MarshalJSON() ([]byte, error) {
 
 func (o MainResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["commonInfo"] = o.CommonInfo
-	toSerialize["positionInfo"] = o.PositionInfo
-	toSerialize["visibilityInfo"] = o.VisibilityInfo
+	if !IsNil(o.CommonInfo) {
+		toSerialize["commonInfo"] = o.CommonInfo
+	}
+	if !IsNil(o.PositionInfo) {
+		toSerialize["positionInfo"] = o.PositionInfo
+	}
+	if !IsNil(o.VisibilityInfo) {
+		toSerialize["visibilityInfo"] = o.VisibilityInfo
+	}
 	if !IsNil(o.Groups) {
 		toSerialize["groups"] = o.Groups
 	}
-	toSerialize["currency"] = o.Currency
+	if !IsNil(o.Currency) {
+		toSerialize["currency"] = o.Currency
+	}
 	return toSerialize, nil
-}
-
-func (o *MainResponse) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"commonInfo",
-		"positionInfo",
-		"visibilityInfo",
-		"currency",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varMainResponse := _MainResponse{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varMainResponse)
-
-	if err != nil {
-		return err
-	}
-
-	*o = MainResponse(varMainResponse)
-
-	return err
 }
 
 type NullableMainResponse struct {

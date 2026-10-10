@@ -28,7 +28,9 @@ class CommonInfoAdvertisedProducts(BaseModel):
     Количество товаров в рекламе
     """  # noqa: E501
 
-    current: StrictInt = Field(description="Текущее количество товаров в рекламе")
+    current: Optional[StrictInt] = Field(
+        default=None, description="Текущее количество товаров в рекламе"
+    )
     dynamics: Optional[StrictInt] = Field(
         default=None, description="Динамика по сравнению с предыдущим периодом, %"
     )

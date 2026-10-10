@@ -28,45 +28,70 @@ class GoodsReturn200ResponseReportInner(BaseModel):
     GoodsReturn200ResponseReportInner
     """  # noqa: E501
 
-    sku: StrictStr = Field(description="Баркод")
-    brand: StrictStr = Field(description="Бренд")
+    sku: Optional[StrictStr] = Field(default=None, description="Баркод")
+    brand: Optional[StrictStr] = Field(default=None, description="Бренд")
     completed_dt: Optional[StrictStr] = Field(
-        description="Дата и время выдачи возврата продавцу", alias="completedDt"
+        default=None,
+        description="Дата и время выдачи возврата продавцу",
+        alias="completedDt",
     )
-    dst_office_address: StrictStr = Field(
-        description="Адрес ПВЗ для выдачи возврата продавцу", alias="dstOfficeAddress"
+    dst_office_address: Optional[StrictStr] = Field(
+        default=None,
+        description="Адрес ПВЗ для выдачи возврата продавцу",
+        alias="dstOfficeAddress",
     )
     kiz: Optional[StrictStr] = Field(
-        description="Код маркировки [Честного знака](https://честныйзнак.рф/)"
+        default=None,
+        description="Код маркировки [Честного знака](https://честныйзнак.рф/)",
     )
-    dst_office_id: StrictInt = Field(
-        description="ID ПВЗ для выдачи возврата продавцу", alias="dstOfficeId"
+    dst_office_id: Optional[StrictInt] = Field(
+        default=None,
+        description="ID ПВЗ для выдачи возврата продавцу",
+        alias="dstOfficeId",
     )
     expired_dt: Optional[StrictStr] = Field(
-        description="Дата и время истечения срока хранения возврата", alias="expiredDt"
+        default=None,
+        description="Дата и время истечения срока хранения возврата",
+        alias="expiredDt",
     )
-    nm_id: StrictInt = Field(description="Артикул WB", alias="nmId")
-    order_dt: StrictStr = Field(description="Дата заказа на возврат", alias="orderDt")
-    order_id: StrictInt = Field(description="ID сборочного задания", alias="orderId")
+    nm_id: Optional[StrictInt] = Field(
+        default=None, description="Артикул WB", alias="nmId"
+    )
+    order_dt: Optional[StrictStr] = Field(
+        default=None, description="Дата заказа на возврат", alias="orderDt"
+    )
+    order_id: Optional[StrictInt] = Field(
+        default=None, description="ID сборочного задания", alias="orderId"
+    )
     ready_to_return_dt: Optional[StrictStr] = Field(
-        description="Дата и время готовности возврата к выдаче", alias="readyToReturnDt"
+        default=None,
+        description="Дата и время готовности возврата к выдаче",
+        alias="readyToReturnDt",
     )
     return_reason: Optional[StrictStr] = Field(
         default=None,
         description='Причина возврата.  Поле возвращается только при `"returnType":"Возврат неопознанного товара"`',
         alias="returnReason",
     )
-    return_type: StrictStr = Field(description="Тип возврата", alias="returnType")
-    shk_id: StrictInt = Field(description="Штрихкод", alias="shkId")
-    srid: StrictStr = Field(description="ID заказа на возврат")
-    return_status: StrictStr = Field(
-        description="Статус возврата", alias="returnStatus"
+    return_type: Optional[StrictStr] = Field(
+        default=None, description="Тип возврата", alias="returnType"
     )
-    sticker_id: StrictStr = Field(
-        description="Стикер заказа на возврат", alias="stickerId"
+    shk_id: Optional[StrictInt] = Field(
+        default=None, description="Штрихкод", alias="shkId"
     )
-    subject_name: StrictStr = Field(description="Предмет", alias="subjectName")
-    tech_size: StrictStr = Field(description="Размер", alias="techSize")
+    srid: Optional[StrictStr] = Field(default=None, description="ID заказа на возврат")
+    return_status: Optional[StrictStr] = Field(
+        default=None, description="Статус возврата", alias="returnStatus"
+    )
+    sticker_id: Optional[StrictStr] = Field(
+        default=None, description="Стикер заказа на возврат", alias="stickerId"
+    )
+    subject_name: Optional[StrictStr] = Field(
+        default=None, description="Предмет", alias="subjectName"
+    )
+    tech_size: Optional[StrictStr] = Field(
+        default=None, description="Размер", alias="techSize"
+    )
     __properties: ClassVar[List[str]] = [
         "sku",
         "brand",

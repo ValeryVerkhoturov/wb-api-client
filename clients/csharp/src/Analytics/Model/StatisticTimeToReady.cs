@@ -34,14 +34,9 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="StatisticTimeToReady" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected StatisticTimeToReady() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="StatisticTimeToReady" /> class.
-        /// </summary>
-        /// <param name="days">Дни (required).</param>
-        /// <param name="hours">Часы (required).</param>
-        /// <param name="mins">Минуты (required).</param>
+        /// <param name="days">Дни.</param>
+        /// <param name="hours">Часы.</param>
+        /// <param name="mins">Минуты.</param>
         public StatisticTimeToReady(int days = default(int), int hours = default(int), int mins = default(int))
         {
             this.Days = days;
@@ -56,7 +51,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>1</example>
         */
-        [DataMember(Name = "days", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "days", EmitDefaultValue = false)]
         public int Days { get; set; }
 
         /// <summary>
@@ -66,7 +61,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>8</example>
         */
-        [DataMember(Name = "hours", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "hours", EmitDefaultValue = false)]
         public int Hours { get; set; }
 
         /// <summary>
@@ -76,7 +71,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>34</example>
         */
-        [DataMember(Name = "mins", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "mins", EmitDefaultValue = false)]
         public int Mins { get; set; }
 
         /// <summary>

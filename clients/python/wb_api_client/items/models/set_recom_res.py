@@ -29,7 +29,8 @@ class SetRecomRes(BaseModel):
     SetRecomRes
     """  # noqa: E501
 
-    is_error: StrictBool = Field(
+    is_error: Optional[StrictBool] = Field(
+        default=None,
         description="Есть ли ошибки:   - `false` — ошибок нет. Запрос полностью успешен   - `true` — ошибки есть ",
         alias="isError",
     )

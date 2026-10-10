@@ -28,7 +28,9 @@ class TableItemFloat(BaseModel):
     Рейтинг продавца
     """  # noqa: E501
 
-    current: Union[StrictFloat, StrictInt] = Field(description="Текущий рейтинг")
+    current: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None, description="Текущий рейтинг"
+    )
     dynamics: Optional[Union[StrictFloat, StrictInt]] = Field(
         default=None, description="Динамика по сравнению с предыдущим периодом, %"
     )

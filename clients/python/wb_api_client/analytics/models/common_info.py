@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from wb_api_client.analytics.models.common_info_advertised_products import (
     CommonInfoAdvertisedProducts,
 )
@@ -34,12 +34,14 @@ class CommonInfo(BaseModel):
     Общая информация
     """  # noqa: E501
 
-    supplier_rating: CommonInfoSupplierRating = Field(alias="supplierRating")
-    advertised_products: CommonInfoAdvertisedProducts = Field(
-        alias="advertisedProducts"
+    supplier_rating: Optional[CommonInfoSupplierRating] = Field(
+        default=None, alias="supplierRating"
     )
-    total_products: StrictInt = Field(
-        description="Общее количество товаров", alias="totalProducts"
+    advertised_products: Optional[CommonInfoAdvertisedProducts] = Field(
+        default=None, alias="advertisedProducts"
+    )
+    total_products: Optional[StrictInt] = Field(
+        default=None, description="Общее количество товаров", alias="totalProducts"
     )
     __properties: ClassVar[List[str]] = [
         "supplierRating",

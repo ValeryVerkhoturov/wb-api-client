@@ -37,7 +37,7 @@ public class CommonInfoSupplierRating {
   public static final String SERIALIZED_NAME_CURRENT = "current";
 
   @SerializedName(SERIALIZED_NAME_CURRENT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private BigDecimal current;
 
   public static final String SERIALIZED_NAME_DYNAMICS = "dynamics";
@@ -48,7 +48,7 @@ public class CommonInfoSupplierRating {
 
   public CommonInfoSupplierRating() {}
 
-  public CommonInfoSupplierRating current(@jakarta.annotation.Nonnull BigDecimal current) {
+  public CommonInfoSupplierRating current(@jakarta.annotation.Nullable BigDecimal current) {
     this.current = current;
     return this;
   }
@@ -58,12 +58,12 @@ public class CommonInfoSupplierRating {
    *
    * @return current
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public BigDecimal getCurrent() {
     return current;
   }
 
-  public void setCurrent(@jakarta.annotation.Nonnull BigDecimal current) {
+  public void setCurrent(@jakarta.annotation.Nullable BigDecimal current) {
     this.current = current;
   }
 
@@ -135,7 +135,6 @@ public class CommonInfoSupplierRating {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("current");
   }
 
   /**
@@ -163,16 +162,6 @@ public class CommonInfoSupplierRating {
             String.format(
                 "The field `%s` in the JSON string is not defined in the `CommonInfoSupplierRating` properties. JSON: %s",
                 entry.getKey(), jsonElement.toString()));
-      }
-    }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : CommonInfoSupplierRating.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
       }
     }
     JsonObject jsonObj = jsonElement.getAsJsonObject();

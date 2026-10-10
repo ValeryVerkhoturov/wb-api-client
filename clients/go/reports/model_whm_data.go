@@ -11,9 +11,7 @@ API version: reports
 package reports
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the WHMData type satisfies the MappedNullable interface at compile time
@@ -22,21 +20,17 @@ var _ MappedNullable = &WHMData{}
 // WHMData Данные ответа
 type WHMData struct {
 	// Замеры
-	Reports []WHMDataReportsInner `json:"reports"`
+	Reports []WHMDataReportsInner `json:"reports,omitempty"`
 	// Количество замеров в отчёте. Без учёта `limit` и `offset`
-	Total int32 `json:"total"`
+	Total *int32 `json:"total,omitempty"`
 }
-
-type _WHMData WHMData
 
 // NewWHMData instantiates a new WHMData object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWHMData(reports []WHMDataReportsInner, total int32) *WHMData {
+func NewWHMData() *WHMData {
 	this := WHMData{}
-	this.Reports = reports
-	this.Total = total
 	return &this
 }
 
@@ -48,52 +42,68 @@ func NewWHMDataWithDefaults() *WHMData {
 	return &this
 }
 
-// GetReports returns the Reports field value
+// GetReports returns the Reports field value if set, zero value otherwise.
 func (o *WHMData) GetReports() []WHMDataReportsInner {
-	if o == nil {
+	if o == nil || IsNil(o.Reports) {
 		var ret []WHMDataReportsInner
 		return ret
 	}
-
 	return o.Reports
 }
 
-// GetReportsOk returns a tuple with the Reports field value
+// GetReportsOk returns a tuple with the Reports field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *WHMData) GetReportsOk() ([]WHMDataReportsInner, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Reports) {
 		return nil, false
 	}
 	return o.Reports, true
 }
 
-// SetReports sets field value
+// HasReports returns a boolean if a field has been set.
+func (o *WHMData) HasReports() bool {
+	if o != nil && !IsNil(o.Reports) {
+		return true
+	}
+
+	return false
+}
+
+// SetReports gets a reference to the given []WHMDataReportsInner and assigns it to the Reports field.
 func (o *WHMData) SetReports(v []WHMDataReportsInner) {
 	o.Reports = v
 }
 
-// GetTotal returns the Total field value
+// GetTotal returns the Total field value if set, zero value otherwise.
 func (o *WHMData) GetTotal() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.Total) {
 		var ret int32
 		return ret
 	}
-
-	return o.Total
+	return *o.Total
 }
 
-// GetTotalOk returns a tuple with the Total field value
+// GetTotalOk returns a tuple with the Total field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *WHMData) GetTotalOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Total) {
 		return nil, false
 	}
-	return &o.Total, true
+	return o.Total, true
 }
 
-// SetTotal sets field value
+// HasTotal returns a boolean if a field has been set.
+func (o *WHMData) HasTotal() bool {
+	if o != nil && !IsNil(o.Total) {
+		return true
+	}
+
+	return false
+}
+
+// SetTotal gets a reference to the given int32 and assigns it to the Total field.
 func (o *WHMData) SetTotal(v int32) {
-	o.Total = v
+	o.Total = &v
 }
 
 func (o WHMData) MarshalJSON() ([]byte, error) {
@@ -106,47 +116,13 @@ func (o WHMData) MarshalJSON() ([]byte, error) {
 
 func (o WHMData) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["reports"] = o.Reports
-	toSerialize["total"] = o.Total
+	if !IsNil(o.Reports) {
+		toSerialize["reports"] = o.Reports
+	}
+	if !IsNil(o.Total) {
+		toSerialize["total"] = o.Total
+	}
 	return toSerialize, nil
-}
-
-func (o *WHMData) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"reports",
-		"total",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varWHMData := _WHMData{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varWHMData)
-
-	if err != nil {
-		return err
-	}
-
-	*o = WHMData(varWHMData)
-
-	return err
 }
 
 type NullableWHMData struct {

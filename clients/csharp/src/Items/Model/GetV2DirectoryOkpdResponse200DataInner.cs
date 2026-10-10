@@ -34,26 +34,11 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GetV2DirectoryOkpdResponse200DataInner" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected GetV2DirectoryOkpdResponse200DataInner() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="GetV2DirectoryOkpdResponse200DataInner" /> class.
-        /// </summary>
-        /// <param name="okpd2">Код ОКПД2 (required).</param>
-        /// <param name="description">Текстовое описание товаров, которые входят в группу (required).</param>
+        /// <param name="okpd2">Код ОКПД2.</param>
+        /// <param name="description">Текстовое описание товаров, которые входят в группу.</param>
         public GetV2DirectoryOkpdResponse200DataInner(string okpd2 = default(string), string description = default(string))
         {
-            // to ensure "okpd2" is required (not null)
-            if (okpd2 == null)
-            {
-                throw new ArgumentNullException("okpd2 is a required property for GetV2DirectoryOkpdResponse200DataInner and cannot be null");
-            }
             this.Okpd2 = okpd2;
-            // to ensure "description" is required (not null)
-            if (description == null)
-            {
-                throw new ArgumentNullException("description is a required property for GetV2DirectoryOkpdResponse200DataInner and cannot be null");
-            }
             this.Description = description;
         }
 
@@ -64,7 +49,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /*
         <example>61.06.90.300</example>
         */
-        [DataMember(Name = "okpd2", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "okpd2", EmitDefaultValue = false)]
         public string Okpd2 { get; set; }
 
         /// <summary>
@@ -74,7 +59,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /*
         <example>Бумага для офисной техники прочая</example>
         */
-        [DataMember(Name = "description", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "description", EmitDefaultValue = false)]
         public string Description { get; set; }
 
         /// <summary>

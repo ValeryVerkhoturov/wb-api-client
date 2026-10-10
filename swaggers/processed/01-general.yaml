@@ -962,10 +962,6 @@ components:
   schemas:
     getUsersResponse:
       type: object
-      required:
-      - users
-      - total
-      - countInResponse
       properties:
         total:
           type: integer
@@ -978,20 +974,6 @@ components:
           description: Информация о пользователях
           items:
             type: object
-            required:
-            - id
-            - role
-            - position
-            - phone
-            - email
-            - isOwner
-            - firstName
-            - secondName
-            - patronymic
-            - goodsReturn
-            - isInvitee
-            - inviteeInfo
-            - access
             properties:
               id:
                 type: integer
@@ -1060,9 +1042,6 @@ components:
                 description: Настройки доступа к разделам профиля продавца
                 items:
                   type: object
-                  required:
-                  - code
-                  - disabled
                   properties:
                     code:
                       type: string
@@ -1250,11 +1229,6 @@ components:
           position: Менеджер
     createInviteResponse:
       type: object
-      required:
-      - inviteID
-      - expiredAt
-      - isSuccess
-      - inviteUrl
       description: Данные приглашения
       properties:
         inviteID:
@@ -1383,12 +1357,6 @@ components:
             disabled: true
     errorResponse:
       type: object
-      required:
-      - title
-      - detail
-      - requestId
-      - origin
-      - status
       properties:
         title:
           type: string
@@ -1426,12 +1394,6 @@ components:
     SubscriptionsJamInfo:
       type: object
       description: Информация о подписке Джем
-      required:
-      - state
-      - activationSource
-      - level
-      - since
-      - till
       properties:
         state:
           type: string
@@ -1475,12 +1437,6 @@ components:
           description: Дата и время окончания подписки
     PlanBuilderOptionsInfo:
       type: object
-      required:
-      - activeOptionCount
-      - activePackageCount
-      - totalCommissionRate
-      - packages
-      - options
       properties:
         activeOptionCount:
           type: number

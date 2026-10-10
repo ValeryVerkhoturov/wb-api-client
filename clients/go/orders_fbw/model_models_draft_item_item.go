@@ -11,9 +11,7 @@ API version: ordersfbw
 package orders_fbw
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the ModelsDraftItemItem type satisfies the MappedNullable interface at compile time
@@ -22,45 +20,33 @@ var _ MappedNullable = &ModelsDraftItemItem{}
 // ModelsDraftItemItem struct for ModelsDraftItemItem
 type ModelsDraftItemItem struct {
 	// Баркод
-	Sku string `json:"sku"`
+	Sku *string `json:"sku,omitempty"`
 	// Цвет товара
-	Color string `json:"color"`
+	Color *string `json:"color,omitempty"`
 	// Количество единиц товара
-	Quantity int32 `json:"quantity"`
+	Quantity *int32 `json:"quantity,omitempty"`
 	// Бренд
-	BrandName string `json:"brandName"`
+	BrandName *string `json:"brandName,omitempty"`
 	// Ссылка на изображение товара
-	ImgSrc string `json:"imgSrc"`
+	ImgSrc *string `json:"imgSrc,omitempty"`
 	// Артикул WB
-	NmId int32 `json:"nmId"`
+	NmId *int32 `json:"nmId,omitempty"`
 	// Предмет
-	SubjectName string `json:"subjectName"`
+	SubjectName *string `json:"subjectName,omitempty"`
 	// Размер товара
-	TechSize string `json:"techSize"`
+	TechSize *string `json:"techSize,omitempty"`
 	// Название товара
-	Title string `json:"title"`
+	Title *string `json:"title,omitempty"`
 	// Артикул продавца
-	VendorCode string `json:"vendorCode"`
+	VendorCode *string `json:"vendorCode,omitempty"`
 }
-
-type _ModelsDraftItemItem ModelsDraftItemItem
 
 // NewModelsDraftItemItem instantiates a new ModelsDraftItemItem object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelsDraftItemItem(sku string, color string, quantity int32, brandName string, imgSrc string, nmId int32, subjectName string, techSize string, title string, vendorCode string) *ModelsDraftItemItem {
+func NewModelsDraftItemItem() *ModelsDraftItemItem {
 	this := ModelsDraftItemItem{}
-	this.Sku = sku
-	this.Color = color
-	this.Quantity = quantity
-	this.BrandName = brandName
-	this.ImgSrc = imgSrc
-	this.NmId = nmId
-	this.SubjectName = subjectName
-	this.TechSize = techSize
-	this.Title = title
-	this.VendorCode = vendorCode
 	return &this
 }
 
@@ -72,244 +58,324 @@ func NewModelsDraftItemItemWithDefaults() *ModelsDraftItemItem {
 	return &this
 }
 
-// GetSku returns the Sku field value
+// GetSku returns the Sku field value if set, zero value otherwise.
 func (o *ModelsDraftItemItem) GetSku() string {
-	if o == nil {
+	if o == nil || IsNil(o.Sku) {
 		var ret string
 		return ret
 	}
-
-	return o.Sku
+	return *o.Sku
 }
 
-// GetSkuOk returns a tuple with the Sku field value
+// GetSkuOk returns a tuple with the Sku field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModelsDraftItemItem) GetSkuOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Sku) {
 		return nil, false
 	}
-	return &o.Sku, true
+	return o.Sku, true
 }
 
-// SetSku sets field value
+// HasSku returns a boolean if a field has been set.
+func (o *ModelsDraftItemItem) HasSku() bool {
+	if o != nil && !IsNil(o.Sku) {
+		return true
+	}
+
+	return false
+}
+
+// SetSku gets a reference to the given string and assigns it to the Sku field.
 func (o *ModelsDraftItemItem) SetSku(v string) {
-	o.Sku = v
+	o.Sku = &v
 }
 
-// GetColor returns the Color field value
+// GetColor returns the Color field value if set, zero value otherwise.
 func (o *ModelsDraftItemItem) GetColor() string {
-	if o == nil {
+	if o == nil || IsNil(o.Color) {
 		var ret string
 		return ret
 	}
-
-	return o.Color
+	return *o.Color
 }
 
-// GetColorOk returns a tuple with the Color field value
+// GetColorOk returns a tuple with the Color field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModelsDraftItemItem) GetColorOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Color) {
 		return nil, false
 	}
-	return &o.Color, true
+	return o.Color, true
 }
 
-// SetColor sets field value
+// HasColor returns a boolean if a field has been set.
+func (o *ModelsDraftItemItem) HasColor() bool {
+	if o != nil && !IsNil(o.Color) {
+		return true
+	}
+
+	return false
+}
+
+// SetColor gets a reference to the given string and assigns it to the Color field.
 func (o *ModelsDraftItemItem) SetColor(v string) {
-	o.Color = v
+	o.Color = &v
 }
 
-// GetQuantity returns the Quantity field value
+// GetQuantity returns the Quantity field value if set, zero value otherwise.
 func (o *ModelsDraftItemItem) GetQuantity() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.Quantity) {
 		var ret int32
 		return ret
 	}
-
-	return o.Quantity
+	return *o.Quantity
 }
 
-// GetQuantityOk returns a tuple with the Quantity field value
+// GetQuantityOk returns a tuple with the Quantity field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModelsDraftItemItem) GetQuantityOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Quantity) {
 		return nil, false
 	}
-	return &o.Quantity, true
+	return o.Quantity, true
 }
 
-// SetQuantity sets field value
+// HasQuantity returns a boolean if a field has been set.
+func (o *ModelsDraftItemItem) HasQuantity() bool {
+	if o != nil && !IsNil(o.Quantity) {
+		return true
+	}
+
+	return false
+}
+
+// SetQuantity gets a reference to the given int32 and assigns it to the Quantity field.
 func (o *ModelsDraftItemItem) SetQuantity(v int32) {
-	o.Quantity = v
+	o.Quantity = &v
 }
 
-// GetBrandName returns the BrandName field value
+// GetBrandName returns the BrandName field value if set, zero value otherwise.
 func (o *ModelsDraftItemItem) GetBrandName() string {
-	if o == nil {
+	if o == nil || IsNil(o.BrandName) {
 		var ret string
 		return ret
 	}
-
-	return o.BrandName
+	return *o.BrandName
 }
 
-// GetBrandNameOk returns a tuple with the BrandName field value
+// GetBrandNameOk returns a tuple with the BrandName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModelsDraftItemItem) GetBrandNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.BrandName) {
 		return nil, false
 	}
-	return &o.BrandName, true
+	return o.BrandName, true
 }
 
-// SetBrandName sets field value
+// HasBrandName returns a boolean if a field has been set.
+func (o *ModelsDraftItemItem) HasBrandName() bool {
+	if o != nil && !IsNil(o.BrandName) {
+		return true
+	}
+
+	return false
+}
+
+// SetBrandName gets a reference to the given string and assigns it to the BrandName field.
 func (o *ModelsDraftItemItem) SetBrandName(v string) {
-	o.BrandName = v
+	o.BrandName = &v
 }
 
-// GetImgSrc returns the ImgSrc field value
+// GetImgSrc returns the ImgSrc field value if set, zero value otherwise.
 func (o *ModelsDraftItemItem) GetImgSrc() string {
-	if o == nil {
+	if o == nil || IsNil(o.ImgSrc) {
 		var ret string
 		return ret
 	}
-
-	return o.ImgSrc
+	return *o.ImgSrc
 }
 
-// GetImgSrcOk returns a tuple with the ImgSrc field value
+// GetImgSrcOk returns a tuple with the ImgSrc field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModelsDraftItemItem) GetImgSrcOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ImgSrc) {
 		return nil, false
 	}
-	return &o.ImgSrc, true
+	return o.ImgSrc, true
 }
 
-// SetImgSrc sets field value
+// HasImgSrc returns a boolean if a field has been set.
+func (o *ModelsDraftItemItem) HasImgSrc() bool {
+	if o != nil && !IsNil(o.ImgSrc) {
+		return true
+	}
+
+	return false
+}
+
+// SetImgSrc gets a reference to the given string and assigns it to the ImgSrc field.
 func (o *ModelsDraftItemItem) SetImgSrc(v string) {
-	o.ImgSrc = v
+	o.ImgSrc = &v
 }
 
-// GetNmId returns the NmId field value
+// GetNmId returns the NmId field value if set, zero value otherwise.
 func (o *ModelsDraftItemItem) GetNmId() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.NmId) {
 		var ret int32
 		return ret
 	}
-
-	return o.NmId
+	return *o.NmId
 }
 
-// GetNmIdOk returns a tuple with the NmId field value
+// GetNmIdOk returns a tuple with the NmId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModelsDraftItemItem) GetNmIdOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.NmId) {
 		return nil, false
 	}
-	return &o.NmId, true
+	return o.NmId, true
 }
 
-// SetNmId sets field value
+// HasNmId returns a boolean if a field has been set.
+func (o *ModelsDraftItemItem) HasNmId() bool {
+	if o != nil && !IsNil(o.NmId) {
+		return true
+	}
+
+	return false
+}
+
+// SetNmId gets a reference to the given int32 and assigns it to the NmId field.
 func (o *ModelsDraftItemItem) SetNmId(v int32) {
-	o.NmId = v
+	o.NmId = &v
 }
 
-// GetSubjectName returns the SubjectName field value
+// GetSubjectName returns the SubjectName field value if set, zero value otherwise.
 func (o *ModelsDraftItemItem) GetSubjectName() string {
-	if o == nil {
+	if o == nil || IsNil(o.SubjectName) {
 		var ret string
 		return ret
 	}
-
-	return o.SubjectName
+	return *o.SubjectName
 }
 
-// GetSubjectNameOk returns a tuple with the SubjectName field value
+// GetSubjectNameOk returns a tuple with the SubjectName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModelsDraftItemItem) GetSubjectNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.SubjectName) {
 		return nil, false
 	}
-	return &o.SubjectName, true
+	return o.SubjectName, true
 }
 
-// SetSubjectName sets field value
+// HasSubjectName returns a boolean if a field has been set.
+func (o *ModelsDraftItemItem) HasSubjectName() bool {
+	if o != nil && !IsNil(o.SubjectName) {
+		return true
+	}
+
+	return false
+}
+
+// SetSubjectName gets a reference to the given string and assigns it to the SubjectName field.
 func (o *ModelsDraftItemItem) SetSubjectName(v string) {
-	o.SubjectName = v
+	o.SubjectName = &v
 }
 
-// GetTechSize returns the TechSize field value
+// GetTechSize returns the TechSize field value if set, zero value otherwise.
 func (o *ModelsDraftItemItem) GetTechSize() string {
-	if o == nil {
+	if o == nil || IsNil(o.TechSize) {
 		var ret string
 		return ret
 	}
-
-	return o.TechSize
+	return *o.TechSize
 }
 
-// GetTechSizeOk returns a tuple with the TechSize field value
+// GetTechSizeOk returns a tuple with the TechSize field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModelsDraftItemItem) GetTechSizeOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.TechSize) {
 		return nil, false
 	}
-	return &o.TechSize, true
+	return o.TechSize, true
 }
 
-// SetTechSize sets field value
+// HasTechSize returns a boolean if a field has been set.
+func (o *ModelsDraftItemItem) HasTechSize() bool {
+	if o != nil && !IsNil(o.TechSize) {
+		return true
+	}
+
+	return false
+}
+
+// SetTechSize gets a reference to the given string and assigns it to the TechSize field.
 func (o *ModelsDraftItemItem) SetTechSize(v string) {
-	o.TechSize = v
+	o.TechSize = &v
 }
 
-// GetTitle returns the Title field value
+// GetTitle returns the Title field value if set, zero value otherwise.
 func (o *ModelsDraftItemItem) GetTitle() string {
-	if o == nil {
+	if o == nil || IsNil(o.Title) {
 		var ret string
 		return ret
 	}
-
-	return o.Title
+	return *o.Title
 }
 
-// GetTitleOk returns a tuple with the Title field value
+// GetTitleOk returns a tuple with the Title field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModelsDraftItemItem) GetTitleOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Title) {
 		return nil, false
 	}
-	return &o.Title, true
+	return o.Title, true
 }
 
-// SetTitle sets field value
+// HasTitle returns a boolean if a field has been set.
+func (o *ModelsDraftItemItem) HasTitle() bool {
+	if o != nil && !IsNil(o.Title) {
+		return true
+	}
+
+	return false
+}
+
+// SetTitle gets a reference to the given string and assigns it to the Title field.
 func (o *ModelsDraftItemItem) SetTitle(v string) {
-	o.Title = v
+	o.Title = &v
 }
 
-// GetVendorCode returns the VendorCode field value
+// GetVendorCode returns the VendorCode field value if set, zero value otherwise.
 func (o *ModelsDraftItemItem) GetVendorCode() string {
-	if o == nil {
+	if o == nil || IsNil(o.VendorCode) {
 		var ret string
 		return ret
 	}
-
-	return o.VendorCode
+	return *o.VendorCode
 }
 
-// GetVendorCodeOk returns a tuple with the VendorCode field value
+// GetVendorCodeOk returns a tuple with the VendorCode field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModelsDraftItemItem) GetVendorCodeOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.VendorCode) {
 		return nil, false
 	}
-	return &o.VendorCode, true
+	return o.VendorCode, true
 }
 
-// SetVendorCode sets field value
+// HasVendorCode returns a boolean if a field has been set.
+func (o *ModelsDraftItemItem) HasVendorCode() bool {
+	if o != nil && !IsNil(o.VendorCode) {
+		return true
+	}
+
+	return false
+}
+
+// SetVendorCode gets a reference to the given string and assigns it to the VendorCode field.
 func (o *ModelsDraftItemItem) SetVendorCode(v string) {
-	o.VendorCode = v
+	o.VendorCode = &v
 }
 
 func (o ModelsDraftItemItem) MarshalJSON() ([]byte, error) {
@@ -322,63 +388,37 @@ func (o ModelsDraftItemItem) MarshalJSON() ([]byte, error) {
 
 func (o ModelsDraftItemItem) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["sku"] = o.Sku
-	toSerialize["color"] = o.Color
-	toSerialize["quantity"] = o.Quantity
-	toSerialize["brandName"] = o.BrandName
-	toSerialize["imgSrc"] = o.ImgSrc
-	toSerialize["nmId"] = o.NmId
-	toSerialize["subjectName"] = o.SubjectName
-	toSerialize["techSize"] = o.TechSize
-	toSerialize["title"] = o.Title
-	toSerialize["vendorCode"] = o.VendorCode
+	if !IsNil(o.Sku) {
+		toSerialize["sku"] = o.Sku
+	}
+	if !IsNil(o.Color) {
+		toSerialize["color"] = o.Color
+	}
+	if !IsNil(o.Quantity) {
+		toSerialize["quantity"] = o.Quantity
+	}
+	if !IsNil(o.BrandName) {
+		toSerialize["brandName"] = o.BrandName
+	}
+	if !IsNil(o.ImgSrc) {
+		toSerialize["imgSrc"] = o.ImgSrc
+	}
+	if !IsNil(o.NmId) {
+		toSerialize["nmId"] = o.NmId
+	}
+	if !IsNil(o.SubjectName) {
+		toSerialize["subjectName"] = o.SubjectName
+	}
+	if !IsNil(o.TechSize) {
+		toSerialize["techSize"] = o.TechSize
+	}
+	if !IsNil(o.Title) {
+		toSerialize["title"] = o.Title
+	}
+	if !IsNil(o.VendorCode) {
+		toSerialize["vendorCode"] = o.VendorCode
+	}
 	return toSerialize, nil
-}
-
-func (o *ModelsDraftItemItem) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"sku",
-		"color",
-		"quantity",
-		"brandName",
-		"imgSrc",
-		"nmId",
-		"subjectName",
-		"techSize",
-		"title",
-		"vendorCode",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varModelsDraftItemItem := _ModelsDraftItemItem{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varModelsDraftItemItem)
-
-	if err != nil {
-		return err
-	}
-
-	*o = ModelsDraftItemItem(varModelsDraftItemItem)
-
-	return err
 }
 
 type NullableModelsDraftItemItem struct {

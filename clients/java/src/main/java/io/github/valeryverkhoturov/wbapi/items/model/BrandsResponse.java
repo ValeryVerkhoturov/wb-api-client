@@ -39,7 +39,7 @@ public class BrandsResponse {
   public static final String SERIALIZED_NAME_BRANDS = "brands";
 
   @SerializedName(SERIALIZED_NAME_BRANDS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private List<BrandsResponseBrandsInner> brands = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_NEXT = "next";
@@ -51,12 +51,13 @@ public class BrandsResponse {
   public static final String SERIALIZED_NAME_TOTAL = "total";
 
   @SerializedName(SERIALIZED_NAME_TOTAL)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer total;
 
   public BrandsResponse() {}
 
-  public BrandsResponse brands(@jakarta.annotation.Nonnull List<BrandsResponseBrandsInner> brands) {
+  public BrandsResponse brands(
+      @jakarta.annotation.Nullable List<BrandsResponseBrandsInner> brands) {
     this.brands = brands;
     return this;
   }
@@ -74,12 +75,12 @@ public class BrandsResponse {
    *
    * @return brands
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public List<BrandsResponseBrandsInner> getBrands() {
     return brands;
   }
 
-  public void setBrands(@jakarta.annotation.Nonnull List<BrandsResponseBrandsInner> brands) {
+  public void setBrands(@jakarta.annotation.Nullable List<BrandsResponseBrandsInner> brands) {
     this.brands = brands;
   }
 
@@ -103,7 +104,7 @@ public class BrandsResponse {
     this.next = next;
   }
 
-  public BrandsResponse total(@jakarta.annotation.Nonnull Integer total) {
+  public BrandsResponse total(@jakarta.annotation.Nullable Integer total) {
     this.total = total;
     return this;
   }
@@ -113,12 +114,12 @@ public class BrandsResponse {
    *
    * @return total
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getTotal() {
     return total;
   }
 
-  public void setTotal(@jakarta.annotation.Nonnull Integer total) {
+  public void setTotal(@jakarta.annotation.Nullable Integer total) {
     this.total = total;
   }
 
@@ -174,8 +175,6 @@ public class BrandsResponse {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("brands");
-    openapiRequiredFields.add("total");
   }
 
   /**
@@ -205,31 +204,25 @@ public class BrandsResponse {
                 entry.getKey(), jsonElement.toString()));
       }
     }
+    JsonObject jsonObj = jsonElement.getAsJsonObject();
+    if (jsonObj.get("brands") != null && !jsonObj.get("brands").isJsonNull()) {
+      JsonArray jsonArraybrands = jsonObj.getAsJsonArray("brands");
+      if (jsonArraybrands != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("brands").isJsonArray()) {
+          throw new IllegalArgumentException(
+              String.format(
+                  "Expected the field `brands` to be an array in the JSON string but got `%s`",
+                  jsonObj.get("brands").toString()));
+        }
 
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : BrandsResponse.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
+        // validate the optional field `brands` (array)
+        for (int i = 0; i < jsonArraybrands.size(); i++) {
+          BrandsResponseBrandsInner.validateJsonElement(jsonArraybrands.get(i));
+        }
+        ;
       }
     }
-    JsonObject jsonObj = jsonElement.getAsJsonObject();
-    // ensure the json data is an array
-    if (!jsonObj.get("brands").isJsonArray()) {
-      throw new IllegalArgumentException(
-          String.format(
-              "Expected the field `brands` to be an array in the JSON string but got `%s`",
-              jsonObj.get("brands").toString()));
-    }
-
-    JsonArray jsonArraybrands = jsonObj.getAsJsonArray("brands");
-    // validate the required field `brands` (array)
-    for (int i = 0; i < jsonArraybrands.size(); i++) {
-      BrandsResponseBrandsInner.validateJsonElement(jsonArraybrands.get(i));
-    }
-    ;
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

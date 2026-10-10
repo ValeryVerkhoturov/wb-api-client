@@ -11,9 +11,7 @@ API version: analytics
 package analytics
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the DistributionTableItem type satisfies the MappedNullable interface at compile time
@@ -22,65 +20,44 @@ var _ MappedNullable = &DistributionTableItem{}
 // DistributionTableItem struct for DistributionTableItem
 type DistributionTableItem struct {
 	// Артикул WB
-	NmId int64 `json:"nmId"`
+	NmId *int64 `json:"nmId,omitempty"`
 	// Название товара
-	Title string `json:"title"`
+	Title *string `json:"title,omitempty"`
 	// Артикул продавца
-	VendorCode string `json:"vendorCode"`
+	VendorCode *string `json:"vendorCode,omitempty"`
 	// ID предмета
-	SubjectId int32 `json:"subjectId"`
+	SubjectId *int32 `json:"subjectId,omitempty"`
 	// Название предмета
-	SubjectName string `json:"subjectName"`
+	SubjectName *string `json:"subjectName,omitempty"`
 	// Бренд
-	BrandName string `json:"brandName"`
+	BrandName *string `json:"brandName,omitempty"`
 	// Название ярлыка
-	TagName string `json:"tagName"`
+	TagName *string `json:"tagName,omitempty"`
 	// ID ярлыка
-	TagId int64 `json:"tagId"`
+	TagId *int64 `json:"tagId,omitempty"`
 	// Отзыв закреплён
-	PinnedFeedback bool `json:"pinnedFeedback"`
+	PinnedFeedback *bool `json:"pinnedFeedback,omitempty"`
 	// Рейтинг карточки товара
-	Rating         float32                             `json:"rating"`
-	FeedbackRating DistributionTableItemFeedbackRating `json:"feedbackRating"`
-	FeedbackCount  DistributionTableItemFeedbackCount  `json:"feedbackCount"`
-	FiveStar       DistributionTableItemFiveStar       `json:"fiveStar"`
-	FourStar       DistributionTableItemFourStar       `json:"fourStar"`
-	ThreeStar      DistributionTableItemThreeStar      `json:"threeStar"`
-	TwoStar        DistributionTableItemTwoStar        `json:"twoStar"`
-	OneStar        DistributionTableItemOneStar        `json:"oneStar"`
+	Rating         *float32                             `json:"rating,omitempty"`
+	FeedbackRating *DistributionTableItemFeedbackRating `json:"feedbackRating,omitempty"`
+	FeedbackCount  *DistributionTableItemFeedbackCount  `json:"feedbackCount,omitempty"`
+	FiveStar       *DistributionTableItemFiveStar       `json:"fiveStar,omitempty"`
+	FourStar       *DistributionTableItemFourStar       `json:"fourStar,omitempty"`
+	ThreeStar      *DistributionTableItemThreeStar      `json:"threeStar,omitempty"`
+	TwoStar        *DistributionTableItemTwoStar        `json:"twoStar,omitempty"`
+	OneStar        *DistributionTableItemOneStar        `json:"oneStar,omitempty"`
 	// Отзывы, исключённые из рейтинга
-	Disqualified int32 `json:"disqualified"`
+	Disqualified *int32 `json:"disqualified,omitempty"`
 	// Является ли товар скрытым из каталога:   - `true` — товар скрыт из каталога   - `false` — товар не скрыт из каталога
-	IsShadowed bool `json:"isShadowed"`
+	IsShadowed *bool `json:"isShadowed,omitempty"`
 }
-
-type _DistributionTableItem DistributionTableItem
 
 // NewDistributionTableItem instantiates a new DistributionTableItem object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewDistributionTableItem(nmId int64, title string, vendorCode string, subjectId int32, subjectName string, brandName string, tagName string, tagId int64, pinnedFeedback bool, rating float32, feedbackRating DistributionTableItemFeedbackRating, feedbackCount DistributionTableItemFeedbackCount, fiveStar DistributionTableItemFiveStar, fourStar DistributionTableItemFourStar, threeStar DistributionTableItemThreeStar, twoStar DistributionTableItemTwoStar, oneStar DistributionTableItemOneStar, disqualified int32, isShadowed bool) *DistributionTableItem {
+func NewDistributionTableItem() *DistributionTableItem {
 	this := DistributionTableItem{}
-	this.NmId = nmId
-	this.Title = title
-	this.VendorCode = vendorCode
-	this.SubjectId = subjectId
-	this.SubjectName = subjectName
-	this.BrandName = brandName
-	this.TagName = tagName
-	this.TagId = tagId
-	this.PinnedFeedback = pinnedFeedback
-	this.Rating = rating
-	this.FeedbackRating = feedbackRating
-	this.FeedbackCount = feedbackCount
-	this.FiveStar = fiveStar
-	this.FourStar = fourStar
-	this.ThreeStar = threeStar
-	this.TwoStar = twoStar
-	this.OneStar = oneStar
-	this.Disqualified = disqualified
-	this.IsShadowed = isShadowed
 	return &this
 }
 
@@ -92,460 +69,612 @@ func NewDistributionTableItemWithDefaults() *DistributionTableItem {
 	return &this
 }
 
-// GetNmId returns the NmId field value
+// GetNmId returns the NmId field value if set, zero value otherwise.
 func (o *DistributionTableItem) GetNmId() int64 {
-	if o == nil {
+	if o == nil || IsNil(o.NmId) {
 		var ret int64
 		return ret
 	}
-
-	return o.NmId
+	return *o.NmId
 }
 
-// GetNmIdOk returns a tuple with the NmId field value
+// GetNmIdOk returns a tuple with the NmId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DistributionTableItem) GetNmIdOk() (*int64, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.NmId) {
 		return nil, false
 	}
-	return &o.NmId, true
+	return o.NmId, true
 }
 
-// SetNmId sets field value
+// HasNmId returns a boolean if a field has been set.
+func (o *DistributionTableItem) HasNmId() bool {
+	if o != nil && !IsNil(o.NmId) {
+		return true
+	}
+
+	return false
+}
+
+// SetNmId gets a reference to the given int64 and assigns it to the NmId field.
 func (o *DistributionTableItem) SetNmId(v int64) {
-	o.NmId = v
+	o.NmId = &v
 }
 
-// GetTitle returns the Title field value
+// GetTitle returns the Title field value if set, zero value otherwise.
 func (o *DistributionTableItem) GetTitle() string {
-	if o == nil {
+	if o == nil || IsNil(o.Title) {
 		var ret string
 		return ret
 	}
-
-	return o.Title
+	return *o.Title
 }
 
-// GetTitleOk returns a tuple with the Title field value
+// GetTitleOk returns a tuple with the Title field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DistributionTableItem) GetTitleOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Title) {
 		return nil, false
 	}
-	return &o.Title, true
+	return o.Title, true
 }
 
-// SetTitle sets field value
+// HasTitle returns a boolean if a field has been set.
+func (o *DistributionTableItem) HasTitle() bool {
+	if o != nil && !IsNil(o.Title) {
+		return true
+	}
+
+	return false
+}
+
+// SetTitle gets a reference to the given string and assigns it to the Title field.
 func (o *DistributionTableItem) SetTitle(v string) {
-	o.Title = v
+	o.Title = &v
 }
 
-// GetVendorCode returns the VendorCode field value
+// GetVendorCode returns the VendorCode field value if set, zero value otherwise.
 func (o *DistributionTableItem) GetVendorCode() string {
-	if o == nil {
+	if o == nil || IsNil(o.VendorCode) {
 		var ret string
 		return ret
 	}
-
-	return o.VendorCode
+	return *o.VendorCode
 }
 
-// GetVendorCodeOk returns a tuple with the VendorCode field value
+// GetVendorCodeOk returns a tuple with the VendorCode field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DistributionTableItem) GetVendorCodeOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.VendorCode) {
 		return nil, false
 	}
-	return &o.VendorCode, true
+	return o.VendorCode, true
 }
 
-// SetVendorCode sets field value
+// HasVendorCode returns a boolean if a field has been set.
+func (o *DistributionTableItem) HasVendorCode() bool {
+	if o != nil && !IsNil(o.VendorCode) {
+		return true
+	}
+
+	return false
+}
+
+// SetVendorCode gets a reference to the given string and assigns it to the VendorCode field.
 func (o *DistributionTableItem) SetVendorCode(v string) {
-	o.VendorCode = v
+	o.VendorCode = &v
 }
 
-// GetSubjectId returns the SubjectId field value
+// GetSubjectId returns the SubjectId field value if set, zero value otherwise.
 func (o *DistributionTableItem) GetSubjectId() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.SubjectId) {
 		var ret int32
 		return ret
 	}
-
-	return o.SubjectId
+	return *o.SubjectId
 }
 
-// GetSubjectIdOk returns a tuple with the SubjectId field value
+// GetSubjectIdOk returns a tuple with the SubjectId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DistributionTableItem) GetSubjectIdOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.SubjectId) {
 		return nil, false
 	}
-	return &o.SubjectId, true
+	return o.SubjectId, true
 }
 
-// SetSubjectId sets field value
+// HasSubjectId returns a boolean if a field has been set.
+func (o *DistributionTableItem) HasSubjectId() bool {
+	if o != nil && !IsNil(o.SubjectId) {
+		return true
+	}
+
+	return false
+}
+
+// SetSubjectId gets a reference to the given int32 and assigns it to the SubjectId field.
 func (o *DistributionTableItem) SetSubjectId(v int32) {
-	o.SubjectId = v
+	o.SubjectId = &v
 }
 
-// GetSubjectName returns the SubjectName field value
+// GetSubjectName returns the SubjectName field value if set, zero value otherwise.
 func (o *DistributionTableItem) GetSubjectName() string {
-	if o == nil {
+	if o == nil || IsNil(o.SubjectName) {
 		var ret string
 		return ret
 	}
-
-	return o.SubjectName
+	return *o.SubjectName
 }
 
-// GetSubjectNameOk returns a tuple with the SubjectName field value
+// GetSubjectNameOk returns a tuple with the SubjectName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DistributionTableItem) GetSubjectNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.SubjectName) {
 		return nil, false
 	}
-	return &o.SubjectName, true
+	return o.SubjectName, true
 }
 
-// SetSubjectName sets field value
+// HasSubjectName returns a boolean if a field has been set.
+func (o *DistributionTableItem) HasSubjectName() bool {
+	if o != nil && !IsNil(o.SubjectName) {
+		return true
+	}
+
+	return false
+}
+
+// SetSubjectName gets a reference to the given string and assigns it to the SubjectName field.
 func (o *DistributionTableItem) SetSubjectName(v string) {
-	o.SubjectName = v
+	o.SubjectName = &v
 }
 
-// GetBrandName returns the BrandName field value
+// GetBrandName returns the BrandName field value if set, zero value otherwise.
 func (o *DistributionTableItem) GetBrandName() string {
-	if o == nil {
+	if o == nil || IsNil(o.BrandName) {
 		var ret string
 		return ret
 	}
-
-	return o.BrandName
+	return *o.BrandName
 }
 
-// GetBrandNameOk returns a tuple with the BrandName field value
+// GetBrandNameOk returns a tuple with the BrandName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DistributionTableItem) GetBrandNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.BrandName) {
 		return nil, false
 	}
-	return &o.BrandName, true
+	return o.BrandName, true
 }
 
-// SetBrandName sets field value
+// HasBrandName returns a boolean if a field has been set.
+func (o *DistributionTableItem) HasBrandName() bool {
+	if o != nil && !IsNil(o.BrandName) {
+		return true
+	}
+
+	return false
+}
+
+// SetBrandName gets a reference to the given string and assigns it to the BrandName field.
 func (o *DistributionTableItem) SetBrandName(v string) {
-	o.BrandName = v
+	o.BrandName = &v
 }
 
-// GetTagName returns the TagName field value
+// GetTagName returns the TagName field value if set, zero value otherwise.
 func (o *DistributionTableItem) GetTagName() string {
-	if o == nil {
+	if o == nil || IsNil(o.TagName) {
 		var ret string
 		return ret
 	}
-
-	return o.TagName
+	return *o.TagName
 }
 
-// GetTagNameOk returns a tuple with the TagName field value
+// GetTagNameOk returns a tuple with the TagName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DistributionTableItem) GetTagNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.TagName) {
 		return nil, false
 	}
-	return &o.TagName, true
+	return o.TagName, true
 }
 
-// SetTagName sets field value
+// HasTagName returns a boolean if a field has been set.
+func (o *DistributionTableItem) HasTagName() bool {
+	if o != nil && !IsNil(o.TagName) {
+		return true
+	}
+
+	return false
+}
+
+// SetTagName gets a reference to the given string and assigns it to the TagName field.
 func (o *DistributionTableItem) SetTagName(v string) {
-	o.TagName = v
+	o.TagName = &v
 }
 
-// GetTagId returns the TagId field value
+// GetTagId returns the TagId field value if set, zero value otherwise.
 func (o *DistributionTableItem) GetTagId() int64 {
-	if o == nil {
+	if o == nil || IsNil(o.TagId) {
 		var ret int64
 		return ret
 	}
-
-	return o.TagId
+	return *o.TagId
 }
 
-// GetTagIdOk returns a tuple with the TagId field value
+// GetTagIdOk returns a tuple with the TagId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DistributionTableItem) GetTagIdOk() (*int64, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.TagId) {
 		return nil, false
 	}
-	return &o.TagId, true
+	return o.TagId, true
 }
 
-// SetTagId sets field value
+// HasTagId returns a boolean if a field has been set.
+func (o *DistributionTableItem) HasTagId() bool {
+	if o != nil && !IsNil(o.TagId) {
+		return true
+	}
+
+	return false
+}
+
+// SetTagId gets a reference to the given int64 and assigns it to the TagId field.
 func (o *DistributionTableItem) SetTagId(v int64) {
-	o.TagId = v
+	o.TagId = &v
 }
 
-// GetPinnedFeedback returns the PinnedFeedback field value
+// GetPinnedFeedback returns the PinnedFeedback field value if set, zero value otherwise.
 func (o *DistributionTableItem) GetPinnedFeedback() bool {
-	if o == nil {
+	if o == nil || IsNil(o.PinnedFeedback) {
 		var ret bool
 		return ret
 	}
-
-	return o.PinnedFeedback
+	return *o.PinnedFeedback
 }
 
-// GetPinnedFeedbackOk returns a tuple with the PinnedFeedback field value
+// GetPinnedFeedbackOk returns a tuple with the PinnedFeedback field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DistributionTableItem) GetPinnedFeedbackOk() (*bool, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.PinnedFeedback) {
 		return nil, false
 	}
-	return &o.PinnedFeedback, true
+	return o.PinnedFeedback, true
 }
 
-// SetPinnedFeedback sets field value
+// HasPinnedFeedback returns a boolean if a field has been set.
+func (o *DistributionTableItem) HasPinnedFeedback() bool {
+	if o != nil && !IsNil(o.PinnedFeedback) {
+		return true
+	}
+
+	return false
+}
+
+// SetPinnedFeedback gets a reference to the given bool and assigns it to the PinnedFeedback field.
 func (o *DistributionTableItem) SetPinnedFeedback(v bool) {
-	o.PinnedFeedback = v
+	o.PinnedFeedback = &v
 }
 
-// GetRating returns the Rating field value
+// GetRating returns the Rating field value if set, zero value otherwise.
 func (o *DistributionTableItem) GetRating() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.Rating) {
 		var ret float32
 		return ret
 	}
-
-	return o.Rating
+	return *o.Rating
 }
 
-// GetRatingOk returns a tuple with the Rating field value
+// GetRatingOk returns a tuple with the Rating field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DistributionTableItem) GetRatingOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Rating) {
 		return nil, false
 	}
-	return &o.Rating, true
+	return o.Rating, true
 }
 
-// SetRating sets field value
+// HasRating returns a boolean if a field has been set.
+func (o *DistributionTableItem) HasRating() bool {
+	if o != nil && !IsNil(o.Rating) {
+		return true
+	}
+
+	return false
+}
+
+// SetRating gets a reference to the given float32 and assigns it to the Rating field.
 func (o *DistributionTableItem) SetRating(v float32) {
-	o.Rating = v
+	o.Rating = &v
 }
 
-// GetFeedbackRating returns the FeedbackRating field value
+// GetFeedbackRating returns the FeedbackRating field value if set, zero value otherwise.
 func (o *DistributionTableItem) GetFeedbackRating() DistributionTableItemFeedbackRating {
-	if o == nil {
+	if o == nil || IsNil(o.FeedbackRating) {
 		var ret DistributionTableItemFeedbackRating
 		return ret
 	}
-
-	return o.FeedbackRating
+	return *o.FeedbackRating
 }
 
-// GetFeedbackRatingOk returns a tuple with the FeedbackRating field value
+// GetFeedbackRatingOk returns a tuple with the FeedbackRating field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DistributionTableItem) GetFeedbackRatingOk() (*DistributionTableItemFeedbackRating, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.FeedbackRating) {
 		return nil, false
 	}
-	return &o.FeedbackRating, true
+	return o.FeedbackRating, true
 }
 
-// SetFeedbackRating sets field value
+// HasFeedbackRating returns a boolean if a field has been set.
+func (o *DistributionTableItem) HasFeedbackRating() bool {
+	if o != nil && !IsNil(o.FeedbackRating) {
+		return true
+	}
+
+	return false
+}
+
+// SetFeedbackRating gets a reference to the given DistributionTableItemFeedbackRating and assigns it to the FeedbackRating field.
 func (o *DistributionTableItem) SetFeedbackRating(v DistributionTableItemFeedbackRating) {
-	o.FeedbackRating = v
+	o.FeedbackRating = &v
 }
 
-// GetFeedbackCount returns the FeedbackCount field value
+// GetFeedbackCount returns the FeedbackCount field value if set, zero value otherwise.
 func (o *DistributionTableItem) GetFeedbackCount() DistributionTableItemFeedbackCount {
-	if o == nil {
+	if o == nil || IsNil(o.FeedbackCount) {
 		var ret DistributionTableItemFeedbackCount
 		return ret
 	}
-
-	return o.FeedbackCount
+	return *o.FeedbackCount
 }
 
-// GetFeedbackCountOk returns a tuple with the FeedbackCount field value
+// GetFeedbackCountOk returns a tuple with the FeedbackCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DistributionTableItem) GetFeedbackCountOk() (*DistributionTableItemFeedbackCount, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.FeedbackCount) {
 		return nil, false
 	}
-	return &o.FeedbackCount, true
+	return o.FeedbackCount, true
 }
 
-// SetFeedbackCount sets field value
+// HasFeedbackCount returns a boolean if a field has been set.
+func (o *DistributionTableItem) HasFeedbackCount() bool {
+	if o != nil && !IsNil(o.FeedbackCount) {
+		return true
+	}
+
+	return false
+}
+
+// SetFeedbackCount gets a reference to the given DistributionTableItemFeedbackCount and assigns it to the FeedbackCount field.
 func (o *DistributionTableItem) SetFeedbackCount(v DistributionTableItemFeedbackCount) {
-	o.FeedbackCount = v
+	o.FeedbackCount = &v
 }
 
-// GetFiveStar returns the FiveStar field value
+// GetFiveStar returns the FiveStar field value if set, zero value otherwise.
 func (o *DistributionTableItem) GetFiveStar() DistributionTableItemFiveStar {
-	if o == nil {
+	if o == nil || IsNil(o.FiveStar) {
 		var ret DistributionTableItemFiveStar
 		return ret
 	}
-
-	return o.FiveStar
+	return *o.FiveStar
 }
 
-// GetFiveStarOk returns a tuple with the FiveStar field value
+// GetFiveStarOk returns a tuple with the FiveStar field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DistributionTableItem) GetFiveStarOk() (*DistributionTableItemFiveStar, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.FiveStar) {
 		return nil, false
 	}
-	return &o.FiveStar, true
+	return o.FiveStar, true
 }
 
-// SetFiveStar sets field value
+// HasFiveStar returns a boolean if a field has been set.
+func (o *DistributionTableItem) HasFiveStar() bool {
+	if o != nil && !IsNil(o.FiveStar) {
+		return true
+	}
+
+	return false
+}
+
+// SetFiveStar gets a reference to the given DistributionTableItemFiveStar and assigns it to the FiveStar field.
 func (o *DistributionTableItem) SetFiveStar(v DistributionTableItemFiveStar) {
-	o.FiveStar = v
+	o.FiveStar = &v
 }
 
-// GetFourStar returns the FourStar field value
+// GetFourStar returns the FourStar field value if set, zero value otherwise.
 func (o *DistributionTableItem) GetFourStar() DistributionTableItemFourStar {
-	if o == nil {
+	if o == nil || IsNil(o.FourStar) {
 		var ret DistributionTableItemFourStar
 		return ret
 	}
-
-	return o.FourStar
+	return *o.FourStar
 }
 
-// GetFourStarOk returns a tuple with the FourStar field value
+// GetFourStarOk returns a tuple with the FourStar field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DistributionTableItem) GetFourStarOk() (*DistributionTableItemFourStar, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.FourStar) {
 		return nil, false
 	}
-	return &o.FourStar, true
+	return o.FourStar, true
 }
 
-// SetFourStar sets field value
+// HasFourStar returns a boolean if a field has been set.
+func (o *DistributionTableItem) HasFourStar() bool {
+	if o != nil && !IsNil(o.FourStar) {
+		return true
+	}
+
+	return false
+}
+
+// SetFourStar gets a reference to the given DistributionTableItemFourStar and assigns it to the FourStar field.
 func (o *DistributionTableItem) SetFourStar(v DistributionTableItemFourStar) {
-	o.FourStar = v
+	o.FourStar = &v
 }
 
-// GetThreeStar returns the ThreeStar field value
+// GetThreeStar returns the ThreeStar field value if set, zero value otherwise.
 func (o *DistributionTableItem) GetThreeStar() DistributionTableItemThreeStar {
-	if o == nil {
+	if o == nil || IsNil(o.ThreeStar) {
 		var ret DistributionTableItemThreeStar
 		return ret
 	}
-
-	return o.ThreeStar
+	return *o.ThreeStar
 }
 
-// GetThreeStarOk returns a tuple with the ThreeStar field value
+// GetThreeStarOk returns a tuple with the ThreeStar field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DistributionTableItem) GetThreeStarOk() (*DistributionTableItemThreeStar, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ThreeStar) {
 		return nil, false
 	}
-	return &o.ThreeStar, true
+	return o.ThreeStar, true
 }
 
-// SetThreeStar sets field value
+// HasThreeStar returns a boolean if a field has been set.
+func (o *DistributionTableItem) HasThreeStar() bool {
+	if o != nil && !IsNil(o.ThreeStar) {
+		return true
+	}
+
+	return false
+}
+
+// SetThreeStar gets a reference to the given DistributionTableItemThreeStar and assigns it to the ThreeStar field.
 func (o *DistributionTableItem) SetThreeStar(v DistributionTableItemThreeStar) {
-	o.ThreeStar = v
+	o.ThreeStar = &v
 }
 
-// GetTwoStar returns the TwoStar field value
+// GetTwoStar returns the TwoStar field value if set, zero value otherwise.
 func (o *DistributionTableItem) GetTwoStar() DistributionTableItemTwoStar {
-	if o == nil {
+	if o == nil || IsNil(o.TwoStar) {
 		var ret DistributionTableItemTwoStar
 		return ret
 	}
-
-	return o.TwoStar
+	return *o.TwoStar
 }
 
-// GetTwoStarOk returns a tuple with the TwoStar field value
+// GetTwoStarOk returns a tuple with the TwoStar field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DistributionTableItem) GetTwoStarOk() (*DistributionTableItemTwoStar, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.TwoStar) {
 		return nil, false
 	}
-	return &o.TwoStar, true
+	return o.TwoStar, true
 }
 
-// SetTwoStar sets field value
+// HasTwoStar returns a boolean if a field has been set.
+func (o *DistributionTableItem) HasTwoStar() bool {
+	if o != nil && !IsNil(o.TwoStar) {
+		return true
+	}
+
+	return false
+}
+
+// SetTwoStar gets a reference to the given DistributionTableItemTwoStar and assigns it to the TwoStar field.
 func (o *DistributionTableItem) SetTwoStar(v DistributionTableItemTwoStar) {
-	o.TwoStar = v
+	o.TwoStar = &v
 }
 
-// GetOneStar returns the OneStar field value
+// GetOneStar returns the OneStar field value if set, zero value otherwise.
 func (o *DistributionTableItem) GetOneStar() DistributionTableItemOneStar {
-	if o == nil {
+	if o == nil || IsNil(o.OneStar) {
 		var ret DistributionTableItemOneStar
 		return ret
 	}
-
-	return o.OneStar
+	return *o.OneStar
 }
 
-// GetOneStarOk returns a tuple with the OneStar field value
+// GetOneStarOk returns a tuple with the OneStar field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DistributionTableItem) GetOneStarOk() (*DistributionTableItemOneStar, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.OneStar) {
 		return nil, false
 	}
-	return &o.OneStar, true
+	return o.OneStar, true
 }
 
-// SetOneStar sets field value
+// HasOneStar returns a boolean if a field has been set.
+func (o *DistributionTableItem) HasOneStar() bool {
+	if o != nil && !IsNil(o.OneStar) {
+		return true
+	}
+
+	return false
+}
+
+// SetOneStar gets a reference to the given DistributionTableItemOneStar and assigns it to the OneStar field.
 func (o *DistributionTableItem) SetOneStar(v DistributionTableItemOneStar) {
-	o.OneStar = v
+	o.OneStar = &v
 }
 
-// GetDisqualified returns the Disqualified field value
+// GetDisqualified returns the Disqualified field value if set, zero value otherwise.
 func (o *DistributionTableItem) GetDisqualified() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.Disqualified) {
 		var ret int32
 		return ret
 	}
-
-	return o.Disqualified
+	return *o.Disqualified
 }
 
-// GetDisqualifiedOk returns a tuple with the Disqualified field value
+// GetDisqualifiedOk returns a tuple with the Disqualified field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DistributionTableItem) GetDisqualifiedOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Disqualified) {
 		return nil, false
 	}
-	return &o.Disqualified, true
+	return o.Disqualified, true
 }
 
-// SetDisqualified sets field value
+// HasDisqualified returns a boolean if a field has been set.
+func (o *DistributionTableItem) HasDisqualified() bool {
+	if o != nil && !IsNil(o.Disqualified) {
+		return true
+	}
+
+	return false
+}
+
+// SetDisqualified gets a reference to the given int32 and assigns it to the Disqualified field.
 func (o *DistributionTableItem) SetDisqualified(v int32) {
-	o.Disqualified = v
+	o.Disqualified = &v
 }
 
-// GetIsShadowed returns the IsShadowed field value
+// GetIsShadowed returns the IsShadowed field value if set, zero value otherwise.
 func (o *DistributionTableItem) GetIsShadowed() bool {
-	if o == nil {
+	if o == nil || IsNil(o.IsShadowed) {
 		var ret bool
 		return ret
 	}
-
-	return o.IsShadowed
+	return *o.IsShadowed
 }
 
-// GetIsShadowedOk returns a tuple with the IsShadowed field value
+// GetIsShadowedOk returns a tuple with the IsShadowed field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DistributionTableItem) GetIsShadowedOk() (*bool, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.IsShadowed) {
 		return nil, false
 	}
-	return &o.IsShadowed, true
+	return o.IsShadowed, true
 }
 
-// SetIsShadowed sets field value
+// HasIsShadowed returns a boolean if a field has been set.
+func (o *DistributionTableItem) HasIsShadowed() bool {
+	if o != nil && !IsNil(o.IsShadowed) {
+		return true
+	}
+
+	return false
+}
+
+// SetIsShadowed gets a reference to the given bool and assigns it to the IsShadowed field.
 func (o *DistributionTableItem) SetIsShadowed(v bool) {
-	o.IsShadowed = v
+	o.IsShadowed = &v
 }
 
 func (o DistributionTableItem) MarshalJSON() ([]byte, error) {
@@ -558,81 +687,64 @@ func (o DistributionTableItem) MarshalJSON() ([]byte, error) {
 
 func (o DistributionTableItem) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["nmId"] = o.NmId
-	toSerialize["title"] = o.Title
-	toSerialize["vendorCode"] = o.VendorCode
-	toSerialize["subjectId"] = o.SubjectId
-	toSerialize["subjectName"] = o.SubjectName
-	toSerialize["brandName"] = o.BrandName
-	toSerialize["tagName"] = o.TagName
-	toSerialize["tagId"] = o.TagId
-	toSerialize["pinnedFeedback"] = o.PinnedFeedback
-	toSerialize["rating"] = o.Rating
-	toSerialize["feedbackRating"] = o.FeedbackRating
-	toSerialize["feedbackCount"] = o.FeedbackCount
-	toSerialize["fiveStar"] = o.FiveStar
-	toSerialize["fourStar"] = o.FourStar
-	toSerialize["threeStar"] = o.ThreeStar
-	toSerialize["twoStar"] = o.TwoStar
-	toSerialize["oneStar"] = o.OneStar
-	toSerialize["disqualified"] = o.Disqualified
-	toSerialize["isShadowed"] = o.IsShadowed
+	if !IsNil(o.NmId) {
+		toSerialize["nmId"] = o.NmId
+	}
+	if !IsNil(o.Title) {
+		toSerialize["title"] = o.Title
+	}
+	if !IsNil(o.VendorCode) {
+		toSerialize["vendorCode"] = o.VendorCode
+	}
+	if !IsNil(o.SubjectId) {
+		toSerialize["subjectId"] = o.SubjectId
+	}
+	if !IsNil(o.SubjectName) {
+		toSerialize["subjectName"] = o.SubjectName
+	}
+	if !IsNil(o.BrandName) {
+		toSerialize["brandName"] = o.BrandName
+	}
+	if !IsNil(o.TagName) {
+		toSerialize["tagName"] = o.TagName
+	}
+	if !IsNil(o.TagId) {
+		toSerialize["tagId"] = o.TagId
+	}
+	if !IsNil(o.PinnedFeedback) {
+		toSerialize["pinnedFeedback"] = o.PinnedFeedback
+	}
+	if !IsNil(o.Rating) {
+		toSerialize["rating"] = o.Rating
+	}
+	if !IsNil(o.FeedbackRating) {
+		toSerialize["feedbackRating"] = o.FeedbackRating
+	}
+	if !IsNil(o.FeedbackCount) {
+		toSerialize["feedbackCount"] = o.FeedbackCount
+	}
+	if !IsNil(o.FiveStar) {
+		toSerialize["fiveStar"] = o.FiveStar
+	}
+	if !IsNil(o.FourStar) {
+		toSerialize["fourStar"] = o.FourStar
+	}
+	if !IsNil(o.ThreeStar) {
+		toSerialize["threeStar"] = o.ThreeStar
+	}
+	if !IsNil(o.TwoStar) {
+		toSerialize["twoStar"] = o.TwoStar
+	}
+	if !IsNil(o.OneStar) {
+		toSerialize["oneStar"] = o.OneStar
+	}
+	if !IsNil(o.Disqualified) {
+		toSerialize["disqualified"] = o.Disqualified
+	}
+	if !IsNil(o.IsShadowed) {
+		toSerialize["isShadowed"] = o.IsShadowed
+	}
 	return toSerialize, nil
-}
-
-func (o *DistributionTableItem) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"nmId",
-		"title",
-		"vendorCode",
-		"subjectId",
-		"subjectName",
-		"brandName",
-		"tagName",
-		"tagId",
-		"pinnedFeedback",
-		"rating",
-		"feedbackRating",
-		"feedbackCount",
-		"fiveStar",
-		"fourStar",
-		"threeStar",
-		"twoStar",
-		"oneStar",
-		"disqualified",
-		"isShadowed",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varDistributionTableItem := _DistributionTableItem{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varDistributionTableItem)
-
-	if err != nil {
-		return err
-	}
-
-	*o = DistributionTableItem(varDistributionTableItem)
-
-	return err
 }
 
 type NullableDistributionTableItem struct {

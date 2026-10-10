@@ -34,30 +34,15 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="V3ArchiveOrderProduct" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected V3ArchiveOrderProduct() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="V3ArchiveOrderProduct" /> class.
-        /// </summary>
-        /// <param name="article">Артикул продавца (required).</param>
-        /// <param name="chrtId">ID размера товара в системе WB (required).</param>
-        /// <param name="nmId">Артикул WB (required).</param>
-        /// <param name="skus">Список баркодов (required).</param>
+        /// <param name="article">Артикул продавца.</param>
+        /// <param name="chrtId">ID размера товара в системе WB.</param>
+        /// <param name="nmId">Артикул WB.</param>
+        /// <param name="skus">Список баркодов.</param>
         public V3ArchiveOrderProduct(string article = default(string), int chrtId = default(int), int nmId = default(int), List<string> skus = default(List<string>))
         {
-            // to ensure "article" is required (not null)
-            if (article == null)
-            {
-                throw new ArgumentNullException("article is a required property for V3ArchiveOrderProduct and cannot be null");
-            }
             this.Article = article;
             this.ChrtId = chrtId;
             this.NmId = nmId;
-            // to ensure "skus" is required (not null)
-            if (skus == null)
-            {
-                throw new ArgumentNullException("skus is a required property for V3ArchiveOrderProduct and cannot be null");
-            }
             this.Skus = skus;
         }
 
@@ -68,7 +53,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /*
         <example>wv1702fyjh</example>
         */
-        [DataMember(Name = "article", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "article", EmitDefaultValue = false)]
         public string Article { get; set; }
 
         /// <summary>
@@ -78,7 +63,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /*
         <example>12345678</example>
         */
-        [DataMember(Name = "chrtId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "chrtId", EmitDefaultValue = false)]
         public int ChrtId { get; set; }
 
         /// <summary>
@@ -88,7 +73,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /*
         <example>370870300</example>
         */
-        [DataMember(Name = "nmId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "nmId", EmitDefaultValue = false)]
         public int NmId { get; set; }
 
         /// <summary>
@@ -98,7 +83,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /*
         <example>[&quot;12345Ejf5&quot;,&quot;12345Ejf6&quot;,&quot;12345Ejf7&quot;]</example>
         */
-        [DataMember(Name = "skus", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "skus", EmitDefaultValue = false)]
         public List<string> Skus { get; set; }
 
         /// <summary>

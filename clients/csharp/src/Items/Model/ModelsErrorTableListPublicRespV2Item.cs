@@ -34,49 +34,19 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ModelsErrorTableListPublicRespV2Item" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected ModelsErrorTableListPublicRespV2Item() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ModelsErrorTableListPublicRespV2Item" /> class.
-        /// </summary>
-        /// <param name="batchUUID">ID пакета (required).</param>
-        /// <param name="subjects">Предметы. Разбивка по &#x60;vendorCodes&#x60; (required).</param>
-        /// <param name="brands">Бренды. Разбивка по &#x60;vendorCodes&#x60; (required).</param>
-        /// <param name="vendorCodes">Артикулы продавца (required).</param>
-        /// <param name="errors">Ошибки. Разбивка по &#x60;vendorCodes&#x60; (required).</param>
-        /// <param name="updatedAt">Дата и время создания или редактирования пакета (required).</param>
+        /// <param name="batchUUID">ID пакета.</param>
+        /// <param name="subjects">Предметы. Разбивка по &#x60;vendorCodes&#x60;.</param>
+        /// <param name="brands">Бренды. Разбивка по &#x60;vendorCodes&#x60;.</param>
+        /// <param name="vendorCodes">Артикулы продавца.</param>
+        /// <param name="errors">Ошибки. Разбивка по &#x60;vendorCodes&#x60;.</param>
+        /// <param name="updatedAt">Дата и время создания или редактирования пакета.</param>
         public ModelsErrorTableListPublicRespV2Item(Guid batchUUID = default(Guid), Dictionary<string, ModelsErrorSubcategory> subjects = default(Dictionary<string, ModelsErrorSubcategory>), Dictionary<string, ModelsErrorBrand> brands = default(Dictionary<string, ModelsErrorBrand>), List<string> vendorCodes = default(List<string>), Dictionary<string, List<string>> errors = default(Dictionary<string, List<string>>), string updatedAt = default(string))
         {
             this.BatchUUID = batchUUID;
-            // to ensure "subjects" is required (not null)
-            if (subjects == null)
-            {
-                throw new ArgumentNullException("subjects is a required property for ModelsErrorTableListPublicRespV2Item and cannot be null");
-            }
             this.Subjects = subjects;
-            // to ensure "brands" is required (not null)
-            if (brands == null)
-            {
-                throw new ArgumentNullException("brands is a required property for ModelsErrorTableListPublicRespV2Item and cannot be null");
-            }
             this.Brands = brands;
-            // to ensure "vendorCodes" is required (not null)
-            if (vendorCodes == null)
-            {
-                throw new ArgumentNullException("vendorCodes is a required property for ModelsErrorTableListPublicRespV2Item and cannot be null");
-            }
             this.VendorCodes = vendorCodes;
-            // to ensure "errors" is required (not null)
-            if (errors == null)
-            {
-                throw new ArgumentNullException("errors is a required property for ModelsErrorTableListPublicRespV2Item and cannot be null");
-            }
             this.Errors = errors;
-            // to ensure "updatedAt" is required (not null)
-            if (updatedAt == null)
-            {
-                throw new ArgumentNullException("updatedAt is a required property for ModelsErrorTableListPublicRespV2Item and cannot be null");
-            }
             this.UpdatedAt = updatedAt;
         }
 
@@ -84,42 +54,42 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// ID пакета
         /// </summary>
         /// <value>ID пакета</value>
-        [DataMember(Name = "batchUUID", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "batchUUID", EmitDefaultValue = false)]
         public Guid BatchUUID { get; set; }
 
         /// <summary>
         /// Предметы. Разбивка по &#x60;vendorCodes&#x60;
         /// </summary>
         /// <value>Предметы. Разбивка по &#x60;vendorCodes&#x60;</value>
-        [DataMember(Name = "subjects", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "subjects", EmitDefaultValue = false)]
         public Dictionary<string, ModelsErrorSubcategory> Subjects { get; set; }
 
         /// <summary>
         /// Бренды. Разбивка по &#x60;vendorCodes&#x60;
         /// </summary>
         /// <value>Бренды. Разбивка по &#x60;vendorCodes&#x60;</value>
-        [DataMember(Name = "brands", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "brands", EmitDefaultValue = false)]
         public Dictionary<string, ModelsErrorBrand> Brands { get; set; }
 
         /// <summary>
         /// Артикулы продавца
         /// </summary>
         /// <value>Артикулы продавца</value>
-        [DataMember(Name = "vendorCodes", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "vendorCodes", EmitDefaultValue = false)]
         public List<string> VendorCodes { get; set; }
 
         /// <summary>
         /// Ошибки. Разбивка по &#x60;vendorCodes&#x60;
         /// </summary>
         /// <value>Ошибки. Разбивка по &#x60;vendorCodes&#x60;</value>
-        [DataMember(Name = "errors", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "errors", EmitDefaultValue = false)]
         public Dictionary<string, List<string>> Errors { get; set; }
 
         /// <summary>
         /// Дата и время создания или редактирования пакета
         /// </summary>
         /// <value>Дата и время создания или редактирования пакета</value>
-        [DataMember(Name = "updatedAt", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "updatedAt", EmitDefaultValue = false)]
         public string UpdatedAt { get; set; }
 
         /// <summary>

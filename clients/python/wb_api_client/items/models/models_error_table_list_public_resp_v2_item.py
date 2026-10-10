@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from wb_api_client.items.models.models_error_brand import ModelsErrorBrand
 from wb_api_client.items.models.models_error_subcategory import ModelsErrorSubcategory
 from typing import Optional, Set
@@ -30,21 +30,25 @@ class ModelsErrorTableListPublicRespV2Item(BaseModel):
     ModelsErrorTableListPublicRespV2Item
     """  # noqa: E501
 
-    batch_uuid: StrictStr = Field(description="ID пакета", alias="batchUUID")
-    subjects: Dict[str, ModelsErrorSubcategory] = Field(
-        description="Предметы. Разбивка по `vendorCodes`"
+    batch_uuid: Optional[StrictStr] = Field(
+        default=None, description="ID пакета", alias="batchUUID"
     )
-    brands: Dict[str, ModelsErrorBrand] = Field(
-        description="Бренды. Разбивка по `vendorCodes`"
+    subjects: Optional[Dict[str, ModelsErrorSubcategory]] = Field(
+        default=None, description="Предметы. Разбивка по `vendorCodes`"
     )
-    vendor_codes: List[StrictStr] = Field(
-        description="Артикулы продавца", alias="vendorCodes"
+    brands: Optional[Dict[str, ModelsErrorBrand]] = Field(
+        default=None, description="Бренды. Разбивка по `vendorCodes`"
     )
-    errors: Dict[str, List[StrictStr]] = Field(
-        description="Ошибки. Разбивка по `vendorCodes`"
+    vendor_codes: Optional[List[StrictStr]] = Field(
+        default=None, description="Артикулы продавца", alias="vendorCodes"
     )
-    updated_at: StrictStr = Field(
-        description="Дата и время создания или редактирования пакета", alias="updatedAt"
+    errors: Optional[Dict[str, List[StrictStr]]] = Field(
+        default=None, description="Ошибки. Разбивка по `vendorCodes`"
+    )
+    updated_at: Optional[StrictStr] = Field(
+        default=None,
+        description="Дата и время создания или редактирования пакета",
+        alias="updatedAt",
     )
     __properties: ClassVar[List[str]] = [
         "batchUUID",

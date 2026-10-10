@@ -11,9 +11,7 @@ API version: order
 package orders_fbs
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the PatchV3FbsSettingsAutoreturnsItemsResponse200 type satisfies the MappedNullable interface at compile time
@@ -21,18 +19,15 @@ var _ MappedNullable = &PatchV3FbsSettingsAutoreturnsItemsResponse200{}
 
 // PatchV3FbsSettingsAutoreturnsItemsResponse200 struct for PatchV3FbsSettingsAutoreturnsItemsResponse200
 type PatchV3FbsSettingsAutoreturnsItemsResponse200 struct {
-	Results []PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInner `json:"results"`
+	Results []PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInner `json:"results,omitempty"`
 }
-
-type _PatchV3FbsSettingsAutoreturnsItemsResponse200 PatchV3FbsSettingsAutoreturnsItemsResponse200
 
 // NewPatchV3FbsSettingsAutoreturnsItemsResponse200 instantiates a new PatchV3FbsSettingsAutoreturnsItemsResponse200 object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPatchV3FbsSettingsAutoreturnsItemsResponse200(results []PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInner) *PatchV3FbsSettingsAutoreturnsItemsResponse200 {
+func NewPatchV3FbsSettingsAutoreturnsItemsResponse200() *PatchV3FbsSettingsAutoreturnsItemsResponse200 {
 	this := PatchV3FbsSettingsAutoreturnsItemsResponse200{}
-	this.Results = results
 	return &this
 }
 
@@ -44,26 +39,34 @@ func NewPatchV3FbsSettingsAutoreturnsItemsResponse200WithDefaults() *PatchV3FbsS
 	return &this
 }
 
-// GetResults returns the Results field value
+// GetResults returns the Results field value if set, zero value otherwise.
 func (o *PatchV3FbsSettingsAutoreturnsItemsResponse200) GetResults() []PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInner {
-	if o == nil {
+	if o == nil || IsNil(o.Results) {
 		var ret []PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInner
 		return ret
 	}
-
 	return o.Results
 }
 
-// GetResultsOk returns a tuple with the Results field value
+// GetResultsOk returns a tuple with the Results field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PatchV3FbsSettingsAutoreturnsItemsResponse200) GetResultsOk() ([]PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInner, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Results) {
 		return nil, false
 	}
 	return o.Results, true
 }
 
-// SetResults sets field value
+// HasResults returns a boolean if a field has been set.
+func (o *PatchV3FbsSettingsAutoreturnsItemsResponse200) HasResults() bool {
+	if o != nil && !IsNil(o.Results) {
+		return true
+	}
+
+	return false
+}
+
+// SetResults gets a reference to the given []PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInner and assigns it to the Results field.
 func (o *PatchV3FbsSettingsAutoreturnsItemsResponse200) SetResults(v []PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInner) {
 	o.Results = v
 }
@@ -78,45 +81,10 @@ func (o PatchV3FbsSettingsAutoreturnsItemsResponse200) MarshalJSON() ([]byte, er
 
 func (o PatchV3FbsSettingsAutoreturnsItemsResponse200) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["results"] = o.Results
+	if !IsNil(o.Results) {
+		toSerialize["results"] = o.Results
+	}
 	return toSerialize, nil
-}
-
-func (o *PatchV3FbsSettingsAutoreturnsItemsResponse200) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"results",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varPatchV3FbsSettingsAutoreturnsItemsResponse200 := _PatchV3FbsSettingsAutoreturnsItemsResponse200{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varPatchV3FbsSettingsAutoreturnsItemsResponse200)
-
-	if err != nil {
-		return err
-	}
-
-	*o = PatchV3FbsSettingsAutoreturnsItemsResponse200(varPatchV3FbsSettingsAutoreturnsItemsResponse200)
-
-	return err
 }
 
 type NullablePatchV3FbsSettingsAutoreturnsItemsResponse200 struct {

@@ -34,26 +34,11 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SupplySpotDataResponseSuppliesInnerError" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected SupplySpotDataResponseSuppliesInnerError() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="SupplySpotDataResponseSuppliesInnerError" /> class.
-        /// </summary>
-        /// <param name="title">Заголовок ошибки (required).</param>
-        /// <param name="detail">Детали ошибки (required).</param>
+        /// <param name="title">Заголовок ошибки.</param>
+        /// <param name="detail">Детали ошибки.</param>
         public SupplySpotDataResponseSuppliesInnerError(string title = default(string), string detail = default(string))
         {
-            // to ensure "title" is required (not null)
-            if (title == null)
-            {
-                throw new ArgumentNullException("title is a required property for SupplySpotDataResponseSuppliesInnerError and cannot be null");
-            }
             this.Title = title;
-            // to ensure "detail" is required (not null)
-            if (detail == null)
-            {
-                throw new ArgumentNullException("detail is a required property for SupplySpotDataResponseSuppliesInnerError and cannot be null");
-            }
             this.Detail = detail;
         }
 
@@ -61,14 +46,14 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// Заголовок ошибки
         /// </summary>
         /// <value>Заголовок ошибки</value>
-        [DataMember(Name = "title", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "title", EmitDefaultValue = false)]
         public string Title { get; set; }
 
         /// <summary>
         /// Детали ошибки
         /// </summary>
         /// <value>Детали ошибки</value>
-        [DataMember(Name = "detail", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "detail", EmitDefaultValue = false)]
         public string Detail { get; set; }
 
         /// <summary>

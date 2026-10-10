@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from wb_api_client.analytics.models.feedbacks_increase_item_five_star import (
     FeedbacksIncreaseItemFiveStar,
 )
@@ -43,16 +43,28 @@ class FeedbacksIncreaseItem(BaseModel):
     Прирост оценок
     """  # noqa: E501
 
-    current: StrictInt = Field(description="Прирост оценок за период")
-    total: StrictInt = Field(description="Всего оценок")
-    dynamics: StrictInt = Field(
-        description="Динамика по сравнению с предыдущим периодом, %"
+    current: Optional[StrictInt] = Field(
+        default=None, description="Прирост оценок за период"
     )
-    five_star: FeedbacksIncreaseItemFiveStar = Field(alias="fiveStar")
-    four_star: FeedbacksIncreaseItemFourStar = Field(alias="fourStar")
-    three_star: FeedbacksIncreaseItemThreeStar = Field(alias="threeStar")
-    two_star: FeedbacksIncreaseItemTwoStar = Field(alias="twoStar")
-    one_star: FeedbacksIncreaseItemOneStar = Field(alias="oneStar")
+    total: Optional[StrictInt] = Field(default=None, description="Всего оценок")
+    dynamics: Optional[StrictInt] = Field(
+        default=None, description="Динамика по сравнению с предыдущим периодом, %"
+    )
+    five_star: Optional[FeedbacksIncreaseItemFiveStar] = Field(
+        default=None, alias="fiveStar"
+    )
+    four_star: Optional[FeedbacksIncreaseItemFourStar] = Field(
+        default=None, alias="fourStar"
+    )
+    three_star: Optional[FeedbacksIncreaseItemThreeStar] = Field(
+        default=None, alias="threeStar"
+    )
+    two_star: Optional[FeedbacksIncreaseItemTwoStar] = Field(
+        default=None, alias="twoStar"
+    )
+    one_star: Optional[FeedbacksIncreaseItemOneStar] = Field(
+        default=None, alias="oneStar"
+    )
     __properties: ClassVar[List[str]] = [
         "current",
         "total",

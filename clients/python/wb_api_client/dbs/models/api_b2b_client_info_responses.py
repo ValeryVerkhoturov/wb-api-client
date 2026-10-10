@@ -31,8 +31,8 @@ class ApiB2bClientInfoResponses(BaseModel):
     ApiB2bClientInfoResponses
     """  # noqa: E501
 
-    request_id: StrictStr = Field(
-        description="Уникальный ID запроса", alias="requestId"
+    request_id: Optional[StrictStr] = Field(
+        default=None, description="Уникальный ID запроса", alias="requestId"
     )
     results: Optional[List[ApiB2bClientInfoResponse]] = None
     __properties: ClassVar[List[str]] = ["requestId", "results"]

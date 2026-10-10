@@ -39,18 +39,18 @@ public class ItemOrdersResponse {
   public static final String SERIALIZED_NAME_TOTAL = "total";
 
   @SerializedName(SERIALIZED_NAME_TOTAL)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private List<ItemOrdersMetrics> total = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_ITEMS = "items";
 
   @SerializedName(SERIALIZED_NAME_ITEMS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private List<ItemOrdersTextItem> items = new ArrayList<>();
 
   public ItemOrdersResponse() {}
 
-  public ItemOrdersResponse total(@jakarta.annotation.Nonnull List<ItemOrdersMetrics> total) {
+  public ItemOrdersResponse total(@jakarta.annotation.Nullable List<ItemOrdersMetrics> total) {
     this.total = total;
     return this;
   }
@@ -68,16 +68,16 @@ public class ItemOrdersResponse {
    *
    * @return total
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public List<ItemOrdersMetrics> getTotal() {
     return total;
   }
 
-  public void setTotal(@jakarta.annotation.Nonnull List<ItemOrdersMetrics> total) {
+  public void setTotal(@jakarta.annotation.Nullable List<ItemOrdersMetrics> total) {
     this.total = total;
   }
 
-  public ItemOrdersResponse items(@jakarta.annotation.Nonnull List<ItemOrdersTextItem> items) {
+  public ItemOrdersResponse items(@jakarta.annotation.Nullable List<ItemOrdersTextItem> items) {
     this.items = items;
     return this;
   }
@@ -95,12 +95,12 @@ public class ItemOrdersResponse {
    *
    * @return items
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public List<ItemOrdersTextItem> getItems() {
     return items;
   }
 
-  public void setItems(@jakarta.annotation.Nonnull List<ItemOrdersTextItem> items) {
+  public void setItems(@jakarta.annotation.Nullable List<ItemOrdersTextItem> items) {
     this.items = items;
   }
 
@@ -153,8 +153,6 @@ public class ItemOrdersResponse {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("total");
-    openapiRequiredFields.add("items");
   }
 
   /**
@@ -184,45 +182,43 @@ public class ItemOrdersResponse {
                 entry.getKey(), jsonElement.toString()));
       }
     }
+    JsonObject jsonObj = jsonElement.getAsJsonObject();
+    if (jsonObj.get("total") != null && !jsonObj.get("total").isJsonNull()) {
+      JsonArray jsonArraytotal = jsonObj.getAsJsonArray("total");
+      if (jsonArraytotal != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("total").isJsonArray()) {
+          throw new IllegalArgumentException(
+              String.format(
+                  "Expected the field `total` to be an array in the JSON string but got `%s`",
+                  jsonObj.get("total").toString()));
+        }
 
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : ItemOrdersResponse.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
+        // validate the optional field `total` (array)
+        for (int i = 0; i < jsonArraytotal.size(); i++) {
+          ItemOrdersMetrics.validateJsonElement(jsonArraytotal.get(i));
+        }
+        ;
       }
     }
-    JsonObject jsonObj = jsonElement.getAsJsonObject();
-    // ensure the json data is an array
-    if (!jsonObj.get("total").isJsonArray()) {
-      throw new IllegalArgumentException(
-          String.format(
-              "Expected the field `total` to be an array in the JSON string but got `%s`",
-              jsonObj.get("total").toString()));
-    }
+    if (jsonObj.get("items") != null && !jsonObj.get("items").isJsonNull()) {
+      JsonArray jsonArrayitems = jsonObj.getAsJsonArray("items");
+      if (jsonArrayitems != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("items").isJsonArray()) {
+          throw new IllegalArgumentException(
+              String.format(
+                  "Expected the field `items` to be an array in the JSON string but got `%s`",
+                  jsonObj.get("items").toString()));
+        }
 
-    JsonArray jsonArraytotal = jsonObj.getAsJsonArray("total");
-    // validate the required field `total` (array)
-    for (int i = 0; i < jsonArraytotal.size(); i++) {
-      ItemOrdersMetrics.validateJsonElement(jsonArraytotal.get(i));
+        // validate the optional field `items` (array)
+        for (int i = 0; i < jsonArrayitems.size(); i++) {
+          ItemOrdersTextItem.validateJsonElement(jsonArrayitems.get(i));
+        }
+        ;
+      }
     }
-    ;
-    // ensure the json data is an array
-    if (!jsonObj.get("items").isJsonArray()) {
-      throw new IllegalArgumentException(
-          String.format(
-              "Expected the field `items` to be an array in the JSON string but got `%s`",
-              jsonObj.get("items").toString()));
-    }
-
-    JsonArray jsonArrayitems = jsonObj.getAsJsonArray("items");
-    // validate the required field `items` (array)
-    for (int i = 0; i < jsonArrayitems.size(); i++) {
-      ItemOrdersTextItem.validateJsonElement(jsonArrayitems.get(i));
-    }
-    ;
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

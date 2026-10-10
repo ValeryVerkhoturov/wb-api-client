@@ -11,9 +11,7 @@ API version: ordersfbw
 package orders_fbw
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the ModelsDraftItem type satisfies the MappedNullable interface at compile time
@@ -22,33 +20,25 @@ var _ MappedNullable = &ModelsDraftItem{}
 // ModelsDraftItem struct for ModelsDraftItem
 type ModelsDraftItem struct {
 	// ID черновика
-	DraftId string `json:"draftId"`
+	DraftId *string `json:"draftId,omitempty"`
 	// Телефон пользователя, создавшего черновик
-	Phone string `json:"phone"`
+	Phone *string `json:"phone,omitempty"`
 	// Дата и время создания черновика
-	CreatedAt string `json:"createdAt"`
+	CreatedAt *string `json:"createdAt,omitempty"`
 	// Дата и время последнего обновления черновика
-	UpdatedAt string `json:"updatedAt"`
+	UpdatedAt *string `json:"updatedAt,omitempty"`
 	// Количество баркодов
-	SkuQuantity int32 `json:"skuQuantity"`
+	SkuQuantity *int32 `json:"skuQuantity,omitempty"`
 	// Количество единиц товара
-	ItemQuantity int32 `json:"itemQuantity"`
+	ItemQuantity *int32 `json:"itemQuantity,omitempty"`
 }
-
-type _ModelsDraftItem ModelsDraftItem
 
 // NewModelsDraftItem instantiates a new ModelsDraftItem object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelsDraftItem(draftId string, phone string, createdAt string, updatedAt string, skuQuantity int32, itemQuantity int32) *ModelsDraftItem {
+func NewModelsDraftItem() *ModelsDraftItem {
 	this := ModelsDraftItem{}
-	this.DraftId = draftId
-	this.Phone = phone
-	this.CreatedAt = createdAt
-	this.UpdatedAt = updatedAt
-	this.SkuQuantity = skuQuantity
-	this.ItemQuantity = itemQuantity
 	return &this
 }
 
@@ -60,148 +50,196 @@ func NewModelsDraftItemWithDefaults() *ModelsDraftItem {
 	return &this
 }
 
-// GetDraftId returns the DraftId field value
+// GetDraftId returns the DraftId field value if set, zero value otherwise.
 func (o *ModelsDraftItem) GetDraftId() string {
-	if o == nil {
+	if o == nil || IsNil(o.DraftId) {
 		var ret string
 		return ret
 	}
-
-	return o.DraftId
+	return *o.DraftId
 }
 
-// GetDraftIdOk returns a tuple with the DraftId field value
+// GetDraftIdOk returns a tuple with the DraftId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModelsDraftItem) GetDraftIdOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DraftId) {
 		return nil, false
 	}
-	return &o.DraftId, true
+	return o.DraftId, true
 }
 
-// SetDraftId sets field value
+// HasDraftId returns a boolean if a field has been set.
+func (o *ModelsDraftItem) HasDraftId() bool {
+	if o != nil && !IsNil(o.DraftId) {
+		return true
+	}
+
+	return false
+}
+
+// SetDraftId gets a reference to the given string and assigns it to the DraftId field.
 func (o *ModelsDraftItem) SetDraftId(v string) {
-	o.DraftId = v
+	o.DraftId = &v
 }
 
-// GetPhone returns the Phone field value
+// GetPhone returns the Phone field value if set, zero value otherwise.
 func (o *ModelsDraftItem) GetPhone() string {
-	if o == nil {
+	if o == nil || IsNil(o.Phone) {
 		var ret string
 		return ret
 	}
-
-	return o.Phone
+	return *o.Phone
 }
 
-// GetPhoneOk returns a tuple with the Phone field value
+// GetPhoneOk returns a tuple with the Phone field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModelsDraftItem) GetPhoneOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Phone) {
 		return nil, false
 	}
-	return &o.Phone, true
+	return o.Phone, true
 }
 
-// SetPhone sets field value
+// HasPhone returns a boolean if a field has been set.
+func (o *ModelsDraftItem) HasPhone() bool {
+	if o != nil && !IsNil(o.Phone) {
+		return true
+	}
+
+	return false
+}
+
+// SetPhone gets a reference to the given string and assigns it to the Phone field.
 func (o *ModelsDraftItem) SetPhone(v string) {
-	o.Phone = v
+	o.Phone = &v
 }
 
-// GetCreatedAt returns the CreatedAt field value
+// GetCreatedAt returns the CreatedAt field value if set, zero value otherwise.
 func (o *ModelsDraftItem) GetCreatedAt() string {
-	if o == nil {
+	if o == nil || IsNil(o.CreatedAt) {
 		var ret string
 		return ret
 	}
-
-	return o.CreatedAt
+	return *o.CreatedAt
 }
 
-// GetCreatedAtOk returns a tuple with the CreatedAt field value
+// GetCreatedAtOk returns a tuple with the CreatedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModelsDraftItem) GetCreatedAtOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.CreatedAt) {
 		return nil, false
 	}
-	return &o.CreatedAt, true
+	return o.CreatedAt, true
 }
 
-// SetCreatedAt sets field value
+// HasCreatedAt returns a boolean if a field has been set.
+func (o *ModelsDraftItem) HasCreatedAt() bool {
+	if o != nil && !IsNil(o.CreatedAt) {
+		return true
+	}
+
+	return false
+}
+
+// SetCreatedAt gets a reference to the given string and assigns it to the CreatedAt field.
 func (o *ModelsDraftItem) SetCreatedAt(v string) {
-	o.CreatedAt = v
+	o.CreatedAt = &v
 }
 
-// GetUpdatedAt returns the UpdatedAt field value
+// GetUpdatedAt returns the UpdatedAt field value if set, zero value otherwise.
 func (o *ModelsDraftItem) GetUpdatedAt() string {
-	if o == nil {
+	if o == nil || IsNil(o.UpdatedAt) {
 		var ret string
 		return ret
 	}
-
-	return o.UpdatedAt
+	return *o.UpdatedAt
 }
 
-// GetUpdatedAtOk returns a tuple with the UpdatedAt field value
+// GetUpdatedAtOk returns a tuple with the UpdatedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModelsDraftItem) GetUpdatedAtOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.UpdatedAt) {
 		return nil, false
 	}
-	return &o.UpdatedAt, true
+	return o.UpdatedAt, true
 }
 
-// SetUpdatedAt sets field value
+// HasUpdatedAt returns a boolean if a field has been set.
+func (o *ModelsDraftItem) HasUpdatedAt() bool {
+	if o != nil && !IsNil(o.UpdatedAt) {
+		return true
+	}
+
+	return false
+}
+
+// SetUpdatedAt gets a reference to the given string and assigns it to the UpdatedAt field.
 func (o *ModelsDraftItem) SetUpdatedAt(v string) {
-	o.UpdatedAt = v
+	o.UpdatedAt = &v
 }
 
-// GetSkuQuantity returns the SkuQuantity field value
+// GetSkuQuantity returns the SkuQuantity field value if set, zero value otherwise.
 func (o *ModelsDraftItem) GetSkuQuantity() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.SkuQuantity) {
 		var ret int32
 		return ret
 	}
-
-	return o.SkuQuantity
+	return *o.SkuQuantity
 }
 
-// GetSkuQuantityOk returns a tuple with the SkuQuantity field value
+// GetSkuQuantityOk returns a tuple with the SkuQuantity field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModelsDraftItem) GetSkuQuantityOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.SkuQuantity) {
 		return nil, false
 	}
-	return &o.SkuQuantity, true
+	return o.SkuQuantity, true
 }
 
-// SetSkuQuantity sets field value
+// HasSkuQuantity returns a boolean if a field has been set.
+func (o *ModelsDraftItem) HasSkuQuantity() bool {
+	if o != nil && !IsNil(o.SkuQuantity) {
+		return true
+	}
+
+	return false
+}
+
+// SetSkuQuantity gets a reference to the given int32 and assigns it to the SkuQuantity field.
 func (o *ModelsDraftItem) SetSkuQuantity(v int32) {
-	o.SkuQuantity = v
+	o.SkuQuantity = &v
 }
 
-// GetItemQuantity returns the ItemQuantity field value
+// GetItemQuantity returns the ItemQuantity field value if set, zero value otherwise.
 func (o *ModelsDraftItem) GetItemQuantity() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.ItemQuantity) {
 		var ret int32
 		return ret
 	}
-
-	return o.ItemQuantity
+	return *o.ItemQuantity
 }
 
-// GetItemQuantityOk returns a tuple with the ItemQuantity field value
+// GetItemQuantityOk returns a tuple with the ItemQuantity field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModelsDraftItem) GetItemQuantityOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ItemQuantity) {
 		return nil, false
 	}
-	return &o.ItemQuantity, true
+	return o.ItemQuantity, true
 }
 
-// SetItemQuantity sets field value
+// HasItemQuantity returns a boolean if a field has been set.
+func (o *ModelsDraftItem) HasItemQuantity() bool {
+	if o != nil && !IsNil(o.ItemQuantity) {
+		return true
+	}
+
+	return false
+}
+
+// SetItemQuantity gets a reference to the given int32 and assigns it to the ItemQuantity field.
 func (o *ModelsDraftItem) SetItemQuantity(v int32) {
-	o.ItemQuantity = v
+	o.ItemQuantity = &v
 }
 
 func (o ModelsDraftItem) MarshalJSON() ([]byte, error) {
@@ -214,55 +252,25 @@ func (o ModelsDraftItem) MarshalJSON() ([]byte, error) {
 
 func (o ModelsDraftItem) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["draftId"] = o.DraftId
-	toSerialize["phone"] = o.Phone
-	toSerialize["createdAt"] = o.CreatedAt
-	toSerialize["updatedAt"] = o.UpdatedAt
-	toSerialize["skuQuantity"] = o.SkuQuantity
-	toSerialize["itemQuantity"] = o.ItemQuantity
+	if !IsNil(o.DraftId) {
+		toSerialize["draftId"] = o.DraftId
+	}
+	if !IsNil(o.Phone) {
+		toSerialize["phone"] = o.Phone
+	}
+	if !IsNil(o.CreatedAt) {
+		toSerialize["createdAt"] = o.CreatedAt
+	}
+	if !IsNil(o.UpdatedAt) {
+		toSerialize["updatedAt"] = o.UpdatedAt
+	}
+	if !IsNil(o.SkuQuantity) {
+		toSerialize["skuQuantity"] = o.SkuQuantity
+	}
+	if !IsNil(o.ItemQuantity) {
+		toSerialize["itemQuantity"] = o.ItemQuantity
+	}
 	return toSerialize, nil
-}
-
-func (o *ModelsDraftItem) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"draftId",
-		"phone",
-		"createdAt",
-		"updatedAt",
-		"skuQuantity",
-		"itemQuantity",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varModelsDraftItem := _ModelsDraftItem{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varModelsDraftItem)
-
-	if err != nil {
-		return err
-	}
-
-	*o = ModelsDraftItem(varModelsDraftItem)
-
-	return err
 }
 
 type NullableModelsDraftItem struct {

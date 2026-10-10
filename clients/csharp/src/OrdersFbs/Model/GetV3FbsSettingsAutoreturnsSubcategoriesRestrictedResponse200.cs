@@ -34,26 +34,11 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200" /> class.
-        /// </summary>
-        /// <param name="next">Параметр пагинации. Содержит значение, которое необходимо указать в запросе для получения следующего пакета данных (required).</param>
-        /// <param name="data">Список ID предметов, товары которых не хранятся на складах WB (required).</param>
+        /// <param name="next">Параметр пагинации. Содержит значение, которое необходимо указать в запросе для получения следующего пакета данных.</param>
+        /// <param name="data">Список ID предметов, товары которых не хранятся на складах WB.</param>
         public GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200(long? next = default(long?), List<GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataInner> data = default(List<GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataInner>))
         {
-            // to ensure "next" is required (not null)
-            if (next == null)
-            {
-                throw new ArgumentNullException("next is a required property for GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200 and cannot be null");
-            }
             this.Next = next;
-            // to ensure "data" is required (not null)
-            if (data == null)
-            {
-                throw new ArgumentNullException("data is a required property for GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200 and cannot be null");
-            }
             this.Data = data;
         }
 
@@ -61,14 +46,14 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// Параметр пагинации. Содержит значение, которое необходимо указать в запросе для получения следующего пакета данных
         /// </summary>
         /// <value>Параметр пагинации. Содержит значение, которое необходимо указать в запросе для получения следующего пакета данных</value>
-        [DataMember(Name = "next", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "next", EmitDefaultValue = true)]
         public long? Next { get; set; }
 
         /// <summary>
         /// Список ID предметов, товары которых не хранятся на складах WB
         /// </summary>
         /// <value>Список ID предметов, товары которых не хранятся на складах WB</value>
-        [DataMember(Name = "data", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "data", EmitDefaultValue = false)]
         public List<GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataInner> Data { get; set; }
 
         /// <summary>

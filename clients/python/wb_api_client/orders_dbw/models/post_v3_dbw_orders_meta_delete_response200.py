@@ -36,7 +36,7 @@ class PostV3DbwOrdersMetaDeleteResponse200(BaseModel):
         description="Уникальный ID запроса. Отображается для ответов с ошибками",
         alias="requestId",
     )
-    results: List[ApiMetaDeleteResponsesResultsInner]
+    results: Optional[List[ApiMetaDeleteResponsesResultsInner]] = None
     __properties: ClassVar[List[str]] = ["requestId", "results"]
 
     model_config = ConfigDict(

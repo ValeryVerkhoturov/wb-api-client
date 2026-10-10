@@ -11,9 +11,7 @@ API version: general
 package general
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the GetUsersResponseUsersInnerAccessInner type satisfies the MappedNullable interface at compile time
@@ -22,21 +20,17 @@ var _ MappedNullable = &GetUsersResponseUsersInnerAccessInner{}
 // GetUsersResponseUsersInnerAccessInner struct for GetUsersResponseUsersInnerAccessInner
 type GetUsersResponseUsersInnerAccessInner struct {
 	// Код раздела профиля продавца, к которому пользователь получит доступ: * `balance` — Просмотр баланса и вывод средств * `brands` — Управление брендами * `changeJam` — Доступ к подключению подписки **Джем**: **А/Б тесты**, отметки на фото, автозапуски видео, сравнение карточек * `discountPrice` — Изменение цен на товары, управление скидками и акциями * `finance` — Финансовая аналитика. Статистика по балансу, финансовые отчёты, история платежей * `showcase` — Управление витриной магазина * `suppliersDocuments` — Просмотр и скачивание документов по работе с площадкой * `supply` — Создание и управление поставками FBW * `questions` — Просмотр и ответы на вопросы покупателей * `pinFeedbacks` — Возможность закреплять и откреплять отзывы * `pointsForReviews` — Баллы за отзывы * `feedbacks` — Просмотр и ответы на отзывы покупателей * `oldAnalyticsReports` — Отчёты * `marketplace` — Свой склад * `brandsFlow` — Мои бренды * `copyrightComplaints` — Обращения правообладателей * `pretrialClaims` — Досудебные претензии * `sellersChat` — Чат с покупателями * `brandzone` — Бренд-зона. Публикация изменений * `brandzoneSubscribe` — Управление подпиской бренд-зоны
-	Code string `json:"code"`
+	Code *string `json:"code,omitempty"`
 	// * `true` — доступ к разделу запрещён * `false` — доступ к разделу разрешён
-	Disabled bool `json:"disabled"`
+	Disabled *bool `json:"disabled,omitempty"`
 }
-
-type _GetUsersResponseUsersInnerAccessInner GetUsersResponseUsersInnerAccessInner
 
 // NewGetUsersResponseUsersInnerAccessInner instantiates a new GetUsersResponseUsersInnerAccessInner object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetUsersResponseUsersInnerAccessInner(code string, disabled bool) *GetUsersResponseUsersInnerAccessInner {
+func NewGetUsersResponseUsersInnerAccessInner() *GetUsersResponseUsersInnerAccessInner {
 	this := GetUsersResponseUsersInnerAccessInner{}
-	this.Code = code
-	this.Disabled = disabled
 	return &this
 }
 
@@ -48,52 +42,68 @@ func NewGetUsersResponseUsersInnerAccessInnerWithDefaults() *GetUsersResponseUse
 	return &this
 }
 
-// GetCode returns the Code field value
+// GetCode returns the Code field value if set, zero value otherwise.
 func (o *GetUsersResponseUsersInnerAccessInner) GetCode() string {
-	if o == nil {
+	if o == nil || IsNil(o.Code) {
 		var ret string
 		return ret
 	}
-
-	return o.Code
+	return *o.Code
 }
 
-// GetCodeOk returns a tuple with the Code field value
+// GetCodeOk returns a tuple with the Code field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetUsersResponseUsersInnerAccessInner) GetCodeOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Code) {
 		return nil, false
 	}
-	return &o.Code, true
+	return o.Code, true
 }
 
-// SetCode sets field value
+// HasCode returns a boolean if a field has been set.
+func (o *GetUsersResponseUsersInnerAccessInner) HasCode() bool {
+	if o != nil && !IsNil(o.Code) {
+		return true
+	}
+
+	return false
+}
+
+// SetCode gets a reference to the given string and assigns it to the Code field.
 func (o *GetUsersResponseUsersInnerAccessInner) SetCode(v string) {
-	o.Code = v
+	o.Code = &v
 }
 
-// GetDisabled returns the Disabled field value
+// GetDisabled returns the Disabled field value if set, zero value otherwise.
 func (o *GetUsersResponseUsersInnerAccessInner) GetDisabled() bool {
-	if o == nil {
+	if o == nil || IsNil(o.Disabled) {
 		var ret bool
 		return ret
 	}
-
-	return o.Disabled
+	return *o.Disabled
 }
 
-// GetDisabledOk returns a tuple with the Disabled field value
+// GetDisabledOk returns a tuple with the Disabled field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetUsersResponseUsersInnerAccessInner) GetDisabledOk() (*bool, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Disabled) {
 		return nil, false
 	}
-	return &o.Disabled, true
+	return o.Disabled, true
 }
 
-// SetDisabled sets field value
+// HasDisabled returns a boolean if a field has been set.
+func (o *GetUsersResponseUsersInnerAccessInner) HasDisabled() bool {
+	if o != nil && !IsNil(o.Disabled) {
+		return true
+	}
+
+	return false
+}
+
+// SetDisabled gets a reference to the given bool and assigns it to the Disabled field.
 func (o *GetUsersResponseUsersInnerAccessInner) SetDisabled(v bool) {
-	o.Disabled = v
+	o.Disabled = &v
 }
 
 func (o GetUsersResponseUsersInnerAccessInner) MarshalJSON() ([]byte, error) {
@@ -106,47 +116,13 @@ func (o GetUsersResponseUsersInnerAccessInner) MarshalJSON() ([]byte, error) {
 
 func (o GetUsersResponseUsersInnerAccessInner) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["code"] = o.Code
-	toSerialize["disabled"] = o.Disabled
+	if !IsNil(o.Code) {
+		toSerialize["code"] = o.Code
+	}
+	if !IsNil(o.Disabled) {
+		toSerialize["disabled"] = o.Disabled
+	}
 	return toSerialize, nil
-}
-
-func (o *GetUsersResponseUsersInnerAccessInner) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"code",
-		"disabled",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varGetUsersResponseUsersInnerAccessInner := _GetUsersResponseUsersInnerAccessInner{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varGetUsersResponseUsersInnerAccessInner)
-
-	if err != nil {
-		return err
-	}
-
-	*o = GetUsersResponseUsersInnerAccessInner(varGetUsersResponseUsersInnerAccessInner)
-
-	return err
 }
 
 type NullableGetUsersResponseUsersInnerAccessInner struct {

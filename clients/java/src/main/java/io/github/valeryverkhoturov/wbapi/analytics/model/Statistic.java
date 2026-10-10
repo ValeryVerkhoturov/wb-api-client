@@ -37,108 +37,108 @@ public class Statistic {
   public static final String SERIALIZED_NAME_PERIOD = "period";
 
   @SerializedName(SERIALIZED_NAME_PERIOD)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private StatisticPeriod period;
 
   public static final String SERIALIZED_NAME_OPEN_COUNT = "openCount";
 
   @SerializedName(SERIALIZED_NAME_OPEN_COUNT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer openCount;
 
   public static final String SERIALIZED_NAME_CART_COUNT = "cartCount";
 
   @SerializedName(SERIALIZED_NAME_CART_COUNT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer cartCount;
 
   public static final String SERIALIZED_NAME_ORDER_COUNT = "orderCount";
 
   @SerializedName(SERIALIZED_NAME_ORDER_COUNT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer orderCount;
 
   public static final String SERIALIZED_NAME_ORDER_SUM = "orderSum";
 
   @SerializedName(SERIALIZED_NAME_ORDER_SUM)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer orderSum;
 
   public static final String SERIALIZED_NAME_BUYOUT_COUNT = "buyoutCount";
 
   @SerializedName(SERIALIZED_NAME_BUYOUT_COUNT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer buyoutCount;
 
   public static final String SERIALIZED_NAME_BUYOUT_SUM = "buyoutSum";
 
   @SerializedName(SERIALIZED_NAME_BUYOUT_SUM)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer buyoutSum;
 
   public static final String SERIALIZED_NAME_CANCEL_COUNT = "cancelCount";
 
   @SerializedName(SERIALIZED_NAME_CANCEL_COUNT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer cancelCount;
 
   public static final String SERIALIZED_NAME_CANCEL_SUM = "cancelSum";
 
   @SerializedName(SERIALIZED_NAME_CANCEL_SUM)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer cancelSum;
 
   public static final String SERIALIZED_NAME_AVG_PRICE = "avgPrice";
 
   @SerializedName(SERIALIZED_NAME_AVG_PRICE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer avgPrice;
 
   public static final String SERIALIZED_NAME_AVG_ORDERS_COUNT_PER_DAY = "avgOrdersCountPerDay";
 
   @SerializedName(SERIALIZED_NAME_AVG_ORDERS_COUNT_PER_DAY)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private BigDecimal avgOrdersCountPerDay;
 
   public static final String SERIALIZED_NAME_SHARE_ORDER_PERCENT = "shareOrderPercent";
 
   @SerializedName(SERIALIZED_NAME_SHARE_ORDER_PERCENT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private BigDecimal shareOrderPercent;
 
   public static final String SERIALIZED_NAME_ADD_TO_WISHLIST = "addToWishlist";
 
   @SerializedName(SERIALIZED_NAME_ADD_TO_WISHLIST)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer addToWishlist;
 
   public static final String SERIALIZED_NAME_TIME_TO_READY = "timeToReady";
 
   @SerializedName(SERIALIZED_NAME_TIME_TO_READY)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private StatisticTimeToReady timeToReady;
 
   public static final String SERIALIZED_NAME_LOCALIZATION_PERCENT = "localizationPercent";
 
   @SerializedName(SERIALIZED_NAME_LOCALIZATION_PERCENT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer localizationPercent;
 
   public static final String SERIALIZED_NAME_WB_CLUB = "wbClub";
 
   @SerializedName(SERIALIZED_NAME_WB_CLUB)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private StatisticWbClub wbClub;
 
   public static final String SERIALIZED_NAME_CONVERSIONS = "conversions";
 
   @SerializedName(SERIALIZED_NAME_CONVERSIONS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private StatisticConversions conversions;
 
   public Statistic() {}
 
-  public Statistic period(@jakarta.annotation.Nonnull StatisticPeriod period) {
+  public Statistic period(@jakarta.annotation.Nullable StatisticPeriod period) {
     this.period = period;
     return this;
   }
@@ -148,16 +148,16 @@ public class Statistic {
    *
    * @return period
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public StatisticPeriod getPeriod() {
     return period;
   }
 
-  public void setPeriod(@jakarta.annotation.Nonnull StatisticPeriod period) {
+  public void setPeriod(@jakarta.annotation.Nullable StatisticPeriod period) {
     this.period = period;
   }
 
-  public Statistic openCount(@jakarta.annotation.Nonnull Integer openCount) {
+  public Statistic openCount(@jakarta.annotation.Nullable Integer openCount) {
     this.openCount = openCount;
     return this;
   }
@@ -167,16 +167,16 @@ public class Statistic {
    *
    * @return openCount
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getOpenCount() {
     return openCount;
   }
 
-  public void setOpenCount(@jakarta.annotation.Nonnull Integer openCount) {
+  public void setOpenCount(@jakarta.annotation.Nullable Integer openCount) {
     this.openCount = openCount;
   }
 
-  public Statistic cartCount(@jakarta.annotation.Nonnull Integer cartCount) {
+  public Statistic cartCount(@jakarta.annotation.Nullable Integer cartCount) {
     this.cartCount = cartCount;
     return this;
   }
@@ -186,16 +186,16 @@ public class Statistic {
    *
    * @return cartCount
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getCartCount() {
     return cartCount;
   }
 
-  public void setCartCount(@jakarta.annotation.Nonnull Integer cartCount) {
+  public void setCartCount(@jakarta.annotation.Nullable Integer cartCount) {
     this.cartCount = cartCount;
   }
 
-  public Statistic orderCount(@jakarta.annotation.Nonnull Integer orderCount) {
+  public Statistic orderCount(@jakarta.annotation.Nullable Integer orderCount) {
     this.orderCount = orderCount;
     return this;
   }
@@ -205,16 +205,16 @@ public class Statistic {
    *
    * @return orderCount
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getOrderCount() {
     return orderCount;
   }
 
-  public void setOrderCount(@jakarta.annotation.Nonnull Integer orderCount) {
+  public void setOrderCount(@jakarta.annotation.Nullable Integer orderCount) {
     this.orderCount = orderCount;
   }
 
-  public Statistic orderSum(@jakarta.annotation.Nonnull Integer orderSum) {
+  public Statistic orderSum(@jakarta.annotation.Nullable Integer orderSum) {
     this.orderSum = orderSum;
     return this;
   }
@@ -224,16 +224,16 @@ public class Statistic {
    *
    * @return orderSum
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getOrderSum() {
     return orderSum;
   }
 
-  public void setOrderSum(@jakarta.annotation.Nonnull Integer orderSum) {
+  public void setOrderSum(@jakarta.annotation.Nullable Integer orderSum) {
     this.orderSum = orderSum;
   }
 
-  public Statistic buyoutCount(@jakarta.annotation.Nonnull Integer buyoutCount) {
+  public Statistic buyoutCount(@jakarta.annotation.Nullable Integer buyoutCount) {
     this.buyoutCount = buyoutCount;
     return this;
   }
@@ -243,16 +243,16 @@ public class Statistic {
    *
    * @return buyoutCount
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getBuyoutCount() {
     return buyoutCount;
   }
 
-  public void setBuyoutCount(@jakarta.annotation.Nonnull Integer buyoutCount) {
+  public void setBuyoutCount(@jakarta.annotation.Nullable Integer buyoutCount) {
     this.buyoutCount = buyoutCount;
   }
 
-  public Statistic buyoutSum(@jakarta.annotation.Nonnull Integer buyoutSum) {
+  public Statistic buyoutSum(@jakarta.annotation.Nullable Integer buyoutSum) {
     this.buyoutSum = buyoutSum;
     return this;
   }
@@ -262,16 +262,16 @@ public class Statistic {
    *
    * @return buyoutSum
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getBuyoutSum() {
     return buyoutSum;
   }
 
-  public void setBuyoutSum(@jakarta.annotation.Nonnull Integer buyoutSum) {
+  public void setBuyoutSum(@jakarta.annotation.Nullable Integer buyoutSum) {
     this.buyoutSum = buyoutSum;
   }
 
-  public Statistic cancelCount(@jakarta.annotation.Nonnull Integer cancelCount) {
+  public Statistic cancelCount(@jakarta.annotation.Nullable Integer cancelCount) {
     this.cancelCount = cancelCount;
     return this;
   }
@@ -281,16 +281,16 @@ public class Statistic {
    *
    * @return cancelCount
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getCancelCount() {
     return cancelCount;
   }
 
-  public void setCancelCount(@jakarta.annotation.Nonnull Integer cancelCount) {
+  public void setCancelCount(@jakarta.annotation.Nullable Integer cancelCount) {
     this.cancelCount = cancelCount;
   }
 
-  public Statistic cancelSum(@jakarta.annotation.Nonnull Integer cancelSum) {
+  public Statistic cancelSum(@jakarta.annotation.Nullable Integer cancelSum) {
     this.cancelSum = cancelSum;
     return this;
   }
@@ -300,16 +300,16 @@ public class Statistic {
    *
    * @return cancelSum
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getCancelSum() {
     return cancelSum;
   }
 
-  public void setCancelSum(@jakarta.annotation.Nonnull Integer cancelSum) {
+  public void setCancelSum(@jakarta.annotation.Nullable Integer cancelSum) {
     this.cancelSum = cancelSum;
   }
 
-  public Statistic avgPrice(@jakarta.annotation.Nonnull Integer avgPrice) {
+  public Statistic avgPrice(@jakarta.annotation.Nullable Integer avgPrice) {
     this.avgPrice = avgPrice;
     return this;
   }
@@ -319,17 +319,17 @@ public class Statistic {
    *
    * @return avgPrice
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getAvgPrice() {
     return avgPrice;
   }
 
-  public void setAvgPrice(@jakarta.annotation.Nonnull Integer avgPrice) {
+  public void setAvgPrice(@jakarta.annotation.Nullable Integer avgPrice) {
     this.avgPrice = avgPrice;
   }
 
   public Statistic avgOrdersCountPerDay(
-      @jakarta.annotation.Nonnull BigDecimal avgOrdersCountPerDay) {
+      @jakarta.annotation.Nullable BigDecimal avgOrdersCountPerDay) {
     this.avgOrdersCountPerDay = avgOrdersCountPerDay;
     return this;
   }
@@ -339,16 +339,17 @@ public class Statistic {
    *
    * @return avgOrdersCountPerDay
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public BigDecimal getAvgOrdersCountPerDay() {
     return avgOrdersCountPerDay;
   }
 
-  public void setAvgOrdersCountPerDay(@jakarta.annotation.Nonnull BigDecimal avgOrdersCountPerDay) {
+  public void setAvgOrdersCountPerDay(
+      @jakarta.annotation.Nullable BigDecimal avgOrdersCountPerDay) {
     this.avgOrdersCountPerDay = avgOrdersCountPerDay;
   }
 
-  public Statistic shareOrderPercent(@jakarta.annotation.Nonnull BigDecimal shareOrderPercent) {
+  public Statistic shareOrderPercent(@jakarta.annotation.Nullable BigDecimal shareOrderPercent) {
     this.shareOrderPercent = shareOrderPercent;
     return this;
   }
@@ -358,16 +359,16 @@ public class Statistic {
    *
    * @return shareOrderPercent
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public BigDecimal getShareOrderPercent() {
     return shareOrderPercent;
   }
 
-  public void setShareOrderPercent(@jakarta.annotation.Nonnull BigDecimal shareOrderPercent) {
+  public void setShareOrderPercent(@jakarta.annotation.Nullable BigDecimal shareOrderPercent) {
     this.shareOrderPercent = shareOrderPercent;
   }
 
-  public Statistic addToWishlist(@jakarta.annotation.Nonnull Integer addToWishlist) {
+  public Statistic addToWishlist(@jakarta.annotation.Nullable Integer addToWishlist) {
     this.addToWishlist = addToWishlist;
     return this;
   }
@@ -377,16 +378,16 @@ public class Statistic {
    *
    * @return addToWishlist
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getAddToWishlist() {
     return addToWishlist;
   }
 
-  public void setAddToWishlist(@jakarta.annotation.Nonnull Integer addToWishlist) {
+  public void setAddToWishlist(@jakarta.annotation.Nullable Integer addToWishlist) {
     this.addToWishlist = addToWishlist;
   }
 
-  public Statistic timeToReady(@jakarta.annotation.Nonnull StatisticTimeToReady timeToReady) {
+  public Statistic timeToReady(@jakarta.annotation.Nullable StatisticTimeToReady timeToReady) {
     this.timeToReady = timeToReady;
     return this;
   }
@@ -396,16 +397,16 @@ public class Statistic {
    *
    * @return timeToReady
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public StatisticTimeToReady getTimeToReady() {
     return timeToReady;
   }
 
-  public void setTimeToReady(@jakarta.annotation.Nonnull StatisticTimeToReady timeToReady) {
+  public void setTimeToReady(@jakarta.annotation.Nullable StatisticTimeToReady timeToReady) {
     this.timeToReady = timeToReady;
   }
 
-  public Statistic localizationPercent(@jakarta.annotation.Nonnull Integer localizationPercent) {
+  public Statistic localizationPercent(@jakarta.annotation.Nullable Integer localizationPercent) {
     this.localizationPercent = localizationPercent;
     return this;
   }
@@ -416,16 +417,16 @@ public class Statistic {
    *
    * @return localizationPercent
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getLocalizationPercent() {
     return localizationPercent;
   }
 
-  public void setLocalizationPercent(@jakarta.annotation.Nonnull Integer localizationPercent) {
+  public void setLocalizationPercent(@jakarta.annotation.Nullable Integer localizationPercent) {
     this.localizationPercent = localizationPercent;
   }
 
-  public Statistic wbClub(@jakarta.annotation.Nonnull StatisticWbClub wbClub) {
+  public Statistic wbClub(@jakarta.annotation.Nullable StatisticWbClub wbClub) {
     this.wbClub = wbClub;
     return this;
   }
@@ -435,16 +436,16 @@ public class Statistic {
    *
    * @return wbClub
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public StatisticWbClub getWbClub() {
     return wbClub;
   }
 
-  public void setWbClub(@jakarta.annotation.Nonnull StatisticWbClub wbClub) {
+  public void setWbClub(@jakarta.annotation.Nullable StatisticWbClub wbClub) {
     this.wbClub = wbClub;
   }
 
-  public Statistic conversions(@jakarta.annotation.Nonnull StatisticConversions conversions) {
+  public Statistic conversions(@jakarta.annotation.Nullable StatisticConversions conversions) {
     this.conversions = conversions;
     return this;
   }
@@ -454,12 +455,12 @@ public class Statistic {
    *
    * @return conversions
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public StatisticConversions getConversions() {
     return conversions;
   }
 
-  public void setConversions(@jakarta.annotation.Nonnull StatisticConversions conversions) {
+  public void setConversions(@jakarta.annotation.Nullable StatisticConversions conversions) {
     this.conversions = conversions;
   }
 
@@ -578,23 +579,6 @@ public class Statistic {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("period");
-    openapiRequiredFields.add("openCount");
-    openapiRequiredFields.add("cartCount");
-    openapiRequiredFields.add("orderCount");
-    openapiRequiredFields.add("orderSum");
-    openapiRequiredFields.add("buyoutCount");
-    openapiRequiredFields.add("buyoutSum");
-    openapiRequiredFields.add("cancelCount");
-    openapiRequiredFields.add("cancelSum");
-    openapiRequiredFields.add("avgPrice");
-    openapiRequiredFields.add("avgOrdersCountPerDay");
-    openapiRequiredFields.add("shareOrderPercent");
-    openapiRequiredFields.add("addToWishlist");
-    openapiRequiredFields.add("timeToReady");
-    openapiRequiredFields.add("localizationPercent");
-    openapiRequiredFields.add("wbClub");
-    openapiRequiredFields.add("conversions");
   }
 
   /**
@@ -624,25 +608,23 @@ public class Statistic {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : Statistic.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    // validate the required field `period`
-    StatisticPeriod.validateJsonElement(jsonObj.get("period"));
-    // validate the required field `timeToReady`
-    StatisticTimeToReady.validateJsonElement(jsonObj.get("timeToReady"));
-    // validate the required field `wbClub`
-    StatisticWbClub.validateJsonElement(jsonObj.get("wbClub"));
-    // validate the required field `conversions`
-    StatisticConversions.validateJsonElement(jsonObj.get("conversions"));
+    // validate the optional field `period`
+    if (jsonObj.get("period") != null && !jsonObj.get("period").isJsonNull()) {
+      StatisticPeriod.validateJsonElement(jsonObj.get("period"));
+    }
+    // validate the optional field `timeToReady`
+    if (jsonObj.get("timeToReady") != null && !jsonObj.get("timeToReady").isJsonNull()) {
+      StatisticTimeToReady.validateJsonElement(jsonObj.get("timeToReady"));
+    }
+    // validate the optional field `wbClub`
+    if (jsonObj.get("wbClub") != null && !jsonObj.get("wbClub").isJsonNull()) {
+      StatisticWbClub.validateJsonElement(jsonObj.get("wbClub"));
+    }
+    // validate the optional field `conversions`
+    if (jsonObj.get("conversions") != null && !jsonObj.get("conversions").isJsonNull()) {
+      StatisticConversions.validateJsonElement(jsonObj.get("conversions"));
+    }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

@@ -34,27 +34,12 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FloatGraphByPeriodItem" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected FloatGraphByPeriodItem() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="FloatGraphByPeriodItem" /> class.
-        /// </summary>
-        /// <param name="start">Начало месяца (required).</param>
-        /// <param name="end">Конец месяца (required).</param>
-        /// <param name="value">Среднее количество заказов (required).</param>
+        /// <param name="start">Начало месяца.</param>
+        /// <param name="end">Конец месяца.</param>
+        /// <param name="value">Среднее количество заказов.</param>
         public FloatGraphByPeriodItem(string start = default(string), string end = default(string), decimal value = default(decimal))
         {
-            // to ensure "start" is required (not null)
-            if (start == null)
-            {
-                throw new ArgumentNullException("start is a required property for FloatGraphByPeriodItem and cannot be null");
-            }
             this.Start = start;
-            // to ensure "end" is required (not null)
-            if (end == null)
-            {
-                throw new ArgumentNullException("end is a required property for FloatGraphByPeriodItem and cannot be null");
-            }
             this.End = end;
             this.Value = value;
         }
@@ -66,7 +51,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>2025-01-01</example>
         */
-        [DataMember(Name = "start", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "start", EmitDefaultValue = false)]
         public string Start { get; set; }
 
         /// <summary>
@@ -76,7 +61,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>2025-01-31</example>
         */
-        [DataMember(Name = "end", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "end", EmitDefaultValue = false)]
         public string End { get; set; }
 
         /// <summary>
@@ -86,7 +71,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>25.55</example>
         */
-        [DataMember(Name = "value", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "value", EmitDefaultValue = false)]
         public decimal Value { get; set; }
 
         /// <summary>

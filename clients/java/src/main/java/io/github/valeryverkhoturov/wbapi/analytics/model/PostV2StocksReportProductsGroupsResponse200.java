@@ -36,13 +36,13 @@ public class PostV2StocksReportProductsGroupsResponse200 {
   public static final String SERIALIZED_NAME_DATA = "data";
 
   @SerializedName(SERIALIZED_NAME_DATA)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private TableGroupResponseSt data;
 
   public PostV2StocksReportProductsGroupsResponse200() {}
 
   public PostV2StocksReportProductsGroupsResponse200 data(
-      @jakarta.annotation.Nonnull TableGroupResponseSt data) {
+      @jakarta.annotation.Nullable TableGroupResponseSt data) {
     this.data = data;
     return this;
   }
@@ -52,12 +52,12 @@ public class PostV2StocksReportProductsGroupsResponse200 {
    *
    * @return data
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public TableGroupResponseSt getData() {
     return data;
   }
 
-  public void setData(@jakarta.annotation.Nonnull TableGroupResponseSt data) {
+  public void setData(@jakarta.annotation.Nullable TableGroupResponseSt data) {
     this.data = data;
   }
 
@@ -108,7 +108,6 @@ public class PostV2StocksReportProductsGroupsResponse200 {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("data");
   }
 
   /**
@@ -139,19 +138,11 @@ public class PostV2StocksReportProductsGroupsResponse200 {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : PostV2StocksReportProductsGroupsResponse200.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    // validate the required field `data`
-    TableGroupResponseSt.validateJsonElement(jsonObj.get("data"));
+    // validate the optional field `data`
+    if (jsonObj.get("data") != null && !jsonObj.get("data").isJsonNull()) {
+      TableGroupResponseSt.validateJsonElement(jsonObj.get("data"));
+    }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

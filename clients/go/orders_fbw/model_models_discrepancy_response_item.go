@@ -11,9 +11,7 @@ API version: ordersfbw
 package orders_fbw
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the ModelsDiscrepancyResponseItem type satisfies the MappedNullable interface at compile time
@@ -22,36 +20,27 @@ var _ MappedNullable = &ModelsDiscrepancyResponseItem{}
 // ModelsDiscrepancyResponseItem struct for ModelsDiscrepancyResponseItem
 type ModelsDiscrepancyResponseItem struct {
 	// Баркод, заявленный при формировании поставки
-	DeclaredSku string `json:"declaredSku"`
+	DeclaredSku *string `json:"declaredSku,omitempty"`
 	// Тип расхождения в целом по коробу:  - `surplus` — товара в коробе больше заявленного  - `shortage` — товара в коробе меньше заявленного  - `re-sorting` — баркод принятого товара не соответствует заявленному при формировании поставки
-	DiscrepancyType string `json:"discrepancyType"`
+	DiscrepancyType *string `json:"discrepancyType,omitempty"`
 	// Количество товара, заявленное при формировании поставки
-	DeclaredAmount int32 `json:"declaredAmount"`
+	DeclaredAmount *int32 `json:"declaredAmount,omitempty"`
 	// Фактическое количество товара
-	ActualAmount int32 `json:"actualAmount"`
+	ActualAmount *int32 `json:"actualAmount,omitempty"`
 	// Разница между заявленным и фактическим количеством товара
-	DiscrepancyQuantity int32 `json:"discrepancyQuantity"`
+	DiscrepancyQuantity *int32 `json:"discrepancyQuantity,omitempty"`
 	// Фактический баркод
-	ActualSku string `json:"actualSku"`
+	ActualSku *string `json:"actualSku,omitempty"`
 	// Результаты сканирования товаров
-	SkuScans []ModelsItemScans `json:"skuScans"`
+	SkuScans []ModelsItemScans `json:"skuScans,omitempty"`
 }
-
-type _ModelsDiscrepancyResponseItem ModelsDiscrepancyResponseItem
 
 // NewModelsDiscrepancyResponseItem instantiates a new ModelsDiscrepancyResponseItem object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelsDiscrepancyResponseItem(declaredSku string, discrepancyType string, declaredAmount int32, actualAmount int32, discrepancyQuantity int32, actualSku string, skuScans []ModelsItemScans) *ModelsDiscrepancyResponseItem {
+func NewModelsDiscrepancyResponseItem() *ModelsDiscrepancyResponseItem {
 	this := ModelsDiscrepancyResponseItem{}
-	this.DeclaredSku = declaredSku
-	this.DiscrepancyType = discrepancyType
-	this.DeclaredAmount = declaredAmount
-	this.ActualAmount = actualAmount
-	this.DiscrepancyQuantity = discrepancyQuantity
-	this.ActualSku = actualSku
-	this.SkuScans = skuScans
 	return &this
 }
 
@@ -63,162 +52,208 @@ func NewModelsDiscrepancyResponseItemWithDefaults() *ModelsDiscrepancyResponseIt
 	return &this
 }
 
-// GetDeclaredSku returns the DeclaredSku field value
+// GetDeclaredSku returns the DeclaredSku field value if set, zero value otherwise.
 func (o *ModelsDiscrepancyResponseItem) GetDeclaredSku() string {
-	if o == nil {
+	if o == nil || IsNil(o.DeclaredSku) {
 		var ret string
 		return ret
 	}
-
-	return o.DeclaredSku
+	return *o.DeclaredSku
 }
 
-// GetDeclaredSkuOk returns a tuple with the DeclaredSku field value
+// GetDeclaredSkuOk returns a tuple with the DeclaredSku field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModelsDiscrepancyResponseItem) GetDeclaredSkuOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DeclaredSku) {
 		return nil, false
 	}
-	return &o.DeclaredSku, true
+	return o.DeclaredSku, true
 }
 
-// SetDeclaredSku sets field value
+// HasDeclaredSku returns a boolean if a field has been set.
+func (o *ModelsDiscrepancyResponseItem) HasDeclaredSku() bool {
+	if o != nil && !IsNil(o.DeclaredSku) {
+		return true
+	}
+
+	return false
+}
+
+// SetDeclaredSku gets a reference to the given string and assigns it to the DeclaredSku field.
 func (o *ModelsDiscrepancyResponseItem) SetDeclaredSku(v string) {
-	o.DeclaredSku = v
+	o.DeclaredSku = &v
 }
 
-// GetDiscrepancyType returns the DiscrepancyType field value
+// GetDiscrepancyType returns the DiscrepancyType field value if set, zero value otherwise.
 func (o *ModelsDiscrepancyResponseItem) GetDiscrepancyType() string {
-	if o == nil {
+	if o == nil || IsNil(o.DiscrepancyType) {
 		var ret string
 		return ret
 	}
-
-	return o.DiscrepancyType
+	return *o.DiscrepancyType
 }
 
-// GetDiscrepancyTypeOk returns a tuple with the DiscrepancyType field value
+// GetDiscrepancyTypeOk returns a tuple with the DiscrepancyType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModelsDiscrepancyResponseItem) GetDiscrepancyTypeOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DiscrepancyType) {
 		return nil, false
 	}
-	return &o.DiscrepancyType, true
+	return o.DiscrepancyType, true
 }
 
-// SetDiscrepancyType sets field value
+// HasDiscrepancyType returns a boolean if a field has been set.
+func (o *ModelsDiscrepancyResponseItem) HasDiscrepancyType() bool {
+	if o != nil && !IsNil(o.DiscrepancyType) {
+		return true
+	}
+
+	return false
+}
+
+// SetDiscrepancyType gets a reference to the given string and assigns it to the DiscrepancyType field.
 func (o *ModelsDiscrepancyResponseItem) SetDiscrepancyType(v string) {
-	o.DiscrepancyType = v
+	o.DiscrepancyType = &v
 }
 
-// GetDeclaredAmount returns the DeclaredAmount field value
+// GetDeclaredAmount returns the DeclaredAmount field value if set, zero value otherwise.
 func (o *ModelsDiscrepancyResponseItem) GetDeclaredAmount() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.DeclaredAmount) {
 		var ret int32
 		return ret
 	}
-
-	return o.DeclaredAmount
+	return *o.DeclaredAmount
 }
 
-// GetDeclaredAmountOk returns a tuple with the DeclaredAmount field value
+// GetDeclaredAmountOk returns a tuple with the DeclaredAmount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModelsDiscrepancyResponseItem) GetDeclaredAmountOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DeclaredAmount) {
 		return nil, false
 	}
-	return &o.DeclaredAmount, true
+	return o.DeclaredAmount, true
 }
 
-// SetDeclaredAmount sets field value
+// HasDeclaredAmount returns a boolean if a field has been set.
+func (o *ModelsDiscrepancyResponseItem) HasDeclaredAmount() bool {
+	if o != nil && !IsNil(o.DeclaredAmount) {
+		return true
+	}
+
+	return false
+}
+
+// SetDeclaredAmount gets a reference to the given int32 and assigns it to the DeclaredAmount field.
 func (o *ModelsDiscrepancyResponseItem) SetDeclaredAmount(v int32) {
-	o.DeclaredAmount = v
+	o.DeclaredAmount = &v
 }
 
-// GetActualAmount returns the ActualAmount field value
+// GetActualAmount returns the ActualAmount field value if set, zero value otherwise.
 func (o *ModelsDiscrepancyResponseItem) GetActualAmount() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.ActualAmount) {
 		var ret int32
 		return ret
 	}
-
-	return o.ActualAmount
+	return *o.ActualAmount
 }
 
-// GetActualAmountOk returns a tuple with the ActualAmount field value
+// GetActualAmountOk returns a tuple with the ActualAmount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModelsDiscrepancyResponseItem) GetActualAmountOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ActualAmount) {
 		return nil, false
 	}
-	return &o.ActualAmount, true
+	return o.ActualAmount, true
 }
 
-// SetActualAmount sets field value
+// HasActualAmount returns a boolean if a field has been set.
+func (o *ModelsDiscrepancyResponseItem) HasActualAmount() bool {
+	if o != nil && !IsNil(o.ActualAmount) {
+		return true
+	}
+
+	return false
+}
+
+// SetActualAmount gets a reference to the given int32 and assigns it to the ActualAmount field.
 func (o *ModelsDiscrepancyResponseItem) SetActualAmount(v int32) {
-	o.ActualAmount = v
+	o.ActualAmount = &v
 }
 
-// GetDiscrepancyQuantity returns the DiscrepancyQuantity field value
+// GetDiscrepancyQuantity returns the DiscrepancyQuantity field value if set, zero value otherwise.
 func (o *ModelsDiscrepancyResponseItem) GetDiscrepancyQuantity() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.DiscrepancyQuantity) {
 		var ret int32
 		return ret
 	}
-
-	return o.DiscrepancyQuantity
+	return *o.DiscrepancyQuantity
 }
 
-// GetDiscrepancyQuantityOk returns a tuple with the DiscrepancyQuantity field value
+// GetDiscrepancyQuantityOk returns a tuple with the DiscrepancyQuantity field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModelsDiscrepancyResponseItem) GetDiscrepancyQuantityOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DiscrepancyQuantity) {
 		return nil, false
 	}
-	return &o.DiscrepancyQuantity, true
+	return o.DiscrepancyQuantity, true
 }
 
-// SetDiscrepancyQuantity sets field value
+// HasDiscrepancyQuantity returns a boolean if a field has been set.
+func (o *ModelsDiscrepancyResponseItem) HasDiscrepancyQuantity() bool {
+	if o != nil && !IsNil(o.DiscrepancyQuantity) {
+		return true
+	}
+
+	return false
+}
+
+// SetDiscrepancyQuantity gets a reference to the given int32 and assigns it to the DiscrepancyQuantity field.
 func (o *ModelsDiscrepancyResponseItem) SetDiscrepancyQuantity(v int32) {
-	o.DiscrepancyQuantity = v
+	o.DiscrepancyQuantity = &v
 }
 
-// GetActualSku returns the ActualSku field value
+// GetActualSku returns the ActualSku field value if set, zero value otherwise.
 func (o *ModelsDiscrepancyResponseItem) GetActualSku() string {
-	if o == nil {
+	if o == nil || IsNil(o.ActualSku) {
 		var ret string
 		return ret
 	}
-
-	return o.ActualSku
+	return *o.ActualSku
 }
 
-// GetActualSkuOk returns a tuple with the ActualSku field value
+// GetActualSkuOk returns a tuple with the ActualSku field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModelsDiscrepancyResponseItem) GetActualSkuOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ActualSku) {
 		return nil, false
 	}
-	return &o.ActualSku, true
+	return o.ActualSku, true
 }
 
-// SetActualSku sets field value
+// HasActualSku returns a boolean if a field has been set.
+func (o *ModelsDiscrepancyResponseItem) HasActualSku() bool {
+	if o != nil && !IsNil(o.ActualSku) {
+		return true
+	}
+
+	return false
+}
+
+// SetActualSku gets a reference to the given string and assigns it to the ActualSku field.
 func (o *ModelsDiscrepancyResponseItem) SetActualSku(v string) {
-	o.ActualSku = v
+	o.ActualSku = &v
 }
 
-// GetSkuScans returns the SkuScans field value
-// If the value is explicit nil, the zero value for []ModelsItemScans will be returned
+// GetSkuScans returns the SkuScans field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ModelsDiscrepancyResponseItem) GetSkuScans() []ModelsItemScans {
 	if o == nil {
 		var ret []ModelsItemScans
 		return ret
 	}
-
 	return o.SkuScans
 }
 
-// GetSkuScansOk returns a tuple with the SkuScans field value
+// GetSkuScansOk returns a tuple with the SkuScans field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ModelsDiscrepancyResponseItem) GetSkuScansOk() ([]ModelsItemScans, bool) {
@@ -228,7 +263,16 @@ func (o *ModelsDiscrepancyResponseItem) GetSkuScansOk() ([]ModelsItemScans, bool
 	return o.SkuScans, true
 }
 
-// SetSkuScans sets field value
+// HasSkuScans returns a boolean if a field has been set.
+func (o *ModelsDiscrepancyResponseItem) HasSkuScans() bool {
+	if o != nil && !IsNil(o.SkuScans) {
+		return true
+	}
+
+	return false
+}
+
+// SetSkuScans gets a reference to the given []ModelsItemScans and assigns it to the SkuScans field.
 func (o *ModelsDiscrepancyResponseItem) SetSkuScans(v []ModelsItemScans) {
 	o.SkuScans = v
 }
@@ -243,59 +287,28 @@ func (o ModelsDiscrepancyResponseItem) MarshalJSON() ([]byte, error) {
 
 func (o ModelsDiscrepancyResponseItem) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["declaredSku"] = o.DeclaredSku
-	toSerialize["discrepancyType"] = o.DiscrepancyType
-	toSerialize["declaredAmount"] = o.DeclaredAmount
-	toSerialize["actualAmount"] = o.ActualAmount
-	toSerialize["discrepancyQuantity"] = o.DiscrepancyQuantity
-	toSerialize["actualSku"] = o.ActualSku
+	if !IsNil(o.DeclaredSku) {
+		toSerialize["declaredSku"] = o.DeclaredSku
+	}
+	if !IsNil(o.DiscrepancyType) {
+		toSerialize["discrepancyType"] = o.DiscrepancyType
+	}
+	if !IsNil(o.DeclaredAmount) {
+		toSerialize["declaredAmount"] = o.DeclaredAmount
+	}
+	if !IsNil(o.ActualAmount) {
+		toSerialize["actualAmount"] = o.ActualAmount
+	}
+	if !IsNil(o.DiscrepancyQuantity) {
+		toSerialize["discrepancyQuantity"] = o.DiscrepancyQuantity
+	}
+	if !IsNil(o.ActualSku) {
+		toSerialize["actualSku"] = o.ActualSku
+	}
 	if o.SkuScans != nil {
 		toSerialize["skuScans"] = o.SkuScans
 	}
 	return toSerialize, nil
-}
-
-func (o *ModelsDiscrepancyResponseItem) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"declaredSku",
-		"discrepancyType",
-		"declaredAmount",
-		"actualAmount",
-		"discrepancyQuantity",
-		"actualSku",
-		"skuScans",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varModelsDiscrepancyResponseItem := _ModelsDiscrepancyResponseItem{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varModelsDiscrepancyResponseItem)
-
-	if err != nil {
-		return err
-	}
-
-	*o = ModelsDiscrepancyResponseItem(varModelsDiscrepancyResponseItem)
-
-	return err
 }
 
 type NullableModelsDiscrepancyResponseItem struct {

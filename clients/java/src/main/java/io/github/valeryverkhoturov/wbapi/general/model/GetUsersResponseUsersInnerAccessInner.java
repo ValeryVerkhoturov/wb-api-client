@@ -141,18 +141,18 @@ public class GetUsersResponseUsersInnerAccessInner {
   public static final String SERIALIZED_NAME_CODE = "code";
 
   @SerializedName(SERIALIZED_NAME_CODE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private CodeEnum code;
 
   public static final String SERIALIZED_NAME_DISABLED = "disabled";
 
   @SerializedName(SERIALIZED_NAME_DISABLED)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Boolean disabled;
 
   public GetUsersResponseUsersInnerAccessInner() {}
 
-  public GetUsersResponseUsersInnerAccessInner code(@jakarta.annotation.Nonnull CodeEnum code) {
+  public GetUsersResponseUsersInnerAccessInner code(@jakarta.annotation.Nullable CodeEnum code) {
     this.code = code;
     return this;
   }
@@ -177,17 +177,17 @@ public class GetUsersResponseUsersInnerAccessInner {
    *
    * @return code
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public CodeEnum getCode() {
     return code;
   }
 
-  public void setCode(@jakarta.annotation.Nonnull CodeEnum code) {
+  public void setCode(@jakarta.annotation.Nullable CodeEnum code) {
     this.code = code;
   }
 
   public GetUsersResponseUsersInnerAccessInner disabled(
-      @jakarta.annotation.Nonnull Boolean disabled) {
+      @jakarta.annotation.Nullable Boolean disabled) {
     this.disabled = disabled;
     return this;
   }
@@ -197,12 +197,12 @@ public class GetUsersResponseUsersInnerAccessInner {
    *
    * @return disabled
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Boolean getDisabled() {
     return disabled;
   }
 
-  public void setDisabled(@jakarta.annotation.Nonnull Boolean disabled) {
+  public void setDisabled(@jakarta.annotation.Nullable Boolean disabled) {
     this.disabled = disabled;
   }
 
@@ -256,8 +256,6 @@ public class GetUsersResponseUsersInnerAccessInner {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("code");
-    openapiRequiredFields.add("disabled");
   }
 
   /**
@@ -288,25 +286,18 @@ public class GetUsersResponseUsersInnerAccessInner {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : GetUsersResponseUsersInnerAccessInner.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    if (!jsonObj.get("code").isJsonPrimitive()) {
+    if ((jsonObj.get("code") != null && !jsonObj.get("code").isJsonNull())
+        && !jsonObj.get("code").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `code` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("code").toString()));
     }
-    // validate the required field `code`
-    CodeEnum.validateJsonElement(jsonObj.get("code"));
+    // validate the optional field `code`
+    if (jsonObj.get("code") != null && !jsonObj.get("code").isJsonNull()) {
+      CodeEnum.validateJsonElement(jsonObj.get("code"));
+    }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

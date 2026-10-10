@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from wb_api_client.promotion.models.post_v1_bids_min_response200_bids_inner import (
     PostV1BidsMinResponse200BidsInner,
 )
@@ -31,8 +31,8 @@ class PostV1BidsMinResponse200(BaseModel):
     PostV1BidsMinResponse200
     """  # noqa: E501
 
-    bids: List[PostV1BidsMinResponse200BidsInner] = Field(
-        description="Список карточек товаров со ставками"
+    bids: Optional[List[PostV1BidsMinResponse200BidsInner]] = Field(
+        default=None, description="Список карточек товаров со ставками"
     )
     __properties: ClassVar[List[str]] = ["bids"]
 

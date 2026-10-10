@@ -39,79 +39,79 @@ public class MeasurementPenaltiesDataReportsInner {
   public static final String SERIALIZED_NAME_NM_ID = "nmId";
 
   @SerializedName(SERIALIZED_NAME_NM_ID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer nmId;
 
   public static final String SERIALIZED_NAME_SUBJECT_NAME = "subjectName";
 
   @SerializedName(SERIALIZED_NAME_SUBJECT_NAME)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String subjectName;
 
   public static final String SERIALIZED_NAME_DIM_ID = "dimId";
 
   @SerializedName(SERIALIZED_NAME_DIM_ID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer dimId;
 
   public static final String SERIALIZED_NAME_PRC_OVER = "prcOver";
 
   @SerializedName(SERIALIZED_NAME_PRC_OVER)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private BigDecimal prcOver;
 
   public static final String SERIALIZED_NAME_VOLUME = "volume";
 
   @SerializedName(SERIALIZED_NAME_VOLUME)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private BigDecimal volume;
 
   public static final String SERIALIZED_NAME_WIDTH = "width";
 
   @SerializedName(SERIALIZED_NAME_WIDTH)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer width;
 
   public static final String SERIALIZED_NAME_LENGTH = "length";
 
   @SerializedName(SERIALIZED_NAME_LENGTH)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer length;
 
   public static final String SERIALIZED_NAME_HEIGHT = "height";
 
   @SerializedName(SERIALIZED_NAME_HEIGHT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer height;
 
   public static final String SERIALIZED_NAME_VOLUME_SUP = "volumeSup";
 
   @SerializedName(SERIALIZED_NAME_VOLUME_SUP)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private BigDecimal volumeSup;
 
   public static final String SERIALIZED_NAME_WIDTH_SUP = "widthSup";
 
   @SerializedName(SERIALIZED_NAME_WIDTH_SUP)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer widthSup;
 
   public static final String SERIALIZED_NAME_LENGTH_SUP = "lengthSup";
 
   @SerializedName(SERIALIZED_NAME_LENGTH_SUP)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer lengthSup;
 
   public static final String SERIALIZED_NAME_HEIGHT_SUP = "heightSup";
 
   @SerializedName(SERIALIZED_NAME_HEIGHT_SUP)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer heightSup;
 
   public static final String SERIALIZED_NAME_PHOTO_URLS = "photoUrls";
 
   @SerializedName(SERIALIZED_NAME_PHOTO_URLS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private List<String> photoUrls = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_DT_BONUS = "dtBonus";
@@ -158,7 +158,7 @@ public class MeasurementPenaltiesDataReportsInner {
 
   public MeasurementPenaltiesDataReportsInner() {}
 
-  public MeasurementPenaltiesDataReportsInner nmId(@jakarta.annotation.Nonnull Integer nmId) {
+  public MeasurementPenaltiesDataReportsInner nmId(@jakarta.annotation.Nullable Integer nmId) {
     this.nmId = nmId;
     return this;
   }
@@ -168,17 +168,17 @@ public class MeasurementPenaltiesDataReportsInner {
    *
    * @return nmId
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getNmId() {
     return nmId;
   }
 
-  public void setNmId(@jakarta.annotation.Nonnull Integer nmId) {
+  public void setNmId(@jakarta.annotation.Nullable Integer nmId) {
     this.nmId = nmId;
   }
 
   public MeasurementPenaltiesDataReportsInner subjectName(
-      @jakarta.annotation.Nonnull String subjectName) {
+      @jakarta.annotation.Nullable String subjectName) {
     this.subjectName = subjectName;
     return this;
   }
@@ -188,16 +188,16 @@ public class MeasurementPenaltiesDataReportsInner {
    *
    * @return subjectName
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getSubjectName() {
     return subjectName;
   }
 
-  public void setSubjectName(@jakarta.annotation.Nonnull String subjectName) {
+  public void setSubjectName(@jakarta.annotation.Nullable String subjectName) {
     this.subjectName = subjectName;
   }
 
-  public MeasurementPenaltiesDataReportsInner dimId(@jakarta.annotation.Nonnull Integer dimId) {
+  public MeasurementPenaltiesDataReportsInner dimId(@jakarta.annotation.Nullable Integer dimId) {
     this.dimId = dimId;
     return this;
   }
@@ -207,17 +207,17 @@ public class MeasurementPenaltiesDataReportsInner {
    *
    * @return dimId
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getDimId() {
     return dimId;
   }
 
-  public void setDimId(@jakarta.annotation.Nonnull Integer dimId) {
+  public void setDimId(@jakarta.annotation.Nullable Integer dimId) {
     this.dimId = dimId;
   }
 
   public MeasurementPenaltiesDataReportsInner prcOver(
-      @jakarta.annotation.Nonnull BigDecimal prcOver) {
+      @jakarta.annotation.Nullable BigDecimal prcOver) {
     this.prcOver = prcOver;
     return this;
   }
@@ -227,17 +227,17 @@ public class MeasurementPenaltiesDataReportsInner {
    *
    * @return prcOver
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public BigDecimal getPrcOver() {
     return prcOver;
   }
 
-  public void setPrcOver(@jakarta.annotation.Nonnull BigDecimal prcOver) {
+  public void setPrcOver(@jakarta.annotation.Nullable BigDecimal prcOver) {
     this.prcOver = prcOver;
   }
 
   public MeasurementPenaltiesDataReportsInner volume(
-      @jakarta.annotation.Nonnull BigDecimal volume) {
+      @jakarta.annotation.Nullable BigDecimal volume) {
     this.volume = volume;
     return this;
   }
@@ -247,16 +247,16 @@ public class MeasurementPenaltiesDataReportsInner {
    *
    * @return volume
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public BigDecimal getVolume() {
     return volume;
   }
 
-  public void setVolume(@jakarta.annotation.Nonnull BigDecimal volume) {
+  public void setVolume(@jakarta.annotation.Nullable BigDecimal volume) {
     this.volume = volume;
   }
 
-  public MeasurementPenaltiesDataReportsInner width(@jakarta.annotation.Nonnull Integer width) {
+  public MeasurementPenaltiesDataReportsInner width(@jakarta.annotation.Nullable Integer width) {
     this.width = width;
     return this;
   }
@@ -266,16 +266,16 @@ public class MeasurementPenaltiesDataReportsInner {
    *
    * @return width
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getWidth() {
     return width;
   }
 
-  public void setWidth(@jakarta.annotation.Nonnull Integer width) {
+  public void setWidth(@jakarta.annotation.Nullable Integer width) {
     this.width = width;
   }
 
-  public MeasurementPenaltiesDataReportsInner length(@jakarta.annotation.Nonnull Integer length) {
+  public MeasurementPenaltiesDataReportsInner length(@jakarta.annotation.Nullable Integer length) {
     this.length = length;
     return this;
   }
@@ -285,16 +285,16 @@ public class MeasurementPenaltiesDataReportsInner {
    *
    * @return length
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getLength() {
     return length;
   }
 
-  public void setLength(@jakarta.annotation.Nonnull Integer length) {
+  public void setLength(@jakarta.annotation.Nullable Integer length) {
     this.length = length;
   }
 
-  public MeasurementPenaltiesDataReportsInner height(@jakarta.annotation.Nonnull Integer height) {
+  public MeasurementPenaltiesDataReportsInner height(@jakarta.annotation.Nullable Integer height) {
     this.height = height;
     return this;
   }
@@ -304,17 +304,17 @@ public class MeasurementPenaltiesDataReportsInner {
    *
    * @return height
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getHeight() {
     return height;
   }
 
-  public void setHeight(@jakarta.annotation.Nonnull Integer height) {
+  public void setHeight(@jakarta.annotation.Nullable Integer height) {
     this.height = height;
   }
 
   public MeasurementPenaltiesDataReportsInner volumeSup(
-      @jakarta.annotation.Nonnull BigDecimal volumeSup) {
+      @jakarta.annotation.Nullable BigDecimal volumeSup) {
     this.volumeSup = volumeSup;
     return this;
   }
@@ -324,17 +324,17 @@ public class MeasurementPenaltiesDataReportsInner {
    *
    * @return volumeSup
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public BigDecimal getVolumeSup() {
     return volumeSup;
   }
 
-  public void setVolumeSup(@jakarta.annotation.Nonnull BigDecimal volumeSup) {
+  public void setVolumeSup(@jakarta.annotation.Nullable BigDecimal volumeSup) {
     this.volumeSup = volumeSup;
   }
 
   public MeasurementPenaltiesDataReportsInner widthSup(
-      @jakarta.annotation.Nonnull Integer widthSup) {
+      @jakarta.annotation.Nullable Integer widthSup) {
     this.widthSup = widthSup;
     return this;
   }
@@ -344,17 +344,17 @@ public class MeasurementPenaltiesDataReportsInner {
    *
    * @return widthSup
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getWidthSup() {
     return widthSup;
   }
 
-  public void setWidthSup(@jakarta.annotation.Nonnull Integer widthSup) {
+  public void setWidthSup(@jakarta.annotation.Nullable Integer widthSup) {
     this.widthSup = widthSup;
   }
 
   public MeasurementPenaltiesDataReportsInner lengthSup(
-      @jakarta.annotation.Nonnull Integer lengthSup) {
+      @jakarta.annotation.Nullable Integer lengthSup) {
     this.lengthSup = lengthSup;
     return this;
   }
@@ -364,17 +364,17 @@ public class MeasurementPenaltiesDataReportsInner {
    *
    * @return lengthSup
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getLengthSup() {
     return lengthSup;
   }
 
-  public void setLengthSup(@jakarta.annotation.Nonnull Integer lengthSup) {
+  public void setLengthSup(@jakarta.annotation.Nullable Integer lengthSup) {
     this.lengthSup = lengthSup;
   }
 
   public MeasurementPenaltiesDataReportsInner heightSup(
-      @jakarta.annotation.Nonnull Integer heightSup) {
+      @jakarta.annotation.Nullable Integer heightSup) {
     this.heightSup = heightSup;
     return this;
   }
@@ -384,17 +384,17 @@ public class MeasurementPenaltiesDataReportsInner {
    *
    * @return heightSup
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getHeightSup() {
     return heightSup;
   }
 
-  public void setHeightSup(@jakarta.annotation.Nonnull Integer heightSup) {
+  public void setHeightSup(@jakarta.annotation.Nullable Integer heightSup) {
     this.heightSup = heightSup;
   }
 
   public MeasurementPenaltiesDataReportsInner photoUrls(
-      @jakarta.annotation.Nonnull List<String> photoUrls) {
+      @jakarta.annotation.Nullable List<String> photoUrls) {
     this.photoUrls = photoUrls;
     return this;
   }
@@ -412,12 +412,12 @@ public class MeasurementPenaltiesDataReportsInner {
    *
    * @return photoUrls
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public List<String> getPhotoUrls() {
     return photoUrls;
   }
 
-  public void setPhotoUrls(@jakarta.annotation.Nonnull List<String> photoUrls) {
+  public void setPhotoUrls(@jakarta.annotation.Nullable List<String> photoUrls) {
     this.photoUrls = photoUrls;
   }
 
@@ -683,19 +683,6 @@ public class MeasurementPenaltiesDataReportsInner {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("nmId");
-    openapiRequiredFields.add("subjectName");
-    openapiRequiredFields.add("dimId");
-    openapiRequiredFields.add("prcOver");
-    openapiRequiredFields.add("volume");
-    openapiRequiredFields.add("width");
-    openapiRequiredFields.add("length");
-    openapiRequiredFields.add("height");
-    openapiRequiredFields.add("volumeSup");
-    openapiRequiredFields.add("widthSup");
-    openapiRequiredFields.add("lengthSup");
-    openapiRequiredFields.add("heightSup");
-    openapiRequiredFields.add("photoUrls");
   }
 
   /**
@@ -726,28 +713,18 @@ public class MeasurementPenaltiesDataReportsInner {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : MeasurementPenaltiesDataReportsInner.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    if (!jsonObj.get("subjectName").isJsonPrimitive()) {
+    if ((jsonObj.get("subjectName") != null && !jsonObj.get("subjectName").isJsonNull())
+        && !jsonObj.get("subjectName").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `subjectName` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("subjectName").toString()));
     }
-    // ensure the required json array is present
-    if (jsonObj.get("photoUrls") == null) {
-      throw new IllegalArgumentException(
-          "Expected the field `linkedContent` to be an array in the JSON string but got `null`");
-    } else if (!jsonObj.get("photoUrls").isJsonArray()) {
+    // ensure the optional json data is an array if present
+    if (jsonObj.get("photoUrls") != null
+        && !jsonObj.get("photoUrls").isJsonNull()
+        && !jsonObj.get("photoUrls").isJsonArray()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `photoUrls` to be an array in the JSON string but got `%s`",

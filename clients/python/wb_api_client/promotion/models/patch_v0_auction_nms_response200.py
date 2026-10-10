@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from wb_api_client.promotion.models.patch_v0_auction_nms_response200_nms_inner import (
     PatchV0AuctionNmsResponse200NmsInner,
 )
@@ -31,8 +31,8 @@ class PatchV0AuctionNmsResponse200(BaseModel):
     PatchV0AuctionNmsResponse200
     """  # noqa: E501
 
-    nms: List[PatchV0AuctionNmsResponse200NmsInner] = Field(
-        description="Результат отработки запроса"
+    nms: Optional[List[PatchV0AuctionNmsResponse200NmsInner]] = Field(
+        default=None, description="Результат отработки запроса"
     )
     __properties: ClassVar[List[str]] = ["nms"]
 

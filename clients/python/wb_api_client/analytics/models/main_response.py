@@ -32,13 +32,15 @@ class MainResponse(BaseModel):
     MainResponse
     """  # noqa: E501
 
-    common_info: CommonInfo = Field(alias="commonInfo")
-    position_info: PositionInfo = Field(alias="positionInfo")
-    visibility_info: VisibilityInfo = Field(alias="visibilityInfo")
+    common_info: Optional[CommonInfo] = Field(default=None, alias="commonInfo")
+    position_info: Optional[PositionInfo] = Field(default=None, alias="positionInfo")
+    visibility_info: Optional[VisibilityInfo] = Field(
+        default=None, alias="visibilityInfo"
+    )
     groups: Optional[List[TableGroupItem]] = Field(
         default=None, description="Список элементов таблицы "
     )
-    currency: StrictStr = Field(description="Валюта отчёта")
+    currency: Optional[StrictStr] = Field(default=None, description="Валюта отчёта")
     __properties: ClassVar[List[str]] = [
         "commonInfo",
         "positionInfo",

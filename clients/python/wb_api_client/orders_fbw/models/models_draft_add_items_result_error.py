@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,8 +28,8 @@ class ModelsDraftAddItemsResultError(BaseModel):
     ModelsDraftAddItemsResultError
     """  # noqa: E501
 
-    detail: StrictStr = Field(description="Детали ошибки")
-    title: StrictStr = Field(description="Заголовок ошибки")
+    detail: Optional[StrictStr] = Field(default=None, description="Детали ошибки")
+    title: Optional[StrictStr] = Field(default=None, description="Заголовок ошибки")
     __properties: ClassVar[List[str]] = ["detail", "title"]
 
     model_config = ConfigDict(

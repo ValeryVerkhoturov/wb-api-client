@@ -36,18 +36,18 @@ public class GetV2DirectoryOkpdResponse200DataInner {
   public static final String SERIALIZED_NAME_OKPD2 = "okpd2";
 
   @SerializedName(SERIALIZED_NAME_OKPD2)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String okpd2;
 
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
 
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String description;
 
   public GetV2DirectoryOkpdResponse200DataInner() {}
 
-  public GetV2DirectoryOkpdResponse200DataInner okpd2(@jakarta.annotation.Nonnull String okpd2) {
+  public GetV2DirectoryOkpdResponse200DataInner okpd2(@jakarta.annotation.Nullable String okpd2) {
     this.okpd2 = okpd2;
     return this;
   }
@@ -57,17 +57,17 @@ public class GetV2DirectoryOkpdResponse200DataInner {
    *
    * @return okpd2
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getOkpd2() {
     return okpd2;
   }
 
-  public void setOkpd2(@jakarta.annotation.Nonnull String okpd2) {
+  public void setOkpd2(@jakarta.annotation.Nullable String okpd2) {
     this.okpd2 = okpd2;
   }
 
   public GetV2DirectoryOkpdResponse200DataInner description(
-      @jakarta.annotation.Nonnull String description) {
+      @jakarta.annotation.Nullable String description) {
     this.description = description;
     return this;
   }
@@ -77,12 +77,12 @@ public class GetV2DirectoryOkpdResponse200DataInner {
    *
    * @return description
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getDescription() {
     return description;
   }
 
-  public void setDescription(@jakarta.annotation.Nonnull String description) {
+  public void setDescription(@jakarta.annotation.Nullable String description) {
     this.description = description;
   }
 
@@ -136,8 +136,6 @@ public class GetV2DirectoryOkpdResponse200DataInner {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("okpd2");
-    openapiRequiredFields.add("description");
   }
 
   /**
@@ -168,24 +166,16 @@ public class GetV2DirectoryOkpdResponse200DataInner {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : GetV2DirectoryOkpdResponse200DataInner.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    if (!jsonObj.get("okpd2").isJsonPrimitive()) {
+    if ((jsonObj.get("okpd2") != null && !jsonObj.get("okpd2").isJsonNull())
+        && !jsonObj.get("okpd2").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `okpd2` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("okpd2").toString()));
     }
-    if (!jsonObj.get("description").isJsonPrimitive()) {
+    if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull())
+        && !jsonObj.get("description").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `description` to be a primitive type in the JSON string but got `%s`",

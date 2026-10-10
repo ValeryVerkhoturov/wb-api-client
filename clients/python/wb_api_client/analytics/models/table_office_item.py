@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from wb_api_client.analytics.models.table_common_metrics import TableCommonMetrics
 from typing import Optional, Set
 from typing_extensions import Self
@@ -29,19 +29,24 @@ class TableOfficeItem(BaseModel):
     Данные по складу
     """  # noqa: E501
 
-    region_name: StrictStr = Field(
+    region_name: Optional[StrictStr] = Field(
+        default=None,
         description="Регион отгрузки. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) для складов WB может быть только `Склад WB`",
         alias="regionName",
     )
-    office_id: StrictInt = Field(
+    office_id: Optional[StrictInt] = Field(
+        default=None,
         description="ID склада. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) для складов WB может быть только `-999999`",
         alias="officeID",
     )
-    office_name: StrictStr = Field(
+    office_name: Optional[StrictStr] = Field(
+        default=None,
         description='Название склада. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) для складов WB может быть только `""`',
         alias="officeName",
     )
-    metrics: TableCommonMetrics = Field(description="Метрики склада")
+    metrics: Optional[TableCommonMetrics] = Field(
+        default=None, description="Метрики склада"
+    )
     __properties: ClassVar[List[str]] = [
         "regionName",
         "officeID",

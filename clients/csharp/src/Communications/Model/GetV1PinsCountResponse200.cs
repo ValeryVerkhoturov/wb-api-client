@@ -34,12 +34,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GetV1PinsCountResponse200" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected GetV1PinsCountResponse200() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="GetV1PinsCountResponse200" /> class.
-        /// </summary>
-        /// <param name="data">Количество отзывов (required).</param>
+        /// <param name="data">Количество отзывов.</param>
         public GetV1PinsCountResponse200(int data = default(int))
         {
             this.Data = data;
@@ -49,7 +44,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         /// Количество отзывов
         /// </summary>
         /// <value>Количество отзывов</value>
-        [DataMember(Name = "data", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "data", EmitDefaultValue = false)]
         public int Data { get; set; }
 
         /// <summary>

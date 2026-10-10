@@ -11,9 +11,7 @@ API version: order
 package orders_fbs
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the V3ArchiveOrderStatus type satisfies the MappedNullable interface at compile time
@@ -22,21 +20,17 @@ var _ MappedNullable = &V3ArchiveOrderStatus{}
 // V3ArchiveOrderStatus Последние статусы сборочного задания
 type V3ArchiveOrderStatus struct {
 	// Статус сборочного задания, установленный продавцом
-	SupplierStatus string `json:"supplierStatus"`
+	SupplierStatus *string `json:"supplierStatus,omitempty"`
 	// Статус сборочного задания в системе Wildberries
-	WbStatus string `json:"wbStatus"`
+	WbStatus *string `json:"wbStatus,omitempty"`
 }
-
-type _V3ArchiveOrderStatus V3ArchiveOrderStatus
 
 // NewV3ArchiveOrderStatus instantiates a new V3ArchiveOrderStatus object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewV3ArchiveOrderStatus(supplierStatus string, wbStatus string) *V3ArchiveOrderStatus {
+func NewV3ArchiveOrderStatus() *V3ArchiveOrderStatus {
 	this := V3ArchiveOrderStatus{}
-	this.SupplierStatus = supplierStatus
-	this.WbStatus = wbStatus
 	return &this
 }
 
@@ -48,52 +42,68 @@ func NewV3ArchiveOrderStatusWithDefaults() *V3ArchiveOrderStatus {
 	return &this
 }
 
-// GetSupplierStatus returns the SupplierStatus field value
+// GetSupplierStatus returns the SupplierStatus field value if set, zero value otherwise.
 func (o *V3ArchiveOrderStatus) GetSupplierStatus() string {
-	if o == nil {
+	if o == nil || IsNil(o.SupplierStatus) {
 		var ret string
 		return ret
 	}
-
-	return o.SupplierStatus
+	return *o.SupplierStatus
 }
 
-// GetSupplierStatusOk returns a tuple with the SupplierStatus field value
+// GetSupplierStatusOk returns a tuple with the SupplierStatus field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *V3ArchiveOrderStatus) GetSupplierStatusOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.SupplierStatus) {
 		return nil, false
 	}
-	return &o.SupplierStatus, true
+	return o.SupplierStatus, true
 }
 
-// SetSupplierStatus sets field value
+// HasSupplierStatus returns a boolean if a field has been set.
+func (o *V3ArchiveOrderStatus) HasSupplierStatus() bool {
+	if o != nil && !IsNil(o.SupplierStatus) {
+		return true
+	}
+
+	return false
+}
+
+// SetSupplierStatus gets a reference to the given string and assigns it to the SupplierStatus field.
 func (o *V3ArchiveOrderStatus) SetSupplierStatus(v string) {
-	o.SupplierStatus = v
+	o.SupplierStatus = &v
 }
 
-// GetWbStatus returns the WbStatus field value
+// GetWbStatus returns the WbStatus field value if set, zero value otherwise.
 func (o *V3ArchiveOrderStatus) GetWbStatus() string {
-	if o == nil {
+	if o == nil || IsNil(o.WbStatus) {
 		var ret string
 		return ret
 	}
-
-	return o.WbStatus
+	return *o.WbStatus
 }
 
-// GetWbStatusOk returns a tuple with the WbStatus field value
+// GetWbStatusOk returns a tuple with the WbStatus field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *V3ArchiveOrderStatus) GetWbStatusOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.WbStatus) {
 		return nil, false
 	}
-	return &o.WbStatus, true
+	return o.WbStatus, true
 }
 
-// SetWbStatus sets field value
+// HasWbStatus returns a boolean if a field has been set.
+func (o *V3ArchiveOrderStatus) HasWbStatus() bool {
+	if o != nil && !IsNil(o.WbStatus) {
+		return true
+	}
+
+	return false
+}
+
+// SetWbStatus gets a reference to the given string and assigns it to the WbStatus field.
 func (o *V3ArchiveOrderStatus) SetWbStatus(v string) {
-	o.WbStatus = v
+	o.WbStatus = &v
 }
 
 func (o V3ArchiveOrderStatus) MarshalJSON() ([]byte, error) {
@@ -106,47 +116,13 @@ func (o V3ArchiveOrderStatus) MarshalJSON() ([]byte, error) {
 
 func (o V3ArchiveOrderStatus) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["supplierStatus"] = o.SupplierStatus
-	toSerialize["wbStatus"] = o.WbStatus
+	if !IsNil(o.SupplierStatus) {
+		toSerialize["supplierStatus"] = o.SupplierStatus
+	}
+	if !IsNil(o.WbStatus) {
+		toSerialize["wbStatus"] = o.WbStatus
+	}
 	return toSerialize, nil
-}
-
-func (o *V3ArchiveOrderStatus) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"supplierStatus",
-		"wbStatus",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varV3ArchiveOrderStatus := _V3ArchiveOrderStatus{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varV3ArchiveOrderStatus)
-
-	if err != nil {
-		return err
-	}
-
-	*o = V3ArchiveOrderStatus(varV3ArchiveOrderStatus)
-
-	return err
 }
 
 type NullableV3ArchiveOrderStatus struct {

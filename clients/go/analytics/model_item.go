@@ -11,9 +11,7 @@ API version: analytics
 package analytics
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the Item type satisfies the MappedNullable interface at compile time
@@ -22,44 +20,32 @@ var _ MappedNullable = &Item{}
 // Item struct for Item
 type Item struct {
 	// Артикул WB
-	NmId int64 `json:"nmId"`
+	NmId *int64 `json:"nmId,omitempty"`
 	// Название карточки товара
-	Title string `json:"title"`
+	Title *string `json:"title,omitempty"`
 	// Артикул продавца
-	VendorCode string `json:"vendorCode"`
+	VendorCode *string `json:"vendorCode,omitempty"`
 	// Бренд
-	BrandName string `json:"brandName"`
+	BrandName *string `json:"brandName,omitempty"`
 	// ID предмета
-	SubjectId int32 `json:"subjectId"`
+	SubjectId *int32 `json:"subjectId,omitempty"`
 	// Название предмета
-	SubjectName string `json:"subjectName"`
+	SubjectName *string `json:"subjectName,omitempty"`
 	// Ярлыки
-	Tags []Tag `json:"tags"`
+	Tags []Tag `json:"tags,omitempty"`
 	// Оценка карточки
-	ProductRating float32 `json:"productRating"`
+	ProductRating *float32 `json:"productRating,omitempty"`
 	// Оценка пользователей
-	FeedbackRating float32    `json:"feedbackRating"`
-	Stocks         ItemStocks `json:"stocks"`
+	FeedbackRating *float32    `json:"feedbackRating,omitempty"`
+	Stocks         *ItemStocks `json:"stocks,omitempty"`
 }
-
-type _Item Item
 
 // NewItem instantiates a new Item object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewItem(nmId int64, title string, vendorCode string, brandName string, subjectId int32, subjectName string, tags []Tag, productRating float32, feedbackRating float32, stocks ItemStocks) *Item {
+func NewItem() *Item {
 	this := Item{}
-	this.NmId = nmId
-	this.Title = title
-	this.VendorCode = vendorCode
-	this.BrandName = brandName
-	this.SubjectId = subjectId
-	this.SubjectName = subjectName
-	this.Tags = tags
-	this.ProductRating = productRating
-	this.FeedbackRating = feedbackRating
-	this.Stocks = stocks
 	return &this
 }
 
@@ -71,244 +57,324 @@ func NewItemWithDefaults() *Item {
 	return &this
 }
 
-// GetNmId returns the NmId field value
+// GetNmId returns the NmId field value if set, zero value otherwise.
 func (o *Item) GetNmId() int64 {
-	if o == nil {
+	if o == nil || IsNil(o.NmId) {
 		var ret int64
 		return ret
 	}
-
-	return o.NmId
+	return *o.NmId
 }
 
-// GetNmIdOk returns a tuple with the NmId field value
+// GetNmIdOk returns a tuple with the NmId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Item) GetNmIdOk() (*int64, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.NmId) {
 		return nil, false
 	}
-	return &o.NmId, true
+	return o.NmId, true
 }
 
-// SetNmId sets field value
+// HasNmId returns a boolean if a field has been set.
+func (o *Item) HasNmId() bool {
+	if o != nil && !IsNil(o.NmId) {
+		return true
+	}
+
+	return false
+}
+
+// SetNmId gets a reference to the given int64 and assigns it to the NmId field.
 func (o *Item) SetNmId(v int64) {
-	o.NmId = v
+	o.NmId = &v
 }
 
-// GetTitle returns the Title field value
+// GetTitle returns the Title field value if set, zero value otherwise.
 func (o *Item) GetTitle() string {
-	if o == nil {
+	if o == nil || IsNil(o.Title) {
 		var ret string
 		return ret
 	}
-
-	return o.Title
+	return *o.Title
 }
 
-// GetTitleOk returns a tuple with the Title field value
+// GetTitleOk returns a tuple with the Title field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Item) GetTitleOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Title) {
 		return nil, false
 	}
-	return &o.Title, true
+	return o.Title, true
 }
 
-// SetTitle sets field value
+// HasTitle returns a boolean if a field has been set.
+func (o *Item) HasTitle() bool {
+	if o != nil && !IsNil(o.Title) {
+		return true
+	}
+
+	return false
+}
+
+// SetTitle gets a reference to the given string and assigns it to the Title field.
 func (o *Item) SetTitle(v string) {
-	o.Title = v
+	o.Title = &v
 }
 
-// GetVendorCode returns the VendorCode field value
+// GetVendorCode returns the VendorCode field value if set, zero value otherwise.
 func (o *Item) GetVendorCode() string {
-	if o == nil {
+	if o == nil || IsNil(o.VendorCode) {
 		var ret string
 		return ret
 	}
-
-	return o.VendorCode
+	return *o.VendorCode
 }
 
-// GetVendorCodeOk returns a tuple with the VendorCode field value
+// GetVendorCodeOk returns a tuple with the VendorCode field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Item) GetVendorCodeOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.VendorCode) {
 		return nil, false
 	}
-	return &o.VendorCode, true
+	return o.VendorCode, true
 }
 
-// SetVendorCode sets field value
+// HasVendorCode returns a boolean if a field has been set.
+func (o *Item) HasVendorCode() bool {
+	if o != nil && !IsNil(o.VendorCode) {
+		return true
+	}
+
+	return false
+}
+
+// SetVendorCode gets a reference to the given string and assigns it to the VendorCode field.
 func (o *Item) SetVendorCode(v string) {
-	o.VendorCode = v
+	o.VendorCode = &v
 }
 
-// GetBrandName returns the BrandName field value
+// GetBrandName returns the BrandName field value if set, zero value otherwise.
 func (o *Item) GetBrandName() string {
-	if o == nil {
+	if o == nil || IsNil(o.BrandName) {
 		var ret string
 		return ret
 	}
-
-	return o.BrandName
+	return *o.BrandName
 }
 
-// GetBrandNameOk returns a tuple with the BrandName field value
+// GetBrandNameOk returns a tuple with the BrandName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Item) GetBrandNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.BrandName) {
 		return nil, false
 	}
-	return &o.BrandName, true
+	return o.BrandName, true
 }
 
-// SetBrandName sets field value
+// HasBrandName returns a boolean if a field has been set.
+func (o *Item) HasBrandName() bool {
+	if o != nil && !IsNil(o.BrandName) {
+		return true
+	}
+
+	return false
+}
+
+// SetBrandName gets a reference to the given string and assigns it to the BrandName field.
 func (o *Item) SetBrandName(v string) {
-	o.BrandName = v
+	o.BrandName = &v
 }
 
-// GetSubjectId returns the SubjectId field value
+// GetSubjectId returns the SubjectId field value if set, zero value otherwise.
 func (o *Item) GetSubjectId() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.SubjectId) {
 		var ret int32
 		return ret
 	}
-
-	return o.SubjectId
+	return *o.SubjectId
 }
 
-// GetSubjectIdOk returns a tuple with the SubjectId field value
+// GetSubjectIdOk returns a tuple with the SubjectId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Item) GetSubjectIdOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.SubjectId) {
 		return nil, false
 	}
-	return &o.SubjectId, true
+	return o.SubjectId, true
 }
 
-// SetSubjectId sets field value
+// HasSubjectId returns a boolean if a field has been set.
+func (o *Item) HasSubjectId() bool {
+	if o != nil && !IsNil(o.SubjectId) {
+		return true
+	}
+
+	return false
+}
+
+// SetSubjectId gets a reference to the given int32 and assigns it to the SubjectId field.
 func (o *Item) SetSubjectId(v int32) {
-	o.SubjectId = v
+	o.SubjectId = &v
 }
 
-// GetSubjectName returns the SubjectName field value
+// GetSubjectName returns the SubjectName field value if set, zero value otherwise.
 func (o *Item) GetSubjectName() string {
-	if o == nil {
+	if o == nil || IsNil(o.SubjectName) {
 		var ret string
 		return ret
 	}
-
-	return o.SubjectName
+	return *o.SubjectName
 }
 
-// GetSubjectNameOk returns a tuple with the SubjectName field value
+// GetSubjectNameOk returns a tuple with the SubjectName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Item) GetSubjectNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.SubjectName) {
 		return nil, false
 	}
-	return &o.SubjectName, true
+	return o.SubjectName, true
 }
 
-// SetSubjectName sets field value
+// HasSubjectName returns a boolean if a field has been set.
+func (o *Item) HasSubjectName() bool {
+	if o != nil && !IsNil(o.SubjectName) {
+		return true
+	}
+
+	return false
+}
+
+// SetSubjectName gets a reference to the given string and assigns it to the SubjectName field.
 func (o *Item) SetSubjectName(v string) {
-	o.SubjectName = v
+	o.SubjectName = &v
 }
 
-// GetTags returns the Tags field value
+// GetTags returns the Tags field value if set, zero value otherwise.
 func (o *Item) GetTags() []Tag {
-	if o == nil {
+	if o == nil || IsNil(o.Tags) {
 		var ret []Tag
 		return ret
 	}
-
 	return o.Tags
 }
 
-// GetTagsOk returns a tuple with the Tags field value
+// GetTagsOk returns a tuple with the Tags field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Item) GetTagsOk() ([]Tag, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Tags) {
 		return nil, false
 	}
 	return o.Tags, true
 }
 
-// SetTags sets field value
+// HasTags returns a boolean if a field has been set.
+func (o *Item) HasTags() bool {
+	if o != nil && !IsNil(o.Tags) {
+		return true
+	}
+
+	return false
+}
+
+// SetTags gets a reference to the given []Tag and assigns it to the Tags field.
 func (o *Item) SetTags(v []Tag) {
 	o.Tags = v
 }
 
-// GetProductRating returns the ProductRating field value
+// GetProductRating returns the ProductRating field value if set, zero value otherwise.
 func (o *Item) GetProductRating() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.ProductRating) {
 		var ret float32
 		return ret
 	}
-
-	return o.ProductRating
+	return *o.ProductRating
 }
 
-// GetProductRatingOk returns a tuple with the ProductRating field value
+// GetProductRatingOk returns a tuple with the ProductRating field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Item) GetProductRatingOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ProductRating) {
 		return nil, false
 	}
-	return &o.ProductRating, true
+	return o.ProductRating, true
 }
 
-// SetProductRating sets field value
+// HasProductRating returns a boolean if a field has been set.
+func (o *Item) HasProductRating() bool {
+	if o != nil && !IsNil(o.ProductRating) {
+		return true
+	}
+
+	return false
+}
+
+// SetProductRating gets a reference to the given float32 and assigns it to the ProductRating field.
 func (o *Item) SetProductRating(v float32) {
-	o.ProductRating = v
+	o.ProductRating = &v
 }
 
-// GetFeedbackRating returns the FeedbackRating field value
+// GetFeedbackRating returns the FeedbackRating field value if set, zero value otherwise.
 func (o *Item) GetFeedbackRating() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.FeedbackRating) {
 		var ret float32
 		return ret
 	}
-
-	return o.FeedbackRating
+	return *o.FeedbackRating
 }
 
-// GetFeedbackRatingOk returns a tuple with the FeedbackRating field value
+// GetFeedbackRatingOk returns a tuple with the FeedbackRating field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Item) GetFeedbackRatingOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.FeedbackRating) {
 		return nil, false
 	}
-	return &o.FeedbackRating, true
+	return o.FeedbackRating, true
 }
 
-// SetFeedbackRating sets field value
+// HasFeedbackRating returns a boolean if a field has been set.
+func (o *Item) HasFeedbackRating() bool {
+	if o != nil && !IsNil(o.FeedbackRating) {
+		return true
+	}
+
+	return false
+}
+
+// SetFeedbackRating gets a reference to the given float32 and assigns it to the FeedbackRating field.
 func (o *Item) SetFeedbackRating(v float32) {
-	o.FeedbackRating = v
+	o.FeedbackRating = &v
 }
 
-// GetStocks returns the Stocks field value
+// GetStocks returns the Stocks field value if set, zero value otherwise.
 func (o *Item) GetStocks() ItemStocks {
-	if o == nil {
+	if o == nil || IsNil(o.Stocks) {
 		var ret ItemStocks
 		return ret
 	}
-
-	return o.Stocks
+	return *o.Stocks
 }
 
-// GetStocksOk returns a tuple with the Stocks field value
+// GetStocksOk returns a tuple with the Stocks field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Item) GetStocksOk() (*ItemStocks, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Stocks) {
 		return nil, false
 	}
-	return &o.Stocks, true
+	return o.Stocks, true
 }
 
-// SetStocks sets field value
+// HasStocks returns a boolean if a field has been set.
+func (o *Item) HasStocks() bool {
+	if o != nil && !IsNil(o.Stocks) {
+		return true
+	}
+
+	return false
+}
+
+// SetStocks gets a reference to the given ItemStocks and assigns it to the Stocks field.
 func (o *Item) SetStocks(v ItemStocks) {
-	o.Stocks = v
+	o.Stocks = &v
 }
 
 func (o Item) MarshalJSON() ([]byte, error) {
@@ -321,63 +387,37 @@ func (o Item) MarshalJSON() ([]byte, error) {
 
 func (o Item) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["nmId"] = o.NmId
-	toSerialize["title"] = o.Title
-	toSerialize["vendorCode"] = o.VendorCode
-	toSerialize["brandName"] = o.BrandName
-	toSerialize["subjectId"] = o.SubjectId
-	toSerialize["subjectName"] = o.SubjectName
-	toSerialize["tags"] = o.Tags
-	toSerialize["productRating"] = o.ProductRating
-	toSerialize["feedbackRating"] = o.FeedbackRating
-	toSerialize["stocks"] = o.Stocks
+	if !IsNil(o.NmId) {
+		toSerialize["nmId"] = o.NmId
+	}
+	if !IsNil(o.Title) {
+		toSerialize["title"] = o.Title
+	}
+	if !IsNil(o.VendorCode) {
+		toSerialize["vendorCode"] = o.VendorCode
+	}
+	if !IsNil(o.BrandName) {
+		toSerialize["brandName"] = o.BrandName
+	}
+	if !IsNil(o.SubjectId) {
+		toSerialize["subjectId"] = o.SubjectId
+	}
+	if !IsNil(o.SubjectName) {
+		toSerialize["subjectName"] = o.SubjectName
+	}
+	if !IsNil(o.Tags) {
+		toSerialize["tags"] = o.Tags
+	}
+	if !IsNil(o.ProductRating) {
+		toSerialize["productRating"] = o.ProductRating
+	}
+	if !IsNil(o.FeedbackRating) {
+		toSerialize["feedbackRating"] = o.FeedbackRating
+	}
+	if !IsNil(o.Stocks) {
+		toSerialize["stocks"] = o.Stocks
+	}
 	return toSerialize, nil
-}
-
-func (o *Item) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"nmId",
-		"title",
-		"vendorCode",
-		"brandName",
-		"subjectId",
-		"subjectName",
-		"tags",
-		"productRating",
-		"feedbackRating",
-		"stocks",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varItem := _Item{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varItem)
-
-	if err != nil {
-		return err
-	}
-
-	*o = Item(varItem)
-
-	return err
 }
 
 type NullableItem struct {

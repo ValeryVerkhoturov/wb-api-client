@@ -11,9 +11,7 @@ API version: order
 package orders_fbs
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200 type satisfies the MappedNullable interface at compile time
@@ -22,21 +20,17 @@ var _ MappedNullable = &GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedRespon
 // GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200 struct for GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200
 type GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200 struct {
 	// Параметр пагинации. Содержит значение, которое необходимо указать в запросе для получения следующего пакета данных
-	Next NullableInt64 `json:"next"`
+	Next NullableInt64 `json:"next,omitempty"`
 	// Список ID предметов, товары которых не хранятся на складах WB
-	Data []GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataInner `json:"data"`
+	Data []GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataInner `json:"data,omitempty"`
 }
-
-type _GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200 GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200
 
 // NewGetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200 instantiates a new GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200 object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200(next NullableInt64, data []GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataInner) *GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200 {
+func NewGetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200() *GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200 {
 	this := GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200{}
-	this.Next = next
-	this.Data = data
 	return &this
 }
 
@@ -48,18 +42,16 @@ func NewGetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200WithDefault
 	return &this
 }
 
-// GetNext returns the Next field value
-// If the value is explicit nil, the zero value for int64 will be returned
+// GetNext returns the Next field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200) GetNext() int64 {
-	if o == nil || o.Next.Get() == nil {
+	if o == nil || IsNil(o.Next.Get()) {
 		var ret int64
 		return ret
 	}
-
 	return *o.Next.Get()
 }
 
-// GetNextOk returns a tuple with the Next field value
+// GetNextOk returns a tuple with the Next field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200) GetNextOk() (*int64, bool) {
@@ -69,31 +61,58 @@ func (o *GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200) GetNextO
 	return o.Next.Get(), o.Next.IsSet()
 }
 
-// SetNext sets field value
+// HasNext returns a boolean if a field has been set.
+func (o *GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200) HasNext() bool {
+	if o != nil && o.Next.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetNext gets a reference to the given NullableInt64 and assigns it to the Next field.
 func (o *GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200) SetNext(v int64) {
 	o.Next.Set(&v)
 }
 
-// GetData returns the Data field value
+// SetNextNil sets the value for Next to be an explicit nil
+func (o *GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200) SetNextNil() {
+	o.Next.Set(nil)
+}
+
+// UnsetNext ensures that no value is present for Next, not even an explicit nil
+func (o *GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200) UnsetNext() {
+	o.Next.Unset()
+}
+
+// GetData returns the Data field value if set, zero value otherwise.
 func (o *GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200) GetData() []GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataInner {
-	if o == nil {
+	if o == nil || IsNil(o.Data) {
 		var ret []GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataInner
 		return ret
 	}
-
 	return o.Data
 }
 
-// GetDataOk returns a tuple with the Data field value
+// GetDataOk returns a tuple with the Data field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200) GetDataOk() ([]GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataInner, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Data) {
 		return nil, false
 	}
 	return o.Data, true
 }
 
-// SetData sets field value
+// HasData returns a boolean if a field has been set.
+func (o *GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200) HasData() bool {
+	if o != nil && !IsNil(o.Data) {
+		return true
+	}
+
+	return false
+}
+
+// SetData gets a reference to the given []GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataInner and assigns it to the Data field.
 func (o *GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200) SetData(v []GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataInner) {
 	o.Data = v
 }
@@ -108,47 +127,13 @@ func (o GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200) MarshalJS
 
 func (o GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["next"] = o.Next.Get()
-	toSerialize["data"] = o.Data
+	if o.Next.IsSet() {
+		toSerialize["next"] = o.Next.Get()
+	}
+	if !IsNil(o.Data) {
+		toSerialize["data"] = o.Data
+	}
 	return toSerialize, nil
-}
-
-func (o *GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"next",
-		"data",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varGetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200 := _GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varGetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200)
-
-	if err != nil {
-		return err
-	}
-
-	*o = GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200(varGetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200)
-
-	return err
 }
 
 type NullableGetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200 struct {

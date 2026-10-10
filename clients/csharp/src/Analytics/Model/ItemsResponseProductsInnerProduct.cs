@@ -34,62 +34,27 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemsResponseProductsInnerProduct" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected ItemsResponseProductsInnerProduct() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ItemsResponseProductsInnerProduct" /> class.
-        /// </summary>
-        /// <param name="nmId">Артикул WB (required).</param>
-        /// <param name="title">Название карточки товара (required).</param>
-        /// <param name="vendorCode">Артикул продавца (required).</param>
-        /// <param name="brandName">Бренд (required).</param>
-        /// <param name="subjectId">ID предмета (required).</param>
-        /// <param name="subjectName">Название предмета (required).</param>
-        /// <param name="tags">Ярлыки (required).</param>
-        /// <param name="productRating">Оценка карточки (required).</param>
-        /// <param name="feedbackRating">Оценка пользователей (required).</param>
-        /// <param name="stocks">stocks (required).</param>
+        /// <param name="nmId">Артикул WB.</param>
+        /// <param name="title">Название карточки товара.</param>
+        /// <param name="vendorCode">Артикул продавца.</param>
+        /// <param name="brandName">Бренд.</param>
+        /// <param name="subjectId">ID предмета.</param>
+        /// <param name="subjectName">Название предмета.</param>
+        /// <param name="tags">Ярлыки.</param>
+        /// <param name="productRating">Оценка карточки.</param>
+        /// <param name="feedbackRating">Оценка пользователей.</param>
+        /// <param name="stocks">stocks.</param>
         public ItemsResponseProductsInnerProduct(long nmId = default(long), string title = default(string), string vendorCode = default(string), string brandName = default(string), int subjectId = default(int), string subjectName = default(string), List<Tag> tags = default(List<Tag>), decimal productRating = default(decimal), decimal feedbackRating = default(decimal), ItemStocks stocks = default(ItemStocks))
         {
             this.NmId = nmId;
-            // to ensure "title" is required (not null)
-            if (title == null)
-            {
-                throw new ArgumentNullException("title is a required property for ItemsResponseProductsInnerProduct and cannot be null");
-            }
             this.Title = title;
-            // to ensure "vendorCode" is required (not null)
-            if (vendorCode == null)
-            {
-                throw new ArgumentNullException("vendorCode is a required property for ItemsResponseProductsInnerProduct and cannot be null");
-            }
             this.VendorCode = vendorCode;
-            // to ensure "brandName" is required (not null)
-            if (brandName == null)
-            {
-                throw new ArgumentNullException("brandName is a required property for ItemsResponseProductsInnerProduct and cannot be null");
-            }
             this.BrandName = brandName;
             this.SubjectId = subjectId;
-            // to ensure "subjectName" is required (not null)
-            if (subjectName == null)
-            {
-                throw new ArgumentNullException("subjectName is a required property for ItemsResponseProductsInnerProduct and cannot be null");
-            }
             this.SubjectName = subjectName;
-            // to ensure "tags" is required (not null)
-            if (tags == null)
-            {
-                throw new ArgumentNullException("tags is a required property for ItemsResponseProductsInnerProduct and cannot be null");
-            }
             this.Tags = tags;
             this.ProductRating = productRating;
             this.FeedbackRating = feedbackRating;
-            // to ensure "stocks" is required (not null)
-            if (stocks == null)
-            {
-                throw new ArgumentNullException("stocks is a required property for ItemsResponseProductsInnerProduct and cannot be null");
-            }
             this.Stocks = stocks;
         }
 
@@ -100,7 +65,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>268913787</example>
         */
-        [DataMember(Name = "nmId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "nmId", EmitDefaultValue = false)]
         public long NmId { get; set; }
 
         /// <summary>
@@ -110,7 +75,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>Кроссовки для бега</example>
         */
-        [DataMember(Name = "title", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "title", EmitDefaultValue = false)]
         public string Title { get; set; }
 
         /// <summary>
@@ -120,7 +85,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>12345456</example>
         */
-        [DataMember(Name = "vendorCode", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "vendorCode", EmitDefaultValue = false)]
         public string VendorCode { get; set; }
 
         /// <summary>
@@ -130,7 +95,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>Demix</example>
         */
-        [DataMember(Name = "brandName", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "brandName", EmitDefaultValue = false)]
         public string BrandName { get; set; }
 
         /// <summary>
@@ -140,7 +105,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>105</example>
         */
-        [DataMember(Name = "subjectId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "subjectId", EmitDefaultValue = false)]
         public int SubjectId { get; set; }
 
         /// <summary>
@@ -150,14 +115,14 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>Кроссовки</example>
         */
-        [DataMember(Name = "subjectName", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "subjectName", EmitDefaultValue = false)]
         public string SubjectName { get; set; }
 
         /// <summary>
         /// Ярлыки
         /// </summary>
         /// <value>Ярлыки</value>
-        [DataMember(Name = "tags", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "tags", EmitDefaultValue = false)]
         public List<Tag> Tags { get; set; }
 
         /// <summary>
@@ -167,7 +132,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>4.5</example>
         */
-        [DataMember(Name = "productRating", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "productRating", EmitDefaultValue = false)]
         public decimal ProductRating { get; set; }
 
         /// <summary>
@@ -177,13 +142,13 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>4</example>
         */
-        [DataMember(Name = "feedbackRating", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "feedbackRating", EmitDefaultValue = false)]
         public decimal FeedbackRating { get; set; }
 
         /// <summary>
         /// Gets or Sets Stocks
         /// </summary>
-        [DataMember(Name = "stocks", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "stocks", EmitDefaultValue = false)]
         public ItemStocks Stocks { get; set; }
 
         /// <summary>

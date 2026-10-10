@@ -40,7 +40,7 @@ public class OpenapiPinReviewItemResultDataInner {
   public static final String SERIALIZED_NAME_FEEDBACK_ID = "feedbackId";
 
   @SerializedName(SERIALIZED_NAME_FEEDBACK_ID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String feedbackId;
 
   public static final String SERIALIZED_NAME_PIN_ID = "pinId";
@@ -106,7 +106,7 @@ public class OpenapiPinReviewItemResultDataInner {
   public static final String SERIALIZED_NAME_PIN_METHOD = "pinMethod";
 
   @SerializedName(SERIALIZED_NAME_PIN_METHOD)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private PinMethodEnum pinMethod;
 
   /**
@@ -167,13 +167,13 @@ public class OpenapiPinReviewItemResultDataInner {
   public static final String SERIALIZED_NAME_PIN_ON = "pinOn";
 
   @SerializedName(SERIALIZED_NAME_PIN_ON)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private PinOnEnum pinOn;
 
   public static final String SERIALIZED_NAME_IS_ERRORS = "isErrors";
 
   @SerializedName(SERIALIZED_NAME_IS_ERRORS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Boolean isErrors;
 
   public static final String SERIALIZED_NAME_ERRORS = "errors";
@@ -185,7 +185,7 @@ public class OpenapiPinReviewItemResultDataInner {
   public OpenapiPinReviewItemResultDataInner() {}
 
   public OpenapiPinReviewItemResultDataInner feedbackId(
-      @jakarta.annotation.Nonnull String feedbackId) {
+      @jakarta.annotation.Nullable String feedbackId) {
     this.feedbackId = feedbackId;
     return this;
   }
@@ -195,12 +195,12 @@ public class OpenapiPinReviewItemResultDataInner {
    *
    * @return feedbackId
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getFeedbackId() {
     return feedbackId;
   }
 
-  public void setFeedbackId(@jakarta.annotation.Nonnull String feedbackId) {
+  public void setFeedbackId(@jakarta.annotation.Nullable String feedbackId) {
     this.feedbackId = feedbackId;
   }
 
@@ -224,7 +224,7 @@ public class OpenapiPinReviewItemResultDataInner {
   }
 
   public OpenapiPinReviewItemResultDataInner pinMethod(
-      @jakarta.annotation.Nonnull PinMethodEnum pinMethod) {
+      @jakarta.annotation.Nullable PinMethodEnum pinMethod) {
     this.pinMethod = pinMethod;
     return this;
   }
@@ -235,16 +235,16 @@ public class OpenapiPinReviewItemResultDataInner {
    *
    * @return pinMethod
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public PinMethodEnum getPinMethod() {
     return pinMethod;
   }
 
-  public void setPinMethod(@jakarta.annotation.Nonnull PinMethodEnum pinMethod) {
+  public void setPinMethod(@jakarta.annotation.Nullable PinMethodEnum pinMethod) {
     this.pinMethod = pinMethod;
   }
 
-  public OpenapiPinReviewItemResultDataInner pinOn(@jakarta.annotation.Nonnull PinOnEnum pinOn) {
+  public OpenapiPinReviewItemResultDataInner pinOn(@jakarta.annotation.Nullable PinOnEnum pinOn) {
     this.pinOn = pinOn;
     return this;
   }
@@ -256,17 +256,17 @@ public class OpenapiPinReviewItemResultDataInner {
    *
    * @return pinOn
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public PinOnEnum getPinOn() {
     return pinOn;
   }
 
-  public void setPinOn(@jakarta.annotation.Nonnull PinOnEnum pinOn) {
+  public void setPinOn(@jakarta.annotation.Nullable PinOnEnum pinOn) {
     this.pinOn = pinOn;
   }
 
   public OpenapiPinReviewItemResultDataInner isErrors(
-      @jakarta.annotation.Nonnull Boolean isErrors) {
+      @jakarta.annotation.Nullable Boolean isErrors) {
     this.isErrors = isErrors;
     return this;
   }
@@ -276,12 +276,12 @@ public class OpenapiPinReviewItemResultDataInner {
    *
    * @return isErrors
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Boolean getIsErrors() {
     return isErrors;
   }
 
-  public void setIsErrors(@jakarta.annotation.Nonnull Boolean isErrors) {
+  public void setIsErrors(@jakarta.annotation.Nullable Boolean isErrors) {
     this.isErrors = isErrors;
   }
 
@@ -375,10 +375,6 @@ public class OpenapiPinReviewItemResultDataInner {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("feedbackId");
-    openapiRequiredFields.add("pinMethod");
-    openapiRequiredFields.add("pinOn");
-    openapiRequiredFields.add("isErrors");
   }
 
   /**
@@ -409,39 +405,36 @@ public class OpenapiPinReviewItemResultDataInner {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : OpenapiPinReviewItemResultDataInner.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    if (!jsonObj.get("feedbackId").isJsonPrimitive()) {
+    if ((jsonObj.get("feedbackId") != null && !jsonObj.get("feedbackId").isJsonNull())
+        && !jsonObj.get("feedbackId").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `feedbackId` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("feedbackId").toString()));
     }
-    if (!jsonObj.get("pinMethod").isJsonPrimitive()) {
+    if ((jsonObj.get("pinMethod") != null && !jsonObj.get("pinMethod").isJsonNull())
+        && !jsonObj.get("pinMethod").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `pinMethod` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("pinMethod").toString()));
     }
-    // validate the required field `pinMethod`
-    PinMethodEnum.validateJsonElement(jsonObj.get("pinMethod"));
-    if (!jsonObj.get("pinOn").isJsonPrimitive()) {
+    // validate the optional field `pinMethod`
+    if (jsonObj.get("pinMethod") != null && !jsonObj.get("pinMethod").isJsonNull()) {
+      PinMethodEnum.validateJsonElement(jsonObj.get("pinMethod"));
+    }
+    if ((jsonObj.get("pinOn") != null && !jsonObj.get("pinOn").isJsonNull())
+        && !jsonObj.get("pinOn").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `pinOn` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("pinOn").toString()));
     }
-    // validate the required field `pinOn`
-    PinOnEnum.validateJsonElement(jsonObj.get("pinOn"));
+    // validate the optional field `pinOn`
+    if (jsonObj.get("pinOn") != null && !jsonObj.get("pinOn").isJsonNull()) {
+      PinOnEnum.validateJsonElement(jsonObj.get("pinOn"));
+    }
     if (jsonObj.get("errors") != null && !jsonObj.get("errors").isJsonNull()) {
       JsonArray jsonArrayerrors = jsonObj.getAsJsonArray("errors");
       if (jsonArrayerrors != null) {

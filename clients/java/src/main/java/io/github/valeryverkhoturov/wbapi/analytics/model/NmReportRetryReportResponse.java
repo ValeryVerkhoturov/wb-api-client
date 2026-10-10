@@ -36,12 +36,12 @@ public class NmReportRetryReportResponse {
   public static final String SERIALIZED_NAME_DATA = "data";
 
   @SerializedName(SERIALIZED_NAME_DATA)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String data;
 
   public NmReportRetryReportResponse() {}
 
-  public NmReportRetryReportResponse data(@jakarta.annotation.Nonnull String data) {
+  public NmReportRetryReportResponse data(@jakarta.annotation.Nullable String data) {
     this.data = data;
     return this;
   }
@@ -51,12 +51,12 @@ public class NmReportRetryReportResponse {
    *
    * @return data
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getData() {
     return data;
   }
 
-  public void setData(@jakarta.annotation.Nonnull String data) {
+  public void setData(@jakarta.annotation.Nullable String data) {
     this.data = data;
   }
 
@@ -106,7 +106,6 @@ public class NmReportRetryReportResponse {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("data");
   }
 
   /**
@@ -136,18 +135,9 @@ public class NmReportRetryReportResponse {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : NmReportRetryReportResponse.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    if (!jsonObj.get("data").isJsonPrimitive()) {
+    if ((jsonObj.get("data") != null && !jsonObj.get("data").isJsonNull())
+        && !jsonObj.get("data").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `data` to be a primitive type in the JSON string but got `%s`",

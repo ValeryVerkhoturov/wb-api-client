@@ -36,7 +36,9 @@ class UpdatedSuppliesShippingMethod(BaseModel):
         default=None,
         description="Успешна ли обработка запроса для данной поставки. Может быть только `true`",
     )
-    supply_id: StrictStr = Field(description="ID поставки", alias="supplyId")
+    supply_id: Optional[StrictStr] = Field(
+        default=None, description="ID поставки", alias="supplyId"
+    )
     __properties: ClassVar[List[str]] = ["error", "success", "supplyId"]
 
     model_config = ConfigDict(

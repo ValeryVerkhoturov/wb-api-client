@@ -39,13 +39,13 @@ public class ShippingPointsResponse {
   public static final String SERIALIZED_NAME_SHIPPING_POINTS = "shippingPoints";
 
   @SerializedName(SERIALIZED_NAME_SHIPPING_POINTS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private List<ShippingPoint> shippingPoints = new ArrayList<>();
 
   public ShippingPointsResponse() {}
 
   public ShippingPointsResponse shippingPoints(
-      @jakarta.annotation.Nonnull List<ShippingPoint> shippingPoints) {
+      @jakarta.annotation.Nullable List<ShippingPoint> shippingPoints) {
     this.shippingPoints = shippingPoints;
     return this;
   }
@@ -63,12 +63,12 @@ public class ShippingPointsResponse {
    *
    * @return shippingPoints
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public List<ShippingPoint> getShippingPoints() {
     return shippingPoints;
   }
 
-  public void setShippingPoints(@jakarta.annotation.Nonnull List<ShippingPoint> shippingPoints) {
+  public void setShippingPoints(@jakarta.annotation.Nullable List<ShippingPoint> shippingPoints) {
     this.shippingPoints = shippingPoints;
   }
 
@@ -118,7 +118,6 @@ public class ShippingPointsResponse {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("shippingPoints");
   }
 
   /**
@@ -148,31 +147,25 @@ public class ShippingPointsResponse {
                 entry.getKey(), jsonElement.toString()));
       }
     }
+    JsonObject jsonObj = jsonElement.getAsJsonObject();
+    if (jsonObj.get("shippingPoints") != null && !jsonObj.get("shippingPoints").isJsonNull()) {
+      JsonArray jsonArrayshippingPoints = jsonObj.getAsJsonArray("shippingPoints");
+      if (jsonArrayshippingPoints != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("shippingPoints").isJsonArray()) {
+          throw new IllegalArgumentException(
+              String.format(
+                  "Expected the field `shippingPoints` to be an array in the JSON string but got `%s`",
+                  jsonObj.get("shippingPoints").toString()));
+        }
 
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : ShippingPointsResponse.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
+        // validate the optional field `shippingPoints` (array)
+        for (int i = 0; i < jsonArrayshippingPoints.size(); i++) {
+          ShippingPoint.validateJsonElement(jsonArrayshippingPoints.get(i));
+        }
+        ;
       }
     }
-    JsonObject jsonObj = jsonElement.getAsJsonObject();
-    // ensure the json data is an array
-    if (!jsonObj.get("shippingPoints").isJsonArray()) {
-      throw new IllegalArgumentException(
-          String.format(
-              "Expected the field `shippingPoints` to be an array in the JSON string but got `%s`",
-              jsonObj.get("shippingPoints").toString()));
-    }
-
-    JsonArray jsonArrayshippingPoints = jsonObj.getAsJsonArray("shippingPoints");
-    // validate the required field `shippingPoints` (array)
-    for (int i = 0; i < jsonArrayshippingPoints.size(); i++) {
-      ShippingPoint.validateJsonElement(jsonArrayshippingPoints.get(i));
-    }
-    ;
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

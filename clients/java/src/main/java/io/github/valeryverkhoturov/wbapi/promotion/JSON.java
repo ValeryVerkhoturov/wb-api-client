@@ -101,6 +101,9 @@ public class JSON {
         new io.github.valeryverkhoturov.wbapi.promotion.model.AdvertSettings
             .CustomTypeAdapterFactory());
     gsonBuilder.registerTypeAdapterFactory(
+        new io.github.valeryverkhoturov.wbapi.promotion.model.AdvertSettingsPlacements
+            .CustomTypeAdapterFactory());
+    gsonBuilder.registerTypeAdapterFactory(
         new io.github.valeryverkhoturov.wbapi.promotion.model.AdvertSubcategory
             .CustomTypeAdapterFactory());
     gsonBuilder.registerTypeAdapterFactory(

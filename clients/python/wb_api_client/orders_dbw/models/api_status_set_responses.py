@@ -34,7 +34,7 @@ class ApiStatusSetResponses(BaseModel):
         description="Уникальный ID запроса, содержащего ошибки.",
         alias="requestId",
     )
-    results: List[ApiStatusSetResponse]
+    results: Optional[List[ApiStatusSetResponse]] = None
     __properties: ClassVar[List[str]] = ["requestId", "results"]
 
     model_config = ConfigDict(

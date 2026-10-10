@@ -34,21 +34,11 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="VisibilityInfoByDayInner" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected VisibilityInfoByDayInner() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="VisibilityInfoByDayInner" /> class.
-        /// </summary>
-        /// <param name="dt">Дата (required).</param>
-        /// <param name="visibility">Видимость карточки в результатах поиска, % (required).</param>
-        /// <param name="open">Количество переходов в карточку (required).</param>
+        /// <param name="dt">Дата.</param>
+        /// <param name="visibility">Видимость карточки в результатах поиска, %.</param>
+        /// <param name="open">Количество переходов в карточку.</param>
         public VisibilityInfoByDayInner(string dt = default(string), int visibility = default(int), int open = default(int))
         {
-            // to ensure "dt" is required (not null)
-            if (dt == null)
-            {
-                throw new ArgumentNullException("dt is a required property for VisibilityInfoByDayInner and cannot be null");
-            }
             this.Dt = dt;
             this.Visibility = visibility;
             this.Open = open;
@@ -61,7 +51,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>2024-02-10</example>
         */
-        [DataMember(Name = "dt", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "dt", EmitDefaultValue = false)]
         public string Dt { get; set; }
 
         /// <summary>
@@ -71,7 +61,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>100</example>
         */
-        [DataMember(Name = "visibility", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "visibility", EmitDefaultValue = false)]
         public int Visibility { get; set; }
 
         /// <summary>
@@ -81,7 +71,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>124</example>
         */
-        [DataMember(Name = "open", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "open", EmitDefaultValue = false)]
         public int Open { get; set; }
 
         /// <summary>

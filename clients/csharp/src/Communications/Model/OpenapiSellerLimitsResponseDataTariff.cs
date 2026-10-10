@@ -34,16 +34,11 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OpenapiSellerLimitsResponseDataTariff" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected OpenapiSellerLimitsResponseDataTariff() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="OpenapiSellerLimitsResponseDataTariff" /> class.
-        /// </summary>
-        /// <param name="perUnitLimit">Максимальное количество закреплённых отзывов в одной карточке товара или в группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек (required).</param>
-        /// <param name="remaining">Сколько ещё отзывов можно закрепить (required).</param>
-        /// <param name="totalLimit">Общий лимит закреплений (required).</param>
-        /// <param name="unlimited">Количество закреплённых отзывов не ограничено:   - &#x60;true&#x60; — да   - &#x60;false&#x60; — нет  (required).</param>
-        /// <param name="used">Текущее количество закреплённых отзывов (required).</param>
+        /// <param name="perUnitLimit">Максимальное количество закреплённых отзывов в одной карточке товара или в группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек.</param>
+        /// <param name="remaining">Сколько ещё отзывов можно закрепить.</param>
+        /// <param name="totalLimit">Общий лимит закреплений.</param>
+        /// <param name="unlimited">Количество закреплённых отзывов не ограничено:   - &#x60;true&#x60; — да   - &#x60;false&#x60; — нет .</param>
+        /// <param name="used">Текущее количество закреплённых отзывов.</param>
         public OpenapiSellerLimitsResponseDataTariff(int perUnitLimit = default(int), int remaining = default(int), int totalLimit = default(int), bool unlimited = default(bool), int used = default(int))
         {
             this.PerUnitLimit = perUnitLimit;
@@ -60,7 +55,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         /*
         <example>2</example>
         */
-        [DataMember(Name = "perUnitLimit", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "perUnitLimit", EmitDefaultValue = false)]
         public int PerUnitLimit { get; set; }
 
         /// <summary>
@@ -70,7 +65,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         /*
         <example>5</example>
         */
-        [DataMember(Name = "remaining", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "remaining", EmitDefaultValue = false)]
         public int Remaining { get; set; }
 
         /// <summary>
@@ -80,7 +75,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         /*
         <example>15</example>
         */
-        [DataMember(Name = "totalLimit", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "totalLimit", EmitDefaultValue = false)]
         public int TotalLimit { get; set; }
 
         /// <summary>
@@ -90,7 +85,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         /*
         <example>false</example>
         */
-        [DataMember(Name = "unlimited", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "unlimited", EmitDefaultValue = true)]
         public bool Unlimited { get; set; }
 
         /// <summary>
@@ -100,7 +95,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         /*
         <example>10</example>
         */
-        [DataMember(Name = "used", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "used", EmitDefaultValue = false)]
         public int Used { get; set; }
 
         /// <summary>

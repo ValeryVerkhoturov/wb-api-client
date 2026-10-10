@@ -11,9 +11,7 @@ API version: ordersfbw
 package orders_fbw
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the ModelsDraftAddItemsErrorResponse type satisfies the MappedNullable interface at compile time
@@ -22,18 +20,15 @@ var _ MappedNullable = &ModelsDraftAddItemsErrorResponse{}
 // ModelsDraftAddItemsErrorResponse struct for ModelsDraftAddItemsErrorResponse
 type ModelsDraftAddItemsErrorResponse struct {
 	// Список невалидных баркодов с ошибками
-	Results []ModelsDraftAddItemsResultItem `json:"results"`
+	Results []ModelsDraftAddItemsResultItem `json:"results,omitempty"`
 }
-
-type _ModelsDraftAddItemsErrorResponse ModelsDraftAddItemsErrorResponse
 
 // NewModelsDraftAddItemsErrorResponse instantiates a new ModelsDraftAddItemsErrorResponse object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelsDraftAddItemsErrorResponse(results []ModelsDraftAddItemsResultItem) *ModelsDraftAddItemsErrorResponse {
+func NewModelsDraftAddItemsErrorResponse() *ModelsDraftAddItemsErrorResponse {
 	this := ModelsDraftAddItemsErrorResponse{}
-	this.Results = results
 	return &this
 }
 
@@ -45,26 +40,34 @@ func NewModelsDraftAddItemsErrorResponseWithDefaults() *ModelsDraftAddItemsError
 	return &this
 }
 
-// GetResults returns the Results field value
+// GetResults returns the Results field value if set, zero value otherwise.
 func (o *ModelsDraftAddItemsErrorResponse) GetResults() []ModelsDraftAddItemsResultItem {
-	if o == nil {
+	if o == nil || IsNil(o.Results) {
 		var ret []ModelsDraftAddItemsResultItem
 		return ret
 	}
-
 	return o.Results
 }
 
-// GetResultsOk returns a tuple with the Results field value
+// GetResultsOk returns a tuple with the Results field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModelsDraftAddItemsErrorResponse) GetResultsOk() ([]ModelsDraftAddItemsResultItem, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Results) {
 		return nil, false
 	}
 	return o.Results, true
 }
 
-// SetResults sets field value
+// HasResults returns a boolean if a field has been set.
+func (o *ModelsDraftAddItemsErrorResponse) HasResults() bool {
+	if o != nil && !IsNil(o.Results) {
+		return true
+	}
+
+	return false
+}
+
+// SetResults gets a reference to the given []ModelsDraftAddItemsResultItem and assigns it to the Results field.
 func (o *ModelsDraftAddItemsErrorResponse) SetResults(v []ModelsDraftAddItemsResultItem) {
 	o.Results = v
 }
@@ -79,45 +82,10 @@ func (o ModelsDraftAddItemsErrorResponse) MarshalJSON() ([]byte, error) {
 
 func (o ModelsDraftAddItemsErrorResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["results"] = o.Results
+	if !IsNil(o.Results) {
+		toSerialize["results"] = o.Results
+	}
 	return toSerialize, nil
-}
-
-func (o *ModelsDraftAddItemsErrorResponse) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"results",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varModelsDraftAddItemsErrorResponse := _ModelsDraftAddItemsErrorResponse{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varModelsDraftAddItemsErrorResponse)
-
-	if err != nil {
-		return err
-	}
-
-	*o = ModelsDraftAddItemsErrorResponse(varModelsDraftAddItemsErrorResponse)
-
-	return err
 }
 
 type NullableModelsDraftAddItemsErrorResponse struct {

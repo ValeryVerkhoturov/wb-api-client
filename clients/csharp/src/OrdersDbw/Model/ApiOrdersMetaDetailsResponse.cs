@@ -34,20 +34,10 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersDbw.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiOrdersMetaDetailsResponse" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected ApiOrdersMetaDetailsResponse() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ApiOrdersMetaDetailsResponse" /> class.
-        /// </summary>
-        /// <param name="requestId">Уникальный ID запроса (required).</param>
+        /// <param name="requestId">Уникальный ID запроса.</param>
         /// <param name="orders">Идентификаторы маркировки сборочных заданий и статусы их валидации.</param>
         public ApiOrdersMetaDetailsResponse(string requestId = default(string), List<ApiOrdersMetaDetailsResponseOrdersInner> orders = default(List<ApiOrdersMetaDetailsResponseOrdersInner>))
         {
-            // to ensure "requestId" is required (not null)
-            if (requestId == null)
-            {
-                throw new ArgumentNullException("requestId is a required property for ApiOrdersMetaDetailsResponse and cannot be null");
-            }
             this.RequestId = requestId;
             this.Orders = orders;
         }
@@ -59,7 +49,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersDbw.Model
         /*
         <example>f1787bd2d1fdс35d6f537316514у4a05</example>
         */
-        [DataMember(Name = "requestId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "requestId", EmitDefaultValue = false)]
         public string RequestId { get; set; }
 
         /// <summary>

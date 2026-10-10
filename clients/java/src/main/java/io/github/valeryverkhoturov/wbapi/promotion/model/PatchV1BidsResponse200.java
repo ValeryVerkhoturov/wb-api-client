@@ -39,19 +39,19 @@ public class PatchV1BidsResponse200 {
   public static final String SERIALIZED_NAME_BIDS = "bids";
 
   @SerializedName(SERIALIZED_NAME_BIDS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private List<PatchV1BidsResponse200BidsInner> bids = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_CURRENCY = "currency";
 
   @SerializedName(SERIALIZED_NAME_CURRENCY)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String currency;
 
   public PatchV1BidsResponse200() {}
 
   public PatchV1BidsResponse200 bids(
-      @jakarta.annotation.Nonnull List<PatchV1BidsResponse200BidsInner> bids) {
+      @jakarta.annotation.Nullable List<PatchV1BidsResponse200BidsInner> bids) {
     this.bids = bids;
     return this;
   }
@@ -69,16 +69,16 @@ public class PatchV1BidsResponse200 {
    *
    * @return bids
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public List<PatchV1BidsResponse200BidsInner> getBids() {
     return bids;
   }
 
-  public void setBids(@jakarta.annotation.Nonnull List<PatchV1BidsResponse200BidsInner> bids) {
+  public void setBids(@jakarta.annotation.Nullable List<PatchV1BidsResponse200BidsInner> bids) {
     this.bids = bids;
   }
 
-  public PatchV1BidsResponse200 currency(@jakarta.annotation.Nonnull String currency) {
+  public PatchV1BidsResponse200 currency(@jakarta.annotation.Nullable String currency) {
     this.currency = currency;
     return this;
   }
@@ -88,12 +88,12 @@ public class PatchV1BidsResponse200 {
    *
    * @return currency
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getCurrency() {
     return currency;
   }
 
-  public void setCurrency(@jakarta.annotation.Nonnull String currency) {
+  public void setCurrency(@jakarta.annotation.Nullable String currency) {
     this.currency = currency;
   }
 
@@ -146,8 +146,6 @@ public class PatchV1BidsResponse200 {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("bids");
-    openapiRequiredFields.add("currency");
   }
 
   /**
@@ -177,32 +175,27 @@ public class PatchV1BidsResponse200 {
                 entry.getKey(), jsonElement.toString()));
       }
     }
+    JsonObject jsonObj = jsonElement.getAsJsonObject();
+    if (jsonObj.get("bids") != null && !jsonObj.get("bids").isJsonNull()) {
+      JsonArray jsonArraybids = jsonObj.getAsJsonArray("bids");
+      if (jsonArraybids != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("bids").isJsonArray()) {
+          throw new IllegalArgumentException(
+              String.format(
+                  "Expected the field `bids` to be an array in the JSON string but got `%s`",
+                  jsonObj.get("bids").toString()));
+        }
 
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : PatchV1BidsResponse200.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
+        // validate the optional field `bids` (array)
+        for (int i = 0; i < jsonArraybids.size(); i++) {
+          PatchV1BidsResponse200BidsInner.validateJsonElement(jsonArraybids.get(i));
+        }
+        ;
       }
     }
-    JsonObject jsonObj = jsonElement.getAsJsonObject();
-    // ensure the json data is an array
-    if (!jsonObj.get("bids").isJsonArray()) {
-      throw new IllegalArgumentException(
-          String.format(
-              "Expected the field `bids` to be an array in the JSON string but got `%s`",
-              jsonObj.get("bids").toString()));
-    }
-
-    JsonArray jsonArraybids = jsonObj.getAsJsonArray("bids");
-    // validate the required field `bids` (array)
-    for (int i = 0; i < jsonArraybids.size(); i++) {
-      PatchV1BidsResponse200BidsInner.validateJsonElement(jsonArraybids.get(i));
-    }
-    ;
-    if (!jsonObj.get("currency").isJsonPrimitive()) {
+    if ((jsonObj.get("currency") != null && !jsonObj.get("currency").isJsonNull())
+        && !jsonObj.get("currency").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `currency` to be a primitive type in the JSON string but got `%s`",

@@ -34,51 +34,21 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="NmReportGetReportsResponseDataInner" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected NmReportGetReportsResponseDataInner() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="NmReportGetReportsResponseDataInner" /> class.
-        /// </summary>
-        /// <param name="id">ID отчёта (required).</param>
-        /// <param name="createdAt">Дата и время завершения генерации (required).</param>
-        /// <param name="status">Статус отчёта:  * &#x60;WAITING&#x60; — в очереди на обработку * &#x60;PROCESSING&#x60; — генерируется * &#x60;SUCCESS —&#x60; готов * &#x60;RETRY&#x60; — ожидает повторной обработки * &#x60;FAILED&#x60; — не получилось сгенерировать, сгенерируйте повторно  (required).</param>
-        /// <param name="name">Название отчёта (required).</param>
-        /// <param name="size">Размер отчёта, Б (required).</param>
-        /// <param name="startDate">Начало периода (required).</param>
-        /// <param name="endDate">Конец периода (required).</param>
+        /// <param name="id">ID отчёта.</param>
+        /// <param name="createdAt">Дата и время завершения генерации.</param>
+        /// <param name="status">Статус отчёта:  * &#x60;WAITING&#x60; — в очереди на обработку * &#x60;PROCESSING&#x60; — генерируется * &#x60;SUCCESS —&#x60; готов * &#x60;RETRY&#x60; — ожидает повторной обработки * &#x60;FAILED&#x60; — не получилось сгенерировать, сгенерируйте повторно .</param>
+        /// <param name="name">Название отчёта.</param>
+        /// <param name="size">Размер отчёта, Б.</param>
+        /// <param name="startDate">Начало периода.</param>
+        /// <param name="endDate">Конец периода.</param>
         public NmReportGetReportsResponseDataInner(Guid id = default(Guid), string createdAt = default(string), string status = default(string), string name = default(string), int size = default(int), string startDate = default(string), string endDate = default(string))
         {
             this.Id = id;
-            // to ensure "createdAt" is required (not null)
-            if (createdAt == null)
-            {
-                throw new ArgumentNullException("createdAt is a required property for NmReportGetReportsResponseDataInner and cannot be null");
-            }
             this.CreatedAt = createdAt;
-            // to ensure "status" is required (not null)
-            if (status == null)
-            {
-                throw new ArgumentNullException("status is a required property for NmReportGetReportsResponseDataInner and cannot be null");
-            }
             this.Status = status;
-            // to ensure "name" is required (not null)
-            if (name == null)
-            {
-                throw new ArgumentNullException("name is a required property for NmReportGetReportsResponseDataInner and cannot be null");
-            }
             this.Name = name;
             this.Size = size;
-            // to ensure "startDate" is required (not null)
-            if (startDate == null)
-            {
-                throw new ArgumentNullException("startDate is a required property for NmReportGetReportsResponseDataInner and cannot be null");
-            }
             this.StartDate = startDate;
-            // to ensure "endDate" is required (not null)
-            if (endDate == null)
-            {
-                throw new ArgumentNullException("endDate is a required property for NmReportGetReportsResponseDataInner and cannot be null");
-            }
             this.EndDate = endDate;
         }
 
@@ -89,7 +59,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>06eae887-9d9f-491f-b16a-bb1766fcb8d2</example>
         */
-        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "id", EmitDefaultValue = false)]
         public Guid Id { get; set; }
 
         /// <summary>
@@ -99,7 +69,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>2024-06-26 20:05:32</example>
         */
-        [DataMember(Name = "createdAt", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "createdAt", EmitDefaultValue = false)]
         public string CreatedAt { get; set; }
 
         /// <summary>
@@ -109,7 +79,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>SUCCESS</example>
         */
-        [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "status", EmitDefaultValue = false)]
         public string Status { get; set; }
 
         /// <summary>
@@ -119,7 +89,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>Card report</example>
         */
-        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "name", EmitDefaultValue = false)]
         public string Name { get; set; }
 
         /// <summary>
@@ -129,7 +99,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>123</example>
         */
-        [DataMember(Name = "size", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "size", EmitDefaultValue = false)]
         public int Size { get; set; }
 
         /// <summary>
@@ -139,7 +109,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>2024-06-21</example>
         */
-        [DataMember(Name = "startDate", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "startDate", EmitDefaultValue = false)]
         public string StartDate { get; set; }
 
         /// <summary>
@@ -149,7 +119,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>2024-06-23</example>
         */
-        [DataMember(Name = "endDate", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "endDate", EmitDefaultValue = false)]
         public string EndDate { get; set; }
 
         /// <summary>

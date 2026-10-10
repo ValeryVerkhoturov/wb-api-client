@@ -36,19 +36,19 @@ public class ModelsDraftAddItemsResultItem {
   public static final String SERIALIZED_NAME_ERROR = "error";
 
   @SerializedName(SERIALIZED_NAME_ERROR)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private ModelsDraftAddItemsResultError error;
 
   public static final String SERIALIZED_NAME_SKU = "sku";
 
   @SerializedName(SERIALIZED_NAME_SKU)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String sku;
 
   public ModelsDraftAddItemsResultItem() {}
 
   public ModelsDraftAddItemsResultItem error(
-      @jakarta.annotation.Nonnull ModelsDraftAddItemsResultError error) {
+      @jakarta.annotation.Nullable ModelsDraftAddItemsResultError error) {
     this.error = error;
     return this;
   }
@@ -58,16 +58,16 @@ public class ModelsDraftAddItemsResultItem {
    *
    * @return error
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public ModelsDraftAddItemsResultError getError() {
     return error;
   }
 
-  public void setError(@jakarta.annotation.Nonnull ModelsDraftAddItemsResultError error) {
+  public void setError(@jakarta.annotation.Nullable ModelsDraftAddItemsResultError error) {
     this.error = error;
   }
 
-  public ModelsDraftAddItemsResultItem sku(@jakarta.annotation.Nonnull String sku) {
+  public ModelsDraftAddItemsResultItem sku(@jakarta.annotation.Nullable String sku) {
     this.sku = sku;
     return this;
   }
@@ -77,12 +77,12 @@ public class ModelsDraftAddItemsResultItem {
    *
    * @return sku
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getSku() {
     return sku;
   }
 
-  public void setSku(@jakarta.annotation.Nonnull String sku) {
+  public void setSku(@jakarta.annotation.Nullable String sku) {
     this.sku = sku;
   }
 
@@ -135,8 +135,6 @@ public class ModelsDraftAddItemsResultItem {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("error");
-    openapiRequiredFields.add("sku");
   }
 
   /**
@@ -167,20 +165,13 @@ public class ModelsDraftAddItemsResultItem {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : ModelsDraftAddItemsResultItem.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    // validate the required field `error`
-    ModelsDraftAddItemsResultError.validateJsonElement(jsonObj.get("error"));
-    if (!jsonObj.get("sku").isJsonPrimitive()) {
+    // validate the optional field `error`
+    if (jsonObj.get("error") != null && !jsonObj.get("error").isJsonNull()) {
+      ModelsDraftAddItemsResultError.validateJsonElement(jsonObj.get("error"));
+    }
+    if ((jsonObj.get("sku") != null && !jsonObj.get("sku").isJsonNull())
+        && !jsonObj.get("sku").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `sku` to be a primitive type in the JSON string but got `%s`",

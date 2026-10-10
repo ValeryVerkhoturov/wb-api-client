@@ -36,42 +36,42 @@ public class V0GetNormQueryBidsItem {
   public static final String SERIALIZED_NAME_ADVERT_ID = "advert_id";
 
   @SerializedName(SERIALIZED_NAME_ADVERT_ID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer advertId;
 
   public static final String SERIALIZED_NAME_NM_ID = "nm_id";
 
   @SerializedName(SERIALIZED_NAME_NM_ID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer nmId;
 
   public static final String SERIALIZED_NAME_NORM_QUERY = "norm_query";
 
   @SerializedName(SERIALIZED_NAME_NORM_QUERY)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String normQuery;
 
   public static final String SERIALIZED_NAME_BID = "bid";
 
   @SerializedName(SERIALIZED_NAME_BID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer bid;
 
   public static final String SERIALIZED_NAME_BID_KOPECKS = "bid_kopecks";
 
   @SerializedName(SERIALIZED_NAME_BID_KOPECKS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer bidKopecks;
 
   public static final String SERIALIZED_NAME_CURRENCY = "currency";
 
   @SerializedName(SERIALIZED_NAME_CURRENCY)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String currency;
 
   public V0GetNormQueryBidsItem() {}
 
-  public V0GetNormQueryBidsItem advertId(@jakarta.annotation.Nonnull Integer advertId) {
+  public V0GetNormQueryBidsItem advertId(@jakarta.annotation.Nullable Integer advertId) {
     this.advertId = advertId;
     return this;
   }
@@ -81,16 +81,16 @@ public class V0GetNormQueryBidsItem {
    *
    * @return advertId
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getAdvertId() {
     return advertId;
   }
 
-  public void setAdvertId(@jakarta.annotation.Nonnull Integer advertId) {
+  public void setAdvertId(@jakarta.annotation.Nullable Integer advertId) {
     this.advertId = advertId;
   }
 
-  public V0GetNormQueryBidsItem nmId(@jakarta.annotation.Nonnull Integer nmId) {
+  public V0GetNormQueryBidsItem nmId(@jakarta.annotation.Nullable Integer nmId) {
     this.nmId = nmId;
     return this;
   }
@@ -100,16 +100,16 @@ public class V0GetNormQueryBidsItem {
    *
    * @return nmId
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getNmId() {
     return nmId;
   }
 
-  public void setNmId(@jakarta.annotation.Nonnull Integer nmId) {
+  public void setNmId(@jakarta.annotation.Nullable Integer nmId) {
     this.nmId = nmId;
   }
 
-  public V0GetNormQueryBidsItem normQuery(@jakarta.annotation.Nonnull String normQuery) {
+  public V0GetNormQueryBidsItem normQuery(@jakarta.annotation.Nullable String normQuery) {
     this.normQuery = normQuery;
     return this;
   }
@@ -119,16 +119,16 @@ public class V0GetNormQueryBidsItem {
    *
    * @return normQuery
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getNormQuery() {
     return normQuery;
   }
 
-  public void setNormQuery(@jakarta.annotation.Nonnull String normQuery) {
+  public void setNormQuery(@jakarta.annotation.Nullable String normQuery) {
     this.normQuery = normQuery;
   }
 
-  public V0GetNormQueryBidsItem bid(@jakarta.annotation.Nonnull Integer bid) {
+  public V0GetNormQueryBidsItem bid(@jakarta.annotation.Nullable Integer bid) {
     this.bid = bid;
     return this;
   }
@@ -139,16 +139,16 @@ public class V0GetNormQueryBidsItem {
    *
    * @return bid
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getBid() {
     return bid;
   }
 
-  public void setBid(@jakarta.annotation.Nonnull Integer bid) {
+  public void setBid(@jakarta.annotation.Nullable Integer bid) {
     this.bid = bid;
   }
 
-  public V0GetNormQueryBidsItem bidKopecks(@jakarta.annotation.Nonnull Integer bidKopecks) {
+  public V0GetNormQueryBidsItem bidKopecks(@jakarta.annotation.Nullable Integer bidKopecks) {
     this.bidKopecks = bidKopecks;
     return this;
   }
@@ -159,16 +159,16 @@ public class V0GetNormQueryBidsItem {
    *
    * @return bidKopecks
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getBidKopecks() {
     return bidKopecks;
   }
 
-  public void setBidKopecks(@jakarta.annotation.Nonnull Integer bidKopecks) {
+  public void setBidKopecks(@jakarta.annotation.Nullable Integer bidKopecks) {
     this.bidKopecks = bidKopecks;
   }
 
-  public V0GetNormQueryBidsItem currency(@jakarta.annotation.Nonnull String currency) {
+  public V0GetNormQueryBidsItem currency(@jakarta.annotation.Nullable String currency) {
     this.currency = currency;
     return this;
   }
@@ -178,12 +178,12 @@ public class V0GetNormQueryBidsItem {
    *
    * @return currency
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getCurrency() {
     return currency;
   }
 
-  public void setCurrency(@jakarta.annotation.Nonnull String currency) {
+  public void setCurrency(@jakarta.annotation.Nullable String currency) {
     this.currency = currency;
   }
 
@@ -248,12 +248,6 @@ public class V0GetNormQueryBidsItem {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("advert_id");
-    openapiRequiredFields.add("nm_id");
-    openapiRequiredFields.add("norm_query");
-    openapiRequiredFields.add("bid");
-    openapiRequiredFields.add("bid_kopecks");
-    openapiRequiredFields.add("currency");
   }
 
   /**
@@ -283,24 +277,16 @@ public class V0GetNormQueryBidsItem {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : V0GetNormQueryBidsItem.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    if (!jsonObj.get("norm_query").isJsonPrimitive()) {
+    if ((jsonObj.get("norm_query") != null && !jsonObj.get("norm_query").isJsonNull())
+        && !jsonObj.get("norm_query").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `norm_query` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("norm_query").toString()));
     }
-    if (!jsonObj.get("currency").isJsonPrimitive()) {
+    if ((jsonObj.get("currency") != null && !jsonObj.get("currency").isJsonNull())
+        && !jsonObj.get("currency").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `currency` to be a primitive type in the JSON string but got `%s`",

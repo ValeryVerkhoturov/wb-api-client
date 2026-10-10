@@ -36,7 +36,7 @@ namespace ValeryVerkhoturov.WbApiClient.General.Model
         /// </summary>
         /// <param name="userId">ID пользователя.</param>
         /// <param name="access">Настройки доступа к разделам профиля продавца.</param>
-        public UserAccess(int userId = default(int), List<GetUsersResponseUsersInnerAccessInner> access = default(List<GetUsersResponseUsersInnerAccessInner>))
+        public UserAccess(int userId = default(int), List<CreateInviteRequestAccessInner> access = default(List<CreateInviteRequestAccessInner>))
         {
             this.UserId = userId;
             this.Access = access;
@@ -57,7 +57,7 @@ namespace ValeryVerkhoturov.WbApiClient.General.Model
         <example>[{&quot;code&quot;:&quot;balance&quot;,&quot;disabled&quot;:false},{&quot;code&quot;:&quot;pointsForReviews&quot;,&quot;disabled&quot;:false},{&quot;code&quot;:&quot;brands&quot;,&quot;disabled&quot;:true},{&quot;code&quot;:&quot;finance&quot;,&quot;disabled&quot;:true},{&quot;code&quot;:&quot;supply&quot;,&quot;disabled&quot;:true}]</example>
         */
         [DataMember(Name = "access", EmitDefaultValue = false)]
-        public List<GetUsersResponseUsersInnerAccessInner> Access { get; set; }
+        public List<CreateInviteRequestAccessInner> Access { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

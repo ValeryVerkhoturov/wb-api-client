@@ -34,41 +34,16 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="BrandsResponseError" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected BrandsResponseError() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="BrandsResponseError" /> class.
-        /// </summary>
-        /// <param name="title">Заголовок ошибки (required).</param>
-        /// <param name="detail">Детали ошибки (required).</param>
-        /// <param name="origin">ID внутреннего сервиса WB (required).</param>
-        /// <param name="requestId">Уникальный ID запроса (required).</param>
+        /// <param name="title">Заголовок ошибки.</param>
+        /// <param name="detail">Детали ошибки.</param>
+        /// <param name="origin">ID внутреннего сервиса WB.</param>
+        /// <param name="requestId">Уникальный ID запроса.</param>
         /// <param name="errors">errors.</param>
         public BrandsResponseError(string title = default(string), string detail = default(string), string origin = default(string), string requestId = default(string), List<BrandsResponseErrorErrorsInner> errors = default(List<BrandsResponseErrorErrorsInner>))
         {
-            // to ensure "title" is required (not null)
-            if (title == null)
-            {
-                throw new ArgumentNullException("title is a required property for BrandsResponseError and cannot be null");
-            }
             this.Title = title;
-            // to ensure "detail" is required (not null)
-            if (detail == null)
-            {
-                throw new ArgumentNullException("detail is a required property for BrandsResponseError and cannot be null");
-            }
             this.Detail = detail;
-            // to ensure "origin" is required (not null)
-            if (origin == null)
-            {
-                throw new ArgumentNullException("origin is a required property for BrandsResponseError and cannot be null");
-            }
             this.Origin = origin;
-            // to ensure "requestId" is required (not null)
-            if (requestId == null)
-            {
-                throw new ArgumentNullException("requestId is a required property for BrandsResponseError and cannot be null");
-            }
             this.RequestId = requestId;
             this.Errors = errors;
         }
@@ -77,28 +52,28 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// Заголовок ошибки
         /// </summary>
         /// <value>Заголовок ошибки</value>
-        [DataMember(Name = "title", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "title", EmitDefaultValue = false)]
         public string Title { get; set; }
 
         /// <summary>
         /// Детали ошибки
         /// </summary>
         /// <value>Детали ошибки</value>
-        [DataMember(Name = "detail", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "detail", EmitDefaultValue = false)]
         public string Detail { get; set; }
 
         /// <summary>
         /// ID внутреннего сервиса WB
         /// </summary>
         /// <value>ID внутреннего сервиса WB</value>
-        [DataMember(Name = "origin", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "origin", EmitDefaultValue = false)]
         public string Origin { get; set; }
 
         /// <summary>
         /// Уникальный ID запроса
         /// </summary>
         /// <value>Уникальный ID запроса</value>
-        [DataMember(Name = "requestId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "requestId", EmitDefaultValue = false)]
         public string RequestId { get; set; }
 
         /// <summary>

@@ -29,27 +29,34 @@ class ModelsDiscrepancyResponseItem(BaseModel):
     ModelsDiscrepancyResponseItem
     """  # noqa: E501
 
-    declared_sku: StrictStr = Field(
-        description="Баркод, заявленный при формировании поставки", alias="declaredSku"
+    declared_sku: Optional[StrictStr] = Field(
+        default=None,
+        description="Баркод, заявленный при формировании поставки",
+        alias="declaredSku",
     )
-    discrepancy_type: StrictStr = Field(
+    discrepancy_type: Optional[StrictStr] = Field(
+        default=None,
         description="Тип расхождения в целом по коробу:  - `surplus` — товара в коробе больше заявленного  - `shortage` — товара в коробе меньше заявленного  - `re-sorting` — баркод принятого товара не соответствует заявленному при формировании поставки ",
         alias="discrepancyType",
     )
-    declared_amount: StrictInt = Field(
+    declared_amount: Optional[StrictInt] = Field(
+        default=None,
         description="Количество товара, заявленное при формировании поставки",
         alias="declaredAmount",
     )
-    actual_amount: StrictInt = Field(
-        description="Фактическое количество товара", alias="actualAmount"
+    actual_amount: Optional[StrictInt] = Field(
+        default=None, description="Фактическое количество товара", alias="actualAmount"
     )
-    discrepancy_quantity: StrictInt = Field(
+    discrepancy_quantity: Optional[StrictInt] = Field(
+        default=None,
         description="Разница между заявленным и фактическим количеством товара",
         alias="discrepancyQuantity",
     )
-    actual_sku: StrictStr = Field(description="Фактический баркод", alias="actualSku")
+    actual_sku: Optional[StrictStr] = Field(
+        default=None, description="Фактический баркод", alias="actualSku"
+    )
     sku_scans: Optional[List[ModelsItemScans]] = Field(
-        description="Результаты сканирования товаров", alias="skuScans"
+        default=None, description="Результаты сканирования товаров", alias="skuScans"
     )
     __properties: ClassVar[List[str]] = [
         "declaredSku",
@@ -64,6 +71,9 @@ class ModelsDiscrepancyResponseItem(BaseModel):
     @field_validator("discrepancy_type")
     def discrepancy_type_validate_enum(cls, value):
         """Validates the enum"""
+        if value is None:
+            return value
+
         if value not in set(["surplus", "shortage", "re-sorting"]):
             raise ValueError(
                 "must be one of enum values ('surplus', 'shortage', 're-sorting')"

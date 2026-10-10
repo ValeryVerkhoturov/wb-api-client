@@ -34,23 +34,13 @@ namespace ValeryVerkhoturov.WbApiClient.General.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GetUsersResponse" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected GetUsersResponse() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="GetUsersResponse" /> class.
-        /// </summary>
-        /// <param name="total">Общее количество активных или приглашённых пользователей (required).</param>
-        /// <param name="countInResponse">Количество активных или приглашённых пользователей на текущей странице (required).</param>
-        /// <param name="users">Информация о пользователях (required).</param>
+        /// <param name="total">Общее количество активных или приглашённых пользователей.</param>
+        /// <param name="countInResponse">Количество активных или приглашённых пользователей на текущей странице.</param>
+        /// <param name="users">Информация о пользователях.</param>
         public GetUsersResponse(int total = default(int), int countInResponse = default(int), List<GetUsersResponseUsersInner> users = default(List<GetUsersResponseUsersInner>))
         {
             this.Total = total;
             this.CountInResponse = countInResponse;
-            // to ensure "users" is required (not null)
-            if (users == null)
-            {
-                throw new ArgumentNullException("users is a required property for GetUsersResponse and cannot be null");
-            }
             this.Users = users;
         }
 
@@ -58,21 +48,21 @@ namespace ValeryVerkhoturov.WbApiClient.General.Model
         /// Общее количество активных или приглашённых пользователей
         /// </summary>
         /// <value>Общее количество активных или приглашённых пользователей</value>
-        [DataMember(Name = "total", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "total", EmitDefaultValue = false)]
         public int Total { get; set; }
 
         /// <summary>
         /// Количество активных или приглашённых пользователей на текущей странице
         /// </summary>
         /// <value>Количество активных или приглашённых пользователей на текущей странице</value>
-        [DataMember(Name = "countInResponse", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "countInResponse", EmitDefaultValue = false)]
         public int CountInResponse { get; set; }
 
         /// <summary>
         /// Информация о пользователях
         /// </summary>
         /// <value>Информация о пользователях</value>
-        [DataMember(Name = "users", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "users", EmitDefaultValue = false)]
         public List<GetUsersResponseUsersInner> Users { get; set; }
 
         /// <summary>

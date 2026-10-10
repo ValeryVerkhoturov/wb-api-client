@@ -11,9 +11,7 @@ API version: promotion
 package promotion
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the PatchV0AuctionNmsResponse200NmsInnerNms type satisfies the MappedNullable interface at compile time
@@ -22,21 +20,17 @@ var _ MappedNullable = &PatchV0AuctionNmsResponse200NmsInnerNms{}
 // PatchV0AuctionNmsResponse200NmsInnerNms Карточки товаров
 type PatchV0AuctionNmsResponse200NmsInnerNms struct {
 	// Добавленные карточки товаров
-	Added []int32 `json:"added"`
+	Added []int32 `json:"added,omitempty"`
 	// Удалённые карточки товаров
-	Deleted []int32 `json:"deleted"`
+	Deleted []int32 `json:"deleted,omitempty"`
 }
-
-type _PatchV0AuctionNmsResponse200NmsInnerNms PatchV0AuctionNmsResponse200NmsInnerNms
 
 // NewPatchV0AuctionNmsResponse200NmsInnerNms instantiates a new PatchV0AuctionNmsResponse200NmsInnerNms object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPatchV0AuctionNmsResponse200NmsInnerNms(added []int32, deleted []int32) *PatchV0AuctionNmsResponse200NmsInnerNms {
+func NewPatchV0AuctionNmsResponse200NmsInnerNms() *PatchV0AuctionNmsResponse200NmsInnerNms {
 	this := PatchV0AuctionNmsResponse200NmsInnerNms{}
-	this.Added = added
-	this.Deleted = deleted
 	return &this
 }
 
@@ -48,50 +42,66 @@ func NewPatchV0AuctionNmsResponse200NmsInnerNmsWithDefaults() *PatchV0AuctionNms
 	return &this
 }
 
-// GetAdded returns the Added field value
+// GetAdded returns the Added field value if set, zero value otherwise.
 func (o *PatchV0AuctionNmsResponse200NmsInnerNms) GetAdded() []int32 {
-	if o == nil {
+	if o == nil || IsNil(o.Added) {
 		var ret []int32
 		return ret
 	}
-
 	return o.Added
 }
 
-// GetAddedOk returns a tuple with the Added field value
+// GetAddedOk returns a tuple with the Added field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PatchV0AuctionNmsResponse200NmsInnerNms) GetAddedOk() ([]int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Added) {
 		return nil, false
 	}
 	return o.Added, true
 }
 
-// SetAdded sets field value
+// HasAdded returns a boolean if a field has been set.
+func (o *PatchV0AuctionNmsResponse200NmsInnerNms) HasAdded() bool {
+	if o != nil && !IsNil(o.Added) {
+		return true
+	}
+
+	return false
+}
+
+// SetAdded gets a reference to the given []int32 and assigns it to the Added field.
 func (o *PatchV0AuctionNmsResponse200NmsInnerNms) SetAdded(v []int32) {
 	o.Added = v
 }
 
-// GetDeleted returns the Deleted field value
+// GetDeleted returns the Deleted field value if set, zero value otherwise.
 func (o *PatchV0AuctionNmsResponse200NmsInnerNms) GetDeleted() []int32 {
-	if o == nil {
+	if o == nil || IsNil(o.Deleted) {
 		var ret []int32
 		return ret
 	}
-
 	return o.Deleted
 }
 
-// GetDeletedOk returns a tuple with the Deleted field value
+// GetDeletedOk returns a tuple with the Deleted field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PatchV0AuctionNmsResponse200NmsInnerNms) GetDeletedOk() ([]int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Deleted) {
 		return nil, false
 	}
 	return o.Deleted, true
 }
 
-// SetDeleted sets field value
+// HasDeleted returns a boolean if a field has been set.
+func (o *PatchV0AuctionNmsResponse200NmsInnerNms) HasDeleted() bool {
+	if o != nil && !IsNil(o.Deleted) {
+		return true
+	}
+
+	return false
+}
+
+// SetDeleted gets a reference to the given []int32 and assigns it to the Deleted field.
 func (o *PatchV0AuctionNmsResponse200NmsInnerNms) SetDeleted(v []int32) {
 	o.Deleted = v
 }
@@ -106,47 +116,13 @@ func (o PatchV0AuctionNmsResponse200NmsInnerNms) MarshalJSON() ([]byte, error) {
 
 func (o PatchV0AuctionNmsResponse200NmsInnerNms) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["added"] = o.Added
-	toSerialize["deleted"] = o.Deleted
+	if !IsNil(o.Added) {
+		toSerialize["added"] = o.Added
+	}
+	if !IsNil(o.Deleted) {
+		toSerialize["deleted"] = o.Deleted
+	}
 	return toSerialize, nil
-}
-
-func (o *PatchV0AuctionNmsResponse200NmsInnerNms) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"added",
-		"deleted",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varPatchV0AuctionNmsResponse200NmsInnerNms := _PatchV0AuctionNmsResponse200NmsInnerNms{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varPatchV0AuctionNmsResponse200NmsInnerNms)
-
-	if err != nil {
-		return err
-	}
-
-	*o = PatchV0AuctionNmsResponse200NmsInnerNms(varPatchV0AuctionNmsResponse200NmsInnerNms)
-
-	return err
 }
 
 type NullablePatchV0AuctionNmsResponse200NmsInnerNms struct {

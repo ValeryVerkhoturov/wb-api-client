@@ -39,13 +39,13 @@ public class V1GetNormQueryStatsResponseItem {
   public static final String SERIALIZED_NAME_ADVERT_ID = "advertId";
 
   @SerializedName(SERIALIZED_NAME_ADVERT_ID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Long advertId;
 
   public static final String SERIALIZED_NAME_NM_ID = "nmId";
 
   @SerializedName(SERIALIZED_NAME_NM_ID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Long nmId;
 
   public static final String SERIALIZED_NAME_DAILY_STATS = "dailyStats";
@@ -56,7 +56,7 @@ public class V1GetNormQueryStatsResponseItem {
 
   public V1GetNormQueryStatsResponseItem() {}
 
-  public V1GetNormQueryStatsResponseItem advertId(@jakarta.annotation.Nonnull Long advertId) {
+  public V1GetNormQueryStatsResponseItem advertId(@jakarta.annotation.Nullable Long advertId) {
     this.advertId = advertId;
     return this;
   }
@@ -66,16 +66,16 @@ public class V1GetNormQueryStatsResponseItem {
    *
    * @return advertId
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Long getAdvertId() {
     return advertId;
   }
 
-  public void setAdvertId(@jakarta.annotation.Nonnull Long advertId) {
+  public void setAdvertId(@jakarta.annotation.Nullable Long advertId) {
     this.advertId = advertId;
   }
 
-  public V1GetNormQueryStatsResponseItem nmId(@jakarta.annotation.Nonnull Long nmId) {
+  public V1GetNormQueryStatsResponseItem nmId(@jakarta.annotation.Nullable Long nmId) {
     this.nmId = nmId;
     return this;
   }
@@ -85,12 +85,12 @@ public class V1GetNormQueryStatsResponseItem {
    *
    * @return nmId
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Long getNmId() {
     return nmId;
   }
 
-  public void setNmId(@jakarta.annotation.Nonnull Long nmId) {
+  public void setNmId(@jakarta.annotation.Nullable Long nmId) {
     this.nmId = nmId;
   }
 
@@ -177,8 +177,6 @@ public class V1GetNormQueryStatsResponseItem {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("advertId");
-    openapiRequiredFields.add("nmId");
   }
 
   /**
@@ -207,16 +205,6 @@ public class V1GetNormQueryStatsResponseItem {
             String.format(
                 "The field `%s` in the JSON string is not defined in the `V1GetNormQueryStatsResponseItem` properties. JSON: %s",
                 entry.getKey(), jsonElement.toString()));
-      }
-    }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : V1GetNormQueryStatsResponseItem.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
       }
     }
     JsonObject jsonObj = jsonElement.getAsJsonObject();

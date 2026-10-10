@@ -34,26 +34,11 @@ namespace ValeryVerkhoturov.WbApiClient.InStorePickup.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiOrdersFinalPriceResponse" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected ApiOrdersFinalPriceResponse() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ApiOrdersFinalPriceResponse" /> class.
-        /// </summary>
-        /// <param name="requestId">Уникальный ID запроса (required).</param>
-        /// <param name="results">Данные ответа (required).</param>
+        /// <param name="requestId">Уникальный ID запроса.</param>
+        /// <param name="results">Данные ответа.</param>
         public ApiOrdersFinalPriceResponse(string requestId = default(string), List<ApiOrderFinalPriceResult> results = default(List<ApiOrderFinalPriceResult>))
         {
-            // to ensure "requestId" is required (not null)
-            if (requestId == null)
-            {
-                throw new ArgumentNullException("requestId is a required property for ApiOrdersFinalPriceResponse and cannot be null");
-            }
             this.RequestId = requestId;
-            // to ensure "results" is required (not null)
-            if (results == null)
-            {
-                throw new ArgumentNullException("results is a required property for ApiOrdersFinalPriceResponse and cannot be null");
-            }
             this.Results = results;
         }
 
@@ -61,14 +46,14 @@ namespace ValeryVerkhoturov.WbApiClient.InStorePickup.Model
         /// Уникальный ID запроса
         /// </summary>
         /// <value>Уникальный ID запроса</value>
-        [DataMember(Name = "requestId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "requestId", EmitDefaultValue = false)]
         public string RequestId { get; set; }
 
         /// <summary>
         /// Данные ответа
         /// </summary>
         /// <value>Данные ответа</value>
-        [DataMember(Name = "results", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "results", EmitDefaultValue = false)]
         public List<ApiOrderFinalPriceResult> Results { get; set; }
 
         /// <summary>

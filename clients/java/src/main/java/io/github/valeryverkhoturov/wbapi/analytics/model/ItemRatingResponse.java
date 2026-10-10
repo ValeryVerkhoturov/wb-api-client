@@ -39,24 +39,24 @@ public class ItemRatingResponse {
   public static final String SERIALIZED_NAME_SELLER_RATING = "sellerRating";
 
   @SerializedName(SERIALIZED_NAME_SELLER_RATING)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private TableItemFloat sellerRating;
 
   public static final String SERIALIZED_NAME_FEEDBACK_INCREASE = "feedbackIncrease";
 
   @SerializedName(SERIALIZED_NAME_FEEDBACK_INCREASE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private FeedbacksIncreaseItem feedbackIncrease;
 
   public static final String SERIALIZED_NAME_ITEMS = "items";
 
   @SerializedName(SERIALIZED_NAME_ITEMS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private List<DistributionTableItem> items = new ArrayList<>();
 
   public ItemRatingResponse() {}
 
-  public ItemRatingResponse sellerRating(@jakarta.annotation.Nonnull TableItemFloat sellerRating) {
+  public ItemRatingResponse sellerRating(@jakarta.annotation.Nullable TableItemFloat sellerRating) {
     this.sellerRating = sellerRating;
     return this;
   }
@@ -66,17 +66,17 @@ public class ItemRatingResponse {
    *
    * @return sellerRating
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public TableItemFloat getSellerRating() {
     return sellerRating;
   }
 
-  public void setSellerRating(@jakarta.annotation.Nonnull TableItemFloat sellerRating) {
+  public void setSellerRating(@jakarta.annotation.Nullable TableItemFloat sellerRating) {
     this.sellerRating = sellerRating;
   }
 
   public ItemRatingResponse feedbackIncrease(
-      @jakarta.annotation.Nonnull FeedbacksIncreaseItem feedbackIncrease) {
+      @jakarta.annotation.Nullable FeedbacksIncreaseItem feedbackIncrease) {
     this.feedbackIncrease = feedbackIncrease;
     return this;
   }
@@ -86,17 +86,17 @@ public class ItemRatingResponse {
    *
    * @return feedbackIncrease
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public FeedbacksIncreaseItem getFeedbackIncrease() {
     return feedbackIncrease;
   }
 
   public void setFeedbackIncrease(
-      @jakarta.annotation.Nonnull FeedbacksIncreaseItem feedbackIncrease) {
+      @jakarta.annotation.Nullable FeedbacksIncreaseItem feedbackIncrease) {
     this.feedbackIncrease = feedbackIncrease;
   }
 
-  public ItemRatingResponse items(@jakarta.annotation.Nonnull List<DistributionTableItem> items) {
+  public ItemRatingResponse items(@jakarta.annotation.Nullable List<DistributionTableItem> items) {
     this.items = items;
     return this;
   }
@@ -114,12 +114,12 @@ public class ItemRatingResponse {
    *
    * @return items
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public List<DistributionTableItem> getItems() {
     return items;
   }
 
-  public void setItems(@jakarta.annotation.Nonnull List<DistributionTableItem> items) {
+  public void setItems(@jakarta.annotation.Nullable List<DistributionTableItem> items) {
     this.items = items;
   }
 
@@ -175,9 +175,6 @@ public class ItemRatingResponse {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("sellerRating");
-    openapiRequiredFields.add("feedbackIncrease");
-    openapiRequiredFields.add("items");
   }
 
   /**
@@ -207,35 +204,33 @@ public class ItemRatingResponse {
                 entry.getKey(), jsonElement.toString()));
       }
     }
+    JsonObject jsonObj = jsonElement.getAsJsonObject();
+    // validate the optional field `sellerRating`
+    if (jsonObj.get("sellerRating") != null && !jsonObj.get("sellerRating").isJsonNull()) {
+      TableItemFloat.validateJsonElement(jsonObj.get("sellerRating"));
+    }
+    // validate the optional field `feedbackIncrease`
+    if (jsonObj.get("feedbackIncrease") != null && !jsonObj.get("feedbackIncrease").isJsonNull()) {
+      FeedbacksIncreaseItem.validateJsonElement(jsonObj.get("feedbackIncrease"));
+    }
+    if (jsonObj.get("items") != null && !jsonObj.get("items").isJsonNull()) {
+      JsonArray jsonArrayitems = jsonObj.getAsJsonArray("items");
+      if (jsonArrayitems != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("items").isJsonArray()) {
+          throw new IllegalArgumentException(
+              String.format(
+                  "Expected the field `items` to be an array in the JSON string but got `%s`",
+                  jsonObj.get("items").toString()));
+        }
 
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : ItemRatingResponse.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
+        // validate the optional field `items` (array)
+        for (int i = 0; i < jsonArrayitems.size(); i++) {
+          DistributionTableItem.validateJsonElement(jsonArrayitems.get(i));
+        }
+        ;
       }
     }
-    JsonObject jsonObj = jsonElement.getAsJsonObject();
-    // validate the required field `sellerRating`
-    TableItemFloat.validateJsonElement(jsonObj.get("sellerRating"));
-    // validate the required field `feedbackIncrease`
-    FeedbacksIncreaseItem.validateJsonElement(jsonObj.get("feedbackIncrease"));
-    // ensure the json data is an array
-    if (!jsonObj.get("items").isJsonArray()) {
-      throw new IllegalArgumentException(
-          String.format(
-              "Expected the field `items` to be an array in the JSON string but got `%s`",
-              jsonObj.get("items").toString()));
-    }
-
-    JsonArray jsonArrayitems = jsonObj.getAsJsonArray("items");
-    // validate the required field `items` (array)
-    for (int i = 0; i < jsonArrayitems.size(); i++) {
-      DistributionTableItem.validateJsonElement(jsonArrayitems.get(i));
-    }
-    ;
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

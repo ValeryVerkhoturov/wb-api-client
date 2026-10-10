@@ -36,13 +36,13 @@ public class PostV3SalesFunnelProductsResponse200 {
   public static final String SERIALIZED_NAME_DATA = "data";
 
   @SerializedName(SERIALIZED_NAME_DATA)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private PostV3SalesFunnelProductsResponse200Data data;
 
   public PostV3SalesFunnelProductsResponse200() {}
 
   public PostV3SalesFunnelProductsResponse200 data(
-      @jakarta.annotation.Nonnull PostV3SalesFunnelProductsResponse200Data data) {
+      @jakarta.annotation.Nullable PostV3SalesFunnelProductsResponse200Data data) {
     this.data = data;
     return this;
   }
@@ -52,12 +52,12 @@ public class PostV3SalesFunnelProductsResponse200 {
    *
    * @return data
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public PostV3SalesFunnelProductsResponse200Data getData() {
     return data;
   }
 
-  public void setData(@jakarta.annotation.Nonnull PostV3SalesFunnelProductsResponse200Data data) {
+  public void setData(@jakarta.annotation.Nullable PostV3SalesFunnelProductsResponse200Data data) {
     this.data = data;
   }
 
@@ -108,7 +108,6 @@ public class PostV3SalesFunnelProductsResponse200 {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("data");
   }
 
   /**
@@ -139,19 +138,11 @@ public class PostV3SalesFunnelProductsResponse200 {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : PostV3SalesFunnelProductsResponse200.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    // validate the required field `data`
-    PostV3SalesFunnelProductsResponse200Data.validateJsonElement(jsonObj.get("data"));
+    // validate the optional field `data`
+    if (jsonObj.get("data") != null && !jsonObj.get("data").isJsonNull()) {
+      PostV3SalesFunnelProductsResponse200Data.validateJsonElement(jsonObj.get("data"));
+    }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

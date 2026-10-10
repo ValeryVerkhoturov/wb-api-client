@@ -32,12 +32,14 @@ class GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200(BaseModel):
     """  # noqa: E501
 
     next: Optional[StrictInt] = Field(
-        description="Параметр пагинации. Содержит значение, которое необходимо указать в запросе для получения следующего пакета данных"
+        default=None,
+        description="Параметр пагинации. Содержит значение, которое необходимо указать в запросе для получения следующего пакета данных",
     )
-    data: List[
-        GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataInner
+    data: Optional[
+        List[GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataInner]
     ] = Field(
-        description="Список ID предметов, товары которых не хранятся на складах WB"
+        default=None,
+        description="Список ID предметов, товары которых не хранятся на складах WB",
     )
     __properties: ClassVar[List[str]] = ["next", "data"]
 

@@ -36,54 +36,54 @@ public class V0DailyLimitAdvert {
   public static final String SERIALIZED_NAME_ADVERT_ID = "advertId";
 
   @SerializedName(SERIALIZED_NAME_ADVERT_ID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Long advertId;
 
   public static final String SERIALIZED_NAME_ENABLED = "enabled";
 
   @SerializedName(SERIALIZED_NAME_ENABLED)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Boolean enabled;
 
   public static final String SERIALIZED_NAME_DAILY_LIMIT = "dailyLimit";
 
   @SerializedName(SERIALIZED_NAME_DAILY_LIMIT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Long dailyLimit;
 
   public static final String SERIALIZED_NAME_SPENT_TODAY = "spentToday";
 
   @SerializedName(SERIALIZED_NAME_SPENT_TODAY)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Long spentToday;
 
   public static final String SERIALIZED_NAME_CURRENCY = "currency";
 
   @SerializedName(SERIALIZED_NAME_CURRENCY)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String currency;
 
   public static final String SERIALIZED_NAME_CARRY_OVER_ENABLED = "carryOverEnabled";
 
   @SerializedName(SERIALIZED_NAME_CARRY_OVER_ENABLED)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Boolean carryOverEnabled;
 
   public static final String SERIALIZED_NAME_VALID = "valid";
 
   @SerializedName(SERIALIZED_NAME_VALID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Boolean valid;
 
   public static final String SERIALIZED_NAME_REQUIRED_LIMIT = "requiredLimit";
 
   @SerializedName(SERIALIZED_NAME_REQUIRED_LIMIT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Long requiredLimit;
 
   public V0DailyLimitAdvert() {}
 
-  public V0DailyLimitAdvert advertId(@jakarta.annotation.Nonnull Long advertId) {
+  public V0DailyLimitAdvert advertId(@jakarta.annotation.Nullable Long advertId) {
     this.advertId = advertId;
     return this;
   }
@@ -93,16 +93,16 @@ public class V0DailyLimitAdvert {
    *
    * @return advertId
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Long getAdvertId() {
     return advertId;
   }
 
-  public void setAdvertId(@jakarta.annotation.Nonnull Long advertId) {
+  public void setAdvertId(@jakarta.annotation.Nullable Long advertId) {
     this.advertId = advertId;
   }
 
-  public V0DailyLimitAdvert enabled(@jakarta.annotation.Nonnull Boolean enabled) {
+  public V0DailyLimitAdvert enabled(@jakarta.annotation.Nullable Boolean enabled) {
     this.enabled = enabled;
     return this;
   }
@@ -112,16 +112,16 @@ public class V0DailyLimitAdvert {
    *
    * @return enabled
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Boolean getEnabled() {
     return enabled;
   }
 
-  public void setEnabled(@jakarta.annotation.Nonnull Boolean enabled) {
+  public void setEnabled(@jakarta.annotation.Nullable Boolean enabled) {
     this.enabled = enabled;
   }
 
-  public V0DailyLimitAdvert dailyLimit(@jakarta.annotation.Nonnull Long dailyLimit) {
+  public V0DailyLimitAdvert dailyLimit(@jakarta.annotation.Nullable Long dailyLimit) {
     this.dailyLimit = dailyLimit;
     return this;
   }
@@ -132,16 +132,16 @@ public class V0DailyLimitAdvert {
    *
    * @return dailyLimit
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Long getDailyLimit() {
     return dailyLimit;
   }
 
-  public void setDailyLimit(@jakarta.annotation.Nonnull Long dailyLimit) {
+  public void setDailyLimit(@jakarta.annotation.Nullable Long dailyLimit) {
     this.dailyLimit = dailyLimit;
   }
 
-  public V0DailyLimitAdvert spentToday(@jakarta.annotation.Nonnull Long spentToday) {
+  public V0DailyLimitAdvert spentToday(@jakarta.annotation.Nullable Long spentToday) {
     this.spentToday = spentToday;
     return this;
   }
@@ -152,16 +152,16 @@ public class V0DailyLimitAdvert {
    *
    * @return spentToday
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Long getSpentToday() {
     return spentToday;
   }
 
-  public void setSpentToday(@jakarta.annotation.Nonnull Long spentToday) {
+  public void setSpentToday(@jakarta.annotation.Nullable Long spentToday) {
     this.spentToday = spentToday;
   }
 
-  public V0DailyLimitAdvert currency(@jakarta.annotation.Nonnull String currency) {
+  public V0DailyLimitAdvert currency(@jakarta.annotation.Nullable String currency) {
     this.currency = currency;
     return this;
   }
@@ -171,16 +171,17 @@ public class V0DailyLimitAdvert {
    *
    * @return currency
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getCurrency() {
     return currency;
   }
 
-  public void setCurrency(@jakarta.annotation.Nonnull String currency) {
+  public void setCurrency(@jakarta.annotation.Nullable String currency) {
     this.currency = currency;
   }
 
-  public V0DailyLimitAdvert carryOverEnabled(@jakarta.annotation.Nonnull Boolean carryOverEnabled) {
+  public V0DailyLimitAdvert carryOverEnabled(
+      @jakarta.annotation.Nullable Boolean carryOverEnabled) {
     this.carryOverEnabled = carryOverEnabled;
     return this;
   }
@@ -192,16 +193,16 @@ public class V0DailyLimitAdvert {
    *
    * @return carryOverEnabled
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Boolean getCarryOverEnabled() {
     return carryOverEnabled;
   }
 
-  public void setCarryOverEnabled(@jakarta.annotation.Nonnull Boolean carryOverEnabled) {
+  public void setCarryOverEnabled(@jakarta.annotation.Nullable Boolean carryOverEnabled) {
     this.carryOverEnabled = carryOverEnabled;
   }
 
-  public V0DailyLimitAdvert valid(@jakarta.annotation.Nonnull Boolean valid) {
+  public V0DailyLimitAdvert valid(@jakarta.annotation.Nullable Boolean valid) {
     this.valid = valid;
     return this;
   }
@@ -213,16 +214,16 @@ public class V0DailyLimitAdvert {
    *
    * @return valid
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Boolean getValid() {
     return valid;
   }
 
-  public void setValid(@jakarta.annotation.Nonnull Boolean valid) {
+  public void setValid(@jakarta.annotation.Nullable Boolean valid) {
     this.valid = valid;
   }
 
-  public V0DailyLimitAdvert requiredLimit(@jakarta.annotation.Nonnull Long requiredLimit) {
+  public V0DailyLimitAdvert requiredLimit(@jakarta.annotation.Nullable Long requiredLimit) {
     this.requiredLimit = requiredLimit;
     return this;
   }
@@ -234,12 +235,12 @@ public class V0DailyLimitAdvert {
    *
    * @return requiredLimit
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Long getRequiredLimit() {
     return requiredLimit;
   }
 
-  public void setRequiredLimit(@jakarta.annotation.Nonnull Long requiredLimit) {
+  public void setRequiredLimit(@jakarta.annotation.Nullable Long requiredLimit) {
     this.requiredLimit = requiredLimit;
   }
 
@@ -318,14 +319,6 @@ public class V0DailyLimitAdvert {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("advertId");
-    openapiRequiredFields.add("enabled");
-    openapiRequiredFields.add("dailyLimit");
-    openapiRequiredFields.add("spentToday");
-    openapiRequiredFields.add("currency");
-    openapiRequiredFields.add("carryOverEnabled");
-    openapiRequiredFields.add("valid");
-    openapiRequiredFields.add("requiredLimit");
   }
 
   /**
@@ -355,18 +348,9 @@ public class V0DailyLimitAdvert {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : V0DailyLimitAdvert.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    if (!jsonObj.get("currency").isJsonPrimitive()) {
+    if ((jsonObj.get("currency") != null && !jsonObj.get("currency").isJsonNull())
+        && !jsonObj.get("currency").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `currency` to be a primitive type in the JSON string but got `%s`",

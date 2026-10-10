@@ -34,22 +34,12 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersDbw.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PostV3DbwOrdersMetaDeleteResponse200" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected PostV3DbwOrdersMetaDeleteResponse200() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PostV3DbwOrdersMetaDeleteResponse200" /> class.
-        /// </summary>
         /// <param name="requestId">Уникальный ID запроса. Отображается для ответов с ошибками.</param>
-        /// <param name="results">results (required).</param>
+        /// <param name="results">results.</param>
         public PostV3DbwOrdersMetaDeleteResponse200(string requestId = default(string), List<ApiMetaDeleteResponsesResultsInner> results = default(List<ApiMetaDeleteResponsesResultsInner>))
         {
-            // to ensure "results" is required (not null)
-            if (results == null)
-            {
-                throw new ArgumentNullException("results is a required property for PostV3DbwOrdersMetaDeleteResponse200 and cannot be null");
-            }
-            this.Results = results;
             this.RequestId = requestId;
+            this.Results = results;
         }
 
         /// <summary>
@@ -62,7 +52,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersDbw.Model
         /// <summary>
         /// Gets or Sets Results
         /// </summary>
-        [DataMember(Name = "results", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "results", EmitDefaultValue = false)]
         public List<ApiMetaDeleteResponsesResultsInner> Results { get; set; }
 
         /// <summary>

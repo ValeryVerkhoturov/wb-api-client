@@ -34,26 +34,11 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="V3ArchiveOrders" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected V3ArchiveOrders() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="V3ArchiveOrders" /> class.
-        /// </summary>
-        /// <param name="next">Параметр пагинации. Содержит значение, которое необходимо указать в запросе для получения следующего пакета данных (required).</param>
-        /// <param name="orders">Архивные сборочные задания (required).</param>
+        /// <param name="next">Параметр пагинации. Содержит значение, которое необходимо указать в запросе для получения следующего пакета данных.</param>
+        /// <param name="orders">Архивные сборочные задания.</param>
         public V3ArchiveOrders(long? next = default(long?), List<V3ArchiveOrder> orders = default(List<V3ArchiveOrder>))
         {
-            // to ensure "next" is required (not null)
-            if (next == null)
-            {
-                throw new ArgumentNullException("next is a required property for V3ArchiveOrders and cannot be null");
-            }
             this.Next = next;
-            // to ensure "orders" is required (not null)
-            if (orders == null)
-            {
-                throw new ArgumentNullException("orders is a required property for V3ArchiveOrders and cannot be null");
-            }
             this.Orders = orders;
         }
 
@@ -61,14 +46,14 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// Параметр пагинации. Содержит значение, которое необходимо указать в запросе для получения следующего пакета данных
         /// </summary>
         /// <value>Параметр пагинации. Содержит значение, которое необходимо указать в запросе для получения следующего пакета данных</value>
-        [DataMember(Name = "next", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "next", EmitDefaultValue = true)]
         public long? Next { get; set; }
 
         /// <summary>
         /// Архивные сборочные задания
         /// </summary>
         /// <value>Архивные сборочные задания</value>
-        [DataMember(Name = "orders", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "orders", EmitDefaultValue = false)]
         public List<V3ArchiveOrder> Orders { get; set; }
 
         /// <summary>

@@ -34,26 +34,16 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="NmReportGetReportsResponse" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected NmReportGetReportsResponse() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="NmReportGetReportsResponse" /> class.
-        /// </summary>
-        /// <param name="data">data (required).</param>
+        /// <param name="data">data.</param>
         public NmReportGetReportsResponse(List<NmReportGetReportsResponseDataInner> data = default(List<NmReportGetReportsResponseDataInner>))
         {
-            // to ensure "data" is required (not null)
-            if (data == null)
-            {
-                throw new ArgumentNullException("data is a required property for NmReportGetReportsResponse and cannot be null");
-            }
             this.Data = data;
         }
 
         /// <summary>
         /// Gets or Sets Data
         /// </summary>
-        [DataMember(Name = "data", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "data", EmitDefaultValue = false)]
         public List<NmReportGetReportsResponseDataInner> Data { get; set; }
 
         /// <summary>

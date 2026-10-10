@@ -39,19 +39,19 @@ public class MainResponse {
   public static final String SERIALIZED_NAME_COMMON_INFO = "commonInfo";
 
   @SerializedName(SERIALIZED_NAME_COMMON_INFO)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private CommonInfo commonInfo;
 
   public static final String SERIALIZED_NAME_POSITION_INFO = "positionInfo";
 
   @SerializedName(SERIALIZED_NAME_POSITION_INFO)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private PositionInfo positionInfo;
 
   public static final String SERIALIZED_NAME_VISIBILITY_INFO = "visibilityInfo";
 
   @SerializedName(SERIALIZED_NAME_VISIBILITY_INFO)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private VisibilityInfo visibilityInfo;
 
   public static final String SERIALIZED_NAME_GROUPS = "groups";
@@ -63,12 +63,12 @@ public class MainResponse {
   public static final String SERIALIZED_NAME_CURRENCY = "currency";
 
   @SerializedName(SERIALIZED_NAME_CURRENCY)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String currency;
 
   public MainResponse() {}
 
-  public MainResponse commonInfo(@jakarta.annotation.Nonnull CommonInfo commonInfo) {
+  public MainResponse commonInfo(@jakarta.annotation.Nullable CommonInfo commonInfo) {
     this.commonInfo = commonInfo;
     return this;
   }
@@ -78,16 +78,16 @@ public class MainResponse {
    *
    * @return commonInfo
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public CommonInfo getCommonInfo() {
     return commonInfo;
   }
 
-  public void setCommonInfo(@jakarta.annotation.Nonnull CommonInfo commonInfo) {
+  public void setCommonInfo(@jakarta.annotation.Nullable CommonInfo commonInfo) {
     this.commonInfo = commonInfo;
   }
 
-  public MainResponse positionInfo(@jakarta.annotation.Nonnull PositionInfo positionInfo) {
+  public MainResponse positionInfo(@jakarta.annotation.Nullable PositionInfo positionInfo) {
     this.positionInfo = positionInfo;
     return this;
   }
@@ -97,16 +97,16 @@ public class MainResponse {
    *
    * @return positionInfo
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public PositionInfo getPositionInfo() {
     return positionInfo;
   }
 
-  public void setPositionInfo(@jakarta.annotation.Nonnull PositionInfo positionInfo) {
+  public void setPositionInfo(@jakarta.annotation.Nullable PositionInfo positionInfo) {
     this.positionInfo = positionInfo;
   }
 
-  public MainResponse visibilityInfo(@jakarta.annotation.Nonnull VisibilityInfo visibilityInfo) {
+  public MainResponse visibilityInfo(@jakarta.annotation.Nullable VisibilityInfo visibilityInfo) {
     this.visibilityInfo = visibilityInfo;
     return this;
   }
@@ -116,12 +116,12 @@ public class MainResponse {
    *
    * @return visibilityInfo
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public VisibilityInfo getVisibilityInfo() {
     return visibilityInfo;
   }
 
-  public void setVisibilityInfo(@jakarta.annotation.Nonnull VisibilityInfo visibilityInfo) {
+  public void setVisibilityInfo(@jakarta.annotation.Nullable VisibilityInfo visibilityInfo) {
     this.visibilityInfo = visibilityInfo;
   }
 
@@ -152,7 +152,7 @@ public class MainResponse {
     this.groups = groups;
   }
 
-  public MainResponse currency(@jakarta.annotation.Nonnull String currency) {
+  public MainResponse currency(@jakarta.annotation.Nullable String currency) {
     this.currency = currency;
     return this;
   }
@@ -162,12 +162,12 @@ public class MainResponse {
    *
    * @return currency
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getCurrency() {
     return currency;
   }
 
-  public void setCurrency(@jakarta.annotation.Nonnull String currency) {
+  public void setCurrency(@jakarta.annotation.Nullable String currency) {
     this.currency = currency;
   }
 
@@ -229,10 +229,6 @@ public class MainResponse {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("commonInfo");
-    openapiRequiredFields.add("positionInfo");
-    openapiRequiredFields.add("visibilityInfo");
-    openapiRequiredFields.add("currency");
   }
 
   /**
@@ -262,23 +258,19 @@ public class MainResponse {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : MainResponse.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    // validate the required field `commonInfo`
-    CommonInfo.validateJsonElement(jsonObj.get("commonInfo"));
-    // validate the required field `positionInfo`
-    PositionInfo.validateJsonElement(jsonObj.get("positionInfo"));
-    // validate the required field `visibilityInfo`
-    VisibilityInfo.validateJsonElement(jsonObj.get("visibilityInfo"));
+    // validate the optional field `commonInfo`
+    if (jsonObj.get("commonInfo") != null && !jsonObj.get("commonInfo").isJsonNull()) {
+      CommonInfo.validateJsonElement(jsonObj.get("commonInfo"));
+    }
+    // validate the optional field `positionInfo`
+    if (jsonObj.get("positionInfo") != null && !jsonObj.get("positionInfo").isJsonNull()) {
+      PositionInfo.validateJsonElement(jsonObj.get("positionInfo"));
+    }
+    // validate the optional field `visibilityInfo`
+    if (jsonObj.get("visibilityInfo") != null && !jsonObj.get("visibilityInfo").isJsonNull()) {
+      VisibilityInfo.validateJsonElement(jsonObj.get("visibilityInfo"));
+    }
     if (jsonObj.get("groups") != null && !jsonObj.get("groups").isJsonNull()) {
       JsonArray jsonArraygroups = jsonObj.getAsJsonArray("groups");
       if (jsonArraygroups != null) {
@@ -297,7 +289,8 @@ public class MainResponse {
         ;
       }
     }
-    if (!jsonObj.get("currency").isJsonPrimitive()) {
+    if ((jsonObj.get("currency") != null && !jsonObj.get("currency").isJsonNull())
+        && !jsonObj.get("currency").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `currency` to be a primitive type in the JSON string but got `%s`",

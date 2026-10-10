@@ -11,9 +11,7 @@ API version: communication
 package communications
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the DeleteV1PinsResponse200 type satisfies the MappedNullable interface at compile time
@@ -22,18 +20,15 @@ var _ MappedNullable = &DeleteV1PinsResponse200{}
 // DeleteV1PinsResponse200 struct for DeleteV1PinsResponse200
 type DeleteV1PinsResponse200 struct {
 	// Список `pinId` — ID операций закрепления отзывов, которые были успешно откреплены
-	Data []int32 `json:"data"`
+	Data []int32 `json:"data,omitempty"`
 }
-
-type _DeleteV1PinsResponse200 DeleteV1PinsResponse200
 
 // NewDeleteV1PinsResponse200 instantiates a new DeleteV1PinsResponse200 object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewDeleteV1PinsResponse200(data []int32) *DeleteV1PinsResponse200 {
+func NewDeleteV1PinsResponse200() *DeleteV1PinsResponse200 {
 	this := DeleteV1PinsResponse200{}
-	this.Data = data
 	return &this
 }
 
@@ -45,26 +40,34 @@ func NewDeleteV1PinsResponse200WithDefaults() *DeleteV1PinsResponse200 {
 	return &this
 }
 
-// GetData returns the Data field value
+// GetData returns the Data field value if set, zero value otherwise.
 func (o *DeleteV1PinsResponse200) GetData() []int32 {
-	if o == nil {
+	if o == nil || IsNil(o.Data) {
 		var ret []int32
 		return ret
 	}
-
 	return o.Data
 }
 
-// GetDataOk returns a tuple with the Data field value
+// GetDataOk returns a tuple with the Data field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DeleteV1PinsResponse200) GetDataOk() ([]int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Data) {
 		return nil, false
 	}
 	return o.Data, true
 }
 
-// SetData sets field value
+// HasData returns a boolean if a field has been set.
+func (o *DeleteV1PinsResponse200) HasData() bool {
+	if o != nil && !IsNil(o.Data) {
+		return true
+	}
+
+	return false
+}
+
+// SetData gets a reference to the given []int32 and assigns it to the Data field.
 func (o *DeleteV1PinsResponse200) SetData(v []int32) {
 	o.Data = v
 }
@@ -79,45 +82,10 @@ func (o DeleteV1PinsResponse200) MarshalJSON() ([]byte, error) {
 
 func (o DeleteV1PinsResponse200) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["data"] = o.Data
+	if !IsNil(o.Data) {
+		toSerialize["data"] = o.Data
+	}
 	return toSerialize, nil
-}
-
-func (o *DeleteV1PinsResponse200) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"data",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varDeleteV1PinsResponse200 := _DeleteV1PinsResponse200{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varDeleteV1PinsResponse200)
-
-	if err != nil {
-		return err
-	}
-
-	*o = DeleteV1PinsResponse200(varDeleteV1PinsResponse200)
-
-	return err
 }
 
 type NullableDeleteV1PinsResponse200 struct {

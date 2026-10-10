@@ -28,13 +28,15 @@ class ErrorsDraftError(BaseModel):
     ErrorsDraftError
     """  # noqa: E501
 
-    status: StrictInt = Field(description="HTTP статус-код")
-    title: StrictStr = Field(description="Заголовок ошибки")
+    status: Optional[StrictInt] = Field(default=None, description="HTTP статус-код")
+    title: Optional[StrictStr] = Field(default=None, description="Заголовок ошибки")
     detail: Optional[StrictStr] = Field(default=None, description="Детали ошибки")
-    request_id: StrictStr = Field(
-        description="Уникальный ID запроса", alias="requestId"
+    request_id: Optional[StrictStr] = Field(
+        default=None, description="Уникальный ID запроса", alias="requestId"
     )
-    origin: StrictStr = Field(description="ID внутреннего сервиса WB")
+    origin: Optional[StrictStr] = Field(
+        default=None, description="ID внутреннего сервиса WB"
+    )
     __properties: ClassVar[List[str]] = [
         "status",
         "title",

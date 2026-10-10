@@ -11,9 +11,7 @@ API version: analytics
 package analytics
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the ItemStocks type satisfies the MappedNullable interface at compile time
@@ -22,24 +20,19 @@ var _ MappedNullable = &ItemStocks{}
 // ItemStocks Остатки
 type ItemStocks struct {
 	// Общее количество остатков на складах WB на текущий день, шт.
-	Wb int32 `json:"wb"`
+	Wb *int32 `json:"wb,omitempty"`
 	// Общее количество остатков на складах продавца на текущий день, шт.
-	Mp int32 `json:"mp"`
+	Mp *int32 `json:"mp,omitempty"`
 	// Сумма остатков на складах на текущий день, шт.
-	BalanceSum int32 `json:"balanceSum"`
+	BalanceSum *int32 `json:"balanceSum,omitempty"`
 }
-
-type _ItemStocks ItemStocks
 
 // NewItemStocks instantiates a new ItemStocks object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewItemStocks(wb int32, mp int32, balanceSum int32) *ItemStocks {
+func NewItemStocks() *ItemStocks {
 	this := ItemStocks{}
-	this.Wb = wb
-	this.Mp = mp
-	this.BalanceSum = balanceSum
 	return &this
 }
 
@@ -51,76 +44,100 @@ func NewItemStocksWithDefaults() *ItemStocks {
 	return &this
 }
 
-// GetWb returns the Wb field value
+// GetWb returns the Wb field value if set, zero value otherwise.
 func (o *ItemStocks) GetWb() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.Wb) {
 		var ret int32
 		return ret
 	}
-
-	return o.Wb
+	return *o.Wb
 }
 
-// GetWbOk returns a tuple with the Wb field value
+// GetWbOk returns a tuple with the Wb field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ItemStocks) GetWbOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Wb) {
 		return nil, false
 	}
-	return &o.Wb, true
+	return o.Wb, true
 }
 
-// SetWb sets field value
+// HasWb returns a boolean if a field has been set.
+func (o *ItemStocks) HasWb() bool {
+	if o != nil && !IsNil(o.Wb) {
+		return true
+	}
+
+	return false
+}
+
+// SetWb gets a reference to the given int32 and assigns it to the Wb field.
 func (o *ItemStocks) SetWb(v int32) {
-	o.Wb = v
+	o.Wb = &v
 }
 
-// GetMp returns the Mp field value
+// GetMp returns the Mp field value if set, zero value otherwise.
 func (o *ItemStocks) GetMp() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.Mp) {
 		var ret int32
 		return ret
 	}
-
-	return o.Mp
+	return *o.Mp
 }
 
-// GetMpOk returns a tuple with the Mp field value
+// GetMpOk returns a tuple with the Mp field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ItemStocks) GetMpOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Mp) {
 		return nil, false
 	}
-	return &o.Mp, true
+	return o.Mp, true
 }
 
-// SetMp sets field value
+// HasMp returns a boolean if a field has been set.
+func (o *ItemStocks) HasMp() bool {
+	if o != nil && !IsNil(o.Mp) {
+		return true
+	}
+
+	return false
+}
+
+// SetMp gets a reference to the given int32 and assigns it to the Mp field.
 func (o *ItemStocks) SetMp(v int32) {
-	o.Mp = v
+	o.Mp = &v
 }
 
-// GetBalanceSum returns the BalanceSum field value
+// GetBalanceSum returns the BalanceSum field value if set, zero value otherwise.
 func (o *ItemStocks) GetBalanceSum() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.BalanceSum) {
 		var ret int32
 		return ret
 	}
-
-	return o.BalanceSum
+	return *o.BalanceSum
 }
 
-// GetBalanceSumOk returns a tuple with the BalanceSum field value
+// GetBalanceSumOk returns a tuple with the BalanceSum field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ItemStocks) GetBalanceSumOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.BalanceSum) {
 		return nil, false
 	}
-	return &o.BalanceSum, true
+	return o.BalanceSum, true
 }
 
-// SetBalanceSum sets field value
+// HasBalanceSum returns a boolean if a field has been set.
+func (o *ItemStocks) HasBalanceSum() bool {
+	if o != nil && !IsNil(o.BalanceSum) {
+		return true
+	}
+
+	return false
+}
+
+// SetBalanceSum gets a reference to the given int32 and assigns it to the BalanceSum field.
 func (o *ItemStocks) SetBalanceSum(v int32) {
-	o.BalanceSum = v
+	o.BalanceSum = &v
 }
 
 func (o ItemStocks) MarshalJSON() ([]byte, error) {
@@ -133,49 +150,16 @@ func (o ItemStocks) MarshalJSON() ([]byte, error) {
 
 func (o ItemStocks) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["wb"] = o.Wb
-	toSerialize["mp"] = o.Mp
-	toSerialize["balanceSum"] = o.BalanceSum
+	if !IsNil(o.Wb) {
+		toSerialize["wb"] = o.Wb
+	}
+	if !IsNil(o.Mp) {
+		toSerialize["mp"] = o.Mp
+	}
+	if !IsNil(o.BalanceSum) {
+		toSerialize["balanceSum"] = o.BalanceSum
+	}
 	return toSerialize, nil
-}
-
-func (o *ItemStocks) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"wb",
-		"mp",
-		"balanceSum",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varItemStocks := _ItemStocks{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varItemStocks)
-
-	if err != nil {
-		return err
-	}
-
-	*o = ItemStocks(varItemStocks)
-
-	return err
 }
 
 type NullableItemStocks struct {

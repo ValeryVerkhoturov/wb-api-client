@@ -40,25 +40,25 @@ public class ShippingPoint {
   public static final String SERIALIZED_NAME_ID = "id";
 
   @SerializedName(SERIALIZED_NAME_ID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Long id;
 
   public static final String SERIALIZED_NAME_NAME = "name";
 
   @SerializedName(SERIALIZED_NAME_NAME)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String name;
 
   public static final String SERIALIZED_NAME_ADDRESS = "address";
 
   @SerializedName(SERIALIZED_NAME_ADDRESS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String address;
 
   public static final String SERIALIZED_NAME_CITY = "city";
 
   @SerializedName(SERIALIZED_NAME_CITY)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String city;
 
   /**
@@ -120,7 +120,7 @@ public class ShippingPoint {
   public static final String SERIALIZED_NAME_OFFICE_TYPE = "officeType";
 
   @SerializedName(SERIALIZED_NAME_OFFICE_TYPE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private OfficeTypeEnum officeType;
 
   /** Gets or Sets cargoTypes */
@@ -179,30 +179,30 @@ public class ShippingPoint {
   public static final String SERIALIZED_NAME_CARGO_TYPES = "cargoTypes";
 
   @SerializedName(SERIALIZED_NAME_CARGO_TYPES)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private List<CargoTypesEnum> cargoTypes = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_LATITUDE = "latitude";
 
   @SerializedName(SERIALIZED_NAME_LATITUDE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private BigDecimal latitude;
 
   public static final String SERIALIZED_NAME_LONGITUDE = "longitude";
 
   @SerializedName(SERIALIZED_NAME_LONGITUDE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private BigDecimal longitude;
 
   public static final String SERIALIZED_NAME_FULFILLMENT = "fulfillment";
 
   @SerializedName(SERIALIZED_NAME_FULFILLMENT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Boolean fulfillment;
 
   public ShippingPoint() {}
 
-  public ShippingPoint id(@jakarta.annotation.Nonnull Long id) {
+  public ShippingPoint id(@jakarta.annotation.Nullable Long id) {
     this.id = id;
     return this;
   }
@@ -212,16 +212,16 @@ public class ShippingPoint {
    *
    * @return id
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Long getId() {
     return id;
   }
 
-  public void setId(@jakarta.annotation.Nonnull Long id) {
+  public void setId(@jakarta.annotation.Nullable Long id) {
     this.id = id;
   }
 
-  public ShippingPoint name(@jakarta.annotation.Nonnull String name) {
+  public ShippingPoint name(@jakarta.annotation.Nullable String name) {
     this.name = name;
     return this;
   }
@@ -231,16 +231,16 @@ public class ShippingPoint {
    *
    * @return name
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getName() {
     return name;
   }
 
-  public void setName(@jakarta.annotation.Nonnull String name) {
+  public void setName(@jakarta.annotation.Nullable String name) {
     this.name = name;
   }
 
-  public ShippingPoint address(@jakarta.annotation.Nonnull String address) {
+  public ShippingPoint address(@jakarta.annotation.Nullable String address) {
     this.address = address;
     return this;
   }
@@ -250,16 +250,16 @@ public class ShippingPoint {
    *
    * @return address
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getAddress() {
     return address;
   }
 
-  public void setAddress(@jakarta.annotation.Nonnull String address) {
+  public void setAddress(@jakarta.annotation.Nullable String address) {
     this.address = address;
   }
 
-  public ShippingPoint city(@jakarta.annotation.Nonnull String city) {
+  public ShippingPoint city(@jakarta.annotation.Nullable String city) {
     this.city = city;
     return this;
   }
@@ -269,16 +269,16 @@ public class ShippingPoint {
    *
    * @return city
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getCity() {
     return city;
   }
 
-  public void setCity(@jakarta.annotation.Nonnull String city) {
+  public void setCity(@jakarta.annotation.Nullable String city) {
     this.city = city;
   }
 
-  public ShippingPoint officeType(@jakarta.annotation.Nonnull OfficeTypeEnum officeType) {
+  public ShippingPoint officeType(@jakarta.annotation.Nullable OfficeTypeEnum officeType) {
     this.officeType = officeType;
     return this;
   }
@@ -289,16 +289,16 @@ public class ShippingPoint {
    *
    * @return officeType
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public OfficeTypeEnum getOfficeType() {
     return officeType;
   }
 
-  public void setOfficeType(@jakarta.annotation.Nonnull OfficeTypeEnum officeType) {
+  public void setOfficeType(@jakarta.annotation.Nullable OfficeTypeEnum officeType) {
     this.officeType = officeType;
   }
 
-  public ShippingPoint cargoTypes(@jakarta.annotation.Nonnull List<CargoTypesEnum> cargoTypes) {
+  public ShippingPoint cargoTypes(@jakarta.annotation.Nullable List<CargoTypesEnum> cargoTypes) {
     this.cargoTypes = cargoTypes;
     return this;
   }
@@ -317,16 +317,16 @@ public class ShippingPoint {
    *
    * @return cargoTypes
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public List<CargoTypesEnum> getCargoTypes() {
     return cargoTypes;
   }
 
-  public void setCargoTypes(@jakarta.annotation.Nonnull List<CargoTypesEnum> cargoTypes) {
+  public void setCargoTypes(@jakarta.annotation.Nullable List<CargoTypesEnum> cargoTypes) {
     this.cargoTypes = cargoTypes;
   }
 
-  public ShippingPoint latitude(@jakarta.annotation.Nonnull BigDecimal latitude) {
+  public ShippingPoint latitude(@jakarta.annotation.Nullable BigDecimal latitude) {
     this.latitude = latitude;
     return this;
   }
@@ -336,16 +336,16 @@ public class ShippingPoint {
    *
    * @return latitude
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public BigDecimal getLatitude() {
     return latitude;
   }
 
-  public void setLatitude(@jakarta.annotation.Nonnull BigDecimal latitude) {
+  public void setLatitude(@jakarta.annotation.Nullable BigDecimal latitude) {
     this.latitude = latitude;
   }
 
-  public ShippingPoint longitude(@jakarta.annotation.Nonnull BigDecimal longitude) {
+  public ShippingPoint longitude(@jakarta.annotation.Nullable BigDecimal longitude) {
     this.longitude = longitude;
     return this;
   }
@@ -355,16 +355,16 @@ public class ShippingPoint {
    *
    * @return longitude
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public BigDecimal getLongitude() {
     return longitude;
   }
 
-  public void setLongitude(@jakarta.annotation.Nonnull BigDecimal longitude) {
+  public void setLongitude(@jakarta.annotation.Nullable BigDecimal longitude) {
     this.longitude = longitude;
   }
 
-  public ShippingPoint fulfillment(@jakarta.annotation.Nonnull Boolean fulfillment) {
+  public ShippingPoint fulfillment(@jakarta.annotation.Nullable Boolean fulfillment) {
     this.fulfillment = fulfillment;
     return this;
   }
@@ -375,12 +375,12 @@ public class ShippingPoint {
    *
    * @return fulfillment
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Boolean getFulfillment() {
     return fulfillment;
   }
 
-  public void setFulfillment(@jakarta.annotation.Nonnull Boolean fulfillment) {
+  public void setFulfillment(@jakarta.annotation.Nullable Boolean fulfillment) {
     this.fulfillment = fulfillment;
   }
 
@@ -455,15 +455,6 @@ public class ShippingPoint {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("id");
-    openapiRequiredFields.add("name");
-    openapiRequiredFields.add("address");
-    openapiRequiredFields.add("city");
-    openapiRequiredFields.add("officeType");
-    openapiRequiredFields.add("cargoTypes");
-    openapiRequiredFields.add("latitude");
-    openapiRequiredFields.add("longitude");
-    openapiRequiredFields.add("fulfillment");
   }
 
   /**
@@ -493,48 +484,43 @@ public class ShippingPoint {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : ShippingPoint.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    if (!jsonObj.get("name").isJsonPrimitive()) {
+    if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull())
+        && !jsonObj.get("name").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `name` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("name").toString()));
     }
-    if (!jsonObj.get("address").isJsonPrimitive()) {
+    if ((jsonObj.get("address") != null && !jsonObj.get("address").isJsonNull())
+        && !jsonObj.get("address").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `address` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("address").toString()));
     }
-    if (!jsonObj.get("city").isJsonPrimitive()) {
+    if ((jsonObj.get("city") != null && !jsonObj.get("city").isJsonNull())
+        && !jsonObj.get("city").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `city` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("city").toString()));
     }
-    if (!jsonObj.get("officeType").isJsonPrimitive()) {
+    if ((jsonObj.get("officeType") != null && !jsonObj.get("officeType").isJsonNull())
+        && !jsonObj.get("officeType").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `officeType` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("officeType").toString()));
     }
-    // validate the required field `officeType`
-    OfficeTypeEnum.validateJsonElement(jsonObj.get("officeType"));
-    // ensure the required json array is present
-    if (jsonObj.get("cargoTypes") == null) {
-      throw new IllegalArgumentException(
-          "Expected the field `linkedContent` to be an array in the JSON string but got `null`");
-    } else if (!jsonObj.get("cargoTypes").isJsonArray()) {
+    // validate the optional field `officeType`
+    if (jsonObj.get("officeType") != null && !jsonObj.get("officeType").isJsonNull()) {
+      OfficeTypeEnum.validateJsonElement(jsonObj.get("officeType"));
+    }
+    // ensure the optional json data is an array if present
+    if (jsonObj.get("cargoTypes") != null
+        && !jsonObj.get("cargoTypes").isJsonNull()
+        && !jsonObj.get("cargoTypes").isJsonArray()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `cargoTypes` to be an array in the JSON string but got `%s`",

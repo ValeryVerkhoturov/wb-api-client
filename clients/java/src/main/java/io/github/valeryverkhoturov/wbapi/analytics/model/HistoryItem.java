@@ -36,42 +36,42 @@ public class HistoryItem {
   public static final String SERIALIZED_NAME_NM_ID = "nmId";
 
   @SerializedName(SERIALIZED_NAME_NM_ID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Long nmId;
 
   public static final String SERIALIZED_NAME_TITLE = "title";
 
   @SerializedName(SERIALIZED_NAME_TITLE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String title;
 
   public static final String SERIALIZED_NAME_VENDOR_CODE = "vendorCode";
 
   @SerializedName(SERIALIZED_NAME_VENDOR_CODE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String vendorCode;
 
   public static final String SERIALIZED_NAME_BRAND_NAME = "brandName";
 
   @SerializedName(SERIALIZED_NAME_BRAND_NAME)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String brandName;
 
   public static final String SERIALIZED_NAME_SUBJECT_ID = "subjectId";
 
   @SerializedName(SERIALIZED_NAME_SUBJECT_ID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer subjectId;
 
   public static final String SERIALIZED_NAME_SUBJECT_NAME = "subjectName";
 
   @SerializedName(SERIALIZED_NAME_SUBJECT_NAME)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String subjectName;
 
   public HistoryItem() {}
 
-  public HistoryItem nmId(@jakarta.annotation.Nonnull Long nmId) {
+  public HistoryItem nmId(@jakarta.annotation.Nullable Long nmId) {
     this.nmId = nmId;
     return this;
   }
@@ -81,16 +81,16 @@ public class HistoryItem {
    *
    * @return nmId
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Long getNmId() {
     return nmId;
   }
 
-  public void setNmId(@jakarta.annotation.Nonnull Long nmId) {
+  public void setNmId(@jakarta.annotation.Nullable Long nmId) {
     this.nmId = nmId;
   }
 
-  public HistoryItem title(@jakarta.annotation.Nonnull String title) {
+  public HistoryItem title(@jakarta.annotation.Nullable String title) {
     this.title = title;
     return this;
   }
@@ -100,16 +100,16 @@ public class HistoryItem {
    *
    * @return title
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getTitle() {
     return title;
   }
 
-  public void setTitle(@jakarta.annotation.Nonnull String title) {
+  public void setTitle(@jakarta.annotation.Nullable String title) {
     this.title = title;
   }
 
-  public HistoryItem vendorCode(@jakarta.annotation.Nonnull String vendorCode) {
+  public HistoryItem vendorCode(@jakarta.annotation.Nullable String vendorCode) {
     this.vendorCode = vendorCode;
     return this;
   }
@@ -119,16 +119,16 @@ public class HistoryItem {
    *
    * @return vendorCode
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getVendorCode() {
     return vendorCode;
   }
 
-  public void setVendorCode(@jakarta.annotation.Nonnull String vendorCode) {
+  public void setVendorCode(@jakarta.annotation.Nullable String vendorCode) {
     this.vendorCode = vendorCode;
   }
 
-  public HistoryItem brandName(@jakarta.annotation.Nonnull String brandName) {
+  public HistoryItem brandName(@jakarta.annotation.Nullable String brandName) {
     this.brandName = brandName;
     return this;
   }
@@ -138,16 +138,16 @@ public class HistoryItem {
    *
    * @return brandName
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getBrandName() {
     return brandName;
   }
 
-  public void setBrandName(@jakarta.annotation.Nonnull String brandName) {
+  public void setBrandName(@jakarta.annotation.Nullable String brandName) {
     this.brandName = brandName;
   }
 
-  public HistoryItem subjectId(@jakarta.annotation.Nonnull Integer subjectId) {
+  public HistoryItem subjectId(@jakarta.annotation.Nullable Integer subjectId) {
     this.subjectId = subjectId;
     return this;
   }
@@ -157,16 +157,16 @@ public class HistoryItem {
    *
    * @return subjectId
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getSubjectId() {
     return subjectId;
   }
 
-  public void setSubjectId(@jakarta.annotation.Nonnull Integer subjectId) {
+  public void setSubjectId(@jakarta.annotation.Nullable Integer subjectId) {
     this.subjectId = subjectId;
   }
 
-  public HistoryItem subjectName(@jakarta.annotation.Nonnull String subjectName) {
+  public HistoryItem subjectName(@jakarta.annotation.Nullable String subjectName) {
     this.subjectName = subjectName;
     return this;
   }
@@ -176,12 +176,12 @@ public class HistoryItem {
    *
    * @return subjectName
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getSubjectName() {
     return subjectName;
   }
 
-  public void setSubjectName(@jakarta.annotation.Nonnull String subjectName) {
+  public void setSubjectName(@jakarta.annotation.Nullable String subjectName) {
     this.subjectName = subjectName;
   }
 
@@ -246,12 +246,6 @@ public class HistoryItem {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("nmId");
-    openapiRequiredFields.add("title");
-    openapiRequiredFields.add("vendorCode");
-    openapiRequiredFields.add("brandName");
-    openapiRequiredFields.add("subjectId");
-    openapiRequiredFields.add("subjectName");
   }
 
   /**
@@ -281,36 +275,30 @@ public class HistoryItem {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : HistoryItem.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    if (!jsonObj.get("title").isJsonPrimitive()) {
+    if ((jsonObj.get("title") != null && !jsonObj.get("title").isJsonNull())
+        && !jsonObj.get("title").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `title` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("title").toString()));
     }
-    if (!jsonObj.get("vendorCode").isJsonPrimitive()) {
+    if ((jsonObj.get("vendorCode") != null && !jsonObj.get("vendorCode").isJsonNull())
+        && !jsonObj.get("vendorCode").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `vendorCode` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("vendorCode").toString()));
     }
-    if (!jsonObj.get("brandName").isJsonPrimitive()) {
+    if ((jsonObj.get("brandName") != null && !jsonObj.get("brandName").isJsonNull())
+        && !jsonObj.get("brandName").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `brandName` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("brandName").toString()));
     }
-    if (!jsonObj.get("subjectName").isJsonPrimitive()) {
+    if ((jsonObj.get("subjectName") != null && !jsonObj.get("subjectName").isJsonNull())
+        && !jsonObj.get("subjectName").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `subjectName` to be a primitive type in the JSON string but got `%s`",

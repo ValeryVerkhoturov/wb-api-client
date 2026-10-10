@@ -25,7 +25,7 @@ from pydantic import (
     StrictInt,
     field_validator,
 )
-from typing import Any, ClassVar, Dict, List, Union
+from typing import Any, ClassVar, Dict, List, Optional, Union
 from wb_api_client.promotion.models.full_stats_item_days_inner_apps_inner_nms_inner import (
     FullStatsItemDaysInnerAppsInnerNmsInner,
 )
@@ -38,34 +38,46 @@ class FullStatsItemDaysInnerAppsInner(BaseModel):
     FullStatsItemDaysInnerAppsInner
     """  # noqa: E501
 
-    app_type: StrictInt = Field(
+    app_type: Optional[StrictInt] = Field(
+        default=None,
         description="Тип платформы:   - `1` — сайт   - `32` — Android   - `64` — IOS ",
         alias="appType",
     )
-    atbs: StrictInt = Field(description="Количество добавлений товаров в корзину")
-    canceled: StrictInt = Field(description="Отмены, шт.")
-    clicks: StrictInt = Field(description="Количество кликов")
-    cpc: Union[StrictFloat, StrictInt] = Field(
-        description="Средняя стоимость клика в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)"
+    atbs: Optional[StrictInt] = Field(
+        default=None, description="Количество добавлений товаров в корзину"
     )
-    cr: Union[StrictFloat, StrictInt] = Field(
-        description="CR (conversion rate) — отношение количества заказов к общему количеству кликов"
+    canceled: Optional[StrictInt] = Field(default=None, description="Отмены, шт.")
+    clicks: Optional[StrictInt] = Field(default=None, description="Количество кликов")
+    cpc: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None,
+        description="Средняя стоимость клика в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)",
     )
-    ctr: Union[StrictFloat, StrictInt] = Field(
-        description="CTR (click-through rate) — отношение числа кликов к количеству показов в процентах"
+    cr: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None,
+        description="CR (conversion rate) — отношение количества заказов к общему количеству кликов",
     )
-    nms: List[FullStatsItemDaysInnerAppsInnerNmsInner] = Field(
-        description="Блок статистики по артикулам WB"
+    ctr: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None,
+        description="CTR (click-through rate) — отношение числа кликов к количеству показов в процентах",
     )
-    orders: StrictInt = Field(description="Количество заказов")
-    shks: StrictInt = Field(description="Количество заказанных товаров, шт.")
-    sum: Union[StrictFloat, StrictInt] = Field(
-        description="Затраты в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)"
+    nms: Optional[List[FullStatsItemDaysInnerAppsInnerNmsInner]] = Field(
+        default=None, description="Блок статистики по артикулам WB"
     )
-    sum_price: Union[StrictFloat, StrictInt] = Field(
-        description="Заказов на сумму в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)"
+    orders: Optional[StrictInt] = Field(default=None, description="Количество заказов")
+    shks: Optional[StrictInt] = Field(
+        default=None, description="Количество заказанных товаров, шт."
     )
-    views: StrictInt = Field(description="Количество просмотров")
+    sum: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None,
+        description="Затраты в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)",
+    )
+    sum_price: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None,
+        description="Заказов на сумму в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)",
+    )
+    views: Optional[StrictInt] = Field(
+        default=None, description="Количество просмотров"
+    )
     __properties: ClassVar[List[str]] = [
         "appType",
         "atbs",
@@ -85,6 +97,9 @@ class FullStatsItemDaysInnerAppsInner(BaseModel):
     @field_validator("app_type")
     def app_type_validate_enum(cls, value):
         """Validates the enum"""
+        if value is None:
+            return value
+
         if value not in set([1, 32, 64]):
             raise ValueError("must be one of enum values (1, 32, 64)")
         return value

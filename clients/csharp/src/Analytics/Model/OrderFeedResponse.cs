@@ -34,33 +34,13 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OrderFeedResponse" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected OrderFeedResponse() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="OrderFeedResponse" /> class.
-        /// </summary>
-        /// <param name="snapshotTime">Метка снимка данных, в рамках которого выполняется пагинация (required).</param>
-        /// <param name="currency">Валюта отчёта (required).</param>
-        /// <param name="orders">Заказы (required).</param>
+        /// <param name="snapshotTime">Метка снимка данных, в рамках которого выполняется пагинация.</param>
+        /// <param name="currency">Валюта отчёта.</param>
+        /// <param name="orders">Заказы.</param>
         public OrderFeedResponse(string snapshotTime = default(string), string currency = default(string), List<Order> orders = default(List<Order>))
         {
-            // to ensure "snapshotTime" is required (not null)
-            if (snapshotTime == null)
-            {
-                throw new ArgumentNullException("snapshotTime is a required property for OrderFeedResponse and cannot be null");
-            }
             this.SnapshotTime = snapshotTime;
-            // to ensure "currency" is required (not null)
-            if (currency == null)
-            {
-                throw new ArgumentNullException("currency is a required property for OrderFeedResponse and cannot be null");
-            }
             this.Currency = currency;
-            // to ensure "orders" is required (not null)
-            if (orders == null)
-            {
-                throw new ArgumentNullException("orders is a required property for OrderFeedResponse and cannot be null");
-            }
             this.Orders = orders;
         }
 
@@ -71,7 +51,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>2026-07-03T15:04:05Z</example>
         */
-        [DataMember(Name = "snapshotTime", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "snapshotTime", EmitDefaultValue = false)]
         public string SnapshotTime { get; set; }
 
         /// <summary>
@@ -81,14 +61,14 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>RUB</example>
         */
-        [DataMember(Name = "currency", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "currency", EmitDefaultValue = false)]
         public string Currency { get; set; }
 
         /// <summary>
         /// Заказы
         /// </summary>
         /// <value>Заказы</value>
-        [DataMember(Name = "orders", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "orders", EmitDefaultValue = false)]
         public List<Order> Orders { get; set; }
 
         /// <summary>

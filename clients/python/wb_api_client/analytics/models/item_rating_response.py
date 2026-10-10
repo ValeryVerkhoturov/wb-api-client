@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from wb_api_client.analytics.models.distribution_table_item import DistributionTableItem
 from wb_api_client.analytics.models.feedbacks_increase_item import FeedbacksIncreaseItem
 from wb_api_client.analytics.models.table_item_float import TableItemFloat
@@ -31,9 +31,13 @@ class ItemRatingResponse(BaseModel):
     Данные ответа
     """  # noqa: E501
 
-    seller_rating: TableItemFloat = Field(alias="sellerRating")
-    feedback_increase: FeedbacksIncreaseItem = Field(alias="feedbackIncrease")
-    items: List[DistributionTableItem] = Field(description="Данные по товарам")
+    seller_rating: Optional[TableItemFloat] = Field(default=None, alias="sellerRating")
+    feedback_increase: Optional[FeedbacksIncreaseItem] = Field(
+        default=None, alias="feedbackIncrease"
+    )
+    items: Optional[List[DistributionTableItem]] = Field(
+        default=None, description="Данные по товарам"
+    )
     __properties: ClassVar[List[str]] = ["sellerRating", "feedbackIncrease", "items"]
 
     model_config = ConfigDict(

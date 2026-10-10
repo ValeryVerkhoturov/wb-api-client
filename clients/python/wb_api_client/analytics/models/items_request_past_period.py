@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,8 +28,8 @@ class ItemsRequestPastPeriod(BaseModel):
     ItemsRequestPastPeriod
     """  # noqa: E501
 
-    start: StrictStr = Field(description="Начало периода")
-    end: StrictStr = Field(description="Конец периода")
+    start: Optional[StrictStr] = Field(default=None, description="Начало периода")
+    end: Optional[StrictStr] = Field(default=None, description="Конец периода")
     __properties: ClassVar[List[str]] = ["start", "end"]
 
     model_config = ConfigDict(

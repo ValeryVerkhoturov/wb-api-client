@@ -34,40 +34,15 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GetV2NmReportDownloadsFileDownloadIdResponse400" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected GetV2NmReportDownloadsFileDownloadIdResponse400() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="GetV2NmReportDownloadsFileDownloadIdResponse400" /> class.
-        /// </summary>
-        /// <param name="title">Заголовок ошибки (required).</param>
-        /// <param name="detail">Детали ошибки (required).</param>
-        /// <param name="requestId">Уникальный ID запроса (required).</param>
-        /// <param name="origin">ID внутреннего сервиса WB (required).</param>
+        /// <param name="title">Заголовок ошибки.</param>
+        /// <param name="detail">Детали ошибки.</param>
+        /// <param name="requestId">Уникальный ID запроса.</param>
+        /// <param name="origin">ID внутреннего сервиса WB.</param>
         public GetV2NmReportDownloadsFileDownloadIdResponse400(string title = default(string), string detail = default(string), string requestId = default(string), string origin = default(string))
         {
-            // to ensure "title" is required (not null)
-            if (title == null)
-            {
-                throw new ArgumentNullException("title is a required property for GetV2NmReportDownloadsFileDownloadIdResponse400 and cannot be null");
-            }
             this.Title = title;
-            // to ensure "detail" is required (not null)
-            if (detail == null)
-            {
-                throw new ArgumentNullException("detail is a required property for GetV2NmReportDownloadsFileDownloadIdResponse400 and cannot be null");
-            }
             this.Detail = detail;
-            // to ensure "requestId" is required (not null)
-            if (requestId == null)
-            {
-                throw new ArgumentNullException("requestId is a required property for GetV2NmReportDownloadsFileDownloadIdResponse400 and cannot be null");
-            }
             this.RequestId = requestId;
-            // to ensure "origin" is required (not null)
-            if (origin == null)
-            {
-                throw new ArgumentNullException("origin is a required property for GetV2NmReportDownloadsFileDownloadIdResponse400 and cannot be null");
-            }
             this.Origin = origin;
         }
 
@@ -75,28 +50,28 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// Заголовок ошибки
         /// </summary>
         /// <value>Заголовок ошибки</value>
-        [DataMember(Name = "title", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "title", EmitDefaultValue = false)]
         public string Title { get; set; }
 
         /// <summary>
         /// Детали ошибки
         /// </summary>
         /// <value>Детали ошибки</value>
-        [DataMember(Name = "detail", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "detail", EmitDefaultValue = false)]
         public string Detail { get; set; }
 
         /// <summary>
         /// Уникальный ID запроса
         /// </summary>
         /// <value>Уникальный ID запроса</value>
-        [DataMember(Name = "requestId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "requestId", EmitDefaultValue = false)]
         public string RequestId { get; set; }
 
         /// <summary>
         /// ID внутреннего сервиса WB
         /// </summary>
         /// <value>ID внутреннего сервиса WB</value>
-        [DataMember(Name = "origin", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "origin", EmitDefaultValue = false)]
         public string Origin { get; set; }
 
         /// <summary>

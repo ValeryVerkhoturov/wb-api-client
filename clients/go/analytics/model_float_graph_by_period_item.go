@@ -11,9 +11,7 @@ API version: analytics
 package analytics
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the FloatGraphByPeriodItem type satisfies the MappedNullable interface at compile time
@@ -22,24 +20,19 @@ var _ MappedNullable = &FloatGraphByPeriodItem{}
 // FloatGraphByPeriodItem Среднее количество заказов за месяц
 type FloatGraphByPeriodItem struct {
 	// Начало месяца
-	Start string `json:"start"`
+	Start *string `json:"start,omitempty"`
 	// Конец месяца
-	End string `json:"end"`
+	End *string `json:"end,omitempty"`
 	// Среднее количество заказов
-	Value float32 `json:"value"`
+	Value *float32 `json:"value,omitempty"`
 }
-
-type _FloatGraphByPeriodItem FloatGraphByPeriodItem
 
 // NewFloatGraphByPeriodItem instantiates a new FloatGraphByPeriodItem object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewFloatGraphByPeriodItem(start string, end string, value float32) *FloatGraphByPeriodItem {
+func NewFloatGraphByPeriodItem() *FloatGraphByPeriodItem {
 	this := FloatGraphByPeriodItem{}
-	this.Start = start
-	this.End = end
-	this.Value = value
 	return &this
 }
 
@@ -51,76 +44,100 @@ func NewFloatGraphByPeriodItemWithDefaults() *FloatGraphByPeriodItem {
 	return &this
 }
 
-// GetStart returns the Start field value
+// GetStart returns the Start field value if set, zero value otherwise.
 func (o *FloatGraphByPeriodItem) GetStart() string {
-	if o == nil {
+	if o == nil || IsNil(o.Start) {
 		var ret string
 		return ret
 	}
-
-	return o.Start
+	return *o.Start
 }
 
-// GetStartOk returns a tuple with the Start field value
+// GetStartOk returns a tuple with the Start field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FloatGraphByPeriodItem) GetStartOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Start) {
 		return nil, false
 	}
-	return &o.Start, true
+	return o.Start, true
 }
 
-// SetStart sets field value
+// HasStart returns a boolean if a field has been set.
+func (o *FloatGraphByPeriodItem) HasStart() bool {
+	if o != nil && !IsNil(o.Start) {
+		return true
+	}
+
+	return false
+}
+
+// SetStart gets a reference to the given string and assigns it to the Start field.
 func (o *FloatGraphByPeriodItem) SetStart(v string) {
-	o.Start = v
+	o.Start = &v
 }
 
-// GetEnd returns the End field value
+// GetEnd returns the End field value if set, zero value otherwise.
 func (o *FloatGraphByPeriodItem) GetEnd() string {
-	if o == nil {
+	if o == nil || IsNil(o.End) {
 		var ret string
 		return ret
 	}
-
-	return o.End
+	return *o.End
 }
 
-// GetEndOk returns a tuple with the End field value
+// GetEndOk returns a tuple with the End field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FloatGraphByPeriodItem) GetEndOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.End) {
 		return nil, false
 	}
-	return &o.End, true
+	return o.End, true
 }
 
-// SetEnd sets field value
+// HasEnd returns a boolean if a field has been set.
+func (o *FloatGraphByPeriodItem) HasEnd() bool {
+	if o != nil && !IsNil(o.End) {
+		return true
+	}
+
+	return false
+}
+
+// SetEnd gets a reference to the given string and assigns it to the End field.
 func (o *FloatGraphByPeriodItem) SetEnd(v string) {
-	o.End = v
+	o.End = &v
 }
 
-// GetValue returns the Value field value
+// GetValue returns the Value field value if set, zero value otherwise.
 func (o *FloatGraphByPeriodItem) GetValue() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.Value) {
 		var ret float32
 		return ret
 	}
-
-	return o.Value
+	return *o.Value
 }
 
-// GetValueOk returns a tuple with the Value field value
+// GetValueOk returns a tuple with the Value field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FloatGraphByPeriodItem) GetValueOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Value) {
 		return nil, false
 	}
-	return &o.Value, true
+	return o.Value, true
 }
 
-// SetValue sets field value
+// HasValue returns a boolean if a field has been set.
+func (o *FloatGraphByPeriodItem) HasValue() bool {
+	if o != nil && !IsNil(o.Value) {
+		return true
+	}
+
+	return false
+}
+
+// SetValue gets a reference to the given float32 and assigns it to the Value field.
 func (o *FloatGraphByPeriodItem) SetValue(v float32) {
-	o.Value = v
+	o.Value = &v
 }
 
 func (o FloatGraphByPeriodItem) MarshalJSON() ([]byte, error) {
@@ -133,49 +150,16 @@ func (o FloatGraphByPeriodItem) MarshalJSON() ([]byte, error) {
 
 func (o FloatGraphByPeriodItem) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["start"] = o.Start
-	toSerialize["end"] = o.End
-	toSerialize["value"] = o.Value
+	if !IsNil(o.Start) {
+		toSerialize["start"] = o.Start
+	}
+	if !IsNil(o.End) {
+		toSerialize["end"] = o.End
+	}
+	if !IsNil(o.Value) {
+		toSerialize["value"] = o.Value
+	}
 	return toSerialize, nil
-}
-
-func (o *FloatGraphByPeriodItem) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"start",
-		"end",
-		"value",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varFloatGraphByPeriodItem := _FloatGraphByPeriodItem{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varFloatGraphByPeriodItem)
-
-	if err != nil {
-		return err
-	}
-
-	*o = FloatGraphByPeriodItem(varFloatGraphByPeriodItem)
-
-	return err
 }
 
 type NullableFloatGraphByPeriodItem struct {

@@ -34,30 +34,20 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="V0DailyLimitAdvert" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected V0DailyLimitAdvert() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="V0DailyLimitAdvert" /> class.
-        /// </summary>
-        /// <param name="advertId">ID кампании (required).</param>
-        /// <param name="enabled">- &#x60;true&#x60; — дневной лимит включен - &#x60;false&#x60; — дневной лимит отключен  (required).</param>
-        /// <param name="dailyLimit">Размер дневного лимита в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) (required).</param>
-        /// <param name="spentToday">Потрачено сегодня в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) (required).</param>
-        /// <param name="currency">Код валюты (required).</param>
-        /// <param name="carryOverEnabled">Перенос остатка дневного лимита на следующий день. Если за 24 часа лимит потратится не полностью, добавим остаток суммы к лимиту следующего дня. Расходы на продвижение не увеличатся.   - &#x60;true&#x60; — перенос остатка включен   - &#x60;false&#x60; — перенос остатка отключен  (required).</param>
-        /// <param name="valid">Хватает ли текущего размера лимита на установку ставок кампании:   - &#x60;true&#x60; — да   - &#x60;false&#x60; — нет, рекомендуем повысить лимит, иначе бюджет кампании может расходоваться неравномерно  (required).</param>
-        /// <param name="requiredLimit">Рекомендуемый минимальный размер дневного лимита при текущих ставках кампании. Указывается в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)  (required).</param>
+        /// <param name="advertId">ID кампании.</param>
+        /// <param name="enabled">- &#x60;true&#x60; — дневной лимит включен - &#x60;false&#x60; — дневной лимит отключен .</param>
+        /// <param name="dailyLimit">Размер дневного лимита в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).</param>
+        /// <param name="spentToday">Потрачено сегодня в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).</param>
+        /// <param name="currency">Код валюты.</param>
+        /// <param name="carryOverEnabled">Перенос остатка дневного лимита на следующий день. Если за 24 часа лимит потратится не полностью, добавим остаток суммы к лимиту следующего дня. Расходы на продвижение не увеличатся.   - &#x60;true&#x60; — перенос остатка включен   - &#x60;false&#x60; — перенос остатка отключен .</param>
+        /// <param name="valid">Хватает ли текущего размера лимита на установку ставок кампании:   - &#x60;true&#x60; — да   - &#x60;false&#x60; — нет, рекомендуем повысить лимит, иначе бюджет кампании может расходоваться неравномерно .</param>
+        /// <param name="requiredLimit">Рекомендуемый минимальный размер дневного лимита при текущих ставках кампании. Указывается в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) .</param>
         public V0DailyLimitAdvert(long advertId = default(long), bool enabled = default(bool), long dailyLimit = default(long), long spentToday = default(long), string currency = default(string), bool carryOverEnabled = default(bool), bool valid = default(bool), long requiredLimit = default(long))
         {
             this.AdvertId = advertId;
             this.Enabled = enabled;
             this.DailyLimit = dailyLimit;
             this.SpentToday = spentToday;
-            // to ensure "currency" is required (not null)
-            if (currency == null)
-            {
-                throw new ArgumentNullException("currency is a required property for V0DailyLimitAdvert and cannot be null");
-            }
             this.Currency = currency;
             this.CarryOverEnabled = carryOverEnabled;
             this.Valid = valid;
@@ -71,7 +61,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /*
         <example>12346</example>
         */
-        [DataMember(Name = "advertId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "advertId", EmitDefaultValue = false)]
         public long AdvertId { get; set; }
 
         /// <summary>
@@ -81,7 +71,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /*
         <example>true</example>
         */
-        [DataMember(Name = "enabled", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "enabled", EmitDefaultValue = true)]
         public bool Enabled { get; set; }
 
         /// <summary>
@@ -91,7 +81,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /*
         <example>100000</example>
         */
-        [DataMember(Name = "dailyLimit", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "dailyLimit", EmitDefaultValue = false)]
         public long DailyLimit { get; set; }
 
         /// <summary>
@@ -101,7 +91,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /*
         <example>35000</example>
         */
-        [DataMember(Name = "spentToday", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "spentToday", EmitDefaultValue = false)]
         public long SpentToday { get; set; }
 
         /// <summary>
@@ -111,7 +101,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /*
         <example>RUB</example>
         */
-        [DataMember(Name = "currency", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "currency", EmitDefaultValue = false)]
         public string Currency { get; set; }
 
         /// <summary>
@@ -121,7 +111,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /*
         <example>true</example>
         */
-        [DataMember(Name = "carryOverEnabled", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "carryOverEnabled", EmitDefaultValue = true)]
         public bool CarryOverEnabled { get; set; }
 
         /// <summary>
@@ -131,7 +121,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /*
         <example>true</example>
         */
-        [DataMember(Name = "valid", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "valid", EmitDefaultValue = true)]
         public bool Valid { get; set; }
 
         /// <summary>
@@ -141,7 +131,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /*
         <example>3001</example>
         */
-        [DataMember(Name = "requiredLimit", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "requiredLimit", EmitDefaultValue = false)]
         public long RequiredLimit { get; set; }
 
         /// <summary>

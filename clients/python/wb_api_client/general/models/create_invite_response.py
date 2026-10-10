@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,16 +28,21 @@ class CreateInviteResponse(BaseModel):
     Данные приглашения
     """  # noqa: E501
 
-    invite_id: StrictStr = Field(description="ID приглашения", alias="inviteID")
-    expired_at: StrictStr = Field(
+    invite_id: Optional[StrictStr] = Field(
+        default=None, description="ID приглашения", alias="inviteID"
+    )
+    expired_at: Optional[StrictStr] = Field(
+        default=None,
         description="Дата и время окончания срока действия приглашения",
         alias="expiredAt",
     )
-    is_success: StrictBool = Field(
+    is_success: Optional[StrictBool] = Field(
+        default=None,
         description="- `true` — приглашение создано успешно - `false` — повторите запрос ",
         alias="isSuccess",
     )
-    invite_url: StrictStr = Field(
+    invite_url: Optional[StrictStr] = Field(
+        default=None,
         description="URL приглашения, по которому должен перейти пользователь",
         alias="inviteUrl",
     )

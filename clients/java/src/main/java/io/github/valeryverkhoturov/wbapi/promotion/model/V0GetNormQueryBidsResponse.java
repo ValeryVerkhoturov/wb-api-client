@@ -39,13 +39,13 @@ public class V0GetNormQueryBidsResponse {
   public static final String SERIALIZED_NAME_BIDS = "bids";
 
   @SerializedName(SERIALIZED_NAME_BIDS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private List<V0GetNormQueryBidsItem> bids = new ArrayList<>();
 
   public V0GetNormQueryBidsResponse() {}
 
   public V0GetNormQueryBidsResponse bids(
-      @jakarta.annotation.Nonnull List<V0GetNormQueryBidsItem> bids) {
+      @jakarta.annotation.Nullable List<V0GetNormQueryBidsItem> bids) {
     this.bids = bids;
     return this;
   }
@@ -63,12 +63,12 @@ public class V0GetNormQueryBidsResponse {
    *
    * @return bids
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public List<V0GetNormQueryBidsItem> getBids() {
     return bids;
   }
 
-  public void setBids(@jakarta.annotation.Nonnull List<V0GetNormQueryBidsItem> bids) {
+  public void setBids(@jakarta.annotation.Nullable List<V0GetNormQueryBidsItem> bids) {
     this.bids = bids;
   }
 
@@ -118,7 +118,6 @@ public class V0GetNormQueryBidsResponse {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("bids");
   }
 
   /**
@@ -148,31 +147,25 @@ public class V0GetNormQueryBidsResponse {
                 entry.getKey(), jsonElement.toString()));
       }
     }
+    JsonObject jsonObj = jsonElement.getAsJsonObject();
+    if (jsonObj.get("bids") != null && !jsonObj.get("bids").isJsonNull()) {
+      JsonArray jsonArraybids = jsonObj.getAsJsonArray("bids");
+      if (jsonArraybids != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("bids").isJsonArray()) {
+          throw new IllegalArgumentException(
+              String.format(
+                  "Expected the field `bids` to be an array in the JSON string but got `%s`",
+                  jsonObj.get("bids").toString()));
+        }
 
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : V0GetNormQueryBidsResponse.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
+        // validate the optional field `bids` (array)
+        for (int i = 0; i < jsonArraybids.size(); i++) {
+          V0GetNormQueryBidsItem.validateJsonElement(jsonArraybids.get(i));
+        }
+        ;
       }
     }
-    JsonObject jsonObj = jsonElement.getAsJsonObject();
-    // ensure the json data is an array
-    if (!jsonObj.get("bids").isJsonArray()) {
-      throw new IllegalArgumentException(
-          String.format(
-              "Expected the field `bids` to be an array in the JSON string but got `%s`",
-              jsonObj.get("bids").toString()));
-    }
-
-    JsonArray jsonArraybids = jsonObj.getAsJsonArray("bids");
-    // validate the required field `bids` (array)
-    for (int i = 0; i < jsonArraybids.size(); i++) {
-      V0GetNormQueryBidsItem.validateJsonElement(jsonArraybids.get(i));
-    }
-    ;
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

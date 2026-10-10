@@ -11,9 +11,7 @@ API version: promotion
 package promotion
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the V1SetNormQueryBidsSuccessResponseItem type satisfies the MappedNullable interface at compile time
@@ -22,27 +20,21 @@ var _ MappedNullable = &V1SetNormQueryBidsSuccessResponseItem{}
 // V1SetNormQueryBidsSuccessResponseItem struct for V1SetNormQueryBidsSuccessResponseItem
 type V1SetNormQueryBidsSuccessResponseItem struct {
 	// ID кампании
-	AdvertId int32 `json:"advertId"`
+	AdvertId *int32 `json:"advertId,omitempty"`
 	// Артикул WB
-	NmId int32 `json:"nmId"`
+	NmId *int32 `json:"nmId,omitempty"`
 	// Поисковый кластер — это группа похожих поисковых запросов, по которым покупатели находят товары
-	NormQuery string `json:"normQuery"`
+	NormQuery *string `json:"normQuery,omitempty"`
 	// Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
-	Currency string `json:"currency"`
+	Currency *string `json:"currency,omitempty"`
 }
-
-type _V1SetNormQueryBidsSuccessResponseItem V1SetNormQueryBidsSuccessResponseItem
 
 // NewV1SetNormQueryBidsSuccessResponseItem instantiates a new V1SetNormQueryBidsSuccessResponseItem object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewV1SetNormQueryBidsSuccessResponseItem(advertId int32, nmId int32, normQuery string, currency string) *V1SetNormQueryBidsSuccessResponseItem {
+func NewV1SetNormQueryBidsSuccessResponseItem() *V1SetNormQueryBidsSuccessResponseItem {
 	this := V1SetNormQueryBidsSuccessResponseItem{}
-	this.AdvertId = advertId
-	this.NmId = nmId
-	this.NormQuery = normQuery
-	this.Currency = currency
 	return &this
 }
 
@@ -54,100 +46,132 @@ func NewV1SetNormQueryBidsSuccessResponseItemWithDefaults() *V1SetNormQueryBidsS
 	return &this
 }
 
-// GetAdvertId returns the AdvertId field value
+// GetAdvertId returns the AdvertId field value if set, zero value otherwise.
 func (o *V1SetNormQueryBidsSuccessResponseItem) GetAdvertId() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.AdvertId) {
 		var ret int32
 		return ret
 	}
-
-	return o.AdvertId
+	return *o.AdvertId
 }
 
-// GetAdvertIdOk returns a tuple with the AdvertId field value
+// GetAdvertIdOk returns a tuple with the AdvertId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *V1SetNormQueryBidsSuccessResponseItem) GetAdvertIdOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AdvertId) {
 		return nil, false
 	}
-	return &o.AdvertId, true
+	return o.AdvertId, true
 }
 
-// SetAdvertId sets field value
+// HasAdvertId returns a boolean if a field has been set.
+func (o *V1SetNormQueryBidsSuccessResponseItem) HasAdvertId() bool {
+	if o != nil && !IsNil(o.AdvertId) {
+		return true
+	}
+
+	return false
+}
+
+// SetAdvertId gets a reference to the given int32 and assigns it to the AdvertId field.
 func (o *V1SetNormQueryBidsSuccessResponseItem) SetAdvertId(v int32) {
-	o.AdvertId = v
+	o.AdvertId = &v
 }
 
-// GetNmId returns the NmId field value
+// GetNmId returns the NmId field value if set, zero value otherwise.
 func (o *V1SetNormQueryBidsSuccessResponseItem) GetNmId() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.NmId) {
 		var ret int32
 		return ret
 	}
-
-	return o.NmId
+	return *o.NmId
 }
 
-// GetNmIdOk returns a tuple with the NmId field value
+// GetNmIdOk returns a tuple with the NmId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *V1SetNormQueryBidsSuccessResponseItem) GetNmIdOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.NmId) {
 		return nil, false
 	}
-	return &o.NmId, true
+	return o.NmId, true
 }
 
-// SetNmId sets field value
+// HasNmId returns a boolean if a field has been set.
+func (o *V1SetNormQueryBidsSuccessResponseItem) HasNmId() bool {
+	if o != nil && !IsNil(o.NmId) {
+		return true
+	}
+
+	return false
+}
+
+// SetNmId gets a reference to the given int32 and assigns it to the NmId field.
 func (o *V1SetNormQueryBidsSuccessResponseItem) SetNmId(v int32) {
-	o.NmId = v
+	o.NmId = &v
 }
 
-// GetNormQuery returns the NormQuery field value
+// GetNormQuery returns the NormQuery field value if set, zero value otherwise.
 func (o *V1SetNormQueryBidsSuccessResponseItem) GetNormQuery() string {
-	if o == nil {
+	if o == nil || IsNil(o.NormQuery) {
 		var ret string
 		return ret
 	}
-
-	return o.NormQuery
+	return *o.NormQuery
 }
 
-// GetNormQueryOk returns a tuple with the NormQuery field value
+// GetNormQueryOk returns a tuple with the NormQuery field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *V1SetNormQueryBidsSuccessResponseItem) GetNormQueryOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.NormQuery) {
 		return nil, false
 	}
-	return &o.NormQuery, true
+	return o.NormQuery, true
 }
 
-// SetNormQuery sets field value
+// HasNormQuery returns a boolean if a field has been set.
+func (o *V1SetNormQueryBidsSuccessResponseItem) HasNormQuery() bool {
+	if o != nil && !IsNil(o.NormQuery) {
+		return true
+	}
+
+	return false
+}
+
+// SetNormQuery gets a reference to the given string and assigns it to the NormQuery field.
 func (o *V1SetNormQueryBidsSuccessResponseItem) SetNormQuery(v string) {
-	o.NormQuery = v
+	o.NormQuery = &v
 }
 
-// GetCurrency returns the Currency field value
+// GetCurrency returns the Currency field value if set, zero value otherwise.
 func (o *V1SetNormQueryBidsSuccessResponseItem) GetCurrency() string {
-	if o == nil {
+	if o == nil || IsNil(o.Currency) {
 		var ret string
 		return ret
 	}
-
-	return o.Currency
+	return *o.Currency
 }
 
-// GetCurrencyOk returns a tuple with the Currency field value
+// GetCurrencyOk returns a tuple with the Currency field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *V1SetNormQueryBidsSuccessResponseItem) GetCurrencyOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Currency) {
 		return nil, false
 	}
-	return &o.Currency, true
+	return o.Currency, true
 }
 
-// SetCurrency sets field value
+// HasCurrency returns a boolean if a field has been set.
+func (o *V1SetNormQueryBidsSuccessResponseItem) HasCurrency() bool {
+	if o != nil && !IsNil(o.Currency) {
+		return true
+	}
+
+	return false
+}
+
+// SetCurrency gets a reference to the given string and assigns it to the Currency field.
 func (o *V1SetNormQueryBidsSuccessResponseItem) SetCurrency(v string) {
-	o.Currency = v
+	o.Currency = &v
 }
 
 func (o V1SetNormQueryBidsSuccessResponseItem) MarshalJSON() ([]byte, error) {
@@ -160,51 +184,19 @@ func (o V1SetNormQueryBidsSuccessResponseItem) MarshalJSON() ([]byte, error) {
 
 func (o V1SetNormQueryBidsSuccessResponseItem) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["advertId"] = o.AdvertId
-	toSerialize["nmId"] = o.NmId
-	toSerialize["normQuery"] = o.NormQuery
-	toSerialize["currency"] = o.Currency
+	if !IsNil(o.AdvertId) {
+		toSerialize["advertId"] = o.AdvertId
+	}
+	if !IsNil(o.NmId) {
+		toSerialize["nmId"] = o.NmId
+	}
+	if !IsNil(o.NormQuery) {
+		toSerialize["normQuery"] = o.NormQuery
+	}
+	if !IsNil(o.Currency) {
+		toSerialize["currency"] = o.Currency
+	}
 	return toSerialize, nil
-}
-
-func (o *V1SetNormQueryBidsSuccessResponseItem) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"advertId",
-		"nmId",
-		"normQuery",
-		"currency",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varV1SetNormQueryBidsSuccessResponseItem := _V1SetNormQueryBidsSuccessResponseItem{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varV1SetNormQueryBidsSuccessResponseItem)
-
-	if err != nil {
-		return err
-	}
-
-	*o = V1SetNormQueryBidsSuccessResponseItem(varV1SetNormQueryBidsSuccessResponseItem)
-
-	return err
 }
 
 type NullableV1SetNormQueryBidsSuccessResponseItem struct {

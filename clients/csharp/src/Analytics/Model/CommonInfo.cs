@@ -34,27 +34,12 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CommonInfo" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected CommonInfo() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="CommonInfo" /> class.
-        /// </summary>
-        /// <param name="supplierRating">supplierRating (required).</param>
-        /// <param name="advertisedProducts">advertisedProducts (required).</param>
-        /// <param name="totalProducts">Общее количество товаров (required).</param>
+        /// <param name="supplierRating">supplierRating.</param>
+        /// <param name="advertisedProducts">advertisedProducts.</param>
+        /// <param name="totalProducts">Общее количество товаров.</param>
         public CommonInfo(CommonInfoSupplierRating supplierRating = default(CommonInfoSupplierRating), CommonInfoAdvertisedProducts advertisedProducts = default(CommonInfoAdvertisedProducts), int totalProducts = default(int))
         {
-            // to ensure "supplierRating" is required (not null)
-            if (supplierRating == null)
-            {
-                throw new ArgumentNullException("supplierRating is a required property for CommonInfo and cannot be null");
-            }
             this.SupplierRating = supplierRating;
-            // to ensure "advertisedProducts" is required (not null)
-            if (advertisedProducts == null)
-            {
-                throw new ArgumentNullException("advertisedProducts is a required property for CommonInfo and cannot be null");
-            }
             this.AdvertisedProducts = advertisedProducts;
             this.TotalProducts = totalProducts;
         }
@@ -62,13 +47,13 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <summary>
         /// Gets or Sets SupplierRating
         /// </summary>
-        [DataMember(Name = "supplierRating", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "supplierRating", EmitDefaultValue = false)]
         public CommonInfoSupplierRating SupplierRating { get; set; }
 
         /// <summary>
         /// Gets or Sets AdvertisedProducts
         /// </summary>
-        [DataMember(Name = "advertisedProducts", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "advertisedProducts", EmitDefaultValue = false)]
         public CommonInfoAdvertisedProducts AdvertisedProducts { get; set; }
 
         /// <summary>
@@ -78,7 +63,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>150</example>
         */
-        [DataMember(Name = "totalProducts", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "totalProducts", EmitDefaultValue = false)]
         public int TotalProducts { get; set; }
 
         /// <summary>

@@ -11,9 +11,7 @@ API version: general
 package general
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the GetUsersResponse type satisfies the MappedNullable interface at compile time
@@ -22,24 +20,19 @@ var _ MappedNullable = &GetUsersResponse{}
 // GetUsersResponse struct for GetUsersResponse
 type GetUsersResponse struct {
 	// Общее количество активных или приглашённых пользователей
-	Total int32 `json:"total"`
+	Total *int32 `json:"total,omitempty"`
 	// Количество активных или приглашённых пользователей на текущей странице
-	CountInResponse int32 `json:"countInResponse"`
+	CountInResponse *int32 `json:"countInResponse,omitempty"`
 	// Информация о пользователях
-	Users []GetUsersResponseUsersInner `json:"users"`
+	Users []GetUsersResponseUsersInner `json:"users,omitempty"`
 }
-
-type _GetUsersResponse GetUsersResponse
 
 // NewGetUsersResponse instantiates a new GetUsersResponse object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetUsersResponse(total int32, countInResponse int32, users []GetUsersResponseUsersInner) *GetUsersResponse {
+func NewGetUsersResponse() *GetUsersResponse {
 	this := GetUsersResponse{}
-	this.Total = total
-	this.CountInResponse = countInResponse
-	this.Users = users
 	return &this
 }
 
@@ -51,74 +44,98 @@ func NewGetUsersResponseWithDefaults() *GetUsersResponse {
 	return &this
 }
 
-// GetTotal returns the Total field value
+// GetTotal returns the Total field value if set, zero value otherwise.
 func (o *GetUsersResponse) GetTotal() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.Total) {
 		var ret int32
 		return ret
 	}
-
-	return o.Total
+	return *o.Total
 }
 
-// GetTotalOk returns a tuple with the Total field value
+// GetTotalOk returns a tuple with the Total field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetUsersResponse) GetTotalOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Total) {
 		return nil, false
 	}
-	return &o.Total, true
+	return o.Total, true
 }
 
-// SetTotal sets field value
+// HasTotal returns a boolean if a field has been set.
+func (o *GetUsersResponse) HasTotal() bool {
+	if o != nil && !IsNil(o.Total) {
+		return true
+	}
+
+	return false
+}
+
+// SetTotal gets a reference to the given int32 and assigns it to the Total field.
 func (o *GetUsersResponse) SetTotal(v int32) {
-	o.Total = v
+	o.Total = &v
 }
 
-// GetCountInResponse returns the CountInResponse field value
+// GetCountInResponse returns the CountInResponse field value if set, zero value otherwise.
 func (o *GetUsersResponse) GetCountInResponse() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.CountInResponse) {
 		var ret int32
 		return ret
 	}
-
-	return o.CountInResponse
+	return *o.CountInResponse
 }
 
-// GetCountInResponseOk returns a tuple with the CountInResponse field value
+// GetCountInResponseOk returns a tuple with the CountInResponse field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetUsersResponse) GetCountInResponseOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.CountInResponse) {
 		return nil, false
 	}
-	return &o.CountInResponse, true
+	return o.CountInResponse, true
 }
 
-// SetCountInResponse sets field value
+// HasCountInResponse returns a boolean if a field has been set.
+func (o *GetUsersResponse) HasCountInResponse() bool {
+	if o != nil && !IsNil(o.CountInResponse) {
+		return true
+	}
+
+	return false
+}
+
+// SetCountInResponse gets a reference to the given int32 and assigns it to the CountInResponse field.
 func (o *GetUsersResponse) SetCountInResponse(v int32) {
-	o.CountInResponse = v
+	o.CountInResponse = &v
 }
 
-// GetUsers returns the Users field value
+// GetUsers returns the Users field value if set, zero value otherwise.
 func (o *GetUsersResponse) GetUsers() []GetUsersResponseUsersInner {
-	if o == nil {
+	if o == nil || IsNil(o.Users) {
 		var ret []GetUsersResponseUsersInner
 		return ret
 	}
-
 	return o.Users
 }
 
-// GetUsersOk returns a tuple with the Users field value
+// GetUsersOk returns a tuple with the Users field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetUsersResponse) GetUsersOk() ([]GetUsersResponseUsersInner, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Users) {
 		return nil, false
 	}
 	return o.Users, true
 }
 
-// SetUsers sets field value
+// HasUsers returns a boolean if a field has been set.
+func (o *GetUsersResponse) HasUsers() bool {
+	if o != nil && !IsNil(o.Users) {
+		return true
+	}
+
+	return false
+}
+
+// SetUsers gets a reference to the given []GetUsersResponseUsersInner and assigns it to the Users field.
 func (o *GetUsersResponse) SetUsers(v []GetUsersResponseUsersInner) {
 	o.Users = v
 }
@@ -133,49 +150,16 @@ func (o GetUsersResponse) MarshalJSON() ([]byte, error) {
 
 func (o GetUsersResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["total"] = o.Total
-	toSerialize["countInResponse"] = o.CountInResponse
-	toSerialize["users"] = o.Users
+	if !IsNil(o.Total) {
+		toSerialize["total"] = o.Total
+	}
+	if !IsNil(o.CountInResponse) {
+		toSerialize["countInResponse"] = o.CountInResponse
+	}
+	if !IsNil(o.Users) {
+		toSerialize["users"] = o.Users
+	}
 	return toSerialize, nil
-}
-
-func (o *GetUsersResponse) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"total",
-		"countInResponse",
-		"users",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varGetUsersResponse := _GetUsersResponse{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varGetUsersResponse)
-
-	if err != nil {
-		return err
-	}
-
-	*o = GetUsersResponse(varGetUsersResponse)
-
-	return err
 }
 
 type NullableGetUsersResponse struct {

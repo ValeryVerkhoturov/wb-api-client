@@ -34,35 +34,25 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Statistic" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected Statistic() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Statistic" /> class.
-        /// </summary>
-        /// <param name="period">period (required).</param>
-        /// <param name="openCount">Количество переходов в карточку товара (required).</param>
-        /// <param name="cartCount">Положили в корзину, шт. (required).</param>
-        /// <param name="orderCount">Заказали товаров, шт. (required).</param>
-        /// <param name="orderSum">Заказали на сумму (required).</param>
-        /// <param name="buyoutCount">Выкупили товаров, шт. (required).</param>
-        /// <param name="buyoutSum">Выкупили на сумму (required).</param>
-        /// <param name="cancelCount">Отменили и вернули товаров, шт. (required).</param>
-        /// <param name="cancelSum">Отменили и вернули на сумму (required).</param>
-        /// <param name="avgPrice">Средняя цена (required).</param>
-        /// <param name="avgOrdersCountPerDay">Среднее количество заказов в день, шт. (required).</param>
-        /// <param name="shareOrderPercent">Доля в выручке (required).</param>
-        /// <param name="addToWishlist">Добавили в **Отложенные** (required).</param>
-        /// <param name="timeToReady">timeToReady (required).</param>
-        /// <param name="localizationPercent">Локальные заказы в рамках одного региона. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может быть только &#x60;100&#x60; (required).</param>
-        /// <param name="wbClub">wbClub (required).</param>
-        /// <param name="conversions">conversions (required).</param>
+        /// <param name="period">period.</param>
+        /// <param name="openCount">Количество переходов в карточку товара.</param>
+        /// <param name="cartCount">Положили в корзину, шт..</param>
+        /// <param name="orderCount">Заказали товаров, шт..</param>
+        /// <param name="orderSum">Заказали на сумму.</param>
+        /// <param name="buyoutCount">Выкупили товаров, шт..</param>
+        /// <param name="buyoutSum">Выкупили на сумму.</param>
+        /// <param name="cancelCount">Отменили и вернули товаров, шт..</param>
+        /// <param name="cancelSum">Отменили и вернули на сумму.</param>
+        /// <param name="avgPrice">Средняя цена.</param>
+        /// <param name="avgOrdersCountPerDay">Среднее количество заказов в день, шт..</param>
+        /// <param name="shareOrderPercent">Доля в выручке.</param>
+        /// <param name="addToWishlist">Добавили в **Отложенные**.</param>
+        /// <param name="timeToReady">timeToReady.</param>
+        /// <param name="localizationPercent">Локальные заказы в рамках одного региона. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может быть только &#x60;100&#x60;.</param>
+        /// <param name="wbClub">wbClub.</param>
+        /// <param name="conversions">conversions.</param>
         public Statistic(StatisticPeriod period = default(StatisticPeriod), int openCount = default(int), int cartCount = default(int), int orderCount = default(int), int orderSum = default(int), int buyoutCount = default(int), int buyoutSum = default(int), int cancelCount = default(int), int cancelSum = default(int), int avgPrice = default(int), decimal avgOrdersCountPerDay = default(decimal), decimal shareOrderPercent = default(decimal), int addToWishlist = default(int), StatisticTimeToReady timeToReady = default(StatisticTimeToReady), int localizationPercent = default(int), StatisticWbClub wbClub = default(StatisticWbClub), StatisticConversions conversions = default(StatisticConversions))
         {
-            // to ensure "period" is required (not null)
-            if (period == null)
-            {
-                throw new ArgumentNullException("period is a required property for Statistic and cannot be null");
-            }
             this.Period = period;
             this.OpenCount = openCount;
             this.CartCount = cartCount;
@@ -76,31 +66,16 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
             this.AvgOrdersCountPerDay = avgOrdersCountPerDay;
             this.ShareOrderPercent = shareOrderPercent;
             this.AddToWishlist = addToWishlist;
-            // to ensure "timeToReady" is required (not null)
-            if (timeToReady == null)
-            {
-                throw new ArgumentNullException("timeToReady is a required property for Statistic and cannot be null");
-            }
             this.TimeToReady = timeToReady;
             this.LocalizationPercent = localizationPercent;
-            // to ensure "wbClub" is required (not null)
-            if (wbClub == null)
-            {
-                throw new ArgumentNullException("wbClub is a required property for Statistic and cannot be null");
-            }
             this.WbClub = wbClub;
-            // to ensure "conversions" is required (not null)
-            if (conversions == null)
-            {
-                throw new ArgumentNullException("conversions is a required property for Statistic and cannot be null");
-            }
             this.Conversions = conversions;
         }
 
         /// <summary>
         /// Gets or Sets Period
         /// </summary>
-        [DataMember(Name = "period", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "period", EmitDefaultValue = false)]
         public StatisticPeriod Period { get; set; }
 
         /// <summary>
@@ -110,7 +85,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>45</example>
         */
-        [DataMember(Name = "openCount", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "openCount", EmitDefaultValue = false)]
         public int OpenCount { get; set; }
 
         /// <summary>
@@ -120,7 +95,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>34</example>
         */
-        [DataMember(Name = "cartCount", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "cartCount", EmitDefaultValue = false)]
         public int CartCount { get; set; }
 
         /// <summary>
@@ -130,7 +105,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>19</example>
         */
-        [DataMember(Name = "orderCount", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "orderCount", EmitDefaultValue = false)]
         public int OrderCount { get; set; }
 
         /// <summary>
@@ -140,7 +115,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>1262</example>
         */
-        [DataMember(Name = "orderSum", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "orderSum", EmitDefaultValue = false)]
         public int OrderSum { get; set; }
 
         /// <summary>
@@ -150,7 +125,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>19</example>
         */
-        [DataMember(Name = "buyoutCount", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "buyoutCount", EmitDefaultValue = false)]
         public int BuyoutCount { get; set; }
 
         /// <summary>
@@ -160,7 +135,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>1262</example>
         */
-        [DataMember(Name = "buyoutSum", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "buyoutSum", EmitDefaultValue = false)]
         public int BuyoutSum { get; set; }
 
         /// <summary>
@@ -170,7 +145,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>0</example>
         */
-        [DataMember(Name = "cancelCount", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "cancelCount", EmitDefaultValue = false)]
         public int CancelCount { get; set; }
 
         /// <summary>
@@ -180,7 +155,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>0</example>
         */
-        [DataMember(Name = "cancelSum", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "cancelSum", EmitDefaultValue = false)]
         public int CancelSum { get; set; }
 
         /// <summary>
@@ -190,7 +165,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>1262</example>
         */
-        [DataMember(Name = "avgPrice", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "avgPrice", EmitDefaultValue = false)]
         public int AvgPrice { get; set; }
 
         /// <summary>
@@ -200,7 +175,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>0.04</example>
         */
-        [DataMember(Name = "avgOrdersCountPerDay", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "avgOrdersCountPerDay", EmitDefaultValue = false)]
         public decimal AvgOrdersCountPerDay { get; set; }
 
         /// <summary>
@@ -210,7 +185,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>3</example>
         */
-        [DataMember(Name = "shareOrderPercent", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "shareOrderPercent", EmitDefaultValue = false)]
         public decimal ShareOrderPercent { get; set; }
 
         /// <summary>
@@ -220,13 +195,13 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>455</example>
         */
-        [DataMember(Name = "addToWishlist", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "addToWishlist", EmitDefaultValue = false)]
         public int AddToWishlist { get; set; }
 
         /// <summary>
         /// Gets or Sets TimeToReady
         /// </summary>
-        [DataMember(Name = "timeToReady", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "timeToReady", EmitDefaultValue = false)]
         public StatisticTimeToReady TimeToReady { get; set; }
 
         /// <summary>
@@ -236,19 +211,19 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>100</example>
         */
-        [DataMember(Name = "localizationPercent", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "localizationPercent", EmitDefaultValue = false)]
         public int LocalizationPercent { get; set; }
 
         /// <summary>
         /// Gets or Sets WbClub
         /// </summary>
-        [DataMember(Name = "wbClub", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "wbClub", EmitDefaultValue = false)]
         public StatisticWbClub WbClub { get; set; }
 
         /// <summary>
         /// Gets or Sets Conversions
         /// </summary>
-        [DataMember(Name = "conversions", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "conversions", EmitDefaultValue = false)]
         public StatisticConversions Conversions { get; set; }
 
         /// <summary>

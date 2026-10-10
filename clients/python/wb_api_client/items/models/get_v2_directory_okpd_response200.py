@@ -31,11 +31,15 @@ class GetV2DirectoryOkpdResponse200(BaseModel):
     GetV2DirectoryOkpdResponse200
     """  # noqa: E501
 
-    data: List[GetV2DirectoryOkpdResponse200DataInner] = Field(description="Данные")
-    error: StrictBool = Field(description="Флаг наличия ошибки")
-    error_text: StrictStr = Field(description="Текст ошибки", alias="errorText")
+    data: Optional[List[GetV2DirectoryOkpdResponse200DataInner]] = Field(
+        default=None, description="Данные"
+    )
+    error: Optional[StrictBool] = Field(default=None, description="Флаг наличия ошибки")
+    error_text: Optional[StrictStr] = Field(
+        default=None, description="Текст ошибки", alias="errorText"
+    )
     additional_errors: Optional[StrictStr] = Field(
-        description="Дополнительные ошибки", alias="additionalErrors"
+        default=None, description="Дополнительные ошибки", alias="additionalErrors"
     )
     __properties: ClassVar[List[str]] = [
         "data",

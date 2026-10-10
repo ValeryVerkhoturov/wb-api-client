@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,9 +28,9 @@ class GetV2DirectoryTnvedAllResponse200DataInner(BaseModel):
     GetV2DirectoryTnvedAllResponse200DataInner
     """  # noqa: E501
 
-    tnved: StrictStr = Field(description="Код ТН ВЭД")
-    description: StrictStr = Field(
-        description="Текстовое описание товаров, которые входят в группу"
+    tnved: Optional[StrictStr] = Field(default=None, description="Код ТН ВЭД")
+    description: Optional[StrictStr] = Field(
+        default=None, description="Текстовое описание товаров, которые входят в группу"
     )
     __properties: ClassVar[List[str]] = ["tnved", "description"]
 

@@ -34,21 +34,11 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AdvertSubcategory" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected AdvertSubcategory() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="AdvertSubcategory" /> class.
-        /// </summary>
-        /// <param name="id">ID предмета (required).</param>
-        /// <param name="name">Название предмета (required).</param>
+        /// <param name="id">ID предмета.</param>
+        /// <param name="name">Название предмета.</param>
         public AdvertSubcategory(long id = default(long), string name = default(string))
         {
             this.Id = id;
-            // to ensure "name" is required (not null)
-            if (name == null)
-            {
-                throw new ArgumentNullException("name is a required property for AdvertSubcategory and cannot be null");
-            }
             this.Name = name;
         }
 
@@ -56,14 +46,14 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// ID предмета
         /// </summary>
         /// <value>ID предмета</value>
-        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "id", EmitDefaultValue = false)]
         public long Id { get; set; }
 
         /// <summary>
         /// Название предмета
         /// </summary>
         /// <value>Название предмета</value>
-        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "name", EmitDefaultValue = false)]
         public string Name { get; set; }
 
         /// <summary>

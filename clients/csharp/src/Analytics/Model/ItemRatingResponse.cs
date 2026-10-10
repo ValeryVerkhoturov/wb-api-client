@@ -34,53 +34,33 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemRatingResponse" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected ItemRatingResponse() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ItemRatingResponse" /> class.
-        /// </summary>
-        /// <param name="sellerRating">sellerRating (required).</param>
-        /// <param name="feedbackIncrease">feedbackIncrease (required).</param>
-        /// <param name="items">Данные по товарам (required).</param>
+        /// <param name="sellerRating">sellerRating.</param>
+        /// <param name="feedbackIncrease">feedbackIncrease.</param>
+        /// <param name="items">Данные по товарам.</param>
         public ItemRatingResponse(TableItemFloat sellerRating = default(TableItemFloat), FeedbacksIncreaseItem feedbackIncrease = default(FeedbacksIncreaseItem), List<DistributionTableItem> items = default(List<DistributionTableItem>))
         {
-            // to ensure "sellerRating" is required (not null)
-            if (sellerRating == null)
-            {
-                throw new ArgumentNullException("sellerRating is a required property for ItemRatingResponse and cannot be null");
-            }
             this.SellerRating = sellerRating;
-            // to ensure "feedbackIncrease" is required (not null)
-            if (feedbackIncrease == null)
-            {
-                throw new ArgumentNullException("feedbackIncrease is a required property for ItemRatingResponse and cannot be null");
-            }
             this.FeedbackIncrease = feedbackIncrease;
-            // to ensure "items" is required (not null)
-            if (items == null)
-            {
-                throw new ArgumentNullException("items is a required property for ItemRatingResponse and cannot be null");
-            }
             this.Items = items;
         }
 
         /// <summary>
         /// Gets or Sets SellerRating
         /// </summary>
-        [DataMember(Name = "sellerRating", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "sellerRating", EmitDefaultValue = false)]
         public TableItemFloat SellerRating { get; set; }
 
         /// <summary>
         /// Gets or Sets FeedbackIncrease
         /// </summary>
-        [DataMember(Name = "feedbackIncrease", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "feedbackIncrease", EmitDefaultValue = false)]
         public FeedbacksIncreaseItem FeedbackIncrease { get; set; }
 
         /// <summary>
         /// Данные по товарам
         /// </summary>
         /// <value>Данные по товарам</value>
-        [DataMember(Name = "items", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "items", EmitDefaultValue = false)]
         public List<DistributionTableItem> Items { get; set; }
 
         /// <summary>

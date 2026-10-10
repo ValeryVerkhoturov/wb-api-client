@@ -50,19 +50,19 @@ export interface CommonInfo {
    * @type {CommonInfoSupplierRating}
    * @memberof CommonInfo
    */
-  supplierRating: CommonInfoSupplierRating;
+  supplierRating?: CommonInfoSupplierRating;
   /**
    *
    * @type {CommonInfoAdvertisedProducts}
    * @memberof CommonInfo
    */
-  advertisedProducts: CommonInfoAdvertisedProducts;
+  advertisedProducts?: CommonInfoAdvertisedProducts;
   /**
    * Общее количество товаров
    * @type {number}
    * @memberof CommonInfo
    */
-  totalProducts: number;
+  totalProducts?: number;
 }
 /**
  * Количество товаров в рекламе
@@ -75,7 +75,7 @@ export interface CommonInfoAdvertisedProducts {
    * @type {number}
    * @memberof CommonInfoAdvertisedProducts
    */
-  current: number;
+  current?: number;
   /**
    * Динамика по сравнению с предыдущим периодом, %
    * @type {number}
@@ -94,7 +94,7 @@ export interface CommonInfoSupplierRating {
    * @type {number}
    * @memberof CommonInfoSupplierRating
    */
-  current: number;
+  current?: number;
   /**
    * Динамика по сравнению с предыдущим периодом, %
    * @type {number}
@@ -362,97 +362,97 @@ export interface Comparison {
    * @type {number}
    * @memberof Comparison
    */
-  openCountDynamic: number;
+  openCountDynamic?: number;
   /**
    * Динамика добавлений в корзину
    * @type {number}
    * @memberof Comparison
    */
-  cartCountDynamic: number;
+  cartCountDynamic?: number;
   /**
    * Динамика количества заказов
    * @type {number}
    * @memberof Comparison
    */
-  orderCountDynamic: number;
+  orderCountDynamic?: number;
   /**
    * Динамика суммы заказов
    * @type {number}
    * @memberof Comparison
    */
-  orderSumDynamic: number;
+  orderSumDynamic?: number;
   /**
    * Динамика выкупов
    * @type {number}
    * @memberof Comparison
    */
-  buyoutCountDynamic: number;
+  buyoutCountDynamic?: number;
   /**
    * Динамика суммы выкупов
    * @type {number}
    * @memberof Comparison
    */
-  buyoutSumDynamic: number;
+  buyoutSumDynamic?: number;
   /**
    * Динамика отмен и возвратов товаров
    * @type {number}
    * @memberof Comparison
    */
-  cancelCountDynamic: number;
+  cancelCountDynamic?: number;
   /**
    * Динамика сумм отмен и возвратов товаров
    * @type {number}
    * @memberof Comparison
    */
-  cancelSumDynamic: number;
+  cancelSumDynamic?: number;
   /**
    * Динамика среднего количества заказов в день
    * @type {number}
    * @memberof Comparison
    */
-  avgOrdersCountPerDayDynamic: number;
+  avgOrdersCountPerDayDynamic?: number;
   /**
    * Динамика средней цены на товары. Учитываются скидки для акций
    * @type {number}
    * @memberof Comparison
    */
-  avgPriceDynamic: number;
+  avgPriceDynamic?: number;
   /**
    * Динамика доли в выручке
    * @type {number}
    * @memberof Comparison
    */
-  shareOrderPercentDynamic: number;
+  shareOrderPercentDynamic?: number;
   /**
    * Динамика добавлений товара в избранное
    * @type {number}
    * @memberof Comparison
    */
-  addToWishlistDynamic: number;
+  addToWishlistDynamic?: number;
   /**
    *
    * @type {ComparisonTimeToReadyDynamic}
    * @memberof Comparison
    */
-  timeToReadyDynamic: ComparisonTimeToReadyDynamic;
+  timeToReadyDynamic?: ComparisonTimeToReadyDynamic;
   /**
    * Динамика локальных заказов в рамках одного региона. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `0`
    * @type {number}
    * @memberof Comparison
    */
-  localizationPercentDynamic: number;
+  localizationPercentDynamic?: number;
   /**
    *
    * @type {ComparisonWbClubDynamic}
    * @memberof Comparison
    */
-  wbClubDynamic: ComparisonWbClubDynamic;
+  wbClubDynamic?: ComparisonWbClubDynamic;
   /**
    *
    * @type {StatisticConversions}
    * @memberof Comparison
    */
-  conversions: StatisticConversions;
+  conversions?: StatisticConversions;
 }
 /**
  *
@@ -465,19 +465,19 @@ export interface ComparisonTimeToReadyDynamic {
    * @type {number}
    * @memberof ComparisonTimeToReadyDynamic
    */
-  days: number;
+  days?: number;
   /**
    * Часы
    * @type {number}
    * @memberof ComparisonTimeToReadyDynamic
    */
-  hours: number;
+  hours?: number;
   /**
    * Минуты
    * @type {number}
    * @memberof ComparisonTimeToReadyDynamic
    */
-  mins: number;
+  mins?: number;
 }
 /**
  *
@@ -490,55 +490,55 @@ export interface ComparisonWbClubDynamic {
    * @type {number}
    * @memberof ComparisonWbClubDynamic
    */
-  orderCount: number;
+  orderCount?: number;
   /**
    * Динамика суммы заказов с WB Клубом
    * @type {number}
    * @memberof ComparisonWbClubDynamic
    */
-  orderSum: number;
+  orderSum?: number;
   /**
    * Динамика суммы выкупов с WB Клубом
    * @type {number}
    * @memberof ComparisonWbClubDynamic
    */
-  buyoutSum: number;
+  buyoutSum?: number;
   /**
    * Динамика выкупов с WB Клубом
    * @type {number}
    * @memberof ComparisonWbClubDynamic
    */
-  buyoutCount: number;
+  buyoutCount?: number;
   /**
    * Динамика сумм отмен и возвратов товаров с WB Клубом
    * @type {number}
    * @memberof ComparisonWbClubDynamic
    */
-  cancelSum: number;
+  cancelSum?: number;
   /**
    * Динамика отмен и возвратов товаров с WB Клубом
    * @type {number}
    * @memberof ComparisonWbClubDynamic
    */
-  cancelCount: number;
+  cancelCount?: number;
   /**
    * Динамика средней цены на товары с WB Клубом
    * @type {number}
    * @memberof ComparisonWbClubDynamic
    */
-  avgPrice: number;
+  avgPrice?: number;
   /**
    * Динамика процента выкупа с WB Клубом
    * @type {number}
    * @memberof ComparisonWbClubDynamic
    */
-  buyoutPercent: number;
+  buyoutPercent?: number;
   /**
    * Динамика среднего количества заказов с WB Клубом в день
    * @type {number}
    * @memberof ComparisonWbClubDynamic
    */
-  avgOrderCountPerDay: number;
+  avgOrderCountPerDay?: number;
 }
 /**
  *
@@ -551,19 +551,19 @@ export interface Conversions {
    * @type {number}
    * @memberof Conversions
    */
-  addToCartPercent: number;
+  addToCartPercent?: number;
   /**
    * Конверсия в заказ. Какой процент посетителей, добавивших товар в корзину, сделали заказ, %
    * @type {number}
    * @memberof Conversions
    */
-  cartToOrderPercent: number;
+  cartToOrderPercent?: number;
   /**
    * Процент выкупа. Какой процент посетителей, заказавших товар, его выкупили. Без учёта товаров, которые еще доставляются покупателю, %
    * @type {number}
    * @memberof Conversions
    */
-  buyoutPercent: number;
+  buyoutPercent?: number;
 }
 /**
  *
@@ -576,13 +576,13 @@ export interface DatePeriod {
    * @type {string}
    * @memberof DatePeriod
    */
-  start: string;
+  start?: string;
   /**
    * Конец периода
    * @type {string}
    * @memberof DatePeriod
    */
-  end: string;
+  end?: string;
 }
 /**
  *
@@ -595,115 +595,115 @@ export interface DistributionTableItem {
    * @type {number}
    * @memberof DistributionTableItem
    */
-  nmId: number;
+  nmId?: number;
   /**
    * Название товара
    * @type {string}
    * @memberof DistributionTableItem
    */
-  title: string;
+  title?: string;
   /**
    * Артикул продавца
    * @type {string}
    * @memberof DistributionTableItem
    */
-  vendorCode: string;
+  vendorCode?: string;
   /**
    * ID предмета
    * @type {number}
    * @memberof DistributionTableItem
    */
-  subjectId: number;
+  subjectId?: number;
   /**
    * Название предмета
    * @type {string}
    * @memberof DistributionTableItem
    */
-  subjectName: string;
+  subjectName?: string;
   /**
    * Бренд
    * @type {string}
    * @memberof DistributionTableItem
    */
-  brandName: string;
+  brandName?: string;
   /**
    * Название ярлыка
    * @type {string}
    * @memberof DistributionTableItem
    */
-  tagName: string;
+  tagName?: string;
   /**
    * ID ярлыка
    * @type {number}
    * @memberof DistributionTableItem
    */
-  tagId: number;
+  tagId?: number;
   /**
    * Отзыв закреплён
    * @type {boolean}
    * @memberof DistributionTableItem
    */
-  pinnedFeedback: boolean;
+  pinnedFeedback?: boolean;
   /**
    * Рейтинг карточки товара
    * @type {number}
    * @memberof DistributionTableItem
    */
-  rating: number;
+  rating?: number;
   /**
    *
    * @type {DistributionTableItemFeedbackRating}
    * @memberof DistributionTableItem
    */
-  feedbackRating: DistributionTableItemFeedbackRating;
+  feedbackRating?: DistributionTableItemFeedbackRating;
   /**
    *
    * @type {DistributionTableItemFeedbackCount}
    * @memberof DistributionTableItem
    */
-  feedbackCount: DistributionTableItemFeedbackCount;
+  feedbackCount?: DistributionTableItemFeedbackCount;
   /**
    *
    * @type {DistributionTableItemFiveStar}
    * @memberof DistributionTableItem
    */
-  fiveStar: DistributionTableItemFiveStar;
+  fiveStar?: DistributionTableItemFiveStar;
   /**
    *
    * @type {DistributionTableItemFourStar}
    * @memberof DistributionTableItem
    */
-  fourStar: DistributionTableItemFourStar;
+  fourStar?: DistributionTableItemFourStar;
   /**
    *
    * @type {DistributionTableItemThreeStar}
    * @memberof DistributionTableItem
    */
-  threeStar: DistributionTableItemThreeStar;
+  threeStar?: DistributionTableItemThreeStar;
   /**
    *
    * @type {DistributionTableItemTwoStar}
    * @memberof DistributionTableItem
    */
-  twoStar: DistributionTableItemTwoStar;
+  twoStar?: DistributionTableItemTwoStar;
   /**
    *
    * @type {DistributionTableItemOneStar}
    * @memberof DistributionTableItem
    */
-  oneStar: DistributionTableItemOneStar;
+  oneStar?: DistributionTableItemOneStar;
   /**
    * Отзывы, исключённые из рейтинга
    * @type {number}
    * @memberof DistributionTableItem
    */
-  disqualified: number;
+  disqualified?: number;
   /**
    * Является ли товар скрытым из каталога:   - `true` — товар скрыт из каталога   - `false` — товар не скрыт из каталога
    * @type {boolean}
    * @memberof DistributionTableItem
    */
-  isShadowed: boolean;
+  isShadowed?: boolean;
 }
 /**
  * Все отзывы за период
@@ -716,7 +716,7 @@ export interface DistributionTableItemFeedbackCount {
    * @type {number}
    * @memberof DistributionTableItemFeedbackCount
    */
-  current: number;
+  current?: number;
   /**
    * Динамика по сравнению с предыдущим периодом, %
    * @type {number}
@@ -735,7 +735,7 @@ export interface DistributionTableItemFeedbackRating {
    * @type {number}
    * @memberof DistributionTableItemFeedbackRating
    */
-  current: number;
+  current?: number;
   /**
    * Динамика по сравнению с предыдущим периодом, %
    * @type {number}
@@ -747,7 +747,7 @@ export interface DistributionTableItemFeedbackRating {
    * @type {number}
    * @memberof DistributionTableItemFeedbackRating
    */
-  percentile: number | null;
+  percentile?: number | null;
 }
 /**
  * Отзывы 5 звёзд
@@ -760,7 +760,7 @@ export interface DistributionTableItemFiveStar {
    * @type {number}
    * @memberof DistributionTableItemFiveStar
    */
-  current: number;
+  current?: number;
   /**
    * Динамика по сравнению с предыдущим периодом, %
    * @type {number}
@@ -779,7 +779,7 @@ export interface DistributionTableItemFourStar {
    * @type {number}
    * @memberof DistributionTableItemFourStar
    */
-  current: number;
+  current?: number;
   /**
    * Динамика по сравнению с предыдущим периодом, %
    * @type {number}
@@ -798,7 +798,7 @@ export interface DistributionTableItemOneStar {
    * @type {number}
    * @memberof DistributionTableItemOneStar
    */
-  current: number;
+  current?: number;
   /**
    * Динамика по сравнению с предыдущим периодом, %
    * @type {number}
@@ -817,7 +817,7 @@ export interface DistributionTableItemThreeStar {
    * @type {number}
    * @memberof DistributionTableItemThreeStar
    */
-  current: number;
+  current?: number;
   /**
    * Динамика по сравнению с предыдущим периодом, %
    * @type {number}
@@ -836,7 +836,7 @@ export interface DistributionTableItemTwoStar {
    * @type {number}
    * @memberof DistributionTableItemTwoStar
    */
-  current: number;
+  current?: number;
   /**
    * Динамика по сравнению с предыдущим периодом, %
    * @type {number}
@@ -855,25 +855,25 @@ export interface ErrorObject {
    * @type {string}
    * @memberof ErrorObject
    */
-  title: string;
+  title?: string;
   /**
    * Детали ошибки
    * @type {string}
    * @memberof ErrorObject
    */
-  detail: string;
+  detail?: string;
   /**
    * Уникальный ID запроса
    * @type {string}
    * @memberof ErrorObject
    */
-  requestId: string;
+  requestId?: string;
   /**
    * ID внутреннего сервиса WB
    * @type {string}
    * @memberof ErrorObject
    */
-  origin: string;
+  origin?: string;
 }
 /**
  *
@@ -886,25 +886,25 @@ export interface ErrorObject400 {
    * @type {string}
    * @memberof ErrorObject400
    */
-  title: string;
+  title?: string;
   /**
    * Детали ошибки
    * @type {string}
    * @memberof ErrorObject400
    */
-  detail: string;
+  detail?: string;
   /**
    * Уникальный ID запроса
    * @type {string}
    * @memberof ErrorObject400
    */
-  requestId: string;
+  requestId?: string;
   /**
    * ID внутреннего сервиса WB
    * @type {string}
    * @memberof ErrorObject400
    */
-  origin: string;
+  origin?: string;
 }
 /**
  *
@@ -917,25 +917,25 @@ export interface ErrorObject403 {
    * @type {string}
    * @memberof ErrorObject403
    */
-  title: string;
+  title?: string;
   /**
    * Детали ошибки
    * @type {string}
    * @memberof ErrorObject403
    */
-  detail: string;
+  detail?: string;
   /**
    * Уникальный ID запроса
    * @type {string}
    * @memberof ErrorObject403
    */
-  requestId: string;
+  requestId?: string;
   /**
    * ID внутреннего сервиса WB
    * @type {string}
    * @memberof ErrorObject403
    */
-  origin: string;
+  origin?: string;
 }
 /**
  * Прирост оценок
@@ -948,49 +948,49 @@ export interface FeedbacksIncreaseItem {
    * @type {number}
    * @memberof FeedbacksIncreaseItem
    */
-  current: number;
+  current?: number;
   /**
    * Всего оценок
    * @type {number}
    * @memberof FeedbacksIncreaseItem
    */
-  total: number;
+  total?: number;
   /**
    * Динамика по сравнению с предыдущим периодом, %
    * @type {number}
    * @memberof FeedbacksIncreaseItem
    */
-  dynamics: number;
+  dynamics?: number;
   /**
    *
    * @type {FeedbacksIncreaseItemFiveStar}
    * @memberof FeedbacksIncreaseItem
    */
-  fiveStar: FeedbacksIncreaseItemFiveStar;
+  fiveStar?: FeedbacksIncreaseItemFiveStar;
   /**
    *
    * @type {FeedbacksIncreaseItemFourStar}
    * @memberof FeedbacksIncreaseItem
    */
-  fourStar: FeedbacksIncreaseItemFourStar;
+  fourStar?: FeedbacksIncreaseItemFourStar;
   /**
    *
    * @type {FeedbacksIncreaseItemThreeStar}
    * @memberof FeedbacksIncreaseItem
    */
-  threeStar: FeedbacksIncreaseItemThreeStar;
+  threeStar?: FeedbacksIncreaseItemThreeStar;
   /**
    *
    * @type {FeedbacksIncreaseItemTwoStar}
    * @memberof FeedbacksIncreaseItem
    */
-  twoStar: FeedbacksIncreaseItemTwoStar;
+  twoStar?: FeedbacksIncreaseItemTwoStar;
   /**
    *
    * @type {FeedbacksIncreaseItemOneStar}
    * @memberof FeedbacksIncreaseItem
    */
-  oneStar: FeedbacksIncreaseItemOneStar;
+  oneStar?: FeedbacksIncreaseItemOneStar;
 }
 /**
  * Отзывы 5 звёзд
@@ -1003,7 +1003,7 @@ export interface FeedbacksIncreaseItemFiveStar {
    * @type {number}
    * @memberof FeedbacksIncreaseItemFiveStar
    */
-  current: number;
+  current?: number;
   /**
    * Динамика по сравнению с предыдущим периодом, %
    * @type {number}
@@ -1015,7 +1015,7 @@ export interface FeedbacksIncreaseItemFiveStar {
    * @type {number}
    * @memberof FeedbacksIncreaseItemFiveStar
    */
-  total: number;
+  total?: number;
 }
 /**
  * Отзывы 4 звезды
@@ -1028,7 +1028,7 @@ export interface FeedbacksIncreaseItemFourStar {
    * @type {number}
    * @memberof FeedbacksIncreaseItemFourStar
    */
-  current: number;
+  current?: number;
   /**
    * Динамика по сравнению с предыдущим периодом, %
    * @type {number}
@@ -1040,7 +1040,7 @@ export interface FeedbacksIncreaseItemFourStar {
    * @type {number}
    * @memberof FeedbacksIncreaseItemFourStar
    */
-  total: number;
+  total?: number;
 }
 /**
  * Отзывы 1 звезда
@@ -1053,7 +1053,7 @@ export interface FeedbacksIncreaseItemOneStar {
    * @type {number}
    * @memberof FeedbacksIncreaseItemOneStar
    */
-  current: number;
+  current?: number;
   /**
    * Динамика по сравнению с предыдущим периодом, %
    * @type {number}
@@ -1065,7 +1065,7 @@ export interface FeedbacksIncreaseItemOneStar {
    * @type {number}
    * @memberof FeedbacksIncreaseItemOneStar
    */
-  total: number;
+  total?: number;
 }
 /**
  * Отзывы 3 звезды
@@ -1078,7 +1078,7 @@ export interface FeedbacksIncreaseItemThreeStar {
    * @type {number}
    * @memberof FeedbacksIncreaseItemThreeStar
    */
-  current: number;
+  current?: number;
   /**
    * Динамика по сравнению с предыдущим периодом, %
    * @type {number}
@@ -1090,7 +1090,7 @@ export interface FeedbacksIncreaseItemThreeStar {
    * @type {number}
    * @memberof FeedbacksIncreaseItemThreeStar
    */
-  total: number;
+  total?: number;
 }
 /**
  * Отзывы 2 звезды
@@ -1103,7 +1103,7 @@ export interface FeedbacksIncreaseItemTwoStar {
    * @type {number}
    * @memberof FeedbacksIncreaseItemTwoStar
    */
-  current: number;
+  current?: number;
   /**
    * Динамика по сравнению с предыдущим периодом, %
    * @type {number}
@@ -1115,7 +1115,7 @@ export interface FeedbacksIncreaseItemTwoStar {
    * @type {number}
    * @memberof FeedbacksIncreaseItemTwoStar
    */
-  total: number;
+  total?: number;
 }
 /**
  * Среднее количество заказов за месяц
@@ -1128,19 +1128,19 @@ export interface FloatGraphByPeriodItem {
    * @type {string}
    * @memberof FloatGraphByPeriodItem
    */
-  start: string;
+  start?: string;
   /**
    * Конец месяца
    * @type {string}
    * @memberof FloatGraphByPeriodItem
    */
-  end: string;
+  end?: string;
   /**
    * Среднее количество заказов
    * @type {number}
    * @memberof FloatGraphByPeriodItem
    */
-  value: number;
+  value?: number;
 }
 /**
  *
@@ -1153,25 +1153,25 @@ export interface GetV2NmReportDownloadsFileDownloadIdResponse400 {
    * @type {string}
    * @memberof GetV2NmReportDownloadsFileDownloadIdResponse400
    */
-  title: string;
+  title?: string;
   /**
    * Детали ошибки
    * @type {string}
    * @memberof GetV2NmReportDownloadsFileDownloadIdResponse400
    */
-  detail: string;
+  detail?: string;
   /**
    * Уникальный ID запроса
    * @type {string}
    * @memberof GetV2NmReportDownloadsFileDownloadIdResponse400
    */
-  requestId: string;
+  requestId?: string;
   /**
    * ID внутреннего сервиса WB
    * @type {string}
    * @memberof GetV2NmReportDownloadsFileDownloadIdResponse400
    */
-  origin: string;
+  origin?: string;
 }
 /**
  *
@@ -1184,25 +1184,25 @@ export interface GetV2NmReportDownloadsResponse400 {
    * @type {string}
    * @memberof GetV2NmReportDownloadsResponse400
    */
-  title: string;
+  title?: string;
   /**
    * Детали ошибки
    * @type {string}
    * @memberof GetV2NmReportDownloadsResponse400
    */
-  detail: string;
+  detail?: string;
   /**
    * Уникальный ID запроса
    * @type {string}
    * @memberof GetV2NmReportDownloadsResponse400
    */
-  requestId: string;
+  requestId?: string;
   /**
    * ID внутреннего сервиса WB
    * @type {string}
    * @memberof GetV2NmReportDownloadsResponse400
    */
-  origin: string;
+  origin?: string;
 }
 /**
  *
@@ -1259,67 +1259,67 @@ export interface History {
    * @type {string}
    * @memberof History
    */
-  date: string;
+  date?: string;
   /**
    * Количество переходов в карточку товара
    * @type {number}
    * @memberof History
    */
-  openCount: number;
+  openCount?: number;
   /**
    * Положили в корзину, шт.
    * @type {number}
    * @memberof History
    */
-  cartCount: number;
+  cartCount?: number;
   /**
    * Заказали товаров, шт.
    * @type {number}
    * @memberof History
    */
-  orderCount: number;
+  orderCount?: number;
   /**
    * Заказали на сумму
    * @type {number}
    * @memberof History
    */
-  orderSum: number;
+  orderSum?: number;
   /**
    * Выкупили товаров, шт.
    * @type {number}
    * @memberof History
    */
-  buyoutCount: number;
+  buyoutCount?: number;
   /**
    * Выкупили на сумму
    * @type {number}
    * @memberof History
    */
-  buyoutSum: number;
+  buyoutSum?: number;
   /**
    * Процент выкупа
    * @type {number}
    * @memberof History
    */
-  buyoutPercent: number;
+  buyoutPercent?: number;
   /**
    * Конверсия в корзину. Какой процент посетителей, открывших карточку товара, добавили товар в корзину, %
    * @type {number}
    * @memberof History
    */
-  addToCartConversion: number;
+  addToCartConversion?: number;
   /**
    * Конверсия в заказ. Какой процент посетителей, добавивших товар в корзину, сделали заказ
    * @type {number}
    * @memberof History
    */
-  cartToOrderConversion: number;
+  cartToOrderConversion?: number;
   /**
    * Количество добавлений товара в **Отложенные**
    * @type {number}
    * @memberof History
    */
-  addToWishlistCount: number;
+  addToWishlistCount?: number;
 }
 /**
  *
@@ -1332,37 +1332,37 @@ export interface HistoryItem {
    * @type {number}
    * @memberof HistoryItem
    */
-  nmId: number;
+  nmId?: number;
   /**
    * Название карточки товара
    * @type {string}
    * @memberof HistoryItem
    */
-  title: string;
+  title?: string;
   /**
    * Артикул продавца
    * @type {string}
    * @memberof HistoryItem
    */
-  vendorCode: string;
+  vendorCode?: string;
   /**
    * Бренд
    * @type {string}
    * @memberof HistoryItem
    */
-  brandName: string;
+  brandName?: string;
   /**
    * ID предмета
    * @type {number}
    * @memberof HistoryItem
    */
-  subjectId: number;
+  subjectId?: number;
   /**
    * Название предмета
    * @type {string}
    * @memberof HistoryItem
    */
-  subjectName: string;
+  subjectName?: string;
 }
 /**
  *
@@ -1518,7 +1518,7 @@ export interface InventorySellerResponse {
    * @type {Array<InventorySellerResponseItemsInner>}
    * @memberof InventorySellerResponse
    */
-  items: Array<InventorySellerResponseItemsInner>;
+  items?: Array<InventorySellerResponseItemsInner>;
 }
 /**
  *
@@ -1531,37 +1531,37 @@ export interface InventorySellerResponseItemsInner {
    * @type {number}
    * @memberof InventorySellerResponseItemsInner
    */
-  nmId: number;
+  nmId?: number;
   /**
    * ID размера
    * @type {number}
    * @memberof InventorySellerResponseItemsInner
    */
-  chrtId: number;
+  chrtId?: number;
   /**
    * ID склада
    * @type {number}
    * @memberof InventorySellerResponseItemsInner
    */
-  warehouseId: number;
+  warehouseId?: number;
   /**
    * Название склада
    * @type {string}
    * @memberof InventorySellerResponseItemsInner
    */
-  warehouseName: string;
+  warehouseName?: string;
   /**
    * Регион отгрузки
    * @type {string}
    * @memberof InventorySellerResponseItemsInner
    */
-  regionName: string;
+  regionName?: string;
   /**
    * Количество товара на складе, доступное клиентам для добавления в корзину
    * @type {number}
    * @memberof InventorySellerResponseItemsInner
    */
-  quantity: number;
+  quantity?: number;
 }
 /**
  * Текущие остатки товаров на складах WB
@@ -1574,7 +1574,7 @@ export interface InventoryWbResponse {
    * @type {Array<InventoryWbResponseItemsInner>}
    * @memberof InventoryWbResponse
    */
-  items: Array<InventoryWbResponseItemsInner>;
+  items?: Array<InventoryWbResponseItemsInner>;
 }
 /**
  *
@@ -1587,49 +1587,49 @@ export interface InventoryWbResponseItemsInner {
    * @type {number}
    * @memberof InventoryWbResponseItemsInner
    */
-  nmId: number;
+  nmId?: number;
   /**
    * ID размера
    * @type {number}
    * @memberof InventoryWbResponseItemsInner
    */
-  chrtId: number;
+  chrtId?: number;
   /**
    * ID склада. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `-999999`
    * @type {number}
    * @memberof InventoryWbResponseItemsInner
    */
-  warehouseId: number;
+  warehouseId?: number;
   /**
    * Название склада. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `Склад WB`
    * @type {string}
    * @memberof InventoryWbResponseItemsInner
    */
-  warehouseName: string;
+  warehouseName?: string;
   /**
    * Регион отгрузки. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `Склад WB`
    * @type {string}
    * @memberof InventoryWbResponseItemsInner
    */
-  regionName: string;
+  regionName?: string;
   /**
    * Количество товара на складе, доступное клиентам для добавления в корзину
    * @type {number}
    * @memberof InventoryWbResponseItemsInner
    */
-  quantity: number;
+  quantity?: number;
   /**
    * В пути к клиенту
    * @type {number}
    * @memberof InventoryWbResponseItemsInner
    */
-  inWayToClient: number;
+  inWayToClient?: number;
   /**
    * В пути от клиента
    * @type {number}
    * @memberof InventoryWbResponseItemsInner
    */
-  inWayFromClient: number;
+  inWayFromClient?: number;
 }
 /**
  *
@@ -1642,61 +1642,61 @@ export interface Item {
    * @type {number}
    * @memberof Item
    */
-  nmId: number;
+  nmId?: number;
   /**
    * Название карточки товара
    * @type {string}
    * @memberof Item
    */
-  title: string;
+  title?: string;
   /**
    * Артикул продавца
    * @type {string}
    * @memberof Item
    */
-  vendorCode: string;
+  vendorCode?: string;
   /**
    * Бренд
    * @type {string}
    * @memberof Item
    */
-  brandName: string;
+  brandName?: string;
   /**
    * ID предмета
    * @type {number}
    * @memberof Item
    */
-  subjectId: number;
+  subjectId?: number;
   /**
    * Название предмета
    * @type {string}
    * @memberof Item
    */
-  subjectName: string;
+  subjectName?: string;
   /**
    * Ярлыки
    * @type {Array<Tag>}
    * @memberof Item
    */
-  tags: Array<Tag>;
+  tags?: Array<Tag>;
   /**
    * Оценка карточки
    * @type {number}
    * @memberof Item
    */
-  productRating: number;
+  productRating?: number;
   /**
    * Оценка пользователей
    * @type {number}
    * @memberof Item
    */
-  feedbackRating: number;
+  feedbackRating?: number;
   /**
    *
    * @type {ItemStocks}
    * @memberof Item
    */
-  stocks: ItemStocks;
+  stocks?: ItemStocks;
 }
 /**
  *
@@ -1741,19 +1741,19 @@ export interface ItemOrdersMetrics {
    * @type {string}
    * @memberof ItemOrdersMetrics
    */
-  dt: string;
+  dt?: string;
   /**
    * Средняя позиция товара в результатах поиска
    * @type {number}
    * @memberof ItemOrdersMetrics
    */
-  avgPosition: number;
+  avgPosition?: number;
   /**
    * Сколько раз товары из поиска заказали
    * @type {number}
    * @memberof ItemOrdersMetrics
    */
-  orders: number;
+  orders?: number;
 }
 /**
  *
@@ -1791,13 +1791,13 @@ export interface ItemOrdersResponse {
    * @type {Array<ItemOrdersMetrics>}
    * @memberof ItemOrdersResponse
    */
-  total: Array<ItemOrdersMetrics>;
+  total?: Array<ItemOrdersMetrics>;
   /**
    * Элементы таблицы
    * @type {Array<ItemOrdersTextItem>}
    * @memberof ItemOrdersResponse
    */
-  items: Array<ItemOrdersTextItem>;
+  items?: Array<ItemOrdersTextItem>;
 }
 /**
  *
@@ -1810,19 +1810,19 @@ export interface ItemOrdersTextItem {
    * @type {string}
    * @memberof ItemOrdersTextItem
    */
-  text: string;
+  text?: string;
   /**
    * Количество обращений с поисковым запросом
    * @type {number}
    * @memberof ItemOrdersTextItem
    */
-  frequency: number;
+  frequency?: number;
   /**
    * Статистика по датам
    * @type {Array<ItemOrdersMetrics>}
    * @memberof ItemOrdersTextItem
    */
-  dateItems: Array<ItemOrdersMetrics>;
+  dateItems?: Array<ItemOrdersMetrics>;
 }
 /**
  * Параметры запроса
@@ -1908,19 +1908,19 @@ export interface ItemRatingResponse {
    * @type {TableItemFloat}
    * @memberof ItemRatingResponse
    */
-  sellerRating: TableItemFloat;
+  sellerRating?: TableItemFloat;
   /**
    *
    * @type {FeedbacksIncreaseItem}
    * @memberof ItemRatingResponse
    */
-  feedbackIncrease: FeedbacksIncreaseItem;
+  feedbackIncrease?: FeedbacksIncreaseItem;
   /**
    * Данные по товарам
    * @type {Array<DistributionTableItem>}
    * @memberof ItemRatingResponse
    */
-  items: Array<DistributionTableItem>;
+  items?: Array<DistributionTableItem>;
 }
 /**
  * Параметры для запроса по рейтингу поисковых запросов:   - `currentPeriod` — текущий период   - `pastPeriod` — предыдущий период для сравнения
@@ -2000,13 +2000,13 @@ export interface ItemSearchTextsResponse {
    * @type {Array<TableSearchTextItem>}
    * @memberof ItemSearchTextsResponse
    */
-  items: Array<TableSearchTextItem>;
+  items?: Array<TableSearchTextItem>;
   /**
    * Валюта отчёта
    * @type {string}
    * @memberof ItemSearchTextsResponse
    */
-  currency: string;
+  currency?: string;
 }
 /**
  * Остатки
@@ -2019,19 +2019,19 @@ export interface ItemStocks {
    * @type {number}
    * @memberof ItemStocks
    */
-  wb: number;
+  wb?: number;
   /**
    * Общее количество остатков на складах продавца на текущий день, шт.
    * @type {number}
    * @memberof ItemStocks
    */
-  mp: number;
+  mp?: number;
   /**
    * Сумма остатков на складах на текущий день, шт.
    * @type {number}
    * @memberof ItemStocks
    */
-  balanceSum: number;
+  balanceSum?: number;
 }
 /**
  *
@@ -2111,13 +2111,13 @@ export interface ItemsRequestPastPeriod {
    * @type {string}
    * @memberof ItemsRequestPastPeriod
    */
-  start: string;
+  start?: string;
   /**
    * Конец периода
    * @type {string}
    * @memberof ItemsRequestPastPeriod
    */
-  end: string;
+  end?: string;
 }
 /**
  *
@@ -2130,13 +2130,13 @@ export interface ItemsRequestSelectedPeriod {
    * @type {string}
    * @memberof ItemsRequestSelectedPeriod
    */
-  start: string;
+  start?: string;
   /**
    * Конец периода
    * @type {string}
    * @memberof ItemsRequestSelectedPeriod
    */
-  end: string;
+  end?: string;
 }
 /**
  *
@@ -2149,13 +2149,13 @@ export interface ItemsResponse {
    * @type {Array<ItemsResponseProductsInner>}
    * @memberof ItemsResponse
    */
-  products: Array<ItemsResponseProductsInner>;
+  products?: Array<ItemsResponseProductsInner>;
   /**
    * Валюта отчёта
    * @type {string}
    * @memberof ItemsResponse
    */
-  currency: string;
+  currency?: string;
 }
 /**
  *
@@ -2168,13 +2168,13 @@ export interface ItemsResponseProductsInner {
    * @type {ItemsResponseProductsInnerProduct}
    * @memberof ItemsResponseProductsInner
    */
-  product: ItemsResponseProductsInnerProduct;
+  product?: ItemsResponseProductsInnerProduct;
   /**
    *
    * @type {ItemsResponseProductsInnerStatistic}
    * @memberof ItemsResponseProductsInner
    */
-  statistic: ItemsResponseProductsInnerStatistic;
+  statistic?: ItemsResponseProductsInnerStatistic;
 }
 /**
  *
@@ -2187,61 +2187,61 @@ export interface ItemsResponseProductsInnerProduct {
    * @type {number}
    * @memberof ItemsResponseProductsInnerProduct
    */
-  nmId: number;
+  nmId?: number;
   /**
    * Название карточки товара
    * @type {string}
    * @memberof ItemsResponseProductsInnerProduct
    */
-  title: string;
+  title?: string;
   /**
    * Артикул продавца
    * @type {string}
    * @memberof ItemsResponseProductsInnerProduct
    */
-  vendorCode: string;
+  vendorCode?: string;
   /**
    * Бренд
    * @type {string}
    * @memberof ItemsResponseProductsInnerProduct
    */
-  brandName: string;
+  brandName?: string;
   /**
    * ID предмета
    * @type {number}
    * @memberof ItemsResponseProductsInnerProduct
    */
-  subjectId: number;
+  subjectId?: number;
   /**
    * Название предмета
    * @type {string}
    * @memberof ItemsResponseProductsInnerProduct
    */
-  subjectName: string;
+  subjectName?: string;
   /**
    * Ярлыки
    * @type {Array<Tag>}
    * @memberof ItemsResponseProductsInnerProduct
    */
-  tags: Array<Tag>;
+  tags?: Array<Tag>;
   /**
    * Оценка карточки
    * @type {number}
    * @memberof ItemsResponseProductsInnerProduct
    */
-  productRating: number;
+  productRating?: number;
   /**
    * Оценка пользователей
    * @type {number}
    * @memberof ItemsResponseProductsInnerProduct
    */
-  feedbackRating: number;
+  feedbackRating?: number;
   /**
    *
    * @type {ItemStocks}
    * @memberof ItemsResponseProductsInnerProduct
    */
-  stocks: ItemStocks;
+  stocks?: ItemStocks;
 }
 /**
  *
@@ -2254,7 +2254,7 @@ export interface ItemsResponseProductsInnerStatistic {
    * @type {StatisticsSelected}
    * @memberof ItemsResponseProductsInnerStatistic
    */
-  selected: StatisticsSelected;
+  selected?: StatisticsSelected;
   /**
    *
    * @type {StatisticsPast}
@@ -2372,19 +2372,19 @@ export interface MainResponse {
    * @type {CommonInfo}
    * @memberof MainResponse
    */
-  commonInfo: CommonInfo;
+  commonInfo?: CommonInfo;
   /**
    *
    * @type {PositionInfo}
    * @memberof MainResponse
    */
-  positionInfo: PositionInfo;
+  positionInfo?: PositionInfo;
   /**
    *
    * @type {VisibilityInfo}
    * @memberof MainResponse
    */
-  visibilityInfo: VisibilityInfo;
+  visibilityInfo?: VisibilityInfo;
   /**
    * Список элементов таблицы
    * @type {Array<TableGroupItem>}
@@ -2396,7 +2396,7 @@ export interface MainResponse {
    * @type {string}
    * @memberof MainResponse
    */
-  currency: string;
+  currency?: string;
 }
 /**
  *
@@ -2409,7 +2409,7 @@ export interface NmReportCreateReportResponse {
    * @type {string}
    * @memberof NmReportCreateReportResponse
    */
-  data: string;
+  data?: string;
 }
 /**
  *
@@ -2422,7 +2422,7 @@ export interface NmReportGetReportsResponse {
    * @type {Array<NmReportGetReportsResponseDataInner>}
    * @memberof NmReportGetReportsResponse
    */
-  data: Array<NmReportGetReportsResponseDataInner>;
+  data?: Array<NmReportGetReportsResponseDataInner>;
 }
 /**
  *
@@ -2435,43 +2435,43 @@ export interface NmReportGetReportsResponseDataInner {
    * @type {string}
    * @memberof NmReportGetReportsResponseDataInner
    */
-  id: string;
+  id?: string;
   /**
    * Дата и время завершения генерации
    * @type {string}
    * @memberof NmReportGetReportsResponseDataInner
    */
-  createdAt: string;
+  createdAt?: string;
   /**
    * Статус отчёта:  * `WAITING` — в очереди на обработку * `PROCESSING` — генерируется * `SUCCESS —` готов * `RETRY` — ожидает повторной обработки * `FAILED` — не получилось сгенерировать, сгенерируйте повторно
    * @type {string}
    * @memberof NmReportGetReportsResponseDataInner
    */
-  status: string;
+  status?: string;
   /**
    * Название отчёта
    * @type {string}
    * @memberof NmReportGetReportsResponseDataInner
    */
-  name: string;
+  name?: string;
   /**
    * Размер отчёта, Б
    * @type {number}
    * @memberof NmReportGetReportsResponseDataInner
    */
-  size: number;
+  size?: number;
   /**
    * Начало периода
    * @type {string}
    * @memberof NmReportGetReportsResponseDataInner
    */
-  startDate: string;
+  startDate?: string;
   /**
    * Конец периода
    * @type {string}
    * @memberof NmReportGetReportsResponseDataInner
    */
-  endDate: string;
+  endDate?: string;
 }
 /**
  *
@@ -2497,7 +2497,7 @@ export interface NmReportRetryReportResponse {
    * @type {string}
    * @memberof NmReportRetryReportResponse
    */
-  data: string;
+  data?: string;
 }
 /**
  * Заказ
@@ -2510,37 +2510,37 @@ export interface Order {
    * @type {number}
    * @memberof Order
    */
-  nmId: number;
+  nmId?: number;
   /**
    * ID размера
    * @type {number}
    * @memberof Order
    */
-  chrtId: number;
+  chrtId?: number;
   /**
    * ID заказа
    * @type {string}
    * @memberof Order
    */
-  srid: string;
+  srid?: string;
   /**
    * Дата и время оформления заказа
    * @type {string}
    * @memberof Order
    */
-  createdAt: string;
+  createdAt?: string;
   /**
    * Дата и время текущего статуса. При `\"status\":\"created\"` возвращается значение поля `createdAt`
    * @type {string}
    * @memberof Order
    */
-  updatedAt: string;
+  updatedAt?: string;
   /**
    * Статус заказа:   - `created` — оформлен   - `buyout` — продан   - `cancel` — отменён   - `return` — возвращён   - `returnDefective` — возвращён по причине брака
    * @type {string}
    * @memberof Order
    */
-  status: OrderStatusEnum;
+  status?: OrderStatusEnum;
   /**
    * Тип отмены (при `\"status\":\"cancel\"`):   - `app` — отказ до получения   - `receipt` — отказ при получении   - `expire` — истёк срок получения   - `other` — техническая отмена
    * @type {string}
@@ -2552,43 +2552,43 @@ export interface Order {
    * @type {string}
    * @memberof Order
    */
-  warehouseName: string;
+  warehouseName?: string;
   /**
    * Федеральный округ склада. Если склад не в России, возвращается страна. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) для складов WB может быть только `\"\"`
    * @type {string}
    * @memberof Order
    */
-  warehouseRegion: string;
+  warehouseRegion?: string;
   /**
    * Тип склада:   - `true` — склад продавца   - `false` — склад WB
    * @type {boolean}
    * @memberof Order
    */
-  isMp: boolean;
+  isMp?: boolean;
   /**
    * Населённый пункт доставки
    * @type {string}
    * @memberof Order
    */
-  destinationCity: string;
+  destinationCity?: string;
   /**
    * Федеральный округ доставки. Если доставка не по России, возвращается страна
    * @type {string}
    * @memberof Order
    */
-  destinationDistrict: string;
+  destinationDistrict?: string;
   /**
    * Цена продавца со скидкой продавца (без учёта скидки WB Клуба и оптовой скидки для B2B-продаж)
    * @type {number}
    * @memberof Order
    */
-  sellerPrice: number;
+  sellerPrice?: number;
   /**
    * Тип продажи:   - `true` — B2B   - `false` — B2C
    * @type {boolean}
    * @memberof Order
    */
-  isB2b: boolean;
+  isB2b?: boolean;
 }
 
 export const OrderStatusEnum = {
@@ -2902,19 +2902,19 @@ export interface OrderFeedResponse {
    * @type {string}
    * @memberof OrderFeedResponse
    */
-  snapshotTime: string;
+  snapshotTime?: string;
   /**
    * Валюта отчёта
    * @type {string}
    * @memberof OrderFeedResponse
    */
-  currency: string;
+  currency?: string;
   /**
    * Заказы
    * @type {Array<Order>}
    * @memberof OrderFeedResponse
    */
-  orders: Array<Order>;
+  orders?: Array<Order>;
 }
 /**
  * Прошлый период для сравнения. Количество дней — меньше или равно `currentPeriod`
@@ -3057,25 +3057,25 @@ export interface PositionInfo {
    * @type {PositionInfoAverage}
    * @memberof PositionInfo
    */
-  average: PositionInfoAverage;
+  average?: PositionInfoAverage;
   /**
    *
    * @type {PositionInfoMedian}
    * @memberof PositionInfo
    */
-  median: PositionInfoMedian;
+  median?: PositionInfoMedian;
   /**
    * Данные для чарта по средней и медианной позиции товара в результатах поиска
    * @type {Array<SearchReportPositionChartItem>}
    * @memberof PositionInfo
    */
-  chartItems: Array<SearchReportPositionChartItem>;
+  chartItems?: Array<SearchReportPositionChartItem>;
   /**
    *
    * @type {SearchReportPositionClusters}
    * @memberof PositionInfo
    */
-  clusters: SearchReportPositionClusters;
+  clusters?: SearchReportPositionClusters;
 }
 /**
  * Средняя позиция товара в результатах поиска
@@ -3088,7 +3088,7 @@ export interface PositionInfoAverage {
    * @type {number}
    * @memberof PositionInfoAverage
    */
-  current: number;
+  current?: number;
   /**
    * Динамика по сравнению с предыдущим периодом, %
    * @type {number}
@@ -3107,7 +3107,7 @@ export interface PositionInfoMedian {
    * @type {number}
    * @memberof PositionInfoMedian
    */
-  current: number;
+  current?: number;
   /**
    * Динамика по сравнению с предыдущим периодом, %
    * @type {number}
@@ -3126,7 +3126,7 @@ export interface PostV1OrderFeedResponse200 {
    * @type {OrderFeedResponse}
    * @memberof PostV1OrderFeedResponse200
    */
-  data: OrderFeedResponse;
+  data?: OrderFeedResponse;
 }
 /**
  *
@@ -3139,7 +3139,7 @@ export interface PostV1StocksReportSellerWarehousesResponse200 {
    * @type {InventorySellerResponse}
    * @memberof PostV1StocksReportSellerWarehousesResponse200
    */
-  data: InventorySellerResponse;
+  data?: InventorySellerResponse;
 }
 /**
  *
@@ -3152,7 +3152,7 @@ export interface PostV1StocksReportWbWarehousesResponse200 {
    * @type {InventoryWbResponse}
    * @memberof PostV1StocksReportWbWarehousesResponse200
    */
-  data: InventoryWbResponse;
+  data?: InventoryWbResponse;
 }
 /**
  *
@@ -3165,7 +3165,7 @@ export interface PostV2ItemRatingResponse200 {
    * @type {ItemRatingResponse}
    * @memberof PostV2ItemRatingResponse200
    */
-  data: ItemRatingResponse;
+  data?: ItemRatingResponse;
 }
 /**
  * @type PostV2NmReportDownloads429Response
@@ -3203,25 +3203,25 @@ export interface PostV2NmReportDownloadsResponse400 {
    * @type {string}
    * @memberof PostV2NmReportDownloadsResponse400
    */
-  title: string;
+  title?: string;
   /**
    * Детали ошибки
    * @type {string}
    * @memberof PostV2NmReportDownloadsResponse400
    */
-  detail: string;
+  detail?: string;
   /**
    * Уникальный ID запроса
    * @type {string}
    * @memberof PostV2NmReportDownloadsResponse400
    */
-  requestId: string;
+  requestId?: string;
   /**
    * ID внутреннего сервиса WB
    * @type {string}
    * @memberof PostV2NmReportDownloadsResponse400
    */
-  origin: string;
+  origin?: string;
 }
 /**
  *
@@ -3234,25 +3234,25 @@ export interface PostV2NmReportDownloadsRetryResponse400 {
    * @type {string}
    * @memberof PostV2NmReportDownloadsRetryResponse400
    */
-  title: string;
+  title?: string;
   /**
    * Детали ошибки
    * @type {string}
    * @memberof PostV2NmReportDownloadsRetryResponse400
    */
-  detail: string;
+  detail?: string;
   /**
    * Уникальный ID запроса
    * @type {string}
    * @memberof PostV2NmReportDownloadsRetryResponse400
    */
-  requestId: string;
+  requestId?: string;
   /**
    * ID внутреннего сервиса WB
    * @type {string}
    * @memberof PostV2NmReportDownloadsRetryResponse400
    */
-  origin: string;
+  origin?: string;
 }
 /**
  *
@@ -3265,7 +3265,7 @@ export interface PostV2SearchReportProductOrdersResponse200 {
    * @type {ItemOrdersResponse}
    * @memberof PostV2SearchReportProductOrdersResponse200
    */
-  data: ItemOrdersResponse;
+  data?: ItemOrdersResponse;
 }
 /**
  *
@@ -3278,7 +3278,7 @@ export interface PostV2SearchReportProductSearchTextsResponse200 {
    * @type {ItemSearchTextsResponse}
    * @memberof PostV2SearchReportProductSearchTextsResponse200
    */
-  data: ItemSearchTextsResponse;
+  data?: ItemSearchTextsResponse;
 }
 /**
  *
@@ -3291,7 +3291,7 @@ export interface PostV2SearchReportReportResponse200 {
    * @type {MainResponse}
    * @memberof PostV2SearchReportReportResponse200
    */
-  data: MainResponse;
+  data?: MainResponse;
 }
 /**
  *
@@ -3304,7 +3304,7 @@ export interface PostV2SearchReportTableDetailsResponse200 {
    * @type {TableDetailsResponse}
    * @memberof PostV2SearchReportTableDetailsResponse200
    */
-  data: TableDetailsResponse;
+  data?: TableDetailsResponse;
 }
 /**
  *
@@ -3317,7 +3317,7 @@ export interface PostV2SearchReportTableGroupsResponse200 {
    * @type {TableGroupResponse}
    * @memberof PostV2SearchReportTableGroupsResponse200
    */
-  data: TableGroupResponse;
+  data?: TableGroupResponse;
 }
 /**
  *
@@ -3330,7 +3330,7 @@ export interface PostV2StocksReportOfficesResponse200 {
    * @type {TableShippingOfficeResponse}
    * @memberof PostV2StocksReportOfficesResponse200
    */
-  data: TableShippingOfficeResponse;
+  data?: TableShippingOfficeResponse;
 }
 /**
  *
@@ -3343,7 +3343,7 @@ export interface PostV2StocksReportProductsGroupsResponse200 {
    * @type {TableGroupResponseSt}
    * @memberof PostV2StocksReportProductsGroupsResponse200
    */
-  data: TableGroupResponseSt;
+  data?: TableGroupResponseSt;
 }
 /**
  *
@@ -3356,7 +3356,7 @@ export interface PostV2StocksReportProductsProductsResponse200 {
    * @type {TableItemResponse}
    * @memberof PostV2StocksReportProductsProductsResponse200
    */
-  data: TableItemResponse;
+  data?: TableItemResponse;
 }
 /**
  *
@@ -3369,7 +3369,7 @@ export interface PostV2StocksReportProductsSizesResponse200 {
    * @type {TableSizeResponse}
    * @memberof PostV2StocksReportProductsSizesResponse200
    */
-  data: TableSizeResponse;
+  data?: TableSizeResponse;
 }
 /**
  *
@@ -3382,7 +3382,7 @@ export interface PostV3SalesFunnelGroupedHistoryResponse200 {
    * @type {Array<PostV3SalesFunnelProductsHistoryResponse200Inner>}
    * @memberof PostV3SalesFunnelGroupedHistoryResponse200
    */
-  data: Array<PostV3SalesFunnelProductsHistoryResponse200Inner>;
+  data?: Array<PostV3SalesFunnelProductsHistoryResponse200Inner>;
 }
 /**
  *
@@ -3469,19 +3469,19 @@ export interface PostV3SalesFunnelProductsHistoryResponse200Inner {
    * @type {PostV3SalesFunnelProductsHistoryResponse200InnerProduct}
    * @memberof PostV3SalesFunnelProductsHistoryResponse200Inner
    */
-  product: PostV3SalesFunnelProductsHistoryResponse200InnerProduct;
+  product?: PostV3SalesFunnelProductsHistoryResponse200InnerProduct;
   /**
    * Статистика за период
    * @type {Array<History>}
    * @memberof PostV3SalesFunnelProductsHistoryResponse200Inner
    */
-  history: Array<History>;
+  history?: Array<History>;
   /**
    * Валюта отчёта
    * @type {string}
    * @memberof PostV3SalesFunnelProductsHistoryResponse200Inner
    */
-  currency: string;
+  currency?: string;
 }
 /**
  *
@@ -3494,37 +3494,37 @@ export interface PostV3SalesFunnelProductsHistoryResponse200InnerProduct {
    * @type {number}
    * @memberof PostV3SalesFunnelProductsHistoryResponse200InnerProduct
    */
-  nmId: number;
+  nmId?: number;
   /**
    * Название карточки товара
    * @type {string}
    * @memberof PostV3SalesFunnelProductsHistoryResponse200InnerProduct
    */
-  title: string;
+  title?: string;
   /**
    * Артикул продавца
    * @type {string}
    * @memberof PostV3SalesFunnelProductsHistoryResponse200InnerProduct
    */
-  vendorCode: string;
+  vendorCode?: string;
   /**
    * Бренд
    * @type {string}
    * @memberof PostV3SalesFunnelProductsHistoryResponse200InnerProduct
    */
-  brandName: string;
+  brandName?: string;
   /**
    * ID предмета
    * @type {number}
    * @memberof PostV3SalesFunnelProductsHistoryResponse200InnerProduct
    */
-  subjectId: number;
+  subjectId?: number;
   /**
    * Название предмета
    * @type {string}
    * @memberof PostV3SalesFunnelProductsHistoryResponse200InnerProduct
    */
-  subjectName: string;
+  subjectName?: string;
 }
 /**
  *
@@ -3537,7 +3537,7 @@ export interface PostV3SalesFunnelProductsResponse200 {
    * @type {PostV3SalesFunnelProductsResponse200Data}
    * @memberof PostV3SalesFunnelProductsResponse200
    */
-  data: PostV3SalesFunnelProductsResponse200Data;
+  data?: PostV3SalesFunnelProductsResponse200Data;
 }
 /**
  *
@@ -3550,13 +3550,13 @@ export interface PostV3SalesFunnelProductsResponse200Data {
    * @type {Array<ItemsResponseProductsInner>}
    * @memberof PostV3SalesFunnelProductsResponse200Data
    */
-  products: Array<ItemsResponseProductsInner>;
+  products?: Array<ItemsResponseProductsInner>;
   /**
    * Валюта отчёта
    * @type {string}
    * @memberof PostV3SalesFunnelProductsResponse200Data
    */
-  currency: string;
+  currency?: string;
 }
 /**
  * Слишком много запросов
@@ -3624,25 +3624,25 @@ export interface Response429DownloadDaily {
    * @type {string}
    * @memberof Response429DownloadDaily
    */
-  title: string;
+  title?: string;
   /**
    * Детали ошибки
    * @type {string}
    * @memberof Response429DownloadDaily
    */
-  detail: string;
+  detail?: string;
   /**
    * Уникальный ID запроса
    * @type {string}
    * @memberof Response429DownloadDaily
    */
-  requestId: string;
+  requestId?: string;
   /**
    * ID внутреннего сервиса WB
    * @type {string}
    * @memberof Response429DownloadDaily
    */
-  origin: string;
+  origin?: string;
 }
 /**
  *
@@ -4096,19 +4096,19 @@ export interface SearchReportPositionChartItem {
    * @type {string}
    * @memberof SearchReportPositionChartItem
    */
-  dt: string;
+  dt?: string;
   /**
    * Средняя позиция товара в результатах поиска
    * @type {number}
    * @memberof SearchReportPositionChartItem
    */
-  average: number;
+  average?: number;
   /**
    * Медианная позиция товара в результатах поиска
    * @type {number}
    * @memberof SearchReportPositionChartItem
    */
-  median: number;
+  median?: number;
 }
 /**
  * Количество товаров со средней позицией в поиске:   - `firstHundred` — от 1 до 100   - `secondHundred` — от 101 до 200   - `below` — от 201 и ниже
@@ -4121,19 +4121,19 @@ export interface SearchReportPositionClusters {
    * @type {SearchReportPositionClustersFirstHundred}
    * @memberof SearchReportPositionClusters
    */
-  firstHundred: SearchReportPositionClustersFirstHundred;
+  firstHundred?: SearchReportPositionClustersFirstHundred;
   /**
    *
    * @type {SearchReportPositionClustersSecondHundred}
    * @memberof SearchReportPositionClusters
    */
-  secondHundred: SearchReportPositionClustersSecondHundred;
+  secondHundred?: SearchReportPositionClustersSecondHundred;
   /**
    *
    * @type {SearchReportPositionClustersBelow}
    * @memberof SearchReportPositionClusters
    */
-  below: SearchReportPositionClustersBelow;
+  below?: SearchReportPositionClustersBelow;
 }
 /**
  * от 201 и ниже
@@ -4146,7 +4146,7 @@ export interface SearchReportPositionClustersBelow {
    * @type {number}
    * @memberof SearchReportPositionClustersBelow
    */
-  current: number;
+  current?: number;
   /**
    * Динамика по сравнению с предыдущим периодом, %
    * @type {number}
@@ -4165,7 +4165,7 @@ export interface SearchReportPositionClustersFirstHundred {
    * @type {number}
    * @memberof SearchReportPositionClustersFirstHundred
    */
-  current: number;
+  current?: number;
   /**
    * Динамика по сравнению с предыдущим периодом, %
    * @type {number}
@@ -4184,7 +4184,7 @@ export interface SearchReportPositionClustersSecondHundred {
    * @type {number}
    * @memberof SearchReportPositionClustersSecondHundred
    */
-  current: number;
+  current?: number;
   /**
    * Динамика по сравнению с предыдущим периодом, %
    * @type {number}
@@ -4319,103 +4319,103 @@ export interface Statistic {
    * @type {StatisticPeriod}
    * @memberof Statistic
    */
-  period: StatisticPeriod;
+  period?: StatisticPeriod;
   /**
    * Количество переходов в карточку товара
    * @type {number}
    * @memberof Statistic
    */
-  openCount: number;
+  openCount?: number;
   /**
    * Положили в корзину, шт.
    * @type {number}
    * @memberof Statistic
    */
-  cartCount: number;
+  cartCount?: number;
   /**
    * Заказали товаров, шт.
    * @type {number}
    * @memberof Statistic
    */
-  orderCount: number;
+  orderCount?: number;
   /**
    * Заказали на сумму
    * @type {number}
    * @memberof Statistic
    */
-  orderSum: number;
+  orderSum?: number;
   /**
    * Выкупили товаров, шт.
    * @type {number}
    * @memberof Statistic
    */
-  buyoutCount: number;
+  buyoutCount?: number;
   /**
    * Выкупили на сумму
    * @type {number}
    * @memberof Statistic
    */
-  buyoutSum: number;
+  buyoutSum?: number;
   /**
    * Отменили и вернули товаров, шт.
    * @type {number}
    * @memberof Statistic
    */
-  cancelCount: number;
+  cancelCount?: number;
   /**
    * Отменили и вернули на сумму
    * @type {number}
    * @memberof Statistic
    */
-  cancelSum: number;
+  cancelSum?: number;
   /**
    * Средняя цена
    * @type {number}
    * @memberof Statistic
    */
-  avgPrice: number;
+  avgPrice?: number;
   /**
    * Среднее количество заказов в день, шт.
    * @type {number}
    * @memberof Statistic
    */
-  avgOrdersCountPerDay: number;
+  avgOrdersCountPerDay?: number;
   /**
    * Доля в выручке
    * @type {number}
    * @memberof Statistic
    */
-  shareOrderPercent: number;
+  shareOrderPercent?: number;
   /**
    * Добавили в **Отложенные**
    * @type {number}
    * @memberof Statistic
    */
-  addToWishlist: number;
+  addToWishlist?: number;
   /**
    *
    * @type {StatisticTimeToReady}
    * @memberof Statistic
    */
-  timeToReady: StatisticTimeToReady;
+  timeToReady?: StatisticTimeToReady;
   /**
    * Локальные заказы в рамках одного региона. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `100`
    * @type {number}
    * @memberof Statistic
    */
-  localizationPercent: number;
+  localizationPercent?: number;
   /**
    *
    * @type {StatisticWbClub}
    * @memberof Statistic
    */
-  wbClub: StatisticWbClub;
+  wbClub?: StatisticWbClub;
   /**
    *
    * @type {StatisticConversions}
    * @memberof Statistic
    */
-  conversions: StatisticConversions;
+  conversions?: StatisticConversions;
 }
 /**
  *
@@ -4428,19 +4428,19 @@ export interface StatisticConversions {
    * @type {number}
    * @memberof StatisticConversions
    */
-  addToCartPercent: number;
+  addToCartPercent?: number;
   /**
    * Конверсия в заказ. Какой процент посетителей, добавивших товар в корзину, сделали заказ, %
    * @type {number}
    * @memberof StatisticConversions
    */
-  cartToOrderPercent: number;
+  cartToOrderPercent?: number;
   /**
    * Процент выкупа. Какой процент посетителей, заказавших товар, его выкупили. Без учёта товаров, которые еще доставляются покупателю, %
    * @type {number}
    * @memberof StatisticConversions
    */
-  buyoutPercent: number;
+  buyoutPercent?: number;
 }
 /**
  *
@@ -4453,13 +4453,13 @@ export interface StatisticPeriod {
    * @type {string}
    * @memberof StatisticPeriod
    */
-  start: string;
+  start?: string;
   /**
    * Конец периода
    * @type {string}
    * @memberof StatisticPeriod
    */
-  end: string;
+  end?: string;
 }
 /**
  *
@@ -4472,19 +4472,19 @@ export interface StatisticTimeToReady {
    * @type {number}
    * @memberof StatisticTimeToReady
    */
-  days: number;
+  days?: number;
   /**
    * Часы
    * @type {number}
    * @memberof StatisticTimeToReady
    */
-  hours: number;
+  hours?: number;
   /**
    * Минуты
    * @type {number}
    * @memberof StatisticTimeToReady
    */
-  mins: number;
+  mins?: number;
 }
 /**
  *
@@ -4497,55 +4497,55 @@ export interface StatisticWbClub {
    * @type {number}
    * @memberof StatisticWbClub
    */
-  orderCount: number;
+  orderCount?: number;
   /**
    * Заказали с WB Клубом на сумму
    * @type {number}
    * @memberof StatisticWbClub
    */
-  orderSum: number;
+  orderSum?: number;
   /**
    * Выкупили с WB Клубом на сумму
    * @type {number}
    * @memberof StatisticWbClub
    */
-  buyoutSum: number;
+  buyoutSum?: number;
   /**
    * Выкупили товаров с WB Клубом, шт.
    * @type {number}
    * @memberof StatisticWbClub
    */
-  buyoutCount: number;
+  buyoutCount?: number;
   /**
    * Отменили и вернули с WB Клубом на сумму
    * @type {number}
    * @memberof StatisticWbClub
    */
-  cancelSum: number;
+  cancelSum?: number;
   /**
    * Отменили и вернули товаров с WB Клубом, шт.
    * @type {number}
    * @memberof StatisticWbClub
    */
-  cancelCount: number;
+  cancelCount?: number;
   /**
    * Средняя цена с WB Клубом
    * @type {number}
    * @memberof StatisticWbClub
    */
-  avgPrice: number;
+  avgPrice?: number;
   /**
    * Процент выкупа с WB Клубом
    * @type {number}
    * @memberof StatisticWbClub
    */
-  buyoutPercent: number;
+  buyoutPercent?: number;
   /**
    * Среднее количество заказов с WB Клубом в день, шт.
    * @type {number}
    * @memberof StatisticWbClub
    */
-  avgOrderCountPerDay: number;
+  avgOrderCountPerDay?: number;
 }
 /**
  *
@@ -4558,7 +4558,7 @@ export interface Statistics {
    * @type {StatisticsSelected}
    * @memberof Statistics
    */
-  selected: StatisticsSelected;
+  selected?: StatisticsSelected;
   /**
    *
    * @type {StatisticsPast}
@@ -4583,97 +4583,97 @@ export interface StatisticsComparison {
    * @type {number}
    * @memberof StatisticsComparison
    */
-  openCountDynamic: number;
+  openCountDynamic?: number;
   /**
    * Динамика добавлений в корзину
    * @type {number}
    * @memberof StatisticsComparison
    */
-  cartCountDynamic: number;
+  cartCountDynamic?: number;
   /**
    * Динамика количества заказов
    * @type {number}
    * @memberof StatisticsComparison
    */
-  orderCountDynamic: number;
+  orderCountDynamic?: number;
   /**
    * Динамика суммы заказов
    * @type {number}
    * @memberof StatisticsComparison
    */
-  orderSumDynamic: number;
+  orderSumDynamic?: number;
   /**
    * Динамика выкупов
    * @type {number}
    * @memberof StatisticsComparison
    */
-  buyoutCountDynamic: number;
+  buyoutCountDynamic?: number;
   /**
    * Динамика суммы выкупов
    * @type {number}
    * @memberof StatisticsComparison
    */
-  buyoutSumDynamic: number;
+  buyoutSumDynamic?: number;
   /**
    * Динамика отмен и возвратов товаров
    * @type {number}
    * @memberof StatisticsComparison
    */
-  cancelCountDynamic: number;
+  cancelCountDynamic?: number;
   /**
    * Динамика сумм отмен и возвратов товаров
    * @type {number}
    * @memberof StatisticsComparison
    */
-  cancelSumDynamic: number;
+  cancelSumDynamic?: number;
   /**
    * Динамика среднего количества заказов в день
    * @type {number}
    * @memberof StatisticsComparison
    */
-  avgOrdersCountPerDayDynamic: number;
+  avgOrdersCountPerDayDynamic?: number;
   /**
    * Динамика средней цены на товары. Учитываются скидки для акций
    * @type {number}
    * @memberof StatisticsComparison
    */
-  avgPriceDynamic: number;
+  avgPriceDynamic?: number;
   /**
    * Динамика доли в выручке
    * @type {number}
    * @memberof StatisticsComparison
    */
-  shareOrderPercentDynamic: number;
+  shareOrderPercentDynamic?: number;
   /**
    * Динамика добавлений товара в избранное
    * @type {number}
    * @memberof StatisticsComparison
    */
-  addToWishlistDynamic: number;
+  addToWishlistDynamic?: number;
   /**
    *
    * @type {ComparisonTimeToReadyDynamic}
    * @memberof StatisticsComparison
    */
-  timeToReadyDynamic: ComparisonTimeToReadyDynamic;
+  timeToReadyDynamic?: ComparisonTimeToReadyDynamic;
   /**
    * Динамика локальных заказов в рамках одного региона. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `0`
    * @type {number}
    * @memberof StatisticsComparison
    */
-  localizationPercentDynamic: number;
+  localizationPercentDynamic?: number;
   /**
    *
    * @type {ComparisonWbClubDynamic}
    * @memberof StatisticsComparison
    */
-  wbClubDynamic: ComparisonWbClubDynamic;
+  wbClubDynamic?: ComparisonWbClubDynamic;
   /**
    *
    * @type {StatisticConversions}
    * @memberof StatisticsComparison
    */
-  conversions: StatisticConversions;
+  conversions?: StatisticConversions;
 }
 /**
  *
@@ -4686,103 +4686,103 @@ export interface StatisticsPast {
    * @type {StatisticPeriod}
    * @memberof StatisticsPast
    */
-  period: StatisticPeriod;
+  period?: StatisticPeriod;
   /**
    * Количество переходов в карточку товара
    * @type {number}
    * @memberof StatisticsPast
    */
-  openCount: number;
+  openCount?: number;
   /**
    * Положили в корзину, шт.
    * @type {number}
    * @memberof StatisticsPast
    */
-  cartCount: number;
+  cartCount?: number;
   /**
    * Заказали товаров, шт.
    * @type {number}
    * @memberof StatisticsPast
    */
-  orderCount: number;
+  orderCount?: number;
   /**
    * Заказали на сумму
    * @type {number}
    * @memberof StatisticsPast
    */
-  orderSum: number;
+  orderSum?: number;
   /**
    * Выкупили товаров, шт.
    * @type {number}
    * @memberof StatisticsPast
    */
-  buyoutCount: number;
+  buyoutCount?: number;
   /**
    * Выкупили на сумму
    * @type {number}
    * @memberof StatisticsPast
    */
-  buyoutSum: number;
+  buyoutSum?: number;
   /**
    * Отменили и вернули товаров, шт.
    * @type {number}
    * @memberof StatisticsPast
    */
-  cancelCount: number;
+  cancelCount?: number;
   /**
    * Отменили и вернули на сумму
    * @type {number}
    * @memberof StatisticsPast
    */
-  cancelSum: number;
+  cancelSum?: number;
   /**
    * Средняя цена
    * @type {number}
    * @memberof StatisticsPast
    */
-  avgPrice: number;
+  avgPrice?: number;
   /**
    * Среднее количество заказов в день, шт.
    * @type {number}
    * @memberof StatisticsPast
    */
-  avgOrdersCountPerDay: number;
+  avgOrdersCountPerDay?: number;
   /**
    * Доля в выручке
    * @type {number}
    * @memberof StatisticsPast
    */
-  shareOrderPercent: number;
+  shareOrderPercent?: number;
   /**
    * Добавили в **Отложенные**
    * @type {number}
    * @memberof StatisticsPast
    */
-  addToWishlist: number;
+  addToWishlist?: number;
   /**
    *
    * @type {StatisticTimeToReady}
    * @memberof StatisticsPast
    */
-  timeToReady: StatisticTimeToReady;
+  timeToReady?: StatisticTimeToReady;
   /**
    * Локальные заказы в рамках одного региона. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `100`
    * @type {number}
    * @memberof StatisticsPast
    */
-  localizationPercent: number;
+  localizationPercent?: number;
   /**
    *
    * @type {StatisticWbClub}
    * @memberof StatisticsPast
    */
-  wbClub: StatisticWbClub;
+  wbClub?: StatisticWbClub;
   /**
    *
    * @type {StatisticConversions}
    * @memberof StatisticsPast
    */
-  conversions: StatisticConversions;
+  conversions?: StatisticConversions;
 }
 /**
  *
@@ -4795,103 +4795,103 @@ export interface StatisticsSelected {
    * @type {StatisticPeriod}
    * @memberof StatisticsSelected
    */
-  period: StatisticPeriod;
+  period?: StatisticPeriod;
   /**
    * Количество переходов в карточку товара
    * @type {number}
    * @memberof StatisticsSelected
    */
-  openCount: number;
+  openCount?: number;
   /**
    * Положили в корзину, шт.
    * @type {number}
    * @memberof StatisticsSelected
    */
-  cartCount: number;
+  cartCount?: number;
   /**
    * Заказали товаров, шт.
    * @type {number}
    * @memberof StatisticsSelected
    */
-  orderCount: number;
+  orderCount?: number;
   /**
    * Заказали на сумму
    * @type {number}
    * @memberof StatisticsSelected
    */
-  orderSum: number;
+  orderSum?: number;
   /**
    * Выкупили товаров, шт.
    * @type {number}
    * @memberof StatisticsSelected
    */
-  buyoutCount: number;
+  buyoutCount?: number;
   /**
    * Выкупили на сумму
    * @type {number}
    * @memberof StatisticsSelected
    */
-  buyoutSum: number;
+  buyoutSum?: number;
   /**
    * Отменили и вернули товаров, шт.
    * @type {number}
    * @memberof StatisticsSelected
    */
-  cancelCount: number;
+  cancelCount?: number;
   /**
    * Отменили и вернули на сумму
    * @type {number}
    * @memberof StatisticsSelected
    */
-  cancelSum: number;
+  cancelSum?: number;
   /**
    * Средняя цена
    * @type {number}
    * @memberof StatisticsSelected
    */
-  avgPrice: number;
+  avgPrice?: number;
   /**
    * Среднее количество заказов в день, шт.
    * @type {number}
    * @memberof StatisticsSelected
    */
-  avgOrdersCountPerDay: number;
+  avgOrdersCountPerDay?: number;
   /**
    * Доля в выручке
    * @type {number}
    * @memberof StatisticsSelected
    */
-  shareOrderPercent: number;
+  shareOrderPercent?: number;
   /**
    * Добавили в **Отложенные**
    * @type {number}
    * @memberof StatisticsSelected
    */
-  addToWishlist: number;
+  addToWishlist?: number;
   /**
    *
    * @type {StatisticTimeToReady}
    * @memberof StatisticsSelected
    */
-  timeToReady: StatisticTimeToReady;
+  timeToReady?: StatisticTimeToReady;
   /**
    * Локальные заказы в рамках одного региона. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `100`
    * @type {number}
    * @memberof StatisticsSelected
    */
-  localizationPercent: number;
+  localizationPercent?: number;
   /**
    *
    * @type {StatisticWbClub}
    * @memberof StatisticsSelected
    */
-  wbClub: StatisticWbClub;
+  wbClub?: StatisticWbClub;
   /**
    *
    * @type {StatisticConversions}
    * @memberof StatisticsSelected
    */
-  conversions: StatisticConversions;
+  conversions?: StatisticConversions;
 }
 /**
  * Тип складов хранения товаров:   - `\"\"` — все   - `wb` — склады WB   - `mp` — склады продавца
@@ -4918,109 +4918,109 @@ export interface TableCommonMetrics {
    * @type {number}
    * @memberof TableCommonMetrics
    */
-  ordersCount: number;
+  ordersCount?: number;
   /**
    * Заказы, сумма
    * @type {number}
    * @memberof TableCommonMetrics
    */
-  ordersSum: number;
+  ordersSum?: number;
   /**
    * Среднее количество заказов в день
    * @type {number}
    * @memberof TableCommonMetrics
    */
-  avgOrders: number;
+  avgOrders?: number;
   /**
    * Среднее количество заказов по месяцам
    * @type {Array<FloatGraphByPeriodItem>}
    * @memberof TableCommonMetrics
    */
-  avgOrdersByMonth: Array<FloatGraphByPeriodItem>;
+  avgOrdersByMonth?: Array<FloatGraphByPeriodItem>;
   /**
    * Выкупы, шт.
    * @type {number}
    * @memberof TableCommonMetrics
    */
-  buyoutCount: number;
+  buyoutCount?: number;
   /**
    * Выкупы, сумма
    * @type {number}
    * @memberof TableCommonMetrics
    */
-  buyoutSum: number;
+  buyoutSum?: number;
   /**
    * Процент выкупа
    * @type {number}
    * @memberof TableCommonMetrics
    */
-  buyoutPercent: number;
+  buyoutPercent?: number;
   /**
    * Остатки на текущий день, шт.
    * @type {number}
    * @memberof TableCommonMetrics
    */
-  stockCount: number;
+  stockCount?: number;
   /**
    * Стоимость остатков на текущий день
    * @type {number}
    * @memberof TableCommonMetrics
    */
-  stockSum: number;
+  stockSum?: number;
   /**
    *
    * @type {TableCommonMetricsSaleRate}
    * @memberof TableCommonMetrics
    */
-  saleRate: TableCommonMetricsSaleRate;
+  saleRate?: TableCommonMetricsSaleRate;
   /**
    *
    * @type {TableCommonMetricsAvgStockTurnover}
    * @memberof TableCommonMetrics
    */
-  avgStockTurnover: TableCommonMetricsAvgStockTurnover;
+  avgStockTurnover?: TableCommonMetricsAvgStockTurnover;
   /**
    * В пути к клиенту, шт.
    * @type {number}
    * @memberof TableCommonMetrics
    */
-  toClientCount: number;
+  toClientCount?: number;
   /**
    * В пути от клиента, шт.
    * @type {number}
    * @memberof TableCommonMetrics
    */
-  fromClientCount: number;
+  fromClientCount?: number;
   /**
    *
    * @type {TableCommonMetricsOfficeMissingTime}
    * @memberof TableCommonMetrics
    */
-  officeMissingTime: TableCommonMetricsOfficeMissingTime;
+  officeMissingTime?: TableCommonMetricsOfficeMissingTime;
   /**
    * Упущенные заказы, шт. Особые случаи:   1. Значение меньше `0` и не равно `-2` — значение не рассчитано   2. Значение `-2` — нулевое значение
    * @type {number}
    * @memberof TableCommonMetrics
    */
-  lostOrdersCount: number;
+  lostOrdersCount?: number;
   /**
    * Упущенные заказы, сумма. Особые случаи:   1. Значение меньше `0` и не равно `-2` — значение не рассчитано   2. Значение `-2` — нулевое значение
    * @type {number}
    * @memberof TableCommonMetrics
    */
-  lostOrdersSum: number;
+  lostOrdersSum?: number;
   /**
    * Упущенные выкупы, шт. Особые случаи:   1. Значение меньше `0` и не равно `-2` — значение не рассчитано   2. Значение `-2` — нулевое значение
    * @type {number}
    * @memberof TableCommonMetrics
    */
-  lostBuyoutsCount: number;
+  lostBuyoutsCount?: number;
   /**
    * Упущенные выкупы, сумма. Особые случаи:   1. Значение меньше `0` и не равно `-2` — значение не рассчитано   2. Значение `-2` — нулевое значение
    * @type {number}
    * @memberof TableCommonMetrics
    */
-  lostBuyoutsSum: number;
+  lostBuyoutsSum?: number;
 }
 /**
  * Оборачиваемость средних остатков. Особые случаи:   1. `\"hours\":-1` — бесконечная длительность   2. `\"hours\":-2` — нулевая длительность   3. `\"hours\":-3` — нерассчитанная длительность
@@ -5033,13 +5033,13 @@ export interface TableCommonMetricsAvgStockTurnover {
    * @type {number}
    * @memberof TableCommonMetricsAvgStockTurnover
    */
-  days: number;
+  days?: number;
   /**
    * Количество часов
    * @type {number}
    * @memberof TableCommonMetricsAvgStockTurnover
    */
-  hours: number;
+  hours?: number;
 }
 /**
  * Время отсутствия товара на складе. Особые случаи:   1. `\"hours\":-1` — бесконечная длительность   2. `\"hours\":-2` — нулевая длительность   3. `\"hours\":-3` — нерассчитанная длительность   4. `\"hours\":-4` — отсутствие в течение всего периода
@@ -5052,13 +5052,13 @@ export interface TableCommonMetricsOfficeMissingTime {
    * @type {number}
    * @memberof TableCommonMetricsOfficeMissingTime
    */
-  days: number;
+  days?: number;
   /**
    * Количество часов
    * @type {number}
    * @memberof TableCommonMetricsOfficeMissingTime
    */
-  hours: number;
+  hours?: number;
 }
 /**
  * Оборачиваемость текущих остатков. Особые случаи:   1. `\"hours\":-1` — бесконечная длительность   2. `\"hours\":-2` — нулевая длительность   3. `\"hours\":-3` — нерассчитанная длительность
@@ -5071,13 +5071,13 @@ export interface TableCommonMetricsSaleRate {
    * @type {number}
    * @memberof TableCommonMetricsSaleRate
    */
-  days: number;
+  days?: number;
   /**
    * Количество часов
    * @type {number}
    * @memberof TableCommonMetricsSaleRate
    */
-  hours: number;
+  hours?: number;
 }
 /**
  * Параметры запроса для пагинации по товарам в группе:   - `currentPeriod` — текущий период   - `pastPeriod` — предыдущий период для сравнения
@@ -5180,13 +5180,13 @@ export interface TableDetailsResponse {
    * @type {Array<TableItemItem>}
    * @memberof TableDetailsResponse
    */
-  products: Array<TableItemItem>;
+  products?: Array<TableItemItem>;
   /**
    * Валюта отчёта
    * @type {string}
    * @memberof TableDetailsResponse
    */
-  currency: string;
+  currency?: string;
 }
 /**
  * Сортировка по полю:   - `ordersCount` — Заказы, шт.   - `ordersSum` — Заказы, сумма   - `avgOrders` — Среднее количество заказов в день   - `buyoutCount` — Выкупы, шт.   - `buyoutSum` — Выкупы, сумма   - `buyoutPercent` — Процент выкупа   - `stockCount` — Остатки на текущий день, шт.   - `stockSum` — Стоимость остатков на текущий день   - `saleRate` — Оборачиваемость текущих остатков   - `avgStockTurnover` — Оборачиваемость средних остатков   - `toClientCount` — В пути к клиенту, шт.   - `fromClientCount` — В пути от клиента, шт.   - `minPrice` — Минимальная цена продавца со скидкой продавца (без учёта скидки WB Клуба)   - `maxPrice` — Максимальная цена продавца со скидкой продавца (без учёта скидки WB Клуба)   - `officeMissingTime` — Время отсутствия товара на складе   - `lostOrdersCount` — Упущенные заказы, шт.   - `lostOrdersSum` — Упущенные заказы, сумма   - `lostBuyoutsCount` — Упущенные выкупы, шт.   - `lostBuyoutsSum` — Упущенные выкупы, сумма
@@ -5260,13 +5260,13 @@ export interface TableGroupItem {
    * @type {TableGroupItemMetrics}
    * @memberof TableGroupItem
    */
-  metrics: TableGroupItemMetrics;
+  metrics?: TableGroupItemMetrics;
   /**
    * Массив товаров группы
    * @type {Array<TableItemItem>}
    * @memberof TableGroupItem
    */
-  items: Array<TableItemItem>;
+  items?: Array<TableItemItem>;
 }
 /**
  * Метрики товара в таблице
@@ -5279,43 +5279,43 @@ export interface TableGroupItemMetrics {
    * @type {TableGroupItemMetricsAvgPosition}
    * @memberof TableGroupItemMetrics
    */
-  avgPosition: TableGroupItemMetricsAvgPosition;
+  avgPosition?: TableGroupItemMetricsAvgPosition;
   /**
    *
    * @type {VisibilityInfoOpenCard}
    * @memberof TableGroupItemMetrics
    */
-  openCard: VisibilityInfoOpenCard;
+  openCard?: VisibilityInfoOpenCard;
   /**
    *
    * @type {TableGroupItemMetricsAddToCart}
    * @memberof TableGroupItemMetrics
    */
-  addToCart: TableGroupItemMetricsAddToCart;
+  addToCart?: TableGroupItemMetricsAddToCart;
   /**
    *
    * @type {TableGroupItemMetricsOpenToCart}
    * @memberof TableGroupItemMetrics
    */
-  openToCart: TableGroupItemMetricsOpenToCart;
+  openToCart?: TableGroupItemMetricsOpenToCart;
   /**
    *
    * @type {TableGroupItemMetricsOrders}
    * @memberof TableGroupItemMetrics
    */
-  orders: TableGroupItemMetricsOrders;
+  orders?: TableGroupItemMetricsOrders;
   /**
    *
    * @type {TableGroupItemMetricsCartToOrder}
    * @memberof TableGroupItemMetrics
    */
-  cartToOrder: TableGroupItemMetricsCartToOrder;
+  cartToOrder?: TableGroupItemMetricsCartToOrder;
   /**
    *
    * @type {TableGroupItemMetricsVisibility}
    * @memberof TableGroupItemMetrics
    */
-  visibility: TableGroupItemMetricsVisibility;
+  visibility?: TableGroupItemMetricsVisibility;
 }
 /**
  * Сколько раз товар из поиска добавили в корзину
@@ -5328,7 +5328,7 @@ export interface TableGroupItemMetricsAddToCart {
    * @type {number}
    * @memberof TableGroupItemMetricsAddToCart
    */
-  current: number;
+  current?: number;
   /**
    * Динамика по сравнению с предыдущим периодом, %
    * @type {number}
@@ -5347,7 +5347,7 @@ export interface TableGroupItemMetricsAvgPosition {
    * @type {number}
    * @memberof TableGroupItemMetricsAvgPosition
    */
-  current: number;
+  current?: number;
   /**
    * Динамика по сравнению с предыдущим периодом, %
    * @type {number}
@@ -5366,7 +5366,7 @@ export interface TableGroupItemMetricsCartToOrder {
    * @type {number}
    * @memberof TableGroupItemMetricsCartToOrder
    */
-  current: number;
+  current?: number;
   /**
    * Динамика по сравнению с предыдущим периодом, %
    * @type {number}
@@ -5385,7 +5385,7 @@ export interface TableGroupItemMetricsOpenToCart {
    * @type {number}
    * @memberof TableGroupItemMetricsOpenToCart
    */
-  current: number;
+  current?: number;
   /**
    * Динамика по сравнению с предыдущим периодом, %
    * @type {number}
@@ -5404,7 +5404,7 @@ export interface TableGroupItemMetricsOrders {
    * @type {number}
    * @memberof TableGroupItemMetricsOrders
    */
-  current: number;
+  current?: number;
   /**
    * Динамика по сравнению с предыдущим периодом, %
    * @type {number}
@@ -5423,7 +5423,7 @@ export interface TableGroupItemMetricsVisibility {
    * @type {number}
    * @memberof TableGroupItemMetricsVisibility
    */
-  current: number;
+  current?: number;
   /**
    * Динамика по сравнению с предыдущим периодом, %
    * @type {number}
@@ -5442,43 +5442,43 @@ export interface TableGroupItemSt {
    * @type {number}
    * @memberof TableGroupItemSt
    */
-  subjectID: number;
+  subjectID?: number;
   /**
    * Название предмета
    * @type {string}
    * @memberof TableGroupItemSt
    */
-  subjectName: string;
+  subjectName?: string;
   /**
    * Бренд
    * @type {string}
    * @memberof TableGroupItemSt
    */
-  brandName: string;
+  brandName?: string;
   /**
    * ID ярлыка
    * @type {number}
    * @memberof TableGroupItemSt
    */
-  tagID: number;
+  tagID?: number;
   /**
    * Название ярлыка
    * @type {string}
    * @memberof TableGroupItemSt
    */
-  tagName: string;
+  tagName?: string;
   /**
    * Метрики группы
    * @type {TableCommonMetrics}
    * @memberof TableGroupItemSt
    */
-  metrics: TableCommonMetrics;
+  metrics?: TableCommonMetrics;
   /**
    * Товары группы
    * @type {Array<TableItemItemSt>}
    * @memberof TableGroupItemSt
    */
-  items: Array<TableItemItemSt>;
+  items?: Array<TableItemItemSt>;
 }
 /**
  * Параметры запроса для пагинации по группам:   - `currentPeriod` — текущий период   - `pastPeriod` — предыдущий период для сравнения
@@ -5657,13 +5657,13 @@ export interface TableGroupResponse {
    * @type {Array<TableGroupItem>}
    * @memberof TableGroupResponse
    */
-  groups: Array<TableGroupItem>;
+  groups?: Array<TableGroupItem>;
   /**
    * Валюта отчёта
    * @type {string}
    * @memberof TableGroupResponse
    */
-  currency: string;
+  currency?: string;
 }
 /**
  *
@@ -5676,13 +5676,13 @@ export interface TableGroupResponseSt {
    * @type {Array<TableGroupItemSt>}
    * @memberof TableGroupResponseSt
    */
-  groups: Array<TableGroupItemSt>;
+  groups?: Array<TableGroupItemSt>;
   /**
    * Валюта отчёта
    * @type {string}
    * @memberof TableGroupResponseSt
    */
-  currency: string;
+  currency?: string;
 }
 /**
  * Рейтинг продавца
@@ -5695,7 +5695,7 @@ export interface TableItemFloat {
    * @type {number}
    * @memberof TableItemFloat
    */
-  current: number;
+  current?: number;
   /**
    * Динамика по сравнению с предыдущим периодом, %
    * @type {number}
@@ -5714,7 +5714,7 @@ export interface TableItemItem {
    * @type {number}
    * @memberof TableItemItem
    */
-  nmId: number;
+  nmId?: number;
   /**
    * Название товара
    * @type {string}
@@ -5726,7 +5726,7 @@ export interface TableItemItem {
    * @type {string}
    * @memberof TableItemItem
    */
-  vendorCode: string;
+  vendorCode?: string;
   /**
    * Название предмета
    * @type {string}
@@ -5750,7 +5750,7 @@ export interface TableItemItem {
    * @type {boolean}
    * @memberof TableItemItem
    */
-  isAdvertised: boolean;
+  isAdvertised?: boolean;
   /**
    * Искали ли товар по подменному артикулу. Поле будет в ответе при наличии в запросе `includeSubstitutedSKUs` и/или `includeSearchTexts`
    * @type {boolean}
@@ -5762,67 +5762,67 @@ export interface TableItemItem {
    * @type {boolean}
    * @memberof TableItemItem
    */
-  isCardRated: boolean;
+  isCardRated?: boolean;
   /**
    * Рейтинг карточки товара
    * @type {number}
    * @memberof TableItemItem
    */
-  rating: number;
+  rating?: number;
   /**
    * Рейтинг по отзывам
    * @type {number}
    * @memberof TableItemItem
    */
-  feedbackRating: number;
+  feedbackRating?: number;
   /**
    *
    * @type {TableItemItemAllOfPrice}
    * @memberof TableItemItem
    */
-  price: TableItemItemAllOfPrice;
+  price?: TableItemItemAllOfPrice;
   /**
    *
    * @type {TableGroupItemMetricsAvgPosition}
    * @memberof TableItemItem
    */
-  avgPosition: TableGroupItemMetricsAvgPosition;
+  avgPosition?: TableGroupItemMetricsAvgPosition;
   /**
    *
    * @type {VisibilityInfoOpenCard}
    * @memberof TableItemItem
    */
-  openCard: VisibilityInfoOpenCard;
+  openCard?: VisibilityInfoOpenCard;
   /**
    *
    * @type {TableGroupItemMetricsAddToCart}
    * @memberof TableItemItem
    */
-  addToCart: TableGroupItemMetricsAddToCart;
+  addToCart?: TableGroupItemMetricsAddToCart;
   /**
    *
    * @type {TableGroupItemMetricsOpenToCart}
    * @memberof TableItemItem
    */
-  openToCart: TableGroupItemMetricsOpenToCart;
+  openToCart?: TableGroupItemMetricsOpenToCart;
   /**
    *
    * @type {TableGroupItemMetricsOrders}
    * @memberof TableItemItem
    */
-  orders: TableGroupItemMetricsOrders;
+  orders?: TableGroupItemMetricsOrders;
   /**
    *
    * @type {TableGroupItemMetricsCartToOrder}
    * @memberof TableItemItem
    */
-  cartToOrder: TableGroupItemMetricsCartToOrder;
+  cartToOrder?: TableGroupItemMetricsCartToOrder;
   /**
    *
    * @type {TableGroupItemMetricsVisibility}
    * @memberof TableItemItem
    */
-  visibility: TableGroupItemMetricsVisibility;
+  visibility?: TableGroupItemMetricsVisibility;
 }
 /**
  * Цена
@@ -5835,13 +5835,13 @@ export interface TableItemItemAllOfPrice {
    * @type {number}
    * @memberof TableItemItemAllOfPrice
    */
-  minPrice: number;
+  minPrice?: number;
   /**
    * Максимальная цена продавца со скидкой продавца (без учёта скидки WB Клуба)
    * @type {number}
    * @memberof TableItemItemAllOfPrice
    */
-  maxPrice: number;
+  maxPrice?: number;
 }
 /**
  * Данные по товару
@@ -5854,55 +5854,55 @@ export interface TableItemItemSt {
    * @type {number}
    * @memberof TableItemItemSt
    */
-  nmID: number;
+  nmID?: number;
   /**
    * Является ли товар удалённым
    * @type {boolean}
    * @memberof TableItemItemSt
    */
-  isDeleted: boolean;
+  isDeleted?: boolean;
   /**
    * Название предмета
    * @type {string}
    * @memberof TableItemItemSt
    */
-  subjectName: string;
+  subjectName?: string;
   /**
    * Название товара
    * @type {string}
    * @memberof TableItemItemSt
    */
-  name: string;
+  name?: string;
   /**
    * Артикул продавца
    * @type {string}
    * @memberof TableItemItemSt
    */
-  vendorCode: string;
+  vendorCode?: string;
   /**
    * Бренд
    * @type {string}
    * @memberof TableItemItemSt
    */
-  brandName: string;
+  brandName?: string;
   /**
    * Ссылка на главное фото
    * @type {string}
    * @memberof TableItemItemSt
    */
-  mainPhoto: string;
+  mainPhoto?: string;
   /**
    * Является ли товар размерным. Неразмерный товар имеет единственный размер, с `\"techSize\":\"0\"`
    * @type {boolean}
    * @memberof TableItemItemSt
    */
-  hasSizes: boolean;
+  hasSizes?: boolean;
   /**
    *
    * @type {TableItemItemStMetrics}
    * @memberof TableItemItemSt
    */
-  metrics: TableItemItemStMetrics;
+  metrics?: TableItemItemStMetrics;
 }
 /**
  * Метрики товара
@@ -5915,121 +5915,121 @@ export interface TableItemItemStMetrics {
    * @type {number}
    * @memberof TableItemItemStMetrics
    */
-  ordersCount: number;
+  ordersCount?: number;
   /**
    * Заказы, сумма
    * @type {number}
    * @memberof TableItemItemStMetrics
    */
-  ordersSum: number;
+  ordersSum?: number;
   /**
    * Среднее количество заказов в день
    * @type {number}
    * @memberof TableItemItemStMetrics
    */
-  avgOrders: number;
+  avgOrders?: number;
   /**
    * Среднее количество заказов по месяцам
    * @type {Array<FloatGraphByPeriodItem>}
    * @memberof TableItemItemStMetrics
    */
-  avgOrdersByMonth: Array<FloatGraphByPeriodItem>;
+  avgOrdersByMonth?: Array<FloatGraphByPeriodItem>;
   /**
    * Выкупы, шт.
    * @type {number}
    * @memberof TableItemItemStMetrics
    */
-  buyoutCount: number;
+  buyoutCount?: number;
   /**
    * Выкупы, сумма
    * @type {number}
    * @memberof TableItemItemStMetrics
    */
-  buyoutSum: number;
+  buyoutSum?: number;
   /**
    * Процент выкупа
    * @type {number}
    * @memberof TableItemItemStMetrics
    */
-  buyoutPercent: number;
+  buyoutPercent?: number;
   /**
    * Остатки на текущий день, шт.
    * @type {number}
    * @memberof TableItemItemStMetrics
    */
-  stockCount: number;
+  stockCount?: number;
   /**
    * Стоимость остатков на текущий день
    * @type {number}
    * @memberof TableItemItemStMetrics
    */
-  stockSum: number;
+  stockSum?: number;
   /**
    *
    * @type {TableCommonMetricsSaleRate}
    * @memberof TableItemItemStMetrics
    */
-  saleRate: TableCommonMetricsSaleRate;
+  saleRate?: TableCommonMetricsSaleRate;
   /**
    *
    * @type {TableCommonMetricsAvgStockTurnover}
    * @memberof TableItemItemStMetrics
    */
-  avgStockTurnover: TableCommonMetricsAvgStockTurnover;
+  avgStockTurnover?: TableCommonMetricsAvgStockTurnover;
   /**
    * В пути к клиенту, шт.
    * @type {number}
    * @memberof TableItemItemStMetrics
    */
-  toClientCount: number;
+  toClientCount?: number;
   /**
    * В пути от клиента, шт.
    * @type {number}
    * @memberof TableItemItemStMetrics
    */
-  fromClientCount: number;
+  fromClientCount?: number;
   /**
    *
    * @type {TableCommonMetricsOfficeMissingTime}
    * @memberof TableItemItemStMetrics
    */
-  officeMissingTime: TableCommonMetricsOfficeMissingTime;
+  officeMissingTime?: TableCommonMetricsOfficeMissingTime;
   /**
    * Упущенные заказы, шт. Особые случаи:   1. Значение меньше `0` и не равно `-2` — значение не рассчитано   2. Значение `-2` — нулевое значение
    * @type {number}
    * @memberof TableItemItemStMetrics
    */
-  lostOrdersCount: number;
+  lostOrdersCount?: number;
   /**
    * Упущенные заказы, сумма. Особые случаи:   1. Значение меньше `0` и не равно `-2` — значение не рассчитано   2. Значение `-2` — нулевое значение
    * @type {number}
    * @memberof TableItemItemStMetrics
    */
-  lostOrdersSum: number;
+  lostOrdersSum?: number;
   /**
    * Упущенные выкупы, шт. Особые случаи:   1. Значение меньше `0` и не равно `-2` — значение не рассчитано   2. Значение `-2` — нулевое значение
    * @type {number}
    * @memberof TableItemItemStMetrics
    */
-  lostBuyoutsCount: number;
+  lostBuyoutsCount?: number;
   /**
    * Упущенные выкупы, сумма. Особые случаи:   1. Значение меньше `0` и не равно `-2` — значение не рассчитано   2. Значение `-2` — нулевое значение
    * @type {number}
    * @memberof TableItemItemStMetrics
    */
-  lostBuyoutsSum: number;
+  lostBuyoutsSum?: number;
   /**
    *
    * @type {TableItemItemStMetricsAllOfCurrentPrice}
    * @memberof TableItemItemStMetrics
    */
-  currentPrice: TableItemItemStMetricsAllOfCurrentPrice;
+  currentPrice?: TableItemItemStMetricsAllOfCurrentPrice;
   /**
    * Доступность товара:   - `deficient` — Дефицит   - `actual` — Актуальный   - `balanced` — Баланс   - `nonActual` — Неактуальный   - `nonLiquid` — Неликвид   - `invalidData` — Не рассчитано
    * @type {string}
    * @memberof TableItemItemStMetrics
    */
-  availability: TableItemItemStMetricsAvailabilityEnum;
+  availability?: TableItemItemStMetricsAvailabilityEnum;
 }
 
 export const TableItemItemStMetricsAvailabilityEnum = {
@@ -6055,13 +6055,13 @@ export interface TableItemItemStMetricsAllOfCurrentPrice {
    * @type {number}
    * @memberof TableItemItemStMetricsAllOfCurrentPrice
    */
-  minPrice: number;
+  minPrice?: number;
   /**
    * Максимальная цена продавца со скидкой продавца (без учёта скидки WB Клуба)
    * @type {number}
    * @memberof TableItemItemStMetricsAllOfCurrentPrice
    */
-  maxPrice: number;
+  maxPrice?: number;
 }
 /**
  * Параметры запроса об остатках по товарам
@@ -6160,13 +6160,13 @@ export interface TableItemResponse {
    * @type {Array<TableItemItemSt>}
    * @memberof TableItemResponse
    */
-  items: Array<TableItemItemSt>;
+  items?: Array<TableItemItemSt>;
   /**
    * Валюта отчёта
    * @type {string}
    * @memberof TableItemResponse
    */
-  currency: string;
+  currency?: string;
 }
 /**
  * Данные по складу
@@ -6179,25 +6179,25 @@ export interface TableOfficeItem {
    * @type {string}
    * @memberof TableOfficeItem
    */
-  regionName: string;
+  regionName?: string;
   /**
    * ID склада. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) для складов WB может быть только `-999999`
    * @type {number}
    * @memberof TableOfficeItem
    */
-  officeID: number;
+  officeID?: number;
   /**
    * Название склада. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) для складов WB может быть только `\"\"`
    * @type {string}
    * @memberof TableOfficeItem
    */
-  officeName: string;
+  officeName?: string;
   /**
    * Метрики склада
    * @type {TableCommonMetrics}
    * @memberof TableOfficeItem
    */
-  metrics: TableCommonMetrics;
+  metrics?: TableCommonMetrics;
 }
 /**
  * Вид сортировки данных
@@ -6230,121 +6230,121 @@ export interface TableSearchTextItem {
    * @type {string}
    * @memberof TableSearchTextItem
    */
-  text: string;
+  text?: string;
   /**
    * Артикул WB
    * @type {number}
    * @memberof TableSearchTextItem
    */
-  nmId: number;
+  nmId?: number;
   /**
    * Название предмета
    * @type {string}
    * @memberof TableSearchTextItem
    */
-  subjectName: string;
+  subjectName?: string;
   /**
    * Бренд
    * @type {string}
    * @memberof TableSearchTextItem
    */
-  brandName: string;
+  brandName?: string;
   /**
    * Артикул продавца
    * @type {string}
    * @memberof TableSearchTextItem
    */
-  vendorCode: string;
+  vendorCode?: string;
   /**
    * Название товара
    * @type {string}
    * @memberof TableSearchTextItem
    */
-  name: string;
+  name?: string;
   /**
    * Есть ли рейтинг у карточки товара
    * @type {boolean}
    * @memberof TableSearchTextItem
    */
-  isCardRated: boolean;
+  isCardRated?: boolean;
   /**
    * Рейтинг карточки товара
    * @type {number}
    * @memberof TableSearchTextItem
    */
-  rating: number;
+  rating?: number;
   /**
    * Рейтинг по отзывам
    * @type {number}
    * @memberof TableSearchTextItem
    */
-  feedbackRating: number;
+  feedbackRating?: number;
   /**
    *
    * @type {TableItemItemAllOfPrice}
    * @memberof TableSearchTextItem
    */
-  price: TableItemItemAllOfPrice;
+  price?: TableItemItemAllOfPrice;
   /**
    *
    * @type {TableSearchTextItemAllOfFrequency}
    * @memberof TableSearchTextItem
    */
-  frequency: TableSearchTextItemAllOfFrequency;
+  frequency?: TableSearchTextItemAllOfFrequency;
   /**
    * Количество обращений с поисковым запросом за неделю
    * @type {number}
    * @memberof TableSearchTextItem
    */
-  weekFrequency: number;
+  weekFrequency?: number;
   /**
    *
    * @type {TableSearchTextItemAllOfMedianPosition}
    * @memberof TableSearchTextItem
    */
-  medianPosition: TableSearchTextItemAllOfMedianPosition;
+  medianPosition?: TableSearchTextItemAllOfMedianPosition;
   /**
    *
    * @type {TableGroupItemMetricsAvgPosition}
    * @memberof TableSearchTextItem
    */
-  avgPosition: TableGroupItemMetricsAvgPosition;
+  avgPosition?: TableGroupItemMetricsAvgPosition;
   /**
    *
    * @type {TableSearchTextItemAllOfOpenCard}
    * @memberof TableSearchTextItem
    */
-  openCard: TableSearchTextItemAllOfOpenCard;
+  openCard?: TableSearchTextItemAllOfOpenCard;
   /**
    *
    * @type {TableSearchTextItemAllOfAddToCart}
    * @memberof TableSearchTextItem
    */
-  addToCart: TableSearchTextItemAllOfAddToCart;
+  addToCart?: TableSearchTextItemAllOfAddToCart;
   /**
    *
    * @type {TableSearchTextItemAllOfOpenToCart}
    * @memberof TableSearchTextItem
    */
-  openToCart: TableSearchTextItemAllOfOpenToCart;
+  openToCart?: TableSearchTextItemAllOfOpenToCart;
   /**
    *
    * @type {TableSearchTextItemAllOfOrders}
    * @memberof TableSearchTextItem
    */
-  orders: TableSearchTextItemAllOfOrders;
+  orders?: TableSearchTextItemAllOfOrders;
   /**
    *
    * @type {TableSearchTextItemAllOfCartToOrder}
    * @memberof TableSearchTextItem
    */
-  cartToOrder: TableSearchTextItemAllOfCartToOrder;
+  cartToOrder?: TableSearchTextItemAllOfCartToOrder;
   /**
    *
    * @type {TableSearchTextItemAllOfVisibility}
    * @memberof TableSearchTextItem
    */
-  visibility: TableSearchTextItemAllOfVisibility;
+  visibility?: TableSearchTextItemAllOfVisibility;
 }
 /**
  * Сколько раз товар из поиска добавили в корзину
@@ -6357,7 +6357,7 @@ export interface TableSearchTextItemAllOfAddToCart {
    * @type {number}
    * @memberof TableSearchTextItemAllOfAddToCart
    */
-  current: number;
+  current?: number;
   /**
    * Динамика по сравнению с предыдущим периодом, %
    * @type {number}
@@ -6369,7 +6369,7 @@ export interface TableSearchTextItemAllOfAddToCart {
    * @type {number}
    * @memberof TableSearchTextItemAllOfAddToCart
    */
-  percentile: number;
+  percentile?: number;
 }
 /**
  * Конверсия в заказ из поиска — доля заказов товара по отношению ко всем добавлениям товара из поиска в корзину
@@ -6382,7 +6382,7 @@ export interface TableSearchTextItemAllOfCartToOrder {
    * @type {number}
    * @memberof TableSearchTextItemAllOfCartToOrder
    */
-  current: number;
+  current?: number;
   /**
    * Динамика по сравнению с предыдущим периодом, %
    * @type {number}
@@ -6394,7 +6394,7 @@ export interface TableSearchTextItemAllOfCartToOrder {
    * @type {number}
    * @memberof TableSearchTextItemAllOfCartToOrder
    */
-  percentile: number;
+  percentile?: number;
 }
 /**
  * Количество обращений с поисковым запросом
@@ -6407,7 +6407,7 @@ export interface TableSearchTextItemAllOfFrequency {
    * @type {number}
    * @memberof TableSearchTextItemAllOfFrequency
    */
-  current: number;
+  current?: number;
   /**
    * Динамика по сравнению с предыдущим периодом, %
    * @type {number}
@@ -6426,7 +6426,7 @@ export interface TableSearchTextItemAllOfMedianPosition {
    * @type {number}
    * @memberof TableSearchTextItemAllOfMedianPosition
    */
-  current: number;
+  current?: number;
   /**
    * Динамика по сравнению с предыдущим периодом, %
    * @type {number}
@@ -6445,7 +6445,7 @@ export interface TableSearchTextItemAllOfOpenCard {
    * @type {number}
    * @memberof TableSearchTextItemAllOfOpenCard
    */
-  current: number;
+  current?: number;
   /**
    * Динамика по сравнению с предыдущим периодом, %
    * @type {number}
@@ -6457,7 +6457,7 @@ export interface TableSearchTextItemAllOfOpenCard {
    * @type {number}
    * @memberof TableSearchTextItemAllOfOpenCard
    */
-  percentile: number;
+  percentile?: number;
 }
 /**
  * Конверсия в корзину из поиска — доля добавлений товара в корзину по отношению ко всем переходам в карточку товара из поиска
@@ -6470,7 +6470,7 @@ export interface TableSearchTextItemAllOfOpenToCart {
    * @type {number}
    * @memberof TableSearchTextItemAllOfOpenToCart
    */
-  current: number;
+  current?: number;
   /**
    * Динамика по сравнению с предыдущим периодом, %
    * @type {number}
@@ -6482,7 +6482,7 @@ export interface TableSearchTextItemAllOfOpenToCart {
    * @type {number}
    * @memberof TableSearchTextItemAllOfOpenToCart
    */
-  percentile: number;
+  percentile?: number;
 }
 /**
  * Сколько раз товары из поиска заказали
@@ -6495,7 +6495,7 @@ export interface TableSearchTextItemAllOfOrders {
    * @type {number}
    * @memberof TableSearchTextItemAllOfOrders
    */
-  current: number;
+  current?: number;
   /**
    * Динамика по сравнению с предыдущим периодом, %
    * @type {number}
@@ -6507,7 +6507,7 @@ export interface TableSearchTextItemAllOfOrders {
    * @type {number}
    * @memberof TableSearchTextItemAllOfOrders
    */
-  percentile: number;
+  percentile?: number;
 }
 /**
  * Процент видимости товара в результатах поиска
@@ -6520,7 +6520,7 @@ export interface TableSearchTextItemAllOfVisibility {
    * @type {number}
    * @memberof TableSearchTextItemAllOfVisibility
    */
-  current: number;
+  current?: number;
   /**
    * Динамика по сравнению с предыдущим периодом, %
    * @type {number}
@@ -6539,19 +6539,19 @@ export interface TableShippingOfficeItem {
    * @type {string}
    * @memberof TableShippingOfficeItem
    */
-  regionName: string;
+  regionName?: string;
   /**
    * Метрики по региону
    * @type {TableShippingOfficeMetrics}
    * @memberof TableShippingOfficeItem
    */
-  metrics: TableShippingOfficeMetrics;
+  metrics?: TableShippingOfficeMetrics;
   /**
    * Данные по складам. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `[]`
    * @type {Array<TableShippingOfficeItemOfficesInner>}
    * @memberof TableShippingOfficeItem
    */
-  offices: Array<TableShippingOfficeItemOfficesInner>;
+  offices?: Array<TableShippingOfficeItemOfficesInner>;
 }
 /**
  *
@@ -6564,19 +6564,19 @@ export interface TableShippingOfficeItemOfficesInner {
    * @type {number}
    * @memberof TableShippingOfficeItemOfficesInner
    */
-  officeID: number;
+  officeID?: number;
   /**
    * Название склада
    * @type {string}
    * @memberof TableShippingOfficeItemOfficesInner
    */
-  officeName: string;
+  officeName?: string;
   /**
    * Метрики по складу
    * @type {TableShippingOfficeMetrics}
    * @memberof TableShippingOfficeItemOfficesInner
    */
-  metrics: TableShippingOfficeMetrics;
+  metrics?: TableShippingOfficeMetrics;
 }
 /**
  * Общие метрики по регионам/складам отгрузки
@@ -6589,31 +6589,31 @@ export interface TableShippingOfficeMetrics {
    * @type {number}
    * @memberof TableShippingOfficeMetrics
    */
-  stockCount: number;
+  stockCount?: number;
   /**
    * Остатки на текущий день, сумма
    * @type {number}
    * @memberof TableShippingOfficeMetrics
    */
-  stockSum: number;
+  stockSum?: number;
   /**
    *
    * @type {TableCommonMetricsSaleRate}
    * @memberof TableShippingOfficeMetrics
    */
-  saleRate: TableCommonMetricsSaleRate;
+  saleRate?: TableCommonMetricsSaleRate;
   /**
    * В пути к клиенту, шт.
    * @type {number}
    * @memberof TableShippingOfficeMetrics
    */
-  toClientCount: number;
+  toClientCount?: number;
   /**
    * В пути от клиента, шт.
    * @type {number}
    * @memberof TableShippingOfficeMetrics
    */
-  fromClientCount: number;
+  fromClientCount?: number;
 }
 /**
  *
@@ -6682,7 +6682,7 @@ export interface TableShippingOfficeResponse {
    * @type {string}
    * @memberof TableShippingOfficeResponse
    */
-  currency: string;
+  currency?: string;
 }
 /**
  *
@@ -6745,7 +6745,7 @@ export interface TableSizeResponse {
    * @type {string}
    * @memberof TableSizeResponse
    */
-  currency: string;
+  currency?: string;
 }
 /**
  *
@@ -6758,13 +6758,13 @@ export interface TableSizeResponseSizesInner {
    * @type {string}
    * @memberof TableSizeResponseSizesInner
    */
-  name: string;
+  name?: string;
   /**
    * ID размера
    * @type {number}
    * @memberof TableSizeResponseSizesInner
    */
-  chrtID: number;
+  chrtID?: number;
   /**
    * Склады
    * @type {Array<TableOfficeItem>}
@@ -6776,7 +6776,7 @@ export interface TableSizeResponseSizesInner {
    * @type {TableSizeResponseSizesInnerMetrics}
    * @memberof TableSizeResponseSizesInner
    */
-  metrics: TableSizeResponseSizesInnerMetrics;
+  metrics?: TableSizeResponseSizesInnerMetrics;
 }
 /**
  * Метрики размера
@@ -6789,115 +6789,115 @@ export interface TableSizeResponseSizesInnerMetrics {
    * @type {number}
    * @memberof TableSizeResponseSizesInnerMetrics
    */
-  ordersCount: number;
+  ordersCount?: number;
   /**
    * Заказы, сумма
    * @type {number}
    * @memberof TableSizeResponseSizesInnerMetrics
    */
-  ordersSum: number;
+  ordersSum?: number;
   /**
    * Среднее количество заказов в день
    * @type {number}
    * @memberof TableSizeResponseSizesInnerMetrics
    */
-  avgOrders: number;
+  avgOrders?: number;
   /**
    * Среднее количество заказов по месяцам
    * @type {Array<FloatGraphByPeriodItem>}
    * @memberof TableSizeResponseSizesInnerMetrics
    */
-  avgOrdersByMonth: Array<FloatGraphByPeriodItem>;
+  avgOrdersByMonth?: Array<FloatGraphByPeriodItem>;
   /**
    * Выкупы, шт.
    * @type {number}
    * @memberof TableSizeResponseSizesInnerMetrics
    */
-  buyoutCount: number;
+  buyoutCount?: number;
   /**
    * Выкупы, сумма
    * @type {number}
    * @memberof TableSizeResponseSizesInnerMetrics
    */
-  buyoutSum: number;
+  buyoutSum?: number;
   /**
    * Процент выкупа
    * @type {number}
    * @memberof TableSizeResponseSizesInnerMetrics
    */
-  buyoutPercent: number;
+  buyoutPercent?: number;
   /**
    * Остатки на текущий день, шт.
    * @type {number}
    * @memberof TableSizeResponseSizesInnerMetrics
    */
-  stockCount: number;
+  stockCount?: number;
   /**
    * Стоимость остатков на текущий день
    * @type {number}
    * @memberof TableSizeResponseSizesInnerMetrics
    */
-  stockSum: number;
+  stockSum?: number;
   /**
    *
    * @type {TableCommonMetricsSaleRate}
    * @memberof TableSizeResponseSizesInnerMetrics
    */
-  saleRate: TableCommonMetricsSaleRate;
+  saleRate?: TableCommonMetricsSaleRate;
   /**
    *
    * @type {TableCommonMetricsAvgStockTurnover}
    * @memberof TableSizeResponseSizesInnerMetrics
    */
-  avgStockTurnover: TableCommonMetricsAvgStockTurnover;
+  avgStockTurnover?: TableCommonMetricsAvgStockTurnover;
   /**
    * В пути к клиенту, шт.
    * @type {number}
    * @memberof TableSizeResponseSizesInnerMetrics
    */
-  toClientCount: number;
+  toClientCount?: number;
   /**
    * В пути от клиента, шт.
    * @type {number}
    * @memberof TableSizeResponseSizesInnerMetrics
    */
-  fromClientCount: number;
+  fromClientCount?: number;
   /**
    *
    * @type {TableCommonMetricsOfficeMissingTime}
    * @memberof TableSizeResponseSizesInnerMetrics
    */
-  officeMissingTime: TableCommonMetricsOfficeMissingTime;
+  officeMissingTime?: TableCommonMetricsOfficeMissingTime;
   /**
    * Упущенные заказы, шт. Особые случаи:   1. Значение меньше `0` и не равно `-2` — значение не рассчитано   2. Значение `-2` — нулевое значение
    * @type {number}
    * @memberof TableSizeResponseSizesInnerMetrics
    */
-  lostOrdersCount: number;
+  lostOrdersCount?: number;
   /**
    * Упущенные заказы, сумма. Особые случаи:   1. Значение меньше `0` и не равно `-2` — значение не рассчитано   2. Значение `-2` — нулевое значение
    * @type {number}
    * @memberof TableSizeResponseSizesInnerMetrics
    */
-  lostOrdersSum: number;
+  lostOrdersSum?: number;
   /**
    * Упущенные выкупы, шт. Особые случаи:   1. Значение меньше `0` и не равно `-2` — значение не рассчитано   2. Значение `-2` — нулевое значение
    * @type {number}
    * @memberof TableSizeResponseSizesInnerMetrics
    */
-  lostBuyoutsCount: number;
+  lostBuyoutsCount?: number;
   /**
    * Упущенные выкупы, сумма. Особые случаи:   1. Значение меньше `0` и не равно `-2` — значение не рассчитано   2. Значение `-2` — нулевое значение
    * @type {number}
    * @memberof TableSizeResponseSizesInnerMetrics
    */
-  lostBuyoutsSum: number;
+  lostBuyoutsSum?: number;
   /**
    *
    * @type {TableItemItemStMetricsAllOfCurrentPrice}
    * @memberof TableSizeResponseSizesInnerMetrics
    */
-  currentPrice: TableItemItemStMetricsAllOfCurrentPrice;
+  currentPrice?: TableItemItemStMetricsAllOfCurrentPrice;
 }
 /**
  * Ярлык
@@ -6910,13 +6910,13 @@ export interface Tag {
    * @type {number}
    * @memberof Tag
    */
-  id: number;
+  id?: number;
   /**
    * Название ярлыка
    * @type {string}
    * @memberof Tag
    */
-  name: string;
+  name?: string;
 }
 /**
  * @type TextLimit
@@ -6935,19 +6935,19 @@ export interface TimeToReady {
    * @type {number}
    * @memberof TimeToReady
    */
-  days: number;
+  days?: number;
   /**
    * Часы
    * @type {number}
    * @memberof TimeToReady
    */
-  hours: number;
+  hours?: number;
   /**
    * Минуты
    * @type {number}
    * @memberof TimeToReady
    */
-  mins: number;
+  mins?: number;
 }
 /**
  * Видимость карточек и переходы в карточки. По дням, неделям, месяцам
@@ -6960,13 +6960,13 @@ export interface VisibilityInfo {
    * @type {VisibilityInfoVisibility}
    * @memberof VisibilityInfo
    */
-  visibility: VisibilityInfoVisibility;
+  visibility?: VisibilityInfoVisibility;
   /**
    *
    * @type {VisibilityInfoOpenCard}
    * @memberof VisibilityInfo
    */
-  openCard: VisibilityInfoOpenCard;
+  openCard?: VisibilityInfoOpenCard;
   /**
    * Данные для отрисовки графика в личном кабинете по видимости и переходам в карточки по дням
    * @type {Array<VisibilityInfoByDayInner>}
@@ -6997,19 +6997,19 @@ export interface VisibilityInfoByDayInner {
    * @type {string}
    * @memberof VisibilityInfoByDayInner
    */
-  dt: string;
+  dt?: string;
   /**
    * Видимость карточки в результатах поиска, %
    * @type {number}
    * @memberof VisibilityInfoByDayInner
    */
-  visibility: number;
+  visibility?: number;
   /**
    * Количество переходов в карточку
    * @type {number}
    * @memberof VisibilityInfoByDayInner
    */
-  open: number;
+  open?: number;
 }
 /**
  * Количество переходов в карточку товара из поиска
@@ -7022,7 +7022,7 @@ export interface VisibilityInfoOpenCard {
    * @type {number}
    * @memberof VisibilityInfoOpenCard
    */
-  current: number;
+  current?: number;
   /**
    * Динамика по сравнению с предыдущим периодом, %
    * @type {number}
@@ -7041,7 +7041,7 @@ export interface VisibilityInfoVisibility {
    * @type {number}
    * @memberof VisibilityInfoVisibility
    */
-  current: number;
+  current?: number;
   /**
    * Динамика по сравнению с предыдущим периодом, %
    * @type {number}
@@ -7060,55 +7060,55 @@ export interface WbClubMetrics {
    * @type {number}
    * @memberof WbClubMetrics
    */
-  orderCount: number;
+  orderCount?: number;
   /**
    * Заказали с WB Клубом на сумму
    * @type {number}
    * @memberof WbClubMetrics
    */
-  orderSum: number;
+  orderSum?: number;
   /**
    * Выкупили с WB Клубом на сумму
    * @type {number}
    * @memberof WbClubMetrics
    */
-  buyoutSum: number;
+  buyoutSum?: number;
   /**
    * Выкупили товаров с WB Клубом, шт.
    * @type {number}
    * @memberof WbClubMetrics
    */
-  buyoutCount: number;
+  buyoutCount?: number;
   /**
    * Отменили и вернули с WB Клубом на сумму
    * @type {number}
    * @memberof WbClubMetrics
    */
-  cancelSum: number;
+  cancelSum?: number;
   /**
    * Отменили и вернули товаров с WB Клубом, шт.
    * @type {number}
    * @memberof WbClubMetrics
    */
-  cancelCount: number;
+  cancelCount?: number;
   /**
    * Средняя цена с WB Клубом
    * @type {number}
    * @memberof WbClubMetrics
    */
-  avgPrice: number;
+  avgPrice?: number;
   /**
    * Процент выкупа с WB Клубом
    * @type {number}
    * @memberof WbClubMetrics
    */
-  buyoutPercent: number;
+  buyoutPercent?: number;
   /**
    * Среднее количество заказов с WB Клубом в день, шт.
    * @type {number}
    * @memberof WbClubMetrics
    */
-  avgOrderCountPerDay: number;
+  avgOrderCountPerDay?: number;
 }
 /**
  *
@@ -7121,55 +7121,55 @@ export interface WbClubMetricsDynamic {
    * @type {number}
    * @memberof WbClubMetricsDynamic
    */
-  orderCount: number;
+  orderCount?: number;
   /**
    * Динамика суммы заказов с WB Клубом
    * @type {number}
    * @memberof WbClubMetricsDynamic
    */
-  orderSum: number;
+  orderSum?: number;
   /**
    * Динамика суммы выкупов с WB Клубом
    * @type {number}
    * @memberof WbClubMetricsDynamic
    */
-  buyoutSum: number;
+  buyoutSum?: number;
   /**
    * Динамика выкупов с WB Клубом
    * @type {number}
    * @memberof WbClubMetricsDynamic
    */
-  buyoutCount: number;
+  buyoutCount?: number;
   /**
    * Динамика сумм отмен и возвратов товаров с WB Клубом
    * @type {number}
    * @memberof WbClubMetricsDynamic
    */
-  cancelSum: number;
+  cancelSum?: number;
   /**
    * Динамика отмен и возвратов товаров с WB Клубом
    * @type {number}
    * @memberof WbClubMetricsDynamic
    */
-  cancelCount: number;
+  cancelCount?: number;
   /**
    * Динамика средней цены на товары с WB Клубом
    * @type {number}
    * @memberof WbClubMetricsDynamic
    */
-  avgPrice: number;
+  avgPrice?: number;
   /**
    * Динамика процента выкупа с WB Клубом
    * @type {number}
    * @memberof WbClubMetricsDynamic
    */
-  buyoutPercent: number;
+  buyoutPercent?: number;
   /**
    * Динамика среднего количества заказов с WB Клубом в день
    * @type {number}
    * @memberof WbClubMetricsDynamic
    */
-  avgOrderCountPerDay: number;
+  avgOrderCountPerDay?: number;
 }
 
 /**

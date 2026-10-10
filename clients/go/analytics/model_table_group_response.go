@@ -11,9 +11,7 @@ API version: analytics
 package analytics
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the TableGroupResponse type satisfies the MappedNullable interface at compile time
@@ -22,21 +20,17 @@ var _ MappedNullable = &TableGroupResponse{}
 // TableGroupResponse struct for TableGroupResponse
 type TableGroupResponse struct {
 	// Список групп товаров для таблицы
-	Groups []TableGroupItem `json:"groups"`
+	Groups []TableGroupItem `json:"groups,omitempty"`
 	// Валюта отчёта
-	Currency string `json:"currency"`
+	Currency *string `json:"currency,omitempty"`
 }
-
-type _TableGroupResponse TableGroupResponse
 
 // NewTableGroupResponse instantiates a new TableGroupResponse object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTableGroupResponse(groups []TableGroupItem, currency string) *TableGroupResponse {
+func NewTableGroupResponse() *TableGroupResponse {
 	this := TableGroupResponse{}
-	this.Groups = groups
-	this.Currency = currency
 	return &this
 }
 
@@ -48,52 +42,68 @@ func NewTableGroupResponseWithDefaults() *TableGroupResponse {
 	return &this
 }
 
-// GetGroups returns the Groups field value
+// GetGroups returns the Groups field value if set, zero value otherwise.
 func (o *TableGroupResponse) GetGroups() []TableGroupItem {
-	if o == nil {
+	if o == nil || IsNil(o.Groups) {
 		var ret []TableGroupItem
 		return ret
 	}
-
 	return o.Groups
 }
 
-// GetGroupsOk returns a tuple with the Groups field value
+// GetGroupsOk returns a tuple with the Groups field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableGroupResponse) GetGroupsOk() ([]TableGroupItem, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Groups) {
 		return nil, false
 	}
 	return o.Groups, true
 }
 
-// SetGroups sets field value
+// HasGroups returns a boolean if a field has been set.
+func (o *TableGroupResponse) HasGroups() bool {
+	if o != nil && !IsNil(o.Groups) {
+		return true
+	}
+
+	return false
+}
+
+// SetGroups gets a reference to the given []TableGroupItem and assigns it to the Groups field.
 func (o *TableGroupResponse) SetGroups(v []TableGroupItem) {
 	o.Groups = v
 }
 
-// GetCurrency returns the Currency field value
+// GetCurrency returns the Currency field value if set, zero value otherwise.
 func (o *TableGroupResponse) GetCurrency() string {
-	if o == nil {
+	if o == nil || IsNil(o.Currency) {
 		var ret string
 		return ret
 	}
-
-	return o.Currency
+	return *o.Currency
 }
 
-// GetCurrencyOk returns a tuple with the Currency field value
+// GetCurrencyOk returns a tuple with the Currency field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableGroupResponse) GetCurrencyOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Currency) {
 		return nil, false
 	}
-	return &o.Currency, true
+	return o.Currency, true
 }
 
-// SetCurrency sets field value
+// HasCurrency returns a boolean if a field has been set.
+func (o *TableGroupResponse) HasCurrency() bool {
+	if o != nil && !IsNil(o.Currency) {
+		return true
+	}
+
+	return false
+}
+
+// SetCurrency gets a reference to the given string and assigns it to the Currency field.
 func (o *TableGroupResponse) SetCurrency(v string) {
-	o.Currency = v
+	o.Currency = &v
 }
 
 func (o TableGroupResponse) MarshalJSON() ([]byte, error) {
@@ -106,47 +116,13 @@ func (o TableGroupResponse) MarshalJSON() ([]byte, error) {
 
 func (o TableGroupResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["groups"] = o.Groups
-	toSerialize["currency"] = o.Currency
+	if !IsNil(o.Groups) {
+		toSerialize["groups"] = o.Groups
+	}
+	if !IsNil(o.Currency) {
+		toSerialize["currency"] = o.Currency
+	}
 	return toSerialize, nil
-}
-
-func (o *TableGroupResponse) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"groups",
-		"currency",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varTableGroupResponse := _TableGroupResponse{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varTableGroupResponse)
-
-	if err != nil {
-		return err
-	}
-
-	*o = TableGroupResponse(varTableGroupResponse)
-
-	return err
 }
 
 type NullableTableGroupResponse struct {

@@ -50,13 +50,13 @@ export interface AdvertBidsKopecks {
    * @type {number}
    * @memberof AdvertBidsKopecks
    */
-  search: number;
+  search?: number;
   /**
    * Ставка в рекомендациях
    * @type {number}
    * @memberof AdvertBidsKopecks
    */
-  recommendations: number;
+  recommendations?: number;
 }
 /**
  *
@@ -69,19 +69,19 @@ export interface AdvertNMsSettings {
    * @type {AdvertBidsKopecks}
    * @memberof AdvertNMsSettings
    */
-  bids_kopecks: AdvertBidsKopecks;
+  bids_kopecks?: AdvertBidsKopecks;
   /**
    *
    * @type {AdvertSubcategory}
    * @memberof AdvertNMsSettings
    */
-  subject: AdvertSubcategory;
+  subject?: AdvertSubcategory;
   /**
    * Артикул WB
    * @type {number}
    * @memberof AdvertNMsSettings
    */
-  nm_id: number;
+  nm_id?: number;
 }
 /**
  * Настройки кампании
@@ -94,19 +94,38 @@ export interface AdvertSettings {
    * @type {string}
    * @memberof AdvertSettings
    */
-  payment_type: string;
+  payment_type?: string;
   /**
    * Название кампании
    * @type {string}
    * @memberof AdvertSettings
    */
-  name: string;
+  name?: string;
   /**
    *
-   * @type {PutV0AuctionPlacementsRequestPlacementsInnerPlacements}
+   * @type {AdvertSettingsPlacements}
    * @memberof AdvertSettings
    */
-  placements: PutV0AuctionPlacementsRequestPlacementsInnerPlacements;
+  placements?: AdvertSettingsPlacements;
+}
+/**
+ * Места размещения
+ * @export
+ * @interface AdvertSettingsPlacements
+ */
+export interface AdvertSettingsPlacements {
+  /**
+   * Размещение в поиске:   - `false` — отключено   - `true` — включено
+   * @type {boolean}
+   * @memberof AdvertSettingsPlacements
+   */
+  search?: boolean;
+  /**
+   * Размещение в рекомендациях:   - `false` — отключено   - `true` — включено
+   * @type {boolean}
+   * @memberof AdvertSettingsPlacements
+   */
+  recommendations?: boolean;
 }
 /**
  * Предмет
@@ -119,13 +138,13 @@ export interface AdvertSubcategory {
    * @type {number}
    * @memberof AdvertSubcategory
    */
-  id: number;
+  id?: number;
   /**
    * Название предмета
    * @type {string}
    * @memberof AdvertSubcategory
    */
-  name: string;
+  name?: string;
 }
 /**
  * Ошибка
@@ -150,25 +169,25 @@ export interface FullStatsError {
    * @type {string}
    * @memberof FullStatsError
    */
-  origin: string;
+  origin?: string;
   /**
    * ID запроса
    * @type {string}
    * @memberof FullStatsError
    */
-  request_id: string;
+  request_id?: string;
   /**
    * HTTP статус-код
    * @type {number}
    * @memberof FullStatsError
    */
-  status: number;
+  status?: number;
   /**
    * Заголовок ошибки
    * @type {string}
    * @memberof FullStatsError
    */
-  title: string;
+  title?: string;
   /**
    * Тип ошибки
    * @type {string}
@@ -206,13 +225,13 @@ export interface FullStatsItem {
    * @type {number}
    * @memberof FullStatsItem
    */
-  advertId: number;
+  advertId?: number;
   /**
    * Количество добавлений товаров в корзину
    * @type {number}
    * @memberof FullStatsItem
    */
-  atbs: number;
+  atbs?: number;
   /**
    * Статистика по средней позиции товара (для кампаний с единой ставкой)
    * @type {Array<FullStatsItemBoosterStatsInner>}
@@ -224,73 +243,73 @@ export interface FullStatsItem {
    * @type {number}
    * @memberof FullStatsItem
    */
-  canceled: number;
+  canceled?: number;
   /**
    * Количество кликов
    * @type {number}
    * @memberof FullStatsItem
    */
-  clicks: number;
+  clicks?: number;
   /**
    * Средняя стоимость клика в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
    * @type {number}
    * @memberof FullStatsItem
    */
-  cpc: number;
+  cpc?: number;
   /**
    * CR (conversion rate) — отношение количества заказов к общему количеству кликов
    * @type {number}
    * @memberof FullStatsItem
    */
-  cr: number;
+  cr?: number;
   /**
    * CTR (click-through rate) — отношение числа кликов к количеству показов в процентах
    * @type {number}
    * @memberof FullStatsItem
    */
-  ctr: number;
+  ctr?: number;
   /**
    * Статистка по дням
    * @type {Array<FullStatsItemDaysInner>}
    * @memberof FullStatsItem
    */
-  days: Array<FullStatsItemDaysInner>;
+  days?: Array<FullStatsItemDaysInner>;
   /**
    * Количество заказов
    * @type {number}
    * @memberof FullStatsItem
    */
-  orders: number;
+  orders?: number;
   /**
    * Количество заказанных товаров, шт.
    * @type {number}
    * @memberof FullStatsItem
    */
-  shks: number;
+  shks?: number;
   /**
    * Затраты в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
    * @type {number}
    * @memberof FullStatsItem
    */
-  sum: number;
+  sum?: number;
   /**
    * Сумма заказов в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
    * @type {number}
    * @memberof FullStatsItem
    */
-  sum_price: number;
+  sum_price?: number;
   /**
    * Количество просмотров
    * @type {number}
    * @memberof FullStatsItem
    */
-  views: number;
+  views?: number;
   /**
    * Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
    * @type {string}
    * @memberof FullStatsItem
    */
-  currency: string;
+  currency?: string;
 }
 /**
  *
@@ -303,19 +322,19 @@ export interface FullStatsItemBoosterStatsInner {
    * @type {number}
    * @memberof FullStatsItemBoosterStatsInner
    */
-  avg_position: number;
+  avg_position?: number;
   /**
    * Дата, за которую предоставлены данные
    * @type {string}
    * @memberof FullStatsItemBoosterStatsInner
    */
-  date: string;
+  date?: string;
   /**
    * Артикул WB
    * @type {number}
    * @memberof FullStatsItemBoosterStatsInner
    */
-  nm: number;
+  nm?: number;
 }
 /**
  *
@@ -328,79 +347,79 @@ export interface FullStatsItemDaysInner {
    * @type {Array<FullStatsItemDaysInnerAppsInner>}
    * @memberof FullStatsItemDaysInner
    */
-  apps: Array<FullStatsItemDaysInnerAppsInner>;
+  apps?: Array<FullStatsItemDaysInnerAppsInner>;
   /**
    * Количество добавлений товаров в корзину
    * @type {number}
    * @memberof FullStatsItemDaysInner
    */
-  atbs: number;
+  atbs?: number;
   /**
    * Отмены, шт.
    * @type {number}
    * @memberof FullStatsItemDaysInner
    */
-  canceled: number;
+  canceled?: number;
   /**
    * Дата, за которую представлены данные
    * @type {string}
    * @memberof FullStatsItemDaysInner
    */
-  date: string;
+  date?: string;
   /**
    * Количество кликов
    * @type {number}
    * @memberof FullStatsItemDaysInner
    */
-  clicks: number;
+  clicks?: number;
   /**
    * Средняя стоимость клика в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
    * @type {number}
    * @memberof FullStatsItemDaysInner
    */
-  cpc: number;
+  cpc?: number;
   /**
    * CR (conversion rate) — отношение количества заказов к общему количеству посещений кампании
    * @type {number}
    * @memberof FullStatsItemDaysInner
    */
-  cr: number;
+  cr?: number;
   /**
    * CTR (click-through rate) — отношение числа кликов к количеству показов в процентах
    * @type {number}
    * @memberof FullStatsItemDaysInner
    */
-  ctr: number;
+  ctr?: number;
   /**
    * Количество заказов
    * @type {number}
    * @memberof FullStatsItemDaysInner
    */
-  orders: number;
+  orders?: number;
   /**
    * Количество заказанных товаров, шт.
    * @type {number}
    * @memberof FullStatsItemDaysInner
    */
-  shks: number;
+  shks?: number;
   /**
    * Затраты в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
    * @type {number}
    * @memberof FullStatsItemDaysInner
    */
-  sum: number;
+  sum?: number;
   /**
    * Заказов на сумму в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
    * @type {number}
    * @memberof FullStatsItemDaysInner
    */
-  sum_price: number;
+  sum_price?: number;
   /**
    * Количество просмотров
    * @type {number}
    * @memberof FullStatsItemDaysInner
    */
-  views: number;
+  views?: number;
 }
 /**
  *
@@ -413,79 +432,79 @@ export interface FullStatsItemDaysInnerAppsInner {
    * @type {number}
    * @memberof FullStatsItemDaysInnerAppsInner
    */
-  appType: FullStatsItemDaysInnerAppsInnerAppTypeEnum;
+  appType?: FullStatsItemDaysInnerAppsInnerAppTypeEnum;
   /**
    * Количество добавлений товаров в корзину
    * @type {number}
    * @memberof FullStatsItemDaysInnerAppsInner
    */
-  atbs: number;
+  atbs?: number;
   /**
    * Отмены, шт.
    * @type {number}
    * @memberof FullStatsItemDaysInnerAppsInner
    */
-  canceled: number;
+  canceled?: number;
   /**
    * Количество кликов
    * @type {number}
    * @memberof FullStatsItemDaysInnerAppsInner
    */
-  clicks: number;
+  clicks?: number;
   /**
    * Средняя стоимость клика в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
    * @type {number}
    * @memberof FullStatsItemDaysInnerAppsInner
    */
-  cpc: number;
+  cpc?: number;
   /**
    * CR (conversion rate) — отношение количества заказов к общему количеству кликов
    * @type {number}
    * @memberof FullStatsItemDaysInnerAppsInner
    */
-  cr: number;
+  cr?: number;
   /**
    * CTR (click-through rate) — отношение числа кликов к количеству показов в процентах
    * @type {number}
    * @memberof FullStatsItemDaysInnerAppsInner
    */
-  ctr: number;
+  ctr?: number;
   /**
    * Блок статистики по артикулам WB
    * @type {Array<FullStatsItemDaysInnerAppsInnerNmsInner>}
    * @memberof FullStatsItemDaysInnerAppsInner
    */
-  nms: Array<FullStatsItemDaysInnerAppsInnerNmsInner>;
+  nms?: Array<FullStatsItemDaysInnerAppsInnerNmsInner>;
   /**
    * Количество заказов
    * @type {number}
    * @memberof FullStatsItemDaysInnerAppsInner
    */
-  orders: number;
+  orders?: number;
   /**
    * Количество заказанных товаров, шт.
    * @type {number}
    * @memberof FullStatsItemDaysInnerAppsInner
    */
-  shks: number;
+  shks?: number;
   /**
    * Затраты в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
    * @type {number}
    * @memberof FullStatsItemDaysInnerAppsInner
    */
-  sum: number;
+  sum?: number;
   /**
    * Заказов на сумму в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
    * @type {number}
    * @memberof FullStatsItemDaysInnerAppsInner
    */
-  sum_price: number;
+  sum_price?: number;
   /**
    * Количество просмотров
    * @type {number}
    * @memberof FullStatsItemDaysInnerAppsInner
    */
-  views: number;
+  views?: number;
 }
 
 export const FullStatsItemDaysInnerAppsInnerAppTypeEnum = {
@@ -508,79 +527,79 @@ export interface FullStatsItemDaysInnerAppsInnerNmsInner {
    * @type {number}
    * @memberof FullStatsItemDaysInnerAppsInnerNmsInner
    */
-  atbs: number;
+  atbs?: number;
   /**
    * Отмены, шт.
    * @type {number}
    * @memberof FullStatsItemDaysInnerAppsInnerNmsInner
    */
-  canceled: number;
+  canceled?: number;
   /**
    * Количество кликов
    * @type {number}
    * @memberof FullStatsItemDaysInnerAppsInnerNmsInner
    */
-  clicks: number;
+  clicks?: number;
   /**
    * Средняя стоимость клика в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
    * @type {number}
    * @memberof FullStatsItemDaysInnerAppsInnerNmsInner
    */
-  cpc: number;
+  cpc?: number;
   /**
    * CR (conversion rate) — отношение количества заказов к общему количеству кликов
    * @type {number}
    * @memberof FullStatsItemDaysInnerAppsInnerNmsInner
    */
-  cr: number;
+  cr?: number;
   /**
    * CTR (click-through rate) — отношение числа кликов к количеству показов в процентах
    * @type {number}
    * @memberof FullStatsItemDaysInnerAppsInnerNmsInner
    */
-  ctr: number;
+  ctr?: number;
   /**
    * Название товара
    * @type {string}
    * @memberof FullStatsItemDaysInnerAppsInnerNmsInner
    */
-  name: string;
+  name?: string;
   /**
    * Артикул WB
    * @type {number}
    * @memberof FullStatsItemDaysInnerAppsInnerNmsInner
    */
-  nmId: number;
+  nmId?: number;
   /**
    * Количество заказов
    * @type {number}
    * @memberof FullStatsItemDaysInnerAppsInnerNmsInner
    */
-  orders: number;
+  orders?: number;
   /**
    * Количество заказанных товаров, шт.
    * @type {number}
    * @memberof FullStatsItemDaysInnerAppsInnerNmsInner
    */
-  shks: number;
+  shks?: number;
   /**
    * Затраты в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
    * @type {number}
    * @memberof FullStatsItemDaysInnerAppsInnerNmsInner
    */
-  sum: number;
+  sum?: number;
   /**
    * Заказов на сумму в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
    * @type {number}
    * @memberof FullStatsItemDaysInnerAppsInnerNmsInner
    */
-  sum_price: number;
+  sum_price?: number;
   /**
    * Количество просмотров
    * @type {number}
    * @memberof FullStatsItemDaysInnerAppsInnerNmsInner
    */
-  views: number;
+  views?: number;
 }
 /**
  *
@@ -593,7 +612,7 @@ export interface GetAdverts {
    * @type {Array<GetAdvertsAdvertsInner>}
    * @memberof GetAdverts
    */
-  adverts: Array<GetAdvertsAdvertsInner>;
+  adverts?: Array<GetAdvertsAdvertsInner>;
 }
 /**
  *
@@ -606,7 +625,7 @@ export interface GetAdvertsAdvertsInner {
    * @type {string}
    * @memberof GetAdvertsAdvertsInner
    */
-  bid_type: string;
+  bid_type?: string;
   /**
    * Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
    * @type {string}
@@ -618,37 +637,37 @@ export interface GetAdvertsAdvertsInner {
    * @type {number}
    * @memberof GetAdvertsAdvertsInner
    */
-  id: number;
+  id?: number;
   /**
    * Настройки товаров
    * @type {Array<AdvertNMsSettings>}
    * @memberof GetAdvertsAdvertsInner
    */
-  nm_settings: Array<AdvertNMsSettings> | null;
+  nm_settings?: Array<AdvertNMsSettings> | null;
   /**
    *
    * @type {AdvertSettings}
    * @memberof GetAdvertsAdvertsInner
    */
-  settings: AdvertSettings;
+  settings?: AdvertSettings;
   /**
    *
    * @type {GetAdvertsAdvertsInnerRestrictions}
    * @memberof GetAdvertsAdvertsInner
    */
-  restrictions: GetAdvertsAdvertsInnerRestrictions;
+  restrictions?: GetAdvertsAdvertsInnerRestrictions;
   /**
    * Статус кампании: - `-1` — удалена, процесс удаления будет завершён в течение 10 минут - `4` — готова к запуску - `7` — завершена - `8` — отменена - `9` — активна - `11` — на паузе
    * @type {number}
    * @memberof GetAdvertsAdvertsInner
    */
-  status: GetAdvertsAdvertsInnerStatusEnum;
+  status?: GetAdvertsAdvertsInnerStatusEnum;
   /**
    *
    * @type {Timestamps}
    * @memberof GetAdvertsAdvertsInner
    */
-  timestamps: Timestamps;
+  timestamps?: Timestamps;
 }
 
 export const GetAdvertsAdvertsInnerStatusEnum = {
@@ -1802,25 +1821,25 @@ export interface NormQueryBidFailResponseItem {
    * @type {number}
    * @memberof NormQueryBidFailResponseItem
    */
-  advertId: number;
+  advertId?: number;
   /**
    * Артикул WB
    * @type {number}
    * @memberof NormQueryBidFailResponseItem
    */
-  nmId: number;
+  nmId?: number;
   /**
    * Поисковый кластер — это группа похожих поисковых запросов, по которым покупатели находят товары
    * @type {string}
    * @memberof NormQueryBidFailResponseItem
    */
-  normQuery: string;
+  normQuery?: string;
   /**
    * Описание причины ошибки
    * @type {string}
    * @memberof NormQueryBidFailResponseItem
    */
-  reason: string;
+  reason?: string;
 }
 /**
  *
@@ -1884,7 +1903,7 @@ export interface PatchV0AuctionNmsResponse200 {
    * @type {Array<PatchV0AuctionNmsResponse200NmsInner>}
    * @memberof PatchV0AuctionNmsResponse200
    */
-  nms: Array<PatchV0AuctionNmsResponse200NmsInner>;
+  nms?: Array<PatchV0AuctionNmsResponse200NmsInner>;
 }
 /**
  *
@@ -1897,13 +1916,13 @@ export interface PatchV0AuctionNmsResponse200NmsInner {
    * @type {number}
    * @memberof PatchV0AuctionNmsResponse200NmsInner
    */
-  advert_id: number;
+  advert_id?: number;
   /**
    *
    * @type {PatchV0AuctionNmsResponse200NmsInnerNms}
    * @memberof PatchV0AuctionNmsResponse200NmsInner
    */
-  nms: PatchV0AuctionNmsResponse200NmsInnerNms;
+  nms?: PatchV0AuctionNmsResponse200NmsInnerNms;
 }
 /**
  * Карточки товаров
@@ -1916,13 +1935,13 @@ export interface PatchV0AuctionNmsResponse200NmsInnerNms {
    * @type {Array<number>}
    * @memberof PatchV0AuctionNmsResponse200NmsInnerNms
    */
-  added: Array<number>;
+  added?: Array<number>;
   /**
    * Удалённые карточки товаров
    * @type {Array<number>}
    * @memberof PatchV0AuctionNmsResponse200NmsInnerNms
    */
-  deleted: Array<number>;
+  deleted?: Array<number>;
 }
 /**
  *
@@ -2002,13 +2021,13 @@ export interface PatchV1BidsResponse200 {
    * @type {Array<PatchV1BidsResponse200BidsInner>}
    * @memberof PatchV1BidsResponse200
    */
-  bids: Array<PatchV1BidsResponse200BidsInner>;
+  bids?: Array<PatchV1BidsResponse200BidsInner>;
   /**
    * Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
    * @type {string}
    * @memberof PatchV1BidsResponse200
    */
-  currency: string;
+  currency?: string;
 }
 /**
  *
@@ -2021,13 +2040,13 @@ export interface PatchV1BidsResponse200BidsInner {
    * @type {number}
    * @memberof PatchV1BidsResponse200BidsInner
    */
-  advert_id: number;
+  advert_id?: number;
   /**
    * Ставки
    * @type {Array<PatchV1BidsResponse200BidsInnerNmBidsInner>}
    * @memberof PatchV1BidsResponse200BidsInner
    */
-  nm_bids: Array<PatchV1BidsResponse200BidsInnerNmBidsInner>;
+  nm_bids?: Array<PatchV1BidsResponse200BidsInnerNmBidsInner>;
 }
 /**
  *
@@ -2040,19 +2059,19 @@ export interface PatchV1BidsResponse200BidsInnerNmBidsInner {
    * @type {number}
    * @memberof PatchV1BidsResponse200BidsInnerNmBidsInner
    */
-  nm_id: number;
+  nm_id?: number;
   /**
    * Ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
    * @type {number}
    * @memberof PatchV1BidsResponse200BidsInnerNmBidsInner
    */
-  bid_kopecks: number;
+  bid_kopecks?: number;
   /**
    * Место размещения:   - `search` — в поиске   - `recommendations`— в рекомендациях
    * @type {string}
    * @memberof PatchV1BidsResponse200BidsInnerNmBidsInner
    */
-  placement: string;
+  placement?: string;
 }
 /**
  * Места размещения:   - `search` — поиск   - `recommendation` — рекомендации   - `combined` — поиск и рекомендации
@@ -2146,7 +2165,7 @@ export interface PostV1BidsMinResponse200 {
    * @type {Array<PostV1BidsMinResponse200BidsInner>}
    * @memberof PostV1BidsMinResponse200
    */
-  bids: Array<PostV1BidsMinResponse200BidsInner>;
+  bids?: Array<PostV1BidsMinResponse200BidsInner>;
 }
 /**
  *
@@ -2159,13 +2178,13 @@ export interface PostV1BidsMinResponse200BidsInner {
    * @type {Array<PostV1BidsMinResponse200BidsInnerBidsInner>}
    * @memberof PostV1BidsMinResponse200BidsInner
    */
-  bids: Array<PostV1BidsMinResponse200BidsInnerBidsInner>;
+  bids?: Array<PostV1BidsMinResponse200BidsInnerBidsInner>;
   /**
    * Артикул WB
    * @type {number}
    * @memberof PostV1BidsMinResponse200BidsInner
    */
-  nm_id: number;
+  nm_id?: number;
 }
 /**
  *
@@ -2178,19 +2197,19 @@ export interface PostV1BidsMinResponse200BidsInnerBidsInner {
    * @type {string}
    * @memberof PostV1BidsMinResponse200BidsInnerBidsInner
    */
-  currency: string;
+  currency?: string;
   /**
    *
    * @type {PlacementType}
    * @memberof PostV1BidsMinResponse200BidsInnerBidsInner
    */
-  type: PlacementType;
+  type?: PlacementType;
   /**
    * Минимальная ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
    * @type {number}
    * @memberof PostV1BidsMinResponse200BidsInnerBidsInner
    */
-  value: number;
+  value?: number;
 }
 
 /**
@@ -2611,31 +2630,31 @@ export interface Response400 {
    * @type {string}
    * @memberof Response400
    */
-  detail: string;
+  detail?: string;
   /**
    * ID внутреннего сервиса WB
    * @type {string}
    * @memberof Response400
    */
-  origin: string;
+  origin?: string;
   /**
    * Уникальный ID запроса
    * @type {string}
    * @memberof Response400
    */
-  request_id: string;
+  request_id?: string;
   /**
    * HTTP статус-код
    * @type {number}
    * @memberof Response400
    */
-  status: number;
+  status?: number;
   /**
    * Заголовок ошибки
    * @type {string}
    * @memberof Response400
    */
-  title: string;
+  title?: string;
 }
 /**
  *
@@ -2735,31 +2754,31 @@ export interface StandardizedBatchError {
    * @type {string}
    * @memberof StandardizedBatchError
    */
-  detail: string;
+  detail?: string;
   /**
    * ID внутреннего сервиса WB
    * @type {string}
    * @memberof StandardizedBatchError
    */
-  origin: string;
+  origin?: string;
   /**
    * Уникальный ID запроса
    * @type {string}
    * @memberof StandardizedBatchError
    */
-  request_id: string;
+  request_id?: string;
   /**
    * HTTP статус-код
    * @type {number}
    * @memberof StandardizedBatchError
    */
-  status: number;
+  status?: number;
   /**
    * Заголовок ошибки
    * @type {string}
    * @memberof StandardizedBatchError
    */
-  title: string;
+  title?: string;
 }
 /**
  *
@@ -2804,7 +2823,7 @@ export interface StatDate {
    * @type {Array<string>}
    * @memberof StatDate
    */
-  dates: Array<string>;
+  dates?: Array<string>;
   /**
    * Блок статистики
    * @type {Array<StatsBlok2>}
@@ -2823,7 +2842,7 @@ export interface StatInterval {
    * @type {StatIntervalInterval}
    * @memberof StatInterval
    */
-  interval: StatIntervalInterval;
+  interval?: StatIntervalInterval;
   /**
    * Блок статистики
    * @type {Array<StatsBlok1>}
@@ -3277,25 +3296,25 @@ export interface Timestamps {
    * @type {string}
    * @memberof Timestamps
    */
-  created: string;
+  created?: string;
   /**
    * Время последнего изменения кампании
    * @type {string}
    * @memberof Timestamps
    */
-  updated: string;
+  updated?: string;
   /**
    * Время последнего запуска кампании
    * @type {string}
    * @memberof Timestamps
    */
-  started: string | null;
+  started?: string | null;
   /**
    * Время удаления кампании. Если кампания не удалена, время указывается в будущем
    * @type {string}
    * @memberof Timestamps
    */
-  deleted: string;
+  deleted?: string;
 }
 /**
  * Рекомендуемые ставки для карточек товаров
@@ -3385,19 +3404,19 @@ export interface V0BidRecommendationCPCLevels {
    * @type {V0BidRecommendationBaseBid}
    * @memberof V0BidRecommendationCPCLevels
    */
-  range1To2: V0BidRecommendationBaseBid;
+  range1To2?: V0BidRecommendationBaseBid;
   /**
    * Ставка для попадания в позиции 3-10
    * @type {V0BidRecommendationBaseBid}
    * @memberof V0BidRecommendationCPCLevels
    */
-  range3To10: V0BidRecommendationBaseBid;
+  range3To10?: V0BidRecommendationBaseBid;
   /**
    * Ставка для попадания в позиции 11-34
    * @type {V0BidRecommendationBaseBid}
    * @memberof V0BidRecommendationCPCLevels
    */
-  range11To34: V0BidRecommendationBaseBid;
+  range11To34?: V0BidRecommendationBaseBid;
 }
 /**
  *
@@ -3582,49 +3601,49 @@ export interface V0DailyLimitAdvert {
    * @type {number}
    * @memberof V0DailyLimitAdvert
    */
-  advertId: number;
+  advertId?: number;
   /**
    * - `true` — дневной лимит включен - `false` — дневной лимит отключен
    * @type {boolean}
    * @memberof V0DailyLimitAdvert
    */
-  enabled: boolean;
+  enabled?: boolean;
   /**
    * Размер дневного лимита в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
    * @type {number}
    * @memberof V0DailyLimitAdvert
    */
-  dailyLimit: number;
+  dailyLimit?: number;
   /**
    * Потрачено сегодня в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
    * @type {number}
    * @memberof V0DailyLimitAdvert
    */
-  spentToday: number;
+  spentToday?: number;
   /**
    * Код валюты
    * @type {string}
    * @memberof V0DailyLimitAdvert
    */
-  currency: string;
+  currency?: string;
   /**
    * Перенос остатка дневного лимита на следующий день. Если за 24 часа лимит потратится не полностью, добавим остаток суммы к лимиту следующего дня. Расходы на продвижение не увеличатся.   - `true` — перенос остатка включен   - `false` — перенос остатка отключен
    * @type {boolean}
    * @memberof V0DailyLimitAdvert
    */
-  carryOverEnabled: boolean;
+  carryOverEnabled?: boolean;
   /**
    * Хватает ли текущего размера лимита на установку ставок кампании:   - `true` — да   - `false` — нет, рекомендуем повысить лимит, иначе бюджет кампании может расходоваться неравномерно
    * @type {boolean}
    * @memberof V0DailyLimitAdvert
    */
-  valid: boolean;
+  valid?: boolean;
   /**
    * Рекомендуемый минимальный размер дневного лимита при текущих ставках кампании. Указывается в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
    * @type {number}
    * @memberof V0DailyLimitAdvert
    */
-  requiredLimit: number;
+  requiredLimit?: number;
 }
 /**
  *
@@ -3675,7 +3694,7 @@ export interface V0GetDailyLimitsResponse {
    * @type {Array<V0DailyLimitAdvert>}
    * @memberof V0GetDailyLimitsResponse
    */
-  adverts: Array<V0DailyLimitAdvert>;
+  adverts?: Array<V0DailyLimitAdvert>;
 }
 /**
  *
@@ -3688,37 +3707,37 @@ export interface V0GetNormQueryBidsItem {
    * @type {number}
    * @memberof V0GetNormQueryBidsItem
    */
-  advert_id: number;
+  advert_id?: number;
   /**
    * Артикул WB
    * @type {number}
    * @memberof V0GetNormQueryBidsItem
    */
-  nm_id: number;
+  nm_id?: number;
   /**
    * Поисковый кластер
    * @type {string}
    * @memberof V0GetNormQueryBidsItem
    */
-  norm_query: string;
+  norm_query?: string;
   /**
    * Текущая ставка в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) за тысячу показов
    * @type {number}
    * @memberof V0GetNormQueryBidsItem
    */
-  bid: number;
+  bid?: number;
   /**
    * Текущая ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) за тысячу показов
    * @type {number}
    * @memberof V0GetNormQueryBidsItem
    */
-  bid_kopecks: number;
+  bid_kopecks?: number;
   /**
    * Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
    * @type {string}
    * @memberof V0GetNormQueryBidsItem
    */
-  currency: string;
+  currency?: string;
 }
 /**
  *
@@ -3763,7 +3782,7 @@ export interface V0GetNormQueryBidsResponse {
    * @type {Array<V0GetNormQueryBidsItem>}
    * @memberof V0GetNormQueryBidsResponse
    */
-  bids: Array<V0GetNormQueryBidsItem>;
+  bids?: Array<V0GetNormQueryBidsItem>;
 }
 /**
  *
@@ -3808,7 +3827,7 @@ export interface V0GetNormQueryListResponse {
    * @type {Array<V0GetNormQueryListResponseItem>}
    * @memberof V0GetNormQueryListResponse
    */
-  items: Array<V0GetNormQueryListResponseItem> | null;
+  items?: Array<V0GetNormQueryListResponseItem> | null;
 }
 /**
  *
@@ -3941,13 +3960,13 @@ export interface V0GetNormQueryStatsItem {
    * @type {number}
    * @memberof V0GetNormQueryStatsItem
    */
-  advert_id: number;
+  advert_id?: number;
   /**
    * Артикул WB
    * @type {number}
    * @memberof V0GetNormQueryStatsItem
    */
-  nm_id: number;
+  nm_id?: number;
   /**
    *
    * @type {Array<V0GetNormQueryStatsItemStat>}
@@ -4089,7 +4108,7 @@ export interface V0GetNormQueryStatsResponse {
    * @type {Array<V0GetNormQueryStatsItem>}
    * @memberof V0GetNormQueryStatsResponse
    */
-  stats: Array<V0GetNormQueryStatsItem>;
+  stats?: Array<V0GetNormQueryStatsItem>;
 }
 /**
  *
@@ -4102,19 +4121,19 @@ export interface V0PutDailyLimitsAdvertResult {
    * @type {number}
    * @memberof V0PutDailyLimitsAdvertResult
    */
-  advertId: number;
+  advertId?: number;
   /**
    * Установленный размер дневного лимита ниже рекомендуемого минимума относительно текущих ставок `requiredLimit`:   - `true` — да   - `false` — нет
    * @type {boolean}
    * @memberof V0PutDailyLimitsAdvertResult
    */
-  belowMinLimit: boolean;
+  belowMinLimit?: boolean;
   /**
    * Рекомендуемый минимальный размер дневного лимита при текущих ставках кампании. Указывается в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances). С меньшим лимитом бюджет может расходоваться неравномерно и в кампании возникнут ошибки
    * @type {number}
    * @memberof V0PutDailyLimitsAdvertResult
    */
-  requiredLimit: number;
+  requiredLimit?: number;
 }
 /**
  *
@@ -4158,7 +4177,7 @@ export interface V0PutDailyLimitsResponse {
    * @type {Array<V0PutDailyLimitsAdvertResult>}
    * @memberof V0PutDailyLimitsResponse
    */
-  adverts: Array<V0PutDailyLimitsAdvertResult>;
+  adverts?: Array<V0PutDailyLimitsAdvertResult>;
 }
 /**
  *
@@ -4240,19 +4259,19 @@ export interface V1BudgetAdvert {
    * @type {number}
    * @memberof V1BudgetAdvert
    */
-  advertId: number;
+  advertId?: number;
   /**
    * Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
    * @type {string}
    * @memberof V1BudgetAdvert
    */
-  currency: string;
+  currency?: string;
   /**
    * Бюджет кампании в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
    * @type {number}
    * @memberof V1BudgetAdvert
    */
-  total: number;
+  total?: number;
 }
 /**
  *
@@ -4309,7 +4328,7 @@ export interface V1GetNormQueryStatsResponse {
    * @type {Array<V1GetNormQueryStatsResponseItem>}
    * @memberof V1GetNormQueryStatsResponse
    */
-  items: Array<V1GetNormQueryStatsResponseItem>;
+  items?: Array<V1GetNormQueryStatsResponseItem>;
 }
 /**
  *
@@ -4322,13 +4341,13 @@ export interface V1GetNormQueryStatsResponseItem {
    * @type {number}
    * @memberof V1GetNormQueryStatsResponseItem
    */
-  advertId: number;
+  advertId?: number;
   /**
    * Артикул WB
    * @type {number}
    * @memberof V1GetNormQueryStatsResponseItem
    */
-  nmId: number;
+  nmId?: number;
   /**
    * Статистика с детализацией по дням
    * @type {Array<V1GetNormQueryStatsResponseItemDailyStat>}
@@ -4347,7 +4366,7 @@ export interface V1GetNormQueryStatsResponseItemDailyStat {
    * @type {string}
    * @memberof V1GetNormQueryStatsResponseItemDailyStat
    */
-  date: string;
+  date?: string;
   /**
    *
    * @type {V1GetNormQueryStatsResponseItemStat}
@@ -4483,13 +4502,13 @@ export interface V1SetNormQueryBidsResponse {
    * @type {Array<V1SetNormQueryBidsSuccessResponseItem>}
    * @memberof V1SetNormQueryBidsResponse
    */
-  success: Array<V1SetNormQueryBidsSuccessResponseItem>;
+  success?: Array<V1SetNormQueryBidsSuccessResponseItem>;
   /**
    *
    * @type {Array<NormQueryBidFailResponseItem>}
    * @memberof V1SetNormQueryBidsResponse
    */
-  failed: Array<NormQueryBidFailResponseItem>;
+  failed?: Array<NormQueryBidFailResponseItem>;
 }
 /**
  *
@@ -4502,25 +4521,25 @@ export interface V1SetNormQueryBidsSuccessResponseItem {
    * @type {number}
    * @memberof V1SetNormQueryBidsSuccessResponseItem
    */
-  advertId: number;
+  advertId?: number;
   /**
    * Артикул WB
    * @type {number}
    * @memberof V1SetNormQueryBidsSuccessResponseItem
    */
-  nmId: number;
+  nmId?: number;
   /**
    * Поисковый кластер — это группа похожих поисковых запросов, по которым покупатели находят товары
    * @type {string}
    * @memberof V1SetNormQueryBidsSuccessResponseItem
    */
-  normQuery: string;
+  normQuery?: string;
   /**
    * Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
    * @type {string}
    * @memberof V1SetNormQueryBidsSuccessResponseItem
    */
-  currency: string;
+  currency?: string;
 }
 /**
  *
@@ -4546,7 +4565,7 @@ export interface V2BudgetResponse {
    * @type {Array<V1BudgetAdvert>}
    * @memberof V2BudgetResponse
    */
-  adverts: Array<V1BudgetAdvert> | null;
+  adverts?: Array<V1BudgetAdvert> | null;
 }
 /**
  *
@@ -4559,37 +4578,37 @@ export interface V2GetConfigResponse {
    * @type {string}
    * @memberof V2GetConfigResponse
    */
-  currency: string;
+  currency?: string;
   /**
    * Код валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
    * @type {number}
    * @memberof V2GetConfigResponse
    */
-  currencyCode: number;
+  currencyCode?: number;
   /**
    * Шаг ставки в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) для CPM-кампаний
    * @type {number}
    * @memberof V2GetConfigResponse
    */
-  cpmStep: number;
+  cpmStep?: number;
   /**
    * Шаг ставки в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) для кампаний CPC
    * @type {number}
    * @memberof V2GetConfigResponse
    */
-  cpcStep: number;
+  cpcStep?: number;
   /**
    * Минимальная сумма пополнения бюджета кампании в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).  Например, минимальная сумма пополнения бюджета при `\"minTopUp\": 10000` и `\"currency\": \"UZS\"` — 100 узбекских сум
    * @type {number}
    * @memberof V2GetConfigResponse
    */
-  minTopUp: number;
+  minTopUp?: number;
   /**
    * Минимально допустимый размер дневного лимита, вне зависимости от ставок кампании. Указывается в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
    * @type {number}
    * @memberof V2GetConfigResponse
    */
-  minDailyLimit: number;
+  minDailyLimit?: number;
 }
 
 /**

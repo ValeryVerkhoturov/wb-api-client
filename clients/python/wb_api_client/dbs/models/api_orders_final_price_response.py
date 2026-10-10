@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from wb_api_client.dbs.models.api_order_final_price_result import (
     ApiOrderFinalPriceResult,
 )
@@ -31,10 +31,10 @@ class ApiOrdersFinalPriceResponse(BaseModel):
     ApiOrdersFinalPriceResponse
     """  # noqa: E501
 
-    request_id: StrictStr = Field(
-        description="Уникальный ID запроса", alias="requestId"
+    request_id: Optional[StrictStr] = Field(
+        default=None, description="Уникальный ID запроса", alias="requestId"
     )
-    results: List[ApiOrderFinalPriceResult]
+    results: Optional[List[ApiOrderFinalPriceResult]] = None
     __properties: ClassVar[List[str]] = ["requestId", "results"]
 
     model_config = ConfigDict(

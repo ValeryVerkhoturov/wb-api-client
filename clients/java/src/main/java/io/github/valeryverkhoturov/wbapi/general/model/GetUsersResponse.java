@@ -39,24 +39,24 @@ public class GetUsersResponse {
   public static final String SERIALIZED_NAME_TOTAL = "total";
 
   @SerializedName(SERIALIZED_NAME_TOTAL)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer total;
 
   public static final String SERIALIZED_NAME_COUNT_IN_RESPONSE = "countInResponse";
 
   @SerializedName(SERIALIZED_NAME_COUNT_IN_RESPONSE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer countInResponse;
 
   public static final String SERIALIZED_NAME_USERS = "users";
 
   @SerializedName(SERIALIZED_NAME_USERS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private List<GetUsersResponseUsersInner> users = new ArrayList<>();
 
   public GetUsersResponse() {}
 
-  public GetUsersResponse total(@jakarta.annotation.Nonnull Integer total) {
+  public GetUsersResponse total(@jakarta.annotation.Nullable Integer total) {
     this.total = total;
     return this;
   }
@@ -66,16 +66,16 @@ public class GetUsersResponse {
    *
    * @return total
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getTotal() {
     return total;
   }
 
-  public void setTotal(@jakarta.annotation.Nonnull Integer total) {
+  public void setTotal(@jakarta.annotation.Nullable Integer total) {
     this.total = total;
   }
 
-  public GetUsersResponse countInResponse(@jakarta.annotation.Nonnull Integer countInResponse) {
+  public GetUsersResponse countInResponse(@jakarta.annotation.Nullable Integer countInResponse) {
     this.countInResponse = countInResponse;
     return this;
   }
@@ -85,17 +85,17 @@ public class GetUsersResponse {
    *
    * @return countInResponse
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getCountInResponse() {
     return countInResponse;
   }
 
-  public void setCountInResponse(@jakarta.annotation.Nonnull Integer countInResponse) {
+  public void setCountInResponse(@jakarta.annotation.Nullable Integer countInResponse) {
     this.countInResponse = countInResponse;
   }
 
   public GetUsersResponse users(
-      @jakarta.annotation.Nonnull List<GetUsersResponseUsersInner> users) {
+      @jakarta.annotation.Nullable List<GetUsersResponseUsersInner> users) {
     this.users = users;
     return this;
   }
@@ -113,12 +113,12 @@ public class GetUsersResponse {
    *
    * @return users
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public List<GetUsersResponseUsersInner> getUsers() {
     return users;
   }
 
-  public void setUsers(@jakarta.annotation.Nonnull List<GetUsersResponseUsersInner> users) {
+  public void setUsers(@jakarta.annotation.Nullable List<GetUsersResponseUsersInner> users) {
     this.users = users;
   }
 
@@ -174,9 +174,6 @@ public class GetUsersResponse {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("total");
-    openapiRequiredFields.add("countInResponse");
-    openapiRequiredFields.add("users");
   }
 
   /**
@@ -206,31 +203,25 @@ public class GetUsersResponse {
                 entry.getKey(), jsonElement.toString()));
       }
     }
+    JsonObject jsonObj = jsonElement.getAsJsonObject();
+    if (jsonObj.get("users") != null && !jsonObj.get("users").isJsonNull()) {
+      JsonArray jsonArrayusers = jsonObj.getAsJsonArray("users");
+      if (jsonArrayusers != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("users").isJsonArray()) {
+          throw new IllegalArgumentException(
+              String.format(
+                  "Expected the field `users` to be an array in the JSON string but got `%s`",
+                  jsonObj.get("users").toString()));
+        }
 
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : GetUsersResponse.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
+        // validate the optional field `users` (array)
+        for (int i = 0; i < jsonArrayusers.size(); i++) {
+          GetUsersResponseUsersInner.validateJsonElement(jsonArrayusers.get(i));
+        }
+        ;
       }
     }
-    JsonObject jsonObj = jsonElement.getAsJsonObject();
-    // ensure the json data is an array
-    if (!jsonObj.get("users").isJsonArray()) {
-      throw new IllegalArgumentException(
-          String.format(
-              "Expected the field `users` to be an array in the JSON string but got `%s`",
-              jsonObj.get("users").toString()));
-    }
-
-    JsonArray jsonArrayusers = jsonObj.getAsJsonArray("users");
-    // validate the required field `users` (array)
-    for (int i = 0; i < jsonArrayusers.size(); i++) {
-      GetUsersResponseUsersInner.validateJsonElement(jsonArrayusers.get(i));
-    }
-    ;
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

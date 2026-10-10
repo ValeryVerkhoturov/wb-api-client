@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,11 +28,15 @@ class ItemOrdersMetrics(BaseModel):
     ItemOrdersMetrics
     """  # noqa: E501
 
-    dt: StrictStr = Field(description="Дата сбора статистики")
-    avg_position: StrictInt = Field(
-        description="Средняя позиция товара в результатах поиска", alias="avgPosition"
+    dt: Optional[StrictStr] = Field(default=None, description="Дата сбора статистики")
+    avg_position: Optional[StrictInt] = Field(
+        default=None,
+        description="Средняя позиция товара в результатах поиска",
+        alias="avgPosition",
     )
-    orders: StrictInt = Field(description="Сколько раз товары из поиска заказали")
+    orders: Optional[StrictInt] = Field(
+        default=None, description="Сколько раз товары из поиска заказали"
+    )
     __properties: ClassVar[List[str]] = ["dt", "avgPosition", "orders"]
 
     model_config = ConfigDict(

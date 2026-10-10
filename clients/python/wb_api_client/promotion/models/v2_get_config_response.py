@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,26 +28,32 @@ class V2GetConfigResponse(BaseModel):
     V2GetConfigResponse
     """  # noqa: E501
 
-    currency: StrictStr = Field(
-        description="Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)"
+    currency: Optional[StrictStr] = Field(
+        default=None,
+        description="Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)",
     )
-    currency_code: StrictInt = Field(
+    currency_code: Optional[StrictInt] = Field(
+        default=None,
         description="Код валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)",
         alias="currencyCode",
     )
-    cpm_step: StrictInt = Field(
+    cpm_step: Optional[StrictInt] = Field(
+        default=None,
         description="Шаг ставки в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) для CPM-кампаний",
         alias="cpmStep",
     )
-    cpc_step: StrictInt = Field(
+    cpc_step: Optional[StrictInt] = Field(
+        default=None,
         description="Шаг ставки в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) для кампаний CPC",
         alias="cpcStep",
     )
-    min_top_up: StrictInt = Field(
+    min_top_up: Optional[StrictInt] = Field(
+        default=None,
         description='Минимальная сумма пополнения бюджета кампании в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).  Например, минимальная сумма пополнения бюджета при `"minTopUp": 10000` и `"currency": "UZS"` — 100 узбекских сум ',
         alias="minTopUp",
     )
-    min_daily_limit: StrictInt = Field(
+    min_daily_limit: Optional[StrictInt] = Field(
+        default=None,
         description="Минимально допустимый размер дневного лимита, вне зависимости от ставок кампании. Указывается в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) ",
         alias="minDailyLimit",
     )

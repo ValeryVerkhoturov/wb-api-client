@@ -39,18 +39,18 @@ public class PatchV1BidsResponse200BidsInner {
   public static final String SERIALIZED_NAME_ADVERT_ID = "advert_id";
 
   @SerializedName(SERIALIZED_NAME_ADVERT_ID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Long advertId;
 
   public static final String SERIALIZED_NAME_NM_BIDS = "nm_bids";
 
   @SerializedName(SERIALIZED_NAME_NM_BIDS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private List<PatchV1BidsResponse200BidsInnerNmBidsInner> nmBids = new ArrayList<>();
 
   public PatchV1BidsResponse200BidsInner() {}
 
-  public PatchV1BidsResponse200BidsInner advertId(@jakarta.annotation.Nonnull Long advertId) {
+  public PatchV1BidsResponse200BidsInner advertId(@jakarta.annotation.Nullable Long advertId) {
     this.advertId = advertId;
     return this;
   }
@@ -60,17 +60,17 @@ public class PatchV1BidsResponse200BidsInner {
    *
    * @return advertId
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Long getAdvertId() {
     return advertId;
   }
 
-  public void setAdvertId(@jakarta.annotation.Nonnull Long advertId) {
+  public void setAdvertId(@jakarta.annotation.Nullable Long advertId) {
     this.advertId = advertId;
   }
 
   public PatchV1BidsResponse200BidsInner nmBids(
-      @jakarta.annotation.Nonnull List<PatchV1BidsResponse200BidsInnerNmBidsInner> nmBids) {
+      @jakarta.annotation.Nullable List<PatchV1BidsResponse200BidsInnerNmBidsInner> nmBids) {
     this.nmBids = nmBids;
     return this;
   }
@@ -89,13 +89,13 @@ public class PatchV1BidsResponse200BidsInner {
    *
    * @return nmBids
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public List<PatchV1BidsResponse200BidsInnerNmBidsInner> getNmBids() {
     return nmBids;
   }
 
   public void setNmBids(
-      @jakarta.annotation.Nonnull List<PatchV1BidsResponse200BidsInnerNmBidsInner> nmBids) {
+      @jakarta.annotation.Nullable List<PatchV1BidsResponse200BidsInnerNmBidsInner> nmBids) {
     this.nmBids = nmBids;
   }
 
@@ -149,8 +149,6 @@ public class PatchV1BidsResponse200BidsInner {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("advert_id");
-    openapiRequiredFields.add("nm_bids");
   }
 
   /**
@@ -181,31 +179,25 @@ public class PatchV1BidsResponse200BidsInner {
                 entry.getKey(), jsonElement.toString()));
       }
     }
+    JsonObject jsonObj = jsonElement.getAsJsonObject();
+    if (jsonObj.get("nm_bids") != null && !jsonObj.get("nm_bids").isJsonNull()) {
+      JsonArray jsonArraynmBids = jsonObj.getAsJsonArray("nm_bids");
+      if (jsonArraynmBids != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("nm_bids").isJsonArray()) {
+          throw new IllegalArgumentException(
+              String.format(
+                  "Expected the field `nm_bids` to be an array in the JSON string but got `%s`",
+                  jsonObj.get("nm_bids").toString()));
+        }
 
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : PatchV1BidsResponse200BidsInner.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
+        // validate the optional field `nm_bids` (array)
+        for (int i = 0; i < jsonArraynmBids.size(); i++) {
+          PatchV1BidsResponse200BidsInnerNmBidsInner.validateJsonElement(jsonArraynmBids.get(i));
+        }
+        ;
       }
     }
-    JsonObject jsonObj = jsonElement.getAsJsonObject();
-    // ensure the json data is an array
-    if (!jsonObj.get("nm_bids").isJsonArray()) {
-      throw new IllegalArgumentException(
-          String.format(
-              "Expected the field `nm_bids` to be an array in the JSON string but got `%s`",
-              jsonObj.get("nm_bids").toString()));
-    }
-
-    JsonArray jsonArraynmBids = jsonObj.getAsJsonArray("nm_bids");
-    // validate the required field `nm_bids` (array)
-    for (int i = 0; i < jsonArraynmBids.size(); i++) {
-      PatchV1BidsResponse200BidsInnerNmBidsInner.validateJsonElement(jsonArraynmBids.get(i));
-    }
-    ;
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

@@ -11,9 +11,7 @@ API version: analytics
 package analytics
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the InventoryWbResponseItemsInner type satisfies the MappedNullable interface at compile time
@@ -22,39 +20,29 @@ var _ MappedNullable = &InventoryWbResponseItemsInner{}
 // InventoryWbResponseItemsInner struct for InventoryWbResponseItemsInner
 type InventoryWbResponseItemsInner struct {
 	// Артикул WB
-	NmId int64 `json:"nmId"`
+	NmId *int64 `json:"nmId,omitempty"`
 	// ID размера
-	ChrtId int32 `json:"chrtId"`
+	ChrtId *int32 `json:"chrtId,omitempty"`
 	// ID склада. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `-999999`
-	WarehouseId int64 `json:"warehouseId"`
+	WarehouseId *int64 `json:"warehouseId,omitempty"`
 	// Название склада. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `Склад WB`
-	WarehouseName string `json:"warehouseName"`
+	WarehouseName *string `json:"warehouseName,omitempty"`
 	// Регион отгрузки. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `Склад WB`
-	RegionName string `json:"regionName"`
+	RegionName *string `json:"regionName,omitempty"`
 	// Количество товара на складе, доступное клиентам для добавления в корзину
-	Quantity int32 `json:"quantity"`
+	Quantity *int32 `json:"quantity,omitempty"`
 	// В пути к клиенту
-	InWayToClient int32 `json:"inWayToClient"`
+	InWayToClient *int32 `json:"inWayToClient,omitempty"`
 	// В пути от клиента
-	InWayFromClient int32 `json:"inWayFromClient"`
+	InWayFromClient *int32 `json:"inWayFromClient,omitempty"`
 }
-
-type _InventoryWbResponseItemsInner InventoryWbResponseItemsInner
 
 // NewInventoryWbResponseItemsInner instantiates a new InventoryWbResponseItemsInner object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInventoryWbResponseItemsInner(nmId int64, chrtId int32, warehouseId int64, warehouseName string, regionName string, quantity int32, inWayToClient int32, inWayFromClient int32) *InventoryWbResponseItemsInner {
+func NewInventoryWbResponseItemsInner() *InventoryWbResponseItemsInner {
 	this := InventoryWbResponseItemsInner{}
-	this.NmId = nmId
-	this.ChrtId = chrtId
-	this.WarehouseId = warehouseId
-	this.WarehouseName = warehouseName
-	this.RegionName = regionName
-	this.Quantity = quantity
-	this.InWayToClient = inWayToClient
-	this.InWayFromClient = inWayFromClient
 	return &this
 }
 
@@ -66,196 +54,260 @@ func NewInventoryWbResponseItemsInnerWithDefaults() *InventoryWbResponseItemsInn
 	return &this
 }
 
-// GetNmId returns the NmId field value
+// GetNmId returns the NmId field value if set, zero value otherwise.
 func (o *InventoryWbResponseItemsInner) GetNmId() int64 {
-	if o == nil {
+	if o == nil || IsNil(o.NmId) {
 		var ret int64
 		return ret
 	}
-
-	return o.NmId
+	return *o.NmId
 }
 
-// GetNmIdOk returns a tuple with the NmId field value
+// GetNmIdOk returns a tuple with the NmId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *InventoryWbResponseItemsInner) GetNmIdOk() (*int64, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.NmId) {
 		return nil, false
 	}
-	return &o.NmId, true
+	return o.NmId, true
 }
 
-// SetNmId sets field value
+// HasNmId returns a boolean if a field has been set.
+func (o *InventoryWbResponseItemsInner) HasNmId() bool {
+	if o != nil && !IsNil(o.NmId) {
+		return true
+	}
+
+	return false
+}
+
+// SetNmId gets a reference to the given int64 and assigns it to the NmId field.
 func (o *InventoryWbResponseItemsInner) SetNmId(v int64) {
-	o.NmId = v
+	o.NmId = &v
 }
 
-// GetChrtId returns the ChrtId field value
+// GetChrtId returns the ChrtId field value if set, zero value otherwise.
 func (o *InventoryWbResponseItemsInner) GetChrtId() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.ChrtId) {
 		var ret int32
 		return ret
 	}
-
-	return o.ChrtId
+	return *o.ChrtId
 }
 
-// GetChrtIdOk returns a tuple with the ChrtId field value
+// GetChrtIdOk returns a tuple with the ChrtId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *InventoryWbResponseItemsInner) GetChrtIdOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ChrtId) {
 		return nil, false
 	}
-	return &o.ChrtId, true
+	return o.ChrtId, true
 }
 
-// SetChrtId sets field value
+// HasChrtId returns a boolean if a field has been set.
+func (o *InventoryWbResponseItemsInner) HasChrtId() bool {
+	if o != nil && !IsNil(o.ChrtId) {
+		return true
+	}
+
+	return false
+}
+
+// SetChrtId gets a reference to the given int32 and assigns it to the ChrtId field.
 func (o *InventoryWbResponseItemsInner) SetChrtId(v int32) {
-	o.ChrtId = v
+	o.ChrtId = &v
 }
 
-// GetWarehouseId returns the WarehouseId field value
+// GetWarehouseId returns the WarehouseId field value if set, zero value otherwise.
 func (o *InventoryWbResponseItemsInner) GetWarehouseId() int64 {
-	if o == nil {
+	if o == nil || IsNil(o.WarehouseId) {
 		var ret int64
 		return ret
 	}
-
-	return o.WarehouseId
+	return *o.WarehouseId
 }
 
-// GetWarehouseIdOk returns a tuple with the WarehouseId field value
+// GetWarehouseIdOk returns a tuple with the WarehouseId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *InventoryWbResponseItemsInner) GetWarehouseIdOk() (*int64, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.WarehouseId) {
 		return nil, false
 	}
-	return &o.WarehouseId, true
+	return o.WarehouseId, true
 }
 
-// SetWarehouseId sets field value
+// HasWarehouseId returns a boolean if a field has been set.
+func (o *InventoryWbResponseItemsInner) HasWarehouseId() bool {
+	if o != nil && !IsNil(o.WarehouseId) {
+		return true
+	}
+
+	return false
+}
+
+// SetWarehouseId gets a reference to the given int64 and assigns it to the WarehouseId field.
 func (o *InventoryWbResponseItemsInner) SetWarehouseId(v int64) {
-	o.WarehouseId = v
+	o.WarehouseId = &v
 }
 
-// GetWarehouseName returns the WarehouseName field value
+// GetWarehouseName returns the WarehouseName field value if set, zero value otherwise.
 func (o *InventoryWbResponseItemsInner) GetWarehouseName() string {
-	if o == nil {
+	if o == nil || IsNil(o.WarehouseName) {
 		var ret string
 		return ret
 	}
-
-	return o.WarehouseName
+	return *o.WarehouseName
 }
 
-// GetWarehouseNameOk returns a tuple with the WarehouseName field value
+// GetWarehouseNameOk returns a tuple with the WarehouseName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *InventoryWbResponseItemsInner) GetWarehouseNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.WarehouseName) {
 		return nil, false
 	}
-	return &o.WarehouseName, true
+	return o.WarehouseName, true
 }
 
-// SetWarehouseName sets field value
+// HasWarehouseName returns a boolean if a field has been set.
+func (o *InventoryWbResponseItemsInner) HasWarehouseName() bool {
+	if o != nil && !IsNil(o.WarehouseName) {
+		return true
+	}
+
+	return false
+}
+
+// SetWarehouseName gets a reference to the given string and assigns it to the WarehouseName field.
 func (o *InventoryWbResponseItemsInner) SetWarehouseName(v string) {
-	o.WarehouseName = v
+	o.WarehouseName = &v
 }
 
-// GetRegionName returns the RegionName field value
+// GetRegionName returns the RegionName field value if set, zero value otherwise.
 func (o *InventoryWbResponseItemsInner) GetRegionName() string {
-	if o == nil {
+	if o == nil || IsNil(o.RegionName) {
 		var ret string
 		return ret
 	}
-
-	return o.RegionName
+	return *o.RegionName
 }
 
-// GetRegionNameOk returns a tuple with the RegionName field value
+// GetRegionNameOk returns a tuple with the RegionName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *InventoryWbResponseItemsInner) GetRegionNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.RegionName) {
 		return nil, false
 	}
-	return &o.RegionName, true
+	return o.RegionName, true
 }
 
-// SetRegionName sets field value
+// HasRegionName returns a boolean if a field has been set.
+func (o *InventoryWbResponseItemsInner) HasRegionName() bool {
+	if o != nil && !IsNil(o.RegionName) {
+		return true
+	}
+
+	return false
+}
+
+// SetRegionName gets a reference to the given string and assigns it to the RegionName field.
 func (o *InventoryWbResponseItemsInner) SetRegionName(v string) {
-	o.RegionName = v
+	o.RegionName = &v
 }
 
-// GetQuantity returns the Quantity field value
+// GetQuantity returns the Quantity field value if set, zero value otherwise.
 func (o *InventoryWbResponseItemsInner) GetQuantity() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.Quantity) {
 		var ret int32
 		return ret
 	}
-
-	return o.Quantity
+	return *o.Quantity
 }
 
-// GetQuantityOk returns a tuple with the Quantity field value
+// GetQuantityOk returns a tuple with the Quantity field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *InventoryWbResponseItemsInner) GetQuantityOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Quantity) {
 		return nil, false
 	}
-	return &o.Quantity, true
+	return o.Quantity, true
 }
 
-// SetQuantity sets field value
+// HasQuantity returns a boolean if a field has been set.
+func (o *InventoryWbResponseItemsInner) HasQuantity() bool {
+	if o != nil && !IsNil(o.Quantity) {
+		return true
+	}
+
+	return false
+}
+
+// SetQuantity gets a reference to the given int32 and assigns it to the Quantity field.
 func (o *InventoryWbResponseItemsInner) SetQuantity(v int32) {
-	o.Quantity = v
+	o.Quantity = &v
 }
 
-// GetInWayToClient returns the InWayToClient field value
+// GetInWayToClient returns the InWayToClient field value if set, zero value otherwise.
 func (o *InventoryWbResponseItemsInner) GetInWayToClient() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.InWayToClient) {
 		var ret int32
 		return ret
 	}
-
-	return o.InWayToClient
+	return *o.InWayToClient
 }
 
-// GetInWayToClientOk returns a tuple with the InWayToClient field value
+// GetInWayToClientOk returns a tuple with the InWayToClient field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *InventoryWbResponseItemsInner) GetInWayToClientOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.InWayToClient) {
 		return nil, false
 	}
-	return &o.InWayToClient, true
+	return o.InWayToClient, true
 }
 
-// SetInWayToClient sets field value
+// HasInWayToClient returns a boolean if a field has been set.
+func (o *InventoryWbResponseItemsInner) HasInWayToClient() bool {
+	if o != nil && !IsNil(o.InWayToClient) {
+		return true
+	}
+
+	return false
+}
+
+// SetInWayToClient gets a reference to the given int32 and assigns it to the InWayToClient field.
 func (o *InventoryWbResponseItemsInner) SetInWayToClient(v int32) {
-	o.InWayToClient = v
+	o.InWayToClient = &v
 }
 
-// GetInWayFromClient returns the InWayFromClient field value
+// GetInWayFromClient returns the InWayFromClient field value if set, zero value otherwise.
 func (o *InventoryWbResponseItemsInner) GetInWayFromClient() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.InWayFromClient) {
 		var ret int32
 		return ret
 	}
-
-	return o.InWayFromClient
+	return *o.InWayFromClient
 }
 
-// GetInWayFromClientOk returns a tuple with the InWayFromClient field value
+// GetInWayFromClientOk returns a tuple with the InWayFromClient field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *InventoryWbResponseItemsInner) GetInWayFromClientOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.InWayFromClient) {
 		return nil, false
 	}
-	return &o.InWayFromClient, true
+	return o.InWayFromClient, true
 }
 
-// SetInWayFromClient sets field value
+// HasInWayFromClient returns a boolean if a field has been set.
+func (o *InventoryWbResponseItemsInner) HasInWayFromClient() bool {
+	if o != nil && !IsNil(o.InWayFromClient) {
+		return true
+	}
+
+	return false
+}
+
+// SetInWayFromClient gets a reference to the given int32 and assigns it to the InWayFromClient field.
 func (o *InventoryWbResponseItemsInner) SetInWayFromClient(v int32) {
-	o.InWayFromClient = v
+	o.InWayFromClient = &v
 }
 
 func (o InventoryWbResponseItemsInner) MarshalJSON() ([]byte, error) {
@@ -268,59 +320,31 @@ func (o InventoryWbResponseItemsInner) MarshalJSON() ([]byte, error) {
 
 func (o InventoryWbResponseItemsInner) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["nmId"] = o.NmId
-	toSerialize["chrtId"] = o.ChrtId
-	toSerialize["warehouseId"] = o.WarehouseId
-	toSerialize["warehouseName"] = o.WarehouseName
-	toSerialize["regionName"] = o.RegionName
-	toSerialize["quantity"] = o.Quantity
-	toSerialize["inWayToClient"] = o.InWayToClient
-	toSerialize["inWayFromClient"] = o.InWayFromClient
+	if !IsNil(o.NmId) {
+		toSerialize["nmId"] = o.NmId
+	}
+	if !IsNil(o.ChrtId) {
+		toSerialize["chrtId"] = o.ChrtId
+	}
+	if !IsNil(o.WarehouseId) {
+		toSerialize["warehouseId"] = o.WarehouseId
+	}
+	if !IsNil(o.WarehouseName) {
+		toSerialize["warehouseName"] = o.WarehouseName
+	}
+	if !IsNil(o.RegionName) {
+		toSerialize["regionName"] = o.RegionName
+	}
+	if !IsNil(o.Quantity) {
+		toSerialize["quantity"] = o.Quantity
+	}
+	if !IsNil(o.InWayToClient) {
+		toSerialize["inWayToClient"] = o.InWayToClient
+	}
+	if !IsNil(o.InWayFromClient) {
+		toSerialize["inWayFromClient"] = o.InWayFromClient
+	}
 	return toSerialize, nil
-}
-
-func (o *InventoryWbResponseItemsInner) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"nmId",
-		"chrtId",
-		"warehouseId",
-		"warehouseName",
-		"regionName",
-		"quantity",
-		"inWayToClient",
-		"inWayFromClient",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varInventoryWbResponseItemsInner := _InventoryWbResponseItemsInner{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varInventoryWbResponseItemsInner)
-
-	if err != nil {
-		return err
-	}
-
-	*o = InventoryWbResponseItemsInner(varInventoryWbResponseItemsInner)
-
-	return err
 }
 
 type NullableInventoryWbResponseItemsInner struct {

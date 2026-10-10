@@ -11,9 +11,7 @@ API version: items
 package items
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the GetV2DirectoryTnvedAllResponse200 type satisfies the MappedNullable interface at compile time
@@ -22,27 +20,21 @@ var _ MappedNullable = &GetV2DirectoryTnvedAllResponse200{}
 // GetV2DirectoryTnvedAllResponse200 struct for GetV2DirectoryTnvedAllResponse200
 type GetV2DirectoryTnvedAllResponse200 struct {
 	// Данные
-	Data []GetV2DirectoryTnvedAllResponse200DataInner `json:"data"`
+	Data []GetV2DirectoryTnvedAllResponse200DataInner `json:"data,omitempty"`
 	// Флаг наличия ошибки
-	Error bool `json:"error"`
+	Error *bool `json:"error,omitempty"`
 	// Текст ошибки
-	ErrorText string `json:"errorText"`
+	ErrorText *string `json:"errorText,omitempty"`
 	// Дополнительные ошибки
-	AdditionalErrors NullableString `json:"additionalErrors"`
+	AdditionalErrors NullableString `json:"additionalErrors,omitempty"`
 }
-
-type _GetV2DirectoryTnvedAllResponse200 GetV2DirectoryTnvedAllResponse200
 
 // NewGetV2DirectoryTnvedAllResponse200 instantiates a new GetV2DirectoryTnvedAllResponse200 object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetV2DirectoryTnvedAllResponse200(data []GetV2DirectoryTnvedAllResponse200DataInner, error_ bool, errorText string, additionalErrors NullableString) *GetV2DirectoryTnvedAllResponse200 {
+func NewGetV2DirectoryTnvedAllResponse200() *GetV2DirectoryTnvedAllResponse200 {
 	this := GetV2DirectoryTnvedAllResponse200{}
-	this.Data = data
-	this.Error = error_
-	this.ErrorText = errorText
-	this.AdditionalErrors = additionalErrors
 	return &this
 }
 
@@ -54,90 +46,112 @@ func NewGetV2DirectoryTnvedAllResponse200WithDefaults() *GetV2DirectoryTnvedAllR
 	return &this
 }
 
-// GetData returns the Data field value
+// GetData returns the Data field value if set, zero value otherwise.
 func (o *GetV2DirectoryTnvedAllResponse200) GetData() []GetV2DirectoryTnvedAllResponse200DataInner {
-	if o == nil {
+	if o == nil || IsNil(o.Data) {
 		var ret []GetV2DirectoryTnvedAllResponse200DataInner
 		return ret
 	}
-
 	return o.Data
 }
 
-// GetDataOk returns a tuple with the Data field value
+// GetDataOk returns a tuple with the Data field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetV2DirectoryTnvedAllResponse200) GetDataOk() ([]GetV2DirectoryTnvedAllResponse200DataInner, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Data) {
 		return nil, false
 	}
 	return o.Data, true
 }
 
-// SetData sets field value
+// HasData returns a boolean if a field has been set.
+func (o *GetV2DirectoryTnvedAllResponse200) HasData() bool {
+	if o != nil && !IsNil(o.Data) {
+		return true
+	}
+
+	return false
+}
+
+// SetData gets a reference to the given []GetV2DirectoryTnvedAllResponse200DataInner and assigns it to the Data field.
 func (o *GetV2DirectoryTnvedAllResponse200) SetData(v []GetV2DirectoryTnvedAllResponse200DataInner) {
 	o.Data = v
 }
 
-// GetError returns the Error field value
+// GetError returns the Error field value if set, zero value otherwise.
 func (o *GetV2DirectoryTnvedAllResponse200) GetError() bool {
-	if o == nil {
+	if o == nil || IsNil(o.Error) {
 		var ret bool
 		return ret
 	}
-
-	return o.Error
+	return *o.Error
 }
 
-// GetErrorOk returns a tuple with the Error field value
+// GetErrorOk returns a tuple with the Error field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetV2DirectoryTnvedAllResponse200) GetErrorOk() (*bool, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Error) {
 		return nil, false
 	}
-	return &o.Error, true
+	return o.Error, true
 }
 
-// SetError sets field value
+// HasError returns a boolean if a field has been set.
+func (o *GetV2DirectoryTnvedAllResponse200) HasError() bool {
+	if o != nil && !IsNil(o.Error) {
+		return true
+	}
+
+	return false
+}
+
+// SetError gets a reference to the given bool and assigns it to the Error field.
 func (o *GetV2DirectoryTnvedAllResponse200) SetError(v bool) {
-	o.Error = v
+	o.Error = &v
 }
 
-// GetErrorText returns the ErrorText field value
+// GetErrorText returns the ErrorText field value if set, zero value otherwise.
 func (o *GetV2DirectoryTnvedAllResponse200) GetErrorText() string {
-	if o == nil {
+	if o == nil || IsNil(o.ErrorText) {
 		var ret string
 		return ret
 	}
-
-	return o.ErrorText
+	return *o.ErrorText
 }
 
-// GetErrorTextOk returns a tuple with the ErrorText field value
+// GetErrorTextOk returns a tuple with the ErrorText field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetV2DirectoryTnvedAllResponse200) GetErrorTextOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ErrorText) {
 		return nil, false
 	}
-	return &o.ErrorText, true
+	return o.ErrorText, true
 }
 
-// SetErrorText sets field value
+// HasErrorText returns a boolean if a field has been set.
+func (o *GetV2DirectoryTnvedAllResponse200) HasErrorText() bool {
+	if o != nil && !IsNil(o.ErrorText) {
+		return true
+	}
+
+	return false
+}
+
+// SetErrorText gets a reference to the given string and assigns it to the ErrorText field.
 func (o *GetV2DirectoryTnvedAllResponse200) SetErrorText(v string) {
-	o.ErrorText = v
+	o.ErrorText = &v
 }
 
-// GetAdditionalErrors returns the AdditionalErrors field value
-// If the value is explicit nil, the zero value for string will be returned
+// GetAdditionalErrors returns the AdditionalErrors field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *GetV2DirectoryTnvedAllResponse200) GetAdditionalErrors() string {
-	if o == nil || o.AdditionalErrors.Get() == nil {
+	if o == nil || IsNil(o.AdditionalErrors.Get()) {
 		var ret string
 		return ret
 	}
-
 	return *o.AdditionalErrors.Get()
 }
 
-// GetAdditionalErrorsOk returns a tuple with the AdditionalErrors field value
+// GetAdditionalErrorsOk returns a tuple with the AdditionalErrors field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GetV2DirectoryTnvedAllResponse200) GetAdditionalErrorsOk() (*string, bool) {
@@ -147,9 +161,28 @@ func (o *GetV2DirectoryTnvedAllResponse200) GetAdditionalErrorsOk() (*string, bo
 	return o.AdditionalErrors.Get(), o.AdditionalErrors.IsSet()
 }
 
-// SetAdditionalErrors sets field value
+// HasAdditionalErrors returns a boolean if a field has been set.
+func (o *GetV2DirectoryTnvedAllResponse200) HasAdditionalErrors() bool {
+	if o != nil && o.AdditionalErrors.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetAdditionalErrors gets a reference to the given NullableString and assigns it to the AdditionalErrors field.
 func (o *GetV2DirectoryTnvedAllResponse200) SetAdditionalErrors(v string) {
 	o.AdditionalErrors.Set(&v)
+}
+
+// SetAdditionalErrorsNil sets the value for AdditionalErrors to be an explicit nil
+func (o *GetV2DirectoryTnvedAllResponse200) SetAdditionalErrorsNil() {
+	o.AdditionalErrors.Set(nil)
+}
+
+// UnsetAdditionalErrors ensures that no value is present for AdditionalErrors, not even an explicit nil
+func (o *GetV2DirectoryTnvedAllResponse200) UnsetAdditionalErrors() {
+	o.AdditionalErrors.Unset()
 }
 
 func (o GetV2DirectoryTnvedAllResponse200) MarshalJSON() ([]byte, error) {
@@ -162,51 +195,19 @@ func (o GetV2DirectoryTnvedAllResponse200) MarshalJSON() ([]byte, error) {
 
 func (o GetV2DirectoryTnvedAllResponse200) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["data"] = o.Data
-	toSerialize["error"] = o.Error
-	toSerialize["errorText"] = o.ErrorText
-	toSerialize["additionalErrors"] = o.AdditionalErrors.Get()
+	if !IsNil(o.Data) {
+		toSerialize["data"] = o.Data
+	}
+	if !IsNil(o.Error) {
+		toSerialize["error"] = o.Error
+	}
+	if !IsNil(o.ErrorText) {
+		toSerialize["errorText"] = o.ErrorText
+	}
+	if o.AdditionalErrors.IsSet() {
+		toSerialize["additionalErrors"] = o.AdditionalErrors.Get()
+	}
 	return toSerialize, nil
-}
-
-func (o *GetV2DirectoryTnvedAllResponse200) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"data",
-		"error",
-		"errorText",
-		"additionalErrors",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varGetV2DirectoryTnvedAllResponse200 := _GetV2DirectoryTnvedAllResponse200{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varGetV2DirectoryTnvedAllResponse200)
-
-	if err != nil {
-		return err
-	}
-
-	*o = GetV2DirectoryTnvedAllResponse200(varGetV2DirectoryTnvedAllResponse200)
-
-	return err
 }
 
 type NullableGetV2DirectoryTnvedAllResponse200 struct {

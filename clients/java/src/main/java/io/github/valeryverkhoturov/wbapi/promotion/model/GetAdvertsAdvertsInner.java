@@ -40,7 +40,7 @@ public class GetAdvertsAdvertsInner {
   public static final String SERIALIZED_NAME_BID_TYPE = "bid_type";
 
   @SerializedName(SERIALIZED_NAME_BID_TYPE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String bidType;
 
   public static final String SERIALIZED_NAME_CURRENCY = "currency";
@@ -52,7 +52,7 @@ public class GetAdvertsAdvertsInner {
   public static final String SERIALIZED_NAME_ID = "id";
 
   @SerializedName(SERIALIZED_NAME_ID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Long id;
 
   public static final String SERIALIZED_NAME_NM_SETTINGS = "nm_settings";
@@ -64,13 +64,13 @@ public class GetAdvertsAdvertsInner {
   public static final String SERIALIZED_NAME_SETTINGS = "settings";
 
   @SerializedName(SERIALIZED_NAME_SETTINGS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private AdvertSettings settings;
 
   public static final String SERIALIZED_NAME_RESTRICTIONS = "restrictions";
 
   @SerializedName(SERIALIZED_NAME_RESTRICTIONS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private GetAdvertsAdvertsInnerRestrictions restrictions;
 
   /**
@@ -139,18 +139,18 @@ public class GetAdvertsAdvertsInner {
   public static final String SERIALIZED_NAME_STATUS = "status";
 
   @SerializedName(SERIALIZED_NAME_STATUS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private StatusEnum status;
 
   public static final String SERIALIZED_NAME_TIMESTAMPS = "timestamps";
 
   @SerializedName(SERIALIZED_NAME_TIMESTAMPS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Timestamps timestamps;
 
   public GetAdvertsAdvertsInner() {}
 
-  public GetAdvertsAdvertsInner bidType(@jakarta.annotation.Nonnull String bidType) {
+  public GetAdvertsAdvertsInner bidType(@jakarta.annotation.Nullable String bidType) {
     this.bidType = bidType;
     return this;
   }
@@ -160,12 +160,12 @@ public class GetAdvertsAdvertsInner {
    *
    * @return bidType
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getBidType() {
     return bidType;
   }
 
-  public void setBidType(@jakarta.annotation.Nonnull String bidType) {
+  public void setBidType(@jakarta.annotation.Nullable String bidType) {
     this.bidType = bidType;
   }
 
@@ -188,7 +188,7 @@ public class GetAdvertsAdvertsInner {
     this.currency = currency;
   }
 
-  public GetAdvertsAdvertsInner id(@jakarta.annotation.Nonnull Long id) {
+  public GetAdvertsAdvertsInner id(@jakarta.annotation.Nullable Long id) {
     this.id = id;
     return this;
   }
@@ -198,12 +198,12 @@ public class GetAdvertsAdvertsInner {
    *
    * @return id
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Long getId() {
     return id;
   }
 
-  public void setId(@jakarta.annotation.Nonnull Long id) {
+  public void setId(@jakarta.annotation.Nullable Long id) {
     this.id = id;
   }
 
@@ -235,7 +235,7 @@ public class GetAdvertsAdvertsInner {
     this.nmSettings = nmSettings;
   }
 
-  public GetAdvertsAdvertsInner settings(@jakarta.annotation.Nonnull AdvertSettings settings) {
+  public GetAdvertsAdvertsInner settings(@jakarta.annotation.Nullable AdvertSettings settings) {
     this.settings = settings;
     return this;
   }
@@ -245,17 +245,17 @@ public class GetAdvertsAdvertsInner {
    *
    * @return settings
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public AdvertSettings getSettings() {
     return settings;
   }
 
-  public void setSettings(@jakarta.annotation.Nonnull AdvertSettings settings) {
+  public void setSettings(@jakarta.annotation.Nullable AdvertSettings settings) {
     this.settings = settings;
   }
 
   public GetAdvertsAdvertsInner restrictions(
-      @jakarta.annotation.Nonnull GetAdvertsAdvertsInnerRestrictions restrictions) {
+      @jakarta.annotation.Nullable GetAdvertsAdvertsInnerRestrictions restrictions) {
     this.restrictions = restrictions;
     return this;
   }
@@ -265,17 +265,17 @@ public class GetAdvertsAdvertsInner {
    *
    * @return restrictions
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public GetAdvertsAdvertsInnerRestrictions getRestrictions() {
     return restrictions;
   }
 
   public void setRestrictions(
-      @jakarta.annotation.Nonnull GetAdvertsAdvertsInnerRestrictions restrictions) {
+      @jakarta.annotation.Nullable GetAdvertsAdvertsInnerRestrictions restrictions) {
     this.restrictions = restrictions;
   }
 
-  public GetAdvertsAdvertsInner status(@jakarta.annotation.Nonnull StatusEnum status) {
+  public GetAdvertsAdvertsInner status(@jakarta.annotation.Nullable StatusEnum status) {
     this.status = status;
     return this;
   }
@@ -287,16 +287,16 @@ public class GetAdvertsAdvertsInner {
    *
    * @return status
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public StatusEnum getStatus() {
     return status;
   }
 
-  public void setStatus(@jakarta.annotation.Nonnull StatusEnum status) {
+  public void setStatus(@jakarta.annotation.Nullable StatusEnum status) {
     this.status = status;
   }
 
-  public GetAdvertsAdvertsInner timestamps(@jakarta.annotation.Nonnull Timestamps timestamps) {
+  public GetAdvertsAdvertsInner timestamps(@jakarta.annotation.Nullable Timestamps timestamps) {
     this.timestamps = timestamps;
     return this;
   }
@@ -306,12 +306,12 @@ public class GetAdvertsAdvertsInner {
    *
    * @return timestamps
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Timestamps getTimestamps() {
     return timestamps;
   }
 
-  public void setTimestamps(@jakarta.annotation.Nonnull Timestamps timestamps) {
+  public void setTimestamps(@jakarta.annotation.Nullable Timestamps timestamps) {
     this.timestamps = timestamps;
   }
 
@@ -383,13 +383,6 @@ public class GetAdvertsAdvertsInner {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("bid_type");
-    openapiRequiredFields.add("id");
-    openapiRequiredFields.add("nm_settings");
-    openapiRequiredFields.add("settings");
-    openapiRequiredFields.add("restrictions");
-    openapiRequiredFields.add("status");
-    openapiRequiredFields.add("timestamps");
   }
 
   /**
@@ -419,18 +412,9 @@ public class GetAdvertsAdvertsInner {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : GetAdvertsAdvertsInner.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    if (!jsonObj.get("bid_type").isJsonPrimitive()) {
+    if ((jsonObj.get("bid_type") != null && !jsonObj.get("bid_type").isJsonNull())
+        && !jsonObj.get("bid_type").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `bid_type` to be a primitive type in the JSON string but got `%s`",
@@ -443,28 +427,40 @@ public class GetAdvertsAdvertsInner {
               "Expected the field `currency` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("currency").toString()));
     }
-    // ensure the json data is an array
-    if (!jsonObj.get("nm_settings").isJsonArray()) {
-      throw new IllegalArgumentException(
-          String.format(
-              "Expected the field `nm_settings` to be an array in the JSON string but got `%s`",
-              jsonObj.get("nm_settings").toString()));
-    }
+    if (jsonObj.get("nm_settings") != null && !jsonObj.get("nm_settings").isJsonNull()) {
+      JsonArray jsonArraynmSettings = jsonObj.getAsJsonArray("nm_settings");
+      if (jsonArraynmSettings != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("nm_settings").isJsonArray()) {
+          throw new IllegalArgumentException(
+              String.format(
+                  "Expected the field `nm_settings` to be an array in the JSON string but got `%s`",
+                  jsonObj.get("nm_settings").toString()));
+        }
 
-    JsonArray jsonArraynmSettings = jsonObj.getAsJsonArray("nm_settings");
-    // validate the required field `nm_settings` (array)
-    for (int i = 0; i < jsonArraynmSettings.size(); i++) {
-      AdvertNMsSettings.validateJsonElement(jsonArraynmSettings.get(i));
+        // validate the optional field `nm_settings` (array)
+        for (int i = 0; i < jsonArraynmSettings.size(); i++) {
+          AdvertNMsSettings.validateJsonElement(jsonArraynmSettings.get(i));
+        }
+        ;
+      }
     }
-    ;
-    // validate the required field `settings`
-    AdvertSettings.validateJsonElement(jsonObj.get("settings"));
-    // validate the required field `restrictions`
-    GetAdvertsAdvertsInnerRestrictions.validateJsonElement(jsonObj.get("restrictions"));
-    // validate the required field `status`
-    StatusEnum.validateJsonElement(jsonObj.get("status"));
-    // validate the required field `timestamps`
-    Timestamps.validateJsonElement(jsonObj.get("timestamps"));
+    // validate the optional field `settings`
+    if (jsonObj.get("settings") != null && !jsonObj.get("settings").isJsonNull()) {
+      AdvertSettings.validateJsonElement(jsonObj.get("settings"));
+    }
+    // validate the optional field `restrictions`
+    if (jsonObj.get("restrictions") != null && !jsonObj.get("restrictions").isJsonNull()) {
+      GetAdvertsAdvertsInnerRestrictions.validateJsonElement(jsonObj.get("restrictions"));
+    }
+    // validate the optional field `status`
+    if (jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull()) {
+      StatusEnum.validateJsonElement(jsonObj.get("status"));
+    }
+    // validate the optional field `timestamps`
+    if (jsonObj.get("timestamps") != null && !jsonObj.get("timestamps").isJsonNull()) {
+      Timestamps.validateJsonElement(jsonObj.get("timestamps"));
+    }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

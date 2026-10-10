@@ -37,49 +37,49 @@ public class OpenapiPinnedReviewItemResult {
   public static final String SERIALIZED_NAME_CHANGE_STATE_AT = "changeStateAt";
 
   @SerializedName(SERIALIZED_NAME_CHANGE_STATE_AT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String changeStateAt;
 
   public static final String SERIALIZED_NAME_IMT_ID = "imtId";
 
   @SerializedName(SERIALIZED_NAME_IMT_ID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer imtId;
 
   public static final String SERIALIZED_NAME_NM_ID = "nmId";
 
   @SerializedName(SERIALIZED_NAME_NM_ID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer nmId;
 
   public static final String SERIALIZED_NAME_PIN_ID = "pinId";
 
   @SerializedName(SERIALIZED_NAME_PIN_ID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer pinId;
 
   public static final String SERIALIZED_NAME_PIN_METHOD = "pinMethod";
 
   @SerializedName(SERIALIZED_NAME_PIN_METHOD)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private DomainReviewPinMethod pinMethod;
 
   public static final String SERIALIZED_NAME_PIN_ON = "pinOn";
 
   @SerializedName(SERIALIZED_NAME_PIN_ON)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private DomainReviewPinOn pinOn;
 
   public static final String SERIALIZED_NAME_FEEDBACK_ID = "feedbackId";
 
   @SerializedName(SERIALIZED_NAME_FEEDBACK_ID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String feedbackId;
 
   public static final String SERIALIZED_NAME_STATE = "state";
 
   @SerializedName(SERIALIZED_NAME_STATE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private DomainReviewState state;
 
   /**
@@ -153,7 +153,7 @@ public class OpenapiPinnedReviewItemResult {
   public OpenapiPinnedReviewItemResult() {}
 
   public OpenapiPinnedReviewItemResult changeStateAt(
-      @jakarta.annotation.Nonnull String changeStateAt) {
+      @jakarta.annotation.Nullable String changeStateAt) {
     this.changeStateAt = changeStateAt;
     return this;
   }
@@ -163,16 +163,16 @@ public class OpenapiPinnedReviewItemResult {
    *
    * @return changeStateAt
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getChangeStateAt() {
     return changeStateAt;
   }
 
-  public void setChangeStateAt(@jakarta.annotation.Nonnull String changeStateAt) {
+  public void setChangeStateAt(@jakarta.annotation.Nullable String changeStateAt) {
     this.changeStateAt = changeStateAt;
   }
 
-  public OpenapiPinnedReviewItemResult imtId(@jakarta.annotation.Nonnull Integer imtId) {
+  public OpenapiPinnedReviewItemResult imtId(@jakarta.annotation.Nullable Integer imtId) {
     this.imtId = imtId;
     return this;
   }
@@ -184,16 +184,16 @@ public class OpenapiPinnedReviewItemResult {
    *
    * @return imtId
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getImtId() {
     return imtId;
   }
 
-  public void setImtId(@jakarta.annotation.Nonnull Integer imtId) {
+  public void setImtId(@jakarta.annotation.Nullable Integer imtId) {
     this.imtId = imtId;
   }
 
-  public OpenapiPinnedReviewItemResult nmId(@jakarta.annotation.Nonnull Integer nmId) {
+  public OpenapiPinnedReviewItemResult nmId(@jakarta.annotation.Nullable Integer nmId) {
     this.nmId = nmId;
     return this;
   }
@@ -203,16 +203,16 @@ public class OpenapiPinnedReviewItemResult {
    *
    * @return nmId
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getNmId() {
     return nmId;
   }
 
-  public void setNmId(@jakarta.annotation.Nonnull Integer nmId) {
+  public void setNmId(@jakarta.annotation.Nullable Integer nmId) {
     this.nmId = nmId;
   }
 
-  public OpenapiPinnedReviewItemResult pinId(@jakarta.annotation.Nonnull Integer pinId) {
+  public OpenapiPinnedReviewItemResult pinId(@jakarta.annotation.Nullable Integer pinId) {
     this.pinId = pinId;
     return this;
   }
@@ -222,17 +222,17 @@ public class OpenapiPinnedReviewItemResult {
    *
    * @return pinId
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getPinId() {
     return pinId;
   }
 
-  public void setPinId(@jakarta.annotation.Nonnull Integer pinId) {
+  public void setPinId(@jakarta.annotation.Nullable Integer pinId) {
     this.pinId = pinId;
   }
 
   public OpenapiPinnedReviewItemResult pinMethod(
-      @jakarta.annotation.Nonnull DomainReviewPinMethod pinMethod) {
+      @jakarta.annotation.Nullable DomainReviewPinMethod pinMethod) {
     this.pinMethod = pinMethod;
     return this;
   }
@@ -243,16 +243,16 @@ public class OpenapiPinnedReviewItemResult {
    *
    * @return pinMethod
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public DomainReviewPinMethod getPinMethod() {
     return pinMethod;
   }
 
-  public void setPinMethod(@jakarta.annotation.Nonnull DomainReviewPinMethod pinMethod) {
+  public void setPinMethod(@jakarta.annotation.Nullable DomainReviewPinMethod pinMethod) {
     this.pinMethod = pinMethod;
   }
 
-  public OpenapiPinnedReviewItemResult pinOn(@jakarta.annotation.Nonnull DomainReviewPinOn pinOn) {
+  public OpenapiPinnedReviewItemResult pinOn(@jakarta.annotation.Nullable DomainReviewPinOn pinOn) {
     this.pinOn = pinOn;
     return this;
   }
@@ -264,16 +264,16 @@ public class OpenapiPinnedReviewItemResult {
    *
    * @return pinOn
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public DomainReviewPinOn getPinOn() {
     return pinOn;
   }
 
-  public void setPinOn(@jakarta.annotation.Nonnull DomainReviewPinOn pinOn) {
+  public void setPinOn(@jakarta.annotation.Nullable DomainReviewPinOn pinOn) {
     this.pinOn = pinOn;
   }
 
-  public OpenapiPinnedReviewItemResult feedbackId(@jakarta.annotation.Nonnull String feedbackId) {
+  public OpenapiPinnedReviewItemResult feedbackId(@jakarta.annotation.Nullable String feedbackId) {
     this.feedbackId = feedbackId;
     return this;
   }
@@ -283,16 +283,16 @@ public class OpenapiPinnedReviewItemResult {
    *
    * @return feedbackId
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getFeedbackId() {
     return feedbackId;
   }
 
-  public void setFeedbackId(@jakarta.annotation.Nonnull String feedbackId) {
+  public void setFeedbackId(@jakarta.annotation.Nullable String feedbackId) {
     this.feedbackId = feedbackId;
   }
 
-  public OpenapiPinnedReviewItemResult state(@jakarta.annotation.Nonnull DomainReviewState state) {
+  public OpenapiPinnedReviewItemResult state(@jakarta.annotation.Nullable DomainReviewState state) {
     this.state = state;
     return this;
   }
@@ -302,12 +302,12 @@ public class OpenapiPinnedReviewItemResult {
    *
    * @return state
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public DomainReviewState getState() {
     return state;
   }
 
-  public void setState(@jakarta.annotation.Nonnull DomainReviewState state) {
+  public void setState(@jakarta.annotation.Nullable DomainReviewState state) {
     this.state = state;
   }
 
@@ -407,14 +407,6 @@ public class OpenapiPinnedReviewItemResult {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("changeStateAt");
-    openapiRequiredFields.add("imtId");
-    openapiRequiredFields.add("nmId");
-    openapiRequiredFields.add("pinId");
-    openapiRequiredFields.add("pinMethod");
-    openapiRequiredFields.add("pinOn");
-    openapiRequiredFields.add("feedbackId");
-    openapiRequiredFields.add("state");
   }
 
   /**
@@ -445,35 +437,33 @@ public class OpenapiPinnedReviewItemResult {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : OpenapiPinnedReviewItemResult.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    if (!jsonObj.get("changeStateAt").isJsonPrimitive()) {
+    if ((jsonObj.get("changeStateAt") != null && !jsonObj.get("changeStateAt").isJsonNull())
+        && !jsonObj.get("changeStateAt").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `changeStateAt` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("changeStateAt").toString()));
     }
-    // validate the required field `pinMethod`
-    DomainReviewPinMethod.validateJsonElement(jsonObj.get("pinMethod"));
-    // validate the required field `pinOn`
-    DomainReviewPinOn.validateJsonElement(jsonObj.get("pinOn"));
-    if (!jsonObj.get("feedbackId").isJsonPrimitive()) {
+    // validate the optional field `pinMethod`
+    if (jsonObj.get("pinMethod") != null && !jsonObj.get("pinMethod").isJsonNull()) {
+      DomainReviewPinMethod.validateJsonElement(jsonObj.get("pinMethod"));
+    }
+    // validate the optional field `pinOn`
+    if (jsonObj.get("pinOn") != null && !jsonObj.get("pinOn").isJsonNull()) {
+      DomainReviewPinOn.validateJsonElement(jsonObj.get("pinOn"));
+    }
+    if ((jsonObj.get("feedbackId") != null && !jsonObj.get("feedbackId").isJsonNull())
+        && !jsonObj.get("feedbackId").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `feedbackId` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("feedbackId").toString()));
     }
-    // validate the required field `state`
-    DomainReviewState.validateJsonElement(jsonObj.get("state"));
+    // validate the optional field `state`
+    if (jsonObj.get("state") != null && !jsonObj.get("state").isJsonNull()) {
+      DomainReviewState.validateJsonElement(jsonObj.get("state"));
+    }
     if ((jsonObj.get("unpinnedCause") != null && !jsonObj.get("unpinnedCause").isJsonNull())
         && !jsonObj.get("unpinnedCause").isJsonPrimitive()) {
       throw new IllegalArgumentException(

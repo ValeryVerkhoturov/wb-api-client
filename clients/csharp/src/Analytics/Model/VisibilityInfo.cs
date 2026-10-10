@@ -34,29 +34,14 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="VisibilityInfo" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected VisibilityInfo() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="VisibilityInfo" /> class.
-        /// </summary>
-        /// <param name="visibility">visibility (required).</param>
-        /// <param name="openCard">openCard (required).</param>
+        /// <param name="visibility">visibility.</param>
+        /// <param name="openCard">openCard.</param>
         /// <param name="byDay">Данные для отрисовки графика в личном кабинете по видимости и переходам в карточки по дням.</param>
         /// <param name="byWeek">Данные для отрисовки графика в личном кабинете по видимости и переходам в карточки по неделям.</param>
         /// <param name="byMonth">Данные для отрисовки графика в личном кабинете по видимости и переходам в карточки по месяцам.</param>
         public VisibilityInfo(VisibilityInfoVisibility visibility = default(VisibilityInfoVisibility), VisibilityInfoOpenCard openCard = default(VisibilityInfoOpenCard), List<VisibilityInfoByDayInner> byDay = default(List<VisibilityInfoByDayInner>), List<VisibilityInfoByDayInner> byWeek = default(List<VisibilityInfoByDayInner>), List<VisibilityInfoByDayInner> byMonth = default(List<VisibilityInfoByDayInner>))
         {
-            // to ensure "visibility" is required (not null)
-            if (visibility == null)
-            {
-                throw new ArgumentNullException("visibility is a required property for VisibilityInfo and cannot be null");
-            }
             this.Visibility = visibility;
-            // to ensure "openCard" is required (not null)
-            if (openCard == null)
-            {
-                throw new ArgumentNullException("openCard is a required property for VisibilityInfo and cannot be null");
-            }
             this.OpenCard = openCard;
             this.ByDay = byDay;
             this.ByWeek = byWeek;
@@ -66,13 +51,13 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <summary>
         /// Gets or Sets Visibility
         /// </summary>
-        [DataMember(Name = "visibility", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "visibility", EmitDefaultValue = false)]
         public VisibilityInfoVisibility Visibility { get; set; }
 
         /// <summary>
         /// Gets or Sets OpenCard
         /// </summary>
-        [DataMember(Name = "openCard", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "openCard", EmitDefaultValue = false)]
         public VisibilityInfoOpenCard OpenCard { get; set; }
 
         /// <summary>

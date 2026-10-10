@@ -11,9 +11,7 @@ API version: order
 package orders_fbs
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the ShippingPointsResponse type satisfies the MappedNullable interface at compile time
@@ -22,18 +20,15 @@ var _ MappedNullable = &ShippingPointsResponse{}
 // ShippingPointsResponse struct for ShippingPointsResponse
 type ShippingPointsResponse struct {
 	// Список пунктов отгрузки
-	ShippingPoints []ShippingPoint `json:"shippingPoints"`
+	ShippingPoints []ShippingPoint `json:"shippingPoints,omitempty"`
 }
-
-type _ShippingPointsResponse ShippingPointsResponse
 
 // NewShippingPointsResponse instantiates a new ShippingPointsResponse object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewShippingPointsResponse(shippingPoints []ShippingPoint) *ShippingPointsResponse {
+func NewShippingPointsResponse() *ShippingPointsResponse {
 	this := ShippingPointsResponse{}
-	this.ShippingPoints = shippingPoints
 	return &this
 }
 
@@ -45,26 +40,34 @@ func NewShippingPointsResponseWithDefaults() *ShippingPointsResponse {
 	return &this
 }
 
-// GetShippingPoints returns the ShippingPoints field value
+// GetShippingPoints returns the ShippingPoints field value if set, zero value otherwise.
 func (o *ShippingPointsResponse) GetShippingPoints() []ShippingPoint {
-	if o == nil {
+	if o == nil || IsNil(o.ShippingPoints) {
 		var ret []ShippingPoint
 		return ret
 	}
-
 	return o.ShippingPoints
 }
 
-// GetShippingPointsOk returns a tuple with the ShippingPoints field value
+// GetShippingPointsOk returns a tuple with the ShippingPoints field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ShippingPointsResponse) GetShippingPointsOk() ([]ShippingPoint, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ShippingPoints) {
 		return nil, false
 	}
 	return o.ShippingPoints, true
 }
 
-// SetShippingPoints sets field value
+// HasShippingPoints returns a boolean if a field has been set.
+func (o *ShippingPointsResponse) HasShippingPoints() bool {
+	if o != nil && !IsNil(o.ShippingPoints) {
+		return true
+	}
+
+	return false
+}
+
+// SetShippingPoints gets a reference to the given []ShippingPoint and assigns it to the ShippingPoints field.
 func (o *ShippingPointsResponse) SetShippingPoints(v []ShippingPoint) {
 	o.ShippingPoints = v
 }
@@ -79,45 +82,10 @@ func (o ShippingPointsResponse) MarshalJSON() ([]byte, error) {
 
 func (o ShippingPointsResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["shippingPoints"] = o.ShippingPoints
+	if !IsNil(o.ShippingPoints) {
+		toSerialize["shippingPoints"] = o.ShippingPoints
+	}
 	return toSerialize, nil
-}
-
-func (o *ShippingPointsResponse) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"shippingPoints",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varShippingPointsResponse := _ShippingPointsResponse{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varShippingPointsResponse)
-
-	if err != nil {
-		return err
-	}
-
-	*o = ShippingPointsResponse(varShippingPointsResponse)
-
-	return err
 }
 
 type NullableShippingPointsResponse struct {

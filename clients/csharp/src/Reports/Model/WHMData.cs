@@ -34,20 +34,10 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="WHMData" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected WHMData() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="WHMData" /> class.
-        /// </summary>
-        /// <param name="reports">Замеры (required).</param>
-        /// <param name="total">Количество замеров в отчёте. Без учёта &#x60;limit&#x60; и &#x60;offset&#x60; (required).</param>
+        /// <param name="reports">Замеры.</param>
+        /// <param name="total">Количество замеров в отчёте. Без учёта &#x60;limit&#x60; и &#x60;offset&#x60;.</param>
         public WHMData(List<WHMDataReportsInner> reports = default(List<WHMDataReportsInner>), int total = default(int))
         {
-            // to ensure "reports" is required (not null)
-            if (reports == null)
-            {
-                throw new ArgumentNullException("reports is a required property for WHMData and cannot be null");
-            }
             this.Reports = reports;
             this.Total = total;
         }
@@ -56,7 +46,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /// Замеры
         /// </summary>
         /// <value>Замеры</value>
-        [DataMember(Name = "reports", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "reports", EmitDefaultValue = false)]
         public List<WHMDataReportsInner> Reports { get; set; }
 
         /// <summary>
@@ -66,7 +56,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /*
         <example>11</example>
         */
-        [DataMember(Name = "total", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "total", EmitDefaultValue = false)]
         public int Total { get; set; }
 
         /// <summary>

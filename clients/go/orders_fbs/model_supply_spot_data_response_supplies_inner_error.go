@@ -11,9 +11,7 @@ API version: order
 package orders_fbs
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the SupplySpotDataResponseSuppliesInnerError type satisfies the MappedNullable interface at compile time
@@ -22,21 +20,17 @@ var _ MappedNullable = &SupplySpotDataResponseSuppliesInnerError{}
 // SupplySpotDataResponseSuppliesInnerError struct for SupplySpotDataResponseSuppliesInnerError
 type SupplySpotDataResponseSuppliesInnerError struct {
 	// Заголовок ошибки
-	Title string `json:"title"`
+	Title *string `json:"title,omitempty"`
 	// Детали ошибки
-	Detail string `json:"detail"`
+	Detail *string `json:"detail,omitempty"`
 }
-
-type _SupplySpotDataResponseSuppliesInnerError SupplySpotDataResponseSuppliesInnerError
 
 // NewSupplySpotDataResponseSuppliesInnerError instantiates a new SupplySpotDataResponseSuppliesInnerError object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSupplySpotDataResponseSuppliesInnerError(title string, detail string) *SupplySpotDataResponseSuppliesInnerError {
+func NewSupplySpotDataResponseSuppliesInnerError() *SupplySpotDataResponseSuppliesInnerError {
 	this := SupplySpotDataResponseSuppliesInnerError{}
-	this.Title = title
-	this.Detail = detail
 	return &this
 }
 
@@ -48,52 +42,68 @@ func NewSupplySpotDataResponseSuppliesInnerErrorWithDefaults() *SupplySpotDataRe
 	return &this
 }
 
-// GetTitle returns the Title field value
+// GetTitle returns the Title field value if set, zero value otherwise.
 func (o *SupplySpotDataResponseSuppliesInnerError) GetTitle() string {
-	if o == nil {
+	if o == nil || IsNil(o.Title) {
 		var ret string
 		return ret
 	}
-
-	return o.Title
+	return *o.Title
 }
 
-// GetTitleOk returns a tuple with the Title field value
+// GetTitleOk returns a tuple with the Title field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SupplySpotDataResponseSuppliesInnerError) GetTitleOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Title) {
 		return nil, false
 	}
-	return &o.Title, true
+	return o.Title, true
 }
 
-// SetTitle sets field value
+// HasTitle returns a boolean if a field has been set.
+func (o *SupplySpotDataResponseSuppliesInnerError) HasTitle() bool {
+	if o != nil && !IsNil(o.Title) {
+		return true
+	}
+
+	return false
+}
+
+// SetTitle gets a reference to the given string and assigns it to the Title field.
 func (o *SupplySpotDataResponseSuppliesInnerError) SetTitle(v string) {
-	o.Title = v
+	o.Title = &v
 }
 
-// GetDetail returns the Detail field value
+// GetDetail returns the Detail field value if set, zero value otherwise.
 func (o *SupplySpotDataResponseSuppliesInnerError) GetDetail() string {
-	if o == nil {
+	if o == nil || IsNil(o.Detail) {
 		var ret string
 		return ret
 	}
-
-	return o.Detail
+	return *o.Detail
 }
 
-// GetDetailOk returns a tuple with the Detail field value
+// GetDetailOk returns a tuple with the Detail field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SupplySpotDataResponseSuppliesInnerError) GetDetailOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Detail) {
 		return nil, false
 	}
-	return &o.Detail, true
+	return o.Detail, true
 }
 
-// SetDetail sets field value
+// HasDetail returns a boolean if a field has been set.
+func (o *SupplySpotDataResponseSuppliesInnerError) HasDetail() bool {
+	if o != nil && !IsNil(o.Detail) {
+		return true
+	}
+
+	return false
+}
+
+// SetDetail gets a reference to the given string and assigns it to the Detail field.
 func (o *SupplySpotDataResponseSuppliesInnerError) SetDetail(v string) {
-	o.Detail = v
+	o.Detail = &v
 }
 
 func (o SupplySpotDataResponseSuppliesInnerError) MarshalJSON() ([]byte, error) {
@@ -106,47 +116,13 @@ func (o SupplySpotDataResponseSuppliesInnerError) MarshalJSON() ([]byte, error) 
 
 func (o SupplySpotDataResponseSuppliesInnerError) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["title"] = o.Title
-	toSerialize["detail"] = o.Detail
+	if !IsNil(o.Title) {
+		toSerialize["title"] = o.Title
+	}
+	if !IsNil(o.Detail) {
+		toSerialize["detail"] = o.Detail
+	}
 	return toSerialize, nil
-}
-
-func (o *SupplySpotDataResponseSuppliesInnerError) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"title",
-		"detail",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varSupplySpotDataResponseSuppliesInnerError := _SupplySpotDataResponseSuppliesInnerError{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varSupplySpotDataResponseSuppliesInnerError)
-
-	if err != nil {
-		return err
-	}
-
-	*o = SupplySpotDataResponseSuppliesInnerError(varSupplySpotDataResponseSuppliesInnerError)
-
-	return err
 }
 
 type NullableSupplySpotDataResponseSuppliesInnerError struct {

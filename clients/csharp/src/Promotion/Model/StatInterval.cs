@@ -34,20 +34,10 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="StatInterval" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected StatInterval() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="StatInterval" /> class.
-        /// </summary>
-        /// <param name="interval">interval (required).</param>
+        /// <param name="interval">interval.</param>
         /// <param name="stats">Блок статистики.</param>
         public StatInterval(StatIntervalInterval interval = default(StatIntervalInterval), List<StatsBlok1> stats = default(List<StatsBlok1>))
         {
-            // to ensure "interval" is required (not null)
-            if (interval == null)
-            {
-                throw new ArgumentNullException("interval is a required property for StatInterval and cannot be null");
-            }
             this.Interval = interval;
             this.Stats = stats;
         }
@@ -55,7 +45,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <summary>
         /// Gets or Sets Interval
         /// </summary>
-        [DataMember(Name = "interval", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "interval", EmitDefaultValue = false)]
         public StatIntervalInterval Interval { get; set; }
 
         /// <summary>

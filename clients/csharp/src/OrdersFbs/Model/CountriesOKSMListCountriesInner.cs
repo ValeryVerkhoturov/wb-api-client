@@ -34,26 +34,11 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CountriesOKSMListCountriesInner" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected CountriesOKSMListCountriesInner() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="CountriesOKSMListCountriesInner" /> class.
-        /// </summary>
-        /// <param name="code">Код страны (required).</param>
-        /// <param name="name">Название страны (required).</param>
+        /// <param name="code">Код страны.</param>
+        /// <param name="name">Название страны.</param>
         public CountriesOKSMListCountriesInner(string code = default(string), string name = default(string))
         {
-            // to ensure "code" is required (not null)
-            if (code == null)
-            {
-                throw new ArgumentNullException("code is a required property for CountriesOKSMListCountriesInner and cannot be null");
-            }
             this.Code = code;
-            // to ensure "name" is required (not null)
-            if (name == null)
-            {
-                throw new ArgumentNullException("name is a required property for CountriesOKSMListCountriesInner and cannot be null");
-            }
             this.Name = name;
         }
 
@@ -64,7 +49,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /*
         <example>036</example>
         */
-        [DataMember(Name = "code", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "code", EmitDefaultValue = false)]
         public string Code { get; set; }
 
         /// <summary>
@@ -74,7 +59,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /*
         <example>Австралия</example>
         */
-        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "name", EmitDefaultValue = false)]
         public string Name { get; set; }
 
         /// <summary>

@@ -45,7 +45,7 @@ public class ApiMetaDeleteResponses {
   public static final String SERIALIZED_NAME_RESULTS = "results";
 
   @SerializedName(SERIALIZED_NAME_RESULTS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private List<ApiMetaDeleteResponsesResultsInner> results = new ArrayList<>();
 
   public ApiMetaDeleteResponses() {}
@@ -70,7 +70,7 @@ public class ApiMetaDeleteResponses {
   }
 
   public ApiMetaDeleteResponses results(
-      @jakarta.annotation.Nonnull List<ApiMetaDeleteResponsesResultsInner> results) {
+      @jakarta.annotation.Nullable List<ApiMetaDeleteResponsesResultsInner> results) {
     this.results = results;
     return this;
   }
@@ -88,13 +88,13 @@ public class ApiMetaDeleteResponses {
    *
    * @return results
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public List<ApiMetaDeleteResponsesResultsInner> getResults() {
     return results;
   }
 
   public void setResults(
-      @jakarta.annotation.Nonnull List<ApiMetaDeleteResponsesResultsInner> results) {
+      @jakarta.annotation.Nullable List<ApiMetaDeleteResponsesResultsInner> results) {
     this.results = results;
   }
 
@@ -147,7 +147,6 @@ public class ApiMetaDeleteResponses {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("results");
   }
 
   /**
@@ -177,16 +176,6 @@ public class ApiMetaDeleteResponses {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : ApiMetaDeleteResponses.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
     if ((jsonObj.get("requestId") != null && !jsonObj.get("requestId").isJsonNull())
         && !jsonObj.get("requestId").isJsonPrimitive()) {
@@ -195,20 +184,24 @@ public class ApiMetaDeleteResponses {
               "Expected the field `requestId` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("requestId").toString()));
     }
-    // ensure the json data is an array
-    if (!jsonObj.get("results").isJsonArray()) {
-      throw new IllegalArgumentException(
-          String.format(
-              "Expected the field `results` to be an array in the JSON string but got `%s`",
-              jsonObj.get("results").toString()));
-    }
+    if (jsonObj.get("results") != null && !jsonObj.get("results").isJsonNull()) {
+      JsonArray jsonArrayresults = jsonObj.getAsJsonArray("results");
+      if (jsonArrayresults != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("results").isJsonArray()) {
+          throw new IllegalArgumentException(
+              String.format(
+                  "Expected the field `results` to be an array in the JSON string but got `%s`",
+                  jsonObj.get("results").toString()));
+        }
 
-    JsonArray jsonArrayresults = jsonObj.getAsJsonArray("results");
-    // validate the required field `results` (array)
-    for (int i = 0; i < jsonArrayresults.size(); i++) {
-      ApiMetaDeleteResponsesResultsInner.validateJsonElement(jsonArrayresults.get(i));
+        // validate the optional field `results` (array)
+        for (int i = 0; i < jsonArrayresults.size(); i++) {
+          ApiMetaDeleteResponsesResultsInner.validateJsonElement(jsonArrayresults.get(i));
+        }
+        ;
+      }
     }
-    ;
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

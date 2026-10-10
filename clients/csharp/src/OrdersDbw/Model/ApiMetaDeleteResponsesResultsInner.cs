@@ -34,19 +34,14 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersDbw.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiMetaDeleteResponsesResultsInner" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected ApiMetaDeleteResponsesResultsInner() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ApiMetaDeleteResponsesResultsInner" /> class.
-        /// </summary>
         /// <param name="errors">Детали ошибки.</param>
-        /// <param name="isError">Есть ли ошибки (required).</param>
-        /// <param name="orderId">ID сборочного задания с успешно обновлёнными данными (required).</param>
+        /// <param name="isError">Есть ли ошибки.</param>
+        /// <param name="orderId">ID сборочного задания с успешно обновлёнными данными.</param>
         public ApiMetaDeleteResponsesResultsInner(List<ApiMetaDeleteResponsesResultsInnerErrorsInner> errors = default(List<ApiMetaDeleteResponsesResultsInnerErrorsInner>), bool isError = default(bool), int orderId = default(int))
         {
+            this.Errors = errors;
             this.IsError = isError;
             this.OrderId = orderId;
-            this.Errors = errors;
         }
 
         /// <summary>
@@ -60,14 +55,14 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersDbw.Model
         /// Есть ли ошибки
         /// </summary>
         /// <value>Есть ли ошибки</value>
-        [DataMember(Name = "isError", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "isError", EmitDefaultValue = true)]
         public bool IsError { get; set; }
 
         /// <summary>
         /// ID сборочного задания с успешно обновлёнными данными
         /// </summary>
         /// <value>ID сборочного задания с успешно обновлёнными данными</value>
-        [DataMember(Name = "orderId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "orderId", EmitDefaultValue = false)]
         public int OrderId { get; set; }
 
         /// <summary>

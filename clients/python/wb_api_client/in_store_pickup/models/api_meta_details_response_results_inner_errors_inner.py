@@ -31,9 +31,10 @@ class ApiMetaDetailsResponseResultsInnerErrorsInner(BaseModel):
     ApiMetaDetailsResponseResultsInnerErrorsInner
     """  # noqa: E501
 
-    code: StrictInt = Field(description="Код ошибки")
-    detail: StrictStr = Field(
-        description="- `NotFound` — сборочное задание не найдено - `StatusMismatch` — операция невозможна для этого статуса сборочного задания - `MetaValidationFail` — идентификаторы маркировки не прошли проверку "
+    code: Optional[StrictInt] = Field(default=None, description="Код ошибки")
+    detail: Optional[StrictStr] = Field(
+        default=None,
+        description="- `NotFound` — сборочное задание не найдено - `StatusMismatch` — операция невозможна для этого статуса сборочного задания - `MetaValidationFail` — идентификаторы маркировки не прошли проверку ",
     )
     meta_details: Optional[
         List[ApiMetaDetailsResponseResultsInnerErrorsInnerMetaDetailsInner]

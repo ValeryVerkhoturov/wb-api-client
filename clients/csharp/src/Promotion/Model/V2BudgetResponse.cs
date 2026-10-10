@@ -34,19 +34,9 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="V2BudgetResponse" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected V2BudgetResponse() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="V2BudgetResponse" /> class.
-        /// </summary>
-        /// <param name="adverts">Данные по кампаниям (required).</param>
+        /// <param name="adverts">Данные по кампаниям.</param>
         public V2BudgetResponse(List<V1BudgetAdvert> adverts = default(List<V1BudgetAdvert>))
         {
-            // to ensure "adverts" is required (not null)
-            if (adverts == null)
-            {
-                throw new ArgumentNullException("adverts is a required property for V2BudgetResponse and cannot be null");
-            }
             this.Adverts = adverts;
         }
 
@@ -54,7 +44,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// Данные по кампаниям
         /// </summary>
         /// <value>Данные по кампаниям</value>
-        [DataMember(Name = "adverts", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "adverts", EmitDefaultValue = true)]
         public List<V1BudgetAdvert> Adverts { get; set; }
 
         /// <summary>

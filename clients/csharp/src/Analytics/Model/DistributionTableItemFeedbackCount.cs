@@ -34,12 +34,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DistributionTableItemFeedbackCount" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected DistributionTableItemFeedbackCount() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="DistributionTableItemFeedbackCount" /> class.
-        /// </summary>
-        /// <param name="current">Прирост оценок за период (required).</param>
+        /// <param name="current">Прирост оценок за период.</param>
         /// <param name="dynamics">Динамика по сравнению с предыдущим периодом, %.</param>
         public DistributionTableItemFeedbackCount(int current = default(int), int dynamics = default(int))
         {
@@ -54,7 +49,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>12</example>
         */
-        [DataMember(Name = "current", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "current", EmitDefaultValue = false)]
         public int Current { get; set; }
 
         /// <summary>

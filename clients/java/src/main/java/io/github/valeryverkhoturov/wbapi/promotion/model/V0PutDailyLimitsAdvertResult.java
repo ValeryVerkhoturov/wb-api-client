@@ -36,24 +36,24 @@ public class V0PutDailyLimitsAdvertResult {
   public static final String SERIALIZED_NAME_ADVERT_ID = "advertId";
 
   @SerializedName(SERIALIZED_NAME_ADVERT_ID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Long advertId;
 
   public static final String SERIALIZED_NAME_BELOW_MIN_LIMIT = "belowMinLimit";
 
   @SerializedName(SERIALIZED_NAME_BELOW_MIN_LIMIT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Boolean belowMinLimit;
 
   public static final String SERIALIZED_NAME_REQUIRED_LIMIT = "requiredLimit";
 
   @SerializedName(SERIALIZED_NAME_REQUIRED_LIMIT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Long requiredLimit;
 
   public V0PutDailyLimitsAdvertResult() {}
 
-  public V0PutDailyLimitsAdvertResult advertId(@jakarta.annotation.Nonnull Long advertId) {
+  public V0PutDailyLimitsAdvertResult advertId(@jakarta.annotation.Nullable Long advertId) {
     this.advertId = advertId;
     return this;
   }
@@ -63,17 +63,17 @@ public class V0PutDailyLimitsAdvertResult {
    *
    * @return advertId
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Long getAdvertId() {
     return advertId;
   }
 
-  public void setAdvertId(@jakarta.annotation.Nonnull Long advertId) {
+  public void setAdvertId(@jakarta.annotation.Nullable Long advertId) {
     this.advertId = advertId;
   }
 
   public V0PutDailyLimitsAdvertResult belowMinLimit(
-      @jakarta.annotation.Nonnull Boolean belowMinLimit) {
+      @jakarta.annotation.Nullable Boolean belowMinLimit) {
     this.belowMinLimit = belowMinLimit;
     return this;
   }
@@ -84,17 +84,17 @@ public class V0PutDailyLimitsAdvertResult {
    *
    * @return belowMinLimit
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Boolean getBelowMinLimit() {
     return belowMinLimit;
   }
 
-  public void setBelowMinLimit(@jakarta.annotation.Nonnull Boolean belowMinLimit) {
+  public void setBelowMinLimit(@jakarta.annotation.Nullable Boolean belowMinLimit) {
     this.belowMinLimit = belowMinLimit;
   }
 
   public V0PutDailyLimitsAdvertResult requiredLimit(
-      @jakarta.annotation.Nonnull Long requiredLimit) {
+      @jakarta.annotation.Nullable Long requiredLimit) {
     this.requiredLimit = requiredLimit;
     return this;
   }
@@ -107,12 +107,12 @@ public class V0PutDailyLimitsAdvertResult {
    *
    * @return requiredLimit
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Long getRequiredLimit() {
     return requiredLimit;
   }
 
-  public void setRequiredLimit(@jakarta.annotation.Nonnull Long requiredLimit) {
+  public void setRequiredLimit(@jakarta.annotation.Nullable Long requiredLimit) {
     this.requiredLimit = requiredLimit;
   }
 
@@ -168,9 +168,6 @@ public class V0PutDailyLimitsAdvertResult {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("advertId");
-    openapiRequiredFields.add("belowMinLimit");
-    openapiRequiredFields.add("requiredLimit");
   }
 
   /**
@@ -198,16 +195,6 @@ public class V0PutDailyLimitsAdvertResult {
             String.format(
                 "The field `%s` in the JSON string is not defined in the `V0PutDailyLimitsAdvertResult` properties. JSON: %s",
                 entry.getKey(), jsonElement.toString()));
-      }
-    }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : V0PutDailyLimitsAdvertResult.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
       }
     }
     JsonObject jsonObj = jsonElement.getAsJsonObject();

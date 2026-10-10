@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,18 +28,22 @@ class V3ArchiveOrderPriceInfo(BaseModel):
     Информация о цене заказа
     """  # noqa: E501
 
-    converted_currency_code: StrictInt = Field(
-        description="Код валюты страны продавца", alias="convertedCurrencyCode"
+    converted_currency_code: Optional[StrictInt] = Field(
+        default=None,
+        description="Код валюты страны продавца",
+        alias="convertedCurrencyCode",
     )
-    converted_price: StrictInt = Field(
+    converted_price: Optional[StrictInt] = Field(
+        default=None,
         description="Цена в валюте страны продавца с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100",
         alias="convertedPrice",
     )
-    currency_code: StrictInt = Field(
-        description="Код валюты продажи", alias="currencyCode"
+    currency_code: Optional[StrictInt] = Field(
+        default=None, description="Код валюты продажи", alias="currencyCode"
     )
-    price: StrictInt = Field(
-        description="Цена в валюте продажи с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100"
+    price: Optional[StrictInt] = Field(
+        default=None,
+        description="Цена в валюте продажи с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100",
     )
     __properties: ClassVar[List[str]] = [
         "convertedCurrencyCode",

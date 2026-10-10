@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "1.20261009.0"
+__version__ = "1.20261010.0"
 
 # import apis into sdk package
 from wb_api_client.general.api.api_api import APIApi
@@ -34,6 +34,9 @@ from wb_api_client.general.exceptions import ApiException
 
 # import models into sdk package
 from wb_api_client.general.models.create_invite_request import CreateInviteRequest
+from wb_api_client.general.models.create_invite_request_access_inner import (
+    CreateInviteRequestAccessInner,
+)
 from wb_api_client.general.models.create_invite_request_invite import (
     CreateInviteRequestInvite,
 )

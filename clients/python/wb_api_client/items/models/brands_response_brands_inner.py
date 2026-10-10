@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,9 +28,11 @@ class BrandsResponseBrandsInner(BaseModel):
     BrandsResponseBrandsInner
     """  # noqa: E501
 
-    id: StrictInt = Field(description="ID бренда")
-    logo_url: StrictStr = Field(description="URL логотипа бренда", alias="logoUrl")
-    name: StrictStr = Field(description="Название бренда")
+    id: Optional[StrictInt] = Field(default=None, description="ID бренда")
+    logo_url: Optional[StrictStr] = Field(
+        default=None, description="URL логотипа бренда", alias="logoUrl"
+    )
+    name: Optional[StrictStr] = Field(default=None, description="Название бренда")
     __properties: ClassVar[List[str]] = ["id", "logoUrl", "name"]
 
     model_config = ConfigDict(

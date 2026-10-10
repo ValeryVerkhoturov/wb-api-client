@@ -45,7 +45,7 @@ public class V3ArchiveOrders {
   public static final String SERIALIZED_NAME_ORDERS = "orders";
 
   @SerializedName(SERIALIZED_NAME_ORDERS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private List<V3ArchiveOrder> orders = new ArrayList<>();
 
   public V3ArchiveOrders() {}
@@ -70,7 +70,7 @@ public class V3ArchiveOrders {
     this.next = next;
   }
 
-  public V3ArchiveOrders orders(@jakarta.annotation.Nonnull List<V3ArchiveOrder> orders) {
+  public V3ArchiveOrders orders(@jakarta.annotation.Nullable List<V3ArchiveOrder> orders) {
     this.orders = orders;
     return this;
   }
@@ -88,12 +88,12 @@ public class V3ArchiveOrders {
    *
    * @return orders
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public List<V3ArchiveOrder> getOrders() {
     return orders;
   }
 
-  public void setOrders(@jakarta.annotation.Nonnull List<V3ArchiveOrder> orders) {
+  public void setOrders(@jakarta.annotation.Nullable List<V3ArchiveOrder> orders) {
     this.orders = orders;
   }
 
@@ -146,8 +146,6 @@ public class V3ArchiveOrders {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("next");
-    openapiRequiredFields.add("orders");
   }
 
   /**
@@ -177,31 +175,25 @@ public class V3ArchiveOrders {
                 entry.getKey(), jsonElement.toString()));
       }
     }
+    JsonObject jsonObj = jsonElement.getAsJsonObject();
+    if (jsonObj.get("orders") != null && !jsonObj.get("orders").isJsonNull()) {
+      JsonArray jsonArrayorders = jsonObj.getAsJsonArray("orders");
+      if (jsonArrayorders != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("orders").isJsonArray()) {
+          throw new IllegalArgumentException(
+              String.format(
+                  "Expected the field `orders` to be an array in the JSON string but got `%s`",
+                  jsonObj.get("orders").toString()));
+        }
 
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : V3ArchiveOrders.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
+        // validate the optional field `orders` (array)
+        for (int i = 0; i < jsonArrayorders.size(); i++) {
+          V3ArchiveOrder.validateJsonElement(jsonArrayorders.get(i));
+        }
+        ;
       }
     }
-    JsonObject jsonObj = jsonElement.getAsJsonObject();
-    // ensure the json data is an array
-    if (!jsonObj.get("orders").isJsonArray()) {
-      throw new IllegalArgumentException(
-          String.format(
-              "Expected the field `orders` to be an array in the JSON string but got `%s`",
-              jsonObj.get("orders").toString()));
-    }
-
-    JsonArray jsonArrayorders = jsonObj.getAsJsonArray("orders");
-    // validate the required field `orders` (array)
-    for (int i = 0; i < jsonArrayorders.size(); i++) {
-      V3ArchiveOrder.validateJsonElement(jsonArrayorders.get(i));
-    }
-    ;
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

@@ -34,22 +34,12 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TableShippingOfficeResponse" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected TableShippingOfficeResponse() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="TableShippingOfficeResponse" /> class.
-        /// </summary>
         /// <param name="regions">Множество данных по регионам отгрузки.</param>
-        /// <param name="currency">Валюта отчёта (required).</param>
+        /// <param name="currency">Валюта отчёта.</param>
         public TableShippingOfficeResponse(List<TableShippingOfficeItem> regions = default(List<TableShippingOfficeItem>), string currency = default(string))
         {
-            // to ensure "currency" is required (not null)
-            if (currency == null)
-            {
-                throw new ArgumentNullException("currency is a required property for TableShippingOfficeResponse and cannot be null");
-            }
-            this.Currency = currency;
             this.Regions = regions;
+            this.Currency = currency;
         }
 
         /// <summary>
@@ -66,7 +56,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>RUB</example>
         */
-        [DataMember(Name = "currency", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "currency", EmitDefaultValue = false)]
         public string Currency { get; set; }
 
         /// <summary>

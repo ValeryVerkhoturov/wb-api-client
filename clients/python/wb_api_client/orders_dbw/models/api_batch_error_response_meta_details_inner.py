@@ -28,12 +28,15 @@ class ApiBatchErrorResponseMetaDetailsInner(BaseModel):
     ApiBatchErrorResponseMetaDetailsInner
     """  # noqa: E501
 
-    key: StrictStr = Field(description="Идентификатор маркировки")
+    key: Optional[StrictStr] = Field(
+        default=None, description="Идентификатор маркировки"
+    )
     value: Optional[StrictStr] = Field(
         default=None, description="Значение идентификатора маркировки"
     )
-    decision: StrictStr = Field(
-        description="Статус проверки: - `sgtin`   - `sgtinInvalidFormat` — Неверный формат маркировки   - `sgtinNotFound` — Маркировка не найдена в [Честном знаке](https://chestnyznak.ru)   - `sgtinEmitted` —  Маркировка эмитирована   - `sgtinApplied` — Не пройдена процедура Ввод в оборот   - `sgtinWrittenOff` — Списан   - `sgtinRetired` — Выбыл   - `sgtinWithdrawn` — Выбыл   - `sgtinDisaggregation` — Расформирован   - `sgtinDisaggregated` — Расформирован   - `sgtinAppliedNotPaid` — Не оплачен   - `pending` — Маркировка на проверке "
+    decision: Optional[StrictStr] = Field(
+        default=None,
+        description="Статус проверки: - `sgtin`   - `sgtinInvalidFormat` — Неверный формат маркировки   - `sgtinNotFound` — Маркировка не найдена в [Честном знаке](https://chestnyznak.ru)   - `sgtinEmitted` —  Маркировка эмитирована   - `sgtinApplied` — Не пройдена процедура Ввод в оборот   - `sgtinWrittenOff` — Списан   - `sgtinRetired` — Выбыл   - `sgtinWithdrawn` — Выбыл   - `sgtinDisaggregation` — Расформирован   - `sgtinDisaggregated` — Расформирован   - `sgtinAppliedNotPaid` — Не оплачен   - `pending` — Маркировка на проверке ",
     )
     __properties: ClassVar[List[str]] = ["key", "value", "decision"]
 

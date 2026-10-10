@@ -11,9 +11,7 @@ API version: instorepickup
 package in_store_pickup
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the ApiOrdersErrorResponse type satisfies the MappedNullable interface at compile time
@@ -22,21 +20,17 @@ var _ MappedNullable = &ApiOrdersErrorResponse{}
 // ApiOrdersErrorResponse struct for ApiOrdersErrorResponse
 type ApiOrdersErrorResponse struct {
 	// Код ошибки
-	Code int32 `json:"code"`
+	Code *int32 `json:"code,omitempty"`
 	// - `NotFound` — сборочное задание не найдено
-	Detail string `json:"detail"`
+	Detail *string `json:"detail,omitempty"`
 }
-
-type _ApiOrdersErrorResponse ApiOrdersErrorResponse
 
 // NewApiOrdersErrorResponse instantiates a new ApiOrdersErrorResponse object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewApiOrdersErrorResponse(code int32, detail string) *ApiOrdersErrorResponse {
+func NewApiOrdersErrorResponse() *ApiOrdersErrorResponse {
 	this := ApiOrdersErrorResponse{}
-	this.Code = code
-	this.Detail = detail
 	return &this
 }
 
@@ -48,52 +42,68 @@ func NewApiOrdersErrorResponseWithDefaults() *ApiOrdersErrorResponse {
 	return &this
 }
 
-// GetCode returns the Code field value
+// GetCode returns the Code field value if set, zero value otherwise.
 func (o *ApiOrdersErrorResponse) GetCode() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.Code) {
 		var ret int32
 		return ret
 	}
-
-	return o.Code
+	return *o.Code
 }
 
-// GetCodeOk returns a tuple with the Code field value
+// GetCodeOk returns a tuple with the Code field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ApiOrdersErrorResponse) GetCodeOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Code) {
 		return nil, false
 	}
-	return &o.Code, true
+	return o.Code, true
 }
 
-// SetCode sets field value
+// HasCode returns a boolean if a field has been set.
+func (o *ApiOrdersErrorResponse) HasCode() bool {
+	if o != nil && !IsNil(o.Code) {
+		return true
+	}
+
+	return false
+}
+
+// SetCode gets a reference to the given int32 and assigns it to the Code field.
 func (o *ApiOrdersErrorResponse) SetCode(v int32) {
-	o.Code = v
+	o.Code = &v
 }
 
-// GetDetail returns the Detail field value
+// GetDetail returns the Detail field value if set, zero value otherwise.
 func (o *ApiOrdersErrorResponse) GetDetail() string {
-	if o == nil {
+	if o == nil || IsNil(o.Detail) {
 		var ret string
 		return ret
 	}
-
-	return o.Detail
+	return *o.Detail
 }
 
-// GetDetailOk returns a tuple with the Detail field value
+// GetDetailOk returns a tuple with the Detail field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ApiOrdersErrorResponse) GetDetailOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Detail) {
 		return nil, false
 	}
-	return &o.Detail, true
+	return o.Detail, true
 }
 
-// SetDetail sets field value
+// HasDetail returns a boolean if a field has been set.
+func (o *ApiOrdersErrorResponse) HasDetail() bool {
+	if o != nil && !IsNil(o.Detail) {
+		return true
+	}
+
+	return false
+}
+
+// SetDetail gets a reference to the given string and assigns it to the Detail field.
 func (o *ApiOrdersErrorResponse) SetDetail(v string) {
-	o.Detail = v
+	o.Detail = &v
 }
 
 func (o ApiOrdersErrorResponse) MarshalJSON() ([]byte, error) {
@@ -106,47 +116,13 @@ func (o ApiOrdersErrorResponse) MarshalJSON() ([]byte, error) {
 
 func (o ApiOrdersErrorResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["code"] = o.Code
-	toSerialize["detail"] = o.Detail
+	if !IsNil(o.Code) {
+		toSerialize["code"] = o.Code
+	}
+	if !IsNil(o.Detail) {
+		toSerialize["detail"] = o.Detail
+	}
 	return toSerialize, nil
-}
-
-func (o *ApiOrdersErrorResponse) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"code",
-		"detail",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varApiOrdersErrorResponse := _ApiOrdersErrorResponse{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varApiOrdersErrorResponse)
-
-	if err != nil {
-		return err
-	}
-
-	*o = ApiOrdersErrorResponse(varApiOrdersErrorResponse)
-
-	return err
 }
 
 type NullableApiOrdersErrorResponse struct {

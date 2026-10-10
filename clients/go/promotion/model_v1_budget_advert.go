@@ -11,9 +11,7 @@ API version: promotion
 package promotion
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the V1BudgetAdvert type satisfies the MappedNullable interface at compile time
@@ -22,24 +20,19 @@ var _ MappedNullable = &V1BudgetAdvert{}
 // V1BudgetAdvert struct for V1BudgetAdvert
 type V1BudgetAdvert struct {
 	// ID кампании
-	AdvertId int32 `json:"advertId"`
+	AdvertId *int32 `json:"advertId,omitempty"`
 	// Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
-	Currency string `json:"currency"`
+	Currency *string `json:"currency,omitempty"`
 	// Бюджет кампании в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
-	Total int32 `json:"total"`
+	Total *int32 `json:"total,omitempty"`
 }
-
-type _V1BudgetAdvert V1BudgetAdvert
 
 // NewV1BudgetAdvert instantiates a new V1BudgetAdvert object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewV1BudgetAdvert(advertId int32, currency string, total int32) *V1BudgetAdvert {
+func NewV1BudgetAdvert() *V1BudgetAdvert {
 	this := V1BudgetAdvert{}
-	this.AdvertId = advertId
-	this.Currency = currency
-	this.Total = total
 	return &this
 }
 
@@ -51,76 +44,100 @@ func NewV1BudgetAdvertWithDefaults() *V1BudgetAdvert {
 	return &this
 }
 
-// GetAdvertId returns the AdvertId field value
+// GetAdvertId returns the AdvertId field value if set, zero value otherwise.
 func (o *V1BudgetAdvert) GetAdvertId() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.AdvertId) {
 		var ret int32
 		return ret
 	}
-
-	return o.AdvertId
+	return *o.AdvertId
 }
 
-// GetAdvertIdOk returns a tuple with the AdvertId field value
+// GetAdvertIdOk returns a tuple with the AdvertId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *V1BudgetAdvert) GetAdvertIdOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AdvertId) {
 		return nil, false
 	}
-	return &o.AdvertId, true
+	return o.AdvertId, true
 }
 
-// SetAdvertId sets field value
+// HasAdvertId returns a boolean if a field has been set.
+func (o *V1BudgetAdvert) HasAdvertId() bool {
+	if o != nil && !IsNil(o.AdvertId) {
+		return true
+	}
+
+	return false
+}
+
+// SetAdvertId gets a reference to the given int32 and assigns it to the AdvertId field.
 func (o *V1BudgetAdvert) SetAdvertId(v int32) {
-	o.AdvertId = v
+	o.AdvertId = &v
 }
 
-// GetCurrency returns the Currency field value
+// GetCurrency returns the Currency field value if set, zero value otherwise.
 func (o *V1BudgetAdvert) GetCurrency() string {
-	if o == nil {
+	if o == nil || IsNil(o.Currency) {
 		var ret string
 		return ret
 	}
-
-	return o.Currency
+	return *o.Currency
 }
 
-// GetCurrencyOk returns a tuple with the Currency field value
+// GetCurrencyOk returns a tuple with the Currency field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *V1BudgetAdvert) GetCurrencyOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Currency) {
 		return nil, false
 	}
-	return &o.Currency, true
+	return o.Currency, true
 }
 
-// SetCurrency sets field value
+// HasCurrency returns a boolean if a field has been set.
+func (o *V1BudgetAdvert) HasCurrency() bool {
+	if o != nil && !IsNil(o.Currency) {
+		return true
+	}
+
+	return false
+}
+
+// SetCurrency gets a reference to the given string and assigns it to the Currency field.
 func (o *V1BudgetAdvert) SetCurrency(v string) {
-	o.Currency = v
+	o.Currency = &v
 }
 
-// GetTotal returns the Total field value
+// GetTotal returns the Total field value if set, zero value otherwise.
 func (o *V1BudgetAdvert) GetTotal() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.Total) {
 		var ret int32
 		return ret
 	}
-
-	return o.Total
+	return *o.Total
 }
 
-// GetTotalOk returns a tuple with the Total field value
+// GetTotalOk returns a tuple with the Total field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *V1BudgetAdvert) GetTotalOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Total) {
 		return nil, false
 	}
-	return &o.Total, true
+	return o.Total, true
 }
 
-// SetTotal sets field value
+// HasTotal returns a boolean if a field has been set.
+func (o *V1BudgetAdvert) HasTotal() bool {
+	if o != nil && !IsNil(o.Total) {
+		return true
+	}
+
+	return false
+}
+
+// SetTotal gets a reference to the given int32 and assigns it to the Total field.
 func (o *V1BudgetAdvert) SetTotal(v int32) {
-	o.Total = v
+	o.Total = &v
 }
 
 func (o V1BudgetAdvert) MarshalJSON() ([]byte, error) {
@@ -133,49 +150,16 @@ func (o V1BudgetAdvert) MarshalJSON() ([]byte, error) {
 
 func (o V1BudgetAdvert) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["advertId"] = o.AdvertId
-	toSerialize["currency"] = o.Currency
-	toSerialize["total"] = o.Total
+	if !IsNil(o.AdvertId) {
+		toSerialize["advertId"] = o.AdvertId
+	}
+	if !IsNil(o.Currency) {
+		toSerialize["currency"] = o.Currency
+	}
+	if !IsNil(o.Total) {
+		toSerialize["total"] = o.Total
+	}
 	return toSerialize, nil
-}
-
-func (o *V1BudgetAdvert) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"advertId",
-		"currency",
-		"total",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varV1BudgetAdvert := _V1BudgetAdvert{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varV1BudgetAdvert)
-
-	if err != nil {
-		return err
-	}
-
-	*o = V1BudgetAdvert(varV1BudgetAdvert)
-
-	return err
 }
 
 type NullableV1BudgetAdvert struct {

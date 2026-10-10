@@ -73,20 +73,15 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInner" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInner() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInner" /> class.
-        /// </summary>
         /// <param name="success">- &#x60;true&#x60; — настройки автовозврата товара успешно получены .</param>
-        /// <param name="chrtId">ID размера товара в системе WB (required).</param>
+        /// <param name="chrtId">ID размера товара в системе WB.</param>
         /// <param name="type">Куда будет возвращён товар:   - &#x60;auto&#x60; — место возврата определяется автоматически   - &#x60;byWarehouse&#x60; — на склад WB   - &#x60;byPickupPoint&#x60; — на пункт выдачи заказов   - &#x60;byCourier&#x60; — продавцу курьером. Всегда для товаров тех [предметов](https://dev.wildberries.ru/openapi/orders-fbs#tag/autoreturnSettings/operation/getV3FbsSettingsAutoreturnsSubcategoriesRestricted), которые автоматически возвращаются в ПВЗ .</param>
         /// <param name="changeable">- &#x60;true&#x60; — настройки автовозврата товара можно изменить .</param>
         /// <param name="error">Детали ошибки.</param>
         public PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInner(bool success = default(bool), int chrtId = default(int), TypeEnum? type = default(TypeEnum?), bool changeable = default(bool), List<PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner> error = default(List<PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner>))
         {
-            this.ChrtId = chrtId;
             this.Success = success;
+            this.ChrtId = chrtId;
             this.Type = type;
             this.Changeable = changeable;
             this.Error = error;
@@ -103,7 +98,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// ID размера товара в системе WB
         /// </summary>
         /// <value>ID размера товара в системе WB</value>
-        [DataMember(Name = "chrtId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "chrtId", EmitDefaultValue = false)]
         public int ChrtId { get; set; }
 
         /// <summary>

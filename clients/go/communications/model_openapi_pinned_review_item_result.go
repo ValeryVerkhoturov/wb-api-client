@@ -11,9 +11,7 @@ API version: communication
 package communications
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the OpenapiPinnedReviewItemResult type satisfies the MappedNullable interface at compile time
@@ -22,41 +20,31 @@ var _ MappedNullable = &OpenapiPinnedReviewItemResult{}
 // OpenapiPinnedReviewItemResult struct for OpenapiPinnedReviewItemResult
 type OpenapiPinnedReviewItemResult struct {
 	// Дата и время закрепления или открепления
-	ChangeStateAt string `json:"changeStateAt"`
+	ChangeStateAt *string `json:"changeStateAt,omitempty"`
 	// ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров
-	ImtId int32 `json:"imtId"`
+	ImtId *int32 `json:"imtId,omitempty"`
 	// Артикул WB
-	NmId int32 `json:"nmId"`
+	NmId *int32 `json:"nmId,omitempty"`
 	// ID операции закрепления отзыва
-	PinId int32 `json:"pinId"`
+	PinId *int32 `json:"pinId,omitempty"`
 	// Метод закрепления:   - `subscription` — подписка Джем   - `tariff` — тарифная опция
-	PinMethod DomainReviewPinMethod `json:"pinMethod"`
+	PinMethod *DomainReviewPinMethod `json:"pinMethod,omitempty"`
 	// Место закрепления отзыва:   - `nm` — карточка товара   - `imt` — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров
-	PinOn DomainReviewPinOn `json:"pinOn"`
+	PinOn *DomainReviewPinOn `json:"pinOn,omitempty"`
 	// ID отзыва
-	FeedbackId string `json:"feedbackId"`
+	FeedbackId *string `json:"feedbackId,omitempty"`
 	// Закреплён ли отзыв:   - `pinned` — да   - `unpinned` — нет
-	State DomainReviewState `json:"state"`
+	State *DomainReviewState `json:"state,omitempty"`
 	// Причина открепления отзыва:   - `sysTariffUnpinned` — закончилась подписка или тарифная опция   - `sysLimitReached` — закончился общий лимит по подписке   - `sysNoratingUnpinned` — отзыв исключён из рейтинга. Например, удалён или забанен   - `sysAdditionalSlot` — к карточке или к группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек прикреплено максимальное количество отзывов
 	UnpinnedCause *string `json:"unpinnedCause,omitempty"`
 }
-
-type _OpenapiPinnedReviewItemResult OpenapiPinnedReviewItemResult
 
 // NewOpenapiPinnedReviewItemResult instantiates a new OpenapiPinnedReviewItemResult object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewOpenapiPinnedReviewItemResult(changeStateAt string, imtId int32, nmId int32, pinId int32, pinMethod DomainReviewPinMethod, pinOn DomainReviewPinOn, feedbackId string, state DomainReviewState) *OpenapiPinnedReviewItemResult {
+func NewOpenapiPinnedReviewItemResult() *OpenapiPinnedReviewItemResult {
 	this := OpenapiPinnedReviewItemResult{}
-	this.ChangeStateAt = changeStateAt
-	this.ImtId = imtId
-	this.NmId = nmId
-	this.PinId = pinId
-	this.PinMethod = pinMethod
-	this.PinOn = pinOn
-	this.FeedbackId = feedbackId
-	this.State = state
 	return &this
 }
 
@@ -68,196 +56,260 @@ func NewOpenapiPinnedReviewItemResultWithDefaults() *OpenapiPinnedReviewItemResu
 	return &this
 }
 
-// GetChangeStateAt returns the ChangeStateAt field value
+// GetChangeStateAt returns the ChangeStateAt field value if set, zero value otherwise.
 func (o *OpenapiPinnedReviewItemResult) GetChangeStateAt() string {
-	if o == nil {
+	if o == nil || IsNil(o.ChangeStateAt) {
 		var ret string
 		return ret
 	}
-
-	return o.ChangeStateAt
+	return *o.ChangeStateAt
 }
 
-// GetChangeStateAtOk returns a tuple with the ChangeStateAt field value
+// GetChangeStateAtOk returns a tuple with the ChangeStateAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *OpenapiPinnedReviewItemResult) GetChangeStateAtOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ChangeStateAt) {
 		return nil, false
 	}
-	return &o.ChangeStateAt, true
+	return o.ChangeStateAt, true
 }
 
-// SetChangeStateAt sets field value
+// HasChangeStateAt returns a boolean if a field has been set.
+func (o *OpenapiPinnedReviewItemResult) HasChangeStateAt() bool {
+	if o != nil && !IsNil(o.ChangeStateAt) {
+		return true
+	}
+
+	return false
+}
+
+// SetChangeStateAt gets a reference to the given string and assigns it to the ChangeStateAt field.
 func (o *OpenapiPinnedReviewItemResult) SetChangeStateAt(v string) {
-	o.ChangeStateAt = v
+	o.ChangeStateAt = &v
 }
 
-// GetImtId returns the ImtId field value
+// GetImtId returns the ImtId field value if set, zero value otherwise.
 func (o *OpenapiPinnedReviewItemResult) GetImtId() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.ImtId) {
 		var ret int32
 		return ret
 	}
-
-	return o.ImtId
+	return *o.ImtId
 }
 
-// GetImtIdOk returns a tuple with the ImtId field value
+// GetImtIdOk returns a tuple with the ImtId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *OpenapiPinnedReviewItemResult) GetImtIdOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ImtId) {
 		return nil, false
 	}
-	return &o.ImtId, true
+	return o.ImtId, true
 }
 
-// SetImtId sets field value
+// HasImtId returns a boolean if a field has been set.
+func (o *OpenapiPinnedReviewItemResult) HasImtId() bool {
+	if o != nil && !IsNil(o.ImtId) {
+		return true
+	}
+
+	return false
+}
+
+// SetImtId gets a reference to the given int32 and assigns it to the ImtId field.
 func (o *OpenapiPinnedReviewItemResult) SetImtId(v int32) {
-	o.ImtId = v
+	o.ImtId = &v
 }
 
-// GetNmId returns the NmId field value
+// GetNmId returns the NmId field value if set, zero value otherwise.
 func (o *OpenapiPinnedReviewItemResult) GetNmId() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.NmId) {
 		var ret int32
 		return ret
 	}
-
-	return o.NmId
+	return *o.NmId
 }
 
-// GetNmIdOk returns a tuple with the NmId field value
+// GetNmIdOk returns a tuple with the NmId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *OpenapiPinnedReviewItemResult) GetNmIdOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.NmId) {
 		return nil, false
 	}
-	return &o.NmId, true
+	return o.NmId, true
 }
 
-// SetNmId sets field value
+// HasNmId returns a boolean if a field has been set.
+func (o *OpenapiPinnedReviewItemResult) HasNmId() bool {
+	if o != nil && !IsNil(o.NmId) {
+		return true
+	}
+
+	return false
+}
+
+// SetNmId gets a reference to the given int32 and assigns it to the NmId field.
 func (o *OpenapiPinnedReviewItemResult) SetNmId(v int32) {
-	o.NmId = v
+	o.NmId = &v
 }
 
-// GetPinId returns the PinId field value
+// GetPinId returns the PinId field value if set, zero value otherwise.
 func (o *OpenapiPinnedReviewItemResult) GetPinId() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.PinId) {
 		var ret int32
 		return ret
 	}
-
-	return o.PinId
+	return *o.PinId
 }
 
-// GetPinIdOk returns a tuple with the PinId field value
+// GetPinIdOk returns a tuple with the PinId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *OpenapiPinnedReviewItemResult) GetPinIdOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.PinId) {
 		return nil, false
 	}
-	return &o.PinId, true
+	return o.PinId, true
 }
 
-// SetPinId sets field value
+// HasPinId returns a boolean if a field has been set.
+func (o *OpenapiPinnedReviewItemResult) HasPinId() bool {
+	if o != nil && !IsNil(o.PinId) {
+		return true
+	}
+
+	return false
+}
+
+// SetPinId gets a reference to the given int32 and assigns it to the PinId field.
 func (o *OpenapiPinnedReviewItemResult) SetPinId(v int32) {
-	o.PinId = v
+	o.PinId = &v
 }
 
-// GetPinMethod returns the PinMethod field value
+// GetPinMethod returns the PinMethod field value if set, zero value otherwise.
 func (o *OpenapiPinnedReviewItemResult) GetPinMethod() DomainReviewPinMethod {
-	if o == nil {
+	if o == nil || IsNil(o.PinMethod) {
 		var ret DomainReviewPinMethod
 		return ret
 	}
-
-	return o.PinMethod
+	return *o.PinMethod
 }
 
-// GetPinMethodOk returns a tuple with the PinMethod field value
+// GetPinMethodOk returns a tuple with the PinMethod field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *OpenapiPinnedReviewItemResult) GetPinMethodOk() (*DomainReviewPinMethod, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.PinMethod) {
 		return nil, false
 	}
-	return &o.PinMethod, true
+	return o.PinMethod, true
 }
 
-// SetPinMethod sets field value
+// HasPinMethod returns a boolean if a field has been set.
+func (o *OpenapiPinnedReviewItemResult) HasPinMethod() bool {
+	if o != nil && !IsNil(o.PinMethod) {
+		return true
+	}
+
+	return false
+}
+
+// SetPinMethod gets a reference to the given DomainReviewPinMethod and assigns it to the PinMethod field.
 func (o *OpenapiPinnedReviewItemResult) SetPinMethod(v DomainReviewPinMethod) {
-	o.PinMethod = v
+	o.PinMethod = &v
 }
 
-// GetPinOn returns the PinOn field value
+// GetPinOn returns the PinOn field value if set, zero value otherwise.
 func (o *OpenapiPinnedReviewItemResult) GetPinOn() DomainReviewPinOn {
-	if o == nil {
+	if o == nil || IsNil(o.PinOn) {
 		var ret DomainReviewPinOn
 		return ret
 	}
-
-	return o.PinOn
+	return *o.PinOn
 }
 
-// GetPinOnOk returns a tuple with the PinOn field value
+// GetPinOnOk returns a tuple with the PinOn field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *OpenapiPinnedReviewItemResult) GetPinOnOk() (*DomainReviewPinOn, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.PinOn) {
 		return nil, false
 	}
-	return &o.PinOn, true
+	return o.PinOn, true
 }
 
-// SetPinOn sets field value
+// HasPinOn returns a boolean if a field has been set.
+func (o *OpenapiPinnedReviewItemResult) HasPinOn() bool {
+	if o != nil && !IsNil(o.PinOn) {
+		return true
+	}
+
+	return false
+}
+
+// SetPinOn gets a reference to the given DomainReviewPinOn and assigns it to the PinOn field.
 func (o *OpenapiPinnedReviewItemResult) SetPinOn(v DomainReviewPinOn) {
-	o.PinOn = v
+	o.PinOn = &v
 }
 
-// GetFeedbackId returns the FeedbackId field value
+// GetFeedbackId returns the FeedbackId field value if set, zero value otherwise.
 func (o *OpenapiPinnedReviewItemResult) GetFeedbackId() string {
-	if o == nil {
+	if o == nil || IsNil(o.FeedbackId) {
 		var ret string
 		return ret
 	}
-
-	return o.FeedbackId
+	return *o.FeedbackId
 }
 
-// GetFeedbackIdOk returns a tuple with the FeedbackId field value
+// GetFeedbackIdOk returns a tuple with the FeedbackId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *OpenapiPinnedReviewItemResult) GetFeedbackIdOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.FeedbackId) {
 		return nil, false
 	}
-	return &o.FeedbackId, true
+	return o.FeedbackId, true
 }
 
-// SetFeedbackId sets field value
+// HasFeedbackId returns a boolean if a field has been set.
+func (o *OpenapiPinnedReviewItemResult) HasFeedbackId() bool {
+	if o != nil && !IsNil(o.FeedbackId) {
+		return true
+	}
+
+	return false
+}
+
+// SetFeedbackId gets a reference to the given string and assigns it to the FeedbackId field.
 func (o *OpenapiPinnedReviewItemResult) SetFeedbackId(v string) {
-	o.FeedbackId = v
+	o.FeedbackId = &v
 }
 
-// GetState returns the State field value
+// GetState returns the State field value if set, zero value otherwise.
 func (o *OpenapiPinnedReviewItemResult) GetState() DomainReviewState {
-	if o == nil {
+	if o == nil || IsNil(o.State) {
 		var ret DomainReviewState
 		return ret
 	}
-
-	return o.State
+	return *o.State
 }
 
-// GetStateOk returns a tuple with the State field value
+// GetStateOk returns a tuple with the State field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *OpenapiPinnedReviewItemResult) GetStateOk() (*DomainReviewState, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.State) {
 		return nil, false
 	}
-	return &o.State, true
+	return o.State, true
 }
 
-// SetState sets field value
+// HasState returns a boolean if a field has been set.
+func (o *OpenapiPinnedReviewItemResult) HasState() bool {
+	if o != nil && !IsNil(o.State) {
+		return true
+	}
+
+	return false
+}
+
+// SetState gets a reference to the given DomainReviewState and assigns it to the State field.
 func (o *OpenapiPinnedReviewItemResult) SetState(v DomainReviewState) {
-	o.State = v
+	o.State = &v
 }
 
 // GetUnpinnedCause returns the UnpinnedCause field value if set, zero value otherwise.
@@ -302,62 +354,34 @@ func (o OpenapiPinnedReviewItemResult) MarshalJSON() ([]byte, error) {
 
 func (o OpenapiPinnedReviewItemResult) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["changeStateAt"] = o.ChangeStateAt
-	toSerialize["imtId"] = o.ImtId
-	toSerialize["nmId"] = o.NmId
-	toSerialize["pinId"] = o.PinId
-	toSerialize["pinMethod"] = o.PinMethod
-	toSerialize["pinOn"] = o.PinOn
-	toSerialize["feedbackId"] = o.FeedbackId
-	toSerialize["state"] = o.State
+	if !IsNil(o.ChangeStateAt) {
+		toSerialize["changeStateAt"] = o.ChangeStateAt
+	}
+	if !IsNil(o.ImtId) {
+		toSerialize["imtId"] = o.ImtId
+	}
+	if !IsNil(o.NmId) {
+		toSerialize["nmId"] = o.NmId
+	}
+	if !IsNil(o.PinId) {
+		toSerialize["pinId"] = o.PinId
+	}
+	if !IsNil(o.PinMethod) {
+		toSerialize["pinMethod"] = o.PinMethod
+	}
+	if !IsNil(o.PinOn) {
+		toSerialize["pinOn"] = o.PinOn
+	}
+	if !IsNil(o.FeedbackId) {
+		toSerialize["feedbackId"] = o.FeedbackId
+	}
+	if !IsNil(o.State) {
+		toSerialize["state"] = o.State
+	}
 	if !IsNil(o.UnpinnedCause) {
 		toSerialize["unpinnedCause"] = o.UnpinnedCause
 	}
 	return toSerialize, nil
-}
-
-func (o *OpenapiPinnedReviewItemResult) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"changeStateAt",
-		"imtId",
-		"nmId",
-		"pinId",
-		"pinMethod",
-		"pinOn",
-		"feedbackId",
-		"state",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varOpenapiPinnedReviewItemResult := _OpenapiPinnedReviewItemResult{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varOpenapiPinnedReviewItemResult)
-
-	if err != nil {
-		return err
-	}
-
-	*o = OpenapiPinnedReviewItemResult(varOpenapiPinnedReviewItemResult)
-
-	return err
 }
 
 type NullableOpenapiPinnedReviewItemResult struct {

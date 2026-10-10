@@ -11,9 +11,7 @@ API version: general
 package general
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the PlanBuilderOptionsInfo type satisfies the MappedNullable interface at compile time
@@ -22,30 +20,23 @@ var _ MappedNullable = &PlanBuilderOptionsInfo{}
 // PlanBuilderOptionsInfo struct for PlanBuilderOptionsInfo
 type PlanBuilderOptionsInfo struct {
 	// Количество активных опций, не включённых в пакеты
-	ActiveOptionCount float32 `json:"activeOptionCount"`
+	ActiveOptionCount *float32 `json:"activeOptionCount,omitempty"`
 	// Количество активных пакетов опций
-	ActivePackageCount float32 `json:"activePackageCount"`
+	ActivePackageCount *float32 `json:"activePackageCount,omitempty"`
 	// Итоговая комиссия за подключённые опции и пакеты, % от оборота
-	TotalCommissionRate float32 `json:"totalCommissionRate"`
+	TotalCommissionRate *float32 `json:"totalCommissionRate,omitempty"`
 	// Подключённые пакеты опций
-	Packages []PlanBuilderPackage `json:"packages"`
+	Packages []PlanBuilderPackage `json:"packages,omitempty"`
 	// Подключённые опции
-	Options []PlanBuilderOption `json:"options"`
+	Options []PlanBuilderOption `json:"options,omitempty"`
 }
-
-type _PlanBuilderOptionsInfo PlanBuilderOptionsInfo
 
 // NewPlanBuilderOptionsInfo instantiates a new PlanBuilderOptionsInfo object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPlanBuilderOptionsInfo(activeOptionCount float32, activePackageCount float32, totalCommissionRate float32, packages []PlanBuilderPackage, options []PlanBuilderOption) *PlanBuilderOptionsInfo {
+func NewPlanBuilderOptionsInfo() *PlanBuilderOptionsInfo {
 	this := PlanBuilderOptionsInfo{}
-	this.ActiveOptionCount = activeOptionCount
-	this.ActivePackageCount = activePackageCount
-	this.TotalCommissionRate = totalCommissionRate
-	this.Packages = packages
-	this.Options = options
 	return &this
 }
 
@@ -57,122 +48,162 @@ func NewPlanBuilderOptionsInfoWithDefaults() *PlanBuilderOptionsInfo {
 	return &this
 }
 
-// GetActiveOptionCount returns the ActiveOptionCount field value
+// GetActiveOptionCount returns the ActiveOptionCount field value if set, zero value otherwise.
 func (o *PlanBuilderOptionsInfo) GetActiveOptionCount() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.ActiveOptionCount) {
 		var ret float32
 		return ret
 	}
-
-	return o.ActiveOptionCount
+	return *o.ActiveOptionCount
 }
 
-// GetActiveOptionCountOk returns a tuple with the ActiveOptionCount field value
+// GetActiveOptionCountOk returns a tuple with the ActiveOptionCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PlanBuilderOptionsInfo) GetActiveOptionCountOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ActiveOptionCount) {
 		return nil, false
 	}
-	return &o.ActiveOptionCount, true
+	return o.ActiveOptionCount, true
 }
 
-// SetActiveOptionCount sets field value
+// HasActiveOptionCount returns a boolean if a field has been set.
+func (o *PlanBuilderOptionsInfo) HasActiveOptionCount() bool {
+	if o != nil && !IsNil(o.ActiveOptionCount) {
+		return true
+	}
+
+	return false
+}
+
+// SetActiveOptionCount gets a reference to the given float32 and assigns it to the ActiveOptionCount field.
 func (o *PlanBuilderOptionsInfo) SetActiveOptionCount(v float32) {
-	o.ActiveOptionCount = v
+	o.ActiveOptionCount = &v
 }
 
-// GetActivePackageCount returns the ActivePackageCount field value
+// GetActivePackageCount returns the ActivePackageCount field value if set, zero value otherwise.
 func (o *PlanBuilderOptionsInfo) GetActivePackageCount() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.ActivePackageCount) {
 		var ret float32
 		return ret
 	}
-
-	return o.ActivePackageCount
+	return *o.ActivePackageCount
 }
 
-// GetActivePackageCountOk returns a tuple with the ActivePackageCount field value
+// GetActivePackageCountOk returns a tuple with the ActivePackageCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PlanBuilderOptionsInfo) GetActivePackageCountOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ActivePackageCount) {
 		return nil, false
 	}
-	return &o.ActivePackageCount, true
+	return o.ActivePackageCount, true
 }
 
-// SetActivePackageCount sets field value
+// HasActivePackageCount returns a boolean if a field has been set.
+func (o *PlanBuilderOptionsInfo) HasActivePackageCount() bool {
+	if o != nil && !IsNil(o.ActivePackageCount) {
+		return true
+	}
+
+	return false
+}
+
+// SetActivePackageCount gets a reference to the given float32 and assigns it to the ActivePackageCount field.
 func (o *PlanBuilderOptionsInfo) SetActivePackageCount(v float32) {
-	o.ActivePackageCount = v
+	o.ActivePackageCount = &v
 }
 
-// GetTotalCommissionRate returns the TotalCommissionRate field value
+// GetTotalCommissionRate returns the TotalCommissionRate field value if set, zero value otherwise.
 func (o *PlanBuilderOptionsInfo) GetTotalCommissionRate() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.TotalCommissionRate) {
 		var ret float32
 		return ret
 	}
-
-	return o.TotalCommissionRate
+	return *o.TotalCommissionRate
 }
 
-// GetTotalCommissionRateOk returns a tuple with the TotalCommissionRate field value
+// GetTotalCommissionRateOk returns a tuple with the TotalCommissionRate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PlanBuilderOptionsInfo) GetTotalCommissionRateOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.TotalCommissionRate) {
 		return nil, false
 	}
-	return &o.TotalCommissionRate, true
+	return o.TotalCommissionRate, true
 }
 
-// SetTotalCommissionRate sets field value
+// HasTotalCommissionRate returns a boolean if a field has been set.
+func (o *PlanBuilderOptionsInfo) HasTotalCommissionRate() bool {
+	if o != nil && !IsNil(o.TotalCommissionRate) {
+		return true
+	}
+
+	return false
+}
+
+// SetTotalCommissionRate gets a reference to the given float32 and assigns it to the TotalCommissionRate field.
 func (o *PlanBuilderOptionsInfo) SetTotalCommissionRate(v float32) {
-	o.TotalCommissionRate = v
+	o.TotalCommissionRate = &v
 }
 
-// GetPackages returns the Packages field value
+// GetPackages returns the Packages field value if set, zero value otherwise.
 func (o *PlanBuilderOptionsInfo) GetPackages() []PlanBuilderPackage {
-	if o == nil {
+	if o == nil || IsNil(o.Packages) {
 		var ret []PlanBuilderPackage
 		return ret
 	}
-
 	return o.Packages
 }
 
-// GetPackagesOk returns a tuple with the Packages field value
+// GetPackagesOk returns a tuple with the Packages field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PlanBuilderOptionsInfo) GetPackagesOk() ([]PlanBuilderPackage, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Packages) {
 		return nil, false
 	}
 	return o.Packages, true
 }
 
-// SetPackages sets field value
+// HasPackages returns a boolean if a field has been set.
+func (o *PlanBuilderOptionsInfo) HasPackages() bool {
+	if o != nil && !IsNil(o.Packages) {
+		return true
+	}
+
+	return false
+}
+
+// SetPackages gets a reference to the given []PlanBuilderPackage and assigns it to the Packages field.
 func (o *PlanBuilderOptionsInfo) SetPackages(v []PlanBuilderPackage) {
 	o.Packages = v
 }
 
-// GetOptions returns the Options field value
+// GetOptions returns the Options field value if set, zero value otherwise.
 func (o *PlanBuilderOptionsInfo) GetOptions() []PlanBuilderOption {
-	if o == nil {
+	if o == nil || IsNil(o.Options) {
 		var ret []PlanBuilderOption
 		return ret
 	}
-
 	return o.Options
 }
 
-// GetOptionsOk returns a tuple with the Options field value
+// GetOptionsOk returns a tuple with the Options field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PlanBuilderOptionsInfo) GetOptionsOk() ([]PlanBuilderOption, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Options) {
 		return nil, false
 	}
 	return o.Options, true
 }
 
-// SetOptions sets field value
+// HasOptions returns a boolean if a field has been set.
+func (o *PlanBuilderOptionsInfo) HasOptions() bool {
+	if o != nil && !IsNil(o.Options) {
+		return true
+	}
+
+	return false
+}
+
+// SetOptions gets a reference to the given []PlanBuilderOption and assigns it to the Options field.
 func (o *PlanBuilderOptionsInfo) SetOptions(v []PlanBuilderOption) {
 	o.Options = v
 }
@@ -187,53 +218,22 @@ func (o PlanBuilderOptionsInfo) MarshalJSON() ([]byte, error) {
 
 func (o PlanBuilderOptionsInfo) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["activeOptionCount"] = o.ActiveOptionCount
-	toSerialize["activePackageCount"] = o.ActivePackageCount
-	toSerialize["totalCommissionRate"] = o.TotalCommissionRate
-	toSerialize["packages"] = o.Packages
-	toSerialize["options"] = o.Options
+	if !IsNil(o.ActiveOptionCount) {
+		toSerialize["activeOptionCount"] = o.ActiveOptionCount
+	}
+	if !IsNil(o.ActivePackageCount) {
+		toSerialize["activePackageCount"] = o.ActivePackageCount
+	}
+	if !IsNil(o.TotalCommissionRate) {
+		toSerialize["totalCommissionRate"] = o.TotalCommissionRate
+	}
+	if !IsNil(o.Packages) {
+		toSerialize["packages"] = o.Packages
+	}
+	if !IsNil(o.Options) {
+		toSerialize["options"] = o.Options
+	}
 	return toSerialize, nil
-}
-
-func (o *PlanBuilderOptionsInfo) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"activeOptionCount",
-		"activePackageCount",
-		"totalCommissionRate",
-		"packages",
-		"options",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varPlanBuilderOptionsInfo := _PlanBuilderOptionsInfo{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varPlanBuilderOptionsInfo)
-
-	if err != nil {
-		return err
-	}
-
-	*o = PlanBuilderOptionsInfo(varPlanBuilderOptionsInfo)
-
-	return err
 }
 
 type NullablePlanBuilderOptionsInfo struct {

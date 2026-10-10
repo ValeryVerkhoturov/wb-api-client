@@ -11,9 +11,7 @@ API version: ordersfbw
 package orders_fbw
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the ModelsItemDiscrepancyResponse type satisfies the MappedNullable interface at compile time
@@ -22,30 +20,23 @@ var _ MappedNullable = &ModelsItemDiscrepancyResponse{}
 // ModelsItemDiscrepancyResponse struct for ModelsItemDiscrepancyResponse
 type ModelsItemDiscrepancyResponse struct {
 	// ID упаковки
-	PackageCode string `json:"packageCode"`
+	PackageCode *string `json:"packageCode,omitempty"`
 	// Видео фиксации расхождений в процессе приёмки
-	VideoUrl string `json:"videoUrl"`
+	VideoUrl *string `json:"videoUrl,omitempty"`
 	// Дата и время видеофиксации расхождений в процессе приемки
-	VideoStartsAt string `json:"videoStartsAt"`
+	VideoStartsAt *string `json:"videoStartsAt,omitempty"`
 	// Доступность видео:    - `false` — видео доступно    - `true` — видео недоступно
-	VideoUnavailable bool `json:"videoUnavailable"`
+	VideoUnavailable *bool `json:"videoUnavailable,omitempty"`
 	// Товары поставки
-	Items []ModelsDiscrepancyResponseItem `json:"items"`
+	Items []ModelsDiscrepancyResponseItem `json:"items,omitempty"`
 }
-
-type _ModelsItemDiscrepancyResponse ModelsItemDiscrepancyResponse
 
 // NewModelsItemDiscrepancyResponse instantiates a new ModelsItemDiscrepancyResponse object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelsItemDiscrepancyResponse(packageCode string, videoUrl string, videoStartsAt string, videoUnavailable bool, items []ModelsDiscrepancyResponseItem) *ModelsItemDiscrepancyResponse {
+func NewModelsItemDiscrepancyResponse() *ModelsItemDiscrepancyResponse {
 	this := ModelsItemDiscrepancyResponse{}
-	this.PackageCode = packageCode
-	this.VideoUrl = videoUrl
-	this.VideoStartsAt = videoStartsAt
-	this.VideoUnavailable = videoUnavailable
-	this.Items = items
 	return &this
 }
 
@@ -57,122 +48,162 @@ func NewModelsItemDiscrepancyResponseWithDefaults() *ModelsItemDiscrepancyRespon
 	return &this
 }
 
-// GetPackageCode returns the PackageCode field value
+// GetPackageCode returns the PackageCode field value if set, zero value otherwise.
 func (o *ModelsItemDiscrepancyResponse) GetPackageCode() string {
-	if o == nil {
+	if o == nil || IsNil(o.PackageCode) {
 		var ret string
 		return ret
 	}
-
-	return o.PackageCode
+	return *o.PackageCode
 }
 
-// GetPackageCodeOk returns a tuple with the PackageCode field value
+// GetPackageCodeOk returns a tuple with the PackageCode field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModelsItemDiscrepancyResponse) GetPackageCodeOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.PackageCode) {
 		return nil, false
 	}
-	return &o.PackageCode, true
+	return o.PackageCode, true
 }
 
-// SetPackageCode sets field value
+// HasPackageCode returns a boolean if a field has been set.
+func (o *ModelsItemDiscrepancyResponse) HasPackageCode() bool {
+	if o != nil && !IsNil(o.PackageCode) {
+		return true
+	}
+
+	return false
+}
+
+// SetPackageCode gets a reference to the given string and assigns it to the PackageCode field.
 func (o *ModelsItemDiscrepancyResponse) SetPackageCode(v string) {
-	o.PackageCode = v
+	o.PackageCode = &v
 }
 
-// GetVideoUrl returns the VideoUrl field value
+// GetVideoUrl returns the VideoUrl field value if set, zero value otherwise.
 func (o *ModelsItemDiscrepancyResponse) GetVideoUrl() string {
-	if o == nil {
+	if o == nil || IsNil(o.VideoUrl) {
 		var ret string
 		return ret
 	}
-
-	return o.VideoUrl
+	return *o.VideoUrl
 }
 
-// GetVideoUrlOk returns a tuple with the VideoUrl field value
+// GetVideoUrlOk returns a tuple with the VideoUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModelsItemDiscrepancyResponse) GetVideoUrlOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.VideoUrl) {
 		return nil, false
 	}
-	return &o.VideoUrl, true
+	return o.VideoUrl, true
 }
 
-// SetVideoUrl sets field value
+// HasVideoUrl returns a boolean if a field has been set.
+func (o *ModelsItemDiscrepancyResponse) HasVideoUrl() bool {
+	if o != nil && !IsNil(o.VideoUrl) {
+		return true
+	}
+
+	return false
+}
+
+// SetVideoUrl gets a reference to the given string and assigns it to the VideoUrl field.
 func (o *ModelsItemDiscrepancyResponse) SetVideoUrl(v string) {
-	o.VideoUrl = v
+	o.VideoUrl = &v
 }
 
-// GetVideoStartsAt returns the VideoStartsAt field value
+// GetVideoStartsAt returns the VideoStartsAt field value if set, zero value otherwise.
 func (o *ModelsItemDiscrepancyResponse) GetVideoStartsAt() string {
-	if o == nil {
+	if o == nil || IsNil(o.VideoStartsAt) {
 		var ret string
 		return ret
 	}
-
-	return o.VideoStartsAt
+	return *o.VideoStartsAt
 }
 
-// GetVideoStartsAtOk returns a tuple with the VideoStartsAt field value
+// GetVideoStartsAtOk returns a tuple with the VideoStartsAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModelsItemDiscrepancyResponse) GetVideoStartsAtOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.VideoStartsAt) {
 		return nil, false
 	}
-	return &o.VideoStartsAt, true
+	return o.VideoStartsAt, true
 }
 
-// SetVideoStartsAt sets field value
+// HasVideoStartsAt returns a boolean if a field has been set.
+func (o *ModelsItemDiscrepancyResponse) HasVideoStartsAt() bool {
+	if o != nil && !IsNil(o.VideoStartsAt) {
+		return true
+	}
+
+	return false
+}
+
+// SetVideoStartsAt gets a reference to the given string and assigns it to the VideoStartsAt field.
 func (o *ModelsItemDiscrepancyResponse) SetVideoStartsAt(v string) {
-	o.VideoStartsAt = v
+	o.VideoStartsAt = &v
 }
 
-// GetVideoUnavailable returns the VideoUnavailable field value
+// GetVideoUnavailable returns the VideoUnavailable field value if set, zero value otherwise.
 func (o *ModelsItemDiscrepancyResponse) GetVideoUnavailable() bool {
-	if o == nil {
+	if o == nil || IsNil(o.VideoUnavailable) {
 		var ret bool
 		return ret
 	}
-
-	return o.VideoUnavailable
+	return *o.VideoUnavailable
 }
 
-// GetVideoUnavailableOk returns a tuple with the VideoUnavailable field value
+// GetVideoUnavailableOk returns a tuple with the VideoUnavailable field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModelsItemDiscrepancyResponse) GetVideoUnavailableOk() (*bool, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.VideoUnavailable) {
 		return nil, false
 	}
-	return &o.VideoUnavailable, true
+	return o.VideoUnavailable, true
 }
 
-// SetVideoUnavailable sets field value
+// HasVideoUnavailable returns a boolean if a field has been set.
+func (o *ModelsItemDiscrepancyResponse) HasVideoUnavailable() bool {
+	if o != nil && !IsNil(o.VideoUnavailable) {
+		return true
+	}
+
+	return false
+}
+
+// SetVideoUnavailable gets a reference to the given bool and assigns it to the VideoUnavailable field.
 func (o *ModelsItemDiscrepancyResponse) SetVideoUnavailable(v bool) {
-	o.VideoUnavailable = v
+	o.VideoUnavailable = &v
 }
 
-// GetItems returns the Items field value
+// GetItems returns the Items field value if set, zero value otherwise.
 func (o *ModelsItemDiscrepancyResponse) GetItems() []ModelsDiscrepancyResponseItem {
-	if o == nil {
+	if o == nil || IsNil(o.Items) {
 		var ret []ModelsDiscrepancyResponseItem
 		return ret
 	}
-
 	return o.Items
 }
 
-// GetItemsOk returns a tuple with the Items field value
+// GetItemsOk returns a tuple with the Items field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModelsItemDiscrepancyResponse) GetItemsOk() ([]ModelsDiscrepancyResponseItem, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Items) {
 		return nil, false
 	}
 	return o.Items, true
 }
 
-// SetItems sets field value
+// HasItems returns a boolean if a field has been set.
+func (o *ModelsItemDiscrepancyResponse) HasItems() bool {
+	if o != nil && !IsNil(o.Items) {
+		return true
+	}
+
+	return false
+}
+
+// SetItems gets a reference to the given []ModelsDiscrepancyResponseItem and assigns it to the Items field.
 func (o *ModelsItemDiscrepancyResponse) SetItems(v []ModelsDiscrepancyResponseItem) {
 	o.Items = v
 }
@@ -187,53 +218,22 @@ func (o ModelsItemDiscrepancyResponse) MarshalJSON() ([]byte, error) {
 
 func (o ModelsItemDiscrepancyResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["packageCode"] = o.PackageCode
-	toSerialize["videoUrl"] = o.VideoUrl
-	toSerialize["videoStartsAt"] = o.VideoStartsAt
-	toSerialize["videoUnavailable"] = o.VideoUnavailable
-	toSerialize["items"] = o.Items
+	if !IsNil(o.PackageCode) {
+		toSerialize["packageCode"] = o.PackageCode
+	}
+	if !IsNil(o.VideoUrl) {
+		toSerialize["videoUrl"] = o.VideoUrl
+	}
+	if !IsNil(o.VideoStartsAt) {
+		toSerialize["videoStartsAt"] = o.VideoStartsAt
+	}
+	if !IsNil(o.VideoUnavailable) {
+		toSerialize["videoUnavailable"] = o.VideoUnavailable
+	}
+	if !IsNil(o.Items) {
+		toSerialize["items"] = o.Items
+	}
 	return toSerialize, nil
-}
-
-func (o *ModelsItemDiscrepancyResponse) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"packageCode",
-		"videoUrl",
-		"videoStartsAt",
-		"videoUnavailable",
-		"items",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varModelsItemDiscrepancyResponse := _ModelsItemDiscrepancyResponse{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varModelsItemDiscrepancyResponse)
-
-	if err != nil {
-		return err
-	}
-
-	*o = ModelsItemDiscrepancyResponse(varModelsItemDiscrepancyResponse)
-
-	return err
 }
 
 type NullableModelsItemDiscrepancyResponse struct {

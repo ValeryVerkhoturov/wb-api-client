@@ -34,21 +34,11 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemOrdersMetrics" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected ItemOrdersMetrics() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ItemOrdersMetrics" /> class.
-        /// </summary>
-        /// <param name="dt">Дата сбора статистики (required).</param>
-        /// <param name="avgPosition">Средняя позиция товара в результатах поиска (required).</param>
-        /// <param name="orders">Сколько раз товары из поиска заказали (required).</param>
+        /// <param name="dt">Дата сбора статистики.</param>
+        /// <param name="avgPosition">Средняя позиция товара в результатах поиска.</param>
+        /// <param name="orders">Сколько раз товары из поиска заказали.</param>
         public ItemOrdersMetrics(string dt = default(string), int avgPosition = default(int), int orders = default(int))
         {
-            // to ensure "dt" is required (not null)
-            if (dt == null)
-            {
-                throw new ArgumentNullException("dt is a required property for ItemOrdersMetrics and cannot be null");
-            }
             this.Dt = dt;
             this.AvgPosition = avgPosition;
             this.Orders = orders;
@@ -61,7 +51,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>2024-02-10</example>
         */
-        [DataMember(Name = "dt", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "dt", EmitDefaultValue = false)]
         public string Dt { get; set; }
 
         /// <summary>
@@ -71,7 +61,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>10</example>
         */
-        [DataMember(Name = "avgPosition", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "avgPosition", EmitDefaultValue = false)]
         public int AvgPosition { get; set; }
 
         /// <summary>
@@ -81,7 +71,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>20</example>
         */
-        [DataMember(Name = "orders", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "orders", EmitDefaultValue = false)]
         public int Orders { get; set; }
 
         /// <summary>

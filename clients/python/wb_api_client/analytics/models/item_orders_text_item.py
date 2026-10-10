@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from wb_api_client.analytics.models.item_orders_metrics import ItemOrdersMetrics
 from typing import Optional, Set
 from typing_extensions import Self
@@ -29,12 +29,14 @@ class ItemOrdersTextItem(BaseModel):
     ItemOrdersTextItem
     """  # noqa: E501
 
-    text: StrictStr = Field(description="Текст поискового запроса")
-    frequency: StrictInt = Field(
-        description="Количество обращений с поисковым запросом"
+    text: Optional[StrictStr] = Field(
+        default=None, description="Текст поискового запроса"
     )
-    date_items: List[ItemOrdersMetrics] = Field(
-        description="Статистика по датам", alias="dateItems"
+    frequency: Optional[StrictInt] = Field(
+        default=None, description="Количество обращений с поисковым запросом"
+    )
+    date_items: Optional[List[ItemOrdersMetrics]] = Field(
+        default=None, description="Статистика по датам", alias="dateItems"
     )
     __properties: ClassVar[List[str]] = ["text", "frequency", "dateItems"]
 

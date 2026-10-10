@@ -36,12 +36,12 @@ public class WHM {
   public static final String SERIALIZED_NAME_DATA = "data";
 
   @SerializedName(SERIALIZED_NAME_DATA)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private WHMData data;
 
   public WHM() {}
 
-  public WHM data(@jakarta.annotation.Nonnull WHMData data) {
+  public WHM data(@jakarta.annotation.Nullable WHMData data) {
     this.data = data;
     return this;
   }
@@ -51,12 +51,12 @@ public class WHM {
    *
    * @return data
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public WHMData getData() {
     return data;
   }
 
-  public void setData(@jakarta.annotation.Nonnull WHMData data) {
+  public void setData(@jakarta.annotation.Nullable WHMData data) {
     this.data = data;
   }
 
@@ -106,7 +106,6 @@ public class WHM {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("data");
   }
 
   /**
@@ -135,19 +134,11 @@ public class WHM {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : WHM.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    // validate the required field `data`
-    WHMData.validateJsonElement(jsonObj.get("data"));
+    // validate the optional field `data`
+    if (jsonObj.get("data") != null && !jsonObj.get("data").isJsonNull()) {
+      WHMData.validateJsonElement(jsonObj.get("data"));
+    }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

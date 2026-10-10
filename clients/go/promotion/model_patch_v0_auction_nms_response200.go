@@ -11,9 +11,7 @@ API version: promotion
 package promotion
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the PatchV0AuctionNmsResponse200 type satisfies the MappedNullable interface at compile time
@@ -22,18 +20,15 @@ var _ MappedNullable = &PatchV0AuctionNmsResponse200{}
 // PatchV0AuctionNmsResponse200 struct for PatchV0AuctionNmsResponse200
 type PatchV0AuctionNmsResponse200 struct {
 	// Результат отработки запроса
-	Nms []PatchV0AuctionNmsResponse200NmsInner `json:"nms"`
+	Nms []PatchV0AuctionNmsResponse200NmsInner `json:"nms,omitempty"`
 }
-
-type _PatchV0AuctionNmsResponse200 PatchV0AuctionNmsResponse200
 
 // NewPatchV0AuctionNmsResponse200 instantiates a new PatchV0AuctionNmsResponse200 object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPatchV0AuctionNmsResponse200(nms []PatchV0AuctionNmsResponse200NmsInner) *PatchV0AuctionNmsResponse200 {
+func NewPatchV0AuctionNmsResponse200() *PatchV0AuctionNmsResponse200 {
 	this := PatchV0AuctionNmsResponse200{}
-	this.Nms = nms
 	return &this
 }
 
@@ -45,26 +40,34 @@ func NewPatchV0AuctionNmsResponse200WithDefaults() *PatchV0AuctionNmsResponse200
 	return &this
 }
 
-// GetNms returns the Nms field value
+// GetNms returns the Nms field value if set, zero value otherwise.
 func (o *PatchV0AuctionNmsResponse200) GetNms() []PatchV0AuctionNmsResponse200NmsInner {
-	if o == nil {
+	if o == nil || IsNil(o.Nms) {
 		var ret []PatchV0AuctionNmsResponse200NmsInner
 		return ret
 	}
-
 	return o.Nms
 }
 
-// GetNmsOk returns a tuple with the Nms field value
+// GetNmsOk returns a tuple with the Nms field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PatchV0AuctionNmsResponse200) GetNmsOk() ([]PatchV0AuctionNmsResponse200NmsInner, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Nms) {
 		return nil, false
 	}
 	return o.Nms, true
 }
 
-// SetNms sets field value
+// HasNms returns a boolean if a field has been set.
+func (o *PatchV0AuctionNmsResponse200) HasNms() bool {
+	if o != nil && !IsNil(o.Nms) {
+		return true
+	}
+
+	return false
+}
+
+// SetNms gets a reference to the given []PatchV0AuctionNmsResponse200NmsInner and assigns it to the Nms field.
 func (o *PatchV0AuctionNmsResponse200) SetNms(v []PatchV0AuctionNmsResponse200NmsInner) {
 	o.Nms = v
 }
@@ -79,45 +82,10 @@ func (o PatchV0AuctionNmsResponse200) MarshalJSON() ([]byte, error) {
 
 func (o PatchV0AuctionNmsResponse200) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["nms"] = o.Nms
+	if !IsNil(o.Nms) {
+		toSerialize["nms"] = o.Nms
+	}
 	return toSerialize, nil
-}
-
-func (o *PatchV0AuctionNmsResponse200) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"nms",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varPatchV0AuctionNmsResponse200 := _PatchV0AuctionNmsResponse200{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varPatchV0AuctionNmsResponse200)
-
-	if err != nil {
-		return err
-	}
-
-	*o = PatchV0AuctionNmsResponse200(varPatchV0AuctionNmsResponse200)
-
-	return err
 }
 
 type NullablePatchV0AuctionNmsResponse200 struct {

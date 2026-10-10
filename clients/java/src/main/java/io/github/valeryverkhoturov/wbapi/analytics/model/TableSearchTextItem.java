@@ -37,126 +37,126 @@ public class TableSearchTextItem {
   public static final String SERIALIZED_NAME_TEXT = "text";
 
   @SerializedName(SERIALIZED_NAME_TEXT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String text;
 
   public static final String SERIALIZED_NAME_NM_ID = "nmId";
 
   @SerializedName(SERIALIZED_NAME_NM_ID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer nmId;
 
   public static final String SERIALIZED_NAME_SUBJECT_NAME = "subjectName";
 
   @SerializedName(SERIALIZED_NAME_SUBJECT_NAME)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String subjectName;
 
   public static final String SERIALIZED_NAME_BRAND_NAME = "brandName";
 
   @SerializedName(SERIALIZED_NAME_BRAND_NAME)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String brandName;
 
   public static final String SERIALIZED_NAME_VENDOR_CODE = "vendorCode";
 
   @SerializedName(SERIALIZED_NAME_VENDOR_CODE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String vendorCode;
 
   public static final String SERIALIZED_NAME_NAME = "name";
 
   @SerializedName(SERIALIZED_NAME_NAME)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String name;
 
   public static final String SERIALIZED_NAME_IS_CARD_RATED = "isCardRated";
 
   @SerializedName(SERIALIZED_NAME_IS_CARD_RATED)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Boolean isCardRated;
 
   public static final String SERIALIZED_NAME_RATING = "rating";
 
   @SerializedName(SERIALIZED_NAME_RATING)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private BigDecimal rating;
 
   public static final String SERIALIZED_NAME_FEEDBACK_RATING = "feedbackRating";
 
   @SerializedName(SERIALIZED_NAME_FEEDBACK_RATING)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private BigDecimal feedbackRating;
 
   public static final String SERIALIZED_NAME_PRICE = "price";
 
   @SerializedName(SERIALIZED_NAME_PRICE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private TableItemItemAllOfPrice price;
 
   public static final String SERIALIZED_NAME_FREQUENCY = "frequency";
 
   @SerializedName(SERIALIZED_NAME_FREQUENCY)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private TableSearchTextItemAllOfFrequency frequency;
 
   public static final String SERIALIZED_NAME_WEEK_FREQUENCY = "weekFrequency";
 
   @SerializedName(SERIALIZED_NAME_WEEK_FREQUENCY)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer weekFrequency;
 
   public static final String SERIALIZED_NAME_MEDIAN_POSITION = "medianPosition";
 
   @SerializedName(SERIALIZED_NAME_MEDIAN_POSITION)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private TableSearchTextItemAllOfMedianPosition medianPosition;
 
   public static final String SERIALIZED_NAME_AVG_POSITION = "avgPosition";
 
   @SerializedName(SERIALIZED_NAME_AVG_POSITION)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private TableGroupItemMetricsAvgPosition avgPosition;
 
   public static final String SERIALIZED_NAME_OPEN_CARD = "openCard";
 
   @SerializedName(SERIALIZED_NAME_OPEN_CARD)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private TableSearchTextItemAllOfOpenCard openCard;
 
   public static final String SERIALIZED_NAME_ADD_TO_CART = "addToCart";
 
   @SerializedName(SERIALIZED_NAME_ADD_TO_CART)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private TableSearchTextItemAllOfAddToCart addToCart;
 
   public static final String SERIALIZED_NAME_OPEN_TO_CART = "openToCart";
 
   @SerializedName(SERIALIZED_NAME_OPEN_TO_CART)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private TableSearchTextItemAllOfOpenToCart openToCart;
 
   public static final String SERIALIZED_NAME_ORDERS = "orders";
 
   @SerializedName(SERIALIZED_NAME_ORDERS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private TableSearchTextItemAllOfOrders orders;
 
   public static final String SERIALIZED_NAME_CART_TO_ORDER = "cartToOrder";
 
   @SerializedName(SERIALIZED_NAME_CART_TO_ORDER)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private TableSearchTextItemAllOfCartToOrder cartToOrder;
 
   public static final String SERIALIZED_NAME_VISIBILITY = "visibility";
 
   @SerializedName(SERIALIZED_NAME_VISIBILITY)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private TableSearchTextItemAllOfVisibility visibility;
 
   public TableSearchTextItem() {}
 
-  public TableSearchTextItem text(@jakarta.annotation.Nonnull String text) {
+  public TableSearchTextItem text(@jakarta.annotation.Nullable String text) {
     this.text = text;
     return this;
   }
@@ -166,16 +166,16 @@ public class TableSearchTextItem {
    *
    * @return text
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getText() {
     return text;
   }
 
-  public void setText(@jakarta.annotation.Nonnull String text) {
+  public void setText(@jakarta.annotation.Nullable String text) {
     this.text = text;
   }
 
-  public TableSearchTextItem nmId(@jakarta.annotation.Nonnull Integer nmId) {
+  public TableSearchTextItem nmId(@jakarta.annotation.Nullable Integer nmId) {
     this.nmId = nmId;
     return this;
   }
@@ -185,16 +185,16 @@ public class TableSearchTextItem {
    *
    * @return nmId
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getNmId() {
     return nmId;
   }
 
-  public void setNmId(@jakarta.annotation.Nonnull Integer nmId) {
+  public void setNmId(@jakarta.annotation.Nullable Integer nmId) {
     this.nmId = nmId;
   }
 
-  public TableSearchTextItem subjectName(@jakarta.annotation.Nonnull String subjectName) {
+  public TableSearchTextItem subjectName(@jakarta.annotation.Nullable String subjectName) {
     this.subjectName = subjectName;
     return this;
   }
@@ -204,16 +204,16 @@ public class TableSearchTextItem {
    *
    * @return subjectName
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getSubjectName() {
     return subjectName;
   }
 
-  public void setSubjectName(@jakarta.annotation.Nonnull String subjectName) {
+  public void setSubjectName(@jakarta.annotation.Nullable String subjectName) {
     this.subjectName = subjectName;
   }
 
-  public TableSearchTextItem brandName(@jakarta.annotation.Nonnull String brandName) {
+  public TableSearchTextItem brandName(@jakarta.annotation.Nullable String brandName) {
     this.brandName = brandName;
     return this;
   }
@@ -223,16 +223,16 @@ public class TableSearchTextItem {
    *
    * @return brandName
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getBrandName() {
     return brandName;
   }
 
-  public void setBrandName(@jakarta.annotation.Nonnull String brandName) {
+  public void setBrandName(@jakarta.annotation.Nullable String brandName) {
     this.brandName = brandName;
   }
 
-  public TableSearchTextItem vendorCode(@jakarta.annotation.Nonnull String vendorCode) {
+  public TableSearchTextItem vendorCode(@jakarta.annotation.Nullable String vendorCode) {
     this.vendorCode = vendorCode;
     return this;
   }
@@ -242,16 +242,16 @@ public class TableSearchTextItem {
    *
    * @return vendorCode
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getVendorCode() {
     return vendorCode;
   }
 
-  public void setVendorCode(@jakarta.annotation.Nonnull String vendorCode) {
+  public void setVendorCode(@jakarta.annotation.Nullable String vendorCode) {
     this.vendorCode = vendorCode;
   }
 
-  public TableSearchTextItem name(@jakarta.annotation.Nonnull String name) {
+  public TableSearchTextItem name(@jakarta.annotation.Nullable String name) {
     this.name = name;
     return this;
   }
@@ -261,16 +261,16 @@ public class TableSearchTextItem {
    *
    * @return name
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getName() {
     return name;
   }
 
-  public void setName(@jakarta.annotation.Nonnull String name) {
+  public void setName(@jakarta.annotation.Nullable String name) {
     this.name = name;
   }
 
-  public TableSearchTextItem isCardRated(@jakarta.annotation.Nonnull Boolean isCardRated) {
+  public TableSearchTextItem isCardRated(@jakarta.annotation.Nullable Boolean isCardRated) {
     this.isCardRated = isCardRated;
     return this;
   }
@@ -280,16 +280,16 @@ public class TableSearchTextItem {
    *
    * @return isCardRated
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Boolean getIsCardRated() {
     return isCardRated;
   }
 
-  public void setIsCardRated(@jakarta.annotation.Nonnull Boolean isCardRated) {
+  public void setIsCardRated(@jakarta.annotation.Nullable Boolean isCardRated) {
     this.isCardRated = isCardRated;
   }
 
-  public TableSearchTextItem rating(@jakarta.annotation.Nonnull BigDecimal rating) {
+  public TableSearchTextItem rating(@jakarta.annotation.Nullable BigDecimal rating) {
     this.rating = rating;
     return this;
   }
@@ -299,16 +299,17 @@ public class TableSearchTextItem {
    *
    * @return rating
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public BigDecimal getRating() {
     return rating;
   }
 
-  public void setRating(@jakarta.annotation.Nonnull BigDecimal rating) {
+  public void setRating(@jakarta.annotation.Nullable BigDecimal rating) {
     this.rating = rating;
   }
 
-  public TableSearchTextItem feedbackRating(@jakarta.annotation.Nonnull BigDecimal feedbackRating) {
+  public TableSearchTextItem feedbackRating(
+      @jakarta.annotation.Nullable BigDecimal feedbackRating) {
     this.feedbackRating = feedbackRating;
     return this;
   }
@@ -318,16 +319,16 @@ public class TableSearchTextItem {
    *
    * @return feedbackRating
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public BigDecimal getFeedbackRating() {
     return feedbackRating;
   }
 
-  public void setFeedbackRating(@jakarta.annotation.Nonnull BigDecimal feedbackRating) {
+  public void setFeedbackRating(@jakarta.annotation.Nullable BigDecimal feedbackRating) {
     this.feedbackRating = feedbackRating;
   }
 
-  public TableSearchTextItem price(@jakarta.annotation.Nonnull TableItemItemAllOfPrice price) {
+  public TableSearchTextItem price(@jakarta.annotation.Nullable TableItemItemAllOfPrice price) {
     this.price = price;
     return this;
   }
@@ -337,17 +338,17 @@ public class TableSearchTextItem {
    *
    * @return price
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public TableItemItemAllOfPrice getPrice() {
     return price;
   }
 
-  public void setPrice(@jakarta.annotation.Nonnull TableItemItemAllOfPrice price) {
+  public void setPrice(@jakarta.annotation.Nullable TableItemItemAllOfPrice price) {
     this.price = price;
   }
 
   public TableSearchTextItem frequency(
-      @jakarta.annotation.Nonnull TableSearchTextItemAllOfFrequency frequency) {
+      @jakarta.annotation.Nullable TableSearchTextItemAllOfFrequency frequency) {
     this.frequency = frequency;
     return this;
   }
@@ -357,17 +358,17 @@ public class TableSearchTextItem {
    *
    * @return frequency
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public TableSearchTextItemAllOfFrequency getFrequency() {
     return frequency;
   }
 
   public void setFrequency(
-      @jakarta.annotation.Nonnull TableSearchTextItemAllOfFrequency frequency) {
+      @jakarta.annotation.Nullable TableSearchTextItemAllOfFrequency frequency) {
     this.frequency = frequency;
   }
 
-  public TableSearchTextItem weekFrequency(@jakarta.annotation.Nonnull Integer weekFrequency) {
+  public TableSearchTextItem weekFrequency(@jakarta.annotation.Nullable Integer weekFrequency) {
     this.weekFrequency = weekFrequency;
     return this;
   }
@@ -377,17 +378,17 @@ public class TableSearchTextItem {
    *
    * @return weekFrequency
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getWeekFrequency() {
     return weekFrequency;
   }
 
-  public void setWeekFrequency(@jakarta.annotation.Nonnull Integer weekFrequency) {
+  public void setWeekFrequency(@jakarta.annotation.Nullable Integer weekFrequency) {
     this.weekFrequency = weekFrequency;
   }
 
   public TableSearchTextItem medianPosition(
-      @jakarta.annotation.Nonnull TableSearchTextItemAllOfMedianPosition medianPosition) {
+      @jakarta.annotation.Nullable TableSearchTextItemAllOfMedianPosition medianPosition) {
     this.medianPosition = medianPosition;
     return this;
   }
@@ -397,18 +398,18 @@ public class TableSearchTextItem {
    *
    * @return medianPosition
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public TableSearchTextItemAllOfMedianPosition getMedianPosition() {
     return medianPosition;
   }
 
   public void setMedianPosition(
-      @jakarta.annotation.Nonnull TableSearchTextItemAllOfMedianPosition medianPosition) {
+      @jakarta.annotation.Nullable TableSearchTextItemAllOfMedianPosition medianPosition) {
     this.medianPosition = medianPosition;
   }
 
   public TableSearchTextItem avgPosition(
-      @jakarta.annotation.Nonnull TableGroupItemMetricsAvgPosition avgPosition) {
+      @jakarta.annotation.Nullable TableGroupItemMetricsAvgPosition avgPosition) {
     this.avgPosition = avgPosition;
     return this;
   }
@@ -418,18 +419,18 @@ public class TableSearchTextItem {
    *
    * @return avgPosition
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public TableGroupItemMetricsAvgPosition getAvgPosition() {
     return avgPosition;
   }
 
   public void setAvgPosition(
-      @jakarta.annotation.Nonnull TableGroupItemMetricsAvgPosition avgPosition) {
+      @jakarta.annotation.Nullable TableGroupItemMetricsAvgPosition avgPosition) {
     this.avgPosition = avgPosition;
   }
 
   public TableSearchTextItem openCard(
-      @jakarta.annotation.Nonnull TableSearchTextItemAllOfOpenCard openCard) {
+      @jakarta.annotation.Nullable TableSearchTextItemAllOfOpenCard openCard) {
     this.openCard = openCard;
     return this;
   }
@@ -439,17 +440,17 @@ public class TableSearchTextItem {
    *
    * @return openCard
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public TableSearchTextItemAllOfOpenCard getOpenCard() {
     return openCard;
   }
 
-  public void setOpenCard(@jakarta.annotation.Nonnull TableSearchTextItemAllOfOpenCard openCard) {
+  public void setOpenCard(@jakarta.annotation.Nullable TableSearchTextItemAllOfOpenCard openCard) {
     this.openCard = openCard;
   }
 
   public TableSearchTextItem addToCart(
-      @jakarta.annotation.Nonnull TableSearchTextItemAllOfAddToCart addToCart) {
+      @jakarta.annotation.Nullable TableSearchTextItemAllOfAddToCart addToCart) {
     this.addToCart = addToCart;
     return this;
   }
@@ -459,18 +460,18 @@ public class TableSearchTextItem {
    *
    * @return addToCart
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public TableSearchTextItemAllOfAddToCart getAddToCart() {
     return addToCart;
   }
 
   public void setAddToCart(
-      @jakarta.annotation.Nonnull TableSearchTextItemAllOfAddToCart addToCart) {
+      @jakarta.annotation.Nullable TableSearchTextItemAllOfAddToCart addToCart) {
     this.addToCart = addToCart;
   }
 
   public TableSearchTextItem openToCart(
-      @jakarta.annotation.Nonnull TableSearchTextItemAllOfOpenToCart openToCart) {
+      @jakarta.annotation.Nullable TableSearchTextItemAllOfOpenToCart openToCart) {
     this.openToCart = openToCart;
     return this;
   }
@@ -480,18 +481,18 @@ public class TableSearchTextItem {
    *
    * @return openToCart
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public TableSearchTextItemAllOfOpenToCart getOpenToCart() {
     return openToCart;
   }
 
   public void setOpenToCart(
-      @jakarta.annotation.Nonnull TableSearchTextItemAllOfOpenToCart openToCart) {
+      @jakarta.annotation.Nullable TableSearchTextItemAllOfOpenToCart openToCart) {
     this.openToCart = openToCart;
   }
 
   public TableSearchTextItem orders(
-      @jakarta.annotation.Nonnull TableSearchTextItemAllOfOrders orders) {
+      @jakarta.annotation.Nullable TableSearchTextItemAllOfOrders orders) {
     this.orders = orders;
     return this;
   }
@@ -501,17 +502,17 @@ public class TableSearchTextItem {
    *
    * @return orders
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public TableSearchTextItemAllOfOrders getOrders() {
     return orders;
   }
 
-  public void setOrders(@jakarta.annotation.Nonnull TableSearchTextItemAllOfOrders orders) {
+  public void setOrders(@jakarta.annotation.Nullable TableSearchTextItemAllOfOrders orders) {
     this.orders = orders;
   }
 
   public TableSearchTextItem cartToOrder(
-      @jakarta.annotation.Nonnull TableSearchTextItemAllOfCartToOrder cartToOrder) {
+      @jakarta.annotation.Nullable TableSearchTextItemAllOfCartToOrder cartToOrder) {
     this.cartToOrder = cartToOrder;
     return this;
   }
@@ -521,18 +522,18 @@ public class TableSearchTextItem {
    *
    * @return cartToOrder
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public TableSearchTextItemAllOfCartToOrder getCartToOrder() {
     return cartToOrder;
   }
 
   public void setCartToOrder(
-      @jakarta.annotation.Nonnull TableSearchTextItemAllOfCartToOrder cartToOrder) {
+      @jakarta.annotation.Nullable TableSearchTextItemAllOfCartToOrder cartToOrder) {
     this.cartToOrder = cartToOrder;
   }
 
   public TableSearchTextItem visibility(
-      @jakarta.annotation.Nonnull TableSearchTextItemAllOfVisibility visibility) {
+      @jakarta.annotation.Nullable TableSearchTextItemAllOfVisibility visibility) {
     this.visibility = visibility;
     return this;
   }
@@ -542,13 +543,13 @@ public class TableSearchTextItem {
    *
    * @return visibility
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public TableSearchTextItemAllOfVisibility getVisibility() {
     return visibility;
   }
 
   public void setVisibility(
-      @jakarta.annotation.Nonnull TableSearchTextItemAllOfVisibility visibility) {
+      @jakarta.annotation.Nullable TableSearchTextItemAllOfVisibility visibility) {
     this.visibility = visibility;
   }
 
@@ -675,26 +676,6 @@ public class TableSearchTextItem {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("text");
-    openapiRequiredFields.add("nmId");
-    openapiRequiredFields.add("subjectName");
-    openapiRequiredFields.add("brandName");
-    openapiRequiredFields.add("vendorCode");
-    openapiRequiredFields.add("name");
-    openapiRequiredFields.add("isCardRated");
-    openapiRequiredFields.add("rating");
-    openapiRequiredFields.add("feedbackRating");
-    openapiRequiredFields.add("price");
-    openapiRequiredFields.add("frequency");
-    openapiRequiredFields.add("weekFrequency");
-    openapiRequiredFields.add("medianPosition");
-    openapiRequiredFields.add("avgPosition");
-    openapiRequiredFields.add("openCard");
-    openapiRequiredFields.add("addToCart");
-    openapiRequiredFields.add("openToCart");
-    openapiRequiredFields.add("orders");
-    openapiRequiredFields.add("cartToOrder");
-    openapiRequiredFields.add("visibility");
   }
 
   /**
@@ -724,67 +705,82 @@ public class TableSearchTextItem {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : TableSearchTextItem.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    if (!jsonObj.get("text").isJsonPrimitive()) {
+    if ((jsonObj.get("text") != null && !jsonObj.get("text").isJsonNull())
+        && !jsonObj.get("text").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `text` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("text").toString()));
     }
-    if (!jsonObj.get("subjectName").isJsonPrimitive()) {
+    if ((jsonObj.get("subjectName") != null && !jsonObj.get("subjectName").isJsonNull())
+        && !jsonObj.get("subjectName").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `subjectName` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("subjectName").toString()));
     }
-    if (!jsonObj.get("brandName").isJsonPrimitive()) {
+    if ((jsonObj.get("brandName") != null && !jsonObj.get("brandName").isJsonNull())
+        && !jsonObj.get("brandName").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `brandName` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("brandName").toString()));
     }
-    if (!jsonObj.get("vendorCode").isJsonPrimitive()) {
+    if ((jsonObj.get("vendorCode") != null && !jsonObj.get("vendorCode").isJsonNull())
+        && !jsonObj.get("vendorCode").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `vendorCode` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("vendorCode").toString()));
     }
-    if (!jsonObj.get("name").isJsonPrimitive()) {
+    if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull())
+        && !jsonObj.get("name").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `name` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("name").toString()));
     }
-    // validate the required field `price`
-    TableItemItemAllOfPrice.validateJsonElement(jsonObj.get("price"));
-    // validate the required field `frequency`
-    TableSearchTextItemAllOfFrequency.validateJsonElement(jsonObj.get("frequency"));
-    // validate the required field `medianPosition`
-    TableSearchTextItemAllOfMedianPosition.validateJsonElement(jsonObj.get("medianPosition"));
-    // validate the required field `avgPosition`
-    TableGroupItemMetricsAvgPosition.validateJsonElement(jsonObj.get("avgPosition"));
-    // validate the required field `openCard`
-    TableSearchTextItemAllOfOpenCard.validateJsonElement(jsonObj.get("openCard"));
-    // validate the required field `addToCart`
-    TableSearchTextItemAllOfAddToCart.validateJsonElement(jsonObj.get("addToCart"));
-    // validate the required field `openToCart`
-    TableSearchTextItemAllOfOpenToCart.validateJsonElement(jsonObj.get("openToCart"));
-    // validate the required field `orders`
-    TableSearchTextItemAllOfOrders.validateJsonElement(jsonObj.get("orders"));
-    // validate the required field `cartToOrder`
-    TableSearchTextItemAllOfCartToOrder.validateJsonElement(jsonObj.get("cartToOrder"));
-    // validate the required field `visibility`
-    TableSearchTextItemAllOfVisibility.validateJsonElement(jsonObj.get("visibility"));
+    // validate the optional field `price`
+    if (jsonObj.get("price") != null && !jsonObj.get("price").isJsonNull()) {
+      TableItemItemAllOfPrice.validateJsonElement(jsonObj.get("price"));
+    }
+    // validate the optional field `frequency`
+    if (jsonObj.get("frequency") != null && !jsonObj.get("frequency").isJsonNull()) {
+      TableSearchTextItemAllOfFrequency.validateJsonElement(jsonObj.get("frequency"));
+    }
+    // validate the optional field `medianPosition`
+    if (jsonObj.get("medianPosition") != null && !jsonObj.get("medianPosition").isJsonNull()) {
+      TableSearchTextItemAllOfMedianPosition.validateJsonElement(jsonObj.get("medianPosition"));
+    }
+    // validate the optional field `avgPosition`
+    if (jsonObj.get("avgPosition") != null && !jsonObj.get("avgPosition").isJsonNull()) {
+      TableGroupItemMetricsAvgPosition.validateJsonElement(jsonObj.get("avgPosition"));
+    }
+    // validate the optional field `openCard`
+    if (jsonObj.get("openCard") != null && !jsonObj.get("openCard").isJsonNull()) {
+      TableSearchTextItemAllOfOpenCard.validateJsonElement(jsonObj.get("openCard"));
+    }
+    // validate the optional field `addToCart`
+    if (jsonObj.get("addToCart") != null && !jsonObj.get("addToCart").isJsonNull()) {
+      TableSearchTextItemAllOfAddToCart.validateJsonElement(jsonObj.get("addToCart"));
+    }
+    // validate the optional field `openToCart`
+    if (jsonObj.get("openToCart") != null && !jsonObj.get("openToCart").isJsonNull()) {
+      TableSearchTextItemAllOfOpenToCart.validateJsonElement(jsonObj.get("openToCart"));
+    }
+    // validate the optional field `orders`
+    if (jsonObj.get("orders") != null && !jsonObj.get("orders").isJsonNull()) {
+      TableSearchTextItemAllOfOrders.validateJsonElement(jsonObj.get("orders"));
+    }
+    // validate the optional field `cartToOrder`
+    if (jsonObj.get("cartToOrder") != null && !jsonObj.get("cartToOrder").isJsonNull()) {
+      TableSearchTextItemAllOfCartToOrder.validateJsonElement(jsonObj.get("cartToOrder"));
+    }
+    // validate the optional field `visibility`
+    if (jsonObj.get("visibility") != null && !jsonObj.get("visibility").isJsonNull()) {
+      TableSearchTextItemAllOfVisibility.validateJsonElement(jsonObj.get("visibility"));
+    }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

@@ -34,42 +34,17 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ModelsDraftItem" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected ModelsDraftItem() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ModelsDraftItem" /> class.
-        /// </summary>
-        /// <param name="draftId">ID черновика (required).</param>
-        /// <param name="phone">Телефон пользователя, создавшего черновик (required).</param>
-        /// <param name="createdAt">Дата и время создания черновика (required).</param>
-        /// <param name="updatedAt">Дата и время последнего обновления черновика (required).</param>
-        /// <param name="skuQuantity">Количество баркодов (required).</param>
-        /// <param name="itemQuantity">Количество единиц товара (required).</param>
+        /// <param name="draftId">ID черновика.</param>
+        /// <param name="phone">Телефон пользователя, создавшего черновик.</param>
+        /// <param name="createdAt">Дата и время создания черновика.</param>
+        /// <param name="updatedAt">Дата и время последнего обновления черновика.</param>
+        /// <param name="skuQuantity">Количество баркодов.</param>
+        /// <param name="itemQuantity">Количество единиц товара.</param>
         public ModelsDraftItem(string draftId = default(string), string phone = default(string), string createdAt = default(string), string updatedAt = default(string), int skuQuantity = default(int), int itemQuantity = default(int))
         {
-            // to ensure "draftId" is required (not null)
-            if (draftId == null)
-            {
-                throw new ArgumentNullException("draftId is a required property for ModelsDraftItem and cannot be null");
-            }
             this.DraftId = draftId;
-            // to ensure "phone" is required (not null)
-            if (phone == null)
-            {
-                throw new ArgumentNullException("phone is a required property for ModelsDraftItem and cannot be null");
-            }
             this.Phone = phone;
-            // to ensure "createdAt" is required (not null)
-            if (createdAt == null)
-            {
-                throw new ArgumentNullException("createdAt is a required property for ModelsDraftItem and cannot be null");
-            }
             this.CreatedAt = createdAt;
-            // to ensure "updatedAt" is required (not null)
-            if (updatedAt == null)
-            {
-                throw new ArgumentNullException("updatedAt is a required property for ModelsDraftItem and cannot be null");
-            }
             this.UpdatedAt = updatedAt;
             this.SkuQuantity = skuQuantity;
             this.ItemQuantity = itemQuantity;
@@ -79,42 +54,42 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Model
         /// ID черновика
         /// </summary>
         /// <value>ID черновика</value>
-        [DataMember(Name = "draftId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "draftId", EmitDefaultValue = false)]
         public string DraftId { get; set; }
 
         /// <summary>
         /// Телефон пользователя, создавшего черновик
         /// </summary>
         /// <value>Телефон пользователя, создавшего черновик</value>
-        [DataMember(Name = "phone", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "phone", EmitDefaultValue = false)]
         public string Phone { get; set; }
 
         /// <summary>
         /// Дата и время создания черновика
         /// </summary>
         /// <value>Дата и время создания черновика</value>
-        [DataMember(Name = "createdAt", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "createdAt", EmitDefaultValue = false)]
         public string CreatedAt { get; set; }
 
         /// <summary>
         /// Дата и время последнего обновления черновика
         /// </summary>
         /// <value>Дата и время последнего обновления черновика</value>
-        [DataMember(Name = "updatedAt", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "updatedAt", EmitDefaultValue = false)]
         public string UpdatedAt { get; set; }
 
         /// <summary>
         /// Количество баркодов
         /// </summary>
         /// <value>Количество баркодов</value>
-        [DataMember(Name = "skuQuantity", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "skuQuantity", EmitDefaultValue = false)]
         public int SkuQuantity { get; set; }
 
         /// <summary>
         /// Количество единиц товара
         /// </summary>
         /// <value>Количество единиц товара</value>
-        [DataMember(Name = "itemQuantity", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "itemQuantity", EmitDefaultValue = false)]
         public int ItemQuantity { get; set; }
 
         /// <summary>

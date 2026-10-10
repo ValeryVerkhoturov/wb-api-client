@@ -34,26 +34,16 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PostV3SalesFunnelProductsResponse200" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected PostV3SalesFunnelProductsResponse200() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PostV3SalesFunnelProductsResponse200" /> class.
-        /// </summary>
-        /// <param name="data">data (required).</param>
+        /// <param name="data">data.</param>
         public PostV3SalesFunnelProductsResponse200(PostV3SalesFunnelProductsResponse200Data data = default(PostV3SalesFunnelProductsResponse200Data))
         {
-            // to ensure "data" is required (not null)
-            if (data == null)
-            {
-                throw new ArgumentNullException("data is a required property for PostV3SalesFunnelProductsResponse200 and cannot be null");
-            }
             this.Data = data;
         }
 
         /// <summary>
         /// Gets or Sets Data
         /// </summary>
-        [DataMember(Name = "data", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "data", EmitDefaultValue = false)]
         public PostV3SalesFunnelProductsResponse200Data Data { get; set; }
 
         /// <summary>

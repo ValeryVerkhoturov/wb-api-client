@@ -11,9 +11,7 @@ API version: order
 package orders_fbs
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataInner type satisfies the MappedNullable interface at compile time
@@ -22,18 +20,15 @@ var _ MappedNullable = &GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedRespon
 // GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataInner struct for GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataInner
 type GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataInner struct {
 	// ID предмета
-	SubjectId int32 `json:"subjectId"`
+	SubjectId *int32 `json:"subjectId,omitempty"`
 }
-
-type _GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataInner GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataInner
 
 // NewGetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataInner instantiates a new GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataInner object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataInner(subjectId int32) *GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataInner {
+func NewGetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataInner() *GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataInner {
 	this := GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataInner{}
-	this.SubjectId = subjectId
 	return &this
 }
 
@@ -45,28 +40,36 @@ func NewGetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataInnerWi
 	return &this
 }
 
-// GetSubjectId returns the SubjectId field value
+// GetSubjectId returns the SubjectId field value if set, zero value otherwise.
 func (o *GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataInner) GetSubjectId() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.SubjectId) {
 		var ret int32
 		return ret
 	}
-
-	return o.SubjectId
+	return *o.SubjectId
 }
 
-// GetSubjectIdOk returns a tuple with the SubjectId field value
+// GetSubjectIdOk returns a tuple with the SubjectId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataInner) GetSubjectIdOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.SubjectId) {
 		return nil, false
 	}
-	return &o.SubjectId, true
+	return o.SubjectId, true
 }
 
-// SetSubjectId sets field value
+// HasSubjectId returns a boolean if a field has been set.
+func (o *GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataInner) HasSubjectId() bool {
+	if o != nil && !IsNil(o.SubjectId) {
+		return true
+	}
+
+	return false
+}
+
+// SetSubjectId gets a reference to the given int32 and assigns it to the SubjectId field.
 func (o *GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataInner) SetSubjectId(v int32) {
-	o.SubjectId = v
+	o.SubjectId = &v
 }
 
 func (o GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataInner) MarshalJSON() ([]byte, error) {
@@ -79,45 +82,10 @@ func (o GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataInner) 
 
 func (o GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataInner) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["subjectId"] = o.SubjectId
+	if !IsNil(o.SubjectId) {
+		toSerialize["subjectId"] = o.SubjectId
+	}
 	return toSerialize, nil
-}
-
-func (o *GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataInner) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"subjectId",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varGetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataInner := _GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataInner{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varGetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataInner)
-
-	if err != nil {
-		return err
-	}
-
-	*o = GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataInner(varGetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataInner)
-
-	return err
 }
 
 type NullableGetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataInner struct {

@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from wb_api_client.analytics.models.table_common_metrics_sale_rate import (
     TableCommonMetricsSaleRate,
 )
@@ -31,18 +31,20 @@ class TableShippingOfficeMetrics(BaseModel):
     Общие метрики по регионам/складам отгрузки
     """  # noqa: E501
 
-    stock_count: StrictInt = Field(
-        description="Остатки на текущий день, шт.", alias="stockCount"
+    stock_count: Optional[StrictInt] = Field(
+        default=None, description="Остатки на текущий день, шт.", alias="stockCount"
     )
-    stock_sum: StrictInt = Field(
-        description="Остатки на текущий день, сумма", alias="stockSum"
+    stock_sum: Optional[StrictInt] = Field(
+        default=None, description="Остатки на текущий день, сумма", alias="stockSum"
     )
-    sale_rate: TableCommonMetricsSaleRate = Field(alias="saleRate")
-    to_client_count: StrictInt = Field(
-        description="В пути к клиенту, шт.", alias="toClientCount"
+    sale_rate: Optional[TableCommonMetricsSaleRate] = Field(
+        default=None, alias="saleRate"
     )
-    from_client_count: StrictInt = Field(
-        description="В пути от клиента, шт.", alias="fromClientCount"
+    to_client_count: Optional[StrictInt] = Field(
+        default=None, description="В пути к клиенту, шт.", alias="toClientCount"
+    )
+    from_client_count: Optional[StrictInt] = Field(
+        default=None, description="В пути от клиента, шт.", alias="fromClientCount"
     )
     __properties: ClassVar[List[str]] = [
         "stockCount",

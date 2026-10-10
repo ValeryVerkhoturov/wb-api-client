@@ -11,9 +11,7 @@ API version: analytics
 package analytics
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the SearchReportPositionChartItem type satisfies the MappedNullable interface at compile time
@@ -22,24 +20,19 @@ var _ MappedNullable = &SearchReportPositionChartItem{}
 // SearchReportPositionChartItem struct for SearchReportPositionChartItem
 type SearchReportPositionChartItem struct {
 	// Дата
-	Dt string `json:"dt"`
+	Dt *string `json:"dt,omitempty"`
 	// Средняя позиция товара в результатах поиска
-	Average int32 `json:"average"`
+	Average *int32 `json:"average,omitempty"`
 	// Медианная позиция товара в результатах поиска
-	Median int32 `json:"median"`
+	Median *int32 `json:"median,omitempty"`
 }
-
-type _SearchReportPositionChartItem SearchReportPositionChartItem
 
 // NewSearchReportPositionChartItem instantiates a new SearchReportPositionChartItem object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSearchReportPositionChartItem(dt string, average int32, median int32) *SearchReportPositionChartItem {
+func NewSearchReportPositionChartItem() *SearchReportPositionChartItem {
 	this := SearchReportPositionChartItem{}
-	this.Dt = dt
-	this.Average = average
-	this.Median = median
 	return &this
 }
 
@@ -51,76 +44,100 @@ func NewSearchReportPositionChartItemWithDefaults() *SearchReportPositionChartIt
 	return &this
 }
 
-// GetDt returns the Dt field value
+// GetDt returns the Dt field value if set, zero value otherwise.
 func (o *SearchReportPositionChartItem) GetDt() string {
-	if o == nil {
+	if o == nil || IsNil(o.Dt) {
 		var ret string
 		return ret
 	}
-
-	return o.Dt
+	return *o.Dt
 }
 
-// GetDtOk returns a tuple with the Dt field value
+// GetDtOk returns a tuple with the Dt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SearchReportPositionChartItem) GetDtOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Dt) {
 		return nil, false
 	}
-	return &o.Dt, true
+	return o.Dt, true
 }
 
-// SetDt sets field value
+// HasDt returns a boolean if a field has been set.
+func (o *SearchReportPositionChartItem) HasDt() bool {
+	if o != nil && !IsNil(o.Dt) {
+		return true
+	}
+
+	return false
+}
+
+// SetDt gets a reference to the given string and assigns it to the Dt field.
 func (o *SearchReportPositionChartItem) SetDt(v string) {
-	o.Dt = v
+	o.Dt = &v
 }
 
-// GetAverage returns the Average field value
+// GetAverage returns the Average field value if set, zero value otherwise.
 func (o *SearchReportPositionChartItem) GetAverage() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.Average) {
 		var ret int32
 		return ret
 	}
-
-	return o.Average
+	return *o.Average
 }
 
-// GetAverageOk returns a tuple with the Average field value
+// GetAverageOk returns a tuple with the Average field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SearchReportPositionChartItem) GetAverageOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Average) {
 		return nil, false
 	}
-	return &o.Average, true
+	return o.Average, true
 }
 
-// SetAverage sets field value
+// HasAverage returns a boolean if a field has been set.
+func (o *SearchReportPositionChartItem) HasAverage() bool {
+	if o != nil && !IsNil(o.Average) {
+		return true
+	}
+
+	return false
+}
+
+// SetAverage gets a reference to the given int32 and assigns it to the Average field.
 func (o *SearchReportPositionChartItem) SetAverage(v int32) {
-	o.Average = v
+	o.Average = &v
 }
 
-// GetMedian returns the Median field value
+// GetMedian returns the Median field value if set, zero value otherwise.
 func (o *SearchReportPositionChartItem) GetMedian() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.Median) {
 		var ret int32
 		return ret
 	}
-
-	return o.Median
+	return *o.Median
 }
 
-// GetMedianOk returns a tuple with the Median field value
+// GetMedianOk returns a tuple with the Median field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SearchReportPositionChartItem) GetMedianOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Median) {
 		return nil, false
 	}
-	return &o.Median, true
+	return o.Median, true
 }
 
-// SetMedian sets field value
+// HasMedian returns a boolean if a field has been set.
+func (o *SearchReportPositionChartItem) HasMedian() bool {
+	if o != nil && !IsNil(o.Median) {
+		return true
+	}
+
+	return false
+}
+
+// SetMedian gets a reference to the given int32 and assigns it to the Median field.
 func (o *SearchReportPositionChartItem) SetMedian(v int32) {
-	o.Median = v
+	o.Median = &v
 }
 
 func (o SearchReportPositionChartItem) MarshalJSON() ([]byte, error) {
@@ -133,49 +150,16 @@ func (o SearchReportPositionChartItem) MarshalJSON() ([]byte, error) {
 
 func (o SearchReportPositionChartItem) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["dt"] = o.Dt
-	toSerialize["average"] = o.Average
-	toSerialize["median"] = o.Median
+	if !IsNil(o.Dt) {
+		toSerialize["dt"] = o.Dt
+	}
+	if !IsNil(o.Average) {
+		toSerialize["average"] = o.Average
+	}
+	if !IsNil(o.Median) {
+		toSerialize["median"] = o.Median
+	}
 	return toSerialize, nil
-}
-
-func (o *SearchReportPositionChartItem) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"dt",
-		"average",
-		"median",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varSearchReportPositionChartItem := _SearchReportPositionChartItem{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varSearchReportPositionChartItem)
-
-	if err != nil {
-		return err
-	}
-
-	*o = SearchReportPositionChartItem(varSearchReportPositionChartItem)
-
-	return err
 }
 
 type NullableSearchReportPositionChartItem struct {

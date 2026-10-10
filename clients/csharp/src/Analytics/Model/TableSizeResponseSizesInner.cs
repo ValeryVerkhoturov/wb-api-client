@@ -34,31 +34,16 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TableSizeResponseSizesInner" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected TableSizeResponseSizesInner() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="TableSizeResponseSizesInner" /> class.
-        /// </summary>
-        /// <param name="name">Название размера (required).</param>
-        /// <param name="chrtID">ID размера (required).</param>
+        /// <param name="name">Название размера.</param>
+        /// <param name="chrtID">ID размера.</param>
         /// <param name="offices">Склады.</param>
-        /// <param name="metrics">metrics (required).</param>
+        /// <param name="metrics">metrics.</param>
         public TableSizeResponseSizesInner(string name = default(string), int chrtID = default(int), List<TableOfficeItem> offices = default(List<TableOfficeItem>), TableSizeResponseSizesInnerMetrics metrics = default(TableSizeResponseSizesInnerMetrics))
         {
-            // to ensure "name" is required (not null)
-            if (name == null)
-            {
-                throw new ArgumentNullException("name is a required property for TableSizeResponseSizesInner and cannot be null");
-            }
             this.Name = name;
             this.ChrtID = chrtID;
-            // to ensure "metrics" is required (not null)
-            if (metrics == null)
-            {
-                throw new ArgumentNullException("metrics is a required property for TableSizeResponseSizesInner and cannot be null");
-            }
-            this.Metrics = metrics;
             this.Offices = offices;
+            this.Metrics = metrics;
         }
 
         /// <summary>
@@ -68,7 +53,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>50</example>
         */
-        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "name", EmitDefaultValue = false)]
         public string Name { get; set; }
 
         /// <summary>
@@ -78,7 +63,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>123321</example>
         */
-        [DataMember(Name = "chrtID", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "chrtID", EmitDefaultValue = false)]
         public int ChrtID { get; set; }
 
         /// <summary>
@@ -91,7 +76,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <summary>
         /// Gets or Sets Metrics
         /// </summary>
-        [DataMember(Name = "metrics", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "metrics", EmitDefaultValue = false)]
         public TableSizeResponseSizesInnerMetrics Metrics { get; set; }
 
         /// <summary>

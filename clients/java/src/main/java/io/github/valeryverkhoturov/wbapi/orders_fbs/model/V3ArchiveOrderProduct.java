@@ -38,30 +38,30 @@ public class V3ArchiveOrderProduct {
   public static final String SERIALIZED_NAME_ARTICLE = "article";
 
   @SerializedName(SERIALIZED_NAME_ARTICLE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String article;
 
   public static final String SERIALIZED_NAME_CHRT_ID = "chrtId";
 
   @SerializedName(SERIALIZED_NAME_CHRT_ID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer chrtId;
 
   public static final String SERIALIZED_NAME_NM_ID = "nmId";
 
   @SerializedName(SERIALIZED_NAME_NM_ID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer nmId;
 
   public static final String SERIALIZED_NAME_SKUS = "skus";
 
   @SerializedName(SERIALIZED_NAME_SKUS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private List<String> skus = new ArrayList<>();
 
   public V3ArchiveOrderProduct() {}
 
-  public V3ArchiveOrderProduct article(@jakarta.annotation.Nonnull String article) {
+  public V3ArchiveOrderProduct article(@jakarta.annotation.Nullable String article) {
     this.article = article;
     return this;
   }
@@ -71,16 +71,16 @@ public class V3ArchiveOrderProduct {
    *
    * @return article
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getArticle() {
     return article;
   }
 
-  public void setArticle(@jakarta.annotation.Nonnull String article) {
+  public void setArticle(@jakarta.annotation.Nullable String article) {
     this.article = article;
   }
 
-  public V3ArchiveOrderProduct chrtId(@jakarta.annotation.Nonnull Integer chrtId) {
+  public V3ArchiveOrderProduct chrtId(@jakarta.annotation.Nullable Integer chrtId) {
     this.chrtId = chrtId;
     return this;
   }
@@ -90,16 +90,16 @@ public class V3ArchiveOrderProduct {
    *
    * @return chrtId
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getChrtId() {
     return chrtId;
   }
 
-  public void setChrtId(@jakarta.annotation.Nonnull Integer chrtId) {
+  public void setChrtId(@jakarta.annotation.Nullable Integer chrtId) {
     this.chrtId = chrtId;
   }
 
-  public V3ArchiveOrderProduct nmId(@jakarta.annotation.Nonnull Integer nmId) {
+  public V3ArchiveOrderProduct nmId(@jakarta.annotation.Nullable Integer nmId) {
     this.nmId = nmId;
     return this;
   }
@@ -109,16 +109,16 @@ public class V3ArchiveOrderProduct {
    *
    * @return nmId
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getNmId() {
     return nmId;
   }
 
-  public void setNmId(@jakarta.annotation.Nonnull Integer nmId) {
+  public void setNmId(@jakarta.annotation.Nullable Integer nmId) {
     this.nmId = nmId;
   }
 
-  public V3ArchiveOrderProduct skus(@jakarta.annotation.Nonnull List<String> skus) {
+  public V3ArchiveOrderProduct skus(@jakarta.annotation.Nullable List<String> skus) {
     this.skus = skus;
     return this;
   }
@@ -136,12 +136,12 @@ public class V3ArchiveOrderProduct {
    *
    * @return skus
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public List<String> getSkus() {
     return skus;
   }
 
-  public void setSkus(@jakarta.annotation.Nonnull List<String> skus) {
+  public void setSkus(@jakarta.annotation.Nullable List<String> skus) {
     this.skus = skus;
   }
 
@@ -200,10 +200,6 @@ public class V3ArchiveOrderProduct {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("article");
-    openapiRequiredFields.add("chrtId");
-    openapiRequiredFields.add("nmId");
-    openapiRequiredFields.add("skus");
   }
 
   /**
@@ -233,28 +229,18 @@ public class V3ArchiveOrderProduct {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : V3ArchiveOrderProduct.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    if (!jsonObj.get("article").isJsonPrimitive()) {
+    if ((jsonObj.get("article") != null && !jsonObj.get("article").isJsonNull())
+        && !jsonObj.get("article").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `article` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("article").toString()));
     }
-    // ensure the required json array is present
-    if (jsonObj.get("skus") == null) {
-      throw new IllegalArgumentException(
-          "Expected the field `linkedContent` to be an array in the JSON string but got `null`");
-    } else if (!jsonObj.get("skus").isJsonArray()) {
+    // ensure the optional json data is an array if present
+    if (jsonObj.get("skus") != null
+        && !jsonObj.get("skus").isJsonNull()
+        && !jsonObj.get("skus").isJsonArray()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `skus` to be an array in the JSON string but got `%s`",

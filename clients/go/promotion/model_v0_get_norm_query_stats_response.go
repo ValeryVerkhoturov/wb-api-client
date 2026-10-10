@@ -11,9 +11,7 @@ API version: promotion
 package promotion
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the V0GetNormQueryStatsResponse type satisfies the MappedNullable interface at compile time
@@ -21,18 +19,15 @@ var _ MappedNullable = &V0GetNormQueryStatsResponse{}
 
 // V0GetNormQueryStatsResponse Статистика по поисковым кластерам
 type V0GetNormQueryStatsResponse struct {
-	Stats []V0GetNormQueryStatsItem `json:"stats"`
+	Stats []V0GetNormQueryStatsItem `json:"stats,omitempty"`
 }
-
-type _V0GetNormQueryStatsResponse V0GetNormQueryStatsResponse
 
 // NewV0GetNormQueryStatsResponse instantiates a new V0GetNormQueryStatsResponse object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewV0GetNormQueryStatsResponse(stats []V0GetNormQueryStatsItem) *V0GetNormQueryStatsResponse {
+func NewV0GetNormQueryStatsResponse() *V0GetNormQueryStatsResponse {
 	this := V0GetNormQueryStatsResponse{}
-	this.Stats = stats
 	return &this
 }
 
@@ -44,26 +39,34 @@ func NewV0GetNormQueryStatsResponseWithDefaults() *V0GetNormQueryStatsResponse {
 	return &this
 }
 
-// GetStats returns the Stats field value
+// GetStats returns the Stats field value if set, zero value otherwise.
 func (o *V0GetNormQueryStatsResponse) GetStats() []V0GetNormQueryStatsItem {
-	if o == nil {
+	if o == nil || IsNil(o.Stats) {
 		var ret []V0GetNormQueryStatsItem
 		return ret
 	}
-
 	return o.Stats
 }
 
-// GetStatsOk returns a tuple with the Stats field value
+// GetStatsOk returns a tuple with the Stats field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *V0GetNormQueryStatsResponse) GetStatsOk() ([]V0GetNormQueryStatsItem, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Stats) {
 		return nil, false
 	}
 	return o.Stats, true
 }
 
-// SetStats sets field value
+// HasStats returns a boolean if a field has been set.
+func (o *V0GetNormQueryStatsResponse) HasStats() bool {
+	if o != nil && !IsNil(o.Stats) {
+		return true
+	}
+
+	return false
+}
+
+// SetStats gets a reference to the given []V0GetNormQueryStatsItem and assigns it to the Stats field.
 func (o *V0GetNormQueryStatsResponse) SetStats(v []V0GetNormQueryStatsItem) {
 	o.Stats = v
 }
@@ -78,45 +81,10 @@ func (o V0GetNormQueryStatsResponse) MarshalJSON() ([]byte, error) {
 
 func (o V0GetNormQueryStatsResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["stats"] = o.Stats
+	if !IsNil(o.Stats) {
+		toSerialize["stats"] = o.Stats
+	}
 	return toSerialize, nil
-}
-
-func (o *V0GetNormQueryStatsResponse) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"stats",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varV0GetNormQueryStatsResponse := _V0GetNormQueryStatsResponse{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varV0GetNormQueryStatsResponse)
-
-	if err != nil {
-		return err
-	}
-
-	*o = V0GetNormQueryStatsResponse(varV0GetNormQueryStatsResponse)
-
-	return err
 }
 
 type NullableV0GetNormQueryStatsResponse struct {

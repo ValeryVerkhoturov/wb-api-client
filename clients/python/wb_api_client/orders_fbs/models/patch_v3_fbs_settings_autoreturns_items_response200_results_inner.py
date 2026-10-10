@@ -31,8 +31,8 @@ class PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInner(BaseModel):
     PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInner
     """  # noqa: E501
 
-    chrt_id: StrictInt = Field(
-        description="ID размера товара в системе WB", alias="chrtId"
+    chrt_id: Optional[StrictInt] = Field(
+        default=None, description="ID размера товара в системе WB", alias="chrtId"
     )
     error: Optional[
         List[PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner]

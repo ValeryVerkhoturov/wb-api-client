@@ -36,24 +36,24 @@ public class TableShippingOfficeItemOfficesInner {
   public static final String SERIALIZED_NAME_OFFICE_I_D = "officeID";
 
   @SerializedName(SERIALIZED_NAME_OFFICE_I_D)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Long officeID;
 
   public static final String SERIALIZED_NAME_OFFICE_NAME = "officeName";
 
   @SerializedName(SERIALIZED_NAME_OFFICE_NAME)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String officeName;
 
   public static final String SERIALIZED_NAME_METRICS = "metrics";
 
   @SerializedName(SERIALIZED_NAME_METRICS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private TableShippingOfficeMetrics metrics;
 
   public TableShippingOfficeItemOfficesInner() {}
 
-  public TableShippingOfficeItemOfficesInner officeID(@jakarta.annotation.Nonnull Long officeID) {
+  public TableShippingOfficeItemOfficesInner officeID(@jakarta.annotation.Nullable Long officeID) {
     this.officeID = officeID;
     return this;
   }
@@ -63,17 +63,17 @@ public class TableShippingOfficeItemOfficesInner {
    *
    * @return officeID
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Long getOfficeID() {
     return officeID;
   }
 
-  public void setOfficeID(@jakarta.annotation.Nonnull Long officeID) {
+  public void setOfficeID(@jakarta.annotation.Nullable Long officeID) {
     this.officeID = officeID;
   }
 
   public TableShippingOfficeItemOfficesInner officeName(
-      @jakarta.annotation.Nonnull String officeName) {
+      @jakarta.annotation.Nullable String officeName) {
     this.officeName = officeName;
     return this;
   }
@@ -83,17 +83,17 @@ public class TableShippingOfficeItemOfficesInner {
    *
    * @return officeName
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getOfficeName() {
     return officeName;
   }
 
-  public void setOfficeName(@jakarta.annotation.Nonnull String officeName) {
+  public void setOfficeName(@jakarta.annotation.Nullable String officeName) {
     this.officeName = officeName;
   }
 
   public TableShippingOfficeItemOfficesInner metrics(
-      @jakarta.annotation.Nonnull TableShippingOfficeMetrics metrics) {
+      @jakarta.annotation.Nullable TableShippingOfficeMetrics metrics) {
     this.metrics = metrics;
     return this;
   }
@@ -103,12 +103,12 @@ public class TableShippingOfficeItemOfficesInner {
    *
    * @return metrics
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public TableShippingOfficeMetrics getMetrics() {
     return metrics;
   }
 
-  public void setMetrics(@jakarta.annotation.Nonnull TableShippingOfficeMetrics metrics) {
+  public void setMetrics(@jakarta.annotation.Nullable TableShippingOfficeMetrics metrics) {
     this.metrics = metrics;
   }
 
@@ -165,9 +165,6 @@ public class TableShippingOfficeItemOfficesInner {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("officeID");
-    openapiRequiredFields.add("officeName");
-    openapiRequiredFields.add("metrics");
   }
 
   /**
@@ -198,25 +195,18 @@ public class TableShippingOfficeItemOfficesInner {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : TableShippingOfficeItemOfficesInner.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    if (!jsonObj.get("officeName").isJsonPrimitive()) {
+    if ((jsonObj.get("officeName") != null && !jsonObj.get("officeName").isJsonNull())
+        && !jsonObj.get("officeName").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `officeName` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("officeName").toString()));
     }
-    // validate the required field `metrics`
-    TableShippingOfficeMetrics.validateJsonElement(jsonObj.get("metrics"));
+    // validate the optional field `metrics`
+    if (jsonObj.get("metrics") != null && !jsonObj.get("metrics").isJsonNull()) {
+      TableShippingOfficeMetrics.validateJsonElement(jsonObj.get("metrics"));
+    }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

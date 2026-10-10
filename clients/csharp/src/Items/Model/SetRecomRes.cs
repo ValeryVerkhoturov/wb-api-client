@@ -34,12 +34,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SetRecomRes" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected SetRecomRes() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="SetRecomRes" /> class.
-        /// </summary>
-        /// <param name="isError">Есть ли ошибки:   - &#x60;false&#x60; — ошибок нет. Запрос полностью успешен   - &#x60;true&#x60; — ошибки есть  (required).</param>
+        /// <param name="isError">Есть ли ошибки:   - &#x60;false&#x60; — ошибок нет. Запрос полностью успешен   - &#x60;true&#x60; — ошибки есть .</param>
         /// <param name="errors">Ошибки. При &#x60;\&quot;isError\&quot;:true&#x60;.</param>
         public SetRecomRes(bool isError = default(bool), List<SetRecomResErrorsInner> errors = default(List<SetRecomResErrorsInner>))
         {
@@ -54,7 +49,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /*
         <example>true</example>
         */
-        [DataMember(Name = "isError", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "isError", EmitDefaultValue = true)]
         public bool IsError { get; set; }
 
         /// <summary>

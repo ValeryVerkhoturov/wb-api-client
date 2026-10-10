@@ -36,12 +36,12 @@ public class ResponseIncorrectDate {
   public static final String SERIALIZED_NAME_ERROR = "error";
 
   @SerializedName(SERIALIZED_NAME_ERROR)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String error;
 
   public ResponseIncorrectDate() {}
 
-  public ResponseIncorrectDate error(@jakarta.annotation.Nonnull String error) {
+  public ResponseIncorrectDate error(@jakarta.annotation.Nullable String error) {
     this.error = error;
     return this;
   }
@@ -51,12 +51,12 @@ public class ResponseIncorrectDate {
    *
    * @return error
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getError() {
     return error;
   }
 
-  public void setError(@jakarta.annotation.Nonnull String error) {
+  public void setError(@jakarta.annotation.Nullable String error) {
     this.error = error;
   }
 
@@ -106,7 +106,6 @@ public class ResponseIncorrectDate {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("error");
   }
 
   /**
@@ -136,18 +135,9 @@ public class ResponseIncorrectDate {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : ResponseIncorrectDate.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    if (!jsonObj.get("error").isJsonPrimitive()) {
+    if ((jsonObj.get("error") != null && !jsonObj.get("error").isJsonNull())
+        && !jsonObj.get("error").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `error` to be a primitive type in the JSON string but got `%s`",

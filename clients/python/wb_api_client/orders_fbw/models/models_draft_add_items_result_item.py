@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from wb_api_client.orders_fbw.models.models_draft_add_items_result_error import (
     ModelsDraftAddItemsResultError,
 )
@@ -31,8 +31,10 @@ class ModelsDraftAddItemsResultItem(BaseModel):
     ModelsDraftAddItemsResultItem
     """  # noqa: E501
 
-    error: ModelsDraftAddItemsResultError = Field(description="Детали ошибки")
-    sku: StrictStr = Field(description="Баркод")
+    error: Optional[ModelsDraftAddItemsResultError] = Field(
+        default=None, description="Детали ошибки"
+    )
+    sku: Optional[StrictStr] = Field(default=None, description="Баркод")
     __properties: ClassVar[List[str]] = ["error", "sku"]
 
     model_config = ConfigDict(

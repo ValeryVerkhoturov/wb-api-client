@@ -39,7 +39,7 @@ public class V3ArchiveOrder {
   public static final String SERIALIZED_NAME_CARGO_TYPE = "cargoType";
 
   @SerializedName(SERIALIZED_NAME_CARGO_TYPE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String cargoType;
 
   public static final String SERIALIZED_NAME_COLOR_CODE = "colorCode";
@@ -51,7 +51,7 @@ public class V3ArchiveOrder {
   public static final String SERIALIZED_NAME_CREATED_AT = "createdAt";
 
   @SerializedName(SERIALIZED_NAME_CREATED_AT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String createdAt;
 
   public static final String SERIALIZED_NAME_CROSS_BORDER = "crossBorder";
@@ -63,55 +63,55 @@ public class V3ArchiveOrder {
   public static final String SERIALIZED_NAME_CROSS_BORDER_TYPE = "crossBorderType";
 
   @SerializedName(SERIALIZED_NAME_CROSS_BORDER_TYPE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String crossBorderType;
 
   public static final String SERIALIZED_NAME_ID = "id";
 
   @SerializedName(SERIALIZED_NAME_ID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer id;
 
   public static final String SERIALIZED_NAME_IS_ZERO_ORDER = "isZeroOrder";
 
   @SerializedName(SERIALIZED_NAME_IS_ZERO_ORDER)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Boolean isZeroOrder;
 
   public static final String SERIALIZED_NAME_META_DETAILS = "metaDetails";
 
   @SerializedName(SERIALIZED_NAME_META_DETAILS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private List<V3ArchiveOrderMetaDetailsInner> metaDetails = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_OPTIONS = "options";
 
   @SerializedName(SERIALIZED_NAME_OPTIONS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private V3ArchiveOrderOptions options;
 
   public static final String SERIALIZED_NAME_ORDER_UID = "orderUid";
 
   @SerializedName(SERIALIZED_NAME_ORDER_UID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String orderUid;
 
   public static final String SERIALIZED_NAME_PRICE_INFO = "priceInfo";
 
   @SerializedName(SERIALIZED_NAME_PRICE_INFO)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private V3ArchiveOrderPriceInfo priceInfo;
 
   public static final String SERIALIZED_NAME_PRODUCT = "product";
 
   @SerializedName(SERIALIZED_NAME_PRODUCT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private V3ArchiveOrderProduct product;
 
   public static final String SERIALIZED_NAME_RID = "rid";
 
   @SerializedName(SERIALIZED_NAME_RID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String rid;
 
   public static final String SERIALIZED_NAME_SCAN_PRICE = "scanPrice";
@@ -123,13 +123,13 @@ public class V3ArchiveOrder {
   public static final String SERIALIZED_NAME_STATUS = "status";
 
   @SerializedName(SERIALIZED_NAME_STATUS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private V3ArchiveOrderStatus status;
 
   public static final String SERIALIZED_NAME_STICKER_ID = "stickerId";
 
   @SerializedName(SERIALIZED_NAME_STICKER_ID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer stickerId;
 
   public static final String SERIALIZED_NAME_SUPPLY_ID = "supplyId";
@@ -141,12 +141,12 @@ public class V3ArchiveOrder {
   public static final String SERIALIZED_NAME_WAREHOUSE_ID = "warehouseId";
 
   @SerializedName(SERIALIZED_NAME_WAREHOUSE_ID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer warehouseId;
 
   public V3ArchiveOrder() {}
 
-  public V3ArchiveOrder cargoType(@jakarta.annotation.Nonnull String cargoType) {
+  public V3ArchiveOrder cargoType(@jakarta.annotation.Nullable String cargoType) {
     this.cargoType = cargoType;
     return this;
   }
@@ -157,12 +157,12 @@ public class V3ArchiveOrder {
    *
    * @return cargoType
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getCargoType() {
     return cargoType;
   }
 
-  public void setCargoType(@jakarta.annotation.Nonnull String cargoType) {
+  public void setCargoType(@jakarta.annotation.Nullable String cargoType) {
     this.cargoType = cargoType;
   }
 
@@ -185,7 +185,7 @@ public class V3ArchiveOrder {
     this.colorCode = colorCode;
   }
 
-  public V3ArchiveOrder createdAt(@jakarta.annotation.Nonnull String createdAt) {
+  public V3ArchiveOrder createdAt(@jakarta.annotation.Nullable String createdAt) {
     this.createdAt = createdAt;
     return this;
   }
@@ -195,12 +195,12 @@ public class V3ArchiveOrder {
    *
    * @return createdAt
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getCreatedAt() {
     return createdAt;
   }
 
-  public void setCreatedAt(@jakarta.annotation.Nonnull String createdAt) {
+  public void setCreatedAt(@jakarta.annotation.Nullable String createdAt) {
     this.createdAt = createdAt;
   }
 
@@ -224,7 +224,7 @@ public class V3ArchiveOrder {
     this.crossBorder = crossBorder;
   }
 
-  public V3ArchiveOrder crossBorderType(@jakarta.annotation.Nonnull String crossBorderType) {
+  public V3ArchiveOrder crossBorderType(@jakarta.annotation.Nullable String crossBorderType) {
     this.crossBorderType = crossBorderType;
     return this;
   }
@@ -235,16 +235,16 @@ public class V3ArchiveOrder {
    *
    * @return crossBorderType
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getCrossBorderType() {
     return crossBorderType;
   }
 
-  public void setCrossBorderType(@jakarta.annotation.Nonnull String crossBorderType) {
+  public void setCrossBorderType(@jakarta.annotation.Nullable String crossBorderType) {
     this.crossBorderType = crossBorderType;
   }
 
-  public V3ArchiveOrder id(@jakarta.annotation.Nonnull Integer id) {
+  public V3ArchiveOrder id(@jakarta.annotation.Nullable Integer id) {
     this.id = id;
     return this;
   }
@@ -254,16 +254,16 @@ public class V3ArchiveOrder {
    *
    * @return id
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getId() {
     return id;
   }
 
-  public void setId(@jakarta.annotation.Nonnull Integer id) {
+  public void setId(@jakarta.annotation.Nullable Integer id) {
     this.id = id;
   }
 
-  public V3ArchiveOrder isZeroOrder(@jakarta.annotation.Nonnull Boolean isZeroOrder) {
+  public V3ArchiveOrder isZeroOrder(@jakarta.annotation.Nullable Boolean isZeroOrder) {
     this.isZeroOrder = isZeroOrder;
     return this;
   }
@@ -274,17 +274,17 @@ public class V3ArchiveOrder {
    *
    * @return isZeroOrder
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Boolean getIsZeroOrder() {
     return isZeroOrder;
   }
 
-  public void setIsZeroOrder(@jakarta.annotation.Nonnull Boolean isZeroOrder) {
+  public void setIsZeroOrder(@jakarta.annotation.Nullable Boolean isZeroOrder) {
     this.isZeroOrder = isZeroOrder;
   }
 
   public V3ArchiveOrder metaDetails(
-      @jakarta.annotation.Nonnull List<V3ArchiveOrderMetaDetailsInner> metaDetails) {
+      @jakarta.annotation.Nullable List<V3ArchiveOrderMetaDetailsInner> metaDetails) {
     this.metaDetails = metaDetails;
     return this;
   }
@@ -302,17 +302,17 @@ public class V3ArchiveOrder {
    *
    * @return metaDetails
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public List<V3ArchiveOrderMetaDetailsInner> getMetaDetails() {
     return metaDetails;
   }
 
   public void setMetaDetails(
-      @jakarta.annotation.Nonnull List<V3ArchiveOrderMetaDetailsInner> metaDetails) {
+      @jakarta.annotation.Nullable List<V3ArchiveOrderMetaDetailsInner> metaDetails) {
     this.metaDetails = metaDetails;
   }
 
-  public V3ArchiveOrder options(@jakarta.annotation.Nonnull V3ArchiveOrderOptions options) {
+  public V3ArchiveOrder options(@jakarta.annotation.Nullable V3ArchiveOrderOptions options) {
     this.options = options;
     return this;
   }
@@ -322,16 +322,16 @@ public class V3ArchiveOrder {
    *
    * @return options
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public V3ArchiveOrderOptions getOptions() {
     return options;
   }
 
-  public void setOptions(@jakarta.annotation.Nonnull V3ArchiveOrderOptions options) {
+  public void setOptions(@jakarta.annotation.Nullable V3ArchiveOrderOptions options) {
     this.options = options;
   }
 
-  public V3ArchiveOrder orderUid(@jakarta.annotation.Nonnull String orderUid) {
+  public V3ArchiveOrder orderUid(@jakarta.annotation.Nullable String orderUid) {
     this.orderUid = orderUid;
     return this;
   }
@@ -342,16 +342,16 @@ public class V3ArchiveOrder {
    *
    * @return orderUid
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getOrderUid() {
     return orderUid;
   }
 
-  public void setOrderUid(@jakarta.annotation.Nonnull String orderUid) {
+  public void setOrderUid(@jakarta.annotation.Nullable String orderUid) {
     this.orderUid = orderUid;
   }
 
-  public V3ArchiveOrder priceInfo(@jakarta.annotation.Nonnull V3ArchiveOrderPriceInfo priceInfo) {
+  public V3ArchiveOrder priceInfo(@jakarta.annotation.Nullable V3ArchiveOrderPriceInfo priceInfo) {
     this.priceInfo = priceInfo;
     return this;
   }
@@ -361,16 +361,16 @@ public class V3ArchiveOrder {
    *
    * @return priceInfo
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public V3ArchiveOrderPriceInfo getPriceInfo() {
     return priceInfo;
   }
 
-  public void setPriceInfo(@jakarta.annotation.Nonnull V3ArchiveOrderPriceInfo priceInfo) {
+  public void setPriceInfo(@jakarta.annotation.Nullable V3ArchiveOrderPriceInfo priceInfo) {
     this.priceInfo = priceInfo;
   }
 
-  public V3ArchiveOrder product(@jakarta.annotation.Nonnull V3ArchiveOrderProduct product) {
+  public V3ArchiveOrder product(@jakarta.annotation.Nullable V3ArchiveOrderProduct product) {
     this.product = product;
     return this;
   }
@@ -380,16 +380,16 @@ public class V3ArchiveOrder {
    *
    * @return product
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public V3ArchiveOrderProduct getProduct() {
     return product;
   }
 
-  public void setProduct(@jakarta.annotation.Nonnull V3ArchiveOrderProduct product) {
+  public void setProduct(@jakarta.annotation.Nullable V3ArchiveOrderProduct product) {
     this.product = product;
   }
 
-  public V3ArchiveOrder rid(@jakarta.annotation.Nonnull String rid) {
+  public V3ArchiveOrder rid(@jakarta.annotation.Nullable String rid) {
     this.rid = rid;
     return this;
   }
@@ -413,12 +413,12 @@ public class V3ArchiveOrder {
    *
    * @return rid
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getRid() {
     return rid;
   }
 
-  public void setRid(@jakarta.annotation.Nonnull String rid) {
+  public void setRid(@jakarta.annotation.Nullable String rid) {
     this.rid = rid;
   }
 
@@ -441,7 +441,7 @@ public class V3ArchiveOrder {
     this.scanPrice = scanPrice;
   }
 
-  public V3ArchiveOrder status(@jakarta.annotation.Nonnull V3ArchiveOrderStatus status) {
+  public V3ArchiveOrder status(@jakarta.annotation.Nullable V3ArchiveOrderStatus status) {
     this.status = status;
     return this;
   }
@@ -451,16 +451,16 @@ public class V3ArchiveOrder {
    *
    * @return status
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public V3ArchiveOrderStatus getStatus() {
     return status;
   }
 
-  public void setStatus(@jakarta.annotation.Nonnull V3ArchiveOrderStatus status) {
+  public void setStatus(@jakarta.annotation.Nullable V3ArchiveOrderStatus status) {
     this.status = status;
   }
 
-  public V3ArchiveOrder stickerId(@jakarta.annotation.Nonnull Integer stickerId) {
+  public V3ArchiveOrder stickerId(@jakarta.annotation.Nullable Integer stickerId) {
     this.stickerId = stickerId;
     return this;
   }
@@ -470,12 +470,12 @@ public class V3ArchiveOrder {
    *
    * @return stickerId
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getStickerId() {
     return stickerId;
   }
 
-  public void setStickerId(@jakarta.annotation.Nonnull Integer stickerId) {
+  public void setStickerId(@jakarta.annotation.Nullable Integer stickerId) {
     this.stickerId = stickerId;
   }
 
@@ -498,7 +498,7 @@ public class V3ArchiveOrder {
     this.supplyId = supplyId;
   }
 
-  public V3ArchiveOrder warehouseId(@jakarta.annotation.Nonnull Integer warehouseId) {
+  public V3ArchiveOrder warehouseId(@jakarta.annotation.Nullable Integer warehouseId) {
     this.warehouseId = warehouseId;
     return this;
   }
@@ -508,12 +508,12 @@ public class V3ArchiveOrder {
    *
    * @return warehouseId
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getWarehouseId() {
     return warehouseId;
   }
 
-  public void setWarehouseId(@jakarta.annotation.Nonnull Integer warehouseId) {
+  public void setWarehouseId(@jakarta.annotation.Nullable Integer warehouseId) {
     this.warehouseId = warehouseId;
   }
 
@@ -632,24 +632,6 @@ public class V3ArchiveOrder {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("cargoType");
-    openapiRequiredFields.add("colorCode");
-    openapiRequiredFields.add("createdAt");
-    openapiRequiredFields.add("crossBorder");
-    openapiRequiredFields.add("crossBorderType");
-    openapiRequiredFields.add("id");
-    openapiRequiredFields.add("isZeroOrder");
-    openapiRequiredFields.add("metaDetails");
-    openapiRequiredFields.add("options");
-    openapiRequiredFields.add("orderUid");
-    openapiRequiredFields.add("priceInfo");
-    openapiRequiredFields.add("product");
-    openapiRequiredFields.add("rid");
-    openapiRequiredFields.add("scanPrice");
-    openapiRequiredFields.add("status");
-    openapiRequiredFields.add("stickerId");
-    openapiRequiredFields.add("supplyId");
-    openapiRequiredFields.add("warehouseId");
   }
 
   /**
@@ -679,18 +661,9 @@ public class V3ArchiveOrder {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : V3ArchiveOrder.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    if (!jsonObj.get("cargoType").isJsonPrimitive()) {
+    if ((jsonObj.get("cargoType") != null && !jsonObj.get("cargoType").isJsonNull())
+        && !jsonObj.get("cargoType").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `cargoType` to be a primitive type in the JSON string but got `%s`",
@@ -703,54 +676,72 @@ public class V3ArchiveOrder {
               "Expected the field `colorCode` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("colorCode").toString()));
     }
-    if (!jsonObj.get("createdAt").isJsonPrimitive()) {
+    if ((jsonObj.get("createdAt") != null && !jsonObj.get("createdAt").isJsonNull())
+        && !jsonObj.get("createdAt").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `createdAt` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("createdAt").toString()));
     }
-    // validate the required field `crossBorder`
-    V3ArchiveOrderCrossBorder.validateJsonElement(jsonObj.get("crossBorder"));
-    if (!jsonObj.get("crossBorderType").isJsonPrimitive()) {
+    // validate the optional field `crossBorder`
+    if (jsonObj.get("crossBorder") != null && !jsonObj.get("crossBorder").isJsonNull()) {
+      V3ArchiveOrderCrossBorder.validateJsonElement(jsonObj.get("crossBorder"));
+    }
+    if ((jsonObj.get("crossBorderType") != null && !jsonObj.get("crossBorderType").isJsonNull())
+        && !jsonObj.get("crossBorderType").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `crossBorderType` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("crossBorderType").toString()));
     }
-    // ensure the json data is an array
-    if (!jsonObj.get("metaDetails").isJsonArray()) {
-      throw new IllegalArgumentException(
-          String.format(
-              "Expected the field `metaDetails` to be an array in the JSON string but got `%s`",
-              jsonObj.get("metaDetails").toString()));
-    }
+    if (jsonObj.get("metaDetails") != null && !jsonObj.get("metaDetails").isJsonNull()) {
+      JsonArray jsonArraymetaDetails = jsonObj.getAsJsonArray("metaDetails");
+      if (jsonArraymetaDetails != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("metaDetails").isJsonArray()) {
+          throw new IllegalArgumentException(
+              String.format(
+                  "Expected the field `metaDetails` to be an array in the JSON string but got `%s`",
+                  jsonObj.get("metaDetails").toString()));
+        }
 
-    JsonArray jsonArraymetaDetails = jsonObj.getAsJsonArray("metaDetails");
-    // validate the required field `metaDetails` (array)
-    for (int i = 0; i < jsonArraymetaDetails.size(); i++) {
-      V3ArchiveOrderMetaDetailsInner.validateJsonElement(jsonArraymetaDetails.get(i));
+        // validate the optional field `metaDetails` (array)
+        for (int i = 0; i < jsonArraymetaDetails.size(); i++) {
+          V3ArchiveOrderMetaDetailsInner.validateJsonElement(jsonArraymetaDetails.get(i));
+        }
+        ;
+      }
     }
-    ;
-    // validate the required field `options`
-    V3ArchiveOrderOptions.validateJsonElement(jsonObj.get("options"));
-    if (!jsonObj.get("orderUid").isJsonPrimitive()) {
+    // validate the optional field `options`
+    if (jsonObj.get("options") != null && !jsonObj.get("options").isJsonNull()) {
+      V3ArchiveOrderOptions.validateJsonElement(jsonObj.get("options"));
+    }
+    if ((jsonObj.get("orderUid") != null && !jsonObj.get("orderUid").isJsonNull())
+        && !jsonObj.get("orderUid").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `orderUid` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("orderUid").toString()));
     }
-    // validate the required field `priceInfo`
-    V3ArchiveOrderPriceInfo.validateJsonElement(jsonObj.get("priceInfo"));
-    // validate the required field `product`
-    V3ArchiveOrderProduct.validateJsonElement(jsonObj.get("product"));
-    if (!jsonObj.get("rid").isJsonPrimitive()) {
+    // validate the optional field `priceInfo`
+    if (jsonObj.get("priceInfo") != null && !jsonObj.get("priceInfo").isJsonNull()) {
+      V3ArchiveOrderPriceInfo.validateJsonElement(jsonObj.get("priceInfo"));
+    }
+    // validate the optional field `product`
+    if (jsonObj.get("product") != null && !jsonObj.get("product").isJsonNull()) {
+      V3ArchiveOrderProduct.validateJsonElement(jsonObj.get("product"));
+    }
+    if ((jsonObj.get("rid") != null && !jsonObj.get("rid").isJsonNull())
+        && !jsonObj.get("rid").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `rid` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("rid").toString()));
     }
-    // validate the required field `status`
-    V3ArchiveOrderStatus.validateJsonElement(jsonObj.get("status"));
+    // validate the optional field `status`
+    if (jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull()) {
+      V3ArchiveOrderStatus.validateJsonElement(jsonObj.get("status"));
+    }
     if ((jsonObj.get("supplyId") != null && !jsonObj.get("supplyId").isJsonNull())
         && !jsonObj.get("supplyId").isJsonPrimitive()) {
       throw new IllegalArgumentException(

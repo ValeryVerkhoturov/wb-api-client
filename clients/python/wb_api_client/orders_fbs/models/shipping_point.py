@@ -27,7 +27,7 @@ from pydantic import (
     StrictStr,
     field_validator,
 )
-from typing import Any, ClassVar, Dict, List, Union
+from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -37,22 +37,29 @@ class ShippingPoint(BaseModel):
     Данные пункта отгрузки
     """  # noqa: E501
 
-    id: StrictInt = Field(description="ID пункта отгрузки")
-    name: StrictStr = Field(description="Название")
-    address: StrictStr = Field(description="Адрес")
-    city: StrictStr = Field(description="Населённый пункт")
-    office_type: StrictStr = Field(
+    id: Optional[StrictInt] = Field(default=None, description="ID пункта отгрузки")
+    name: Optional[StrictStr] = Field(default=None, description="Название")
+    address: Optional[StrictStr] = Field(default=None, description="Адрес")
+    city: Optional[StrictStr] = Field(default=None, description="Населённый пункт")
+    office_type: Optional[StrictStr] = Field(
+        default=None,
         description="Тип пункта отгрузки:   - `sc` — сортировочный центр   - `sw` — склад   - `pp` — ПВЗ ",
         alias="officeType",
     )
-    cargo_types: List[StrictInt] = Field(
+    cargo_types: Optional[List[StrictInt]] = Field(
+        default=None,
         description="Типы товаров, которые принимает пункт отгрузки:   - `1` — малогабаритный товар (МГТ)   - `2` — сверхгабаритный товар (СГТ)   - `3` — крупногабаритный товар (КГТ+) ",
         alias="cargoTypes",
     )
-    latitude: Union[StrictFloat, StrictInt] = Field(description="Широта")
-    longitude: Union[StrictFloat, StrictInt] = Field(description="Долгота")
-    fulfillment: StrictBool = Field(
-        description="Услуга **Фулфилмент в СЦ** для поставки по модели FBS:   - `true` — доступна   - `false` — недоступна "
+    latitude: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None, description="Широта"
+    )
+    longitude: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None, description="Долгота"
+    )
+    fulfillment: Optional[StrictBool] = Field(
+        default=None,
+        description="Услуга **Фулфилмент в СЦ** для поставки по модели FBS:   - `true` — доступна   - `false` — недоступна ",
     )
     __properties: ClassVar[List[str]] = [
         "id",
@@ -69,6 +76,9 @@ class ShippingPoint(BaseModel):
     @field_validator("office_type")
     def office_type_validate_enum(cls, value):
         """Validates the enum"""
+        if value is None:
+            return value
+
         if value not in set(["sc", "sw", "pp"]):
             raise ValueError("must be one of enum values ('sc', 'sw', 'pp')")
         return value
@@ -76,6 +86,9 @@ class ShippingPoint(BaseModel):
     @field_validator("cargo_types")
     def cargo_types_validate_enum(cls, value):
         """Validates the enum"""
+        if value is None:
+            return value
+
         for i in value:
             if i not in set([1, 2, 3]):
                 raise ValueError("each list item must be one of (1, 2, 3)")

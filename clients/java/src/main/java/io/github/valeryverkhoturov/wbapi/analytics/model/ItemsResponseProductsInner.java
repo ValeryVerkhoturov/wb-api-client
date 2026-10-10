@@ -36,19 +36,19 @@ public class ItemsResponseProductsInner {
   public static final String SERIALIZED_NAME_PRODUCT = "product";
 
   @SerializedName(SERIALIZED_NAME_PRODUCT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private ItemsResponseProductsInnerProduct product;
 
   public static final String SERIALIZED_NAME_STATISTIC = "statistic";
 
   @SerializedName(SERIALIZED_NAME_STATISTIC)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private ItemsResponseProductsInnerStatistic statistic;
 
   public ItemsResponseProductsInner() {}
 
   public ItemsResponseProductsInner product(
-      @jakarta.annotation.Nonnull ItemsResponseProductsInnerProduct product) {
+      @jakarta.annotation.Nullable ItemsResponseProductsInnerProduct product) {
     this.product = product;
     return this;
   }
@@ -58,17 +58,17 @@ public class ItemsResponseProductsInner {
    *
    * @return product
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public ItemsResponseProductsInnerProduct getProduct() {
     return product;
   }
 
-  public void setProduct(@jakarta.annotation.Nonnull ItemsResponseProductsInnerProduct product) {
+  public void setProduct(@jakarta.annotation.Nullable ItemsResponseProductsInnerProduct product) {
     this.product = product;
   }
 
   public ItemsResponseProductsInner statistic(
-      @jakarta.annotation.Nonnull ItemsResponseProductsInnerStatistic statistic) {
+      @jakarta.annotation.Nullable ItemsResponseProductsInnerStatistic statistic) {
     this.statistic = statistic;
     return this;
   }
@@ -78,13 +78,13 @@ public class ItemsResponseProductsInner {
    *
    * @return statistic
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public ItemsResponseProductsInnerStatistic getStatistic() {
     return statistic;
   }
 
   public void setStatistic(
-      @jakarta.annotation.Nonnull ItemsResponseProductsInnerStatistic statistic) {
+      @jakarta.annotation.Nullable ItemsResponseProductsInnerStatistic statistic) {
     this.statistic = statistic;
   }
 
@@ -137,8 +137,6 @@ public class ItemsResponseProductsInner {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("product");
-    openapiRequiredFields.add("statistic");
   }
 
   /**
@@ -168,21 +166,15 @@ public class ItemsResponseProductsInner {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : ItemsResponseProductsInner.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    // validate the required field `product`
-    ItemsResponseProductsInnerProduct.validateJsonElement(jsonObj.get("product"));
-    // validate the required field `statistic`
-    ItemsResponseProductsInnerStatistic.validateJsonElement(jsonObj.get("statistic"));
+    // validate the optional field `product`
+    if (jsonObj.get("product") != null && !jsonObj.get("product").isJsonNull()) {
+      ItemsResponseProductsInnerProduct.validateJsonElement(jsonObj.get("product"));
+    }
+    // validate the optional field `statistic`
+    if (jsonObj.get("statistic") != null && !jsonObj.get("statistic").isJsonNull()) {
+      ItemsResponseProductsInnerStatistic.validateJsonElement(jsonObj.get("statistic"));
+    }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

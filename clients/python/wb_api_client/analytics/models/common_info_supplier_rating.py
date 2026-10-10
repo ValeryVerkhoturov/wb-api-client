@@ -28,8 +28,8 @@ class CommonInfoSupplierRating(BaseModel):
     Рейтинг продавца
     """  # noqa: E501
 
-    current: Union[StrictFloat, StrictInt] = Field(
-        description="Текущий рейтинг продавца"
+    current: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None, description="Текущий рейтинг продавца"
     )
     dynamics: Optional[Union[StrictFloat, StrictInt]] = Field(
         default=None, description="Динамика по сравнению с предыдущим периодом, %"

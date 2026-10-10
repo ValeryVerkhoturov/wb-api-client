@@ -34,23 +34,13 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PatchV1BidsResponse200BidsInnerNmBidsInner" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected PatchV1BidsResponse200BidsInnerNmBidsInner() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PatchV1BidsResponse200BidsInnerNmBidsInner" /> class.
-        /// </summary>
-        /// <param name="nmId">Артикул WB (required).</param>
-        /// <param name="bidKopecks">Ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) (required).</param>
-        /// <param name="placement">Место размещения:   - &#x60;search&#x60; — в поиске   - &#x60;recommendations&#x60;— в рекомендациях  (required).</param>
+        /// <param name="nmId">Артикул WB.</param>
+        /// <param name="bidKopecks">Ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).</param>
+        /// <param name="placement">Место размещения:   - &#x60;search&#x60; — в поиске   - &#x60;recommendations&#x60;— в рекомендациях .</param>
         public PatchV1BidsResponse200BidsInnerNmBidsInner(long nmId = default(long), long bidKopecks = default(long), string placement = default(string))
         {
             this.NmId = nmId;
             this.BidKopecks = bidKopecks;
-            // to ensure "placement" is required (not null)
-            if (placement == null)
-            {
-                throw new ArgumentNullException("placement is a required property for PatchV1BidsResponse200BidsInnerNmBidsInner and cannot be null");
-            }
             this.Placement = placement;
         }
 
@@ -58,21 +48,21 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// Артикул WB
         /// </summary>
         /// <value>Артикул WB</value>
-        [DataMember(Name = "nm_id", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "nm_id", EmitDefaultValue = false)]
         public long NmId { get; set; }
 
         /// <summary>
         /// Ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
         /// </summary>
         /// <value>Ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)</value>
-        [DataMember(Name = "bid_kopecks", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "bid_kopecks", EmitDefaultValue = false)]
         public long BidKopecks { get; set; }
 
         /// <summary>
         /// Место размещения:   - &#x60;search&#x60; — в поиске   - &#x60;recommendations&#x60;— в рекомендациях 
         /// </summary>
         /// <value>Место размещения:   - &#x60;search&#x60; — в поиске   - &#x60;recommendations&#x60;— в рекомендациях </value>
-        [DataMember(Name = "placement", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "placement", EmitDefaultValue = false)]
         public string Placement { get; set; }
 
         /// <summary>

@@ -34,29 +34,19 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="History" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected History() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="History" /> class.
-        /// </summary>
-        /// <param name="date">Дата сбора статистики (required).</param>
-        /// <param name="openCount">Количество переходов в карточку товара (required).</param>
-        /// <param name="cartCount">Положили в корзину, шт. (required).</param>
-        /// <param name="orderCount">Заказали товаров, шт. (required).</param>
-        /// <param name="orderSum">Заказали на сумму (required).</param>
-        /// <param name="buyoutCount">Выкупили товаров, шт. (required).</param>
-        /// <param name="buyoutSum">Выкупили на сумму (required).</param>
-        /// <param name="buyoutPercent">Процент выкупа (required).</param>
-        /// <param name="addToCartConversion">Конверсия в корзину. Какой процент посетителей, открывших карточку товара, добавили товар в корзину, % (required).</param>
-        /// <param name="cartToOrderConversion">Конверсия в заказ. Какой процент посетителей, добавивших товар в корзину, сделали заказ (required).</param>
-        /// <param name="addToWishlistCount">Количество добавлений товара в **Отложенные** (required).</param>
+        /// <param name="date">Дата сбора статистики.</param>
+        /// <param name="openCount">Количество переходов в карточку товара.</param>
+        /// <param name="cartCount">Положили в корзину, шт..</param>
+        /// <param name="orderCount">Заказали товаров, шт..</param>
+        /// <param name="orderSum">Заказали на сумму.</param>
+        /// <param name="buyoutCount">Выкупили товаров, шт..</param>
+        /// <param name="buyoutSum">Выкупили на сумму.</param>
+        /// <param name="buyoutPercent">Процент выкупа.</param>
+        /// <param name="addToCartConversion">Конверсия в корзину. Какой процент посетителей, открывших карточку товара, добавили товар в корзину, %.</param>
+        /// <param name="cartToOrderConversion">Конверсия в заказ. Какой процент посетителей, добавивших товар в корзину, сделали заказ.</param>
+        /// <param name="addToWishlistCount">Количество добавлений товара в **Отложенные**.</param>
         public History(string date = default(string), int openCount = default(int), int cartCount = default(int), int orderCount = default(int), int orderSum = default(int), int buyoutCount = default(int), int buyoutSum = default(int), int buyoutPercent = default(int), int addToCartConversion = default(int), int cartToOrderConversion = default(int), int addToWishlistCount = default(int))
         {
-            // to ensure "date" is required (not null)
-            if (date == null)
-            {
-                throw new ArgumentNullException("date is a required property for History and cannot be null");
-            }
             this.Date = date;
             this.OpenCount = openCount;
             this.CartCount = cartCount;
@@ -77,7 +67,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>2024-10-23</example>
         */
-        [DataMember(Name = "date", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "date", EmitDefaultValue = false)]
         public string Date { get; set; }
 
         /// <summary>
@@ -87,7 +77,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>45</example>
         */
-        [DataMember(Name = "openCount", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "openCount", EmitDefaultValue = false)]
         public int OpenCount { get; set; }
 
         /// <summary>
@@ -97,7 +87,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>34</example>
         */
-        [DataMember(Name = "cartCount", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "cartCount", EmitDefaultValue = false)]
         public int CartCount { get; set; }
 
         /// <summary>
@@ -107,7 +97,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>19</example>
         */
-        [DataMember(Name = "orderCount", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "orderCount", EmitDefaultValue = false)]
         public int OrderCount { get; set; }
 
         /// <summary>
@@ -117,7 +107,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>1262</example>
         */
-        [DataMember(Name = "orderSum", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "orderSum", EmitDefaultValue = false)]
         public int OrderSum { get; set; }
 
         /// <summary>
@@ -127,7 +117,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>19</example>
         */
-        [DataMember(Name = "buyoutCount", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "buyoutCount", EmitDefaultValue = false)]
         public int BuyoutCount { get; set; }
 
         /// <summary>
@@ -137,7 +127,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>1262</example>
         */
-        [DataMember(Name = "buyoutSum", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "buyoutSum", EmitDefaultValue = false)]
         public int BuyoutSum { get; set; }
 
         /// <summary>
@@ -147,7 +137,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>35</example>
         */
-        [DataMember(Name = "buyoutPercent", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "buyoutPercent", EmitDefaultValue = false)]
         public int BuyoutPercent { get; set; }
 
         /// <summary>
@@ -157,21 +147,21 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>43</example>
         */
-        [DataMember(Name = "addToCartConversion", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "addToCartConversion", EmitDefaultValue = false)]
         public int AddToCartConversion { get; set; }
 
         /// <summary>
         /// Конверсия в заказ. Какой процент посетителей, добавивших товар в корзину, сделали заказ
         /// </summary>
         /// <value>Конверсия в заказ. Какой процент посетителей, добавивших товар в корзину, сделали заказ</value>
-        [DataMember(Name = "cartToOrderConversion", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "cartToOrderConversion", EmitDefaultValue = false)]
         public int CartToOrderConversion { get; set; }
 
         /// <summary>
         /// Количество добавлений товара в **Отложенные**
         /// </summary>
         /// <value>Количество добавлений товара в **Отложенные**</value>
-        [DataMember(Name = "addToWishlistCount", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "addToWishlistCount", EmitDefaultValue = false)]
         public int AddToWishlistCount { get; set; }
 
         /// <summary>

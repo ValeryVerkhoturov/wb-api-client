@@ -34,26 +34,11 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemOrdersResponse" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected ItemOrdersResponse() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ItemOrdersResponse" /> class.
-        /// </summary>
-        /// <param name="total">Итог по товарам (required).</param>
-        /// <param name="items">Элементы таблицы (required).</param>
+        /// <param name="total">Итог по товарам.</param>
+        /// <param name="items">Элементы таблицы.</param>
         public ItemOrdersResponse(List<ItemOrdersMetrics> total = default(List<ItemOrdersMetrics>), List<ItemOrdersTextItem> items = default(List<ItemOrdersTextItem>))
         {
-            // to ensure "total" is required (not null)
-            if (total == null)
-            {
-                throw new ArgumentNullException("total is a required property for ItemOrdersResponse and cannot be null");
-            }
             this.Total = total;
-            // to ensure "items" is required (not null)
-            if (items == null)
-            {
-                throw new ArgumentNullException("items is a required property for ItemOrdersResponse and cannot be null");
-            }
             this.Items = items;
         }
 
@@ -61,14 +46,14 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// Итог по товарам
         /// </summary>
         /// <value>Итог по товарам</value>
-        [DataMember(Name = "total", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "total", EmitDefaultValue = false)]
         public List<ItemOrdersMetrics> Total { get; set; }
 
         /// <summary>
         /// Элементы таблицы
         /// </summary>
         /// <value>Элементы таблицы</value>
-        [DataMember(Name = "items", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "items", EmitDefaultValue = false)]
         public List<ItemOrdersTextItem> Items { get; set; }
 
         /// <summary>

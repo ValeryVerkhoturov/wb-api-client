@@ -34,41 +34,16 @@ namespace ValeryVerkhoturov.WbApiClient.General.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ErrorResponse" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected ErrorResponse() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ErrorResponse" /> class.
-        /// </summary>
-        /// <param name="title">Заголовок ошибки (required).</param>
-        /// <param name="detail">Детали ошибки (required).</param>
-        /// <param name="requestId">ID запроса (required).</param>
-        /// <param name="origin">Название внутреннего сервиса (required).</param>
-        /// <param name="status">HTTP статус-код (required).</param>
+        /// <param name="title">Заголовок ошибки.</param>
+        /// <param name="detail">Детали ошибки.</param>
+        /// <param name="requestId">ID запроса.</param>
+        /// <param name="origin">Название внутреннего сервиса.</param>
+        /// <param name="status">HTTP статус-код.</param>
         public ErrorResponse(string title = default(string), string detail = default(string), string requestId = default(string), string origin = default(string), decimal status = default(decimal))
         {
-            // to ensure "title" is required (not null)
-            if (title == null)
-            {
-                throw new ArgumentNullException("title is a required property for ErrorResponse and cannot be null");
-            }
             this.Title = title;
-            // to ensure "detail" is required (not null)
-            if (detail == null)
-            {
-                throw new ArgumentNullException("detail is a required property for ErrorResponse and cannot be null");
-            }
             this.Detail = detail;
-            // to ensure "requestId" is required (not null)
-            if (requestId == null)
-            {
-                throw new ArgumentNullException("requestId is a required property for ErrorResponse and cannot be null");
-            }
             this.RequestId = requestId;
-            // to ensure "origin" is required (not null)
-            if (origin == null)
-            {
-                throw new ArgumentNullException("origin is a required property for ErrorResponse and cannot be null");
-            }
             this.Origin = origin;
             this.Status = status;
         }
@@ -77,35 +52,35 @@ namespace ValeryVerkhoturov.WbApiClient.General.Model
         /// Заголовок ошибки
         /// </summary>
         /// <value>Заголовок ошибки</value>
-        [DataMember(Name = "title", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "title", EmitDefaultValue = false)]
         public string Title { get; set; }
 
         /// <summary>
         /// Детали ошибки
         /// </summary>
         /// <value>Детали ошибки</value>
-        [DataMember(Name = "detail", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "detail", EmitDefaultValue = false)]
         public string Detail { get; set; }
 
         /// <summary>
         /// ID запроса
         /// </summary>
         /// <value>ID запроса</value>
-        [DataMember(Name = "requestId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "requestId", EmitDefaultValue = false)]
         public string RequestId { get; set; }
 
         /// <summary>
         /// Название внутреннего сервиса
         /// </summary>
         /// <value>Название внутреннего сервиса</value>
-        [DataMember(Name = "origin", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "origin", EmitDefaultValue = false)]
         public string Origin { get; set; }
 
         /// <summary>
         /// HTTP статус-код
         /// </summary>
         /// <value>HTTP статус-код</value>
-        [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "status", EmitDefaultValue = false)]
         public decimal Status { get; set; }
 
         /// <summary>

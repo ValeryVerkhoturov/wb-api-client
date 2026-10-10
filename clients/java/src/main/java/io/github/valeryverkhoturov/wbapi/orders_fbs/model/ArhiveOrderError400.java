@@ -45,7 +45,7 @@ public class ArhiveOrderError400 {
   public static final String SERIALIZED_NAME_DETAIL = "detail";
 
   @SerializedName(SERIALIZED_NAME_DETAIL)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String detail;
 
   public static final String SERIALIZED_NAME_ERRORS = "errors";
@@ -75,7 +75,7 @@ public class ArhiveOrderError400 {
   public static final String SERIALIZED_NAME_TITLE = "title";
 
   @SerializedName(SERIALIZED_NAME_TITLE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String title;
 
   public ArhiveOrderError400() {}
@@ -99,7 +99,7 @@ public class ArhiveOrderError400 {
     this.code = code;
   }
 
-  public ArhiveOrderError400 detail(@jakarta.annotation.Nonnull String detail) {
+  public ArhiveOrderError400 detail(@jakarta.annotation.Nullable String detail) {
     this.detail = detail;
     return this;
   }
@@ -109,12 +109,12 @@ public class ArhiveOrderError400 {
    *
    * @return detail
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getDetail() {
     return detail;
   }
 
-  public void setDetail(@jakarta.annotation.Nonnull String detail) {
+  public void setDetail(@jakarta.annotation.Nullable String detail) {
     this.detail = detail;
   }
 
@@ -203,7 +203,7 @@ public class ArhiveOrderError400 {
     this.status = status;
   }
 
-  public ArhiveOrderError400 title(@jakarta.annotation.Nonnull String title) {
+  public ArhiveOrderError400 title(@jakarta.annotation.Nullable String title) {
     this.title = title;
     return this;
   }
@@ -213,12 +213,12 @@ public class ArhiveOrderError400 {
    *
    * @return title
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getTitle() {
     return title;
   }
 
-  public void setTitle(@jakarta.annotation.Nonnull String title) {
+  public void setTitle(@jakarta.annotation.Nullable String title) {
     this.title = title;
   }
 
@@ -286,8 +286,6 @@ public class ArhiveOrderError400 {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("detail");
-    openapiRequiredFields.add("title");
   }
 
   /**
@@ -317,16 +315,6 @@ public class ArhiveOrderError400 {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : ArhiveOrderError400.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
     if ((jsonObj.get("code") != null && !jsonObj.get("code").isJsonNull())
         && !jsonObj.get("code").isJsonPrimitive()) {
@@ -335,7 +323,8 @@ public class ArhiveOrderError400 {
               "Expected the field `code` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("code").toString()));
     }
-    if (!jsonObj.get("detail").isJsonPrimitive()) {
+    if ((jsonObj.get("detail") != null && !jsonObj.get("detail").isJsonNull())
+        && !jsonObj.get("detail").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `detail` to be a primitive type in the JSON string but got `%s`",
@@ -373,7 +362,8 @@ public class ArhiveOrderError400 {
               "Expected the field `requestId` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("requestId").toString()));
     }
-    if (!jsonObj.get("title").isJsonPrimitive()) {
+    if ((jsonObj.get("title") != null && !jsonObj.get("title").isJsonNull())
+        && !jsonObj.get("title").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `title` to be a primitive type in the JSON string but got `%s`",

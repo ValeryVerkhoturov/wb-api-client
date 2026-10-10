@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List, Union
+from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,10 +28,10 @@ class FloatGraphByPeriodItem(BaseModel):
     Среднее количество заказов за месяц
     """  # noqa: E501
 
-    start: StrictStr = Field(description="Начало месяца")
-    end: StrictStr = Field(description="Конец месяца")
-    value: Union[StrictFloat, StrictInt] = Field(
-        description="Среднее количество заказов"
+    start: Optional[StrictStr] = Field(default=None, description="Начало месяца")
+    end: Optional[StrictStr] = Field(default=None, description="Конец месяца")
+    value: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None, description="Среднее количество заказов"
     )
     __properties: ClassVar[List[str]] = ["start", "end", "value"]
 

@@ -39,7 +39,7 @@ public class StatInterval {
   public static final String SERIALIZED_NAME_INTERVAL = "interval";
 
   @SerializedName(SERIALIZED_NAME_INTERVAL)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private StatIntervalInterval interval;
 
   public static final String SERIALIZED_NAME_STATS = "stats";
@@ -50,7 +50,7 @@ public class StatInterval {
 
   public StatInterval() {}
 
-  public StatInterval interval(@jakarta.annotation.Nonnull StatIntervalInterval interval) {
+  public StatInterval interval(@jakarta.annotation.Nullable StatIntervalInterval interval) {
     this.interval = interval;
     return this;
   }
@@ -60,12 +60,12 @@ public class StatInterval {
    *
    * @return interval
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public StatIntervalInterval getInterval() {
     return interval;
   }
 
-  public void setInterval(@jakarta.annotation.Nonnull StatIntervalInterval interval) {
+  public void setInterval(@jakarta.annotation.Nullable StatIntervalInterval interval) {
     this.interval = interval;
   }
 
@@ -145,7 +145,6 @@ public class StatInterval {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("interval");
   }
 
   /**
@@ -175,19 +174,11 @@ public class StatInterval {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : StatInterval.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    // validate the required field `interval`
-    StatIntervalInterval.validateJsonElement(jsonObj.get("interval"));
+    // validate the optional field `interval`
+    if (jsonObj.get("interval") != null && !jsonObj.get("interval").isJsonNull()) {
+      StatIntervalInterval.validateJsonElement(jsonObj.get("interval"));
+    }
     if (jsonObj.get("stats") != null && !jsonObj.get("stats").isJsonNull()) {
       JsonArray jsonArraystats = jsonObj.getAsJsonArray("stats");
       if (jsonArraystats != null) {

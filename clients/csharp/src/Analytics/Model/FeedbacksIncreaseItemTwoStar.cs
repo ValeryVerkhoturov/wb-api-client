@@ -34,19 +34,14 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FeedbacksIncreaseItemTwoStar" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected FeedbacksIncreaseItemTwoStar() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="FeedbacksIncreaseItemTwoStar" /> class.
-        /// </summary>
-        /// <param name="current">Прирост оценок за период (required).</param>
+        /// <param name="current">Прирост оценок за период.</param>
         /// <param name="dynamics">Динамика по сравнению с предыдущим периодом, %.</param>
-        /// <param name="total">Всего оценок (required).</param>
+        /// <param name="total">Всего оценок.</param>
         public FeedbacksIncreaseItemTwoStar(int current = default(int), int dynamics = default(int), int total = default(int))
         {
             this.Current = current;
-            this.Total = total;
             this.Dynamics = dynamics;
+            this.Total = total;
         }
 
         /// <summary>
@@ -56,7 +51,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>5</example>
         */
-        [DataMember(Name = "current", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "current", EmitDefaultValue = false)]
         public int Current { get; set; }
 
         /// <summary>
@@ -76,7 +71,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>34</example>
         */
-        [DataMember(Name = "total", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "total", EmitDefaultValue = false)]
         public int Total { get; set; }
 
         /// <summary>

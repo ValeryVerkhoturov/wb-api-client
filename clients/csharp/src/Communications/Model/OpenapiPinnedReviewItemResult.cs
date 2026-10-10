@@ -36,22 +36,22 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         /// Метод закрепления:   - &#x60;subscription&#x60; — подписка Джем   - &#x60;tariff&#x60; — тарифная опция 
         /// </summary>
         /// <value>Метод закрепления:   - &#x60;subscription&#x60; — подписка Джем   - &#x60;tariff&#x60; — тарифная опция </value>
-        [DataMember(Name = "pinMethod", IsRequired = true, EmitDefaultValue = true)]
-        public DomainReviewPinMethod PinMethod { get; set; }
+        [DataMember(Name = "pinMethod", EmitDefaultValue = false)]
+        public DomainReviewPinMethod? PinMethod { get; set; }
 
         /// <summary>
         /// Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров 
         /// </summary>
         /// <value>Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров </value>
-        [DataMember(Name = "pinOn", IsRequired = true, EmitDefaultValue = true)]
-        public DomainReviewPinOn PinOn { get; set; }
+        [DataMember(Name = "pinOn", EmitDefaultValue = false)]
+        public DomainReviewPinOn? PinOn { get; set; }
 
         /// <summary>
         /// Закреплён ли отзыв:   - &#x60;pinned&#x60; — да   - &#x60;unpinned&#x60; — нет 
         /// </summary>
         /// <value>Закреплён ли отзыв:   - &#x60;pinned&#x60; — да   - &#x60;unpinned&#x60; — нет </value>
-        [DataMember(Name = "state", IsRequired = true, EmitDefaultValue = true)]
-        public DomainReviewState State { get; set; }
+        [DataMember(Name = "state", EmitDefaultValue = false)]
+        public DomainReviewState? State { get; set; }
         /// <summary>
         /// Причина открепления отзыва:   - &#x60;sysTariffUnpinned&#x60; — закончилась подписка или тарифная опция   - &#x60;sysLimitReached&#x60; — закончился общий лимит по подписке   - &#x60;sysNoratingUnpinned&#x60; — отзыв исключён из рейтинга. Например, удалён или забанен   - &#x60;sysAdditionalSlot&#x60; — к карточке или к группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек прикреплено максимальное количество отзывов 
         /// </summary>
@@ -97,38 +97,23 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OpenapiPinnedReviewItemResult" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected OpenapiPinnedReviewItemResult() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="OpenapiPinnedReviewItemResult" /> class.
-        /// </summary>
-        /// <param name="changeStateAt">Дата и время закрепления или открепления (required).</param>
-        /// <param name="imtId">ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров (required).</param>
-        /// <param name="nmId">Артикул WB (required).</param>
-        /// <param name="pinId">ID операции закрепления отзыва (required).</param>
-        /// <param name="pinMethod">Метод закрепления:   - &#x60;subscription&#x60; — подписка Джем   - &#x60;tariff&#x60; — тарифная опция  (required).</param>
-        /// <param name="pinOn">Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров  (required).</param>
-        /// <param name="feedbackId">ID отзыва (required).</param>
-        /// <param name="state">Закреплён ли отзыв:   - &#x60;pinned&#x60; — да   - &#x60;unpinned&#x60; — нет  (required).</param>
+        /// <param name="changeStateAt">Дата и время закрепления или открепления.</param>
+        /// <param name="imtId">ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров.</param>
+        /// <param name="nmId">Артикул WB.</param>
+        /// <param name="pinId">ID операции закрепления отзыва.</param>
+        /// <param name="pinMethod">Метод закрепления:   - &#x60;subscription&#x60; — подписка Джем   - &#x60;tariff&#x60; — тарифная опция .</param>
+        /// <param name="pinOn">Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров .</param>
+        /// <param name="feedbackId">ID отзыва.</param>
+        /// <param name="state">Закреплён ли отзыв:   - &#x60;pinned&#x60; — да   - &#x60;unpinned&#x60; — нет .</param>
         /// <param name="unpinnedCause">Причина открепления отзыва:   - &#x60;sysTariffUnpinned&#x60; — закончилась подписка или тарифная опция   - &#x60;sysLimitReached&#x60; — закончился общий лимит по подписке   - &#x60;sysNoratingUnpinned&#x60; — отзыв исключён из рейтинга. Например, удалён или забанен   - &#x60;sysAdditionalSlot&#x60; — к карточке или к группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек прикреплено максимальное количество отзывов .</param>
-        public OpenapiPinnedReviewItemResult(string changeStateAt = default(string), int imtId = default(int), int nmId = default(int), int pinId = default(int), DomainReviewPinMethod pinMethod = default(DomainReviewPinMethod), DomainReviewPinOn pinOn = default(DomainReviewPinOn), string feedbackId = default(string), DomainReviewState state = default(DomainReviewState), UnpinnedCauseEnum? unpinnedCause = default(UnpinnedCauseEnum?))
+        public OpenapiPinnedReviewItemResult(string changeStateAt = default(string), int imtId = default(int), int nmId = default(int), int pinId = default(int), DomainReviewPinMethod? pinMethod = default(DomainReviewPinMethod?), DomainReviewPinOn? pinOn = default(DomainReviewPinOn?), string feedbackId = default(string), DomainReviewState? state = default(DomainReviewState?), UnpinnedCauseEnum? unpinnedCause = default(UnpinnedCauseEnum?))
         {
-            // to ensure "changeStateAt" is required (not null)
-            if (changeStateAt == null)
-            {
-                throw new ArgumentNullException("changeStateAt is a required property for OpenapiPinnedReviewItemResult and cannot be null");
-            }
             this.ChangeStateAt = changeStateAt;
             this.ImtId = imtId;
             this.NmId = nmId;
             this.PinId = pinId;
             this.PinMethod = pinMethod;
             this.PinOn = pinOn;
-            // to ensure "feedbackId" is required (not null)
-            if (feedbackId == null)
-            {
-                throw new ArgumentNullException("feedbackId is a required property for OpenapiPinnedReviewItemResult and cannot be null");
-            }
             this.FeedbackId = feedbackId;
             this.State = state;
             this.UnpinnedCause = unpinnedCause;
@@ -141,7 +126,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         /*
         <example>2020-01-01T15:04:05Z</example>
         */
-        [DataMember(Name = "changeStateAt", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "changeStateAt", EmitDefaultValue = false)]
         public string ChangeStateAt { get; set; }
 
         /// <summary>
@@ -151,7 +136,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         /*
         <example>256971531</example>
         */
-        [DataMember(Name = "imtId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "imtId", EmitDefaultValue = false)]
         public int ImtId { get; set; }
 
         /// <summary>
@@ -161,7 +146,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         /*
         <example>177974151</example>
         */
-        [DataMember(Name = "nmId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "nmId", EmitDefaultValue = false)]
         public int NmId { get; set; }
 
         /// <summary>
@@ -171,7 +156,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         /*
         <example>1857762</example>
         */
-        [DataMember(Name = "pinId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "pinId", EmitDefaultValue = false)]
         public int PinId { get; set; }
 
         /// <summary>
@@ -181,7 +166,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         /*
         <example>DibuRAImknLyiqgzvGcU</example>
         */
-        [DataMember(Name = "feedbackId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "feedbackId", EmitDefaultValue = false)]
         public string FeedbackId { get; set; }
 
         /// <summary>

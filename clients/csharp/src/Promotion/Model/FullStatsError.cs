@@ -34,41 +34,21 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FullStatsError" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected FullStatsError() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="FullStatsError" /> class.
-        /// </summary>
         /// <param name="errors">errors.</param>
         /// <param name="detail">Детали ошибки.</param>
-        /// <param name="origin">ID внутреннего сервиса WB (required).</param>
-        /// <param name="requestId">ID запроса (required).</param>
-        /// <param name="status">HTTP статус-код (required).</param>
-        /// <param name="title">Заголовок ошибки (required).</param>
+        /// <param name="origin">ID внутреннего сервиса WB.</param>
+        /// <param name="requestId">ID запроса.</param>
+        /// <param name="status">HTTP статус-код.</param>
+        /// <param name="title">Заголовок ошибки.</param>
         /// <param name="type">Тип ошибки.</param>
         public FullStatsError(List<FullStatsErrorErrorsInner> errors = default(List<FullStatsErrorErrorsInner>), string detail = default(string), string origin = default(string), string requestId = default(string), int status = default(int), string title = default(string), string type = default(string))
         {
-            // to ensure "origin" is required (not null)
-            if (origin == null)
-            {
-                throw new ArgumentNullException("origin is a required property for FullStatsError and cannot be null");
-            }
-            this.Origin = origin;
-            // to ensure "requestId" is required (not null)
-            if (requestId == null)
-            {
-                throw new ArgumentNullException("requestId is a required property for FullStatsError and cannot be null");
-            }
-            this.RequestId = requestId;
-            this.Status = status;
-            // to ensure "title" is required (not null)
-            if (title == null)
-            {
-                throw new ArgumentNullException("title is a required property for FullStatsError and cannot be null");
-            }
-            this.Title = title;
             this.Errors = errors;
             this.Detail = detail;
+            this.Origin = origin;
+            this.RequestId = requestId;
+            this.Status = status;
+            this.Title = title;
             this.Type = type;
         }
 
@@ -89,28 +69,28 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// ID внутреннего сервиса WB
         /// </summary>
         /// <value>ID внутреннего сервиса WB</value>
-        [DataMember(Name = "origin", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "origin", EmitDefaultValue = false)]
         public string Origin { get; set; }
 
         /// <summary>
         /// ID запроса
         /// </summary>
         /// <value>ID запроса</value>
-        [DataMember(Name = "request_id", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "request_id", EmitDefaultValue = false)]
         public string RequestId { get; set; }
 
         /// <summary>
         /// HTTP статус-код
         /// </summary>
         /// <value>HTTP статус-код</value>
-        [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "status", EmitDefaultValue = false)]
         public int Status { get; set; }
 
         /// <summary>
         /// Заголовок ошибки
         /// </summary>
         /// <value>Заголовок ошибки</value>
-        [DataMember(Name = "title", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "title", EmitDefaultValue = false)]
         public string Title { get; set; }
 
         /// <summary>

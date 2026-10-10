@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from wb_api_client.orders_fbw.models.models_draft_add_items_result_item import (
     ModelsDraftAddItemsResultItem,
 )
@@ -31,8 +31,8 @@ class ModelsDraftAddItemsErrorResponse(BaseModel):
     ModelsDraftAddItemsErrorResponse
     """  # noqa: E501
 
-    results: List[ModelsDraftAddItemsResultItem] = Field(
-        description="Список невалидных баркодов с ошибками"
+    results: Optional[List[ModelsDraftAddItemsResultItem]] = Field(
+        default=None, description="Список невалидных баркодов с ошибками"
     )
     __properties: ClassVar[List[str]] = ["results"]
 

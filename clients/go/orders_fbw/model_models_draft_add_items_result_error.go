@@ -11,9 +11,7 @@ API version: ordersfbw
 package orders_fbw
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the ModelsDraftAddItemsResultError type satisfies the MappedNullable interface at compile time
@@ -22,21 +20,17 @@ var _ MappedNullable = &ModelsDraftAddItemsResultError{}
 // ModelsDraftAddItemsResultError struct for ModelsDraftAddItemsResultError
 type ModelsDraftAddItemsResultError struct {
 	// Детали ошибки
-	Detail string `json:"detail"`
+	Detail *string `json:"detail,omitempty"`
 	// Заголовок ошибки
-	Title string `json:"title"`
+	Title *string `json:"title,omitempty"`
 }
-
-type _ModelsDraftAddItemsResultError ModelsDraftAddItemsResultError
 
 // NewModelsDraftAddItemsResultError instantiates a new ModelsDraftAddItemsResultError object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelsDraftAddItemsResultError(detail string, title string) *ModelsDraftAddItemsResultError {
+func NewModelsDraftAddItemsResultError() *ModelsDraftAddItemsResultError {
 	this := ModelsDraftAddItemsResultError{}
-	this.Detail = detail
-	this.Title = title
 	return &this
 }
 
@@ -48,52 +42,68 @@ func NewModelsDraftAddItemsResultErrorWithDefaults() *ModelsDraftAddItemsResultE
 	return &this
 }
 
-// GetDetail returns the Detail field value
+// GetDetail returns the Detail field value if set, zero value otherwise.
 func (o *ModelsDraftAddItemsResultError) GetDetail() string {
-	if o == nil {
+	if o == nil || IsNil(o.Detail) {
 		var ret string
 		return ret
 	}
-
-	return o.Detail
+	return *o.Detail
 }
 
-// GetDetailOk returns a tuple with the Detail field value
+// GetDetailOk returns a tuple with the Detail field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModelsDraftAddItemsResultError) GetDetailOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Detail) {
 		return nil, false
 	}
-	return &o.Detail, true
+	return o.Detail, true
 }
 
-// SetDetail sets field value
+// HasDetail returns a boolean if a field has been set.
+func (o *ModelsDraftAddItemsResultError) HasDetail() bool {
+	if o != nil && !IsNil(o.Detail) {
+		return true
+	}
+
+	return false
+}
+
+// SetDetail gets a reference to the given string and assigns it to the Detail field.
 func (o *ModelsDraftAddItemsResultError) SetDetail(v string) {
-	o.Detail = v
+	o.Detail = &v
 }
 
-// GetTitle returns the Title field value
+// GetTitle returns the Title field value if set, zero value otherwise.
 func (o *ModelsDraftAddItemsResultError) GetTitle() string {
-	if o == nil {
+	if o == nil || IsNil(o.Title) {
 		var ret string
 		return ret
 	}
-
-	return o.Title
+	return *o.Title
 }
 
-// GetTitleOk returns a tuple with the Title field value
+// GetTitleOk returns a tuple with the Title field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModelsDraftAddItemsResultError) GetTitleOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Title) {
 		return nil, false
 	}
-	return &o.Title, true
+	return o.Title, true
 }
 
-// SetTitle sets field value
+// HasTitle returns a boolean if a field has been set.
+func (o *ModelsDraftAddItemsResultError) HasTitle() bool {
+	if o != nil && !IsNil(o.Title) {
+		return true
+	}
+
+	return false
+}
+
+// SetTitle gets a reference to the given string and assigns it to the Title field.
 func (o *ModelsDraftAddItemsResultError) SetTitle(v string) {
-	o.Title = v
+	o.Title = &v
 }
 
 func (o ModelsDraftAddItemsResultError) MarshalJSON() ([]byte, error) {
@@ -106,47 +116,13 @@ func (o ModelsDraftAddItemsResultError) MarshalJSON() ([]byte, error) {
 
 func (o ModelsDraftAddItemsResultError) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["detail"] = o.Detail
-	toSerialize["title"] = o.Title
+	if !IsNil(o.Detail) {
+		toSerialize["detail"] = o.Detail
+	}
+	if !IsNil(o.Title) {
+		toSerialize["title"] = o.Title
+	}
 	return toSerialize, nil
-}
-
-func (o *ModelsDraftAddItemsResultError) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"detail",
-		"title",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varModelsDraftAddItemsResultError := _ModelsDraftAddItemsResultError{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varModelsDraftAddItemsResultError)
-
-	if err != nil {
-		return err
-	}
-
-	*o = ModelsDraftAddItemsResultError(varModelsDraftAddItemsResultError)
-
-	return err
 }
 
 type NullableModelsDraftAddItemsResultError struct {

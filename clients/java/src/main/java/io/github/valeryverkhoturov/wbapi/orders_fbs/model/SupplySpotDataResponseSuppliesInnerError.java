@@ -36,18 +36,18 @@ public class SupplySpotDataResponseSuppliesInnerError {
   public static final String SERIALIZED_NAME_TITLE = "title";
 
   @SerializedName(SERIALIZED_NAME_TITLE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String title;
 
   public static final String SERIALIZED_NAME_DETAIL = "detail";
 
   @SerializedName(SERIALIZED_NAME_DETAIL)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String detail;
 
   public SupplySpotDataResponseSuppliesInnerError() {}
 
-  public SupplySpotDataResponseSuppliesInnerError title(@jakarta.annotation.Nonnull String title) {
+  public SupplySpotDataResponseSuppliesInnerError title(@jakarta.annotation.Nullable String title) {
     this.title = title;
     return this;
   }
@@ -57,17 +57,17 @@ public class SupplySpotDataResponseSuppliesInnerError {
    *
    * @return title
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getTitle() {
     return title;
   }
 
-  public void setTitle(@jakarta.annotation.Nonnull String title) {
+  public void setTitle(@jakarta.annotation.Nullable String title) {
     this.title = title;
   }
 
   public SupplySpotDataResponseSuppliesInnerError detail(
-      @jakarta.annotation.Nonnull String detail) {
+      @jakarta.annotation.Nullable String detail) {
     this.detail = detail;
     return this;
   }
@@ -77,12 +77,12 @@ public class SupplySpotDataResponseSuppliesInnerError {
    *
    * @return detail
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getDetail() {
     return detail;
   }
 
-  public void setDetail(@jakarta.annotation.Nonnull String detail) {
+  public void setDetail(@jakarta.annotation.Nullable String detail) {
     this.detail = detail;
   }
 
@@ -136,8 +136,6 @@ public class SupplySpotDataResponseSuppliesInnerError {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("title");
-    openapiRequiredFields.add("detail");
   }
 
   /**
@@ -168,24 +166,16 @@ public class SupplySpotDataResponseSuppliesInnerError {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : SupplySpotDataResponseSuppliesInnerError.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    if (!jsonObj.get("title").isJsonPrimitive()) {
+    if ((jsonObj.get("title") != null && !jsonObj.get("title").isJsonNull())
+        && !jsonObj.get("title").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `title` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("title").toString()));
     }
-    if (!jsonObj.get("detail").isJsonPrimitive()) {
+    if ((jsonObj.get("detail") != null && !jsonObj.get("detail").isJsonNull())
+        && !jsonObj.get("detail").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `detail` to be a primitive type in the JSON string but got `%s`",

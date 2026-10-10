@@ -77,8 +77,8 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>cancel</example>
         */
-        [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = true)]
-        public StatusEnum Status { get; set; }
+        [DataMember(Name = "status", EmitDefaultValue = false)]
+        public StatusEnum? Status { get; set; }
         /// <summary>
         /// Тип отмены (при &#x60;\&quot;status\&quot;:\&quot;cancel\&quot;&#x60;):   - &#x60;app&#x60; — отказ до получения   - &#x60;receipt&#x60; — отказ при получении   - &#x60;expire&#x60; — истёк срок получения   - &#x60;other&#x60; — техническая отмена 
         /// </summary>
@@ -124,76 +124,36 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Order" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected Order() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Order" /> class.
-        /// </summary>
-        /// <param name="nmId">Артикул WB (required).</param>
-        /// <param name="chrtId">ID размера (required).</param>
-        /// <param name="srid">ID заказа (required).</param>
-        /// <param name="createdAt">Дата и время оформления заказа (required).</param>
-        /// <param name="updatedAt">Дата и время текущего статуса. При &#x60;\&quot;status\&quot;:\&quot;created\&quot;&#x60; возвращается значение поля &#x60;createdAt&#x60; (required).</param>
-        /// <param name="status">Статус заказа:   - &#x60;created&#x60; — оформлен   - &#x60;buyout&#x60; — продан   - &#x60;cancel&#x60; — отменён   - &#x60;return&#x60; — возвращён   - &#x60;returnDefective&#x60; — возвращён по причине брака  (required).</param>
+        /// <param name="nmId">Артикул WB.</param>
+        /// <param name="chrtId">ID размера.</param>
+        /// <param name="srid">ID заказа.</param>
+        /// <param name="createdAt">Дата и время оформления заказа.</param>
+        /// <param name="updatedAt">Дата и время текущего статуса. При &#x60;\&quot;status\&quot;:\&quot;created\&quot;&#x60; возвращается значение поля &#x60;createdAt&#x60;.</param>
+        /// <param name="status">Статус заказа:   - &#x60;created&#x60; — оформлен   - &#x60;buyout&#x60; — продан   - &#x60;cancel&#x60; — отменён   - &#x60;return&#x60; — возвращён   - &#x60;returnDefective&#x60; — возвращён по причине брака .</param>
         /// <param name="cancelType">Тип отмены (при &#x60;\&quot;status\&quot;:\&quot;cancel\&quot;&#x60;):   - &#x60;app&#x60; — отказ до получения   - &#x60;receipt&#x60; — отказ при получении   - &#x60;expire&#x60; — истёк срок получения   - &#x60;other&#x60; — техническая отмена .</param>
-        /// <param name="warehouseName">Название склада. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) для складов WB может быть только &#x60;Склад WB&#x60; (required).</param>
-        /// <param name="warehouseRegion">Федеральный округ склада. Если склад не в России, возвращается страна. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) для складов WB может быть только &#x60;\&quot;\&quot;&#x60; (required).</param>
-        /// <param name="isMp">Тип склада:   - &#x60;true&#x60; — склад продавца   - &#x60;false&#x60; — склад WB  (required).</param>
-        /// <param name="destinationCity">Населённый пункт доставки (required).</param>
-        /// <param name="destinationDistrict">Федеральный округ доставки. Если доставка не по России, возвращается страна (required).</param>
-        /// <param name="sellerPrice">Цена продавца со скидкой продавца (без учёта скидки WB Клуба и оптовой скидки для B2B-продаж) (required).</param>
-        /// <param name="isB2b">Тип продажи:   - &#x60;true&#x60; — B2B   - &#x60;false&#x60; — B2C  (required).</param>
-        public Order(long nmId = default(long), int chrtId = default(int), string srid = default(string), string createdAt = default(string), string updatedAt = default(string), StatusEnum status = default(StatusEnum), CancelTypeEnum? cancelType = default(CancelTypeEnum?), string warehouseName = default(string), string warehouseRegion = default(string), bool isMp = default(bool), string destinationCity = default(string), string destinationDistrict = default(string), decimal sellerPrice = default(decimal), bool isB2b = default(bool))
+        /// <param name="warehouseName">Название склада. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) для складов WB может быть только &#x60;Склад WB&#x60;.</param>
+        /// <param name="warehouseRegion">Федеральный округ склада. Если склад не в России, возвращается страна. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) для складов WB может быть только &#x60;\&quot;\&quot;&#x60;.</param>
+        /// <param name="isMp">Тип склада:   - &#x60;true&#x60; — склад продавца   - &#x60;false&#x60; — склад WB .</param>
+        /// <param name="destinationCity">Населённый пункт доставки.</param>
+        /// <param name="destinationDistrict">Федеральный округ доставки. Если доставка не по России, возвращается страна.</param>
+        /// <param name="sellerPrice">Цена продавца со скидкой продавца (без учёта скидки WB Клуба и оптовой скидки для B2B-продаж).</param>
+        /// <param name="isB2b">Тип продажи:   - &#x60;true&#x60; — B2B   - &#x60;false&#x60; — B2C .</param>
+        public Order(long nmId = default(long), int chrtId = default(int), string srid = default(string), string createdAt = default(string), string updatedAt = default(string), StatusEnum? status = default(StatusEnum?), CancelTypeEnum? cancelType = default(CancelTypeEnum?), string warehouseName = default(string), string warehouseRegion = default(string), bool isMp = default(bool), string destinationCity = default(string), string destinationDistrict = default(string), decimal sellerPrice = default(decimal), bool isB2b = default(bool))
         {
             this.NmId = nmId;
             this.ChrtId = chrtId;
-            // to ensure "srid" is required (not null)
-            if (srid == null)
-            {
-                throw new ArgumentNullException("srid is a required property for Order and cannot be null");
-            }
             this.Srid = srid;
-            // to ensure "createdAt" is required (not null)
-            if (createdAt == null)
-            {
-                throw new ArgumentNullException("createdAt is a required property for Order and cannot be null");
-            }
             this.CreatedAt = createdAt;
-            // to ensure "updatedAt" is required (not null)
-            if (updatedAt == null)
-            {
-                throw new ArgumentNullException("updatedAt is a required property for Order and cannot be null");
-            }
             this.UpdatedAt = updatedAt;
             this.Status = status;
-            // to ensure "warehouseName" is required (not null)
-            if (warehouseName == null)
-            {
-                throw new ArgumentNullException("warehouseName is a required property for Order and cannot be null");
-            }
+            this.CancelType = cancelType;
             this.WarehouseName = warehouseName;
-            // to ensure "warehouseRegion" is required (not null)
-            if (warehouseRegion == null)
-            {
-                throw new ArgumentNullException("warehouseRegion is a required property for Order and cannot be null");
-            }
             this.WarehouseRegion = warehouseRegion;
             this.IsMp = isMp;
-            // to ensure "destinationCity" is required (not null)
-            if (destinationCity == null)
-            {
-                throw new ArgumentNullException("destinationCity is a required property for Order and cannot be null");
-            }
             this.DestinationCity = destinationCity;
-            // to ensure "destinationDistrict" is required (not null)
-            if (destinationDistrict == null)
-            {
-                throw new ArgumentNullException("destinationDistrict is a required property for Order and cannot be null");
-            }
             this.DestinationDistrict = destinationDistrict;
             this.SellerPrice = sellerPrice;
             this.IsB2b = isB2b;
-            this.CancelType = cancelType;
         }
 
         /// <summary>
@@ -203,7 +163,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>47254354</example>
         */
-        [DataMember(Name = "nmId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "nmId", EmitDefaultValue = false)]
         public long NmId { get; set; }
 
         /// <summary>
@@ -213,7 +173,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>91663228</example>
         */
-        [DataMember(Name = "chrtId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "chrtId", EmitDefaultValue = false)]
         public int ChrtId { get; set; }
 
         /// <summary>
@@ -223,7 +183,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>7513432034713632943.1.0</example>
         */
-        [DataMember(Name = "srid", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "srid", EmitDefaultValue = false)]
         public string Srid { get; set; }
 
         /// <summary>
@@ -233,7 +193,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>2026-06-24T12:57:26+03:00</example>
         */
-        [DataMember(Name = "createdAt", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "createdAt", EmitDefaultValue = false)]
         public string CreatedAt { get; set; }
 
         /// <summary>
@@ -243,7 +203,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>2026-06-26T19:19:38+03:00</example>
         */
-        [DataMember(Name = "updatedAt", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "updatedAt", EmitDefaultValue = false)]
         public string UpdatedAt { get; set; }
 
         /// <summary>
@@ -253,14 +213,14 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>Склад WB</example>
         */
-        [DataMember(Name = "warehouseName", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "warehouseName", EmitDefaultValue = false)]
         public string WarehouseName { get; set; }
 
         /// <summary>
         /// Федеральный округ склада. Если склад не в России, возвращается страна. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) для складов WB может быть только &#x60;\&quot;\&quot;&#x60;
         /// </summary>
         /// <value>Федеральный округ склада. Если склад не в России, возвращается страна. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) для складов WB может быть только &#x60;\&quot;\&quot;&#x60;</value>
-        [DataMember(Name = "warehouseRegion", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "warehouseRegion", EmitDefaultValue = false)]
         public string WarehouseRegion { get; set; }
 
         /// <summary>
@@ -270,7 +230,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>true</example>
         */
-        [DataMember(Name = "isMp", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "isMp", EmitDefaultValue = true)]
         public bool IsMp { get; set; }
 
         /// <summary>
@@ -280,7 +240,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>Санкт-Петербург</example>
         */
-        [DataMember(Name = "destinationCity", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "destinationCity", EmitDefaultValue = false)]
         public string DestinationCity { get; set; }
 
         /// <summary>
@@ -290,7 +250,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>Северо-Западный</example>
         */
-        [DataMember(Name = "destinationDistrict", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "destinationDistrict", EmitDefaultValue = false)]
         public string DestinationDistrict { get; set; }
 
         /// <summary>
@@ -300,7 +260,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>4328</example>
         */
-        [DataMember(Name = "sellerPrice", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "sellerPrice", EmitDefaultValue = false)]
         public decimal SellerPrice { get; set; }
 
         /// <summary>
@@ -310,7 +270,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>false</example>
         */
-        [DataMember(Name = "isB2b", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "isB2b", EmitDefaultValue = true)]
         public bool IsB2b { get; set; }
 
         /// <summary>

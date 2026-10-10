@@ -39,13 +39,13 @@ public class ApiStatusSetResponse {
   public static final String SERIALIZED_NAME_ORDER_ID = "orderId";
 
   @SerializedName(SERIALIZED_NAME_ORDER_ID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer orderId;
 
   public static final String SERIALIZED_NAME_IS_ERROR = "isError";
 
   @SerializedName(SERIALIZED_NAME_IS_ERROR)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Boolean isError;
 
   public static final String SERIALIZED_NAME_ERRORS = "errors";
@@ -56,7 +56,7 @@ public class ApiStatusSetResponse {
 
   public ApiStatusSetResponse() {}
 
-  public ApiStatusSetResponse orderId(@jakarta.annotation.Nonnull Integer orderId) {
+  public ApiStatusSetResponse orderId(@jakarta.annotation.Nullable Integer orderId) {
     this.orderId = orderId;
     return this;
   }
@@ -66,16 +66,16 @@ public class ApiStatusSetResponse {
    *
    * @return orderId
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getOrderId() {
     return orderId;
   }
 
-  public void setOrderId(@jakarta.annotation.Nonnull Integer orderId) {
+  public void setOrderId(@jakarta.annotation.Nullable Integer orderId) {
     this.orderId = orderId;
   }
 
-  public ApiStatusSetResponse isError(@jakarta.annotation.Nonnull Boolean isError) {
+  public ApiStatusSetResponse isError(@jakarta.annotation.Nullable Boolean isError) {
     this.isError = isError;
     return this;
   }
@@ -85,12 +85,12 @@ public class ApiStatusSetResponse {
    *
    * @return isError
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Boolean getIsError() {
     return isError;
   }
 
-  public void setIsError(@jakarta.annotation.Nonnull Boolean isError) {
+  public void setIsError(@jakarta.annotation.Nullable Boolean isError) {
     this.isError = isError;
   }
 
@@ -174,8 +174,6 @@ public class ApiStatusSetResponse {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("orderId");
-    openapiRequiredFields.add("isError");
   }
 
   /**
@@ -203,16 +201,6 @@ public class ApiStatusSetResponse {
             String.format(
                 "The field `%s` in the JSON string is not defined in the `ApiStatusSetResponse` properties. JSON: %s",
                 entry.getKey(), jsonElement.toString()));
-      }
-    }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : ApiStatusSetResponse.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
       }
     }
     JsonObject jsonObj = jsonElement.getAsJsonObject();

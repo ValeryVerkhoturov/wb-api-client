@@ -11,9 +11,7 @@ API version: analytics
 package analytics
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the History type satisfies the MappedNullable interface at compile time
@@ -22,48 +20,35 @@ var _ MappedNullable = &History{}
 // History struct for History
 type History struct {
 	// Дата сбора статистики
-	Date string `json:"date"`
+	Date *string `json:"date,omitempty"`
 	// Количество переходов в карточку товара
-	OpenCount int32 `json:"openCount"`
+	OpenCount *int32 `json:"openCount,omitempty"`
 	// Положили в корзину, шт.
-	CartCount int32 `json:"cartCount"`
+	CartCount *int32 `json:"cartCount,omitempty"`
 	// Заказали товаров, шт.
-	OrderCount int32 `json:"orderCount"`
+	OrderCount *int32 `json:"orderCount,omitempty"`
 	// Заказали на сумму
-	OrderSum int32 `json:"orderSum"`
+	OrderSum *int32 `json:"orderSum,omitempty"`
 	// Выкупили товаров, шт.
-	BuyoutCount int32 `json:"buyoutCount"`
+	BuyoutCount *int32 `json:"buyoutCount,omitempty"`
 	// Выкупили на сумму
-	BuyoutSum int32 `json:"buyoutSum"`
+	BuyoutSum *int32 `json:"buyoutSum,omitempty"`
 	// Процент выкупа
-	BuyoutPercent int32 `json:"buyoutPercent"`
+	BuyoutPercent *int32 `json:"buyoutPercent,omitempty"`
 	// Конверсия в корзину. Какой процент посетителей, открывших карточку товара, добавили товар в корзину, %
-	AddToCartConversion int32 `json:"addToCartConversion"`
+	AddToCartConversion *int32 `json:"addToCartConversion,omitempty"`
 	// Конверсия в заказ. Какой процент посетителей, добавивших товар в корзину, сделали заказ
-	CartToOrderConversion int32 `json:"cartToOrderConversion"`
+	CartToOrderConversion *int32 `json:"cartToOrderConversion,omitempty"`
 	// Количество добавлений товара в **Отложенные**
-	AddToWishlistCount int32 `json:"addToWishlistCount"`
+	AddToWishlistCount *int32 `json:"addToWishlistCount,omitempty"`
 }
-
-type _History History
 
 // NewHistory instantiates a new History object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewHistory(date string, openCount int32, cartCount int32, orderCount int32, orderSum int32, buyoutCount int32, buyoutSum int32, buyoutPercent int32, addToCartConversion int32, cartToOrderConversion int32, addToWishlistCount int32) *History {
+func NewHistory() *History {
 	this := History{}
-	this.Date = date
-	this.OpenCount = openCount
-	this.CartCount = cartCount
-	this.OrderCount = orderCount
-	this.OrderSum = orderSum
-	this.BuyoutCount = buyoutCount
-	this.BuyoutSum = buyoutSum
-	this.BuyoutPercent = buyoutPercent
-	this.AddToCartConversion = addToCartConversion
-	this.CartToOrderConversion = cartToOrderConversion
-	this.AddToWishlistCount = addToWishlistCount
 	return &this
 }
 
@@ -75,268 +60,356 @@ func NewHistoryWithDefaults() *History {
 	return &this
 }
 
-// GetDate returns the Date field value
+// GetDate returns the Date field value if set, zero value otherwise.
 func (o *History) GetDate() string {
-	if o == nil {
+	if o == nil || IsNil(o.Date) {
 		var ret string
 		return ret
 	}
-
-	return o.Date
+	return *o.Date
 }
 
-// GetDateOk returns a tuple with the Date field value
+// GetDateOk returns a tuple with the Date field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *History) GetDateOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Date) {
 		return nil, false
 	}
-	return &o.Date, true
+	return o.Date, true
 }
 
-// SetDate sets field value
+// HasDate returns a boolean if a field has been set.
+func (o *History) HasDate() bool {
+	if o != nil && !IsNil(o.Date) {
+		return true
+	}
+
+	return false
+}
+
+// SetDate gets a reference to the given string and assigns it to the Date field.
 func (o *History) SetDate(v string) {
-	o.Date = v
+	o.Date = &v
 }
 
-// GetOpenCount returns the OpenCount field value
+// GetOpenCount returns the OpenCount field value if set, zero value otherwise.
 func (o *History) GetOpenCount() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.OpenCount) {
 		var ret int32
 		return ret
 	}
-
-	return o.OpenCount
+	return *o.OpenCount
 }
 
-// GetOpenCountOk returns a tuple with the OpenCount field value
+// GetOpenCountOk returns a tuple with the OpenCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *History) GetOpenCountOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.OpenCount) {
 		return nil, false
 	}
-	return &o.OpenCount, true
+	return o.OpenCount, true
 }
 
-// SetOpenCount sets field value
+// HasOpenCount returns a boolean if a field has been set.
+func (o *History) HasOpenCount() bool {
+	if o != nil && !IsNil(o.OpenCount) {
+		return true
+	}
+
+	return false
+}
+
+// SetOpenCount gets a reference to the given int32 and assigns it to the OpenCount field.
 func (o *History) SetOpenCount(v int32) {
-	o.OpenCount = v
+	o.OpenCount = &v
 }
 
-// GetCartCount returns the CartCount field value
+// GetCartCount returns the CartCount field value if set, zero value otherwise.
 func (o *History) GetCartCount() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.CartCount) {
 		var ret int32
 		return ret
 	}
-
-	return o.CartCount
+	return *o.CartCount
 }
 
-// GetCartCountOk returns a tuple with the CartCount field value
+// GetCartCountOk returns a tuple with the CartCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *History) GetCartCountOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.CartCount) {
 		return nil, false
 	}
-	return &o.CartCount, true
+	return o.CartCount, true
 }
 
-// SetCartCount sets field value
+// HasCartCount returns a boolean if a field has been set.
+func (o *History) HasCartCount() bool {
+	if o != nil && !IsNil(o.CartCount) {
+		return true
+	}
+
+	return false
+}
+
+// SetCartCount gets a reference to the given int32 and assigns it to the CartCount field.
 func (o *History) SetCartCount(v int32) {
-	o.CartCount = v
+	o.CartCount = &v
 }
 
-// GetOrderCount returns the OrderCount field value
+// GetOrderCount returns the OrderCount field value if set, zero value otherwise.
 func (o *History) GetOrderCount() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.OrderCount) {
 		var ret int32
 		return ret
 	}
-
-	return o.OrderCount
+	return *o.OrderCount
 }
 
-// GetOrderCountOk returns a tuple with the OrderCount field value
+// GetOrderCountOk returns a tuple with the OrderCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *History) GetOrderCountOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.OrderCount) {
 		return nil, false
 	}
-	return &o.OrderCount, true
+	return o.OrderCount, true
 }
 
-// SetOrderCount sets field value
+// HasOrderCount returns a boolean if a field has been set.
+func (o *History) HasOrderCount() bool {
+	if o != nil && !IsNil(o.OrderCount) {
+		return true
+	}
+
+	return false
+}
+
+// SetOrderCount gets a reference to the given int32 and assigns it to the OrderCount field.
 func (o *History) SetOrderCount(v int32) {
-	o.OrderCount = v
+	o.OrderCount = &v
 }
 
-// GetOrderSum returns the OrderSum field value
+// GetOrderSum returns the OrderSum field value if set, zero value otherwise.
 func (o *History) GetOrderSum() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.OrderSum) {
 		var ret int32
 		return ret
 	}
-
-	return o.OrderSum
+	return *o.OrderSum
 }
 
-// GetOrderSumOk returns a tuple with the OrderSum field value
+// GetOrderSumOk returns a tuple with the OrderSum field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *History) GetOrderSumOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.OrderSum) {
 		return nil, false
 	}
-	return &o.OrderSum, true
+	return o.OrderSum, true
 }
 
-// SetOrderSum sets field value
+// HasOrderSum returns a boolean if a field has been set.
+func (o *History) HasOrderSum() bool {
+	if o != nil && !IsNil(o.OrderSum) {
+		return true
+	}
+
+	return false
+}
+
+// SetOrderSum gets a reference to the given int32 and assigns it to the OrderSum field.
 func (o *History) SetOrderSum(v int32) {
-	o.OrderSum = v
+	o.OrderSum = &v
 }
 
-// GetBuyoutCount returns the BuyoutCount field value
+// GetBuyoutCount returns the BuyoutCount field value if set, zero value otherwise.
 func (o *History) GetBuyoutCount() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.BuyoutCount) {
 		var ret int32
 		return ret
 	}
-
-	return o.BuyoutCount
+	return *o.BuyoutCount
 }
 
-// GetBuyoutCountOk returns a tuple with the BuyoutCount field value
+// GetBuyoutCountOk returns a tuple with the BuyoutCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *History) GetBuyoutCountOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.BuyoutCount) {
 		return nil, false
 	}
-	return &o.BuyoutCount, true
+	return o.BuyoutCount, true
 }
 
-// SetBuyoutCount sets field value
+// HasBuyoutCount returns a boolean if a field has been set.
+func (o *History) HasBuyoutCount() bool {
+	if o != nil && !IsNil(o.BuyoutCount) {
+		return true
+	}
+
+	return false
+}
+
+// SetBuyoutCount gets a reference to the given int32 and assigns it to the BuyoutCount field.
 func (o *History) SetBuyoutCount(v int32) {
-	o.BuyoutCount = v
+	o.BuyoutCount = &v
 }
 
-// GetBuyoutSum returns the BuyoutSum field value
+// GetBuyoutSum returns the BuyoutSum field value if set, zero value otherwise.
 func (o *History) GetBuyoutSum() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.BuyoutSum) {
 		var ret int32
 		return ret
 	}
-
-	return o.BuyoutSum
+	return *o.BuyoutSum
 }
 
-// GetBuyoutSumOk returns a tuple with the BuyoutSum field value
+// GetBuyoutSumOk returns a tuple with the BuyoutSum field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *History) GetBuyoutSumOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.BuyoutSum) {
 		return nil, false
 	}
-	return &o.BuyoutSum, true
+	return o.BuyoutSum, true
 }
 
-// SetBuyoutSum sets field value
+// HasBuyoutSum returns a boolean if a field has been set.
+func (o *History) HasBuyoutSum() bool {
+	if o != nil && !IsNil(o.BuyoutSum) {
+		return true
+	}
+
+	return false
+}
+
+// SetBuyoutSum gets a reference to the given int32 and assigns it to the BuyoutSum field.
 func (o *History) SetBuyoutSum(v int32) {
-	o.BuyoutSum = v
+	o.BuyoutSum = &v
 }
 
-// GetBuyoutPercent returns the BuyoutPercent field value
+// GetBuyoutPercent returns the BuyoutPercent field value if set, zero value otherwise.
 func (o *History) GetBuyoutPercent() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.BuyoutPercent) {
 		var ret int32
 		return ret
 	}
-
-	return o.BuyoutPercent
+	return *o.BuyoutPercent
 }
 
-// GetBuyoutPercentOk returns a tuple with the BuyoutPercent field value
+// GetBuyoutPercentOk returns a tuple with the BuyoutPercent field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *History) GetBuyoutPercentOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.BuyoutPercent) {
 		return nil, false
 	}
-	return &o.BuyoutPercent, true
+	return o.BuyoutPercent, true
 }
 
-// SetBuyoutPercent sets field value
+// HasBuyoutPercent returns a boolean if a field has been set.
+func (o *History) HasBuyoutPercent() bool {
+	if o != nil && !IsNil(o.BuyoutPercent) {
+		return true
+	}
+
+	return false
+}
+
+// SetBuyoutPercent gets a reference to the given int32 and assigns it to the BuyoutPercent field.
 func (o *History) SetBuyoutPercent(v int32) {
-	o.BuyoutPercent = v
+	o.BuyoutPercent = &v
 }
 
-// GetAddToCartConversion returns the AddToCartConversion field value
+// GetAddToCartConversion returns the AddToCartConversion field value if set, zero value otherwise.
 func (o *History) GetAddToCartConversion() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.AddToCartConversion) {
 		var ret int32
 		return ret
 	}
-
-	return o.AddToCartConversion
+	return *o.AddToCartConversion
 }
 
-// GetAddToCartConversionOk returns a tuple with the AddToCartConversion field value
+// GetAddToCartConversionOk returns a tuple with the AddToCartConversion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *History) GetAddToCartConversionOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AddToCartConversion) {
 		return nil, false
 	}
-	return &o.AddToCartConversion, true
+	return o.AddToCartConversion, true
 }
 
-// SetAddToCartConversion sets field value
+// HasAddToCartConversion returns a boolean if a field has been set.
+func (o *History) HasAddToCartConversion() bool {
+	if o != nil && !IsNil(o.AddToCartConversion) {
+		return true
+	}
+
+	return false
+}
+
+// SetAddToCartConversion gets a reference to the given int32 and assigns it to the AddToCartConversion field.
 func (o *History) SetAddToCartConversion(v int32) {
-	o.AddToCartConversion = v
+	o.AddToCartConversion = &v
 }
 
-// GetCartToOrderConversion returns the CartToOrderConversion field value
+// GetCartToOrderConversion returns the CartToOrderConversion field value if set, zero value otherwise.
 func (o *History) GetCartToOrderConversion() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.CartToOrderConversion) {
 		var ret int32
 		return ret
 	}
-
-	return o.CartToOrderConversion
+	return *o.CartToOrderConversion
 }
 
-// GetCartToOrderConversionOk returns a tuple with the CartToOrderConversion field value
+// GetCartToOrderConversionOk returns a tuple with the CartToOrderConversion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *History) GetCartToOrderConversionOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.CartToOrderConversion) {
 		return nil, false
 	}
-	return &o.CartToOrderConversion, true
+	return o.CartToOrderConversion, true
 }
 
-// SetCartToOrderConversion sets field value
+// HasCartToOrderConversion returns a boolean if a field has been set.
+func (o *History) HasCartToOrderConversion() bool {
+	if o != nil && !IsNil(o.CartToOrderConversion) {
+		return true
+	}
+
+	return false
+}
+
+// SetCartToOrderConversion gets a reference to the given int32 and assigns it to the CartToOrderConversion field.
 func (o *History) SetCartToOrderConversion(v int32) {
-	o.CartToOrderConversion = v
+	o.CartToOrderConversion = &v
 }
 
-// GetAddToWishlistCount returns the AddToWishlistCount field value
+// GetAddToWishlistCount returns the AddToWishlistCount field value if set, zero value otherwise.
 func (o *History) GetAddToWishlistCount() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.AddToWishlistCount) {
 		var ret int32
 		return ret
 	}
-
-	return o.AddToWishlistCount
+	return *o.AddToWishlistCount
 }
 
-// GetAddToWishlistCountOk returns a tuple with the AddToWishlistCount field value
+// GetAddToWishlistCountOk returns a tuple with the AddToWishlistCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *History) GetAddToWishlistCountOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AddToWishlistCount) {
 		return nil, false
 	}
-	return &o.AddToWishlistCount, true
+	return o.AddToWishlistCount, true
 }
 
-// SetAddToWishlistCount sets field value
+// HasAddToWishlistCount returns a boolean if a field has been set.
+func (o *History) HasAddToWishlistCount() bool {
+	if o != nil && !IsNil(o.AddToWishlistCount) {
+		return true
+	}
+
+	return false
+}
+
+// SetAddToWishlistCount gets a reference to the given int32 and assigns it to the AddToWishlistCount field.
 func (o *History) SetAddToWishlistCount(v int32) {
-	o.AddToWishlistCount = v
+	o.AddToWishlistCount = &v
 }
 
 func (o History) MarshalJSON() ([]byte, error) {
@@ -349,65 +422,40 @@ func (o History) MarshalJSON() ([]byte, error) {
 
 func (o History) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["date"] = o.Date
-	toSerialize["openCount"] = o.OpenCount
-	toSerialize["cartCount"] = o.CartCount
-	toSerialize["orderCount"] = o.OrderCount
-	toSerialize["orderSum"] = o.OrderSum
-	toSerialize["buyoutCount"] = o.BuyoutCount
-	toSerialize["buyoutSum"] = o.BuyoutSum
-	toSerialize["buyoutPercent"] = o.BuyoutPercent
-	toSerialize["addToCartConversion"] = o.AddToCartConversion
-	toSerialize["cartToOrderConversion"] = o.CartToOrderConversion
-	toSerialize["addToWishlistCount"] = o.AddToWishlistCount
+	if !IsNil(o.Date) {
+		toSerialize["date"] = o.Date
+	}
+	if !IsNil(o.OpenCount) {
+		toSerialize["openCount"] = o.OpenCount
+	}
+	if !IsNil(o.CartCount) {
+		toSerialize["cartCount"] = o.CartCount
+	}
+	if !IsNil(o.OrderCount) {
+		toSerialize["orderCount"] = o.OrderCount
+	}
+	if !IsNil(o.OrderSum) {
+		toSerialize["orderSum"] = o.OrderSum
+	}
+	if !IsNil(o.BuyoutCount) {
+		toSerialize["buyoutCount"] = o.BuyoutCount
+	}
+	if !IsNil(o.BuyoutSum) {
+		toSerialize["buyoutSum"] = o.BuyoutSum
+	}
+	if !IsNil(o.BuyoutPercent) {
+		toSerialize["buyoutPercent"] = o.BuyoutPercent
+	}
+	if !IsNil(o.AddToCartConversion) {
+		toSerialize["addToCartConversion"] = o.AddToCartConversion
+	}
+	if !IsNil(o.CartToOrderConversion) {
+		toSerialize["cartToOrderConversion"] = o.CartToOrderConversion
+	}
+	if !IsNil(o.AddToWishlistCount) {
+		toSerialize["addToWishlistCount"] = o.AddToWishlistCount
+	}
 	return toSerialize, nil
-}
-
-func (o *History) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"date",
-		"openCount",
-		"cartCount",
-		"orderCount",
-		"orderSum",
-		"buyoutCount",
-		"buyoutSum",
-		"buyoutPercent",
-		"addToCartConversion",
-		"cartToOrderConversion",
-		"addToWishlistCount",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varHistory := _History{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varHistory)
-
-	if err != nil {
-		return err
-	}
-
-	*o = History(varHistory)
-
-	return err
 }
 
 type NullableHistory struct {

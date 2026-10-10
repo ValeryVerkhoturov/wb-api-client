@@ -34,19 +34,9 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InventoryWbResponse" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected InventoryWbResponse() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="InventoryWbResponse" /> class.
-        /// </summary>
-        /// <param name="items">Остатки товаров на складах WB по размерам (required).</param>
+        /// <param name="items">Остатки товаров на складах WB по размерам.</param>
         public InventoryWbResponse(List<InventoryWbResponseItemsInner> items = default(List<InventoryWbResponseItemsInner>))
         {
-            // to ensure "items" is required (not null)
-            if (items == null)
-            {
-                throw new ArgumentNullException("items is a required property for InventoryWbResponse and cannot be null");
-            }
             this.Items = items;
         }
 
@@ -54,7 +44,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// Остатки товаров на складах WB по размерам
         /// </summary>
         /// <value>Остатки товаров на складах WB по размерам</value>
-        [DataMember(Name = "items", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "items", EmitDefaultValue = false)]
         public List<InventoryWbResponseItemsInner> Items { get; set; }
 
         /// <summary>

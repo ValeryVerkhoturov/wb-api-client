@@ -34,26 +34,11 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ModelsDraftAddItemsResultItem" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected ModelsDraftAddItemsResultItem() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ModelsDraftAddItemsResultItem" /> class.
-        /// </summary>
-        /// <param name="error">Детали ошибки (required).</param>
-        /// <param name="sku">Баркод (required).</param>
+        /// <param name="error">Детали ошибки.</param>
+        /// <param name="sku">Баркод.</param>
         public ModelsDraftAddItemsResultItem(ModelsDraftAddItemsResultError error = default(ModelsDraftAddItemsResultError), string sku = default(string))
         {
-            // to ensure "error" is required (not null)
-            if (error == null)
-            {
-                throw new ArgumentNullException("error is a required property for ModelsDraftAddItemsResultItem and cannot be null");
-            }
             this.Error = error;
-            // to ensure "sku" is required (not null)
-            if (sku == null)
-            {
-                throw new ArgumentNullException("sku is a required property for ModelsDraftAddItemsResultItem and cannot be null");
-            }
             this.Sku = sku;
         }
 
@@ -61,14 +46,14 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Model
         /// Детали ошибки
         /// </summary>
         /// <value>Детали ошибки</value>
-        [DataMember(Name = "error", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "error", EmitDefaultValue = false)]
         public ModelsDraftAddItemsResultError Error { get; set; }
 
         /// <summary>
         /// Баркод
         /// </summary>
         /// <value>Баркод</value>
-        [DataMember(Name = "sku", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "sku", EmitDefaultValue = false)]
         public string Sku { get; set; }
 
         /// <summary>

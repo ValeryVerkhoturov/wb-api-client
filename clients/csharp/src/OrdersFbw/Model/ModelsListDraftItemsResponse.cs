@@ -34,23 +34,13 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ModelsListDraftItemsResponse" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected ModelsListDraftItemsResponse() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ModelsListDraftItemsResponse" /> class.
-        /// </summary>
-        /// <param name="skuQuantity">Количество баркодов (required).</param>
-        /// <param name="itemQuantity">Количество единиц товара (required).</param>
-        /// <param name="items">Список товаров (required).</param>
+        /// <param name="skuQuantity">Количество баркодов.</param>
+        /// <param name="itemQuantity">Количество единиц товара.</param>
+        /// <param name="items">Список товаров.</param>
         public ModelsListDraftItemsResponse(int skuQuantity = default(int), int itemQuantity = default(int), List<ModelsDraftItemItem> items = default(List<ModelsDraftItemItem>))
         {
             this.SkuQuantity = skuQuantity;
             this.ItemQuantity = itemQuantity;
-            // to ensure "items" is required (not null)
-            if (items == null)
-            {
-                throw new ArgumentNullException("items is a required property for ModelsListDraftItemsResponse and cannot be null");
-            }
             this.Items = items;
         }
 
@@ -58,21 +48,21 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Model
         /// Количество баркодов
         /// </summary>
         /// <value>Количество баркодов</value>
-        [DataMember(Name = "skuQuantity", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "skuQuantity", EmitDefaultValue = false)]
         public int SkuQuantity { get; set; }
 
         /// <summary>
         /// Количество единиц товара
         /// </summary>
         /// <value>Количество единиц товара</value>
-        [DataMember(Name = "itemQuantity", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "itemQuantity", EmitDefaultValue = false)]
         public int ItemQuantity { get; set; }
 
         /// <summary>
         /// Список товаров
         /// </summary>
         /// <value>Список товаров</value>
-        [DataMember(Name = "items", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "items", EmitDefaultValue = false)]
         public List<ModelsDraftItemItem> Items { get; set; }
 
         /// <summary>

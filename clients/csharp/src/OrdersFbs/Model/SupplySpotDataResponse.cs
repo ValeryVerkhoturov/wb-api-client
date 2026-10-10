@@ -34,26 +34,16 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SupplySpotDataResponse" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected SupplySpotDataResponse() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="SupplySpotDataResponse" /> class.
-        /// </summary>
-        /// <param name="supplies">supplies (required).</param>
+        /// <param name="supplies">supplies.</param>
         public SupplySpotDataResponse(List<SupplySpotDataResponseSuppliesInner> supplies = default(List<SupplySpotDataResponseSuppliesInner>))
         {
-            // to ensure "supplies" is required (not null)
-            if (supplies == null)
-            {
-                throw new ArgumentNullException("supplies is a required property for SupplySpotDataResponse and cannot be null");
-            }
             this.Supplies = supplies;
         }
 
         /// <summary>
         /// Gets or Sets Supplies
         /// </summary>
-        [DataMember(Name = "supplies", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "supplies", EmitDefaultValue = false)]
         public List<SupplySpotDataResponseSuppliesInner> Supplies { get; set; }
 
         /// <summary>

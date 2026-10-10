@@ -34,13 +34,8 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AdvertBidsKopecks" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected AdvertBidsKopecks() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="AdvertBidsKopecks" /> class.
-        /// </summary>
-        /// <param name="search">Ставка в поиске (required).</param>
-        /// <param name="recommendations">Ставка в рекомендациях (required).</param>
+        /// <param name="search">Ставка в поиске.</param>
+        /// <param name="recommendations">Ставка в рекомендациях.</param>
         public AdvertBidsKopecks(long search = default(long), long recommendations = default(long))
         {
             this.Search = search;
@@ -51,14 +46,14 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// Ставка в поиске
         /// </summary>
         /// <value>Ставка в поиске</value>
-        [DataMember(Name = "search", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "search", EmitDefaultValue = false)]
         public long Search { get; set; }
 
         /// <summary>
         /// Ставка в рекомендациях
         /// </summary>
         /// <value>Ставка в рекомендациях</value>
-        [DataMember(Name = "recommendations", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "recommendations", EmitDefaultValue = false)]
         public long Recommendations { get; set; }
 
         /// <summary>

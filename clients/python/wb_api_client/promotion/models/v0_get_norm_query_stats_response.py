@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from wb_api_client.promotion.models.v0_get_norm_query_stats_item import (
     V0GetNormQueryStatsItem,
 )
@@ -31,7 +31,7 @@ class V0GetNormQueryStatsResponse(BaseModel):
     Статистика по поисковым кластерам
     """  # noqa: E501
 
-    stats: List[V0GetNormQueryStatsItem]
+    stats: Optional[List[V0GetNormQueryStatsItem]] = None
     __properties: ClassVar[List[str]] = ["stats"]
 
     model_config = ConfigDict(

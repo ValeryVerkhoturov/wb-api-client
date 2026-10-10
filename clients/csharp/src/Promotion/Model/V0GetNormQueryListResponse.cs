@@ -34,26 +34,16 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="V0GetNormQueryListResponse" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected V0GetNormQueryListResponse() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="V0GetNormQueryListResponse" /> class.
-        /// </summary>
-        /// <param name="items">items (required).</param>
+        /// <param name="items">items.</param>
         public V0GetNormQueryListResponse(List<V0GetNormQueryListResponseItem> items = default(List<V0GetNormQueryListResponseItem>))
         {
-            // to ensure "items" is required (not null)
-            if (items == null)
-            {
-                throw new ArgumentNullException("items is a required property for V0GetNormQueryListResponse and cannot be null");
-            }
             this.Items = items;
         }
 
         /// <summary>
         /// Gets or Sets Items
         /// </summary>
-        [DataMember(Name = "items", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "items", EmitDefaultValue = true)]
         public List<V0GetNormQueryListResponseItem> Items { get; set; }
 
         /// <summary>

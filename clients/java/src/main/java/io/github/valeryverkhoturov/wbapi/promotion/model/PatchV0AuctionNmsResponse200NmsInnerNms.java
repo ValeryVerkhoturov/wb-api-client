@@ -38,19 +38,19 @@ public class PatchV0AuctionNmsResponse200NmsInnerNms {
   public static final String SERIALIZED_NAME_ADDED = "added";
 
   @SerializedName(SERIALIZED_NAME_ADDED)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private List<Integer> added = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_DELETED = "deleted";
 
   @SerializedName(SERIALIZED_NAME_DELETED)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private List<Integer> deleted = new ArrayList<>();
 
   public PatchV0AuctionNmsResponse200NmsInnerNms() {}
 
   public PatchV0AuctionNmsResponse200NmsInnerNms added(
-      @jakarta.annotation.Nonnull List<Integer> added) {
+      @jakarta.annotation.Nullable List<Integer> added) {
     this.added = added;
     return this;
   }
@@ -68,17 +68,17 @@ public class PatchV0AuctionNmsResponse200NmsInnerNms {
    *
    * @return added
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public List<Integer> getAdded() {
     return added;
   }
 
-  public void setAdded(@jakarta.annotation.Nonnull List<Integer> added) {
+  public void setAdded(@jakarta.annotation.Nullable List<Integer> added) {
     this.added = added;
   }
 
   public PatchV0AuctionNmsResponse200NmsInnerNms deleted(
-      @jakarta.annotation.Nonnull List<Integer> deleted) {
+      @jakarta.annotation.Nullable List<Integer> deleted) {
     this.deleted = deleted;
     return this;
   }
@@ -96,12 +96,12 @@ public class PatchV0AuctionNmsResponse200NmsInnerNms {
    *
    * @return deleted
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public List<Integer> getDeleted() {
     return deleted;
   }
 
-  public void setDeleted(@jakarta.annotation.Nonnull List<Integer> deleted) {
+  public void setDeleted(@jakarta.annotation.Nullable List<Integer> deleted) {
     this.deleted = deleted;
   }
 
@@ -155,8 +155,6 @@ public class PatchV0AuctionNmsResponse200NmsInnerNms {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("added");
-    openapiRequiredFields.add("deleted");
   }
 
   /**
@@ -187,32 +185,20 @@ public class PatchV0AuctionNmsResponse200NmsInnerNms {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : PatchV0AuctionNmsResponse200NmsInnerNms.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    // ensure the required json array is present
-    if (jsonObj.get("added") == null) {
-      throw new IllegalArgumentException(
-          "Expected the field `linkedContent` to be an array in the JSON string but got `null`");
-    } else if (!jsonObj.get("added").isJsonArray()) {
+    // ensure the optional json data is an array if present
+    if (jsonObj.get("added") != null
+        && !jsonObj.get("added").isJsonNull()
+        && !jsonObj.get("added").isJsonArray()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `added` to be an array in the JSON string but got `%s`",
               jsonObj.get("added").toString()));
     }
-    // ensure the required json array is present
-    if (jsonObj.get("deleted") == null) {
-      throw new IllegalArgumentException(
-          "Expected the field `linkedContent` to be an array in the JSON string but got `null`");
-    } else if (!jsonObj.get("deleted").isJsonArray()) {
+    // ensure the optional json data is an array if present
+    if (jsonObj.get("deleted") != null
+        && !jsonObj.get("deleted").isJsonNull()
+        && !jsonObj.get("deleted").isJsonArray()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `deleted` to be an array in the JSON string but got `%s`",

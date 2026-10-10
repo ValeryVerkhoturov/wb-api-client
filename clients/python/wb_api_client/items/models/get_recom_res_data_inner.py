@@ -28,33 +28,49 @@ class GetRecomResDataInner(BaseModel):
     GetRecomResDataInner
     """  # noqa: E501
 
-    nm_id: StrictInt = Field(description="Артикул WB", alias="nmId")
-    imt_id: StrictInt = Field(
+    nm_id: Optional[StrictInt] = Field(
+        default=None, description="Артикул WB", alias="nmId"
+    )
+    imt_id: Optional[StrictInt] = Field(
+        default=None,
         description="ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров",
         alias="imtId",
     )
-    vendor_code: StrictStr = Field(description="Артикул продавца", alias="vendorCode")
-    brand_name: StrictStr = Field(description="Бренд", alias="brandName")
+    vendor_code: Optional[StrictStr] = Field(
+        default=None, description="Артикул продавца", alias="vendorCode"
+    )
+    brand_name: Optional[StrictStr] = Field(
+        default=None, description="Бренд", alias="brandName"
+    )
     updated_at: Optional[StrictStr] = Field(
         default=None,
         description="Дата и время последнего обновления рекомендаций",
         alias="updatedAt",
     )
-    pics_count: StrictInt = Field(
-        description="Количество изображений в карточке товара", alias="picsCount"
+    pics_count: Optional[StrictInt] = Field(
+        default=None,
+        description="Количество изображений в карточке товара",
+        alias="picsCount",
     )
-    title: StrictStr = Field(description="Название товара")
-    subject_name: StrictStr = Field(description="Предмет", alias="subjectName")
-    pic: StrictStr = Field(description="URL основного изображения в карточке товара")
-    recom_count: StrictInt = Field(
-        description="Количество рекомендуемых товаров", alias="recomCount"
+    title: Optional[StrictStr] = Field(default=None, description="Название товара")
+    subject_name: Optional[StrictStr] = Field(
+        default=None, description="Предмет", alias="subjectName"
     )
-    recom_pics: List[StrictStr] = Field(
+    pic: Optional[StrictStr] = Field(
+        default=None, description="URL основного изображения в карточке товара"
+    )
+    recom_count: Optional[StrictInt] = Field(
+        default=None, description="Количество рекомендуемых товаров", alias="recomCount"
+    )
+    recom_pics: Optional[List[StrictStr]] = Field(
+        default=None,
         description="Список URL основных изображений рекомендуемых товаров",
         alias="recomPics",
     )
-    recom_nms: List[StrictInt] = Field(
-        description="Список `nmId` рекомендуемых товаров", alias="recomNms"
+    recom_nms: Optional[List[StrictInt]] = Field(
+        default=None,
+        description="Список `nmId` рекомендуемых товаров",
+        alias="recomNms",
     )
     __properties: ClassVar[List[str]] = [
         "nmId",

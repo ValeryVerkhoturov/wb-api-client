@@ -39,13 +39,13 @@ public class ApiMetaDetailsResponseResultsInnerErrorsInner {
   public static final String SERIALIZED_NAME_CODE = "code";
 
   @SerializedName(SERIALIZED_NAME_CODE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer code;
 
   public static final String SERIALIZED_NAME_DETAIL = "detail";
 
   @SerializedName(SERIALIZED_NAME_DETAIL)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String detail;
 
   public static final String SERIALIZED_NAME_META_DETAILS = "metaDetails";
@@ -58,7 +58,7 @@ public class ApiMetaDetailsResponseResultsInnerErrorsInner {
   public ApiMetaDetailsResponseResultsInnerErrorsInner() {}
 
   public ApiMetaDetailsResponseResultsInnerErrorsInner code(
-      @jakarta.annotation.Nonnull Integer code) {
+      @jakarta.annotation.Nullable Integer code) {
     this.code = code;
     return this;
   }
@@ -68,17 +68,17 @@ public class ApiMetaDetailsResponseResultsInnerErrorsInner {
    *
    * @return code
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getCode() {
     return code;
   }
 
-  public void setCode(@jakarta.annotation.Nonnull Integer code) {
+  public void setCode(@jakarta.annotation.Nullable Integer code) {
     this.code = code;
   }
 
   public ApiMetaDetailsResponseResultsInnerErrorsInner detail(
-      @jakarta.annotation.Nonnull String detail) {
+      @jakarta.annotation.Nullable String detail) {
     this.detail = detail;
     return this;
   }
@@ -90,12 +90,12 @@ public class ApiMetaDetailsResponseResultsInnerErrorsInner {
    *
    * @return detail
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getDetail() {
     return detail;
   }
 
-  public void setDetail(@jakarta.annotation.Nonnull String detail) {
+  public void setDetail(@jakarta.annotation.Nullable String detail) {
     this.detail = detail;
   }
 
@@ -185,8 +185,6 @@ public class ApiMetaDetailsResponseResultsInnerErrorsInner {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("code");
-    openapiRequiredFields.add("detail");
   }
 
   /**
@@ -217,19 +215,9 @@ public class ApiMetaDetailsResponseResultsInnerErrorsInner {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField :
-        ApiMetaDetailsResponseResultsInnerErrorsInner.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    if (!jsonObj.get("detail").isJsonPrimitive()) {
+    if ((jsonObj.get("detail") != null && !jsonObj.get("detail").isJsonNull())
+        && !jsonObj.get("detail").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `detail` to be a primitive type in the JSON string but got `%s`",

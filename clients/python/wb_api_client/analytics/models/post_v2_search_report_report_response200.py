@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from wb_api_client.analytics.models.main_response import MainResponse
 from typing import Optional, Set
 from typing_extensions import Self
@@ -29,7 +29,7 @@ class PostV2SearchReportReportResponse200(BaseModel):
     PostV2SearchReportReportResponse200
     """  # noqa: E501
 
-    data: MainResponse
+    data: Optional[MainResponse] = None
     __properties: ClassVar[List[str]] = ["data"]
 
     model_config = ConfigDict(

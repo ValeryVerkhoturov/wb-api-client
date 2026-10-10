@@ -34,19 +34,9 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SupplySpotQRCode" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected SupplySpotQRCode() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="SupplySpotQRCode" /> class.
-        /// </summary>
-        /// <param name="qrCode">QR-код поставки в кодировке base64 (required).</param>
+        /// <param name="qrCode">QR-код поставки в кодировке base64.</param>
         public SupplySpotQRCode(string qrCode = default(string))
         {
-            // to ensure "qrCode" is required (not null)
-            if (qrCode == null)
-            {
-                throw new ArgumentNullException("qrCode is a required property for SupplySpotQRCode and cannot be null");
-            }
             this.QrCode = qrCode;
         }
 
@@ -57,7 +47,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /*
         <example>U3dhZ2dlciByb2Nrcw&#x3D;&#x3D;</example>
         */
-        [DataMember(Name = "qrCode", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "qrCode", EmitDefaultValue = false)]
         public string QrCode { get; set; }
 
         /// <summary>

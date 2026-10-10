@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from wb_api_client.analytics.models.table_shipping_office_metrics import (
     TableShippingOfficeMetrics,
 )
@@ -31,9 +31,15 @@ class TableShippingOfficeItemOfficesInner(BaseModel):
     TableShippingOfficeItemOfficesInner
     """  # noqa: E501
 
-    office_id: StrictInt = Field(description="ID склада", alias="officeID")
-    office_name: StrictStr = Field(description="Название склада", alias="officeName")
-    metrics: TableShippingOfficeMetrics = Field(description="Метрики по складу")
+    office_id: Optional[StrictInt] = Field(
+        default=None, description="ID склада", alias="officeID"
+    )
+    office_name: Optional[StrictStr] = Field(
+        default=None, description="Название склада", alias="officeName"
+    )
+    metrics: Optional[TableShippingOfficeMetrics] = Field(
+        default=None, description="Метрики по складу"
+    )
     __properties: ClassVar[List[str]] = ["officeID", "officeName", "metrics"]
 
     model_config = ConfigDict(

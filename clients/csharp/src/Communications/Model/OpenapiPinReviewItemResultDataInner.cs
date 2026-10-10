@@ -56,8 +56,8 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         /// Метод закрепления:   - &#x60;subscription&#x60; — подписка Джем   - &#x60;tariff&#x60; — тарифная опция 
         /// </summary>
         /// <value>Метод закрепления:   - &#x60;subscription&#x60; — подписка Джем   - &#x60;tariff&#x60; — тарифная опция </value>
-        [DataMember(Name = "pinMethod", IsRequired = true, EmitDefaultValue = true)]
-        public PinMethodEnum PinMethod { get; set; }
+        [DataMember(Name = "pinMethod", EmitDefaultValue = false)]
+        public PinMethodEnum? PinMethod { get; set; }
         /// <summary>
         /// Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров 
         /// </summary>
@@ -83,34 +83,24 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         /// Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров 
         /// </summary>
         /// <value>Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров </value>
-        [DataMember(Name = "pinOn", IsRequired = true, EmitDefaultValue = true)]
-        public PinOnEnum PinOn { get; set; }
+        [DataMember(Name = "pinOn", EmitDefaultValue = false)]
+        public PinOnEnum? PinOn { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="OpenapiPinReviewItemResultDataInner" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected OpenapiPinReviewItemResultDataInner() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="OpenapiPinReviewItemResultDataInner" /> class.
-        /// </summary>
-        /// <param name="feedbackId">ID отзыва (required).</param>
+        /// <param name="feedbackId">ID отзыва.</param>
         /// <param name="pinId">ID операции закрепления. Если поле отсутствует — закрепить отзыв не удалось .</param>
-        /// <param name="pinMethod">Метод закрепления:   - &#x60;subscription&#x60; — подписка Джем   - &#x60;tariff&#x60; — тарифная опция  (required).</param>
-        /// <param name="pinOn">Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров  (required).</param>
-        /// <param name="isErrors">Есть ли ошибки (required).</param>
+        /// <param name="pinMethod">Метод закрепления:   - &#x60;subscription&#x60; — подписка Джем   - &#x60;tariff&#x60; — тарифная опция .</param>
+        /// <param name="pinOn">Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров .</param>
+        /// <param name="isErrors">Есть ли ошибки.</param>
         /// <param name="errors">Детали ошибок.</param>
-        public OpenapiPinReviewItemResultDataInner(string feedbackId = default(string), int pinId = default(int), PinMethodEnum pinMethod = default(PinMethodEnum), PinOnEnum pinOn = default(PinOnEnum), bool isErrors = default(bool), List<OpenapiResultErr> errors = default(List<OpenapiResultErr>))
+        public OpenapiPinReviewItemResultDataInner(string feedbackId = default(string), int pinId = default(int), PinMethodEnum? pinMethod = default(PinMethodEnum?), PinOnEnum? pinOn = default(PinOnEnum?), bool isErrors = default(bool), List<OpenapiResultErr> errors = default(List<OpenapiResultErr>))
         {
-            // to ensure "feedbackId" is required (not null)
-            if (feedbackId == null)
-            {
-                throw new ArgumentNullException("feedbackId is a required property for OpenapiPinReviewItemResultDataInner and cannot be null");
-            }
             this.FeedbackId = feedbackId;
+            this.PinId = pinId;
             this.PinMethod = pinMethod;
             this.PinOn = pinOn;
             this.IsErrors = isErrors;
-            this.PinId = pinId;
             this.Errors = errors;
         }
 
@@ -118,7 +108,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         /// ID отзыва
         /// </summary>
         /// <value>ID отзыва</value>
-        [DataMember(Name = "feedbackId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "feedbackId", EmitDefaultValue = false)]
         public string FeedbackId { get; set; }
 
         /// <summary>
@@ -132,7 +122,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         /// Есть ли ошибки
         /// </summary>
         /// <value>Есть ли ошибки</value>
-        [DataMember(Name = "isErrors", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "isErrors", EmitDefaultValue = true)]
         public bool IsErrors { get; set; }
 
         /// <summary>

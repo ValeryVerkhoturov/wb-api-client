@@ -28,12 +28,15 @@ class DistributionTableItemFeedbackRating(BaseModel):
     Рейтинг товара по отзывам
     """  # noqa: E501
 
-    current: Union[StrictFloat, StrictInt] = Field(description="Текущий рейтинг")
+    current: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None, description="Текущий рейтинг"
+    )
     dynamics: Optional[Union[StrictFloat, StrictInt]] = Field(
         default=None, description="Динамика по сравнению с предыдущим периодом, %"
     )
     percentile: Optional[Union[StrictFloat, StrictInt]] = Field(
-        description="Сколько процентов товаров этого предмета у других продавцов имеют рейтинг ниже, чем у этого товара"
+        default=None,
+        description="Сколько процентов товаров этого предмета у других продавцов имеют рейтинг ниже, чем у этого товара",
     )
     __properties: ClassVar[List[str]] = ["current", "dynamics", "percentile"]
 

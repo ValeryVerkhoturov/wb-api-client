@@ -36,24 +36,24 @@ public class ItemStocks {
   public static final String SERIALIZED_NAME_WB = "wb";
 
   @SerializedName(SERIALIZED_NAME_WB)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer wb;
 
   public static final String SERIALIZED_NAME_MP = "mp";
 
   @SerializedName(SERIALIZED_NAME_MP)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer mp;
 
   public static final String SERIALIZED_NAME_BALANCE_SUM = "balanceSum";
 
   @SerializedName(SERIALIZED_NAME_BALANCE_SUM)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer balanceSum;
 
   public ItemStocks() {}
 
-  public ItemStocks wb(@jakarta.annotation.Nonnull Integer wb) {
+  public ItemStocks wb(@jakarta.annotation.Nullable Integer wb) {
     this.wb = wb;
     return this;
   }
@@ -63,16 +63,16 @@ public class ItemStocks {
    *
    * @return wb
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getWb() {
     return wb;
   }
 
-  public void setWb(@jakarta.annotation.Nonnull Integer wb) {
+  public void setWb(@jakarta.annotation.Nullable Integer wb) {
     this.wb = wb;
   }
 
-  public ItemStocks mp(@jakarta.annotation.Nonnull Integer mp) {
+  public ItemStocks mp(@jakarta.annotation.Nullable Integer mp) {
     this.mp = mp;
     return this;
   }
@@ -82,16 +82,16 @@ public class ItemStocks {
    *
    * @return mp
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getMp() {
     return mp;
   }
 
-  public void setMp(@jakarta.annotation.Nonnull Integer mp) {
+  public void setMp(@jakarta.annotation.Nullable Integer mp) {
     this.mp = mp;
   }
 
-  public ItemStocks balanceSum(@jakarta.annotation.Nonnull Integer balanceSum) {
+  public ItemStocks balanceSum(@jakarta.annotation.Nullable Integer balanceSum) {
     this.balanceSum = balanceSum;
     return this;
   }
@@ -101,12 +101,12 @@ public class ItemStocks {
    *
    * @return balanceSum
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getBalanceSum() {
     return balanceSum;
   }
 
-  public void setBalanceSum(@jakarta.annotation.Nonnull Integer balanceSum) {
+  public void setBalanceSum(@jakarta.annotation.Nullable Integer balanceSum) {
     this.balanceSum = balanceSum;
   }
 
@@ -162,9 +162,6 @@ public class ItemStocks {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("wb");
-    openapiRequiredFields.add("mp");
-    openapiRequiredFields.add("balanceSum");
   }
 
   /**
@@ -192,16 +189,6 @@ public class ItemStocks {
             String.format(
                 "The field `%s` in the JSON string is not defined in the `ItemStocks` properties. JSON: %s",
                 entry.getKey(), jsonElement.toString()));
-      }
-    }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : ItemStocks.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
       }
     }
     JsonObject jsonObj = jsonElement.getAsJsonObject();

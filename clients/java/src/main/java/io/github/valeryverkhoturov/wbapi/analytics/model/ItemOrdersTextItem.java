@@ -39,24 +39,24 @@ public class ItemOrdersTextItem {
   public static final String SERIALIZED_NAME_TEXT = "text";
 
   @SerializedName(SERIALIZED_NAME_TEXT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String text;
 
   public static final String SERIALIZED_NAME_FREQUENCY = "frequency";
 
   @SerializedName(SERIALIZED_NAME_FREQUENCY)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer frequency;
 
   public static final String SERIALIZED_NAME_DATE_ITEMS = "dateItems";
 
   @SerializedName(SERIALIZED_NAME_DATE_ITEMS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private List<ItemOrdersMetrics> dateItems = new ArrayList<>();
 
   public ItemOrdersTextItem() {}
 
-  public ItemOrdersTextItem text(@jakarta.annotation.Nonnull String text) {
+  public ItemOrdersTextItem text(@jakarta.annotation.Nullable String text) {
     this.text = text;
     return this;
   }
@@ -66,16 +66,16 @@ public class ItemOrdersTextItem {
    *
    * @return text
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getText() {
     return text;
   }
 
-  public void setText(@jakarta.annotation.Nonnull String text) {
+  public void setText(@jakarta.annotation.Nullable String text) {
     this.text = text;
   }
 
-  public ItemOrdersTextItem frequency(@jakarta.annotation.Nonnull Integer frequency) {
+  public ItemOrdersTextItem frequency(@jakarta.annotation.Nullable Integer frequency) {
     this.frequency = frequency;
     return this;
   }
@@ -85,17 +85,17 @@ public class ItemOrdersTextItem {
    *
    * @return frequency
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getFrequency() {
     return frequency;
   }
 
-  public void setFrequency(@jakarta.annotation.Nonnull Integer frequency) {
+  public void setFrequency(@jakarta.annotation.Nullable Integer frequency) {
     this.frequency = frequency;
   }
 
   public ItemOrdersTextItem dateItems(
-      @jakarta.annotation.Nonnull List<ItemOrdersMetrics> dateItems) {
+      @jakarta.annotation.Nullable List<ItemOrdersMetrics> dateItems) {
     this.dateItems = dateItems;
     return this;
   }
@@ -113,12 +113,12 @@ public class ItemOrdersTextItem {
    *
    * @return dateItems
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public List<ItemOrdersMetrics> getDateItems() {
     return dateItems;
   }
 
-  public void setDateItems(@jakarta.annotation.Nonnull List<ItemOrdersMetrics> dateItems) {
+  public void setDateItems(@jakarta.annotation.Nullable List<ItemOrdersMetrics> dateItems) {
     this.dateItems = dateItems;
   }
 
@@ -174,9 +174,6 @@ public class ItemOrdersTextItem {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("text");
-    openapiRequiredFields.add("frequency");
-    openapiRequiredFields.add("dateItems");
   }
 
   /**
@@ -206,37 +203,32 @@ public class ItemOrdersTextItem {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : ItemOrdersTextItem.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    if (!jsonObj.get("text").isJsonPrimitive()) {
+    if ((jsonObj.get("text") != null && !jsonObj.get("text").isJsonNull())
+        && !jsonObj.get("text").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `text` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("text").toString()));
     }
-    // ensure the json data is an array
-    if (!jsonObj.get("dateItems").isJsonArray()) {
-      throw new IllegalArgumentException(
-          String.format(
-              "Expected the field `dateItems` to be an array in the JSON string but got `%s`",
-              jsonObj.get("dateItems").toString()));
-    }
+    if (jsonObj.get("dateItems") != null && !jsonObj.get("dateItems").isJsonNull()) {
+      JsonArray jsonArraydateItems = jsonObj.getAsJsonArray("dateItems");
+      if (jsonArraydateItems != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("dateItems").isJsonArray()) {
+          throw new IllegalArgumentException(
+              String.format(
+                  "Expected the field `dateItems` to be an array in the JSON string but got `%s`",
+                  jsonObj.get("dateItems").toString()));
+        }
 
-    JsonArray jsonArraydateItems = jsonObj.getAsJsonArray("dateItems");
-    // validate the required field `dateItems` (array)
-    for (int i = 0; i < jsonArraydateItems.size(); i++) {
-      ItemOrdersMetrics.validateJsonElement(jsonArraydateItems.get(i));
+        // validate the optional field `dateItems` (array)
+        for (int i = 0; i < jsonArraydateItems.size(); i++) {
+          ItemOrdersMetrics.validateJsonElement(jsonArraydateItems.get(i));
+        }
+        ;
+      }
     }
-    ;
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

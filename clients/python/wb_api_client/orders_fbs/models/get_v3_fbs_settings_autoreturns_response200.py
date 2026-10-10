@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,14 +28,18 @@ class GetV3FbsSettingsAutoreturnsResponse200(BaseModel):
     GetV3FbsSettingsAutoreturnsResponse200
     """  # noqa: E501
 
-    type: StrictStr = Field(
-        description="Тип автовозврата:   - `allToWarehouse` — все товары отправляются на склад WB, кроме товаров тех [предметов](https://dev.wildberries.ru/openapi/orders-fbs#tag/autoreturnSettings/operation/getV3FbsSettingsAutoreturnsSubcategoriesRestricted), которые автоматически возвращаются в ПВЗ   - `allToPickupPoint` — все товары отправляются на пункт выдачи заказов   - `manual` — используются ручные настройки "
+    type: Optional[StrictStr] = Field(
+        default=None,
+        description="Тип автовозврата:   - `allToWarehouse` — все товары отправляются на склад WB, кроме товаров тех [предметов](https://dev.wildberries.ru/openapi/orders-fbs#tag/autoreturnSettings/operation/getV3FbsSettingsAutoreturnsSubcategoriesRestricted), которые автоматически возвращаются в ПВЗ   - `allToPickupPoint` — все товары отправляются на пункт выдачи заказов   - `manual` — используются ручные настройки ",
     )
     __properties: ClassVar[List[str]] = ["type"]
 
     @field_validator("type")
     def type_validate_enum(cls, value):
         """Validates the enum"""
+        if value is None:
+            return value
+
         if value not in set(["allToWarehouse", "allToPickupPoint", "manual"]):
             raise ValueError(
                 "must be one of enum values ('allToWarehouse', 'allToPickupPoint', 'manual')"

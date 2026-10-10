@@ -37,7 +37,7 @@ public class OpenapiResultErr {
   public static final String SERIALIZED_NAME_ORIGIN = "origin";
 
   @SerializedName(SERIALIZED_NAME_ORIGIN)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String origin;
 
   public static final String SERIALIZED_NAME_DETAIL = "detail";
@@ -49,7 +49,7 @@ public class OpenapiResultErr {
   public static final String SERIALIZED_NAME_REQUEST_ID = "requestId";
 
   @SerializedName(SERIALIZED_NAME_REQUEST_ID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String requestId;
 
   /** Статус */
@@ -126,18 +126,18 @@ public class OpenapiResultErr {
   public static final String SERIALIZED_NAME_STATUS = "status";
 
   @SerializedName(SERIALIZED_NAME_STATUS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private StatusEnum status;
 
   public static final String SERIALIZED_NAME_TITLE = "title";
 
   @SerializedName(SERIALIZED_NAME_TITLE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String title;
 
   public OpenapiResultErr() {}
 
-  public OpenapiResultErr origin(@jakarta.annotation.Nonnull String origin) {
+  public OpenapiResultErr origin(@jakarta.annotation.Nullable String origin) {
     this.origin = origin;
     return this;
   }
@@ -147,12 +147,12 @@ public class OpenapiResultErr {
    *
    * @return origin
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getOrigin() {
     return origin;
   }
 
-  public void setOrigin(@jakarta.annotation.Nonnull String origin) {
+  public void setOrigin(@jakarta.annotation.Nullable String origin) {
     this.origin = origin;
   }
 
@@ -175,7 +175,7 @@ public class OpenapiResultErr {
     this.detail = detail;
   }
 
-  public OpenapiResultErr requestId(@jakarta.annotation.Nonnull String requestId) {
+  public OpenapiResultErr requestId(@jakarta.annotation.Nullable String requestId) {
     this.requestId = requestId;
     return this;
   }
@@ -185,16 +185,16 @@ public class OpenapiResultErr {
    *
    * @return requestId
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getRequestId() {
     return requestId;
   }
 
-  public void setRequestId(@jakarta.annotation.Nonnull String requestId) {
+  public void setRequestId(@jakarta.annotation.Nullable String requestId) {
     this.requestId = requestId;
   }
 
-  public OpenapiResultErr status(@jakarta.annotation.Nonnull StatusEnum status) {
+  public OpenapiResultErr status(@jakarta.annotation.Nullable StatusEnum status) {
     this.status = status;
     return this;
   }
@@ -204,16 +204,16 @@ public class OpenapiResultErr {
    *
    * @return status
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public StatusEnum getStatus() {
     return status;
   }
 
-  public void setStatus(@jakarta.annotation.Nonnull StatusEnum status) {
+  public void setStatus(@jakarta.annotation.Nullable StatusEnum status) {
     this.status = status;
   }
 
-  public OpenapiResultErr title(@jakarta.annotation.Nonnull String title) {
+  public OpenapiResultErr title(@jakarta.annotation.Nullable String title) {
     this.title = title;
     return this;
   }
@@ -223,12 +223,12 @@ public class OpenapiResultErr {
    *
    * @return title
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getTitle() {
     return title;
   }
 
-  public void setTitle(@jakarta.annotation.Nonnull String title) {
+  public void setTitle(@jakarta.annotation.Nullable String title) {
     this.title = title;
   }
 
@@ -290,10 +290,6 @@ public class OpenapiResultErr {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("origin");
-    openapiRequiredFields.add("requestId");
-    openapiRequiredFields.add("status");
-    openapiRequiredFields.add("title");
   }
 
   /**
@@ -323,18 +319,9 @@ public class OpenapiResultErr {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : OpenapiResultErr.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    if (!jsonObj.get("origin").isJsonPrimitive()) {
+    if ((jsonObj.get("origin") != null && !jsonObj.get("origin").isJsonNull())
+        && !jsonObj.get("origin").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `origin` to be a primitive type in the JSON string but got `%s`",
@@ -347,21 +334,26 @@ public class OpenapiResultErr {
               "Expected the field `detail` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("detail").toString()));
     }
-    if (!jsonObj.get("requestId").isJsonPrimitive()) {
+    if ((jsonObj.get("requestId") != null && !jsonObj.get("requestId").isJsonNull())
+        && !jsonObj.get("requestId").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `requestId` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("requestId").toString()));
     }
-    if (!jsonObj.get("status").isJsonPrimitive()) {
+    if ((jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull())
+        && !jsonObj.get("status").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `status` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("status").toString()));
     }
-    // validate the required field `status`
-    StatusEnum.validateJsonElement(jsonObj.get("status"));
-    if (!jsonObj.get("title").isJsonPrimitive()) {
+    // validate the optional field `status`
+    if (jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull()) {
+      StatusEnum.validateJsonElement(jsonObj.get("status"));
+    }
+    if ((jsonObj.get("title") != null && !jsonObj.get("title").isJsonNull())
+        && !jsonObj.get("title").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `title` to be a primitive type in the JSON string but got `%s`",

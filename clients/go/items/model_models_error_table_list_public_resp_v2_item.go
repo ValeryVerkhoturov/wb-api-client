@@ -11,9 +11,7 @@ API version: items
 package items
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the ModelsErrorTableListPublicRespV2Item type satisfies the MappedNullable interface at compile time
@@ -22,33 +20,25 @@ var _ MappedNullable = &ModelsErrorTableListPublicRespV2Item{}
 // ModelsErrorTableListPublicRespV2Item struct for ModelsErrorTableListPublicRespV2Item
 type ModelsErrorTableListPublicRespV2Item struct {
 	// ID пакета
-	BatchUUID string `json:"batchUUID"`
+	BatchUUID *string `json:"batchUUID,omitempty"`
 	// Предметы. Разбивка по `vendorCodes`
-	Subjects map[string]ModelsErrorSubcategory `json:"subjects"`
+	Subjects *map[string]ModelsErrorSubcategory `json:"subjects,omitempty"`
 	// Бренды. Разбивка по `vendorCodes`
-	Brands map[string]ModelsErrorBrand `json:"brands"`
+	Brands *map[string]ModelsErrorBrand `json:"brands,omitempty"`
 	// Артикулы продавца
-	VendorCodes []string `json:"vendorCodes"`
+	VendorCodes []string `json:"vendorCodes,omitempty"`
 	// Ошибки. Разбивка по `vendorCodes`
-	Errors map[string][]string `json:"errors"`
+	Errors *map[string][]string `json:"errors,omitempty"`
 	// Дата и время создания или редактирования пакета
-	UpdatedAt string `json:"updatedAt"`
+	UpdatedAt *string `json:"updatedAt,omitempty"`
 }
-
-type _ModelsErrorTableListPublicRespV2Item ModelsErrorTableListPublicRespV2Item
 
 // NewModelsErrorTableListPublicRespV2Item instantiates a new ModelsErrorTableListPublicRespV2Item object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelsErrorTableListPublicRespV2Item(batchUUID string, subjects map[string]ModelsErrorSubcategory, brands map[string]ModelsErrorBrand, vendorCodes []string, errors map[string][]string, updatedAt string) *ModelsErrorTableListPublicRespV2Item {
+func NewModelsErrorTableListPublicRespV2Item() *ModelsErrorTableListPublicRespV2Item {
 	this := ModelsErrorTableListPublicRespV2Item{}
-	this.BatchUUID = batchUUID
-	this.Subjects = subjects
-	this.Brands = brands
-	this.VendorCodes = vendorCodes
-	this.Errors = errors
-	this.UpdatedAt = updatedAt
 	return &this
 }
 
@@ -60,148 +50,196 @@ func NewModelsErrorTableListPublicRespV2ItemWithDefaults() *ModelsErrorTableList
 	return &this
 }
 
-// GetBatchUUID returns the BatchUUID field value
+// GetBatchUUID returns the BatchUUID field value if set, zero value otherwise.
 func (o *ModelsErrorTableListPublicRespV2Item) GetBatchUUID() string {
-	if o == nil {
+	if o == nil || IsNil(o.BatchUUID) {
 		var ret string
 		return ret
 	}
-
-	return o.BatchUUID
+	return *o.BatchUUID
 }
 
-// GetBatchUUIDOk returns a tuple with the BatchUUID field value
+// GetBatchUUIDOk returns a tuple with the BatchUUID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModelsErrorTableListPublicRespV2Item) GetBatchUUIDOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.BatchUUID) {
 		return nil, false
 	}
-	return &o.BatchUUID, true
+	return o.BatchUUID, true
 }
 
-// SetBatchUUID sets field value
+// HasBatchUUID returns a boolean if a field has been set.
+func (o *ModelsErrorTableListPublicRespV2Item) HasBatchUUID() bool {
+	if o != nil && !IsNil(o.BatchUUID) {
+		return true
+	}
+
+	return false
+}
+
+// SetBatchUUID gets a reference to the given string and assigns it to the BatchUUID field.
 func (o *ModelsErrorTableListPublicRespV2Item) SetBatchUUID(v string) {
-	o.BatchUUID = v
+	o.BatchUUID = &v
 }
 
-// GetSubjects returns the Subjects field value
+// GetSubjects returns the Subjects field value if set, zero value otherwise.
 func (o *ModelsErrorTableListPublicRespV2Item) GetSubjects() map[string]ModelsErrorSubcategory {
-	if o == nil {
+	if o == nil || IsNil(o.Subjects) {
 		var ret map[string]ModelsErrorSubcategory
 		return ret
 	}
-
-	return o.Subjects
+	return *o.Subjects
 }
 
-// GetSubjectsOk returns a tuple with the Subjects field value
+// GetSubjectsOk returns a tuple with the Subjects field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModelsErrorTableListPublicRespV2Item) GetSubjectsOk() (*map[string]ModelsErrorSubcategory, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Subjects) {
 		return nil, false
 	}
-	return &o.Subjects, true
+	return o.Subjects, true
 }
 
-// SetSubjects sets field value
+// HasSubjects returns a boolean if a field has been set.
+func (o *ModelsErrorTableListPublicRespV2Item) HasSubjects() bool {
+	if o != nil && !IsNil(o.Subjects) {
+		return true
+	}
+
+	return false
+}
+
+// SetSubjects gets a reference to the given map[string]ModelsErrorSubcategory and assigns it to the Subjects field.
 func (o *ModelsErrorTableListPublicRespV2Item) SetSubjects(v map[string]ModelsErrorSubcategory) {
-	o.Subjects = v
+	o.Subjects = &v
 }
 
-// GetBrands returns the Brands field value
+// GetBrands returns the Brands field value if set, zero value otherwise.
 func (o *ModelsErrorTableListPublicRespV2Item) GetBrands() map[string]ModelsErrorBrand {
-	if o == nil {
+	if o == nil || IsNil(o.Brands) {
 		var ret map[string]ModelsErrorBrand
 		return ret
 	}
-
-	return o.Brands
+	return *o.Brands
 }
 
-// GetBrandsOk returns a tuple with the Brands field value
+// GetBrandsOk returns a tuple with the Brands field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModelsErrorTableListPublicRespV2Item) GetBrandsOk() (*map[string]ModelsErrorBrand, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Brands) {
 		return nil, false
 	}
-	return &o.Brands, true
+	return o.Brands, true
 }
 
-// SetBrands sets field value
+// HasBrands returns a boolean if a field has been set.
+func (o *ModelsErrorTableListPublicRespV2Item) HasBrands() bool {
+	if o != nil && !IsNil(o.Brands) {
+		return true
+	}
+
+	return false
+}
+
+// SetBrands gets a reference to the given map[string]ModelsErrorBrand and assigns it to the Brands field.
 func (o *ModelsErrorTableListPublicRespV2Item) SetBrands(v map[string]ModelsErrorBrand) {
-	o.Brands = v
+	o.Brands = &v
 }
 
-// GetVendorCodes returns the VendorCodes field value
+// GetVendorCodes returns the VendorCodes field value if set, zero value otherwise.
 func (o *ModelsErrorTableListPublicRespV2Item) GetVendorCodes() []string {
-	if o == nil {
+	if o == nil || IsNil(o.VendorCodes) {
 		var ret []string
 		return ret
 	}
-
 	return o.VendorCodes
 }
 
-// GetVendorCodesOk returns a tuple with the VendorCodes field value
+// GetVendorCodesOk returns a tuple with the VendorCodes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModelsErrorTableListPublicRespV2Item) GetVendorCodesOk() ([]string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.VendorCodes) {
 		return nil, false
 	}
 	return o.VendorCodes, true
 }
 
-// SetVendorCodes sets field value
+// HasVendorCodes returns a boolean if a field has been set.
+func (o *ModelsErrorTableListPublicRespV2Item) HasVendorCodes() bool {
+	if o != nil && !IsNil(o.VendorCodes) {
+		return true
+	}
+
+	return false
+}
+
+// SetVendorCodes gets a reference to the given []string and assigns it to the VendorCodes field.
 func (o *ModelsErrorTableListPublicRespV2Item) SetVendorCodes(v []string) {
 	o.VendorCodes = v
 }
 
-// GetErrors returns the Errors field value
+// GetErrors returns the Errors field value if set, zero value otherwise.
 func (o *ModelsErrorTableListPublicRespV2Item) GetErrors() map[string][]string {
-	if o == nil {
+	if o == nil || IsNil(o.Errors) {
 		var ret map[string][]string
 		return ret
 	}
-
-	return o.Errors
+	return *o.Errors
 }
 
-// GetErrorsOk returns a tuple with the Errors field value
+// GetErrorsOk returns a tuple with the Errors field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModelsErrorTableListPublicRespV2Item) GetErrorsOk() (*map[string][]string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Errors) {
 		return nil, false
 	}
-	return &o.Errors, true
+	return o.Errors, true
 }
 
-// SetErrors sets field value
+// HasErrors returns a boolean if a field has been set.
+func (o *ModelsErrorTableListPublicRespV2Item) HasErrors() bool {
+	if o != nil && !IsNil(o.Errors) {
+		return true
+	}
+
+	return false
+}
+
+// SetErrors gets a reference to the given map[string][]string and assigns it to the Errors field.
 func (o *ModelsErrorTableListPublicRespV2Item) SetErrors(v map[string][]string) {
-	o.Errors = v
+	o.Errors = &v
 }
 
-// GetUpdatedAt returns the UpdatedAt field value
+// GetUpdatedAt returns the UpdatedAt field value if set, zero value otherwise.
 func (o *ModelsErrorTableListPublicRespV2Item) GetUpdatedAt() string {
-	if o == nil {
+	if o == nil || IsNil(o.UpdatedAt) {
 		var ret string
 		return ret
 	}
-
-	return o.UpdatedAt
+	return *o.UpdatedAt
 }
 
-// GetUpdatedAtOk returns a tuple with the UpdatedAt field value
+// GetUpdatedAtOk returns a tuple with the UpdatedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModelsErrorTableListPublicRespV2Item) GetUpdatedAtOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.UpdatedAt) {
 		return nil, false
 	}
-	return &o.UpdatedAt, true
+	return o.UpdatedAt, true
 }
 
-// SetUpdatedAt sets field value
+// HasUpdatedAt returns a boolean if a field has been set.
+func (o *ModelsErrorTableListPublicRespV2Item) HasUpdatedAt() bool {
+	if o != nil && !IsNil(o.UpdatedAt) {
+		return true
+	}
+
+	return false
+}
+
+// SetUpdatedAt gets a reference to the given string and assigns it to the UpdatedAt field.
 func (o *ModelsErrorTableListPublicRespV2Item) SetUpdatedAt(v string) {
-	o.UpdatedAt = v
+	o.UpdatedAt = &v
 }
 
 func (o ModelsErrorTableListPublicRespV2Item) MarshalJSON() ([]byte, error) {
@@ -214,55 +252,25 @@ func (o ModelsErrorTableListPublicRespV2Item) MarshalJSON() ([]byte, error) {
 
 func (o ModelsErrorTableListPublicRespV2Item) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["batchUUID"] = o.BatchUUID
-	toSerialize["subjects"] = o.Subjects
-	toSerialize["brands"] = o.Brands
-	toSerialize["vendorCodes"] = o.VendorCodes
-	toSerialize["errors"] = o.Errors
-	toSerialize["updatedAt"] = o.UpdatedAt
+	if !IsNil(o.BatchUUID) {
+		toSerialize["batchUUID"] = o.BatchUUID
+	}
+	if !IsNil(o.Subjects) {
+		toSerialize["subjects"] = o.Subjects
+	}
+	if !IsNil(o.Brands) {
+		toSerialize["brands"] = o.Brands
+	}
+	if !IsNil(o.VendorCodes) {
+		toSerialize["vendorCodes"] = o.VendorCodes
+	}
+	if !IsNil(o.Errors) {
+		toSerialize["errors"] = o.Errors
+	}
+	if !IsNil(o.UpdatedAt) {
+		toSerialize["updatedAt"] = o.UpdatedAt
+	}
 	return toSerialize, nil
-}
-
-func (o *ModelsErrorTableListPublicRespV2Item) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"batchUUID",
-		"subjects",
-		"brands",
-		"vendorCodes",
-		"errors",
-		"updatedAt",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varModelsErrorTableListPublicRespV2Item := _ModelsErrorTableListPublicRespV2Item{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varModelsErrorTableListPublicRespV2Item)
-
-	if err != nil {
-		return err
-	}
-
-	*o = ModelsErrorTableListPublicRespV2Item(varModelsErrorTableListPublicRespV2Item)
-
-	return err
 }
 
 type NullableModelsErrorTableListPublicRespV2Item struct {

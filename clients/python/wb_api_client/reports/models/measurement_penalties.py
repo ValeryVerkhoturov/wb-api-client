@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from wb_api_client.reports.models.measurement_penalties_data import (
     MeasurementPenaltiesData,
 )
@@ -31,7 +31,7 @@ class MeasurementPenalties(BaseModel):
     MeasurementPenalties
     """  # noqa: E501
 
-    data: MeasurementPenaltiesData
+    data: Optional[MeasurementPenaltiesData] = None
     __properties: ClassVar[List[str]] = ["data"]
 
     model_config = ConfigDict(

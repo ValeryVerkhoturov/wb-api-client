@@ -36,66 +36,66 @@ public class ModelsDraftItemItem {
   public static final String SERIALIZED_NAME_SKU = "sku";
 
   @SerializedName(SERIALIZED_NAME_SKU)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String sku;
 
   public static final String SERIALIZED_NAME_COLOR = "color";
 
   @SerializedName(SERIALIZED_NAME_COLOR)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String color;
 
   public static final String SERIALIZED_NAME_QUANTITY = "quantity";
 
   @SerializedName(SERIALIZED_NAME_QUANTITY)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer quantity;
 
   public static final String SERIALIZED_NAME_BRAND_NAME = "brandName";
 
   @SerializedName(SERIALIZED_NAME_BRAND_NAME)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String brandName;
 
   public static final String SERIALIZED_NAME_IMG_SRC = "imgSrc";
 
   @SerializedName(SERIALIZED_NAME_IMG_SRC)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String imgSrc;
 
   public static final String SERIALIZED_NAME_NM_ID = "nmId";
 
   @SerializedName(SERIALIZED_NAME_NM_ID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer nmId;
 
   public static final String SERIALIZED_NAME_SUBJECT_NAME = "subjectName";
 
   @SerializedName(SERIALIZED_NAME_SUBJECT_NAME)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String subjectName;
 
   public static final String SERIALIZED_NAME_TECH_SIZE = "techSize";
 
   @SerializedName(SERIALIZED_NAME_TECH_SIZE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String techSize;
 
   public static final String SERIALIZED_NAME_TITLE = "title";
 
   @SerializedName(SERIALIZED_NAME_TITLE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String title;
 
   public static final String SERIALIZED_NAME_VENDOR_CODE = "vendorCode";
 
   @SerializedName(SERIALIZED_NAME_VENDOR_CODE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String vendorCode;
 
   public ModelsDraftItemItem() {}
 
-  public ModelsDraftItemItem sku(@jakarta.annotation.Nonnull String sku) {
+  public ModelsDraftItemItem sku(@jakarta.annotation.Nullable String sku) {
     this.sku = sku;
     return this;
   }
@@ -105,16 +105,16 @@ public class ModelsDraftItemItem {
    *
    * @return sku
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getSku() {
     return sku;
   }
 
-  public void setSku(@jakarta.annotation.Nonnull String sku) {
+  public void setSku(@jakarta.annotation.Nullable String sku) {
     this.sku = sku;
   }
 
-  public ModelsDraftItemItem color(@jakarta.annotation.Nonnull String color) {
+  public ModelsDraftItemItem color(@jakarta.annotation.Nullable String color) {
     this.color = color;
     return this;
   }
@@ -124,16 +124,16 @@ public class ModelsDraftItemItem {
    *
    * @return color
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getColor() {
     return color;
   }
 
-  public void setColor(@jakarta.annotation.Nonnull String color) {
+  public void setColor(@jakarta.annotation.Nullable String color) {
     this.color = color;
   }
 
-  public ModelsDraftItemItem quantity(@jakarta.annotation.Nonnull Integer quantity) {
+  public ModelsDraftItemItem quantity(@jakarta.annotation.Nullable Integer quantity) {
     this.quantity = quantity;
     return this;
   }
@@ -143,16 +143,16 @@ public class ModelsDraftItemItem {
    *
    * @return quantity
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getQuantity() {
     return quantity;
   }
 
-  public void setQuantity(@jakarta.annotation.Nonnull Integer quantity) {
+  public void setQuantity(@jakarta.annotation.Nullable Integer quantity) {
     this.quantity = quantity;
   }
 
-  public ModelsDraftItemItem brandName(@jakarta.annotation.Nonnull String brandName) {
+  public ModelsDraftItemItem brandName(@jakarta.annotation.Nullable String brandName) {
     this.brandName = brandName;
     return this;
   }
@@ -162,16 +162,16 @@ public class ModelsDraftItemItem {
    *
    * @return brandName
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getBrandName() {
     return brandName;
   }
 
-  public void setBrandName(@jakarta.annotation.Nonnull String brandName) {
+  public void setBrandName(@jakarta.annotation.Nullable String brandName) {
     this.brandName = brandName;
   }
 
-  public ModelsDraftItemItem imgSrc(@jakarta.annotation.Nonnull String imgSrc) {
+  public ModelsDraftItemItem imgSrc(@jakarta.annotation.Nullable String imgSrc) {
     this.imgSrc = imgSrc;
     return this;
   }
@@ -181,16 +181,16 @@ public class ModelsDraftItemItem {
    *
    * @return imgSrc
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getImgSrc() {
     return imgSrc;
   }
 
-  public void setImgSrc(@jakarta.annotation.Nonnull String imgSrc) {
+  public void setImgSrc(@jakarta.annotation.Nullable String imgSrc) {
     this.imgSrc = imgSrc;
   }
 
-  public ModelsDraftItemItem nmId(@jakarta.annotation.Nonnull Integer nmId) {
+  public ModelsDraftItemItem nmId(@jakarta.annotation.Nullable Integer nmId) {
     this.nmId = nmId;
     return this;
   }
@@ -200,16 +200,16 @@ public class ModelsDraftItemItem {
    *
    * @return nmId
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getNmId() {
     return nmId;
   }
 
-  public void setNmId(@jakarta.annotation.Nonnull Integer nmId) {
+  public void setNmId(@jakarta.annotation.Nullable Integer nmId) {
     this.nmId = nmId;
   }
 
-  public ModelsDraftItemItem subjectName(@jakarta.annotation.Nonnull String subjectName) {
+  public ModelsDraftItemItem subjectName(@jakarta.annotation.Nullable String subjectName) {
     this.subjectName = subjectName;
     return this;
   }
@@ -219,16 +219,16 @@ public class ModelsDraftItemItem {
    *
    * @return subjectName
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getSubjectName() {
     return subjectName;
   }
 
-  public void setSubjectName(@jakarta.annotation.Nonnull String subjectName) {
+  public void setSubjectName(@jakarta.annotation.Nullable String subjectName) {
     this.subjectName = subjectName;
   }
 
-  public ModelsDraftItemItem techSize(@jakarta.annotation.Nonnull String techSize) {
+  public ModelsDraftItemItem techSize(@jakarta.annotation.Nullable String techSize) {
     this.techSize = techSize;
     return this;
   }
@@ -238,16 +238,16 @@ public class ModelsDraftItemItem {
    *
    * @return techSize
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getTechSize() {
     return techSize;
   }
 
-  public void setTechSize(@jakarta.annotation.Nonnull String techSize) {
+  public void setTechSize(@jakarta.annotation.Nullable String techSize) {
     this.techSize = techSize;
   }
 
-  public ModelsDraftItemItem title(@jakarta.annotation.Nonnull String title) {
+  public ModelsDraftItemItem title(@jakarta.annotation.Nullable String title) {
     this.title = title;
     return this;
   }
@@ -257,16 +257,16 @@ public class ModelsDraftItemItem {
    *
    * @return title
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getTitle() {
     return title;
   }
 
-  public void setTitle(@jakarta.annotation.Nonnull String title) {
+  public void setTitle(@jakarta.annotation.Nullable String title) {
     this.title = title;
   }
 
-  public ModelsDraftItemItem vendorCode(@jakarta.annotation.Nonnull String vendorCode) {
+  public ModelsDraftItemItem vendorCode(@jakarta.annotation.Nullable String vendorCode) {
     this.vendorCode = vendorCode;
     return this;
   }
@@ -276,12 +276,12 @@ public class ModelsDraftItemItem {
    *
    * @return vendorCode
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getVendorCode() {
     return vendorCode;
   }
 
-  public void setVendorCode(@jakarta.annotation.Nonnull String vendorCode) {
+  public void setVendorCode(@jakarta.annotation.Nullable String vendorCode) {
     this.vendorCode = vendorCode;
   }
 
@@ -359,16 +359,6 @@ public class ModelsDraftItemItem {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("sku");
-    openapiRequiredFields.add("color");
-    openapiRequiredFields.add("quantity");
-    openapiRequiredFields.add("brandName");
-    openapiRequiredFields.add("imgSrc");
-    openapiRequiredFields.add("nmId");
-    openapiRequiredFields.add("subjectName");
-    openapiRequiredFields.add("techSize");
-    openapiRequiredFields.add("title");
-    openapiRequiredFields.add("vendorCode");
   }
 
   /**
@@ -398,60 +388,58 @@ public class ModelsDraftItemItem {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : ModelsDraftItemItem.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    if (!jsonObj.get("sku").isJsonPrimitive()) {
+    if ((jsonObj.get("sku") != null && !jsonObj.get("sku").isJsonNull())
+        && !jsonObj.get("sku").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `sku` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("sku").toString()));
     }
-    if (!jsonObj.get("color").isJsonPrimitive()) {
+    if ((jsonObj.get("color") != null && !jsonObj.get("color").isJsonNull())
+        && !jsonObj.get("color").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `color` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("color").toString()));
     }
-    if (!jsonObj.get("brandName").isJsonPrimitive()) {
+    if ((jsonObj.get("brandName") != null && !jsonObj.get("brandName").isJsonNull())
+        && !jsonObj.get("brandName").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `brandName` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("brandName").toString()));
     }
-    if (!jsonObj.get("imgSrc").isJsonPrimitive()) {
+    if ((jsonObj.get("imgSrc") != null && !jsonObj.get("imgSrc").isJsonNull())
+        && !jsonObj.get("imgSrc").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `imgSrc` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("imgSrc").toString()));
     }
-    if (!jsonObj.get("subjectName").isJsonPrimitive()) {
+    if ((jsonObj.get("subjectName") != null && !jsonObj.get("subjectName").isJsonNull())
+        && !jsonObj.get("subjectName").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `subjectName` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("subjectName").toString()));
     }
-    if (!jsonObj.get("techSize").isJsonPrimitive()) {
+    if ((jsonObj.get("techSize") != null && !jsonObj.get("techSize").isJsonNull())
+        && !jsonObj.get("techSize").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `techSize` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("techSize").toString()));
     }
-    if (!jsonObj.get("title").isJsonPrimitive()) {
+    if ((jsonObj.get("title") != null && !jsonObj.get("title").isJsonNull())
+        && !jsonObj.get("title").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `title` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("title").toString()));
     }
-    if (!jsonObj.get("vendorCode").isJsonPrimitive()) {
+    if ((jsonObj.get("vendorCode") != null && !jsonObj.get("vendorCode").isJsonNull())
+        && !jsonObj.get("vendorCode").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `vendorCode` to be a primitive type in the JSON string but got `%s`",

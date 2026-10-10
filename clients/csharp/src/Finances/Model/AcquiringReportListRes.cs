@@ -34,63 +34,23 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AcquiringReportListRes" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected AcquiringReportListRes() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="AcquiringReportListRes" /> class.
-        /// </summary>
-        /// <param name="reportId">ID отчёта (required).</param>
-        /// <param name="sellerFinanceName">Наименование продавца (required).</param>
-        /// <param name="dateFrom">Дата начала отчётного периода (required).</param>
-        /// <param name="dateTo">Дата конца отчётного периода (required).</param>
-        /// <param name="createDate">Дата формирования отчёта (required).</param>
-        /// <param name="currency">Валюта отчёта (required).</param>
-        /// <param name="acquiringFeeSum">Сумма издержек по эквайрингу (required).</param>
-        /// <param name="acquiringFeeVatSum">В том числе НДС (required).</param>
+        /// <param name="reportId">ID отчёта.</param>
+        /// <param name="sellerFinanceName">Наименование продавца.</param>
+        /// <param name="dateFrom">Дата начала отчётного периода.</param>
+        /// <param name="dateTo">Дата конца отчётного периода.</param>
+        /// <param name="createDate">Дата формирования отчёта.</param>
+        /// <param name="currency">Валюта отчёта.</param>
+        /// <param name="acquiringFeeSum">Сумма издержек по эквайрингу.</param>
+        /// <param name="acquiringFeeVatSum">В том числе НДС.</param>
         public AcquiringReportListRes(long reportId = default(long), string sellerFinanceName = default(string), string dateFrom = default(string), string dateTo = default(string), string createDate = default(string), string currency = default(string), string acquiringFeeSum = default(string), string acquiringFeeVatSum = default(string))
         {
             this.ReportId = reportId;
-            // to ensure "sellerFinanceName" is required (not null)
-            if (sellerFinanceName == null)
-            {
-                throw new ArgumentNullException("sellerFinanceName is a required property for AcquiringReportListRes and cannot be null");
-            }
             this.SellerFinanceName = sellerFinanceName;
-            // to ensure "dateFrom" is required (not null)
-            if (dateFrom == null)
-            {
-                throw new ArgumentNullException("dateFrom is a required property for AcquiringReportListRes and cannot be null");
-            }
             this.DateFrom = dateFrom;
-            // to ensure "dateTo" is required (not null)
-            if (dateTo == null)
-            {
-                throw new ArgumentNullException("dateTo is a required property for AcquiringReportListRes and cannot be null");
-            }
             this.DateTo = dateTo;
-            // to ensure "createDate" is required (not null)
-            if (createDate == null)
-            {
-                throw new ArgumentNullException("createDate is a required property for AcquiringReportListRes and cannot be null");
-            }
             this.CreateDate = createDate;
-            // to ensure "currency" is required (not null)
-            if (currency == null)
-            {
-                throw new ArgumentNullException("currency is a required property for AcquiringReportListRes and cannot be null");
-            }
             this.Currency = currency;
-            // to ensure "acquiringFeeSum" is required (not null)
-            if (acquiringFeeSum == null)
-            {
-                throw new ArgumentNullException("acquiringFeeSum is a required property for AcquiringReportListRes and cannot be null");
-            }
             this.AcquiringFeeSum = acquiringFeeSum;
-            // to ensure "acquiringFeeVatSum" is required (not null)
-            if (acquiringFeeVatSum == null)
-            {
-                throw new ArgumentNullException("acquiringFeeVatSum is a required property for AcquiringReportListRes and cannot be null");
-            }
             this.AcquiringFeeVatSum = acquiringFeeVatSum;
         }
 
@@ -101,7 +61,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>307401554</example>
         */
-        [DataMember(Name = "reportId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "reportId", EmitDefaultValue = false)]
         public long ReportId { get; set; }
 
         /// <summary>
@@ -111,7 +71,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>ИП Кружинин В. Р.</example>
         */
-        [DataMember(Name = "sellerFinanceName", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "sellerFinanceName", EmitDefaultValue = false)]
         public string SellerFinanceName { get; set; }
 
         /// <summary>
@@ -121,7 +81,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>2026-03-16</example>
         */
-        [DataMember(Name = "dateFrom", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "dateFrom", EmitDefaultValue = false)]
         public string DateFrom { get; set; }
 
         /// <summary>
@@ -131,7 +91,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>2026-03-22</example>
         */
-        [DataMember(Name = "dateTo", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "dateTo", EmitDefaultValue = false)]
         public string DateTo { get; set; }
 
         /// <summary>
@@ -141,7 +101,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>2026-03-31</example>
         */
-        [DataMember(Name = "createDate", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "createDate", EmitDefaultValue = false)]
         public string CreateDate { get; set; }
 
         /// <summary>
@@ -151,7 +111,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>RUB</example>
         */
-        [DataMember(Name = "currency", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "currency", EmitDefaultValue = false)]
         public string Currency { get; set; }
 
         /// <summary>
@@ -161,7 +121,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>258</example>
         */
-        [DataMember(Name = "acquiringFeeSum", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "acquiringFeeSum", EmitDefaultValue = false)]
         public string AcquiringFeeSum { get; set; }
 
         /// <summary>
@@ -171,7 +131,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>83.79</example>
         */
-        [DataMember(Name = "acquiringFeeVatSum", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "acquiringFeeVatSum", EmitDefaultValue = false)]
         public string AcquiringFeeVatSum { get; set; }
 
         /// <summary>

@@ -34,26 +34,11 @@ namespace ValeryVerkhoturov.WbApiClient.InStorePickup.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiOrdersMetaDetailsResponse" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected ApiOrdersMetaDetailsResponse() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ApiOrdersMetaDetailsResponse" /> class.
-        /// </summary>
-        /// <param name="requestId">Уникальный ID запроса (required).</param>
-        /// <param name="orders">Идентификаторы маркировки сборочных заданий и статусы их валидации (required).</param>
+        /// <param name="requestId">Уникальный ID запроса.</param>
+        /// <param name="orders">Идентификаторы маркировки сборочных заданий и статусы их валидации.</param>
         public ApiOrdersMetaDetailsResponse(string requestId = default(string), List<ApiOrdersMetaDetailsResponseOrdersInner> orders = default(List<ApiOrdersMetaDetailsResponseOrdersInner>))
         {
-            // to ensure "requestId" is required (not null)
-            if (requestId == null)
-            {
-                throw new ArgumentNullException("requestId is a required property for ApiOrdersMetaDetailsResponse and cannot be null");
-            }
             this.RequestId = requestId;
-            // to ensure "orders" is required (not null)
-            if (orders == null)
-            {
-                throw new ArgumentNullException("orders is a required property for ApiOrdersMetaDetailsResponse and cannot be null");
-            }
             this.Orders = orders;
         }
 
@@ -64,14 +49,14 @@ namespace ValeryVerkhoturov.WbApiClient.InStorePickup.Model
         /*
         <example>f1787bd2d1fdс35d6f537316514у4a05</example>
         */
-        [DataMember(Name = "requestId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "requestId", EmitDefaultValue = false)]
         public string RequestId { get; set; }
 
         /// <summary>
         /// Идентификаторы маркировки сборочных заданий и статусы их валидации
         /// </summary>
         /// <value>Идентификаторы маркировки сборочных заданий и статусы их валидации</value>
-        [DataMember(Name = "orders", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "orders", EmitDefaultValue = false)]
         public List<ApiOrdersMetaDetailsResponseOrdersInner> Orders { get; set; }
 
         /// <summary>

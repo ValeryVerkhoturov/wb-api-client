@@ -11,9 +11,7 @@ API version: analytics
 package analytics
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the TableShippingOfficeResponse type satisfies the MappedNullable interface at compile time
@@ -24,18 +22,15 @@ type TableShippingOfficeResponse struct {
 	// Множество данных по регионам отгрузки
 	Regions []TableShippingOfficeItem `json:"regions,omitempty"`
 	// Валюта отчёта
-	Currency string `json:"currency"`
+	Currency *string `json:"currency,omitempty"`
 }
-
-type _TableShippingOfficeResponse TableShippingOfficeResponse
 
 // NewTableShippingOfficeResponse instantiates a new TableShippingOfficeResponse object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTableShippingOfficeResponse(currency string) *TableShippingOfficeResponse {
+func NewTableShippingOfficeResponse() *TableShippingOfficeResponse {
 	this := TableShippingOfficeResponse{}
-	this.Currency = currency
 	return &this
 }
 
@@ -79,28 +74,36 @@ func (o *TableShippingOfficeResponse) SetRegions(v []TableShippingOfficeItem) {
 	o.Regions = v
 }
 
-// GetCurrency returns the Currency field value
+// GetCurrency returns the Currency field value if set, zero value otherwise.
 func (o *TableShippingOfficeResponse) GetCurrency() string {
-	if o == nil {
+	if o == nil || IsNil(o.Currency) {
 		var ret string
 		return ret
 	}
-
-	return o.Currency
+	return *o.Currency
 }
 
-// GetCurrencyOk returns a tuple with the Currency field value
+// GetCurrencyOk returns a tuple with the Currency field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableShippingOfficeResponse) GetCurrencyOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Currency) {
 		return nil, false
 	}
-	return &o.Currency, true
+	return o.Currency, true
 }
 
-// SetCurrency sets field value
+// HasCurrency returns a boolean if a field has been set.
+func (o *TableShippingOfficeResponse) HasCurrency() bool {
+	if o != nil && !IsNil(o.Currency) {
+		return true
+	}
+
+	return false
+}
+
+// SetCurrency gets a reference to the given string and assigns it to the Currency field.
 func (o *TableShippingOfficeResponse) SetCurrency(v string) {
-	o.Currency = v
+	o.Currency = &v
 }
 
 func (o TableShippingOfficeResponse) MarshalJSON() ([]byte, error) {
@@ -116,45 +119,10 @@ func (o TableShippingOfficeResponse) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Regions) {
 		toSerialize["regions"] = o.Regions
 	}
-	toSerialize["currency"] = o.Currency
+	if !IsNil(o.Currency) {
+		toSerialize["currency"] = o.Currency
+	}
 	return toSerialize, nil
-}
-
-func (o *TableShippingOfficeResponse) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"currency",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varTableShippingOfficeResponse := _TableShippingOfficeResponse{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varTableShippingOfficeResponse)
-
-	if err != nil {
-		return err
-	}
-
-	*o = TableShippingOfficeResponse(varTableShippingOfficeResponse)
-
-	return err
 }
 
 type NullableTableShippingOfficeResponse struct {

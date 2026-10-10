@@ -34,27 +34,22 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="StatisticsComparison" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected StatisticsComparison() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="StatisticsComparison" /> class.
-        /// </summary>
-        /// <param name="openCountDynamic">Динамика переходов в карточку товара (required).</param>
-        /// <param name="cartCountDynamic">Динамика добавлений в корзину (required).</param>
-        /// <param name="orderCountDynamic">Динамика количества заказов (required).</param>
-        /// <param name="orderSumDynamic">Динамика суммы заказов (required).</param>
-        /// <param name="buyoutCountDynamic">Динамика выкупов (required).</param>
-        /// <param name="buyoutSumDynamic">Динамика суммы выкупов (required).</param>
-        /// <param name="cancelCountDynamic">Динамика отмен и возвратов товаров (required).</param>
-        /// <param name="cancelSumDynamic">Динамика сумм отмен и возвратов товаров (required).</param>
-        /// <param name="avgOrdersCountPerDayDynamic">Динамика среднего количества заказов в день (required).</param>
-        /// <param name="avgPriceDynamic">Динамика средней цены на товары. Учитываются скидки для акций (required).</param>
-        /// <param name="shareOrderPercentDynamic">Динамика доли в выручке (required).</param>
-        /// <param name="addToWishlistDynamic">Динамика добавлений товара в избранное (required).</param>
-        /// <param name="timeToReadyDynamic">timeToReadyDynamic (required).</param>
-        /// <param name="localizationPercentDynamic">Динамика локальных заказов в рамках одного региона. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может быть только &#x60;0&#x60; (required).</param>
-        /// <param name="wbClubDynamic">wbClubDynamic (required).</param>
-        /// <param name="conversions">conversions (required).</param>
+        /// <param name="openCountDynamic">Динамика переходов в карточку товара.</param>
+        /// <param name="cartCountDynamic">Динамика добавлений в корзину.</param>
+        /// <param name="orderCountDynamic">Динамика количества заказов.</param>
+        /// <param name="orderSumDynamic">Динамика суммы заказов.</param>
+        /// <param name="buyoutCountDynamic">Динамика выкупов.</param>
+        /// <param name="buyoutSumDynamic">Динамика суммы выкупов.</param>
+        /// <param name="cancelCountDynamic">Динамика отмен и возвратов товаров.</param>
+        /// <param name="cancelSumDynamic">Динамика сумм отмен и возвратов товаров.</param>
+        /// <param name="avgOrdersCountPerDayDynamic">Динамика среднего количества заказов в день.</param>
+        /// <param name="avgPriceDynamic">Динамика средней цены на товары. Учитываются скидки для акций.</param>
+        /// <param name="shareOrderPercentDynamic">Динамика доли в выручке.</param>
+        /// <param name="addToWishlistDynamic">Динамика добавлений товара в избранное.</param>
+        /// <param name="timeToReadyDynamic">timeToReadyDynamic.</param>
+        /// <param name="localizationPercentDynamic">Динамика локальных заказов в рамках одного региона. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может быть только &#x60;0&#x60;.</param>
+        /// <param name="wbClubDynamic">wbClubDynamic.</param>
+        /// <param name="conversions">conversions.</param>
         public StatisticsComparison(int openCountDynamic = default(int), int cartCountDynamic = default(int), int orderCountDynamic = default(int), int orderSumDynamic = default(int), int buyoutCountDynamic = default(int), int buyoutSumDynamic = default(int), int cancelCountDynamic = default(int), int cancelSumDynamic = default(int), int avgOrdersCountPerDayDynamic = default(int), int avgPriceDynamic = default(int), int shareOrderPercentDynamic = default(int), int addToWishlistDynamic = default(int), ComparisonTimeToReadyDynamic timeToReadyDynamic = default(ComparisonTimeToReadyDynamic), int localizationPercentDynamic = default(int), ComparisonWbClubDynamic wbClubDynamic = default(ComparisonWbClubDynamic), StatisticConversions conversions = default(StatisticConversions))
         {
             this.OpenCountDynamic = openCountDynamic;
@@ -69,24 +64,9 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
             this.AvgPriceDynamic = avgPriceDynamic;
             this.ShareOrderPercentDynamic = shareOrderPercentDynamic;
             this.AddToWishlistDynamic = addToWishlistDynamic;
-            // to ensure "timeToReadyDynamic" is required (not null)
-            if (timeToReadyDynamic == null)
-            {
-                throw new ArgumentNullException("timeToReadyDynamic is a required property for StatisticsComparison and cannot be null");
-            }
             this.TimeToReadyDynamic = timeToReadyDynamic;
             this.LocalizationPercentDynamic = localizationPercentDynamic;
-            // to ensure "wbClubDynamic" is required (not null)
-            if (wbClubDynamic == null)
-            {
-                throw new ArgumentNullException("wbClubDynamic is a required property for StatisticsComparison and cannot be null");
-            }
             this.WbClubDynamic = wbClubDynamic;
-            // to ensure "conversions" is required (not null)
-            if (conversions == null)
-            {
-                throw new ArgumentNullException("conversions is a required property for StatisticsComparison and cannot be null");
-            }
             this.Conversions = conversions;
         }
 
@@ -97,7 +77,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>10</example>
         */
-        [DataMember(Name = "openCountDynamic", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "openCountDynamic", EmitDefaultValue = false)]
         public int OpenCountDynamic { get; set; }
 
         /// <summary>
@@ -107,7 +87,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>30</example>
         */
-        [DataMember(Name = "cartCountDynamic", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "cartCountDynamic", EmitDefaultValue = false)]
         public int CartCountDynamic { get; set; }
 
         /// <summary>
@@ -117,7 +97,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>-100</example>
         */
-        [DataMember(Name = "orderCountDynamic", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "orderCountDynamic", EmitDefaultValue = false)]
         public int OrderCountDynamic { get; set; }
 
         /// <summary>
@@ -127,7 +107,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>-100</example>
         */
-        [DataMember(Name = "orderSumDynamic", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "orderSumDynamic", EmitDefaultValue = false)]
         public int OrderSumDynamic { get; set; }
 
         /// <summary>
@@ -137,7 +117,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>-100</example>
         */
-        [DataMember(Name = "buyoutCountDynamic", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "buyoutCountDynamic", EmitDefaultValue = false)]
         public int BuyoutCountDynamic { get; set; }
 
         /// <summary>
@@ -147,7 +127,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>-100</example>
         */
-        [DataMember(Name = "buyoutSumDynamic", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "buyoutSumDynamic", EmitDefaultValue = false)]
         public int BuyoutSumDynamic { get; set; }
 
         /// <summary>
@@ -157,7 +137,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>0</example>
         */
-        [DataMember(Name = "cancelCountDynamic", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "cancelCountDynamic", EmitDefaultValue = false)]
         public int CancelCountDynamic { get; set; }
 
         /// <summary>
@@ -167,7 +147,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>0</example>
         */
-        [DataMember(Name = "cancelSumDynamic", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "cancelSumDynamic", EmitDefaultValue = false)]
         public int CancelSumDynamic { get; set; }
 
         /// <summary>
@@ -177,7 +157,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>0</example>
         */
-        [DataMember(Name = "avgOrdersCountPerDayDynamic", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "avgOrdersCountPerDayDynamic", EmitDefaultValue = false)]
         public int AvgOrdersCountPerDayDynamic { get; set; }
 
         /// <summary>
@@ -187,7 +167,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>-100</example>
         */
-        [DataMember(Name = "avgPriceDynamic", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "avgPriceDynamic", EmitDefaultValue = false)]
         public int AvgPriceDynamic { get; set; }
 
         /// <summary>
@@ -197,7 +177,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>-80</example>
         */
-        [DataMember(Name = "shareOrderPercentDynamic", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "shareOrderPercentDynamic", EmitDefaultValue = false)]
         public int ShareOrderPercentDynamic { get; set; }
 
         /// <summary>
@@ -207,13 +187,13 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>60</example>
         */
-        [DataMember(Name = "addToWishlistDynamic", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "addToWishlistDynamic", EmitDefaultValue = false)]
         public int AddToWishlistDynamic { get; set; }
 
         /// <summary>
         /// Gets or Sets TimeToReadyDynamic
         /// </summary>
-        [DataMember(Name = "timeToReadyDynamic", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "timeToReadyDynamic", EmitDefaultValue = false)]
         public ComparisonTimeToReadyDynamic TimeToReadyDynamic { get; set; }
 
         /// <summary>
@@ -223,19 +203,19 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>0</example>
         */
-        [DataMember(Name = "localizationPercentDynamic", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "localizationPercentDynamic", EmitDefaultValue = false)]
         public int LocalizationPercentDynamic { get; set; }
 
         /// <summary>
         /// Gets or Sets WbClubDynamic
         /// </summary>
-        [DataMember(Name = "wbClubDynamic", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "wbClubDynamic", EmitDefaultValue = false)]
         public ComparisonWbClubDynamic WbClubDynamic { get; set; }
 
         /// <summary>
         /// Gets or Sets Conversions
         /// </summary>
-        [DataMember(Name = "conversions", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "conversions", EmitDefaultValue = false)]
         public StatisticConversions Conversions { get; set; }
 
         /// <summary>

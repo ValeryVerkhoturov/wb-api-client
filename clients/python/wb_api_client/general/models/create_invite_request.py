@@ -19,11 +19,11 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
+from wb_api_client.general.models.create_invite_request_access_inner import (
+    CreateInviteRequestAccessInner,
+)
 from wb_api_client.general.models.create_invite_request_invite import (
     CreateInviteRequestInvite,
-)
-from wb_api_client.general.models.get_users_response_users_inner_access_inner import (
-    GetUsersResponseUsersInnerAccessInner,
 )
 from typing import Optional, Set
 from typing_extensions import Self
@@ -34,7 +34,7 @@ class CreateInviteRequest(BaseModel):
     CreateInviteRequest
     """  # noqa: E501
 
-    access: Optional[List[GetUsersResponseUsersInnerAccessInner]] = Field(
+    access: Optional[List[CreateInviteRequestAccessInner]] = Field(
         default=None, description="Настройки доступа к разделам профиля продавца"
     )
     invite: CreateInviteRequestInvite
@@ -102,7 +102,7 @@ class CreateInviteRequest(BaseModel):
             {
                 "access": (
                     [
-                        GetUsersResponseUsersInnerAccessInner.from_dict(_item)
+                        CreateInviteRequestAccessInner.from_dict(_item)
                         for _item in obj["access"]
                     ]
                     if obj.get("access") is not None

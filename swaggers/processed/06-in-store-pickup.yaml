@@ -1370,9 +1370,6 @@ components:
   schemas:
     api.OrdersFinalPriceResponse:
       type: object
-      required:
-      - requestId
-      - results
       properties:
         requestId:
           type: string
@@ -1384,8 +1381,6 @@ components:
             $ref: '#/components/schemas/api.OrderFinalPriceResult'
     api.OrderFinalPriceResult:
       type: object
-      required:
-      - orderId
       properties:
         orderId:
           description: ID сборочного задания
@@ -1952,10 +1947,6 @@ components:
           example: 123456
     api.BatchError:
       type: object
-      required:
-      - origin
-      - requestId
-      - title
       properties:
         detail:
           type: object
@@ -1995,9 +1986,6 @@ components:
           example: NotFound
       type: object
     api.BatchErrorFinalPriceResponse:
-      required:
-      - code
-      - detail
       properties:
         code:
           type: integer
@@ -2016,9 +2004,6 @@ components:
           example: NotFound
       type: object
     api.BatchCustomsDeclarationErrorResponse:
-      required:
-      - code
-      - detail
       properties:
         code:
           type: integer
@@ -2038,9 +2023,6 @@ components:
           example: NotFound
       type: object
     api.MetaErrorResponse:
-      required:
-      - code
-      - detail
       properties:
         code:
           type: integer
@@ -2055,9 +2037,6 @@ components:
           example: NotFound
       type: object
     api.OrdersErrorResponse:
-      required:
-      - code
-      - detail
       properties:
         code:
           type: integer
@@ -2104,9 +2083,6 @@ components:
             $ref: '#/components/schemas/api.StatusSetResponse'
           type: array
       type: object
-      required:
-      - requestId
-      - results
     api.CustomsDeclarationSetResponse:
       example:
         requestId: 03615778-eb9e-4f55-b4O4-fd3ac0fad2сc
@@ -2127,14 +2103,8 @@ components:
             $ref: '#/components/schemas/api.StatusSetCustomsDeclarationResponse'
           type: array
       type: object
-      required:
-      - requestId
-      - results
     api.StatusSetResponse:
       type: object
-      required:
-      - orderId
-      - isError
       properties:
         orderId:
           type: integer
@@ -2151,9 +2121,6 @@ components:
           description: Детали ошибки
     api.StatusSetCustomsDeclarationResponse:
       type: object
-      required:
-      - orderId
-      - isError
       properties:
         orderId:
           type: integer
@@ -2195,9 +2162,6 @@ components:
         results:
           items:
             type: object
-            required:
-            - orderId
-            - isError
             properties:
               orderId:
                 type: integer
@@ -2207,9 +2171,6 @@ components:
                 description: Есть ли ошибки
               errors:
                 items:
-                  required:
-                  - code
-                  - detail
                   properties:
                     code:
                       type: integer
@@ -2243,9 +2204,6 @@ components:
                 type: array
                 description: Детали ошибки
       type: object
-      required:
-      - requestId
-      - results
     api.OrdersResponses:
       example:
         requestId: 03615778-eb9e-4f55-b4O4-fd3ac0fad2сc
@@ -2266,14 +2224,8 @@ components:
             $ref: '#/components/schemas/api.OrdersResponse'
           type: array
       type: object
-      required:
-      - requestId
-      - results
     api.OrdersResponse:
       type: object
-      required:
-      - orderId
-      - isError
       properties:
         orderId:
           type: integer
@@ -2308,14 +2260,8 @@ components:
             $ref: '#/components/schemas/api.MetaSetResponse'
           type: array
       type: object
-      required:
-      - requestId
-      - results
     api.MetaSetResponse:
       type: object
-      required:
-      - orderId
-      - isError
       properties:
         orderId:
           type: integer
@@ -2352,8 +2298,6 @@ components:
             $ref: '#/components/schemas/api.OrderStatusV2'
     api.OrderStatusV2:
       type: object
-      required:
-      - orderId
       properties:
         errors:
           description: Информация об ошибке
@@ -2371,9 +2315,6 @@ components:
           description: Статус сборочного задания в системе Wildberries
     api.OrdersMetaDetailsResponse:
       type: object
-      required:
-      - requestId
-      - orders
       properties:
         requestId:
           type: string
@@ -2384,10 +2325,6 @@ components:
           description: Идентификаторы маркировки сборочных заданий и статусы их валидации
           items:
             type: object
-            required:
-            - isError
-            - metaDetails
-            - orderId
             properties:
               orderId:
                 type: integer
@@ -2403,9 +2340,6 @@ components:
                 description: Информация об ошибке
                 items:
                   type: object
-                  required:
-                  - code
-                  - detail
                   properties:
                     code:
                       type: integer
@@ -2420,9 +2354,6 @@ components:
                 description: Идентификаторы маркировки и статусы их валидации
                 items:
                   type: object
-                  required:
-                  - decision
-                  - key
                   properties:
                     key:
                       type: string

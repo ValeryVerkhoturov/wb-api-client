@@ -11,9 +11,7 @@ API version: analytics
 package analytics
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the OrderFeedResponse type satisfies the MappedNullable interface at compile time
@@ -22,24 +20,19 @@ var _ MappedNullable = &OrderFeedResponse{}
 // OrderFeedResponse Данные ответа
 type OrderFeedResponse struct {
 	// Метка снимка данных, в рамках которого выполняется пагинация
-	SnapshotTime string `json:"snapshotTime"`
+	SnapshotTime *string `json:"snapshotTime,omitempty"`
 	// Валюта отчёта
-	Currency string `json:"currency"`
+	Currency *string `json:"currency,omitempty"`
 	// Заказы
-	Orders []Order `json:"orders"`
+	Orders []Order `json:"orders,omitempty"`
 }
-
-type _OrderFeedResponse OrderFeedResponse
 
 // NewOrderFeedResponse instantiates a new OrderFeedResponse object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewOrderFeedResponse(snapshotTime string, currency string, orders []Order) *OrderFeedResponse {
+func NewOrderFeedResponse() *OrderFeedResponse {
 	this := OrderFeedResponse{}
-	this.SnapshotTime = snapshotTime
-	this.Currency = currency
-	this.Orders = orders
 	return &this
 }
 
@@ -51,74 +44,98 @@ func NewOrderFeedResponseWithDefaults() *OrderFeedResponse {
 	return &this
 }
 
-// GetSnapshotTime returns the SnapshotTime field value
+// GetSnapshotTime returns the SnapshotTime field value if set, zero value otherwise.
 func (o *OrderFeedResponse) GetSnapshotTime() string {
-	if o == nil {
+	if o == nil || IsNil(o.SnapshotTime) {
 		var ret string
 		return ret
 	}
-
-	return o.SnapshotTime
+	return *o.SnapshotTime
 }
 
-// GetSnapshotTimeOk returns a tuple with the SnapshotTime field value
+// GetSnapshotTimeOk returns a tuple with the SnapshotTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *OrderFeedResponse) GetSnapshotTimeOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.SnapshotTime) {
 		return nil, false
 	}
-	return &o.SnapshotTime, true
+	return o.SnapshotTime, true
 }
 
-// SetSnapshotTime sets field value
+// HasSnapshotTime returns a boolean if a field has been set.
+func (o *OrderFeedResponse) HasSnapshotTime() bool {
+	if o != nil && !IsNil(o.SnapshotTime) {
+		return true
+	}
+
+	return false
+}
+
+// SetSnapshotTime gets a reference to the given string and assigns it to the SnapshotTime field.
 func (o *OrderFeedResponse) SetSnapshotTime(v string) {
-	o.SnapshotTime = v
+	o.SnapshotTime = &v
 }
 
-// GetCurrency returns the Currency field value
+// GetCurrency returns the Currency field value if set, zero value otherwise.
 func (o *OrderFeedResponse) GetCurrency() string {
-	if o == nil {
+	if o == nil || IsNil(o.Currency) {
 		var ret string
 		return ret
 	}
-
-	return o.Currency
+	return *o.Currency
 }
 
-// GetCurrencyOk returns a tuple with the Currency field value
+// GetCurrencyOk returns a tuple with the Currency field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *OrderFeedResponse) GetCurrencyOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Currency) {
 		return nil, false
 	}
-	return &o.Currency, true
+	return o.Currency, true
 }
 
-// SetCurrency sets field value
+// HasCurrency returns a boolean if a field has been set.
+func (o *OrderFeedResponse) HasCurrency() bool {
+	if o != nil && !IsNil(o.Currency) {
+		return true
+	}
+
+	return false
+}
+
+// SetCurrency gets a reference to the given string and assigns it to the Currency field.
 func (o *OrderFeedResponse) SetCurrency(v string) {
-	o.Currency = v
+	o.Currency = &v
 }
 
-// GetOrders returns the Orders field value
+// GetOrders returns the Orders field value if set, zero value otherwise.
 func (o *OrderFeedResponse) GetOrders() []Order {
-	if o == nil {
+	if o == nil || IsNil(o.Orders) {
 		var ret []Order
 		return ret
 	}
-
 	return o.Orders
 }
 
-// GetOrdersOk returns a tuple with the Orders field value
+// GetOrdersOk returns a tuple with the Orders field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *OrderFeedResponse) GetOrdersOk() ([]Order, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Orders) {
 		return nil, false
 	}
 	return o.Orders, true
 }
 
-// SetOrders sets field value
+// HasOrders returns a boolean if a field has been set.
+func (o *OrderFeedResponse) HasOrders() bool {
+	if o != nil && !IsNil(o.Orders) {
+		return true
+	}
+
+	return false
+}
+
+// SetOrders gets a reference to the given []Order and assigns it to the Orders field.
 func (o *OrderFeedResponse) SetOrders(v []Order) {
 	o.Orders = v
 }
@@ -133,49 +150,16 @@ func (o OrderFeedResponse) MarshalJSON() ([]byte, error) {
 
 func (o OrderFeedResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["snapshotTime"] = o.SnapshotTime
-	toSerialize["currency"] = o.Currency
-	toSerialize["orders"] = o.Orders
+	if !IsNil(o.SnapshotTime) {
+		toSerialize["snapshotTime"] = o.SnapshotTime
+	}
+	if !IsNil(o.Currency) {
+		toSerialize["currency"] = o.Currency
+	}
+	if !IsNil(o.Orders) {
+		toSerialize["orders"] = o.Orders
+	}
 	return toSerialize, nil
-}
-
-func (o *OrderFeedResponse) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"snapshotTime",
-		"currency",
-		"orders",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varOrderFeedResponse := _OrderFeedResponse{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varOrderFeedResponse)
-
-	if err != nil {
-		return err
-	}
-
-	*o = OrderFeedResponse(varOrderFeedResponse)
-
-	return err
 }
 
 type NullableOrderFeedResponse struct {

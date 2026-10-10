@@ -36,25 +36,25 @@ public class V0BidRecommendationCPCLevels {
   public static final String SERIALIZED_NAME_RANGE1_TO2 = "range1To2";
 
   @SerializedName(SERIALIZED_NAME_RANGE1_TO2)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private V0BidRecommendationBaseBid range1To2;
 
   public static final String SERIALIZED_NAME_RANGE3_TO10 = "range3To10";
 
   @SerializedName(SERIALIZED_NAME_RANGE3_TO10)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private V0BidRecommendationBaseBid range3To10;
 
   public static final String SERIALIZED_NAME_RANGE11_TO34 = "range11To34";
 
   @SerializedName(SERIALIZED_NAME_RANGE11_TO34)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private V0BidRecommendationBaseBid range11To34;
 
   public V0BidRecommendationCPCLevels() {}
 
   public V0BidRecommendationCPCLevels range1To2(
-      @jakarta.annotation.Nonnull V0BidRecommendationBaseBid range1To2) {
+      @jakarta.annotation.Nullable V0BidRecommendationBaseBid range1To2) {
     this.range1To2 = range1To2;
     return this;
   }
@@ -64,17 +64,17 @@ public class V0BidRecommendationCPCLevels {
    *
    * @return range1To2
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public V0BidRecommendationBaseBid getRange1To2() {
     return range1To2;
   }
 
-  public void setRange1To2(@jakarta.annotation.Nonnull V0BidRecommendationBaseBid range1To2) {
+  public void setRange1To2(@jakarta.annotation.Nullable V0BidRecommendationBaseBid range1To2) {
     this.range1To2 = range1To2;
   }
 
   public V0BidRecommendationCPCLevels range3To10(
-      @jakarta.annotation.Nonnull V0BidRecommendationBaseBid range3To10) {
+      @jakarta.annotation.Nullable V0BidRecommendationBaseBid range3To10) {
     this.range3To10 = range3To10;
     return this;
   }
@@ -84,17 +84,17 @@ public class V0BidRecommendationCPCLevels {
    *
    * @return range3To10
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public V0BidRecommendationBaseBid getRange3To10() {
     return range3To10;
   }
 
-  public void setRange3To10(@jakarta.annotation.Nonnull V0BidRecommendationBaseBid range3To10) {
+  public void setRange3To10(@jakarta.annotation.Nullable V0BidRecommendationBaseBid range3To10) {
     this.range3To10 = range3To10;
   }
 
   public V0BidRecommendationCPCLevels range11To34(
-      @jakarta.annotation.Nonnull V0BidRecommendationBaseBid range11To34) {
+      @jakarta.annotation.Nullable V0BidRecommendationBaseBid range11To34) {
     this.range11To34 = range11To34;
     return this;
   }
@@ -104,12 +104,12 @@ public class V0BidRecommendationCPCLevels {
    *
    * @return range11To34
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public V0BidRecommendationBaseBid getRange11To34() {
     return range11To34;
   }
 
-  public void setRange11To34(@jakarta.annotation.Nonnull V0BidRecommendationBaseBid range11To34) {
+  public void setRange11To34(@jakarta.annotation.Nullable V0BidRecommendationBaseBid range11To34) {
     this.range11To34 = range11To34;
   }
 
@@ -165,9 +165,6 @@ public class V0BidRecommendationCPCLevels {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("range1To2");
-    openapiRequiredFields.add("range3To10");
-    openapiRequiredFields.add("range11To34");
   }
 
   /**
@@ -197,23 +194,19 @@ public class V0BidRecommendationCPCLevels {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : V0BidRecommendationCPCLevels.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    // validate the required field `range1To2`
-    V0BidRecommendationBaseBid.validateJsonElement(jsonObj.get("range1To2"));
-    // validate the required field `range3To10`
-    V0BidRecommendationBaseBid.validateJsonElement(jsonObj.get("range3To10"));
-    // validate the required field `range11To34`
-    V0BidRecommendationBaseBid.validateJsonElement(jsonObj.get("range11To34"));
+    // validate the optional field `range1To2`
+    if (jsonObj.get("range1To2") != null && !jsonObj.get("range1To2").isJsonNull()) {
+      V0BidRecommendationBaseBid.validateJsonElement(jsonObj.get("range1To2"));
+    }
+    // validate the optional field `range3To10`
+    if (jsonObj.get("range3To10") != null && !jsonObj.get("range3To10").isJsonNull()) {
+      V0BidRecommendationBaseBid.validateJsonElement(jsonObj.get("range3To10"));
+    }
+    // validate the optional field `range11To34`
+    if (jsonObj.get("range11To34") != null && !jsonObj.get("range11To34").isJsonNull()) {
+      V0BidRecommendationBaseBid.validateJsonElement(jsonObj.get("range11To34"));
+    }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

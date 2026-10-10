@@ -34,20 +34,10 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GetV1SellerDownloadIdResponse202" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected GetV1SellerDownloadIdResponse202() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="GetV1SellerDownloadIdResponse202" /> class.
-        /// </summary>
-        /// <param name="moderationState">Статус модерации (required).</param>
-        /// <param name="retrySeconds">Секунд до следующей попытки запроса файла (required).</param>
+        /// <param name="moderationState">Статус модерации.</param>
+        /// <param name="retrySeconds">Секунд до следующей попытки запроса файла.</param>
         public GetV1SellerDownloadIdResponse202(string moderationState = default(string), int retrySeconds = default(int))
         {
-            // to ensure "moderationState" is required (not null)
-            if (moderationState == null)
-            {
-                throw new ArgumentNullException("moderationState is a required property for GetV1SellerDownloadIdResponse202 and cannot be null");
-            }
             this.ModerationState = moderationState;
             this.RetrySeconds = retrySeconds;
         }
@@ -59,7 +49,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         /*
         <example>pending</example>
         */
-        [DataMember(Name = "moderationState", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "moderationState", EmitDefaultValue = false)]
         public string ModerationState { get; set; }
 
         /// <summary>
@@ -69,7 +59,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         /*
         <example>30</example>
         */
-        [DataMember(Name = "retrySeconds", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "retrySeconds", EmitDefaultValue = false)]
         public int RetrySeconds { get; set; }
 
         /// <summary>

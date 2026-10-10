@@ -37,220 +37,310 @@ class SalesReportsDetailedRes(BaseModel):
     Детализации к отчётам реализации
     """  # noqa: E501
 
-    report_id: StrictInt = Field(description="ID отчёта", alias="reportId")
-    date_from: StrictStr = Field(
-        description="Дата начала отчётного периода", alias="dateFrom"
+    report_id: Optional[StrictInt] = Field(
+        default=None, description="ID отчёта", alias="reportId"
     )
-    date_to: StrictStr = Field(
-        description="Дата конца отчётного периода", alias="dateTo"
+    date_from: Optional[StrictStr] = Field(
+        default=None, description="Дата начала отчётного периода", alias="dateFrom"
     )
-    create_date: StrictStr = Field(
-        description="Дата формирования отчёта", alias="createDate"
+    date_to: Optional[StrictStr] = Field(
+        default=None, description="Дата конца отчётного периода", alias="dateTo"
     )
-    currency: StrictStr = Field(description="Валюта отчёта")
-    report_type: StrictInt = Field(
+    create_date: Optional[StrictStr] = Field(
+        default=None, description="Дата формирования отчёта", alias="createDate"
+    )
+    currency: Optional[StrictStr] = Field(default=None, description="Валюта отчёта")
+    report_type: Optional[StrictInt] = Field(
+        default=None,
         description="Тип отчёта:   - `1` — основной   - `2` — по выкупам ",
         alias="reportType",
     )
-    rrd_id: StrictInt = Field(description="ID строки", alias="rrdId")
-    gi_id: StrictInt = Field(description="ID поставки", alias="giId")
-    dlv_prc: Union[StrictFloat, StrictInt] = Field(
-        description="Фиксированный коэффициент склада по поставке", alias="dlvPrc"
+    rrd_id: Optional[StrictInt] = Field(
+        default=None, description="ID строки", alias="rrdId"
     )
-    fix_tariff_date_from: StrictStr = Field(
-        description="Дата начала действия фиксации", alias="fixTariffDateFrom"
+    gi_id: Optional[StrictInt] = Field(
+        default=None, description="ID поставки", alias="giId"
     )
-    fix_tariff_date_to: StrictStr = Field(
-        description="Дата конца действия фиксации", alias="fixTariffDateTo"
+    dlv_prc: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None,
+        description="Фиксированный коэффициент склада по поставке",
+        alias="dlvPrc",
     )
-    subject_name: StrictStr = Field(description="Предмет", alias="subjectName")
-    nm_id: StrictInt = Field(description="Артикул WB", alias="nmId")
-    brand_name: StrictStr = Field(description="Бренд", alias="brandName")
-    vendor_code: StrictStr = Field(description="Артикул продавца", alias="vendorCode")
-    title: StrictStr = Field(description="Название товара")
-    tech_size: StrictStr = Field(description="Размер", alias="techSize")
-    sku: StrictStr = Field(description="Баркод")
-    doc_type_name: StrictStr = Field(description="Тип документа", alias="docTypeName")
-    quantity: StrictInt = Field(description="Количество")
-    retail_price: StrictStr = Field(description="Цена розничная", alias="retailPrice")
-    retail_amount: StrictStr = Field(
-        description="Wildberries реализовал Товар (Пр)", alias="retailAmount"
+    fix_tariff_date_from: Optional[StrictStr] = Field(
+        default=None,
+        description="Дата начала действия фиксации",
+        alias="fixTariffDateFrom",
     )
-    sale_percent: StrictInt = Field(
-        description="Согласованный продуктовый дисконт, %", alias="salePercent"
+    fix_tariff_date_to: Optional[StrictStr] = Field(
+        default=None,
+        description="Дата конца действия фиксации",
+        alias="fixTariffDateTo",
     )
-    commission_percent: Union[StrictFloat, StrictInt] = Field(
-        description="Размер кВВ, %", alias="commissionPercent"
+    subject_name: Optional[StrictStr] = Field(
+        default=None, description="Предмет", alias="subjectName"
     )
-    office_name: StrictStr = Field(description="Склад", alias="officeName")
-    seller_oper_name: StrictStr = Field(
-        description="Обоснование для оплаты", alias="sellerOperName"
+    nm_id: Optional[StrictInt] = Field(
+        default=None, description="Артикул WB", alias="nmId"
     )
-    order_dt: StrictStr = Field(description="Дата и время заказа", alias="orderDt")
-    sale_dt: StrictStr = Field(description="Дата и время продажи", alias="saleDt")
-    rr_date: StrictStr = Field(description="Дата операции", alias="rrDate")
-    shk_id: StrictInt = Field(description="Штрихкод", alias="shkId")
-    retail_price_with_disc: StrictStr = Field(
+    brand_name: Optional[StrictStr] = Field(
+        default=None, description="Бренд", alias="brandName"
+    )
+    vendor_code: Optional[StrictStr] = Field(
+        default=None, description="Артикул продавца", alias="vendorCode"
+    )
+    title: Optional[StrictStr] = Field(default=None, description="Название товара")
+    tech_size: Optional[StrictStr] = Field(
+        default=None, description="Размер", alias="techSize"
+    )
+    sku: Optional[StrictStr] = Field(default=None, description="Баркод")
+    doc_type_name: Optional[StrictStr] = Field(
+        default=None, description="Тип документа", alias="docTypeName"
+    )
+    quantity: Optional[StrictInt] = Field(default=None, description="Количество")
+    retail_price: Optional[StrictStr] = Field(
+        default=None, description="Цена розничная", alias="retailPrice"
+    )
+    retail_amount: Optional[StrictStr] = Field(
+        default=None,
+        description="Wildberries реализовал Товар (Пр)",
+        alias="retailAmount",
+    )
+    sale_percent: Optional[StrictInt] = Field(
+        default=None,
+        description="Согласованный продуктовый дисконт, %",
+        alias="salePercent",
+    )
+    commission_percent: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None, description="Размер кВВ, %", alias="commissionPercent"
+    )
+    office_name: Optional[StrictStr] = Field(
+        default=None, description="Склад", alias="officeName"
+    )
+    seller_oper_name: Optional[StrictStr] = Field(
+        default=None, description="Обоснование для оплаты", alias="sellerOperName"
+    )
+    order_dt: Optional[StrictStr] = Field(
+        default=None, description="Дата и время заказа", alias="orderDt"
+    )
+    sale_dt: Optional[StrictStr] = Field(
+        default=None, description="Дата и время продажи", alias="saleDt"
+    )
+    rr_date: Optional[StrictStr] = Field(
+        default=None, description="Дата операции", alias="rrDate"
+    )
+    shk_id: Optional[StrictInt] = Field(
+        default=None, description="Штрихкод", alias="shkId"
+    )
+    retail_price_with_disc: Optional[StrictStr] = Field(
+        default=None,
         description="Цена розничная с учётом согласованной скидки",
         alias="retailPriceWithDisc",
     )
-    delivery_amount: StrictInt = Field(
-        description="Количество доставок", alias="deliveryAmount"
+    delivery_amount: Optional[StrictInt] = Field(
+        default=None, description="Количество доставок", alias="deliveryAmount"
     )
-    return_amount: StrictInt = Field(
-        description="Количество возврата", alias="returnAmount"
+    return_amount: Optional[StrictInt] = Field(
+        default=None, description="Количество возврата", alias="returnAmount"
     )
-    delivery_service: StrictStr = Field(
-        description="Услуги по доставке товара покупателю", alias="deliveryService"
+    delivery_service: Optional[StrictStr] = Field(
+        default=None,
+        description="Услуги по доставке товара покупателю",
+        alias="deliveryService",
     )
-    gi_box_type_name: StrictStr = Field(
-        description="Тип коробов", alias="giBoxTypeName"
+    gi_box_type_name: Optional[StrictStr] = Field(
+        default=None, description="Тип коробов", alias="giBoxTypeName"
     )
-    product_discount_for_report: Union[StrictFloat, StrictInt] = Field(
-        description="Итоговая согласованная скидка, %", alias="productDiscountForReport"
+    product_discount_for_report: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None,
+        description="Итоговая согласованная скидка, %",
+        alias="productDiscountForReport",
     )
-    seller_promo: Union[StrictFloat, StrictInt] = Field(
-        description="Промокод, %", alias="sellerPromo"
+    seller_promo: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None, description="Промокод, %", alias="sellerPromo"
     )
-    spp: Union[StrictFloat, StrictInt] = Field(description="Платформенные скидки, %")
-    kvw_base: Union[StrictFloat, StrictInt] = Field(
-        description="Размер кВВ без НДС, % базовый", alias="kvwBase"
+    spp: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None, description="Платформенные скидки, %"
     )
-    kvw: Union[StrictFloat, StrictInt] = Field(description="Итоговый кВВ без НДС, %")
-    sup_rating_up: Union[StrictFloat, StrictInt] = Field(
-        description="Размер снижения кВВ из-за рейтинга, %", alias="supRatingUp"
+    kvw_base: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None, description="Размер кВВ без НДС, % базовый", alias="kvwBase"
     )
-    is_kgvp_v2: Union[StrictFloat, StrictInt] = Field(
-        description="Размер снижения кВВ из-за акции, %", alias="isKgvpV2"
+    kvw: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None, description="Итоговый кВВ без НДС, %"
     )
-    ppvz_sales_commission: StrictStr = Field(
+    sup_rating_up: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None,
+        description="Размер снижения кВВ из-за рейтинга, %",
+        alias="supRatingUp",
+    )
+    is_kgvp_v2: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None, description="Размер снижения кВВ из-за акции, %", alias="isKgvpV2"
+    )
+    ppvz_sales_commission: Optional[StrictStr] = Field(
+        default=None,
         description="Вознаграждение с продаж до вычета услуг поверенного, без НДС",
         alias="ppvzSalesCommission",
     )
-    for_pay: StrictStr = Field(
-        description="К перечислению продавцу за реализованный товар", alias="forPay"
+    for_pay: Optional[StrictStr] = Field(
+        default=None,
+        description="К перечислению продавцу за реализованный товар",
+        alias="forPay",
     )
-    ppvz_reward: StrictStr = Field(
-        description="Возмещение за выдачу и возврат товаров на ПВЗ", alias="ppvzReward"
+    ppvz_reward: Optional[StrictStr] = Field(
+        default=None,
+        description="Возмещение за выдачу и возврат товаров на ПВЗ",
+        alias="ppvzReward",
     )
-    acquiring_fee: StrictStr = Field(
+    acquiring_fee: Optional[StrictStr] = Field(
+        default=None,
         description="Компенсация платёжных услуг/комиссия за интеграцию платёжных сервисов",
         alias="acquiringFee",
     )
-    acquiring_percent: Union[StrictFloat, StrictInt] = Field(
+    acquiring_percent: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None,
         description="Размер компенсации платёжных услуг/комиссии за интеграцию платёжных сервисов",
         alias="acquiringPercent",
     )
-    payment_processing: StrictStr = Field(
+    payment_processing: Optional[StrictStr] = Field(
+        default=None,
         description="Тип платежа: компенсация платёжных услуг/комиссия за интеграцию платёжных сервисов",
         alias="paymentProcessing",
     )
-    acquiring_bank: StrictStr = Field(
-        description="Наименование банка-эквайера", alias="acquiringBank"
+    acquiring_bank: Optional[StrictStr] = Field(
+        default=None, description="Наименование банка-эквайера", alias="acquiringBank"
     )
-    vw: StrictStr = Field(description="Вознаграждение Wildberries (ВВ), без НДС")
-    vw_nds: StrictStr = Field(
-        description="НДС с вознаграждения Wildberries", alias="vwNds"
+    vw: Optional[StrictStr] = Field(
+        default=None, description="Вознаграждение Wildberries (ВВ), без НДС"
     )
-    ppvz_office_name: StrictStr = Field(
-        description="Наименование офиса доставки", alias="ppvzOfficeName"
+    vw_nds: Optional[StrictStr] = Field(
+        default=None, description="НДС с вознаграждения Wildberries", alias="vwNds"
     )
-    ppvz_office_id: StrictInt = Field(
-        description="ID офиса доставки", alias="ppvzOfficeId"
+    ppvz_office_name: Optional[StrictStr] = Field(
+        default=None, description="Наименование офиса доставки", alias="ppvzOfficeName"
     )
-    ppvz_supplier_name: StrictStr = Field(
-        description="Партнёр", alias="ppvzSupplierName"
+    ppvz_office_id: Optional[StrictInt] = Field(
+        default=None, description="ID офиса доставки", alias="ppvzOfficeId"
     )
-    ppvz_supplier_inn: StrictStr = Field(
-        description="ИНН партнёра", alias="ppvzSupplierInn"
+    ppvz_supplier_name: Optional[StrictStr] = Field(
+        default=None, description="Партнёр", alias="ppvzSupplierName"
     )
-    declaration_number: StrictStr = Field(
-        description="Номер таможенной декларации", alias="declarationNumber"
+    ppvz_supplier_inn: Optional[StrictStr] = Field(
+        default=None, description="ИНН партнёра", alias="ppvzSupplierInn"
+    )
+    declaration_number: Optional[StrictStr] = Field(
+        default=None,
+        description="Номер таможенной декларации",
+        alias="declarationNumber",
     )
     bonus_type_name: Optional[StrictStr] = Field(
         default=None,
         description="Виды доставок, штрафов и корректировок ВВ",
         alias="bonusTypeName",
     )
-    sticker_id: StrictStr = Field(description="Стикер МП", alias="stickerId")
-    country: StrictStr = Field(description="Страна продажи")
-    srv_dbs: StrictBool = Field(
-        description="Признак услуги платной доставки", alias="srvDbs"
+    sticker_id: Optional[StrictStr] = Field(
+        default=None, description="Стикер МП", alias="stickerId"
     )
-    penalty: StrictStr = Field(description="Общая сумма штрафов")
-    additional_payment: StrictStr = Field(
+    country: Optional[StrictStr] = Field(default=None, description="Страна продажи")
+    srv_dbs: Optional[StrictBool] = Field(
+        default=None, description="Признак услуги платной доставки", alias="srvDbs"
+    )
+    penalty: Optional[StrictStr] = Field(
+        default=None, description="Общая сумма штрафов"
+    )
+    additional_payment: Optional[StrictStr] = Field(
+        default=None,
         description="Корректировка Вознаграждения Wildberries (ВВ)",
         alias="additionalPayment",
     )
-    rebill_logistic_cost: StrictStr = Field(
+    rebill_logistic_cost: Optional[StrictStr] = Field(
+        default=None,
         description="Возмещение издержек по перемещению и операционной обработке товара",
         alias="rebillLogisticCost",
     )
     rebill_logistic_org: Optional[StrictStr] = Field(
         default=None, description="Организатор перевозки", alias="rebillLogisticOrg"
     )
-    paid_storage: StrictStr = Field(description="Хранение", alias="paidStorage")
-    deduction: StrictStr = Field(description="Удержания")
-    paid_acceptance: StrictStr = Field(
-        description="Операции на приёмке", alias="paidAcceptance"
+    paid_storage: Optional[StrictStr] = Field(
+        default=None, description="Хранение", alias="paidStorage"
     )
-    order_id: StrictInt = Field(description="ID сборочного задания", alias="orderId")
+    deduction: Optional[StrictStr] = Field(default=None, description="Удержания")
+    paid_acceptance: Optional[StrictStr] = Field(
+        default=None, description="Операции на приёмке", alias="paidAcceptance"
+    )
+    order_id: Optional[StrictInt] = Field(
+        default=None, description="ID сборочного задания", alias="orderId"
+    )
     kiz: Optional[StrictStr] = Field(
         default=None,
         description="Код маркировки [Честного знака](https://честныйзнак.рф)",
     )
-    is_b2b: StrictBool = Field(description="Признак B2B-продажи", alias="isB2b")
-    trbx_id: StrictStr = Field(
-        description="ID короба для обработки товара", alias="trbxId"
+    is_b2b: Optional[StrictBool] = Field(
+        default=None, description="Признак B2B-продажи", alias="isB2b"
     )
-    installment_cofinancing_amount: StrictStr = Field(
+    trbx_id: Optional[StrictStr] = Field(
+        default=None, description="ID короба для обработки товара", alias="trbxId"
+    )
+    installment_cofinancing_amount: Optional[StrictStr] = Field(
+        default=None,
         description="Скидка по программе софинансирования",
         alias="installmentCofinancingAmount",
     )
-    wibes_discount_percent: Union[StrictFloat, StrictInt] = Field(
-        description="Скидка Wibes, %", alias="wibesDiscountPercent"
+    wibes_discount_percent: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None, description="Скидка Wibes, %", alias="wibesDiscountPercent"
     )
-    cashback_amount: StrictStr = Field(
+    cashback_amount: Optional[StrictStr] = Field(
+        default=None,
         description="Сумма баллов, удержанных по программе лояльности",
         alias="cashbackAmount",
     )
-    cashback_discount: StrictStr = Field(
+    cashback_discount: Optional[StrictStr] = Field(
+        default=None,
         description="Компенсация скидки по программе лояльности",
         alias="cashbackDiscount",
     )
-    cashback_commission_change: StrictStr = Field(
+    cashback_commission_change: Optional[StrictStr] = Field(
+        default=None,
         description="Стоимость участия в программе лояльности",
         alias="cashbackCommissionChange",
     )
-    payment_schedule: StrictStr = Field(
+    payment_schedule: Optional[StrictStr] = Field(
+        default=None,
         description="Разовое изменение срока перечисления денежных средств",
         alias="paymentSchedule",
     )
-    delivery_method: StrictStr = Field(
-        description="Способ продажи и тип товара", alias="deliveryMethod"
+    delivery_method: Optional[StrictStr] = Field(
+        default=None, description="Способ продажи и тип товара", alias="deliveryMethod"
     )
-    seller_promo_id: StrictInt = Field(
+    seller_promo_id: Optional[StrictInt] = Field(
+        default=None,
         description="ID собственной акции продавца с дополнительной скидкой",
         alias="sellerPromoId",
     )
-    seller_promo_discount: Union[StrictFloat, StrictInt] = Field(
+    seller_promo_discount: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None,
         description="Размер дополнительной скидки по собственной акции продавца, %",
         alias="sellerPromoDiscount",
     )
-    loyalty_id: StrictInt = Field(
-        description="ID скидки лояльности от продавца", alias="loyaltyId"
+    loyalty_id: Optional[StrictInt] = Field(
+        default=None, description="ID скидки лояльности от продавца", alias="loyaltyId"
     )
-    loyalty_discount: Union[StrictFloat, StrictInt] = Field(
-        description="Размер скидки лояльности от продавца, %", alias="loyaltyDiscount"
+    loyalty_discount: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None,
+        description="Размер скидки лояльности от продавца, %",
+        alias="loyaltyDiscount",
     )
-    uuid_promocode: StrictStr = Field(description="ID промокода", alias="uuidPromocode")
-    sale_price_promocode_discount_prc: Union[StrictFloat, StrictInt] = Field(
-        description="Скидка за промокод, %", alias="salePricePromocodeDiscountPrc"
+    uuid_promocode: Optional[StrictStr] = Field(
+        default=None, description="ID промокода", alias="uuidPromocode"
     )
-    article_substitution: StrictStr = Field(
-        description="ID подменного артикула", alias="articleSubstitution"
+    sale_price_promocode_discount_prc: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None,
+        description="Скидка за промокод, %",
+        alias="salePricePromocodeDiscountPrc",
     )
-    sale_price_affiliated_discount_prc: Union[StrictFloat, StrictInt] = Field(
+    article_substitution: Optional[StrictStr] = Field(
+        default=None, description="ID подменного артикула", alias="articleSubstitution"
+    )
+    sale_price_affiliated_discount_prc: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None,
         description="Скидка по подменному артикулу, %",
         alias="salePriceAffiliatedDiscountPrc",
     )
@@ -259,32 +349,43 @@ class SalesReportsDetailedRes(BaseModel):
         description="Удержание Агентского НДС, %. Только для продавцов из Кыргызстана",
         alias="agencyVat",
     )
-    sale_price_wholesale_discount_prc: Union[StrictFloat, StrictInt] = Field(
+    sale_price_wholesale_discount_prc: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None,
         description="Оптовая скидка для бизнеса, %",
         alias="salePriceWholesaleDiscountPrc",
     )
-    b2b_customer_tin: StrictStr = Field(
-        description="ИНН B2B-покупателя", alias="b2bCustomerTin"
+    b2b_customer_tin: Optional[StrictStr] = Field(
+        default=None, description="ИНН B2B-покупателя", alias="b2bCustomerTin"
     )
-    paid_with_social_certificate: StrictBool = Field(
-        description="Оплата социальным сертификатом", alias="paidWithSocialCertificate"
+    paid_with_social_certificate: Optional[StrictBool] = Field(
+        default=None,
+        description="Оплата социальным сертификатом",
+        alias="paidWithSocialCertificate",
     )
-    warehouse_logistics_coeff: Union[StrictFloat, StrictInt] = Field(
-        description="Коэффициент доставки", alias="warehouseLogisticsCoeff"
+    warehouse_logistics_coeff: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None,
+        description="Коэффициент доставки",
+        alias="warehouseLogisticsCoeff",
     )
-    buyer_tax_registration_reason_code: StrictStr = Field(
-        description="КПП B2B-покупателя", alias="buyerTaxRegistrationReasonCode"
+    buyer_tax_registration_reason_code: Optional[StrictStr] = Field(
+        default=None,
+        description="КПП B2B-покупателя",
+        alias="buyerTaxRegistrationReasonCode",
     )
-    utd_ucd_number: StrictStr = Field(
-        description="Номер УПД или УКД", alias="utdUcdNumber"
+    utd_ucd_number: Optional[StrictStr] = Field(
+        default=None, description="Номер УПД или УКД", alias="utdUcdNumber"
     )
-    utd_ucd_date: StrictStr = Field(description="Дата УПД или УКД", alias="utdUcdDate")
-    order_uid: StrictStr = Field(
+    utd_ucd_date: Optional[StrictStr] = Field(
+        default=None, description="Дата УПД или УКД", alias="utdUcdDate"
+    )
+    order_uid: Optional[StrictStr] = Field(
+        default=None,
         description="ID корзины заказа — транзакции. Заказы в одной корзине покупателя будут иметь одинаковый `orderUid`",
         alias="orderUid",
     )
-    srid: StrictStr = Field(
-        description="ID заказа. В ответах методов сборочных заданий [FBS](./orders-fbs#tag/fbsAssemblyOrders), [DBW](./orders-dbw#tag/dbwAssemblyOrders), [DBS](./dbs#tag/dbsAssemblyOrders) и [Самовывоз](./in-store-pickup#tag/inStorePickupAssemblyOrders) `srid` равен `rid`"
+    srid: Optional[StrictStr] = Field(
+        default=None,
+        description="ID заказа. В ответах методов сборочных заданий [FBS](./orders-fbs#tag/fbsAssemblyOrders), [DBW](./orders-dbw#tag/dbwAssemblyOrders), [DBS](./dbs#tag/dbsAssemblyOrders) и [Самовывоз](./in-store-pickup#tag/inStorePickupAssemblyOrders) `srid` равен `rid`",
     )
     __properties: ClassVar[List[str]] = [
         "reportId",
@@ -388,6 +489,9 @@ class SalesReportsDetailedRes(BaseModel):
     @field_validator("report_type")
     def report_type_validate_enum(cls, value):
         """Validates the enum"""
+        if value is None:
+            return value
+
         if value not in set([1, 2]):
             raise ValueError("must be one of enum values (1, 2)")
         return value

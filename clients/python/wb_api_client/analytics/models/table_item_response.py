@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from wb_api_client.analytics.models.table_item_item_st import TableItemItemSt
 from typing import Optional, Set
 from typing_extensions import Self
@@ -29,8 +29,10 @@ class TableItemResponse(BaseModel):
     TableItemResponse
     """  # noqa: E501
 
-    items: List[TableItemItemSt] = Field(description="Множество данных по товарам")
-    currency: StrictStr = Field(description="Валюта отчёта")
+    items: Optional[List[TableItemItemSt]] = Field(
+        default=None, description="Множество данных по товарам"
+    )
+    currency: Optional[StrictStr] = Field(default=None, description="Валюта отчёта")
     __properties: ClassVar[List[str]] = ["items", "currency"]
 
     model_config = ConfigDict(

@@ -38,31 +38,31 @@ public class Order {
   public static final String SERIALIZED_NAME_NM_ID = "nmId";
 
   @SerializedName(SERIALIZED_NAME_NM_ID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Long nmId;
 
   public static final String SERIALIZED_NAME_CHRT_ID = "chrtId";
 
   @SerializedName(SERIALIZED_NAME_CHRT_ID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer chrtId;
 
   public static final String SERIALIZED_NAME_SRID = "srid";
 
   @SerializedName(SERIALIZED_NAME_SRID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String srid;
 
   public static final String SERIALIZED_NAME_CREATED_AT = "createdAt";
 
   @SerializedName(SERIALIZED_NAME_CREATED_AT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String createdAt;
 
   public static final String SERIALIZED_NAME_UPDATED_AT = "updatedAt";
 
   @SerializedName(SERIALIZED_NAME_UPDATED_AT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String updatedAt;
 
   /**
@@ -129,7 +129,7 @@ public class Order {
   public static final String SERIALIZED_NAME_STATUS = "status";
 
   @SerializedName(SERIALIZED_NAME_STATUS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private StatusEnum status;
 
   /**
@@ -200,48 +200,48 @@ public class Order {
   public static final String SERIALIZED_NAME_WAREHOUSE_NAME = "warehouseName";
 
   @SerializedName(SERIALIZED_NAME_WAREHOUSE_NAME)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String warehouseName;
 
   public static final String SERIALIZED_NAME_WAREHOUSE_REGION = "warehouseRegion";
 
   @SerializedName(SERIALIZED_NAME_WAREHOUSE_REGION)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String warehouseRegion;
 
   public static final String SERIALIZED_NAME_IS_MP = "isMp";
 
   @SerializedName(SERIALIZED_NAME_IS_MP)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Boolean isMp;
 
   public static final String SERIALIZED_NAME_DESTINATION_CITY = "destinationCity";
 
   @SerializedName(SERIALIZED_NAME_DESTINATION_CITY)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String destinationCity;
 
   public static final String SERIALIZED_NAME_DESTINATION_DISTRICT = "destinationDistrict";
 
   @SerializedName(SERIALIZED_NAME_DESTINATION_DISTRICT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String destinationDistrict;
 
   public static final String SERIALIZED_NAME_SELLER_PRICE = "sellerPrice";
 
   @SerializedName(SERIALIZED_NAME_SELLER_PRICE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private BigDecimal sellerPrice;
 
   public static final String SERIALIZED_NAME_IS_B2B = "isB2b";
 
   @SerializedName(SERIALIZED_NAME_IS_B2B)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Boolean isB2b;
 
   public Order() {}
 
-  public Order nmId(@jakarta.annotation.Nonnull Long nmId) {
+  public Order nmId(@jakarta.annotation.Nullable Long nmId) {
     this.nmId = nmId;
     return this;
   }
@@ -251,16 +251,16 @@ public class Order {
    *
    * @return nmId
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Long getNmId() {
     return nmId;
   }
 
-  public void setNmId(@jakarta.annotation.Nonnull Long nmId) {
+  public void setNmId(@jakarta.annotation.Nullable Long nmId) {
     this.nmId = nmId;
   }
 
-  public Order chrtId(@jakarta.annotation.Nonnull Integer chrtId) {
+  public Order chrtId(@jakarta.annotation.Nullable Integer chrtId) {
     this.chrtId = chrtId;
     return this;
   }
@@ -270,16 +270,16 @@ public class Order {
    *
    * @return chrtId
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getChrtId() {
     return chrtId;
   }
 
-  public void setChrtId(@jakarta.annotation.Nonnull Integer chrtId) {
+  public void setChrtId(@jakarta.annotation.Nullable Integer chrtId) {
     this.chrtId = chrtId;
   }
 
-  public Order srid(@jakarta.annotation.Nonnull String srid) {
+  public Order srid(@jakarta.annotation.Nullable String srid) {
     this.srid = srid;
     return this;
   }
@@ -289,16 +289,16 @@ public class Order {
    *
    * @return srid
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getSrid() {
     return srid;
   }
 
-  public void setSrid(@jakarta.annotation.Nonnull String srid) {
+  public void setSrid(@jakarta.annotation.Nullable String srid) {
     this.srid = srid;
   }
 
-  public Order createdAt(@jakarta.annotation.Nonnull String createdAt) {
+  public Order createdAt(@jakarta.annotation.Nullable String createdAt) {
     this.createdAt = createdAt;
     return this;
   }
@@ -308,16 +308,16 @@ public class Order {
    *
    * @return createdAt
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getCreatedAt() {
     return createdAt;
   }
 
-  public void setCreatedAt(@jakarta.annotation.Nonnull String createdAt) {
+  public void setCreatedAt(@jakarta.annotation.Nullable String createdAt) {
     this.createdAt = createdAt;
   }
 
-  public Order updatedAt(@jakarta.annotation.Nonnull String updatedAt) {
+  public Order updatedAt(@jakarta.annotation.Nullable String updatedAt) {
     this.updatedAt = updatedAt;
     return this;
   }
@@ -328,16 +328,16 @@ public class Order {
    *
    * @return updatedAt
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getUpdatedAt() {
     return updatedAt;
   }
 
-  public void setUpdatedAt(@jakarta.annotation.Nonnull String updatedAt) {
+  public void setUpdatedAt(@jakarta.annotation.Nullable String updatedAt) {
     this.updatedAt = updatedAt;
   }
 
-  public Order status(@jakarta.annotation.Nonnull StatusEnum status) {
+  public Order status(@jakarta.annotation.Nullable StatusEnum status) {
     this.status = status;
     return this;
   }
@@ -349,12 +349,12 @@ public class Order {
    *
    * @return status
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public StatusEnum getStatus() {
     return status;
   }
 
-  public void setStatus(@jakarta.annotation.Nonnull StatusEnum status) {
+  public void setStatus(@jakarta.annotation.Nullable StatusEnum status) {
     this.status = status;
   }
 
@@ -379,7 +379,7 @@ public class Order {
     this.cancelType = cancelType;
   }
 
-  public Order warehouseName(@jakarta.annotation.Nonnull String warehouseName) {
+  public Order warehouseName(@jakarta.annotation.Nullable String warehouseName) {
     this.warehouseName = warehouseName;
     return this;
   }
@@ -390,16 +390,16 @@ public class Order {
    *
    * @return warehouseName
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getWarehouseName() {
     return warehouseName;
   }
 
-  public void setWarehouseName(@jakarta.annotation.Nonnull String warehouseName) {
+  public void setWarehouseName(@jakarta.annotation.Nullable String warehouseName) {
     this.warehouseName = warehouseName;
   }
 
-  public Order warehouseRegion(@jakarta.annotation.Nonnull String warehouseRegion) {
+  public Order warehouseRegion(@jakarta.annotation.Nullable String warehouseRegion) {
     this.warehouseRegion = warehouseRegion;
     return this;
   }
@@ -411,16 +411,16 @@ public class Order {
    *
    * @return warehouseRegion
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getWarehouseRegion() {
     return warehouseRegion;
   }
 
-  public void setWarehouseRegion(@jakarta.annotation.Nonnull String warehouseRegion) {
+  public void setWarehouseRegion(@jakarta.annotation.Nullable String warehouseRegion) {
     this.warehouseRegion = warehouseRegion;
   }
 
-  public Order isMp(@jakarta.annotation.Nonnull Boolean isMp) {
+  public Order isMp(@jakarta.annotation.Nullable Boolean isMp) {
     this.isMp = isMp;
     return this;
   }
@@ -430,16 +430,16 @@ public class Order {
    *
    * @return isMp
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Boolean getIsMp() {
     return isMp;
   }
 
-  public void setIsMp(@jakarta.annotation.Nonnull Boolean isMp) {
+  public void setIsMp(@jakarta.annotation.Nullable Boolean isMp) {
     this.isMp = isMp;
   }
 
-  public Order destinationCity(@jakarta.annotation.Nonnull String destinationCity) {
+  public Order destinationCity(@jakarta.annotation.Nullable String destinationCity) {
     this.destinationCity = destinationCity;
     return this;
   }
@@ -449,16 +449,16 @@ public class Order {
    *
    * @return destinationCity
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getDestinationCity() {
     return destinationCity;
   }
 
-  public void setDestinationCity(@jakarta.annotation.Nonnull String destinationCity) {
+  public void setDestinationCity(@jakarta.annotation.Nullable String destinationCity) {
     this.destinationCity = destinationCity;
   }
 
-  public Order destinationDistrict(@jakarta.annotation.Nonnull String destinationDistrict) {
+  public Order destinationDistrict(@jakarta.annotation.Nullable String destinationDistrict) {
     this.destinationDistrict = destinationDistrict;
     return this;
   }
@@ -468,16 +468,16 @@ public class Order {
    *
    * @return destinationDistrict
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getDestinationDistrict() {
     return destinationDistrict;
   }
 
-  public void setDestinationDistrict(@jakarta.annotation.Nonnull String destinationDistrict) {
+  public void setDestinationDistrict(@jakarta.annotation.Nullable String destinationDistrict) {
     this.destinationDistrict = destinationDistrict;
   }
 
-  public Order sellerPrice(@jakarta.annotation.Nonnull BigDecimal sellerPrice) {
+  public Order sellerPrice(@jakarta.annotation.Nullable BigDecimal sellerPrice) {
     this.sellerPrice = sellerPrice;
     return this;
   }
@@ -487,16 +487,16 @@ public class Order {
    *
    * @return sellerPrice
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public BigDecimal getSellerPrice() {
     return sellerPrice;
   }
 
-  public void setSellerPrice(@jakarta.annotation.Nonnull BigDecimal sellerPrice) {
+  public void setSellerPrice(@jakarta.annotation.Nullable BigDecimal sellerPrice) {
     this.sellerPrice = sellerPrice;
   }
 
-  public Order isB2b(@jakarta.annotation.Nonnull Boolean isB2b) {
+  public Order isB2b(@jakarta.annotation.Nullable Boolean isB2b) {
     this.isB2b = isB2b;
     return this;
   }
@@ -506,12 +506,12 @@ public class Order {
    *
    * @return isB2b
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Boolean getIsB2b() {
     return isB2b;
   }
 
-  public void setIsB2b(@jakarta.annotation.Nonnull Boolean isB2b) {
+  public void setIsB2b(@jakarta.annotation.Nullable Boolean isB2b) {
     this.isB2b = isB2b;
   }
 
@@ -616,19 +616,6 @@ public class Order {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("nmId");
-    openapiRequiredFields.add("chrtId");
-    openapiRequiredFields.add("srid");
-    openapiRequiredFields.add("createdAt");
-    openapiRequiredFields.add("updatedAt");
-    openapiRequiredFields.add("status");
-    openapiRequiredFields.add("warehouseName");
-    openapiRequiredFields.add("warehouseRegion");
-    openapiRequiredFields.add("isMp");
-    openapiRequiredFields.add("destinationCity");
-    openapiRequiredFields.add("destinationDistrict");
-    openapiRequiredFields.add("sellerPrice");
-    openapiRequiredFields.add("isB2b");
   }
 
   /**
@@ -657,43 +644,39 @@ public class Order {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : Order.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    if (!jsonObj.get("srid").isJsonPrimitive()) {
+    if ((jsonObj.get("srid") != null && !jsonObj.get("srid").isJsonNull())
+        && !jsonObj.get("srid").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `srid` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("srid").toString()));
     }
-    if (!jsonObj.get("createdAt").isJsonPrimitive()) {
+    if ((jsonObj.get("createdAt") != null && !jsonObj.get("createdAt").isJsonNull())
+        && !jsonObj.get("createdAt").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `createdAt` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("createdAt").toString()));
     }
-    if (!jsonObj.get("updatedAt").isJsonPrimitive()) {
+    if ((jsonObj.get("updatedAt") != null && !jsonObj.get("updatedAt").isJsonNull())
+        && !jsonObj.get("updatedAt").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `updatedAt` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("updatedAt").toString()));
     }
-    if (!jsonObj.get("status").isJsonPrimitive()) {
+    if ((jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull())
+        && !jsonObj.get("status").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `status` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("status").toString()));
     }
-    // validate the required field `status`
-    StatusEnum.validateJsonElement(jsonObj.get("status"));
+    // validate the optional field `status`
+    if (jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull()) {
+      StatusEnum.validateJsonElement(jsonObj.get("status"));
+    }
     if ((jsonObj.get("cancelType") != null && !jsonObj.get("cancelType").isJsonNull())
         && !jsonObj.get("cancelType").isJsonPrimitive()) {
       throw new IllegalArgumentException(
@@ -705,25 +688,30 @@ public class Order {
     if (jsonObj.get("cancelType") != null && !jsonObj.get("cancelType").isJsonNull()) {
       CancelTypeEnum.validateJsonElement(jsonObj.get("cancelType"));
     }
-    if (!jsonObj.get("warehouseName").isJsonPrimitive()) {
+    if ((jsonObj.get("warehouseName") != null && !jsonObj.get("warehouseName").isJsonNull())
+        && !jsonObj.get("warehouseName").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `warehouseName` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("warehouseName").toString()));
     }
-    if (!jsonObj.get("warehouseRegion").isJsonPrimitive()) {
+    if ((jsonObj.get("warehouseRegion") != null && !jsonObj.get("warehouseRegion").isJsonNull())
+        && !jsonObj.get("warehouseRegion").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `warehouseRegion` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("warehouseRegion").toString()));
     }
-    if (!jsonObj.get("destinationCity").isJsonPrimitive()) {
+    if ((jsonObj.get("destinationCity") != null && !jsonObj.get("destinationCity").isJsonNull())
+        && !jsonObj.get("destinationCity").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `destinationCity` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("destinationCity").toString()));
     }
-    if (!jsonObj.get("destinationDistrict").isJsonPrimitive()) {
+    if ((jsonObj.get("destinationDistrict") != null
+            && !jsonObj.get("destinationDistrict").isJsonNull())
+        && !jsonObj.get("destinationDistrict").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `destinationDistrict` to be a primitive type in the JSON string but got `%s`",

@@ -26,7 +26,7 @@ from pydantic import (
     StrictInt,
     StrictStr,
 )
-from typing import Any, ClassVar, Dict, List, Union
+from typing import Any, ClassVar, Dict, List, Optional, Union
 from wb_api_client.analytics.models.table_group_item_metrics_avg_position import (
     TableGroupItemMetricsAvgPosition,
 )
@@ -66,37 +66,60 @@ class TableSearchTextItem(BaseModel):
     TableSearchTextItem
     """  # noqa: E501
 
-    text: StrictStr = Field(description="Текст поискового запроса")
-    nm_id: StrictInt = Field(description="Артикул WB", alias="nmId")
-    subject_name: StrictStr = Field(
-        description="Название предмета", alias="subjectName"
+    text: Optional[StrictStr] = Field(
+        default=None, description="Текст поискового запроса"
     )
-    brand_name: StrictStr = Field(description="Бренд", alias="brandName")
-    vendor_code: StrictStr = Field(description="Артикул продавца", alias="vendorCode")
-    name: StrictStr = Field(description="Название товара")
-    is_card_rated: StrictBool = Field(
-        description="Есть ли рейтинг у карточки товара", alias="isCardRated"
+    nm_id: Optional[StrictInt] = Field(
+        default=None, description="Артикул WB", alias="nmId"
     )
-    rating: Union[StrictFloat, StrictInt] = Field(description="Рейтинг карточки товара")
-    feedback_rating: Union[StrictFloat, StrictInt] = Field(
-        description="Рейтинг по отзывам", alias="feedbackRating"
+    subject_name: Optional[StrictStr] = Field(
+        default=None, description="Название предмета", alias="subjectName"
     )
-    price: TableItemItemAllOfPrice
-    frequency: TableSearchTextItemAllOfFrequency
-    week_frequency: StrictInt = Field(
+    brand_name: Optional[StrictStr] = Field(
+        default=None, description="Бренд", alias="brandName"
+    )
+    vendor_code: Optional[StrictStr] = Field(
+        default=None, description="Артикул продавца", alias="vendorCode"
+    )
+    name: Optional[StrictStr] = Field(default=None, description="Название товара")
+    is_card_rated: Optional[StrictBool] = Field(
+        default=None,
+        description="Есть ли рейтинг у карточки товара",
+        alias="isCardRated",
+    )
+    rating: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None, description="Рейтинг карточки товара"
+    )
+    feedback_rating: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None, description="Рейтинг по отзывам", alias="feedbackRating"
+    )
+    price: Optional[TableItemItemAllOfPrice] = None
+    frequency: Optional[TableSearchTextItemAllOfFrequency] = None
+    week_frequency: Optional[StrictInt] = Field(
+        default=None,
         description="Количество обращений с поисковым запросом за неделю",
         alias="weekFrequency",
     )
-    median_position: TableSearchTextItemAllOfMedianPosition = Field(
-        alias="medianPosition"
+    median_position: Optional[TableSearchTextItemAllOfMedianPosition] = Field(
+        default=None, alias="medianPosition"
     )
-    avg_position: TableGroupItemMetricsAvgPosition = Field(alias="avgPosition")
-    open_card: TableSearchTextItemAllOfOpenCard = Field(alias="openCard")
-    add_to_cart: TableSearchTextItemAllOfAddToCart = Field(alias="addToCart")
-    open_to_cart: TableSearchTextItemAllOfOpenToCart = Field(alias="openToCart")
-    orders: TableSearchTextItemAllOfOrders
-    cart_to_order: TableSearchTextItemAllOfCartToOrder = Field(alias="cartToOrder")
-    visibility: TableSearchTextItemAllOfVisibility
+    avg_position: Optional[TableGroupItemMetricsAvgPosition] = Field(
+        default=None, alias="avgPosition"
+    )
+    open_card: Optional[TableSearchTextItemAllOfOpenCard] = Field(
+        default=None, alias="openCard"
+    )
+    add_to_cart: Optional[TableSearchTextItemAllOfAddToCart] = Field(
+        default=None, alias="addToCart"
+    )
+    open_to_cart: Optional[TableSearchTextItemAllOfOpenToCart] = Field(
+        default=None, alias="openToCart"
+    )
+    orders: Optional[TableSearchTextItemAllOfOrders] = None
+    cart_to_order: Optional[TableSearchTextItemAllOfCartToOrder] = Field(
+        default=None, alias="cartToOrder"
+    )
+    visibility: Optional[TableSearchTextItemAllOfVisibility] = None
     __properties: ClassVar[List[str]] = [
         "text",
         "nmId",

@@ -34,21 +34,11 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UpdatedSuppliesShippingMethodError" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected UpdatedSuppliesShippingMethodError() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="UpdatedSuppliesShippingMethodError" /> class.
-        /// </summary>
-        /// <param name="code">Код ошибки (required).</param>
-        /// <param name="detail">Дополнительная информация об ошибке  (required).</param>
+        /// <param name="code">Код ошибки.</param>
+        /// <param name="detail">Дополнительная информация об ошибке .</param>
         public UpdatedSuppliesShippingMethodError(int code = default(int), string detail = default(string))
         {
             this.Code = code;
-            // to ensure "detail" is required (not null)
-            if (detail == null)
-            {
-                throw new ArgumentNullException("detail is a required property for UpdatedSuppliesShippingMethodError and cannot be null");
-            }
             this.Detail = detail;
         }
 
@@ -56,14 +46,14 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// Код ошибки
         /// </summary>
         /// <value>Код ошибки</value>
-        [DataMember(Name = "code", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "code", EmitDefaultValue = false)]
         public int Code { get; set; }
 
         /// <summary>
         /// Дополнительная информация об ошибке 
         /// </summary>
         /// <value>Дополнительная информация об ошибке </value>
-        [DataMember(Name = "detail", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "detail", EmitDefaultValue = false)]
         public string Detail { get; set; }
 
         /// <summary>

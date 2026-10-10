@@ -34,26 +34,16 @@ namespace ValeryVerkhoturov.WbApiClient.InStorePickup.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiOrdersMetaDetailsResponseOrdersInner" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected ApiOrdersMetaDetailsResponseOrdersInner() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ApiOrdersMetaDetailsResponseOrdersInner" /> class.
-        /// </summary>
-        /// <param name="orderId">ID сборочного задания (required).</param>
-        /// <param name="isError">Есть ли ошибки (required).</param>
+        /// <param name="orderId">ID сборочного задания.</param>
+        /// <param name="isError">Есть ли ошибки.</param>
         /// <param name="errors">Информация об ошибке.</param>
-        /// <param name="metaDetails">Идентификаторы маркировки и статусы их валидации (required).</param>
+        /// <param name="metaDetails">Идентификаторы маркировки и статусы их валидации.</param>
         public ApiOrdersMetaDetailsResponseOrdersInner(int orderId = default(int), bool isError = default(bool), List<ApiOrdersMetaDetailsResponseOrdersInnerErrorsInner> errors = default(List<ApiOrdersMetaDetailsResponseOrdersInnerErrorsInner>), List<ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner> metaDetails = default(List<ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner>))
         {
             this.OrderId = orderId;
             this.IsError = isError;
-            // to ensure "metaDetails" is required (not null)
-            if (metaDetails == null)
-            {
-                throw new ArgumentNullException("metaDetails is a required property for ApiOrdersMetaDetailsResponseOrdersInner and cannot be null");
-            }
-            this.MetaDetails = metaDetails;
             this.Errors = errors;
+            this.MetaDetails = metaDetails;
         }
 
         /// <summary>
@@ -63,7 +53,7 @@ namespace ValeryVerkhoturov.WbApiClient.InStorePickup.Model
         /*
         <example>123456</example>
         */
-        [DataMember(Name = "orderId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "orderId", EmitDefaultValue = false)]
         public int OrderId { get; set; }
 
         /// <summary>
@@ -73,7 +63,7 @@ namespace ValeryVerkhoturov.WbApiClient.InStorePickup.Model
         /*
         <example>false</example>
         */
-        [DataMember(Name = "isError", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "isError", EmitDefaultValue = true)]
         public bool IsError { get; set; }
 
         /// <summary>
@@ -90,7 +80,7 @@ namespace ValeryVerkhoturov.WbApiClient.InStorePickup.Model
         /// Идентификаторы маркировки и статусы их валидации
         /// </summary>
         /// <value>Идентификаторы маркировки и статусы их валидации</value>
-        [DataMember(Name = "metaDetails", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "metaDetails", EmitDefaultValue = false)]
         public List<ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner> MetaDetails { get; set; }
 
         /// <summary>

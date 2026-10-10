@@ -36,24 +36,24 @@ public class ItemOrdersMetrics {
   public static final String SERIALIZED_NAME_DT = "dt";
 
   @SerializedName(SERIALIZED_NAME_DT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String dt;
 
   public static final String SERIALIZED_NAME_AVG_POSITION = "avgPosition";
 
   @SerializedName(SERIALIZED_NAME_AVG_POSITION)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer avgPosition;
 
   public static final String SERIALIZED_NAME_ORDERS = "orders";
 
   @SerializedName(SERIALIZED_NAME_ORDERS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer orders;
 
   public ItemOrdersMetrics() {}
 
-  public ItemOrdersMetrics dt(@jakarta.annotation.Nonnull String dt) {
+  public ItemOrdersMetrics dt(@jakarta.annotation.Nullable String dt) {
     this.dt = dt;
     return this;
   }
@@ -63,16 +63,16 @@ public class ItemOrdersMetrics {
    *
    * @return dt
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getDt() {
     return dt;
   }
 
-  public void setDt(@jakarta.annotation.Nonnull String dt) {
+  public void setDt(@jakarta.annotation.Nullable String dt) {
     this.dt = dt;
   }
 
-  public ItemOrdersMetrics avgPosition(@jakarta.annotation.Nonnull Integer avgPosition) {
+  public ItemOrdersMetrics avgPosition(@jakarta.annotation.Nullable Integer avgPosition) {
     this.avgPosition = avgPosition;
     return this;
   }
@@ -82,16 +82,16 @@ public class ItemOrdersMetrics {
    *
    * @return avgPosition
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getAvgPosition() {
     return avgPosition;
   }
 
-  public void setAvgPosition(@jakarta.annotation.Nonnull Integer avgPosition) {
+  public void setAvgPosition(@jakarta.annotation.Nullable Integer avgPosition) {
     this.avgPosition = avgPosition;
   }
 
-  public ItemOrdersMetrics orders(@jakarta.annotation.Nonnull Integer orders) {
+  public ItemOrdersMetrics orders(@jakarta.annotation.Nullable Integer orders) {
     this.orders = orders;
     return this;
   }
@@ -101,12 +101,12 @@ public class ItemOrdersMetrics {
    *
    * @return orders
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getOrders() {
     return orders;
   }
 
-  public void setOrders(@jakarta.annotation.Nonnull Integer orders) {
+  public void setOrders(@jakarta.annotation.Nullable Integer orders) {
     this.orders = orders;
   }
 
@@ -162,9 +162,6 @@ public class ItemOrdersMetrics {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("dt");
-    openapiRequiredFields.add("avgPosition");
-    openapiRequiredFields.add("orders");
   }
 
   /**
@@ -194,18 +191,9 @@ public class ItemOrdersMetrics {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : ItemOrdersMetrics.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    if (!jsonObj.get("dt").isJsonPrimitive()) {
+    if ((jsonObj.get("dt") != null && !jsonObj.get("dt").isJsonNull())
+        && !jsonObj.get("dt").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `dt` to be a primitive type in the JSON string but got `%s`",

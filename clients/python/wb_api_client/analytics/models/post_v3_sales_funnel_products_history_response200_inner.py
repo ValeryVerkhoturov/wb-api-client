@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from wb_api_client.analytics.models.history import History
 from wb_api_client.analytics.models.post_v3_sales_funnel_products_history_response200_inner_product import (
     PostV3SalesFunnelProductsHistoryResponse200InnerProduct,
@@ -32,9 +32,11 @@ class PostV3SalesFunnelProductsHistoryResponse200Inner(BaseModel):
     PostV3SalesFunnelProductsHistoryResponse200Inner
     """  # noqa: E501
 
-    product: PostV3SalesFunnelProductsHistoryResponse200InnerProduct
-    history: List[History] = Field(description="Статистика за период")
-    currency: StrictStr = Field(description="Валюта отчёта")
+    product: Optional[PostV3SalesFunnelProductsHistoryResponse200InnerProduct] = None
+    history: Optional[List[History]] = Field(
+        default=None, description="Статистика за период"
+    )
+    currency: Optional[StrictStr] = Field(default=None, description="Валюта отчёта")
     __properties: ClassVar[List[str]] = ["product", "history", "currency"]
 
     model_config = ConfigDict(

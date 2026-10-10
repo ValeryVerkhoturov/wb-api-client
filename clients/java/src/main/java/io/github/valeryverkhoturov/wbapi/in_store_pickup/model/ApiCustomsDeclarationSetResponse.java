@@ -45,7 +45,7 @@ public class ApiCustomsDeclarationSetResponse {
   public static final String SERIALIZED_NAME_RESULTS = "results";
 
   @SerializedName(SERIALIZED_NAME_RESULTS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private List<ApiStatusSetCustomsDeclarationResponse> results = new ArrayList<>();
 
   public ApiCustomsDeclarationSetResponse() {}
@@ -70,7 +70,7 @@ public class ApiCustomsDeclarationSetResponse {
   }
 
   public ApiCustomsDeclarationSetResponse results(
-      @jakarta.annotation.Nonnull List<ApiStatusSetCustomsDeclarationResponse> results) {
+      @jakarta.annotation.Nullable List<ApiStatusSetCustomsDeclarationResponse> results) {
     this.results = results;
     return this;
   }
@@ -89,13 +89,13 @@ public class ApiCustomsDeclarationSetResponse {
    *
    * @return results
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public List<ApiStatusSetCustomsDeclarationResponse> getResults() {
     return results;
   }
 
   public void setResults(
-      @jakarta.annotation.Nonnull List<ApiStatusSetCustomsDeclarationResponse> results) {
+      @jakarta.annotation.Nullable List<ApiStatusSetCustomsDeclarationResponse> results) {
     this.results = results;
   }
 
@@ -149,8 +149,6 @@ public class ApiCustomsDeclarationSetResponse {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("requestId");
-    openapiRequiredFields.add("results");
   }
 
   /**
@@ -181,31 +179,25 @@ public class ApiCustomsDeclarationSetResponse {
                 entry.getKey(), jsonElement.toString()));
       }
     }
+    JsonObject jsonObj = jsonElement.getAsJsonObject();
+    if (jsonObj.get("results") != null && !jsonObj.get("results").isJsonNull()) {
+      JsonArray jsonArrayresults = jsonObj.getAsJsonArray("results");
+      if (jsonArrayresults != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("results").isJsonArray()) {
+          throw new IllegalArgumentException(
+              String.format(
+                  "Expected the field `results` to be an array in the JSON string but got `%s`",
+                  jsonObj.get("results").toString()));
+        }
 
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : ApiCustomsDeclarationSetResponse.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
+        // validate the optional field `results` (array)
+        for (int i = 0; i < jsonArrayresults.size(); i++) {
+          ApiStatusSetCustomsDeclarationResponse.validateJsonElement(jsonArrayresults.get(i));
+        }
+        ;
       }
     }
-    JsonObject jsonObj = jsonElement.getAsJsonObject();
-    // ensure the json data is an array
-    if (!jsonObj.get("results").isJsonArray()) {
-      throw new IllegalArgumentException(
-          String.format(
-              "Expected the field `results` to be an array in the JSON string but got `%s`",
-              jsonObj.get("results").toString()));
-    }
-
-    JsonArray jsonArrayresults = jsonObj.getAsJsonArray("results");
-    // validate the required field `results` (array)
-    for (int i = 0; i < jsonArrayresults.size(); i++) {
-      ApiStatusSetCustomsDeclarationResponse.validateJsonElement(jsonArrayresults.get(i));
-    }
-    ;
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

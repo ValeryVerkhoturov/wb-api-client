@@ -11,9 +11,7 @@ API version: items
 package items
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the BrandsResponseBrandsInner type satisfies the MappedNullable interface at compile time
@@ -22,24 +20,19 @@ var _ MappedNullable = &BrandsResponseBrandsInner{}
 // BrandsResponseBrandsInner struct for BrandsResponseBrandsInner
 type BrandsResponseBrandsInner struct {
 	// ID бренда
-	Id int32 `json:"id"`
+	Id *int32 `json:"id,omitempty"`
 	// URL логотипа бренда
-	LogoUrl string `json:"logoUrl"`
+	LogoUrl *string `json:"logoUrl,omitempty"`
 	// Название бренда
-	Name string `json:"name"`
+	Name *string `json:"name,omitempty"`
 }
-
-type _BrandsResponseBrandsInner BrandsResponseBrandsInner
 
 // NewBrandsResponseBrandsInner instantiates a new BrandsResponseBrandsInner object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewBrandsResponseBrandsInner(id int32, logoUrl string, name string) *BrandsResponseBrandsInner {
+func NewBrandsResponseBrandsInner() *BrandsResponseBrandsInner {
 	this := BrandsResponseBrandsInner{}
-	this.Id = id
-	this.LogoUrl = logoUrl
-	this.Name = name
 	return &this
 }
 
@@ -51,76 +44,100 @@ func NewBrandsResponseBrandsInnerWithDefaults() *BrandsResponseBrandsInner {
 	return &this
 }
 
-// GetId returns the Id field value
+// GetId returns the Id field value if set, zero value otherwise.
 func (o *BrandsResponseBrandsInner) GetId() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.Id) {
 		var ret int32
 		return ret
 	}
-
-	return o.Id
+	return *o.Id
 }
 
-// GetIdOk returns a tuple with the Id field value
+// GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *BrandsResponseBrandsInner) GetIdOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Id) {
 		return nil, false
 	}
-	return &o.Id, true
+	return o.Id, true
 }
 
-// SetId sets field value
+// HasId returns a boolean if a field has been set.
+func (o *BrandsResponseBrandsInner) HasId() bool {
+	if o != nil && !IsNil(o.Id) {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given int32 and assigns it to the Id field.
 func (o *BrandsResponseBrandsInner) SetId(v int32) {
-	o.Id = v
+	o.Id = &v
 }
 
-// GetLogoUrl returns the LogoUrl field value
+// GetLogoUrl returns the LogoUrl field value if set, zero value otherwise.
 func (o *BrandsResponseBrandsInner) GetLogoUrl() string {
-	if o == nil {
+	if o == nil || IsNil(o.LogoUrl) {
 		var ret string
 		return ret
 	}
-
-	return o.LogoUrl
+	return *o.LogoUrl
 }
 
-// GetLogoUrlOk returns a tuple with the LogoUrl field value
+// GetLogoUrlOk returns a tuple with the LogoUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *BrandsResponseBrandsInner) GetLogoUrlOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.LogoUrl) {
 		return nil, false
 	}
-	return &o.LogoUrl, true
+	return o.LogoUrl, true
 }
 
-// SetLogoUrl sets field value
+// HasLogoUrl returns a boolean if a field has been set.
+func (o *BrandsResponseBrandsInner) HasLogoUrl() bool {
+	if o != nil && !IsNil(o.LogoUrl) {
+		return true
+	}
+
+	return false
+}
+
+// SetLogoUrl gets a reference to the given string and assigns it to the LogoUrl field.
 func (o *BrandsResponseBrandsInner) SetLogoUrl(v string) {
-	o.LogoUrl = v
+	o.LogoUrl = &v
 }
 
-// GetName returns the Name field value
+// GetName returns the Name field value if set, zero value otherwise.
 func (o *BrandsResponseBrandsInner) GetName() string {
-	if o == nil {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
-
-	return o.Name
+	return *o.Name
 }
 
-// GetNameOk returns a tuple with the Name field value
+// GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *BrandsResponseBrandsInner) GetNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Name) {
 		return nil, false
 	}
-	return &o.Name, true
+	return o.Name, true
 }
 
-// SetName sets field value
+// HasName returns a boolean if a field has been set.
+func (o *BrandsResponseBrandsInner) HasName() bool {
+	if o != nil && !IsNil(o.Name) {
+		return true
+	}
+
+	return false
+}
+
+// SetName gets a reference to the given string and assigns it to the Name field.
 func (o *BrandsResponseBrandsInner) SetName(v string) {
-	o.Name = v
+	o.Name = &v
 }
 
 func (o BrandsResponseBrandsInner) MarshalJSON() ([]byte, error) {
@@ -133,49 +150,16 @@ func (o BrandsResponseBrandsInner) MarshalJSON() ([]byte, error) {
 
 func (o BrandsResponseBrandsInner) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["id"] = o.Id
-	toSerialize["logoUrl"] = o.LogoUrl
-	toSerialize["name"] = o.Name
+	if !IsNil(o.Id) {
+		toSerialize["id"] = o.Id
+	}
+	if !IsNil(o.LogoUrl) {
+		toSerialize["logoUrl"] = o.LogoUrl
+	}
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
+	}
 	return toSerialize, nil
-}
-
-func (o *BrandsResponseBrandsInner) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"id",
-		"logoUrl",
-		"name",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varBrandsResponseBrandsInner := _BrandsResponseBrandsInner{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varBrandsResponseBrandsInner)
-
-	if err != nil {
-		return err
-	}
-
-	*o = BrandsResponseBrandsInner(varBrandsResponseBrandsInner)
-
-	return err
 }
 
 type NullableBrandsResponseBrandsInner struct {

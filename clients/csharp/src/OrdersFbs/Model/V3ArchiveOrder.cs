@@ -34,117 +34,42 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="V3ArchiveOrder" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected V3ArchiveOrder() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="V3ArchiveOrder" /> class.
-        /// </summary>
-        /// <param name="cargoType">Тип товара:   - &#x60;mgt&#x60; — малогабаритный товар (МГТ)   - &#x60;sgt&#x60; — сверхгабаритный товар (СГТ)   - &#x60;kgtPlus&#x60; — крупногабаритный товар (КГТ+)  (required).</param>
-        /// <param name="colorCode">Код цвета для колеруемых товаров (required).</param>
-        /// <param name="createdAt">Дата создания заказа (required).</param>
-        /// <param name="crossBorder">crossBorder (required).</param>
-        /// <param name="crossBorderType">Тип сборочного задания:   - &#x60;local&#x60; — внутренняя поставка   - &#x60;crossBorder&#x60; — трансграничная поставка  (required).</param>
-        /// <param name="id">ID сборочного задания (required).</param>
-        /// <param name="isZeroOrder">Признак заказа товара с нулевым остатком:   - &#x60;false&#x60; — заказ сделан на товар с ненулевым остатком   - &#x60;true&#x60; — заказ сделан на товар с нулевым остатком  (required).</param>
-        /// <param name="metaDetails">Детали маркировки (required).</param>
-        /// <param name="options">options (required).</param>
-        /// <param name="orderUid">ID транзакции для группировки сборочных заданий. Сборочные задания в одной корзине покупателя будут иметь одинаковый &#x60;orderUid&#x60; (required).</param>
-        /// <param name="priceInfo">priceInfo (required).</param>
-        /// <param name="product">product (required).</param>
-        /// <param name="rid">Уникальный ID заказа. Примечание: &#x60;rid&#x60; — это &#x60;srid&#x60; в ответах методов: - [Заявки покупателей на возврат](./customer-communication#tag/buyersReturns/operation/getV1Claims) - [Лента заказов](./analytics#tag/orderFeed/operation/postV1OrderFeed) - [Заказы](./reports#tag/mainReports/operation/getV1SupplierOrders) - [Продажи](./reports#tag/mainReports/operation/getV1SupplierSales) - [Отчёт о возвратах и перемещении товаров](./reports#tag/returnsAndItemMovementReport) - [Детализации к отчётам реализации по ID отчётов](./documents-and-accounting#tag/financialReports/operation/postV1SalesReportsDetailedReportId) - [Детализации к отчётам реализации за период](./documents-and-accounting#tag/financialReports/operation/postV1SalesReportsDetailed) - [Детализации к отчётам об издержках на приём платежей по ID отчётов](./documents-and-accounting#tag/financialReports/operation/postV1AcquiringDetailedReportId) - [Детализации к отчётам об издержках на приём платежей за период](./documents-and-accounting#tag/financialReports/operation/postV1AcquiringDetailed) (required).</param>
-        /// <param name="scanPrice">Цена приёмки заказа в копейках (required).</param>
-        /// <param name="status">status (required).</param>
-        /// <param name="stickerId">ID стикера (required).</param>
-        /// <param name="supplyId">ID поставки (required).</param>
-        /// <param name="warehouseId">ID склада продавца, с которого был отгружен товар (required).</param>
+        /// <param name="cargoType">Тип товара:   - &#x60;mgt&#x60; — малогабаритный товар (МГТ)   - &#x60;sgt&#x60; — сверхгабаритный товар (СГТ)   - &#x60;kgtPlus&#x60; — крупногабаритный товар (КГТ+) .</param>
+        /// <param name="colorCode">Код цвета для колеруемых товаров.</param>
+        /// <param name="createdAt">Дата создания заказа.</param>
+        /// <param name="crossBorder">crossBorder.</param>
+        /// <param name="crossBorderType">Тип сборочного задания:   - &#x60;local&#x60; — внутренняя поставка   - &#x60;crossBorder&#x60; — трансграничная поставка .</param>
+        /// <param name="id">ID сборочного задания.</param>
+        /// <param name="isZeroOrder">Признак заказа товара с нулевым остатком:   - &#x60;false&#x60; — заказ сделан на товар с ненулевым остатком   - &#x60;true&#x60; — заказ сделан на товар с нулевым остатком .</param>
+        /// <param name="metaDetails">Детали маркировки.</param>
+        /// <param name="options">options.</param>
+        /// <param name="orderUid">ID транзакции для группировки сборочных заданий. Сборочные задания в одной корзине покупателя будут иметь одинаковый &#x60;orderUid&#x60;.</param>
+        /// <param name="priceInfo">priceInfo.</param>
+        /// <param name="product">product.</param>
+        /// <param name="rid">Уникальный ID заказа. Примечание: &#x60;rid&#x60; — это &#x60;srid&#x60; в ответах методов: - [Заявки покупателей на возврат](./customer-communication#tag/buyersReturns/operation/getV1Claims) - [Лента заказов](./analytics#tag/orderFeed/operation/postV1OrderFeed) - [Заказы](./reports#tag/mainReports/operation/getV1SupplierOrders) - [Продажи](./reports#tag/mainReports/operation/getV1SupplierSales) - [Отчёт о возвратах и перемещении товаров](./reports#tag/returnsAndItemMovementReport) - [Детализации к отчётам реализации по ID отчётов](./documents-and-accounting#tag/financialReports/operation/postV1SalesReportsDetailedReportId) - [Детализации к отчётам реализации за период](./documents-and-accounting#tag/financialReports/operation/postV1SalesReportsDetailed) - [Детализации к отчётам об издержках на приём платежей по ID отчётов](./documents-and-accounting#tag/financialReports/operation/postV1AcquiringDetailedReportId) - [Детализации к отчётам об издержках на приём платежей за период](./documents-and-accounting#tag/financialReports/operation/postV1AcquiringDetailed).</param>
+        /// <param name="scanPrice">Цена приёмки заказа в копейках.</param>
+        /// <param name="status">status.</param>
+        /// <param name="stickerId">ID стикера.</param>
+        /// <param name="supplyId">ID поставки.</param>
+        /// <param name="warehouseId">ID склада продавца, с которого был отгружен товар.</param>
         public V3ArchiveOrder(string cargoType = default(string), string colorCode = default(string), string createdAt = default(string), V3ArchiveOrderCrossBorder crossBorder = default(V3ArchiveOrderCrossBorder), string crossBorderType = default(string), int id = default(int), bool isZeroOrder = default(bool), List<V3ArchiveOrderMetaDetailsInner> metaDetails = default(List<V3ArchiveOrderMetaDetailsInner>), V3ArchiveOrderOptions options = default(V3ArchiveOrderOptions), string orderUid = default(string), V3ArchiveOrderPriceInfo priceInfo = default(V3ArchiveOrderPriceInfo), V3ArchiveOrderProduct product = default(V3ArchiveOrderProduct), string rid = default(string), int? scanPrice = default(int?), V3ArchiveOrderStatus status = default(V3ArchiveOrderStatus), int stickerId = default(int), string supplyId = default(string), int warehouseId = default(int))
         {
-            // to ensure "cargoType" is required (not null)
-            if (cargoType == null)
-            {
-                throw new ArgumentNullException("cargoType is a required property for V3ArchiveOrder and cannot be null");
-            }
             this.CargoType = cargoType;
-            // to ensure "colorCode" is required (not null)
-            if (colorCode == null)
-            {
-                throw new ArgumentNullException("colorCode is a required property for V3ArchiveOrder and cannot be null");
-            }
             this.ColorCode = colorCode;
-            // to ensure "createdAt" is required (not null)
-            if (createdAt == null)
-            {
-                throw new ArgumentNullException("createdAt is a required property for V3ArchiveOrder and cannot be null");
-            }
             this.CreatedAt = createdAt;
-            // to ensure "crossBorder" is required (not null)
-            if (crossBorder == null)
-            {
-                throw new ArgumentNullException("crossBorder is a required property for V3ArchiveOrder and cannot be null");
-            }
             this.CrossBorder = crossBorder;
-            // to ensure "crossBorderType" is required (not null)
-            if (crossBorderType == null)
-            {
-                throw new ArgumentNullException("crossBorderType is a required property for V3ArchiveOrder and cannot be null");
-            }
             this.CrossBorderType = crossBorderType;
             this.Id = id;
             this.IsZeroOrder = isZeroOrder;
-            // to ensure "metaDetails" is required (not null)
-            if (metaDetails == null)
-            {
-                throw new ArgumentNullException("metaDetails is a required property for V3ArchiveOrder and cannot be null");
-            }
             this.MetaDetails = metaDetails;
-            // to ensure "options" is required (not null)
-            if (options == null)
-            {
-                throw new ArgumentNullException("options is a required property for V3ArchiveOrder and cannot be null");
-            }
             this.Options = options;
-            // to ensure "orderUid" is required (not null)
-            if (orderUid == null)
-            {
-                throw new ArgumentNullException("orderUid is a required property for V3ArchiveOrder and cannot be null");
-            }
             this.OrderUid = orderUid;
-            // to ensure "priceInfo" is required (not null)
-            if (priceInfo == null)
-            {
-                throw new ArgumentNullException("priceInfo is a required property for V3ArchiveOrder and cannot be null");
-            }
             this.PriceInfo = priceInfo;
-            // to ensure "product" is required (not null)
-            if (product == null)
-            {
-                throw new ArgumentNullException("product is a required property for V3ArchiveOrder and cannot be null");
-            }
             this.Product = product;
-            // to ensure "rid" is required (not null)
-            if (rid == null)
-            {
-                throw new ArgumentNullException("rid is a required property for V3ArchiveOrder and cannot be null");
-            }
             this.Rid = rid;
-            // to ensure "scanPrice" is required (not null)
-            if (scanPrice == null)
-            {
-                throw new ArgumentNullException("scanPrice is a required property for V3ArchiveOrder and cannot be null");
-            }
             this.ScanPrice = scanPrice;
-            // to ensure "status" is required (not null)
-            if (status == null)
-            {
-                throw new ArgumentNullException("status is a required property for V3ArchiveOrder and cannot be null");
-            }
             this.Status = status;
             this.StickerId = stickerId;
-            // to ensure "supplyId" is required (not null)
-            if (supplyId == null)
-            {
-                throw new ArgumentNullException("supplyId is a required property for V3ArchiveOrder and cannot be null");
-            }
             this.SupplyId = supplyId;
             this.WarehouseId = warehouseId;
         }
@@ -156,7 +81,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /*
         <example>mgt</example>
         */
-        [DataMember(Name = "cargoType", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "cargoType", EmitDefaultValue = false)]
         public string CargoType { get; set; }
 
         /// <summary>
@@ -166,7 +91,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /*
         <example>RAL 3017</example>
         */
-        [DataMember(Name = "colorCode", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "colorCode", EmitDefaultValue = true)]
         public string ColorCode { get; set; }
 
         /// <summary>
@@ -176,13 +101,13 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /*
         <example>2022-05-04</example>
         */
-        [DataMember(Name = "createdAt", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "createdAt", EmitDefaultValue = false)]
         public string CreatedAt { get; set; }
 
         /// <summary>
         /// Gets or Sets CrossBorder
         /// </summary>
-        [DataMember(Name = "crossBorder", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "crossBorder", EmitDefaultValue = true)]
         public V3ArchiveOrderCrossBorder CrossBorder { get; set; }
 
         /// <summary>
@@ -192,7 +117,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /*
         <example>crossBorder</example>
         */
-        [DataMember(Name = "crossBorderType", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "crossBorderType", EmitDefaultValue = false)]
         public string CrossBorderType { get; set; }
 
         /// <summary>
@@ -202,7 +127,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /*
         <example>1234567890</example>
         */
-        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "id", EmitDefaultValue = false)]
         public int Id { get; set; }
 
         /// <summary>
@@ -212,20 +137,20 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /*
         <example>false</example>
         */
-        [DataMember(Name = "isZeroOrder", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "isZeroOrder", EmitDefaultValue = true)]
         public bool IsZeroOrder { get; set; }
 
         /// <summary>
         /// Детали маркировки
         /// </summary>
         /// <value>Детали маркировки</value>
-        [DataMember(Name = "metaDetails", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "metaDetails", EmitDefaultValue = false)]
         public List<V3ArchiveOrderMetaDetailsInner> MetaDetails { get; set; }
 
         /// <summary>
         /// Gets or Sets Options
         /// </summary>
-        [DataMember(Name = "options", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "options", EmitDefaultValue = false)]
         public V3ArchiveOrderOptions Options { get; set; }
 
         /// <summary>
@@ -235,19 +160,19 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /*
         <example>165918930_629fbc924b984618a44354475ca58675</example>
         */
-        [DataMember(Name = "orderUid", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "orderUid", EmitDefaultValue = false)]
         public string OrderUid { get; set; }
 
         /// <summary>
         /// Gets or Sets PriceInfo
         /// </summary>
-        [DataMember(Name = "priceInfo", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "priceInfo", EmitDefaultValue = false)]
         public V3ArchiveOrderPriceInfo PriceInfo { get; set; }
 
         /// <summary>
         /// Gets or Sets Product
         /// </summary>
-        [DataMember(Name = "product", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "product", EmitDefaultValue = false)]
         public V3ArchiveOrderProduct Product { get; set; }
 
         /// <summary>
@@ -257,7 +182,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /*
         <example>f884001e44e511edb8780242ac120002</example>
         */
-        [DataMember(Name = "rid", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "rid", EmitDefaultValue = false)]
         public string Rid { get; set; }
 
         /// <summary>
@@ -267,13 +192,13 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /*
         <example>5200</example>
         */
-        [DataMember(Name = "scanPrice", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "scanPrice", EmitDefaultValue = true)]
         public int? ScanPrice { get; set; }
 
         /// <summary>
         /// Gets or Sets Status
         /// </summary>
-        [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "status", EmitDefaultValue = false)]
         public V3ArchiveOrderStatus Status { get; set; }
 
         /// <summary>
@@ -283,7 +208,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /*
         <example>33811984302</example>
         */
-        [DataMember(Name = "stickerId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "stickerId", EmitDefaultValue = false)]
         public int StickerId { get; set; }
 
         /// <summary>
@@ -293,7 +218,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /*
         <example>WB-GI-1234588</example>
         */
-        [DataMember(Name = "supplyId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "supplyId", EmitDefaultValue = true)]
         public string SupplyId { get; set; }
 
         /// <summary>
@@ -303,7 +228,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /*
         <example>55684681</example>
         */
-        [DataMember(Name = "warehouseId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "warehouseId", EmitDefaultValue = false)]
         public int WarehouseId { get; set; }
 
         /// <summary>

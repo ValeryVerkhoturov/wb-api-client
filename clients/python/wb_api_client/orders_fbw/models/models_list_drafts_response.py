@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from wb_api_client.orders_fbw.models.models_draft_item import ModelsDraftItem
 from typing import Optional, Set
 from typing_extensions import Self
@@ -29,8 +29,12 @@ class ModelsListDraftsResponse(BaseModel):
     ModelsListDraftsResponse
     """  # noqa: E501
 
-    total: StrictInt = Field(description="Общее количество черновиков")
-    drafts: List[ModelsDraftItem] = Field(description="Список черновиков")
+    total: Optional[StrictInt] = Field(
+        default=None, description="Общее количество черновиков"
+    )
+    drafts: Optional[List[ModelsDraftItem]] = Field(
+        default=None, description="Список черновиков"
+    )
     __properties: ClassVar[List[str]] = ["total", "drafts"]
 
     model_config = ConfigDict(

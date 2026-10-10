@@ -34,26 +34,16 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PostV1OrderFeedResponse200" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected PostV1OrderFeedResponse200() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PostV1OrderFeedResponse200" /> class.
-        /// </summary>
-        /// <param name="data">data (required).</param>
+        /// <param name="data">data.</param>
         public PostV1OrderFeedResponse200(OrderFeedResponse data = default(OrderFeedResponse))
         {
-            // to ensure "data" is required (not null)
-            if (data == null)
-            {
-                throw new ArgumentNullException("data is a required property for PostV1OrderFeedResponse200 and cannot be null");
-            }
             this.Data = data;
         }
 
         /// <summary>
         /// Gets or Sets Data
         /// </summary>
-        [DataMember(Name = "data", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "data", EmitDefaultValue = false)]
         public OrderFeedResponse Data { get; set; }
 
         /// <summary>

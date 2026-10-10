@@ -31,12 +31,14 @@ class BrandsResponse(BaseModel):
     BrandsResponse
     """  # noqa: E501
 
-    brands: List[BrandsResponseBrandsInner]
+    brands: Optional[List[BrandsResponseBrandsInner]] = None
     next: Optional[StrictInt] = Field(
         default=None,
         description="Параметр пагинации. Укажите это значение в запросе, чтобы получить следующий пакет данных. Если поле отсутствует, вы получили все данные",
     )
-    total: StrictInt = Field(description="Общее количество брендов предмета")
+    total: Optional[StrictInt] = Field(
+        default=None, description="Общее количество брендов предмета"
+    )
     __properties: ClassVar[List[str]] = ["brands", "next", "total"]
 
     model_config = ConfigDict(

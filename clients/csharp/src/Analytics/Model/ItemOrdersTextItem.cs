@@ -34,28 +34,13 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemOrdersTextItem" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected ItemOrdersTextItem() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ItemOrdersTextItem" /> class.
-        /// </summary>
-        /// <param name="text">Текст поискового запроса (required).</param>
-        /// <param name="frequency">Количество обращений с поисковым запросом (required).</param>
-        /// <param name="dateItems">Статистика по датам (required).</param>
+        /// <param name="text">Текст поискового запроса.</param>
+        /// <param name="frequency">Количество обращений с поисковым запросом.</param>
+        /// <param name="dateItems">Статистика по датам.</param>
         public ItemOrdersTextItem(string text = default(string), int frequency = default(int), List<ItemOrdersMetrics> dateItems = default(List<ItemOrdersMetrics>))
         {
-            // to ensure "text" is required (not null)
-            if (text == null)
-            {
-                throw new ArgumentNullException("text is a required property for ItemOrdersTextItem and cannot be null");
-            }
             this.Text = text;
             this.Frequency = frequency;
-            // to ensure "dateItems" is required (not null)
-            if (dateItems == null)
-            {
-                throw new ArgumentNullException("dateItems is a required property for ItemOrdersTextItem and cannot be null");
-            }
             this.DateItems = dateItems;
         }
 
@@ -63,21 +48,21 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// Текст поискового запроса
         /// </summary>
         /// <value>Текст поискового запроса</value>
-        [DataMember(Name = "text", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "text", EmitDefaultValue = false)]
         public string Text { get; set; }
 
         /// <summary>
         /// Количество обращений с поисковым запросом
         /// </summary>
         /// <value>Количество обращений с поисковым запросом</value>
-        [DataMember(Name = "frequency", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "frequency", EmitDefaultValue = false)]
         public int Frequency { get; set; }
 
         /// <summary>
         /// Статистика по датам
         /// </summary>
         /// <value>Статистика по датам</value>
-        [DataMember(Name = "dateItems", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "dateItems", EmitDefaultValue = false)]
         public List<ItemOrdersMetrics> DateItems { get; set; }
 
         /// <summary>

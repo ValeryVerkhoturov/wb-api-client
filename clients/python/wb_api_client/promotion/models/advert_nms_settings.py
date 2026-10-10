@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from wb_api_client.promotion.models.advert_bids_kopecks import AdvertBidsKopecks
 from wb_api_client.promotion.models.advert_subcategory import AdvertSubcategory
 from typing import Optional, Set
@@ -30,9 +30,9 @@ class AdvertNMsSettings(BaseModel):
     AdvertNMsSettings
     """  # noqa: E501
 
-    bids_kopecks: AdvertBidsKopecks
-    subject: AdvertSubcategory
-    nm_id: StrictInt = Field(description="Артикул WB")
+    bids_kopecks: Optional[AdvertBidsKopecks] = None
+    subject: Optional[AdvertSubcategory] = None
+    nm_id: Optional[StrictInt] = Field(default=None, description="Артикул WB")
     __properties: ClassVar[List[str]] = ["bids_kopecks", "subject", "nm_id"]
 
     model_config = ConfigDict(

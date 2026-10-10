@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from wb_api_client.analytics.models.item_search_texts_response import (
     ItemSearchTextsResponse,
 )
@@ -31,7 +31,7 @@ class PostV2SearchReportProductSearchTextsResponse200(BaseModel):
     PostV2SearchReportProductSearchTextsResponse200
     """  # noqa: E501
 
-    data: ItemSearchTextsResponse
+    data: Optional[ItemSearchTextsResponse] = None
     __properties: ClassVar[List[str]] = ["data"]
 
     model_config = ConfigDict(

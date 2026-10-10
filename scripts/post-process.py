@@ -49,6 +49,16 @@ Passes applied to every spec:
    `date_from_datetime_parsing`, Go `time.Time` unmarshal, Java
    `LocalDate`). We strip `format: date` / `format: date-time` from string
    schemas so clients type these as plain strings.
+
+9. `drop_response_required` — WB marks nearly every response field
+   `required`, but the live API omits fields at will, and every generated
+   language throws on deserialization when a "required" field is absent
+   (pydantic `model_validate`, Java `validateJsonElement`, Go
+   `UnmarshalJSON`, C# `DataMember(IsRequired)`, PHP setter null-checks).
+   We delete `required` arrays from every schema reachable from a response
+   definition so missing fields deserialize to defaults (`None` / null /
+   zero value). Request-body schemas keep their `required` lists, so
+   input validation is unaffected.
 """
 from __future__ import annotations
 
@@ -473,6 +483,82 @@ def drop_date_formats(node: Any) -> int:
     return fixed
 
 
+_REF_PREFIX = "#/components/schemas/"
+
+
+def _collect_schema_refs(node: Any, out: set) -> None:
+    if isinstance(node, dict):
+        ref = node.get("$ref")
+        if isinstance(ref, str) and ref.startswith(_REF_PREFIX):
+            out.add(ref[len(_REF_PREFIX):])
+        for v in node.values():
+            _collect_schema_refs(v, out)
+    elif isinstance(node, list):
+        for v in node:
+            _collect_schema_refs(v, out)
+
+
+def drop_response_required(spec: dict) -> int:
+    """Delete `required` arrays from every schema reachable from a response
+    definition. Missing fields then deserialize to defaults (`None` / null /
+    zero value) instead of throwing — WB marks nearly everything required
+    but omits fields at will. Request-body schemas keep their `required`
+    lists (a schema used in both a request and a response is
+    response-reachable and goes optional in both — accepted, favors
+    leniency).
+
+    Must run after `name_inline_response_schemas` so inline response bodies
+    are hoisted to components and visible to the reachability walk.
+    """
+    schemas = spec.get("components", {}).get("schemas", {}) or {}
+    if not schemas:
+        return 0
+
+    reachable: set = set()
+    for path_item in (spec.get("paths") or {}).values():
+        if not isinstance(path_item, dict):
+            continue
+        for method, op in path_item.items():
+            if method not in {"get", "post", "put", "patch", "delete", "head", "options"}:
+                continue
+            if isinstance(op, dict):
+                _collect_schema_refs(op.get("responses") or {}, reachable)
+
+    queue = list(reachable)
+    while queue:
+        schema = schemas.get(queue.pop())
+        if not isinstance(schema, dict):
+            continue
+        refs: set = set()
+        _collect_schema_refs(schema, refs)
+        for ref in refs - reachable:
+            reachable.add(ref)
+            queue.append(ref)
+
+    dropped = 0
+
+    def strip(node: Any) -> None:
+        nonlocal dropped
+        if isinstance(node, dict):
+            # Only schema `required` (a list of property names) — never the
+            # boolean `required` of a parameter, which the walk can't reach
+            # anyway since it stays inside schema subtrees.
+            if isinstance(node.get("required"), list):
+                del node["required"]
+                dropped += 1
+            for v in node.values():
+                strip(v)
+        elif isinstance(node, list):
+            for v in node:
+                strip(v)
+
+    for name in reachable:
+        schema = schemas.get(name)
+        if isinstance(schema, dict):
+            strip(schema)
+    return dropped
+
+
 def process_file(src: Path, dst: Path) -> dict:
     with src.open("r", encoding="utf-8") as f:
         spec = yaml.load(f)
@@ -485,6 +571,7 @@ def process_file(src: Path, dst: Path) -> dict:
         "inlined_arrays": inline_top_level_arrays(spec),
         "renamed_schemas": rename_digit_prefixed_schemas(spec),
         "hoisted_responses": name_inline_response_schemas(spec),
+        "required_dropped": drop_response_required(spec),
         "enums": sanitize_non_ascii_enums(spec),
         "date_formats_dropped": drop_date_formats(spec),
         "descriptions_md": htmlize_descriptions_to_markdown(spec),
@@ -508,8 +595,9 @@ def main() -> int:
         return 1
 
     totals = {"arrays": 0, "inlined_arrays": 0, "renamed_schemas": 0,
-              "hoisted_responses": 0, "enums": 0, "date_formats_dropped": 0,
-              "descriptions_md": 0, "links_absolutized": 0}
+              "hoisted_responses": 0, "required_dropped": 0, "enums": 0,
+              "date_formats_dropped": 0, "descriptions_md": 0,
+              "links_absolutized": 0}
     for spec_path in specs:
         target = dst_dir / spec_path.name
         stats = process_file(spec_path, target)
@@ -521,6 +609,7 @@ def main() -> int:
             f"inlined-arrays={stats['inlined_arrays']:>2} "
             f"renamed={stats['renamed_schemas']:>2} "
             f"hoisted-responses={stats['hoisted_responses']:>3} "
+            f"required-dropped={stats['required_dropped']:>2} "
             f"enums={stats['enums']:>2} "
             f"date-formats={stats['date_formats_dropped']:>2} "
             f"desc-md={stats['descriptions_md']:>4} "

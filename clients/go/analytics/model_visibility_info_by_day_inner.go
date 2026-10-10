@@ -11,9 +11,7 @@ API version: analytics
 package analytics
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the VisibilityInfoByDayInner type satisfies the MappedNullable interface at compile time
@@ -22,24 +20,19 @@ var _ MappedNullable = &VisibilityInfoByDayInner{}
 // VisibilityInfoByDayInner struct for VisibilityInfoByDayInner
 type VisibilityInfoByDayInner struct {
 	// Дата
-	Dt string `json:"dt"`
+	Dt *string `json:"dt,omitempty"`
 	// Видимость карточки в результатах поиска, %
-	Visibility int32 `json:"visibility"`
+	Visibility *int32 `json:"visibility,omitempty"`
 	// Количество переходов в карточку
-	Open int32 `json:"open"`
+	Open *int32 `json:"open,omitempty"`
 }
-
-type _VisibilityInfoByDayInner VisibilityInfoByDayInner
 
 // NewVisibilityInfoByDayInner instantiates a new VisibilityInfoByDayInner object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewVisibilityInfoByDayInner(dt string, visibility int32, open int32) *VisibilityInfoByDayInner {
+func NewVisibilityInfoByDayInner() *VisibilityInfoByDayInner {
 	this := VisibilityInfoByDayInner{}
-	this.Dt = dt
-	this.Visibility = visibility
-	this.Open = open
 	return &this
 }
 
@@ -51,76 +44,100 @@ func NewVisibilityInfoByDayInnerWithDefaults() *VisibilityInfoByDayInner {
 	return &this
 }
 
-// GetDt returns the Dt field value
+// GetDt returns the Dt field value if set, zero value otherwise.
 func (o *VisibilityInfoByDayInner) GetDt() string {
-	if o == nil {
+	if o == nil || IsNil(o.Dt) {
 		var ret string
 		return ret
 	}
-
-	return o.Dt
+	return *o.Dt
 }
 
-// GetDtOk returns a tuple with the Dt field value
+// GetDtOk returns a tuple with the Dt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VisibilityInfoByDayInner) GetDtOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Dt) {
 		return nil, false
 	}
-	return &o.Dt, true
+	return o.Dt, true
 }
 
-// SetDt sets field value
+// HasDt returns a boolean if a field has been set.
+func (o *VisibilityInfoByDayInner) HasDt() bool {
+	if o != nil && !IsNil(o.Dt) {
+		return true
+	}
+
+	return false
+}
+
+// SetDt gets a reference to the given string and assigns it to the Dt field.
 func (o *VisibilityInfoByDayInner) SetDt(v string) {
-	o.Dt = v
+	o.Dt = &v
 }
 
-// GetVisibility returns the Visibility field value
+// GetVisibility returns the Visibility field value if set, zero value otherwise.
 func (o *VisibilityInfoByDayInner) GetVisibility() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.Visibility) {
 		var ret int32
 		return ret
 	}
-
-	return o.Visibility
+	return *o.Visibility
 }
 
-// GetVisibilityOk returns a tuple with the Visibility field value
+// GetVisibilityOk returns a tuple with the Visibility field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VisibilityInfoByDayInner) GetVisibilityOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Visibility) {
 		return nil, false
 	}
-	return &o.Visibility, true
+	return o.Visibility, true
 }
 
-// SetVisibility sets field value
+// HasVisibility returns a boolean if a field has been set.
+func (o *VisibilityInfoByDayInner) HasVisibility() bool {
+	if o != nil && !IsNil(o.Visibility) {
+		return true
+	}
+
+	return false
+}
+
+// SetVisibility gets a reference to the given int32 and assigns it to the Visibility field.
 func (o *VisibilityInfoByDayInner) SetVisibility(v int32) {
-	o.Visibility = v
+	o.Visibility = &v
 }
 
-// GetOpen returns the Open field value
+// GetOpen returns the Open field value if set, zero value otherwise.
 func (o *VisibilityInfoByDayInner) GetOpen() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.Open) {
 		var ret int32
 		return ret
 	}
-
-	return o.Open
+	return *o.Open
 }
 
-// GetOpenOk returns a tuple with the Open field value
+// GetOpenOk returns a tuple with the Open field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VisibilityInfoByDayInner) GetOpenOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Open) {
 		return nil, false
 	}
-	return &o.Open, true
+	return o.Open, true
 }
 
-// SetOpen sets field value
+// HasOpen returns a boolean if a field has been set.
+func (o *VisibilityInfoByDayInner) HasOpen() bool {
+	if o != nil && !IsNil(o.Open) {
+		return true
+	}
+
+	return false
+}
+
+// SetOpen gets a reference to the given int32 and assigns it to the Open field.
 func (o *VisibilityInfoByDayInner) SetOpen(v int32) {
-	o.Open = v
+	o.Open = &v
 }
 
 func (o VisibilityInfoByDayInner) MarshalJSON() ([]byte, error) {
@@ -133,49 +150,16 @@ func (o VisibilityInfoByDayInner) MarshalJSON() ([]byte, error) {
 
 func (o VisibilityInfoByDayInner) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["dt"] = o.Dt
-	toSerialize["visibility"] = o.Visibility
-	toSerialize["open"] = o.Open
+	if !IsNil(o.Dt) {
+		toSerialize["dt"] = o.Dt
+	}
+	if !IsNil(o.Visibility) {
+		toSerialize["visibility"] = o.Visibility
+	}
+	if !IsNil(o.Open) {
+		toSerialize["open"] = o.Open
+	}
 	return toSerialize, nil
-}
-
-func (o *VisibilityInfoByDayInner) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"dt",
-		"visibility",
-		"open",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varVisibilityInfoByDayInner := _VisibilityInfoByDayInner{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varVisibilityInfoByDayInner)
-
-	if err != nil {
-		return err
-	}
-
-	*o = VisibilityInfoByDayInner(varVisibilityInfoByDayInner)
-
-	return err
 }
 
 type NullableVisibilityInfoByDayInner struct {

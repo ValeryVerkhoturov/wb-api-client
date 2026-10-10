@@ -11,9 +11,7 @@ API version: order
 package orders_fbs
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the Supply type satisfies the MappedNullable interface at compile time
@@ -54,18 +52,15 @@ type Supply struct {
 	// ID ЭТрН — электронной транспортной накладной
 	WaybillUuid NullableString `json:"waybillUuid,omitempty"`
 	// Доступен ли СПОТ для этой поставки:   - `true` — да. Используйте метод [получения данных СПОТ](./orders-fbs#tag/fbsSupplies/operation/postV3FbsSuppliesSpotList)   - `false` — нет
-	SpotAvailable bool `json:"spotAvailable"`
+	SpotAvailable *bool `json:"spotAvailable,omitempty"`
 }
-
-type _Supply Supply
 
 // NewSupply instantiates a new Supply object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSupply(spotAvailable bool) *Supply {
+func NewSupply() *Supply {
 	this := Supply{}
-	this.SpotAvailable = spotAvailable
 	return &this
 }
 
@@ -688,28 +683,36 @@ func (o *Supply) UnsetWaybillUuid() {
 	o.WaybillUuid.Unset()
 }
 
-// GetSpotAvailable returns the SpotAvailable field value
+// GetSpotAvailable returns the SpotAvailable field value if set, zero value otherwise.
 func (o *Supply) GetSpotAvailable() bool {
-	if o == nil {
+	if o == nil || IsNil(o.SpotAvailable) {
 		var ret bool
 		return ret
 	}
-
-	return o.SpotAvailable
+	return *o.SpotAvailable
 }
 
-// GetSpotAvailableOk returns a tuple with the SpotAvailable field value
+// GetSpotAvailableOk returns a tuple with the SpotAvailable field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Supply) GetSpotAvailableOk() (*bool, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.SpotAvailable) {
 		return nil, false
 	}
-	return &o.SpotAvailable, true
+	return o.SpotAvailable, true
 }
 
-// SetSpotAvailable sets field value
+// HasSpotAvailable returns a boolean if a field has been set.
+func (o *Supply) HasSpotAvailable() bool {
+	if o != nil && !IsNil(o.SpotAvailable) {
+		return true
+	}
+
+	return false
+}
+
+// SetSpotAvailable gets a reference to the given bool and assigns it to the SpotAvailable field.
 func (o *Supply) SetSpotAvailable(v bool) {
-	o.SpotAvailable = v
+	o.SpotAvailable = &v
 }
 
 func (o Supply) MarshalJSON() ([]byte, error) {
@@ -770,45 +773,10 @@ func (o Supply) ToMap() (map[string]interface{}, error) {
 	if o.WaybillUuid.IsSet() {
 		toSerialize["waybillUuid"] = o.WaybillUuid.Get()
 	}
-	toSerialize["spotAvailable"] = o.SpotAvailable
+	if !IsNil(o.SpotAvailable) {
+		toSerialize["spotAvailable"] = o.SpotAvailable
+	}
 	return toSerialize, nil
-}
-
-func (o *Supply) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"spotAvailable",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varSupply := _Supply{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varSupply)
-
-	if err != nil {
-		return err
-	}
-
-	*o = Supply(varSupply)
-
-	return err
 }
 
 type NullableSupply struct {

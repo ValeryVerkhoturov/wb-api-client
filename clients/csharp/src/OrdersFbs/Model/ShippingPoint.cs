@@ -65,8 +65,8 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /*
         <example>pp</example>
         */
-        [DataMember(Name = "officeType", IsRequired = true, EmitDefaultValue = true)]
-        public OfficeTypeEnum OfficeType { get; set; }
+        [DataMember(Name = "officeType", EmitDefaultValue = false)]
+        public OfficeTypeEnum? OfficeType { get; set; }
         /// <summary>
         /// Defines CargoTypes
         /// </summary>
@@ -91,47 +91,22 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ShippingPoint" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected ShippingPoint() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ShippingPoint" /> class.
-        /// </summary>
-        /// <param name="id">ID пункта отгрузки (required).</param>
-        /// <param name="name">Название (required).</param>
-        /// <param name="address">Адрес (required).</param>
-        /// <param name="city">Населённый пункт (required).</param>
-        /// <param name="officeType">Тип пункта отгрузки:   - &#x60;sc&#x60; — сортировочный центр   - &#x60;sw&#x60; — склад   - &#x60;pp&#x60; — ПВЗ  (required).</param>
-        /// <param name="cargoTypes">Типы товаров, которые принимает пункт отгрузки:   - &#x60;1&#x60; — малогабаритный товар (МГТ)   - &#x60;2&#x60; — сверхгабаритный товар (СГТ)   - &#x60;3&#x60; — крупногабаритный товар (КГТ+)  (required).</param>
-        /// <param name="latitude">Широта (required).</param>
-        /// <param name="longitude">Долгота (required).</param>
-        /// <param name="fulfillment">Услуга **Фулфилмент в СЦ** для поставки по модели FBS:   - &#x60;true&#x60; — доступна   - &#x60;false&#x60; — недоступна  (required).</param>
-        public ShippingPoint(long id = default(long), string name = default(string), string address = default(string), string city = default(string), OfficeTypeEnum officeType = default(OfficeTypeEnum), List<CargoTypesEnum> cargoTypes = default(List<CargoTypesEnum>), decimal latitude = default(decimal), decimal longitude = default(decimal), bool fulfillment = default(bool))
+        /// <param name="id">ID пункта отгрузки.</param>
+        /// <param name="name">Название.</param>
+        /// <param name="address">Адрес.</param>
+        /// <param name="city">Населённый пункт.</param>
+        /// <param name="officeType">Тип пункта отгрузки:   - &#x60;sc&#x60; — сортировочный центр   - &#x60;sw&#x60; — склад   - &#x60;pp&#x60; — ПВЗ .</param>
+        /// <param name="cargoTypes">Типы товаров, которые принимает пункт отгрузки:   - &#x60;1&#x60; — малогабаритный товар (МГТ)   - &#x60;2&#x60; — сверхгабаритный товар (СГТ)   - &#x60;3&#x60; — крупногабаритный товар (КГТ+) .</param>
+        /// <param name="latitude">Широта.</param>
+        /// <param name="longitude">Долгота.</param>
+        /// <param name="fulfillment">Услуга **Фулфилмент в СЦ** для поставки по модели FBS:   - &#x60;true&#x60; — доступна   - &#x60;false&#x60; — недоступна .</param>
+        public ShippingPoint(long id = default(long), string name = default(string), string address = default(string), string city = default(string), OfficeTypeEnum? officeType = default(OfficeTypeEnum?), List<CargoTypesEnum> cargoTypes = default(List<CargoTypesEnum>), decimal latitude = default(decimal), decimal longitude = default(decimal), bool fulfillment = default(bool))
         {
             this.Id = id;
-            // to ensure "name" is required (not null)
-            if (name == null)
-            {
-                throw new ArgumentNullException("name is a required property for ShippingPoint and cannot be null");
-            }
             this.Name = name;
-            // to ensure "address" is required (not null)
-            if (address == null)
-            {
-                throw new ArgumentNullException("address is a required property for ShippingPoint and cannot be null");
-            }
             this.Address = address;
-            // to ensure "city" is required (not null)
-            if (city == null)
-            {
-                throw new ArgumentNullException("city is a required property for ShippingPoint and cannot be null");
-            }
             this.City = city;
             this.OfficeType = officeType;
-            // to ensure "cargoTypes" is required (not null)
-            if (cargoTypes == null)
-            {
-                throw new ArgumentNullException("cargoTypes is a required property for ShippingPoint and cannot be null");
-            }
             this.CargoTypes = cargoTypes;
             this.Latitude = latitude;
             this.Longitude = longitude;
@@ -145,7 +120,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /*
         <example>100</example>
         */
-        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "id", EmitDefaultValue = false)]
         public long Id { get; set; }
 
         /// <summary>
@@ -155,7 +130,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /*
         <example>Москва Морской</example>
         */
-        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "name", EmitDefaultValue = false)]
         public string Name { get; set; }
 
         /// <summary>
@@ -165,7 +140,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /*
         <example>г Москва, Морской Проспект 54</example>
         */
-        [DataMember(Name = "address", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "address", EmitDefaultValue = false)]
         public string Address { get; set; }
 
         /// <summary>
@@ -175,7 +150,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /*
         <example>Москва</example>
         */
-        [DataMember(Name = "city", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "city", EmitDefaultValue = false)]
         public string City { get; set; }
 
         /// <summary>
@@ -185,7 +160,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /*
         <example>[1,3]</example>
         */
-        [DataMember(Name = "cargoTypes", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "cargoTypes", EmitDefaultValue = false)]
         public List<ShippingPoint.CargoTypesEnum> CargoTypes { get; set; }
 
         /// <summary>
@@ -195,7 +170,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /*
         <example>37.588898</example>
         */
-        [DataMember(Name = "latitude", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "latitude", EmitDefaultValue = false)]
         public decimal Latitude { get; set; }
 
         /// <summary>
@@ -205,7 +180,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /*
         <example>55.386871</example>
         */
-        [DataMember(Name = "longitude", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "longitude", EmitDefaultValue = false)]
         public decimal Longitude { get; set; }
 
         /// <summary>
@@ -215,7 +190,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /*
         <example>true</example>
         */
-        [DataMember(Name = "fulfillment", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "fulfillment", EmitDefaultValue = true)]
         public bool Fulfillment { get; set; }
 
         /// <summary>

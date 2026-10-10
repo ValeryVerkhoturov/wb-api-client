@@ -34,21 +34,11 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PatchV1BidsResponse200BidsInner" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected PatchV1BidsResponse200BidsInner() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PatchV1BidsResponse200BidsInner" /> class.
-        /// </summary>
-        /// <param name="advertId">ID кампании (required).</param>
-        /// <param name="nmBids">Ставки (required).</param>
+        /// <param name="advertId">ID кампании.</param>
+        /// <param name="nmBids">Ставки.</param>
         public PatchV1BidsResponse200BidsInner(long advertId = default(long), List<PatchV1BidsResponse200BidsInnerNmBidsInner> nmBids = default(List<PatchV1BidsResponse200BidsInnerNmBidsInner>))
         {
             this.AdvertId = advertId;
-            // to ensure "nmBids" is required (not null)
-            if (nmBids == null)
-            {
-                throw new ArgumentNullException("nmBids is a required property for PatchV1BidsResponse200BidsInner and cannot be null");
-            }
             this.NmBids = nmBids;
         }
 
@@ -56,14 +46,14 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// ID кампании
         /// </summary>
         /// <value>ID кампании</value>
-        [DataMember(Name = "advert_id", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "advert_id", EmitDefaultValue = false)]
         public long AdvertId { get; set; }
 
         /// <summary>
         /// Ставки
         /// </summary>
         /// <value>Ставки</value>
-        [DataMember(Name = "nm_bids", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "nm_bids", EmitDefaultValue = false)]
         public List<PatchV1BidsResponse200BidsInnerNmBidsInner> NmBids { get; set; }
 
         /// <summary>

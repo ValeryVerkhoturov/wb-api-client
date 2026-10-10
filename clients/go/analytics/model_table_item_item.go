@@ -11,9 +11,7 @@ API version: analytics
 package analytics
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the TableItemItem type satisfies the MappedNullable interface at compile time
@@ -22,11 +20,11 @@ var _ MappedNullable = &TableItemItem{}
 // TableItemItem struct for TableItemItem
 type TableItemItem struct {
 	// Артикул WB
-	NmId int64 `json:"nmId"`
+	NmId *int64 `json:"nmId,omitempty"`
 	// Название товара
 	Name *string `json:"name,omitempty"`
 	// Артикул продавца
-	VendorCode string `json:"vendorCode"`
+	VendorCode *string `json:"vendorCode,omitempty"`
 	// Название предмета
 	SubjectName *string `json:"subjectName,omitempty"`
 	// Бренд
@@ -34,47 +32,31 @@ type TableItemItem struct {
 	// URL главного фото карточки товара
 	MainPhoto *string `json:"mainPhoto,omitempty"`
 	// Находится ли товар в продвижении в Поисковой выдаче
-	IsAdvertised bool `json:"isAdvertised"`
+	IsAdvertised *bool `json:"isAdvertised,omitempty"`
 	// Искали ли товар по подменному артикулу. Поле будет в ответе при наличии в запросе `includeSubstitutedSKUs` и/или `includeSearchTexts`
 	IsSubstitutedSKU *bool `json:"isSubstitutedSKU,omitempty"`
 	// Есть ли рейтинг у карточки товара
-	IsCardRated bool `json:"isCardRated"`
+	IsCardRated *bool `json:"isCardRated,omitempty"`
 	// Рейтинг карточки товара
-	Rating float32 `json:"rating"`
+	Rating *float32 `json:"rating,omitempty"`
 	// Рейтинг по отзывам
-	FeedbackRating float32                          `json:"feedbackRating"`
-	Price          TableItemItemAllOfPrice          `json:"price"`
-	AvgPosition    TableGroupItemMetricsAvgPosition `json:"avgPosition"`
-	OpenCard       VisibilityInfoOpenCard           `json:"openCard"`
-	AddToCart      TableGroupItemMetricsAddToCart   `json:"addToCart"`
-	OpenToCart     TableGroupItemMetricsOpenToCart  `json:"openToCart"`
-	Orders         TableGroupItemMetricsOrders      `json:"orders"`
-	CartToOrder    TableGroupItemMetricsCartToOrder `json:"cartToOrder"`
-	Visibility     TableGroupItemMetricsVisibility  `json:"visibility"`
+	FeedbackRating *float32                          `json:"feedbackRating,omitempty"`
+	Price          *TableItemItemAllOfPrice          `json:"price,omitempty"`
+	AvgPosition    *TableGroupItemMetricsAvgPosition `json:"avgPosition,omitempty"`
+	OpenCard       *VisibilityInfoOpenCard           `json:"openCard,omitempty"`
+	AddToCart      *TableGroupItemMetricsAddToCart   `json:"addToCart,omitempty"`
+	OpenToCart     *TableGroupItemMetricsOpenToCart  `json:"openToCart,omitempty"`
+	Orders         *TableGroupItemMetricsOrders      `json:"orders,omitempty"`
+	CartToOrder    *TableGroupItemMetricsCartToOrder `json:"cartToOrder,omitempty"`
+	Visibility     *TableGroupItemMetricsVisibility  `json:"visibility,omitempty"`
 }
-
-type _TableItemItem TableItemItem
 
 // NewTableItemItem instantiates a new TableItemItem object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTableItemItem(nmId int64, vendorCode string, isAdvertised bool, isCardRated bool, rating float32, feedbackRating float32, price TableItemItemAllOfPrice, avgPosition TableGroupItemMetricsAvgPosition, openCard VisibilityInfoOpenCard, addToCart TableGroupItemMetricsAddToCart, openToCart TableGroupItemMetricsOpenToCart, orders TableGroupItemMetricsOrders, cartToOrder TableGroupItemMetricsCartToOrder, visibility TableGroupItemMetricsVisibility) *TableItemItem {
+func NewTableItemItem() *TableItemItem {
 	this := TableItemItem{}
-	this.NmId = nmId
-	this.VendorCode = vendorCode
-	this.IsAdvertised = isAdvertised
-	this.IsCardRated = isCardRated
-	this.Rating = rating
-	this.FeedbackRating = feedbackRating
-	this.Price = price
-	this.AvgPosition = avgPosition
-	this.OpenCard = openCard
-	this.AddToCart = addToCart
-	this.OpenToCart = openToCart
-	this.Orders = orders
-	this.CartToOrder = cartToOrder
-	this.Visibility = visibility
 	return &this
 }
 
@@ -86,28 +68,36 @@ func NewTableItemItemWithDefaults() *TableItemItem {
 	return &this
 }
 
-// GetNmId returns the NmId field value
+// GetNmId returns the NmId field value if set, zero value otherwise.
 func (o *TableItemItem) GetNmId() int64 {
-	if o == nil {
+	if o == nil || IsNil(o.NmId) {
 		var ret int64
 		return ret
 	}
-
-	return o.NmId
+	return *o.NmId
 }
 
-// GetNmIdOk returns a tuple with the NmId field value
+// GetNmIdOk returns a tuple with the NmId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableItemItem) GetNmIdOk() (*int64, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.NmId) {
 		return nil, false
 	}
-	return &o.NmId, true
+	return o.NmId, true
 }
 
-// SetNmId sets field value
+// HasNmId returns a boolean if a field has been set.
+func (o *TableItemItem) HasNmId() bool {
+	if o != nil && !IsNil(o.NmId) {
+		return true
+	}
+
+	return false
+}
+
+// SetNmId gets a reference to the given int64 and assigns it to the NmId field.
 func (o *TableItemItem) SetNmId(v int64) {
-	o.NmId = v
+	o.NmId = &v
 }
 
 // GetName returns the Name field value if set, zero value otherwise.
@@ -142,28 +132,36 @@ func (o *TableItemItem) SetName(v string) {
 	o.Name = &v
 }
 
-// GetVendorCode returns the VendorCode field value
+// GetVendorCode returns the VendorCode field value if set, zero value otherwise.
 func (o *TableItemItem) GetVendorCode() string {
-	if o == nil {
+	if o == nil || IsNil(o.VendorCode) {
 		var ret string
 		return ret
 	}
-
-	return o.VendorCode
+	return *o.VendorCode
 }
 
-// GetVendorCodeOk returns a tuple with the VendorCode field value
+// GetVendorCodeOk returns a tuple with the VendorCode field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableItemItem) GetVendorCodeOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.VendorCode) {
 		return nil, false
 	}
-	return &o.VendorCode, true
+	return o.VendorCode, true
 }
 
-// SetVendorCode sets field value
+// HasVendorCode returns a boolean if a field has been set.
+func (o *TableItemItem) HasVendorCode() bool {
+	if o != nil && !IsNil(o.VendorCode) {
+		return true
+	}
+
+	return false
+}
+
+// SetVendorCode gets a reference to the given string and assigns it to the VendorCode field.
 func (o *TableItemItem) SetVendorCode(v string) {
-	o.VendorCode = v
+	o.VendorCode = &v
 }
 
 // GetSubjectName returns the SubjectName field value if set, zero value otherwise.
@@ -262,28 +260,36 @@ func (o *TableItemItem) SetMainPhoto(v string) {
 	o.MainPhoto = &v
 }
 
-// GetIsAdvertised returns the IsAdvertised field value
+// GetIsAdvertised returns the IsAdvertised field value if set, zero value otherwise.
 func (o *TableItemItem) GetIsAdvertised() bool {
-	if o == nil {
+	if o == nil || IsNil(o.IsAdvertised) {
 		var ret bool
 		return ret
 	}
-
-	return o.IsAdvertised
+	return *o.IsAdvertised
 }
 
-// GetIsAdvertisedOk returns a tuple with the IsAdvertised field value
+// GetIsAdvertisedOk returns a tuple with the IsAdvertised field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableItemItem) GetIsAdvertisedOk() (*bool, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.IsAdvertised) {
 		return nil, false
 	}
-	return &o.IsAdvertised, true
+	return o.IsAdvertised, true
 }
 
-// SetIsAdvertised sets field value
+// HasIsAdvertised returns a boolean if a field has been set.
+func (o *TableItemItem) HasIsAdvertised() bool {
+	if o != nil && !IsNil(o.IsAdvertised) {
+		return true
+	}
+
+	return false
+}
+
+// SetIsAdvertised gets a reference to the given bool and assigns it to the IsAdvertised field.
 func (o *TableItemItem) SetIsAdvertised(v bool) {
-	o.IsAdvertised = v
+	o.IsAdvertised = &v
 }
 
 // GetIsSubstitutedSKU returns the IsSubstitutedSKU field value if set, zero value otherwise.
@@ -318,268 +324,356 @@ func (o *TableItemItem) SetIsSubstitutedSKU(v bool) {
 	o.IsSubstitutedSKU = &v
 }
 
-// GetIsCardRated returns the IsCardRated field value
+// GetIsCardRated returns the IsCardRated field value if set, zero value otherwise.
 func (o *TableItemItem) GetIsCardRated() bool {
-	if o == nil {
+	if o == nil || IsNil(o.IsCardRated) {
 		var ret bool
 		return ret
 	}
-
-	return o.IsCardRated
+	return *o.IsCardRated
 }
 
-// GetIsCardRatedOk returns a tuple with the IsCardRated field value
+// GetIsCardRatedOk returns a tuple with the IsCardRated field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableItemItem) GetIsCardRatedOk() (*bool, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.IsCardRated) {
 		return nil, false
 	}
-	return &o.IsCardRated, true
+	return o.IsCardRated, true
 }
 
-// SetIsCardRated sets field value
+// HasIsCardRated returns a boolean if a field has been set.
+func (o *TableItemItem) HasIsCardRated() bool {
+	if o != nil && !IsNil(o.IsCardRated) {
+		return true
+	}
+
+	return false
+}
+
+// SetIsCardRated gets a reference to the given bool and assigns it to the IsCardRated field.
 func (o *TableItemItem) SetIsCardRated(v bool) {
-	o.IsCardRated = v
+	o.IsCardRated = &v
 }
 
-// GetRating returns the Rating field value
+// GetRating returns the Rating field value if set, zero value otherwise.
 func (o *TableItemItem) GetRating() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.Rating) {
 		var ret float32
 		return ret
 	}
-
-	return o.Rating
+	return *o.Rating
 }
 
-// GetRatingOk returns a tuple with the Rating field value
+// GetRatingOk returns a tuple with the Rating field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableItemItem) GetRatingOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Rating) {
 		return nil, false
 	}
-	return &o.Rating, true
+	return o.Rating, true
 }
 
-// SetRating sets field value
+// HasRating returns a boolean if a field has been set.
+func (o *TableItemItem) HasRating() bool {
+	if o != nil && !IsNil(o.Rating) {
+		return true
+	}
+
+	return false
+}
+
+// SetRating gets a reference to the given float32 and assigns it to the Rating field.
 func (o *TableItemItem) SetRating(v float32) {
-	o.Rating = v
+	o.Rating = &v
 }
 
-// GetFeedbackRating returns the FeedbackRating field value
+// GetFeedbackRating returns the FeedbackRating field value if set, zero value otherwise.
 func (o *TableItemItem) GetFeedbackRating() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.FeedbackRating) {
 		var ret float32
 		return ret
 	}
-
-	return o.FeedbackRating
+	return *o.FeedbackRating
 }
 
-// GetFeedbackRatingOk returns a tuple with the FeedbackRating field value
+// GetFeedbackRatingOk returns a tuple with the FeedbackRating field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableItemItem) GetFeedbackRatingOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.FeedbackRating) {
 		return nil, false
 	}
-	return &o.FeedbackRating, true
+	return o.FeedbackRating, true
 }
 
-// SetFeedbackRating sets field value
+// HasFeedbackRating returns a boolean if a field has been set.
+func (o *TableItemItem) HasFeedbackRating() bool {
+	if o != nil && !IsNil(o.FeedbackRating) {
+		return true
+	}
+
+	return false
+}
+
+// SetFeedbackRating gets a reference to the given float32 and assigns it to the FeedbackRating field.
 func (o *TableItemItem) SetFeedbackRating(v float32) {
-	o.FeedbackRating = v
+	o.FeedbackRating = &v
 }
 
-// GetPrice returns the Price field value
+// GetPrice returns the Price field value if set, zero value otherwise.
 func (o *TableItemItem) GetPrice() TableItemItemAllOfPrice {
-	if o == nil {
+	if o == nil || IsNil(o.Price) {
 		var ret TableItemItemAllOfPrice
 		return ret
 	}
-
-	return o.Price
+	return *o.Price
 }
 
-// GetPriceOk returns a tuple with the Price field value
+// GetPriceOk returns a tuple with the Price field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableItemItem) GetPriceOk() (*TableItemItemAllOfPrice, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Price) {
 		return nil, false
 	}
-	return &o.Price, true
+	return o.Price, true
 }
 
-// SetPrice sets field value
+// HasPrice returns a boolean if a field has been set.
+func (o *TableItemItem) HasPrice() bool {
+	if o != nil && !IsNil(o.Price) {
+		return true
+	}
+
+	return false
+}
+
+// SetPrice gets a reference to the given TableItemItemAllOfPrice and assigns it to the Price field.
 func (o *TableItemItem) SetPrice(v TableItemItemAllOfPrice) {
-	o.Price = v
+	o.Price = &v
 }
 
-// GetAvgPosition returns the AvgPosition field value
+// GetAvgPosition returns the AvgPosition field value if set, zero value otherwise.
 func (o *TableItemItem) GetAvgPosition() TableGroupItemMetricsAvgPosition {
-	if o == nil {
+	if o == nil || IsNil(o.AvgPosition) {
 		var ret TableGroupItemMetricsAvgPosition
 		return ret
 	}
-
-	return o.AvgPosition
+	return *o.AvgPosition
 }
 
-// GetAvgPositionOk returns a tuple with the AvgPosition field value
+// GetAvgPositionOk returns a tuple with the AvgPosition field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableItemItem) GetAvgPositionOk() (*TableGroupItemMetricsAvgPosition, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AvgPosition) {
 		return nil, false
 	}
-	return &o.AvgPosition, true
+	return o.AvgPosition, true
 }
 
-// SetAvgPosition sets field value
+// HasAvgPosition returns a boolean if a field has been set.
+func (o *TableItemItem) HasAvgPosition() bool {
+	if o != nil && !IsNil(o.AvgPosition) {
+		return true
+	}
+
+	return false
+}
+
+// SetAvgPosition gets a reference to the given TableGroupItemMetricsAvgPosition and assigns it to the AvgPosition field.
 func (o *TableItemItem) SetAvgPosition(v TableGroupItemMetricsAvgPosition) {
-	o.AvgPosition = v
+	o.AvgPosition = &v
 }
 
-// GetOpenCard returns the OpenCard field value
+// GetOpenCard returns the OpenCard field value if set, zero value otherwise.
 func (o *TableItemItem) GetOpenCard() VisibilityInfoOpenCard {
-	if o == nil {
+	if o == nil || IsNil(o.OpenCard) {
 		var ret VisibilityInfoOpenCard
 		return ret
 	}
-
-	return o.OpenCard
+	return *o.OpenCard
 }
 
-// GetOpenCardOk returns a tuple with the OpenCard field value
+// GetOpenCardOk returns a tuple with the OpenCard field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableItemItem) GetOpenCardOk() (*VisibilityInfoOpenCard, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.OpenCard) {
 		return nil, false
 	}
-	return &o.OpenCard, true
+	return o.OpenCard, true
 }
 
-// SetOpenCard sets field value
+// HasOpenCard returns a boolean if a field has been set.
+func (o *TableItemItem) HasOpenCard() bool {
+	if o != nil && !IsNil(o.OpenCard) {
+		return true
+	}
+
+	return false
+}
+
+// SetOpenCard gets a reference to the given VisibilityInfoOpenCard and assigns it to the OpenCard field.
 func (o *TableItemItem) SetOpenCard(v VisibilityInfoOpenCard) {
-	o.OpenCard = v
+	o.OpenCard = &v
 }
 
-// GetAddToCart returns the AddToCart field value
+// GetAddToCart returns the AddToCart field value if set, zero value otherwise.
 func (o *TableItemItem) GetAddToCart() TableGroupItemMetricsAddToCart {
-	if o == nil {
+	if o == nil || IsNil(o.AddToCart) {
 		var ret TableGroupItemMetricsAddToCart
 		return ret
 	}
-
-	return o.AddToCart
+	return *o.AddToCart
 }
 
-// GetAddToCartOk returns a tuple with the AddToCart field value
+// GetAddToCartOk returns a tuple with the AddToCart field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableItemItem) GetAddToCartOk() (*TableGroupItemMetricsAddToCart, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AddToCart) {
 		return nil, false
 	}
-	return &o.AddToCart, true
+	return o.AddToCart, true
 }
 
-// SetAddToCart sets field value
+// HasAddToCart returns a boolean if a field has been set.
+func (o *TableItemItem) HasAddToCart() bool {
+	if o != nil && !IsNil(o.AddToCart) {
+		return true
+	}
+
+	return false
+}
+
+// SetAddToCart gets a reference to the given TableGroupItemMetricsAddToCart and assigns it to the AddToCart field.
 func (o *TableItemItem) SetAddToCart(v TableGroupItemMetricsAddToCart) {
-	o.AddToCart = v
+	o.AddToCart = &v
 }
 
-// GetOpenToCart returns the OpenToCart field value
+// GetOpenToCart returns the OpenToCart field value if set, zero value otherwise.
 func (o *TableItemItem) GetOpenToCart() TableGroupItemMetricsOpenToCart {
-	if o == nil {
+	if o == nil || IsNil(o.OpenToCart) {
 		var ret TableGroupItemMetricsOpenToCart
 		return ret
 	}
-
-	return o.OpenToCart
+	return *o.OpenToCart
 }
 
-// GetOpenToCartOk returns a tuple with the OpenToCart field value
+// GetOpenToCartOk returns a tuple with the OpenToCart field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableItemItem) GetOpenToCartOk() (*TableGroupItemMetricsOpenToCart, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.OpenToCart) {
 		return nil, false
 	}
-	return &o.OpenToCart, true
+	return o.OpenToCart, true
 }
 
-// SetOpenToCart sets field value
+// HasOpenToCart returns a boolean if a field has been set.
+func (o *TableItemItem) HasOpenToCart() bool {
+	if o != nil && !IsNil(o.OpenToCart) {
+		return true
+	}
+
+	return false
+}
+
+// SetOpenToCart gets a reference to the given TableGroupItemMetricsOpenToCart and assigns it to the OpenToCart field.
 func (o *TableItemItem) SetOpenToCart(v TableGroupItemMetricsOpenToCart) {
-	o.OpenToCart = v
+	o.OpenToCart = &v
 }
 
-// GetOrders returns the Orders field value
+// GetOrders returns the Orders field value if set, zero value otherwise.
 func (o *TableItemItem) GetOrders() TableGroupItemMetricsOrders {
-	if o == nil {
+	if o == nil || IsNil(o.Orders) {
 		var ret TableGroupItemMetricsOrders
 		return ret
 	}
-
-	return o.Orders
+	return *o.Orders
 }
 
-// GetOrdersOk returns a tuple with the Orders field value
+// GetOrdersOk returns a tuple with the Orders field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableItemItem) GetOrdersOk() (*TableGroupItemMetricsOrders, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Orders) {
 		return nil, false
 	}
-	return &o.Orders, true
+	return o.Orders, true
 }
 
-// SetOrders sets field value
+// HasOrders returns a boolean if a field has been set.
+func (o *TableItemItem) HasOrders() bool {
+	if o != nil && !IsNil(o.Orders) {
+		return true
+	}
+
+	return false
+}
+
+// SetOrders gets a reference to the given TableGroupItemMetricsOrders and assigns it to the Orders field.
 func (o *TableItemItem) SetOrders(v TableGroupItemMetricsOrders) {
-	o.Orders = v
+	o.Orders = &v
 }
 
-// GetCartToOrder returns the CartToOrder field value
+// GetCartToOrder returns the CartToOrder field value if set, zero value otherwise.
 func (o *TableItemItem) GetCartToOrder() TableGroupItemMetricsCartToOrder {
-	if o == nil {
+	if o == nil || IsNil(o.CartToOrder) {
 		var ret TableGroupItemMetricsCartToOrder
 		return ret
 	}
-
-	return o.CartToOrder
+	return *o.CartToOrder
 }
 
-// GetCartToOrderOk returns a tuple with the CartToOrder field value
+// GetCartToOrderOk returns a tuple with the CartToOrder field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableItemItem) GetCartToOrderOk() (*TableGroupItemMetricsCartToOrder, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.CartToOrder) {
 		return nil, false
 	}
-	return &o.CartToOrder, true
+	return o.CartToOrder, true
 }
 
-// SetCartToOrder sets field value
+// HasCartToOrder returns a boolean if a field has been set.
+func (o *TableItemItem) HasCartToOrder() bool {
+	if o != nil && !IsNil(o.CartToOrder) {
+		return true
+	}
+
+	return false
+}
+
+// SetCartToOrder gets a reference to the given TableGroupItemMetricsCartToOrder and assigns it to the CartToOrder field.
 func (o *TableItemItem) SetCartToOrder(v TableGroupItemMetricsCartToOrder) {
-	o.CartToOrder = v
+	o.CartToOrder = &v
 }
 
-// GetVisibility returns the Visibility field value
+// GetVisibility returns the Visibility field value if set, zero value otherwise.
 func (o *TableItemItem) GetVisibility() TableGroupItemMetricsVisibility {
-	if o == nil {
+	if o == nil || IsNil(o.Visibility) {
 		var ret TableGroupItemMetricsVisibility
 		return ret
 	}
-
-	return o.Visibility
+	return *o.Visibility
 }
 
-// GetVisibilityOk returns a tuple with the Visibility field value
+// GetVisibilityOk returns a tuple with the Visibility field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableItemItem) GetVisibilityOk() (*TableGroupItemMetricsVisibility, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Visibility) {
 		return nil, false
 	}
-	return &o.Visibility, true
+	return o.Visibility, true
 }
 
-// SetVisibility sets field value
+// HasVisibility returns a boolean if a field has been set.
+func (o *TableItemItem) HasVisibility() bool {
+	if o != nil && !IsNil(o.Visibility) {
+		return true
+	}
+
+	return false
+}
+
+// SetVisibility gets a reference to the given TableGroupItemMetricsVisibility and assigns it to the Visibility field.
 func (o *TableItemItem) SetVisibility(v TableGroupItemMetricsVisibility) {
-	o.Visibility = v
+	o.Visibility = &v
 }
 
 func (o TableItemItem) MarshalJSON() ([]byte, error) {
@@ -592,11 +686,15 @@ func (o TableItemItem) MarshalJSON() ([]byte, error) {
 
 func (o TableItemItem) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["nmId"] = o.NmId
+	if !IsNil(o.NmId) {
+		toSerialize["nmId"] = o.NmId
+	}
 	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
 	}
-	toSerialize["vendorCode"] = o.VendorCode
+	if !IsNil(o.VendorCode) {
+		toSerialize["vendorCode"] = o.VendorCode
+	}
 	if !IsNil(o.SubjectName) {
 		toSerialize["subjectName"] = o.SubjectName
 	}
@@ -606,72 +704,46 @@ func (o TableItemItem) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.MainPhoto) {
 		toSerialize["mainPhoto"] = o.MainPhoto
 	}
-	toSerialize["isAdvertised"] = o.IsAdvertised
+	if !IsNil(o.IsAdvertised) {
+		toSerialize["isAdvertised"] = o.IsAdvertised
+	}
 	if !IsNil(o.IsSubstitutedSKU) {
 		toSerialize["isSubstitutedSKU"] = o.IsSubstitutedSKU
 	}
-	toSerialize["isCardRated"] = o.IsCardRated
-	toSerialize["rating"] = o.Rating
-	toSerialize["feedbackRating"] = o.FeedbackRating
-	toSerialize["price"] = o.Price
-	toSerialize["avgPosition"] = o.AvgPosition
-	toSerialize["openCard"] = o.OpenCard
-	toSerialize["addToCart"] = o.AddToCart
-	toSerialize["openToCart"] = o.OpenToCart
-	toSerialize["orders"] = o.Orders
-	toSerialize["cartToOrder"] = o.CartToOrder
-	toSerialize["visibility"] = o.Visibility
+	if !IsNil(o.IsCardRated) {
+		toSerialize["isCardRated"] = o.IsCardRated
+	}
+	if !IsNil(o.Rating) {
+		toSerialize["rating"] = o.Rating
+	}
+	if !IsNil(o.FeedbackRating) {
+		toSerialize["feedbackRating"] = o.FeedbackRating
+	}
+	if !IsNil(o.Price) {
+		toSerialize["price"] = o.Price
+	}
+	if !IsNil(o.AvgPosition) {
+		toSerialize["avgPosition"] = o.AvgPosition
+	}
+	if !IsNil(o.OpenCard) {
+		toSerialize["openCard"] = o.OpenCard
+	}
+	if !IsNil(o.AddToCart) {
+		toSerialize["addToCart"] = o.AddToCart
+	}
+	if !IsNil(o.OpenToCart) {
+		toSerialize["openToCart"] = o.OpenToCart
+	}
+	if !IsNil(o.Orders) {
+		toSerialize["orders"] = o.Orders
+	}
+	if !IsNil(o.CartToOrder) {
+		toSerialize["cartToOrder"] = o.CartToOrder
+	}
+	if !IsNil(o.Visibility) {
+		toSerialize["visibility"] = o.Visibility
+	}
 	return toSerialize, nil
-}
-
-func (o *TableItemItem) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"nmId",
-		"vendorCode",
-		"isAdvertised",
-		"isCardRated",
-		"rating",
-		"feedbackRating",
-		"price",
-		"avgPosition",
-		"openCard",
-		"addToCart",
-		"openToCart",
-		"orders",
-		"cartToOrder",
-		"visibility",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varTableItemItem := _TableItemItem{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varTableItemItem)
-
-	if err != nil {
-		return err
-	}
-
-	*o = TableItemItem(varTableItemItem)
-
-	return err
 }
 
 type NullableTableItemItem struct {

@@ -11,9 +11,7 @@ API version: promotion
 package promotion
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the V2BudgetResponse type satisfies the MappedNullable interface at compile time
@@ -22,18 +20,15 @@ var _ MappedNullable = &V2BudgetResponse{}
 // V2BudgetResponse struct for V2BudgetResponse
 type V2BudgetResponse struct {
 	// Данные по кампаниям
-	Adverts []V1BudgetAdvert `json:"adverts"`
+	Adverts []V1BudgetAdvert `json:"adverts,omitempty"`
 }
-
-type _V2BudgetResponse V2BudgetResponse
 
 // NewV2BudgetResponse instantiates a new V2BudgetResponse object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewV2BudgetResponse(adverts []V1BudgetAdvert) *V2BudgetResponse {
+func NewV2BudgetResponse() *V2BudgetResponse {
 	this := V2BudgetResponse{}
-	this.Adverts = adverts
 	return &this
 }
 
@@ -45,18 +40,16 @@ func NewV2BudgetResponseWithDefaults() *V2BudgetResponse {
 	return &this
 }
 
-// GetAdverts returns the Adverts field value
-// If the value is explicit nil, the zero value for []V1BudgetAdvert will be returned
+// GetAdverts returns the Adverts field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *V2BudgetResponse) GetAdverts() []V1BudgetAdvert {
 	if o == nil {
 		var ret []V1BudgetAdvert
 		return ret
 	}
-
 	return o.Adverts
 }
 
-// GetAdvertsOk returns a tuple with the Adverts field value
+// GetAdvertsOk returns a tuple with the Adverts field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *V2BudgetResponse) GetAdvertsOk() ([]V1BudgetAdvert, bool) {
@@ -66,7 +59,16 @@ func (o *V2BudgetResponse) GetAdvertsOk() ([]V1BudgetAdvert, bool) {
 	return o.Adverts, true
 }
 
-// SetAdverts sets field value
+// HasAdverts returns a boolean if a field has been set.
+func (o *V2BudgetResponse) HasAdverts() bool {
+	if o != nil && !IsNil(o.Adverts) {
+		return true
+	}
+
+	return false
+}
+
+// SetAdverts gets a reference to the given []V1BudgetAdvert and assigns it to the Adverts field.
 func (o *V2BudgetResponse) SetAdverts(v []V1BudgetAdvert) {
 	o.Adverts = v
 }
@@ -85,43 +87,6 @@ func (o V2BudgetResponse) ToMap() (map[string]interface{}, error) {
 		toSerialize["adverts"] = o.Adverts
 	}
 	return toSerialize, nil
-}
-
-func (o *V2BudgetResponse) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"adverts",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varV2BudgetResponse := _V2BudgetResponse{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varV2BudgetResponse)
-
-	if err != nil {
-		return err
-	}
-
-	*o = V2BudgetResponse(varV2BudgetResponse)
-
-	return err
 }
 
 type NullableV2BudgetResponse struct {

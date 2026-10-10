@@ -11,9 +11,7 @@ API version: analytics
 package analytics
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the StatisticPeriod type satisfies the MappedNullable interface at compile time
@@ -22,21 +20,17 @@ var _ MappedNullable = &StatisticPeriod{}
 // StatisticPeriod struct for StatisticPeriod
 type StatisticPeriod struct {
 	// Начало периода
-	Start string `json:"start"`
+	Start *string `json:"start,omitempty"`
 	// Конец периода
-	End string `json:"end"`
+	End *string `json:"end,omitempty"`
 }
-
-type _StatisticPeriod StatisticPeriod
 
 // NewStatisticPeriod instantiates a new StatisticPeriod object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewStatisticPeriod(start string, end string) *StatisticPeriod {
+func NewStatisticPeriod() *StatisticPeriod {
 	this := StatisticPeriod{}
-	this.Start = start
-	this.End = end
 	return &this
 }
 
@@ -48,52 +42,68 @@ func NewStatisticPeriodWithDefaults() *StatisticPeriod {
 	return &this
 }
 
-// GetStart returns the Start field value
+// GetStart returns the Start field value if set, zero value otherwise.
 func (o *StatisticPeriod) GetStart() string {
-	if o == nil {
+	if o == nil || IsNil(o.Start) {
 		var ret string
 		return ret
 	}
-
-	return o.Start
+	return *o.Start
 }
 
-// GetStartOk returns a tuple with the Start field value
+// GetStartOk returns a tuple with the Start field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *StatisticPeriod) GetStartOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Start) {
 		return nil, false
 	}
-	return &o.Start, true
+	return o.Start, true
 }
 
-// SetStart sets field value
+// HasStart returns a boolean if a field has been set.
+func (o *StatisticPeriod) HasStart() bool {
+	if o != nil && !IsNil(o.Start) {
+		return true
+	}
+
+	return false
+}
+
+// SetStart gets a reference to the given string and assigns it to the Start field.
 func (o *StatisticPeriod) SetStart(v string) {
-	o.Start = v
+	o.Start = &v
 }
 
-// GetEnd returns the End field value
+// GetEnd returns the End field value if set, zero value otherwise.
 func (o *StatisticPeriod) GetEnd() string {
-	if o == nil {
+	if o == nil || IsNil(o.End) {
 		var ret string
 		return ret
 	}
-
-	return o.End
+	return *o.End
 }
 
-// GetEndOk returns a tuple with the End field value
+// GetEndOk returns a tuple with the End field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *StatisticPeriod) GetEndOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.End) {
 		return nil, false
 	}
-	return &o.End, true
+	return o.End, true
 }
 
-// SetEnd sets field value
+// HasEnd returns a boolean if a field has been set.
+func (o *StatisticPeriod) HasEnd() bool {
+	if o != nil && !IsNil(o.End) {
+		return true
+	}
+
+	return false
+}
+
+// SetEnd gets a reference to the given string and assigns it to the End field.
 func (o *StatisticPeriod) SetEnd(v string) {
-	o.End = v
+	o.End = &v
 }
 
 func (o StatisticPeriod) MarshalJSON() ([]byte, error) {
@@ -106,47 +116,13 @@ func (o StatisticPeriod) MarshalJSON() ([]byte, error) {
 
 func (o StatisticPeriod) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["start"] = o.Start
-	toSerialize["end"] = o.End
+	if !IsNil(o.Start) {
+		toSerialize["start"] = o.Start
+	}
+	if !IsNil(o.End) {
+		toSerialize["end"] = o.End
+	}
 	return toSerialize, nil
-}
-
-func (o *StatisticPeriod) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"start",
-		"end",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varStatisticPeriod := _StatisticPeriod{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varStatisticPeriod)
-
-	if err != nil {
-		return err
-	}
-
-	*o = StatisticPeriod(varStatisticPeriod)
-
-	return err
 }
 
 type NullableStatisticPeriod struct {

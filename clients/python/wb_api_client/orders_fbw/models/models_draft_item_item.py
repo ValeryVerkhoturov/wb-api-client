@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,18 +28,30 @@ class ModelsDraftItemItem(BaseModel):
     ModelsDraftItemItem
     """  # noqa: E501
 
-    sku: StrictStr = Field(description="Баркод")
-    color: StrictStr = Field(description="Цвет товара")
-    quantity: StrictInt = Field(description="Количество единиц товара")
-    brand_name: StrictStr = Field(description="Бренд", alias="brandName")
-    img_src: StrictStr = Field(
-        description="Ссылка на изображение товара", alias="imgSrc"
+    sku: Optional[StrictStr] = Field(default=None, description="Баркод")
+    color: Optional[StrictStr] = Field(default=None, description="Цвет товара")
+    quantity: Optional[StrictInt] = Field(
+        default=None, description="Количество единиц товара"
     )
-    nm_id: StrictInt = Field(description="Артикул WB", alias="nmId")
-    subject_name: StrictStr = Field(description="Предмет", alias="subjectName")
-    tech_size: StrictStr = Field(description="Размер товара", alias="techSize")
-    title: StrictStr = Field(description="Название товара")
-    vendor_code: StrictStr = Field(description="Артикул продавца", alias="vendorCode")
+    brand_name: Optional[StrictStr] = Field(
+        default=None, description="Бренд", alias="brandName"
+    )
+    img_src: Optional[StrictStr] = Field(
+        default=None, description="Ссылка на изображение товара", alias="imgSrc"
+    )
+    nm_id: Optional[StrictInt] = Field(
+        default=None, description="Артикул WB", alias="nmId"
+    )
+    subject_name: Optional[StrictStr] = Field(
+        default=None, description="Предмет", alias="subjectName"
+    )
+    tech_size: Optional[StrictStr] = Field(
+        default=None, description="Размер товара", alias="techSize"
+    )
+    title: Optional[StrictStr] = Field(default=None, description="Название товара")
+    vendor_code: Optional[StrictStr] = Field(
+        default=None, description="Артикул продавца", alias="vendorCode"
+    )
     __properties: ClassVar[List[str]] = [
         "sku",
         "color",

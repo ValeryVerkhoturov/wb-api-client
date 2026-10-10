@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from wb_api_client.analytics.models.post_v3_sales_funnel_products_history_response200_inner import (
     PostV3SalesFunnelProductsHistoryResponse200Inner,
 )
@@ -31,8 +31,8 @@ class PostV3SalesFunnelGroupedHistoryResponse200(BaseModel):
     PostV3SalesFunnelGroupedHistoryResponse200
     """  # noqa: E501
 
-    data: List[PostV3SalesFunnelProductsHistoryResponse200Inner] = Field(
-        description="Статистика"
+    data: Optional[List[PostV3SalesFunnelProductsHistoryResponse200Inner]] = Field(
+        default=None, description="Статистика"
     )
     __properties: ClassVar[List[str]] = ["data"]
 

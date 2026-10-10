@@ -11,9 +11,7 @@ API version: analytics
 package analytics
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the CommonInfo type satisfies the MappedNullable interface at compile time
@@ -21,23 +19,18 @@ var _ MappedNullable = &CommonInfo{}
 
 // CommonInfo Общая информация
 type CommonInfo struct {
-	SupplierRating     CommonInfoSupplierRating     `json:"supplierRating"`
-	AdvertisedProducts CommonInfoAdvertisedProducts `json:"advertisedProducts"`
+	SupplierRating     *CommonInfoSupplierRating     `json:"supplierRating,omitempty"`
+	AdvertisedProducts *CommonInfoAdvertisedProducts `json:"advertisedProducts,omitempty"`
 	// Общее количество товаров
-	TotalProducts int32 `json:"totalProducts"`
+	TotalProducts *int32 `json:"totalProducts,omitempty"`
 }
-
-type _CommonInfo CommonInfo
 
 // NewCommonInfo instantiates a new CommonInfo object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCommonInfo(supplierRating CommonInfoSupplierRating, advertisedProducts CommonInfoAdvertisedProducts, totalProducts int32) *CommonInfo {
+func NewCommonInfo() *CommonInfo {
 	this := CommonInfo{}
-	this.SupplierRating = supplierRating
-	this.AdvertisedProducts = advertisedProducts
-	this.TotalProducts = totalProducts
 	return &this
 }
 
@@ -49,76 +42,100 @@ func NewCommonInfoWithDefaults() *CommonInfo {
 	return &this
 }
 
-// GetSupplierRating returns the SupplierRating field value
+// GetSupplierRating returns the SupplierRating field value if set, zero value otherwise.
 func (o *CommonInfo) GetSupplierRating() CommonInfoSupplierRating {
-	if o == nil {
+	if o == nil || IsNil(o.SupplierRating) {
 		var ret CommonInfoSupplierRating
 		return ret
 	}
-
-	return o.SupplierRating
+	return *o.SupplierRating
 }
 
-// GetSupplierRatingOk returns a tuple with the SupplierRating field value
+// GetSupplierRatingOk returns a tuple with the SupplierRating field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CommonInfo) GetSupplierRatingOk() (*CommonInfoSupplierRating, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.SupplierRating) {
 		return nil, false
 	}
-	return &o.SupplierRating, true
+	return o.SupplierRating, true
 }
 
-// SetSupplierRating sets field value
+// HasSupplierRating returns a boolean if a field has been set.
+func (o *CommonInfo) HasSupplierRating() bool {
+	if o != nil && !IsNil(o.SupplierRating) {
+		return true
+	}
+
+	return false
+}
+
+// SetSupplierRating gets a reference to the given CommonInfoSupplierRating and assigns it to the SupplierRating field.
 func (o *CommonInfo) SetSupplierRating(v CommonInfoSupplierRating) {
-	o.SupplierRating = v
+	o.SupplierRating = &v
 }
 
-// GetAdvertisedProducts returns the AdvertisedProducts field value
+// GetAdvertisedProducts returns the AdvertisedProducts field value if set, zero value otherwise.
 func (o *CommonInfo) GetAdvertisedProducts() CommonInfoAdvertisedProducts {
-	if o == nil {
+	if o == nil || IsNil(o.AdvertisedProducts) {
 		var ret CommonInfoAdvertisedProducts
 		return ret
 	}
-
-	return o.AdvertisedProducts
+	return *o.AdvertisedProducts
 }
 
-// GetAdvertisedProductsOk returns a tuple with the AdvertisedProducts field value
+// GetAdvertisedProductsOk returns a tuple with the AdvertisedProducts field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CommonInfo) GetAdvertisedProductsOk() (*CommonInfoAdvertisedProducts, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AdvertisedProducts) {
 		return nil, false
 	}
-	return &o.AdvertisedProducts, true
+	return o.AdvertisedProducts, true
 }
 
-// SetAdvertisedProducts sets field value
+// HasAdvertisedProducts returns a boolean if a field has been set.
+func (o *CommonInfo) HasAdvertisedProducts() bool {
+	if o != nil && !IsNil(o.AdvertisedProducts) {
+		return true
+	}
+
+	return false
+}
+
+// SetAdvertisedProducts gets a reference to the given CommonInfoAdvertisedProducts and assigns it to the AdvertisedProducts field.
 func (o *CommonInfo) SetAdvertisedProducts(v CommonInfoAdvertisedProducts) {
-	o.AdvertisedProducts = v
+	o.AdvertisedProducts = &v
 }
 
-// GetTotalProducts returns the TotalProducts field value
+// GetTotalProducts returns the TotalProducts field value if set, zero value otherwise.
 func (o *CommonInfo) GetTotalProducts() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.TotalProducts) {
 		var ret int32
 		return ret
 	}
-
-	return o.TotalProducts
+	return *o.TotalProducts
 }
 
-// GetTotalProductsOk returns a tuple with the TotalProducts field value
+// GetTotalProductsOk returns a tuple with the TotalProducts field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CommonInfo) GetTotalProductsOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.TotalProducts) {
 		return nil, false
 	}
-	return &o.TotalProducts, true
+	return o.TotalProducts, true
 }
 
-// SetTotalProducts sets field value
+// HasTotalProducts returns a boolean if a field has been set.
+func (o *CommonInfo) HasTotalProducts() bool {
+	if o != nil && !IsNil(o.TotalProducts) {
+		return true
+	}
+
+	return false
+}
+
+// SetTotalProducts gets a reference to the given int32 and assigns it to the TotalProducts field.
 func (o *CommonInfo) SetTotalProducts(v int32) {
-	o.TotalProducts = v
+	o.TotalProducts = &v
 }
 
 func (o CommonInfo) MarshalJSON() ([]byte, error) {
@@ -131,49 +148,16 @@ func (o CommonInfo) MarshalJSON() ([]byte, error) {
 
 func (o CommonInfo) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["supplierRating"] = o.SupplierRating
-	toSerialize["advertisedProducts"] = o.AdvertisedProducts
-	toSerialize["totalProducts"] = o.TotalProducts
+	if !IsNil(o.SupplierRating) {
+		toSerialize["supplierRating"] = o.SupplierRating
+	}
+	if !IsNil(o.AdvertisedProducts) {
+		toSerialize["advertisedProducts"] = o.AdvertisedProducts
+	}
+	if !IsNil(o.TotalProducts) {
+		toSerialize["totalProducts"] = o.TotalProducts
+	}
 	return toSerialize, nil
-}
-
-func (o *CommonInfo) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"supplierRating",
-		"advertisedProducts",
-		"totalProducts",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varCommonInfo := _CommonInfo{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varCommonInfo)
-
-	if err != nil {
-		return err
-	}
-
-	*o = CommonInfo(varCommonInfo)
-
-	return err
 }
 
 type NullableCommonInfo struct {

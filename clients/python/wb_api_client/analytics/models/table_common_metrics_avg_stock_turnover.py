@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,8 +28,8 @@ class TableCommonMetricsAvgStockTurnover(BaseModel):
     Оборачиваемость средних остатков. Особые случаи:   1. `\"hours\":-1` — бесконечная длительность   2. `\"hours\":-2` — нулевая длительность   3. `\"hours\":-3` — нерассчитанная длительность
     """  # noqa: E501
 
-    days: StrictInt = Field(description="Количество дней")
-    hours: StrictInt = Field(description="Количество часов")
+    days: Optional[StrictInt] = Field(default=None, description="Количество дней")
+    hours: Optional[StrictInt] = Field(default=None, description="Количество часов")
     __properties: ClassVar[List[str]] = ["days", "hours"]
 
     model_config = ConfigDict(

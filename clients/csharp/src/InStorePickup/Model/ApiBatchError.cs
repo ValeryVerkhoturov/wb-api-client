@@ -34,36 +34,16 @@ namespace ValeryVerkhoturov.WbApiClient.InStorePickup.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiBatchError" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected ApiBatchError() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ApiBatchError" /> class.
-        /// </summary>
         /// <param name="detail">Детали ошибки.</param>
-        /// <param name="origin">ID внутреннего сервиса WB (required).</param>
-        /// <param name="requestId">Уникальный ID запроса (required).</param>
-        /// <param name="title">Заголовок ошибки (required).</param>
+        /// <param name="origin">ID внутреннего сервиса WB.</param>
+        /// <param name="requestId">Уникальный ID запроса.</param>
+        /// <param name="title">Заголовок ошибки.</param>
         public ApiBatchError(Object detail = default(Object), string origin = default(string), string requestId = default(string), string title = default(string))
         {
-            // to ensure "origin" is required (not null)
-            if (origin == null)
-            {
-                throw new ArgumentNullException("origin is a required property for ApiBatchError and cannot be null");
-            }
-            this.Origin = origin;
-            // to ensure "requestId" is required (not null)
-            if (requestId == null)
-            {
-                throw new ArgumentNullException("requestId is a required property for ApiBatchError and cannot be null");
-            }
-            this.RequestId = requestId;
-            // to ensure "title" is required (not null)
-            if (title == null)
-            {
-                throw new ArgumentNullException("title is a required property for ApiBatchError and cannot be null");
-            }
-            this.Title = title;
             this.Detail = detail;
+            this.Origin = origin;
+            this.RequestId = requestId;
+            this.Title = title;
         }
 
         /// <summary>
@@ -83,7 +63,7 @@ namespace ValeryVerkhoturov.WbApiClient.InStorePickup.Model
         /*
         <example>market-public-api</example>
         */
-        [DataMember(Name = "origin", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "origin", EmitDefaultValue = false)]
         public string Origin { get; set; }
 
         /// <summary>
@@ -93,7 +73,7 @@ namespace ValeryVerkhoturov.WbApiClient.InStorePickup.Model
         /*
         <example>f1787bd2d1fdс35d6f537316514у4a05</example>
         */
-        [DataMember(Name = "requestId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "requestId", EmitDefaultValue = false)]
         public string RequestId { get; set; }
 
         /// <summary>
@@ -103,7 +83,7 @@ namespace ValeryVerkhoturov.WbApiClient.InStorePickup.Model
         /*
         <example>IncorrectRequest</example>
         */
-        [DataMember(Name = "title", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "title", EmitDefaultValue = false)]
         public string Title { get; set; }
 
         /// <summary>

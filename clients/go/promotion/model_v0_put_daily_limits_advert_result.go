@@ -11,9 +11,7 @@ API version: promotion
 package promotion
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the V0PutDailyLimitsAdvertResult type satisfies the MappedNullable interface at compile time
@@ -22,24 +20,19 @@ var _ MappedNullable = &V0PutDailyLimitsAdvertResult{}
 // V0PutDailyLimitsAdvertResult struct for V0PutDailyLimitsAdvertResult
 type V0PutDailyLimitsAdvertResult struct {
 	// ID кампании
-	AdvertId int64 `json:"advertId"`
+	AdvertId *int64 `json:"advertId,omitempty"`
 	// Установленный размер дневного лимита ниже рекомендуемого минимума относительно текущих ставок `requiredLimit`:   - `true` — да   - `false` — нет
-	BelowMinLimit bool `json:"belowMinLimit"`
+	BelowMinLimit *bool `json:"belowMinLimit,omitempty"`
 	// Рекомендуемый минимальный размер дневного лимита при текущих ставках кампании. Указывается в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances). С меньшим лимитом бюджет может расходоваться неравномерно и в кампании возникнут ошибки
-	RequiredLimit int64 `json:"requiredLimit"`
+	RequiredLimit *int64 `json:"requiredLimit,omitempty"`
 }
-
-type _V0PutDailyLimitsAdvertResult V0PutDailyLimitsAdvertResult
 
 // NewV0PutDailyLimitsAdvertResult instantiates a new V0PutDailyLimitsAdvertResult object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewV0PutDailyLimitsAdvertResult(advertId int64, belowMinLimit bool, requiredLimit int64) *V0PutDailyLimitsAdvertResult {
+func NewV0PutDailyLimitsAdvertResult() *V0PutDailyLimitsAdvertResult {
 	this := V0PutDailyLimitsAdvertResult{}
-	this.AdvertId = advertId
-	this.BelowMinLimit = belowMinLimit
-	this.RequiredLimit = requiredLimit
 	return &this
 }
 
@@ -51,76 +44,100 @@ func NewV0PutDailyLimitsAdvertResultWithDefaults() *V0PutDailyLimitsAdvertResult
 	return &this
 }
 
-// GetAdvertId returns the AdvertId field value
+// GetAdvertId returns the AdvertId field value if set, zero value otherwise.
 func (o *V0PutDailyLimitsAdvertResult) GetAdvertId() int64 {
-	if o == nil {
+	if o == nil || IsNil(o.AdvertId) {
 		var ret int64
 		return ret
 	}
-
-	return o.AdvertId
+	return *o.AdvertId
 }
 
-// GetAdvertIdOk returns a tuple with the AdvertId field value
+// GetAdvertIdOk returns a tuple with the AdvertId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *V0PutDailyLimitsAdvertResult) GetAdvertIdOk() (*int64, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AdvertId) {
 		return nil, false
 	}
-	return &o.AdvertId, true
+	return o.AdvertId, true
 }
 
-// SetAdvertId sets field value
+// HasAdvertId returns a boolean if a field has been set.
+func (o *V0PutDailyLimitsAdvertResult) HasAdvertId() bool {
+	if o != nil && !IsNil(o.AdvertId) {
+		return true
+	}
+
+	return false
+}
+
+// SetAdvertId gets a reference to the given int64 and assigns it to the AdvertId field.
 func (o *V0PutDailyLimitsAdvertResult) SetAdvertId(v int64) {
-	o.AdvertId = v
+	o.AdvertId = &v
 }
 
-// GetBelowMinLimit returns the BelowMinLimit field value
+// GetBelowMinLimit returns the BelowMinLimit field value if set, zero value otherwise.
 func (o *V0PutDailyLimitsAdvertResult) GetBelowMinLimit() bool {
-	if o == nil {
+	if o == nil || IsNil(o.BelowMinLimit) {
 		var ret bool
 		return ret
 	}
-
-	return o.BelowMinLimit
+	return *o.BelowMinLimit
 }
 
-// GetBelowMinLimitOk returns a tuple with the BelowMinLimit field value
+// GetBelowMinLimitOk returns a tuple with the BelowMinLimit field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *V0PutDailyLimitsAdvertResult) GetBelowMinLimitOk() (*bool, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.BelowMinLimit) {
 		return nil, false
 	}
-	return &o.BelowMinLimit, true
+	return o.BelowMinLimit, true
 }
 
-// SetBelowMinLimit sets field value
+// HasBelowMinLimit returns a boolean if a field has been set.
+func (o *V0PutDailyLimitsAdvertResult) HasBelowMinLimit() bool {
+	if o != nil && !IsNil(o.BelowMinLimit) {
+		return true
+	}
+
+	return false
+}
+
+// SetBelowMinLimit gets a reference to the given bool and assigns it to the BelowMinLimit field.
 func (o *V0PutDailyLimitsAdvertResult) SetBelowMinLimit(v bool) {
-	o.BelowMinLimit = v
+	o.BelowMinLimit = &v
 }
 
-// GetRequiredLimit returns the RequiredLimit field value
+// GetRequiredLimit returns the RequiredLimit field value if set, zero value otherwise.
 func (o *V0PutDailyLimitsAdvertResult) GetRequiredLimit() int64 {
-	if o == nil {
+	if o == nil || IsNil(o.RequiredLimit) {
 		var ret int64
 		return ret
 	}
-
-	return o.RequiredLimit
+	return *o.RequiredLimit
 }
 
-// GetRequiredLimitOk returns a tuple with the RequiredLimit field value
+// GetRequiredLimitOk returns a tuple with the RequiredLimit field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *V0PutDailyLimitsAdvertResult) GetRequiredLimitOk() (*int64, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.RequiredLimit) {
 		return nil, false
 	}
-	return &o.RequiredLimit, true
+	return o.RequiredLimit, true
 }
 
-// SetRequiredLimit sets field value
+// HasRequiredLimit returns a boolean if a field has been set.
+func (o *V0PutDailyLimitsAdvertResult) HasRequiredLimit() bool {
+	if o != nil && !IsNil(o.RequiredLimit) {
+		return true
+	}
+
+	return false
+}
+
+// SetRequiredLimit gets a reference to the given int64 and assigns it to the RequiredLimit field.
 func (o *V0PutDailyLimitsAdvertResult) SetRequiredLimit(v int64) {
-	o.RequiredLimit = v
+	o.RequiredLimit = &v
 }
 
 func (o V0PutDailyLimitsAdvertResult) MarshalJSON() ([]byte, error) {
@@ -133,49 +150,16 @@ func (o V0PutDailyLimitsAdvertResult) MarshalJSON() ([]byte, error) {
 
 func (o V0PutDailyLimitsAdvertResult) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["advertId"] = o.AdvertId
-	toSerialize["belowMinLimit"] = o.BelowMinLimit
-	toSerialize["requiredLimit"] = o.RequiredLimit
+	if !IsNil(o.AdvertId) {
+		toSerialize["advertId"] = o.AdvertId
+	}
+	if !IsNil(o.BelowMinLimit) {
+		toSerialize["belowMinLimit"] = o.BelowMinLimit
+	}
+	if !IsNil(o.RequiredLimit) {
+		toSerialize["requiredLimit"] = o.RequiredLimit
+	}
 	return toSerialize, nil
-}
-
-func (o *V0PutDailyLimitsAdvertResult) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"advertId",
-		"belowMinLimit",
-		"requiredLimit",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varV0PutDailyLimitsAdvertResult := _V0PutDailyLimitsAdvertResult{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varV0PutDailyLimitsAdvertResult)
-
-	if err != nil {
-		return err
-	}
-
-	*o = V0PutDailyLimitsAdvertResult(varV0PutDailyLimitsAdvertResult)
-
-	return err
 }
 
 type NullableV0PutDailyLimitsAdvertResult struct {

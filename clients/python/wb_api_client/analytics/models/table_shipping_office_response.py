@@ -34,7 +34,7 @@ class TableShippingOfficeResponse(BaseModel):
     regions: Optional[List[TableShippingOfficeItem]] = Field(
         default=None, description="Множество данных по регионам отгрузки"
     )
-    currency: StrictStr = Field(description="Валюта отчёта")
+    currency: Optional[StrictStr] = Field(default=None, description="Валюта отчёта")
     __properties: ClassVar[List[str]] = ["regions", "currency"]
 
     model_config = ConfigDict(

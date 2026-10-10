@@ -11,9 +11,7 @@ API version: analytics
 package analytics
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the DistributionTableItemFeedbackRating type satisfies the MappedNullable interface at compile time
@@ -22,23 +20,19 @@ var _ MappedNullable = &DistributionTableItemFeedbackRating{}
 // DistributionTableItemFeedbackRating Рейтинг товара по отзывам
 type DistributionTableItemFeedbackRating struct {
 	// Текущий рейтинг
-	Current float32 `json:"current"`
+	Current *float32 `json:"current,omitempty"`
 	// Динамика по сравнению с предыдущим периодом, %
 	Dynamics *float32 `json:"dynamics,omitempty"`
 	// Сколько процентов товаров этого предмета у других продавцов имеют рейтинг ниже, чем у этого товара
-	Percentile NullableFloat32 `json:"percentile"`
+	Percentile NullableFloat32 `json:"percentile,omitempty"`
 }
-
-type _DistributionTableItemFeedbackRating DistributionTableItemFeedbackRating
 
 // NewDistributionTableItemFeedbackRating instantiates a new DistributionTableItemFeedbackRating object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewDistributionTableItemFeedbackRating(current float32, percentile NullableFloat32) *DistributionTableItemFeedbackRating {
+func NewDistributionTableItemFeedbackRating() *DistributionTableItemFeedbackRating {
 	this := DistributionTableItemFeedbackRating{}
-	this.Current = current
-	this.Percentile = percentile
 	return &this
 }
 
@@ -50,28 +44,36 @@ func NewDistributionTableItemFeedbackRatingWithDefaults() *DistributionTableItem
 	return &this
 }
 
-// GetCurrent returns the Current field value
+// GetCurrent returns the Current field value if set, zero value otherwise.
 func (o *DistributionTableItemFeedbackRating) GetCurrent() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.Current) {
 		var ret float32
 		return ret
 	}
-
-	return o.Current
+	return *o.Current
 }
 
-// GetCurrentOk returns a tuple with the Current field value
+// GetCurrentOk returns a tuple with the Current field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DistributionTableItemFeedbackRating) GetCurrentOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Current) {
 		return nil, false
 	}
-	return &o.Current, true
+	return o.Current, true
 }
 
-// SetCurrent sets field value
+// HasCurrent returns a boolean if a field has been set.
+func (o *DistributionTableItemFeedbackRating) HasCurrent() bool {
+	if o != nil && !IsNil(o.Current) {
+		return true
+	}
+
+	return false
+}
+
+// SetCurrent gets a reference to the given float32 and assigns it to the Current field.
 func (o *DistributionTableItemFeedbackRating) SetCurrent(v float32) {
-	o.Current = v
+	o.Current = &v
 }
 
 // GetDynamics returns the Dynamics field value if set, zero value otherwise.
@@ -106,18 +108,16 @@ func (o *DistributionTableItemFeedbackRating) SetDynamics(v float32) {
 	o.Dynamics = &v
 }
 
-// GetPercentile returns the Percentile field value
-// If the value is explicit nil, the zero value for float32 will be returned
+// GetPercentile returns the Percentile field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *DistributionTableItemFeedbackRating) GetPercentile() float32 {
-	if o == nil || o.Percentile.Get() == nil {
+	if o == nil || IsNil(o.Percentile.Get()) {
 		var ret float32
 		return ret
 	}
-
 	return *o.Percentile.Get()
 }
 
-// GetPercentileOk returns a tuple with the Percentile field value
+// GetPercentileOk returns a tuple with the Percentile field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DistributionTableItemFeedbackRating) GetPercentileOk() (*float32, bool) {
@@ -127,9 +127,28 @@ func (o *DistributionTableItemFeedbackRating) GetPercentileOk() (*float32, bool)
 	return o.Percentile.Get(), o.Percentile.IsSet()
 }
 
-// SetPercentile sets field value
+// HasPercentile returns a boolean if a field has been set.
+func (o *DistributionTableItemFeedbackRating) HasPercentile() bool {
+	if o != nil && o.Percentile.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetPercentile gets a reference to the given NullableFloat32 and assigns it to the Percentile field.
 func (o *DistributionTableItemFeedbackRating) SetPercentile(v float32) {
 	o.Percentile.Set(&v)
+}
+
+// SetPercentileNil sets the value for Percentile to be an explicit nil
+func (o *DistributionTableItemFeedbackRating) SetPercentileNil() {
+	o.Percentile.Set(nil)
+}
+
+// UnsetPercentile ensures that no value is present for Percentile, not even an explicit nil
+func (o *DistributionTableItemFeedbackRating) UnsetPercentile() {
+	o.Percentile.Unset()
 }
 
 func (o DistributionTableItemFeedbackRating) MarshalJSON() ([]byte, error) {
@@ -142,50 +161,16 @@ func (o DistributionTableItemFeedbackRating) MarshalJSON() ([]byte, error) {
 
 func (o DistributionTableItemFeedbackRating) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["current"] = o.Current
+	if !IsNil(o.Current) {
+		toSerialize["current"] = o.Current
+	}
 	if !IsNil(o.Dynamics) {
 		toSerialize["dynamics"] = o.Dynamics
 	}
-	toSerialize["percentile"] = o.Percentile.Get()
+	if o.Percentile.IsSet() {
+		toSerialize["percentile"] = o.Percentile.Get()
+	}
 	return toSerialize, nil
-}
-
-func (o *DistributionTableItemFeedbackRating) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"current",
-		"percentile",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varDistributionTableItemFeedbackRating := _DistributionTableItemFeedbackRating{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varDistributionTableItemFeedbackRating)
-
-	if err != nil {
-		return err
-	}
-
-	*o = DistributionTableItemFeedbackRating(varDistributionTableItemFeedbackRating)
-
-	return err
 }
 
 type NullableDistributionTableItemFeedbackRating struct {

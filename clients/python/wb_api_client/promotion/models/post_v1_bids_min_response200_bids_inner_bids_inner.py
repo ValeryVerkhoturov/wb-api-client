@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from wb_api_client.promotion.models.placement_type import PlacementType
 from typing import Optional, Set
 from typing_extensions import Self
@@ -29,12 +29,14 @@ class PostV1BidsMinResponse200BidsInnerBidsInner(BaseModel):
     PostV1BidsMinResponse200BidsInnerBidsInner
     """  # noqa: E501
 
-    currency: StrictStr = Field(
-        description="Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)"
+    currency: Optional[StrictStr] = Field(
+        default=None,
+        description="Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)",
     )
-    type: PlacementType
-    value: StrictInt = Field(
-        description="Минимальная ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) "
+    type: Optional[PlacementType] = None
+    value: Optional[StrictInt] = Field(
+        default=None,
+        description="Минимальная ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) ",
     )
     __properties: ClassVar[List[str]] = ["currency", "type", "value"]
 

@@ -37,120 +37,120 @@ public class DistributionTableItem {
   public static final String SERIALIZED_NAME_NM_ID = "nmId";
 
   @SerializedName(SERIALIZED_NAME_NM_ID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Long nmId;
 
   public static final String SERIALIZED_NAME_TITLE = "title";
 
   @SerializedName(SERIALIZED_NAME_TITLE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String title;
 
   public static final String SERIALIZED_NAME_VENDOR_CODE = "vendorCode";
 
   @SerializedName(SERIALIZED_NAME_VENDOR_CODE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String vendorCode;
 
   public static final String SERIALIZED_NAME_SUBJECT_ID = "subjectId";
 
   @SerializedName(SERIALIZED_NAME_SUBJECT_ID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer subjectId;
 
   public static final String SERIALIZED_NAME_SUBJECT_NAME = "subjectName";
 
   @SerializedName(SERIALIZED_NAME_SUBJECT_NAME)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String subjectName;
 
   public static final String SERIALIZED_NAME_BRAND_NAME = "brandName";
 
   @SerializedName(SERIALIZED_NAME_BRAND_NAME)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String brandName;
 
   public static final String SERIALIZED_NAME_TAG_NAME = "tagName";
 
   @SerializedName(SERIALIZED_NAME_TAG_NAME)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String tagName;
 
   public static final String SERIALIZED_NAME_TAG_ID = "tagId";
 
   @SerializedName(SERIALIZED_NAME_TAG_ID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Long tagId;
 
   public static final String SERIALIZED_NAME_PINNED_FEEDBACK = "pinnedFeedback";
 
   @SerializedName(SERIALIZED_NAME_PINNED_FEEDBACK)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Boolean pinnedFeedback;
 
   public static final String SERIALIZED_NAME_RATING = "rating";
 
   @SerializedName(SERIALIZED_NAME_RATING)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private BigDecimal rating;
 
   public static final String SERIALIZED_NAME_FEEDBACK_RATING = "feedbackRating";
 
   @SerializedName(SERIALIZED_NAME_FEEDBACK_RATING)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private DistributionTableItemFeedbackRating feedbackRating;
 
   public static final String SERIALIZED_NAME_FEEDBACK_COUNT = "feedbackCount";
 
   @SerializedName(SERIALIZED_NAME_FEEDBACK_COUNT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private DistributionTableItemFeedbackCount feedbackCount;
 
   public static final String SERIALIZED_NAME_FIVE_STAR = "fiveStar";
 
   @SerializedName(SERIALIZED_NAME_FIVE_STAR)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private DistributionTableItemFiveStar fiveStar;
 
   public static final String SERIALIZED_NAME_FOUR_STAR = "fourStar";
 
   @SerializedName(SERIALIZED_NAME_FOUR_STAR)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private DistributionTableItemFourStar fourStar;
 
   public static final String SERIALIZED_NAME_THREE_STAR = "threeStar";
 
   @SerializedName(SERIALIZED_NAME_THREE_STAR)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private DistributionTableItemThreeStar threeStar;
 
   public static final String SERIALIZED_NAME_TWO_STAR = "twoStar";
 
   @SerializedName(SERIALIZED_NAME_TWO_STAR)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private DistributionTableItemTwoStar twoStar;
 
   public static final String SERIALIZED_NAME_ONE_STAR = "oneStar";
 
   @SerializedName(SERIALIZED_NAME_ONE_STAR)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private DistributionTableItemOneStar oneStar;
 
   public static final String SERIALIZED_NAME_DISQUALIFIED = "disqualified";
 
   @SerializedName(SERIALIZED_NAME_DISQUALIFIED)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer disqualified;
 
   public static final String SERIALIZED_NAME_IS_SHADOWED = "isShadowed";
 
   @SerializedName(SERIALIZED_NAME_IS_SHADOWED)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Boolean isShadowed;
 
   public DistributionTableItem() {}
 
-  public DistributionTableItem nmId(@jakarta.annotation.Nonnull Long nmId) {
+  public DistributionTableItem nmId(@jakarta.annotation.Nullable Long nmId) {
     this.nmId = nmId;
     return this;
   }
@@ -160,16 +160,16 @@ public class DistributionTableItem {
    *
    * @return nmId
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Long getNmId() {
     return nmId;
   }
 
-  public void setNmId(@jakarta.annotation.Nonnull Long nmId) {
+  public void setNmId(@jakarta.annotation.Nullable Long nmId) {
     this.nmId = nmId;
   }
 
-  public DistributionTableItem title(@jakarta.annotation.Nonnull String title) {
+  public DistributionTableItem title(@jakarta.annotation.Nullable String title) {
     this.title = title;
     return this;
   }
@@ -179,16 +179,16 @@ public class DistributionTableItem {
    *
    * @return title
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getTitle() {
     return title;
   }
 
-  public void setTitle(@jakarta.annotation.Nonnull String title) {
+  public void setTitle(@jakarta.annotation.Nullable String title) {
     this.title = title;
   }
 
-  public DistributionTableItem vendorCode(@jakarta.annotation.Nonnull String vendorCode) {
+  public DistributionTableItem vendorCode(@jakarta.annotation.Nullable String vendorCode) {
     this.vendorCode = vendorCode;
     return this;
   }
@@ -198,16 +198,16 @@ public class DistributionTableItem {
    *
    * @return vendorCode
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getVendorCode() {
     return vendorCode;
   }
 
-  public void setVendorCode(@jakarta.annotation.Nonnull String vendorCode) {
+  public void setVendorCode(@jakarta.annotation.Nullable String vendorCode) {
     this.vendorCode = vendorCode;
   }
 
-  public DistributionTableItem subjectId(@jakarta.annotation.Nonnull Integer subjectId) {
+  public DistributionTableItem subjectId(@jakarta.annotation.Nullable Integer subjectId) {
     this.subjectId = subjectId;
     return this;
   }
@@ -217,16 +217,16 @@ public class DistributionTableItem {
    *
    * @return subjectId
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getSubjectId() {
     return subjectId;
   }
 
-  public void setSubjectId(@jakarta.annotation.Nonnull Integer subjectId) {
+  public void setSubjectId(@jakarta.annotation.Nullable Integer subjectId) {
     this.subjectId = subjectId;
   }
 
-  public DistributionTableItem subjectName(@jakarta.annotation.Nonnull String subjectName) {
+  public DistributionTableItem subjectName(@jakarta.annotation.Nullable String subjectName) {
     this.subjectName = subjectName;
     return this;
   }
@@ -236,16 +236,16 @@ public class DistributionTableItem {
    *
    * @return subjectName
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getSubjectName() {
     return subjectName;
   }
 
-  public void setSubjectName(@jakarta.annotation.Nonnull String subjectName) {
+  public void setSubjectName(@jakarta.annotation.Nullable String subjectName) {
     this.subjectName = subjectName;
   }
 
-  public DistributionTableItem brandName(@jakarta.annotation.Nonnull String brandName) {
+  public DistributionTableItem brandName(@jakarta.annotation.Nullable String brandName) {
     this.brandName = brandName;
     return this;
   }
@@ -255,16 +255,16 @@ public class DistributionTableItem {
    *
    * @return brandName
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getBrandName() {
     return brandName;
   }
 
-  public void setBrandName(@jakarta.annotation.Nonnull String brandName) {
+  public void setBrandName(@jakarta.annotation.Nullable String brandName) {
     this.brandName = brandName;
   }
 
-  public DistributionTableItem tagName(@jakarta.annotation.Nonnull String tagName) {
+  public DistributionTableItem tagName(@jakarta.annotation.Nullable String tagName) {
     this.tagName = tagName;
     return this;
   }
@@ -274,16 +274,16 @@ public class DistributionTableItem {
    *
    * @return tagName
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getTagName() {
     return tagName;
   }
 
-  public void setTagName(@jakarta.annotation.Nonnull String tagName) {
+  public void setTagName(@jakarta.annotation.Nullable String tagName) {
     this.tagName = tagName;
   }
 
-  public DistributionTableItem tagId(@jakarta.annotation.Nonnull Long tagId) {
+  public DistributionTableItem tagId(@jakarta.annotation.Nullable Long tagId) {
     this.tagId = tagId;
     return this;
   }
@@ -293,16 +293,16 @@ public class DistributionTableItem {
    *
    * @return tagId
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Long getTagId() {
     return tagId;
   }
 
-  public void setTagId(@jakarta.annotation.Nonnull Long tagId) {
+  public void setTagId(@jakarta.annotation.Nullable Long tagId) {
     this.tagId = tagId;
   }
 
-  public DistributionTableItem pinnedFeedback(@jakarta.annotation.Nonnull Boolean pinnedFeedback) {
+  public DistributionTableItem pinnedFeedback(@jakarta.annotation.Nullable Boolean pinnedFeedback) {
     this.pinnedFeedback = pinnedFeedback;
     return this;
   }
@@ -312,16 +312,16 @@ public class DistributionTableItem {
    *
    * @return pinnedFeedback
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Boolean getPinnedFeedback() {
     return pinnedFeedback;
   }
 
-  public void setPinnedFeedback(@jakarta.annotation.Nonnull Boolean pinnedFeedback) {
+  public void setPinnedFeedback(@jakarta.annotation.Nullable Boolean pinnedFeedback) {
     this.pinnedFeedback = pinnedFeedback;
   }
 
-  public DistributionTableItem rating(@jakarta.annotation.Nonnull BigDecimal rating) {
+  public DistributionTableItem rating(@jakarta.annotation.Nullable BigDecimal rating) {
     this.rating = rating;
     return this;
   }
@@ -331,17 +331,17 @@ public class DistributionTableItem {
    *
    * @return rating
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public BigDecimal getRating() {
     return rating;
   }
 
-  public void setRating(@jakarta.annotation.Nonnull BigDecimal rating) {
+  public void setRating(@jakarta.annotation.Nullable BigDecimal rating) {
     this.rating = rating;
   }
 
   public DistributionTableItem feedbackRating(
-      @jakarta.annotation.Nonnull DistributionTableItemFeedbackRating feedbackRating) {
+      @jakarta.annotation.Nullable DistributionTableItemFeedbackRating feedbackRating) {
     this.feedbackRating = feedbackRating;
     return this;
   }
@@ -351,18 +351,18 @@ public class DistributionTableItem {
    *
    * @return feedbackRating
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public DistributionTableItemFeedbackRating getFeedbackRating() {
     return feedbackRating;
   }
 
   public void setFeedbackRating(
-      @jakarta.annotation.Nonnull DistributionTableItemFeedbackRating feedbackRating) {
+      @jakarta.annotation.Nullable DistributionTableItemFeedbackRating feedbackRating) {
     this.feedbackRating = feedbackRating;
   }
 
   public DistributionTableItem feedbackCount(
-      @jakarta.annotation.Nonnull DistributionTableItemFeedbackCount feedbackCount) {
+      @jakarta.annotation.Nullable DistributionTableItemFeedbackCount feedbackCount) {
     this.feedbackCount = feedbackCount;
     return this;
   }
@@ -372,18 +372,18 @@ public class DistributionTableItem {
    *
    * @return feedbackCount
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public DistributionTableItemFeedbackCount getFeedbackCount() {
     return feedbackCount;
   }
 
   public void setFeedbackCount(
-      @jakarta.annotation.Nonnull DistributionTableItemFeedbackCount feedbackCount) {
+      @jakarta.annotation.Nullable DistributionTableItemFeedbackCount feedbackCount) {
     this.feedbackCount = feedbackCount;
   }
 
   public DistributionTableItem fiveStar(
-      @jakarta.annotation.Nonnull DistributionTableItemFiveStar fiveStar) {
+      @jakarta.annotation.Nullable DistributionTableItemFiveStar fiveStar) {
     this.fiveStar = fiveStar;
     return this;
   }
@@ -393,17 +393,17 @@ public class DistributionTableItem {
    *
    * @return fiveStar
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public DistributionTableItemFiveStar getFiveStar() {
     return fiveStar;
   }
 
-  public void setFiveStar(@jakarta.annotation.Nonnull DistributionTableItemFiveStar fiveStar) {
+  public void setFiveStar(@jakarta.annotation.Nullable DistributionTableItemFiveStar fiveStar) {
     this.fiveStar = fiveStar;
   }
 
   public DistributionTableItem fourStar(
-      @jakarta.annotation.Nonnull DistributionTableItemFourStar fourStar) {
+      @jakarta.annotation.Nullable DistributionTableItemFourStar fourStar) {
     this.fourStar = fourStar;
     return this;
   }
@@ -413,17 +413,17 @@ public class DistributionTableItem {
    *
    * @return fourStar
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public DistributionTableItemFourStar getFourStar() {
     return fourStar;
   }
 
-  public void setFourStar(@jakarta.annotation.Nonnull DistributionTableItemFourStar fourStar) {
+  public void setFourStar(@jakarta.annotation.Nullable DistributionTableItemFourStar fourStar) {
     this.fourStar = fourStar;
   }
 
   public DistributionTableItem threeStar(
-      @jakarta.annotation.Nonnull DistributionTableItemThreeStar threeStar) {
+      @jakarta.annotation.Nullable DistributionTableItemThreeStar threeStar) {
     this.threeStar = threeStar;
     return this;
   }
@@ -433,17 +433,17 @@ public class DistributionTableItem {
    *
    * @return threeStar
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public DistributionTableItemThreeStar getThreeStar() {
     return threeStar;
   }
 
-  public void setThreeStar(@jakarta.annotation.Nonnull DistributionTableItemThreeStar threeStar) {
+  public void setThreeStar(@jakarta.annotation.Nullable DistributionTableItemThreeStar threeStar) {
     this.threeStar = threeStar;
   }
 
   public DistributionTableItem twoStar(
-      @jakarta.annotation.Nonnull DistributionTableItemTwoStar twoStar) {
+      @jakarta.annotation.Nullable DistributionTableItemTwoStar twoStar) {
     this.twoStar = twoStar;
     return this;
   }
@@ -453,17 +453,17 @@ public class DistributionTableItem {
    *
    * @return twoStar
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public DistributionTableItemTwoStar getTwoStar() {
     return twoStar;
   }
 
-  public void setTwoStar(@jakarta.annotation.Nonnull DistributionTableItemTwoStar twoStar) {
+  public void setTwoStar(@jakarta.annotation.Nullable DistributionTableItemTwoStar twoStar) {
     this.twoStar = twoStar;
   }
 
   public DistributionTableItem oneStar(
-      @jakarta.annotation.Nonnull DistributionTableItemOneStar oneStar) {
+      @jakarta.annotation.Nullable DistributionTableItemOneStar oneStar) {
     this.oneStar = oneStar;
     return this;
   }
@@ -473,16 +473,16 @@ public class DistributionTableItem {
    *
    * @return oneStar
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public DistributionTableItemOneStar getOneStar() {
     return oneStar;
   }
 
-  public void setOneStar(@jakarta.annotation.Nonnull DistributionTableItemOneStar oneStar) {
+  public void setOneStar(@jakarta.annotation.Nullable DistributionTableItemOneStar oneStar) {
     this.oneStar = oneStar;
   }
 
-  public DistributionTableItem disqualified(@jakarta.annotation.Nonnull Integer disqualified) {
+  public DistributionTableItem disqualified(@jakarta.annotation.Nullable Integer disqualified) {
     this.disqualified = disqualified;
     return this;
   }
@@ -492,16 +492,16 @@ public class DistributionTableItem {
    *
    * @return disqualified
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getDisqualified() {
     return disqualified;
   }
 
-  public void setDisqualified(@jakarta.annotation.Nonnull Integer disqualified) {
+  public void setDisqualified(@jakarta.annotation.Nullable Integer disqualified) {
     this.disqualified = disqualified;
   }
 
-  public DistributionTableItem isShadowed(@jakarta.annotation.Nonnull Boolean isShadowed) {
+  public DistributionTableItem isShadowed(@jakarta.annotation.Nullable Boolean isShadowed) {
     this.isShadowed = isShadowed;
     return this;
   }
@@ -512,12 +512,12 @@ public class DistributionTableItem {
    *
    * @return isShadowed
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Boolean getIsShadowed() {
     return isShadowed;
   }
 
-  public void setIsShadowed(@jakarta.annotation.Nonnull Boolean isShadowed) {
+  public void setIsShadowed(@jakarta.annotation.Nullable Boolean isShadowed) {
     this.isShadowed = isShadowed;
   }
 
@@ -640,25 +640,6 @@ public class DistributionTableItem {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("nmId");
-    openapiRequiredFields.add("title");
-    openapiRequiredFields.add("vendorCode");
-    openapiRequiredFields.add("subjectId");
-    openapiRequiredFields.add("subjectName");
-    openapiRequiredFields.add("brandName");
-    openapiRequiredFields.add("tagName");
-    openapiRequiredFields.add("tagId");
-    openapiRequiredFields.add("pinnedFeedback");
-    openapiRequiredFields.add("rating");
-    openapiRequiredFields.add("feedbackRating");
-    openapiRequiredFields.add("feedbackCount");
-    openapiRequiredFields.add("fiveStar");
-    openapiRequiredFields.add("fourStar");
-    openapiRequiredFields.add("threeStar");
-    openapiRequiredFields.add("twoStar");
-    openapiRequiredFields.add("oneStar");
-    openapiRequiredFields.add("disqualified");
-    openapiRequiredFields.add("isShadowed");
   }
 
   /**
@@ -688,61 +669,70 @@ public class DistributionTableItem {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : DistributionTableItem.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    if (!jsonObj.get("title").isJsonPrimitive()) {
+    if ((jsonObj.get("title") != null && !jsonObj.get("title").isJsonNull())
+        && !jsonObj.get("title").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `title` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("title").toString()));
     }
-    if (!jsonObj.get("vendorCode").isJsonPrimitive()) {
+    if ((jsonObj.get("vendorCode") != null && !jsonObj.get("vendorCode").isJsonNull())
+        && !jsonObj.get("vendorCode").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `vendorCode` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("vendorCode").toString()));
     }
-    if (!jsonObj.get("subjectName").isJsonPrimitive()) {
+    if ((jsonObj.get("subjectName") != null && !jsonObj.get("subjectName").isJsonNull())
+        && !jsonObj.get("subjectName").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `subjectName` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("subjectName").toString()));
     }
-    if (!jsonObj.get("brandName").isJsonPrimitive()) {
+    if ((jsonObj.get("brandName") != null && !jsonObj.get("brandName").isJsonNull())
+        && !jsonObj.get("brandName").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `brandName` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("brandName").toString()));
     }
-    if (!jsonObj.get("tagName").isJsonPrimitive()) {
+    if ((jsonObj.get("tagName") != null && !jsonObj.get("tagName").isJsonNull())
+        && !jsonObj.get("tagName").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `tagName` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("tagName").toString()));
     }
-    // validate the required field `feedbackRating`
-    DistributionTableItemFeedbackRating.validateJsonElement(jsonObj.get("feedbackRating"));
-    // validate the required field `feedbackCount`
-    DistributionTableItemFeedbackCount.validateJsonElement(jsonObj.get("feedbackCount"));
-    // validate the required field `fiveStar`
-    DistributionTableItemFiveStar.validateJsonElement(jsonObj.get("fiveStar"));
-    // validate the required field `fourStar`
-    DistributionTableItemFourStar.validateJsonElement(jsonObj.get("fourStar"));
-    // validate the required field `threeStar`
-    DistributionTableItemThreeStar.validateJsonElement(jsonObj.get("threeStar"));
-    // validate the required field `twoStar`
-    DistributionTableItemTwoStar.validateJsonElement(jsonObj.get("twoStar"));
-    // validate the required field `oneStar`
-    DistributionTableItemOneStar.validateJsonElement(jsonObj.get("oneStar"));
+    // validate the optional field `feedbackRating`
+    if (jsonObj.get("feedbackRating") != null && !jsonObj.get("feedbackRating").isJsonNull()) {
+      DistributionTableItemFeedbackRating.validateJsonElement(jsonObj.get("feedbackRating"));
+    }
+    // validate the optional field `feedbackCount`
+    if (jsonObj.get("feedbackCount") != null && !jsonObj.get("feedbackCount").isJsonNull()) {
+      DistributionTableItemFeedbackCount.validateJsonElement(jsonObj.get("feedbackCount"));
+    }
+    // validate the optional field `fiveStar`
+    if (jsonObj.get("fiveStar") != null && !jsonObj.get("fiveStar").isJsonNull()) {
+      DistributionTableItemFiveStar.validateJsonElement(jsonObj.get("fiveStar"));
+    }
+    // validate the optional field `fourStar`
+    if (jsonObj.get("fourStar") != null && !jsonObj.get("fourStar").isJsonNull()) {
+      DistributionTableItemFourStar.validateJsonElement(jsonObj.get("fourStar"));
+    }
+    // validate the optional field `threeStar`
+    if (jsonObj.get("threeStar") != null && !jsonObj.get("threeStar").isJsonNull()) {
+      DistributionTableItemThreeStar.validateJsonElement(jsonObj.get("threeStar"));
+    }
+    // validate the optional field `twoStar`
+    if (jsonObj.get("twoStar") != null && !jsonObj.get("twoStar").isJsonNull()) {
+      DistributionTableItemTwoStar.validateJsonElement(jsonObj.get("twoStar"));
+    }
+    // validate the optional field `oneStar`
+    if (jsonObj.get("oneStar") != null && !jsonObj.get("oneStar").isJsonNull()) {
+      DistributionTableItemOneStar.validateJsonElement(jsonObj.get("oneStar"));
+    }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

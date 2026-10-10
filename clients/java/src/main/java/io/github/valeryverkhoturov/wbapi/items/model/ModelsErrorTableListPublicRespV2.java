@@ -39,19 +39,19 @@ public class ModelsErrorTableListPublicRespV2 {
   public static final String SERIALIZED_NAME_ITEMS = "items";
 
   @SerializedName(SERIALIZED_NAME_ITEMS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private List<ModelsErrorTableListPublicRespV2Item> items = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_CURSOR = "cursor";
 
   @SerializedName(SERIALIZED_NAME_CURSOR)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private ViewerContractPublicErrorsCursorOutput cursor;
 
   public ModelsErrorTableListPublicRespV2() {}
 
   public ModelsErrorTableListPublicRespV2 items(
-      @jakarta.annotation.Nonnull List<ModelsErrorTableListPublicRespV2Item> items) {
+      @jakarta.annotation.Nullable List<ModelsErrorTableListPublicRespV2Item> items) {
     this.items = items;
     return this;
   }
@@ -70,18 +70,18 @@ public class ModelsErrorTableListPublicRespV2 {
    *
    * @return items
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public List<ModelsErrorTableListPublicRespV2Item> getItems() {
     return items;
   }
 
   public void setItems(
-      @jakarta.annotation.Nonnull List<ModelsErrorTableListPublicRespV2Item> items) {
+      @jakarta.annotation.Nullable List<ModelsErrorTableListPublicRespV2Item> items) {
     this.items = items;
   }
 
   public ModelsErrorTableListPublicRespV2 cursor(
-      @jakarta.annotation.Nonnull ViewerContractPublicErrorsCursorOutput cursor) {
+      @jakarta.annotation.Nullable ViewerContractPublicErrorsCursorOutput cursor) {
     this.cursor = cursor;
     return this;
   }
@@ -91,12 +91,13 @@ public class ModelsErrorTableListPublicRespV2 {
    *
    * @return cursor
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public ViewerContractPublicErrorsCursorOutput getCursor() {
     return cursor;
   }
 
-  public void setCursor(@jakarta.annotation.Nonnull ViewerContractPublicErrorsCursorOutput cursor) {
+  public void setCursor(
+      @jakarta.annotation.Nullable ViewerContractPublicErrorsCursorOutput cursor) {
     this.cursor = cursor;
   }
 
@@ -150,8 +151,6 @@ public class ModelsErrorTableListPublicRespV2 {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("items");
-    openapiRequiredFields.add("cursor");
   }
 
   /**
@@ -182,33 +181,29 @@ public class ModelsErrorTableListPublicRespV2 {
                 entry.getKey(), jsonElement.toString()));
       }
     }
+    JsonObject jsonObj = jsonElement.getAsJsonObject();
+    if (jsonObj.get("items") != null && !jsonObj.get("items").isJsonNull()) {
+      JsonArray jsonArrayitems = jsonObj.getAsJsonArray("items");
+      if (jsonArrayitems != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("items").isJsonArray()) {
+          throw new IllegalArgumentException(
+              String.format(
+                  "Expected the field `items` to be an array in the JSON string but got `%s`",
+                  jsonObj.get("items").toString()));
+        }
 
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : ModelsErrorTableListPublicRespV2.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
+        // validate the optional field `items` (array)
+        for (int i = 0; i < jsonArrayitems.size(); i++) {
+          ModelsErrorTableListPublicRespV2Item.validateJsonElement(jsonArrayitems.get(i));
+        }
+        ;
       }
     }
-    JsonObject jsonObj = jsonElement.getAsJsonObject();
-    // ensure the json data is an array
-    if (!jsonObj.get("items").isJsonArray()) {
-      throw new IllegalArgumentException(
-          String.format(
-              "Expected the field `items` to be an array in the JSON string but got `%s`",
-              jsonObj.get("items").toString()));
+    // validate the optional field `cursor`
+    if (jsonObj.get("cursor") != null && !jsonObj.get("cursor").isJsonNull()) {
+      ViewerContractPublicErrorsCursorOutput.validateJsonElement(jsonObj.get("cursor"));
     }
-
-    JsonArray jsonArrayitems = jsonObj.getAsJsonArray("items");
-    // validate the required field `items` (array)
-    for (int i = 0; i < jsonArrayitems.size(); i++) {
-      ModelsErrorTableListPublicRespV2Item.validateJsonElement(jsonArrayitems.get(i));
-    }
-    ;
-    // validate the required field `cursor`
-    ViewerContractPublicErrorsCursorOutput.validateJsonElement(jsonObj.get("cursor"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

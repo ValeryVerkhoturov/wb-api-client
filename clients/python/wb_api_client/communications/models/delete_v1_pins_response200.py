@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,8 +28,9 @@ class DeleteV1PinsResponse200(BaseModel):
     DeleteV1PinsResponse200
     """  # noqa: E501
 
-    data: List[StrictInt] = Field(
-        description="Список `pinId` — ID операций закрепления отзывов, которые были успешно откреплены"
+    data: Optional[List[StrictInt]] = Field(
+        default=None,
+        description="Список `pinId` — ID операций закрепления отзывов, которые были успешно откреплены",
     )
     __properties: ClassVar[List[str]] = ["data"]
 

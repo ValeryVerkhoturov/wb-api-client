@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,7 +28,9 @@ class ModelsDraftCreateResponse(BaseModel):
     ModelsDraftCreateResponse
     """  # noqa: E501
 
-    draft_id: StrictStr = Field(description="ID черновика", alias="draftId")
+    draft_id: Optional[StrictStr] = Field(
+        default=None, description="ID черновика", alias="draftId"
+    )
     __properties: ClassVar[List[str]] = ["draftId"]
 
     model_config = ConfigDict(

@@ -36,30 +36,30 @@ public class NormQueryBidFailResponseItem {
   public static final String SERIALIZED_NAME_ADVERT_ID = "advertId";
 
   @SerializedName(SERIALIZED_NAME_ADVERT_ID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer advertId;
 
   public static final String SERIALIZED_NAME_NM_ID = "nmId";
 
   @SerializedName(SERIALIZED_NAME_NM_ID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer nmId;
 
   public static final String SERIALIZED_NAME_NORM_QUERY = "normQuery";
 
   @SerializedName(SERIALIZED_NAME_NORM_QUERY)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String normQuery;
 
   public static final String SERIALIZED_NAME_REASON = "reason";
 
   @SerializedName(SERIALIZED_NAME_REASON)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String reason;
 
   public NormQueryBidFailResponseItem() {}
 
-  public NormQueryBidFailResponseItem advertId(@jakarta.annotation.Nonnull Integer advertId) {
+  public NormQueryBidFailResponseItem advertId(@jakarta.annotation.Nullable Integer advertId) {
     this.advertId = advertId;
     return this;
   }
@@ -69,16 +69,16 @@ public class NormQueryBidFailResponseItem {
    *
    * @return advertId
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getAdvertId() {
     return advertId;
   }
 
-  public void setAdvertId(@jakarta.annotation.Nonnull Integer advertId) {
+  public void setAdvertId(@jakarta.annotation.Nullable Integer advertId) {
     this.advertId = advertId;
   }
 
-  public NormQueryBidFailResponseItem nmId(@jakarta.annotation.Nonnull Integer nmId) {
+  public NormQueryBidFailResponseItem nmId(@jakarta.annotation.Nullable Integer nmId) {
     this.nmId = nmId;
     return this;
   }
@@ -88,16 +88,16 @@ public class NormQueryBidFailResponseItem {
    *
    * @return nmId
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getNmId() {
     return nmId;
   }
 
-  public void setNmId(@jakarta.annotation.Nonnull Integer nmId) {
+  public void setNmId(@jakarta.annotation.Nullable Integer nmId) {
     this.nmId = nmId;
   }
 
-  public NormQueryBidFailResponseItem normQuery(@jakarta.annotation.Nonnull String normQuery) {
+  public NormQueryBidFailResponseItem normQuery(@jakarta.annotation.Nullable String normQuery) {
     this.normQuery = normQuery;
     return this;
   }
@@ -107,16 +107,16 @@ public class NormQueryBidFailResponseItem {
    *
    * @return normQuery
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getNormQuery() {
     return normQuery;
   }
 
-  public void setNormQuery(@jakarta.annotation.Nonnull String normQuery) {
+  public void setNormQuery(@jakarta.annotation.Nullable String normQuery) {
     this.normQuery = normQuery;
   }
 
-  public NormQueryBidFailResponseItem reason(@jakarta.annotation.Nonnull String reason) {
+  public NormQueryBidFailResponseItem reason(@jakarta.annotation.Nullable String reason) {
     this.reason = reason;
     return this;
   }
@@ -126,12 +126,12 @@ public class NormQueryBidFailResponseItem {
    *
    * @return reason
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getReason() {
     return reason;
   }
 
-  public void setReason(@jakarta.annotation.Nonnull String reason) {
+  public void setReason(@jakarta.annotation.Nullable String reason) {
     this.reason = reason;
   }
 
@@ -190,10 +190,6 @@ public class NormQueryBidFailResponseItem {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("advertId");
-    openapiRequiredFields.add("nmId");
-    openapiRequiredFields.add("normQuery");
-    openapiRequiredFields.add("reason");
   }
 
   /**
@@ -223,24 +219,16 @@ public class NormQueryBidFailResponseItem {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : NormQueryBidFailResponseItem.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    if (!jsonObj.get("normQuery").isJsonPrimitive()) {
+    if ((jsonObj.get("normQuery") != null && !jsonObj.get("normQuery").isJsonNull())
+        && !jsonObj.get("normQuery").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `normQuery` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("normQuery").toString()));
     }
-    if (!jsonObj.get("reason").isJsonPrimitive()) {
+    if ((jsonObj.get("reason") != null && !jsonObj.get("reason").isJsonNull())
+        && !jsonObj.get("reason").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `reason` to be a primitive type in the JSON string but got `%s`",

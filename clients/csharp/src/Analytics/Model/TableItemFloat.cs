@@ -34,12 +34,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TableItemFloat" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected TableItemFloat() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="TableItemFloat" /> class.
-        /// </summary>
-        /// <param name="current">Текущий рейтинг (required).</param>
+        /// <param name="current">Текущий рейтинг.</param>
         /// <param name="dynamics">Динамика по сравнению с предыдущим периодом, %.</param>
         public TableItemFloat(decimal current = default(decimal), decimal dynamics = default(decimal))
         {
@@ -54,7 +49,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>3.56</example>
         */
-        [DataMember(Name = "current", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "current", EmitDefaultValue = false)]
         public decimal Current { get; set; }
 
         /// <summary>

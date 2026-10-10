@@ -34,19 +34,9 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ModelsDraftAddItemsErrorResponse" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected ModelsDraftAddItemsErrorResponse() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ModelsDraftAddItemsErrorResponse" /> class.
-        /// </summary>
-        /// <param name="results">Список невалидных баркодов с ошибками (required).</param>
+        /// <param name="results">Список невалидных баркодов с ошибками.</param>
         public ModelsDraftAddItemsErrorResponse(List<ModelsDraftAddItemsResultItem> results = default(List<ModelsDraftAddItemsResultItem>))
         {
-            // to ensure "results" is required (not null)
-            if (results == null)
-            {
-                throw new ArgumentNullException("results is a required property for ModelsDraftAddItemsErrorResponse and cannot be null");
-            }
             this.Results = results;
         }
 
@@ -54,7 +44,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Model
         /// Список невалидных баркодов с ошибками
         /// </summary>
         /// <value>Список невалидных баркодов с ошибками</value>
-        [DataMember(Name = "results", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "results", EmitDefaultValue = false)]
         public List<ModelsDraftAddItemsResultItem> Results { get; set; }
 
         /// <summary>

@@ -34,12 +34,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CommonInfoAdvertisedProducts" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected CommonInfoAdvertisedProducts() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="CommonInfoAdvertisedProducts" /> class.
-        /// </summary>
-        /// <param name="current">Текущее количество товаров в рекламе (required).</param>
+        /// <param name="current">Текущее количество товаров в рекламе.</param>
         /// <param name="dynamics">Динамика по сравнению с предыдущим периодом, %.</param>
         public CommonInfoAdvertisedProducts(int current = default(int), int dynamics = default(int))
         {
@@ -54,7 +49,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>5</example>
         */
-        [DataMember(Name = "current", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "current", EmitDefaultValue = false)]
         public int Current { get; set; }
 
         /// <summary>

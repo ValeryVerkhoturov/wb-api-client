@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,19 +28,25 @@ class ModelsDraftItem(BaseModel):
     ModelsDraftItem
     """  # noqa: E501
 
-    draft_id: StrictStr = Field(description="ID черновика", alias="draftId")
-    phone: StrictStr = Field(description="Телефон пользователя, создавшего черновик")
-    created_at: StrictStr = Field(
-        description="Дата и время создания черновика", alias="createdAt"
+    draft_id: Optional[StrictStr] = Field(
+        default=None, description="ID черновика", alias="draftId"
     )
-    updated_at: StrictStr = Field(
-        description="Дата и время последнего обновления черновика", alias="updatedAt"
+    phone: Optional[StrictStr] = Field(
+        default=None, description="Телефон пользователя, создавшего черновик"
     )
-    sku_quantity: StrictInt = Field(
-        description="Количество баркодов", alias="skuQuantity"
+    created_at: Optional[StrictStr] = Field(
+        default=None, description="Дата и время создания черновика", alias="createdAt"
     )
-    item_quantity: StrictInt = Field(
-        description="Количество единиц товара", alias="itemQuantity"
+    updated_at: Optional[StrictStr] = Field(
+        default=None,
+        description="Дата и время последнего обновления черновика",
+        alias="updatedAt",
+    )
+    sku_quantity: Optional[StrictInt] = Field(
+        default=None, description="Количество баркодов", alias="skuQuantity"
+    )
+    item_quantity: Optional[StrictInt] = Field(
+        default=None, description="Количество единиц товара", alias="itemQuantity"
     )
     __properties: ClassVar[List[str]] = [
         "draftId",

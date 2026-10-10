@@ -39,13 +39,13 @@ public class VisibilityInfo {
   public static final String SERIALIZED_NAME_VISIBILITY = "visibility";
 
   @SerializedName(SERIALIZED_NAME_VISIBILITY)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private VisibilityInfoVisibility visibility;
 
   public static final String SERIALIZED_NAME_OPEN_CARD = "openCard";
 
   @SerializedName(SERIALIZED_NAME_OPEN_CARD)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private VisibilityInfoOpenCard openCard;
 
   public static final String SERIALIZED_NAME_BY_DAY = "byDay";
@@ -69,7 +69,7 @@ public class VisibilityInfo {
   public VisibilityInfo() {}
 
   public VisibilityInfo visibility(
-      @jakarta.annotation.Nonnull VisibilityInfoVisibility visibility) {
+      @jakarta.annotation.Nullable VisibilityInfoVisibility visibility) {
     this.visibility = visibility;
     return this;
   }
@@ -79,16 +79,16 @@ public class VisibilityInfo {
    *
    * @return visibility
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public VisibilityInfoVisibility getVisibility() {
     return visibility;
   }
 
-  public void setVisibility(@jakarta.annotation.Nonnull VisibilityInfoVisibility visibility) {
+  public void setVisibility(@jakarta.annotation.Nullable VisibilityInfoVisibility visibility) {
     this.visibility = visibility;
   }
 
-  public VisibilityInfo openCard(@jakarta.annotation.Nonnull VisibilityInfoOpenCard openCard) {
+  public VisibilityInfo openCard(@jakarta.annotation.Nullable VisibilityInfoOpenCard openCard) {
     this.openCard = openCard;
     return this;
   }
@@ -98,12 +98,12 @@ public class VisibilityInfo {
    *
    * @return openCard
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public VisibilityInfoOpenCard getOpenCard() {
     return openCard;
   }
 
-  public void setOpenCard(@jakarta.annotation.Nonnull VisibilityInfoOpenCard openCard) {
+  public void setOpenCard(@jakarta.annotation.Nullable VisibilityInfoOpenCard openCard) {
     this.openCard = openCard;
   }
 
@@ -247,8 +247,6 @@ public class VisibilityInfo {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("visibility");
-    openapiRequiredFields.add("openCard");
   }
 
   /**
@@ -278,21 +276,15 @@ public class VisibilityInfo {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : VisibilityInfo.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    // validate the required field `visibility`
-    VisibilityInfoVisibility.validateJsonElement(jsonObj.get("visibility"));
-    // validate the required field `openCard`
-    VisibilityInfoOpenCard.validateJsonElement(jsonObj.get("openCard"));
+    // validate the optional field `visibility`
+    if (jsonObj.get("visibility") != null && !jsonObj.get("visibility").isJsonNull()) {
+      VisibilityInfoVisibility.validateJsonElement(jsonObj.get("visibility"));
+    }
+    // validate the optional field `openCard`
+    if (jsonObj.get("openCard") != null && !jsonObj.get("openCard").isJsonNull()) {
+      VisibilityInfoOpenCard.validateJsonElement(jsonObj.get("openCard"));
+    }
     if (jsonObj.get("byDay") != null && !jsonObj.get("byDay").isJsonNull()) {
       JsonArray jsonArraybyDay = jsonObj.getAsJsonArray("byDay");
       if (jsonArraybyDay != null) {

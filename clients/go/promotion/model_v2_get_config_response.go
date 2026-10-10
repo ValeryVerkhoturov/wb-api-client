@@ -11,9 +11,7 @@ API version: promotion
 package promotion
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the V2GetConfigResponse type satisfies the MappedNullable interface at compile time
@@ -22,33 +20,25 @@ var _ MappedNullable = &V2GetConfigResponse{}
 // V2GetConfigResponse struct for V2GetConfigResponse
 type V2GetConfigResponse struct {
 	// Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
-	Currency string `json:"currency"`
+	Currency *string `json:"currency,omitempty"`
 	// Код валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
-	CurrencyCode int32 `json:"currencyCode"`
+	CurrencyCode *int32 `json:"currencyCode,omitempty"`
 	// Шаг ставки в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) для CPM-кампаний
-	CpmStep int64 `json:"cpmStep"`
+	CpmStep *int64 `json:"cpmStep,omitempty"`
 	// Шаг ставки в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) для кампаний CPC
-	CpcStep int64 `json:"cpcStep"`
+	CpcStep *int64 `json:"cpcStep,omitempty"`
 	// Минимальная сумма пополнения бюджета кампании в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).  Например, минимальная сумма пополнения бюджета при `\"minTopUp\": 10000` и `\"currency\": \"UZS\"` — 100 узбекских сум
-	MinTopUp int64 `json:"minTopUp"`
+	MinTopUp *int64 `json:"minTopUp,omitempty"`
 	// Минимально допустимый размер дневного лимита, вне зависимости от ставок кампании. Указывается в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
-	MinDailyLimit int64 `json:"minDailyLimit"`
+	MinDailyLimit *int64 `json:"minDailyLimit,omitempty"`
 }
-
-type _V2GetConfigResponse V2GetConfigResponse
 
 // NewV2GetConfigResponse instantiates a new V2GetConfigResponse object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewV2GetConfigResponse(currency string, currencyCode int32, cpmStep int64, cpcStep int64, minTopUp int64, minDailyLimit int64) *V2GetConfigResponse {
+func NewV2GetConfigResponse() *V2GetConfigResponse {
 	this := V2GetConfigResponse{}
-	this.Currency = currency
-	this.CurrencyCode = currencyCode
-	this.CpmStep = cpmStep
-	this.CpcStep = cpcStep
-	this.MinTopUp = minTopUp
-	this.MinDailyLimit = minDailyLimit
 	return &this
 }
 
@@ -60,148 +50,196 @@ func NewV2GetConfigResponseWithDefaults() *V2GetConfigResponse {
 	return &this
 }
 
-// GetCurrency returns the Currency field value
+// GetCurrency returns the Currency field value if set, zero value otherwise.
 func (o *V2GetConfigResponse) GetCurrency() string {
-	if o == nil {
+	if o == nil || IsNil(o.Currency) {
 		var ret string
 		return ret
 	}
-
-	return o.Currency
+	return *o.Currency
 }
 
-// GetCurrencyOk returns a tuple with the Currency field value
+// GetCurrencyOk returns a tuple with the Currency field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *V2GetConfigResponse) GetCurrencyOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Currency) {
 		return nil, false
 	}
-	return &o.Currency, true
+	return o.Currency, true
 }
 
-// SetCurrency sets field value
+// HasCurrency returns a boolean if a field has been set.
+func (o *V2GetConfigResponse) HasCurrency() bool {
+	if o != nil && !IsNil(o.Currency) {
+		return true
+	}
+
+	return false
+}
+
+// SetCurrency gets a reference to the given string and assigns it to the Currency field.
 func (o *V2GetConfigResponse) SetCurrency(v string) {
-	o.Currency = v
+	o.Currency = &v
 }
 
-// GetCurrencyCode returns the CurrencyCode field value
+// GetCurrencyCode returns the CurrencyCode field value if set, zero value otherwise.
 func (o *V2GetConfigResponse) GetCurrencyCode() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.CurrencyCode) {
 		var ret int32
 		return ret
 	}
-
-	return o.CurrencyCode
+	return *o.CurrencyCode
 }
 
-// GetCurrencyCodeOk returns a tuple with the CurrencyCode field value
+// GetCurrencyCodeOk returns a tuple with the CurrencyCode field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *V2GetConfigResponse) GetCurrencyCodeOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.CurrencyCode) {
 		return nil, false
 	}
-	return &o.CurrencyCode, true
+	return o.CurrencyCode, true
 }
 
-// SetCurrencyCode sets field value
+// HasCurrencyCode returns a boolean if a field has been set.
+func (o *V2GetConfigResponse) HasCurrencyCode() bool {
+	if o != nil && !IsNil(o.CurrencyCode) {
+		return true
+	}
+
+	return false
+}
+
+// SetCurrencyCode gets a reference to the given int32 and assigns it to the CurrencyCode field.
 func (o *V2GetConfigResponse) SetCurrencyCode(v int32) {
-	o.CurrencyCode = v
+	o.CurrencyCode = &v
 }
 
-// GetCpmStep returns the CpmStep field value
+// GetCpmStep returns the CpmStep field value if set, zero value otherwise.
 func (o *V2GetConfigResponse) GetCpmStep() int64 {
-	if o == nil {
+	if o == nil || IsNil(o.CpmStep) {
 		var ret int64
 		return ret
 	}
-
-	return o.CpmStep
+	return *o.CpmStep
 }
 
-// GetCpmStepOk returns a tuple with the CpmStep field value
+// GetCpmStepOk returns a tuple with the CpmStep field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *V2GetConfigResponse) GetCpmStepOk() (*int64, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.CpmStep) {
 		return nil, false
 	}
-	return &o.CpmStep, true
+	return o.CpmStep, true
 }
 
-// SetCpmStep sets field value
+// HasCpmStep returns a boolean if a field has been set.
+func (o *V2GetConfigResponse) HasCpmStep() bool {
+	if o != nil && !IsNil(o.CpmStep) {
+		return true
+	}
+
+	return false
+}
+
+// SetCpmStep gets a reference to the given int64 and assigns it to the CpmStep field.
 func (o *V2GetConfigResponse) SetCpmStep(v int64) {
-	o.CpmStep = v
+	o.CpmStep = &v
 }
 
-// GetCpcStep returns the CpcStep field value
+// GetCpcStep returns the CpcStep field value if set, zero value otherwise.
 func (o *V2GetConfigResponse) GetCpcStep() int64 {
-	if o == nil {
+	if o == nil || IsNil(o.CpcStep) {
 		var ret int64
 		return ret
 	}
-
-	return o.CpcStep
+	return *o.CpcStep
 }
 
-// GetCpcStepOk returns a tuple with the CpcStep field value
+// GetCpcStepOk returns a tuple with the CpcStep field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *V2GetConfigResponse) GetCpcStepOk() (*int64, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.CpcStep) {
 		return nil, false
 	}
-	return &o.CpcStep, true
+	return o.CpcStep, true
 }
 
-// SetCpcStep sets field value
+// HasCpcStep returns a boolean if a field has been set.
+func (o *V2GetConfigResponse) HasCpcStep() bool {
+	if o != nil && !IsNil(o.CpcStep) {
+		return true
+	}
+
+	return false
+}
+
+// SetCpcStep gets a reference to the given int64 and assigns it to the CpcStep field.
 func (o *V2GetConfigResponse) SetCpcStep(v int64) {
-	o.CpcStep = v
+	o.CpcStep = &v
 }
 
-// GetMinTopUp returns the MinTopUp field value
+// GetMinTopUp returns the MinTopUp field value if set, zero value otherwise.
 func (o *V2GetConfigResponse) GetMinTopUp() int64 {
-	if o == nil {
+	if o == nil || IsNil(o.MinTopUp) {
 		var ret int64
 		return ret
 	}
-
-	return o.MinTopUp
+	return *o.MinTopUp
 }
 
-// GetMinTopUpOk returns a tuple with the MinTopUp field value
+// GetMinTopUpOk returns a tuple with the MinTopUp field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *V2GetConfigResponse) GetMinTopUpOk() (*int64, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.MinTopUp) {
 		return nil, false
 	}
-	return &o.MinTopUp, true
+	return o.MinTopUp, true
 }
 
-// SetMinTopUp sets field value
+// HasMinTopUp returns a boolean if a field has been set.
+func (o *V2GetConfigResponse) HasMinTopUp() bool {
+	if o != nil && !IsNil(o.MinTopUp) {
+		return true
+	}
+
+	return false
+}
+
+// SetMinTopUp gets a reference to the given int64 and assigns it to the MinTopUp field.
 func (o *V2GetConfigResponse) SetMinTopUp(v int64) {
-	o.MinTopUp = v
+	o.MinTopUp = &v
 }
 
-// GetMinDailyLimit returns the MinDailyLimit field value
+// GetMinDailyLimit returns the MinDailyLimit field value if set, zero value otherwise.
 func (o *V2GetConfigResponse) GetMinDailyLimit() int64 {
-	if o == nil {
+	if o == nil || IsNil(o.MinDailyLimit) {
 		var ret int64
 		return ret
 	}
-
-	return o.MinDailyLimit
+	return *o.MinDailyLimit
 }
 
-// GetMinDailyLimitOk returns a tuple with the MinDailyLimit field value
+// GetMinDailyLimitOk returns a tuple with the MinDailyLimit field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *V2GetConfigResponse) GetMinDailyLimitOk() (*int64, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.MinDailyLimit) {
 		return nil, false
 	}
-	return &o.MinDailyLimit, true
+	return o.MinDailyLimit, true
 }
 
-// SetMinDailyLimit sets field value
+// HasMinDailyLimit returns a boolean if a field has been set.
+func (o *V2GetConfigResponse) HasMinDailyLimit() bool {
+	if o != nil && !IsNil(o.MinDailyLimit) {
+		return true
+	}
+
+	return false
+}
+
+// SetMinDailyLimit gets a reference to the given int64 and assigns it to the MinDailyLimit field.
 func (o *V2GetConfigResponse) SetMinDailyLimit(v int64) {
-	o.MinDailyLimit = v
+	o.MinDailyLimit = &v
 }
 
 func (o V2GetConfigResponse) MarshalJSON() ([]byte, error) {
@@ -214,55 +252,25 @@ func (o V2GetConfigResponse) MarshalJSON() ([]byte, error) {
 
 func (o V2GetConfigResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["currency"] = o.Currency
-	toSerialize["currencyCode"] = o.CurrencyCode
-	toSerialize["cpmStep"] = o.CpmStep
-	toSerialize["cpcStep"] = o.CpcStep
-	toSerialize["minTopUp"] = o.MinTopUp
-	toSerialize["minDailyLimit"] = o.MinDailyLimit
+	if !IsNil(o.Currency) {
+		toSerialize["currency"] = o.Currency
+	}
+	if !IsNil(o.CurrencyCode) {
+		toSerialize["currencyCode"] = o.CurrencyCode
+	}
+	if !IsNil(o.CpmStep) {
+		toSerialize["cpmStep"] = o.CpmStep
+	}
+	if !IsNil(o.CpcStep) {
+		toSerialize["cpcStep"] = o.CpcStep
+	}
+	if !IsNil(o.MinTopUp) {
+		toSerialize["minTopUp"] = o.MinTopUp
+	}
+	if !IsNil(o.MinDailyLimit) {
+		toSerialize["minDailyLimit"] = o.MinDailyLimit
+	}
 	return toSerialize, nil
-}
-
-func (o *V2GetConfigResponse) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"currency",
-		"currencyCode",
-		"cpmStep",
-		"cpcStep",
-		"minTopUp",
-		"minDailyLimit",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varV2GetConfigResponse := _V2GetConfigResponse{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varV2GetConfigResponse)
-
-	if err != nil {
-		return err
-	}
-
-	*o = V2GetConfigResponse(varV2GetConfigResponse)
-
-	return err
 }
 
 type NullableV2GetConfigResponse struct {

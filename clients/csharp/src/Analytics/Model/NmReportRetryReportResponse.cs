@@ -34,19 +34,9 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="NmReportRetryReportResponse" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected NmReportRetryReportResponse() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="NmReportRetryReportResponse" /> class.
-        /// </summary>
-        /// <param name="data">Уведомление, что началась повторная генерация отчёта (required).</param>
+        /// <param name="data">Уведомление, что началась повторная генерация отчёта.</param>
         public NmReportRetryReportResponse(string data = default(string))
         {
-            // to ensure "data" is required (not null)
-            if (data == null)
-            {
-                throw new ArgumentNullException("data is a required property for NmReportRetryReportResponse and cannot be null");
-            }
             this.Data = data;
         }
 
@@ -57,7 +47,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>Retry</example>
         */
-        [DataMember(Name = "data", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "data", EmitDefaultValue = false)]
         public string Data { get; set; }
 
         /// <summary>

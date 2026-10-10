@@ -34,14 +34,9 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="StatisticConversions" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected StatisticConversions() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="StatisticConversions" /> class.
-        /// </summary>
-        /// <param name="addToCartPercent">Конверсия в корзину. Какой процент посетителей, открывших карточку товара, добавили товар в корзину, % (required).</param>
-        /// <param name="cartToOrderPercent">Конверсия в заказ. Какой процент посетителей, добавивших товар в корзину, сделали заказ, % (required).</param>
-        /// <param name="buyoutPercent">Процент выкупа. Какой процент посетителей, заказавших товар, его выкупили. Без учёта товаров, которые еще доставляются покупателю, % (required).</param>
+        /// <param name="addToCartPercent">Конверсия в корзину. Какой процент посетителей, открывших карточку товара, добавили товар в корзину, %.</param>
+        /// <param name="cartToOrderPercent">Конверсия в заказ. Какой процент посетителей, добавивших товар в корзину, сделали заказ, %.</param>
+        /// <param name="buyoutPercent">Процент выкупа. Какой процент посетителей, заказавших товар, его выкупили. Без учёта товаров, которые еще доставляются покупателю, %.</param>
         public StatisticConversions(int addToCartPercent = default(int), int cartToOrderPercent = default(int), int buyoutPercent = default(int))
         {
             this.AddToCartPercent = addToCartPercent;
@@ -56,7 +51,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>19</example>
         */
-        [DataMember(Name = "addToCartPercent", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "addToCartPercent", EmitDefaultValue = false)]
         public int AddToCartPercent { get; set; }
 
         /// <summary>
@@ -66,14 +61,14 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>65</example>
         */
-        [DataMember(Name = "cartToOrderPercent", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "cartToOrderPercent", EmitDefaultValue = false)]
         public int CartToOrderPercent { get; set; }
 
         /// <summary>
         /// Процент выкупа. Какой процент посетителей, заказавших товар, его выкупили. Без учёта товаров, которые еще доставляются покупателю, %
         /// </summary>
         /// <value>Процент выкупа. Какой процент посетителей, заказавших товар, его выкупили. Без учёта товаров, которые еще доставляются покупателю, %</value>
-        [DataMember(Name = "buyoutPercent", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "buyoutPercent", EmitDefaultValue = false)]
         public int BuyoutPercent { get; set; }
 
         /// <summary>

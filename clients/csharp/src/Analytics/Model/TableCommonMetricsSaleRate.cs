@@ -34,13 +34,8 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TableCommonMetricsSaleRate" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected TableCommonMetricsSaleRate() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="TableCommonMetricsSaleRate" /> class.
-        /// </summary>
-        /// <param name="days">Количество дней (required).</param>
-        /// <param name="hours">Количество часов (required).</param>
+        /// <param name="days">Количество дней.</param>
+        /// <param name="hours">Количество часов.</param>
         public TableCommonMetricsSaleRate(int days = default(int), int hours = default(int))
         {
             this.Days = days;
@@ -54,7 +49,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>5</example>
         */
-        [DataMember(Name = "days", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "days", EmitDefaultValue = false)]
         public int Days { get; set; }
 
         /// <summary>
@@ -64,7 +59,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>15</example>
         */
-        [DataMember(Name = "hours", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "hours", EmitDefaultValue = false)]
         public int Hours { get; set; }
 
         /// <summary>

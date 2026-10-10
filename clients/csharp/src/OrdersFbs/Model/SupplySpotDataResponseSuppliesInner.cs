@@ -34,21 +34,11 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SupplySpotDataResponseSuppliesInner" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected SupplySpotDataResponseSuppliesInner() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="SupplySpotDataResponseSuppliesInner" /> class.
-        /// </summary>
-        /// <param name="id">ID поставки (required).</param>
+        /// <param name="id">ID поставки.</param>
         /// <param name="spot">spot.</param>
         /// <param name="error">error.</param>
         public SupplySpotDataResponseSuppliesInner(string id = default(string), SupplySpotDataResponseSuppliesInnerSpot spot = default(SupplySpotDataResponseSuppliesInnerSpot), SupplySpotDataResponseSuppliesInnerError error = default(SupplySpotDataResponseSuppliesInnerError))
         {
-            // to ensure "id" is required (not null)
-            if (id == null)
-            {
-                throw new ArgumentNullException("id is a required property for SupplySpotDataResponseSuppliesInner and cannot be null");
-            }
             this.Id = id;
             this.Spot = spot;
             this.Error = error;
@@ -58,7 +48,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// ID поставки
         /// </summary>
         /// <value>ID поставки</value>
-        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "id", EmitDefaultValue = false)]
         public string Id { get; set; }
 
         /// <summary>

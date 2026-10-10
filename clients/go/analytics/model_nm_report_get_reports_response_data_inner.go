@@ -11,9 +11,7 @@ API version: analytics
 package analytics
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the NmReportGetReportsResponseDataInner type satisfies the MappedNullable interface at compile time
@@ -22,36 +20,27 @@ var _ MappedNullable = &NmReportGetReportsResponseDataInner{}
 // NmReportGetReportsResponseDataInner struct for NmReportGetReportsResponseDataInner
 type NmReportGetReportsResponseDataInner struct {
 	// ID отчёта
-	Id string `json:"id"`
+	Id *string `json:"id,omitempty"`
 	// Дата и время завершения генерации
-	CreatedAt string `json:"createdAt"`
+	CreatedAt *string `json:"createdAt,omitempty"`
 	// Статус отчёта:  * `WAITING` — в очереди на обработку * `PROCESSING` — генерируется * `SUCCESS —` готов * `RETRY` — ожидает повторной обработки * `FAILED` — не получилось сгенерировать, сгенерируйте повторно
-	Status string `json:"status"`
+	Status *string `json:"status,omitempty"`
 	// Название отчёта
-	Name string `json:"name"`
+	Name *string `json:"name,omitempty"`
 	// Размер отчёта, Б
-	Size int32 `json:"size"`
+	Size *int32 `json:"size,omitempty"`
 	// Начало периода
-	StartDate string `json:"startDate"`
+	StartDate *string `json:"startDate,omitempty"`
 	// Конец периода
-	EndDate string `json:"endDate"`
+	EndDate *string `json:"endDate,omitempty"`
 }
-
-type _NmReportGetReportsResponseDataInner NmReportGetReportsResponseDataInner
 
 // NewNmReportGetReportsResponseDataInner instantiates a new NmReportGetReportsResponseDataInner object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewNmReportGetReportsResponseDataInner(id string, createdAt string, status string, name string, size int32, startDate string, endDate string) *NmReportGetReportsResponseDataInner {
+func NewNmReportGetReportsResponseDataInner() *NmReportGetReportsResponseDataInner {
 	this := NmReportGetReportsResponseDataInner{}
-	this.Id = id
-	this.CreatedAt = createdAt
-	this.Status = status
-	this.Name = name
-	this.Size = size
-	this.StartDate = startDate
-	this.EndDate = endDate
 	return &this
 }
 
@@ -63,172 +52,228 @@ func NewNmReportGetReportsResponseDataInnerWithDefaults() *NmReportGetReportsRes
 	return &this
 }
 
-// GetId returns the Id field value
+// GetId returns the Id field value if set, zero value otherwise.
 func (o *NmReportGetReportsResponseDataInner) GetId() string {
-	if o == nil {
+	if o == nil || IsNil(o.Id) {
 		var ret string
 		return ret
 	}
-
-	return o.Id
+	return *o.Id
 }
 
-// GetIdOk returns a tuple with the Id field value
+// GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NmReportGetReportsResponseDataInner) GetIdOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Id) {
 		return nil, false
 	}
-	return &o.Id, true
+	return o.Id, true
 }
 
-// SetId sets field value
+// HasId returns a boolean if a field has been set.
+func (o *NmReportGetReportsResponseDataInner) HasId() bool {
+	if o != nil && !IsNil(o.Id) {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given string and assigns it to the Id field.
 func (o *NmReportGetReportsResponseDataInner) SetId(v string) {
-	o.Id = v
+	o.Id = &v
 }
 
-// GetCreatedAt returns the CreatedAt field value
+// GetCreatedAt returns the CreatedAt field value if set, zero value otherwise.
 func (o *NmReportGetReportsResponseDataInner) GetCreatedAt() string {
-	if o == nil {
+	if o == nil || IsNil(o.CreatedAt) {
 		var ret string
 		return ret
 	}
-
-	return o.CreatedAt
+	return *o.CreatedAt
 }
 
-// GetCreatedAtOk returns a tuple with the CreatedAt field value
+// GetCreatedAtOk returns a tuple with the CreatedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NmReportGetReportsResponseDataInner) GetCreatedAtOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.CreatedAt) {
 		return nil, false
 	}
-	return &o.CreatedAt, true
+	return o.CreatedAt, true
 }
 
-// SetCreatedAt sets field value
+// HasCreatedAt returns a boolean if a field has been set.
+func (o *NmReportGetReportsResponseDataInner) HasCreatedAt() bool {
+	if o != nil && !IsNil(o.CreatedAt) {
+		return true
+	}
+
+	return false
+}
+
+// SetCreatedAt gets a reference to the given string and assigns it to the CreatedAt field.
 func (o *NmReportGetReportsResponseDataInner) SetCreatedAt(v string) {
-	o.CreatedAt = v
+	o.CreatedAt = &v
 }
 
-// GetStatus returns the Status field value
+// GetStatus returns the Status field value if set, zero value otherwise.
 func (o *NmReportGetReportsResponseDataInner) GetStatus() string {
-	if o == nil {
+	if o == nil || IsNil(o.Status) {
 		var ret string
 		return ret
 	}
-
-	return o.Status
+	return *o.Status
 }
 
-// GetStatusOk returns a tuple with the Status field value
+// GetStatusOk returns a tuple with the Status field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NmReportGetReportsResponseDataInner) GetStatusOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Status) {
 		return nil, false
 	}
-	return &o.Status, true
+	return o.Status, true
 }
 
-// SetStatus sets field value
+// HasStatus returns a boolean if a field has been set.
+func (o *NmReportGetReportsResponseDataInner) HasStatus() bool {
+	if o != nil && !IsNil(o.Status) {
+		return true
+	}
+
+	return false
+}
+
+// SetStatus gets a reference to the given string and assigns it to the Status field.
 func (o *NmReportGetReportsResponseDataInner) SetStatus(v string) {
-	o.Status = v
+	o.Status = &v
 }
 
-// GetName returns the Name field value
+// GetName returns the Name field value if set, zero value otherwise.
 func (o *NmReportGetReportsResponseDataInner) GetName() string {
-	if o == nil {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
-
-	return o.Name
+	return *o.Name
 }
 
-// GetNameOk returns a tuple with the Name field value
+// GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NmReportGetReportsResponseDataInner) GetNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Name) {
 		return nil, false
 	}
-	return &o.Name, true
+	return o.Name, true
 }
 
-// SetName sets field value
+// HasName returns a boolean if a field has been set.
+func (o *NmReportGetReportsResponseDataInner) HasName() bool {
+	if o != nil && !IsNil(o.Name) {
+		return true
+	}
+
+	return false
+}
+
+// SetName gets a reference to the given string and assigns it to the Name field.
 func (o *NmReportGetReportsResponseDataInner) SetName(v string) {
-	o.Name = v
+	o.Name = &v
 }
 
-// GetSize returns the Size field value
+// GetSize returns the Size field value if set, zero value otherwise.
 func (o *NmReportGetReportsResponseDataInner) GetSize() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.Size) {
 		var ret int32
 		return ret
 	}
-
-	return o.Size
+	return *o.Size
 }
 
-// GetSizeOk returns a tuple with the Size field value
+// GetSizeOk returns a tuple with the Size field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NmReportGetReportsResponseDataInner) GetSizeOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Size) {
 		return nil, false
 	}
-	return &o.Size, true
+	return o.Size, true
 }
 
-// SetSize sets field value
+// HasSize returns a boolean if a field has been set.
+func (o *NmReportGetReportsResponseDataInner) HasSize() bool {
+	if o != nil && !IsNil(o.Size) {
+		return true
+	}
+
+	return false
+}
+
+// SetSize gets a reference to the given int32 and assigns it to the Size field.
 func (o *NmReportGetReportsResponseDataInner) SetSize(v int32) {
-	o.Size = v
+	o.Size = &v
 }
 
-// GetStartDate returns the StartDate field value
+// GetStartDate returns the StartDate field value if set, zero value otherwise.
 func (o *NmReportGetReportsResponseDataInner) GetStartDate() string {
-	if o == nil {
+	if o == nil || IsNil(o.StartDate) {
 		var ret string
 		return ret
 	}
-
-	return o.StartDate
+	return *o.StartDate
 }
 
-// GetStartDateOk returns a tuple with the StartDate field value
+// GetStartDateOk returns a tuple with the StartDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NmReportGetReportsResponseDataInner) GetStartDateOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.StartDate) {
 		return nil, false
 	}
-	return &o.StartDate, true
+	return o.StartDate, true
 }
 
-// SetStartDate sets field value
+// HasStartDate returns a boolean if a field has been set.
+func (o *NmReportGetReportsResponseDataInner) HasStartDate() bool {
+	if o != nil && !IsNil(o.StartDate) {
+		return true
+	}
+
+	return false
+}
+
+// SetStartDate gets a reference to the given string and assigns it to the StartDate field.
 func (o *NmReportGetReportsResponseDataInner) SetStartDate(v string) {
-	o.StartDate = v
+	o.StartDate = &v
 }
 
-// GetEndDate returns the EndDate field value
+// GetEndDate returns the EndDate field value if set, zero value otherwise.
 func (o *NmReportGetReportsResponseDataInner) GetEndDate() string {
-	if o == nil {
+	if o == nil || IsNil(o.EndDate) {
 		var ret string
 		return ret
 	}
-
-	return o.EndDate
+	return *o.EndDate
 }
 
-// GetEndDateOk returns a tuple with the EndDate field value
+// GetEndDateOk returns a tuple with the EndDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NmReportGetReportsResponseDataInner) GetEndDateOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.EndDate) {
 		return nil, false
 	}
-	return &o.EndDate, true
+	return o.EndDate, true
 }
 
-// SetEndDate sets field value
+// HasEndDate returns a boolean if a field has been set.
+func (o *NmReportGetReportsResponseDataInner) HasEndDate() bool {
+	if o != nil && !IsNil(o.EndDate) {
+		return true
+	}
+
+	return false
+}
+
+// SetEndDate gets a reference to the given string and assigns it to the EndDate field.
 func (o *NmReportGetReportsResponseDataInner) SetEndDate(v string) {
-	o.EndDate = v
+	o.EndDate = &v
 }
 
 func (o NmReportGetReportsResponseDataInner) MarshalJSON() ([]byte, error) {
@@ -241,57 +286,28 @@ func (o NmReportGetReportsResponseDataInner) MarshalJSON() ([]byte, error) {
 
 func (o NmReportGetReportsResponseDataInner) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["id"] = o.Id
-	toSerialize["createdAt"] = o.CreatedAt
-	toSerialize["status"] = o.Status
-	toSerialize["name"] = o.Name
-	toSerialize["size"] = o.Size
-	toSerialize["startDate"] = o.StartDate
-	toSerialize["endDate"] = o.EndDate
+	if !IsNil(o.Id) {
+		toSerialize["id"] = o.Id
+	}
+	if !IsNil(o.CreatedAt) {
+		toSerialize["createdAt"] = o.CreatedAt
+	}
+	if !IsNil(o.Status) {
+		toSerialize["status"] = o.Status
+	}
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
+	}
+	if !IsNil(o.Size) {
+		toSerialize["size"] = o.Size
+	}
+	if !IsNil(o.StartDate) {
+		toSerialize["startDate"] = o.StartDate
+	}
+	if !IsNil(o.EndDate) {
+		toSerialize["endDate"] = o.EndDate
+	}
 	return toSerialize, nil
-}
-
-func (o *NmReportGetReportsResponseDataInner) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"id",
-		"createdAt",
-		"status",
-		"name",
-		"size",
-		"startDate",
-		"endDate",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varNmReportGetReportsResponseDataInner := _NmReportGetReportsResponseDataInner{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varNmReportGetReportsResponseDataInner)
-
-	if err != nil {
-		return err
-	}
-
-	*o = NmReportGetReportsResponseDataInner(varNmReportGetReportsResponseDataInner)
-
-	return err
 }
 
 type NullableNmReportGetReportsResponseDataInner struct {

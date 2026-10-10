@@ -36,49 +36,49 @@ public class TableGroupItemMetrics {
   public static final String SERIALIZED_NAME_AVG_POSITION = "avgPosition";
 
   @SerializedName(SERIALIZED_NAME_AVG_POSITION)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private TableGroupItemMetricsAvgPosition avgPosition;
 
   public static final String SERIALIZED_NAME_OPEN_CARD = "openCard";
 
   @SerializedName(SERIALIZED_NAME_OPEN_CARD)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private VisibilityInfoOpenCard openCard;
 
   public static final String SERIALIZED_NAME_ADD_TO_CART = "addToCart";
 
   @SerializedName(SERIALIZED_NAME_ADD_TO_CART)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private TableGroupItemMetricsAddToCart addToCart;
 
   public static final String SERIALIZED_NAME_OPEN_TO_CART = "openToCart";
 
   @SerializedName(SERIALIZED_NAME_OPEN_TO_CART)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private TableGroupItemMetricsOpenToCart openToCart;
 
   public static final String SERIALIZED_NAME_ORDERS = "orders";
 
   @SerializedName(SERIALIZED_NAME_ORDERS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private TableGroupItemMetricsOrders orders;
 
   public static final String SERIALIZED_NAME_CART_TO_ORDER = "cartToOrder";
 
   @SerializedName(SERIALIZED_NAME_CART_TO_ORDER)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private TableGroupItemMetricsCartToOrder cartToOrder;
 
   public static final String SERIALIZED_NAME_VISIBILITY = "visibility";
 
   @SerializedName(SERIALIZED_NAME_VISIBILITY)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private TableGroupItemMetricsVisibility visibility;
 
   public TableGroupItemMetrics() {}
 
   public TableGroupItemMetrics avgPosition(
-      @jakarta.annotation.Nonnull TableGroupItemMetricsAvgPosition avgPosition) {
+      @jakarta.annotation.Nullable TableGroupItemMetricsAvgPosition avgPosition) {
     this.avgPosition = avgPosition;
     return this;
   }
@@ -88,18 +88,18 @@ public class TableGroupItemMetrics {
    *
    * @return avgPosition
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public TableGroupItemMetricsAvgPosition getAvgPosition() {
     return avgPosition;
   }
 
   public void setAvgPosition(
-      @jakarta.annotation.Nonnull TableGroupItemMetricsAvgPosition avgPosition) {
+      @jakarta.annotation.Nullable TableGroupItemMetricsAvgPosition avgPosition) {
     this.avgPosition = avgPosition;
   }
 
   public TableGroupItemMetrics openCard(
-      @jakarta.annotation.Nonnull VisibilityInfoOpenCard openCard) {
+      @jakarta.annotation.Nullable VisibilityInfoOpenCard openCard) {
     this.openCard = openCard;
     return this;
   }
@@ -109,17 +109,17 @@ public class TableGroupItemMetrics {
    *
    * @return openCard
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public VisibilityInfoOpenCard getOpenCard() {
     return openCard;
   }
 
-  public void setOpenCard(@jakarta.annotation.Nonnull VisibilityInfoOpenCard openCard) {
+  public void setOpenCard(@jakarta.annotation.Nullable VisibilityInfoOpenCard openCard) {
     this.openCard = openCard;
   }
 
   public TableGroupItemMetrics addToCart(
-      @jakarta.annotation.Nonnull TableGroupItemMetricsAddToCart addToCart) {
+      @jakarta.annotation.Nullable TableGroupItemMetricsAddToCart addToCart) {
     this.addToCart = addToCart;
     return this;
   }
@@ -129,17 +129,17 @@ public class TableGroupItemMetrics {
    *
    * @return addToCart
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public TableGroupItemMetricsAddToCart getAddToCart() {
     return addToCart;
   }
 
-  public void setAddToCart(@jakarta.annotation.Nonnull TableGroupItemMetricsAddToCart addToCart) {
+  public void setAddToCart(@jakarta.annotation.Nullable TableGroupItemMetricsAddToCart addToCart) {
     this.addToCart = addToCart;
   }
 
   public TableGroupItemMetrics openToCart(
-      @jakarta.annotation.Nonnull TableGroupItemMetricsOpenToCart openToCart) {
+      @jakarta.annotation.Nullable TableGroupItemMetricsOpenToCart openToCart) {
     this.openToCart = openToCart;
     return this;
   }
@@ -149,18 +149,18 @@ public class TableGroupItemMetrics {
    *
    * @return openToCart
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public TableGroupItemMetricsOpenToCart getOpenToCart() {
     return openToCart;
   }
 
   public void setOpenToCart(
-      @jakarta.annotation.Nonnull TableGroupItemMetricsOpenToCart openToCart) {
+      @jakarta.annotation.Nullable TableGroupItemMetricsOpenToCart openToCart) {
     this.openToCart = openToCart;
   }
 
   public TableGroupItemMetrics orders(
-      @jakarta.annotation.Nonnull TableGroupItemMetricsOrders orders) {
+      @jakarta.annotation.Nullable TableGroupItemMetricsOrders orders) {
     this.orders = orders;
     return this;
   }
@@ -170,17 +170,17 @@ public class TableGroupItemMetrics {
    *
    * @return orders
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public TableGroupItemMetricsOrders getOrders() {
     return orders;
   }
 
-  public void setOrders(@jakarta.annotation.Nonnull TableGroupItemMetricsOrders orders) {
+  public void setOrders(@jakarta.annotation.Nullable TableGroupItemMetricsOrders orders) {
     this.orders = orders;
   }
 
   public TableGroupItemMetrics cartToOrder(
-      @jakarta.annotation.Nonnull TableGroupItemMetricsCartToOrder cartToOrder) {
+      @jakarta.annotation.Nullable TableGroupItemMetricsCartToOrder cartToOrder) {
     this.cartToOrder = cartToOrder;
     return this;
   }
@@ -190,18 +190,18 @@ public class TableGroupItemMetrics {
    *
    * @return cartToOrder
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public TableGroupItemMetricsCartToOrder getCartToOrder() {
     return cartToOrder;
   }
 
   public void setCartToOrder(
-      @jakarta.annotation.Nonnull TableGroupItemMetricsCartToOrder cartToOrder) {
+      @jakarta.annotation.Nullable TableGroupItemMetricsCartToOrder cartToOrder) {
     this.cartToOrder = cartToOrder;
   }
 
   public TableGroupItemMetrics visibility(
-      @jakarta.annotation.Nonnull TableGroupItemMetricsVisibility visibility) {
+      @jakarta.annotation.Nullable TableGroupItemMetricsVisibility visibility) {
     this.visibility = visibility;
     return this;
   }
@@ -211,13 +211,13 @@ public class TableGroupItemMetrics {
    *
    * @return visibility
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public TableGroupItemMetricsVisibility getVisibility() {
     return visibility;
   }
 
   public void setVisibility(
-      @jakarta.annotation.Nonnull TableGroupItemMetricsVisibility visibility) {
+      @jakarta.annotation.Nullable TableGroupItemMetricsVisibility visibility) {
     this.visibility = visibility;
   }
 
@@ -286,13 +286,6 @@ public class TableGroupItemMetrics {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("avgPosition");
-    openapiRequiredFields.add("openCard");
-    openapiRequiredFields.add("addToCart");
-    openapiRequiredFields.add("openToCart");
-    openapiRequiredFields.add("orders");
-    openapiRequiredFields.add("cartToOrder");
-    openapiRequiredFields.add("visibility");
   }
 
   /**
@@ -322,31 +315,35 @@ public class TableGroupItemMetrics {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : TableGroupItemMetrics.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    // validate the required field `avgPosition`
-    TableGroupItemMetricsAvgPosition.validateJsonElement(jsonObj.get("avgPosition"));
-    // validate the required field `openCard`
-    VisibilityInfoOpenCard.validateJsonElement(jsonObj.get("openCard"));
-    // validate the required field `addToCart`
-    TableGroupItemMetricsAddToCart.validateJsonElement(jsonObj.get("addToCart"));
-    // validate the required field `openToCart`
-    TableGroupItemMetricsOpenToCart.validateJsonElement(jsonObj.get("openToCart"));
-    // validate the required field `orders`
-    TableGroupItemMetricsOrders.validateJsonElement(jsonObj.get("orders"));
-    // validate the required field `cartToOrder`
-    TableGroupItemMetricsCartToOrder.validateJsonElement(jsonObj.get("cartToOrder"));
-    // validate the required field `visibility`
-    TableGroupItemMetricsVisibility.validateJsonElement(jsonObj.get("visibility"));
+    // validate the optional field `avgPosition`
+    if (jsonObj.get("avgPosition") != null && !jsonObj.get("avgPosition").isJsonNull()) {
+      TableGroupItemMetricsAvgPosition.validateJsonElement(jsonObj.get("avgPosition"));
+    }
+    // validate the optional field `openCard`
+    if (jsonObj.get("openCard") != null && !jsonObj.get("openCard").isJsonNull()) {
+      VisibilityInfoOpenCard.validateJsonElement(jsonObj.get("openCard"));
+    }
+    // validate the optional field `addToCart`
+    if (jsonObj.get("addToCart") != null && !jsonObj.get("addToCart").isJsonNull()) {
+      TableGroupItemMetricsAddToCart.validateJsonElement(jsonObj.get("addToCart"));
+    }
+    // validate the optional field `openToCart`
+    if (jsonObj.get("openToCart") != null && !jsonObj.get("openToCart").isJsonNull()) {
+      TableGroupItemMetricsOpenToCart.validateJsonElement(jsonObj.get("openToCart"));
+    }
+    // validate the optional field `orders`
+    if (jsonObj.get("orders") != null && !jsonObj.get("orders").isJsonNull()) {
+      TableGroupItemMetricsOrders.validateJsonElement(jsonObj.get("orders"));
+    }
+    // validate the optional field `cartToOrder`
+    if (jsonObj.get("cartToOrder") != null && !jsonObj.get("cartToOrder").isJsonNull()) {
+      TableGroupItemMetricsCartToOrder.validateJsonElement(jsonObj.get("cartToOrder"));
+    }
+    // validate the optional field `visibility`
+    if (jsonObj.get("visibility") != null && !jsonObj.get("visibility").isJsonNull()) {
+      TableGroupItemMetricsVisibility.validateJsonElement(jsonObj.get("visibility"));
+    }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

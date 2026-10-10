@@ -11,9 +11,7 @@ API version: ordersfbw
 package orders_fbw
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the ModelsDraftAddItemsResultItem type satisfies the MappedNullable interface at compile time
@@ -22,21 +20,17 @@ var _ MappedNullable = &ModelsDraftAddItemsResultItem{}
 // ModelsDraftAddItemsResultItem struct for ModelsDraftAddItemsResultItem
 type ModelsDraftAddItemsResultItem struct {
 	// Детали ошибки
-	Error ModelsDraftAddItemsResultError `json:"error"`
+	Error *ModelsDraftAddItemsResultError `json:"error,omitempty"`
 	// Баркод
-	Sku string `json:"sku"`
+	Sku *string `json:"sku,omitempty"`
 }
-
-type _ModelsDraftAddItemsResultItem ModelsDraftAddItemsResultItem
 
 // NewModelsDraftAddItemsResultItem instantiates a new ModelsDraftAddItemsResultItem object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelsDraftAddItemsResultItem(error_ ModelsDraftAddItemsResultError, sku string) *ModelsDraftAddItemsResultItem {
+func NewModelsDraftAddItemsResultItem() *ModelsDraftAddItemsResultItem {
 	this := ModelsDraftAddItemsResultItem{}
-	this.Error = error_
-	this.Sku = sku
 	return &this
 }
 
@@ -48,52 +42,68 @@ func NewModelsDraftAddItemsResultItemWithDefaults() *ModelsDraftAddItemsResultIt
 	return &this
 }
 
-// GetError returns the Error field value
+// GetError returns the Error field value if set, zero value otherwise.
 func (o *ModelsDraftAddItemsResultItem) GetError() ModelsDraftAddItemsResultError {
-	if o == nil {
+	if o == nil || IsNil(o.Error) {
 		var ret ModelsDraftAddItemsResultError
 		return ret
 	}
-
-	return o.Error
+	return *o.Error
 }
 
-// GetErrorOk returns a tuple with the Error field value
+// GetErrorOk returns a tuple with the Error field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModelsDraftAddItemsResultItem) GetErrorOk() (*ModelsDraftAddItemsResultError, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Error) {
 		return nil, false
 	}
-	return &o.Error, true
+	return o.Error, true
 }
 
-// SetError sets field value
+// HasError returns a boolean if a field has been set.
+func (o *ModelsDraftAddItemsResultItem) HasError() bool {
+	if o != nil && !IsNil(o.Error) {
+		return true
+	}
+
+	return false
+}
+
+// SetError gets a reference to the given ModelsDraftAddItemsResultError and assigns it to the Error field.
 func (o *ModelsDraftAddItemsResultItem) SetError(v ModelsDraftAddItemsResultError) {
-	o.Error = v
+	o.Error = &v
 }
 
-// GetSku returns the Sku field value
+// GetSku returns the Sku field value if set, zero value otherwise.
 func (o *ModelsDraftAddItemsResultItem) GetSku() string {
-	if o == nil {
+	if o == nil || IsNil(o.Sku) {
 		var ret string
 		return ret
 	}
-
-	return o.Sku
+	return *o.Sku
 }
 
-// GetSkuOk returns a tuple with the Sku field value
+// GetSkuOk returns a tuple with the Sku field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModelsDraftAddItemsResultItem) GetSkuOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Sku) {
 		return nil, false
 	}
-	return &o.Sku, true
+	return o.Sku, true
 }
 
-// SetSku sets field value
+// HasSku returns a boolean if a field has been set.
+func (o *ModelsDraftAddItemsResultItem) HasSku() bool {
+	if o != nil && !IsNil(o.Sku) {
+		return true
+	}
+
+	return false
+}
+
+// SetSku gets a reference to the given string and assigns it to the Sku field.
 func (o *ModelsDraftAddItemsResultItem) SetSku(v string) {
-	o.Sku = v
+	o.Sku = &v
 }
 
 func (o ModelsDraftAddItemsResultItem) MarshalJSON() ([]byte, error) {
@@ -106,47 +116,13 @@ func (o ModelsDraftAddItemsResultItem) MarshalJSON() ([]byte, error) {
 
 func (o ModelsDraftAddItemsResultItem) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["error"] = o.Error
-	toSerialize["sku"] = o.Sku
+	if !IsNil(o.Error) {
+		toSerialize["error"] = o.Error
+	}
+	if !IsNil(o.Sku) {
+		toSerialize["sku"] = o.Sku
+	}
 	return toSerialize, nil
-}
-
-func (o *ModelsDraftAddItemsResultItem) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"error",
-		"sku",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varModelsDraftAddItemsResultItem := _ModelsDraftAddItemsResultItem{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varModelsDraftAddItemsResultItem)
-
-	if err != nil {
-		return err
-	}
-
-	*o = ModelsDraftAddItemsResultItem(varModelsDraftAddItemsResultItem)
-
-	return err
 }
 
 type NullableModelsDraftAddItemsResultItem struct {

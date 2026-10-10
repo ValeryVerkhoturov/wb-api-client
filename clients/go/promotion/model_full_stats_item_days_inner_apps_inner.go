@@ -11,9 +11,7 @@ API version: promotion
 package promotion
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the FullStatsItemDaysInnerAppsInner type satisfies the MappedNullable interface at compile time
@@ -22,54 +20,39 @@ var _ MappedNullable = &FullStatsItemDaysInnerAppsInner{}
 // FullStatsItemDaysInnerAppsInner struct for FullStatsItemDaysInnerAppsInner
 type FullStatsItemDaysInnerAppsInner struct {
 	// Тип платформы:   - `1` — сайт   - `32` — Android   - `64` — IOS
-	AppType int32 `json:"appType"`
+	AppType *int32 `json:"appType,omitempty"`
 	// Количество добавлений товаров в корзину
-	Atbs int32 `json:"atbs"`
+	Atbs *int32 `json:"atbs,omitempty"`
 	// Отмены, шт.
-	Canceled int32 `json:"canceled"`
+	Canceled *int32 `json:"canceled,omitempty"`
 	// Количество кликов
-	Clicks int32 `json:"clicks"`
+	Clicks *int32 `json:"clicks,omitempty"`
 	// Средняя стоимость клика в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
-	Cpc float32 `json:"cpc"`
+	Cpc *float32 `json:"cpc,omitempty"`
 	// CR (conversion rate) — отношение количества заказов к общему количеству кликов
-	Cr float32 `json:"cr"`
+	Cr *float32 `json:"cr,omitempty"`
 	// CTR (click-through rate) — отношение числа кликов к количеству показов в процентах
-	Ctr float32 `json:"ctr"`
+	Ctr *float32 `json:"ctr,omitempty"`
 	// Блок статистики по артикулам WB
-	Nms []FullStatsItemDaysInnerAppsInnerNmsInner `json:"nms"`
+	Nms []FullStatsItemDaysInnerAppsInnerNmsInner `json:"nms,omitempty"`
 	// Количество заказов
-	Orders int32 `json:"orders"`
+	Orders *int32 `json:"orders,omitempty"`
 	// Количество заказанных товаров, шт.
-	Shks int32 `json:"shks"`
+	Shks *int32 `json:"shks,omitempty"`
 	// Затраты в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
-	Sum float32 `json:"sum"`
+	Sum *float32 `json:"sum,omitempty"`
 	// Заказов на сумму в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
-	SumPrice float32 `json:"sum_price"`
+	SumPrice *float32 `json:"sum_price,omitempty"`
 	// Количество просмотров
-	Views int32 `json:"views"`
+	Views *int32 `json:"views,omitempty"`
 }
-
-type _FullStatsItemDaysInnerAppsInner FullStatsItemDaysInnerAppsInner
 
 // NewFullStatsItemDaysInnerAppsInner instantiates a new FullStatsItemDaysInnerAppsInner object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewFullStatsItemDaysInnerAppsInner(appType int32, atbs int32, canceled int32, clicks int32, cpc float32, cr float32, ctr float32, nms []FullStatsItemDaysInnerAppsInnerNmsInner, orders int32, shks int32, sum float32, sumPrice float32, views int32) *FullStatsItemDaysInnerAppsInner {
+func NewFullStatsItemDaysInnerAppsInner() *FullStatsItemDaysInnerAppsInner {
 	this := FullStatsItemDaysInnerAppsInner{}
-	this.AppType = appType
-	this.Atbs = atbs
-	this.Canceled = canceled
-	this.Clicks = clicks
-	this.Cpc = cpc
-	this.Cr = cr
-	this.Ctr = ctr
-	this.Nms = nms
-	this.Orders = orders
-	this.Shks = shks
-	this.Sum = sum
-	this.SumPrice = sumPrice
-	this.Views = views
 	return &this
 }
 
@@ -81,316 +64,420 @@ func NewFullStatsItemDaysInnerAppsInnerWithDefaults() *FullStatsItemDaysInnerApp
 	return &this
 }
 
-// GetAppType returns the AppType field value
+// GetAppType returns the AppType field value if set, zero value otherwise.
 func (o *FullStatsItemDaysInnerAppsInner) GetAppType() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.AppType) {
 		var ret int32
 		return ret
 	}
-
-	return o.AppType
+	return *o.AppType
 }
 
-// GetAppTypeOk returns a tuple with the AppType field value
+// GetAppTypeOk returns a tuple with the AppType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FullStatsItemDaysInnerAppsInner) GetAppTypeOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AppType) {
 		return nil, false
 	}
-	return &o.AppType, true
+	return o.AppType, true
 }
 
-// SetAppType sets field value
+// HasAppType returns a boolean if a field has been set.
+func (o *FullStatsItemDaysInnerAppsInner) HasAppType() bool {
+	if o != nil && !IsNil(o.AppType) {
+		return true
+	}
+
+	return false
+}
+
+// SetAppType gets a reference to the given int32 and assigns it to the AppType field.
 func (o *FullStatsItemDaysInnerAppsInner) SetAppType(v int32) {
-	o.AppType = v
+	o.AppType = &v
 }
 
-// GetAtbs returns the Atbs field value
+// GetAtbs returns the Atbs field value if set, zero value otherwise.
 func (o *FullStatsItemDaysInnerAppsInner) GetAtbs() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.Atbs) {
 		var ret int32
 		return ret
 	}
-
-	return o.Atbs
+	return *o.Atbs
 }
 
-// GetAtbsOk returns a tuple with the Atbs field value
+// GetAtbsOk returns a tuple with the Atbs field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FullStatsItemDaysInnerAppsInner) GetAtbsOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Atbs) {
 		return nil, false
 	}
-	return &o.Atbs, true
+	return o.Atbs, true
 }
 
-// SetAtbs sets field value
+// HasAtbs returns a boolean if a field has been set.
+func (o *FullStatsItemDaysInnerAppsInner) HasAtbs() bool {
+	if o != nil && !IsNil(o.Atbs) {
+		return true
+	}
+
+	return false
+}
+
+// SetAtbs gets a reference to the given int32 and assigns it to the Atbs field.
 func (o *FullStatsItemDaysInnerAppsInner) SetAtbs(v int32) {
-	o.Atbs = v
+	o.Atbs = &v
 }
 
-// GetCanceled returns the Canceled field value
+// GetCanceled returns the Canceled field value if set, zero value otherwise.
 func (o *FullStatsItemDaysInnerAppsInner) GetCanceled() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.Canceled) {
 		var ret int32
 		return ret
 	}
-
-	return o.Canceled
+	return *o.Canceled
 }
 
-// GetCanceledOk returns a tuple with the Canceled field value
+// GetCanceledOk returns a tuple with the Canceled field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FullStatsItemDaysInnerAppsInner) GetCanceledOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Canceled) {
 		return nil, false
 	}
-	return &o.Canceled, true
+	return o.Canceled, true
 }
 
-// SetCanceled sets field value
+// HasCanceled returns a boolean if a field has been set.
+func (o *FullStatsItemDaysInnerAppsInner) HasCanceled() bool {
+	if o != nil && !IsNil(o.Canceled) {
+		return true
+	}
+
+	return false
+}
+
+// SetCanceled gets a reference to the given int32 and assigns it to the Canceled field.
 func (o *FullStatsItemDaysInnerAppsInner) SetCanceled(v int32) {
-	o.Canceled = v
+	o.Canceled = &v
 }
 
-// GetClicks returns the Clicks field value
+// GetClicks returns the Clicks field value if set, zero value otherwise.
 func (o *FullStatsItemDaysInnerAppsInner) GetClicks() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.Clicks) {
 		var ret int32
 		return ret
 	}
-
-	return o.Clicks
+	return *o.Clicks
 }
 
-// GetClicksOk returns a tuple with the Clicks field value
+// GetClicksOk returns a tuple with the Clicks field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FullStatsItemDaysInnerAppsInner) GetClicksOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Clicks) {
 		return nil, false
 	}
-	return &o.Clicks, true
+	return o.Clicks, true
 }
 
-// SetClicks sets field value
+// HasClicks returns a boolean if a field has been set.
+func (o *FullStatsItemDaysInnerAppsInner) HasClicks() bool {
+	if o != nil && !IsNil(o.Clicks) {
+		return true
+	}
+
+	return false
+}
+
+// SetClicks gets a reference to the given int32 and assigns it to the Clicks field.
 func (o *FullStatsItemDaysInnerAppsInner) SetClicks(v int32) {
-	o.Clicks = v
+	o.Clicks = &v
 }
 
-// GetCpc returns the Cpc field value
+// GetCpc returns the Cpc field value if set, zero value otherwise.
 func (o *FullStatsItemDaysInnerAppsInner) GetCpc() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.Cpc) {
 		var ret float32
 		return ret
 	}
-
-	return o.Cpc
+	return *o.Cpc
 }
 
-// GetCpcOk returns a tuple with the Cpc field value
+// GetCpcOk returns a tuple with the Cpc field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FullStatsItemDaysInnerAppsInner) GetCpcOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Cpc) {
 		return nil, false
 	}
-	return &o.Cpc, true
+	return o.Cpc, true
 }
 
-// SetCpc sets field value
+// HasCpc returns a boolean if a field has been set.
+func (o *FullStatsItemDaysInnerAppsInner) HasCpc() bool {
+	if o != nil && !IsNil(o.Cpc) {
+		return true
+	}
+
+	return false
+}
+
+// SetCpc gets a reference to the given float32 and assigns it to the Cpc field.
 func (o *FullStatsItemDaysInnerAppsInner) SetCpc(v float32) {
-	o.Cpc = v
+	o.Cpc = &v
 }
 
-// GetCr returns the Cr field value
+// GetCr returns the Cr field value if set, zero value otherwise.
 func (o *FullStatsItemDaysInnerAppsInner) GetCr() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.Cr) {
 		var ret float32
 		return ret
 	}
-
-	return o.Cr
+	return *o.Cr
 }
 
-// GetCrOk returns a tuple with the Cr field value
+// GetCrOk returns a tuple with the Cr field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FullStatsItemDaysInnerAppsInner) GetCrOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Cr) {
 		return nil, false
 	}
-	return &o.Cr, true
+	return o.Cr, true
 }
 
-// SetCr sets field value
+// HasCr returns a boolean if a field has been set.
+func (o *FullStatsItemDaysInnerAppsInner) HasCr() bool {
+	if o != nil && !IsNil(o.Cr) {
+		return true
+	}
+
+	return false
+}
+
+// SetCr gets a reference to the given float32 and assigns it to the Cr field.
 func (o *FullStatsItemDaysInnerAppsInner) SetCr(v float32) {
-	o.Cr = v
+	o.Cr = &v
 }
 
-// GetCtr returns the Ctr field value
+// GetCtr returns the Ctr field value if set, zero value otherwise.
 func (o *FullStatsItemDaysInnerAppsInner) GetCtr() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.Ctr) {
 		var ret float32
 		return ret
 	}
-
-	return o.Ctr
+	return *o.Ctr
 }
 
-// GetCtrOk returns a tuple with the Ctr field value
+// GetCtrOk returns a tuple with the Ctr field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FullStatsItemDaysInnerAppsInner) GetCtrOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Ctr) {
 		return nil, false
 	}
-	return &o.Ctr, true
+	return o.Ctr, true
 }
 
-// SetCtr sets field value
+// HasCtr returns a boolean if a field has been set.
+func (o *FullStatsItemDaysInnerAppsInner) HasCtr() bool {
+	if o != nil && !IsNil(o.Ctr) {
+		return true
+	}
+
+	return false
+}
+
+// SetCtr gets a reference to the given float32 and assigns it to the Ctr field.
 func (o *FullStatsItemDaysInnerAppsInner) SetCtr(v float32) {
-	o.Ctr = v
+	o.Ctr = &v
 }
 
-// GetNms returns the Nms field value
+// GetNms returns the Nms field value if set, zero value otherwise.
 func (o *FullStatsItemDaysInnerAppsInner) GetNms() []FullStatsItemDaysInnerAppsInnerNmsInner {
-	if o == nil {
+	if o == nil || IsNil(o.Nms) {
 		var ret []FullStatsItemDaysInnerAppsInnerNmsInner
 		return ret
 	}
-
 	return o.Nms
 }
 
-// GetNmsOk returns a tuple with the Nms field value
+// GetNmsOk returns a tuple with the Nms field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FullStatsItemDaysInnerAppsInner) GetNmsOk() ([]FullStatsItemDaysInnerAppsInnerNmsInner, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Nms) {
 		return nil, false
 	}
 	return o.Nms, true
 }
 
-// SetNms sets field value
+// HasNms returns a boolean if a field has been set.
+func (o *FullStatsItemDaysInnerAppsInner) HasNms() bool {
+	if o != nil && !IsNil(o.Nms) {
+		return true
+	}
+
+	return false
+}
+
+// SetNms gets a reference to the given []FullStatsItemDaysInnerAppsInnerNmsInner and assigns it to the Nms field.
 func (o *FullStatsItemDaysInnerAppsInner) SetNms(v []FullStatsItemDaysInnerAppsInnerNmsInner) {
 	o.Nms = v
 }
 
-// GetOrders returns the Orders field value
+// GetOrders returns the Orders field value if set, zero value otherwise.
 func (o *FullStatsItemDaysInnerAppsInner) GetOrders() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.Orders) {
 		var ret int32
 		return ret
 	}
-
-	return o.Orders
+	return *o.Orders
 }
 
-// GetOrdersOk returns a tuple with the Orders field value
+// GetOrdersOk returns a tuple with the Orders field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FullStatsItemDaysInnerAppsInner) GetOrdersOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Orders) {
 		return nil, false
 	}
-	return &o.Orders, true
+	return o.Orders, true
 }
 
-// SetOrders sets field value
+// HasOrders returns a boolean if a field has been set.
+func (o *FullStatsItemDaysInnerAppsInner) HasOrders() bool {
+	if o != nil && !IsNil(o.Orders) {
+		return true
+	}
+
+	return false
+}
+
+// SetOrders gets a reference to the given int32 and assigns it to the Orders field.
 func (o *FullStatsItemDaysInnerAppsInner) SetOrders(v int32) {
-	o.Orders = v
+	o.Orders = &v
 }
 
-// GetShks returns the Shks field value
+// GetShks returns the Shks field value if set, zero value otherwise.
 func (o *FullStatsItemDaysInnerAppsInner) GetShks() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.Shks) {
 		var ret int32
 		return ret
 	}
-
-	return o.Shks
+	return *o.Shks
 }
 
-// GetShksOk returns a tuple with the Shks field value
+// GetShksOk returns a tuple with the Shks field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FullStatsItemDaysInnerAppsInner) GetShksOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Shks) {
 		return nil, false
 	}
-	return &o.Shks, true
+	return o.Shks, true
 }
 
-// SetShks sets field value
+// HasShks returns a boolean if a field has been set.
+func (o *FullStatsItemDaysInnerAppsInner) HasShks() bool {
+	if o != nil && !IsNil(o.Shks) {
+		return true
+	}
+
+	return false
+}
+
+// SetShks gets a reference to the given int32 and assigns it to the Shks field.
 func (o *FullStatsItemDaysInnerAppsInner) SetShks(v int32) {
-	o.Shks = v
+	o.Shks = &v
 }
 
-// GetSum returns the Sum field value
+// GetSum returns the Sum field value if set, zero value otherwise.
 func (o *FullStatsItemDaysInnerAppsInner) GetSum() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.Sum) {
 		var ret float32
 		return ret
 	}
-
-	return o.Sum
+	return *o.Sum
 }
 
-// GetSumOk returns a tuple with the Sum field value
+// GetSumOk returns a tuple with the Sum field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FullStatsItemDaysInnerAppsInner) GetSumOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Sum) {
 		return nil, false
 	}
-	return &o.Sum, true
+	return o.Sum, true
 }
 
-// SetSum sets field value
+// HasSum returns a boolean if a field has been set.
+func (o *FullStatsItemDaysInnerAppsInner) HasSum() bool {
+	if o != nil && !IsNil(o.Sum) {
+		return true
+	}
+
+	return false
+}
+
+// SetSum gets a reference to the given float32 and assigns it to the Sum field.
 func (o *FullStatsItemDaysInnerAppsInner) SetSum(v float32) {
-	o.Sum = v
+	o.Sum = &v
 }
 
-// GetSumPrice returns the SumPrice field value
+// GetSumPrice returns the SumPrice field value if set, zero value otherwise.
 func (o *FullStatsItemDaysInnerAppsInner) GetSumPrice() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.SumPrice) {
 		var ret float32
 		return ret
 	}
-
-	return o.SumPrice
+	return *o.SumPrice
 }
 
-// GetSumPriceOk returns a tuple with the SumPrice field value
+// GetSumPriceOk returns a tuple with the SumPrice field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FullStatsItemDaysInnerAppsInner) GetSumPriceOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.SumPrice) {
 		return nil, false
 	}
-	return &o.SumPrice, true
+	return o.SumPrice, true
 }
 
-// SetSumPrice sets field value
+// HasSumPrice returns a boolean if a field has been set.
+func (o *FullStatsItemDaysInnerAppsInner) HasSumPrice() bool {
+	if o != nil && !IsNil(o.SumPrice) {
+		return true
+	}
+
+	return false
+}
+
+// SetSumPrice gets a reference to the given float32 and assigns it to the SumPrice field.
 func (o *FullStatsItemDaysInnerAppsInner) SetSumPrice(v float32) {
-	o.SumPrice = v
+	o.SumPrice = &v
 }
 
-// GetViews returns the Views field value
+// GetViews returns the Views field value if set, zero value otherwise.
 func (o *FullStatsItemDaysInnerAppsInner) GetViews() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.Views) {
 		var ret int32
 		return ret
 	}
-
-	return o.Views
+	return *o.Views
 }
 
-// GetViewsOk returns a tuple with the Views field value
+// GetViewsOk returns a tuple with the Views field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FullStatsItemDaysInnerAppsInner) GetViewsOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Views) {
 		return nil, false
 	}
-	return &o.Views, true
+	return o.Views, true
 }
 
-// SetViews sets field value
+// HasViews returns a boolean if a field has been set.
+func (o *FullStatsItemDaysInnerAppsInner) HasViews() bool {
+	if o != nil && !IsNil(o.Views) {
+		return true
+	}
+
+	return false
+}
+
+// SetViews gets a reference to the given int32 and assigns it to the Views field.
 func (o *FullStatsItemDaysInnerAppsInner) SetViews(v int32) {
-	o.Views = v
+	o.Views = &v
 }
 
 func (o FullStatsItemDaysInnerAppsInner) MarshalJSON() ([]byte, error) {
@@ -403,69 +490,46 @@ func (o FullStatsItemDaysInnerAppsInner) MarshalJSON() ([]byte, error) {
 
 func (o FullStatsItemDaysInnerAppsInner) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["appType"] = o.AppType
-	toSerialize["atbs"] = o.Atbs
-	toSerialize["canceled"] = o.Canceled
-	toSerialize["clicks"] = o.Clicks
-	toSerialize["cpc"] = o.Cpc
-	toSerialize["cr"] = o.Cr
-	toSerialize["ctr"] = o.Ctr
-	toSerialize["nms"] = o.Nms
-	toSerialize["orders"] = o.Orders
-	toSerialize["shks"] = o.Shks
-	toSerialize["sum"] = o.Sum
-	toSerialize["sum_price"] = o.SumPrice
-	toSerialize["views"] = o.Views
+	if !IsNil(o.AppType) {
+		toSerialize["appType"] = o.AppType
+	}
+	if !IsNil(o.Atbs) {
+		toSerialize["atbs"] = o.Atbs
+	}
+	if !IsNil(o.Canceled) {
+		toSerialize["canceled"] = o.Canceled
+	}
+	if !IsNil(o.Clicks) {
+		toSerialize["clicks"] = o.Clicks
+	}
+	if !IsNil(o.Cpc) {
+		toSerialize["cpc"] = o.Cpc
+	}
+	if !IsNil(o.Cr) {
+		toSerialize["cr"] = o.Cr
+	}
+	if !IsNil(o.Ctr) {
+		toSerialize["ctr"] = o.Ctr
+	}
+	if !IsNil(o.Nms) {
+		toSerialize["nms"] = o.Nms
+	}
+	if !IsNil(o.Orders) {
+		toSerialize["orders"] = o.Orders
+	}
+	if !IsNil(o.Shks) {
+		toSerialize["shks"] = o.Shks
+	}
+	if !IsNil(o.Sum) {
+		toSerialize["sum"] = o.Sum
+	}
+	if !IsNil(o.SumPrice) {
+		toSerialize["sum_price"] = o.SumPrice
+	}
+	if !IsNil(o.Views) {
+		toSerialize["views"] = o.Views
+	}
 	return toSerialize, nil
-}
-
-func (o *FullStatsItemDaysInnerAppsInner) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"appType",
-		"atbs",
-		"canceled",
-		"clicks",
-		"cpc",
-		"cr",
-		"ctr",
-		"nms",
-		"orders",
-		"shks",
-		"sum",
-		"sum_price",
-		"views",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varFullStatsItemDaysInnerAppsInner := _FullStatsItemDaysInnerAppsInner{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varFullStatsItemDaysInnerAppsInner)
-
-	if err != nil {
-		return err
-	}
-
-	*o = FullStatsItemDaysInnerAppsInner(varFullStatsItemDaysInnerAppsInner)
-
-	return err
 }
 
 type NullableFullStatsItemDaysInnerAppsInner struct {

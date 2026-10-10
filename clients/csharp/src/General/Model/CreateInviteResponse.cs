@@ -34,30 +34,15 @@ namespace ValeryVerkhoturov.WbApiClient.General.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateInviteResponse" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected CreateInviteResponse() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="CreateInviteResponse" /> class.
-        /// </summary>
-        /// <param name="inviteID">ID приглашения (required).</param>
-        /// <param name="expiredAt">Дата и время окончания срока действия приглашения (required).</param>
-        /// <param name="isSuccess">- &#x60;true&#x60; — приглашение создано успешно - &#x60;false&#x60; — повторите запрос  (required).</param>
-        /// <param name="inviteUrl">URL приглашения, по которому должен перейти пользователь (required).</param>
+        /// <param name="inviteID">ID приглашения.</param>
+        /// <param name="expiredAt">Дата и время окончания срока действия приглашения.</param>
+        /// <param name="isSuccess">- &#x60;true&#x60; — приглашение создано успешно - &#x60;false&#x60; — повторите запрос .</param>
+        /// <param name="inviteUrl">URL приглашения, по которому должен перейти пользователь.</param>
         public CreateInviteResponse(Guid inviteID = default(Guid), string expiredAt = default(string), bool isSuccess = default(bool), string inviteUrl = default(string))
         {
             this.InviteID = inviteID;
-            // to ensure "expiredAt" is required (not null)
-            if (expiredAt == null)
-            {
-                throw new ArgumentNullException("expiredAt is a required property for CreateInviteResponse and cannot be null");
-            }
             this.ExpiredAt = expiredAt;
             this.IsSuccess = isSuccess;
-            // to ensure "inviteUrl" is required (not null)
-            if (inviteUrl == null)
-            {
-                throw new ArgumentNullException("inviteUrl is a required property for CreateInviteResponse and cannot be null");
-            }
             this.InviteUrl = inviteUrl;
         }
 
@@ -65,28 +50,28 @@ namespace ValeryVerkhoturov.WbApiClient.General.Model
         /// ID приглашения
         /// </summary>
         /// <value>ID приглашения</value>
-        [DataMember(Name = "inviteID", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "inviteID", EmitDefaultValue = false)]
         public Guid InviteID { get; set; }
 
         /// <summary>
         /// Дата и время окончания срока действия приглашения
         /// </summary>
         /// <value>Дата и время окончания срока действия приглашения</value>
-        [DataMember(Name = "expiredAt", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "expiredAt", EmitDefaultValue = false)]
         public string ExpiredAt { get; set; }
 
         /// <summary>
         /// - &#x60;true&#x60; — приглашение создано успешно - &#x60;false&#x60; — повторите запрос 
         /// </summary>
         /// <value>- &#x60;true&#x60; — приглашение создано успешно - &#x60;false&#x60; — повторите запрос </value>
-        [DataMember(Name = "isSuccess", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "isSuccess", EmitDefaultValue = true)]
         public bool IsSuccess { get; set; }
 
         /// <summary>
         /// URL приглашения, по которому должен перейти пользователь
         /// </summary>
         /// <value>URL приглашения, по которому должен перейти пользователь</value>
-        [DataMember(Name = "inviteUrl", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "inviteUrl", EmitDefaultValue = false)]
         public string InviteUrl { get; set; }
 
         /// <summary>

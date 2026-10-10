@@ -11,9 +11,7 @@ API version: ordersfbw
 package orders_fbw
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the ModelsDraftCreateResponse type satisfies the MappedNullable interface at compile time
@@ -22,18 +20,15 @@ var _ MappedNullable = &ModelsDraftCreateResponse{}
 // ModelsDraftCreateResponse struct for ModelsDraftCreateResponse
 type ModelsDraftCreateResponse struct {
 	// ID черновика
-	DraftId string `json:"draftId"`
+	DraftId *string `json:"draftId,omitempty"`
 }
-
-type _ModelsDraftCreateResponse ModelsDraftCreateResponse
 
 // NewModelsDraftCreateResponse instantiates a new ModelsDraftCreateResponse object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelsDraftCreateResponse(draftId string) *ModelsDraftCreateResponse {
+func NewModelsDraftCreateResponse() *ModelsDraftCreateResponse {
 	this := ModelsDraftCreateResponse{}
-	this.DraftId = draftId
 	return &this
 }
 
@@ -45,28 +40,36 @@ func NewModelsDraftCreateResponseWithDefaults() *ModelsDraftCreateResponse {
 	return &this
 }
 
-// GetDraftId returns the DraftId field value
+// GetDraftId returns the DraftId field value if set, zero value otherwise.
 func (o *ModelsDraftCreateResponse) GetDraftId() string {
-	if o == nil {
+	if o == nil || IsNil(o.DraftId) {
 		var ret string
 		return ret
 	}
-
-	return o.DraftId
+	return *o.DraftId
 }
 
-// GetDraftIdOk returns a tuple with the DraftId field value
+// GetDraftIdOk returns a tuple with the DraftId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModelsDraftCreateResponse) GetDraftIdOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DraftId) {
 		return nil, false
 	}
-	return &o.DraftId, true
+	return o.DraftId, true
 }
 
-// SetDraftId sets field value
+// HasDraftId returns a boolean if a field has been set.
+func (o *ModelsDraftCreateResponse) HasDraftId() bool {
+	if o != nil && !IsNil(o.DraftId) {
+		return true
+	}
+
+	return false
+}
+
+// SetDraftId gets a reference to the given string and assigns it to the DraftId field.
 func (o *ModelsDraftCreateResponse) SetDraftId(v string) {
-	o.DraftId = v
+	o.DraftId = &v
 }
 
 func (o ModelsDraftCreateResponse) MarshalJSON() ([]byte, error) {
@@ -79,45 +82,10 @@ func (o ModelsDraftCreateResponse) MarshalJSON() ([]byte, error) {
 
 func (o ModelsDraftCreateResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["draftId"] = o.DraftId
+	if !IsNil(o.DraftId) {
+		toSerialize["draftId"] = o.DraftId
+	}
 	return toSerialize, nil
-}
-
-func (o *ModelsDraftCreateResponse) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"draftId",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varModelsDraftCreateResponse := _ModelsDraftCreateResponse{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varModelsDraftCreateResponse)
-
-	if err != nil {
-		return err
-	}
-
-	*o = ModelsDraftCreateResponse(varModelsDraftCreateResponse)
-
-	return err
 }
 
 type NullableModelsDraftCreateResponse struct {

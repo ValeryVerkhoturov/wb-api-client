@@ -34,22 +34,12 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FullStatsItemBoosterStatsInner" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected FullStatsItemBoosterStatsInner() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="FullStatsItemBoosterStatsInner" /> class.
-        /// </summary>
-        /// <param name="avgPosition">Средняя позиция товара (required).</param>
-        /// <param name="date">Дата, за которую предоставлены данные (required).</param>
-        /// <param name="nm">Артикул WB (required).</param>
+        /// <param name="avgPosition">Средняя позиция товара.</param>
+        /// <param name="date">Дата, за которую предоставлены данные.</param>
+        /// <param name="nm">Артикул WB.</param>
         public FullStatsItemBoosterStatsInner(int avgPosition = default(int), string date = default(string), int nm = default(int))
         {
             this.AvgPosition = avgPosition;
-            // to ensure "date" is required (not null)
-            if (date == null)
-            {
-                throw new ArgumentNullException("date is a required property for FullStatsItemBoosterStatsInner and cannot be null");
-            }
             this.Date = date;
             this.Nm = nm;
         }
@@ -58,21 +48,21 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// Средняя позиция товара
         /// </summary>
         /// <value>Средняя позиция товара</value>
-        [DataMember(Name = "avg_position", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "avg_position", EmitDefaultValue = false)]
         public int AvgPosition { get; set; }
 
         /// <summary>
         /// Дата, за которую предоставлены данные
         /// </summary>
         /// <value>Дата, за которую предоставлены данные</value>
-        [DataMember(Name = "date", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "date", EmitDefaultValue = false)]
         public string Date { get; set; }
 
         /// <summary>
         /// Артикул WB
         /// </summary>
         /// <value>Артикул WB</value>
-        [DataMember(Name = "nm", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "nm", EmitDefaultValue = false)]
         public int Nm { get; set; }
 
         /// <summary>

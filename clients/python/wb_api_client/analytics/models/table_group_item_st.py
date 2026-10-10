@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from wb_api_client.analytics.models.table_common_metrics import TableCommonMetrics
 from wb_api_client.analytics.models.table_item_item_st import TableItemItemSt
 from typing import Optional, Set
@@ -30,15 +30,27 @@ class TableGroupItemSt(BaseModel):
     Данные по группе
     """  # noqa: E501
 
-    subject_id: StrictInt = Field(description="ID предмета", alias="subjectID")
-    subject_name: StrictStr = Field(
-        description="Название предмета", alias="subjectName"
+    subject_id: Optional[StrictInt] = Field(
+        default=None, description="ID предмета", alias="subjectID"
     )
-    brand_name: StrictStr = Field(description="Бренд", alias="brandName")
-    tag_id: StrictInt = Field(description="ID ярлыка", alias="tagID")
-    tag_name: StrictStr = Field(description="Название ярлыка", alias="tagName")
-    metrics: TableCommonMetrics = Field(description="Метрики группы")
-    items: List[TableItemItemSt] = Field(description="Товары группы")
+    subject_name: Optional[StrictStr] = Field(
+        default=None, description="Название предмета", alias="subjectName"
+    )
+    brand_name: Optional[StrictStr] = Field(
+        default=None, description="Бренд", alias="brandName"
+    )
+    tag_id: Optional[StrictInt] = Field(
+        default=None, description="ID ярлыка", alias="tagID"
+    )
+    tag_name: Optional[StrictStr] = Field(
+        default=None, description="Название ярлыка", alias="tagName"
+    )
+    metrics: Optional[TableCommonMetrics] = Field(
+        default=None, description="Метрики группы"
+    )
+    items: Optional[List[TableItemItemSt]] = Field(
+        default=None, description="Товары группы"
+    )
     __properties: ClassVar[List[str]] = [
         "subjectID",
         "subjectName",

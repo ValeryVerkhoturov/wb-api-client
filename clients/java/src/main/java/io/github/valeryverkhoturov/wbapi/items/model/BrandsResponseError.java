@@ -39,25 +39,25 @@ public class BrandsResponseError {
   public static final String SERIALIZED_NAME_TITLE = "title";
 
   @SerializedName(SERIALIZED_NAME_TITLE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String title;
 
   public static final String SERIALIZED_NAME_DETAIL = "detail";
 
   @SerializedName(SERIALIZED_NAME_DETAIL)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String detail;
 
   public static final String SERIALIZED_NAME_ORIGIN = "origin";
 
   @SerializedName(SERIALIZED_NAME_ORIGIN)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String origin;
 
   public static final String SERIALIZED_NAME_REQUEST_ID = "requestId";
 
   @SerializedName(SERIALIZED_NAME_REQUEST_ID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String requestId;
 
   public static final String SERIALIZED_NAME_ERRORS = "errors";
@@ -68,7 +68,7 @@ public class BrandsResponseError {
 
   public BrandsResponseError() {}
 
-  public BrandsResponseError title(@jakarta.annotation.Nonnull String title) {
+  public BrandsResponseError title(@jakarta.annotation.Nullable String title) {
     this.title = title;
     return this;
   }
@@ -78,16 +78,16 @@ public class BrandsResponseError {
    *
    * @return title
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getTitle() {
     return title;
   }
 
-  public void setTitle(@jakarta.annotation.Nonnull String title) {
+  public void setTitle(@jakarta.annotation.Nullable String title) {
     this.title = title;
   }
 
-  public BrandsResponseError detail(@jakarta.annotation.Nonnull String detail) {
+  public BrandsResponseError detail(@jakarta.annotation.Nullable String detail) {
     this.detail = detail;
     return this;
   }
@@ -97,16 +97,16 @@ public class BrandsResponseError {
    *
    * @return detail
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getDetail() {
     return detail;
   }
 
-  public void setDetail(@jakarta.annotation.Nonnull String detail) {
+  public void setDetail(@jakarta.annotation.Nullable String detail) {
     this.detail = detail;
   }
 
-  public BrandsResponseError origin(@jakarta.annotation.Nonnull String origin) {
+  public BrandsResponseError origin(@jakarta.annotation.Nullable String origin) {
     this.origin = origin;
     return this;
   }
@@ -116,16 +116,16 @@ public class BrandsResponseError {
    *
    * @return origin
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getOrigin() {
     return origin;
   }
 
-  public void setOrigin(@jakarta.annotation.Nonnull String origin) {
+  public void setOrigin(@jakarta.annotation.Nullable String origin) {
     this.origin = origin;
   }
 
-  public BrandsResponseError requestId(@jakarta.annotation.Nonnull String requestId) {
+  public BrandsResponseError requestId(@jakarta.annotation.Nullable String requestId) {
     this.requestId = requestId;
     return this;
   }
@@ -135,12 +135,12 @@ public class BrandsResponseError {
    *
    * @return requestId
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getRequestId() {
     return requestId;
   }
 
-  public void setRequestId(@jakarta.annotation.Nonnull String requestId) {
+  public void setRequestId(@jakarta.annotation.Nullable String requestId) {
     this.requestId = requestId;
   }
 
@@ -230,10 +230,6 @@ public class BrandsResponseError {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("title");
-    openapiRequiredFields.add("detail");
-    openapiRequiredFields.add("origin");
-    openapiRequiredFields.add("requestId");
   }
 
   /**
@@ -263,36 +259,30 @@ public class BrandsResponseError {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : BrandsResponseError.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    if (!jsonObj.get("title").isJsonPrimitive()) {
+    if ((jsonObj.get("title") != null && !jsonObj.get("title").isJsonNull())
+        && !jsonObj.get("title").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `title` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("title").toString()));
     }
-    if (!jsonObj.get("detail").isJsonPrimitive()) {
+    if ((jsonObj.get("detail") != null && !jsonObj.get("detail").isJsonNull())
+        && !jsonObj.get("detail").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `detail` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("detail").toString()));
     }
-    if (!jsonObj.get("origin").isJsonPrimitive()) {
+    if ((jsonObj.get("origin") != null && !jsonObj.get("origin").isJsonNull())
+        && !jsonObj.get("origin").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `origin` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("origin").toString()));
     }
-    if (!jsonObj.get("requestId").isJsonPrimitive()) {
+    if ((jsonObj.get("requestId") != null && !jsonObj.get("requestId").isJsonNull())
+        && !jsonObj.get("requestId").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `requestId` to be a primitive type in the JSON string but got `%s`",

@@ -34,29 +34,14 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersDbw.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiBatchErrorResponseMetaDetailsInner" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected ApiBatchErrorResponseMetaDetailsInner() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ApiBatchErrorResponseMetaDetailsInner" /> class.
-        /// </summary>
-        /// <param name="key">Идентификатор маркировки (required).</param>
+        /// <param name="key">Идентификатор маркировки.</param>
         /// <param name="value">Значение идентификатора маркировки.</param>
-        /// <param name="decision">Статус проверки: - &#x60;sgtin&#x60;   - &#x60;sgtinInvalidFormat&#x60; — Неверный формат маркировки   - &#x60;sgtinNotFound&#x60; — Маркировка не найдена в [Честном знаке](https://chestnyznak.ru)   - &#x60;sgtinEmitted&#x60; —  Маркировка эмитирована   - &#x60;sgtinApplied&#x60; — Не пройдена процедура Ввод в оборот   - &#x60;sgtinWrittenOff&#x60; — Списан   - &#x60;sgtinRetired&#x60; — Выбыл   - &#x60;sgtinWithdrawn&#x60; — Выбыл   - &#x60;sgtinDisaggregation&#x60; — Расформирован   - &#x60;sgtinDisaggregated&#x60; — Расформирован   - &#x60;sgtinAppliedNotPaid&#x60; — Не оплачен   - &#x60;pending&#x60; — Маркировка на проверке  (required).</param>
+        /// <param name="decision">Статус проверки: - &#x60;sgtin&#x60;   - &#x60;sgtinInvalidFormat&#x60; — Неверный формат маркировки   - &#x60;sgtinNotFound&#x60; — Маркировка не найдена в [Честном знаке](https://chestnyznak.ru)   - &#x60;sgtinEmitted&#x60; —  Маркировка эмитирована   - &#x60;sgtinApplied&#x60; — Не пройдена процедура Ввод в оборот   - &#x60;sgtinWrittenOff&#x60; — Списан   - &#x60;sgtinRetired&#x60; — Выбыл   - &#x60;sgtinWithdrawn&#x60; — Выбыл   - &#x60;sgtinDisaggregation&#x60; — Расформирован   - &#x60;sgtinDisaggregated&#x60; — Расформирован   - &#x60;sgtinAppliedNotPaid&#x60; — Не оплачен   - &#x60;pending&#x60; — Маркировка на проверке .</param>
         public ApiBatchErrorResponseMetaDetailsInner(string key = default(string), string value = default(string), string decision = default(string))
         {
-            // to ensure "key" is required (not null)
-            if (key == null)
-            {
-                throw new ArgumentNullException("key is a required property for ApiBatchErrorResponseMetaDetailsInner and cannot be null");
-            }
             this.Key = key;
-            // to ensure "decision" is required (not null)
-            if (decision == null)
-            {
-                throw new ArgumentNullException("decision is a required property for ApiBatchErrorResponseMetaDetailsInner and cannot be null");
-            }
-            this.Decision = decision;
             this.Value = value;
+            this.Decision = decision;
         }
 
         /// <summary>
@@ -66,7 +51,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersDbw.Model
         /*
         <example>sgtin</example>
         */
-        [DataMember(Name = "key", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "key", EmitDefaultValue = false)]
         public string Key { get; set; }
 
         /// <summary>
@@ -86,7 +71,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersDbw.Model
         /*
         <example>sgtinEmitted</example>
         */
-        [DataMember(Name = "decision", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "decision", EmitDefaultValue = false)]
         public string Decision { get; set; }
 
         /// <summary>

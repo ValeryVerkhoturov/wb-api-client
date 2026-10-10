@@ -37,30 +37,30 @@ public class CreateInviteResponse {
   public static final String SERIALIZED_NAME_INVITE_I_D = "inviteID";
 
   @SerializedName(SERIALIZED_NAME_INVITE_I_D)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private UUID inviteID;
 
   public static final String SERIALIZED_NAME_EXPIRED_AT = "expiredAt";
 
   @SerializedName(SERIALIZED_NAME_EXPIRED_AT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String expiredAt;
 
   public static final String SERIALIZED_NAME_IS_SUCCESS = "isSuccess";
 
   @SerializedName(SERIALIZED_NAME_IS_SUCCESS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Boolean isSuccess;
 
   public static final String SERIALIZED_NAME_INVITE_URL = "inviteUrl";
 
   @SerializedName(SERIALIZED_NAME_INVITE_URL)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String inviteUrl;
 
   public CreateInviteResponse() {}
 
-  public CreateInviteResponse inviteID(@jakarta.annotation.Nonnull UUID inviteID) {
+  public CreateInviteResponse inviteID(@jakarta.annotation.Nullable UUID inviteID) {
     this.inviteID = inviteID;
     return this;
   }
@@ -70,16 +70,16 @@ public class CreateInviteResponse {
    *
    * @return inviteID
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public UUID getInviteID() {
     return inviteID;
   }
 
-  public void setInviteID(@jakarta.annotation.Nonnull UUID inviteID) {
+  public void setInviteID(@jakarta.annotation.Nullable UUID inviteID) {
     this.inviteID = inviteID;
   }
 
-  public CreateInviteResponse expiredAt(@jakarta.annotation.Nonnull String expiredAt) {
+  public CreateInviteResponse expiredAt(@jakarta.annotation.Nullable String expiredAt) {
     this.expiredAt = expiredAt;
     return this;
   }
@@ -89,16 +89,16 @@ public class CreateInviteResponse {
    *
    * @return expiredAt
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getExpiredAt() {
     return expiredAt;
   }
 
-  public void setExpiredAt(@jakarta.annotation.Nonnull String expiredAt) {
+  public void setExpiredAt(@jakarta.annotation.Nullable String expiredAt) {
     this.expiredAt = expiredAt;
   }
 
-  public CreateInviteResponse isSuccess(@jakarta.annotation.Nonnull Boolean isSuccess) {
+  public CreateInviteResponse isSuccess(@jakarta.annotation.Nullable Boolean isSuccess) {
     this.isSuccess = isSuccess;
     return this;
   }
@@ -108,16 +108,16 @@ public class CreateInviteResponse {
    *
    * @return isSuccess
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Boolean getIsSuccess() {
     return isSuccess;
   }
 
-  public void setIsSuccess(@jakarta.annotation.Nonnull Boolean isSuccess) {
+  public void setIsSuccess(@jakarta.annotation.Nullable Boolean isSuccess) {
     this.isSuccess = isSuccess;
   }
 
-  public CreateInviteResponse inviteUrl(@jakarta.annotation.Nonnull String inviteUrl) {
+  public CreateInviteResponse inviteUrl(@jakarta.annotation.Nullable String inviteUrl) {
     this.inviteUrl = inviteUrl;
     return this;
   }
@@ -127,12 +127,12 @@ public class CreateInviteResponse {
    *
    * @return inviteUrl
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getInviteUrl() {
     return inviteUrl;
   }
 
-  public void setInviteUrl(@jakarta.annotation.Nonnull String inviteUrl) {
+  public void setInviteUrl(@jakarta.annotation.Nullable String inviteUrl) {
     this.inviteUrl = inviteUrl;
   }
 
@@ -191,10 +191,6 @@ public class CreateInviteResponse {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("inviteID");
-    openapiRequiredFields.add("expiredAt");
-    openapiRequiredFields.add("isSuccess");
-    openapiRequiredFields.add("inviteUrl");
   }
 
   /**
@@ -224,30 +220,23 @@ public class CreateInviteResponse {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : CreateInviteResponse.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    if (!jsonObj.get("inviteID").isJsonPrimitive()) {
+    if ((jsonObj.get("inviteID") != null && !jsonObj.get("inviteID").isJsonNull())
+        && !jsonObj.get("inviteID").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `inviteID` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("inviteID").toString()));
     }
-    if (!jsonObj.get("expiredAt").isJsonPrimitive()) {
+    if ((jsonObj.get("expiredAt") != null && !jsonObj.get("expiredAt").isJsonNull())
+        && !jsonObj.get("expiredAt").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `expiredAt` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("expiredAt").toString()));
     }
-    if (!jsonObj.get("inviteUrl").isJsonPrimitive()) {
+    if ((jsonObj.get("inviteUrl") != null && !jsonObj.get("inviteUrl").isJsonNull())
+        && !jsonObj.get("inviteUrl").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `inviteUrl` to be a primitive type in the JSON string but got `%s`",

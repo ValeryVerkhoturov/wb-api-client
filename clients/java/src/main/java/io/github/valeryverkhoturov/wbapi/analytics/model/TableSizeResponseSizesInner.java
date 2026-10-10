@@ -39,13 +39,13 @@ public class TableSizeResponseSizesInner {
   public static final String SERIALIZED_NAME_NAME = "name";
 
   @SerializedName(SERIALIZED_NAME_NAME)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String name;
 
   public static final String SERIALIZED_NAME_CHRT_I_D = "chrtID";
 
   @SerializedName(SERIALIZED_NAME_CHRT_I_D)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer chrtID;
 
   public static final String SERIALIZED_NAME_OFFICES = "offices";
@@ -57,12 +57,12 @@ public class TableSizeResponseSizesInner {
   public static final String SERIALIZED_NAME_METRICS = "metrics";
 
   @SerializedName(SERIALIZED_NAME_METRICS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private TableSizeResponseSizesInnerMetrics metrics;
 
   public TableSizeResponseSizesInner() {}
 
-  public TableSizeResponseSizesInner name(@jakarta.annotation.Nonnull String name) {
+  public TableSizeResponseSizesInner name(@jakarta.annotation.Nullable String name) {
     this.name = name;
     return this;
   }
@@ -72,16 +72,16 @@ public class TableSizeResponseSizesInner {
    *
    * @return name
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getName() {
     return name;
   }
 
-  public void setName(@jakarta.annotation.Nonnull String name) {
+  public void setName(@jakarta.annotation.Nullable String name) {
     this.name = name;
   }
 
-  public TableSizeResponseSizesInner chrtID(@jakarta.annotation.Nonnull Integer chrtID) {
+  public TableSizeResponseSizesInner chrtID(@jakarta.annotation.Nullable Integer chrtID) {
     this.chrtID = chrtID;
     return this;
   }
@@ -91,12 +91,12 @@ public class TableSizeResponseSizesInner {
    *
    * @return chrtID
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getChrtID() {
     return chrtID;
   }
 
-  public void setChrtID(@jakarta.annotation.Nonnull Integer chrtID) {
+  public void setChrtID(@jakarta.annotation.Nullable Integer chrtID) {
     this.chrtID = chrtID;
   }
 
@@ -129,7 +129,7 @@ public class TableSizeResponseSizesInner {
   }
 
   public TableSizeResponseSizesInner metrics(
-      @jakarta.annotation.Nonnull TableSizeResponseSizesInnerMetrics metrics) {
+      @jakarta.annotation.Nullable TableSizeResponseSizesInnerMetrics metrics) {
     this.metrics = metrics;
     return this;
   }
@@ -139,12 +139,12 @@ public class TableSizeResponseSizesInner {
    *
    * @return metrics
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public TableSizeResponseSizesInnerMetrics getMetrics() {
     return metrics;
   }
 
-  public void setMetrics(@jakarta.annotation.Nonnull TableSizeResponseSizesInnerMetrics metrics) {
+  public void setMetrics(@jakarta.annotation.Nullable TableSizeResponseSizesInnerMetrics metrics) {
     this.metrics = metrics;
   }
 
@@ -203,9 +203,6 @@ public class TableSizeResponseSizesInner {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("name");
-    openapiRequiredFields.add("chrtID");
-    openapiRequiredFields.add("metrics");
   }
 
   /**
@@ -235,18 +232,9 @@ public class TableSizeResponseSizesInner {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : TableSizeResponseSizesInner.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    if (!jsonObj.get("name").isJsonPrimitive()) {
+    if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull())
+        && !jsonObj.get("name").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `name` to be a primitive type in the JSON string but got `%s`",
@@ -270,8 +258,10 @@ public class TableSizeResponseSizesInner {
         ;
       }
     }
-    // validate the required field `metrics`
-    TableSizeResponseSizesInnerMetrics.validateJsonElement(jsonObj.get("metrics"));
+    // validate the optional field `metrics`
+    if (jsonObj.get("metrics") != null && !jsonObj.get("metrics").isJsonNull()) {
+      TableSizeResponseSizesInnerMetrics.validateJsonElement(jsonObj.get("metrics"));
+    }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

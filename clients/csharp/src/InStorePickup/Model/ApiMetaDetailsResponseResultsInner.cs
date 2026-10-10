@@ -34,13 +34,8 @@ namespace ValeryVerkhoturov.WbApiClient.InStorePickup.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiMetaDetailsResponseResultsInner" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected ApiMetaDetailsResponseResultsInner() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ApiMetaDetailsResponseResultsInner" /> class.
-        /// </summary>
-        /// <param name="orderId">ID сборочного задания (required).</param>
-        /// <param name="isError">Есть ли ошибки (required).</param>
+        /// <param name="orderId">ID сборочного задания.</param>
+        /// <param name="isError">Есть ли ошибки.</param>
         /// <param name="errors">Детали ошибки.</param>
         public ApiMetaDetailsResponseResultsInner(int orderId = default(int), bool isError = default(bool), List<ApiMetaDetailsResponseResultsInnerErrorsInner> errors = default(List<ApiMetaDetailsResponseResultsInnerErrorsInner>))
         {
@@ -53,14 +48,14 @@ namespace ValeryVerkhoturov.WbApiClient.InStorePickup.Model
         /// ID сборочного задания
         /// </summary>
         /// <value>ID сборочного задания</value>
-        [DataMember(Name = "orderId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "orderId", EmitDefaultValue = false)]
         public int OrderId { get; set; }
 
         /// <summary>
         /// Есть ли ошибки
         /// </summary>
         /// <value>Есть ли ошибки</value>
-        [DataMember(Name = "isError", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "isError", EmitDefaultValue = true)]
         public bool IsError { get; set; }
 
         /// <summary>

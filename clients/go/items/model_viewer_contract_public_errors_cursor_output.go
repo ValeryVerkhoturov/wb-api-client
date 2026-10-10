@@ -11,9 +11,7 @@ API version: items
 package items
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the ViewerContractPublicErrorsCursorOutput type satisfies the MappedNullable interface at compile time
@@ -22,24 +20,19 @@ var _ MappedNullable = &ViewerContractPublicErrorsCursorOutput{}
 // ViewerContractPublicErrorsCursorOutput Пагинатор
 type ViewerContractPublicErrorsCursorOutput struct {
 	// Есть ли ещё черновики:   - `false` — нет   - `true` — да
-	Next bool `json:"next"`
+	Next *bool `json:"next,omitempty"`
 	// Дата и время формирования последнего пакета в ответе
-	UpdatedAt string `json:"updatedAt"`
+	UpdatedAt *string `json:"updatedAt,omitempty"`
 	// ID последнего пакета в ответе
-	BatchUUID string `json:"batchUUID"`
+	BatchUUID *string `json:"batchUUID,omitempty"`
 }
-
-type _ViewerContractPublicErrorsCursorOutput ViewerContractPublicErrorsCursorOutput
 
 // NewViewerContractPublicErrorsCursorOutput instantiates a new ViewerContractPublicErrorsCursorOutput object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewViewerContractPublicErrorsCursorOutput(next bool, updatedAt string, batchUUID string) *ViewerContractPublicErrorsCursorOutput {
+func NewViewerContractPublicErrorsCursorOutput() *ViewerContractPublicErrorsCursorOutput {
 	this := ViewerContractPublicErrorsCursorOutput{}
-	this.Next = next
-	this.UpdatedAt = updatedAt
-	this.BatchUUID = batchUUID
 	return &this
 }
 
@@ -51,76 +44,100 @@ func NewViewerContractPublicErrorsCursorOutputWithDefaults() *ViewerContractPubl
 	return &this
 }
 
-// GetNext returns the Next field value
+// GetNext returns the Next field value if set, zero value otherwise.
 func (o *ViewerContractPublicErrorsCursorOutput) GetNext() bool {
-	if o == nil {
+	if o == nil || IsNil(o.Next) {
 		var ret bool
 		return ret
 	}
-
-	return o.Next
+	return *o.Next
 }
 
-// GetNextOk returns a tuple with the Next field value
+// GetNextOk returns a tuple with the Next field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ViewerContractPublicErrorsCursorOutput) GetNextOk() (*bool, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Next) {
 		return nil, false
 	}
-	return &o.Next, true
+	return o.Next, true
 }
 
-// SetNext sets field value
+// HasNext returns a boolean if a field has been set.
+func (o *ViewerContractPublicErrorsCursorOutput) HasNext() bool {
+	if o != nil && !IsNil(o.Next) {
+		return true
+	}
+
+	return false
+}
+
+// SetNext gets a reference to the given bool and assigns it to the Next field.
 func (o *ViewerContractPublicErrorsCursorOutput) SetNext(v bool) {
-	o.Next = v
+	o.Next = &v
 }
 
-// GetUpdatedAt returns the UpdatedAt field value
+// GetUpdatedAt returns the UpdatedAt field value if set, zero value otherwise.
 func (o *ViewerContractPublicErrorsCursorOutput) GetUpdatedAt() string {
-	if o == nil {
+	if o == nil || IsNil(o.UpdatedAt) {
 		var ret string
 		return ret
 	}
-
-	return o.UpdatedAt
+	return *o.UpdatedAt
 }
 
-// GetUpdatedAtOk returns a tuple with the UpdatedAt field value
+// GetUpdatedAtOk returns a tuple with the UpdatedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ViewerContractPublicErrorsCursorOutput) GetUpdatedAtOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.UpdatedAt) {
 		return nil, false
 	}
-	return &o.UpdatedAt, true
+	return o.UpdatedAt, true
 }
 
-// SetUpdatedAt sets field value
+// HasUpdatedAt returns a boolean if a field has been set.
+func (o *ViewerContractPublicErrorsCursorOutput) HasUpdatedAt() bool {
+	if o != nil && !IsNil(o.UpdatedAt) {
+		return true
+	}
+
+	return false
+}
+
+// SetUpdatedAt gets a reference to the given string and assigns it to the UpdatedAt field.
 func (o *ViewerContractPublicErrorsCursorOutput) SetUpdatedAt(v string) {
-	o.UpdatedAt = v
+	o.UpdatedAt = &v
 }
 
-// GetBatchUUID returns the BatchUUID field value
+// GetBatchUUID returns the BatchUUID field value if set, zero value otherwise.
 func (o *ViewerContractPublicErrorsCursorOutput) GetBatchUUID() string {
-	if o == nil {
+	if o == nil || IsNil(o.BatchUUID) {
 		var ret string
 		return ret
 	}
-
-	return o.BatchUUID
+	return *o.BatchUUID
 }
 
-// GetBatchUUIDOk returns a tuple with the BatchUUID field value
+// GetBatchUUIDOk returns a tuple with the BatchUUID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ViewerContractPublicErrorsCursorOutput) GetBatchUUIDOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.BatchUUID) {
 		return nil, false
 	}
-	return &o.BatchUUID, true
+	return o.BatchUUID, true
 }
 
-// SetBatchUUID sets field value
+// HasBatchUUID returns a boolean if a field has been set.
+func (o *ViewerContractPublicErrorsCursorOutput) HasBatchUUID() bool {
+	if o != nil && !IsNil(o.BatchUUID) {
+		return true
+	}
+
+	return false
+}
+
+// SetBatchUUID gets a reference to the given string and assigns it to the BatchUUID field.
 func (o *ViewerContractPublicErrorsCursorOutput) SetBatchUUID(v string) {
-	o.BatchUUID = v
+	o.BatchUUID = &v
 }
 
 func (o ViewerContractPublicErrorsCursorOutput) MarshalJSON() ([]byte, error) {
@@ -133,49 +150,16 @@ func (o ViewerContractPublicErrorsCursorOutput) MarshalJSON() ([]byte, error) {
 
 func (o ViewerContractPublicErrorsCursorOutput) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["next"] = o.Next
-	toSerialize["updatedAt"] = o.UpdatedAt
-	toSerialize["batchUUID"] = o.BatchUUID
+	if !IsNil(o.Next) {
+		toSerialize["next"] = o.Next
+	}
+	if !IsNil(o.UpdatedAt) {
+		toSerialize["updatedAt"] = o.UpdatedAt
+	}
+	if !IsNil(o.BatchUUID) {
+		toSerialize["batchUUID"] = o.BatchUUID
+	}
 	return toSerialize, nil
-}
-
-func (o *ViewerContractPublicErrorsCursorOutput) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"next",
-		"updatedAt",
-		"batchUUID",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varViewerContractPublicErrorsCursorOutput := _ViewerContractPublicErrorsCursorOutput{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varViewerContractPublicErrorsCursorOutput)
-
-	if err != nil {
-		return err
-	}
-
-	*o = ViewerContractPublicErrorsCursorOutput(varViewerContractPublicErrorsCursorOutput)
-
-	return err
 }
 
 type NullableViewerContractPublicErrorsCursorOutput struct {

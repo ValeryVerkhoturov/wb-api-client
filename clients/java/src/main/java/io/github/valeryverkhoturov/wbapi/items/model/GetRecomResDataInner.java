@@ -38,25 +38,25 @@ public class GetRecomResDataInner {
   public static final String SERIALIZED_NAME_NM_ID = "nmId";
 
   @SerializedName(SERIALIZED_NAME_NM_ID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer nmId;
 
   public static final String SERIALIZED_NAME_IMT_ID = "imtId";
 
   @SerializedName(SERIALIZED_NAME_IMT_ID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Long imtId;
 
   public static final String SERIALIZED_NAME_VENDOR_CODE = "vendorCode";
 
   @SerializedName(SERIALIZED_NAME_VENDOR_CODE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String vendorCode;
 
   public static final String SERIALIZED_NAME_BRAND_NAME = "brandName";
 
   @SerializedName(SERIALIZED_NAME_BRAND_NAME)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String brandName;
 
   public static final String SERIALIZED_NAME_UPDATED_AT = "updatedAt";
@@ -68,48 +68,48 @@ public class GetRecomResDataInner {
   public static final String SERIALIZED_NAME_PICS_COUNT = "picsCount";
 
   @SerializedName(SERIALIZED_NAME_PICS_COUNT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer picsCount;
 
   public static final String SERIALIZED_NAME_TITLE = "title";
 
   @SerializedName(SERIALIZED_NAME_TITLE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String title;
 
   public static final String SERIALIZED_NAME_SUBJECT_NAME = "subjectName";
 
   @SerializedName(SERIALIZED_NAME_SUBJECT_NAME)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String subjectName;
 
   public static final String SERIALIZED_NAME_PIC = "pic";
 
   @SerializedName(SERIALIZED_NAME_PIC)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String pic;
 
   public static final String SERIALIZED_NAME_RECOM_COUNT = "recomCount";
 
   @SerializedName(SERIALIZED_NAME_RECOM_COUNT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer recomCount;
 
   public static final String SERIALIZED_NAME_RECOM_PICS = "recomPics";
 
   @SerializedName(SERIALIZED_NAME_RECOM_PICS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private List<String> recomPics = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_RECOM_NMS = "recomNms";
 
   @SerializedName(SERIALIZED_NAME_RECOM_NMS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private List<Integer> recomNms = new ArrayList<>();
 
   public GetRecomResDataInner() {}
 
-  public GetRecomResDataInner nmId(@jakarta.annotation.Nonnull Integer nmId) {
+  public GetRecomResDataInner nmId(@jakarta.annotation.Nullable Integer nmId) {
     this.nmId = nmId;
     return this;
   }
@@ -119,16 +119,16 @@ public class GetRecomResDataInner {
    *
    * @return nmId
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getNmId() {
     return nmId;
   }
 
-  public void setNmId(@jakarta.annotation.Nonnull Integer nmId) {
+  public void setNmId(@jakarta.annotation.Nullable Integer nmId) {
     this.nmId = nmId;
   }
 
-  public GetRecomResDataInner imtId(@jakarta.annotation.Nonnull Long imtId) {
+  public GetRecomResDataInner imtId(@jakarta.annotation.Nullable Long imtId) {
     this.imtId = imtId;
     return this;
   }
@@ -140,16 +140,16 @@ public class GetRecomResDataInner {
    *
    * @return imtId
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Long getImtId() {
     return imtId;
   }
 
-  public void setImtId(@jakarta.annotation.Nonnull Long imtId) {
+  public void setImtId(@jakarta.annotation.Nullable Long imtId) {
     this.imtId = imtId;
   }
 
-  public GetRecomResDataInner vendorCode(@jakarta.annotation.Nonnull String vendorCode) {
+  public GetRecomResDataInner vendorCode(@jakarta.annotation.Nullable String vendorCode) {
     this.vendorCode = vendorCode;
     return this;
   }
@@ -159,16 +159,16 @@ public class GetRecomResDataInner {
    *
    * @return vendorCode
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getVendorCode() {
     return vendorCode;
   }
 
-  public void setVendorCode(@jakarta.annotation.Nonnull String vendorCode) {
+  public void setVendorCode(@jakarta.annotation.Nullable String vendorCode) {
     this.vendorCode = vendorCode;
   }
 
-  public GetRecomResDataInner brandName(@jakarta.annotation.Nonnull String brandName) {
+  public GetRecomResDataInner brandName(@jakarta.annotation.Nullable String brandName) {
     this.brandName = brandName;
     return this;
   }
@@ -178,12 +178,12 @@ public class GetRecomResDataInner {
    *
    * @return brandName
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getBrandName() {
     return brandName;
   }
 
-  public void setBrandName(@jakarta.annotation.Nonnull String brandName) {
+  public void setBrandName(@jakarta.annotation.Nullable String brandName) {
     this.brandName = brandName;
   }
 
@@ -206,7 +206,7 @@ public class GetRecomResDataInner {
     this.updatedAt = updatedAt;
   }
 
-  public GetRecomResDataInner picsCount(@jakarta.annotation.Nonnull Integer picsCount) {
+  public GetRecomResDataInner picsCount(@jakarta.annotation.Nullable Integer picsCount) {
     this.picsCount = picsCount;
     return this;
   }
@@ -216,16 +216,16 @@ public class GetRecomResDataInner {
    *
    * @return picsCount
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getPicsCount() {
     return picsCount;
   }
 
-  public void setPicsCount(@jakarta.annotation.Nonnull Integer picsCount) {
+  public void setPicsCount(@jakarta.annotation.Nullable Integer picsCount) {
     this.picsCount = picsCount;
   }
 
-  public GetRecomResDataInner title(@jakarta.annotation.Nonnull String title) {
+  public GetRecomResDataInner title(@jakarta.annotation.Nullable String title) {
     this.title = title;
     return this;
   }
@@ -235,16 +235,16 @@ public class GetRecomResDataInner {
    *
    * @return title
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getTitle() {
     return title;
   }
 
-  public void setTitle(@jakarta.annotation.Nonnull String title) {
+  public void setTitle(@jakarta.annotation.Nullable String title) {
     this.title = title;
   }
 
-  public GetRecomResDataInner subjectName(@jakarta.annotation.Nonnull String subjectName) {
+  public GetRecomResDataInner subjectName(@jakarta.annotation.Nullable String subjectName) {
     this.subjectName = subjectName;
     return this;
   }
@@ -254,16 +254,16 @@ public class GetRecomResDataInner {
    *
    * @return subjectName
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getSubjectName() {
     return subjectName;
   }
 
-  public void setSubjectName(@jakarta.annotation.Nonnull String subjectName) {
+  public void setSubjectName(@jakarta.annotation.Nullable String subjectName) {
     this.subjectName = subjectName;
   }
 
-  public GetRecomResDataInner pic(@jakarta.annotation.Nonnull String pic) {
+  public GetRecomResDataInner pic(@jakarta.annotation.Nullable String pic) {
     this.pic = pic;
     return this;
   }
@@ -273,16 +273,16 @@ public class GetRecomResDataInner {
    *
    * @return pic
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getPic() {
     return pic;
   }
 
-  public void setPic(@jakarta.annotation.Nonnull String pic) {
+  public void setPic(@jakarta.annotation.Nullable String pic) {
     this.pic = pic;
   }
 
-  public GetRecomResDataInner recomCount(@jakarta.annotation.Nonnull Integer recomCount) {
+  public GetRecomResDataInner recomCount(@jakarta.annotation.Nullable Integer recomCount) {
     this.recomCount = recomCount;
     return this;
   }
@@ -292,16 +292,16 @@ public class GetRecomResDataInner {
    *
    * @return recomCount
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getRecomCount() {
     return recomCount;
   }
 
-  public void setRecomCount(@jakarta.annotation.Nonnull Integer recomCount) {
+  public void setRecomCount(@jakarta.annotation.Nullable Integer recomCount) {
     this.recomCount = recomCount;
   }
 
-  public GetRecomResDataInner recomPics(@jakarta.annotation.Nonnull List<String> recomPics) {
+  public GetRecomResDataInner recomPics(@jakarta.annotation.Nullable List<String> recomPics) {
     this.recomPics = recomPics;
     return this;
   }
@@ -319,16 +319,16 @@ public class GetRecomResDataInner {
    *
    * @return recomPics
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public List<String> getRecomPics() {
     return recomPics;
   }
 
-  public void setRecomPics(@jakarta.annotation.Nonnull List<String> recomPics) {
+  public void setRecomPics(@jakarta.annotation.Nullable List<String> recomPics) {
     this.recomPics = recomPics;
   }
 
-  public GetRecomResDataInner recomNms(@jakarta.annotation.Nonnull List<Integer> recomNms) {
+  public GetRecomResDataInner recomNms(@jakarta.annotation.Nullable List<Integer> recomNms) {
     this.recomNms = recomNms;
     return this;
   }
@@ -346,12 +346,12 @@ public class GetRecomResDataInner {
    *
    * @return recomNms
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public List<Integer> getRecomNms() {
     return recomNms;
   }
 
-  public void setRecomNms(@jakarta.annotation.Nonnull List<Integer> recomNms) {
+  public void setRecomNms(@jakarta.annotation.Nullable List<Integer> recomNms) {
     this.recomNms = recomNms;
   }
 
@@ -446,17 +446,6 @@ public class GetRecomResDataInner {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("nmId");
-    openapiRequiredFields.add("imtId");
-    openapiRequiredFields.add("vendorCode");
-    openapiRequiredFields.add("brandName");
-    openapiRequiredFields.add("picsCount");
-    openapiRequiredFields.add("title");
-    openapiRequiredFields.add("subjectName");
-    openapiRequiredFields.add("pic");
-    openapiRequiredFields.add("recomCount");
-    openapiRequiredFields.add("recomPics");
-    openapiRequiredFields.add("recomNms");
   }
 
   /**
@@ -486,24 +475,16 @@ public class GetRecomResDataInner {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : GetRecomResDataInner.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    if (!jsonObj.get("vendorCode").isJsonPrimitive()) {
+    if ((jsonObj.get("vendorCode") != null && !jsonObj.get("vendorCode").isJsonNull())
+        && !jsonObj.get("vendorCode").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `vendorCode` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("vendorCode").toString()));
     }
-    if (!jsonObj.get("brandName").isJsonPrimitive()) {
+    if ((jsonObj.get("brandName") != null && !jsonObj.get("brandName").isJsonNull())
+        && !jsonObj.get("brandName").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `brandName` to be a primitive type in the JSON string but got `%s`",
@@ -516,39 +497,40 @@ public class GetRecomResDataInner {
               "Expected the field `updatedAt` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("updatedAt").toString()));
     }
-    if (!jsonObj.get("title").isJsonPrimitive()) {
+    if ((jsonObj.get("title") != null && !jsonObj.get("title").isJsonNull())
+        && !jsonObj.get("title").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `title` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("title").toString()));
     }
-    if (!jsonObj.get("subjectName").isJsonPrimitive()) {
+    if ((jsonObj.get("subjectName") != null && !jsonObj.get("subjectName").isJsonNull())
+        && !jsonObj.get("subjectName").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `subjectName` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("subjectName").toString()));
     }
-    if (!jsonObj.get("pic").isJsonPrimitive()) {
+    if ((jsonObj.get("pic") != null && !jsonObj.get("pic").isJsonNull())
+        && !jsonObj.get("pic").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `pic` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("pic").toString()));
     }
-    // ensure the required json array is present
-    if (jsonObj.get("recomPics") == null) {
-      throw new IllegalArgumentException(
-          "Expected the field `linkedContent` to be an array in the JSON string but got `null`");
-    } else if (!jsonObj.get("recomPics").isJsonArray()) {
+    // ensure the optional json data is an array if present
+    if (jsonObj.get("recomPics") != null
+        && !jsonObj.get("recomPics").isJsonNull()
+        && !jsonObj.get("recomPics").isJsonArray()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `recomPics` to be an array in the JSON string but got `%s`",
               jsonObj.get("recomPics").toString()));
     }
-    // ensure the required json array is present
-    if (jsonObj.get("recomNms") == null) {
-      throw new IllegalArgumentException(
-          "Expected the field `linkedContent` to be an array in the JSON string but got `null`");
-    } else if (!jsonObj.get("recomNms").isJsonArray()) {
+    // ensure the optional json data is an array if present
+    if (jsonObj.get("recomNms") != null
+        && !jsonObj.get("recomNms").isJsonNull()
+        && !jsonObj.get("recomNms").isJsonArray()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `recomNms` to be an array in the JSON string but got `%s`",

@@ -34,14 +34,9 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemStocks" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected ItemStocks() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ItemStocks" /> class.
-        /// </summary>
-        /// <param name="wb">Общее количество остатков на складах WB на текущий день, шт. (required).</param>
-        /// <param name="mp">Общее количество остатков на складах продавца на текущий день, шт. (required).</param>
-        /// <param name="balanceSum">Сумма остатков на складах на текущий день, шт. (required).</param>
+        /// <param name="wb">Общее количество остатков на складах WB на текущий день, шт..</param>
+        /// <param name="mp">Общее количество остатков на складах продавца на текущий день, шт..</param>
+        /// <param name="balanceSum">Сумма остатков на складах на текущий день, шт..</param>
         public ItemStocks(int wb = default(int), int mp = default(int), int balanceSum = default(int))
         {
             this.Wb = wb;
@@ -56,7 +51,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>0</example>
         */
-        [DataMember(Name = "wb", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "wb", EmitDefaultValue = false)]
         public int Wb { get; set; }
 
         /// <summary>
@@ -66,7 +61,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>0</example>
         */
-        [DataMember(Name = "mp", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "mp", EmitDefaultValue = false)]
         public int Mp { get; set; }
 
         /// <summary>
@@ -76,7 +71,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>0</example>
         */
-        [DataMember(Name = "balanceSum", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "balanceSum", EmitDefaultValue = false)]
         public int BalanceSum { get; set; }
 
         /// <summary>

@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,8 +28,8 @@ class NmReportRetryReportResponse(BaseModel):
     NmReportRetryReportResponse
     """  # noqa: E501
 
-    data: StrictStr = Field(
-        description="Уведомление, что началась повторная генерация отчёта"
+    data: Optional[StrictStr] = Field(
+        default=None, description="Уведомление, что началась повторная генерация отчёта"
     )
     __properties: ClassVar[List[str]] = ["data"]
 

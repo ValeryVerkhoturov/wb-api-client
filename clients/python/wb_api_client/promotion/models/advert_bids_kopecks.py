@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,8 +28,10 @@ class AdvertBidsKopecks(BaseModel):
     Ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
     """  # noqa: E501
 
-    search: StrictInt = Field(description="Ставка в поиске")
-    recommendations: StrictInt = Field(description="Ставка в рекомендациях")
+    search: Optional[StrictInt] = Field(default=None, description="Ставка в поиске")
+    recommendations: Optional[StrictInt] = Field(
+        default=None, description="Ставка в рекомендациях"
+    )
     __properties: ClassVar[List[str]] = ["search", "recommendations"]
 
     model_config = ConfigDict(

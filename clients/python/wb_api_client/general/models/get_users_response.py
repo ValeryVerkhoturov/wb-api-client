@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from wb_api_client.general.models.get_users_response_users_inner import (
     GetUsersResponseUsersInner,
 )
@@ -31,15 +31,17 @@ class GetUsersResponse(BaseModel):
     GetUsersResponse
     """  # noqa: E501
 
-    total: StrictInt = Field(
-        description="Общее количество активных или приглашённых пользователей"
+    total: Optional[StrictInt] = Field(
+        default=None,
+        description="Общее количество активных или приглашённых пользователей",
     )
-    count_in_response: StrictInt = Field(
+    count_in_response: Optional[StrictInt] = Field(
+        default=None,
         description="Количество активных или приглашённых пользователей на текущей странице",
         alias="countInResponse",
     )
-    users: List[GetUsersResponseUsersInner] = Field(
-        description="Информация о пользователях"
+    users: Optional[List[GetUsersResponseUsersInner]] = Field(
+        default=None, description="Информация о пользователях"
     )
     __properties: ClassVar[List[str]] = ["total", "countInResponse", "users"]
 

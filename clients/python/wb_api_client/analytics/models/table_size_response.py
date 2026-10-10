@@ -38,7 +38,7 @@ class TableSizeResponse(BaseModel):
     sizes: Optional[List[TableSizeResponseSizesInner]] = Field(
         default=None, description="Множество данных по размерам товара"
     )
-    currency: StrictStr = Field(description="Валюта отчёта")
+    currency: Optional[StrictStr] = Field(default=None, description="Валюта отчёта")
     __properties: ClassVar[List[str]] = ["offices", "sizes", "currency"]
 
     model_config = ConfigDict(

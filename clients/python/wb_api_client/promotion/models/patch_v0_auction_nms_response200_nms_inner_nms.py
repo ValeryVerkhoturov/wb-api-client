@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,8 +28,12 @@ class PatchV0AuctionNmsResponse200NmsInnerNms(BaseModel):
     Карточки товаров
     """  # noqa: E501
 
-    added: List[StrictInt] = Field(description="Добавленные карточки товаров")
-    deleted: List[StrictInt] = Field(description="Удалённые карточки товаров")
+    added: Optional[List[StrictInt]] = Field(
+        default=None, description="Добавленные карточки товаров"
+    )
+    deleted: Optional[List[StrictInt]] = Field(
+        default=None, description="Удалённые карточки товаров"
+    )
     __properties: ClassVar[List[str]] = ["added", "deleted"]
 
     model_config = ConfigDict(

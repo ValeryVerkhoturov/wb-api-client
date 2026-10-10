@@ -34,75 +34,45 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TableSizeResponseSizesInnerMetrics" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected TableSizeResponseSizesInnerMetrics() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="TableSizeResponseSizesInnerMetrics" /> class.
-        /// </summary>
-        /// <param name="ordersCount">Заказы, шт. (required).</param>
-        /// <param name="ordersSum">Заказы, сумма (required).</param>
-        /// <param name="avgOrders">Среднее количество заказов в день (required).</param>
-        /// <param name="avgOrdersByMonth">Среднее количество заказов по месяцам (required).</param>
-        /// <param name="buyoutCount">Выкупы, шт. (required).</param>
-        /// <param name="buyoutSum">Выкупы, сумма (required).</param>
-        /// <param name="buyoutPercent">Процент выкупа (required).</param>
-        /// <param name="stockCount">Остатки на текущий день, шт. (required).</param>
-        /// <param name="stockSum">Стоимость остатков на текущий день (required).</param>
-        /// <param name="saleRate">saleRate (required).</param>
-        /// <param name="avgStockTurnover">avgStockTurnover (required).</param>
-        /// <param name="toClientCount">В пути к клиенту, шт. (required).</param>
-        /// <param name="fromClientCount">В пути от клиента, шт. (required).</param>
-        /// <param name="officeMissingTime">officeMissingTime (required).</param>
-        /// <param name="lostOrdersCount">Упущенные заказы, шт. Особые случаи:   1. Значение меньше &#x60;0&#x60; и не равно &#x60;-2&#x60; — значение не рассчитано   2. Значение &#x60;-2&#x60; — нулевое значение  (required).</param>
-        /// <param name="lostOrdersSum">Упущенные заказы, сумма. Особые случаи:   1. Значение меньше &#x60;0&#x60; и не равно &#x60;-2&#x60; — значение не рассчитано   2. Значение &#x60;-2&#x60; — нулевое значение  (required).</param>
-        /// <param name="lostBuyoutsCount">Упущенные выкупы, шт. Особые случаи:   1. Значение меньше &#x60;0&#x60; и не равно &#x60;-2&#x60; — значение не рассчитано   2. Значение &#x60;-2&#x60; — нулевое значение  (required).</param>
-        /// <param name="lostBuyoutsSum">Упущенные выкупы, сумма. Особые случаи:   1. Значение меньше &#x60;0&#x60; и не равно &#x60;-2&#x60; — значение не рассчитано   2. Значение &#x60;-2&#x60; — нулевое значение  (required).</param>
-        /// <param name="currentPrice">currentPrice (required).</param>
+        /// <param name="ordersCount">Заказы, шт..</param>
+        /// <param name="ordersSum">Заказы, сумма.</param>
+        /// <param name="avgOrders">Среднее количество заказов в день.</param>
+        /// <param name="avgOrdersByMonth">Среднее количество заказов по месяцам.</param>
+        /// <param name="buyoutCount">Выкупы, шт..</param>
+        /// <param name="buyoutSum">Выкупы, сумма.</param>
+        /// <param name="buyoutPercent">Процент выкупа.</param>
+        /// <param name="stockCount">Остатки на текущий день, шт..</param>
+        /// <param name="stockSum">Стоимость остатков на текущий день.</param>
+        /// <param name="saleRate">saleRate.</param>
+        /// <param name="avgStockTurnover">avgStockTurnover.</param>
+        /// <param name="toClientCount">В пути к клиенту, шт..</param>
+        /// <param name="fromClientCount">В пути от клиента, шт..</param>
+        /// <param name="officeMissingTime">officeMissingTime.</param>
+        /// <param name="lostOrdersCount">Упущенные заказы, шт. Особые случаи:   1. Значение меньше &#x60;0&#x60; и не равно &#x60;-2&#x60; — значение не рассчитано   2. Значение &#x60;-2&#x60; — нулевое значение .</param>
+        /// <param name="lostOrdersSum">Упущенные заказы, сумма. Особые случаи:   1. Значение меньше &#x60;0&#x60; и не равно &#x60;-2&#x60; — значение не рассчитано   2. Значение &#x60;-2&#x60; — нулевое значение .</param>
+        /// <param name="lostBuyoutsCount">Упущенные выкупы, шт. Особые случаи:   1. Значение меньше &#x60;0&#x60; и не равно &#x60;-2&#x60; — значение не рассчитано   2. Значение &#x60;-2&#x60; — нулевое значение .</param>
+        /// <param name="lostBuyoutsSum">Упущенные выкупы, сумма. Особые случаи:   1. Значение меньше &#x60;0&#x60; и не равно &#x60;-2&#x60; — значение не рассчитано   2. Значение &#x60;-2&#x60; — нулевое значение .</param>
+        /// <param name="currentPrice">currentPrice.</param>
         public TableSizeResponseSizesInnerMetrics(int ordersCount = default(int), int ordersSum = default(int), decimal avgOrders = default(decimal), List<FloatGraphByPeriodItem> avgOrdersByMonth = default(List<FloatGraphByPeriodItem>), int buyoutCount = default(int), int buyoutSum = default(int), int buyoutPercent = default(int), int stockCount = default(int), int stockSum = default(int), TableCommonMetricsSaleRate saleRate = default(TableCommonMetricsSaleRate), TableCommonMetricsAvgStockTurnover avgStockTurnover = default(TableCommonMetricsAvgStockTurnover), int toClientCount = default(int), int fromClientCount = default(int), TableCommonMetricsOfficeMissingTime officeMissingTime = default(TableCommonMetricsOfficeMissingTime), decimal lostOrdersCount = default(decimal), decimal lostOrdersSum = default(decimal), decimal lostBuyoutsCount = default(decimal), decimal lostBuyoutsSum = default(decimal), TableItemItemStMetricsAllOfCurrentPrice currentPrice = default(TableItemItemStMetricsAllOfCurrentPrice))
         {
             this.OrdersCount = ordersCount;
             this.OrdersSum = ordersSum;
             this.AvgOrders = avgOrders;
-            // to ensure "avgOrdersByMonth" is required (not null)
-            if (avgOrdersByMonth == null)
-            {
-                throw new ArgumentNullException("avgOrdersByMonth is a required property for TableSizeResponseSizesInnerMetrics and cannot be null");
-            }
             this.AvgOrdersByMonth = avgOrdersByMonth;
             this.BuyoutCount = buyoutCount;
             this.BuyoutSum = buyoutSum;
             this.BuyoutPercent = buyoutPercent;
             this.StockCount = stockCount;
             this.StockSum = stockSum;
-            // to ensure "saleRate" is required (not null)
-            if (saleRate == null)
-            {
-                throw new ArgumentNullException("saleRate is a required property for TableSizeResponseSizesInnerMetrics and cannot be null");
-            }
             this.SaleRate = saleRate;
-            // to ensure "avgStockTurnover" is required (not null)
-            if (avgStockTurnover == null)
-            {
-                throw new ArgumentNullException("avgStockTurnover is a required property for TableSizeResponseSizesInnerMetrics and cannot be null");
-            }
             this.AvgStockTurnover = avgStockTurnover;
             this.ToClientCount = toClientCount;
             this.FromClientCount = fromClientCount;
-            // to ensure "officeMissingTime" is required (not null)
-            if (officeMissingTime == null)
-            {
-                throw new ArgumentNullException("officeMissingTime is a required property for TableSizeResponseSizesInnerMetrics and cannot be null");
-            }
             this.OfficeMissingTime = officeMissingTime;
             this.LostOrdersCount = lostOrdersCount;
             this.LostOrdersSum = lostOrdersSum;
             this.LostBuyoutsCount = lostBuyoutsCount;
             this.LostBuyoutsSum = lostBuyoutsSum;
-            // to ensure "currentPrice" is required (not null)
-            if (currentPrice == null)
-            {
-                throw new ArgumentNullException("currentPrice is a required property for TableSizeResponseSizesInnerMetrics and cannot be null");
-            }
             this.CurrentPrice = currentPrice;
         }
 
@@ -113,7 +83,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>100</example>
         */
-        [DataMember(Name = "ordersCount", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "ordersCount", EmitDefaultValue = false)]
         public int OrdersCount { get; set; }
 
         /// <summary>
@@ -123,7 +93,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>100000</example>
         */
-        [DataMember(Name = "ordersSum", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "ordersSum", EmitDefaultValue = false)]
         public int OrdersSum { get; set; }
 
         /// <summary>
@@ -133,14 +103,14 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>200</example>
         */
-        [DataMember(Name = "avgOrders", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "avgOrders", EmitDefaultValue = false)]
         public decimal AvgOrders { get; set; }
 
         /// <summary>
         /// Среднее количество заказов по месяцам
         /// </summary>
         /// <value>Среднее количество заказов по месяцам</value>
-        [DataMember(Name = "avgOrdersByMonth", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "avgOrdersByMonth", EmitDefaultValue = false)]
         public List<FloatGraphByPeriodItem> AvgOrdersByMonth { get; set; }
 
         /// <summary>
@@ -150,7 +120,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>150</example>
         */
-        [DataMember(Name = "buyoutCount", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "buyoutCount", EmitDefaultValue = false)]
         public int BuyoutCount { get; set; }
 
         /// <summary>
@@ -160,7 +130,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>150000</example>
         */
-        [DataMember(Name = "buyoutSum", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "buyoutSum", EmitDefaultValue = false)]
         public int BuyoutSum { get; set; }
 
         /// <summary>
@@ -170,7 +140,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>5</example>
         */
-        [DataMember(Name = "buyoutPercent", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "buyoutPercent", EmitDefaultValue = false)]
         public int BuyoutPercent { get; set; }
 
         /// <summary>
@@ -180,7 +150,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>50</example>
         */
-        [DataMember(Name = "stockCount", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "stockCount", EmitDefaultValue = false)]
         public int StockCount { get; set; }
 
         /// <summary>
@@ -190,19 +160,19 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>50000</example>
         */
-        [DataMember(Name = "stockSum", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "stockSum", EmitDefaultValue = false)]
         public int StockSum { get; set; }
 
         /// <summary>
         /// Gets or Sets SaleRate
         /// </summary>
-        [DataMember(Name = "saleRate", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "saleRate", EmitDefaultValue = false)]
         public TableCommonMetricsSaleRate SaleRate { get; set; }
 
         /// <summary>
         /// Gets or Sets AvgStockTurnover
         /// </summary>
-        [DataMember(Name = "avgStockTurnover", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "avgStockTurnover", EmitDefaultValue = false)]
         public TableCommonMetricsAvgStockTurnover AvgStockTurnover { get; set; }
 
         /// <summary>
@@ -212,7 +182,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>20</example>
         */
-        [DataMember(Name = "toClientCount", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "toClientCount", EmitDefaultValue = false)]
         public int ToClientCount { get; set; }
 
         /// <summary>
@@ -222,13 +192,13 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>30</example>
         */
-        [DataMember(Name = "fromClientCount", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "fromClientCount", EmitDefaultValue = false)]
         public int FromClientCount { get; set; }
 
         /// <summary>
         /// Gets or Sets OfficeMissingTime
         /// </summary>
-        [DataMember(Name = "officeMissingTime", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "officeMissingTime", EmitDefaultValue = false)]
         public TableCommonMetricsOfficeMissingTime OfficeMissingTime { get; set; }
 
         /// <summary>
@@ -238,7 +208,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>1550.52</example>
         */
-        [DataMember(Name = "lostOrdersCount", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "lostOrdersCount", EmitDefaultValue = false)]
         public decimal LostOrdersCount { get; set; }
 
         /// <summary>
@@ -248,7 +218,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>155000.25</example>
         */
-        [DataMember(Name = "lostOrdersSum", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "lostOrdersSum", EmitDefaultValue = false)]
         public decimal LostOrdersSum { get; set; }
 
         /// <summary>
@@ -258,7 +228,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>123.55</example>
         */
-        [DataMember(Name = "lostBuyoutsCount", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "lostBuyoutsCount", EmitDefaultValue = false)]
         public decimal LostBuyoutsCount { get; set; }
 
         /// <summary>
@@ -268,13 +238,13 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>225555.15</example>
         */
-        [DataMember(Name = "lostBuyoutsSum", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "lostBuyoutsSum", EmitDefaultValue = false)]
         public decimal LostBuyoutsSum { get; set; }
 
         /// <summary>
         /// Gets or Sets CurrentPrice
         /// </summary>
-        [DataMember(Name = "currentPrice", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "currentPrice", EmitDefaultValue = false)]
         public TableItemItemStMetricsAllOfCurrentPrice CurrentPrice { get; set; }
 
         /// <summary>

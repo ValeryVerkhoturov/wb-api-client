@@ -11,9 +11,7 @@ API version: communication
 package communications
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the OpenapiPinReviewItemResultDataInner type satisfies the MappedNullable interface at compile time
@@ -22,31 +20,25 @@ var _ MappedNullable = &OpenapiPinReviewItemResultDataInner{}
 // OpenapiPinReviewItemResultDataInner struct for OpenapiPinReviewItemResultDataInner
 type OpenapiPinReviewItemResultDataInner struct {
 	// ID отзыва
-	FeedbackId string `json:"feedbackId"`
+	FeedbackId *string `json:"feedbackId,omitempty"`
 	// ID операции закрепления. Если поле отсутствует — закрепить отзыв не удалось
 	PinId *int32 `json:"pinId,omitempty"`
 	// Метод закрепления:   - `subscription` — подписка Джем   - `tariff` — тарифная опция
-	PinMethod string `json:"pinMethod"`
+	PinMethod *string `json:"pinMethod,omitempty"`
 	// Место закрепления отзыва:   - `nm` — карточка товара   - `imt` — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров
-	PinOn string `json:"pinOn"`
+	PinOn *string `json:"pinOn,omitempty"`
 	// Есть ли ошибки
-	IsErrors bool `json:"isErrors"`
+	IsErrors *bool `json:"isErrors,omitempty"`
 	// Детали ошибок
 	Errors []OpenapiResultErr `json:"errors,omitempty"`
 }
-
-type _OpenapiPinReviewItemResultDataInner OpenapiPinReviewItemResultDataInner
 
 // NewOpenapiPinReviewItemResultDataInner instantiates a new OpenapiPinReviewItemResultDataInner object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewOpenapiPinReviewItemResultDataInner(feedbackId string, pinMethod string, pinOn string, isErrors bool) *OpenapiPinReviewItemResultDataInner {
+func NewOpenapiPinReviewItemResultDataInner() *OpenapiPinReviewItemResultDataInner {
 	this := OpenapiPinReviewItemResultDataInner{}
-	this.FeedbackId = feedbackId
-	this.PinMethod = pinMethod
-	this.PinOn = pinOn
-	this.IsErrors = isErrors
 	return &this
 }
 
@@ -58,28 +50,36 @@ func NewOpenapiPinReviewItemResultDataInnerWithDefaults() *OpenapiPinReviewItemR
 	return &this
 }
 
-// GetFeedbackId returns the FeedbackId field value
+// GetFeedbackId returns the FeedbackId field value if set, zero value otherwise.
 func (o *OpenapiPinReviewItemResultDataInner) GetFeedbackId() string {
-	if o == nil {
+	if o == nil || IsNil(o.FeedbackId) {
 		var ret string
 		return ret
 	}
-
-	return o.FeedbackId
+	return *o.FeedbackId
 }
 
-// GetFeedbackIdOk returns a tuple with the FeedbackId field value
+// GetFeedbackIdOk returns a tuple with the FeedbackId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *OpenapiPinReviewItemResultDataInner) GetFeedbackIdOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.FeedbackId) {
 		return nil, false
 	}
-	return &o.FeedbackId, true
+	return o.FeedbackId, true
 }
 
-// SetFeedbackId sets field value
+// HasFeedbackId returns a boolean if a field has been set.
+func (o *OpenapiPinReviewItemResultDataInner) HasFeedbackId() bool {
+	if o != nil && !IsNil(o.FeedbackId) {
+		return true
+	}
+
+	return false
+}
+
+// SetFeedbackId gets a reference to the given string and assigns it to the FeedbackId field.
 func (o *OpenapiPinReviewItemResultDataInner) SetFeedbackId(v string) {
-	o.FeedbackId = v
+	o.FeedbackId = &v
 }
 
 // GetPinId returns the PinId field value if set, zero value otherwise.
@@ -114,76 +114,100 @@ func (o *OpenapiPinReviewItemResultDataInner) SetPinId(v int32) {
 	o.PinId = &v
 }
 
-// GetPinMethod returns the PinMethod field value
+// GetPinMethod returns the PinMethod field value if set, zero value otherwise.
 func (o *OpenapiPinReviewItemResultDataInner) GetPinMethod() string {
-	if o == nil {
+	if o == nil || IsNil(o.PinMethod) {
 		var ret string
 		return ret
 	}
-
-	return o.PinMethod
+	return *o.PinMethod
 }
 
-// GetPinMethodOk returns a tuple with the PinMethod field value
+// GetPinMethodOk returns a tuple with the PinMethod field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *OpenapiPinReviewItemResultDataInner) GetPinMethodOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.PinMethod) {
 		return nil, false
 	}
-	return &o.PinMethod, true
+	return o.PinMethod, true
 }
 
-// SetPinMethod sets field value
+// HasPinMethod returns a boolean if a field has been set.
+func (o *OpenapiPinReviewItemResultDataInner) HasPinMethod() bool {
+	if o != nil && !IsNil(o.PinMethod) {
+		return true
+	}
+
+	return false
+}
+
+// SetPinMethod gets a reference to the given string and assigns it to the PinMethod field.
 func (o *OpenapiPinReviewItemResultDataInner) SetPinMethod(v string) {
-	o.PinMethod = v
+	o.PinMethod = &v
 }
 
-// GetPinOn returns the PinOn field value
+// GetPinOn returns the PinOn field value if set, zero value otherwise.
 func (o *OpenapiPinReviewItemResultDataInner) GetPinOn() string {
-	if o == nil {
+	if o == nil || IsNil(o.PinOn) {
 		var ret string
 		return ret
 	}
-
-	return o.PinOn
+	return *o.PinOn
 }
 
-// GetPinOnOk returns a tuple with the PinOn field value
+// GetPinOnOk returns a tuple with the PinOn field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *OpenapiPinReviewItemResultDataInner) GetPinOnOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.PinOn) {
 		return nil, false
 	}
-	return &o.PinOn, true
+	return o.PinOn, true
 }
 
-// SetPinOn sets field value
+// HasPinOn returns a boolean if a field has been set.
+func (o *OpenapiPinReviewItemResultDataInner) HasPinOn() bool {
+	if o != nil && !IsNil(o.PinOn) {
+		return true
+	}
+
+	return false
+}
+
+// SetPinOn gets a reference to the given string and assigns it to the PinOn field.
 func (o *OpenapiPinReviewItemResultDataInner) SetPinOn(v string) {
-	o.PinOn = v
+	o.PinOn = &v
 }
 
-// GetIsErrors returns the IsErrors field value
+// GetIsErrors returns the IsErrors field value if set, zero value otherwise.
 func (o *OpenapiPinReviewItemResultDataInner) GetIsErrors() bool {
-	if o == nil {
+	if o == nil || IsNil(o.IsErrors) {
 		var ret bool
 		return ret
 	}
-
-	return o.IsErrors
+	return *o.IsErrors
 }
 
-// GetIsErrorsOk returns a tuple with the IsErrors field value
+// GetIsErrorsOk returns a tuple with the IsErrors field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *OpenapiPinReviewItemResultDataInner) GetIsErrorsOk() (*bool, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.IsErrors) {
 		return nil, false
 	}
-	return &o.IsErrors, true
+	return o.IsErrors, true
 }
 
-// SetIsErrors sets field value
+// HasIsErrors returns a boolean if a field has been set.
+func (o *OpenapiPinReviewItemResultDataInner) HasIsErrors() bool {
+	if o != nil && !IsNil(o.IsErrors) {
+		return true
+	}
+
+	return false
+}
+
+// SetIsErrors gets a reference to the given bool and assigns it to the IsErrors field.
 func (o *OpenapiPinReviewItemResultDataInner) SetIsErrors(v bool) {
-	o.IsErrors = v
+	o.IsErrors = &v
 }
 
 // GetErrors returns the Errors field value if set, zero value otherwise.
@@ -228,57 +252,25 @@ func (o OpenapiPinReviewItemResultDataInner) MarshalJSON() ([]byte, error) {
 
 func (o OpenapiPinReviewItemResultDataInner) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["feedbackId"] = o.FeedbackId
+	if !IsNil(o.FeedbackId) {
+		toSerialize["feedbackId"] = o.FeedbackId
+	}
 	if !IsNil(o.PinId) {
 		toSerialize["pinId"] = o.PinId
 	}
-	toSerialize["pinMethod"] = o.PinMethod
-	toSerialize["pinOn"] = o.PinOn
-	toSerialize["isErrors"] = o.IsErrors
+	if !IsNil(o.PinMethod) {
+		toSerialize["pinMethod"] = o.PinMethod
+	}
+	if !IsNil(o.PinOn) {
+		toSerialize["pinOn"] = o.PinOn
+	}
+	if !IsNil(o.IsErrors) {
+		toSerialize["isErrors"] = o.IsErrors
+	}
 	if !IsNil(o.Errors) {
 		toSerialize["errors"] = o.Errors
 	}
 	return toSerialize, nil
-}
-
-func (o *OpenapiPinReviewItemResultDataInner) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"feedbackId",
-		"pinMethod",
-		"pinOn",
-		"isErrors",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varOpenapiPinReviewItemResultDataInner := _OpenapiPinReviewItemResultDataInner{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varOpenapiPinReviewItemResultDataInner)
-
-	if err != nil {
-		return err
-	}
-
-	*o = OpenapiPinReviewItemResultDataInner(varOpenapiPinReviewItemResultDataInner)
-
-	return err
 }
 
 type NullableOpenapiPinReviewItemResultDataInner struct {

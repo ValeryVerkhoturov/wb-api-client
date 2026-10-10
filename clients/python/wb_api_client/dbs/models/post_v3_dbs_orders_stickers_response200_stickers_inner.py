@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,12 +28,20 @@ class PostV3DbsOrdersStickersResponse200StickersInner(BaseModel):
     PostV3DbsOrdersStickersResponse200StickersInner
     """  # noqa: E501
 
-    order_id: StrictInt = Field(description="ID сборочного задания", alias="orderId")
-    part_a: StrictStr = Field(description="Первая часть ID стикера", alias="partA")
-    part_b: StrictStr = Field(description="Вторая часть ID стикера", alias="partB")
-    barcode: StrictStr = Field(description="Закодированное значение стикера")
-    file: StrictStr = Field(
-        description="Полное представление стикера, кодировка base64"
+    order_id: Optional[StrictInt] = Field(
+        default=None, description="ID сборочного задания", alias="orderId"
+    )
+    part_a: Optional[StrictStr] = Field(
+        default=None, description="Первая часть ID стикера", alias="partA"
+    )
+    part_b: Optional[StrictStr] = Field(
+        default=None, description="Вторая часть ID стикера", alias="partB"
+    )
+    barcode: Optional[StrictStr] = Field(
+        default=None, description="Закодированное значение стикера"
+    )
+    file: Optional[StrictStr] = Field(
+        default=None, description="Полное представление стикера, кодировка base64"
     )
     __properties: ClassVar[List[str]] = ["orderId", "partA", "partB", "barcode", "file"]
 

@@ -34,72 +34,32 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GetRecomResDataInner" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected GetRecomResDataInner() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="GetRecomResDataInner" /> class.
-        /// </summary>
-        /// <param name="nmId">Артикул WB (required).</param>
-        /// <param name="imtId">ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров (required).</param>
-        /// <param name="vendorCode">Артикул продавца (required).</param>
-        /// <param name="brandName">Бренд (required).</param>
+        /// <param name="nmId">Артикул WB.</param>
+        /// <param name="imtId">ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров.</param>
+        /// <param name="vendorCode">Артикул продавца.</param>
+        /// <param name="brandName">Бренд.</param>
         /// <param name="updatedAt">Дата и время последнего обновления рекомендаций.</param>
-        /// <param name="picsCount">Количество изображений в карточке товара (required).</param>
-        /// <param name="title">Название товара (required).</param>
-        /// <param name="subjectName">Предмет (required).</param>
-        /// <param name="pic">URL основного изображения в карточке товара (required).</param>
-        /// <param name="recomCount">Количество рекомендуемых товаров (required).</param>
-        /// <param name="recomPics">Список URL основных изображений рекомендуемых товаров (required).</param>
-        /// <param name="recomNms">Список &#x60;nmId&#x60; рекомендуемых товаров (required).</param>
+        /// <param name="picsCount">Количество изображений в карточке товара.</param>
+        /// <param name="title">Название товара.</param>
+        /// <param name="subjectName">Предмет.</param>
+        /// <param name="pic">URL основного изображения в карточке товара.</param>
+        /// <param name="recomCount">Количество рекомендуемых товаров.</param>
+        /// <param name="recomPics">Список URL основных изображений рекомендуемых товаров.</param>
+        /// <param name="recomNms">Список &#x60;nmId&#x60; рекомендуемых товаров.</param>
         public GetRecomResDataInner(int nmId = default(int), long imtId = default(long), string vendorCode = default(string), string brandName = default(string), string updatedAt = default(string), int picsCount = default(int), string title = default(string), string subjectName = default(string), string pic = default(string), int recomCount = default(int), List<string> recomPics = default(List<string>), List<int> recomNms = default(List<int>))
         {
             this.NmId = nmId;
             this.ImtId = imtId;
-            // to ensure "vendorCode" is required (not null)
-            if (vendorCode == null)
-            {
-                throw new ArgumentNullException("vendorCode is a required property for GetRecomResDataInner and cannot be null");
-            }
             this.VendorCode = vendorCode;
-            // to ensure "brandName" is required (not null)
-            if (brandName == null)
-            {
-                throw new ArgumentNullException("brandName is a required property for GetRecomResDataInner and cannot be null");
-            }
             this.BrandName = brandName;
+            this.UpdatedAt = updatedAt;
             this.PicsCount = picsCount;
-            // to ensure "title" is required (not null)
-            if (title == null)
-            {
-                throw new ArgumentNullException("title is a required property for GetRecomResDataInner and cannot be null");
-            }
             this.Title = title;
-            // to ensure "subjectName" is required (not null)
-            if (subjectName == null)
-            {
-                throw new ArgumentNullException("subjectName is a required property for GetRecomResDataInner and cannot be null");
-            }
             this.SubjectName = subjectName;
-            // to ensure "pic" is required (not null)
-            if (pic == null)
-            {
-                throw new ArgumentNullException("pic is a required property for GetRecomResDataInner and cannot be null");
-            }
             this.Pic = pic;
             this.RecomCount = recomCount;
-            // to ensure "recomPics" is required (not null)
-            if (recomPics == null)
-            {
-                throw new ArgumentNullException("recomPics is a required property for GetRecomResDataInner and cannot be null");
-            }
             this.RecomPics = recomPics;
-            // to ensure "recomNms" is required (not null)
-            if (recomNms == null)
-            {
-                throw new ArgumentNullException("recomNms is a required property for GetRecomResDataInner and cannot be null");
-            }
             this.RecomNms = recomNms;
-            this.UpdatedAt = updatedAt;
         }
 
         /// <summary>
@@ -109,7 +69,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /*
         <example>5870243</example>
         */
-        [DataMember(Name = "nmId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "nmId", EmitDefaultValue = false)]
         public int NmId { get; set; }
 
         /// <summary>
@@ -119,7 +79,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /*
         <example>619043112</example>
         */
-        [DataMember(Name = "imtId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "imtId", EmitDefaultValue = false)]
         public long ImtId { get; set; }
 
         /// <summary>
@@ -129,7 +89,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /*
         <example>41058/transparent</example>
         */
-        [DataMember(Name = "vendorCode", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "vendorCode", EmitDefaultValue = false)]
         public string VendorCode { get; set; }
 
         /// <summary>
@@ -139,7 +99,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /*
         <example>Comma</example>
         */
-        [DataMember(Name = "brandName", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "brandName", EmitDefaultValue = false)]
         public string BrandName { get; set; }
 
         /// <summary>
@@ -159,7 +119,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /*
         <example>4</example>
         */
-        [DataMember(Name = "picsCount", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "picsCount", EmitDefaultValue = false)]
         public int PicsCount { get; set; }
 
         /// <summary>
@@ -169,7 +129,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /*
         <example>Transparent phone case</example>
         */
-        [DataMember(Name = "title", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "title", EmitDefaultValue = false)]
         public string Title { get; set; }
 
         /// <summary>
@@ -179,7 +139,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /*
         <example>Phone cases</example>
         */
-        [DataMember(Name = "subjectName", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "subjectName", EmitDefaultValue = false)]
         public string SubjectName { get; set; }
 
         /// <summary>
@@ -189,7 +149,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /*
         <example>https://basket-01.wbbasket.ru/vol58/part5870/5870243/images/c516x688/1.webp</example>
         */
-        [DataMember(Name = "pic", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "pic", EmitDefaultValue = false)]
         public string Pic { get; set; }
 
         /// <summary>
@@ -199,7 +159,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /*
         <example>2</example>
         */
-        [DataMember(Name = "recomCount", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "recomCount", EmitDefaultValue = false)]
         public int RecomCount { get; set; }
 
         /// <summary>
@@ -209,7 +169,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /*
         <example>[&quot;https://basket-02.wbbasket.ru/vol174/part17405/17405826/images/tm/1.webp&quot;,&quot;https://basket-02.wbbasket.ru/vol174/part17420/17420062/images/tm/1.webp&quot;]</example>
         */
-        [DataMember(Name = "recomPics", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "recomPics", EmitDefaultValue = false)]
         public List<string> RecomPics { get; set; }
 
         /// <summary>
@@ -219,7 +179,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /*
         <example>[17405826,17420062]</example>
         */
-        [DataMember(Name = "recomNms", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "recomNms", EmitDefaultValue = false)]
         public List<int> RecomNms { get; set; }
 
         /// <summary>

@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,17 +28,22 @@ class NmReportGetReportsResponseDataInner(BaseModel):
     NmReportGetReportsResponseDataInner
     """  # noqa: E501
 
-    id: StrictStr = Field(description="ID отчёта")
-    created_at: StrictStr = Field(
-        description="Дата и время завершения генерации", alias="createdAt"
+    id: Optional[StrictStr] = Field(default=None, description="ID отчёта")
+    created_at: Optional[StrictStr] = Field(
+        default=None, description="Дата и время завершения генерации", alias="createdAt"
     )
-    status: StrictStr = Field(
-        description="Статус отчёта:  * `WAITING` — в очереди на обработку * `PROCESSING` — генерируется * `SUCCESS —` готов * `RETRY` — ожидает повторной обработки * `FAILED` — не получилось сгенерировать, сгенерируйте повторно "
+    status: Optional[StrictStr] = Field(
+        default=None,
+        description="Статус отчёта:  * `WAITING` — в очереди на обработку * `PROCESSING` — генерируется * `SUCCESS —` готов * `RETRY` — ожидает повторной обработки * `FAILED` — не получилось сгенерировать, сгенерируйте повторно ",
     )
-    name: StrictStr = Field(description="Название отчёта")
-    size: StrictInt = Field(description="Размер отчёта, Б")
-    start_date: StrictStr = Field(description="Начало периода", alias="startDate")
-    end_date: StrictStr = Field(description="Конец периода", alias="endDate")
+    name: Optional[StrictStr] = Field(default=None, description="Название отчёта")
+    size: Optional[StrictInt] = Field(default=None, description="Размер отчёта, Б")
+    start_date: Optional[StrictStr] = Field(
+        default=None, description="Начало периода", alias="startDate"
+    )
+    end_date: Optional[StrictStr] = Field(
+        default=None, description="Конец периода", alias="endDate"
+    )
     __properties: ClassVar[List[str]] = [
         "id",
         "createdAt",

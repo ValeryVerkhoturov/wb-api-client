@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,8 +28,8 @@ class CountriesOKSMListCountriesInner(BaseModel):
     CountriesOKSMListCountriesInner
     """  # noqa: E501
 
-    code: StrictStr = Field(description="Код страны")
-    name: StrictStr = Field(description="Название страны")
+    code: Optional[StrictStr] = Field(default=None, description="Код страны")
+    name: Optional[StrictStr] = Field(default=None, description="Название страны")
     __properties: ClassVar[List[str]] = ["code", "name"]
 
     model_config = ConfigDict(

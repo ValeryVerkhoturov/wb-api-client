@@ -29,11 +29,13 @@ class ApiBatchError(BaseModel):
     """  # noqa: E501
 
     detail: Optional[Dict[str, Any]] = Field(default=None, description="Детали ошибки")
-    origin: StrictStr = Field(description="ID внутреннего сервиса WB")
-    request_id: StrictStr = Field(
-        description="Уникальный ID запроса", alias="requestId"
+    origin: Optional[StrictStr] = Field(
+        default=None, description="ID внутреннего сервиса WB"
     )
-    title: StrictStr = Field(description="Заголовок ошибки")
+    request_id: Optional[StrictStr] = Field(
+        default=None, description="Уникальный ID запроса", alias="requestId"
+    )
+    title: Optional[StrictStr] = Field(default=None, description="Заголовок ошибки")
     __properties: ClassVar[List[str]] = ["detail", "origin", "requestId", "title"]
 
     model_config = ConfigDict(

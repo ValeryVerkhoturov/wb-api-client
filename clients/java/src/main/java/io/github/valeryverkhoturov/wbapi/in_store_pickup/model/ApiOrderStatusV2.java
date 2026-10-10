@@ -45,7 +45,7 @@ public class ApiOrderStatusV2 {
   public static final String SERIALIZED_NAME_ORDER_ID = "orderId";
 
   @SerializedName(SERIALIZED_NAME_ORDER_ID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer orderId;
 
   public static final String SERIALIZED_NAME_SUPPLIER_STATUS = "supplierStatus";
@@ -89,7 +89,7 @@ public class ApiOrderStatusV2 {
     this.errors = errors;
   }
 
-  public ApiOrderStatusV2 orderId(@jakarta.annotation.Nonnull Integer orderId) {
+  public ApiOrderStatusV2 orderId(@jakarta.annotation.Nullable Integer orderId) {
     this.orderId = orderId;
     return this;
   }
@@ -99,12 +99,12 @@ public class ApiOrderStatusV2 {
    *
    * @return orderId
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getOrderId() {
     return orderId;
   }
 
-  public void setOrderId(@jakarta.annotation.Nonnull Integer orderId) {
+  public void setOrderId(@jakarta.annotation.Nullable Integer orderId) {
     this.orderId = orderId;
   }
 
@@ -201,7 +201,6 @@ public class ApiOrderStatusV2 {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("orderId");
   }
 
   /**
@@ -229,16 +228,6 @@ public class ApiOrderStatusV2 {
             String.format(
                 "The field `%s` in the JSON string is not defined in the `ApiOrderStatusV2` properties. JSON: %s",
                 entry.getKey(), jsonElement.toString()));
-      }
-    }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : ApiOrderStatusV2.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
       }
     }
     JsonObject jsonObj = jsonElement.getAsJsonObject();

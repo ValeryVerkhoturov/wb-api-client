@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,12 +28,14 @@ class PatchV1BidsResponse200BidsInnerNmBidsInner(BaseModel):
     PatchV1BidsResponse200BidsInnerNmBidsInner
     """  # noqa: E501
 
-    nm_id: StrictInt = Field(description="Артикул WB")
-    bid_kopecks: StrictInt = Field(
-        description="Ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)"
+    nm_id: Optional[StrictInt] = Field(default=None, description="Артикул WB")
+    bid_kopecks: Optional[StrictInt] = Field(
+        default=None,
+        description="Ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)",
     )
-    placement: StrictStr = Field(
-        description="Место размещения:   - `search` — в поиске   - `recommendations`— в рекомендациях "
+    placement: Optional[StrictStr] = Field(
+        default=None,
+        description="Место размещения:   - `search` — в поиске   - `recommendations`— в рекомендациях ",
     )
     __properties: ClassVar[List[str]] = ["nm_id", "bid_kopecks", "placement"]
 

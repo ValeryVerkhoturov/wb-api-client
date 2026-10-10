@@ -39,13 +39,13 @@ public class SupplySpotDataResponse {
   public static final String SERIALIZED_NAME_SUPPLIES = "supplies";
 
   @SerializedName(SERIALIZED_NAME_SUPPLIES)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private List<SupplySpotDataResponseSuppliesInner> supplies = new ArrayList<>();
 
   public SupplySpotDataResponse() {}
 
   public SupplySpotDataResponse supplies(
-      @jakarta.annotation.Nonnull List<SupplySpotDataResponseSuppliesInner> supplies) {
+      @jakarta.annotation.Nullable List<SupplySpotDataResponseSuppliesInner> supplies) {
     this.supplies = supplies;
     return this;
   }
@@ -63,13 +63,13 @@ public class SupplySpotDataResponse {
    *
    * @return supplies
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public List<SupplySpotDataResponseSuppliesInner> getSupplies() {
     return supplies;
   }
 
   public void setSupplies(
-      @jakarta.annotation.Nonnull List<SupplySpotDataResponseSuppliesInner> supplies) {
+      @jakarta.annotation.Nullable List<SupplySpotDataResponseSuppliesInner> supplies) {
     this.supplies = supplies;
   }
 
@@ -119,7 +119,6 @@ public class SupplySpotDataResponse {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("supplies");
   }
 
   /**
@@ -149,31 +148,25 @@ public class SupplySpotDataResponse {
                 entry.getKey(), jsonElement.toString()));
       }
     }
+    JsonObject jsonObj = jsonElement.getAsJsonObject();
+    if (jsonObj.get("supplies") != null && !jsonObj.get("supplies").isJsonNull()) {
+      JsonArray jsonArraysupplies = jsonObj.getAsJsonArray("supplies");
+      if (jsonArraysupplies != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("supplies").isJsonArray()) {
+          throw new IllegalArgumentException(
+              String.format(
+                  "Expected the field `supplies` to be an array in the JSON string but got `%s`",
+                  jsonObj.get("supplies").toString()));
+        }
 
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : SupplySpotDataResponse.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
+        // validate the optional field `supplies` (array)
+        for (int i = 0; i < jsonArraysupplies.size(); i++) {
+          SupplySpotDataResponseSuppliesInner.validateJsonElement(jsonArraysupplies.get(i));
+        }
+        ;
       }
     }
-    JsonObject jsonObj = jsonElement.getAsJsonObject();
-    // ensure the json data is an array
-    if (!jsonObj.get("supplies").isJsonArray()) {
-      throw new IllegalArgumentException(
-          String.format(
-              "Expected the field `supplies` to be an array in the JSON string but got `%s`",
-              jsonObj.get("supplies").toString()));
-    }
-
-    JsonArray jsonArraysupplies = jsonObj.getAsJsonArray("supplies");
-    // validate the required field `supplies` (array)
-    for (int i = 0; i < jsonArraysupplies.size(); i++) {
-      SupplySpotDataResponseSuppliesInner.validateJsonElement(jsonArraysupplies.get(i));
-    }
-    ;
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

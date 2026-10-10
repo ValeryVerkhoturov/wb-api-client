@@ -1187,13 +1187,13 @@ export interface GoodsReturn200Response {
    * @type {number}
    * @memberof GoodsReturn200Response
    */
-  count: number;
+  count?: number;
   /**
    * Отчёт
    * @type {Array<GoodsReturn200ResponseReportInner>}
    * @memberof GoodsReturn200Response
    */
-  report: Array<GoodsReturn200ResponseReportInner>;
+  report?: Array<GoodsReturn200ResponseReportInner>;
 }
 /**
  *
@@ -1206,67 +1206,67 @@ export interface GoodsReturn200ResponseReportInner {
    * @type {string}
    * @memberof GoodsReturn200ResponseReportInner
    */
-  sku: string;
+  sku?: string;
   /**
    * Бренд
    * @type {string}
    * @memberof GoodsReturn200ResponseReportInner
    */
-  brand: string;
+  brand?: string;
   /**
    * Дата и время выдачи возврата продавцу
    * @type {string}
    * @memberof GoodsReturn200ResponseReportInner
    */
-  completedDt: string | null;
+  completedDt?: string | null;
   /**
    * Адрес ПВЗ для выдачи возврата продавцу
    * @type {string}
    * @memberof GoodsReturn200ResponseReportInner
    */
-  dstOfficeAddress: string;
+  dstOfficeAddress?: string;
   /**
    * Код маркировки [Честного знака](https://честныйзнак.рф/)
    * @type {string}
    * @memberof GoodsReturn200ResponseReportInner
    */
-  kiz: string | null;
+  kiz?: string | null;
   /**
    * ID ПВЗ для выдачи возврата продавцу
    * @type {number}
    * @memberof GoodsReturn200ResponseReportInner
    */
-  dstOfficeId: number;
+  dstOfficeId?: number;
   /**
    * Дата и время истечения срока хранения возврата
    * @type {string}
    * @memberof GoodsReturn200ResponseReportInner
    */
-  expiredDt: string | null;
+  expiredDt?: string | null;
   /**
    * Артикул WB
    * @type {number}
    * @memberof GoodsReturn200ResponseReportInner
    */
-  nmId: number;
+  nmId?: number;
   /**
    * Дата заказа на возврат
    * @type {string}
    * @memberof GoodsReturn200ResponseReportInner
    */
-  orderDt: string;
+  orderDt?: string;
   /**
    * ID сборочного задания
    * @type {number}
    * @memberof GoodsReturn200ResponseReportInner
    */
-  orderId: number;
+  orderId?: number;
   /**
    * Дата и время готовности возврата к выдаче
    * @type {string}
    * @memberof GoodsReturn200ResponseReportInner
    */
-  readyToReturnDt: string | null;
+  readyToReturnDt?: string | null;
   /**
    * Причина возврата.  Поле возвращается только при `\"returnType\":\"Возврат неопознанного товара\"`
    * @type {string}
@@ -1278,43 +1278,43 @@ export interface GoodsReturn200ResponseReportInner {
    * @type {string}
    * @memberof GoodsReturn200ResponseReportInner
    */
-  returnType: string;
+  returnType?: string;
   /**
    * Штрихкод
    * @type {number}
    * @memberof GoodsReturn200ResponseReportInner
    */
-  shkId: number;
+  shkId?: number;
   /**
    * ID заказа на возврат
    * @type {string}
    * @memberof GoodsReturn200ResponseReportInner
    */
-  srid: string;
+  srid?: string;
   /**
    * Статус возврата
    * @type {string}
    * @memberof GoodsReturn200ResponseReportInner
    */
-  returnStatus: string;
+  returnStatus?: string;
   /**
    * Стикер заказа на возврат
    * @type {string}
    * @memberof GoodsReturn200ResponseReportInner
    */
-  stickerId: string;
+  stickerId?: string;
   /**
    * Предмет
    * @type {string}
    * @memberof GoodsReturn200ResponseReportInner
    */
-  subjectName: string;
+  subjectName?: string;
   /**
    * Размер
    * @type {string}
    * @memberof GoodsReturn200ResponseReportInner
    */
-  techSize: string;
+  techSize?: string;
 }
 /**
  *
@@ -1358,7 +1358,7 @@ export interface MeasurementPenalties {
    * @type {MeasurementPenaltiesData}
    * @memberof MeasurementPenalties
    */
-  data: MeasurementPenaltiesData;
+  data?: MeasurementPenaltiesData;
 }
 /**
  * Данные ответа
@@ -1371,13 +1371,13 @@ export interface MeasurementPenaltiesData {
    * @type {Array<MeasurementPenaltiesDataReportsInner>}
    * @memberof MeasurementPenaltiesData
    */
-  reports: Array<MeasurementPenaltiesDataReportsInner>;
+  reports?: Array<MeasurementPenaltiesDataReportsInner>;
   /**
    * Количество удержаний в отчёте. Без учёта `limit` и `offset`
    * @type {number}
    * @memberof MeasurementPenaltiesData
    */
-  total: number;
+  total?: number;
 }
 /**
  *
@@ -1390,79 +1390,79 @@ export interface MeasurementPenaltiesDataReportsInner {
    * @type {number}
    * @memberof MeasurementPenaltiesDataReportsInner
    */
-  nmId: number;
+  nmId?: number;
   /**
    * Предмет
    * @type {string}
    * @memberof MeasurementPenaltiesDataReportsInner
    */
-  subjectName: string;
+  subjectName?: string;
   /**
    * ID замера
    * @type {number}
    * @memberof MeasurementPenaltiesDataReportsInner
    */
-  dimId: number;
+  dimId?: number;
   /**
    * Разница в габаритах, %
    * @type {number}
    * @memberof MeasurementPenaltiesDataReportsInner
    */
-  prcOver: number;
+  prcOver?: number;
   /**
    * Объём, л (фактические габариты по замеру на складе)
    * @type {number}
    * @memberof MeasurementPenaltiesDataReportsInner
    */
-  volume: number;
+  volume?: number;
   /**
    * Ширина, см (фактические габариты по замеру на складе)
    * @type {number}
    * @memberof MeasurementPenaltiesDataReportsInner
    */
-  width: number;
+  width?: number;
   /**
    * Длина, см (фактические габариты по замеру на складе)
    * @type {number}
    * @memberof MeasurementPenaltiesDataReportsInner
    */
-  length: number;
+  length?: number;
   /**
    * Высота, см (фактические габариты по замеру на складе)
    * @type {number}
    * @memberof MeasurementPenaltiesDataReportsInner
    */
-  height: number;
+  height?: number;
   /**
    * Объём, л (габариты карточки товара)
    * @type {number}
    * @memberof MeasurementPenaltiesDataReportsInner
    */
-  volumeSup: number;
+  volumeSup?: number;
   /**
    * Ширина, см (габариты карточки товара)
    * @type {number}
    * @memberof MeasurementPenaltiesDataReportsInner
    */
-  widthSup: number;
+  widthSup?: number;
   /**
    * Длина, см (габариты карточки товара)
    * @type {number}
    * @memberof MeasurementPenaltiesDataReportsInner
    */
-  lengthSup: number;
+  lengthSup?: number;
   /**
    * Высота, см (габариты карточки товара)
    * @type {number}
    * @memberof MeasurementPenaltiesDataReportsInner
    */
-  heightSup: number;
+  heightSup?: number;
   /**
    * Фото замеров
    * @type {Array<string>}
    * @memberof MeasurementPenaltiesDataReportsInner
    */
-  photoUrls: Array<string>;
+  photoUrls?: Array<string>;
   /**
    * Дата штрафа
    * @type {string}
@@ -2126,7 +2126,7 @@ export interface WHM {
    * @type {WHMData}
    * @memberof WHM
    */
-  data: WHMData;
+  data?: WHMData;
 }
 /**
  * Данные ответа
@@ -2139,13 +2139,13 @@ export interface WHMData {
    * @type {Array<WHMDataReportsInner>}
    * @memberof WHMData
    */
-  reports: Array<WHMDataReportsInner>;
+  reports?: Array<WHMDataReportsInner>;
   /**
    * Количество замеров в отчёте. Без учёта `limit` и `offset`
    * @type {number}
    * @memberof WHMData
    */
-  total: number;
+  total?: number;
 }
 /**
  *

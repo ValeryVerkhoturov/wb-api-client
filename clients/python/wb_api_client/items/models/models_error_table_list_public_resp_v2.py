@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from wb_api_client.items.models.models_error_table_list_public_resp_v2_item import (
     ModelsErrorTableListPublicRespV2Item,
 )
@@ -34,10 +34,10 @@ class ModelsErrorTableListPublicRespV2(BaseModel):
     Данные ответа
     """  # noqa: E501
 
-    items: List[ModelsErrorTableListPublicRespV2Item] = Field(
-        description="Пакеты данных"
+    items: Optional[List[ModelsErrorTableListPublicRespV2Item]] = Field(
+        default=None, description="Пакеты данных"
     )
-    cursor: ViewerContractPublicErrorsCursorOutput
+    cursor: Optional[ViewerContractPublicErrorsCursorOutput] = None
     __properties: ClassVar[List[str]] = ["items", "cursor"]
 
     model_config = ConfigDict(

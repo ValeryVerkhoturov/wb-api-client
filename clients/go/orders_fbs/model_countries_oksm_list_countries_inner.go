@@ -11,9 +11,7 @@ API version: order
 package orders_fbs
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the CountriesOKSMListCountriesInner type satisfies the MappedNullable interface at compile time
@@ -22,21 +20,17 @@ var _ MappedNullable = &CountriesOKSMListCountriesInner{}
 // CountriesOKSMListCountriesInner struct for CountriesOKSMListCountriesInner
 type CountriesOKSMListCountriesInner struct {
 	// Код страны
-	Code string `json:"code"`
+	Code *string `json:"code,omitempty"`
 	// Название страны
-	Name string `json:"name"`
+	Name *string `json:"name,omitempty"`
 }
-
-type _CountriesOKSMListCountriesInner CountriesOKSMListCountriesInner
 
 // NewCountriesOKSMListCountriesInner instantiates a new CountriesOKSMListCountriesInner object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCountriesOKSMListCountriesInner(code string, name string) *CountriesOKSMListCountriesInner {
+func NewCountriesOKSMListCountriesInner() *CountriesOKSMListCountriesInner {
 	this := CountriesOKSMListCountriesInner{}
-	this.Code = code
-	this.Name = name
 	return &this
 }
 
@@ -48,52 +42,68 @@ func NewCountriesOKSMListCountriesInnerWithDefaults() *CountriesOKSMListCountrie
 	return &this
 }
 
-// GetCode returns the Code field value
+// GetCode returns the Code field value if set, zero value otherwise.
 func (o *CountriesOKSMListCountriesInner) GetCode() string {
-	if o == nil {
+	if o == nil || IsNil(o.Code) {
 		var ret string
 		return ret
 	}
-
-	return o.Code
+	return *o.Code
 }
 
-// GetCodeOk returns a tuple with the Code field value
+// GetCodeOk returns a tuple with the Code field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CountriesOKSMListCountriesInner) GetCodeOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Code) {
 		return nil, false
 	}
-	return &o.Code, true
+	return o.Code, true
 }
 
-// SetCode sets field value
+// HasCode returns a boolean if a field has been set.
+func (o *CountriesOKSMListCountriesInner) HasCode() bool {
+	if o != nil && !IsNil(o.Code) {
+		return true
+	}
+
+	return false
+}
+
+// SetCode gets a reference to the given string and assigns it to the Code field.
 func (o *CountriesOKSMListCountriesInner) SetCode(v string) {
-	o.Code = v
+	o.Code = &v
 }
 
-// GetName returns the Name field value
+// GetName returns the Name field value if set, zero value otherwise.
 func (o *CountriesOKSMListCountriesInner) GetName() string {
-	if o == nil {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
-
-	return o.Name
+	return *o.Name
 }
 
-// GetNameOk returns a tuple with the Name field value
+// GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CountriesOKSMListCountriesInner) GetNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Name) {
 		return nil, false
 	}
-	return &o.Name, true
+	return o.Name, true
 }
 
-// SetName sets field value
+// HasName returns a boolean if a field has been set.
+func (o *CountriesOKSMListCountriesInner) HasName() bool {
+	if o != nil && !IsNil(o.Name) {
+		return true
+	}
+
+	return false
+}
+
+// SetName gets a reference to the given string and assigns it to the Name field.
 func (o *CountriesOKSMListCountriesInner) SetName(v string) {
-	o.Name = v
+	o.Name = &v
 }
 
 func (o CountriesOKSMListCountriesInner) MarshalJSON() ([]byte, error) {
@@ -106,47 +116,13 @@ func (o CountriesOKSMListCountriesInner) MarshalJSON() ([]byte, error) {
 
 func (o CountriesOKSMListCountriesInner) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["code"] = o.Code
-	toSerialize["name"] = o.Name
+	if !IsNil(o.Code) {
+		toSerialize["code"] = o.Code
+	}
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
+	}
 	return toSerialize, nil
-}
-
-func (o *CountriesOKSMListCountriesInner) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"code",
-		"name",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varCountriesOKSMListCountriesInner := _CountriesOKSMListCountriesInner{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varCountriesOKSMListCountriesInner)
-
-	if err != nil {
-		return err
-	}
-
-	*o = CountriesOKSMListCountriesInner(varCountriesOKSMListCountriesInner)
-
-	return err
 }
 
 type NullableCountriesOKSMListCountriesInner struct {

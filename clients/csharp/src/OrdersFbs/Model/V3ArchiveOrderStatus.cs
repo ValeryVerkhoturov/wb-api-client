@@ -34,26 +34,11 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="V3ArchiveOrderStatus" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected V3ArchiveOrderStatus() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="V3ArchiveOrderStatus" /> class.
-        /// </summary>
-        /// <param name="supplierStatus">Статус сборочного задания, установленный продавцом (required).</param>
-        /// <param name="wbStatus">Статус сборочного задания в системе Wildberries (required).</param>
+        /// <param name="supplierStatus">Статус сборочного задания, установленный продавцом.</param>
+        /// <param name="wbStatus">Статус сборочного задания в системе Wildberries.</param>
         public V3ArchiveOrderStatus(string supplierStatus = default(string), string wbStatus = default(string))
         {
-            // to ensure "supplierStatus" is required (not null)
-            if (supplierStatus == null)
-            {
-                throw new ArgumentNullException("supplierStatus is a required property for V3ArchiveOrderStatus and cannot be null");
-            }
             this.SupplierStatus = supplierStatus;
-            // to ensure "wbStatus" is required (not null)
-            if (wbStatus == null)
-            {
-                throw new ArgumentNullException("wbStatus is a required property for V3ArchiveOrderStatus and cannot be null");
-            }
             this.WbStatus = wbStatus;
         }
 
@@ -64,7 +49,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /*
         <example>complete</example>
         */
-        [DataMember(Name = "supplierStatus", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "supplierStatus", EmitDefaultValue = false)]
         public string SupplierStatus { get; set; }
 
         /// <summary>
@@ -74,7 +59,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /*
         <example>sent_to_carrier</example>
         */
-        [DataMember(Name = "wbStatus", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "wbStatus", EmitDefaultValue = false)]
         public string WbStatus { get; set; }
 
         /// <summary>

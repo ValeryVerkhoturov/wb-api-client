@@ -11,9 +11,7 @@ API version: promotion
 package promotion
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the StatDate type satisfies the MappedNullable interface at compile time
@@ -22,20 +20,17 @@ var _ MappedNullable = &StatDate{}
 // StatDate struct for StatDate
 type StatDate struct {
 	// Даты, за которые нужно получить информацию
-	Dates []string `json:"dates"`
+	Dates []string `json:"dates,omitempty"`
 	// Блок статистики
 	Stats []StatsBlok2 `json:"stats,omitempty"`
 }
-
-type _StatDate StatDate
 
 // NewStatDate instantiates a new StatDate object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewStatDate(dates []string) *StatDate {
+func NewStatDate() *StatDate {
 	this := StatDate{}
-	this.Dates = dates
 	return &this
 }
 
@@ -47,26 +42,34 @@ func NewStatDateWithDefaults() *StatDate {
 	return &this
 }
 
-// GetDates returns the Dates field value
+// GetDates returns the Dates field value if set, zero value otherwise.
 func (o *StatDate) GetDates() []string {
-	if o == nil {
+	if o == nil || IsNil(o.Dates) {
 		var ret []string
 		return ret
 	}
-
 	return o.Dates
 }
 
-// GetDatesOk returns a tuple with the Dates field value
+// GetDatesOk returns a tuple with the Dates field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *StatDate) GetDatesOk() ([]string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Dates) {
 		return nil, false
 	}
 	return o.Dates, true
 }
 
-// SetDates sets field value
+// HasDates returns a boolean if a field has been set.
+func (o *StatDate) HasDates() bool {
+	if o != nil && !IsNil(o.Dates) {
+		return true
+	}
+
+	return false
+}
+
+// SetDates gets a reference to the given []string and assigns it to the Dates field.
 func (o *StatDate) SetDates(v []string) {
 	o.Dates = v
 }
@@ -113,48 +116,13 @@ func (o StatDate) MarshalJSON() ([]byte, error) {
 
 func (o StatDate) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["dates"] = o.Dates
+	if !IsNil(o.Dates) {
+		toSerialize["dates"] = o.Dates
+	}
 	if !IsNil(o.Stats) {
 		toSerialize["stats"] = o.Stats
 	}
 	return toSerialize, nil
-}
-
-func (o *StatDate) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"dates",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varStatDate := _StatDate{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varStatDate)
-
-	if err != nil {
-		return err
-	}
-
-	*o = StatDate(varStatDate)
-
-	return err
 }
 
 type NullableStatDate struct {

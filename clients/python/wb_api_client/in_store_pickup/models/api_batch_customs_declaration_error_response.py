@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,9 +28,12 @@ class ApiBatchCustomsDeclarationErrorResponse(BaseModel):
     ApiBatchCustomsDeclarationErrorResponse
     """  # noqa: E501
 
-    code: StrictInt = Field(description="Код ошибки:   - `404`   - `409`   - `400` ")
-    detail: StrictStr = Field(
-        description='- `NotFound` — сборочное задание не найдено - `StatusMismatch` — операция невозможна для этого статуса сборочного задания - `OrderNotB2B` — операция доступна только для сборочных заданий с признаком B2B-продажи `"isB2b":true` - `InvalidOriginCountryCode` — некорректный код страны происхождения товара '
+    code: Optional[StrictInt] = Field(
+        default=None, description="Код ошибки:   - `404`   - `409`   - `400` "
+    )
+    detail: Optional[StrictStr] = Field(
+        default=None,
+        description='- `NotFound` — сборочное задание не найдено - `StatusMismatch` — операция невозможна для этого статуса сборочного задания - `OrderNotB2B` — операция доступна только для сборочных заданий с признаком B2B-продажи `"isB2b":true` - `InvalidOriginCountryCode` — некорректный код страны происхождения товара ',
     )
     __properties: ClassVar[List[str]] = ["code", "detail"]
 

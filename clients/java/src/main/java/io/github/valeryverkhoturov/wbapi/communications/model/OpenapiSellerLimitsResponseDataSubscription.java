@@ -36,37 +36,37 @@ public class OpenapiSellerLimitsResponseDataSubscription {
   public static final String SERIALIZED_NAME_PER_UNIT_LIMIT = "perUnitLimit";
 
   @SerializedName(SERIALIZED_NAME_PER_UNIT_LIMIT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer perUnitLimit;
 
   public static final String SERIALIZED_NAME_REMAINING = "remaining";
 
   @SerializedName(SERIALIZED_NAME_REMAINING)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer remaining;
 
   public static final String SERIALIZED_NAME_TOTAL_LIMIT = "totalLimit";
 
   @SerializedName(SERIALIZED_NAME_TOTAL_LIMIT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer totalLimit;
 
   public static final String SERIALIZED_NAME_UNLIMITED = "unlimited";
 
   @SerializedName(SERIALIZED_NAME_UNLIMITED)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Boolean unlimited;
 
   public static final String SERIALIZED_NAME_USED = "used";
 
   @SerializedName(SERIALIZED_NAME_USED)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer used;
 
   public OpenapiSellerLimitsResponseDataSubscription() {}
 
   public OpenapiSellerLimitsResponseDataSubscription perUnitLimit(
-      @jakarta.annotation.Nonnull Integer perUnitLimit) {
+      @jakarta.annotation.Nullable Integer perUnitLimit) {
     this.perUnitLimit = perUnitLimit;
     return this;
   }
@@ -78,17 +78,17 @@ public class OpenapiSellerLimitsResponseDataSubscription {
    *
    * @return perUnitLimit
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getPerUnitLimit() {
     return perUnitLimit;
   }
 
-  public void setPerUnitLimit(@jakarta.annotation.Nonnull Integer perUnitLimit) {
+  public void setPerUnitLimit(@jakarta.annotation.Nullable Integer perUnitLimit) {
     this.perUnitLimit = perUnitLimit;
   }
 
   public OpenapiSellerLimitsResponseDataSubscription remaining(
-      @jakarta.annotation.Nonnull Integer remaining) {
+      @jakarta.annotation.Nullable Integer remaining) {
     this.remaining = remaining;
     return this;
   }
@@ -98,17 +98,17 @@ public class OpenapiSellerLimitsResponseDataSubscription {
    *
    * @return remaining
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getRemaining() {
     return remaining;
   }
 
-  public void setRemaining(@jakarta.annotation.Nonnull Integer remaining) {
+  public void setRemaining(@jakarta.annotation.Nullable Integer remaining) {
     this.remaining = remaining;
   }
 
   public OpenapiSellerLimitsResponseDataSubscription totalLimit(
-      @jakarta.annotation.Nonnull Integer totalLimit) {
+      @jakarta.annotation.Nullable Integer totalLimit) {
     this.totalLimit = totalLimit;
     return this;
   }
@@ -118,17 +118,17 @@ public class OpenapiSellerLimitsResponseDataSubscription {
    *
    * @return totalLimit
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getTotalLimit() {
     return totalLimit;
   }
 
-  public void setTotalLimit(@jakarta.annotation.Nonnull Integer totalLimit) {
+  public void setTotalLimit(@jakarta.annotation.Nullable Integer totalLimit) {
     this.totalLimit = totalLimit;
   }
 
   public OpenapiSellerLimitsResponseDataSubscription unlimited(
-      @jakarta.annotation.Nonnull Boolean unlimited) {
+      @jakarta.annotation.Nullable Boolean unlimited) {
     this.unlimited = unlimited;
     return this;
   }
@@ -139,17 +139,17 @@ public class OpenapiSellerLimitsResponseDataSubscription {
    *
    * @return unlimited
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Boolean getUnlimited() {
     return unlimited;
   }
 
-  public void setUnlimited(@jakarta.annotation.Nonnull Boolean unlimited) {
+  public void setUnlimited(@jakarta.annotation.Nullable Boolean unlimited) {
     this.unlimited = unlimited;
   }
 
   public OpenapiSellerLimitsResponseDataSubscription used(
-      @jakarta.annotation.Nonnull Integer used) {
+      @jakarta.annotation.Nullable Integer used) {
     this.used = used;
     return this;
   }
@@ -159,12 +159,12 @@ public class OpenapiSellerLimitsResponseDataSubscription {
    *
    * @return used
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getUsed() {
     return used;
   }
 
-  public void setUsed(@jakarta.annotation.Nonnull Integer used) {
+  public void setUsed(@jakarta.annotation.Nullable Integer used) {
     this.used = used;
   }
 
@@ -228,11 +228,6 @@ public class OpenapiSellerLimitsResponseDataSubscription {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("perUnitLimit");
-    openapiRequiredFields.add("remaining");
-    openapiRequiredFields.add("totalLimit");
-    openapiRequiredFields.add("unlimited");
-    openapiRequiredFields.add("used");
   }
 
   /**
@@ -261,16 +256,6 @@ public class OpenapiSellerLimitsResponseDataSubscription {
             String.format(
                 "The field `%s` in the JSON string is not defined in the `OpenapiSellerLimitsResponseDataSubscription` properties. JSON: %s",
                 entry.getKey(), jsonElement.toString()));
-      }
-    }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : OpenapiSellerLimitsResponseDataSubscription.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
       }
     }
     JsonObject jsonObj = jsonElement.getAsJsonObject();

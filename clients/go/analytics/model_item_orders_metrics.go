@@ -11,9 +11,7 @@ API version: analytics
 package analytics
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the ItemOrdersMetrics type satisfies the MappedNullable interface at compile time
@@ -22,24 +20,19 @@ var _ MappedNullable = &ItemOrdersMetrics{}
 // ItemOrdersMetrics struct for ItemOrdersMetrics
 type ItemOrdersMetrics struct {
 	// Дата сбора статистики
-	Dt string `json:"dt"`
+	Dt *string `json:"dt,omitempty"`
 	// Средняя позиция товара в результатах поиска
-	AvgPosition int32 `json:"avgPosition"`
+	AvgPosition *int32 `json:"avgPosition,omitempty"`
 	// Сколько раз товары из поиска заказали
-	Orders int32 `json:"orders"`
+	Orders *int32 `json:"orders,omitempty"`
 }
-
-type _ItemOrdersMetrics ItemOrdersMetrics
 
 // NewItemOrdersMetrics instantiates a new ItemOrdersMetrics object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewItemOrdersMetrics(dt string, avgPosition int32, orders int32) *ItemOrdersMetrics {
+func NewItemOrdersMetrics() *ItemOrdersMetrics {
 	this := ItemOrdersMetrics{}
-	this.Dt = dt
-	this.AvgPosition = avgPosition
-	this.Orders = orders
 	return &this
 }
 
@@ -51,76 +44,100 @@ func NewItemOrdersMetricsWithDefaults() *ItemOrdersMetrics {
 	return &this
 }
 
-// GetDt returns the Dt field value
+// GetDt returns the Dt field value if set, zero value otherwise.
 func (o *ItemOrdersMetrics) GetDt() string {
-	if o == nil {
+	if o == nil || IsNil(o.Dt) {
 		var ret string
 		return ret
 	}
-
-	return o.Dt
+	return *o.Dt
 }
 
-// GetDtOk returns a tuple with the Dt field value
+// GetDtOk returns a tuple with the Dt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ItemOrdersMetrics) GetDtOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Dt) {
 		return nil, false
 	}
-	return &o.Dt, true
+	return o.Dt, true
 }
 
-// SetDt sets field value
+// HasDt returns a boolean if a field has been set.
+func (o *ItemOrdersMetrics) HasDt() bool {
+	if o != nil && !IsNil(o.Dt) {
+		return true
+	}
+
+	return false
+}
+
+// SetDt gets a reference to the given string and assigns it to the Dt field.
 func (o *ItemOrdersMetrics) SetDt(v string) {
-	o.Dt = v
+	o.Dt = &v
 }
 
-// GetAvgPosition returns the AvgPosition field value
+// GetAvgPosition returns the AvgPosition field value if set, zero value otherwise.
 func (o *ItemOrdersMetrics) GetAvgPosition() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.AvgPosition) {
 		var ret int32
 		return ret
 	}
-
-	return o.AvgPosition
+	return *o.AvgPosition
 }
 
-// GetAvgPositionOk returns a tuple with the AvgPosition field value
+// GetAvgPositionOk returns a tuple with the AvgPosition field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ItemOrdersMetrics) GetAvgPositionOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AvgPosition) {
 		return nil, false
 	}
-	return &o.AvgPosition, true
+	return o.AvgPosition, true
 }
 
-// SetAvgPosition sets field value
+// HasAvgPosition returns a boolean if a field has been set.
+func (o *ItemOrdersMetrics) HasAvgPosition() bool {
+	if o != nil && !IsNil(o.AvgPosition) {
+		return true
+	}
+
+	return false
+}
+
+// SetAvgPosition gets a reference to the given int32 and assigns it to the AvgPosition field.
 func (o *ItemOrdersMetrics) SetAvgPosition(v int32) {
-	o.AvgPosition = v
+	o.AvgPosition = &v
 }
 
-// GetOrders returns the Orders field value
+// GetOrders returns the Orders field value if set, zero value otherwise.
 func (o *ItemOrdersMetrics) GetOrders() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.Orders) {
 		var ret int32
 		return ret
 	}
-
-	return o.Orders
+	return *o.Orders
 }
 
-// GetOrdersOk returns a tuple with the Orders field value
+// GetOrdersOk returns a tuple with the Orders field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ItemOrdersMetrics) GetOrdersOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Orders) {
 		return nil, false
 	}
-	return &o.Orders, true
+	return o.Orders, true
 }
 
-// SetOrders sets field value
+// HasOrders returns a boolean if a field has been set.
+func (o *ItemOrdersMetrics) HasOrders() bool {
+	if o != nil && !IsNil(o.Orders) {
+		return true
+	}
+
+	return false
+}
+
+// SetOrders gets a reference to the given int32 and assigns it to the Orders field.
 func (o *ItemOrdersMetrics) SetOrders(v int32) {
-	o.Orders = v
+	o.Orders = &v
 }
 
 func (o ItemOrdersMetrics) MarshalJSON() ([]byte, error) {
@@ -133,49 +150,16 @@ func (o ItemOrdersMetrics) MarshalJSON() ([]byte, error) {
 
 func (o ItemOrdersMetrics) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["dt"] = o.Dt
-	toSerialize["avgPosition"] = o.AvgPosition
-	toSerialize["orders"] = o.Orders
+	if !IsNil(o.Dt) {
+		toSerialize["dt"] = o.Dt
+	}
+	if !IsNil(o.AvgPosition) {
+		toSerialize["avgPosition"] = o.AvgPosition
+	}
+	if !IsNil(o.Orders) {
+		toSerialize["orders"] = o.Orders
+	}
 	return toSerialize, nil
-}
-
-func (o *ItemOrdersMetrics) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"dt",
-		"avgPosition",
-		"orders",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varItemOrdersMetrics := _ItemOrdersMetrics{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varItemOrdersMetrics)
-
-	if err != nil {
-		return err
-	}
-
-	*o = ItemOrdersMetrics(varItemOrdersMetrics)
-
-	return err
 }
 
 type NullableItemOrdersMetrics struct {

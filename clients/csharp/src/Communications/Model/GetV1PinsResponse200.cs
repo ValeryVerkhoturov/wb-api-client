@@ -34,20 +34,10 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GetV1PinsResponse200" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected GetV1PinsResponse200() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="GetV1PinsResponse200" /> class.
-        /// </summary>
-        /// <param name="data">data (required).</param>
+        /// <param name="data">data.</param>
         /// <param name="next">Параметр пагинации. Укажите это значение в запросе, чтобы получить следующий пакет данных. Если поле отсутствует, вы получили все данные.</param>
         public GetV1PinsResponse200(List<OpenapiPinnedReviewItemResult> data = default(List<OpenapiPinnedReviewItemResult>), int next = default(int))
         {
-            // to ensure "data" is required (not null)
-            if (data == null)
-            {
-                throw new ArgumentNullException("data is a required property for GetV1PinsResponse200 and cannot be null");
-            }
             this.Data = data;
             this.Next = next;
         }
@@ -55,7 +45,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         /// <summary>
         /// Gets or Sets Data
         /// </summary>
-        [DataMember(Name = "data", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "data", EmitDefaultValue = false)]
         public List<OpenapiPinnedReviewItemResult> Data { get; set; }
 
         /// <summary>

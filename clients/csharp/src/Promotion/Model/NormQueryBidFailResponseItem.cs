@@ -34,30 +34,15 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="NormQueryBidFailResponseItem" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected NormQueryBidFailResponseItem() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="NormQueryBidFailResponseItem" /> class.
-        /// </summary>
-        /// <param name="advertId">ID кампании (required).</param>
-        /// <param name="nmId">Артикул WB (required).</param>
-        /// <param name="normQuery">Поисковый кластер — это группа похожих поисковых запросов, по которым покупатели находят товары (required).</param>
-        /// <param name="reason">Описание причины ошибки (required).</param>
+        /// <param name="advertId">ID кампании.</param>
+        /// <param name="nmId">Артикул WB.</param>
+        /// <param name="normQuery">Поисковый кластер — это группа похожих поисковых запросов, по которым покупатели находят товары.</param>
+        /// <param name="reason">Описание причины ошибки.</param>
         public NormQueryBidFailResponseItem(int advertId = default(int), int nmId = default(int), string normQuery = default(string), string reason = default(string))
         {
             this.AdvertId = advertId;
             this.NmId = nmId;
-            // to ensure "normQuery" is required (not null)
-            if (normQuery == null)
-            {
-                throw new ArgumentNullException("normQuery is a required property for NormQueryBidFailResponseItem and cannot be null");
-            }
             this.NormQuery = normQuery;
-            // to ensure "reason" is required (not null)
-            if (reason == null)
-            {
-                throw new ArgumentNullException("reason is a required property for NormQueryBidFailResponseItem and cannot be null");
-            }
             this.Reason = reason;
         }
 
@@ -65,28 +50,28 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// ID кампании
         /// </summary>
         /// <value>ID кампании</value>
-        [DataMember(Name = "advertId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "advertId", EmitDefaultValue = false)]
         public int AdvertId { get; set; }
 
         /// <summary>
         /// Артикул WB
         /// </summary>
         /// <value>Артикул WB</value>
-        [DataMember(Name = "nmId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "nmId", EmitDefaultValue = false)]
         public int NmId { get; set; }
 
         /// <summary>
         /// Поисковый кластер — это группа похожих поисковых запросов, по которым покупатели находят товары
         /// </summary>
         /// <value>Поисковый кластер — это группа похожих поисковых запросов, по которым покупатели находят товары</value>
-        [DataMember(Name = "normQuery", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "normQuery", EmitDefaultValue = false)]
         public string NormQuery { get; set; }
 
         /// <summary>
         /// Описание причины ошибки
         /// </summary>
         /// <value>Описание причины ошибки</value>
-        [DataMember(Name = "reason", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "reason", EmitDefaultValue = false)]
         public string Reason { get; set; }
 
         /// <summary>

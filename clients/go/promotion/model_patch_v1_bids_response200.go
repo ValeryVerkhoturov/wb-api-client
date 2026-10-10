@@ -11,9 +11,7 @@ API version: promotion
 package promotion
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the PatchV1BidsResponse200 type satisfies the MappedNullable interface at compile time
@@ -22,21 +20,17 @@ var _ MappedNullable = &PatchV1BidsResponse200{}
 // PatchV1BidsResponse200 struct for PatchV1BidsResponse200
 type PatchV1BidsResponse200 struct {
 	// Результат отработки запроса
-	Bids []PatchV1BidsResponse200BidsInner `json:"bids"`
+	Bids []PatchV1BidsResponse200BidsInner `json:"bids,omitempty"`
 	// Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
-	Currency string `json:"currency"`
+	Currency *string `json:"currency,omitempty"`
 }
-
-type _PatchV1BidsResponse200 PatchV1BidsResponse200
 
 // NewPatchV1BidsResponse200 instantiates a new PatchV1BidsResponse200 object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPatchV1BidsResponse200(bids []PatchV1BidsResponse200BidsInner, currency string) *PatchV1BidsResponse200 {
+func NewPatchV1BidsResponse200() *PatchV1BidsResponse200 {
 	this := PatchV1BidsResponse200{}
-	this.Bids = bids
-	this.Currency = currency
 	return &this
 }
 
@@ -48,52 +42,68 @@ func NewPatchV1BidsResponse200WithDefaults() *PatchV1BidsResponse200 {
 	return &this
 }
 
-// GetBids returns the Bids field value
+// GetBids returns the Bids field value if set, zero value otherwise.
 func (o *PatchV1BidsResponse200) GetBids() []PatchV1BidsResponse200BidsInner {
-	if o == nil {
+	if o == nil || IsNil(o.Bids) {
 		var ret []PatchV1BidsResponse200BidsInner
 		return ret
 	}
-
 	return o.Bids
 }
 
-// GetBidsOk returns a tuple with the Bids field value
+// GetBidsOk returns a tuple with the Bids field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PatchV1BidsResponse200) GetBidsOk() ([]PatchV1BidsResponse200BidsInner, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Bids) {
 		return nil, false
 	}
 	return o.Bids, true
 }
 
-// SetBids sets field value
+// HasBids returns a boolean if a field has been set.
+func (o *PatchV1BidsResponse200) HasBids() bool {
+	if o != nil && !IsNil(o.Bids) {
+		return true
+	}
+
+	return false
+}
+
+// SetBids gets a reference to the given []PatchV1BidsResponse200BidsInner and assigns it to the Bids field.
 func (o *PatchV1BidsResponse200) SetBids(v []PatchV1BidsResponse200BidsInner) {
 	o.Bids = v
 }
 
-// GetCurrency returns the Currency field value
+// GetCurrency returns the Currency field value if set, zero value otherwise.
 func (o *PatchV1BidsResponse200) GetCurrency() string {
-	if o == nil {
+	if o == nil || IsNil(o.Currency) {
 		var ret string
 		return ret
 	}
-
-	return o.Currency
+	return *o.Currency
 }
 
-// GetCurrencyOk returns a tuple with the Currency field value
+// GetCurrencyOk returns a tuple with the Currency field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PatchV1BidsResponse200) GetCurrencyOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Currency) {
 		return nil, false
 	}
-	return &o.Currency, true
+	return o.Currency, true
 }
 
-// SetCurrency sets field value
+// HasCurrency returns a boolean if a field has been set.
+func (o *PatchV1BidsResponse200) HasCurrency() bool {
+	if o != nil && !IsNil(o.Currency) {
+		return true
+	}
+
+	return false
+}
+
+// SetCurrency gets a reference to the given string and assigns it to the Currency field.
 func (o *PatchV1BidsResponse200) SetCurrency(v string) {
-	o.Currency = v
+	o.Currency = &v
 }
 
 func (o PatchV1BidsResponse200) MarshalJSON() ([]byte, error) {
@@ -106,47 +116,13 @@ func (o PatchV1BidsResponse200) MarshalJSON() ([]byte, error) {
 
 func (o PatchV1BidsResponse200) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["bids"] = o.Bids
-	toSerialize["currency"] = o.Currency
+	if !IsNil(o.Bids) {
+		toSerialize["bids"] = o.Bids
+	}
+	if !IsNil(o.Currency) {
+		toSerialize["currency"] = o.Currency
+	}
 	return toSerialize, nil
-}
-
-func (o *PatchV1BidsResponse200) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"bids",
-		"currency",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varPatchV1BidsResponse200 := _PatchV1BidsResponse200{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varPatchV1BidsResponse200)
-
-	if err != nil {
-		return err
-	}
-
-	*o = PatchV1BidsResponse200(varPatchV1BidsResponse200)
-
-	return err
 }
 
 type NullablePatchV1BidsResponse200 struct {

@@ -34,19 +34,9 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CountriesOKSMList" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected CountriesOKSMList() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="CountriesOKSMList" /> class.
-        /// </summary>
-        /// <param name="countries">Список стран ОКСМ (required).</param>
+        /// <param name="countries">Список стран ОКСМ.</param>
         public CountriesOKSMList(List<CountriesOKSMListCountriesInner> countries = default(List<CountriesOKSMListCountriesInner>))
         {
-            // to ensure "countries" is required (not null)
-            if (countries == null)
-            {
-                throw new ArgumentNullException("countries is a required property for CountriesOKSMList and cannot be null");
-            }
             this.Countries = countries;
         }
 
@@ -54,7 +44,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// Список стран ОКСМ
         /// </summary>
         /// <value>Список стран ОКСМ</value>
-        [DataMember(Name = "countries", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "countries", EmitDefaultValue = false)]
         public List<CountriesOKSMListCountriesInner> Countries { get; set; }
 
         /// <summary>

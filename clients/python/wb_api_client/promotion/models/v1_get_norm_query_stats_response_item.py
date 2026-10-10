@@ -31,8 +31,12 @@ class V1GetNormQueryStatsResponseItem(BaseModel):
     V1GetNormQueryStatsResponseItem
     """  # noqa: E501
 
-    advert_id: StrictInt = Field(description="ID кампании", alias="advertId")
-    nm_id: StrictInt = Field(description="Артикул WB", alias="nmId")
+    advert_id: Optional[StrictInt] = Field(
+        default=None, description="ID кампании", alias="advertId"
+    )
+    nm_id: Optional[StrictInt] = Field(
+        default=None, description="Артикул WB", alias="nmId"
+    )
     daily_stats: Optional[List[V1GetNormQueryStatsResponseItemDailyStat]] = Field(
         default=None,
         description="Статистика с детализацией по дням",

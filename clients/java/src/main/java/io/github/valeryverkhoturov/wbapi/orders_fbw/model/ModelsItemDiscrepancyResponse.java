@@ -39,36 +39,37 @@ public class ModelsItemDiscrepancyResponse {
   public static final String SERIALIZED_NAME_PACKAGE_CODE = "packageCode";
 
   @SerializedName(SERIALIZED_NAME_PACKAGE_CODE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String packageCode;
 
   public static final String SERIALIZED_NAME_VIDEO_URL = "videoUrl";
 
   @SerializedName(SERIALIZED_NAME_VIDEO_URL)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String videoUrl;
 
   public static final String SERIALIZED_NAME_VIDEO_STARTS_AT = "videoStartsAt";
 
   @SerializedName(SERIALIZED_NAME_VIDEO_STARTS_AT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String videoStartsAt;
 
   public static final String SERIALIZED_NAME_VIDEO_UNAVAILABLE = "videoUnavailable";
 
   @SerializedName(SERIALIZED_NAME_VIDEO_UNAVAILABLE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Boolean videoUnavailable;
 
   public static final String SERIALIZED_NAME_ITEMS = "items";
 
   @SerializedName(SERIALIZED_NAME_ITEMS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private List<ModelsDiscrepancyResponseItem> items = new ArrayList<>();
 
   public ModelsItemDiscrepancyResponse() {}
 
-  public ModelsItemDiscrepancyResponse packageCode(@jakarta.annotation.Nonnull String packageCode) {
+  public ModelsItemDiscrepancyResponse packageCode(
+      @jakarta.annotation.Nullable String packageCode) {
     this.packageCode = packageCode;
     return this;
   }
@@ -78,16 +79,16 @@ public class ModelsItemDiscrepancyResponse {
    *
    * @return packageCode
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getPackageCode() {
     return packageCode;
   }
 
-  public void setPackageCode(@jakarta.annotation.Nonnull String packageCode) {
+  public void setPackageCode(@jakarta.annotation.Nullable String packageCode) {
     this.packageCode = packageCode;
   }
 
-  public ModelsItemDiscrepancyResponse videoUrl(@jakarta.annotation.Nonnull String videoUrl) {
+  public ModelsItemDiscrepancyResponse videoUrl(@jakarta.annotation.Nullable String videoUrl) {
     this.videoUrl = videoUrl;
     return this;
   }
@@ -97,17 +98,17 @@ public class ModelsItemDiscrepancyResponse {
    *
    * @return videoUrl
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getVideoUrl() {
     return videoUrl;
   }
 
-  public void setVideoUrl(@jakarta.annotation.Nonnull String videoUrl) {
+  public void setVideoUrl(@jakarta.annotation.Nullable String videoUrl) {
     this.videoUrl = videoUrl;
   }
 
   public ModelsItemDiscrepancyResponse videoStartsAt(
-      @jakarta.annotation.Nonnull String videoStartsAt) {
+      @jakarta.annotation.Nullable String videoStartsAt) {
     this.videoStartsAt = videoStartsAt;
     return this;
   }
@@ -117,17 +118,17 @@ public class ModelsItemDiscrepancyResponse {
    *
    * @return videoStartsAt
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getVideoStartsAt() {
     return videoStartsAt;
   }
 
-  public void setVideoStartsAt(@jakarta.annotation.Nonnull String videoStartsAt) {
+  public void setVideoStartsAt(@jakarta.annotation.Nullable String videoStartsAt) {
     this.videoStartsAt = videoStartsAt;
   }
 
   public ModelsItemDiscrepancyResponse videoUnavailable(
-      @jakarta.annotation.Nonnull Boolean videoUnavailable) {
+      @jakarta.annotation.Nullable Boolean videoUnavailable) {
     this.videoUnavailable = videoUnavailable;
     return this;
   }
@@ -137,17 +138,17 @@ public class ModelsItemDiscrepancyResponse {
    *
    * @return videoUnavailable
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Boolean getVideoUnavailable() {
     return videoUnavailable;
   }
 
-  public void setVideoUnavailable(@jakarta.annotation.Nonnull Boolean videoUnavailable) {
+  public void setVideoUnavailable(@jakarta.annotation.Nullable Boolean videoUnavailable) {
     this.videoUnavailable = videoUnavailable;
   }
 
   public ModelsItemDiscrepancyResponse items(
-      @jakarta.annotation.Nonnull List<ModelsDiscrepancyResponseItem> items) {
+      @jakarta.annotation.Nullable List<ModelsDiscrepancyResponseItem> items) {
     this.items = items;
     return this;
   }
@@ -165,12 +166,12 @@ public class ModelsItemDiscrepancyResponse {
    *
    * @return items
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public List<ModelsDiscrepancyResponseItem> getItems() {
     return items;
   }
 
-  public void setItems(@jakarta.annotation.Nonnull List<ModelsDiscrepancyResponseItem> items) {
+  public void setItems(@jakarta.annotation.Nullable List<ModelsDiscrepancyResponseItem> items) {
     this.items = items;
   }
 
@@ -232,11 +233,6 @@ public class ModelsItemDiscrepancyResponse {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("packageCode");
-    openapiRequiredFields.add("videoUrl");
-    openapiRequiredFields.add("videoStartsAt");
-    openapiRequiredFields.add("videoUnavailable");
-    openapiRequiredFields.add("items");
   }
 
   /**
@@ -267,49 +263,46 @@ public class ModelsItemDiscrepancyResponse {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : ModelsItemDiscrepancyResponse.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    if (!jsonObj.get("packageCode").isJsonPrimitive()) {
+    if ((jsonObj.get("packageCode") != null && !jsonObj.get("packageCode").isJsonNull())
+        && !jsonObj.get("packageCode").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `packageCode` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("packageCode").toString()));
     }
-    if (!jsonObj.get("videoUrl").isJsonPrimitive()) {
+    if ((jsonObj.get("videoUrl") != null && !jsonObj.get("videoUrl").isJsonNull())
+        && !jsonObj.get("videoUrl").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `videoUrl` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("videoUrl").toString()));
     }
-    if (!jsonObj.get("videoStartsAt").isJsonPrimitive()) {
+    if ((jsonObj.get("videoStartsAt") != null && !jsonObj.get("videoStartsAt").isJsonNull())
+        && !jsonObj.get("videoStartsAt").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `videoStartsAt` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("videoStartsAt").toString()));
     }
-    // ensure the json data is an array
-    if (!jsonObj.get("items").isJsonArray()) {
-      throw new IllegalArgumentException(
-          String.format(
-              "Expected the field `items` to be an array in the JSON string but got `%s`",
-              jsonObj.get("items").toString()));
-    }
+    if (jsonObj.get("items") != null && !jsonObj.get("items").isJsonNull()) {
+      JsonArray jsonArrayitems = jsonObj.getAsJsonArray("items");
+      if (jsonArrayitems != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("items").isJsonArray()) {
+          throw new IllegalArgumentException(
+              String.format(
+                  "Expected the field `items` to be an array in the JSON string but got `%s`",
+                  jsonObj.get("items").toString()));
+        }
 
-    JsonArray jsonArrayitems = jsonObj.getAsJsonArray("items");
-    // validate the required field `items` (array)
-    for (int i = 0; i < jsonArrayitems.size(); i++) {
-      ModelsDiscrepancyResponseItem.validateJsonElement(jsonArrayitems.get(i));
+        // validate the optional field `items` (array)
+        for (int i = 0; i < jsonArrayitems.size(); i++) {
+          ModelsDiscrepancyResponseItem.validateJsonElement(jsonArrayitems.get(i));
+        }
+        ;
+      }
     }
-    ;
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

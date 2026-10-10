@@ -34,33 +34,13 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TableShippingOfficeItem" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected TableShippingOfficeItem() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="TableShippingOfficeItem" /> class.
-        /// </summary>
-        /// <param name="regionName">Регион отгрузки. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) для складов WB может быть только &#x60;Склад WB&#x60; (required).</param>
-        /// <param name="metrics">Метрики по региону (required).</param>
-        /// <param name="offices">Данные по складам. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может быть только &#x60;[]&#x60; (required).</param>
+        /// <param name="regionName">Регион отгрузки. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) для складов WB может быть только &#x60;Склад WB&#x60;.</param>
+        /// <param name="metrics">Метрики по региону.</param>
+        /// <param name="offices">Данные по складам. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может быть только &#x60;[]&#x60;.</param>
         public TableShippingOfficeItem(string regionName = default(string), TableShippingOfficeMetrics metrics = default(TableShippingOfficeMetrics), List<TableShippingOfficeItemOfficesInner> offices = default(List<TableShippingOfficeItemOfficesInner>))
         {
-            // to ensure "regionName" is required (not null)
-            if (regionName == null)
-            {
-                throw new ArgumentNullException("regionName is a required property for TableShippingOfficeItem and cannot be null");
-            }
             this.RegionName = regionName;
-            // to ensure "metrics" is required (not null)
-            if (metrics == null)
-            {
-                throw new ArgumentNullException("metrics is a required property for TableShippingOfficeItem and cannot be null");
-            }
             this.Metrics = metrics;
-            // to ensure "offices" is required (not null)
-            if (offices == null)
-            {
-                throw new ArgumentNullException("offices is a required property for TableShippingOfficeItem and cannot be null");
-            }
             this.Offices = offices;
         }
 
@@ -71,14 +51,14 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>Склад WB</example>
         */
-        [DataMember(Name = "regionName", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "regionName", EmitDefaultValue = false)]
         public string RegionName { get; set; }
 
         /// <summary>
         /// Метрики по региону
         /// </summary>
         /// <value>Метрики по региону</value>
-        [DataMember(Name = "metrics", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "metrics", EmitDefaultValue = false)]
         public TableShippingOfficeMetrics Metrics { get; set; }
 
         /// <summary>
@@ -88,7 +68,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>[]</example>
         */
-        [DataMember(Name = "offices", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "offices", EmitDefaultValue = false)]
         public List<TableShippingOfficeItemOfficesInner> Offices { get; set; }
 
         /// <summary>

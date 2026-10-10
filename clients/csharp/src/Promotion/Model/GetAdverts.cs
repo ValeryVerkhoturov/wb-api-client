@@ -34,19 +34,9 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GetAdverts" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected GetAdverts() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="GetAdverts" /> class.
-        /// </summary>
-        /// <param name="adverts">Кампании (required).</param>
+        /// <param name="adverts">Кампании.</param>
         public GetAdverts(List<GetAdvertsAdvertsInner> adverts = default(List<GetAdvertsAdvertsInner>))
         {
-            // to ensure "adverts" is required (not null)
-            if (adverts == null)
-            {
-                throw new ArgumentNullException("adverts is a required property for GetAdverts and cannot be null");
-            }
             this.Adverts = adverts;
         }
 
@@ -54,7 +44,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// Кампании
         /// </summary>
         /// <value>Кампании</value>
-        [DataMember(Name = "adverts", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "adverts", EmitDefaultValue = false)]
         public List<GetAdvertsAdvertsInner> Adverts { get; set; }
 
         /// <summary>

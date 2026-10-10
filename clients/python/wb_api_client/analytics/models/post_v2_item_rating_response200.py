@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from wb_api_client.analytics.models.item_rating_response import ItemRatingResponse
 from typing import Optional, Set
 from typing_extensions import Self
@@ -29,7 +29,7 @@ class PostV2ItemRatingResponse200(BaseModel):
     PostV2ItemRatingResponse200
     """  # noqa: E501
 
-    data: ItemRatingResponse
+    data: Optional[ItemRatingResponse] = None
     __properties: ClassVar[List[str]] = ["data"]
 
     model_config = ConfigDict(

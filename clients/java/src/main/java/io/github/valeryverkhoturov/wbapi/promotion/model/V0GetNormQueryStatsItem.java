@@ -39,13 +39,13 @@ public class V0GetNormQueryStatsItem {
   public static final String SERIALIZED_NAME_ADVERT_ID = "advert_id";
 
   @SerializedName(SERIALIZED_NAME_ADVERT_ID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer advertId;
 
   public static final String SERIALIZED_NAME_NM_ID = "nm_id";
 
   @SerializedName(SERIALIZED_NAME_NM_ID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer nmId;
 
   public static final String SERIALIZED_NAME_STATS = "stats";
@@ -56,7 +56,7 @@ public class V0GetNormQueryStatsItem {
 
   public V0GetNormQueryStatsItem() {}
 
-  public V0GetNormQueryStatsItem advertId(@jakarta.annotation.Nonnull Integer advertId) {
+  public V0GetNormQueryStatsItem advertId(@jakarta.annotation.Nullable Integer advertId) {
     this.advertId = advertId;
     return this;
   }
@@ -66,16 +66,16 @@ public class V0GetNormQueryStatsItem {
    *
    * @return advertId
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getAdvertId() {
     return advertId;
   }
 
-  public void setAdvertId(@jakarta.annotation.Nonnull Integer advertId) {
+  public void setAdvertId(@jakarta.annotation.Nullable Integer advertId) {
     this.advertId = advertId;
   }
 
-  public V0GetNormQueryStatsItem nmId(@jakarta.annotation.Nonnull Integer nmId) {
+  public V0GetNormQueryStatsItem nmId(@jakarta.annotation.Nullable Integer nmId) {
     this.nmId = nmId;
     return this;
   }
@@ -85,12 +85,12 @@ public class V0GetNormQueryStatsItem {
    *
    * @return nmId
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getNmId() {
     return nmId;
   }
 
-  public void setNmId(@jakarta.annotation.Nonnull Integer nmId) {
+  public void setNmId(@jakarta.annotation.Nullable Integer nmId) {
     this.nmId = nmId;
   }
 
@@ -174,8 +174,6 @@ public class V0GetNormQueryStatsItem {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("advert_id");
-    openapiRequiredFields.add("nm_id");
   }
 
   /**
@@ -203,16 +201,6 @@ public class V0GetNormQueryStatsItem {
             String.format(
                 "The field `%s` in the JSON string is not defined in the `V0GetNormQueryStatsItem` properties. JSON: %s",
                 entry.getKey(), jsonElement.toString()));
-      }
-    }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : V0GetNormQueryStatsItem.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
       }
     }
     JsonObject jsonObj = jsonElement.getAsJsonObject();

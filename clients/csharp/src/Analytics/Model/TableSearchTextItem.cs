@@ -34,127 +34,47 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TableSearchTextItem" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected TableSearchTextItem() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="TableSearchTextItem" /> class.
-        /// </summary>
-        /// <param name="text">Текст поискового запроса (required).</param>
-        /// <param name="nmId">Артикул WB (required).</param>
-        /// <param name="subjectName">Название предмета (required).</param>
-        /// <param name="brandName">Бренд (required).</param>
-        /// <param name="vendorCode">Артикул продавца (required).</param>
-        /// <param name="name">Название товара (required).</param>
-        /// <param name="isCardRated">Есть ли рейтинг у карточки товара (required).</param>
-        /// <param name="rating">Рейтинг карточки товара (required).</param>
-        /// <param name="feedbackRating">Рейтинг по отзывам (required).</param>
-        /// <param name="price">price (required).</param>
-        /// <param name="frequency">frequency (required).</param>
-        /// <param name="weekFrequency">Количество обращений с поисковым запросом за неделю (required).</param>
-        /// <param name="medianPosition">medianPosition (required).</param>
-        /// <param name="avgPosition">avgPosition (required).</param>
-        /// <param name="openCard">openCard (required).</param>
-        /// <param name="addToCart">addToCart (required).</param>
-        /// <param name="openToCart">openToCart (required).</param>
-        /// <param name="orders">orders (required).</param>
-        /// <param name="cartToOrder">cartToOrder (required).</param>
-        /// <param name="visibility">visibility (required).</param>
+        /// <param name="text">Текст поискового запроса.</param>
+        /// <param name="nmId">Артикул WB.</param>
+        /// <param name="subjectName">Название предмета.</param>
+        /// <param name="brandName">Бренд.</param>
+        /// <param name="vendorCode">Артикул продавца.</param>
+        /// <param name="name">Название товара.</param>
+        /// <param name="isCardRated">Есть ли рейтинг у карточки товара.</param>
+        /// <param name="rating">Рейтинг карточки товара.</param>
+        /// <param name="feedbackRating">Рейтинг по отзывам.</param>
+        /// <param name="price">price.</param>
+        /// <param name="frequency">frequency.</param>
+        /// <param name="weekFrequency">Количество обращений с поисковым запросом за неделю.</param>
+        /// <param name="medianPosition">medianPosition.</param>
+        /// <param name="avgPosition">avgPosition.</param>
+        /// <param name="openCard">openCard.</param>
+        /// <param name="addToCart">addToCart.</param>
+        /// <param name="openToCart">openToCart.</param>
+        /// <param name="orders">orders.</param>
+        /// <param name="cartToOrder">cartToOrder.</param>
+        /// <param name="visibility">visibility.</param>
         public TableSearchTextItem(string text = default(string), int nmId = default(int), string subjectName = default(string), string brandName = default(string), string vendorCode = default(string), string name = default(string), bool isCardRated = default(bool), decimal rating = default(decimal), decimal feedbackRating = default(decimal), TableItemItemAllOfPrice price = default(TableItemItemAllOfPrice), TableSearchTextItemAllOfFrequency frequency = default(TableSearchTextItemAllOfFrequency), int weekFrequency = default(int), TableSearchTextItemAllOfMedianPosition medianPosition = default(TableSearchTextItemAllOfMedianPosition), TableGroupItemMetricsAvgPosition avgPosition = default(TableGroupItemMetricsAvgPosition), TableSearchTextItemAllOfOpenCard openCard = default(TableSearchTextItemAllOfOpenCard), TableSearchTextItemAllOfAddToCart addToCart = default(TableSearchTextItemAllOfAddToCart), TableSearchTextItemAllOfOpenToCart openToCart = default(TableSearchTextItemAllOfOpenToCart), TableSearchTextItemAllOfOrders orders = default(TableSearchTextItemAllOfOrders), TableSearchTextItemAllOfCartToOrder cartToOrder = default(TableSearchTextItemAllOfCartToOrder), TableSearchTextItemAllOfVisibility visibility = default(TableSearchTextItemAllOfVisibility))
         {
-            // to ensure "text" is required (not null)
-            if (text == null)
-            {
-                throw new ArgumentNullException("text is a required property for TableSearchTextItem and cannot be null");
-            }
             this.Text = text;
             this.NmId = nmId;
-            // to ensure "subjectName" is required (not null)
-            if (subjectName == null)
-            {
-                throw new ArgumentNullException("subjectName is a required property for TableSearchTextItem and cannot be null");
-            }
             this.SubjectName = subjectName;
-            // to ensure "brandName" is required (not null)
-            if (brandName == null)
-            {
-                throw new ArgumentNullException("brandName is a required property for TableSearchTextItem and cannot be null");
-            }
             this.BrandName = brandName;
-            // to ensure "vendorCode" is required (not null)
-            if (vendorCode == null)
-            {
-                throw new ArgumentNullException("vendorCode is a required property for TableSearchTextItem and cannot be null");
-            }
             this.VendorCode = vendorCode;
-            // to ensure "name" is required (not null)
-            if (name == null)
-            {
-                throw new ArgumentNullException("name is a required property for TableSearchTextItem and cannot be null");
-            }
             this.Name = name;
             this.IsCardRated = isCardRated;
             this.Rating = rating;
             this.FeedbackRating = feedbackRating;
-            // to ensure "price" is required (not null)
-            if (price == null)
-            {
-                throw new ArgumentNullException("price is a required property for TableSearchTextItem and cannot be null");
-            }
             this.Price = price;
-            // to ensure "frequency" is required (not null)
-            if (frequency == null)
-            {
-                throw new ArgumentNullException("frequency is a required property for TableSearchTextItem and cannot be null");
-            }
             this.Frequency = frequency;
             this.WeekFrequency = weekFrequency;
-            // to ensure "medianPosition" is required (not null)
-            if (medianPosition == null)
-            {
-                throw new ArgumentNullException("medianPosition is a required property for TableSearchTextItem and cannot be null");
-            }
             this.MedianPosition = medianPosition;
-            // to ensure "avgPosition" is required (not null)
-            if (avgPosition == null)
-            {
-                throw new ArgumentNullException("avgPosition is a required property for TableSearchTextItem and cannot be null");
-            }
             this.AvgPosition = avgPosition;
-            // to ensure "openCard" is required (not null)
-            if (openCard == null)
-            {
-                throw new ArgumentNullException("openCard is a required property for TableSearchTextItem and cannot be null");
-            }
             this.OpenCard = openCard;
-            // to ensure "addToCart" is required (not null)
-            if (addToCart == null)
-            {
-                throw new ArgumentNullException("addToCart is a required property for TableSearchTextItem and cannot be null");
-            }
             this.AddToCart = addToCart;
-            // to ensure "openToCart" is required (not null)
-            if (openToCart == null)
-            {
-                throw new ArgumentNullException("openToCart is a required property for TableSearchTextItem and cannot be null");
-            }
             this.OpenToCart = openToCart;
-            // to ensure "orders" is required (not null)
-            if (orders == null)
-            {
-                throw new ArgumentNullException("orders is a required property for TableSearchTextItem and cannot be null");
-            }
             this.Orders = orders;
-            // to ensure "cartToOrder" is required (not null)
-            if (cartToOrder == null)
-            {
-                throw new ArgumentNullException("cartToOrder is a required property for TableSearchTextItem and cannot be null");
-            }
             this.CartToOrder = cartToOrder;
-            // to ensure "visibility" is required (not null)
-            if (visibility == null)
-            {
-                throw new ArgumentNullException("visibility is a required property for TableSearchTextItem and cannot be null");
-            }
             this.Visibility = visibility;
         }
 
@@ -165,7 +85,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>костюм</example>
         */
-        [DataMember(Name = "text", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "text", EmitDefaultValue = false)]
         public string Text { get; set; }
 
         /// <summary>
@@ -175,7 +95,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>211131895</example>
         */
-        [DataMember(Name = "nmId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "nmId", EmitDefaultValue = false)]
         public int NmId { get; set; }
 
         /// <summary>
@@ -185,7 +105,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>Phones</example>
         */
-        [DataMember(Name = "subjectName", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "subjectName", EmitDefaultValue = false)]
         public string SubjectName { get; set; }
 
         /// <summary>
@@ -195,7 +115,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>Apple</example>
         */
-        [DataMember(Name = "brandName", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "brandName", EmitDefaultValue = false)]
         public string BrandName { get; set; }
 
         /// <summary>
@@ -205,7 +125,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>wb3ha2668w</example>
         */
-        [DataMember(Name = "vendorCode", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "vendorCode", EmitDefaultValue = false)]
         public string VendorCode { get; set; }
 
         /// <summary>
@@ -215,7 +135,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>iPhone 13 256 ГБ Серебристый</example>
         */
-        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "name", EmitDefaultValue = false)]
         public string Name { get; set; }
 
         /// <summary>
@@ -225,7 +145,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>true</example>
         */
-        [DataMember(Name = "isCardRated", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "isCardRated", EmitDefaultValue = true)]
         public bool IsCardRated { get; set; }
 
         /// <summary>
@@ -235,7 +155,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>6</example>
         */
-        [DataMember(Name = "rating", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "rating", EmitDefaultValue = false)]
         public decimal Rating { get; set; }
 
         /// <summary>
@@ -245,19 +165,19 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>1</example>
         */
-        [DataMember(Name = "feedbackRating", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "feedbackRating", EmitDefaultValue = false)]
         public decimal FeedbackRating { get; set; }
 
         /// <summary>
         /// Gets or Sets Price
         /// </summary>
-        [DataMember(Name = "price", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "price", EmitDefaultValue = false)]
         public TableItemItemAllOfPrice Price { get; set; }
 
         /// <summary>
         /// Gets or Sets Frequency
         /// </summary>
-        [DataMember(Name = "frequency", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "frequency", EmitDefaultValue = false)]
         public TableSearchTextItemAllOfFrequency Frequency { get; set; }
 
         /// <summary>
@@ -267,55 +187,55 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>140</example>
         */
-        [DataMember(Name = "weekFrequency", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "weekFrequency", EmitDefaultValue = false)]
         public int WeekFrequency { get; set; }
 
         /// <summary>
         /// Gets or Sets MedianPosition
         /// </summary>
-        [DataMember(Name = "medianPosition", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "medianPosition", EmitDefaultValue = false)]
         public TableSearchTextItemAllOfMedianPosition MedianPosition { get; set; }
 
         /// <summary>
         /// Gets or Sets AvgPosition
         /// </summary>
-        [DataMember(Name = "avgPosition", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "avgPosition", EmitDefaultValue = false)]
         public TableGroupItemMetricsAvgPosition AvgPosition { get; set; }
 
         /// <summary>
         /// Gets or Sets OpenCard
         /// </summary>
-        [DataMember(Name = "openCard", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "openCard", EmitDefaultValue = false)]
         public TableSearchTextItemAllOfOpenCard OpenCard { get; set; }
 
         /// <summary>
         /// Gets or Sets AddToCart
         /// </summary>
-        [DataMember(Name = "addToCart", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "addToCart", EmitDefaultValue = false)]
         public TableSearchTextItemAllOfAddToCart AddToCart { get; set; }
 
         /// <summary>
         /// Gets or Sets OpenToCart
         /// </summary>
-        [DataMember(Name = "openToCart", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "openToCart", EmitDefaultValue = false)]
         public TableSearchTextItemAllOfOpenToCart OpenToCart { get; set; }
 
         /// <summary>
         /// Gets or Sets Orders
         /// </summary>
-        [DataMember(Name = "orders", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "orders", EmitDefaultValue = false)]
         public TableSearchTextItemAllOfOrders Orders { get; set; }
 
         /// <summary>
         /// Gets or Sets CartToOrder
         /// </summary>
-        [DataMember(Name = "cartToOrder", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "cartToOrder", EmitDefaultValue = false)]
         public TableSearchTextItemAllOfCartToOrder CartToOrder { get; set; }
 
         /// <summary>
         /// Gets or Sets Visibility
         /// </summary>
-        [DataMember(Name = "visibility", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "visibility", EmitDefaultValue = false)]
         public TableSearchTextItemAllOfVisibility Visibility { get; set; }
 
         /// <summary>

@@ -11,9 +11,7 @@ API version: items
 package items
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the ResponseItemListAdditionalErrorsOneOf1 type satisfies the MappedNullable interface at compile time
@@ -21,18 +19,15 @@ var _ MappedNullable = &ResponseItemListAdditionalErrorsOneOf1{}
 
 // ResponseItemListAdditionalErrorsOneOf1 struct for ResponseItemListAdditionalErrorsOneOf1
 type ResponseItemListAdditionalErrorsOneOf1 struct {
-	Error string `json:"error"`
+	Error *string `json:"error,omitempty"`
 }
-
-type _ResponseItemListAdditionalErrorsOneOf1 ResponseItemListAdditionalErrorsOneOf1
 
 // NewResponseItemListAdditionalErrorsOneOf1 instantiates a new ResponseItemListAdditionalErrorsOneOf1 object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewResponseItemListAdditionalErrorsOneOf1(error_ string) *ResponseItemListAdditionalErrorsOneOf1 {
+func NewResponseItemListAdditionalErrorsOneOf1() *ResponseItemListAdditionalErrorsOneOf1 {
 	this := ResponseItemListAdditionalErrorsOneOf1{}
-	this.Error = error_
 	return &this
 }
 
@@ -44,28 +39,36 @@ func NewResponseItemListAdditionalErrorsOneOf1WithDefaults() *ResponseItemListAd
 	return &this
 }
 
-// GetError returns the Error field value
+// GetError returns the Error field value if set, zero value otherwise.
 func (o *ResponseItemListAdditionalErrorsOneOf1) GetError() string {
-	if o == nil {
+	if o == nil || IsNil(o.Error) {
 		var ret string
 		return ret
 	}
-
-	return o.Error
+	return *o.Error
 }
 
-// GetErrorOk returns a tuple with the Error field value
+// GetErrorOk returns a tuple with the Error field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ResponseItemListAdditionalErrorsOneOf1) GetErrorOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Error) {
 		return nil, false
 	}
-	return &o.Error, true
+	return o.Error, true
 }
 
-// SetError sets field value
+// HasError returns a boolean if a field has been set.
+func (o *ResponseItemListAdditionalErrorsOneOf1) HasError() bool {
+	if o != nil && !IsNil(o.Error) {
+		return true
+	}
+
+	return false
+}
+
+// SetError gets a reference to the given string and assigns it to the Error field.
 func (o *ResponseItemListAdditionalErrorsOneOf1) SetError(v string) {
-	o.Error = v
+	o.Error = &v
 }
 
 func (o ResponseItemListAdditionalErrorsOneOf1) MarshalJSON() ([]byte, error) {
@@ -78,45 +81,10 @@ func (o ResponseItemListAdditionalErrorsOneOf1) MarshalJSON() ([]byte, error) {
 
 func (o ResponseItemListAdditionalErrorsOneOf1) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["error"] = o.Error
+	if !IsNil(o.Error) {
+		toSerialize["error"] = o.Error
+	}
 	return toSerialize, nil
-}
-
-func (o *ResponseItemListAdditionalErrorsOneOf1) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"error",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varResponseItemListAdditionalErrorsOneOf1 := _ResponseItemListAdditionalErrorsOneOf1{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varResponseItemListAdditionalErrorsOneOf1)
-
-	if err != nil {
-		return err
-	}
-
-	*o = ResponseItemListAdditionalErrorsOneOf1(varResponseItemListAdditionalErrorsOneOf1)
-
-	return err
 }
 
 type NullableResponseItemListAdditionalErrorsOneOf1 struct {

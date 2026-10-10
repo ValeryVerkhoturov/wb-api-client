@@ -34,21 +34,11 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SearchReportPositionChartItem" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected SearchReportPositionChartItem() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="SearchReportPositionChartItem" /> class.
-        /// </summary>
-        /// <param name="dt">Дата (required).</param>
-        /// <param name="average">Средняя позиция товара в результатах поиска (required).</param>
-        /// <param name="median">Медианная позиция товара в результатах поиска (required).</param>
+        /// <param name="dt">Дата.</param>
+        /// <param name="average">Средняя позиция товара в результатах поиска.</param>
+        /// <param name="median">Медианная позиция товара в результатах поиска.</param>
         public SearchReportPositionChartItem(string dt = default(string), int average = default(int), int median = default(int))
         {
-            // to ensure "dt" is required (not null)
-            if (dt == null)
-            {
-                throw new ArgumentNullException("dt is a required property for SearchReportPositionChartItem and cannot be null");
-            }
             this.Dt = dt;
             this.Average = average;
             this.Median = median;
@@ -61,7 +51,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>2024-10-19</example>
         */
-        [DataMember(Name = "dt", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "dt", EmitDefaultValue = false)]
         public string Dt { get; set; }
 
         /// <summary>
@@ -71,7 +61,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>1</example>
         */
-        [DataMember(Name = "average", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "average", EmitDefaultValue = false)]
         public int Average { get; set; }
 
         /// <summary>
@@ -81,7 +71,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>1</example>
         */
-        [DataMember(Name = "median", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "median", EmitDefaultValue = false)]
         public int Median { get; set; }
 
         /// <summary>

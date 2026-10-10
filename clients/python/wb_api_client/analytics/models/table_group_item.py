@@ -46,8 +46,10 @@ class TableGroupItem(BaseModel):
     tag_id: Optional[StrictInt] = Field(
         default=None, description="ID ярлыка", alias="tagId"
     )
-    metrics: TableGroupItemMetrics
-    items: List[object] = Field(description="Массив товаров группы")
+    metrics: Optional[TableGroupItemMetrics] = None
+    items: Optional[List[object]] = Field(
+        default=None, description="Массив товаров группы"
+    )
     __properties: ClassVar[List[str]] = [
         "subjectName",
         "subjectId",

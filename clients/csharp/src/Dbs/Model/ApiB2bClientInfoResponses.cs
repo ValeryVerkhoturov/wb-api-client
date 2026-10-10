@@ -34,20 +34,10 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiB2bClientInfoResponses" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected ApiB2bClientInfoResponses() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ApiB2bClientInfoResponses" /> class.
-        /// </summary>
-        /// <param name="requestId">Уникальный ID запроса (required).</param>
+        /// <param name="requestId">Уникальный ID запроса.</param>
         /// <param name="results">results.</param>
         public ApiB2bClientInfoResponses(string requestId = default(string), List<ApiB2bClientInfoResponse> results = default(List<ApiB2bClientInfoResponse>))
         {
-            // to ensure "requestId" is required (not null)
-            if (requestId == null)
-            {
-                throw new ArgumentNullException("requestId is a required property for ApiB2bClientInfoResponses and cannot be null");
-            }
             this.RequestId = requestId;
             this.Results = results;
         }
@@ -56,7 +46,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Model
         /// Уникальный ID запроса
         /// </summary>
         /// <value>Уникальный ID запроса</value>
-        [DataMember(Name = "requestId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "requestId", EmitDefaultValue = false)]
         public string RequestId { get; set; }
 
         /// <summary>

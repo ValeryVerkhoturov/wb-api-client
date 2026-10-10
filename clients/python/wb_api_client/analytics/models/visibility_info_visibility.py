@@ -28,7 +28,9 @@ class VisibilityInfoVisibility(BaseModel):
     Видимость — процент вероятности, что пользователь увидит карточку товара. Зависит от средней позиции
     """  # noqa: E501
 
-    current: StrictInt = Field(description="Видимость в текущий период")
+    current: Optional[StrictInt] = Field(
+        default=None, description="Видимость в текущий период"
+    )
     dynamics: Optional[StrictInt] = Field(
         default=None, description="Динамика по сравнению с предыдущим периодом, %"
     )

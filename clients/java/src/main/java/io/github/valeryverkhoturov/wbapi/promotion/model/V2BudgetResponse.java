@@ -117,7 +117,6 @@ public class V2BudgetResponse {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("adverts");
   }
 
   /**
@@ -147,31 +146,25 @@ public class V2BudgetResponse {
                 entry.getKey(), jsonElement.toString()));
       }
     }
+    JsonObject jsonObj = jsonElement.getAsJsonObject();
+    if (jsonObj.get("adverts") != null && !jsonObj.get("adverts").isJsonNull()) {
+      JsonArray jsonArrayadverts = jsonObj.getAsJsonArray("adverts");
+      if (jsonArrayadverts != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("adverts").isJsonArray()) {
+          throw new IllegalArgumentException(
+              String.format(
+                  "Expected the field `adverts` to be an array in the JSON string but got `%s`",
+                  jsonObj.get("adverts").toString()));
+        }
 
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : V2BudgetResponse.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
+        // validate the optional field `adverts` (array)
+        for (int i = 0; i < jsonArrayadverts.size(); i++) {
+          V1BudgetAdvert.validateJsonElement(jsonArrayadverts.get(i));
+        }
+        ;
       }
     }
-    JsonObject jsonObj = jsonElement.getAsJsonObject();
-    // ensure the json data is an array
-    if (!jsonObj.get("adverts").isJsonArray()) {
-      throw new IllegalArgumentException(
-          String.format(
-              "Expected the field `adverts` to be an array in the JSON string but got `%s`",
-              jsonObj.get("adverts").toString()));
-    }
-
-    JsonArray jsonArrayadverts = jsonObj.getAsJsonArray("adverts");
-    // validate the required field `adverts` (array)
-    for (int i = 0; i < jsonArrayadverts.size(); i++) {
-      V1BudgetAdvert.validateJsonElement(jsonArrayadverts.get(i));
-    }
-    ;
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

@@ -31,8 +31,8 @@ class ApiOrdersMetaDetailsResponse(BaseModel):
     ApiOrdersMetaDetailsResponse
     """  # noqa: E501
 
-    request_id: StrictStr = Field(
-        description="Уникальный ID запроса", alias="requestId"
+    request_id: Optional[StrictStr] = Field(
+        default=None, description="Уникальный ID запроса", alias="requestId"
     )
     orders: Optional[List[ApiOrdersMetaDetailsResponseOrdersInner]] = Field(
         default=None,

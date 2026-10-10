@@ -41,13 +41,13 @@ public class FullStatsItem {
   public static final String SERIALIZED_NAME_ADVERT_ID = "advertId";
 
   @SerializedName(SERIALIZED_NAME_ADVERT_ID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer advertId;
 
   public static final String SERIALIZED_NAME_ATBS = "atbs";
 
   @SerializedName(SERIALIZED_NAME_ATBS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer atbs;
 
   public static final String SERIALIZED_NAME_BOOSTER_STATS = "boosterStats";
@@ -59,78 +59,78 @@ public class FullStatsItem {
   public static final String SERIALIZED_NAME_CANCELED = "canceled";
 
   @SerializedName(SERIALIZED_NAME_CANCELED)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer canceled;
 
   public static final String SERIALIZED_NAME_CLICKS = "clicks";
 
   @SerializedName(SERIALIZED_NAME_CLICKS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer clicks;
 
   public static final String SERIALIZED_NAME_CPC = "cpc";
 
   @SerializedName(SERIALIZED_NAME_CPC)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Double cpc;
 
   public static final String SERIALIZED_NAME_CR = "cr";
 
   @SerializedName(SERIALIZED_NAME_CR)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Double cr;
 
   public static final String SERIALIZED_NAME_CTR = "ctr";
 
   @SerializedName(SERIALIZED_NAME_CTR)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Double ctr;
 
   public static final String SERIALIZED_NAME_DAYS = "days";
 
   @SerializedName(SERIALIZED_NAME_DAYS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private List<FullStatsItemDaysInner> days = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_ORDERS = "orders";
 
   @SerializedName(SERIALIZED_NAME_ORDERS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer orders;
 
   public static final String SERIALIZED_NAME_SHKS = "shks";
 
   @SerializedName(SERIALIZED_NAME_SHKS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer shks;
 
   public static final String SERIALIZED_NAME_SUM = "sum";
 
   @SerializedName(SERIALIZED_NAME_SUM)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Double sum;
 
   public static final String SERIALIZED_NAME_SUM_PRICE = "sum_price";
 
   @SerializedName(SERIALIZED_NAME_SUM_PRICE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Double sumPrice;
 
   public static final String SERIALIZED_NAME_VIEWS = "views";
 
   @SerializedName(SERIALIZED_NAME_VIEWS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer views;
 
   public static final String SERIALIZED_NAME_CURRENCY = "currency";
 
   @SerializedName(SERIALIZED_NAME_CURRENCY)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String currency;
 
   public FullStatsItem() {}
 
-  public FullStatsItem advertId(@jakarta.annotation.Nonnull Integer advertId) {
+  public FullStatsItem advertId(@jakarta.annotation.Nullable Integer advertId) {
     this.advertId = advertId;
     return this;
   }
@@ -140,16 +140,16 @@ public class FullStatsItem {
    *
    * @return advertId
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getAdvertId() {
     return advertId;
   }
 
-  public void setAdvertId(@jakarta.annotation.Nonnull Integer advertId) {
+  public void setAdvertId(@jakarta.annotation.Nullable Integer advertId) {
     this.advertId = advertId;
   }
 
-  public FullStatsItem atbs(@jakarta.annotation.Nonnull Integer atbs) {
+  public FullStatsItem atbs(@jakarta.annotation.Nullable Integer atbs) {
     this.atbs = atbs;
     return this;
   }
@@ -159,12 +159,12 @@ public class FullStatsItem {
    *
    * @return atbs
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getAtbs() {
     return atbs;
   }
 
-  public void setAtbs(@jakarta.annotation.Nonnull Integer atbs) {
+  public void setAtbs(@jakarta.annotation.Nullable Integer atbs) {
     this.atbs = atbs;
   }
 
@@ -197,7 +197,7 @@ public class FullStatsItem {
     this.boosterStats = boosterStats;
   }
 
-  public FullStatsItem canceled(@jakarta.annotation.Nonnull Integer canceled) {
+  public FullStatsItem canceled(@jakarta.annotation.Nullable Integer canceled) {
     this.canceled = canceled;
     return this;
   }
@@ -207,16 +207,16 @@ public class FullStatsItem {
    *
    * @return canceled
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getCanceled() {
     return canceled;
   }
 
-  public void setCanceled(@jakarta.annotation.Nonnull Integer canceled) {
+  public void setCanceled(@jakarta.annotation.Nullable Integer canceled) {
     this.canceled = canceled;
   }
 
-  public FullStatsItem clicks(@jakarta.annotation.Nonnull Integer clicks) {
+  public FullStatsItem clicks(@jakarta.annotation.Nullable Integer clicks) {
     this.clicks = clicks;
     return this;
   }
@@ -226,16 +226,16 @@ public class FullStatsItem {
    *
    * @return clicks
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getClicks() {
     return clicks;
   }
 
-  public void setClicks(@jakarta.annotation.Nonnull Integer clicks) {
+  public void setClicks(@jakarta.annotation.Nullable Integer clicks) {
     this.clicks = clicks;
   }
 
-  public FullStatsItem cpc(@jakarta.annotation.Nonnull Double cpc) {
+  public FullStatsItem cpc(@jakarta.annotation.Nullable Double cpc) {
     this.cpc = cpc;
     return this;
   }
@@ -246,16 +246,16 @@ public class FullStatsItem {
    *
    * @return cpc
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Double getCpc() {
     return cpc;
   }
 
-  public void setCpc(@jakarta.annotation.Nonnull Double cpc) {
+  public void setCpc(@jakarta.annotation.Nullable Double cpc) {
     this.cpc = cpc;
   }
 
-  public FullStatsItem cr(@jakarta.annotation.Nonnull Double cr) {
+  public FullStatsItem cr(@jakarta.annotation.Nullable Double cr) {
     this.cr = cr;
     return this;
   }
@@ -265,16 +265,16 @@ public class FullStatsItem {
    *
    * @return cr
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Double getCr() {
     return cr;
   }
 
-  public void setCr(@jakarta.annotation.Nonnull Double cr) {
+  public void setCr(@jakarta.annotation.Nullable Double cr) {
     this.cr = cr;
   }
 
-  public FullStatsItem ctr(@jakarta.annotation.Nonnull Double ctr) {
+  public FullStatsItem ctr(@jakarta.annotation.Nullable Double ctr) {
     this.ctr = ctr;
     return this;
   }
@@ -284,16 +284,16 @@ public class FullStatsItem {
    *
    * @return ctr
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Double getCtr() {
     return ctr;
   }
 
-  public void setCtr(@jakarta.annotation.Nonnull Double ctr) {
+  public void setCtr(@jakarta.annotation.Nullable Double ctr) {
     this.ctr = ctr;
   }
 
-  public FullStatsItem days(@jakarta.annotation.Nonnull List<FullStatsItemDaysInner> days) {
+  public FullStatsItem days(@jakarta.annotation.Nullable List<FullStatsItemDaysInner> days) {
     this.days = days;
     return this;
   }
@@ -311,16 +311,16 @@ public class FullStatsItem {
    *
    * @return days
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public List<FullStatsItemDaysInner> getDays() {
     return days;
   }
 
-  public void setDays(@jakarta.annotation.Nonnull List<FullStatsItemDaysInner> days) {
+  public void setDays(@jakarta.annotation.Nullable List<FullStatsItemDaysInner> days) {
     this.days = days;
   }
 
-  public FullStatsItem orders(@jakarta.annotation.Nonnull Integer orders) {
+  public FullStatsItem orders(@jakarta.annotation.Nullable Integer orders) {
     this.orders = orders;
     return this;
   }
@@ -330,16 +330,16 @@ public class FullStatsItem {
    *
    * @return orders
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getOrders() {
     return orders;
   }
 
-  public void setOrders(@jakarta.annotation.Nonnull Integer orders) {
+  public void setOrders(@jakarta.annotation.Nullable Integer orders) {
     this.orders = orders;
   }
 
-  public FullStatsItem shks(@jakarta.annotation.Nonnull Integer shks) {
+  public FullStatsItem shks(@jakarta.annotation.Nullable Integer shks) {
     this.shks = shks;
     return this;
   }
@@ -349,16 +349,16 @@ public class FullStatsItem {
    *
    * @return shks
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getShks() {
     return shks;
   }
 
-  public void setShks(@jakarta.annotation.Nonnull Integer shks) {
+  public void setShks(@jakarta.annotation.Nullable Integer shks) {
     this.shks = shks;
   }
 
-  public FullStatsItem sum(@jakarta.annotation.Nonnull Double sum) {
+  public FullStatsItem sum(@jakarta.annotation.Nullable Double sum) {
     this.sum = sum;
     return this;
   }
@@ -369,16 +369,16 @@ public class FullStatsItem {
    *
    * @return sum
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Double getSum() {
     return sum;
   }
 
-  public void setSum(@jakarta.annotation.Nonnull Double sum) {
+  public void setSum(@jakarta.annotation.Nullable Double sum) {
     this.sum = sum;
   }
 
-  public FullStatsItem sumPrice(@jakarta.annotation.Nonnull Double sumPrice) {
+  public FullStatsItem sumPrice(@jakarta.annotation.Nullable Double sumPrice) {
     this.sumPrice = sumPrice;
     return this;
   }
@@ -389,16 +389,16 @@ public class FullStatsItem {
    *
    * @return sumPrice
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Double getSumPrice() {
     return sumPrice;
   }
 
-  public void setSumPrice(@jakarta.annotation.Nonnull Double sumPrice) {
+  public void setSumPrice(@jakarta.annotation.Nullable Double sumPrice) {
     this.sumPrice = sumPrice;
   }
 
-  public FullStatsItem views(@jakarta.annotation.Nonnull Integer views) {
+  public FullStatsItem views(@jakarta.annotation.Nullable Integer views) {
     this.views = views;
     return this;
   }
@@ -408,16 +408,16 @@ public class FullStatsItem {
    *
    * @return views
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getViews() {
     return views;
   }
 
-  public void setViews(@jakarta.annotation.Nonnull Integer views) {
+  public void setViews(@jakarta.annotation.Nullable Integer views) {
     this.views = views;
   }
 
-  public FullStatsItem currency(@jakarta.annotation.Nonnull String currency) {
+  public FullStatsItem currency(@jakarta.annotation.Nullable String currency) {
     this.currency = currency;
     return this;
   }
@@ -427,12 +427,12 @@ public class FullStatsItem {
    *
    * @return currency
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getCurrency() {
     return currency;
   }
 
-  public void setCurrency(@jakarta.annotation.Nonnull String currency) {
+  public void setCurrency(@jakarta.annotation.Nullable String currency) {
     this.currency = currency;
   }
 
@@ -539,20 +539,6 @@ public class FullStatsItem {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("advertId");
-    openapiRequiredFields.add("atbs");
-    openapiRequiredFields.add("canceled");
-    openapiRequiredFields.add("clicks");
-    openapiRequiredFields.add("cpc");
-    openapiRequiredFields.add("cr");
-    openapiRequiredFields.add("ctr");
-    openapiRequiredFields.add("days");
-    openapiRequiredFields.add("orders");
-    openapiRequiredFields.add("shks");
-    openapiRequiredFields.add("sum");
-    openapiRequiredFields.add("sum_price");
-    openapiRequiredFields.add("views");
-    openapiRequiredFields.add("currency");
   }
 
   /**
@@ -582,16 +568,6 @@ public class FullStatsItem {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : FullStatsItem.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
     if (jsonObj.get("boosterStats") != null && !jsonObj.get("boosterStats").isJsonNull()) {
       JsonArray jsonArrayboosterStats = jsonObj.getAsJsonArray("boosterStats");
@@ -611,21 +587,26 @@ public class FullStatsItem {
         ;
       }
     }
-    // ensure the json data is an array
-    if (!jsonObj.get("days").isJsonArray()) {
-      throw new IllegalArgumentException(
-          String.format(
-              "Expected the field `days` to be an array in the JSON string but got `%s`",
-              jsonObj.get("days").toString()));
-    }
+    if (jsonObj.get("days") != null && !jsonObj.get("days").isJsonNull()) {
+      JsonArray jsonArraydays = jsonObj.getAsJsonArray("days");
+      if (jsonArraydays != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("days").isJsonArray()) {
+          throw new IllegalArgumentException(
+              String.format(
+                  "Expected the field `days` to be an array in the JSON string but got `%s`",
+                  jsonObj.get("days").toString()));
+        }
 
-    JsonArray jsonArraydays = jsonObj.getAsJsonArray("days");
-    // validate the required field `days` (array)
-    for (int i = 0; i < jsonArraydays.size(); i++) {
-      FullStatsItemDaysInner.validateJsonElement(jsonArraydays.get(i));
+        // validate the optional field `days` (array)
+        for (int i = 0; i < jsonArraydays.size(); i++) {
+          FullStatsItemDaysInner.validateJsonElement(jsonArraydays.get(i));
+        }
+        ;
+      }
     }
-    ;
-    if (!jsonObj.get("currency").isJsonPrimitive()) {
+    if ((jsonObj.get("currency") != null && !jsonObj.get("currency").isJsonNull())
+        && !jsonObj.get("currency").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `currency` to be a primitive type in the JSON string but got `%s`",

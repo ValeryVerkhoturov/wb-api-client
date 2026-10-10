@@ -11,9 +11,7 @@ API version: finances
 package finances
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the SalesReportListRes type satisfies the MappedNullable interface at compile time
@@ -22,78 +20,55 @@ var _ MappedNullable = &SalesReportListRes{}
 // SalesReportListRes Список отчётов реализации
 type SalesReportListRes struct {
 	// ID отчёта
-	ReportId int64 `json:"reportId"`
+	ReportId *int64 `json:"reportId,omitempty"`
 	// Наименование продавца
-	SellerFinanceName string `json:"sellerFinanceName"`
+	SellerFinanceName *string `json:"sellerFinanceName,omitempty"`
 	// Дата начала отчётного периода
-	DateFrom string `json:"dateFrom"`
+	DateFrom *string `json:"dateFrom,omitempty"`
 	// Дата конца отчётного периода
-	DateTo string `json:"dateTo"`
+	DateTo *string `json:"dateTo,omitempty"`
 	// Дата формирования отчёта
-	CreateDate string `json:"createDate"`
+	CreateDate *string `json:"createDate,omitempty"`
 	// Валюта отчёта
-	Currency string `json:"currency"`
+	Currency *string `json:"currency,omitempty"`
 	// Тип отчёта:   - `1` — основной   - `2` — по выкупам
-	ReportType int32 `json:"reportType"`
+	ReportType *int32 `json:"reportType,omitempty"`
 	// Продажа
-	RetailAmountSum string `json:"retailAmountSum"`
+	RetailAmountSum *string `json:"retailAmountSum,omitempty"`
 	// К перечислению за товар
-	ForPaySum string `json:"forPaySum"`
+	ForPaySum *string `json:"forPaySum,omitempty"`
 	// Согласованная скидка, %
-	AvgSalePercent float32 `json:"avgSalePercent"`
+	AvgSalePercent *float32 `json:"avgSalePercent,omitempty"`
 	// Стоимость доставки
-	DeliveryServiceSum string `json:"deliveryServiceSum"`
+	DeliveryServiceSum *string `json:"deliveryServiceSum,omitempty"`
 	// Стоимость хранения
-	PaidStorageSum string `json:"paidStorageSum"`
+	PaidStorageSum *string `json:"paidStorageSum,omitempty"`
 	// Стоимость операций при приёмке
-	PaidAcceptanceSum string `json:"paidAcceptanceSum"`
+	PaidAcceptanceSum *string `json:"paidAcceptanceSum,omitempty"`
 	// Прочие удержания/выплаты
-	DeductionSum string `json:"deductionSum"`
+	DeductionSum *string `json:"deductionSum,omitempty"`
 	// Общая сумма штрафов
-	PenaltySum string `json:"penaltySum"`
+	PenaltySum *string `json:"penaltySum,omitempty"`
 	// Корректировка Вознаграждения Wildberries (ВВ)
-	AdditionalPaymentSum string `json:"additionalPaymentSum"`
+	AdditionalPaymentSum *string `json:"additionalPaymentSum,omitempty"`
 	// Сумма баллов, удержанных по программе лояльности
-	CashbackAmountSum string `json:"cashbackAmountSum"`
+	CashbackAmountSum *string `json:"cashbackAmountSum,omitempty"`
 	// Компенсация скидки по программе лояльности
-	CashbackDiscountSum string `json:"cashbackDiscountSum"`
+	CashbackDiscountSum *string `json:"cashbackDiscountSum,omitempty"`
 	// Стоимость участия в программе лояльности
-	CashbackCommissionChangeSum string `json:"cashbackCommissionChangeSum"`
+	CashbackCommissionChangeSum *string `json:"cashbackCommissionChangeSum,omitempty"`
 	// Разовое изменение срока перечисления денежных средств
-	PaymentSchedule string `json:"paymentSchedule"`
+	PaymentSchedule *string `json:"paymentSchedule,omitempty"`
 	// Итого к оплате
-	BankPaymentSum string `json:"bankPaymentSum"`
+	BankPaymentSum *string `json:"bankPaymentSum,omitempty"`
 }
-
-type _SalesReportListRes SalesReportListRes
 
 // NewSalesReportListRes instantiates a new SalesReportListRes object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSalesReportListRes(reportId int64, sellerFinanceName string, dateFrom string, dateTo string, createDate string, currency string, reportType int32, retailAmountSum string, forPaySum string, avgSalePercent float32, deliveryServiceSum string, paidStorageSum string, paidAcceptanceSum string, deductionSum string, penaltySum string, additionalPaymentSum string, cashbackAmountSum string, cashbackDiscountSum string, cashbackCommissionChangeSum string, paymentSchedule string, bankPaymentSum string) *SalesReportListRes {
+func NewSalesReportListRes() *SalesReportListRes {
 	this := SalesReportListRes{}
-	this.ReportId = reportId
-	this.SellerFinanceName = sellerFinanceName
-	this.DateFrom = dateFrom
-	this.DateTo = dateTo
-	this.CreateDate = createDate
-	this.Currency = currency
-	this.ReportType = reportType
-	this.RetailAmountSum = retailAmountSum
-	this.ForPaySum = forPaySum
-	this.AvgSalePercent = avgSalePercent
-	this.DeliveryServiceSum = deliveryServiceSum
-	this.PaidStorageSum = paidStorageSum
-	this.PaidAcceptanceSum = paidAcceptanceSum
-	this.DeductionSum = deductionSum
-	this.PenaltySum = penaltySum
-	this.AdditionalPaymentSum = additionalPaymentSum
-	this.CashbackAmountSum = cashbackAmountSum
-	this.CashbackDiscountSum = cashbackDiscountSum
-	this.CashbackCommissionChangeSum = cashbackCommissionChangeSum
-	this.PaymentSchedule = paymentSchedule
-	this.BankPaymentSum = bankPaymentSum
 	return &this
 }
 
@@ -105,508 +80,676 @@ func NewSalesReportListResWithDefaults() *SalesReportListRes {
 	return &this
 }
 
-// GetReportId returns the ReportId field value
+// GetReportId returns the ReportId field value if set, zero value otherwise.
 func (o *SalesReportListRes) GetReportId() int64 {
-	if o == nil {
+	if o == nil || IsNil(o.ReportId) {
 		var ret int64
 		return ret
 	}
-
-	return o.ReportId
+	return *o.ReportId
 }
 
-// GetReportIdOk returns a tuple with the ReportId field value
+// GetReportIdOk returns a tuple with the ReportId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SalesReportListRes) GetReportIdOk() (*int64, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ReportId) {
 		return nil, false
 	}
-	return &o.ReportId, true
+	return o.ReportId, true
 }
 
-// SetReportId sets field value
+// HasReportId returns a boolean if a field has been set.
+func (o *SalesReportListRes) HasReportId() bool {
+	if o != nil && !IsNil(o.ReportId) {
+		return true
+	}
+
+	return false
+}
+
+// SetReportId gets a reference to the given int64 and assigns it to the ReportId field.
 func (o *SalesReportListRes) SetReportId(v int64) {
-	o.ReportId = v
+	o.ReportId = &v
 }
 
-// GetSellerFinanceName returns the SellerFinanceName field value
+// GetSellerFinanceName returns the SellerFinanceName field value if set, zero value otherwise.
 func (o *SalesReportListRes) GetSellerFinanceName() string {
-	if o == nil {
+	if o == nil || IsNil(o.SellerFinanceName) {
 		var ret string
 		return ret
 	}
-
-	return o.SellerFinanceName
+	return *o.SellerFinanceName
 }
 
-// GetSellerFinanceNameOk returns a tuple with the SellerFinanceName field value
+// GetSellerFinanceNameOk returns a tuple with the SellerFinanceName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SalesReportListRes) GetSellerFinanceNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.SellerFinanceName) {
 		return nil, false
 	}
-	return &o.SellerFinanceName, true
+	return o.SellerFinanceName, true
 }
 
-// SetSellerFinanceName sets field value
+// HasSellerFinanceName returns a boolean if a field has been set.
+func (o *SalesReportListRes) HasSellerFinanceName() bool {
+	if o != nil && !IsNil(o.SellerFinanceName) {
+		return true
+	}
+
+	return false
+}
+
+// SetSellerFinanceName gets a reference to the given string and assigns it to the SellerFinanceName field.
 func (o *SalesReportListRes) SetSellerFinanceName(v string) {
-	o.SellerFinanceName = v
+	o.SellerFinanceName = &v
 }
 
-// GetDateFrom returns the DateFrom field value
+// GetDateFrom returns the DateFrom field value if set, zero value otherwise.
 func (o *SalesReportListRes) GetDateFrom() string {
-	if o == nil {
+	if o == nil || IsNil(o.DateFrom) {
 		var ret string
 		return ret
 	}
-
-	return o.DateFrom
+	return *o.DateFrom
 }
 
-// GetDateFromOk returns a tuple with the DateFrom field value
+// GetDateFromOk returns a tuple with the DateFrom field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SalesReportListRes) GetDateFromOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DateFrom) {
 		return nil, false
 	}
-	return &o.DateFrom, true
+	return o.DateFrom, true
 }
 
-// SetDateFrom sets field value
+// HasDateFrom returns a boolean if a field has been set.
+func (o *SalesReportListRes) HasDateFrom() bool {
+	if o != nil && !IsNil(o.DateFrom) {
+		return true
+	}
+
+	return false
+}
+
+// SetDateFrom gets a reference to the given string and assigns it to the DateFrom field.
 func (o *SalesReportListRes) SetDateFrom(v string) {
-	o.DateFrom = v
+	o.DateFrom = &v
 }
 
-// GetDateTo returns the DateTo field value
+// GetDateTo returns the DateTo field value if set, zero value otherwise.
 func (o *SalesReportListRes) GetDateTo() string {
-	if o == nil {
+	if o == nil || IsNil(o.DateTo) {
 		var ret string
 		return ret
 	}
-
-	return o.DateTo
+	return *o.DateTo
 }
 
-// GetDateToOk returns a tuple with the DateTo field value
+// GetDateToOk returns a tuple with the DateTo field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SalesReportListRes) GetDateToOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DateTo) {
 		return nil, false
 	}
-	return &o.DateTo, true
+	return o.DateTo, true
 }
 
-// SetDateTo sets field value
+// HasDateTo returns a boolean if a field has been set.
+func (o *SalesReportListRes) HasDateTo() bool {
+	if o != nil && !IsNil(o.DateTo) {
+		return true
+	}
+
+	return false
+}
+
+// SetDateTo gets a reference to the given string and assigns it to the DateTo field.
 func (o *SalesReportListRes) SetDateTo(v string) {
-	o.DateTo = v
+	o.DateTo = &v
 }
 
-// GetCreateDate returns the CreateDate field value
+// GetCreateDate returns the CreateDate field value if set, zero value otherwise.
 func (o *SalesReportListRes) GetCreateDate() string {
-	if o == nil {
+	if o == nil || IsNil(o.CreateDate) {
 		var ret string
 		return ret
 	}
-
-	return o.CreateDate
+	return *o.CreateDate
 }
 
-// GetCreateDateOk returns a tuple with the CreateDate field value
+// GetCreateDateOk returns a tuple with the CreateDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SalesReportListRes) GetCreateDateOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.CreateDate) {
 		return nil, false
 	}
-	return &o.CreateDate, true
+	return o.CreateDate, true
 }
 
-// SetCreateDate sets field value
+// HasCreateDate returns a boolean if a field has been set.
+func (o *SalesReportListRes) HasCreateDate() bool {
+	if o != nil && !IsNil(o.CreateDate) {
+		return true
+	}
+
+	return false
+}
+
+// SetCreateDate gets a reference to the given string and assigns it to the CreateDate field.
 func (o *SalesReportListRes) SetCreateDate(v string) {
-	o.CreateDate = v
+	o.CreateDate = &v
 }
 
-// GetCurrency returns the Currency field value
+// GetCurrency returns the Currency field value if set, zero value otherwise.
 func (o *SalesReportListRes) GetCurrency() string {
-	if o == nil {
+	if o == nil || IsNil(o.Currency) {
 		var ret string
 		return ret
 	}
-
-	return o.Currency
+	return *o.Currency
 }
 
-// GetCurrencyOk returns a tuple with the Currency field value
+// GetCurrencyOk returns a tuple with the Currency field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SalesReportListRes) GetCurrencyOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Currency) {
 		return nil, false
 	}
-	return &o.Currency, true
+	return o.Currency, true
 }
 
-// SetCurrency sets field value
+// HasCurrency returns a boolean if a field has been set.
+func (o *SalesReportListRes) HasCurrency() bool {
+	if o != nil && !IsNil(o.Currency) {
+		return true
+	}
+
+	return false
+}
+
+// SetCurrency gets a reference to the given string and assigns it to the Currency field.
 func (o *SalesReportListRes) SetCurrency(v string) {
-	o.Currency = v
+	o.Currency = &v
 }
 
-// GetReportType returns the ReportType field value
+// GetReportType returns the ReportType field value if set, zero value otherwise.
 func (o *SalesReportListRes) GetReportType() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.ReportType) {
 		var ret int32
 		return ret
 	}
-
-	return o.ReportType
+	return *o.ReportType
 }
 
-// GetReportTypeOk returns a tuple with the ReportType field value
+// GetReportTypeOk returns a tuple with the ReportType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SalesReportListRes) GetReportTypeOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ReportType) {
 		return nil, false
 	}
-	return &o.ReportType, true
+	return o.ReportType, true
 }
 
-// SetReportType sets field value
+// HasReportType returns a boolean if a field has been set.
+func (o *SalesReportListRes) HasReportType() bool {
+	if o != nil && !IsNil(o.ReportType) {
+		return true
+	}
+
+	return false
+}
+
+// SetReportType gets a reference to the given int32 and assigns it to the ReportType field.
 func (o *SalesReportListRes) SetReportType(v int32) {
-	o.ReportType = v
+	o.ReportType = &v
 }
 
-// GetRetailAmountSum returns the RetailAmountSum field value
+// GetRetailAmountSum returns the RetailAmountSum field value if set, zero value otherwise.
 func (o *SalesReportListRes) GetRetailAmountSum() string {
-	if o == nil {
+	if o == nil || IsNil(o.RetailAmountSum) {
 		var ret string
 		return ret
 	}
-
-	return o.RetailAmountSum
+	return *o.RetailAmountSum
 }
 
-// GetRetailAmountSumOk returns a tuple with the RetailAmountSum field value
+// GetRetailAmountSumOk returns a tuple with the RetailAmountSum field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SalesReportListRes) GetRetailAmountSumOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.RetailAmountSum) {
 		return nil, false
 	}
-	return &o.RetailAmountSum, true
+	return o.RetailAmountSum, true
 }
 
-// SetRetailAmountSum sets field value
+// HasRetailAmountSum returns a boolean if a field has been set.
+func (o *SalesReportListRes) HasRetailAmountSum() bool {
+	if o != nil && !IsNil(o.RetailAmountSum) {
+		return true
+	}
+
+	return false
+}
+
+// SetRetailAmountSum gets a reference to the given string and assigns it to the RetailAmountSum field.
 func (o *SalesReportListRes) SetRetailAmountSum(v string) {
-	o.RetailAmountSum = v
+	o.RetailAmountSum = &v
 }
 
-// GetForPaySum returns the ForPaySum field value
+// GetForPaySum returns the ForPaySum field value if set, zero value otherwise.
 func (o *SalesReportListRes) GetForPaySum() string {
-	if o == nil {
+	if o == nil || IsNil(o.ForPaySum) {
 		var ret string
 		return ret
 	}
-
-	return o.ForPaySum
+	return *o.ForPaySum
 }
 
-// GetForPaySumOk returns a tuple with the ForPaySum field value
+// GetForPaySumOk returns a tuple with the ForPaySum field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SalesReportListRes) GetForPaySumOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ForPaySum) {
 		return nil, false
 	}
-	return &o.ForPaySum, true
+	return o.ForPaySum, true
 }
 
-// SetForPaySum sets field value
+// HasForPaySum returns a boolean if a field has been set.
+func (o *SalesReportListRes) HasForPaySum() bool {
+	if o != nil && !IsNil(o.ForPaySum) {
+		return true
+	}
+
+	return false
+}
+
+// SetForPaySum gets a reference to the given string and assigns it to the ForPaySum field.
 func (o *SalesReportListRes) SetForPaySum(v string) {
-	o.ForPaySum = v
+	o.ForPaySum = &v
 }
 
-// GetAvgSalePercent returns the AvgSalePercent field value
+// GetAvgSalePercent returns the AvgSalePercent field value if set, zero value otherwise.
 func (o *SalesReportListRes) GetAvgSalePercent() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.AvgSalePercent) {
 		var ret float32
 		return ret
 	}
-
-	return o.AvgSalePercent
+	return *o.AvgSalePercent
 }
 
-// GetAvgSalePercentOk returns a tuple with the AvgSalePercent field value
+// GetAvgSalePercentOk returns a tuple with the AvgSalePercent field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SalesReportListRes) GetAvgSalePercentOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AvgSalePercent) {
 		return nil, false
 	}
-	return &o.AvgSalePercent, true
+	return o.AvgSalePercent, true
 }
 
-// SetAvgSalePercent sets field value
+// HasAvgSalePercent returns a boolean if a field has been set.
+func (o *SalesReportListRes) HasAvgSalePercent() bool {
+	if o != nil && !IsNil(o.AvgSalePercent) {
+		return true
+	}
+
+	return false
+}
+
+// SetAvgSalePercent gets a reference to the given float32 and assigns it to the AvgSalePercent field.
 func (o *SalesReportListRes) SetAvgSalePercent(v float32) {
-	o.AvgSalePercent = v
+	o.AvgSalePercent = &v
 }
 
-// GetDeliveryServiceSum returns the DeliveryServiceSum field value
+// GetDeliveryServiceSum returns the DeliveryServiceSum field value if set, zero value otherwise.
 func (o *SalesReportListRes) GetDeliveryServiceSum() string {
-	if o == nil {
+	if o == nil || IsNil(o.DeliveryServiceSum) {
 		var ret string
 		return ret
 	}
-
-	return o.DeliveryServiceSum
+	return *o.DeliveryServiceSum
 }
 
-// GetDeliveryServiceSumOk returns a tuple with the DeliveryServiceSum field value
+// GetDeliveryServiceSumOk returns a tuple with the DeliveryServiceSum field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SalesReportListRes) GetDeliveryServiceSumOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DeliveryServiceSum) {
 		return nil, false
 	}
-	return &o.DeliveryServiceSum, true
+	return o.DeliveryServiceSum, true
 }
 
-// SetDeliveryServiceSum sets field value
+// HasDeliveryServiceSum returns a boolean if a field has been set.
+func (o *SalesReportListRes) HasDeliveryServiceSum() bool {
+	if o != nil && !IsNil(o.DeliveryServiceSum) {
+		return true
+	}
+
+	return false
+}
+
+// SetDeliveryServiceSum gets a reference to the given string and assigns it to the DeliveryServiceSum field.
 func (o *SalesReportListRes) SetDeliveryServiceSum(v string) {
-	o.DeliveryServiceSum = v
+	o.DeliveryServiceSum = &v
 }
 
-// GetPaidStorageSum returns the PaidStorageSum field value
+// GetPaidStorageSum returns the PaidStorageSum field value if set, zero value otherwise.
 func (o *SalesReportListRes) GetPaidStorageSum() string {
-	if o == nil {
+	if o == nil || IsNil(o.PaidStorageSum) {
 		var ret string
 		return ret
 	}
-
-	return o.PaidStorageSum
+	return *o.PaidStorageSum
 }
 
-// GetPaidStorageSumOk returns a tuple with the PaidStorageSum field value
+// GetPaidStorageSumOk returns a tuple with the PaidStorageSum field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SalesReportListRes) GetPaidStorageSumOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.PaidStorageSum) {
 		return nil, false
 	}
-	return &o.PaidStorageSum, true
+	return o.PaidStorageSum, true
 }
 
-// SetPaidStorageSum sets field value
+// HasPaidStorageSum returns a boolean if a field has been set.
+func (o *SalesReportListRes) HasPaidStorageSum() bool {
+	if o != nil && !IsNil(o.PaidStorageSum) {
+		return true
+	}
+
+	return false
+}
+
+// SetPaidStorageSum gets a reference to the given string and assigns it to the PaidStorageSum field.
 func (o *SalesReportListRes) SetPaidStorageSum(v string) {
-	o.PaidStorageSum = v
+	o.PaidStorageSum = &v
 }
 
-// GetPaidAcceptanceSum returns the PaidAcceptanceSum field value
+// GetPaidAcceptanceSum returns the PaidAcceptanceSum field value if set, zero value otherwise.
 func (o *SalesReportListRes) GetPaidAcceptanceSum() string {
-	if o == nil {
+	if o == nil || IsNil(o.PaidAcceptanceSum) {
 		var ret string
 		return ret
 	}
-
-	return o.PaidAcceptanceSum
+	return *o.PaidAcceptanceSum
 }
 
-// GetPaidAcceptanceSumOk returns a tuple with the PaidAcceptanceSum field value
+// GetPaidAcceptanceSumOk returns a tuple with the PaidAcceptanceSum field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SalesReportListRes) GetPaidAcceptanceSumOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.PaidAcceptanceSum) {
 		return nil, false
 	}
-	return &o.PaidAcceptanceSum, true
+	return o.PaidAcceptanceSum, true
 }
 
-// SetPaidAcceptanceSum sets field value
+// HasPaidAcceptanceSum returns a boolean if a field has been set.
+func (o *SalesReportListRes) HasPaidAcceptanceSum() bool {
+	if o != nil && !IsNil(o.PaidAcceptanceSum) {
+		return true
+	}
+
+	return false
+}
+
+// SetPaidAcceptanceSum gets a reference to the given string and assigns it to the PaidAcceptanceSum field.
 func (o *SalesReportListRes) SetPaidAcceptanceSum(v string) {
-	o.PaidAcceptanceSum = v
+	o.PaidAcceptanceSum = &v
 }
 
-// GetDeductionSum returns the DeductionSum field value
+// GetDeductionSum returns the DeductionSum field value if set, zero value otherwise.
 func (o *SalesReportListRes) GetDeductionSum() string {
-	if o == nil {
+	if o == nil || IsNil(o.DeductionSum) {
 		var ret string
 		return ret
 	}
-
-	return o.DeductionSum
+	return *o.DeductionSum
 }
 
-// GetDeductionSumOk returns a tuple with the DeductionSum field value
+// GetDeductionSumOk returns a tuple with the DeductionSum field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SalesReportListRes) GetDeductionSumOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DeductionSum) {
 		return nil, false
 	}
-	return &o.DeductionSum, true
+	return o.DeductionSum, true
 }
 
-// SetDeductionSum sets field value
+// HasDeductionSum returns a boolean if a field has been set.
+func (o *SalesReportListRes) HasDeductionSum() bool {
+	if o != nil && !IsNil(o.DeductionSum) {
+		return true
+	}
+
+	return false
+}
+
+// SetDeductionSum gets a reference to the given string and assigns it to the DeductionSum field.
 func (o *SalesReportListRes) SetDeductionSum(v string) {
-	o.DeductionSum = v
+	o.DeductionSum = &v
 }
 
-// GetPenaltySum returns the PenaltySum field value
+// GetPenaltySum returns the PenaltySum field value if set, zero value otherwise.
 func (o *SalesReportListRes) GetPenaltySum() string {
-	if o == nil {
+	if o == nil || IsNil(o.PenaltySum) {
 		var ret string
 		return ret
 	}
-
-	return o.PenaltySum
+	return *o.PenaltySum
 }
 
-// GetPenaltySumOk returns a tuple with the PenaltySum field value
+// GetPenaltySumOk returns a tuple with the PenaltySum field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SalesReportListRes) GetPenaltySumOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.PenaltySum) {
 		return nil, false
 	}
-	return &o.PenaltySum, true
+	return o.PenaltySum, true
 }
 
-// SetPenaltySum sets field value
+// HasPenaltySum returns a boolean if a field has been set.
+func (o *SalesReportListRes) HasPenaltySum() bool {
+	if o != nil && !IsNil(o.PenaltySum) {
+		return true
+	}
+
+	return false
+}
+
+// SetPenaltySum gets a reference to the given string and assigns it to the PenaltySum field.
 func (o *SalesReportListRes) SetPenaltySum(v string) {
-	o.PenaltySum = v
+	o.PenaltySum = &v
 }
 
-// GetAdditionalPaymentSum returns the AdditionalPaymentSum field value
+// GetAdditionalPaymentSum returns the AdditionalPaymentSum field value if set, zero value otherwise.
 func (o *SalesReportListRes) GetAdditionalPaymentSum() string {
-	if o == nil {
+	if o == nil || IsNil(o.AdditionalPaymentSum) {
 		var ret string
 		return ret
 	}
-
-	return o.AdditionalPaymentSum
+	return *o.AdditionalPaymentSum
 }
 
-// GetAdditionalPaymentSumOk returns a tuple with the AdditionalPaymentSum field value
+// GetAdditionalPaymentSumOk returns a tuple with the AdditionalPaymentSum field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SalesReportListRes) GetAdditionalPaymentSumOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AdditionalPaymentSum) {
 		return nil, false
 	}
-	return &o.AdditionalPaymentSum, true
+	return o.AdditionalPaymentSum, true
 }
 
-// SetAdditionalPaymentSum sets field value
+// HasAdditionalPaymentSum returns a boolean if a field has been set.
+func (o *SalesReportListRes) HasAdditionalPaymentSum() bool {
+	if o != nil && !IsNil(o.AdditionalPaymentSum) {
+		return true
+	}
+
+	return false
+}
+
+// SetAdditionalPaymentSum gets a reference to the given string and assigns it to the AdditionalPaymentSum field.
 func (o *SalesReportListRes) SetAdditionalPaymentSum(v string) {
-	o.AdditionalPaymentSum = v
+	o.AdditionalPaymentSum = &v
 }
 
-// GetCashbackAmountSum returns the CashbackAmountSum field value
+// GetCashbackAmountSum returns the CashbackAmountSum field value if set, zero value otherwise.
 func (o *SalesReportListRes) GetCashbackAmountSum() string {
-	if o == nil {
+	if o == nil || IsNil(o.CashbackAmountSum) {
 		var ret string
 		return ret
 	}
-
-	return o.CashbackAmountSum
+	return *o.CashbackAmountSum
 }
 
-// GetCashbackAmountSumOk returns a tuple with the CashbackAmountSum field value
+// GetCashbackAmountSumOk returns a tuple with the CashbackAmountSum field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SalesReportListRes) GetCashbackAmountSumOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.CashbackAmountSum) {
 		return nil, false
 	}
-	return &o.CashbackAmountSum, true
+	return o.CashbackAmountSum, true
 }
 
-// SetCashbackAmountSum sets field value
+// HasCashbackAmountSum returns a boolean if a field has been set.
+func (o *SalesReportListRes) HasCashbackAmountSum() bool {
+	if o != nil && !IsNil(o.CashbackAmountSum) {
+		return true
+	}
+
+	return false
+}
+
+// SetCashbackAmountSum gets a reference to the given string and assigns it to the CashbackAmountSum field.
 func (o *SalesReportListRes) SetCashbackAmountSum(v string) {
-	o.CashbackAmountSum = v
+	o.CashbackAmountSum = &v
 }
 
-// GetCashbackDiscountSum returns the CashbackDiscountSum field value
+// GetCashbackDiscountSum returns the CashbackDiscountSum field value if set, zero value otherwise.
 func (o *SalesReportListRes) GetCashbackDiscountSum() string {
-	if o == nil {
+	if o == nil || IsNil(o.CashbackDiscountSum) {
 		var ret string
 		return ret
 	}
-
-	return o.CashbackDiscountSum
+	return *o.CashbackDiscountSum
 }
 
-// GetCashbackDiscountSumOk returns a tuple with the CashbackDiscountSum field value
+// GetCashbackDiscountSumOk returns a tuple with the CashbackDiscountSum field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SalesReportListRes) GetCashbackDiscountSumOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.CashbackDiscountSum) {
 		return nil, false
 	}
-	return &o.CashbackDiscountSum, true
+	return o.CashbackDiscountSum, true
 }
 
-// SetCashbackDiscountSum sets field value
+// HasCashbackDiscountSum returns a boolean if a field has been set.
+func (o *SalesReportListRes) HasCashbackDiscountSum() bool {
+	if o != nil && !IsNil(o.CashbackDiscountSum) {
+		return true
+	}
+
+	return false
+}
+
+// SetCashbackDiscountSum gets a reference to the given string and assigns it to the CashbackDiscountSum field.
 func (o *SalesReportListRes) SetCashbackDiscountSum(v string) {
-	o.CashbackDiscountSum = v
+	o.CashbackDiscountSum = &v
 }
 
-// GetCashbackCommissionChangeSum returns the CashbackCommissionChangeSum field value
+// GetCashbackCommissionChangeSum returns the CashbackCommissionChangeSum field value if set, zero value otherwise.
 func (o *SalesReportListRes) GetCashbackCommissionChangeSum() string {
-	if o == nil {
+	if o == nil || IsNil(o.CashbackCommissionChangeSum) {
 		var ret string
 		return ret
 	}
-
-	return o.CashbackCommissionChangeSum
+	return *o.CashbackCommissionChangeSum
 }
 
-// GetCashbackCommissionChangeSumOk returns a tuple with the CashbackCommissionChangeSum field value
+// GetCashbackCommissionChangeSumOk returns a tuple with the CashbackCommissionChangeSum field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SalesReportListRes) GetCashbackCommissionChangeSumOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.CashbackCommissionChangeSum) {
 		return nil, false
 	}
-	return &o.CashbackCommissionChangeSum, true
+	return o.CashbackCommissionChangeSum, true
 }
 
-// SetCashbackCommissionChangeSum sets field value
+// HasCashbackCommissionChangeSum returns a boolean if a field has been set.
+func (o *SalesReportListRes) HasCashbackCommissionChangeSum() bool {
+	if o != nil && !IsNil(o.CashbackCommissionChangeSum) {
+		return true
+	}
+
+	return false
+}
+
+// SetCashbackCommissionChangeSum gets a reference to the given string and assigns it to the CashbackCommissionChangeSum field.
 func (o *SalesReportListRes) SetCashbackCommissionChangeSum(v string) {
-	o.CashbackCommissionChangeSum = v
+	o.CashbackCommissionChangeSum = &v
 }
 
-// GetPaymentSchedule returns the PaymentSchedule field value
+// GetPaymentSchedule returns the PaymentSchedule field value if set, zero value otherwise.
 func (o *SalesReportListRes) GetPaymentSchedule() string {
-	if o == nil {
+	if o == nil || IsNil(o.PaymentSchedule) {
 		var ret string
 		return ret
 	}
-
-	return o.PaymentSchedule
+	return *o.PaymentSchedule
 }
 
-// GetPaymentScheduleOk returns a tuple with the PaymentSchedule field value
+// GetPaymentScheduleOk returns a tuple with the PaymentSchedule field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SalesReportListRes) GetPaymentScheduleOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.PaymentSchedule) {
 		return nil, false
 	}
-	return &o.PaymentSchedule, true
+	return o.PaymentSchedule, true
 }
 
-// SetPaymentSchedule sets field value
+// HasPaymentSchedule returns a boolean if a field has been set.
+func (o *SalesReportListRes) HasPaymentSchedule() bool {
+	if o != nil && !IsNil(o.PaymentSchedule) {
+		return true
+	}
+
+	return false
+}
+
+// SetPaymentSchedule gets a reference to the given string and assigns it to the PaymentSchedule field.
 func (o *SalesReportListRes) SetPaymentSchedule(v string) {
-	o.PaymentSchedule = v
+	o.PaymentSchedule = &v
 }
 
-// GetBankPaymentSum returns the BankPaymentSum field value
+// GetBankPaymentSum returns the BankPaymentSum field value if set, zero value otherwise.
 func (o *SalesReportListRes) GetBankPaymentSum() string {
-	if o == nil {
+	if o == nil || IsNil(o.BankPaymentSum) {
 		var ret string
 		return ret
 	}
-
-	return o.BankPaymentSum
+	return *o.BankPaymentSum
 }
 
-// GetBankPaymentSumOk returns a tuple with the BankPaymentSum field value
+// GetBankPaymentSumOk returns a tuple with the BankPaymentSum field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SalesReportListRes) GetBankPaymentSumOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.BankPaymentSum) {
 		return nil, false
 	}
-	return &o.BankPaymentSum, true
+	return o.BankPaymentSum, true
 }
 
-// SetBankPaymentSum sets field value
+// HasBankPaymentSum returns a boolean if a field has been set.
+func (o *SalesReportListRes) HasBankPaymentSum() bool {
+	if o != nil && !IsNil(o.BankPaymentSum) {
+		return true
+	}
+
+	return false
+}
+
+// SetBankPaymentSum gets a reference to the given string and assigns it to the BankPaymentSum field.
 func (o *SalesReportListRes) SetBankPaymentSum(v string) {
-	o.BankPaymentSum = v
+	o.BankPaymentSum = &v
 }
 
 func (o SalesReportListRes) MarshalJSON() ([]byte, error) {
@@ -619,85 +762,70 @@ func (o SalesReportListRes) MarshalJSON() ([]byte, error) {
 
 func (o SalesReportListRes) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["reportId"] = o.ReportId
-	toSerialize["sellerFinanceName"] = o.SellerFinanceName
-	toSerialize["dateFrom"] = o.DateFrom
-	toSerialize["dateTo"] = o.DateTo
-	toSerialize["createDate"] = o.CreateDate
-	toSerialize["currency"] = o.Currency
-	toSerialize["reportType"] = o.ReportType
-	toSerialize["retailAmountSum"] = o.RetailAmountSum
-	toSerialize["forPaySum"] = o.ForPaySum
-	toSerialize["avgSalePercent"] = o.AvgSalePercent
-	toSerialize["deliveryServiceSum"] = o.DeliveryServiceSum
-	toSerialize["paidStorageSum"] = o.PaidStorageSum
-	toSerialize["paidAcceptanceSum"] = o.PaidAcceptanceSum
-	toSerialize["deductionSum"] = o.DeductionSum
-	toSerialize["penaltySum"] = o.PenaltySum
-	toSerialize["additionalPaymentSum"] = o.AdditionalPaymentSum
-	toSerialize["cashbackAmountSum"] = o.CashbackAmountSum
-	toSerialize["cashbackDiscountSum"] = o.CashbackDiscountSum
-	toSerialize["cashbackCommissionChangeSum"] = o.CashbackCommissionChangeSum
-	toSerialize["paymentSchedule"] = o.PaymentSchedule
-	toSerialize["bankPaymentSum"] = o.BankPaymentSum
+	if !IsNil(o.ReportId) {
+		toSerialize["reportId"] = o.ReportId
+	}
+	if !IsNil(o.SellerFinanceName) {
+		toSerialize["sellerFinanceName"] = o.SellerFinanceName
+	}
+	if !IsNil(o.DateFrom) {
+		toSerialize["dateFrom"] = o.DateFrom
+	}
+	if !IsNil(o.DateTo) {
+		toSerialize["dateTo"] = o.DateTo
+	}
+	if !IsNil(o.CreateDate) {
+		toSerialize["createDate"] = o.CreateDate
+	}
+	if !IsNil(o.Currency) {
+		toSerialize["currency"] = o.Currency
+	}
+	if !IsNil(o.ReportType) {
+		toSerialize["reportType"] = o.ReportType
+	}
+	if !IsNil(o.RetailAmountSum) {
+		toSerialize["retailAmountSum"] = o.RetailAmountSum
+	}
+	if !IsNil(o.ForPaySum) {
+		toSerialize["forPaySum"] = o.ForPaySum
+	}
+	if !IsNil(o.AvgSalePercent) {
+		toSerialize["avgSalePercent"] = o.AvgSalePercent
+	}
+	if !IsNil(o.DeliveryServiceSum) {
+		toSerialize["deliveryServiceSum"] = o.DeliveryServiceSum
+	}
+	if !IsNil(o.PaidStorageSum) {
+		toSerialize["paidStorageSum"] = o.PaidStorageSum
+	}
+	if !IsNil(o.PaidAcceptanceSum) {
+		toSerialize["paidAcceptanceSum"] = o.PaidAcceptanceSum
+	}
+	if !IsNil(o.DeductionSum) {
+		toSerialize["deductionSum"] = o.DeductionSum
+	}
+	if !IsNil(o.PenaltySum) {
+		toSerialize["penaltySum"] = o.PenaltySum
+	}
+	if !IsNil(o.AdditionalPaymentSum) {
+		toSerialize["additionalPaymentSum"] = o.AdditionalPaymentSum
+	}
+	if !IsNil(o.CashbackAmountSum) {
+		toSerialize["cashbackAmountSum"] = o.CashbackAmountSum
+	}
+	if !IsNil(o.CashbackDiscountSum) {
+		toSerialize["cashbackDiscountSum"] = o.CashbackDiscountSum
+	}
+	if !IsNil(o.CashbackCommissionChangeSum) {
+		toSerialize["cashbackCommissionChangeSum"] = o.CashbackCommissionChangeSum
+	}
+	if !IsNil(o.PaymentSchedule) {
+		toSerialize["paymentSchedule"] = o.PaymentSchedule
+	}
+	if !IsNil(o.BankPaymentSum) {
+		toSerialize["bankPaymentSum"] = o.BankPaymentSum
+	}
 	return toSerialize, nil
-}
-
-func (o *SalesReportListRes) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"reportId",
-		"sellerFinanceName",
-		"dateFrom",
-		"dateTo",
-		"createDate",
-		"currency",
-		"reportType",
-		"retailAmountSum",
-		"forPaySum",
-		"avgSalePercent",
-		"deliveryServiceSum",
-		"paidStorageSum",
-		"paidAcceptanceSum",
-		"deductionSum",
-		"penaltySum",
-		"additionalPaymentSum",
-		"cashbackAmountSum",
-		"cashbackDiscountSum",
-		"cashbackCommissionChangeSum",
-		"paymentSchedule",
-		"bankPaymentSum",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varSalesReportListRes := _SalesReportListRes{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varSalesReportListRes)
-
-	if err != nil {
-		return err
-	}
-
-	*o = SalesReportListRes(varSalesReportListRes)
-
-	return err
 }
 
 type NullableSalesReportListRes struct {

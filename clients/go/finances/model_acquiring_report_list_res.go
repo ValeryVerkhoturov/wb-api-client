@@ -11,9 +11,7 @@ API version: finances
 package finances
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the AcquiringReportListRes type satisfies the MappedNullable interface at compile time
@@ -22,39 +20,29 @@ var _ MappedNullable = &AcquiringReportListRes{}
 // AcquiringReportListRes Список отчётов об издержках на приём платежей
 type AcquiringReportListRes struct {
 	// ID отчёта
-	ReportId int64 `json:"reportId"`
+	ReportId *int64 `json:"reportId,omitempty"`
 	// Наименование продавца
-	SellerFinanceName string `json:"sellerFinanceName"`
+	SellerFinanceName *string `json:"sellerFinanceName,omitempty"`
 	// Дата начала отчётного периода
-	DateFrom string `json:"dateFrom"`
+	DateFrom *string `json:"dateFrom,omitempty"`
 	// Дата конца отчётного периода
-	DateTo string `json:"dateTo"`
+	DateTo *string `json:"dateTo,omitempty"`
 	// Дата формирования отчёта
-	CreateDate string `json:"createDate"`
+	CreateDate *string `json:"createDate,omitempty"`
 	// Валюта отчёта
-	Currency string `json:"currency"`
+	Currency *string `json:"currency,omitempty"`
 	// Сумма издержек по эквайрингу
-	AcquiringFeeSum string `json:"acquiringFeeSum"`
+	AcquiringFeeSum *string `json:"acquiringFeeSum,omitempty"`
 	// В том числе НДС
-	AcquiringFeeVatSum string `json:"acquiringFeeVatSum"`
+	AcquiringFeeVatSum *string `json:"acquiringFeeVatSum,omitempty"`
 }
-
-type _AcquiringReportListRes AcquiringReportListRes
 
 // NewAcquiringReportListRes instantiates a new AcquiringReportListRes object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAcquiringReportListRes(reportId int64, sellerFinanceName string, dateFrom string, dateTo string, createDate string, currency string, acquiringFeeSum string, acquiringFeeVatSum string) *AcquiringReportListRes {
+func NewAcquiringReportListRes() *AcquiringReportListRes {
 	this := AcquiringReportListRes{}
-	this.ReportId = reportId
-	this.SellerFinanceName = sellerFinanceName
-	this.DateFrom = dateFrom
-	this.DateTo = dateTo
-	this.CreateDate = createDate
-	this.Currency = currency
-	this.AcquiringFeeSum = acquiringFeeSum
-	this.AcquiringFeeVatSum = acquiringFeeVatSum
 	return &this
 }
 
@@ -66,196 +54,260 @@ func NewAcquiringReportListResWithDefaults() *AcquiringReportListRes {
 	return &this
 }
 
-// GetReportId returns the ReportId field value
+// GetReportId returns the ReportId field value if set, zero value otherwise.
 func (o *AcquiringReportListRes) GetReportId() int64 {
-	if o == nil {
+	if o == nil || IsNil(o.ReportId) {
 		var ret int64
 		return ret
 	}
-
-	return o.ReportId
+	return *o.ReportId
 }
 
-// GetReportIdOk returns a tuple with the ReportId field value
+// GetReportIdOk returns a tuple with the ReportId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *AcquiringReportListRes) GetReportIdOk() (*int64, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ReportId) {
 		return nil, false
 	}
-	return &o.ReportId, true
+	return o.ReportId, true
 }
 
-// SetReportId sets field value
+// HasReportId returns a boolean if a field has been set.
+func (o *AcquiringReportListRes) HasReportId() bool {
+	if o != nil && !IsNil(o.ReportId) {
+		return true
+	}
+
+	return false
+}
+
+// SetReportId gets a reference to the given int64 and assigns it to the ReportId field.
 func (o *AcquiringReportListRes) SetReportId(v int64) {
-	o.ReportId = v
+	o.ReportId = &v
 }
 
-// GetSellerFinanceName returns the SellerFinanceName field value
+// GetSellerFinanceName returns the SellerFinanceName field value if set, zero value otherwise.
 func (o *AcquiringReportListRes) GetSellerFinanceName() string {
-	if o == nil {
+	if o == nil || IsNil(o.SellerFinanceName) {
 		var ret string
 		return ret
 	}
-
-	return o.SellerFinanceName
+	return *o.SellerFinanceName
 }
 
-// GetSellerFinanceNameOk returns a tuple with the SellerFinanceName field value
+// GetSellerFinanceNameOk returns a tuple with the SellerFinanceName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *AcquiringReportListRes) GetSellerFinanceNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.SellerFinanceName) {
 		return nil, false
 	}
-	return &o.SellerFinanceName, true
+	return o.SellerFinanceName, true
 }
 
-// SetSellerFinanceName sets field value
+// HasSellerFinanceName returns a boolean if a field has been set.
+func (o *AcquiringReportListRes) HasSellerFinanceName() bool {
+	if o != nil && !IsNil(o.SellerFinanceName) {
+		return true
+	}
+
+	return false
+}
+
+// SetSellerFinanceName gets a reference to the given string and assigns it to the SellerFinanceName field.
 func (o *AcquiringReportListRes) SetSellerFinanceName(v string) {
-	o.SellerFinanceName = v
+	o.SellerFinanceName = &v
 }
 
-// GetDateFrom returns the DateFrom field value
+// GetDateFrom returns the DateFrom field value if set, zero value otherwise.
 func (o *AcquiringReportListRes) GetDateFrom() string {
-	if o == nil {
+	if o == nil || IsNil(o.DateFrom) {
 		var ret string
 		return ret
 	}
-
-	return o.DateFrom
+	return *o.DateFrom
 }
 
-// GetDateFromOk returns a tuple with the DateFrom field value
+// GetDateFromOk returns a tuple with the DateFrom field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *AcquiringReportListRes) GetDateFromOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DateFrom) {
 		return nil, false
 	}
-	return &o.DateFrom, true
+	return o.DateFrom, true
 }
 
-// SetDateFrom sets field value
+// HasDateFrom returns a boolean if a field has been set.
+func (o *AcquiringReportListRes) HasDateFrom() bool {
+	if o != nil && !IsNil(o.DateFrom) {
+		return true
+	}
+
+	return false
+}
+
+// SetDateFrom gets a reference to the given string and assigns it to the DateFrom field.
 func (o *AcquiringReportListRes) SetDateFrom(v string) {
-	o.DateFrom = v
+	o.DateFrom = &v
 }
 
-// GetDateTo returns the DateTo field value
+// GetDateTo returns the DateTo field value if set, zero value otherwise.
 func (o *AcquiringReportListRes) GetDateTo() string {
-	if o == nil {
+	if o == nil || IsNil(o.DateTo) {
 		var ret string
 		return ret
 	}
-
-	return o.DateTo
+	return *o.DateTo
 }
 
-// GetDateToOk returns a tuple with the DateTo field value
+// GetDateToOk returns a tuple with the DateTo field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *AcquiringReportListRes) GetDateToOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DateTo) {
 		return nil, false
 	}
-	return &o.DateTo, true
+	return o.DateTo, true
 }
 
-// SetDateTo sets field value
+// HasDateTo returns a boolean if a field has been set.
+func (o *AcquiringReportListRes) HasDateTo() bool {
+	if o != nil && !IsNil(o.DateTo) {
+		return true
+	}
+
+	return false
+}
+
+// SetDateTo gets a reference to the given string and assigns it to the DateTo field.
 func (o *AcquiringReportListRes) SetDateTo(v string) {
-	o.DateTo = v
+	o.DateTo = &v
 }
 
-// GetCreateDate returns the CreateDate field value
+// GetCreateDate returns the CreateDate field value if set, zero value otherwise.
 func (o *AcquiringReportListRes) GetCreateDate() string {
-	if o == nil {
+	if o == nil || IsNil(o.CreateDate) {
 		var ret string
 		return ret
 	}
-
-	return o.CreateDate
+	return *o.CreateDate
 }
 
-// GetCreateDateOk returns a tuple with the CreateDate field value
+// GetCreateDateOk returns a tuple with the CreateDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *AcquiringReportListRes) GetCreateDateOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.CreateDate) {
 		return nil, false
 	}
-	return &o.CreateDate, true
+	return o.CreateDate, true
 }
 
-// SetCreateDate sets field value
+// HasCreateDate returns a boolean if a field has been set.
+func (o *AcquiringReportListRes) HasCreateDate() bool {
+	if o != nil && !IsNil(o.CreateDate) {
+		return true
+	}
+
+	return false
+}
+
+// SetCreateDate gets a reference to the given string and assigns it to the CreateDate field.
 func (o *AcquiringReportListRes) SetCreateDate(v string) {
-	o.CreateDate = v
+	o.CreateDate = &v
 }
 
-// GetCurrency returns the Currency field value
+// GetCurrency returns the Currency field value if set, zero value otherwise.
 func (o *AcquiringReportListRes) GetCurrency() string {
-	if o == nil {
+	if o == nil || IsNil(o.Currency) {
 		var ret string
 		return ret
 	}
-
-	return o.Currency
+	return *o.Currency
 }
 
-// GetCurrencyOk returns a tuple with the Currency field value
+// GetCurrencyOk returns a tuple with the Currency field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *AcquiringReportListRes) GetCurrencyOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Currency) {
 		return nil, false
 	}
-	return &o.Currency, true
+	return o.Currency, true
 }
 
-// SetCurrency sets field value
+// HasCurrency returns a boolean if a field has been set.
+func (o *AcquiringReportListRes) HasCurrency() bool {
+	if o != nil && !IsNil(o.Currency) {
+		return true
+	}
+
+	return false
+}
+
+// SetCurrency gets a reference to the given string and assigns it to the Currency field.
 func (o *AcquiringReportListRes) SetCurrency(v string) {
-	o.Currency = v
+	o.Currency = &v
 }
 
-// GetAcquiringFeeSum returns the AcquiringFeeSum field value
+// GetAcquiringFeeSum returns the AcquiringFeeSum field value if set, zero value otherwise.
 func (o *AcquiringReportListRes) GetAcquiringFeeSum() string {
-	if o == nil {
+	if o == nil || IsNil(o.AcquiringFeeSum) {
 		var ret string
 		return ret
 	}
-
-	return o.AcquiringFeeSum
+	return *o.AcquiringFeeSum
 }
 
-// GetAcquiringFeeSumOk returns a tuple with the AcquiringFeeSum field value
+// GetAcquiringFeeSumOk returns a tuple with the AcquiringFeeSum field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *AcquiringReportListRes) GetAcquiringFeeSumOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AcquiringFeeSum) {
 		return nil, false
 	}
-	return &o.AcquiringFeeSum, true
+	return o.AcquiringFeeSum, true
 }
 
-// SetAcquiringFeeSum sets field value
+// HasAcquiringFeeSum returns a boolean if a field has been set.
+func (o *AcquiringReportListRes) HasAcquiringFeeSum() bool {
+	if o != nil && !IsNil(o.AcquiringFeeSum) {
+		return true
+	}
+
+	return false
+}
+
+// SetAcquiringFeeSum gets a reference to the given string and assigns it to the AcquiringFeeSum field.
 func (o *AcquiringReportListRes) SetAcquiringFeeSum(v string) {
-	o.AcquiringFeeSum = v
+	o.AcquiringFeeSum = &v
 }
 
-// GetAcquiringFeeVatSum returns the AcquiringFeeVatSum field value
+// GetAcquiringFeeVatSum returns the AcquiringFeeVatSum field value if set, zero value otherwise.
 func (o *AcquiringReportListRes) GetAcquiringFeeVatSum() string {
-	if o == nil {
+	if o == nil || IsNil(o.AcquiringFeeVatSum) {
 		var ret string
 		return ret
 	}
-
-	return o.AcquiringFeeVatSum
+	return *o.AcquiringFeeVatSum
 }
 
-// GetAcquiringFeeVatSumOk returns a tuple with the AcquiringFeeVatSum field value
+// GetAcquiringFeeVatSumOk returns a tuple with the AcquiringFeeVatSum field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *AcquiringReportListRes) GetAcquiringFeeVatSumOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AcquiringFeeVatSum) {
 		return nil, false
 	}
-	return &o.AcquiringFeeVatSum, true
+	return o.AcquiringFeeVatSum, true
 }
 
-// SetAcquiringFeeVatSum sets field value
+// HasAcquiringFeeVatSum returns a boolean if a field has been set.
+func (o *AcquiringReportListRes) HasAcquiringFeeVatSum() bool {
+	if o != nil && !IsNil(o.AcquiringFeeVatSum) {
+		return true
+	}
+
+	return false
+}
+
+// SetAcquiringFeeVatSum gets a reference to the given string and assigns it to the AcquiringFeeVatSum field.
 func (o *AcquiringReportListRes) SetAcquiringFeeVatSum(v string) {
-	o.AcquiringFeeVatSum = v
+	o.AcquiringFeeVatSum = &v
 }
 
 func (o AcquiringReportListRes) MarshalJSON() ([]byte, error) {
@@ -268,59 +320,31 @@ func (o AcquiringReportListRes) MarshalJSON() ([]byte, error) {
 
 func (o AcquiringReportListRes) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["reportId"] = o.ReportId
-	toSerialize["sellerFinanceName"] = o.SellerFinanceName
-	toSerialize["dateFrom"] = o.DateFrom
-	toSerialize["dateTo"] = o.DateTo
-	toSerialize["createDate"] = o.CreateDate
-	toSerialize["currency"] = o.Currency
-	toSerialize["acquiringFeeSum"] = o.AcquiringFeeSum
-	toSerialize["acquiringFeeVatSum"] = o.AcquiringFeeVatSum
+	if !IsNil(o.ReportId) {
+		toSerialize["reportId"] = o.ReportId
+	}
+	if !IsNil(o.SellerFinanceName) {
+		toSerialize["sellerFinanceName"] = o.SellerFinanceName
+	}
+	if !IsNil(o.DateFrom) {
+		toSerialize["dateFrom"] = o.DateFrom
+	}
+	if !IsNil(o.DateTo) {
+		toSerialize["dateTo"] = o.DateTo
+	}
+	if !IsNil(o.CreateDate) {
+		toSerialize["createDate"] = o.CreateDate
+	}
+	if !IsNil(o.Currency) {
+		toSerialize["currency"] = o.Currency
+	}
+	if !IsNil(o.AcquiringFeeSum) {
+		toSerialize["acquiringFeeSum"] = o.AcquiringFeeSum
+	}
+	if !IsNil(o.AcquiringFeeVatSum) {
+		toSerialize["acquiringFeeVatSum"] = o.AcquiringFeeVatSum
+	}
 	return toSerialize, nil
-}
-
-func (o *AcquiringReportListRes) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"reportId",
-		"sellerFinanceName",
-		"dateFrom",
-		"dateTo",
-		"createDate",
-		"currency",
-		"acquiringFeeSum",
-		"acquiringFeeVatSum",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varAcquiringReportListRes := _AcquiringReportListRes{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varAcquiringReportListRes)
-
-	if err != nil {
-		return err
-	}
-
-	*o = AcquiringReportListRes(varAcquiringReportListRes)
-
-	return err
 }
 
 type NullableAcquiringReportListRes struct {

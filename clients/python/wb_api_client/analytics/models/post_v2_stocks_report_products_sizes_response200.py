@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from wb_api_client.analytics.models.table_size_response import TableSizeResponse
 from typing import Optional, Set
 from typing_extensions import Self
@@ -29,7 +29,7 @@ class PostV2StocksReportProductsSizesResponse200(BaseModel):
     PostV2StocksReportProductsSizesResponse200
     """  # noqa: E501
 
-    data: TableSizeResponse
+    data: Optional[TableSizeResponse] = None
     __properties: ClassVar[List[str]] = ["data"]
 
     model_config = ConfigDict(

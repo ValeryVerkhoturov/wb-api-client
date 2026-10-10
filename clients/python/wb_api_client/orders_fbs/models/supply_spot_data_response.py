@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from wb_api_client.orders_fbs.models.supply_spot_data_response_supplies_inner import (
     SupplySpotDataResponseSuppliesInner,
 )
@@ -31,7 +31,7 @@ class SupplySpotDataResponse(BaseModel):
     SupplySpotDataResponse
     """  # noqa: E501
 
-    supplies: List[SupplySpotDataResponseSuppliesInner]
+    supplies: Optional[List[SupplySpotDataResponseSuppliesInner]] = None
     __properties: ClassVar[List[str]] = ["supplies"]
 
     model_config = ConfigDict(

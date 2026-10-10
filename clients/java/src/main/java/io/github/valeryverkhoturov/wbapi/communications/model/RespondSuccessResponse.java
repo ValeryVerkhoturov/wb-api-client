@@ -36,12 +36,12 @@ public class RespondSuccessResponse {
   public static final String SERIALIZED_NAME_DATA = "data";
 
   @SerializedName(SERIALIZED_NAME_DATA)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Object data;
 
   public RespondSuccessResponse() {}
 
-  public RespondSuccessResponse data(@jakarta.annotation.Nonnull Object data) {
+  public RespondSuccessResponse data(@jakarta.annotation.Nullable Object data) {
     this.data = data;
     return this;
   }
@@ -51,12 +51,12 @@ public class RespondSuccessResponse {
    *
    * @return data
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Object getData() {
     return data;
   }
 
-  public void setData(@jakarta.annotation.Nonnull Object data) {
+  public void setData(@jakarta.annotation.Nullable Object data) {
     this.data = data;
   }
 
@@ -106,7 +106,6 @@ public class RespondSuccessResponse {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("data");
   }
 
   /**
@@ -134,16 +133,6 @@ public class RespondSuccessResponse {
             String.format(
                 "The field `%s` in the JSON string is not defined in the `RespondSuccessResponse` properties. JSON: %s",
                 entry.getKey(), jsonElement.toString()));
-      }
-    }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : RespondSuccessResponse.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
       }
     }
     JsonObject jsonObj = jsonElement.getAsJsonObject();

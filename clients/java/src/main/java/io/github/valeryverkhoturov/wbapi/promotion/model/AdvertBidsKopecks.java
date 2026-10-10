@@ -39,18 +39,18 @@ public class AdvertBidsKopecks {
   public static final String SERIALIZED_NAME_SEARCH = "search";
 
   @SerializedName(SERIALIZED_NAME_SEARCH)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Long search;
 
   public static final String SERIALIZED_NAME_RECOMMENDATIONS = "recommendations";
 
   @SerializedName(SERIALIZED_NAME_RECOMMENDATIONS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Long recommendations;
 
   public AdvertBidsKopecks() {}
 
-  public AdvertBidsKopecks search(@jakarta.annotation.Nonnull Long search) {
+  public AdvertBidsKopecks search(@jakarta.annotation.Nullable Long search) {
     this.search = search;
     return this;
   }
@@ -60,16 +60,16 @@ public class AdvertBidsKopecks {
    *
    * @return search
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Long getSearch() {
     return search;
   }
 
-  public void setSearch(@jakarta.annotation.Nonnull Long search) {
+  public void setSearch(@jakarta.annotation.Nullable Long search) {
     this.search = search;
   }
 
-  public AdvertBidsKopecks recommendations(@jakarta.annotation.Nonnull Long recommendations) {
+  public AdvertBidsKopecks recommendations(@jakarta.annotation.Nullable Long recommendations) {
     this.recommendations = recommendations;
     return this;
   }
@@ -79,12 +79,12 @@ public class AdvertBidsKopecks {
    *
    * @return recommendations
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Long getRecommendations() {
     return recommendations;
   }
 
-  public void setRecommendations(@jakarta.annotation.Nonnull Long recommendations) {
+  public void setRecommendations(@jakarta.annotation.Nullable Long recommendations) {
     this.recommendations = recommendations;
   }
 
@@ -137,8 +137,6 @@ public class AdvertBidsKopecks {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("search");
-    openapiRequiredFields.add("recommendations");
   }
 
   /**
@@ -166,16 +164,6 @@ public class AdvertBidsKopecks {
             String.format(
                 "The field `%s` in the JSON string is not defined in the `AdvertBidsKopecks` properties. JSON: %s",
                 entry.getKey(), jsonElement.toString()));
-      }
-    }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : AdvertBidsKopecks.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
       }
     }
     JsonObject jsonObj = jsonElement.getAsJsonObject();

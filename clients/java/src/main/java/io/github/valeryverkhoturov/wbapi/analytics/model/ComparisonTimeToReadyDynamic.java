@@ -36,24 +36,24 @@ public class ComparisonTimeToReadyDynamic {
   public static final String SERIALIZED_NAME_DAYS = "days";
 
   @SerializedName(SERIALIZED_NAME_DAYS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer days;
 
   public static final String SERIALIZED_NAME_HOURS = "hours";
 
   @SerializedName(SERIALIZED_NAME_HOURS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer hours;
 
   public static final String SERIALIZED_NAME_MINS = "mins";
 
   @SerializedName(SERIALIZED_NAME_MINS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer mins;
 
   public ComparisonTimeToReadyDynamic() {}
 
-  public ComparisonTimeToReadyDynamic days(@jakarta.annotation.Nonnull Integer days) {
+  public ComparisonTimeToReadyDynamic days(@jakarta.annotation.Nullable Integer days) {
     this.days = days;
     return this;
   }
@@ -63,16 +63,16 @@ public class ComparisonTimeToReadyDynamic {
    *
    * @return days
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getDays() {
     return days;
   }
 
-  public void setDays(@jakarta.annotation.Nonnull Integer days) {
+  public void setDays(@jakarta.annotation.Nullable Integer days) {
     this.days = days;
   }
 
-  public ComparisonTimeToReadyDynamic hours(@jakarta.annotation.Nonnull Integer hours) {
+  public ComparisonTimeToReadyDynamic hours(@jakarta.annotation.Nullable Integer hours) {
     this.hours = hours;
     return this;
   }
@@ -82,16 +82,16 @@ public class ComparisonTimeToReadyDynamic {
    *
    * @return hours
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getHours() {
     return hours;
   }
 
-  public void setHours(@jakarta.annotation.Nonnull Integer hours) {
+  public void setHours(@jakarta.annotation.Nullable Integer hours) {
     this.hours = hours;
   }
 
-  public ComparisonTimeToReadyDynamic mins(@jakarta.annotation.Nonnull Integer mins) {
+  public ComparisonTimeToReadyDynamic mins(@jakarta.annotation.Nullable Integer mins) {
     this.mins = mins;
     return this;
   }
@@ -101,12 +101,12 @@ public class ComparisonTimeToReadyDynamic {
    *
    * @return mins
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getMins() {
     return mins;
   }
 
-  public void setMins(@jakarta.annotation.Nonnull Integer mins) {
+  public void setMins(@jakarta.annotation.Nullable Integer mins) {
     this.mins = mins;
   }
 
@@ -162,9 +162,6 @@ public class ComparisonTimeToReadyDynamic {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("days");
-    openapiRequiredFields.add("hours");
-    openapiRequiredFields.add("mins");
   }
 
   /**
@@ -192,16 +189,6 @@ public class ComparisonTimeToReadyDynamic {
             String.format(
                 "The field `%s` in the JSON string is not defined in the `ComparisonTimeToReadyDynamic` properties. JSON: %s",
                 entry.getKey(), jsonElement.toString()));
-      }
-    }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : ComparisonTimeToReadyDynamic.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
       }
     }
     JsonObject jsonObj = jsonElement.getAsJsonObject();

@@ -39,13 +39,13 @@ public class PatchV0AuctionNmsResponse200 {
   public static final String SERIALIZED_NAME_NMS = "nms";
 
   @SerializedName(SERIALIZED_NAME_NMS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private List<PatchV0AuctionNmsResponse200NmsInner> nms = new ArrayList<>();
 
   public PatchV0AuctionNmsResponse200() {}
 
   public PatchV0AuctionNmsResponse200 nms(
-      @jakarta.annotation.Nonnull List<PatchV0AuctionNmsResponse200NmsInner> nms) {
+      @jakarta.annotation.Nullable List<PatchV0AuctionNmsResponse200NmsInner> nms) {
     this.nms = nms;
     return this;
   }
@@ -63,12 +63,12 @@ public class PatchV0AuctionNmsResponse200 {
    *
    * @return nms
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public List<PatchV0AuctionNmsResponse200NmsInner> getNms() {
     return nms;
   }
 
-  public void setNms(@jakarta.annotation.Nonnull List<PatchV0AuctionNmsResponse200NmsInner> nms) {
+  public void setNms(@jakarta.annotation.Nullable List<PatchV0AuctionNmsResponse200NmsInner> nms) {
     this.nms = nms;
   }
 
@@ -118,7 +118,6 @@ public class PatchV0AuctionNmsResponse200 {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("nms");
   }
 
   /**
@@ -148,31 +147,25 @@ public class PatchV0AuctionNmsResponse200 {
                 entry.getKey(), jsonElement.toString()));
       }
     }
+    JsonObject jsonObj = jsonElement.getAsJsonObject();
+    if (jsonObj.get("nms") != null && !jsonObj.get("nms").isJsonNull()) {
+      JsonArray jsonArraynms = jsonObj.getAsJsonArray("nms");
+      if (jsonArraynms != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("nms").isJsonArray()) {
+          throw new IllegalArgumentException(
+              String.format(
+                  "Expected the field `nms` to be an array in the JSON string but got `%s`",
+                  jsonObj.get("nms").toString()));
+        }
 
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : PatchV0AuctionNmsResponse200.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
+        // validate the optional field `nms` (array)
+        for (int i = 0; i < jsonArraynms.size(); i++) {
+          PatchV0AuctionNmsResponse200NmsInner.validateJsonElement(jsonArraynms.get(i));
+        }
+        ;
       }
     }
-    JsonObject jsonObj = jsonElement.getAsJsonObject();
-    // ensure the json data is an array
-    if (!jsonObj.get("nms").isJsonArray()) {
-      throw new IllegalArgumentException(
-          String.format(
-              "Expected the field `nms` to be an array in the JSON string but got `%s`",
-              jsonObj.get("nms").toString()));
-    }
-
-    JsonArray jsonArraynms = jsonObj.getAsJsonArray("nms");
-    // validate the required field `nms` (array)
-    for (int i = 0; i < jsonArraynms.size(); i++) {
-      PatchV0AuctionNmsResponse200NmsInner.validateJsonElement(jsonArraynms.get(i));
-    }
-    ;
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

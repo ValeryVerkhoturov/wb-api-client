@@ -31,7 +31,7 @@ class ItemsResponseProductsInnerStatistic(BaseModel):
     ItemsResponseProductsInnerStatistic
     """  # noqa: E501
 
-    selected: StatisticsSelected
+    selected: Optional[StatisticsSelected] = None
     past: Optional[StatisticsPast] = None
     comparison: Optional[StatisticsComparison] = None
     __properties: ClassVar[List[str]] = ["selected", "past", "comparison"]

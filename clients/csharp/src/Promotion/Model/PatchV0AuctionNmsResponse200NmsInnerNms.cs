@@ -34,26 +34,11 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PatchV0AuctionNmsResponse200NmsInnerNms" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected PatchV0AuctionNmsResponse200NmsInnerNms() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PatchV0AuctionNmsResponse200NmsInnerNms" /> class.
-        /// </summary>
-        /// <param name="added">Добавленные карточки товаров (required).</param>
-        /// <param name="deleted">Удалённые карточки товаров (required).</param>
+        /// <param name="added">Добавленные карточки товаров.</param>
+        /// <param name="deleted">Удалённые карточки товаров.</param>
         public PatchV0AuctionNmsResponse200NmsInnerNms(List<int> added = default(List<int>), List<int> deleted = default(List<int>))
         {
-            // to ensure "added" is required (not null)
-            if (added == null)
-            {
-                throw new ArgumentNullException("added is a required property for PatchV0AuctionNmsResponse200NmsInnerNms and cannot be null");
-            }
             this.Added = added;
-            // to ensure "deleted" is required (not null)
-            if (deleted == null)
-            {
-                throw new ArgumentNullException("deleted is a required property for PatchV0AuctionNmsResponse200NmsInnerNms and cannot be null");
-            }
             this.Deleted = deleted;
         }
 
@@ -61,14 +46,14 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// Добавленные карточки товаров
         /// </summary>
         /// <value>Добавленные карточки товаров</value>
-        [DataMember(Name = "added", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "added", EmitDefaultValue = false)]
         public List<int> Added { get; set; }
 
         /// <summary>
         /// Удалённые карточки товаров
         /// </summary>
         /// <value>Удалённые карточки товаров</value>
-        [DataMember(Name = "deleted", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "deleted", EmitDefaultValue = false)]
         public List<int> Deleted { get; set; }
 
         /// <summary>

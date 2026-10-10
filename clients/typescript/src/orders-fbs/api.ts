@@ -50,13 +50,13 @@ export interface ApiErrorV3 {
    * @type {string}
    * @memberof ApiErrorV3
    */
-  title: string;
+  title?: string;
   /**
    * Детали ошибки
    * @type {string}
    * @memberof ApiErrorV3
    */
-  detail: string;
+  detail?: string;
 }
 /**
  *
@@ -75,7 +75,7 @@ export interface ArhiveOrderError400 {
    * @type {string}
    * @memberof ArhiveOrderError400
    */
-  detail: string;
+  detail?: string;
   /**
    * Информация об ошибке
    * @type {Array<ArhiveOrderError400ErrorsInner>}
@@ -105,7 +105,7 @@ export interface ArhiveOrderError400 {
    * @type {string}
    * @memberof ArhiveOrderError400
    */
-  title: string;
+  title?: string;
 }
 /**
  *
@@ -143,7 +143,7 @@ export interface CountriesOKSMList {
    * @type {Array<CountriesOKSMListCountriesInner>}
    * @memberof CountriesOKSMList
    */
-  countries: Array<CountriesOKSMListCountriesInner>;
+  countries?: Array<CountriesOKSMListCountriesInner>;
 }
 /**
  *
@@ -156,13 +156,13 @@ export interface CountriesOKSMListCountriesInner {
    * @type {string}
    * @memberof CountriesOKSMListCountriesInner
    */
-  code: string;
+  code?: string;
   /**
    * Название страны
    * @type {string}
    * @memberof CountriesOKSMListCountriesInner
    */
-  name: string;
+  name?: string;
 }
 /**
  *
@@ -258,7 +258,7 @@ export interface GetV3FbsSettingsAutoreturnsResponse200 {
    * @type {string}
    * @memberof GetV3FbsSettingsAutoreturnsResponse200
    */
-  type: GetV3FbsSettingsAutoreturnsResponse200TypeEnum;
+  type?: GetV3FbsSettingsAutoreturnsResponse200TypeEnum;
 }
 
 export const GetV3FbsSettingsAutoreturnsResponse200TypeEnum = {
@@ -281,13 +281,13 @@ export interface GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200 {
    * @type {number}
    * @memberof GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200
    */
-  next: number | null;
+  next?: number | null;
   /**
    * Список ID предметов, товары которых не хранятся на складах WB
    * @type {Array<GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataInner>}
    * @memberof GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200
    */
-  data: Array<GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataInner>;
+  data?: Array<GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataInner>;
 }
 /**
  *
@@ -300,7 +300,7 @@ export interface GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200Da
    * @type {number}
    * @memberof GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataInner
    */
-  subjectId: number;
+  subjectId?: number;
 }
 /**
  *
@@ -1231,7 +1231,7 @@ export interface PatchV3FbsSettingsAutoreturnsItemsResponse200 {
    * @type {Array<PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInner>}
    * @memberof PatchV3FbsSettingsAutoreturnsItemsResponse200
    */
-  results: Array<PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInner>;
+  results?: Array<PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInner>;
 }
 /**
  *
@@ -1244,7 +1244,7 @@ export interface PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInner {
    * @type {number}
    * @memberof PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInner
    */
-  chrtId: number;
+  chrtId?: number;
   /**
    * Детали ошибки
    * @type {Array<PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner>}
@@ -1269,13 +1269,13 @@ export interface PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorI
    * @type {number}
    * @memberof PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner
    */
-  code: number;
+  code?: number;
   /**
    * Дополнительная информация об ошибке:   - `Not Found` — ID размера товара не найден или указан ID размера немалогабаритного товара
    * @type {string}
    * @memberof PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner
    */
-  detail: string;
+  detail?: string;
 }
 /**
  *
@@ -1350,7 +1350,7 @@ export interface PostV3FbsSettingsAutoreturnsItemsResponse200 {
    * @type {Array<PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInner>}
    * @memberof PostV3FbsSettingsAutoreturnsItemsResponse200
    */
-  results: Array<PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInner>;
+  results?: Array<PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInner>;
 }
 /**
  *
@@ -1369,7 +1369,7 @@ export interface PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInner {
    * @type {number}
    * @memberof PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInner
    */
-  chrtId: number;
+  chrtId?: number;
   /**
    * Куда будет возвращён товар:   - `auto` — место возврата определяется автоматически   - `byWarehouse` — на склад WB   - `byPickupPoint` — на пункт выдачи заказов   - `byCourier` — продавцу курьером. Всегда для товаров тех [предметов](https://dev.wildberries.ru/openapi/orders-fbs#tag/autoreturnSettings/operation/getV3FbsSettingsAutoreturnsSubcategoriesRestricted), которые автоматически возвращаются в ПВЗ
    * @type {string}
@@ -1412,13 +1412,13 @@ export interface PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorIn
    * @type {number}
    * @memberof PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner
    */
-  code: number;
+  code?: number;
   /**
    * Дополнительная информация об ошибке
    * @type {string}
    * @memberof PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner
    */
-  detail: string;
+  detail?: string;
 }
 /**
  *
@@ -2081,55 +2081,55 @@ export interface ShippingPoint {
    * @type {number}
    * @memberof ShippingPoint
    */
-  id: number;
+  id?: number;
   /**
    * Название
    * @type {string}
    * @memberof ShippingPoint
    */
-  name: string;
+  name?: string;
   /**
    * Адрес
    * @type {string}
    * @memberof ShippingPoint
    */
-  address: string;
+  address?: string;
   /**
    * Населённый пункт
    * @type {string}
    * @memberof ShippingPoint
    */
-  city: string;
+  city?: string;
   /**
    * Тип пункта отгрузки:   - `sc` — сортировочный центр   - `sw` — склад   - `pp` — ПВЗ
    * @type {string}
    * @memberof ShippingPoint
    */
-  officeType: ShippingPointOfficeTypeEnum;
+  officeType?: ShippingPointOfficeTypeEnum;
   /**
    * Типы товаров, которые принимает пункт отгрузки:   - `1` — малогабаритный товар (МГТ)   - `2` — сверхгабаритный товар (СГТ)   - `3` — крупногабаритный товар (КГТ+)
    * @type {Array<number>}
    * @memberof ShippingPoint
    */
-  cargoTypes: Array<ShippingPointCargoTypesEnum>;
+  cargoTypes?: Array<ShippingPointCargoTypesEnum>;
   /**
    * Широта
    * @type {number}
    * @memberof ShippingPoint
    */
-  latitude: number;
+  latitude?: number;
   /**
    * Долгота
    * @type {number}
    * @memberof ShippingPoint
    */
-  longitude: number;
+  longitude?: number;
   /**
    * Услуга **Фулфилмент в СЦ** для поставки по модели FBS:   - `true` — доступна   - `false` — недоступна
    * @type {boolean}
    * @memberof ShippingPoint
    */
-  fulfillment: boolean;
+  fulfillment?: boolean;
 }
 
 export const ShippingPointOfficeTypeEnum = {
@@ -2160,7 +2160,7 @@ export interface ShippingPointsResponse {
    * @type {Array<ShippingPoint>}
    * @memberof ShippingPointsResponse
    */
-  shippingPoints: Array<ShippingPoint>;
+  shippingPoints?: Array<ShippingPoint>;
 }
 /**
  *
@@ -2269,7 +2269,7 @@ export interface Supply {
    * @type {boolean}
    * @memberof Supply
    */
-  spotAvailable: boolean;
+  spotAvailable?: boolean;
 }
 
 export const SupplyCargoTypeEnum = {
@@ -2306,31 +2306,31 @@ export interface SupplySpotData {
    * @type {string}
    * @memberof SupplySpotData
    */
-  status: SupplySpotDataStatusEnum;
+  status?: SupplySpotDataStatusEnum;
   /**
    * Наименование перевозчика
    * @type {string}
    * @memberof SupplySpotData
    */
-  carrierName: string;
+  carrierName?: string;
   /**
    * ИНН перевозчика
    * @type {string}
    * @memberof SupplySpotData
    */
-  carrierTaxNumber: string;
+  carrierTaxNumber?: string;
   /**
    * Код страны перевозчика по [ОКСМ](./orders-fbs#tag/fbsSupplies/operation/getV3FbsDictionariesCountriesOksm)
    * @type {string}
    * @memberof SupplySpotData
    */
-  carrierCountryCode: string;
+  carrierCountryCode?: string;
   /**
    * Регистрационный номер транспортного средства
    * @type {string}
    * @memberof SupplySpotData
    */
-  vehicleRegistrationNumber: string;
+  vehicleRegistrationNumber?: string;
   /**
    * Регистрационный номер прицепа
    * @type {string}
@@ -2371,7 +2371,7 @@ export interface SupplySpotDataResponse {
    * @type {Array<SupplySpotDataResponseSuppliesInner>}
    * @memberof SupplySpotDataResponse
    */
-  supplies: Array<SupplySpotDataResponseSuppliesInner>;
+  supplies?: Array<SupplySpotDataResponseSuppliesInner>;
 }
 /**
  *
@@ -2384,7 +2384,7 @@ export interface SupplySpotDataResponseSuppliesInner {
    * @type {string}
    * @memberof SupplySpotDataResponseSuppliesInner
    */
-  id: string;
+  id?: string;
   /**
    *
    * @type {SupplySpotDataResponseSuppliesInnerSpot}
@@ -2409,13 +2409,13 @@ export interface SupplySpotDataResponseSuppliesInnerError {
    * @type {string}
    * @memberof SupplySpotDataResponseSuppliesInnerError
    */
-  title: string;
+  title?: string;
   /**
    * Детали ошибки
    * @type {string}
    * @memberof SupplySpotDataResponseSuppliesInnerError
    */
-  detail: string;
+  detail?: string;
 }
 /**
  *
@@ -2428,31 +2428,31 @@ export interface SupplySpotDataResponseSuppliesInnerSpot {
    * @type {string}
    * @memberof SupplySpotDataResponseSuppliesInnerSpot
    */
-  status: SupplySpotDataResponseSuppliesInnerSpotStatusEnum;
+  status?: SupplySpotDataResponseSuppliesInnerSpotStatusEnum;
   /**
    * Наименование перевозчика
    * @type {string}
    * @memberof SupplySpotDataResponseSuppliesInnerSpot
    */
-  carrierName: string;
+  carrierName?: string;
   /**
    * ИНН перевозчика
    * @type {string}
    * @memberof SupplySpotDataResponseSuppliesInnerSpot
    */
-  carrierTaxNumber: string;
+  carrierTaxNumber?: string;
   /**
    * Код страны перевозчика по [ОКСМ](./orders-fbs#tag/fbsSupplies/operation/getV3FbsDictionariesCountriesOksm)
    * @type {string}
    * @memberof SupplySpotDataResponseSuppliesInnerSpot
    */
-  carrierCountryCode: string;
+  carrierCountryCode?: string;
   /**
    * Регистрационный номер транспортного средства
    * @type {string}
    * @memberof SupplySpotDataResponseSuppliesInnerSpot
    */
-  vehicleRegistrationNumber: string;
+  vehicleRegistrationNumber?: string;
   /**
    * Регистрационный номер прицепа
    * @type {string}
@@ -2493,7 +2493,7 @@ export interface SupplySpotQRCode {
    * @type {string}
    * @memberof SupplySpotQRCode
    */
-  qrCode: string;
+  qrCode?: string;
 }
 /**
  *
@@ -2551,7 +2551,7 @@ export interface UpdateSuppliesShippingMethodResponse {
    * @type {Array<UpdatedSuppliesShippingMethod>}
    * @memberof UpdateSuppliesShippingMethodResponse
    */
-  results: Array<UpdatedSuppliesShippingMethod>;
+  results?: Array<UpdatedSuppliesShippingMethod>;
 }
 /**
  *
@@ -2616,7 +2616,7 @@ export interface UpdatedSuppliesShippingMethod {
    * @type {string}
    * @memberof UpdatedSuppliesShippingMethod
    */
-  supplyId: string;
+  supplyId?: string;
 }
 /**
  * Ошибка обработки запроса для поставки. Возможные варианты ошибок:   - `400 IncorrectRequestBody`:     - некорректный ID поставки     - место отгрузки не найдено     - склад назначения находится не в РФ     - неизвестный `shippingType`     - дата не соответствует формату `YYYY-MM-DD`   - `400 FulfillmentRequired` — в месте отгрузки недоступна услуга **Фулфилмент в СЦ**   - `404 NotFound` — поставка не найдена   - `409 SupplyAlreadyScanned` — поставка или её короба уже отсканированы в пункте отгрузки   - `409 InvalidShippingDt` — некорректная дата отгрузки поставки
@@ -2629,13 +2629,13 @@ export interface UpdatedSuppliesShippingMethodError {
    * @type {number}
    * @memberof UpdatedSuppliesShippingMethodError
    */
-  code: number;
+  code?: number;
   /**
    * Дополнительная информация об ошибке
    * @type {string}
    * @memberof UpdatedSuppliesShippingMethodError
    */
-  detail: string;
+  detail?: string;
 }
 /**
  *
@@ -2673,109 +2673,109 @@ export interface V3ArchiveOrder {
    * @type {string}
    * @memberof V3ArchiveOrder
    */
-  cargoType: string;
+  cargoType?: string;
   /**
    * Код цвета для колеруемых товаров
    * @type {string}
    * @memberof V3ArchiveOrder
    */
-  colorCode: string | null;
+  colorCode?: string | null;
   /**
    * Дата создания заказа
    * @type {string}
    * @memberof V3ArchiveOrder
    */
-  createdAt: string;
+  createdAt?: string;
   /**
    *
    * @type {V3ArchiveOrderCrossBorder}
    * @memberof V3ArchiveOrder
    */
-  crossBorder: V3ArchiveOrderCrossBorder | null;
+  crossBorder?: V3ArchiveOrderCrossBorder | null;
   /**
    * Тип сборочного задания:   - `local` — внутренняя поставка   - `crossBorder` — трансграничная поставка
    * @type {string}
    * @memberof V3ArchiveOrder
    */
-  crossBorderType: string;
+  crossBorderType?: string;
   /**
    * ID сборочного задания
    * @type {number}
    * @memberof V3ArchiveOrder
    */
-  id: number;
+  id?: number;
   /**
    * Признак заказа товара с нулевым остатком:   - `false` — заказ сделан на товар с ненулевым остатком   - `true` — заказ сделан на товар с нулевым остатком
    * @type {boolean}
    * @memberof V3ArchiveOrder
    */
-  isZeroOrder: boolean;
+  isZeroOrder?: boolean;
   /**
    * Детали маркировки
    * @type {Array<V3ArchiveOrderMetaDetailsInner>}
    * @memberof V3ArchiveOrder
    */
-  metaDetails: Array<V3ArchiveOrderMetaDetailsInner>;
+  metaDetails?: Array<V3ArchiveOrderMetaDetailsInner>;
   /**
    *
    * @type {V3ArchiveOrderOptions}
    * @memberof V3ArchiveOrder
    */
-  options: V3ArchiveOrderOptions;
+  options?: V3ArchiveOrderOptions;
   /**
    * ID транзакции для группировки сборочных заданий. Сборочные задания в одной корзине покупателя будут иметь одинаковый `orderUid`
    * @type {string}
    * @memberof V3ArchiveOrder
    */
-  orderUid: string;
+  orderUid?: string;
   /**
    *
    * @type {V3ArchiveOrderPriceInfo}
    * @memberof V3ArchiveOrder
    */
-  priceInfo: V3ArchiveOrderPriceInfo;
+  priceInfo?: V3ArchiveOrderPriceInfo;
   /**
    *
    * @type {V3ArchiveOrderProduct}
    * @memberof V3ArchiveOrder
    */
-  product: V3ArchiveOrderProduct;
+  product?: V3ArchiveOrderProduct;
   /**
    * Уникальный ID заказа. Примечание: `rid` — это `srid` в ответах методов: - [Заявки покупателей на возврат](./customer-communication#tag/buyersReturns/operation/getV1Claims) - [Лента заказов](./analytics#tag/orderFeed/operation/postV1OrderFeed) - [Заказы](./reports#tag/mainReports/operation/getV1SupplierOrders) - [Продажи](./reports#tag/mainReports/operation/getV1SupplierSales) - [Отчёт о возвратах и перемещении товаров](./reports#tag/returnsAndItemMovementReport) - [Детализации к отчётам реализации по ID отчётов](./documents-and-accounting#tag/financialReports/operation/postV1SalesReportsDetailedReportId) - [Детализации к отчётам реализации за период](./documents-and-accounting#tag/financialReports/operation/postV1SalesReportsDetailed) - [Детализации к отчётам об издержках на приём платежей по ID отчётов](./documents-and-accounting#tag/financialReports/operation/postV1AcquiringDetailedReportId) - [Детализации к отчётам об издержках на приём платежей за период](./documents-and-accounting#tag/financialReports/operation/postV1AcquiringDetailed)
    * @type {string}
    * @memberof V3ArchiveOrder
    */
-  rid: string;
+  rid?: string;
   /**
    * Цена приёмки заказа в копейках
    * @type {number}
    * @memberof V3ArchiveOrder
    */
-  scanPrice: number | null;
+  scanPrice?: number | null;
   /**
    *
    * @type {V3ArchiveOrderStatus}
    * @memberof V3ArchiveOrder
    */
-  status: V3ArchiveOrderStatus;
+  status?: V3ArchiveOrderStatus;
   /**
    * ID стикера
    * @type {number}
    * @memberof V3ArchiveOrder
    */
-  stickerId: number;
+  stickerId?: number;
   /**
    * ID поставки
    * @type {string}
    * @memberof V3ArchiveOrder
    */
-  supplyId: string | null;
+  supplyId?: string | null;
   /**
    * ID склада продавца, с которого был отгружен товар
    * @type {number}
    * @memberof V3ArchiveOrder
    */
-  warehouseId: number;
+  warehouseId?: number;
 }
 /**
  * Информация о трансграничной поставке
@@ -2839,25 +2839,25 @@ export interface V3ArchiveOrderPriceInfo {
    * @type {number}
    * @memberof V3ArchiveOrderPriceInfo
    */
-  convertedCurrencyCode: number;
+  convertedCurrencyCode?: number;
   /**
    * Цена в валюте страны продавца с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100
    * @type {number}
    * @memberof V3ArchiveOrderPriceInfo
    */
-  convertedPrice: number;
+  convertedPrice?: number;
   /**
    * Код валюты продажи
    * @type {number}
    * @memberof V3ArchiveOrderPriceInfo
    */
-  currencyCode: number;
+  currencyCode?: number;
   /**
    * Цена в валюте продажи с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100
    * @type {number}
    * @memberof V3ArchiveOrderPriceInfo
    */
-  price: number;
+  price?: number;
 }
 /**
  * Информация о товаре
@@ -2870,25 +2870,25 @@ export interface V3ArchiveOrderProduct {
    * @type {string}
    * @memberof V3ArchiveOrderProduct
    */
-  article: string;
+  article?: string;
   /**
    * ID размера товара в системе WB
    * @type {number}
    * @memberof V3ArchiveOrderProduct
    */
-  chrtId: number;
+  chrtId?: number;
   /**
    * Артикул WB
    * @type {number}
    * @memberof V3ArchiveOrderProduct
    */
-  nmId: number;
+  nmId?: number;
   /**
    * Список баркодов
    * @type {Array<string>}
    * @memberof V3ArchiveOrderProduct
    */
-  skus: Array<string>;
+  skus?: Array<string>;
 }
 /**
  * Последние статусы сборочного задания
@@ -2901,13 +2901,13 @@ export interface V3ArchiveOrderStatus {
    * @type {string}
    * @memberof V3ArchiveOrderStatus
    */
-  supplierStatus: string;
+  supplierStatus?: string;
   /**
    * Статус сборочного задания в системе Wildberries
    * @type {string}
    * @memberof V3ArchiveOrderStatus
    */
-  wbStatus: string;
+  wbStatus?: string;
 }
 /**
  * Список архивных сборочных заданий
@@ -2920,13 +2920,13 @@ export interface V3ArchiveOrders {
    * @type {number}
    * @memberof V3ArchiveOrders
    */
-  next: number | null;
+  next?: number | null;
   /**
    * Архивные сборочные задания
    * @type {Array<V3ArchiveOrder>}
    * @memberof V3ArchiveOrders
    */
-  orders: Array<V3ArchiveOrder>;
+  orders?: Array<V3ArchiveOrder>;
 }
 /**
  * ID сборочных заданий

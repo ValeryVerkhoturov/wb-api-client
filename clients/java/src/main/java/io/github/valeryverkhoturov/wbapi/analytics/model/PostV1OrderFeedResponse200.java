@@ -36,12 +36,12 @@ public class PostV1OrderFeedResponse200 {
   public static final String SERIALIZED_NAME_DATA = "data";
 
   @SerializedName(SERIALIZED_NAME_DATA)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private OrderFeedResponse data;
 
   public PostV1OrderFeedResponse200() {}
 
-  public PostV1OrderFeedResponse200 data(@jakarta.annotation.Nonnull OrderFeedResponse data) {
+  public PostV1OrderFeedResponse200 data(@jakarta.annotation.Nullable OrderFeedResponse data) {
     this.data = data;
     return this;
   }
@@ -51,12 +51,12 @@ public class PostV1OrderFeedResponse200 {
    *
    * @return data
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public OrderFeedResponse getData() {
     return data;
   }
 
-  public void setData(@jakarta.annotation.Nonnull OrderFeedResponse data) {
+  public void setData(@jakarta.annotation.Nullable OrderFeedResponse data) {
     this.data = data;
   }
 
@@ -106,7 +106,6 @@ public class PostV1OrderFeedResponse200 {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("data");
   }
 
   /**
@@ -136,19 +135,11 @@ public class PostV1OrderFeedResponse200 {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : PostV1OrderFeedResponse200.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    // validate the required field `data`
-    OrderFeedResponse.validateJsonElement(jsonObj.get("data"));
+    // validate the optional field `data`
+    if (jsonObj.get("data") != null && !jsonObj.get("data").isJsonNull()) {
+      OrderFeedResponse.validateJsonElement(jsonObj.get("data"));
+    }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

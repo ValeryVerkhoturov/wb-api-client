@@ -11,9 +11,7 @@ API version: ordersfbw
 package orders_fbw
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the ModelsListDraftsResponse type satisfies the MappedNullable interface at compile time
@@ -22,21 +20,17 @@ var _ MappedNullable = &ModelsListDraftsResponse{}
 // ModelsListDraftsResponse struct for ModelsListDraftsResponse
 type ModelsListDraftsResponse struct {
 	// Общее количество черновиков
-	Total int32 `json:"total"`
+	Total *int32 `json:"total,omitempty"`
 	// Список черновиков
-	Drafts []ModelsDraftItem `json:"drafts"`
+	Drafts []ModelsDraftItem `json:"drafts,omitempty"`
 }
-
-type _ModelsListDraftsResponse ModelsListDraftsResponse
 
 // NewModelsListDraftsResponse instantiates a new ModelsListDraftsResponse object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelsListDraftsResponse(total int32, drafts []ModelsDraftItem) *ModelsListDraftsResponse {
+func NewModelsListDraftsResponse() *ModelsListDraftsResponse {
 	this := ModelsListDraftsResponse{}
-	this.Total = total
-	this.Drafts = drafts
 	return &this
 }
 
@@ -48,50 +42,66 @@ func NewModelsListDraftsResponseWithDefaults() *ModelsListDraftsResponse {
 	return &this
 }
 
-// GetTotal returns the Total field value
+// GetTotal returns the Total field value if set, zero value otherwise.
 func (o *ModelsListDraftsResponse) GetTotal() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.Total) {
 		var ret int32
 		return ret
 	}
-
-	return o.Total
+	return *o.Total
 }
 
-// GetTotalOk returns a tuple with the Total field value
+// GetTotalOk returns a tuple with the Total field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModelsListDraftsResponse) GetTotalOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Total) {
 		return nil, false
 	}
-	return &o.Total, true
+	return o.Total, true
 }
 
-// SetTotal sets field value
+// HasTotal returns a boolean if a field has been set.
+func (o *ModelsListDraftsResponse) HasTotal() bool {
+	if o != nil && !IsNil(o.Total) {
+		return true
+	}
+
+	return false
+}
+
+// SetTotal gets a reference to the given int32 and assigns it to the Total field.
 func (o *ModelsListDraftsResponse) SetTotal(v int32) {
-	o.Total = v
+	o.Total = &v
 }
 
-// GetDrafts returns the Drafts field value
+// GetDrafts returns the Drafts field value if set, zero value otherwise.
 func (o *ModelsListDraftsResponse) GetDrafts() []ModelsDraftItem {
-	if o == nil {
+	if o == nil || IsNil(o.Drafts) {
 		var ret []ModelsDraftItem
 		return ret
 	}
-
 	return o.Drafts
 }
 
-// GetDraftsOk returns a tuple with the Drafts field value
+// GetDraftsOk returns a tuple with the Drafts field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModelsListDraftsResponse) GetDraftsOk() ([]ModelsDraftItem, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Drafts) {
 		return nil, false
 	}
 	return o.Drafts, true
 }
 
-// SetDrafts sets field value
+// HasDrafts returns a boolean if a field has been set.
+func (o *ModelsListDraftsResponse) HasDrafts() bool {
+	if o != nil && !IsNil(o.Drafts) {
+		return true
+	}
+
+	return false
+}
+
+// SetDrafts gets a reference to the given []ModelsDraftItem and assigns it to the Drafts field.
 func (o *ModelsListDraftsResponse) SetDrafts(v []ModelsDraftItem) {
 	o.Drafts = v
 }
@@ -106,47 +116,13 @@ func (o ModelsListDraftsResponse) MarshalJSON() ([]byte, error) {
 
 func (o ModelsListDraftsResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["total"] = o.Total
-	toSerialize["drafts"] = o.Drafts
+	if !IsNil(o.Total) {
+		toSerialize["total"] = o.Total
+	}
+	if !IsNil(o.Drafts) {
+		toSerialize["drafts"] = o.Drafts
+	}
 	return toSerialize, nil
-}
-
-func (o *ModelsListDraftsResponse) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"total",
-		"drafts",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varModelsListDraftsResponse := _ModelsListDraftsResponse{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varModelsListDraftsResponse)
-
-	if err != nil {
-		return err
-	}
-
-	*o = ModelsListDraftsResponse(varModelsListDraftsResponse)
-
-	return err
 }
 
 type NullableModelsListDraftsResponse struct {

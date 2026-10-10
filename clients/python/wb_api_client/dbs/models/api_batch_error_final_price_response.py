@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,11 +28,13 @@ class ApiBatchErrorFinalPriceResponse(BaseModel):
     ApiBatchErrorFinalPriceResponse
     """  # noqa: E501
 
-    code: StrictInt = Field(
-        description="Код ошибки:   - `404` — `NotFound`   - `400` — `StatusMismatch`   - `422` — `PriceNotCalculated` "
+    code: Optional[StrictInt] = Field(
+        default=None,
+        description="Код ошибки:   - `404` — `NotFound`   - `400` — `StatusMismatch`   - `422` — `PriceNotCalculated` ",
     )
-    detail: StrictStr = Field(
-        description="- `NotFound` — сборочное задание не найдено (`404`) - `StatusMismatch` — операция невозможна для этого статуса сборочного задания (`400`) - `PriceNotCalculated` — операция невозможна для сборочных заданий, созданных ранее 23.07.2026 (`422`) "
+    detail: Optional[StrictStr] = Field(
+        default=None,
+        description="- `NotFound` — сборочное задание не найдено (`404`) - `StatusMismatch` — операция невозможна для этого статуса сборочного задания (`400`) - `PriceNotCalculated` — операция невозможна для сборочных заданий, созданных ранее 23.07.2026 (`422`) ",
     )
     __properties: ClassVar[List[str]] = ["code", "detail"]
 

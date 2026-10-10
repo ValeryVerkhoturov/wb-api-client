@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,9 +28,9 @@ class GetV2DirectoryOkpdResponse200DataInner(BaseModel):
     GetV2DirectoryOkpdResponse200DataInner
     """  # noqa: E501
 
-    okpd2: StrictStr = Field(description="Код ОКПД2")
-    description: StrictStr = Field(
-        description="Текстовое описание товаров, которые входят в группу"
+    okpd2: Optional[StrictStr] = Field(default=None, description="Код ОКПД2")
+    description: Optional[StrictStr] = Field(
+        default=None, description="Текстовое описание товаров, которые входят в группу"
     )
     __properties: ClassVar[List[str]] = ["okpd2", "description"]
 

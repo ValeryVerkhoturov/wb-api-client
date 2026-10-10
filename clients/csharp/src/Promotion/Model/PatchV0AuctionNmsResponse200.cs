@@ -34,19 +34,9 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PatchV0AuctionNmsResponse200" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected PatchV0AuctionNmsResponse200() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PatchV0AuctionNmsResponse200" /> class.
-        /// </summary>
-        /// <param name="nms">Результат отработки запроса (required).</param>
+        /// <param name="nms">Результат отработки запроса.</param>
         public PatchV0AuctionNmsResponse200(List<PatchV0AuctionNmsResponse200NmsInner> nms = default(List<PatchV0AuctionNmsResponse200NmsInner>))
         {
-            // to ensure "nms" is required (not null)
-            if (nms == null)
-            {
-                throw new ArgumentNullException("nms is a required property for PatchV0AuctionNmsResponse200 and cannot be null");
-            }
             this.Nms = nms;
         }
 
@@ -54,7 +44,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// Результат отработки запроса
         /// </summary>
         /// <value>Результат отработки запроса</value>
-        [DataMember(Name = "nms", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "nms", EmitDefaultValue = false)]
         public List<PatchV0AuctionNmsResponse200NmsInner> Nms { get; set; }
 
         /// <summary>

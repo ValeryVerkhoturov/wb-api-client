@@ -34,25 +34,15 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TableShippingOfficeMetrics" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected TableShippingOfficeMetrics() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="TableShippingOfficeMetrics" /> class.
-        /// </summary>
-        /// <param name="stockCount">Остатки на текущий день, шт. (required).</param>
-        /// <param name="stockSum">Остатки на текущий день, сумма (required).</param>
-        /// <param name="saleRate">saleRate (required).</param>
-        /// <param name="toClientCount">В пути к клиенту, шт. (required).</param>
-        /// <param name="fromClientCount">В пути от клиента, шт. (required).</param>
+        /// <param name="stockCount">Остатки на текущий день, шт..</param>
+        /// <param name="stockSum">Остатки на текущий день, сумма.</param>
+        /// <param name="saleRate">saleRate.</param>
+        /// <param name="toClientCount">В пути к клиенту, шт..</param>
+        /// <param name="fromClientCount">В пути от клиента, шт..</param>
         public TableShippingOfficeMetrics(int stockCount = default(int), int stockSum = default(int), TableCommonMetricsSaleRate saleRate = default(TableCommonMetricsSaleRate), int toClientCount = default(int), int fromClientCount = default(int))
         {
             this.StockCount = stockCount;
             this.StockSum = stockSum;
-            // to ensure "saleRate" is required (not null)
-            if (saleRate == null)
-            {
-                throw new ArgumentNullException("saleRate is a required property for TableShippingOfficeMetrics and cannot be null");
-            }
             this.SaleRate = saleRate;
             this.ToClientCount = toClientCount;
             this.FromClientCount = fromClientCount;
@@ -65,7 +55,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>20</example>
         */
-        [DataMember(Name = "stockCount", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "stockCount", EmitDefaultValue = false)]
         public int StockCount { get; set; }
 
         /// <summary>
@@ -75,13 +65,13 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>20000</example>
         */
-        [DataMember(Name = "stockSum", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "stockSum", EmitDefaultValue = false)]
         public int StockSum { get; set; }
 
         /// <summary>
         /// Gets or Sets SaleRate
         /// </summary>
-        [DataMember(Name = "saleRate", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "saleRate", EmitDefaultValue = false)]
         public TableCommonMetricsSaleRate SaleRate { get; set; }
 
         /// <summary>
@@ -91,7 +81,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>30</example>
         */
-        [DataMember(Name = "toClientCount", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "toClientCount", EmitDefaultValue = false)]
         public int ToClientCount { get; set; }
 
         /// <summary>
@@ -101,7 +91,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>40</example>
         */
-        [DataMember(Name = "fromClientCount", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "fromClientCount", EmitDefaultValue = false)]
         public int FromClientCount { get; set; }
 
         /// <summary>

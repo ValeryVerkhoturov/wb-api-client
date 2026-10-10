@@ -37,48 +37,48 @@ public class NmReportGetReportsResponseDataInner {
   public static final String SERIALIZED_NAME_ID = "id";
 
   @SerializedName(SERIALIZED_NAME_ID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private UUID id;
 
   public static final String SERIALIZED_NAME_CREATED_AT = "createdAt";
 
   @SerializedName(SERIALIZED_NAME_CREATED_AT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String createdAt;
 
   public static final String SERIALIZED_NAME_STATUS = "status";
 
   @SerializedName(SERIALIZED_NAME_STATUS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String status;
 
   public static final String SERIALIZED_NAME_NAME = "name";
 
   @SerializedName(SERIALIZED_NAME_NAME)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String name;
 
   public static final String SERIALIZED_NAME_SIZE = "size";
 
   @SerializedName(SERIALIZED_NAME_SIZE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer size;
 
   public static final String SERIALIZED_NAME_START_DATE = "startDate";
 
   @SerializedName(SERIALIZED_NAME_START_DATE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String startDate;
 
   public static final String SERIALIZED_NAME_END_DATE = "endDate";
 
   @SerializedName(SERIALIZED_NAME_END_DATE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String endDate;
 
   public NmReportGetReportsResponseDataInner() {}
 
-  public NmReportGetReportsResponseDataInner id(@jakarta.annotation.Nonnull UUID id) {
+  public NmReportGetReportsResponseDataInner id(@jakarta.annotation.Nullable UUID id) {
     this.id = id;
     return this;
   }
@@ -88,17 +88,17 @@ public class NmReportGetReportsResponseDataInner {
    *
    * @return id
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public UUID getId() {
     return id;
   }
 
-  public void setId(@jakarta.annotation.Nonnull UUID id) {
+  public void setId(@jakarta.annotation.Nullable UUID id) {
     this.id = id;
   }
 
   public NmReportGetReportsResponseDataInner createdAt(
-      @jakarta.annotation.Nonnull String createdAt) {
+      @jakarta.annotation.Nullable String createdAt) {
     this.createdAt = createdAt;
     return this;
   }
@@ -108,16 +108,16 @@ public class NmReportGetReportsResponseDataInner {
    *
    * @return createdAt
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getCreatedAt() {
     return createdAt;
   }
 
-  public void setCreatedAt(@jakarta.annotation.Nonnull String createdAt) {
+  public void setCreatedAt(@jakarta.annotation.Nullable String createdAt) {
     this.createdAt = createdAt;
   }
 
-  public NmReportGetReportsResponseDataInner status(@jakarta.annotation.Nonnull String status) {
+  public NmReportGetReportsResponseDataInner status(@jakarta.annotation.Nullable String status) {
     this.status = status;
     return this;
   }
@@ -129,16 +129,16 @@ public class NmReportGetReportsResponseDataInner {
    *
    * @return status
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getStatus() {
     return status;
   }
 
-  public void setStatus(@jakarta.annotation.Nonnull String status) {
+  public void setStatus(@jakarta.annotation.Nullable String status) {
     this.status = status;
   }
 
-  public NmReportGetReportsResponseDataInner name(@jakarta.annotation.Nonnull String name) {
+  public NmReportGetReportsResponseDataInner name(@jakarta.annotation.Nullable String name) {
     this.name = name;
     return this;
   }
@@ -148,16 +148,16 @@ public class NmReportGetReportsResponseDataInner {
    *
    * @return name
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getName() {
     return name;
   }
 
-  public void setName(@jakarta.annotation.Nonnull String name) {
+  public void setName(@jakarta.annotation.Nullable String name) {
     this.name = name;
   }
 
-  public NmReportGetReportsResponseDataInner size(@jakarta.annotation.Nonnull Integer size) {
+  public NmReportGetReportsResponseDataInner size(@jakarta.annotation.Nullable Integer size) {
     this.size = size;
     return this;
   }
@@ -167,17 +167,17 @@ public class NmReportGetReportsResponseDataInner {
    *
    * @return size
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getSize() {
     return size;
   }
 
-  public void setSize(@jakarta.annotation.Nonnull Integer size) {
+  public void setSize(@jakarta.annotation.Nullable Integer size) {
     this.size = size;
   }
 
   public NmReportGetReportsResponseDataInner startDate(
-      @jakarta.annotation.Nonnull String startDate) {
+      @jakarta.annotation.Nullable String startDate) {
     this.startDate = startDate;
     return this;
   }
@@ -187,16 +187,16 @@ public class NmReportGetReportsResponseDataInner {
    *
    * @return startDate
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getStartDate() {
     return startDate;
   }
 
-  public void setStartDate(@jakarta.annotation.Nonnull String startDate) {
+  public void setStartDate(@jakarta.annotation.Nullable String startDate) {
     this.startDate = startDate;
   }
 
-  public NmReportGetReportsResponseDataInner endDate(@jakarta.annotation.Nonnull String endDate) {
+  public NmReportGetReportsResponseDataInner endDate(@jakarta.annotation.Nullable String endDate) {
     this.endDate = endDate;
     return this;
   }
@@ -206,12 +206,12 @@ public class NmReportGetReportsResponseDataInner {
    *
    * @return endDate
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getEndDate() {
     return endDate;
   }
 
-  public void setEndDate(@jakarta.annotation.Nonnull String endDate) {
+  public void setEndDate(@jakarta.annotation.Nullable String endDate) {
     this.endDate = endDate;
   }
 
@@ -280,13 +280,6 @@ public class NmReportGetReportsResponseDataInner {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("id");
-    openapiRequiredFields.add("createdAt");
-    openapiRequiredFields.add("status");
-    openapiRequiredFields.add("name");
-    openapiRequiredFields.add("size");
-    openapiRequiredFields.add("startDate");
-    openapiRequiredFields.add("endDate");
   }
 
   /**
@@ -317,48 +310,44 @@ public class NmReportGetReportsResponseDataInner {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : NmReportGetReportsResponseDataInner.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    if (!jsonObj.get("id").isJsonPrimitive()) {
+    if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull())
+        && !jsonObj.get("id").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `id` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("id").toString()));
     }
-    if (!jsonObj.get("createdAt").isJsonPrimitive()) {
+    if ((jsonObj.get("createdAt") != null && !jsonObj.get("createdAt").isJsonNull())
+        && !jsonObj.get("createdAt").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `createdAt` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("createdAt").toString()));
     }
-    if (!jsonObj.get("status").isJsonPrimitive()) {
+    if ((jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull())
+        && !jsonObj.get("status").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `status` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("status").toString()));
     }
-    if (!jsonObj.get("name").isJsonPrimitive()) {
+    if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull())
+        && !jsonObj.get("name").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `name` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("name").toString()));
     }
-    if (!jsonObj.get("startDate").isJsonPrimitive()) {
+    if ((jsonObj.get("startDate") != null && !jsonObj.get("startDate").isJsonNull())
+        && !jsonObj.get("startDate").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `startDate` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("startDate").toString()));
     }
-    if (!jsonObj.get("endDate").isJsonPrimitive()) {
+    if ((jsonObj.get("endDate") != null && !jsonObj.get("endDate").isJsonNull())
+        && !jsonObj.get("endDate").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `endDate` to be a primitive type in the JSON string but got `%s`",

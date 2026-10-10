@@ -11,9 +11,7 @@ API version: finances
 package finances
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the AcquiringReportsDetailedRes type satisfies the MappedNullable interface at compile time
@@ -22,66 +20,47 @@ var _ MappedNullable = &AcquiringReportsDetailedRes{}
 // AcquiringReportsDetailedRes Детализации к отчётам об издержках на приём платежей
 type AcquiringReportsDetailedRes struct {
 	// ID строки
-	RrdId int32 `json:"rrdId"`
+	RrdId *int32 `json:"rrdId,omitempty"`
 	// ID отчёта
-	ReportId int64 `json:"reportId"`
+	ReportId *int64 `json:"reportId,omitempty"`
 	// Дата операции
-	AcqDate string `json:"acqDate"`
+	AcqDate *string `json:"acqDate,omitempty"`
 	// Наименование банка-эквайера
-	AcquiringBank string `json:"acquiringBank"`
+	AcquiringBank *string `json:"acquiringBank,omitempty"`
 	// ИНН
-	Tin string `json:"tin"`
+	Tin *string `json:"tin,omitempty"`
 	// КПП
-	TaxRegistrationReasonCode string `json:"taxRegistrationReasonCode"`
+	TaxRegistrationReasonCode *string `json:"taxRegistrationReasonCode,omitempty"`
 	// Дата продажи
-	SaleDate string `json:"saleDate"`
+	SaleDate *string `json:"saleDate,omitempty"`
 	// ID заказа. В ответах методов сборочных заданий [FBS](./orders-fbs#tag/fbsAssemblyOrders), [DBW](./orders-dbw#tag/dbwAssemblyOrders), [DBS](./dbs#tag/dbsAssemblyOrders) и [Самовывоз](./in-store-pickup#tag/inStorePickupAssemblyOrders) `srid` равен `rid`
-	Srid string `json:"srid"`
+	Srid *string `json:"srid,omitempty"`
 	// Тип документа
-	DocumentType string `json:"documentType"`
+	DocumentType *string `json:"documentType,omitempty"`
 	// Артикул WB
-	NmId int32 `json:"nmId"`
+	NmId *int32 `json:"nmId,omitempty"`
 	// Wildberries реализовал Товар (Пр)
-	RetailAmount string `json:"retailAmount"`
+	RetailAmount *string `json:"retailAmount,omitempty"`
 	// Размер комиссии за эквайринг, в том числе НДС
-	AcquiringFee string `json:"acquiringFee"`
+	AcquiringFee *string `json:"acquiringFee,omitempty"`
 	// Сумма НДС
-	AcquiringFeeVat string `json:"acquiringFeeVat"`
+	AcquiringFeeVat *string `json:"acquiringFeeVat,omitempty"`
 	// Номер счёта-фактуры
-	InvoiceNumber string `json:"invoiceNumber"`
+	InvoiceNumber *string `json:"invoiceNumber,omitempty"`
 	// Дата счёта-фактуры
-	InvoiceDate string `json:"invoiceDate"`
+	InvoiceDate *string `json:"invoiceDate,omitempty"`
 	// Штрихкод
-	ShkId int32 `json:"shkId"`
+	ShkId *int32 `json:"shkId,omitempty"`
 	// Валюта отчёта
-	Currency string `json:"currency"`
+	Currency *string `json:"currency,omitempty"`
 }
-
-type _AcquiringReportsDetailedRes AcquiringReportsDetailedRes
 
 // NewAcquiringReportsDetailedRes instantiates a new AcquiringReportsDetailedRes object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAcquiringReportsDetailedRes(rrdId int32, reportId int64, acqDate string, acquiringBank string, tin string, taxRegistrationReasonCode string, saleDate string, srid string, documentType string, nmId int32, retailAmount string, acquiringFee string, acquiringFeeVat string, invoiceNumber string, invoiceDate string, shkId int32, currency string) *AcquiringReportsDetailedRes {
+func NewAcquiringReportsDetailedRes() *AcquiringReportsDetailedRes {
 	this := AcquiringReportsDetailedRes{}
-	this.RrdId = rrdId
-	this.ReportId = reportId
-	this.AcqDate = acqDate
-	this.AcquiringBank = acquiringBank
-	this.Tin = tin
-	this.TaxRegistrationReasonCode = taxRegistrationReasonCode
-	this.SaleDate = saleDate
-	this.Srid = srid
-	this.DocumentType = documentType
-	this.NmId = nmId
-	this.RetailAmount = retailAmount
-	this.AcquiringFee = acquiringFee
-	this.AcquiringFeeVat = acquiringFeeVat
-	this.InvoiceNumber = invoiceNumber
-	this.InvoiceDate = invoiceDate
-	this.ShkId = shkId
-	this.Currency = currency
 	return &this
 }
 
@@ -93,412 +72,548 @@ func NewAcquiringReportsDetailedResWithDefaults() *AcquiringReportsDetailedRes {
 	return &this
 }
 
-// GetRrdId returns the RrdId field value
+// GetRrdId returns the RrdId field value if set, zero value otherwise.
 func (o *AcquiringReportsDetailedRes) GetRrdId() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.RrdId) {
 		var ret int32
 		return ret
 	}
-
-	return o.RrdId
+	return *o.RrdId
 }
 
-// GetRrdIdOk returns a tuple with the RrdId field value
+// GetRrdIdOk returns a tuple with the RrdId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *AcquiringReportsDetailedRes) GetRrdIdOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.RrdId) {
 		return nil, false
 	}
-	return &o.RrdId, true
+	return o.RrdId, true
 }
 
-// SetRrdId sets field value
+// HasRrdId returns a boolean if a field has been set.
+func (o *AcquiringReportsDetailedRes) HasRrdId() bool {
+	if o != nil && !IsNil(o.RrdId) {
+		return true
+	}
+
+	return false
+}
+
+// SetRrdId gets a reference to the given int32 and assigns it to the RrdId field.
 func (o *AcquiringReportsDetailedRes) SetRrdId(v int32) {
-	o.RrdId = v
+	o.RrdId = &v
 }
 
-// GetReportId returns the ReportId field value
+// GetReportId returns the ReportId field value if set, zero value otherwise.
 func (o *AcquiringReportsDetailedRes) GetReportId() int64 {
-	if o == nil {
+	if o == nil || IsNil(o.ReportId) {
 		var ret int64
 		return ret
 	}
-
-	return o.ReportId
+	return *o.ReportId
 }
 
-// GetReportIdOk returns a tuple with the ReportId field value
+// GetReportIdOk returns a tuple with the ReportId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *AcquiringReportsDetailedRes) GetReportIdOk() (*int64, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ReportId) {
 		return nil, false
 	}
-	return &o.ReportId, true
+	return o.ReportId, true
 }
 
-// SetReportId sets field value
+// HasReportId returns a boolean if a field has been set.
+func (o *AcquiringReportsDetailedRes) HasReportId() bool {
+	if o != nil && !IsNil(o.ReportId) {
+		return true
+	}
+
+	return false
+}
+
+// SetReportId gets a reference to the given int64 and assigns it to the ReportId field.
 func (o *AcquiringReportsDetailedRes) SetReportId(v int64) {
-	o.ReportId = v
+	o.ReportId = &v
 }
 
-// GetAcqDate returns the AcqDate field value
+// GetAcqDate returns the AcqDate field value if set, zero value otherwise.
 func (o *AcquiringReportsDetailedRes) GetAcqDate() string {
-	if o == nil {
+	if o == nil || IsNil(o.AcqDate) {
 		var ret string
 		return ret
 	}
-
-	return o.AcqDate
+	return *o.AcqDate
 }
 
-// GetAcqDateOk returns a tuple with the AcqDate field value
+// GetAcqDateOk returns a tuple with the AcqDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *AcquiringReportsDetailedRes) GetAcqDateOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AcqDate) {
 		return nil, false
 	}
-	return &o.AcqDate, true
+	return o.AcqDate, true
 }
 
-// SetAcqDate sets field value
+// HasAcqDate returns a boolean if a field has been set.
+func (o *AcquiringReportsDetailedRes) HasAcqDate() bool {
+	if o != nil && !IsNil(o.AcqDate) {
+		return true
+	}
+
+	return false
+}
+
+// SetAcqDate gets a reference to the given string and assigns it to the AcqDate field.
 func (o *AcquiringReportsDetailedRes) SetAcqDate(v string) {
-	o.AcqDate = v
+	o.AcqDate = &v
 }
 
-// GetAcquiringBank returns the AcquiringBank field value
+// GetAcquiringBank returns the AcquiringBank field value if set, zero value otherwise.
 func (o *AcquiringReportsDetailedRes) GetAcquiringBank() string {
-	if o == nil {
+	if o == nil || IsNil(o.AcquiringBank) {
 		var ret string
 		return ret
 	}
-
-	return o.AcquiringBank
+	return *o.AcquiringBank
 }
 
-// GetAcquiringBankOk returns a tuple with the AcquiringBank field value
+// GetAcquiringBankOk returns a tuple with the AcquiringBank field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *AcquiringReportsDetailedRes) GetAcquiringBankOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AcquiringBank) {
 		return nil, false
 	}
-	return &o.AcquiringBank, true
+	return o.AcquiringBank, true
 }
 
-// SetAcquiringBank sets field value
+// HasAcquiringBank returns a boolean if a field has been set.
+func (o *AcquiringReportsDetailedRes) HasAcquiringBank() bool {
+	if o != nil && !IsNil(o.AcquiringBank) {
+		return true
+	}
+
+	return false
+}
+
+// SetAcquiringBank gets a reference to the given string and assigns it to the AcquiringBank field.
 func (o *AcquiringReportsDetailedRes) SetAcquiringBank(v string) {
-	o.AcquiringBank = v
+	o.AcquiringBank = &v
 }
 
-// GetTin returns the Tin field value
+// GetTin returns the Tin field value if set, zero value otherwise.
 func (o *AcquiringReportsDetailedRes) GetTin() string {
-	if o == nil {
+	if o == nil || IsNil(o.Tin) {
 		var ret string
 		return ret
 	}
-
-	return o.Tin
+	return *o.Tin
 }
 
-// GetTinOk returns a tuple with the Tin field value
+// GetTinOk returns a tuple with the Tin field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *AcquiringReportsDetailedRes) GetTinOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Tin) {
 		return nil, false
 	}
-	return &o.Tin, true
+	return o.Tin, true
 }
 
-// SetTin sets field value
+// HasTin returns a boolean if a field has been set.
+func (o *AcquiringReportsDetailedRes) HasTin() bool {
+	if o != nil && !IsNil(o.Tin) {
+		return true
+	}
+
+	return false
+}
+
+// SetTin gets a reference to the given string and assigns it to the Tin field.
 func (o *AcquiringReportsDetailedRes) SetTin(v string) {
-	o.Tin = v
+	o.Tin = &v
 }
 
-// GetTaxRegistrationReasonCode returns the TaxRegistrationReasonCode field value
+// GetTaxRegistrationReasonCode returns the TaxRegistrationReasonCode field value if set, zero value otherwise.
 func (o *AcquiringReportsDetailedRes) GetTaxRegistrationReasonCode() string {
-	if o == nil {
+	if o == nil || IsNil(o.TaxRegistrationReasonCode) {
 		var ret string
 		return ret
 	}
-
-	return o.TaxRegistrationReasonCode
+	return *o.TaxRegistrationReasonCode
 }
 
-// GetTaxRegistrationReasonCodeOk returns a tuple with the TaxRegistrationReasonCode field value
+// GetTaxRegistrationReasonCodeOk returns a tuple with the TaxRegistrationReasonCode field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *AcquiringReportsDetailedRes) GetTaxRegistrationReasonCodeOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.TaxRegistrationReasonCode) {
 		return nil, false
 	}
-	return &o.TaxRegistrationReasonCode, true
+	return o.TaxRegistrationReasonCode, true
 }
 
-// SetTaxRegistrationReasonCode sets field value
+// HasTaxRegistrationReasonCode returns a boolean if a field has been set.
+func (o *AcquiringReportsDetailedRes) HasTaxRegistrationReasonCode() bool {
+	if o != nil && !IsNil(o.TaxRegistrationReasonCode) {
+		return true
+	}
+
+	return false
+}
+
+// SetTaxRegistrationReasonCode gets a reference to the given string and assigns it to the TaxRegistrationReasonCode field.
 func (o *AcquiringReportsDetailedRes) SetTaxRegistrationReasonCode(v string) {
-	o.TaxRegistrationReasonCode = v
+	o.TaxRegistrationReasonCode = &v
 }
 
-// GetSaleDate returns the SaleDate field value
+// GetSaleDate returns the SaleDate field value if set, zero value otherwise.
 func (o *AcquiringReportsDetailedRes) GetSaleDate() string {
-	if o == nil {
+	if o == nil || IsNil(o.SaleDate) {
 		var ret string
 		return ret
 	}
-
-	return o.SaleDate
+	return *o.SaleDate
 }
 
-// GetSaleDateOk returns a tuple with the SaleDate field value
+// GetSaleDateOk returns a tuple with the SaleDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *AcquiringReportsDetailedRes) GetSaleDateOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.SaleDate) {
 		return nil, false
 	}
-	return &o.SaleDate, true
+	return o.SaleDate, true
 }
 
-// SetSaleDate sets field value
+// HasSaleDate returns a boolean if a field has been set.
+func (o *AcquiringReportsDetailedRes) HasSaleDate() bool {
+	if o != nil && !IsNil(o.SaleDate) {
+		return true
+	}
+
+	return false
+}
+
+// SetSaleDate gets a reference to the given string and assigns it to the SaleDate field.
 func (o *AcquiringReportsDetailedRes) SetSaleDate(v string) {
-	o.SaleDate = v
+	o.SaleDate = &v
 }
 
-// GetSrid returns the Srid field value
+// GetSrid returns the Srid field value if set, zero value otherwise.
 func (o *AcquiringReportsDetailedRes) GetSrid() string {
-	if o == nil {
+	if o == nil || IsNil(o.Srid) {
 		var ret string
 		return ret
 	}
-
-	return o.Srid
+	return *o.Srid
 }
 
-// GetSridOk returns a tuple with the Srid field value
+// GetSridOk returns a tuple with the Srid field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *AcquiringReportsDetailedRes) GetSridOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Srid) {
 		return nil, false
 	}
-	return &o.Srid, true
+	return o.Srid, true
 }
 
-// SetSrid sets field value
+// HasSrid returns a boolean if a field has been set.
+func (o *AcquiringReportsDetailedRes) HasSrid() bool {
+	if o != nil && !IsNil(o.Srid) {
+		return true
+	}
+
+	return false
+}
+
+// SetSrid gets a reference to the given string and assigns it to the Srid field.
 func (o *AcquiringReportsDetailedRes) SetSrid(v string) {
-	o.Srid = v
+	o.Srid = &v
 }
 
-// GetDocumentType returns the DocumentType field value
+// GetDocumentType returns the DocumentType field value if set, zero value otherwise.
 func (o *AcquiringReportsDetailedRes) GetDocumentType() string {
-	if o == nil {
+	if o == nil || IsNil(o.DocumentType) {
 		var ret string
 		return ret
 	}
-
-	return o.DocumentType
+	return *o.DocumentType
 }
 
-// GetDocumentTypeOk returns a tuple with the DocumentType field value
+// GetDocumentTypeOk returns a tuple with the DocumentType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *AcquiringReportsDetailedRes) GetDocumentTypeOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DocumentType) {
 		return nil, false
 	}
-	return &o.DocumentType, true
+	return o.DocumentType, true
 }
 
-// SetDocumentType sets field value
+// HasDocumentType returns a boolean if a field has been set.
+func (o *AcquiringReportsDetailedRes) HasDocumentType() bool {
+	if o != nil && !IsNil(o.DocumentType) {
+		return true
+	}
+
+	return false
+}
+
+// SetDocumentType gets a reference to the given string and assigns it to the DocumentType field.
 func (o *AcquiringReportsDetailedRes) SetDocumentType(v string) {
-	o.DocumentType = v
+	o.DocumentType = &v
 }
 
-// GetNmId returns the NmId field value
+// GetNmId returns the NmId field value if set, zero value otherwise.
 func (o *AcquiringReportsDetailedRes) GetNmId() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.NmId) {
 		var ret int32
 		return ret
 	}
-
-	return o.NmId
+	return *o.NmId
 }
 
-// GetNmIdOk returns a tuple with the NmId field value
+// GetNmIdOk returns a tuple with the NmId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *AcquiringReportsDetailedRes) GetNmIdOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.NmId) {
 		return nil, false
 	}
-	return &o.NmId, true
+	return o.NmId, true
 }
 
-// SetNmId sets field value
+// HasNmId returns a boolean if a field has been set.
+func (o *AcquiringReportsDetailedRes) HasNmId() bool {
+	if o != nil && !IsNil(o.NmId) {
+		return true
+	}
+
+	return false
+}
+
+// SetNmId gets a reference to the given int32 and assigns it to the NmId field.
 func (o *AcquiringReportsDetailedRes) SetNmId(v int32) {
-	o.NmId = v
+	o.NmId = &v
 }
 
-// GetRetailAmount returns the RetailAmount field value
+// GetRetailAmount returns the RetailAmount field value if set, zero value otherwise.
 func (o *AcquiringReportsDetailedRes) GetRetailAmount() string {
-	if o == nil {
+	if o == nil || IsNil(o.RetailAmount) {
 		var ret string
 		return ret
 	}
-
-	return o.RetailAmount
+	return *o.RetailAmount
 }
 
-// GetRetailAmountOk returns a tuple with the RetailAmount field value
+// GetRetailAmountOk returns a tuple with the RetailAmount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *AcquiringReportsDetailedRes) GetRetailAmountOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.RetailAmount) {
 		return nil, false
 	}
-	return &o.RetailAmount, true
+	return o.RetailAmount, true
 }
 
-// SetRetailAmount sets field value
+// HasRetailAmount returns a boolean if a field has been set.
+func (o *AcquiringReportsDetailedRes) HasRetailAmount() bool {
+	if o != nil && !IsNil(o.RetailAmount) {
+		return true
+	}
+
+	return false
+}
+
+// SetRetailAmount gets a reference to the given string and assigns it to the RetailAmount field.
 func (o *AcquiringReportsDetailedRes) SetRetailAmount(v string) {
-	o.RetailAmount = v
+	o.RetailAmount = &v
 }
 
-// GetAcquiringFee returns the AcquiringFee field value
+// GetAcquiringFee returns the AcquiringFee field value if set, zero value otherwise.
 func (o *AcquiringReportsDetailedRes) GetAcquiringFee() string {
-	if o == nil {
+	if o == nil || IsNil(o.AcquiringFee) {
 		var ret string
 		return ret
 	}
-
-	return o.AcquiringFee
+	return *o.AcquiringFee
 }
 
-// GetAcquiringFeeOk returns a tuple with the AcquiringFee field value
+// GetAcquiringFeeOk returns a tuple with the AcquiringFee field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *AcquiringReportsDetailedRes) GetAcquiringFeeOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AcquiringFee) {
 		return nil, false
 	}
-	return &o.AcquiringFee, true
+	return o.AcquiringFee, true
 }
 
-// SetAcquiringFee sets field value
+// HasAcquiringFee returns a boolean if a field has been set.
+func (o *AcquiringReportsDetailedRes) HasAcquiringFee() bool {
+	if o != nil && !IsNil(o.AcquiringFee) {
+		return true
+	}
+
+	return false
+}
+
+// SetAcquiringFee gets a reference to the given string and assigns it to the AcquiringFee field.
 func (o *AcquiringReportsDetailedRes) SetAcquiringFee(v string) {
-	o.AcquiringFee = v
+	o.AcquiringFee = &v
 }
 
-// GetAcquiringFeeVat returns the AcquiringFeeVat field value
+// GetAcquiringFeeVat returns the AcquiringFeeVat field value if set, zero value otherwise.
 func (o *AcquiringReportsDetailedRes) GetAcquiringFeeVat() string {
-	if o == nil {
+	if o == nil || IsNil(o.AcquiringFeeVat) {
 		var ret string
 		return ret
 	}
-
-	return o.AcquiringFeeVat
+	return *o.AcquiringFeeVat
 }
 
-// GetAcquiringFeeVatOk returns a tuple with the AcquiringFeeVat field value
+// GetAcquiringFeeVatOk returns a tuple with the AcquiringFeeVat field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *AcquiringReportsDetailedRes) GetAcquiringFeeVatOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AcquiringFeeVat) {
 		return nil, false
 	}
-	return &o.AcquiringFeeVat, true
+	return o.AcquiringFeeVat, true
 }
 
-// SetAcquiringFeeVat sets field value
+// HasAcquiringFeeVat returns a boolean if a field has been set.
+func (o *AcquiringReportsDetailedRes) HasAcquiringFeeVat() bool {
+	if o != nil && !IsNil(o.AcquiringFeeVat) {
+		return true
+	}
+
+	return false
+}
+
+// SetAcquiringFeeVat gets a reference to the given string and assigns it to the AcquiringFeeVat field.
 func (o *AcquiringReportsDetailedRes) SetAcquiringFeeVat(v string) {
-	o.AcquiringFeeVat = v
+	o.AcquiringFeeVat = &v
 }
 
-// GetInvoiceNumber returns the InvoiceNumber field value
+// GetInvoiceNumber returns the InvoiceNumber field value if set, zero value otherwise.
 func (o *AcquiringReportsDetailedRes) GetInvoiceNumber() string {
-	if o == nil {
+	if o == nil || IsNil(o.InvoiceNumber) {
 		var ret string
 		return ret
 	}
-
-	return o.InvoiceNumber
+	return *o.InvoiceNumber
 }
 
-// GetInvoiceNumberOk returns a tuple with the InvoiceNumber field value
+// GetInvoiceNumberOk returns a tuple with the InvoiceNumber field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *AcquiringReportsDetailedRes) GetInvoiceNumberOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.InvoiceNumber) {
 		return nil, false
 	}
-	return &o.InvoiceNumber, true
+	return o.InvoiceNumber, true
 }
 
-// SetInvoiceNumber sets field value
+// HasInvoiceNumber returns a boolean if a field has been set.
+func (o *AcquiringReportsDetailedRes) HasInvoiceNumber() bool {
+	if o != nil && !IsNil(o.InvoiceNumber) {
+		return true
+	}
+
+	return false
+}
+
+// SetInvoiceNumber gets a reference to the given string and assigns it to the InvoiceNumber field.
 func (o *AcquiringReportsDetailedRes) SetInvoiceNumber(v string) {
-	o.InvoiceNumber = v
+	o.InvoiceNumber = &v
 }
 
-// GetInvoiceDate returns the InvoiceDate field value
+// GetInvoiceDate returns the InvoiceDate field value if set, zero value otherwise.
 func (o *AcquiringReportsDetailedRes) GetInvoiceDate() string {
-	if o == nil {
+	if o == nil || IsNil(o.InvoiceDate) {
 		var ret string
 		return ret
 	}
-
-	return o.InvoiceDate
+	return *o.InvoiceDate
 }
 
-// GetInvoiceDateOk returns a tuple with the InvoiceDate field value
+// GetInvoiceDateOk returns a tuple with the InvoiceDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *AcquiringReportsDetailedRes) GetInvoiceDateOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.InvoiceDate) {
 		return nil, false
 	}
-	return &o.InvoiceDate, true
+	return o.InvoiceDate, true
 }
 
-// SetInvoiceDate sets field value
+// HasInvoiceDate returns a boolean if a field has been set.
+func (o *AcquiringReportsDetailedRes) HasInvoiceDate() bool {
+	if o != nil && !IsNil(o.InvoiceDate) {
+		return true
+	}
+
+	return false
+}
+
+// SetInvoiceDate gets a reference to the given string and assigns it to the InvoiceDate field.
 func (o *AcquiringReportsDetailedRes) SetInvoiceDate(v string) {
-	o.InvoiceDate = v
+	o.InvoiceDate = &v
 }
 
-// GetShkId returns the ShkId field value
+// GetShkId returns the ShkId field value if set, zero value otherwise.
 func (o *AcquiringReportsDetailedRes) GetShkId() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.ShkId) {
 		var ret int32
 		return ret
 	}
-
-	return o.ShkId
+	return *o.ShkId
 }
 
-// GetShkIdOk returns a tuple with the ShkId field value
+// GetShkIdOk returns a tuple with the ShkId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *AcquiringReportsDetailedRes) GetShkIdOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ShkId) {
 		return nil, false
 	}
-	return &o.ShkId, true
+	return o.ShkId, true
 }
 
-// SetShkId sets field value
+// HasShkId returns a boolean if a field has been set.
+func (o *AcquiringReportsDetailedRes) HasShkId() bool {
+	if o != nil && !IsNil(o.ShkId) {
+		return true
+	}
+
+	return false
+}
+
+// SetShkId gets a reference to the given int32 and assigns it to the ShkId field.
 func (o *AcquiringReportsDetailedRes) SetShkId(v int32) {
-	o.ShkId = v
+	o.ShkId = &v
 }
 
-// GetCurrency returns the Currency field value
+// GetCurrency returns the Currency field value if set, zero value otherwise.
 func (o *AcquiringReportsDetailedRes) GetCurrency() string {
-	if o == nil {
+	if o == nil || IsNil(o.Currency) {
 		var ret string
 		return ret
 	}
-
-	return o.Currency
+	return *o.Currency
 }
 
-// GetCurrencyOk returns a tuple with the Currency field value
+// GetCurrencyOk returns a tuple with the Currency field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *AcquiringReportsDetailedRes) GetCurrencyOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Currency) {
 		return nil, false
 	}
-	return &o.Currency, true
+	return o.Currency, true
 }
 
-// SetCurrency sets field value
+// HasCurrency returns a boolean if a field has been set.
+func (o *AcquiringReportsDetailedRes) HasCurrency() bool {
+	if o != nil && !IsNil(o.Currency) {
+		return true
+	}
+
+	return false
+}
+
+// SetCurrency gets a reference to the given string and assigns it to the Currency field.
 func (o *AcquiringReportsDetailedRes) SetCurrency(v string) {
-	o.Currency = v
+	o.Currency = &v
 }
 
 func (o AcquiringReportsDetailedRes) MarshalJSON() ([]byte, error) {
@@ -511,77 +626,58 @@ func (o AcquiringReportsDetailedRes) MarshalJSON() ([]byte, error) {
 
 func (o AcquiringReportsDetailedRes) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["rrdId"] = o.RrdId
-	toSerialize["reportId"] = o.ReportId
-	toSerialize["acqDate"] = o.AcqDate
-	toSerialize["acquiringBank"] = o.AcquiringBank
-	toSerialize["tin"] = o.Tin
-	toSerialize["taxRegistrationReasonCode"] = o.TaxRegistrationReasonCode
-	toSerialize["saleDate"] = o.SaleDate
-	toSerialize["srid"] = o.Srid
-	toSerialize["documentType"] = o.DocumentType
-	toSerialize["nmId"] = o.NmId
-	toSerialize["retailAmount"] = o.RetailAmount
-	toSerialize["acquiringFee"] = o.AcquiringFee
-	toSerialize["acquiringFeeVat"] = o.AcquiringFeeVat
-	toSerialize["invoiceNumber"] = o.InvoiceNumber
-	toSerialize["invoiceDate"] = o.InvoiceDate
-	toSerialize["shkId"] = o.ShkId
-	toSerialize["currency"] = o.Currency
+	if !IsNil(o.RrdId) {
+		toSerialize["rrdId"] = o.RrdId
+	}
+	if !IsNil(o.ReportId) {
+		toSerialize["reportId"] = o.ReportId
+	}
+	if !IsNil(o.AcqDate) {
+		toSerialize["acqDate"] = o.AcqDate
+	}
+	if !IsNil(o.AcquiringBank) {
+		toSerialize["acquiringBank"] = o.AcquiringBank
+	}
+	if !IsNil(o.Tin) {
+		toSerialize["tin"] = o.Tin
+	}
+	if !IsNil(o.TaxRegistrationReasonCode) {
+		toSerialize["taxRegistrationReasonCode"] = o.TaxRegistrationReasonCode
+	}
+	if !IsNil(o.SaleDate) {
+		toSerialize["saleDate"] = o.SaleDate
+	}
+	if !IsNil(o.Srid) {
+		toSerialize["srid"] = o.Srid
+	}
+	if !IsNil(o.DocumentType) {
+		toSerialize["documentType"] = o.DocumentType
+	}
+	if !IsNil(o.NmId) {
+		toSerialize["nmId"] = o.NmId
+	}
+	if !IsNil(o.RetailAmount) {
+		toSerialize["retailAmount"] = o.RetailAmount
+	}
+	if !IsNil(o.AcquiringFee) {
+		toSerialize["acquiringFee"] = o.AcquiringFee
+	}
+	if !IsNil(o.AcquiringFeeVat) {
+		toSerialize["acquiringFeeVat"] = o.AcquiringFeeVat
+	}
+	if !IsNil(o.InvoiceNumber) {
+		toSerialize["invoiceNumber"] = o.InvoiceNumber
+	}
+	if !IsNil(o.InvoiceDate) {
+		toSerialize["invoiceDate"] = o.InvoiceDate
+	}
+	if !IsNil(o.ShkId) {
+		toSerialize["shkId"] = o.ShkId
+	}
+	if !IsNil(o.Currency) {
+		toSerialize["currency"] = o.Currency
+	}
 	return toSerialize, nil
-}
-
-func (o *AcquiringReportsDetailedRes) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"rrdId",
-		"reportId",
-		"acqDate",
-		"acquiringBank",
-		"tin",
-		"taxRegistrationReasonCode",
-		"saleDate",
-		"srid",
-		"documentType",
-		"nmId",
-		"retailAmount",
-		"acquiringFee",
-		"acquiringFeeVat",
-		"invoiceNumber",
-		"invoiceDate",
-		"shkId",
-		"currency",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varAcquiringReportsDetailedRes := _AcquiringReportsDetailedRes{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varAcquiringReportsDetailedRes)
-
-	if err != nil {
-		return err
-	}
-
-	*o = AcquiringReportsDetailedRes(varAcquiringReportsDetailedRes)
-
-	return err
 }
 
 type NullableAcquiringReportsDetailedRes struct {

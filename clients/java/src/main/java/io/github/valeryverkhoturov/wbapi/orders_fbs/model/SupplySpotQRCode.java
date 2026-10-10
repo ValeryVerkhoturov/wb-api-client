@@ -36,12 +36,12 @@ public class SupplySpotQRCode {
   public static final String SERIALIZED_NAME_QR_CODE = "qrCode";
 
   @SerializedName(SERIALIZED_NAME_QR_CODE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String qrCode;
 
   public SupplySpotQRCode() {}
 
-  public SupplySpotQRCode qrCode(@jakarta.annotation.Nonnull String qrCode) {
+  public SupplySpotQRCode qrCode(@jakarta.annotation.Nullable String qrCode) {
     this.qrCode = qrCode;
     return this;
   }
@@ -51,12 +51,12 @@ public class SupplySpotQRCode {
    *
    * @return qrCode
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getQrCode() {
     return qrCode;
   }
 
-  public void setQrCode(@jakarta.annotation.Nonnull String qrCode) {
+  public void setQrCode(@jakarta.annotation.Nullable String qrCode) {
     this.qrCode = qrCode;
   }
 
@@ -106,7 +106,6 @@ public class SupplySpotQRCode {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("qrCode");
   }
 
   /**
@@ -136,18 +135,9 @@ public class SupplySpotQRCode {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : SupplySpotQRCode.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    if (!jsonObj.get("qrCode").isJsonPrimitive()) {
+    if ((jsonObj.get("qrCode") != null && !jsonObj.get("qrCode").isJsonNull())
+        && !jsonObj.get("qrCode").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `qrCode` to be a primitive type in the JSON string but got `%s`",

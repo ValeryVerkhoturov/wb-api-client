@@ -34,32 +34,17 @@ namespace ValeryVerkhoturov.WbApiClient.General.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PlanBuilderOptionsInfo" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected PlanBuilderOptionsInfo() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PlanBuilderOptionsInfo" /> class.
-        /// </summary>
-        /// <param name="activeOptionCount">Количество активных опций, не включённых в пакеты (required).</param>
-        /// <param name="activePackageCount">Количество активных пакетов опций (required).</param>
-        /// <param name="totalCommissionRate">Итоговая комиссия за подключённые опции и пакеты, % от оборота (required).</param>
-        /// <param name="packages">Подключённые пакеты опций (required).</param>
-        /// <param name="options">Подключённые опции (required).</param>
+        /// <param name="activeOptionCount">Количество активных опций, не включённых в пакеты.</param>
+        /// <param name="activePackageCount">Количество активных пакетов опций.</param>
+        /// <param name="totalCommissionRate">Итоговая комиссия за подключённые опции и пакеты, % от оборота.</param>
+        /// <param name="packages">Подключённые пакеты опций.</param>
+        /// <param name="options">Подключённые опции.</param>
         public PlanBuilderOptionsInfo(decimal activeOptionCount = default(decimal), decimal activePackageCount = default(decimal), float totalCommissionRate = default(float), List<PlanBuilderPackage> packages = default(List<PlanBuilderPackage>), List<PlanBuilderOption> options = default(List<PlanBuilderOption>))
         {
             this.ActiveOptionCount = activeOptionCount;
             this.ActivePackageCount = activePackageCount;
             this.TotalCommissionRate = totalCommissionRate;
-            // to ensure "packages" is required (not null)
-            if (packages == null)
-            {
-                throw new ArgumentNullException("packages is a required property for PlanBuilderOptionsInfo and cannot be null");
-            }
             this.Packages = packages;
-            // to ensure "options" is required (not null)
-            if (options == null)
-            {
-                throw new ArgumentNullException("options is a required property for PlanBuilderOptionsInfo and cannot be null");
-            }
             this.Options = options;
         }
 
@@ -70,7 +55,7 @@ namespace ValeryVerkhoturov.WbApiClient.General.Model
         /*
         <example>5</example>
         */
-        [DataMember(Name = "activeOptionCount", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "activeOptionCount", EmitDefaultValue = false)]
         public decimal ActiveOptionCount { get; set; }
 
         /// <summary>
@@ -80,7 +65,7 @@ namespace ValeryVerkhoturov.WbApiClient.General.Model
         /*
         <example>2</example>
         */
-        [DataMember(Name = "activePackageCount", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "activePackageCount", EmitDefaultValue = false)]
         public decimal ActivePackageCount { get; set; }
 
         /// <summary>
@@ -90,21 +75,21 @@ namespace ValeryVerkhoturov.WbApiClient.General.Model
         /*
         <example>4.6</example>
         */
-        [DataMember(Name = "totalCommissionRate", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "totalCommissionRate", EmitDefaultValue = false)]
         public float TotalCommissionRate { get; set; }
 
         /// <summary>
         /// Подключённые пакеты опций
         /// </summary>
         /// <value>Подключённые пакеты опций</value>
-        [DataMember(Name = "packages", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "packages", EmitDefaultValue = false)]
         public List<PlanBuilderPackage> Packages { get; set; }
 
         /// <summary>
         /// Подключённые опции
         /// </summary>
         /// <value>Подключённые опции</value>
-        [DataMember(Name = "options", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "options", EmitDefaultValue = false)]
         public List<PlanBuilderOption> Options { get; set; }
 
         /// <summary>

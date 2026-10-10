@@ -11,9 +11,7 @@ API version: analytics
 package analytics
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the TableSearchTextItemAllOfMedianPosition type satisfies the MappedNullable interface at compile time
@@ -22,20 +20,17 @@ var _ MappedNullable = &TableSearchTextItemAllOfMedianPosition{}
 // TableSearchTextItemAllOfMedianPosition Медианная позиция. Учитываются только те позиции, из которых пользователи добавляли товар в корзину или переходили в его карточку. Серединное значение позиции в поисковой выдаче, которое исключает сильные отклонения данных от среднего значения
 type TableSearchTextItemAllOfMedianPosition struct {
 	// Текущая медианная позиция
-	Current int32 `json:"current"`
+	Current *int32 `json:"current,omitempty"`
 	// Динамика по сравнению с предыдущим периодом, %
 	Dynamics *int32 `json:"dynamics,omitempty"`
 }
-
-type _TableSearchTextItemAllOfMedianPosition TableSearchTextItemAllOfMedianPosition
 
 // NewTableSearchTextItemAllOfMedianPosition instantiates a new TableSearchTextItemAllOfMedianPosition object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTableSearchTextItemAllOfMedianPosition(current int32) *TableSearchTextItemAllOfMedianPosition {
+func NewTableSearchTextItemAllOfMedianPosition() *TableSearchTextItemAllOfMedianPosition {
 	this := TableSearchTextItemAllOfMedianPosition{}
-	this.Current = current
 	return &this
 }
 
@@ -47,28 +42,36 @@ func NewTableSearchTextItemAllOfMedianPositionWithDefaults() *TableSearchTextIte
 	return &this
 }
 
-// GetCurrent returns the Current field value
+// GetCurrent returns the Current field value if set, zero value otherwise.
 func (o *TableSearchTextItemAllOfMedianPosition) GetCurrent() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.Current) {
 		var ret int32
 		return ret
 	}
-
-	return o.Current
+	return *o.Current
 }
 
-// GetCurrentOk returns a tuple with the Current field value
+// GetCurrentOk returns a tuple with the Current field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableSearchTextItemAllOfMedianPosition) GetCurrentOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Current) {
 		return nil, false
 	}
-	return &o.Current, true
+	return o.Current, true
 }
 
-// SetCurrent sets field value
+// HasCurrent returns a boolean if a field has been set.
+func (o *TableSearchTextItemAllOfMedianPosition) HasCurrent() bool {
+	if o != nil && !IsNil(o.Current) {
+		return true
+	}
+
+	return false
+}
+
+// SetCurrent gets a reference to the given int32 and assigns it to the Current field.
 func (o *TableSearchTextItemAllOfMedianPosition) SetCurrent(v int32) {
-	o.Current = v
+	o.Current = &v
 }
 
 // GetDynamics returns the Dynamics field value if set, zero value otherwise.
@@ -113,48 +116,13 @@ func (o TableSearchTextItemAllOfMedianPosition) MarshalJSON() ([]byte, error) {
 
 func (o TableSearchTextItemAllOfMedianPosition) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["current"] = o.Current
+	if !IsNil(o.Current) {
+		toSerialize["current"] = o.Current
+	}
 	if !IsNil(o.Dynamics) {
 		toSerialize["dynamics"] = o.Dynamics
 	}
 	return toSerialize, nil
-}
-
-func (o *TableSearchTextItemAllOfMedianPosition) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"current",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varTableSearchTextItemAllOfMedianPosition := _TableSearchTextItemAllOfMedianPosition{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varTableSearchTextItemAllOfMedianPosition)
-
-	if err != nil {
-		return err
-	}
-
-	*o = TableSearchTextItemAllOfMedianPosition(varTableSearchTextItemAllOfMedianPosition)
-
-	return err
 }
 
 type NullableTableSearchTextItemAllOfMedianPosition struct {

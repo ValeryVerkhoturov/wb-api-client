@@ -31,7 +31,7 @@ class V0GetNormQueryListResponse(BaseModel):
     V0GetNormQueryListResponse
     """  # noqa: E501
 
-    items: Optional[List[V0GetNormQueryListResponseItem]]
+    items: Optional[List[V0GetNormQueryListResponseItem]] = None
     __properties: ClassVar[List[str]] = ["items"]
 
     model_config = ConfigDict(

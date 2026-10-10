@@ -28,7 +28,9 @@ class PositionInfoMedian(BaseModel):
     Медианная позиция товара в результатах поиска
     """  # noqa: E501
 
-    current: StrictInt = Field(description="Текущая медианная позиция товара")
+    current: Optional[StrictInt] = Field(
+        default=None, description="Текущая медианная позиция товара"
+    )
     dynamics: Optional[StrictInt] = Field(
         default=None, description="Динамика по сравнению с предыдущим периодом, %"
     )

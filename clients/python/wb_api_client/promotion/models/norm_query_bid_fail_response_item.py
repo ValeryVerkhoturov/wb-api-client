@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,13 +28,20 @@ class NormQueryBidFailResponseItem(BaseModel):
     NormQueryBidFailResponseItem
     """  # noqa: E501
 
-    advert_id: StrictInt = Field(description="ID кампании", alias="advertId")
-    nm_id: StrictInt = Field(description="Артикул WB", alias="nmId")
-    norm_query: StrictStr = Field(
+    advert_id: Optional[StrictInt] = Field(
+        default=None, description="ID кампании", alias="advertId"
+    )
+    nm_id: Optional[StrictInt] = Field(
+        default=None, description="Артикул WB", alias="nmId"
+    )
+    norm_query: Optional[StrictStr] = Field(
+        default=None,
         description="Поисковый кластер — это группа похожих поисковых запросов, по которым покупатели находят товары",
         alias="normQuery",
     )
-    reason: StrictStr = Field(description="Описание причины ошибки")
+    reason: Optional[StrictStr] = Field(
+        default=None, description="Описание причины ошибки"
+    )
     __properties: ClassVar[List[str]] = ["advertId", "nmId", "normQuery", "reason"]
 
     model_config = ConfigDict(

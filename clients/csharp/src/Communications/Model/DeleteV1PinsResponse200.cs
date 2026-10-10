@@ -34,19 +34,9 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DeleteV1PinsResponse200" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected DeleteV1PinsResponse200() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="DeleteV1PinsResponse200" /> class.
-        /// </summary>
-        /// <param name="data">Список &#x60;pinId&#x60; — ID операций закрепления отзывов, которые были успешно откреплены (required).</param>
+        /// <param name="data">Список &#x60;pinId&#x60; — ID операций закрепления отзывов, которые были успешно откреплены.</param>
         public DeleteV1PinsResponse200(List<int> data = default(List<int>))
         {
-            // to ensure "data" is required (not null)
-            if (data == null)
-            {
-                throw new ArgumentNullException("data is a required property for DeleteV1PinsResponse200 and cannot be null");
-            }
             this.Data = data;
         }
 
@@ -57,7 +47,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         /*
         <example>[123456,234567,345678]</example>
         */
-        [DataMember(Name = "data", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "data", EmitDefaultValue = false)]
         public List<int> Data { get; set; }
 
         /// <summary>

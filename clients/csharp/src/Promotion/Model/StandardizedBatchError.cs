@@ -34,42 +34,17 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="StandardizedBatchError" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected StandardizedBatchError() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="StandardizedBatchError" /> class.
-        /// </summary>
-        /// <param name="detail">Детали ошибки (required).</param>
-        /// <param name="origin">ID внутреннего сервиса WB (required).</param>
-        /// <param name="requestId">Уникальный ID запроса (required).</param>
-        /// <param name="status">HTTP статус-код (required).</param>
-        /// <param name="title">Заголовок ошибки (required).</param>
+        /// <param name="detail">Детали ошибки.</param>
+        /// <param name="origin">ID внутреннего сервиса WB.</param>
+        /// <param name="requestId">Уникальный ID запроса.</param>
+        /// <param name="status">HTTP статус-код.</param>
+        /// <param name="title">Заголовок ошибки.</param>
         public StandardizedBatchError(string detail = default(string), string origin = default(string), string requestId = default(string), int status = default(int), string title = default(string))
         {
-            // to ensure "detail" is required (not null)
-            if (detail == null)
-            {
-                throw new ArgumentNullException("detail is a required property for StandardizedBatchError and cannot be null");
-            }
             this.Detail = detail;
-            // to ensure "origin" is required (not null)
-            if (origin == null)
-            {
-                throw new ArgumentNullException("origin is a required property for StandardizedBatchError and cannot be null");
-            }
             this.Origin = origin;
-            // to ensure "requestId" is required (not null)
-            if (requestId == null)
-            {
-                throw new ArgumentNullException("requestId is a required property for StandardizedBatchError and cannot be null");
-            }
             this.RequestId = requestId;
             this.Status = status;
-            // to ensure "title" is required (not null)
-            if (title == null)
-            {
-                throw new ArgumentNullException("title is a required property for StandardizedBatchError and cannot be null");
-            }
             this.Title = title;
         }
 
@@ -80,7 +55,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /*
         <example>some nms are not belong to advert</example>
         */
-        [DataMember(Name = "detail", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "detail", EmitDefaultValue = false)]
         public string Detail { get; set; }
 
         /// <summary>
@@ -90,7 +65,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /*
         <example>camp-api-public-cache</example>
         */
-        [DataMember(Name = "origin", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "origin", EmitDefaultValue = false)]
         public string Origin { get; set; }
 
         /// <summary>
@@ -100,7 +75,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /*
         <example>123e4567-e89b-12d3-a456-426614174000</example>
         */
-        [DataMember(Name = "request_id", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "request_id", EmitDefaultValue = false)]
         public string RequestId { get; set; }
 
         /// <summary>
@@ -110,7 +85,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /*
         <example>400</example>
         */
-        [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "status", EmitDefaultValue = false)]
         public int Status { get; set; }
 
         /// <summary>
@@ -120,7 +95,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /*
         <example>Invalid Params</example>
         */
-        [DataMember(Name = "title", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "title", EmitDefaultValue = false)]
         public string Title { get; set; }
 
         /// <summary>

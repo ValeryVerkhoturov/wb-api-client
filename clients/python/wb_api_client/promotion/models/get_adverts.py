@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from wb_api_client.promotion.models.get_adverts_adverts_inner import (
     GetAdvertsAdvertsInner,
 )
@@ -31,7 +31,9 @@ class GetAdverts(BaseModel):
     GetAdverts
     """  # noqa: E501
 
-    adverts: List[GetAdvertsAdvertsInner] = Field(description="Кампании")
+    adverts: Optional[List[GetAdvertsAdvertsInner]] = Field(
+        default=None, description="Кампании"
+    )
     __properties: ClassVar[List[str]] = ["adverts"]
 
     model_config = ConfigDict(

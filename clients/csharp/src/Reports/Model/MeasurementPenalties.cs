@@ -34,26 +34,16 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MeasurementPenalties" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected MeasurementPenalties() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="MeasurementPenalties" /> class.
-        /// </summary>
-        /// <param name="data">data (required).</param>
+        /// <param name="data">data.</param>
         public MeasurementPenalties(MeasurementPenaltiesData data = default(MeasurementPenaltiesData))
         {
-            // to ensure "data" is required (not null)
-            if (data == null)
-            {
-                throw new ArgumentNullException("data is a required property for MeasurementPenalties and cannot be null");
-            }
             this.Data = data;
         }
 
         /// <summary>
         /// Gets or Sets Data
         /// </summary>
-        [DataMember(Name = "data", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "data", EmitDefaultValue = false)]
         public MeasurementPenaltiesData Data { get; set; }
 
         /// <summary>

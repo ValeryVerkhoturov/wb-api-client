@@ -11,9 +11,7 @@ API version: order
 package orders_fbs
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the ArhiveOrderError400 type satisfies the MappedNullable interface at compile time
@@ -24,7 +22,7 @@ type ArhiveOrderError400 struct {
 	// Код ошибки
 	Code *string `json:"code,omitempty"`
 	// Детали ошибки
-	Detail string `json:"detail"`
+	Detail *string `json:"detail,omitempty"`
 	// Информация об ошибке
 	Errors []ArhiveOrderError400ErrorsInner `json:"errors,omitempty"`
 	// ID внутреннего сервиса WB
@@ -34,19 +32,15 @@ type ArhiveOrderError400 struct {
 	// HTTP статус-код ответа
 	Status *int32 `json:"status,omitempty"`
 	// Заголовок ошибки
-	Title string `json:"title"`
+	Title *string `json:"title,omitempty"`
 }
-
-type _ArhiveOrderError400 ArhiveOrderError400
 
 // NewArhiveOrderError400 instantiates a new ArhiveOrderError400 object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewArhiveOrderError400(detail string, title string) *ArhiveOrderError400 {
+func NewArhiveOrderError400() *ArhiveOrderError400 {
 	this := ArhiveOrderError400{}
-	this.Detail = detail
-	this.Title = title
 	return &this
 }
 
@@ -90,28 +84,36 @@ func (o *ArhiveOrderError400) SetCode(v string) {
 	o.Code = &v
 }
 
-// GetDetail returns the Detail field value
+// GetDetail returns the Detail field value if set, zero value otherwise.
 func (o *ArhiveOrderError400) GetDetail() string {
-	if o == nil {
+	if o == nil || IsNil(o.Detail) {
 		var ret string
 		return ret
 	}
-
-	return o.Detail
+	return *o.Detail
 }
 
-// GetDetailOk returns a tuple with the Detail field value
+// GetDetailOk returns a tuple with the Detail field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ArhiveOrderError400) GetDetailOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Detail) {
 		return nil, false
 	}
-	return &o.Detail, true
+	return o.Detail, true
 }
 
-// SetDetail sets field value
+// HasDetail returns a boolean if a field has been set.
+func (o *ArhiveOrderError400) HasDetail() bool {
+	if o != nil && !IsNil(o.Detail) {
+		return true
+	}
+
+	return false
+}
+
+// SetDetail gets a reference to the given string and assigns it to the Detail field.
 func (o *ArhiveOrderError400) SetDetail(v string) {
-	o.Detail = v
+	o.Detail = &v
 }
 
 // GetErrors returns the Errors field value if set, zero value otherwise.
@@ -242,28 +244,36 @@ func (o *ArhiveOrderError400) SetStatus(v int32) {
 	o.Status = &v
 }
 
-// GetTitle returns the Title field value
+// GetTitle returns the Title field value if set, zero value otherwise.
 func (o *ArhiveOrderError400) GetTitle() string {
-	if o == nil {
+	if o == nil || IsNil(o.Title) {
 		var ret string
 		return ret
 	}
-
-	return o.Title
+	return *o.Title
 }
 
-// GetTitleOk returns a tuple with the Title field value
+// GetTitleOk returns a tuple with the Title field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ArhiveOrderError400) GetTitleOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Title) {
 		return nil, false
 	}
-	return &o.Title, true
+	return o.Title, true
 }
 
-// SetTitle sets field value
+// HasTitle returns a boolean if a field has been set.
+func (o *ArhiveOrderError400) HasTitle() bool {
+	if o != nil && !IsNil(o.Title) {
+		return true
+	}
+
+	return false
+}
+
+// SetTitle gets a reference to the given string and assigns it to the Title field.
 func (o *ArhiveOrderError400) SetTitle(v string) {
-	o.Title = v
+	o.Title = &v
 }
 
 func (o ArhiveOrderError400) MarshalJSON() ([]byte, error) {
@@ -279,7 +289,9 @@ func (o ArhiveOrderError400) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Code) {
 		toSerialize["code"] = o.Code
 	}
-	toSerialize["detail"] = o.Detail
+	if !IsNil(o.Detail) {
+		toSerialize["detail"] = o.Detail
+	}
 	if !IsNil(o.Errors) {
 		toSerialize["errors"] = o.Errors
 	}
@@ -292,46 +304,10 @@ func (o ArhiveOrderError400) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Status) {
 		toSerialize["status"] = o.Status
 	}
-	toSerialize["title"] = o.Title
+	if !IsNil(o.Title) {
+		toSerialize["title"] = o.Title
+	}
 	return toSerialize, nil
-}
-
-func (o *ArhiveOrderError400) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"detail",
-		"title",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varArhiveOrderError400 := _ArhiveOrderError400{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varArhiveOrderError400)
-
-	if err != nil {
-		return err
-	}
-
-	*o = ArhiveOrderError400(varArhiveOrderError400)
-
-	return err
 }
 
 type NullableArhiveOrderError400 struct {

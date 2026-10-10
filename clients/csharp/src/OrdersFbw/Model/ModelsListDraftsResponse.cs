@@ -34,21 +34,11 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ModelsListDraftsResponse" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected ModelsListDraftsResponse() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ModelsListDraftsResponse" /> class.
-        /// </summary>
-        /// <param name="total">Общее количество черновиков (required).</param>
-        /// <param name="drafts">Список черновиков (required).</param>
+        /// <param name="total">Общее количество черновиков.</param>
+        /// <param name="drafts">Список черновиков.</param>
         public ModelsListDraftsResponse(int total = default(int), List<ModelsDraftItem> drafts = default(List<ModelsDraftItem>))
         {
             this.Total = total;
-            // to ensure "drafts" is required (not null)
-            if (drafts == null)
-            {
-                throw new ArgumentNullException("drafts is a required property for ModelsListDraftsResponse and cannot be null");
-            }
             this.Drafts = drafts;
         }
 
@@ -56,14 +46,14 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Model
         /// Общее количество черновиков
         /// </summary>
         /// <value>Общее количество черновиков</value>
-        [DataMember(Name = "total", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "total", EmitDefaultValue = false)]
         public int Total { get; set; }
 
         /// <summary>
         /// Список черновиков
         /// </summary>
         /// <value>Список черновиков</value>
-        [DataMember(Name = "drafts", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "drafts", EmitDefaultValue = false)]
         public List<ModelsDraftItem> Drafts { get; set; }
 
         /// <summary>

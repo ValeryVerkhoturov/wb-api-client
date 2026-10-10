@@ -11,9 +11,7 @@ API version: analytics
 package analytics
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the FeedbacksIncreaseItemTwoStar type satisfies the MappedNullable interface at compile time
@@ -22,23 +20,19 @@ var _ MappedNullable = &FeedbacksIncreaseItemTwoStar{}
 // FeedbacksIncreaseItemTwoStar Отзывы 2 звезды
 type FeedbacksIncreaseItemTwoStar struct {
 	// Прирост оценок за период
-	Current int32 `json:"current"`
+	Current *int32 `json:"current,omitempty"`
 	// Динамика по сравнению с предыдущим периодом, %
 	Dynamics *int32 `json:"dynamics,omitempty"`
 	// Всего оценок
-	Total int32 `json:"total"`
+	Total *int32 `json:"total,omitempty"`
 }
-
-type _FeedbacksIncreaseItemTwoStar FeedbacksIncreaseItemTwoStar
 
 // NewFeedbacksIncreaseItemTwoStar instantiates a new FeedbacksIncreaseItemTwoStar object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewFeedbacksIncreaseItemTwoStar(current int32, total int32) *FeedbacksIncreaseItemTwoStar {
+func NewFeedbacksIncreaseItemTwoStar() *FeedbacksIncreaseItemTwoStar {
 	this := FeedbacksIncreaseItemTwoStar{}
-	this.Current = current
-	this.Total = total
 	return &this
 }
 
@@ -50,28 +44,36 @@ func NewFeedbacksIncreaseItemTwoStarWithDefaults() *FeedbacksIncreaseItemTwoStar
 	return &this
 }
 
-// GetCurrent returns the Current field value
+// GetCurrent returns the Current field value if set, zero value otherwise.
 func (o *FeedbacksIncreaseItemTwoStar) GetCurrent() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.Current) {
 		var ret int32
 		return ret
 	}
-
-	return o.Current
+	return *o.Current
 }
 
-// GetCurrentOk returns a tuple with the Current field value
+// GetCurrentOk returns a tuple with the Current field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FeedbacksIncreaseItemTwoStar) GetCurrentOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Current) {
 		return nil, false
 	}
-	return &o.Current, true
+	return o.Current, true
 }
 
-// SetCurrent sets field value
+// HasCurrent returns a boolean if a field has been set.
+func (o *FeedbacksIncreaseItemTwoStar) HasCurrent() bool {
+	if o != nil && !IsNil(o.Current) {
+		return true
+	}
+
+	return false
+}
+
+// SetCurrent gets a reference to the given int32 and assigns it to the Current field.
 func (o *FeedbacksIncreaseItemTwoStar) SetCurrent(v int32) {
-	o.Current = v
+	o.Current = &v
 }
 
 // GetDynamics returns the Dynamics field value if set, zero value otherwise.
@@ -106,28 +108,36 @@ func (o *FeedbacksIncreaseItemTwoStar) SetDynamics(v int32) {
 	o.Dynamics = &v
 }
 
-// GetTotal returns the Total field value
+// GetTotal returns the Total field value if set, zero value otherwise.
 func (o *FeedbacksIncreaseItemTwoStar) GetTotal() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.Total) {
 		var ret int32
 		return ret
 	}
-
-	return o.Total
+	return *o.Total
 }
 
-// GetTotalOk returns a tuple with the Total field value
+// GetTotalOk returns a tuple with the Total field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FeedbacksIncreaseItemTwoStar) GetTotalOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Total) {
 		return nil, false
 	}
-	return &o.Total, true
+	return o.Total, true
 }
 
-// SetTotal sets field value
+// HasTotal returns a boolean if a field has been set.
+func (o *FeedbacksIncreaseItemTwoStar) HasTotal() bool {
+	if o != nil && !IsNil(o.Total) {
+		return true
+	}
+
+	return false
+}
+
+// SetTotal gets a reference to the given int32 and assigns it to the Total field.
 func (o *FeedbacksIncreaseItemTwoStar) SetTotal(v int32) {
-	o.Total = v
+	o.Total = &v
 }
 
 func (o FeedbacksIncreaseItemTwoStar) MarshalJSON() ([]byte, error) {
@@ -140,50 +150,16 @@ func (o FeedbacksIncreaseItemTwoStar) MarshalJSON() ([]byte, error) {
 
 func (o FeedbacksIncreaseItemTwoStar) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["current"] = o.Current
+	if !IsNil(o.Current) {
+		toSerialize["current"] = o.Current
+	}
 	if !IsNil(o.Dynamics) {
 		toSerialize["dynamics"] = o.Dynamics
 	}
-	toSerialize["total"] = o.Total
+	if !IsNil(o.Total) {
+		toSerialize["total"] = o.Total
+	}
 	return toSerialize, nil
-}
-
-func (o *FeedbacksIncreaseItemTwoStar) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"current",
-		"total",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varFeedbacksIncreaseItemTwoStar := _FeedbacksIncreaseItemTwoStar{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varFeedbacksIncreaseItemTwoStar)
-
-	if err != nil {
-		return err
-	}
-
-	*o = FeedbacksIncreaseItemTwoStar(varFeedbacksIncreaseItemTwoStar)
-
-	return err
 }
 
 type NullableFeedbacksIncreaseItemTwoStar struct {

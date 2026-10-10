@@ -34,26 +34,16 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ModelsDraftDeleteItemsErrorResponse" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected ModelsDraftDeleteItemsErrorResponse() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ModelsDraftDeleteItemsErrorResponse" /> class.
-        /// </summary>
-        /// <param name="results">results (required).</param>
+        /// <param name="results">results.</param>
         public ModelsDraftDeleteItemsErrorResponse(List<string> results = default(List<string>))
         {
-            // to ensure "results" is required (not null)
-            if (results == null)
-            {
-                throw new ArgumentNullException("results is a required property for ModelsDraftDeleteItemsErrorResponse and cannot be null");
-            }
             this.Results = results;
         }
 
         /// <summary>
         /// Gets or Sets Results
         /// </summary>
-        [DataMember(Name = "results", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "results", EmitDefaultValue = false)]
         public List<string> Results { get; set; }
 
         /// <summary>

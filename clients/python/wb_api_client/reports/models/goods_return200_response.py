@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from wb_api_client.reports.models.goods_return200_response_report_inner import (
     GoodsReturn200ResponseReportInner,
 )
@@ -31,10 +31,12 @@ class GoodsReturn200Response(BaseModel):
     GoodsReturn200Response
     """  # noqa: E501
 
-    count: StrictInt = Field(
-        description="Общее количество возвратов за запрашиваемый период"
+    count: Optional[StrictInt] = Field(
+        default=None, description="Общее количество возвратов за запрашиваемый период"
     )
-    report: List[GoodsReturn200ResponseReportInner] = Field(description="Отчёт")
+    report: Optional[List[GoodsReturn200ResponseReportInner]] = Field(
+        default=None, description="Отчёт"
+    )
     __properties: ClassVar[List[str]] = ["count", "report"]
 
     model_config = ConfigDict(

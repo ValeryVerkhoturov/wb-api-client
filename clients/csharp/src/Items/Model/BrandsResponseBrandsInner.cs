@@ -34,28 +34,13 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="BrandsResponseBrandsInner" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected BrandsResponseBrandsInner() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="BrandsResponseBrandsInner" /> class.
-        /// </summary>
-        /// <param name="id">ID бренда (required).</param>
-        /// <param name="logoUrl">URL логотипа бренда (required).</param>
-        /// <param name="name">Название бренда (required).</param>
+        /// <param name="id">ID бренда.</param>
+        /// <param name="logoUrl">URL логотипа бренда.</param>
+        /// <param name="name">Название бренда.</param>
         public BrandsResponseBrandsInner(int id = default(int), string logoUrl = default(string), string name = default(string))
         {
             this.Id = id;
-            // to ensure "logoUrl" is required (not null)
-            if (logoUrl == null)
-            {
-                throw new ArgumentNullException("logoUrl is a required property for BrandsResponseBrandsInner and cannot be null");
-            }
             this.LogoUrl = logoUrl;
-            // to ensure "name" is required (not null)
-            if (name == null)
-            {
-                throw new ArgumentNullException("name is a required property for BrandsResponseBrandsInner and cannot be null");
-            }
             this.Name = name;
         }
 
@@ -66,14 +51,14 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /*
         <example>9007199254</example>
         */
-        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "id", EmitDefaultValue = false)]
         public int Id { get; set; }
 
         /// <summary>
         /// URL логотипа бренда
         /// </summary>
         /// <value>URL логотипа бренда</value>
-        [DataMember(Name = "logoUrl", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "logoUrl", EmitDefaultValue = false)]
         public string LogoUrl { get; set; }
 
         /// <summary>
@@ -83,7 +68,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /*
         <example>Brand</example>
         */
-        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "name", EmitDefaultValue = false)]
         public string Name { get; set; }
 
         /// <summary>

@@ -11,9 +11,7 @@ API version: ordersdbw
 package orders_dbw
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the ApiOrdersMetaDetailsResponse type satisfies the MappedNullable interface at compile time
@@ -22,20 +20,17 @@ var _ MappedNullable = &ApiOrdersMetaDetailsResponse{}
 // ApiOrdersMetaDetailsResponse struct for ApiOrdersMetaDetailsResponse
 type ApiOrdersMetaDetailsResponse struct {
 	// Уникальный ID запроса
-	RequestId string `json:"requestId"`
+	RequestId *string `json:"requestId,omitempty"`
 	// Идентификаторы маркировки сборочных заданий и статусы их валидации
 	Orders []ApiOrdersMetaDetailsResponseOrdersInner `json:"orders,omitempty"`
 }
-
-type _ApiOrdersMetaDetailsResponse ApiOrdersMetaDetailsResponse
 
 // NewApiOrdersMetaDetailsResponse instantiates a new ApiOrdersMetaDetailsResponse object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewApiOrdersMetaDetailsResponse(requestId string) *ApiOrdersMetaDetailsResponse {
+func NewApiOrdersMetaDetailsResponse() *ApiOrdersMetaDetailsResponse {
 	this := ApiOrdersMetaDetailsResponse{}
-	this.RequestId = requestId
 	return &this
 }
 
@@ -47,28 +42,36 @@ func NewApiOrdersMetaDetailsResponseWithDefaults() *ApiOrdersMetaDetailsResponse
 	return &this
 }
 
-// GetRequestId returns the RequestId field value
+// GetRequestId returns the RequestId field value if set, zero value otherwise.
 func (o *ApiOrdersMetaDetailsResponse) GetRequestId() string {
-	if o == nil {
+	if o == nil || IsNil(o.RequestId) {
 		var ret string
 		return ret
 	}
-
-	return o.RequestId
+	return *o.RequestId
 }
 
-// GetRequestIdOk returns a tuple with the RequestId field value
+// GetRequestIdOk returns a tuple with the RequestId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ApiOrdersMetaDetailsResponse) GetRequestIdOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.RequestId) {
 		return nil, false
 	}
-	return &o.RequestId, true
+	return o.RequestId, true
 }
 
-// SetRequestId sets field value
+// HasRequestId returns a boolean if a field has been set.
+func (o *ApiOrdersMetaDetailsResponse) HasRequestId() bool {
+	if o != nil && !IsNil(o.RequestId) {
+		return true
+	}
+
+	return false
+}
+
+// SetRequestId gets a reference to the given string and assigns it to the RequestId field.
 func (o *ApiOrdersMetaDetailsResponse) SetRequestId(v string) {
-	o.RequestId = v
+	o.RequestId = &v
 }
 
 // GetOrders returns the Orders field value if set, zero value otherwise.
@@ -113,48 +116,13 @@ func (o ApiOrdersMetaDetailsResponse) MarshalJSON() ([]byte, error) {
 
 func (o ApiOrdersMetaDetailsResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["requestId"] = o.RequestId
+	if !IsNil(o.RequestId) {
+		toSerialize["requestId"] = o.RequestId
+	}
 	if !IsNil(o.Orders) {
 		toSerialize["orders"] = o.Orders
 	}
 	return toSerialize, nil
-}
-
-func (o *ApiOrdersMetaDetailsResponse) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"requestId",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varApiOrdersMetaDetailsResponse := _ApiOrdersMetaDetailsResponse{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varApiOrdersMetaDetailsResponse)
-
-	if err != nil {
-		return err
-	}
-
-	*o = ApiOrdersMetaDetailsResponse(varApiOrdersMetaDetailsResponse)
-
-	return err
 }
 
 type NullableApiOrdersMetaDetailsResponse struct {

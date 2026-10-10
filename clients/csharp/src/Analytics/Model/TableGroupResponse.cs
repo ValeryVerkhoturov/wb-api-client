@@ -34,26 +34,11 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TableGroupResponse" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected TableGroupResponse() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="TableGroupResponse" /> class.
-        /// </summary>
-        /// <param name="groups">Список групп товаров для таблицы  (required).</param>
-        /// <param name="currency">Валюта отчёта (required).</param>
+        /// <param name="groups">Список групп товаров для таблицы .</param>
+        /// <param name="currency">Валюта отчёта.</param>
         public TableGroupResponse(List<TableGroupItem> groups = default(List<TableGroupItem>), string currency = default(string))
         {
-            // to ensure "groups" is required (not null)
-            if (groups == null)
-            {
-                throw new ArgumentNullException("groups is a required property for TableGroupResponse and cannot be null");
-            }
             this.Groups = groups;
-            // to ensure "currency" is required (not null)
-            if (currency == null)
-            {
-                throw new ArgumentNullException("currency is a required property for TableGroupResponse and cannot be null");
-            }
             this.Currency = currency;
         }
 
@@ -61,7 +46,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// Список групп товаров для таблицы 
         /// </summary>
         /// <value>Список групп товаров для таблицы </value>
-        [DataMember(Name = "groups", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "groups", EmitDefaultValue = false)]
         public List<TableGroupItem> Groups { get; set; }
 
         /// <summary>
@@ -71,7 +56,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>RUB</example>
         */
-        [DataMember(Name = "currency", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "currency", EmitDefaultValue = false)]
         public string Currency { get; set; }
 
         /// <summary>

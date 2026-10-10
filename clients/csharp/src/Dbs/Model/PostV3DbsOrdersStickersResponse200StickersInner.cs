@@ -34,42 +34,17 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PostV3DbsOrdersStickersResponse200StickersInner" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected PostV3DbsOrdersStickersResponse200StickersInner() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PostV3DbsOrdersStickersResponse200StickersInner" /> class.
-        /// </summary>
-        /// <param name="orderId">ID сборочного задания (required).</param>
-        /// <param name="partA">Первая часть ID стикера (required).</param>
-        /// <param name="partB">Вторая часть ID стикера (required).</param>
-        /// <param name="barcode">Закодированное значение стикера (required).</param>
-        /// <param name="file">Полное представление стикера, кодировка base64 (required).</param>
+        /// <param name="orderId">ID сборочного задания.</param>
+        /// <param name="partA">Первая часть ID стикера.</param>
+        /// <param name="partB">Вторая часть ID стикера.</param>
+        /// <param name="barcode">Закодированное значение стикера.</param>
+        /// <param name="file">Полное представление стикера, кодировка base64.</param>
         public PostV3DbsOrdersStickersResponse200StickersInner(long orderId = default(long), string partA = default(string), string partB = default(string), string barcode = default(string), string file = default(string))
         {
             this.OrderId = orderId;
-            // to ensure "partA" is required (not null)
-            if (partA == null)
-            {
-                throw new ArgumentNullException("partA is a required property for PostV3DbsOrdersStickersResponse200StickersInner and cannot be null");
-            }
             this.PartA = partA;
-            // to ensure "partB" is required (not null)
-            if (partB == null)
-            {
-                throw new ArgumentNullException("partB is a required property for PostV3DbsOrdersStickersResponse200StickersInner and cannot be null");
-            }
             this.PartB = partB;
-            // to ensure "barcode" is required (not null)
-            if (barcode == null)
-            {
-                throw new ArgumentNullException("barcode is a required property for PostV3DbsOrdersStickersResponse200StickersInner and cannot be null");
-            }
             this.Barcode = barcode;
-            // to ensure "file" is required (not null)
-            if (file == null)
-            {
-                throw new ArgumentNullException("file is a required property for PostV3DbsOrdersStickersResponse200StickersInner and cannot be null");
-            }
             this.File = file;
         }
 
@@ -80,7 +55,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Model
         /*
         <example>5346346</example>
         */
-        [DataMember(Name = "orderId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "orderId", EmitDefaultValue = false)]
         public long OrderId { get; set; }
 
         /// <summary>
@@ -90,7 +65,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Model
         /*
         <example>231648</example>
         */
-        [DataMember(Name = "partA", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "partA", EmitDefaultValue = false)]
         public string PartA { get; set; }
 
         /// <summary>
@@ -100,7 +75,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Model
         /*
         <example>9753</example>
         */
-        [DataMember(Name = "partB", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "partB", EmitDefaultValue = false)]
         public string PartB { get; set; }
 
         /// <summary>
@@ -110,7 +85,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Model
         /*
         <example>!uKEtQZVx</example>
         */
-        [DataMember(Name = "barcode", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "barcode", EmitDefaultValue = false)]
         public string Barcode { get; set; }
 
         /// <summary>
@@ -120,7 +95,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Model
         /*
         <example>JVBER...ZWYKMTM5MQolJUVPRg&#x3D;&#x3D;</example>
         */
-        [DataMember(Name = "file", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "file", EmitDefaultValue = false)]
         public string File { get; set; }
 
         /// <summary>

@@ -56,263 +56,143 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>1</example>
         */
-        [DataMember(Name = "reportType", IsRequired = true, EmitDefaultValue = true)]
-        public ReportTypeEnum ReportType { get; set; }
+        [DataMember(Name = "reportType", EmitDefaultValue = false)]
+        public ReportTypeEnum? ReportType { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="SalesReportsDetailedRes" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected SalesReportsDetailedRes() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="SalesReportsDetailedRes" /> class.
-        /// </summary>
-        /// <param name="reportId">ID отчёта (required).</param>
-        /// <param name="dateFrom">Дата начала отчётного периода (required).</param>
-        /// <param name="dateTo">Дата конца отчётного периода (required).</param>
-        /// <param name="createDate">Дата формирования отчёта (required).</param>
-        /// <param name="currency">Валюта отчёта (required).</param>
-        /// <param name="reportType">Тип отчёта:   - &#x60;1&#x60; — основной   - &#x60;2&#x60; — по выкупам  (required).</param>
-        /// <param name="rrdId">ID строки (required).</param>
-        /// <param name="giId">ID поставки (required).</param>
-        /// <param name="dlvPrc">Фиксированный коэффициент склада по поставке (required).</param>
-        /// <param name="fixTariffDateFrom">Дата начала действия фиксации (required).</param>
-        /// <param name="fixTariffDateTo">Дата конца действия фиксации (required).</param>
-        /// <param name="subjectName">Предмет (required).</param>
-        /// <param name="nmId">Артикул WB (required).</param>
-        /// <param name="brandName">Бренд (required).</param>
-        /// <param name="vendorCode">Артикул продавца (required).</param>
-        /// <param name="title">Название товара (required).</param>
-        /// <param name="techSize">Размер (required).</param>
-        /// <param name="sku">Баркод (required).</param>
-        /// <param name="docTypeName">Тип документа (required).</param>
-        /// <param name="quantity">Количество (required).</param>
-        /// <param name="retailPrice">Цена розничная (required).</param>
-        /// <param name="retailAmount">Wildberries реализовал Товар (Пр) (required).</param>
-        /// <param name="salePercent">Согласованный продуктовый дисконт, % (required).</param>
-        /// <param name="commissionPercent">Размер кВВ, % (required).</param>
-        /// <param name="officeName">Склад (required).</param>
-        /// <param name="sellerOperName">Обоснование для оплаты (required).</param>
-        /// <param name="orderDt">Дата и время заказа (required).</param>
-        /// <param name="saleDt">Дата и время продажи (required).</param>
-        /// <param name="rrDate">Дата операции (required).</param>
-        /// <param name="shkId">Штрихкод (required).</param>
-        /// <param name="retailPriceWithDisc">Цена розничная с учётом согласованной скидки (required).</param>
-        /// <param name="deliveryAmount">Количество доставок (required).</param>
-        /// <param name="returnAmount">Количество возврата (required).</param>
-        /// <param name="deliveryService">Услуги по доставке товара покупателю (required).</param>
-        /// <param name="giBoxTypeName">Тип коробов (required).</param>
-        /// <param name="productDiscountForReport">Итоговая согласованная скидка, % (required).</param>
-        /// <param name="sellerPromo">Промокод, % (required).</param>
-        /// <param name="spp">Платформенные скидки, % (required).</param>
-        /// <param name="kvwBase">Размер кВВ без НДС, % базовый (required).</param>
-        /// <param name="kvw">Итоговый кВВ без НДС, % (required).</param>
-        /// <param name="supRatingUp">Размер снижения кВВ из-за рейтинга, % (required).</param>
-        /// <param name="isKgvpV2">Размер снижения кВВ из-за акции, % (required).</param>
-        /// <param name="ppvzSalesCommission">Вознаграждение с продаж до вычета услуг поверенного, без НДС (required).</param>
-        /// <param name="forPay">К перечислению продавцу за реализованный товар (required).</param>
-        /// <param name="ppvzReward">Возмещение за выдачу и возврат товаров на ПВЗ (required).</param>
-        /// <param name="acquiringFee">Компенсация платёжных услуг/комиссия за интеграцию платёжных сервисов (required).</param>
-        /// <param name="acquiringPercent">Размер компенсации платёжных услуг/комиссии за интеграцию платёжных сервисов (required).</param>
-        /// <param name="paymentProcessing">Тип платежа: компенсация платёжных услуг/комиссия за интеграцию платёжных сервисов (required).</param>
-        /// <param name="acquiringBank">Наименование банка-эквайера (required).</param>
-        /// <param name="vw">Вознаграждение Wildberries (ВВ), без НДС (required).</param>
-        /// <param name="vwNds">НДС с вознаграждения Wildberries (required).</param>
-        /// <param name="ppvzOfficeName">Наименование офиса доставки (required).</param>
-        /// <param name="ppvzOfficeId">ID офиса доставки (required).</param>
-        /// <param name="ppvzSupplierName">Партнёр (required).</param>
-        /// <param name="ppvzSupplierInn">ИНН партнёра (required).</param>
-        /// <param name="declarationNumber">Номер таможенной декларации (required).</param>
+        /// <param name="reportId">ID отчёта.</param>
+        /// <param name="dateFrom">Дата начала отчётного периода.</param>
+        /// <param name="dateTo">Дата конца отчётного периода.</param>
+        /// <param name="createDate">Дата формирования отчёта.</param>
+        /// <param name="currency">Валюта отчёта.</param>
+        /// <param name="reportType">Тип отчёта:   - &#x60;1&#x60; — основной   - &#x60;2&#x60; — по выкупам .</param>
+        /// <param name="rrdId">ID строки.</param>
+        /// <param name="giId">ID поставки.</param>
+        /// <param name="dlvPrc">Фиксированный коэффициент склада по поставке.</param>
+        /// <param name="fixTariffDateFrom">Дата начала действия фиксации.</param>
+        /// <param name="fixTariffDateTo">Дата конца действия фиксации.</param>
+        /// <param name="subjectName">Предмет.</param>
+        /// <param name="nmId">Артикул WB.</param>
+        /// <param name="brandName">Бренд.</param>
+        /// <param name="vendorCode">Артикул продавца.</param>
+        /// <param name="title">Название товара.</param>
+        /// <param name="techSize">Размер.</param>
+        /// <param name="sku">Баркод.</param>
+        /// <param name="docTypeName">Тип документа.</param>
+        /// <param name="quantity">Количество.</param>
+        /// <param name="retailPrice">Цена розничная.</param>
+        /// <param name="retailAmount">Wildberries реализовал Товар (Пр).</param>
+        /// <param name="salePercent">Согласованный продуктовый дисконт, %.</param>
+        /// <param name="commissionPercent">Размер кВВ, %.</param>
+        /// <param name="officeName">Склад.</param>
+        /// <param name="sellerOperName">Обоснование для оплаты.</param>
+        /// <param name="orderDt">Дата и время заказа.</param>
+        /// <param name="saleDt">Дата и время продажи.</param>
+        /// <param name="rrDate">Дата операции.</param>
+        /// <param name="shkId">Штрихкод.</param>
+        /// <param name="retailPriceWithDisc">Цена розничная с учётом согласованной скидки.</param>
+        /// <param name="deliveryAmount">Количество доставок.</param>
+        /// <param name="returnAmount">Количество возврата.</param>
+        /// <param name="deliveryService">Услуги по доставке товара покупателю.</param>
+        /// <param name="giBoxTypeName">Тип коробов.</param>
+        /// <param name="productDiscountForReport">Итоговая согласованная скидка, %.</param>
+        /// <param name="sellerPromo">Промокод, %.</param>
+        /// <param name="spp">Платформенные скидки, %.</param>
+        /// <param name="kvwBase">Размер кВВ без НДС, % базовый.</param>
+        /// <param name="kvw">Итоговый кВВ без НДС, %.</param>
+        /// <param name="supRatingUp">Размер снижения кВВ из-за рейтинга, %.</param>
+        /// <param name="isKgvpV2">Размер снижения кВВ из-за акции, %.</param>
+        /// <param name="ppvzSalesCommission">Вознаграждение с продаж до вычета услуг поверенного, без НДС.</param>
+        /// <param name="forPay">К перечислению продавцу за реализованный товар.</param>
+        /// <param name="ppvzReward">Возмещение за выдачу и возврат товаров на ПВЗ.</param>
+        /// <param name="acquiringFee">Компенсация платёжных услуг/комиссия за интеграцию платёжных сервисов.</param>
+        /// <param name="acquiringPercent">Размер компенсации платёжных услуг/комиссии за интеграцию платёжных сервисов.</param>
+        /// <param name="paymentProcessing">Тип платежа: компенсация платёжных услуг/комиссия за интеграцию платёжных сервисов.</param>
+        /// <param name="acquiringBank">Наименование банка-эквайера.</param>
+        /// <param name="vw">Вознаграждение Wildberries (ВВ), без НДС.</param>
+        /// <param name="vwNds">НДС с вознаграждения Wildberries.</param>
+        /// <param name="ppvzOfficeName">Наименование офиса доставки.</param>
+        /// <param name="ppvzOfficeId">ID офиса доставки.</param>
+        /// <param name="ppvzSupplierName">Партнёр.</param>
+        /// <param name="ppvzSupplierInn">ИНН партнёра.</param>
+        /// <param name="declarationNumber">Номер таможенной декларации.</param>
         /// <param name="bonusTypeName">Виды доставок, штрафов и корректировок ВВ.</param>
-        /// <param name="stickerId">Стикер МП (required).</param>
-        /// <param name="country">Страна продажи (required).</param>
-        /// <param name="srvDbs">Признак услуги платной доставки (required).</param>
-        /// <param name="penalty">Общая сумма штрафов (required).</param>
-        /// <param name="additionalPayment">Корректировка Вознаграждения Wildberries (ВВ) (required).</param>
-        /// <param name="rebillLogisticCost">Возмещение издержек по перемещению и операционной обработке товара (required).</param>
+        /// <param name="stickerId">Стикер МП.</param>
+        /// <param name="country">Страна продажи.</param>
+        /// <param name="srvDbs">Признак услуги платной доставки.</param>
+        /// <param name="penalty">Общая сумма штрафов.</param>
+        /// <param name="additionalPayment">Корректировка Вознаграждения Wildberries (ВВ).</param>
+        /// <param name="rebillLogisticCost">Возмещение издержек по перемещению и операционной обработке товара.</param>
         /// <param name="rebillLogisticOrg">Организатор перевозки.</param>
-        /// <param name="paidStorage">Хранение (required).</param>
-        /// <param name="deduction">Удержания (required).</param>
-        /// <param name="paidAcceptance">Операции на приёмке (required).</param>
-        /// <param name="orderId">ID сборочного задания (required).</param>
+        /// <param name="paidStorage">Хранение.</param>
+        /// <param name="deduction">Удержания.</param>
+        /// <param name="paidAcceptance">Операции на приёмке.</param>
+        /// <param name="orderId">ID сборочного задания.</param>
         /// <param name="kiz">Код маркировки [Честного знака](https://честныйзнак.рф).</param>
-        /// <param name="isB2b">Признак B2B-продажи (required).</param>
-        /// <param name="trbxId">ID короба для обработки товара (required).</param>
-        /// <param name="installmentCofinancingAmount">Скидка по программе софинансирования (required).</param>
-        /// <param name="wibesDiscountPercent">Скидка Wibes, % (required).</param>
-        /// <param name="cashbackAmount">Сумма баллов, удержанных по программе лояльности (required).</param>
-        /// <param name="cashbackDiscount">Компенсация скидки по программе лояльности (required).</param>
-        /// <param name="cashbackCommissionChange">Стоимость участия в программе лояльности (required).</param>
-        /// <param name="paymentSchedule">Разовое изменение срока перечисления денежных средств (required).</param>
-        /// <param name="deliveryMethod">Способ продажи и тип товара (required).</param>
-        /// <param name="sellerPromoId">ID собственной акции продавца с дополнительной скидкой (required).</param>
-        /// <param name="sellerPromoDiscount">Размер дополнительной скидки по собственной акции продавца, % (required).</param>
-        /// <param name="loyaltyId">ID скидки лояльности от продавца (required).</param>
-        /// <param name="loyaltyDiscount">Размер скидки лояльности от продавца, % (required).</param>
-        /// <param name="uuidPromocode">ID промокода (required).</param>
-        /// <param name="salePricePromocodeDiscountPrc">Скидка за промокод, % (required).</param>
-        /// <param name="articleSubstitution">ID подменного артикула (required).</param>
-        /// <param name="salePriceAffiliatedDiscountPrc">Скидка по подменному артикулу, % (required).</param>
+        /// <param name="isB2b">Признак B2B-продажи.</param>
+        /// <param name="trbxId">ID короба для обработки товара.</param>
+        /// <param name="installmentCofinancingAmount">Скидка по программе софинансирования.</param>
+        /// <param name="wibesDiscountPercent">Скидка Wibes, %.</param>
+        /// <param name="cashbackAmount">Сумма баллов, удержанных по программе лояльности.</param>
+        /// <param name="cashbackDiscount">Компенсация скидки по программе лояльности.</param>
+        /// <param name="cashbackCommissionChange">Стоимость участия в программе лояльности.</param>
+        /// <param name="paymentSchedule">Разовое изменение срока перечисления денежных средств.</param>
+        /// <param name="deliveryMethod">Способ продажи и тип товара.</param>
+        /// <param name="sellerPromoId">ID собственной акции продавца с дополнительной скидкой.</param>
+        /// <param name="sellerPromoDiscount">Размер дополнительной скидки по собственной акции продавца, %.</param>
+        /// <param name="loyaltyId">ID скидки лояльности от продавца.</param>
+        /// <param name="loyaltyDiscount">Размер скидки лояльности от продавца, %.</param>
+        /// <param name="uuidPromocode">ID промокода.</param>
+        /// <param name="salePricePromocodeDiscountPrc">Скидка за промокод, %.</param>
+        /// <param name="articleSubstitution">ID подменного артикула.</param>
+        /// <param name="salePriceAffiliatedDiscountPrc">Скидка по подменному артикулу, %.</param>
         /// <param name="agencyVat">Удержание Агентского НДС, %. Только для продавцов из Кыргызстана.</param>
-        /// <param name="salePriceWholesaleDiscountPrc">Оптовая скидка для бизнеса, % (required).</param>
-        /// <param name="b2bCustomerTin">ИНН B2B-покупателя (required).</param>
-        /// <param name="paidWithSocialCertificate">Оплата социальным сертификатом (required).</param>
-        /// <param name="warehouseLogisticsCoeff">Коэффициент доставки (required).</param>
-        /// <param name="buyerTaxRegistrationReasonCode">КПП B2B-покупателя (required).</param>
-        /// <param name="utdUcdNumber">Номер УПД или УКД (required).</param>
-        /// <param name="utdUcdDate">Дата УПД или УКД (required).</param>
-        /// <param name="orderUid">ID корзины заказа — транзакции. Заказы в одной корзине покупателя будут иметь одинаковый &#x60;orderUid&#x60; (required).</param>
-        /// <param name="srid">ID заказа. В ответах методов сборочных заданий [FBS](./orders-fbs#tag/fbsAssemblyOrders), [DBW](./orders-dbw#tag/dbwAssemblyOrders), [DBS](./dbs#tag/dbsAssemblyOrders) и [Самовывоз](./in-store-pickup#tag/inStorePickupAssemblyOrders) &#x60;srid&#x60; равен &#x60;rid&#x60; (required).</param>
-        public SalesReportsDetailedRes(long reportId = default(long), string dateFrom = default(string), string dateTo = default(string), string createDate = default(string), string currency = default(string), ReportTypeEnum reportType = default(ReportTypeEnum), int rrdId = default(int), int giId = default(int), decimal dlvPrc = default(decimal), string fixTariffDateFrom = default(string), string fixTariffDateTo = default(string), string subjectName = default(string), int nmId = default(int), string brandName = default(string), string vendorCode = default(string), string title = default(string), string techSize = default(string), string sku = default(string), string docTypeName = default(string), int quantity = default(int), string retailPrice = default(string), string retailAmount = default(string), int salePercent = default(int), decimal commissionPercent = default(decimal), string officeName = default(string), string sellerOperName = default(string), string orderDt = default(string), string saleDt = default(string), string rrDate = default(string), int shkId = default(int), string retailPriceWithDisc = default(string), int deliveryAmount = default(int), int returnAmount = default(int), string deliveryService = default(string), string giBoxTypeName = default(string), decimal productDiscountForReport = default(decimal), decimal sellerPromo = default(decimal), decimal spp = default(decimal), decimal kvwBase = default(decimal), decimal kvw = default(decimal), decimal supRatingUp = default(decimal), decimal isKgvpV2 = default(decimal), string ppvzSalesCommission = default(string), string forPay = default(string), string ppvzReward = default(string), string acquiringFee = default(string), decimal acquiringPercent = default(decimal), string paymentProcessing = default(string), string acquiringBank = default(string), string vw = default(string), string vwNds = default(string), string ppvzOfficeName = default(string), int ppvzOfficeId = default(int), string ppvzSupplierName = default(string), string ppvzSupplierInn = default(string), string declarationNumber = default(string), string bonusTypeName = default(string), string stickerId = default(string), string country = default(string), bool srvDbs = default(bool), string penalty = default(string), string additionalPayment = default(string), string rebillLogisticCost = default(string), string rebillLogisticOrg = default(string), string paidStorage = default(string), string deduction = default(string), string paidAcceptance = default(string), int orderId = default(int), string kiz = default(string), bool isB2b = default(bool), string trbxId = default(string), string installmentCofinancingAmount = default(string), decimal wibesDiscountPercent = default(decimal), string cashbackAmount = default(string), string cashbackDiscount = default(string), string cashbackCommissionChange = default(string), string paymentSchedule = default(string), string deliveryMethod = default(string), int sellerPromoId = default(int), decimal sellerPromoDiscount = default(decimal), int loyaltyId = default(int), decimal loyaltyDiscount = default(decimal), string uuidPromocode = default(string), decimal salePricePromocodeDiscountPrc = default(decimal), string articleSubstitution = default(string), decimal salePriceAffiliatedDiscountPrc = default(decimal), decimal agencyVat = default(decimal), decimal salePriceWholesaleDiscountPrc = default(decimal), string b2bCustomerTin = default(string), bool paidWithSocialCertificate = default(bool), decimal warehouseLogisticsCoeff = default(decimal), string buyerTaxRegistrationReasonCode = default(string), string utdUcdNumber = default(string), string utdUcdDate = default(string), string orderUid = default(string), string srid = default(string))
+        /// <param name="salePriceWholesaleDiscountPrc">Оптовая скидка для бизнеса, %.</param>
+        /// <param name="b2bCustomerTin">ИНН B2B-покупателя.</param>
+        /// <param name="paidWithSocialCertificate">Оплата социальным сертификатом.</param>
+        /// <param name="warehouseLogisticsCoeff">Коэффициент доставки.</param>
+        /// <param name="buyerTaxRegistrationReasonCode">КПП B2B-покупателя.</param>
+        /// <param name="utdUcdNumber">Номер УПД или УКД.</param>
+        /// <param name="utdUcdDate">Дата УПД или УКД.</param>
+        /// <param name="orderUid">ID корзины заказа — транзакции. Заказы в одной корзине покупателя будут иметь одинаковый &#x60;orderUid&#x60;.</param>
+        /// <param name="srid">ID заказа. В ответах методов сборочных заданий [FBS](./orders-fbs#tag/fbsAssemblyOrders), [DBW](./orders-dbw#tag/dbwAssemblyOrders), [DBS](./dbs#tag/dbsAssemblyOrders) и [Самовывоз](./in-store-pickup#tag/inStorePickupAssemblyOrders) &#x60;srid&#x60; равен &#x60;rid&#x60;.</param>
+        public SalesReportsDetailedRes(long reportId = default(long), string dateFrom = default(string), string dateTo = default(string), string createDate = default(string), string currency = default(string), ReportTypeEnum? reportType = default(ReportTypeEnum?), int rrdId = default(int), int giId = default(int), decimal dlvPrc = default(decimal), string fixTariffDateFrom = default(string), string fixTariffDateTo = default(string), string subjectName = default(string), int nmId = default(int), string brandName = default(string), string vendorCode = default(string), string title = default(string), string techSize = default(string), string sku = default(string), string docTypeName = default(string), int quantity = default(int), string retailPrice = default(string), string retailAmount = default(string), int salePercent = default(int), decimal commissionPercent = default(decimal), string officeName = default(string), string sellerOperName = default(string), string orderDt = default(string), string saleDt = default(string), string rrDate = default(string), int shkId = default(int), string retailPriceWithDisc = default(string), int deliveryAmount = default(int), int returnAmount = default(int), string deliveryService = default(string), string giBoxTypeName = default(string), decimal productDiscountForReport = default(decimal), decimal sellerPromo = default(decimal), decimal spp = default(decimal), decimal kvwBase = default(decimal), decimal kvw = default(decimal), decimal supRatingUp = default(decimal), decimal isKgvpV2 = default(decimal), string ppvzSalesCommission = default(string), string forPay = default(string), string ppvzReward = default(string), string acquiringFee = default(string), decimal acquiringPercent = default(decimal), string paymentProcessing = default(string), string acquiringBank = default(string), string vw = default(string), string vwNds = default(string), string ppvzOfficeName = default(string), int ppvzOfficeId = default(int), string ppvzSupplierName = default(string), string ppvzSupplierInn = default(string), string declarationNumber = default(string), string bonusTypeName = default(string), string stickerId = default(string), string country = default(string), bool srvDbs = default(bool), string penalty = default(string), string additionalPayment = default(string), string rebillLogisticCost = default(string), string rebillLogisticOrg = default(string), string paidStorage = default(string), string deduction = default(string), string paidAcceptance = default(string), int orderId = default(int), string kiz = default(string), bool isB2b = default(bool), string trbxId = default(string), string installmentCofinancingAmount = default(string), decimal wibesDiscountPercent = default(decimal), string cashbackAmount = default(string), string cashbackDiscount = default(string), string cashbackCommissionChange = default(string), string paymentSchedule = default(string), string deliveryMethod = default(string), int sellerPromoId = default(int), decimal sellerPromoDiscount = default(decimal), int loyaltyId = default(int), decimal loyaltyDiscount = default(decimal), string uuidPromocode = default(string), decimal salePricePromocodeDiscountPrc = default(decimal), string articleSubstitution = default(string), decimal salePriceAffiliatedDiscountPrc = default(decimal), decimal agencyVat = default(decimal), decimal salePriceWholesaleDiscountPrc = default(decimal), string b2bCustomerTin = default(string), bool paidWithSocialCertificate = default(bool), decimal warehouseLogisticsCoeff = default(decimal), string buyerTaxRegistrationReasonCode = default(string), string utdUcdNumber = default(string), string utdUcdDate = default(string), string orderUid = default(string), string srid = default(string))
         {
             this.ReportId = reportId;
-            // to ensure "dateFrom" is required (not null)
-            if (dateFrom == null)
-            {
-                throw new ArgumentNullException("dateFrom is a required property for SalesReportsDetailedRes and cannot be null");
-            }
             this.DateFrom = dateFrom;
-            // to ensure "dateTo" is required (not null)
-            if (dateTo == null)
-            {
-                throw new ArgumentNullException("dateTo is a required property for SalesReportsDetailedRes and cannot be null");
-            }
             this.DateTo = dateTo;
-            // to ensure "createDate" is required (not null)
-            if (createDate == null)
-            {
-                throw new ArgumentNullException("createDate is a required property for SalesReportsDetailedRes and cannot be null");
-            }
             this.CreateDate = createDate;
-            // to ensure "currency" is required (not null)
-            if (currency == null)
-            {
-                throw new ArgumentNullException("currency is a required property for SalesReportsDetailedRes and cannot be null");
-            }
             this.Currency = currency;
             this.ReportType = reportType;
             this.RrdId = rrdId;
             this.GiId = giId;
             this.DlvPrc = dlvPrc;
-            // to ensure "fixTariffDateFrom" is required (not null)
-            if (fixTariffDateFrom == null)
-            {
-                throw new ArgumentNullException("fixTariffDateFrom is a required property for SalesReportsDetailedRes and cannot be null");
-            }
             this.FixTariffDateFrom = fixTariffDateFrom;
-            // to ensure "fixTariffDateTo" is required (not null)
-            if (fixTariffDateTo == null)
-            {
-                throw new ArgumentNullException("fixTariffDateTo is a required property for SalesReportsDetailedRes and cannot be null");
-            }
             this.FixTariffDateTo = fixTariffDateTo;
-            // to ensure "subjectName" is required (not null)
-            if (subjectName == null)
-            {
-                throw new ArgumentNullException("subjectName is a required property for SalesReportsDetailedRes and cannot be null");
-            }
             this.SubjectName = subjectName;
             this.NmId = nmId;
-            // to ensure "brandName" is required (not null)
-            if (brandName == null)
-            {
-                throw new ArgumentNullException("brandName is a required property for SalesReportsDetailedRes and cannot be null");
-            }
             this.BrandName = brandName;
-            // to ensure "vendorCode" is required (not null)
-            if (vendorCode == null)
-            {
-                throw new ArgumentNullException("vendorCode is a required property for SalesReportsDetailedRes and cannot be null");
-            }
             this.VendorCode = vendorCode;
-            // to ensure "title" is required (not null)
-            if (title == null)
-            {
-                throw new ArgumentNullException("title is a required property for SalesReportsDetailedRes and cannot be null");
-            }
             this.Title = title;
-            // to ensure "techSize" is required (not null)
-            if (techSize == null)
-            {
-                throw new ArgumentNullException("techSize is a required property for SalesReportsDetailedRes and cannot be null");
-            }
             this.TechSize = techSize;
-            // to ensure "sku" is required (not null)
-            if (sku == null)
-            {
-                throw new ArgumentNullException("sku is a required property for SalesReportsDetailedRes and cannot be null");
-            }
             this.Sku = sku;
-            // to ensure "docTypeName" is required (not null)
-            if (docTypeName == null)
-            {
-                throw new ArgumentNullException("docTypeName is a required property for SalesReportsDetailedRes and cannot be null");
-            }
             this.DocTypeName = docTypeName;
             this.Quantity = quantity;
-            // to ensure "retailPrice" is required (not null)
-            if (retailPrice == null)
-            {
-                throw new ArgumentNullException("retailPrice is a required property for SalesReportsDetailedRes and cannot be null");
-            }
             this.RetailPrice = retailPrice;
-            // to ensure "retailAmount" is required (not null)
-            if (retailAmount == null)
-            {
-                throw new ArgumentNullException("retailAmount is a required property for SalesReportsDetailedRes and cannot be null");
-            }
             this.RetailAmount = retailAmount;
             this.SalePercent = salePercent;
             this.CommissionPercent = commissionPercent;
-            // to ensure "officeName" is required (not null)
-            if (officeName == null)
-            {
-                throw new ArgumentNullException("officeName is a required property for SalesReportsDetailedRes and cannot be null");
-            }
             this.OfficeName = officeName;
-            // to ensure "sellerOperName" is required (not null)
-            if (sellerOperName == null)
-            {
-                throw new ArgumentNullException("sellerOperName is a required property for SalesReportsDetailedRes and cannot be null");
-            }
             this.SellerOperName = sellerOperName;
-            // to ensure "orderDt" is required (not null)
-            if (orderDt == null)
-            {
-                throw new ArgumentNullException("orderDt is a required property for SalesReportsDetailedRes and cannot be null");
-            }
             this.OrderDt = orderDt;
-            // to ensure "saleDt" is required (not null)
-            if (saleDt == null)
-            {
-                throw new ArgumentNullException("saleDt is a required property for SalesReportsDetailedRes and cannot be null");
-            }
             this.SaleDt = saleDt;
-            // to ensure "rrDate" is required (not null)
-            if (rrDate == null)
-            {
-                throw new ArgumentNullException("rrDate is a required property for SalesReportsDetailedRes and cannot be null");
-            }
             this.RrDate = rrDate;
             this.ShkId = shkId;
-            // to ensure "retailPriceWithDisc" is required (not null)
-            if (retailPriceWithDisc == null)
-            {
-                throw new ArgumentNullException("retailPriceWithDisc is a required property for SalesReportsDetailedRes and cannot be null");
-            }
             this.RetailPriceWithDisc = retailPriceWithDisc;
             this.DeliveryAmount = deliveryAmount;
             this.ReturnAmount = returnAmount;
-            // to ensure "deliveryService" is required (not null)
-            if (deliveryService == null)
-            {
-                throw new ArgumentNullException("deliveryService is a required property for SalesReportsDetailedRes and cannot be null");
-            }
             this.DeliveryService = deliveryService;
-            // to ensure "giBoxTypeName" is required (not null)
-            if (giBoxTypeName == null)
-            {
-                throw new ArgumentNullException("giBoxTypeName is a required property for SalesReportsDetailedRes and cannot be null");
-            }
             this.GiBoxTypeName = giBoxTypeName;
             this.ProductDiscountForReport = productDiscountForReport;
             this.SellerPromo = sellerPromo;
@@ -321,235 +201,60 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
             this.Kvw = kvw;
             this.SupRatingUp = supRatingUp;
             this.IsKgvpV2 = isKgvpV2;
-            // to ensure "ppvzSalesCommission" is required (not null)
-            if (ppvzSalesCommission == null)
-            {
-                throw new ArgumentNullException("ppvzSalesCommission is a required property for SalesReportsDetailedRes and cannot be null");
-            }
             this.PpvzSalesCommission = ppvzSalesCommission;
-            // to ensure "forPay" is required (not null)
-            if (forPay == null)
-            {
-                throw new ArgumentNullException("forPay is a required property for SalesReportsDetailedRes and cannot be null");
-            }
             this.ForPay = forPay;
-            // to ensure "ppvzReward" is required (not null)
-            if (ppvzReward == null)
-            {
-                throw new ArgumentNullException("ppvzReward is a required property for SalesReportsDetailedRes and cannot be null");
-            }
             this.PpvzReward = ppvzReward;
-            // to ensure "acquiringFee" is required (not null)
-            if (acquiringFee == null)
-            {
-                throw new ArgumentNullException("acquiringFee is a required property for SalesReportsDetailedRes and cannot be null");
-            }
             this.AcquiringFee = acquiringFee;
             this.AcquiringPercent = acquiringPercent;
-            // to ensure "paymentProcessing" is required (not null)
-            if (paymentProcessing == null)
-            {
-                throw new ArgumentNullException("paymentProcessing is a required property for SalesReportsDetailedRes and cannot be null");
-            }
             this.PaymentProcessing = paymentProcessing;
-            // to ensure "acquiringBank" is required (not null)
-            if (acquiringBank == null)
-            {
-                throw new ArgumentNullException("acquiringBank is a required property for SalesReportsDetailedRes and cannot be null");
-            }
             this.AcquiringBank = acquiringBank;
-            // to ensure "vw" is required (not null)
-            if (vw == null)
-            {
-                throw new ArgumentNullException("vw is a required property for SalesReportsDetailedRes and cannot be null");
-            }
             this.Vw = vw;
-            // to ensure "vwNds" is required (not null)
-            if (vwNds == null)
-            {
-                throw new ArgumentNullException("vwNds is a required property for SalesReportsDetailedRes and cannot be null");
-            }
             this.VwNds = vwNds;
-            // to ensure "ppvzOfficeName" is required (not null)
-            if (ppvzOfficeName == null)
-            {
-                throw new ArgumentNullException("ppvzOfficeName is a required property for SalesReportsDetailedRes and cannot be null");
-            }
             this.PpvzOfficeName = ppvzOfficeName;
             this.PpvzOfficeId = ppvzOfficeId;
-            // to ensure "ppvzSupplierName" is required (not null)
-            if (ppvzSupplierName == null)
-            {
-                throw new ArgumentNullException("ppvzSupplierName is a required property for SalesReportsDetailedRes and cannot be null");
-            }
             this.PpvzSupplierName = ppvzSupplierName;
-            // to ensure "ppvzSupplierInn" is required (not null)
-            if (ppvzSupplierInn == null)
-            {
-                throw new ArgumentNullException("ppvzSupplierInn is a required property for SalesReportsDetailedRes and cannot be null");
-            }
             this.PpvzSupplierInn = ppvzSupplierInn;
-            // to ensure "declarationNumber" is required (not null)
-            if (declarationNumber == null)
-            {
-                throw new ArgumentNullException("declarationNumber is a required property for SalesReportsDetailedRes and cannot be null");
-            }
             this.DeclarationNumber = declarationNumber;
-            // to ensure "stickerId" is required (not null)
-            if (stickerId == null)
-            {
-                throw new ArgumentNullException("stickerId is a required property for SalesReportsDetailedRes and cannot be null");
-            }
+            this.BonusTypeName = bonusTypeName;
             this.StickerId = stickerId;
-            // to ensure "country" is required (not null)
-            if (country == null)
-            {
-                throw new ArgumentNullException("country is a required property for SalesReportsDetailedRes and cannot be null");
-            }
             this.Country = country;
             this.SrvDbs = srvDbs;
-            // to ensure "penalty" is required (not null)
-            if (penalty == null)
-            {
-                throw new ArgumentNullException("penalty is a required property for SalesReportsDetailedRes and cannot be null");
-            }
             this.Penalty = penalty;
-            // to ensure "additionalPayment" is required (not null)
-            if (additionalPayment == null)
-            {
-                throw new ArgumentNullException("additionalPayment is a required property for SalesReportsDetailedRes and cannot be null");
-            }
             this.AdditionalPayment = additionalPayment;
-            // to ensure "rebillLogisticCost" is required (not null)
-            if (rebillLogisticCost == null)
-            {
-                throw new ArgumentNullException("rebillLogisticCost is a required property for SalesReportsDetailedRes and cannot be null");
-            }
             this.RebillLogisticCost = rebillLogisticCost;
-            // to ensure "paidStorage" is required (not null)
-            if (paidStorage == null)
-            {
-                throw new ArgumentNullException("paidStorage is a required property for SalesReportsDetailedRes and cannot be null");
-            }
+            this.RebillLogisticOrg = rebillLogisticOrg;
             this.PaidStorage = paidStorage;
-            // to ensure "deduction" is required (not null)
-            if (deduction == null)
-            {
-                throw new ArgumentNullException("deduction is a required property for SalesReportsDetailedRes and cannot be null");
-            }
             this.Deduction = deduction;
-            // to ensure "paidAcceptance" is required (not null)
-            if (paidAcceptance == null)
-            {
-                throw new ArgumentNullException("paidAcceptance is a required property for SalesReportsDetailedRes and cannot be null");
-            }
             this.PaidAcceptance = paidAcceptance;
             this.OrderId = orderId;
+            this.Kiz = kiz;
             this.IsB2b = isB2b;
-            // to ensure "trbxId" is required (not null)
-            if (trbxId == null)
-            {
-                throw new ArgumentNullException("trbxId is a required property for SalesReportsDetailedRes and cannot be null");
-            }
             this.TrbxId = trbxId;
-            // to ensure "installmentCofinancingAmount" is required (not null)
-            if (installmentCofinancingAmount == null)
-            {
-                throw new ArgumentNullException("installmentCofinancingAmount is a required property for SalesReportsDetailedRes and cannot be null");
-            }
             this.InstallmentCofinancingAmount = installmentCofinancingAmount;
             this.WibesDiscountPercent = wibesDiscountPercent;
-            // to ensure "cashbackAmount" is required (not null)
-            if (cashbackAmount == null)
-            {
-                throw new ArgumentNullException("cashbackAmount is a required property for SalesReportsDetailedRes and cannot be null");
-            }
             this.CashbackAmount = cashbackAmount;
-            // to ensure "cashbackDiscount" is required (not null)
-            if (cashbackDiscount == null)
-            {
-                throw new ArgumentNullException("cashbackDiscount is a required property for SalesReportsDetailedRes and cannot be null");
-            }
             this.CashbackDiscount = cashbackDiscount;
-            // to ensure "cashbackCommissionChange" is required (not null)
-            if (cashbackCommissionChange == null)
-            {
-                throw new ArgumentNullException("cashbackCommissionChange is a required property for SalesReportsDetailedRes and cannot be null");
-            }
             this.CashbackCommissionChange = cashbackCommissionChange;
-            // to ensure "paymentSchedule" is required (not null)
-            if (paymentSchedule == null)
-            {
-                throw new ArgumentNullException("paymentSchedule is a required property for SalesReportsDetailedRes and cannot be null");
-            }
             this.PaymentSchedule = paymentSchedule;
-            // to ensure "deliveryMethod" is required (not null)
-            if (deliveryMethod == null)
-            {
-                throw new ArgumentNullException("deliveryMethod is a required property for SalesReportsDetailedRes and cannot be null");
-            }
             this.DeliveryMethod = deliveryMethod;
             this.SellerPromoId = sellerPromoId;
             this.SellerPromoDiscount = sellerPromoDiscount;
             this.LoyaltyId = loyaltyId;
             this.LoyaltyDiscount = loyaltyDiscount;
-            // to ensure "uuidPromocode" is required (not null)
-            if (uuidPromocode == null)
-            {
-                throw new ArgumentNullException("uuidPromocode is a required property for SalesReportsDetailedRes and cannot be null");
-            }
             this.UuidPromocode = uuidPromocode;
             this.SalePricePromocodeDiscountPrc = salePricePromocodeDiscountPrc;
-            // to ensure "articleSubstitution" is required (not null)
-            if (articleSubstitution == null)
-            {
-                throw new ArgumentNullException("articleSubstitution is a required property for SalesReportsDetailedRes and cannot be null");
-            }
             this.ArticleSubstitution = articleSubstitution;
             this.SalePriceAffiliatedDiscountPrc = salePriceAffiliatedDiscountPrc;
+            this.AgencyVat = agencyVat;
             this.SalePriceWholesaleDiscountPrc = salePriceWholesaleDiscountPrc;
-            // to ensure "b2bCustomerTin" is required (not null)
-            if (b2bCustomerTin == null)
-            {
-                throw new ArgumentNullException("b2bCustomerTin is a required property for SalesReportsDetailedRes and cannot be null");
-            }
             this.B2bCustomerTin = b2bCustomerTin;
             this.PaidWithSocialCertificate = paidWithSocialCertificate;
             this.WarehouseLogisticsCoeff = warehouseLogisticsCoeff;
-            // to ensure "buyerTaxRegistrationReasonCode" is required (not null)
-            if (buyerTaxRegistrationReasonCode == null)
-            {
-                throw new ArgumentNullException("buyerTaxRegistrationReasonCode is a required property for SalesReportsDetailedRes and cannot be null");
-            }
             this.BuyerTaxRegistrationReasonCode = buyerTaxRegistrationReasonCode;
-            // to ensure "utdUcdNumber" is required (not null)
-            if (utdUcdNumber == null)
-            {
-                throw new ArgumentNullException("utdUcdNumber is a required property for SalesReportsDetailedRes and cannot be null");
-            }
             this.UtdUcdNumber = utdUcdNumber;
-            // to ensure "utdUcdDate" is required (not null)
-            if (utdUcdDate == null)
-            {
-                throw new ArgumentNullException("utdUcdDate is a required property for SalesReportsDetailedRes and cannot be null");
-            }
             this.UtdUcdDate = utdUcdDate;
-            // to ensure "orderUid" is required (not null)
-            if (orderUid == null)
-            {
-                throw new ArgumentNullException("orderUid is a required property for SalesReportsDetailedRes and cannot be null");
-            }
             this.OrderUid = orderUid;
-            // to ensure "srid" is required (not null)
-            if (srid == null)
-            {
-                throw new ArgumentNullException("srid is a required property for SalesReportsDetailedRes and cannot be null");
-            }
             this.Srid = srid;
-            this.BonusTypeName = bonusTypeName;
-            this.RebillLogisticOrg = rebillLogisticOrg;
-            this.Kiz = kiz;
-            this.AgencyVat = agencyVat;
         }
 
         /// <summary>
@@ -559,7 +264,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>1234567</example>
         */
-        [DataMember(Name = "reportId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "reportId", EmitDefaultValue = false)]
         public long ReportId { get; set; }
 
         /// <summary>
@@ -569,7 +274,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>2026-03-16</example>
         */
-        [DataMember(Name = "dateFrom", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "dateFrom", EmitDefaultValue = false)]
         public string DateFrom { get; set; }
 
         /// <summary>
@@ -579,7 +284,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>2026-03-22</example>
         */
-        [DataMember(Name = "dateTo", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "dateTo", EmitDefaultValue = false)]
         public string DateTo { get; set; }
 
         /// <summary>
@@ -589,7 +294,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>2026-03-23</example>
         */
-        [DataMember(Name = "createDate", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "createDate", EmitDefaultValue = false)]
         public string CreateDate { get; set; }
 
         /// <summary>
@@ -599,7 +304,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>RUB</example>
         */
-        [DataMember(Name = "currency", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "currency", EmitDefaultValue = false)]
         public string Currency { get; set; }
 
         /// <summary>
@@ -609,7 +314,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>1232610467</example>
         */
-        [DataMember(Name = "rrdId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "rrdId", EmitDefaultValue = false)]
         public int RrdId { get; set; }
 
         /// <summary>
@@ -619,7 +324,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>123456</example>
         */
-        [DataMember(Name = "giId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "giId", EmitDefaultValue = false)]
         public int GiId { get; set; }
 
         /// <summary>
@@ -629,7 +334,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>1.8</example>
         */
-        [DataMember(Name = "dlvPrc", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "dlvPrc", EmitDefaultValue = false)]
         public decimal DlvPrc { get; set; }
 
         /// <summary>
@@ -639,7 +344,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>2026-03-18</example>
         */
-        [DataMember(Name = "fixTariffDateFrom", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "fixTariffDateFrom", EmitDefaultValue = false)]
         public string FixTariffDateFrom { get; set; }
 
         /// <summary>
@@ -649,7 +354,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>2026-03-19</example>
         */
-        [DataMember(Name = "fixTariffDateTo", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "fixTariffDateTo", EmitDefaultValue = false)]
         public string FixTariffDateTo { get; set; }
 
         /// <summary>
@@ -659,7 +364,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>Мини-печи</example>
         */
-        [DataMember(Name = "subjectName", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "subjectName", EmitDefaultValue = false)]
         public string SubjectName { get; set; }
 
         /// <summary>
@@ -669,7 +374,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>1234567</example>
         */
-        [DataMember(Name = "nmId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "nmId", EmitDefaultValue = false)]
         public int NmId { get; set; }
 
         /// <summary>
@@ -679,7 +384,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>BlahBlah</example>
         */
-        [DataMember(Name = "brandName", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "brandName", EmitDefaultValue = false)]
         public string BrandName { get; set; }
 
         /// <summary>
@@ -689,7 +394,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>MAB123</example>
         */
-        [DataMember(Name = "vendorCode", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "vendorCode", EmitDefaultValue = false)]
         public string VendorCode { get; set; }
 
         /// <summary>
@@ -699,7 +404,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>ДС тарелка</example>
         */
-        [DataMember(Name = "title", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "title", EmitDefaultValue = false)]
         public string Title { get; set; }
 
         /// <summary>
@@ -709,7 +414,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>0</example>
         */
-        [DataMember(Name = "techSize", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "techSize", EmitDefaultValue = false)]
         public string TechSize { get; set; }
 
         /// <summary>
@@ -719,7 +424,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>1231312352310</example>
         */
-        [DataMember(Name = "sku", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "sku", EmitDefaultValue = false)]
         public string Sku { get; set; }
 
         /// <summary>
@@ -729,7 +434,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>Продажа</example>
         */
-        [DataMember(Name = "docTypeName", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "docTypeName", EmitDefaultValue = false)]
         public string DocTypeName { get; set; }
 
         /// <summary>
@@ -739,7 +444,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>1</example>
         */
-        [DataMember(Name = "quantity", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "quantity", EmitDefaultValue = false)]
         public int Quantity { get; set; }
 
         /// <summary>
@@ -749,7 +454,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>1249</example>
         */
-        [DataMember(Name = "retailPrice", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "retailPrice", EmitDefaultValue = false)]
         public string RetailPrice { get; set; }
 
         /// <summary>
@@ -759,7 +464,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>367</example>
         */
-        [DataMember(Name = "retailAmount", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "retailAmount", EmitDefaultValue = false)]
         public string RetailAmount { get; set; }
 
         /// <summary>
@@ -769,7 +474,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>0</example>
         */
-        [DataMember(Name = "salePercent", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "salePercent", EmitDefaultValue = false)]
         public int SalePercent { get; set; }
 
         /// <summary>
@@ -779,7 +484,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>24</example>
         */
-        [DataMember(Name = "commissionPercent", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "commissionPercent", EmitDefaultValue = false)]
         public decimal CommissionPercent { get; set; }
 
         /// <summary>
@@ -789,7 +494,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>Склад WB</example>
         */
-        [DataMember(Name = "officeName", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "officeName", EmitDefaultValue = false)]
         public string OfficeName { get; set; }
 
         /// <summary>
@@ -799,7 +504,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>Продажа</example>
         */
-        [DataMember(Name = "sellerOperName", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "sellerOperName", EmitDefaultValue = false)]
         public string SellerOperName { get; set; }
 
         /// <summary>
@@ -809,7 +514,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>2026-03-14T00:00:00Z</example>
         */
-        [DataMember(Name = "orderDt", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "orderDt", EmitDefaultValue = false)]
         public string OrderDt { get; set; }
 
         /// <summary>
@@ -819,7 +524,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>2026-03-21T00:00:00Z</example>
         */
-        [DataMember(Name = "saleDt", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "saleDt", EmitDefaultValue = false)]
         public string SaleDt { get; set; }
 
         /// <summary>
@@ -829,7 +534,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>2025-10-20</example>
         */
-        [DataMember(Name = "rrDate", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "rrDate", EmitDefaultValue = false)]
         public string RrDate { get; set; }
 
         /// <summary>
@@ -839,7 +544,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>1239159661</example>
         */
-        [DataMember(Name = "shkId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "shkId", EmitDefaultValue = false)]
         public int ShkId { get; set; }
 
         /// <summary>
@@ -849,7 +554,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>399.68</example>
         */
-        [DataMember(Name = "retailPriceWithDisc", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "retailPriceWithDisc", EmitDefaultValue = false)]
         public string RetailPriceWithDisc { get; set; }
 
         /// <summary>
@@ -859,7 +564,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>0</example>
         */
-        [DataMember(Name = "deliveryAmount", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "deliveryAmount", EmitDefaultValue = false)]
         public int DeliveryAmount { get; set; }
 
         /// <summary>
@@ -869,7 +574,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>0</example>
         */
-        [DataMember(Name = "returnAmount", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "returnAmount", EmitDefaultValue = false)]
         public int ReturnAmount { get; set; }
 
         /// <summary>
@@ -879,7 +584,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>0</example>
         */
-        [DataMember(Name = "deliveryService", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "deliveryService", EmitDefaultValue = false)]
         public string DeliveryService { get; set; }
 
         /// <summary>
@@ -889,7 +594,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>Монопаллета</example>
         */
-        [DataMember(Name = "giBoxTypeName", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "giBoxTypeName", EmitDefaultValue = false)]
         public string GiBoxTypeName { get; set; }
 
         /// <summary>
@@ -899,7 +604,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>0</example>
         */
-        [DataMember(Name = "productDiscountForReport", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "productDiscountForReport", EmitDefaultValue = false)]
         public decimal ProductDiscountForReport { get; set; }
 
         /// <summary>
@@ -909,7 +614,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>0</example>
         */
-        [DataMember(Name = "sellerPromo", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "sellerPromo", EmitDefaultValue = false)]
         public decimal SellerPromo { get; set; }
 
         /// <summary>
@@ -919,7 +624,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>25.31</example>
         */
-        [DataMember(Name = "spp", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "spp", EmitDefaultValue = false)]
         public decimal Spp { get; set; }
 
         /// <summary>
@@ -929,7 +634,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>24.15</example>
         */
-        [DataMember(Name = "kvwBase", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "kvwBase", EmitDefaultValue = false)]
         public decimal KvwBase { get; set; }
 
         /// <summary>
@@ -939,21 +644,21 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>1.81</example>
         */
-        [DataMember(Name = "kvw", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "kvw", EmitDefaultValue = false)]
         public decimal Kvw { get; set; }
 
         /// <summary>
         /// Размер снижения кВВ из-за рейтинга, %
         /// </summary>
         /// <value>Размер снижения кВВ из-за рейтинга, %</value>
-        [DataMember(Name = "supRatingUp", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "supRatingUp", EmitDefaultValue = false)]
         public decimal SupRatingUp { get; set; }
 
         /// <summary>
         /// Размер снижения кВВ из-за акции, %
         /// </summary>
         /// <value>Размер снижения кВВ из-за акции, %</value>
-        [DataMember(Name = "isKgvpV2", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "isKgvpV2", EmitDefaultValue = false)]
         public decimal IsKgvpV2 { get; set; }
 
         /// <summary>
@@ -963,7 +668,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>23.74</example>
         */
-        [DataMember(Name = "ppvzSalesCommission", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "ppvzSalesCommission", EmitDefaultValue = false)]
         public string PpvzSalesCommission { get; set; }
 
         /// <summary>
@@ -973,7 +678,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>376.99</example>
         */
-        [DataMember(Name = "forPay", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "forPay", EmitDefaultValue = false)]
         public string ForPay { get; set; }
 
         /// <summary>
@@ -983,7 +688,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>0</example>
         */
-        [DataMember(Name = "ppvzReward", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "ppvzReward", EmitDefaultValue = false)]
         public string PpvzReward { get; set; }
 
         /// <summary>
@@ -993,7 +698,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>14.89</example>
         */
-        [DataMember(Name = "acquiringFee", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "acquiringFee", EmitDefaultValue = false)]
         public string AcquiringFee { get; set; }
 
         /// <summary>
@@ -1003,7 +708,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>4.06</example>
         */
-        [DataMember(Name = "acquiringPercent", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "acquiringPercent", EmitDefaultValue = false)]
         public decimal AcquiringPercent { get; set; }
 
         /// <summary>
@@ -1013,7 +718,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>Комиссия за организацию платежа с НДС</example>
         */
-        [DataMember(Name = "paymentProcessing", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "paymentProcessing", EmitDefaultValue = false)]
         public string PaymentProcessing { get; set; }
 
         /// <summary>
@@ -1023,7 +728,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>Вайлдберриз Банк</example>
         */
-        [DataMember(Name = "acquiringBank", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "acquiringBank", EmitDefaultValue = false)]
         public string AcquiringBank { get; set; }
 
         /// <summary>
@@ -1033,7 +738,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>22.25</example>
         */
-        [DataMember(Name = "vw", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "vw", EmitDefaultValue = false)]
         public string Vw { get; set; }
 
         /// <summary>
@@ -1043,7 +748,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>4.45</example>
         */
-        [DataMember(Name = "vwNds", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "vwNds", EmitDefaultValue = false)]
         public string VwNds { get; set; }
 
         /// <summary>
@@ -1053,7 +758,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>Москва Москва Очаковское шоссе 6к2</example>
         */
-        [DataMember(Name = "ppvzOfficeName", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "ppvzOfficeName", EmitDefaultValue = false)]
         public string PpvzOfficeName { get; set; }
 
         /// <summary>
@@ -1063,7 +768,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>105383</example>
         */
-        [DataMember(Name = "ppvzOfficeId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "ppvzOfficeId", EmitDefaultValue = false)]
         public int PpvzOfficeId { get; set; }
 
         /// <summary>
@@ -1073,7 +778,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>ИП Жасмин</example>
         */
-        [DataMember(Name = "ppvzSupplierName", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "ppvzSupplierName", EmitDefaultValue = false)]
         public string PpvzSupplierName { get; set; }
 
         /// <summary>
@@ -1083,14 +788,14 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>010101010101</example>
         */
-        [DataMember(Name = "ppvzSupplierInn", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "ppvzSupplierInn", EmitDefaultValue = false)]
         public string PpvzSupplierInn { get; set; }
 
         /// <summary>
         /// Номер таможенной декларации
         /// </summary>
         /// <value>Номер таможенной декларации</value>
-        [DataMember(Name = "declarationNumber", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "declarationNumber", EmitDefaultValue = false)]
         public string DeclarationNumber { get; set; }
 
         /// <summary>
@@ -1110,7 +815,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>1964038895</example>
         */
-        [DataMember(Name = "stickerId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "stickerId", EmitDefaultValue = false)]
         public string StickerId { get; set; }
 
         /// <summary>
@@ -1120,7 +825,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>Россия</example>
         */
-        [DataMember(Name = "country", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "country", EmitDefaultValue = false)]
         public string Country { get; set; }
 
         /// <summary>
@@ -1130,7 +835,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>true</example>
         */
-        [DataMember(Name = "srvDbs", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "srvDbs", EmitDefaultValue = true)]
         public bool SrvDbs { get; set; }
 
         /// <summary>
@@ -1140,7 +845,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>231.35</example>
         */
-        [DataMember(Name = "penalty", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "penalty", EmitDefaultValue = false)]
         public string Penalty { get; set; }
 
         /// <summary>
@@ -1150,7 +855,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>0</example>
         */
-        [DataMember(Name = "additionalPayment", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "additionalPayment", EmitDefaultValue = false)]
         public string AdditionalPayment { get; set; }
 
         /// <summary>
@@ -1160,7 +865,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>1.349</example>
         */
-        [DataMember(Name = "rebillLogisticCost", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "rebillLogisticCost", EmitDefaultValue = false)]
         public string RebillLogisticCost { get; set; }
 
         /// <summary>
@@ -1180,7 +885,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>12647.29</example>
         */
-        [DataMember(Name = "paidStorage", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "paidStorage", EmitDefaultValue = false)]
         public string PaidStorage { get; set; }
 
         /// <summary>
@@ -1190,7 +895,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>6354</example>
         */
-        [DataMember(Name = "deduction", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "deduction", EmitDefaultValue = false)]
         public string Deduction { get; set; }
 
         /// <summary>
@@ -1200,7 +905,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>865</example>
         */
-        [DataMember(Name = "paidAcceptance", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "paidAcceptance", EmitDefaultValue = false)]
         public string PaidAcceptance { get; set; }
 
         /// <summary>
@@ -1210,7 +915,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>2816993144</example>
         */
-        [DataMember(Name = "orderId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "orderId", EmitDefaultValue = false)]
         public int OrderId { get; set; }
 
         /// <summary>
@@ -1230,7 +935,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>false</example>
         */
-        [DataMember(Name = "isB2b", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "isB2b", EmitDefaultValue = true)]
         public bool IsB2b { get; set; }
 
         /// <summary>
@@ -1240,7 +945,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>WB-TRBX-1234567</example>
         */
-        [DataMember(Name = "trbxId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "trbxId", EmitDefaultValue = false)]
         public string TrbxId { get; set; }
 
         /// <summary>
@@ -1250,7 +955,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>0</example>
         */
-        [DataMember(Name = "installmentCofinancingAmount", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "installmentCofinancingAmount", EmitDefaultValue = false)]
         public string InstallmentCofinancingAmount { get; set; }
 
         /// <summary>
@@ -1260,7 +965,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>1</example>
         */
-        [DataMember(Name = "wibesDiscountPercent", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "wibesDiscountPercent", EmitDefaultValue = false)]
         public decimal WibesDiscountPercent { get; set; }
 
         /// <summary>
@@ -1270,7 +975,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>2</example>
         */
-        [DataMember(Name = "cashbackAmount", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "cashbackAmount", EmitDefaultValue = false)]
         public string CashbackAmount { get; set; }
 
         /// <summary>
@@ -1280,7 +985,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>19</example>
         */
-        [DataMember(Name = "cashbackDiscount", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "cashbackDiscount", EmitDefaultValue = false)]
         public string CashbackDiscount { get; set; }
 
         /// <summary>
@@ -1290,7 +995,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>0.2</example>
         */
-        [DataMember(Name = "cashbackCommissionChange", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "cashbackCommissionChange", EmitDefaultValue = false)]
         public string CashbackCommissionChange { get; set; }
 
         /// <summary>
@@ -1300,7 +1005,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>-1</example>
         */
-        [DataMember(Name = "paymentSchedule", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "paymentSchedule", EmitDefaultValue = false)]
         public string PaymentSchedule { get; set; }
 
         /// <summary>
@@ -1310,7 +1015,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>FBS, (МГТ)</example>
         */
-        [DataMember(Name = "deliveryMethod", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "deliveryMethod", EmitDefaultValue = false)]
         public string DeliveryMethod { get; set; }
 
         /// <summary>
@@ -1320,7 +1025,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>14350</example>
         */
-        [DataMember(Name = "sellerPromoId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "sellerPromoId", EmitDefaultValue = false)]
         public int SellerPromoId { get; set; }
 
         /// <summary>
@@ -1330,7 +1035,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>3</example>
         */
-        [DataMember(Name = "sellerPromoDiscount", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "sellerPromoDiscount", EmitDefaultValue = false)]
         public decimal SellerPromoDiscount { get; set; }
 
         /// <summary>
@@ -1340,7 +1045,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>0</example>
         */
-        [DataMember(Name = "loyaltyId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "loyaltyId", EmitDefaultValue = false)]
         public int LoyaltyId { get; set; }
 
         /// <summary>
@@ -1350,14 +1055,14 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>0</example>
         */
-        [DataMember(Name = "loyaltyDiscount", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "loyaltyDiscount", EmitDefaultValue = false)]
         public decimal LoyaltyDiscount { get; set; }
 
         /// <summary>
         /// ID промокода
         /// </summary>
         /// <value>ID промокода</value>
-        [DataMember(Name = "uuidPromocode", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "uuidPromocode", EmitDefaultValue = false)]
         public string UuidPromocode { get; set; }
 
         /// <summary>
@@ -1367,14 +1072,14 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>0</example>
         */
-        [DataMember(Name = "salePricePromocodeDiscountPrc", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "salePricePromocodeDiscountPrc", EmitDefaultValue = false)]
         public decimal SalePricePromocodeDiscountPrc { get; set; }
 
         /// <summary>
         /// ID подменного артикула
         /// </summary>
         /// <value>ID подменного артикула</value>
-        [DataMember(Name = "articleSubstitution", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "articleSubstitution", EmitDefaultValue = false)]
         public string ArticleSubstitution { get; set; }
 
         /// <summary>
@@ -1384,7 +1089,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>0</example>
         */
-        [DataMember(Name = "salePriceAffiliatedDiscountPrc", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "salePriceAffiliatedDiscountPrc", EmitDefaultValue = false)]
         public decimal SalePriceAffiliatedDiscountPrc { get; set; }
 
         /// <summary>
@@ -1404,7 +1109,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>0</example>
         */
-        [DataMember(Name = "salePriceWholesaleDiscountPrc", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "salePriceWholesaleDiscountPrc", EmitDefaultValue = false)]
         public decimal SalePriceWholesaleDiscountPrc { get; set; }
 
         /// <summary>
@@ -1414,7 +1119,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>010101010101</example>
         */
-        [DataMember(Name = "b2bCustomerTin", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "b2bCustomerTin", EmitDefaultValue = false)]
         public string B2bCustomerTin { get; set; }
 
         /// <summary>
@@ -1424,7 +1129,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>false</example>
         */
-        [DataMember(Name = "paidWithSocialCertificate", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "paidWithSocialCertificate", EmitDefaultValue = true)]
         public bool PaidWithSocialCertificate { get; set; }
 
         /// <summary>
@@ -1434,7 +1139,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>0</example>
         */
-        [DataMember(Name = "warehouseLogisticsCoeff", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "warehouseLogisticsCoeff", EmitDefaultValue = false)]
         public decimal WarehouseLogisticsCoeff { get; set; }
 
         /// <summary>
@@ -1444,7 +1149,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>7701123301</example>
         */
-        [DataMember(Name = "buyerTaxRegistrationReasonCode", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "buyerTaxRegistrationReasonCode", EmitDefaultValue = false)]
         public string BuyerTaxRegistrationReasonCode { get; set; }
 
         /// <summary>
@@ -1454,7 +1159,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>12356856523</example>
         */
-        [DataMember(Name = "utdUcdNumber", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "utdUcdNumber", EmitDefaultValue = false)]
         public string UtdUcdNumber { get; set; }
 
         /// <summary>
@@ -1464,7 +1169,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>2006-01-02</example>
         */
-        [DataMember(Name = "utdUcdDate", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "utdUcdDate", EmitDefaultValue = false)]
         public string UtdUcdDate { get; set; }
 
         /// <summary>
@@ -1474,7 +1179,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>id375f16c4bec295d9995393af803ff7b</example>
         */
-        [DataMember(Name = "orderUid", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "orderUid", EmitDefaultValue = false)]
         public string OrderUid { get; set; }
 
         /// <summary>
@@ -1484,7 +1189,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>0f1c3999172603062979867564654dac5b702849</example>
         */
-        [DataMember(Name = "srid", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "srid", EmitDefaultValue = false)]
         public string Srid { get; set; }
 
         /// <summary>

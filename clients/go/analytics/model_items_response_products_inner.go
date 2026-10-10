@@ -11,9 +11,7 @@ API version: analytics
 package analytics
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the ItemsResponseProductsInner type satisfies the MappedNullable interface at compile time
@@ -21,20 +19,16 @@ var _ MappedNullable = &ItemsResponseProductsInner{}
 
 // ItemsResponseProductsInner struct for ItemsResponseProductsInner
 type ItemsResponseProductsInner struct {
-	Product   ItemsResponseProductsInnerProduct   `json:"product"`
-	Statistic ItemsResponseProductsInnerStatistic `json:"statistic"`
+	Product   *ItemsResponseProductsInnerProduct   `json:"product,omitempty"`
+	Statistic *ItemsResponseProductsInnerStatistic `json:"statistic,omitempty"`
 }
-
-type _ItemsResponseProductsInner ItemsResponseProductsInner
 
 // NewItemsResponseProductsInner instantiates a new ItemsResponseProductsInner object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewItemsResponseProductsInner(product ItemsResponseProductsInnerProduct, statistic ItemsResponseProductsInnerStatistic) *ItemsResponseProductsInner {
+func NewItemsResponseProductsInner() *ItemsResponseProductsInner {
 	this := ItemsResponseProductsInner{}
-	this.Product = product
-	this.Statistic = statistic
 	return &this
 }
 
@@ -46,52 +40,68 @@ func NewItemsResponseProductsInnerWithDefaults() *ItemsResponseProductsInner {
 	return &this
 }
 
-// GetProduct returns the Product field value
+// GetProduct returns the Product field value if set, zero value otherwise.
 func (o *ItemsResponseProductsInner) GetProduct() ItemsResponseProductsInnerProduct {
-	if o == nil {
+	if o == nil || IsNil(o.Product) {
 		var ret ItemsResponseProductsInnerProduct
 		return ret
 	}
-
-	return o.Product
+	return *o.Product
 }
 
-// GetProductOk returns a tuple with the Product field value
+// GetProductOk returns a tuple with the Product field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ItemsResponseProductsInner) GetProductOk() (*ItemsResponseProductsInnerProduct, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Product) {
 		return nil, false
 	}
-	return &o.Product, true
+	return o.Product, true
 }
 
-// SetProduct sets field value
+// HasProduct returns a boolean if a field has been set.
+func (o *ItemsResponseProductsInner) HasProduct() bool {
+	if o != nil && !IsNil(o.Product) {
+		return true
+	}
+
+	return false
+}
+
+// SetProduct gets a reference to the given ItemsResponseProductsInnerProduct and assigns it to the Product field.
 func (o *ItemsResponseProductsInner) SetProduct(v ItemsResponseProductsInnerProduct) {
-	o.Product = v
+	o.Product = &v
 }
 
-// GetStatistic returns the Statistic field value
+// GetStatistic returns the Statistic field value if set, zero value otherwise.
 func (o *ItemsResponseProductsInner) GetStatistic() ItemsResponseProductsInnerStatistic {
-	if o == nil {
+	if o == nil || IsNil(o.Statistic) {
 		var ret ItemsResponseProductsInnerStatistic
 		return ret
 	}
-
-	return o.Statistic
+	return *o.Statistic
 }
 
-// GetStatisticOk returns a tuple with the Statistic field value
+// GetStatisticOk returns a tuple with the Statistic field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ItemsResponseProductsInner) GetStatisticOk() (*ItemsResponseProductsInnerStatistic, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Statistic) {
 		return nil, false
 	}
-	return &o.Statistic, true
+	return o.Statistic, true
 }
 
-// SetStatistic sets field value
+// HasStatistic returns a boolean if a field has been set.
+func (o *ItemsResponseProductsInner) HasStatistic() bool {
+	if o != nil && !IsNil(o.Statistic) {
+		return true
+	}
+
+	return false
+}
+
+// SetStatistic gets a reference to the given ItemsResponseProductsInnerStatistic and assigns it to the Statistic field.
 func (o *ItemsResponseProductsInner) SetStatistic(v ItemsResponseProductsInnerStatistic) {
-	o.Statistic = v
+	o.Statistic = &v
 }
 
 func (o ItemsResponseProductsInner) MarshalJSON() ([]byte, error) {
@@ -104,47 +114,13 @@ func (o ItemsResponseProductsInner) MarshalJSON() ([]byte, error) {
 
 func (o ItemsResponseProductsInner) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["product"] = o.Product
-	toSerialize["statistic"] = o.Statistic
+	if !IsNil(o.Product) {
+		toSerialize["product"] = o.Product
+	}
+	if !IsNil(o.Statistic) {
+		toSerialize["statistic"] = o.Statistic
+	}
 	return toSerialize, nil
-}
-
-func (o *ItemsResponseProductsInner) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"product",
-		"statistic",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varItemsResponseProductsInner := _ItemsResponseProductsInner{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varItemsResponseProductsInner)
-
-	if err != nil {
-		return err
-	}
-
-	*o = ItemsResponseProductsInner(varItemsResponseProductsInner)
-
-	return err
 }
 
 type NullableItemsResponseProductsInner struct {

@@ -60,9 +60,13 @@ class TableItemItem(BaseModel):
     TableItemItem
     """  # noqa: E501
 
-    nm_id: StrictInt = Field(description="Артикул WB", alias="nmId")
+    nm_id: Optional[StrictInt] = Field(
+        default=None, description="Артикул WB", alias="nmId"
+    )
     name: Optional[StrictStr] = Field(default=None, description="Название товара")
-    vendor_code: StrictStr = Field(description="Артикул продавца", alias="vendorCode")
+    vendor_code: Optional[StrictStr] = Field(
+        default=None, description="Артикул продавца", alias="vendorCode"
+    )
     subject_name: Optional[StrictStr] = Field(
         default=None, description="Название предмета", alias="subjectName"
     )
@@ -72,7 +76,8 @@ class TableItemItem(BaseModel):
     main_photo: Optional[StrictStr] = Field(
         default=None, description="URL главного фото карточки товара", alias="mainPhoto"
     )
-    is_advertised: StrictBool = Field(
+    is_advertised: Optional[StrictBool] = Field(
+        default=None,
         description="Находится ли товар в продвижении в Поисковой выдаче",
         alias="isAdvertised",
     )
@@ -81,21 +86,33 @@ class TableItemItem(BaseModel):
         description="Искали ли товар по подменному артикулу. Поле будет в ответе при наличии в запросе `includeSubstitutedSKUs` и/или `includeSearchTexts`",
         alias="isSubstitutedSKU",
     )
-    is_card_rated: StrictBool = Field(
-        description="Есть ли рейтинг у карточки товара", alias="isCardRated"
+    is_card_rated: Optional[StrictBool] = Field(
+        default=None,
+        description="Есть ли рейтинг у карточки товара",
+        alias="isCardRated",
     )
-    rating: Union[StrictFloat, StrictInt] = Field(description="Рейтинг карточки товара")
-    feedback_rating: Union[StrictFloat, StrictInt] = Field(
-        description="Рейтинг по отзывам", alias="feedbackRating"
+    rating: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None, description="Рейтинг карточки товара"
     )
-    price: TableItemItemAllOfPrice
-    avg_position: TableGroupItemMetricsAvgPosition = Field(alias="avgPosition")
-    open_card: VisibilityInfoOpenCard = Field(alias="openCard")
-    add_to_cart: TableGroupItemMetricsAddToCart = Field(alias="addToCart")
-    open_to_cart: TableGroupItemMetricsOpenToCart = Field(alias="openToCart")
-    orders: TableGroupItemMetricsOrders
-    cart_to_order: TableGroupItemMetricsCartToOrder = Field(alias="cartToOrder")
-    visibility: TableGroupItemMetricsVisibility
+    feedback_rating: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None, description="Рейтинг по отзывам", alias="feedbackRating"
+    )
+    price: Optional[TableItemItemAllOfPrice] = None
+    avg_position: Optional[TableGroupItemMetricsAvgPosition] = Field(
+        default=None, alias="avgPosition"
+    )
+    open_card: Optional[VisibilityInfoOpenCard] = Field(default=None, alias="openCard")
+    add_to_cart: Optional[TableGroupItemMetricsAddToCart] = Field(
+        default=None, alias="addToCart"
+    )
+    open_to_cart: Optional[TableGroupItemMetricsOpenToCart] = Field(
+        default=None, alias="openToCart"
+    )
+    orders: Optional[TableGroupItemMetricsOrders] = None
+    cart_to_order: Optional[TableGroupItemMetricsCartToOrder] = Field(
+        default=None, alias="cartToOrder"
+    )
+    visibility: Optional[TableGroupItemMetricsVisibility] = None
     __properties: ClassVar[List[str]] = [
         "nmId",
         "name",

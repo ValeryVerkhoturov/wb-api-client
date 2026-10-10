@@ -34,15 +34,10 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="V3ArchiveOrderPriceInfo" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected V3ArchiveOrderPriceInfo() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="V3ArchiveOrderPriceInfo" /> class.
-        /// </summary>
-        /// <param name="convertedCurrencyCode">Код валюты страны продавца (required).</param>
-        /// <param name="convertedPrice">Цена в валюте страны продавца с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100 (required).</param>
-        /// <param name="currencyCode">Код валюты продажи (required).</param>
-        /// <param name="price">Цена в валюте продажи с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100 (required).</param>
+        /// <param name="convertedCurrencyCode">Код валюты страны продавца.</param>
+        /// <param name="convertedPrice">Цена в валюте страны продавца с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100.</param>
+        /// <param name="currencyCode">Код валюты продажи.</param>
+        /// <param name="price">Цена в валюте продажи с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100.</param>
         public V3ArchiveOrderPriceInfo(int convertedCurrencyCode = default(int), int convertedPrice = default(int), int currencyCode = default(int), int price = default(int))
         {
             this.ConvertedCurrencyCode = convertedCurrencyCode;
@@ -58,7 +53,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /*
         <example>643</example>
         */
-        [DataMember(Name = "convertedCurrencyCode", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "convertedCurrencyCode", EmitDefaultValue = false)]
         public int ConvertedCurrencyCode { get; set; }
 
         /// <summary>
@@ -68,7 +63,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /*
         <example>1020</example>
         */
-        [DataMember(Name = "convertedPrice", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "convertedPrice", EmitDefaultValue = false)]
         public int ConvertedPrice { get; set; }
 
         /// <summary>
@@ -78,7 +73,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /*
         <example>643</example>
         */
-        [DataMember(Name = "currencyCode", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "currencyCode", EmitDefaultValue = false)]
         public int CurrencyCode { get; set; }
 
         /// <summary>
@@ -88,7 +83,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /*
         <example>1020</example>
         */
-        [DataMember(Name = "price", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "price", EmitDefaultValue = false)]
         public int Price { get; set; }
 
         /// <summary>

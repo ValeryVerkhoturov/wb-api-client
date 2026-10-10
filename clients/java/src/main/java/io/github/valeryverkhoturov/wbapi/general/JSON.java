@@ -95,6 +95,9 @@ public class JSON {
         new io.github.valeryverkhoturov.wbapi.general.model.CreateInviteRequest
             .CustomTypeAdapterFactory());
     gsonBuilder.registerTypeAdapterFactory(
+        new io.github.valeryverkhoturov.wbapi.general.model.CreateInviteRequestAccessInner
+            .CustomTypeAdapterFactory());
+    gsonBuilder.registerTypeAdapterFactory(
         new io.github.valeryverkhoturov.wbapi.general.model.CreateInviteRequestInvite
             .CustomTypeAdapterFactory());
     gsonBuilder.registerTypeAdapterFactory(

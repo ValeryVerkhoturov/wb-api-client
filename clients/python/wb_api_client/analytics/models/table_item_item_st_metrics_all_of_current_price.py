@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,11 +28,13 @@ class TableItemItemStMetricsAllOfCurrentPrice(BaseModel):
     Текущая цена
     """  # noqa: E501
 
-    min_price: StrictInt = Field(
+    min_price: Optional[StrictInt] = Field(
+        default=None,
         description="Минимальная цена продавца со скидкой продавца (без учёта скидки WB Клуба)",
         alias="minPrice",
     )
-    max_price: StrictInt = Field(
+    max_price: Optional[StrictInt] = Field(
+        default=None,
         description="Максимальная цена продавца со скидкой продавца (без учёта скидки WB Клуба)",
         alias="maxPrice",
     )

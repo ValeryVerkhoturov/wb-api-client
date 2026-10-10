@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List, Union
+from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,8 +28,10 @@ class ModelsErrorSubcategory(BaseModel):
     ModelsErrorSubcategory
     """  # noqa: E501
 
-    id: Union[StrictFloat, StrictInt] = Field(description="ID предмета")
-    name: StrictStr = Field(description="Название предмета")
+    id: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None, description="ID предмета"
+    )
+    name: Optional[StrictStr] = Field(default=None, description="Название предмета")
     __properties: ClassVar[List[str]] = ["id", "name"]
 
     model_config = ConfigDict(

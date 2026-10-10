@@ -11,9 +11,7 @@ API version: promotion
 package promotion
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the FullStatsItem type satisfies the MappedNullable interface at compile time
@@ -22,59 +20,43 @@ var _ MappedNullable = &FullStatsItem{}
 // FullStatsItem Статистика по одной кампании за период, указанный в запросе. По всем артикулам WB и платформам
 type FullStatsItem struct {
 	// ID кампании
-	AdvertId int32 `json:"advertId"`
+	AdvertId *int32 `json:"advertId,omitempty"`
 	// Количество добавлений товаров в корзину
-	Atbs int32 `json:"atbs"`
+	Atbs *int32 `json:"atbs,omitempty"`
 	// Статистика по средней позиции товара (для кампаний с единой ставкой)
 	BoosterStats []FullStatsItemBoosterStatsInner `json:"boosterStats,omitempty"`
 	// Отмены, шт.
-	Canceled int32 `json:"canceled"`
+	Canceled *int32 `json:"canceled,omitempty"`
 	// Количество кликов
-	Clicks int32 `json:"clicks"`
+	Clicks *int32 `json:"clicks,omitempty"`
 	// Средняя стоимость клика в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
-	Cpc float64 `json:"cpc"`
+	Cpc *float64 `json:"cpc,omitempty"`
 	// CR (conversion rate) — отношение количества заказов к общему количеству кликов
-	Cr float64 `json:"cr"`
+	Cr *float64 `json:"cr,omitempty"`
 	// CTR (click-through rate) — отношение числа кликов к количеству показов в процентах
-	Ctr float64 `json:"ctr"`
+	Ctr *float64 `json:"ctr,omitempty"`
 	// Статистка по дням
-	Days []FullStatsItemDaysInner `json:"days"`
+	Days []FullStatsItemDaysInner `json:"days,omitempty"`
 	// Количество заказов
-	Orders int32 `json:"orders"`
+	Orders *int32 `json:"orders,omitempty"`
 	// Количество заказанных товаров, шт.
-	Shks int32 `json:"shks"`
+	Shks *int32 `json:"shks,omitempty"`
 	// Затраты в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
-	Sum float64 `json:"sum"`
+	Sum *float64 `json:"sum,omitempty"`
 	// Сумма заказов в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
-	SumPrice float64 `json:"sum_price"`
+	SumPrice *float64 `json:"sum_price,omitempty"`
 	// Количество просмотров
-	Views int32 `json:"views"`
+	Views *int32 `json:"views,omitempty"`
 	// Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
-	Currency string `json:"currency"`
+	Currency *string `json:"currency,omitempty"`
 }
-
-type _FullStatsItem FullStatsItem
 
 // NewFullStatsItem instantiates a new FullStatsItem object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewFullStatsItem(advertId int32, atbs int32, canceled int32, clicks int32, cpc float64, cr float64, ctr float64, days []FullStatsItemDaysInner, orders int32, shks int32, sum float64, sumPrice float64, views int32, currency string) *FullStatsItem {
+func NewFullStatsItem() *FullStatsItem {
 	this := FullStatsItem{}
-	this.AdvertId = advertId
-	this.Atbs = atbs
-	this.Canceled = canceled
-	this.Clicks = clicks
-	this.Cpc = cpc
-	this.Cr = cr
-	this.Ctr = ctr
-	this.Days = days
-	this.Orders = orders
-	this.Shks = shks
-	this.Sum = sum
-	this.SumPrice = sumPrice
-	this.Views = views
-	this.Currency = currency
 	return &this
 }
 
@@ -86,52 +68,68 @@ func NewFullStatsItemWithDefaults() *FullStatsItem {
 	return &this
 }
 
-// GetAdvertId returns the AdvertId field value
+// GetAdvertId returns the AdvertId field value if set, zero value otherwise.
 func (o *FullStatsItem) GetAdvertId() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.AdvertId) {
 		var ret int32
 		return ret
 	}
-
-	return o.AdvertId
+	return *o.AdvertId
 }
 
-// GetAdvertIdOk returns a tuple with the AdvertId field value
+// GetAdvertIdOk returns a tuple with the AdvertId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FullStatsItem) GetAdvertIdOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AdvertId) {
 		return nil, false
 	}
-	return &o.AdvertId, true
+	return o.AdvertId, true
 }
 
-// SetAdvertId sets field value
+// HasAdvertId returns a boolean if a field has been set.
+func (o *FullStatsItem) HasAdvertId() bool {
+	if o != nil && !IsNil(o.AdvertId) {
+		return true
+	}
+
+	return false
+}
+
+// SetAdvertId gets a reference to the given int32 and assigns it to the AdvertId field.
 func (o *FullStatsItem) SetAdvertId(v int32) {
-	o.AdvertId = v
+	o.AdvertId = &v
 }
 
-// GetAtbs returns the Atbs field value
+// GetAtbs returns the Atbs field value if set, zero value otherwise.
 func (o *FullStatsItem) GetAtbs() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.Atbs) {
 		var ret int32
 		return ret
 	}
-
-	return o.Atbs
+	return *o.Atbs
 }
 
-// GetAtbsOk returns a tuple with the Atbs field value
+// GetAtbsOk returns a tuple with the Atbs field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FullStatsItem) GetAtbsOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Atbs) {
 		return nil, false
 	}
-	return &o.Atbs, true
+	return o.Atbs, true
 }
 
-// SetAtbs sets field value
+// HasAtbs returns a boolean if a field has been set.
+func (o *FullStatsItem) HasAtbs() bool {
+	if o != nil && !IsNil(o.Atbs) {
+		return true
+	}
+
+	return false
+}
+
+// SetAtbs gets a reference to the given int32 and assigns it to the Atbs field.
 func (o *FullStatsItem) SetAtbs(v int32) {
-	o.Atbs = v
+	o.Atbs = &v
 }
 
 // GetBoosterStats returns the BoosterStats field value if set, zero value otherwise.
@@ -166,292 +164,388 @@ func (o *FullStatsItem) SetBoosterStats(v []FullStatsItemBoosterStatsInner) {
 	o.BoosterStats = v
 }
 
-// GetCanceled returns the Canceled field value
+// GetCanceled returns the Canceled field value if set, zero value otherwise.
 func (o *FullStatsItem) GetCanceled() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.Canceled) {
 		var ret int32
 		return ret
 	}
-
-	return o.Canceled
+	return *o.Canceled
 }
 
-// GetCanceledOk returns a tuple with the Canceled field value
+// GetCanceledOk returns a tuple with the Canceled field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FullStatsItem) GetCanceledOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Canceled) {
 		return nil, false
 	}
-	return &o.Canceled, true
+	return o.Canceled, true
 }
 
-// SetCanceled sets field value
+// HasCanceled returns a boolean if a field has been set.
+func (o *FullStatsItem) HasCanceled() bool {
+	if o != nil && !IsNil(o.Canceled) {
+		return true
+	}
+
+	return false
+}
+
+// SetCanceled gets a reference to the given int32 and assigns it to the Canceled field.
 func (o *FullStatsItem) SetCanceled(v int32) {
-	o.Canceled = v
+	o.Canceled = &v
 }
 
-// GetClicks returns the Clicks field value
+// GetClicks returns the Clicks field value if set, zero value otherwise.
 func (o *FullStatsItem) GetClicks() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.Clicks) {
 		var ret int32
 		return ret
 	}
-
-	return o.Clicks
+	return *o.Clicks
 }
 
-// GetClicksOk returns a tuple with the Clicks field value
+// GetClicksOk returns a tuple with the Clicks field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FullStatsItem) GetClicksOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Clicks) {
 		return nil, false
 	}
-	return &o.Clicks, true
+	return o.Clicks, true
 }
 
-// SetClicks sets field value
+// HasClicks returns a boolean if a field has been set.
+func (o *FullStatsItem) HasClicks() bool {
+	if o != nil && !IsNil(o.Clicks) {
+		return true
+	}
+
+	return false
+}
+
+// SetClicks gets a reference to the given int32 and assigns it to the Clicks field.
 func (o *FullStatsItem) SetClicks(v int32) {
-	o.Clicks = v
+	o.Clicks = &v
 }
 
-// GetCpc returns the Cpc field value
+// GetCpc returns the Cpc field value if set, zero value otherwise.
 func (o *FullStatsItem) GetCpc() float64 {
-	if o == nil {
+	if o == nil || IsNil(o.Cpc) {
 		var ret float64
 		return ret
 	}
-
-	return o.Cpc
+	return *o.Cpc
 }
 
-// GetCpcOk returns a tuple with the Cpc field value
+// GetCpcOk returns a tuple with the Cpc field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FullStatsItem) GetCpcOk() (*float64, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Cpc) {
 		return nil, false
 	}
-	return &o.Cpc, true
+	return o.Cpc, true
 }
 
-// SetCpc sets field value
+// HasCpc returns a boolean if a field has been set.
+func (o *FullStatsItem) HasCpc() bool {
+	if o != nil && !IsNil(o.Cpc) {
+		return true
+	}
+
+	return false
+}
+
+// SetCpc gets a reference to the given float64 and assigns it to the Cpc field.
 func (o *FullStatsItem) SetCpc(v float64) {
-	o.Cpc = v
+	o.Cpc = &v
 }
 
-// GetCr returns the Cr field value
+// GetCr returns the Cr field value if set, zero value otherwise.
 func (o *FullStatsItem) GetCr() float64 {
-	if o == nil {
+	if o == nil || IsNil(o.Cr) {
 		var ret float64
 		return ret
 	}
-
-	return o.Cr
+	return *o.Cr
 }
 
-// GetCrOk returns a tuple with the Cr field value
+// GetCrOk returns a tuple with the Cr field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FullStatsItem) GetCrOk() (*float64, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Cr) {
 		return nil, false
 	}
-	return &o.Cr, true
+	return o.Cr, true
 }
 
-// SetCr sets field value
+// HasCr returns a boolean if a field has been set.
+func (o *FullStatsItem) HasCr() bool {
+	if o != nil && !IsNil(o.Cr) {
+		return true
+	}
+
+	return false
+}
+
+// SetCr gets a reference to the given float64 and assigns it to the Cr field.
 func (o *FullStatsItem) SetCr(v float64) {
-	o.Cr = v
+	o.Cr = &v
 }
 
-// GetCtr returns the Ctr field value
+// GetCtr returns the Ctr field value if set, zero value otherwise.
 func (o *FullStatsItem) GetCtr() float64 {
-	if o == nil {
+	if o == nil || IsNil(o.Ctr) {
 		var ret float64
 		return ret
 	}
-
-	return o.Ctr
+	return *o.Ctr
 }
 
-// GetCtrOk returns a tuple with the Ctr field value
+// GetCtrOk returns a tuple with the Ctr field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FullStatsItem) GetCtrOk() (*float64, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Ctr) {
 		return nil, false
 	}
-	return &o.Ctr, true
+	return o.Ctr, true
 }
 
-// SetCtr sets field value
+// HasCtr returns a boolean if a field has been set.
+func (o *FullStatsItem) HasCtr() bool {
+	if o != nil && !IsNil(o.Ctr) {
+		return true
+	}
+
+	return false
+}
+
+// SetCtr gets a reference to the given float64 and assigns it to the Ctr field.
 func (o *FullStatsItem) SetCtr(v float64) {
-	o.Ctr = v
+	o.Ctr = &v
 }
 
-// GetDays returns the Days field value
+// GetDays returns the Days field value if set, zero value otherwise.
 func (o *FullStatsItem) GetDays() []FullStatsItemDaysInner {
-	if o == nil {
+	if o == nil || IsNil(o.Days) {
 		var ret []FullStatsItemDaysInner
 		return ret
 	}
-
 	return o.Days
 }
 
-// GetDaysOk returns a tuple with the Days field value
+// GetDaysOk returns a tuple with the Days field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FullStatsItem) GetDaysOk() ([]FullStatsItemDaysInner, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Days) {
 		return nil, false
 	}
 	return o.Days, true
 }
 
-// SetDays sets field value
+// HasDays returns a boolean if a field has been set.
+func (o *FullStatsItem) HasDays() bool {
+	if o != nil && !IsNil(o.Days) {
+		return true
+	}
+
+	return false
+}
+
+// SetDays gets a reference to the given []FullStatsItemDaysInner and assigns it to the Days field.
 func (o *FullStatsItem) SetDays(v []FullStatsItemDaysInner) {
 	o.Days = v
 }
 
-// GetOrders returns the Orders field value
+// GetOrders returns the Orders field value if set, zero value otherwise.
 func (o *FullStatsItem) GetOrders() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.Orders) {
 		var ret int32
 		return ret
 	}
-
-	return o.Orders
+	return *o.Orders
 }
 
-// GetOrdersOk returns a tuple with the Orders field value
+// GetOrdersOk returns a tuple with the Orders field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FullStatsItem) GetOrdersOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Orders) {
 		return nil, false
 	}
-	return &o.Orders, true
+	return o.Orders, true
 }
 
-// SetOrders sets field value
+// HasOrders returns a boolean if a field has been set.
+func (o *FullStatsItem) HasOrders() bool {
+	if o != nil && !IsNil(o.Orders) {
+		return true
+	}
+
+	return false
+}
+
+// SetOrders gets a reference to the given int32 and assigns it to the Orders field.
 func (o *FullStatsItem) SetOrders(v int32) {
-	o.Orders = v
+	o.Orders = &v
 }
 
-// GetShks returns the Shks field value
+// GetShks returns the Shks field value if set, zero value otherwise.
 func (o *FullStatsItem) GetShks() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.Shks) {
 		var ret int32
 		return ret
 	}
-
-	return o.Shks
+	return *o.Shks
 }
 
-// GetShksOk returns a tuple with the Shks field value
+// GetShksOk returns a tuple with the Shks field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FullStatsItem) GetShksOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Shks) {
 		return nil, false
 	}
-	return &o.Shks, true
+	return o.Shks, true
 }
 
-// SetShks sets field value
+// HasShks returns a boolean if a field has been set.
+func (o *FullStatsItem) HasShks() bool {
+	if o != nil && !IsNil(o.Shks) {
+		return true
+	}
+
+	return false
+}
+
+// SetShks gets a reference to the given int32 and assigns it to the Shks field.
 func (o *FullStatsItem) SetShks(v int32) {
-	o.Shks = v
+	o.Shks = &v
 }
 
-// GetSum returns the Sum field value
+// GetSum returns the Sum field value if set, zero value otherwise.
 func (o *FullStatsItem) GetSum() float64 {
-	if o == nil {
+	if o == nil || IsNil(o.Sum) {
 		var ret float64
 		return ret
 	}
-
-	return o.Sum
+	return *o.Sum
 }
 
-// GetSumOk returns a tuple with the Sum field value
+// GetSumOk returns a tuple with the Sum field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FullStatsItem) GetSumOk() (*float64, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Sum) {
 		return nil, false
 	}
-	return &o.Sum, true
+	return o.Sum, true
 }
 
-// SetSum sets field value
+// HasSum returns a boolean if a field has been set.
+func (o *FullStatsItem) HasSum() bool {
+	if o != nil && !IsNil(o.Sum) {
+		return true
+	}
+
+	return false
+}
+
+// SetSum gets a reference to the given float64 and assigns it to the Sum field.
 func (o *FullStatsItem) SetSum(v float64) {
-	o.Sum = v
+	o.Sum = &v
 }
 
-// GetSumPrice returns the SumPrice field value
+// GetSumPrice returns the SumPrice field value if set, zero value otherwise.
 func (o *FullStatsItem) GetSumPrice() float64 {
-	if o == nil {
+	if o == nil || IsNil(o.SumPrice) {
 		var ret float64
 		return ret
 	}
-
-	return o.SumPrice
+	return *o.SumPrice
 }
 
-// GetSumPriceOk returns a tuple with the SumPrice field value
+// GetSumPriceOk returns a tuple with the SumPrice field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FullStatsItem) GetSumPriceOk() (*float64, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.SumPrice) {
 		return nil, false
 	}
-	return &o.SumPrice, true
+	return o.SumPrice, true
 }
 
-// SetSumPrice sets field value
+// HasSumPrice returns a boolean if a field has been set.
+func (o *FullStatsItem) HasSumPrice() bool {
+	if o != nil && !IsNil(o.SumPrice) {
+		return true
+	}
+
+	return false
+}
+
+// SetSumPrice gets a reference to the given float64 and assigns it to the SumPrice field.
 func (o *FullStatsItem) SetSumPrice(v float64) {
-	o.SumPrice = v
+	o.SumPrice = &v
 }
 
-// GetViews returns the Views field value
+// GetViews returns the Views field value if set, zero value otherwise.
 func (o *FullStatsItem) GetViews() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.Views) {
 		var ret int32
 		return ret
 	}
-
-	return o.Views
+	return *o.Views
 }
 
-// GetViewsOk returns a tuple with the Views field value
+// GetViewsOk returns a tuple with the Views field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FullStatsItem) GetViewsOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Views) {
 		return nil, false
 	}
-	return &o.Views, true
+	return o.Views, true
 }
 
-// SetViews sets field value
+// HasViews returns a boolean if a field has been set.
+func (o *FullStatsItem) HasViews() bool {
+	if o != nil && !IsNil(o.Views) {
+		return true
+	}
+
+	return false
+}
+
+// SetViews gets a reference to the given int32 and assigns it to the Views field.
 func (o *FullStatsItem) SetViews(v int32) {
-	o.Views = v
+	o.Views = &v
 }
 
-// GetCurrency returns the Currency field value
+// GetCurrency returns the Currency field value if set, zero value otherwise.
 func (o *FullStatsItem) GetCurrency() string {
-	if o == nil {
+	if o == nil || IsNil(o.Currency) {
 		var ret string
 		return ret
 	}
-
-	return o.Currency
+	return *o.Currency
 }
 
-// GetCurrencyOk returns a tuple with the Currency field value
+// GetCurrencyOk returns a tuple with the Currency field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FullStatsItem) GetCurrencyOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Currency) {
 		return nil, false
 	}
-	return &o.Currency, true
+	return o.Currency, true
 }
 
-// SetCurrency sets field value
+// HasCurrency returns a boolean if a field has been set.
+func (o *FullStatsItem) HasCurrency() bool {
+	if o != nil && !IsNil(o.Currency) {
+		return true
+	}
+
+	return false
+}
+
+// SetCurrency gets a reference to the given string and assigns it to the Currency field.
 func (o *FullStatsItem) SetCurrency(v string) {
-	o.Currency = v
+	o.Currency = &v
 }
 
 func (o FullStatsItem) MarshalJSON() ([]byte, error) {
@@ -464,74 +558,52 @@ func (o FullStatsItem) MarshalJSON() ([]byte, error) {
 
 func (o FullStatsItem) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["advertId"] = o.AdvertId
-	toSerialize["atbs"] = o.Atbs
+	if !IsNil(o.AdvertId) {
+		toSerialize["advertId"] = o.AdvertId
+	}
+	if !IsNil(o.Atbs) {
+		toSerialize["atbs"] = o.Atbs
+	}
 	if !IsNil(o.BoosterStats) {
 		toSerialize["boosterStats"] = o.BoosterStats
 	}
-	toSerialize["canceled"] = o.Canceled
-	toSerialize["clicks"] = o.Clicks
-	toSerialize["cpc"] = o.Cpc
-	toSerialize["cr"] = o.Cr
-	toSerialize["ctr"] = o.Ctr
-	toSerialize["days"] = o.Days
-	toSerialize["orders"] = o.Orders
-	toSerialize["shks"] = o.Shks
-	toSerialize["sum"] = o.Sum
-	toSerialize["sum_price"] = o.SumPrice
-	toSerialize["views"] = o.Views
-	toSerialize["currency"] = o.Currency
+	if !IsNil(o.Canceled) {
+		toSerialize["canceled"] = o.Canceled
+	}
+	if !IsNil(o.Clicks) {
+		toSerialize["clicks"] = o.Clicks
+	}
+	if !IsNil(o.Cpc) {
+		toSerialize["cpc"] = o.Cpc
+	}
+	if !IsNil(o.Cr) {
+		toSerialize["cr"] = o.Cr
+	}
+	if !IsNil(o.Ctr) {
+		toSerialize["ctr"] = o.Ctr
+	}
+	if !IsNil(o.Days) {
+		toSerialize["days"] = o.Days
+	}
+	if !IsNil(o.Orders) {
+		toSerialize["orders"] = o.Orders
+	}
+	if !IsNil(o.Shks) {
+		toSerialize["shks"] = o.Shks
+	}
+	if !IsNil(o.Sum) {
+		toSerialize["sum"] = o.Sum
+	}
+	if !IsNil(o.SumPrice) {
+		toSerialize["sum_price"] = o.SumPrice
+	}
+	if !IsNil(o.Views) {
+		toSerialize["views"] = o.Views
+	}
+	if !IsNil(o.Currency) {
+		toSerialize["currency"] = o.Currency
+	}
 	return toSerialize, nil
-}
-
-func (o *FullStatsItem) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"advertId",
-		"atbs",
-		"canceled",
-		"clicks",
-		"cpc",
-		"cr",
-		"ctr",
-		"days",
-		"orders",
-		"shks",
-		"sum",
-		"sum_price",
-		"views",
-		"currency",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varFullStatsItem := _FullStatsItem{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varFullStatsItem)
-
-	if err != nil {
-		return err
-	}
-
-	*o = FullStatsItem(varFullStatsItem)
-
-	return err
 }
 
 type NullableFullStatsItem struct {

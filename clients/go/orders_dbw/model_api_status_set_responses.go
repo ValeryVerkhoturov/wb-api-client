@@ -11,9 +11,7 @@ API version: ordersdbw
 package orders_dbw
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the ApiStatusSetResponses type satisfies the MappedNullable interface at compile time
@@ -23,18 +21,15 @@ var _ MappedNullable = &ApiStatusSetResponses{}
 type ApiStatusSetResponses struct {
 	// Уникальный ID запроса, содержащего ошибки.
 	RequestId *string                `json:"requestId,omitempty"`
-	Results   []ApiStatusSetResponse `json:"results"`
+	Results   []ApiStatusSetResponse `json:"results,omitempty"`
 }
-
-type _ApiStatusSetResponses ApiStatusSetResponses
 
 // NewApiStatusSetResponses instantiates a new ApiStatusSetResponses object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewApiStatusSetResponses(results []ApiStatusSetResponse) *ApiStatusSetResponses {
+func NewApiStatusSetResponses() *ApiStatusSetResponses {
 	this := ApiStatusSetResponses{}
-	this.Results = results
 	return &this
 }
 
@@ -78,26 +73,34 @@ func (o *ApiStatusSetResponses) SetRequestId(v string) {
 	o.RequestId = &v
 }
 
-// GetResults returns the Results field value
+// GetResults returns the Results field value if set, zero value otherwise.
 func (o *ApiStatusSetResponses) GetResults() []ApiStatusSetResponse {
-	if o == nil {
+	if o == nil || IsNil(o.Results) {
 		var ret []ApiStatusSetResponse
 		return ret
 	}
-
 	return o.Results
 }
 
-// GetResultsOk returns a tuple with the Results field value
+// GetResultsOk returns a tuple with the Results field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ApiStatusSetResponses) GetResultsOk() ([]ApiStatusSetResponse, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Results) {
 		return nil, false
 	}
 	return o.Results, true
 }
 
-// SetResults sets field value
+// HasResults returns a boolean if a field has been set.
+func (o *ApiStatusSetResponses) HasResults() bool {
+	if o != nil && !IsNil(o.Results) {
+		return true
+	}
+
+	return false
+}
+
+// SetResults gets a reference to the given []ApiStatusSetResponse and assigns it to the Results field.
 func (o *ApiStatusSetResponses) SetResults(v []ApiStatusSetResponse) {
 	o.Results = v
 }
@@ -115,45 +118,10 @@ func (o ApiStatusSetResponses) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.RequestId) {
 		toSerialize["requestId"] = o.RequestId
 	}
-	toSerialize["results"] = o.Results
+	if !IsNil(o.Results) {
+		toSerialize["results"] = o.Results
+	}
 	return toSerialize, nil
-}
-
-func (o *ApiStatusSetResponses) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"results",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varApiStatusSetResponses := _ApiStatusSetResponses{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varApiStatusSetResponses)
-
-	if err != nil {
-		return err
-	}
-
-	*o = ApiStatusSetResponses(varApiStatusSetResponses)
-
-	return err
 }
 
 type NullableApiStatusSetResponses struct {

@@ -36,60 +36,60 @@ public class TableItemItemSt {
   public static final String SERIALIZED_NAME_NM_I_D = "nmID";
 
   @SerializedName(SERIALIZED_NAME_NM_I_D)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Long nmID;
 
   public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
 
   @SerializedName(SERIALIZED_NAME_IS_DELETED)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Boolean isDeleted;
 
   public static final String SERIALIZED_NAME_SUBJECT_NAME = "subjectName";
 
   @SerializedName(SERIALIZED_NAME_SUBJECT_NAME)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String subjectName;
 
   public static final String SERIALIZED_NAME_NAME = "name";
 
   @SerializedName(SERIALIZED_NAME_NAME)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String name;
 
   public static final String SERIALIZED_NAME_VENDOR_CODE = "vendorCode";
 
   @SerializedName(SERIALIZED_NAME_VENDOR_CODE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String vendorCode;
 
   public static final String SERIALIZED_NAME_BRAND_NAME = "brandName";
 
   @SerializedName(SERIALIZED_NAME_BRAND_NAME)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String brandName;
 
   public static final String SERIALIZED_NAME_MAIN_PHOTO = "mainPhoto";
 
   @SerializedName(SERIALIZED_NAME_MAIN_PHOTO)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String mainPhoto;
 
   public static final String SERIALIZED_NAME_HAS_SIZES = "hasSizes";
 
   @SerializedName(SERIALIZED_NAME_HAS_SIZES)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Boolean hasSizes;
 
   public static final String SERIALIZED_NAME_METRICS = "metrics";
 
   @SerializedName(SERIALIZED_NAME_METRICS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private TableItemItemStMetrics metrics;
 
   public TableItemItemSt() {}
 
-  public TableItemItemSt nmID(@jakarta.annotation.Nonnull Long nmID) {
+  public TableItemItemSt nmID(@jakarta.annotation.Nullable Long nmID) {
     this.nmID = nmID;
     return this;
   }
@@ -99,16 +99,16 @@ public class TableItemItemSt {
    *
    * @return nmID
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Long getNmID() {
     return nmID;
   }
 
-  public void setNmID(@jakarta.annotation.Nonnull Long nmID) {
+  public void setNmID(@jakarta.annotation.Nullable Long nmID) {
     this.nmID = nmID;
   }
 
-  public TableItemItemSt isDeleted(@jakarta.annotation.Nonnull Boolean isDeleted) {
+  public TableItemItemSt isDeleted(@jakarta.annotation.Nullable Boolean isDeleted) {
     this.isDeleted = isDeleted;
     return this;
   }
@@ -118,16 +118,16 @@ public class TableItemItemSt {
    *
    * @return isDeleted
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Boolean getIsDeleted() {
     return isDeleted;
   }
 
-  public void setIsDeleted(@jakarta.annotation.Nonnull Boolean isDeleted) {
+  public void setIsDeleted(@jakarta.annotation.Nullable Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
-  public TableItemItemSt subjectName(@jakarta.annotation.Nonnull String subjectName) {
+  public TableItemItemSt subjectName(@jakarta.annotation.Nullable String subjectName) {
     this.subjectName = subjectName;
     return this;
   }
@@ -137,16 +137,16 @@ public class TableItemItemSt {
    *
    * @return subjectName
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getSubjectName() {
     return subjectName;
   }
 
-  public void setSubjectName(@jakarta.annotation.Nonnull String subjectName) {
+  public void setSubjectName(@jakarta.annotation.Nullable String subjectName) {
     this.subjectName = subjectName;
   }
 
-  public TableItemItemSt name(@jakarta.annotation.Nonnull String name) {
+  public TableItemItemSt name(@jakarta.annotation.Nullable String name) {
     this.name = name;
     return this;
   }
@@ -156,16 +156,16 @@ public class TableItemItemSt {
    *
    * @return name
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getName() {
     return name;
   }
 
-  public void setName(@jakarta.annotation.Nonnull String name) {
+  public void setName(@jakarta.annotation.Nullable String name) {
     this.name = name;
   }
 
-  public TableItemItemSt vendorCode(@jakarta.annotation.Nonnull String vendorCode) {
+  public TableItemItemSt vendorCode(@jakarta.annotation.Nullable String vendorCode) {
     this.vendorCode = vendorCode;
     return this;
   }
@@ -175,16 +175,16 @@ public class TableItemItemSt {
    *
    * @return vendorCode
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getVendorCode() {
     return vendorCode;
   }
 
-  public void setVendorCode(@jakarta.annotation.Nonnull String vendorCode) {
+  public void setVendorCode(@jakarta.annotation.Nullable String vendorCode) {
     this.vendorCode = vendorCode;
   }
 
-  public TableItemItemSt brandName(@jakarta.annotation.Nonnull String brandName) {
+  public TableItemItemSt brandName(@jakarta.annotation.Nullable String brandName) {
     this.brandName = brandName;
     return this;
   }
@@ -194,16 +194,16 @@ public class TableItemItemSt {
    *
    * @return brandName
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getBrandName() {
     return brandName;
   }
 
-  public void setBrandName(@jakarta.annotation.Nonnull String brandName) {
+  public void setBrandName(@jakarta.annotation.Nullable String brandName) {
     this.brandName = brandName;
   }
 
-  public TableItemItemSt mainPhoto(@jakarta.annotation.Nonnull String mainPhoto) {
+  public TableItemItemSt mainPhoto(@jakarta.annotation.Nullable String mainPhoto) {
     this.mainPhoto = mainPhoto;
     return this;
   }
@@ -213,16 +213,16 @@ public class TableItemItemSt {
    *
    * @return mainPhoto
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getMainPhoto() {
     return mainPhoto;
   }
 
-  public void setMainPhoto(@jakarta.annotation.Nonnull String mainPhoto) {
+  public void setMainPhoto(@jakarta.annotation.Nullable String mainPhoto) {
     this.mainPhoto = mainPhoto;
   }
 
-  public TableItemItemSt hasSizes(@jakarta.annotation.Nonnull Boolean hasSizes) {
+  public TableItemItemSt hasSizes(@jakarta.annotation.Nullable Boolean hasSizes) {
     this.hasSizes = hasSizes;
     return this;
   }
@@ -233,16 +233,16 @@ public class TableItemItemSt {
    *
    * @return hasSizes
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Boolean getHasSizes() {
     return hasSizes;
   }
 
-  public void setHasSizes(@jakarta.annotation.Nonnull Boolean hasSizes) {
+  public void setHasSizes(@jakarta.annotation.Nullable Boolean hasSizes) {
     this.hasSizes = hasSizes;
   }
 
-  public TableItemItemSt metrics(@jakarta.annotation.Nonnull TableItemItemStMetrics metrics) {
+  public TableItemItemSt metrics(@jakarta.annotation.Nullable TableItemItemStMetrics metrics) {
     this.metrics = metrics;
     return this;
   }
@@ -252,12 +252,12 @@ public class TableItemItemSt {
    *
    * @return metrics
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public TableItemItemStMetrics getMetrics() {
     return metrics;
   }
 
-  public void setMetrics(@jakarta.annotation.Nonnull TableItemItemStMetrics metrics) {
+  public void setMetrics(@jakarta.annotation.Nullable TableItemItemStMetrics metrics) {
     this.metrics = metrics;
   }
 
@@ -332,15 +332,6 @@ public class TableItemItemSt {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("nmID");
-    openapiRequiredFields.add("isDeleted");
-    openapiRequiredFields.add("subjectName");
-    openapiRequiredFields.add("name");
-    openapiRequiredFields.add("vendorCode");
-    openapiRequiredFields.add("brandName");
-    openapiRequiredFields.add("mainPhoto");
-    openapiRequiredFields.add("hasSizes");
-    openapiRequiredFields.add("metrics");
   }
 
   /**
@@ -370,49 +361,46 @@ public class TableItemItemSt {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : TableItemItemSt.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    if (!jsonObj.get("subjectName").isJsonPrimitive()) {
+    if ((jsonObj.get("subjectName") != null && !jsonObj.get("subjectName").isJsonNull())
+        && !jsonObj.get("subjectName").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `subjectName` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("subjectName").toString()));
     }
-    if (!jsonObj.get("name").isJsonPrimitive()) {
+    if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull())
+        && !jsonObj.get("name").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `name` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("name").toString()));
     }
-    if (!jsonObj.get("vendorCode").isJsonPrimitive()) {
+    if ((jsonObj.get("vendorCode") != null && !jsonObj.get("vendorCode").isJsonNull())
+        && !jsonObj.get("vendorCode").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `vendorCode` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("vendorCode").toString()));
     }
-    if (!jsonObj.get("brandName").isJsonPrimitive()) {
+    if ((jsonObj.get("brandName") != null && !jsonObj.get("brandName").isJsonNull())
+        && !jsonObj.get("brandName").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `brandName` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("brandName").toString()));
     }
-    if (!jsonObj.get("mainPhoto").isJsonPrimitive()) {
+    if ((jsonObj.get("mainPhoto") != null && !jsonObj.get("mainPhoto").isJsonNull())
+        && !jsonObj.get("mainPhoto").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `mainPhoto` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("mainPhoto").toString()));
     }
-    // validate the required field `metrics`
-    TableItemItemStMetrics.validateJsonElement(jsonObj.get("metrics"));
+    // validate the optional field `metrics`
+    if (jsonObj.get("metrics") != null && !jsonObj.get("metrics").isJsonNull()) {
+      TableItemItemStMetrics.validateJsonElement(jsonObj.get("metrics"));
+    }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

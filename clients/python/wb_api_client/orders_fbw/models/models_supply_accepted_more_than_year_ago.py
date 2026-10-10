@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,11 +28,19 @@ class ModelsSupplyAcceptedMoreThanYearAgo(BaseModel):
     ModelsSupplyAcceptedMoreThanYearAgo
     """  # noqa: E501
 
-    status: StrictInt = Field(description="HTTP-статус код")
-    title: StrictStr = Field(description="Краткое описание ошибки")
-    detail: StrictStr = Field(description="Подробное описание ошибки")
-    request_id: StrictStr = Field(description="ID запроса", alias="requestId")
-    origin: StrictStr = Field(description="Сервис, в котором произошла ошибка")
+    status: Optional[StrictInt] = Field(default=None, description="HTTP-статус код")
+    title: Optional[StrictStr] = Field(
+        default=None, description="Краткое описание ошибки"
+    )
+    detail: Optional[StrictStr] = Field(
+        default=None, description="Подробное описание ошибки"
+    )
+    request_id: Optional[StrictStr] = Field(
+        default=None, description="ID запроса", alias="requestId"
+    )
+    origin: Optional[StrictStr] = Field(
+        default=None, description="Сервис, в котором произошла ошибка"
+    )
     __properties: ClassVar[List[str]] = [
         "status",
         "title",

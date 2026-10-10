@@ -36,54 +36,54 @@ public class InventoryWbResponseItemsInner {
   public static final String SERIALIZED_NAME_NM_ID = "nmId";
 
   @SerializedName(SERIALIZED_NAME_NM_ID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Long nmId;
 
   public static final String SERIALIZED_NAME_CHRT_ID = "chrtId";
 
   @SerializedName(SERIALIZED_NAME_CHRT_ID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer chrtId;
 
   public static final String SERIALIZED_NAME_WAREHOUSE_ID = "warehouseId";
 
   @SerializedName(SERIALIZED_NAME_WAREHOUSE_ID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Long warehouseId;
 
   public static final String SERIALIZED_NAME_WAREHOUSE_NAME = "warehouseName";
 
   @SerializedName(SERIALIZED_NAME_WAREHOUSE_NAME)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String warehouseName;
 
   public static final String SERIALIZED_NAME_REGION_NAME = "regionName";
 
   @SerializedName(SERIALIZED_NAME_REGION_NAME)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String regionName;
 
   public static final String SERIALIZED_NAME_QUANTITY = "quantity";
 
   @SerializedName(SERIALIZED_NAME_QUANTITY)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer quantity;
 
   public static final String SERIALIZED_NAME_IN_WAY_TO_CLIENT = "inWayToClient";
 
   @SerializedName(SERIALIZED_NAME_IN_WAY_TO_CLIENT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer inWayToClient;
 
   public static final String SERIALIZED_NAME_IN_WAY_FROM_CLIENT = "inWayFromClient";
 
   @SerializedName(SERIALIZED_NAME_IN_WAY_FROM_CLIENT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer inWayFromClient;
 
   public InventoryWbResponseItemsInner() {}
 
-  public InventoryWbResponseItemsInner nmId(@jakarta.annotation.Nonnull Long nmId) {
+  public InventoryWbResponseItemsInner nmId(@jakarta.annotation.Nullable Long nmId) {
     this.nmId = nmId;
     return this;
   }
@@ -93,16 +93,16 @@ public class InventoryWbResponseItemsInner {
    *
    * @return nmId
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Long getNmId() {
     return nmId;
   }
 
-  public void setNmId(@jakarta.annotation.Nonnull Long nmId) {
+  public void setNmId(@jakarta.annotation.Nullable Long nmId) {
     this.nmId = nmId;
   }
 
-  public InventoryWbResponseItemsInner chrtId(@jakarta.annotation.Nonnull Integer chrtId) {
+  public InventoryWbResponseItemsInner chrtId(@jakarta.annotation.Nullable Integer chrtId) {
     this.chrtId = chrtId;
     return this;
   }
@@ -112,16 +112,16 @@ public class InventoryWbResponseItemsInner {
    *
    * @return chrtId
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getChrtId() {
     return chrtId;
   }
 
-  public void setChrtId(@jakarta.annotation.Nonnull Integer chrtId) {
+  public void setChrtId(@jakarta.annotation.Nullable Integer chrtId) {
     this.chrtId = chrtId;
   }
 
-  public InventoryWbResponseItemsInner warehouseId(@jakarta.annotation.Nonnull Long warehouseId) {
+  public InventoryWbResponseItemsInner warehouseId(@jakarta.annotation.Nullable Long warehouseId) {
     this.warehouseId = warehouseId;
     return this;
   }
@@ -132,17 +132,17 @@ public class InventoryWbResponseItemsInner {
    *
    * @return warehouseId
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Long getWarehouseId() {
     return warehouseId;
   }
 
-  public void setWarehouseId(@jakarta.annotation.Nonnull Long warehouseId) {
+  public void setWarehouseId(@jakarta.annotation.Nullable Long warehouseId) {
     this.warehouseId = warehouseId;
   }
 
   public InventoryWbResponseItemsInner warehouseName(
-      @jakarta.annotation.Nonnull String warehouseName) {
+      @jakarta.annotation.Nullable String warehouseName) {
     this.warehouseName = warehouseName;
     return this;
   }
@@ -153,16 +153,16 @@ public class InventoryWbResponseItemsInner {
    *
    * @return warehouseName
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getWarehouseName() {
     return warehouseName;
   }
 
-  public void setWarehouseName(@jakarta.annotation.Nonnull String warehouseName) {
+  public void setWarehouseName(@jakarta.annotation.Nullable String warehouseName) {
     this.warehouseName = warehouseName;
   }
 
-  public InventoryWbResponseItemsInner regionName(@jakarta.annotation.Nonnull String regionName) {
+  public InventoryWbResponseItemsInner regionName(@jakarta.annotation.Nullable String regionName) {
     this.regionName = regionName;
     return this;
   }
@@ -173,16 +173,16 @@ public class InventoryWbResponseItemsInner {
    *
    * @return regionName
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getRegionName() {
     return regionName;
   }
 
-  public void setRegionName(@jakarta.annotation.Nonnull String regionName) {
+  public void setRegionName(@jakarta.annotation.Nullable String regionName) {
     this.regionName = regionName;
   }
 
-  public InventoryWbResponseItemsInner quantity(@jakarta.annotation.Nonnull Integer quantity) {
+  public InventoryWbResponseItemsInner quantity(@jakarta.annotation.Nullable Integer quantity) {
     this.quantity = quantity;
     return this;
   }
@@ -192,17 +192,17 @@ public class InventoryWbResponseItemsInner {
    *
    * @return quantity
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getQuantity() {
     return quantity;
   }
 
-  public void setQuantity(@jakarta.annotation.Nonnull Integer quantity) {
+  public void setQuantity(@jakarta.annotation.Nullable Integer quantity) {
     this.quantity = quantity;
   }
 
   public InventoryWbResponseItemsInner inWayToClient(
-      @jakarta.annotation.Nonnull Integer inWayToClient) {
+      @jakarta.annotation.Nullable Integer inWayToClient) {
     this.inWayToClient = inWayToClient;
     return this;
   }
@@ -212,17 +212,17 @@ public class InventoryWbResponseItemsInner {
    *
    * @return inWayToClient
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getInWayToClient() {
     return inWayToClient;
   }
 
-  public void setInWayToClient(@jakarta.annotation.Nonnull Integer inWayToClient) {
+  public void setInWayToClient(@jakarta.annotation.Nullable Integer inWayToClient) {
     this.inWayToClient = inWayToClient;
   }
 
   public InventoryWbResponseItemsInner inWayFromClient(
-      @jakarta.annotation.Nonnull Integer inWayFromClient) {
+      @jakarta.annotation.Nullable Integer inWayFromClient) {
     this.inWayFromClient = inWayFromClient;
     return this;
   }
@@ -232,12 +232,12 @@ public class InventoryWbResponseItemsInner {
    *
    * @return inWayFromClient
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getInWayFromClient() {
     return inWayFromClient;
   }
 
-  public void setInWayFromClient(@jakarta.annotation.Nonnull Integer inWayFromClient) {
+  public void setInWayFromClient(@jakarta.annotation.Nullable Integer inWayFromClient) {
     this.inWayFromClient = inWayFromClient;
   }
 
@@ -316,14 +316,6 @@ public class InventoryWbResponseItemsInner {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("nmId");
-    openapiRequiredFields.add("chrtId");
-    openapiRequiredFields.add("warehouseId");
-    openapiRequiredFields.add("warehouseName");
-    openapiRequiredFields.add("regionName");
-    openapiRequiredFields.add("quantity");
-    openapiRequiredFields.add("inWayToClient");
-    openapiRequiredFields.add("inWayFromClient");
   }
 
   /**
@@ -354,24 +346,16 @@ public class InventoryWbResponseItemsInner {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : InventoryWbResponseItemsInner.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    if (!jsonObj.get("warehouseName").isJsonPrimitive()) {
+    if ((jsonObj.get("warehouseName") != null && !jsonObj.get("warehouseName").isJsonNull())
+        && !jsonObj.get("warehouseName").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `warehouseName` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("warehouseName").toString()));
     }
-    if (!jsonObj.get("regionName").isJsonPrimitive()) {
+    if ((jsonObj.get("regionName") != null && !jsonObj.get("regionName").isJsonNull())
+        && !jsonObj.get("regionName").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `regionName` to be a primitive type in the JSON string but got `%s`",

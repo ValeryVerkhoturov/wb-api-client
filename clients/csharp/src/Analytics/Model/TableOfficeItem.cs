@@ -34,35 +34,15 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TableOfficeItem" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected TableOfficeItem() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="TableOfficeItem" /> class.
-        /// </summary>
-        /// <param name="regionName">Регион отгрузки. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) для складов WB может быть только &#x60;Склад WB&#x60; (required).</param>
-        /// <param name="officeID">ID склада. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) для складов WB может быть только &#x60;-999999&#x60; (required).</param>
-        /// <param name="officeName">Название склада. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) для складов WB может быть только &#x60;\&quot;\&quot;&#x60; (required).</param>
-        /// <param name="metrics">Метрики склада (required).</param>
+        /// <param name="regionName">Регион отгрузки. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) для складов WB может быть только &#x60;Склад WB&#x60;.</param>
+        /// <param name="officeID">ID склада. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) для складов WB может быть только &#x60;-999999&#x60;.</param>
+        /// <param name="officeName">Название склада. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) для складов WB может быть только &#x60;\&quot;\&quot;&#x60;.</param>
+        /// <param name="metrics">Метрики склада.</param>
         public TableOfficeItem(string regionName = default(string), long officeID = default(long), string officeName = default(string), TableCommonMetrics metrics = default(TableCommonMetrics))
         {
-            // to ensure "regionName" is required (not null)
-            if (regionName == null)
-            {
-                throw new ArgumentNullException("regionName is a required property for TableOfficeItem and cannot be null");
-            }
             this.RegionName = regionName;
             this.OfficeID = officeID;
-            // to ensure "officeName" is required (not null)
-            if (officeName == null)
-            {
-                throw new ArgumentNullException("officeName is a required property for TableOfficeItem and cannot be null");
-            }
             this.OfficeName = officeName;
-            // to ensure "metrics" is required (not null)
-            if (metrics == null)
-            {
-                throw new ArgumentNullException("metrics is a required property for TableOfficeItem and cannot be null");
-            }
             this.Metrics = metrics;
         }
 
@@ -73,7 +53,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>Склад WB</example>
         */
-        [DataMember(Name = "regionName", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "regionName", EmitDefaultValue = false)]
         public string RegionName { get; set; }
 
         /// <summary>
@@ -83,21 +63,21 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>-999999</example>
         */
-        [DataMember(Name = "officeID", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "officeID", EmitDefaultValue = false)]
         public long OfficeID { get; set; }
 
         /// <summary>
         /// Название склада. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) для складов WB может быть только &#x60;\&quot;\&quot;&#x60;
         /// </summary>
         /// <value>Название склада. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) для складов WB может быть только &#x60;\&quot;\&quot;&#x60;</value>
-        [DataMember(Name = "officeName", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "officeName", EmitDefaultValue = false)]
         public string OfficeName { get; set; }
 
         /// <summary>
         /// Метрики склада
         /// </summary>
         /// <value>Метрики склада</value>
-        [DataMember(Name = "metrics", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "metrics", EmitDefaultValue = false)]
         public TableCommonMetrics Metrics { get; set; }
 
         /// <summary>

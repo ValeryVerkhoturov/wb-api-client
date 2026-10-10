@@ -56,149 +56,54 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>1</example>
         */
-        [DataMember(Name = "reportType", IsRequired = true, EmitDefaultValue = true)]
-        public ReportTypeEnum ReportType { get; set; }
+        [DataMember(Name = "reportType", EmitDefaultValue = false)]
+        public ReportTypeEnum? ReportType { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="SalesReportListRes" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected SalesReportListRes() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="SalesReportListRes" /> class.
-        /// </summary>
-        /// <param name="reportId">ID отчёта (required).</param>
-        /// <param name="sellerFinanceName">Наименование продавца (required).</param>
-        /// <param name="dateFrom">Дата начала отчётного периода (required).</param>
-        /// <param name="dateTo">Дата конца отчётного периода (required).</param>
-        /// <param name="createDate">Дата формирования отчёта (required).</param>
-        /// <param name="currency">Валюта отчёта (required).</param>
-        /// <param name="reportType">Тип отчёта:   - &#x60;1&#x60; — основной   - &#x60;2&#x60; — по выкупам  (required).</param>
-        /// <param name="retailAmountSum">Продажа (required).</param>
-        /// <param name="forPaySum">К перечислению за товар (required).</param>
-        /// <param name="avgSalePercent">Согласованная скидка, % (required).</param>
-        /// <param name="deliveryServiceSum">Стоимость доставки (required).</param>
-        /// <param name="paidStorageSum">Стоимость хранения (required).</param>
-        /// <param name="paidAcceptanceSum">Стоимость операций при приёмке (required).</param>
-        /// <param name="deductionSum">Прочие удержания/выплаты (required).</param>
-        /// <param name="penaltySum">Общая сумма штрафов (required).</param>
-        /// <param name="additionalPaymentSum">Корректировка Вознаграждения Wildberries (ВВ) (required).</param>
-        /// <param name="cashbackAmountSum">Сумма баллов, удержанных по программе лояльности (required).</param>
-        /// <param name="cashbackDiscountSum">Компенсация скидки по программе лояльности (required).</param>
-        /// <param name="cashbackCommissionChangeSum">Стоимость участия в программе лояльности (required).</param>
-        /// <param name="paymentSchedule">Разовое изменение срока перечисления денежных средств (required).</param>
-        /// <param name="bankPaymentSum">Итого к оплате (required).</param>
-        public SalesReportListRes(long reportId = default(long), string sellerFinanceName = default(string), string dateFrom = default(string), string dateTo = default(string), string createDate = default(string), string currency = default(string), ReportTypeEnum reportType = default(ReportTypeEnum), string retailAmountSum = default(string), string forPaySum = default(string), decimal avgSalePercent = default(decimal), string deliveryServiceSum = default(string), string paidStorageSum = default(string), string paidAcceptanceSum = default(string), string deductionSum = default(string), string penaltySum = default(string), string additionalPaymentSum = default(string), string cashbackAmountSum = default(string), string cashbackDiscountSum = default(string), string cashbackCommissionChangeSum = default(string), string paymentSchedule = default(string), string bankPaymentSum = default(string))
+        /// <param name="reportId">ID отчёта.</param>
+        /// <param name="sellerFinanceName">Наименование продавца.</param>
+        /// <param name="dateFrom">Дата начала отчётного периода.</param>
+        /// <param name="dateTo">Дата конца отчётного периода.</param>
+        /// <param name="createDate">Дата формирования отчёта.</param>
+        /// <param name="currency">Валюта отчёта.</param>
+        /// <param name="reportType">Тип отчёта:   - &#x60;1&#x60; — основной   - &#x60;2&#x60; — по выкупам .</param>
+        /// <param name="retailAmountSum">Продажа.</param>
+        /// <param name="forPaySum">К перечислению за товар.</param>
+        /// <param name="avgSalePercent">Согласованная скидка, %.</param>
+        /// <param name="deliveryServiceSum">Стоимость доставки.</param>
+        /// <param name="paidStorageSum">Стоимость хранения.</param>
+        /// <param name="paidAcceptanceSum">Стоимость операций при приёмке.</param>
+        /// <param name="deductionSum">Прочие удержания/выплаты.</param>
+        /// <param name="penaltySum">Общая сумма штрафов.</param>
+        /// <param name="additionalPaymentSum">Корректировка Вознаграждения Wildberries (ВВ).</param>
+        /// <param name="cashbackAmountSum">Сумма баллов, удержанных по программе лояльности.</param>
+        /// <param name="cashbackDiscountSum">Компенсация скидки по программе лояльности.</param>
+        /// <param name="cashbackCommissionChangeSum">Стоимость участия в программе лояльности.</param>
+        /// <param name="paymentSchedule">Разовое изменение срока перечисления денежных средств.</param>
+        /// <param name="bankPaymentSum">Итого к оплате.</param>
+        public SalesReportListRes(long reportId = default(long), string sellerFinanceName = default(string), string dateFrom = default(string), string dateTo = default(string), string createDate = default(string), string currency = default(string), ReportTypeEnum? reportType = default(ReportTypeEnum?), string retailAmountSum = default(string), string forPaySum = default(string), decimal avgSalePercent = default(decimal), string deliveryServiceSum = default(string), string paidStorageSum = default(string), string paidAcceptanceSum = default(string), string deductionSum = default(string), string penaltySum = default(string), string additionalPaymentSum = default(string), string cashbackAmountSum = default(string), string cashbackDiscountSum = default(string), string cashbackCommissionChangeSum = default(string), string paymentSchedule = default(string), string bankPaymentSum = default(string))
         {
             this.ReportId = reportId;
-            // to ensure "sellerFinanceName" is required (not null)
-            if (sellerFinanceName == null)
-            {
-                throw new ArgumentNullException("sellerFinanceName is a required property for SalesReportListRes and cannot be null");
-            }
             this.SellerFinanceName = sellerFinanceName;
-            // to ensure "dateFrom" is required (not null)
-            if (dateFrom == null)
-            {
-                throw new ArgumentNullException("dateFrom is a required property for SalesReportListRes and cannot be null");
-            }
             this.DateFrom = dateFrom;
-            // to ensure "dateTo" is required (not null)
-            if (dateTo == null)
-            {
-                throw new ArgumentNullException("dateTo is a required property for SalesReportListRes and cannot be null");
-            }
             this.DateTo = dateTo;
-            // to ensure "createDate" is required (not null)
-            if (createDate == null)
-            {
-                throw new ArgumentNullException("createDate is a required property for SalesReportListRes and cannot be null");
-            }
             this.CreateDate = createDate;
-            // to ensure "currency" is required (not null)
-            if (currency == null)
-            {
-                throw new ArgumentNullException("currency is a required property for SalesReportListRes and cannot be null");
-            }
             this.Currency = currency;
             this.ReportType = reportType;
-            // to ensure "retailAmountSum" is required (not null)
-            if (retailAmountSum == null)
-            {
-                throw new ArgumentNullException("retailAmountSum is a required property for SalesReportListRes and cannot be null");
-            }
             this.RetailAmountSum = retailAmountSum;
-            // to ensure "forPaySum" is required (not null)
-            if (forPaySum == null)
-            {
-                throw new ArgumentNullException("forPaySum is a required property for SalesReportListRes and cannot be null");
-            }
             this.ForPaySum = forPaySum;
             this.AvgSalePercent = avgSalePercent;
-            // to ensure "deliveryServiceSum" is required (not null)
-            if (deliveryServiceSum == null)
-            {
-                throw new ArgumentNullException("deliveryServiceSum is a required property for SalesReportListRes and cannot be null");
-            }
             this.DeliveryServiceSum = deliveryServiceSum;
-            // to ensure "paidStorageSum" is required (not null)
-            if (paidStorageSum == null)
-            {
-                throw new ArgumentNullException("paidStorageSum is a required property for SalesReportListRes and cannot be null");
-            }
             this.PaidStorageSum = paidStorageSum;
-            // to ensure "paidAcceptanceSum" is required (not null)
-            if (paidAcceptanceSum == null)
-            {
-                throw new ArgumentNullException("paidAcceptanceSum is a required property for SalesReportListRes and cannot be null");
-            }
             this.PaidAcceptanceSum = paidAcceptanceSum;
-            // to ensure "deductionSum" is required (not null)
-            if (deductionSum == null)
-            {
-                throw new ArgumentNullException("deductionSum is a required property for SalesReportListRes and cannot be null");
-            }
             this.DeductionSum = deductionSum;
-            // to ensure "penaltySum" is required (not null)
-            if (penaltySum == null)
-            {
-                throw new ArgumentNullException("penaltySum is a required property for SalesReportListRes and cannot be null");
-            }
             this.PenaltySum = penaltySum;
-            // to ensure "additionalPaymentSum" is required (not null)
-            if (additionalPaymentSum == null)
-            {
-                throw new ArgumentNullException("additionalPaymentSum is a required property for SalesReportListRes and cannot be null");
-            }
             this.AdditionalPaymentSum = additionalPaymentSum;
-            // to ensure "cashbackAmountSum" is required (not null)
-            if (cashbackAmountSum == null)
-            {
-                throw new ArgumentNullException("cashbackAmountSum is a required property for SalesReportListRes and cannot be null");
-            }
             this.CashbackAmountSum = cashbackAmountSum;
-            // to ensure "cashbackDiscountSum" is required (not null)
-            if (cashbackDiscountSum == null)
-            {
-                throw new ArgumentNullException("cashbackDiscountSum is a required property for SalesReportListRes and cannot be null");
-            }
             this.CashbackDiscountSum = cashbackDiscountSum;
-            // to ensure "cashbackCommissionChangeSum" is required (not null)
-            if (cashbackCommissionChangeSum == null)
-            {
-                throw new ArgumentNullException("cashbackCommissionChangeSum is a required property for SalesReportListRes and cannot be null");
-            }
             this.CashbackCommissionChangeSum = cashbackCommissionChangeSum;
-            // to ensure "paymentSchedule" is required (not null)
-            if (paymentSchedule == null)
-            {
-                throw new ArgumentNullException("paymentSchedule is a required property for SalesReportListRes and cannot be null");
-            }
             this.PaymentSchedule = paymentSchedule;
-            // to ensure "bankPaymentSum" is required (not null)
-            if (bankPaymentSum == null)
-            {
-                throw new ArgumentNullException("bankPaymentSum is a required property for SalesReportListRes and cannot be null");
-            }
             this.BankPaymentSum = bankPaymentSum;
         }
 
@@ -209,7 +114,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>307401554</example>
         */
-        [DataMember(Name = "reportId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "reportId", EmitDefaultValue = false)]
         public long ReportId { get; set; }
 
         /// <summary>
@@ -219,7 +124,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>ИП Кружинин В. Р.</example>
         */
-        [DataMember(Name = "sellerFinanceName", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "sellerFinanceName", EmitDefaultValue = false)]
         public string SellerFinanceName { get; set; }
 
         /// <summary>
@@ -229,7 +134,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>2026-03-16</example>
         */
-        [DataMember(Name = "dateFrom", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "dateFrom", EmitDefaultValue = false)]
         public string DateFrom { get; set; }
 
         /// <summary>
@@ -239,7 +144,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>2026-03-22</example>
         */
-        [DataMember(Name = "dateTo", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "dateTo", EmitDefaultValue = false)]
         public string DateTo { get; set; }
 
         /// <summary>
@@ -249,7 +154,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>2026-03-23</example>
         */
-        [DataMember(Name = "createDate", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "createDate", EmitDefaultValue = false)]
         public string CreateDate { get; set; }
 
         /// <summary>
@@ -259,7 +164,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>RUB</example>
         */
-        [DataMember(Name = "currency", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "currency", EmitDefaultValue = false)]
         public string Currency { get; set; }
 
         /// <summary>
@@ -269,7 +174,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>258</example>
         */
-        [DataMember(Name = "retailAmountSum", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "retailAmountSum", EmitDefaultValue = false)]
         public string RetailAmountSum { get; set; }
 
         /// <summary>
@@ -279,7 +184,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>183.79</example>
         */
-        [DataMember(Name = "forPaySum", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "forPaySum", EmitDefaultValue = false)]
         public string ForPaySum { get; set; }
 
         /// <summary>
@@ -289,7 +194,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>0</example>
         */
-        [DataMember(Name = "avgSalePercent", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "avgSalePercent", EmitDefaultValue = false)]
         public decimal AvgSalePercent { get; set; }
 
         /// <summary>
@@ -299,7 +204,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>2558.47</example>
         */
-        [DataMember(Name = "deliveryServiceSum", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "deliveryServiceSum", EmitDefaultValue = false)]
         public string DeliveryServiceSum { get; set; }
 
         /// <summary>
@@ -309,7 +214,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>626.84</example>
         */
-        [DataMember(Name = "paidStorageSum", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "paidStorageSum", EmitDefaultValue = false)]
         public string PaidStorageSum { get; set; }
 
         /// <summary>
@@ -319,7 +224,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>243.81</example>
         */
-        [DataMember(Name = "paidAcceptanceSum", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "paidAcceptanceSum", EmitDefaultValue = false)]
         public string PaidAcceptanceSum { get; set; }
 
         /// <summary>
@@ -329,7 +234,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>150</example>
         */
-        [DataMember(Name = "deductionSum", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "deductionSum", EmitDefaultValue = false)]
         public string DeductionSum { get; set; }
 
         /// <summary>
@@ -339,7 +244,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>1457.61</example>
         */
-        [DataMember(Name = "penaltySum", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "penaltySum", EmitDefaultValue = false)]
         public string PenaltySum { get; set; }
 
         /// <summary>
@@ -349,7 +254,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>9509.71</example>
         */
-        [DataMember(Name = "additionalPaymentSum", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "additionalPaymentSum", EmitDefaultValue = false)]
         public string AdditionalPaymentSum { get; set; }
 
         /// <summary>
@@ -359,7 +264,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>2</example>
         */
-        [DataMember(Name = "cashbackAmountSum", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "cashbackAmountSum", EmitDefaultValue = false)]
         public string CashbackAmountSum { get; set; }
 
         /// <summary>
@@ -369,7 +274,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>19</example>
         */
-        [DataMember(Name = "cashbackDiscountSum", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "cashbackDiscountSum", EmitDefaultValue = false)]
         public string CashbackDiscountSum { get; set; }
 
         /// <summary>
@@ -379,7 +284,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>0.2</example>
         */
-        [DataMember(Name = "cashbackCommissionChangeSum", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "cashbackCommissionChangeSum", EmitDefaultValue = false)]
         public string CashbackCommissionChangeSum { get; set; }
 
         /// <summary>
@@ -389,7 +294,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>-1</example>
         */
-        [DataMember(Name = "paymentSchedule", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "paymentSchedule", EmitDefaultValue = false)]
         public string PaymentSchedule { get; set; }
 
         /// <summary>
@@ -399,7 +304,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>5172.94</example>
         */
-        [DataMember(Name = "bankPaymentSum", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "bankPaymentSum", EmitDefaultValue = false)]
         public string BankPaymentSum { get; set; }
 
         /// <summary>

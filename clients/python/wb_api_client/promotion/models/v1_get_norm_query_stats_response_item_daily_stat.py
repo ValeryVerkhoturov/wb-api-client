@@ -31,7 +31,9 @@ class V1GetNormQueryStatsResponseItemDailyStat(BaseModel):
     V1GetNormQueryStatsResponseItemDailyStat
     """  # noqa: E501
 
-    var_date: StrictStr = Field(description="Дата", alias="date")
+    var_date: Optional[StrictStr] = Field(
+        default=None, description="Дата", alias="date"
+    )
     stat: Optional[V1GetNormQueryStatsResponseItemStat] = None
     __properties: ClassVar[List[str]] = ["date", "stat"]
 

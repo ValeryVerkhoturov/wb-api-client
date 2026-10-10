@@ -32,9 +32,9 @@ class ApiCustomsDeclarationSetResponse(BaseModel):
     """  # noqa: E501
 
     request_id: Optional[Any] = Field(
-        description="Уникальный ID запроса", alias="requestId"
+        default=None, description="Уникальный ID запроса", alias="requestId"
     )
-    results: List[ApiStatusSetCustomsDeclarationResponse]
+    results: Optional[List[ApiStatusSetCustomsDeclarationResponse]] = None
     __properties: ClassVar[List[str]] = ["requestId", "results"]
 
     model_config = ConfigDict(

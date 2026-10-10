@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from wb_api_client.analytics.models.table_shipping_office_item_offices_inner import (
     TableShippingOfficeItemOfficesInner,
 )
@@ -34,13 +34,17 @@ class TableShippingOfficeItem(BaseModel):
     Данные по региону отгрузки
     """  # noqa: E501
 
-    region_name: StrictStr = Field(
+    region_name: Optional[StrictStr] = Field(
+        default=None,
         description="Регион отгрузки. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) для складов WB может быть только `Склад WB`",
         alias="regionName",
     )
-    metrics: TableShippingOfficeMetrics = Field(description="Метрики по региону")
-    offices: List[TableShippingOfficeItemOfficesInner] = Field(
-        description="Данные по складам. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `[]`"
+    metrics: Optional[TableShippingOfficeMetrics] = Field(
+        default=None, description="Метрики по региону"
+    )
+    offices: Optional[List[TableShippingOfficeItemOfficesInner]] = Field(
+        default=None,
+        description="Данные по складам. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `[]`",
     )
     __properties: ClassVar[List[str]] = ["regionName", "metrics", "offices"]
 

@@ -1911,9 +1911,6 @@ components:
   schemas:
     api.OrdersFinalPriceResponse:
       type: object
-      required:
-      - requestId
-      - results
       properties:
         requestId:
           type: string
@@ -1924,8 +1921,6 @@ components:
             $ref: '#/components/schemas/api.OrderFinalPriceResult'
     api.OrderFinalPriceResult:
       type: object
-      required:
-      - orderId
       properties:
         orderId:
           description: ID сборочного задания
@@ -2788,8 +2783,6 @@ components:
           example: 123456
     api.OrdersMetaDetailsResponse:
       type: object
-      required:
-      - requestId
       properties:
         requestId:
           type: string
@@ -2800,8 +2793,6 @@ components:
           description: Идентификаторы маркировки сборочных заданий и статусы их валидации
           items:
             type: object
-            required:
-            - isError
             properties:
               orderId:
                 type: integer
@@ -2971,9 +2962,6 @@ components:
           example: IncorrectRequest
       type: object
     api.BatchErrorFinalPriceResponse:
-      required:
-      - code
-      - detail
       properties:
         code:
           type: integer
@@ -3081,8 +3069,6 @@ components:
       type: object
     api.B2bClientInfoResponses:
       type: object
-      required:
-      - requestId
       example:
         requestId: 03615778-eb9e-4f55-b4O4-fd3ac0fad2сc
         results:
@@ -3107,9 +3093,6 @@ components:
             $ref: '#/components/schemas/api.B2bClientInfoResponse'
     api.B2bClientInfoResponse:
       type: object
-      required:
-      - isError
-      - orderId
       properties:
         data:
           $ref: '#/components/schemas/api.B2bClientInfo'
@@ -3231,12 +3214,6 @@ components:
           description: Стикеры
           items:
             type: object
-            required:
-            - barcode
-            - file
-            - orderId
-            - partA
-            - partB
             properties:
               orderId:
                 type: integer

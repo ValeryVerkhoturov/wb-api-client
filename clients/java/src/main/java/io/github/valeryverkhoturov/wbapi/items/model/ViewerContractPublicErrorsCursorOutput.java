@@ -37,24 +37,24 @@ public class ViewerContractPublicErrorsCursorOutput {
   public static final String SERIALIZED_NAME_NEXT = "next";
 
   @SerializedName(SERIALIZED_NAME_NEXT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Boolean next;
 
   public static final String SERIALIZED_NAME_UPDATED_AT = "updatedAt";
 
   @SerializedName(SERIALIZED_NAME_UPDATED_AT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String updatedAt;
 
   public static final String SERIALIZED_NAME_BATCH_U_U_I_D = "batchUUID";
 
   @SerializedName(SERIALIZED_NAME_BATCH_U_U_I_D)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private UUID batchUUID;
 
   public ViewerContractPublicErrorsCursorOutput() {}
 
-  public ViewerContractPublicErrorsCursorOutput next(@jakarta.annotation.Nonnull Boolean next) {
+  public ViewerContractPublicErrorsCursorOutput next(@jakarta.annotation.Nullable Boolean next) {
     this.next = next;
     return this;
   }
@@ -64,17 +64,17 @@ public class ViewerContractPublicErrorsCursorOutput {
    *
    * @return next
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Boolean getNext() {
     return next;
   }
 
-  public void setNext(@jakarta.annotation.Nonnull Boolean next) {
+  public void setNext(@jakarta.annotation.Nullable Boolean next) {
     this.next = next;
   }
 
   public ViewerContractPublicErrorsCursorOutput updatedAt(
-      @jakarta.annotation.Nonnull String updatedAt) {
+      @jakarta.annotation.Nullable String updatedAt) {
     this.updatedAt = updatedAt;
     return this;
   }
@@ -84,17 +84,17 @@ public class ViewerContractPublicErrorsCursorOutput {
    *
    * @return updatedAt
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getUpdatedAt() {
     return updatedAt;
   }
 
-  public void setUpdatedAt(@jakarta.annotation.Nonnull String updatedAt) {
+  public void setUpdatedAt(@jakarta.annotation.Nullable String updatedAt) {
     this.updatedAt = updatedAt;
   }
 
   public ViewerContractPublicErrorsCursorOutput batchUUID(
-      @jakarta.annotation.Nonnull UUID batchUUID) {
+      @jakarta.annotation.Nullable UUID batchUUID) {
     this.batchUUID = batchUUID;
     return this;
   }
@@ -104,12 +104,12 @@ public class ViewerContractPublicErrorsCursorOutput {
    *
    * @return batchUUID
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public UUID getBatchUUID() {
     return batchUUID;
   }
 
-  public void setBatchUUID(@jakarta.annotation.Nonnull UUID batchUUID) {
+  public void setBatchUUID(@jakarta.annotation.Nullable UUID batchUUID) {
     this.batchUUID = batchUUID;
   }
 
@@ -166,9 +166,6 @@ public class ViewerContractPublicErrorsCursorOutput {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("next");
-    openapiRequiredFields.add("updatedAt");
-    openapiRequiredFields.add("batchUUID");
   }
 
   /**
@@ -199,24 +196,16 @@ public class ViewerContractPublicErrorsCursorOutput {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : ViewerContractPublicErrorsCursorOutput.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    if (!jsonObj.get("updatedAt").isJsonPrimitive()) {
+    if ((jsonObj.get("updatedAt") != null && !jsonObj.get("updatedAt").isJsonNull())
+        && !jsonObj.get("updatedAt").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `updatedAt` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("updatedAt").toString()));
     }
-    if (!jsonObj.get("batchUUID").isJsonPrimitive()) {
+    if ((jsonObj.get("batchUUID") != null && !jsonObj.get("batchUUID").isJsonNull())
+        && !jsonObj.get("batchUUID").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `batchUUID` to be a primitive type in the JSON string but got `%s`",

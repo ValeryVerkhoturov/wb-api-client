@@ -11,9 +11,7 @@ API version: promotion
 package promotion
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the V0BidRecommendationCPCLevels type satisfies the MappedNullable interface at compile time
@@ -22,24 +20,19 @@ var _ MappedNullable = &V0BidRecommendationCPCLevels{}
 // V0BidRecommendationCPCLevels struct for V0BidRecommendationCPCLevels
 type V0BidRecommendationCPCLevels struct {
 	// Ставка для попадания в позиции 1-2
-	Range1To2 V0BidRecommendationBaseBid `json:"range1To2"`
+	Range1To2 *V0BidRecommendationBaseBid `json:"range1To2,omitempty"`
 	// Ставка для попадания в позиции 3-10
-	Range3To10 V0BidRecommendationBaseBid `json:"range3To10"`
+	Range3To10 *V0BidRecommendationBaseBid `json:"range3To10,omitempty"`
 	// Ставка для попадания в позиции 11-34
-	Range11To34 V0BidRecommendationBaseBid `json:"range11To34"`
+	Range11To34 *V0BidRecommendationBaseBid `json:"range11To34,omitempty"`
 }
-
-type _V0BidRecommendationCPCLevels V0BidRecommendationCPCLevels
 
 // NewV0BidRecommendationCPCLevels instantiates a new V0BidRecommendationCPCLevels object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewV0BidRecommendationCPCLevels(range1To2 V0BidRecommendationBaseBid, range3To10 V0BidRecommendationBaseBid, range11To34 V0BidRecommendationBaseBid) *V0BidRecommendationCPCLevels {
+func NewV0BidRecommendationCPCLevels() *V0BidRecommendationCPCLevels {
 	this := V0BidRecommendationCPCLevels{}
-	this.Range1To2 = range1To2
-	this.Range3To10 = range3To10
-	this.Range11To34 = range11To34
 	return &this
 }
 
@@ -51,76 +44,100 @@ func NewV0BidRecommendationCPCLevelsWithDefaults() *V0BidRecommendationCPCLevels
 	return &this
 }
 
-// GetRange1To2 returns the Range1To2 field value
+// GetRange1To2 returns the Range1To2 field value if set, zero value otherwise.
 func (o *V0BidRecommendationCPCLevels) GetRange1To2() V0BidRecommendationBaseBid {
-	if o == nil {
+	if o == nil || IsNil(o.Range1To2) {
 		var ret V0BidRecommendationBaseBid
 		return ret
 	}
-
-	return o.Range1To2
+	return *o.Range1To2
 }
 
-// GetRange1To2Ok returns a tuple with the Range1To2 field value
+// GetRange1To2Ok returns a tuple with the Range1To2 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *V0BidRecommendationCPCLevels) GetRange1To2Ok() (*V0BidRecommendationBaseBid, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Range1To2) {
 		return nil, false
 	}
-	return &o.Range1To2, true
+	return o.Range1To2, true
 }
 
-// SetRange1To2 sets field value
+// HasRange1To2 returns a boolean if a field has been set.
+func (o *V0BidRecommendationCPCLevels) HasRange1To2() bool {
+	if o != nil && !IsNil(o.Range1To2) {
+		return true
+	}
+
+	return false
+}
+
+// SetRange1To2 gets a reference to the given V0BidRecommendationBaseBid and assigns it to the Range1To2 field.
 func (o *V0BidRecommendationCPCLevels) SetRange1To2(v V0BidRecommendationBaseBid) {
-	o.Range1To2 = v
+	o.Range1To2 = &v
 }
 
-// GetRange3To10 returns the Range3To10 field value
+// GetRange3To10 returns the Range3To10 field value if set, zero value otherwise.
 func (o *V0BidRecommendationCPCLevels) GetRange3To10() V0BidRecommendationBaseBid {
-	if o == nil {
+	if o == nil || IsNil(o.Range3To10) {
 		var ret V0BidRecommendationBaseBid
 		return ret
 	}
-
-	return o.Range3To10
+	return *o.Range3To10
 }
 
-// GetRange3To10Ok returns a tuple with the Range3To10 field value
+// GetRange3To10Ok returns a tuple with the Range3To10 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *V0BidRecommendationCPCLevels) GetRange3To10Ok() (*V0BidRecommendationBaseBid, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Range3To10) {
 		return nil, false
 	}
-	return &o.Range3To10, true
+	return o.Range3To10, true
 }
 
-// SetRange3To10 sets field value
+// HasRange3To10 returns a boolean if a field has been set.
+func (o *V0BidRecommendationCPCLevels) HasRange3To10() bool {
+	if o != nil && !IsNil(o.Range3To10) {
+		return true
+	}
+
+	return false
+}
+
+// SetRange3To10 gets a reference to the given V0BidRecommendationBaseBid and assigns it to the Range3To10 field.
 func (o *V0BidRecommendationCPCLevels) SetRange3To10(v V0BidRecommendationBaseBid) {
-	o.Range3To10 = v
+	o.Range3To10 = &v
 }
 
-// GetRange11To34 returns the Range11To34 field value
+// GetRange11To34 returns the Range11To34 field value if set, zero value otherwise.
 func (o *V0BidRecommendationCPCLevels) GetRange11To34() V0BidRecommendationBaseBid {
-	if o == nil {
+	if o == nil || IsNil(o.Range11To34) {
 		var ret V0BidRecommendationBaseBid
 		return ret
 	}
-
-	return o.Range11To34
+	return *o.Range11To34
 }
 
-// GetRange11To34Ok returns a tuple with the Range11To34 field value
+// GetRange11To34Ok returns a tuple with the Range11To34 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *V0BidRecommendationCPCLevels) GetRange11To34Ok() (*V0BidRecommendationBaseBid, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Range11To34) {
 		return nil, false
 	}
-	return &o.Range11To34, true
+	return o.Range11To34, true
 }
 
-// SetRange11To34 sets field value
+// HasRange11To34 returns a boolean if a field has been set.
+func (o *V0BidRecommendationCPCLevels) HasRange11To34() bool {
+	if o != nil && !IsNil(o.Range11To34) {
+		return true
+	}
+
+	return false
+}
+
+// SetRange11To34 gets a reference to the given V0BidRecommendationBaseBid and assigns it to the Range11To34 field.
 func (o *V0BidRecommendationCPCLevels) SetRange11To34(v V0BidRecommendationBaseBid) {
-	o.Range11To34 = v
+	o.Range11To34 = &v
 }
 
 func (o V0BidRecommendationCPCLevels) MarshalJSON() ([]byte, error) {
@@ -133,49 +150,16 @@ func (o V0BidRecommendationCPCLevels) MarshalJSON() ([]byte, error) {
 
 func (o V0BidRecommendationCPCLevels) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["range1To2"] = o.Range1To2
-	toSerialize["range3To10"] = o.Range3To10
-	toSerialize["range11To34"] = o.Range11To34
+	if !IsNil(o.Range1To2) {
+		toSerialize["range1To2"] = o.Range1To2
+	}
+	if !IsNil(o.Range3To10) {
+		toSerialize["range3To10"] = o.Range3To10
+	}
+	if !IsNil(o.Range11To34) {
+		toSerialize["range11To34"] = o.Range11To34
+	}
 	return toSerialize, nil
-}
-
-func (o *V0BidRecommendationCPCLevels) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"range1To2",
-		"range3To10",
-		"range11To34",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varV0BidRecommendationCPCLevels := _V0BidRecommendationCPCLevels{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varV0BidRecommendationCPCLevels)
-
-	if err != nil {
-		return err
-	}
-
-	*o = V0BidRecommendationCPCLevels(varV0BidRecommendationCPCLevels)
-
-	return err
 }
 
 type NullableV0BidRecommendationCPCLevels struct {

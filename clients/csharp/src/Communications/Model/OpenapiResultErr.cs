@@ -119,50 +119,30 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         /*
         <example>feedbackNotFound</example>
         */
-        [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = true)]
-        public StatusEnum Status { get; set; }
+        [DataMember(Name = "status", EmitDefaultValue = false)]
+        public StatusEnum? Status { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="OpenapiResultErr" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected OpenapiResultErr() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="OpenapiResultErr" /> class.
-        /// </summary>
-        /// <param name="origin">ID внутреннего сервиса WB (required).</param>
+        /// <param name="origin">ID внутреннего сервиса WB.</param>
         /// <param name="detail">Детали ошибки.</param>
-        /// <param name="requestId">ID запроса (required).</param>
-        /// <param name="status">Статус (required).</param>
-        /// <param name="title">Заголовок ошибки (required).</param>
-        public OpenapiResultErr(string origin = default(string), string detail = default(string), string requestId = default(string), StatusEnum status = default(StatusEnum), string title = default(string))
+        /// <param name="requestId">ID запроса.</param>
+        /// <param name="status">Статус.</param>
+        /// <param name="title">Заголовок ошибки.</param>
+        public OpenapiResultErr(string origin = default(string), string detail = default(string), string requestId = default(string), StatusEnum? status = default(StatusEnum?), string title = default(string))
         {
-            // to ensure "origin" is required (not null)
-            if (origin == null)
-            {
-                throw new ArgumentNullException("origin is a required property for OpenapiResultErr and cannot be null");
-            }
             this.Origin = origin;
-            // to ensure "requestId" is required (not null)
-            if (requestId == null)
-            {
-                throw new ArgumentNullException("requestId is a required property for OpenapiResultErr and cannot be null");
-            }
+            this.Detail = detail;
             this.RequestId = requestId;
             this.Status = status;
-            // to ensure "title" is required (not null)
-            if (title == null)
-            {
-                throw new ArgumentNullException("title is a required property for OpenapiResultErr and cannot be null");
-            }
             this.Title = title;
-            this.Detail = detail;
         }
 
         /// <summary>
         /// ID внутреннего сервиса WB
         /// </summary>
         /// <value>ID внутреннего сервиса WB</value>
-        [DataMember(Name = "origin", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "origin", EmitDefaultValue = false)]
         public string Origin { get; set; }
 
         /// <summary>
@@ -179,7 +159,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         /*
         <example>req-12345</example>
         */
-        [DataMember(Name = "requestId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "requestId", EmitDefaultValue = false)]
         public string RequestId { get; set; }
 
         /// <summary>
@@ -189,7 +169,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         /*
         <example>feedbackNotFound</example>
         */
-        [DataMember(Name = "title", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "title", EmitDefaultValue = false)]
         public string Title { get; set; }
 
         /// <summary>

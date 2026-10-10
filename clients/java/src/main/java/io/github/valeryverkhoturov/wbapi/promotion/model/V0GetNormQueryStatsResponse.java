@@ -39,13 +39,13 @@ public class V0GetNormQueryStatsResponse {
   public static final String SERIALIZED_NAME_STATS = "stats";
 
   @SerializedName(SERIALIZED_NAME_STATS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private List<V0GetNormQueryStatsItem> stats = new ArrayList<>();
 
   public V0GetNormQueryStatsResponse() {}
 
   public V0GetNormQueryStatsResponse stats(
-      @jakarta.annotation.Nonnull List<V0GetNormQueryStatsItem> stats) {
+      @jakarta.annotation.Nullable List<V0GetNormQueryStatsItem> stats) {
     this.stats = stats;
     return this;
   }
@@ -63,12 +63,12 @@ public class V0GetNormQueryStatsResponse {
    *
    * @return stats
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public List<V0GetNormQueryStatsItem> getStats() {
     return stats;
   }
 
-  public void setStats(@jakarta.annotation.Nonnull List<V0GetNormQueryStatsItem> stats) {
+  public void setStats(@jakarta.annotation.Nullable List<V0GetNormQueryStatsItem> stats) {
     this.stats = stats;
   }
 
@@ -118,7 +118,6 @@ public class V0GetNormQueryStatsResponse {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("stats");
   }
 
   /**
@@ -148,31 +147,25 @@ public class V0GetNormQueryStatsResponse {
                 entry.getKey(), jsonElement.toString()));
       }
     }
+    JsonObject jsonObj = jsonElement.getAsJsonObject();
+    if (jsonObj.get("stats") != null && !jsonObj.get("stats").isJsonNull()) {
+      JsonArray jsonArraystats = jsonObj.getAsJsonArray("stats");
+      if (jsonArraystats != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("stats").isJsonArray()) {
+          throw new IllegalArgumentException(
+              String.format(
+                  "Expected the field `stats` to be an array in the JSON string but got `%s`",
+                  jsonObj.get("stats").toString()));
+        }
 
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : V0GetNormQueryStatsResponse.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
+        // validate the optional field `stats` (array)
+        for (int i = 0; i < jsonArraystats.size(); i++) {
+          V0GetNormQueryStatsItem.validateJsonElement(jsonArraystats.get(i));
+        }
+        ;
       }
     }
-    JsonObject jsonObj = jsonElement.getAsJsonObject();
-    // ensure the json data is an array
-    if (!jsonObj.get("stats").isJsonArray()) {
-      throw new IllegalArgumentException(
-          String.format(
-              "Expected the field `stats` to be an array in the JSON string but got `%s`",
-              jsonObj.get("stats").toString()));
-    }
-
-    JsonArray jsonArraystats = jsonObj.getAsJsonArray("stats");
-    // validate the required field `stats` (array)
-    for (int i = 0; i < jsonArraystats.size(); i++) {
-      V0GetNormQueryStatsItem.validateJsonElement(jsonArraystats.get(i));
-    }
-    ;
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

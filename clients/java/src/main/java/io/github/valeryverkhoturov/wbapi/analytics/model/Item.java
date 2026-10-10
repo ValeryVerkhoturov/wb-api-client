@@ -40,66 +40,66 @@ public class Item {
   public static final String SERIALIZED_NAME_NM_ID = "nmId";
 
   @SerializedName(SERIALIZED_NAME_NM_ID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Long nmId;
 
   public static final String SERIALIZED_NAME_TITLE = "title";
 
   @SerializedName(SERIALIZED_NAME_TITLE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String title;
 
   public static final String SERIALIZED_NAME_VENDOR_CODE = "vendorCode";
 
   @SerializedName(SERIALIZED_NAME_VENDOR_CODE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String vendorCode;
 
   public static final String SERIALIZED_NAME_BRAND_NAME = "brandName";
 
   @SerializedName(SERIALIZED_NAME_BRAND_NAME)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String brandName;
 
   public static final String SERIALIZED_NAME_SUBJECT_ID = "subjectId";
 
   @SerializedName(SERIALIZED_NAME_SUBJECT_ID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer subjectId;
 
   public static final String SERIALIZED_NAME_SUBJECT_NAME = "subjectName";
 
   @SerializedName(SERIALIZED_NAME_SUBJECT_NAME)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String subjectName;
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
 
   @SerializedName(SERIALIZED_NAME_TAGS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private List<Tag> tags = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_PRODUCT_RATING = "productRating";
 
   @SerializedName(SERIALIZED_NAME_PRODUCT_RATING)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private BigDecimal productRating;
 
   public static final String SERIALIZED_NAME_FEEDBACK_RATING = "feedbackRating";
 
   @SerializedName(SERIALIZED_NAME_FEEDBACK_RATING)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private BigDecimal feedbackRating;
 
   public static final String SERIALIZED_NAME_STOCKS = "stocks";
 
   @SerializedName(SERIALIZED_NAME_STOCKS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private ItemStocks stocks;
 
   public Item() {}
 
-  public Item nmId(@jakarta.annotation.Nonnull Long nmId) {
+  public Item nmId(@jakarta.annotation.Nullable Long nmId) {
     this.nmId = nmId;
     return this;
   }
@@ -109,16 +109,16 @@ public class Item {
    *
    * @return nmId
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Long getNmId() {
     return nmId;
   }
 
-  public void setNmId(@jakarta.annotation.Nonnull Long nmId) {
+  public void setNmId(@jakarta.annotation.Nullable Long nmId) {
     this.nmId = nmId;
   }
 
-  public Item title(@jakarta.annotation.Nonnull String title) {
+  public Item title(@jakarta.annotation.Nullable String title) {
     this.title = title;
     return this;
   }
@@ -128,16 +128,16 @@ public class Item {
    *
    * @return title
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getTitle() {
     return title;
   }
 
-  public void setTitle(@jakarta.annotation.Nonnull String title) {
+  public void setTitle(@jakarta.annotation.Nullable String title) {
     this.title = title;
   }
 
-  public Item vendorCode(@jakarta.annotation.Nonnull String vendorCode) {
+  public Item vendorCode(@jakarta.annotation.Nullable String vendorCode) {
     this.vendorCode = vendorCode;
     return this;
   }
@@ -147,16 +147,16 @@ public class Item {
    *
    * @return vendorCode
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getVendorCode() {
     return vendorCode;
   }
 
-  public void setVendorCode(@jakarta.annotation.Nonnull String vendorCode) {
+  public void setVendorCode(@jakarta.annotation.Nullable String vendorCode) {
     this.vendorCode = vendorCode;
   }
 
-  public Item brandName(@jakarta.annotation.Nonnull String brandName) {
+  public Item brandName(@jakarta.annotation.Nullable String brandName) {
     this.brandName = brandName;
     return this;
   }
@@ -166,16 +166,16 @@ public class Item {
    *
    * @return brandName
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getBrandName() {
     return brandName;
   }
 
-  public void setBrandName(@jakarta.annotation.Nonnull String brandName) {
+  public void setBrandName(@jakarta.annotation.Nullable String brandName) {
     this.brandName = brandName;
   }
 
-  public Item subjectId(@jakarta.annotation.Nonnull Integer subjectId) {
+  public Item subjectId(@jakarta.annotation.Nullable Integer subjectId) {
     this.subjectId = subjectId;
     return this;
   }
@@ -185,16 +185,16 @@ public class Item {
    *
    * @return subjectId
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getSubjectId() {
     return subjectId;
   }
 
-  public void setSubjectId(@jakarta.annotation.Nonnull Integer subjectId) {
+  public void setSubjectId(@jakarta.annotation.Nullable Integer subjectId) {
     this.subjectId = subjectId;
   }
 
-  public Item subjectName(@jakarta.annotation.Nonnull String subjectName) {
+  public Item subjectName(@jakarta.annotation.Nullable String subjectName) {
     this.subjectName = subjectName;
     return this;
   }
@@ -204,16 +204,16 @@ public class Item {
    *
    * @return subjectName
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getSubjectName() {
     return subjectName;
   }
 
-  public void setSubjectName(@jakarta.annotation.Nonnull String subjectName) {
+  public void setSubjectName(@jakarta.annotation.Nullable String subjectName) {
     this.subjectName = subjectName;
   }
 
-  public Item tags(@jakarta.annotation.Nonnull List<Tag> tags) {
+  public Item tags(@jakarta.annotation.Nullable List<Tag> tags) {
     this.tags = tags;
     return this;
   }
@@ -231,16 +231,16 @@ public class Item {
    *
    * @return tags
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public List<Tag> getTags() {
     return tags;
   }
 
-  public void setTags(@jakarta.annotation.Nonnull List<Tag> tags) {
+  public void setTags(@jakarta.annotation.Nullable List<Tag> tags) {
     this.tags = tags;
   }
 
-  public Item productRating(@jakarta.annotation.Nonnull BigDecimal productRating) {
+  public Item productRating(@jakarta.annotation.Nullable BigDecimal productRating) {
     this.productRating = productRating;
     return this;
   }
@@ -250,16 +250,16 @@ public class Item {
    *
    * @return productRating
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public BigDecimal getProductRating() {
     return productRating;
   }
 
-  public void setProductRating(@jakarta.annotation.Nonnull BigDecimal productRating) {
+  public void setProductRating(@jakarta.annotation.Nullable BigDecimal productRating) {
     this.productRating = productRating;
   }
 
-  public Item feedbackRating(@jakarta.annotation.Nonnull BigDecimal feedbackRating) {
+  public Item feedbackRating(@jakarta.annotation.Nullable BigDecimal feedbackRating) {
     this.feedbackRating = feedbackRating;
     return this;
   }
@@ -269,16 +269,16 @@ public class Item {
    *
    * @return feedbackRating
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public BigDecimal getFeedbackRating() {
     return feedbackRating;
   }
 
-  public void setFeedbackRating(@jakarta.annotation.Nonnull BigDecimal feedbackRating) {
+  public void setFeedbackRating(@jakarta.annotation.Nullable BigDecimal feedbackRating) {
     this.feedbackRating = feedbackRating;
   }
 
-  public Item stocks(@jakarta.annotation.Nonnull ItemStocks stocks) {
+  public Item stocks(@jakarta.annotation.Nullable ItemStocks stocks) {
     this.stocks = stocks;
     return this;
   }
@@ -288,12 +288,12 @@ public class Item {
    *
    * @return stocks
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public ItemStocks getStocks() {
     return stocks;
   }
 
-  public void setStocks(@jakarta.annotation.Nonnull ItemStocks stocks) {
+  public void setStocks(@jakarta.annotation.Nullable ItemStocks stocks) {
     this.stocks = stocks;
   }
 
@@ -380,16 +380,6 @@ public class Item {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("nmId");
-    openapiRequiredFields.add("title");
-    openapiRequiredFields.add("vendorCode");
-    openapiRequiredFields.add("brandName");
-    openapiRequiredFields.add("subjectId");
-    openapiRequiredFields.add("subjectName");
-    openapiRequiredFields.add("tags");
-    openapiRequiredFields.add("productRating");
-    openapiRequiredFields.add("feedbackRating");
-    openapiRequiredFields.add("stocks");
   }
 
   /**
@@ -418,57 +408,57 @@ public class Item {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : Item.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    if (!jsonObj.get("title").isJsonPrimitive()) {
+    if ((jsonObj.get("title") != null && !jsonObj.get("title").isJsonNull())
+        && !jsonObj.get("title").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `title` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("title").toString()));
     }
-    if (!jsonObj.get("vendorCode").isJsonPrimitive()) {
+    if ((jsonObj.get("vendorCode") != null && !jsonObj.get("vendorCode").isJsonNull())
+        && !jsonObj.get("vendorCode").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `vendorCode` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("vendorCode").toString()));
     }
-    if (!jsonObj.get("brandName").isJsonPrimitive()) {
+    if ((jsonObj.get("brandName") != null && !jsonObj.get("brandName").isJsonNull())
+        && !jsonObj.get("brandName").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `brandName` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("brandName").toString()));
     }
-    if (!jsonObj.get("subjectName").isJsonPrimitive()) {
+    if ((jsonObj.get("subjectName") != null && !jsonObj.get("subjectName").isJsonNull())
+        && !jsonObj.get("subjectName").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `subjectName` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("subjectName").toString()));
     }
-    // ensure the json data is an array
-    if (!jsonObj.get("tags").isJsonArray()) {
-      throw new IllegalArgumentException(
-          String.format(
-              "Expected the field `tags` to be an array in the JSON string but got `%s`",
-              jsonObj.get("tags").toString()));
-    }
+    if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonNull()) {
+      JsonArray jsonArraytags = jsonObj.getAsJsonArray("tags");
+      if (jsonArraytags != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("tags").isJsonArray()) {
+          throw new IllegalArgumentException(
+              String.format(
+                  "Expected the field `tags` to be an array in the JSON string but got `%s`",
+                  jsonObj.get("tags").toString()));
+        }
 
-    JsonArray jsonArraytags = jsonObj.getAsJsonArray("tags");
-    // validate the required field `tags` (array)
-    for (int i = 0; i < jsonArraytags.size(); i++) {
-      Tag.validateJsonElement(jsonArraytags.get(i));
+        // validate the optional field `tags` (array)
+        for (int i = 0; i < jsonArraytags.size(); i++) {
+          Tag.validateJsonElement(jsonArraytags.get(i));
+        }
+        ;
+      }
     }
-    ;
-    // validate the required field `stocks`
-    ItemStocks.validateJsonElement(jsonObj.get("stocks"));
+    // validate the optional field `stocks`
+    if (jsonObj.get("stocks") != null && !jsonObj.get("stocks").isJsonNull()) {
+      ItemStocks.validateJsonElement(jsonObj.get("stocks"));
+    }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

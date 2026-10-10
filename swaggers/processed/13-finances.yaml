@@ -884,28 +884,6 @@ components:
     SalesReportListRes:
       type: object
       description: Список отчётов реализации
-      required:
-      - reportId
-      - sellerFinanceName
-      - dateFrom
-      - dateTo
-      - createDate
-      - currency
-      - reportType
-      - retailAmountSum
-      - forPaySum
-      - avgSalePercent
-      - deliveryServiceSum
-      - paidStorageSum
-      - paidAcceptanceSum
-      - deductionSum
-      - penaltySum
-      - additionalPaymentSum
-      - cashbackAmountSum
-      - cashbackDiscountSum
-      - cashbackCommissionChangeSum
-      - paymentSchedule
-      - bankPaymentSum
       properties:
         reportId:
           type: integer
@@ -1094,99 +1072,6 @@ components:
     SalesReportsDetailedRes:
       type: object
       description: Детализации к отчётам реализации
-      required:
-      - reportId
-      - dateFrom
-      - dateTo
-      - createDate
-      - currency
-      - reportType
-      - rrdId
-      - giId
-      - dlvPrc
-      - fixTariffDateFrom
-      - fixTariffDateTo
-      - subjectName
-      - nmId
-      - brandName
-      - vendorCode
-      - title
-      - techSize
-      - sku
-      - docTypeName
-      - quantity
-      - retailPrice
-      - retailAmount
-      - salePercent
-      - commissionPercent
-      - officeName
-      - sellerOperName
-      - orderDt
-      - saleDt
-      - rrDate
-      - shkId
-      - retailPriceWithDisc
-      - deliveryAmount
-      - returnAmount
-      - deliveryService
-      - giBoxTypeName
-      - productDiscountForReport
-      - sellerPromo
-      - spp
-      - kvwBase
-      - kvw
-      - supRatingUp
-      - isKgvpV2
-      - ppvzSalesCommission
-      - forPay
-      - ppvzReward
-      - acquiringFee
-      - acquiringPercent
-      - paymentProcessing
-      - acquiringBank
-      - vw
-      - vwNds
-      - ppvzOfficeName
-      - ppvzOfficeId
-      - ppvzSupplierName
-      - ppvzSupplierInn
-      - declarationNumber
-      - stickerId
-      - country
-      - srvDbs
-      - penalty
-      - additionalPayment
-      - rebillLogisticCost
-      - paidStorage
-      - deduction
-      - paidAcceptance
-      - orderId
-      - isB2b
-      - trbxId
-      - installmentCofinancingAmount
-      - wibesDiscountPercent
-      - cashbackAmount
-      - cashbackDiscount
-      - cashbackCommissionChange
-      - paymentSchedule
-      - deliveryMethod
-      - sellerPromoId
-      - sellerPromoDiscount
-      - loyaltyId
-      - loyaltyDiscount
-      - uuidPromocode
-      - salePricePromocodeDiscountPrc
-      - articleSubstitution
-      - salePriceAffiliatedDiscountPrc
-      - salePriceWholesaleDiscountPrc
-      - b2bCustomerTin
-      - paidWithSocialCertificate
-      - warehouseLogisticsCoeff
-      - buyerTaxRegistrationReasonCode
-      - utdUcdNumber
-      - utdUcdDate
-      - orderUid
-      - srid
       properties:
         reportId:
           example: 1234567
@@ -1623,15 +1508,6 @@ components:
     AcquiringReportListRes:
       type: object
       description: Список отчётов об издержках на приём платежей
-      required:
-      - reportId
-      - sellerFinanceName
-      - dateFrom
-      - dateTo
-      - createDate
-      - currency
-      - acquiringFeeSum
-      - acquiringFeeVatSum
       properties:
         reportId:
           type: integer
@@ -1725,24 +1601,6 @@ components:
     AcquiringReportsDetailedRes:
       type: object
       description: Детализации к отчётам об издержках на приём платежей
-      required:
-      - reportId
-      - currency
-      - rrdId
-      - nmId
-      - documentType
-      - retailAmount
-      - saleDate
-      - acqDate
-      - shkId
-      - acquiringFee
-      - acquiringFeeVat
-      - acquiringBank
-      - tin
-      - taxRegistrationReasonCode
-      - invoiceNumber
-      - invoiceDate
-      - srid
       properties:
         rrdId:
           example: 1232610467

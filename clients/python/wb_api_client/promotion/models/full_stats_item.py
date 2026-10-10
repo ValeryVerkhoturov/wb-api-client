@@ -34,36 +34,52 @@ class FullStatsItem(BaseModel):
     Статистика по одной кампании за период, указанный в запросе. По всем артикулам WB и платформам
     """  # noqa: E501
 
-    advert_id: StrictInt = Field(description="ID кампании", alias="advertId")
-    atbs: StrictInt = Field(description="Количество добавлений товаров в корзину")
+    advert_id: Optional[StrictInt] = Field(
+        default=None, description="ID кампании", alias="advertId"
+    )
+    atbs: Optional[StrictInt] = Field(
+        default=None, description="Количество добавлений товаров в корзину"
+    )
     booster_stats: Optional[List[FullStatsItemBoosterStatsInner]] = Field(
         default=None,
         description="Статистика по средней позиции товара (для кампаний с единой ставкой)",
         alias="boosterStats",
     )
-    canceled: StrictInt = Field(description="Отмены, шт.")
-    clicks: StrictInt = Field(description="Количество кликов")
-    cpc: Union[StrictFloat, StrictInt] = Field(
-        description="Средняя стоимость клика в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)"
+    canceled: Optional[StrictInt] = Field(default=None, description="Отмены, шт.")
+    clicks: Optional[StrictInt] = Field(default=None, description="Количество кликов")
+    cpc: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None,
+        description="Средняя стоимость клика в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)",
     )
-    cr: Union[StrictFloat, StrictInt] = Field(
-        description="CR (conversion rate) — отношение количества заказов к общему количеству кликов"
+    cr: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None,
+        description="CR (conversion rate) — отношение количества заказов к общему количеству кликов",
     )
-    ctr: Union[StrictFloat, StrictInt] = Field(
-        description="CTR (click-through rate) — отношение числа кликов к количеству показов в процентах"
+    ctr: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None,
+        description="CTR (click-through rate) — отношение числа кликов к количеству показов в процентах",
     )
-    days: List[FullStatsItemDaysInner] = Field(description="Статистка по дням")
-    orders: StrictInt = Field(description="Количество заказов")
-    shks: StrictInt = Field(description="Количество заказанных товаров, шт.")
-    sum: Union[StrictFloat, StrictInt] = Field(
-        description="Затраты в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)"
+    days: Optional[List[FullStatsItemDaysInner]] = Field(
+        default=None, description="Статистка по дням"
     )
-    sum_price: Union[StrictFloat, StrictInt] = Field(
-        description="Сумма заказов в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)"
+    orders: Optional[StrictInt] = Field(default=None, description="Количество заказов")
+    shks: Optional[StrictInt] = Field(
+        default=None, description="Количество заказанных товаров, шт."
     )
-    views: StrictInt = Field(description="Количество просмотров")
-    currency: StrictStr = Field(
-        description="Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)"
+    sum: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None,
+        description="Затраты в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)",
+    )
+    sum_price: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None,
+        description="Сумма заказов в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)",
+    )
+    views: Optional[StrictInt] = Field(
+        default=None, description="Количество просмотров"
+    )
+    currency: Optional[StrictStr] = Field(
+        default=None,
+        description="Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)",
     )
     __properties: ClassVar[List[str]] = [
         "advertId",

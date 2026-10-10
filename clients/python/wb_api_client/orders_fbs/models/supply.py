@@ -103,7 +103,8 @@ class Supply(BaseModel):
         description="ID ЭТрН — электронной транспортной накладной",
         alias="waybillUuid",
     )
-    spot_available: StrictBool = Field(
+    spot_available: Optional[StrictBool] = Field(
+        default=None,
         description="Доступен ли СПОТ для этой поставки:   - `true` — да. Используйте метод [получения данных СПОТ](./orders-fbs#tag/fbsSupplies/operation/postV3FbsSuppliesSpotList)   - `false` — нет ",
         alias="spotAvailable",
     )

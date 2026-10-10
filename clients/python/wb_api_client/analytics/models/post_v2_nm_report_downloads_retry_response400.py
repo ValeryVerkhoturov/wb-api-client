@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,12 +28,14 @@ class PostV2NmReportDownloadsRetryResponse400(BaseModel):
     PostV2NmReportDownloadsRetryResponse400
     """  # noqa: E501
 
-    title: StrictStr = Field(description="Заголовок ошибки")
-    detail: StrictStr = Field(description="Детали ошибки")
-    request_id: StrictStr = Field(
-        description="Уникальный ID запроса", alias="requestId"
+    title: Optional[StrictStr] = Field(default=None, description="Заголовок ошибки")
+    detail: Optional[StrictStr] = Field(default=None, description="Детали ошибки")
+    request_id: Optional[StrictStr] = Field(
+        default=None, description="Уникальный ID запроса", alias="requestId"
     )
-    origin: StrictStr = Field(description="ID внутреннего сервиса WB")
+    origin: Optional[StrictStr] = Field(
+        default=None, description="ID внутреннего сервиса WB"
+    )
     __properties: ClassVar[List[str]] = ["title", "detail", "requestId", "origin"]
 
     model_config = ConfigDict(

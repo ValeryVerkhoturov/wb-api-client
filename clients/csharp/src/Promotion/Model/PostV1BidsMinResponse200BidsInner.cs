@@ -34,20 +34,10 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PostV1BidsMinResponse200BidsInner" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected PostV1BidsMinResponse200BidsInner() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PostV1BidsMinResponse200BidsInner" /> class.
-        /// </summary>
-        /// <param name="bids">Список ставок по местам размещения (required).</param>
-        /// <param name="nmId">Артикул WB (required).</param>
+        /// <param name="bids">Список ставок по местам размещения.</param>
+        /// <param name="nmId">Артикул WB.</param>
         public PostV1BidsMinResponse200BidsInner(List<PostV1BidsMinResponse200BidsInnerBidsInner> bids = default(List<PostV1BidsMinResponse200BidsInnerBidsInner>), long nmId = default(long))
         {
-            // to ensure "bids" is required (not null)
-            if (bids == null)
-            {
-                throw new ArgumentNullException("bids is a required property for PostV1BidsMinResponse200BidsInner and cannot be null");
-            }
             this.Bids = bids;
             this.NmId = nmId;
         }
@@ -56,14 +46,14 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// Список ставок по местам размещения
         /// </summary>
         /// <value>Список ставок по местам размещения</value>
-        [DataMember(Name = "bids", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "bids", EmitDefaultValue = false)]
         public List<PostV1BidsMinResponse200BidsInnerBidsInner> Bids { get; set; }
 
         /// <summary>
         /// Артикул WB
         /// </summary>
         /// <value>Артикул WB</value>
-        [DataMember(Name = "nm_id", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "nm_id", EmitDefaultValue = false)]
         public long NmId { get; set; }
 
         /// <summary>

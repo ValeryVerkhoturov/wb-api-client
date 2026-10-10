@@ -34,52 +34,32 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ErrorsDraftError" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected ErrorsDraftError() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ErrorsDraftError" /> class.
-        /// </summary>
-        /// <param name="status">HTTP статус-код (required).</param>
-        /// <param name="title">Заголовок ошибки (required).</param>
+        /// <param name="status">HTTP статус-код.</param>
+        /// <param name="title">Заголовок ошибки.</param>
         /// <param name="detail">Детали ошибки.</param>
-        /// <param name="requestId">Уникальный ID запроса (required).</param>
-        /// <param name="origin">ID внутреннего сервиса WB (required).</param>
+        /// <param name="requestId">Уникальный ID запроса.</param>
+        /// <param name="origin">ID внутреннего сервиса WB.</param>
         public ErrorsDraftError(int status = default(int), string title = default(string), string detail = default(string), string requestId = default(string), string origin = default(string))
         {
             this.Status = status;
-            // to ensure "title" is required (not null)
-            if (title == null)
-            {
-                throw new ArgumentNullException("title is a required property for ErrorsDraftError and cannot be null");
-            }
             this.Title = title;
-            // to ensure "requestId" is required (not null)
-            if (requestId == null)
-            {
-                throw new ArgumentNullException("requestId is a required property for ErrorsDraftError and cannot be null");
-            }
-            this.RequestId = requestId;
-            // to ensure "origin" is required (not null)
-            if (origin == null)
-            {
-                throw new ArgumentNullException("origin is a required property for ErrorsDraftError and cannot be null");
-            }
-            this.Origin = origin;
             this.Detail = detail;
+            this.RequestId = requestId;
+            this.Origin = origin;
         }
 
         /// <summary>
         /// HTTP статус-код
         /// </summary>
         /// <value>HTTP статус-код</value>
-        [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "status", EmitDefaultValue = false)]
         public int Status { get; set; }
 
         /// <summary>
         /// Заголовок ошибки
         /// </summary>
         /// <value>Заголовок ошибки</value>
-        [DataMember(Name = "title", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "title", EmitDefaultValue = false)]
         public string Title { get; set; }
 
         /// <summary>
@@ -93,14 +73,14 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Model
         /// Уникальный ID запроса
         /// </summary>
         /// <value>Уникальный ID запроса</value>
-        [DataMember(Name = "requestId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "requestId", EmitDefaultValue = false)]
         public string RequestId { get; set; }
 
         /// <summary>
         /// ID внутреннего сервиса WB
         /// </summary>
         /// <value>ID внутреннего сервиса WB</value>
-        [DataMember(Name = "origin", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "origin", EmitDefaultValue = false)]
         public string Origin { get; set; }
 
         /// <summary>

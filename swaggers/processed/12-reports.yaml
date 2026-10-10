@@ -1998,9 +1998,6 @@ components:
   schemas:
     GoodsReturn200Response:
       type: object
-      required:
-      - count
-      - report
       properties:
         count:
           type: integer
@@ -2009,25 +2006,6 @@ components:
           description: Отчёт
           type: array
           items:
-            required:
-            - sku
-            - brand
-            - completedDt
-            - dstOfficeAddress
-            - dstOfficeId
-            - expiredDt
-            - kiz
-            - nmId
-            - orderDt
-            - orderId
-            - readyToReturnDt
-            - returnType
-            - shkId
-            - srid
-            - returnStatus
-            - stickerId
-            - subjectName
-            - techSize
             type: object
             properties:
               sku:
@@ -2424,14 +2402,9 @@ components:
                   `Srid`
                 example: 7513432034713632943.1.0
     MeasurementPenalties:
-      required:
-      - data
       type: object
       properties:
         data:
-          required:
-          - reports
-          - total
           type: object
           description: Данные ответа
           properties:
@@ -2440,20 +2413,6 @@ components:
               description: Удержания
               items:
                 type: object
-                required:
-                - nmId
-                - subjectName
-                - dimId
-                - prcOver
-                - volume
-                - width
-                - length
-                - height
-                - volumeSup
-                - widthSup
-                - lengthSup
-                - heightSup
-                - photoUrls
                 properties:
                   nmId:
                     type: integer
@@ -2548,14 +2507,9 @@ components:
               description: Количество удержаний в отчёте. Без учёта `limit` и `offset`
               example: 11
     WHM:
-      required:
-      - data
       type: object
       properties:
         data:
-          required:
-          - reports
-          - total
           type: object
           description: Данные ответа
           properties:

@@ -11,9 +11,7 @@ API version: promotion
 package promotion
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the AdvertNMsSettings type satisfies the MappedNullable interface at compile time
@@ -21,23 +19,18 @@ var _ MappedNullable = &AdvertNMsSettings{}
 
 // AdvertNMsSettings struct for AdvertNMsSettings
 type AdvertNMsSettings struct {
-	BidsKopecks AdvertBidsKopecks `json:"bids_kopecks"`
-	Subject     AdvertSubcategory `json:"subject"`
+	BidsKopecks *AdvertBidsKopecks `json:"bids_kopecks,omitempty"`
+	Subject     *AdvertSubcategory `json:"subject,omitempty"`
 	// Артикул WB
-	NmId int64 `json:"nm_id"`
+	NmId *int64 `json:"nm_id,omitempty"`
 }
-
-type _AdvertNMsSettings AdvertNMsSettings
 
 // NewAdvertNMsSettings instantiates a new AdvertNMsSettings object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAdvertNMsSettings(bidsKopecks AdvertBidsKopecks, subject AdvertSubcategory, nmId int64) *AdvertNMsSettings {
+func NewAdvertNMsSettings() *AdvertNMsSettings {
 	this := AdvertNMsSettings{}
-	this.BidsKopecks = bidsKopecks
-	this.Subject = subject
-	this.NmId = nmId
 	return &this
 }
 
@@ -49,76 +42,100 @@ func NewAdvertNMsSettingsWithDefaults() *AdvertNMsSettings {
 	return &this
 }
 
-// GetBidsKopecks returns the BidsKopecks field value
+// GetBidsKopecks returns the BidsKopecks field value if set, zero value otherwise.
 func (o *AdvertNMsSettings) GetBidsKopecks() AdvertBidsKopecks {
-	if o == nil {
+	if o == nil || IsNil(o.BidsKopecks) {
 		var ret AdvertBidsKopecks
 		return ret
 	}
-
-	return o.BidsKopecks
+	return *o.BidsKopecks
 }
 
-// GetBidsKopecksOk returns a tuple with the BidsKopecks field value
+// GetBidsKopecksOk returns a tuple with the BidsKopecks field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *AdvertNMsSettings) GetBidsKopecksOk() (*AdvertBidsKopecks, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.BidsKopecks) {
 		return nil, false
 	}
-	return &o.BidsKopecks, true
+	return o.BidsKopecks, true
 }
 
-// SetBidsKopecks sets field value
+// HasBidsKopecks returns a boolean if a field has been set.
+func (o *AdvertNMsSettings) HasBidsKopecks() bool {
+	if o != nil && !IsNil(o.BidsKopecks) {
+		return true
+	}
+
+	return false
+}
+
+// SetBidsKopecks gets a reference to the given AdvertBidsKopecks and assigns it to the BidsKopecks field.
 func (o *AdvertNMsSettings) SetBidsKopecks(v AdvertBidsKopecks) {
-	o.BidsKopecks = v
+	o.BidsKopecks = &v
 }
 
-// GetSubject returns the Subject field value
+// GetSubject returns the Subject field value if set, zero value otherwise.
 func (o *AdvertNMsSettings) GetSubject() AdvertSubcategory {
-	if o == nil {
+	if o == nil || IsNil(o.Subject) {
 		var ret AdvertSubcategory
 		return ret
 	}
-
-	return o.Subject
+	return *o.Subject
 }
 
-// GetSubjectOk returns a tuple with the Subject field value
+// GetSubjectOk returns a tuple with the Subject field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *AdvertNMsSettings) GetSubjectOk() (*AdvertSubcategory, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Subject) {
 		return nil, false
 	}
-	return &o.Subject, true
+	return o.Subject, true
 }
 
-// SetSubject sets field value
+// HasSubject returns a boolean if a field has been set.
+func (o *AdvertNMsSettings) HasSubject() bool {
+	if o != nil && !IsNil(o.Subject) {
+		return true
+	}
+
+	return false
+}
+
+// SetSubject gets a reference to the given AdvertSubcategory and assigns it to the Subject field.
 func (o *AdvertNMsSettings) SetSubject(v AdvertSubcategory) {
-	o.Subject = v
+	o.Subject = &v
 }
 
-// GetNmId returns the NmId field value
+// GetNmId returns the NmId field value if set, zero value otherwise.
 func (o *AdvertNMsSettings) GetNmId() int64 {
-	if o == nil {
+	if o == nil || IsNil(o.NmId) {
 		var ret int64
 		return ret
 	}
-
-	return o.NmId
+	return *o.NmId
 }
 
-// GetNmIdOk returns a tuple with the NmId field value
+// GetNmIdOk returns a tuple with the NmId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *AdvertNMsSettings) GetNmIdOk() (*int64, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.NmId) {
 		return nil, false
 	}
-	return &o.NmId, true
+	return o.NmId, true
 }
 
-// SetNmId sets field value
+// HasNmId returns a boolean if a field has been set.
+func (o *AdvertNMsSettings) HasNmId() bool {
+	if o != nil && !IsNil(o.NmId) {
+		return true
+	}
+
+	return false
+}
+
+// SetNmId gets a reference to the given int64 and assigns it to the NmId field.
 func (o *AdvertNMsSettings) SetNmId(v int64) {
-	o.NmId = v
+	o.NmId = &v
 }
 
 func (o AdvertNMsSettings) MarshalJSON() ([]byte, error) {
@@ -131,49 +148,16 @@ func (o AdvertNMsSettings) MarshalJSON() ([]byte, error) {
 
 func (o AdvertNMsSettings) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["bids_kopecks"] = o.BidsKopecks
-	toSerialize["subject"] = o.Subject
-	toSerialize["nm_id"] = o.NmId
+	if !IsNil(o.BidsKopecks) {
+		toSerialize["bids_kopecks"] = o.BidsKopecks
+	}
+	if !IsNil(o.Subject) {
+		toSerialize["subject"] = o.Subject
+	}
+	if !IsNil(o.NmId) {
+		toSerialize["nm_id"] = o.NmId
+	}
 	return toSerialize, nil
-}
-
-func (o *AdvertNMsSettings) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"bids_kopecks",
-		"subject",
-		"nm_id",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varAdvertNMsSettings := _AdvertNMsSettings{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varAdvertNMsSettings)
-
-	if err != nil {
-		return err
-	}
-
-	*o = AdvertNMsSettings(varAdvertNMsSettings)
-
-	return err
 }
 
 type NullableAdvertNMsSettings struct {

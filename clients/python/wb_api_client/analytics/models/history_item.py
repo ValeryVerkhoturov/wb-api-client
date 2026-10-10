@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,13 +28,23 @@ class HistoryItem(BaseModel):
     HistoryItem
     """  # noqa: E501
 
-    nm_id: StrictInt = Field(description="Артикул WB", alias="nmId")
-    title: StrictStr = Field(description="Название карточки товара")
-    vendor_code: StrictStr = Field(description="Артикул продавца", alias="vendorCode")
-    brand_name: StrictStr = Field(description="Бренд", alias="brandName")
-    subject_id: StrictInt = Field(description="ID предмета", alias="subjectId")
-    subject_name: StrictStr = Field(
-        description="Название предмета", alias="subjectName"
+    nm_id: Optional[StrictInt] = Field(
+        default=None, description="Артикул WB", alias="nmId"
+    )
+    title: Optional[StrictStr] = Field(
+        default=None, description="Название карточки товара"
+    )
+    vendor_code: Optional[StrictStr] = Field(
+        default=None, description="Артикул продавца", alias="vendorCode"
+    )
+    brand_name: Optional[StrictStr] = Field(
+        default=None, description="Бренд", alias="brandName"
+    )
+    subject_id: Optional[StrictInt] = Field(
+        default=None, description="ID предмета", alias="subjectId"
+    )
+    subject_name: Optional[StrictStr] = Field(
+        default=None, description="Название предмета", alias="subjectName"
     )
     __properties: ClassVar[List[str]] = [
         "nmId",

@@ -11,9 +11,7 @@ API version: analytics
 package analytics
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the PostV3SalesFunnelProductsHistoryResponse200Inner type satisfies the MappedNullable interface at compile time
@@ -21,24 +19,19 @@ var _ MappedNullable = &PostV3SalesFunnelProductsHistoryResponse200Inner{}
 
 // PostV3SalesFunnelProductsHistoryResponse200Inner struct for PostV3SalesFunnelProductsHistoryResponse200Inner
 type PostV3SalesFunnelProductsHistoryResponse200Inner struct {
-	Product PostV3SalesFunnelProductsHistoryResponse200InnerProduct `json:"product"`
+	Product *PostV3SalesFunnelProductsHistoryResponse200InnerProduct `json:"product,omitempty"`
 	// Статистика за период
-	History []History `json:"history"`
+	History []History `json:"history,omitempty"`
 	// Валюта отчёта
-	Currency string `json:"currency"`
+	Currency *string `json:"currency,omitempty"`
 }
-
-type _PostV3SalesFunnelProductsHistoryResponse200Inner PostV3SalesFunnelProductsHistoryResponse200Inner
 
 // NewPostV3SalesFunnelProductsHistoryResponse200Inner instantiates a new PostV3SalesFunnelProductsHistoryResponse200Inner object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPostV3SalesFunnelProductsHistoryResponse200Inner(product PostV3SalesFunnelProductsHistoryResponse200InnerProduct, history []History, currency string) *PostV3SalesFunnelProductsHistoryResponse200Inner {
+func NewPostV3SalesFunnelProductsHistoryResponse200Inner() *PostV3SalesFunnelProductsHistoryResponse200Inner {
 	this := PostV3SalesFunnelProductsHistoryResponse200Inner{}
-	this.Product = product
-	this.History = history
-	this.Currency = currency
 	return &this
 }
 
@@ -50,76 +43,100 @@ func NewPostV3SalesFunnelProductsHistoryResponse200InnerWithDefaults() *PostV3Sa
 	return &this
 }
 
-// GetProduct returns the Product field value
+// GetProduct returns the Product field value if set, zero value otherwise.
 func (o *PostV3SalesFunnelProductsHistoryResponse200Inner) GetProduct() PostV3SalesFunnelProductsHistoryResponse200InnerProduct {
-	if o == nil {
+	if o == nil || IsNil(o.Product) {
 		var ret PostV3SalesFunnelProductsHistoryResponse200InnerProduct
 		return ret
 	}
-
-	return o.Product
+	return *o.Product
 }
 
-// GetProductOk returns a tuple with the Product field value
+// GetProductOk returns a tuple with the Product field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PostV3SalesFunnelProductsHistoryResponse200Inner) GetProductOk() (*PostV3SalesFunnelProductsHistoryResponse200InnerProduct, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Product) {
 		return nil, false
 	}
-	return &o.Product, true
+	return o.Product, true
 }
 
-// SetProduct sets field value
+// HasProduct returns a boolean if a field has been set.
+func (o *PostV3SalesFunnelProductsHistoryResponse200Inner) HasProduct() bool {
+	if o != nil && !IsNil(o.Product) {
+		return true
+	}
+
+	return false
+}
+
+// SetProduct gets a reference to the given PostV3SalesFunnelProductsHistoryResponse200InnerProduct and assigns it to the Product field.
 func (o *PostV3SalesFunnelProductsHistoryResponse200Inner) SetProduct(v PostV3SalesFunnelProductsHistoryResponse200InnerProduct) {
-	o.Product = v
+	o.Product = &v
 }
 
-// GetHistory returns the History field value
+// GetHistory returns the History field value if set, zero value otherwise.
 func (o *PostV3SalesFunnelProductsHistoryResponse200Inner) GetHistory() []History {
-	if o == nil {
+	if o == nil || IsNil(o.History) {
 		var ret []History
 		return ret
 	}
-
 	return o.History
 }
 
-// GetHistoryOk returns a tuple with the History field value
+// GetHistoryOk returns a tuple with the History field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PostV3SalesFunnelProductsHistoryResponse200Inner) GetHistoryOk() ([]History, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.History) {
 		return nil, false
 	}
 	return o.History, true
 }
 
-// SetHistory sets field value
+// HasHistory returns a boolean if a field has been set.
+func (o *PostV3SalesFunnelProductsHistoryResponse200Inner) HasHistory() bool {
+	if o != nil && !IsNil(o.History) {
+		return true
+	}
+
+	return false
+}
+
+// SetHistory gets a reference to the given []History and assigns it to the History field.
 func (o *PostV3SalesFunnelProductsHistoryResponse200Inner) SetHistory(v []History) {
 	o.History = v
 }
 
-// GetCurrency returns the Currency field value
+// GetCurrency returns the Currency field value if set, zero value otherwise.
 func (o *PostV3SalesFunnelProductsHistoryResponse200Inner) GetCurrency() string {
-	if o == nil {
+	if o == nil || IsNil(o.Currency) {
 		var ret string
 		return ret
 	}
-
-	return o.Currency
+	return *o.Currency
 }
 
-// GetCurrencyOk returns a tuple with the Currency field value
+// GetCurrencyOk returns a tuple with the Currency field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PostV3SalesFunnelProductsHistoryResponse200Inner) GetCurrencyOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Currency) {
 		return nil, false
 	}
-	return &o.Currency, true
+	return o.Currency, true
 }
 
-// SetCurrency sets field value
+// HasCurrency returns a boolean if a field has been set.
+func (o *PostV3SalesFunnelProductsHistoryResponse200Inner) HasCurrency() bool {
+	if o != nil && !IsNil(o.Currency) {
+		return true
+	}
+
+	return false
+}
+
+// SetCurrency gets a reference to the given string and assigns it to the Currency field.
 func (o *PostV3SalesFunnelProductsHistoryResponse200Inner) SetCurrency(v string) {
-	o.Currency = v
+	o.Currency = &v
 }
 
 func (o PostV3SalesFunnelProductsHistoryResponse200Inner) MarshalJSON() ([]byte, error) {
@@ -132,49 +149,16 @@ func (o PostV3SalesFunnelProductsHistoryResponse200Inner) MarshalJSON() ([]byte,
 
 func (o PostV3SalesFunnelProductsHistoryResponse200Inner) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["product"] = o.Product
-	toSerialize["history"] = o.History
-	toSerialize["currency"] = o.Currency
+	if !IsNil(o.Product) {
+		toSerialize["product"] = o.Product
+	}
+	if !IsNil(o.History) {
+		toSerialize["history"] = o.History
+	}
+	if !IsNil(o.Currency) {
+		toSerialize["currency"] = o.Currency
+	}
 	return toSerialize, nil
-}
-
-func (o *PostV3SalesFunnelProductsHistoryResponse200Inner) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"product",
-		"history",
-		"currency",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varPostV3SalesFunnelProductsHistoryResponse200Inner := _PostV3SalesFunnelProductsHistoryResponse200Inner{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varPostV3SalesFunnelProductsHistoryResponse200Inner)
-
-	if err != nil {
-		return err
-	}
-
-	*o = PostV3SalesFunnelProductsHistoryResponse200Inner(varPostV3SalesFunnelProductsHistoryResponse200Inner)
-
-	return err
 }
 
 type NullablePostV3SalesFunnelProductsHistoryResponse200Inner struct {

@@ -11,9 +11,7 @@ API version: order
 package orders_fbs
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInner type satisfies the MappedNullable interface at compile time
@@ -24,7 +22,7 @@ type PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInner struct {
 	// - `true` — настройки автовозврата товара успешно получены
 	Success *bool `json:"success,omitempty"`
 	// ID размера товара в системе WB
-	ChrtId int32 `json:"chrtId"`
+	ChrtId *int32 `json:"chrtId,omitempty"`
 	// Куда будет возвращён товар:   - `auto` — место возврата определяется автоматически   - `byWarehouse` — на склад WB   - `byPickupPoint` — на пункт выдачи заказов   - `byCourier` — продавцу курьером. Всегда для товаров тех [предметов](https://dev.wildberries.ru/openapi/orders-fbs#tag/autoreturnSettings/operation/getV3FbsSettingsAutoreturnsSubcategoriesRestricted), которые автоматически возвращаются в ПВЗ
 	Type *string `json:"type,omitempty"`
 	// - `true` — настройки автовозврата товара можно изменить
@@ -33,15 +31,12 @@ type PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInner struct {
 	Error []PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner `json:"error,omitempty"`
 }
 
-type _PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInner PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInner
-
 // NewPostV3FbsSettingsAutoreturnsItemsResponse200ResultsInner instantiates a new PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInner object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPostV3FbsSettingsAutoreturnsItemsResponse200ResultsInner(chrtId int32) *PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInner {
+func NewPostV3FbsSettingsAutoreturnsItemsResponse200ResultsInner() *PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInner {
 	this := PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInner{}
-	this.ChrtId = chrtId
 	return &this
 }
 
@@ -85,28 +80,36 @@ func (o *PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInner) SetSuccess(v 
 	o.Success = &v
 }
 
-// GetChrtId returns the ChrtId field value
+// GetChrtId returns the ChrtId field value if set, zero value otherwise.
 func (o *PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInner) GetChrtId() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.ChrtId) {
 		var ret int32
 		return ret
 	}
-
-	return o.ChrtId
+	return *o.ChrtId
 }
 
-// GetChrtIdOk returns a tuple with the ChrtId field value
+// GetChrtIdOk returns a tuple with the ChrtId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInner) GetChrtIdOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ChrtId) {
 		return nil, false
 	}
-	return &o.ChrtId, true
+	return o.ChrtId, true
 }
 
-// SetChrtId sets field value
+// HasChrtId returns a boolean if a field has been set.
+func (o *PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInner) HasChrtId() bool {
+	if o != nil && !IsNil(o.ChrtId) {
+		return true
+	}
+
+	return false
+}
+
+// SetChrtId gets a reference to the given int32 and assigns it to the ChrtId field.
 func (o *PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInner) SetChrtId(v int32) {
-	o.ChrtId = v
+	o.ChrtId = &v
 }
 
 // GetType returns the Type field value if set, zero value otherwise.
@@ -218,7 +221,9 @@ func (o PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInner) ToMap() (map[s
 	if !IsNil(o.Success) {
 		toSerialize["success"] = o.Success
 	}
-	toSerialize["chrtId"] = o.ChrtId
+	if !IsNil(o.ChrtId) {
+		toSerialize["chrtId"] = o.ChrtId
+	}
 	if !IsNil(o.Type) {
 		toSerialize["type"] = o.Type
 	}
@@ -229,43 +234,6 @@ func (o PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInner) ToMap() (map[s
 		toSerialize["error"] = o.Error
 	}
 	return toSerialize, nil
-}
-
-func (o *PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInner) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"chrtId",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varPostV3FbsSettingsAutoreturnsItemsResponse200ResultsInner := _PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInner{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varPostV3FbsSettingsAutoreturnsItemsResponse200ResultsInner)
-
-	if err != nil {
-		return err
-	}
-
-	*o = PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInner(varPostV3FbsSettingsAutoreturnsItemsResponse200ResultsInner)
-
-	return err
 }
 
 type NullablePostV3FbsSettingsAutoreturnsItemsResponse200ResultsInner struct {

@@ -18,9 +18,9 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List
-from wb_api_client.promotion.models.put_v0_auction_placements_request_placements_inner_placements import (
-    PutV0AuctionPlacementsRequestPlacementsInnerPlacements,
+from typing import Any, ClassVar, Dict, List, Optional
+from wb_api_client.promotion.models.advert_settings_placements import (
+    AdvertSettingsPlacements,
 )
 from typing import Optional, Set
 from typing_extensions import Self
@@ -31,11 +31,11 @@ class AdvertSettings(BaseModel):
     Настройки кампании
     """  # noqa: E501
 
-    payment_type: StrictStr = Field(
-        description="Тип оплаты: - `cpm` — за показы - `cpc` — за клик "
+    payment_type: Optional[StrictStr] = Field(
+        default=None, description="Тип оплаты: - `cpm` — за показы - `cpc` — за клик "
     )
-    name: StrictStr = Field(description="Название кампании")
-    placements: PutV0AuctionPlacementsRequestPlacementsInnerPlacements
+    name: Optional[StrictStr] = Field(default=None, description="Название кампании")
+    placements: Optional[AdvertSettingsPlacements] = None
     __properties: ClassVar[List[str]] = ["payment_type", "name", "placements"]
 
     model_config = ConfigDict(
@@ -94,9 +94,7 @@ class AdvertSettings(BaseModel):
                 "payment_type": obj.get("payment_type"),
                 "name": obj.get("name"),
                 "placements": (
-                    PutV0AuctionPlacementsRequestPlacementsInnerPlacements.from_dict(
-                        obj["placements"]
-                    )
+                    AdvertSettingsPlacements.from_dict(obj["placements"])
                     if obj.get("placements") is not None
                     else None
                 ),

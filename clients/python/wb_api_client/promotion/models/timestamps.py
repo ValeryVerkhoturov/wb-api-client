@@ -28,13 +28,18 @@ class Timestamps(BaseModel):
     Временные отметки
     """  # noqa: E501
 
-    created: StrictStr = Field(description="Время создания кампании")
-    updated: StrictStr = Field(description="Время последнего изменения кампании")
-    started: Optional[StrictStr] = Field(
-        description="Время последнего запуска кампании"
+    created: Optional[StrictStr] = Field(
+        default=None, description="Время создания кампании"
     )
-    deleted: StrictStr = Field(
-        description="Время удаления кампании. Если кампания не удалена, время указывается в будущем"
+    updated: Optional[StrictStr] = Field(
+        default=None, description="Время последнего изменения кампании"
+    )
+    started: Optional[StrictStr] = Field(
+        default=None, description="Время последнего запуска кампании"
+    )
+    deleted: Optional[StrictStr] = Field(
+        default=None,
+        description="Время удаления кампании. Если кампания не удалена, время указывается в будущем",
     )
     __properties: ClassVar[List[str]] = ["created", "updated", "started", "deleted"]
 

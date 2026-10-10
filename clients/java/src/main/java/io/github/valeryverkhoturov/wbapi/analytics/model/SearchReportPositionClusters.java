@@ -39,25 +39,25 @@ public class SearchReportPositionClusters {
   public static final String SERIALIZED_NAME_FIRST_HUNDRED = "firstHundred";
 
   @SerializedName(SERIALIZED_NAME_FIRST_HUNDRED)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private SearchReportPositionClustersFirstHundred firstHundred;
 
   public static final String SERIALIZED_NAME_SECOND_HUNDRED = "secondHundred";
 
   @SerializedName(SERIALIZED_NAME_SECOND_HUNDRED)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private SearchReportPositionClustersSecondHundred secondHundred;
 
   public static final String SERIALIZED_NAME_BELOW = "below";
 
   @SerializedName(SERIALIZED_NAME_BELOW)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private SearchReportPositionClustersBelow below;
 
   public SearchReportPositionClusters() {}
 
   public SearchReportPositionClusters firstHundred(
-      @jakarta.annotation.Nonnull SearchReportPositionClustersFirstHundred firstHundred) {
+      @jakarta.annotation.Nullable SearchReportPositionClustersFirstHundred firstHundred) {
     this.firstHundred = firstHundred;
     return this;
   }
@@ -67,18 +67,18 @@ public class SearchReportPositionClusters {
    *
    * @return firstHundred
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public SearchReportPositionClustersFirstHundred getFirstHundred() {
     return firstHundred;
   }
 
   public void setFirstHundred(
-      @jakarta.annotation.Nonnull SearchReportPositionClustersFirstHundred firstHundred) {
+      @jakarta.annotation.Nullable SearchReportPositionClustersFirstHundred firstHundred) {
     this.firstHundred = firstHundred;
   }
 
   public SearchReportPositionClusters secondHundred(
-      @jakarta.annotation.Nonnull SearchReportPositionClustersSecondHundred secondHundred) {
+      @jakarta.annotation.Nullable SearchReportPositionClustersSecondHundred secondHundred) {
     this.secondHundred = secondHundred;
     return this;
   }
@@ -88,18 +88,18 @@ public class SearchReportPositionClusters {
    *
    * @return secondHundred
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public SearchReportPositionClustersSecondHundred getSecondHundred() {
     return secondHundred;
   }
 
   public void setSecondHundred(
-      @jakarta.annotation.Nonnull SearchReportPositionClustersSecondHundred secondHundred) {
+      @jakarta.annotation.Nullable SearchReportPositionClustersSecondHundred secondHundred) {
     this.secondHundred = secondHundred;
   }
 
   public SearchReportPositionClusters below(
-      @jakarta.annotation.Nonnull SearchReportPositionClustersBelow below) {
+      @jakarta.annotation.Nullable SearchReportPositionClustersBelow below) {
     this.below = below;
     return this;
   }
@@ -109,12 +109,12 @@ public class SearchReportPositionClusters {
    *
    * @return below
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public SearchReportPositionClustersBelow getBelow() {
     return below;
   }
 
-  public void setBelow(@jakarta.annotation.Nonnull SearchReportPositionClustersBelow below) {
+  public void setBelow(@jakarta.annotation.Nullable SearchReportPositionClustersBelow below) {
     this.below = below;
   }
 
@@ -170,9 +170,6 @@ public class SearchReportPositionClusters {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("firstHundred");
-    openapiRequiredFields.add("secondHundred");
-    openapiRequiredFields.add("below");
   }
 
   /**
@@ -202,23 +199,19 @@ public class SearchReportPositionClusters {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : SearchReportPositionClusters.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    // validate the required field `firstHundred`
-    SearchReportPositionClustersFirstHundred.validateJsonElement(jsonObj.get("firstHundred"));
-    // validate the required field `secondHundred`
-    SearchReportPositionClustersSecondHundred.validateJsonElement(jsonObj.get("secondHundred"));
-    // validate the required field `below`
-    SearchReportPositionClustersBelow.validateJsonElement(jsonObj.get("below"));
+    // validate the optional field `firstHundred`
+    if (jsonObj.get("firstHundred") != null && !jsonObj.get("firstHundred").isJsonNull()) {
+      SearchReportPositionClustersFirstHundred.validateJsonElement(jsonObj.get("firstHundred"));
+    }
+    // validate the optional field `secondHundred`
+    if (jsonObj.get("secondHundred") != null && !jsonObj.get("secondHundred").isJsonNull()) {
+      SearchReportPositionClustersSecondHundred.validateJsonElement(jsonObj.get("secondHundred"));
+    }
+    // validate the optional field `below`
+    if (jsonObj.get("below") != null && !jsonObj.get("below").isJsonNull()) {
+      SearchReportPositionClustersBelow.validateJsonElement(jsonObj.get("below"));
+    }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

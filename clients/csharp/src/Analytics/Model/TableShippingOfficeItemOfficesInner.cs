@@ -34,28 +34,13 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TableShippingOfficeItemOfficesInner" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected TableShippingOfficeItemOfficesInner() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="TableShippingOfficeItemOfficesInner" /> class.
-        /// </summary>
-        /// <param name="officeID">ID склада (required).</param>
-        /// <param name="officeName">Название склада (required).</param>
-        /// <param name="metrics">Метрики по складу (required).</param>
+        /// <param name="officeID">ID склада.</param>
+        /// <param name="officeName">Название склада.</param>
+        /// <param name="metrics">Метрики по складу.</param>
         public TableShippingOfficeItemOfficesInner(long officeID = default(long), string officeName = default(string), TableShippingOfficeMetrics metrics = default(TableShippingOfficeMetrics))
         {
             this.OfficeID = officeID;
-            // to ensure "officeName" is required (not null)
-            if (officeName == null)
-            {
-                throw new ArgumentNullException("officeName is a required property for TableShippingOfficeItemOfficesInner and cannot be null");
-            }
             this.OfficeName = officeName;
-            // to ensure "metrics" is required (not null)
-            if (metrics == null)
-            {
-                throw new ArgumentNullException("metrics is a required property for TableShippingOfficeItemOfficesInner and cannot be null");
-            }
             this.Metrics = metrics;
         }
 
@@ -66,7 +51,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>123456</example>
         */
-        [DataMember(Name = "officeID", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "officeID", EmitDefaultValue = false)]
         public long OfficeID { get; set; }
 
         /// <summary>
@@ -76,14 +61,14 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>Коледино</example>
         */
-        [DataMember(Name = "officeName", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "officeName", EmitDefaultValue = false)]
         public string OfficeName { get; set; }
 
         /// <summary>
         /// Метрики по складу
         /// </summary>
         /// <value>Метрики по складу</value>
-        [DataMember(Name = "metrics", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "metrics", EmitDefaultValue = false)]
         public TableShippingOfficeMetrics Metrics { get; set; }
 
         /// <summary>

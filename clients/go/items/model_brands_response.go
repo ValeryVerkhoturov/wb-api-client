@@ -11,9 +11,7 @@ API version: items
 package items
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the BrandsResponse type satisfies the MappedNullable interface at compile time
@@ -21,23 +19,19 @@ var _ MappedNullable = &BrandsResponse{}
 
 // BrandsResponse struct for BrandsResponse
 type BrandsResponse struct {
-	Brands []BrandsResponseBrandsInner `json:"brands"`
+	Brands []BrandsResponseBrandsInner `json:"brands,omitempty"`
 	// Параметр пагинации. Укажите это значение в запросе, чтобы получить следующий пакет данных. Если поле отсутствует, вы получили все данные
 	Next *int32 `json:"next,omitempty"`
 	// Общее количество брендов предмета
-	Total int32 `json:"total"`
+	Total *int32 `json:"total,omitempty"`
 }
-
-type _BrandsResponse BrandsResponse
 
 // NewBrandsResponse instantiates a new BrandsResponse object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewBrandsResponse(brands []BrandsResponseBrandsInner, total int32) *BrandsResponse {
+func NewBrandsResponse() *BrandsResponse {
 	this := BrandsResponse{}
-	this.Brands = brands
-	this.Total = total
 	return &this
 }
 
@@ -49,26 +43,34 @@ func NewBrandsResponseWithDefaults() *BrandsResponse {
 	return &this
 }
 
-// GetBrands returns the Brands field value
+// GetBrands returns the Brands field value if set, zero value otherwise.
 func (o *BrandsResponse) GetBrands() []BrandsResponseBrandsInner {
-	if o == nil {
+	if o == nil || IsNil(o.Brands) {
 		var ret []BrandsResponseBrandsInner
 		return ret
 	}
-
 	return o.Brands
 }
 
-// GetBrandsOk returns a tuple with the Brands field value
+// GetBrandsOk returns a tuple with the Brands field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *BrandsResponse) GetBrandsOk() ([]BrandsResponseBrandsInner, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Brands) {
 		return nil, false
 	}
 	return o.Brands, true
 }
 
-// SetBrands sets field value
+// HasBrands returns a boolean if a field has been set.
+func (o *BrandsResponse) HasBrands() bool {
+	if o != nil && !IsNil(o.Brands) {
+		return true
+	}
+
+	return false
+}
+
+// SetBrands gets a reference to the given []BrandsResponseBrandsInner and assigns it to the Brands field.
 func (o *BrandsResponse) SetBrands(v []BrandsResponseBrandsInner) {
 	o.Brands = v
 }
@@ -105,28 +107,36 @@ func (o *BrandsResponse) SetNext(v int32) {
 	o.Next = &v
 }
 
-// GetTotal returns the Total field value
+// GetTotal returns the Total field value if set, zero value otherwise.
 func (o *BrandsResponse) GetTotal() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.Total) {
 		var ret int32
 		return ret
 	}
-
-	return o.Total
+	return *o.Total
 }
 
-// GetTotalOk returns a tuple with the Total field value
+// GetTotalOk returns a tuple with the Total field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *BrandsResponse) GetTotalOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Total) {
 		return nil, false
 	}
-	return &o.Total, true
+	return o.Total, true
 }
 
-// SetTotal sets field value
+// HasTotal returns a boolean if a field has been set.
+func (o *BrandsResponse) HasTotal() bool {
+	if o != nil && !IsNil(o.Total) {
+		return true
+	}
+
+	return false
+}
+
+// SetTotal gets a reference to the given int32 and assigns it to the Total field.
 func (o *BrandsResponse) SetTotal(v int32) {
-	o.Total = v
+	o.Total = &v
 }
 
 func (o BrandsResponse) MarshalJSON() ([]byte, error) {
@@ -139,50 +149,16 @@ func (o BrandsResponse) MarshalJSON() ([]byte, error) {
 
 func (o BrandsResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["brands"] = o.Brands
+	if !IsNil(o.Brands) {
+		toSerialize["brands"] = o.Brands
+	}
 	if !IsNil(o.Next) {
 		toSerialize["next"] = o.Next
 	}
-	toSerialize["total"] = o.Total
+	if !IsNil(o.Total) {
+		toSerialize["total"] = o.Total
+	}
 	return toSerialize, nil
-}
-
-func (o *BrandsResponse) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"brands",
-		"total",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varBrandsResponse := _BrandsResponse{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varBrandsResponse)
-
-	if err != nil {
-		return err
-	}
-
-	*o = BrandsResponse(varBrandsResponse)
-
-	return err
 }
 
 type NullableBrandsResponse struct {

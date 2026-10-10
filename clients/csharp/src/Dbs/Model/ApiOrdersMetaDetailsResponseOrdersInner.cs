@@ -34,19 +34,14 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiOrdersMetaDetailsResponseOrdersInner" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected ApiOrdersMetaDetailsResponseOrdersInner() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ApiOrdersMetaDetailsResponseOrdersInner" /> class.
-        /// </summary>
         /// <param name="orderId">ID сборочного задания.</param>
-        /// <param name="isError">Есть ли ошибки (required).</param>
+        /// <param name="isError">Есть ли ошибки.</param>
         /// <param name="errors">Информация об ошибке.</param>
         /// <param name="metaDetails">Идентификаторы маркировки и статусы их валидации.</param>
         public ApiOrdersMetaDetailsResponseOrdersInner(int orderId = default(int), bool isError = default(bool), List<ApiOrdersMetaDetailsResponseOrdersInnerErrorsInner> errors = default(List<ApiOrdersMetaDetailsResponseOrdersInnerErrorsInner>), List<ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner> metaDetails = default(List<ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner>))
         {
-            this.IsError = isError;
             this.OrderId = orderId;
+            this.IsError = isError;
             this.Errors = errors;
             this.MetaDetails = metaDetails;
         }
@@ -68,7 +63,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Model
         /*
         <example>false</example>
         */
-        [DataMember(Name = "isError", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "isError", EmitDefaultValue = true)]
         public bool IsError { get; set; }
 
         /// <summary>

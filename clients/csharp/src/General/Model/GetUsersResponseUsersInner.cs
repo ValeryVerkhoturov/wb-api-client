@@ -56,83 +56,38 @@ namespace ValeryVerkhoturov.WbApiClient.General.Model
         /// Роль пользователя:   * &#x60;user&#x60; — пользователь, который активировал доступ   * &#x60; &#x60; (пустая строка) — пользователь, который не активировал доступ 
         /// </summary>
         /// <value>Роль пользователя:   * &#x60;user&#x60; — пользователь, который активировал доступ   * &#x60; &#x60; (пустая строка) — пользователь, который не активировал доступ </value>
-        [DataMember(Name = "role", IsRequired = true, EmitDefaultValue = true)]
-        public RoleEnum Role { get; set; }
+        [DataMember(Name = "role", EmitDefaultValue = false)]
+        public RoleEnum? Role { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="GetUsersResponseUsersInner" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected GetUsersResponseUsersInner() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="GetUsersResponseUsersInner" /> class.
-        /// </summary>
-        /// <param name="id">ID пользователя (required).</param>
-        /// <param name="role">Роль пользователя:   * &#x60;user&#x60; — пользователь, который активировал доступ   * &#x60; &#x60; (пустая строка) — пользователь, который не активировал доступ  (required).</param>
-        /// <param name="position">Должность пользователя (required).</param>
-        /// <param name="phone">Номер телефона пользователя (required).</param>
-        /// <param name="email">Email пользователя (required).</param>
-        /// <param name="isOwner">Является ли пользователь владельцем профиля продавца (required).</param>
-        /// <param name="firstName">Имя пользователя (required).</param>
-        /// <param name="secondName">Фамилия пользователя (required).</param>
-        /// <param name="patronymic">Отчество пользователя (required).</param>
-        /// <param name="goodsReturn">Может ли пользователь одобрять возвраты товаров (required).</param>
-        /// <param name="isInvitee">Приглашён ли пользователь (required).</param>
-        /// <param name="inviteeInfo">inviteeInfo (required).</param>
-        /// <param name="access">Настройки доступа к разделам профиля продавца (required).</param>
-        public GetUsersResponseUsersInner(int id = default(int), RoleEnum role = default(RoleEnum), string position = default(string), string phone = default(string), string email = default(string), bool isOwner = default(bool), string firstName = default(string), string secondName = default(string), string patronymic = default(string), bool goodsReturn = default(bool), bool isInvitee = default(bool), GetUsersResponseUsersInnerInviteeInfo inviteeInfo = default(GetUsersResponseUsersInnerInviteeInfo), List<GetUsersResponseUsersInnerAccessInner> access = default(List<GetUsersResponseUsersInnerAccessInner>))
+        /// <param name="id">ID пользователя.</param>
+        /// <param name="role">Роль пользователя:   * &#x60;user&#x60; — пользователь, который активировал доступ   * &#x60; &#x60; (пустая строка) — пользователь, который не активировал доступ .</param>
+        /// <param name="position">Должность пользователя.</param>
+        /// <param name="phone">Номер телефона пользователя.</param>
+        /// <param name="email">Email пользователя.</param>
+        /// <param name="isOwner">Является ли пользователь владельцем профиля продавца.</param>
+        /// <param name="firstName">Имя пользователя.</param>
+        /// <param name="secondName">Фамилия пользователя.</param>
+        /// <param name="patronymic">Отчество пользователя.</param>
+        /// <param name="goodsReturn">Может ли пользователь одобрять возвраты товаров.</param>
+        /// <param name="isInvitee">Приглашён ли пользователь.</param>
+        /// <param name="inviteeInfo">inviteeInfo.</param>
+        /// <param name="access">Настройки доступа к разделам профиля продавца.</param>
+        public GetUsersResponseUsersInner(int id = default(int), RoleEnum? role = default(RoleEnum?), string position = default(string), string phone = default(string), string email = default(string), bool isOwner = default(bool), string firstName = default(string), string secondName = default(string), string patronymic = default(string), bool goodsReturn = default(bool), bool isInvitee = default(bool), GetUsersResponseUsersInnerInviteeInfo inviteeInfo = default(GetUsersResponseUsersInnerInviteeInfo), List<GetUsersResponseUsersInnerAccessInner> access = default(List<GetUsersResponseUsersInnerAccessInner>))
         {
             this.Id = id;
             this.Role = role;
-            // to ensure "position" is required (not null)
-            if (position == null)
-            {
-                throw new ArgumentNullException("position is a required property for GetUsersResponseUsersInner and cannot be null");
-            }
             this.Position = position;
-            // to ensure "phone" is required (not null)
-            if (phone == null)
-            {
-                throw new ArgumentNullException("phone is a required property for GetUsersResponseUsersInner and cannot be null");
-            }
             this.Phone = phone;
-            // to ensure "email" is required (not null)
-            if (email == null)
-            {
-                throw new ArgumentNullException("email is a required property for GetUsersResponseUsersInner and cannot be null");
-            }
             this.Email = email;
             this.IsOwner = isOwner;
-            // to ensure "firstName" is required (not null)
-            if (firstName == null)
-            {
-                throw new ArgumentNullException("firstName is a required property for GetUsersResponseUsersInner and cannot be null");
-            }
             this.FirstName = firstName;
-            // to ensure "secondName" is required (not null)
-            if (secondName == null)
-            {
-                throw new ArgumentNullException("secondName is a required property for GetUsersResponseUsersInner and cannot be null");
-            }
             this.SecondName = secondName;
-            // to ensure "patronymic" is required (not null)
-            if (patronymic == null)
-            {
-                throw new ArgumentNullException("patronymic is a required property for GetUsersResponseUsersInner and cannot be null");
-            }
             this.Patronymic = patronymic;
             this.GoodsReturn = goodsReturn;
             this.IsInvitee = isInvitee;
-            // to ensure "inviteeInfo" is required (not null)
-            if (inviteeInfo == null)
-            {
-                throw new ArgumentNullException("inviteeInfo is a required property for GetUsersResponseUsersInner and cannot be null");
-            }
             this.InviteeInfo = inviteeInfo;
-            // to ensure "access" is required (not null)
-            if (access == null)
-            {
-                throw new ArgumentNullException("access is a required property for GetUsersResponseUsersInner and cannot be null");
-            }
             this.Access = access;
         }
 
@@ -140,76 +95,76 @@ namespace ValeryVerkhoturov.WbApiClient.General.Model
         /// ID пользователя
         /// </summary>
         /// <value>ID пользователя</value>
-        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "id", EmitDefaultValue = false)]
         public int Id { get; set; }
 
         /// <summary>
         /// Должность пользователя
         /// </summary>
         /// <value>Должность пользователя</value>
-        [DataMember(Name = "position", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "position", EmitDefaultValue = false)]
         public string Position { get; set; }
 
         /// <summary>
         /// Номер телефона пользователя
         /// </summary>
         /// <value>Номер телефона пользователя</value>
-        [DataMember(Name = "phone", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "phone", EmitDefaultValue = false)]
         public string Phone { get; set; }
 
         /// <summary>
         /// Email пользователя
         /// </summary>
         /// <value>Email пользователя</value>
-        [DataMember(Name = "email", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "email", EmitDefaultValue = false)]
         public string Email { get; set; }
 
         /// <summary>
         /// Является ли пользователь владельцем профиля продавца
         /// </summary>
         /// <value>Является ли пользователь владельцем профиля продавца</value>
-        [DataMember(Name = "isOwner", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "isOwner", EmitDefaultValue = true)]
         public bool IsOwner { get; set; }
 
         /// <summary>
         /// Имя пользователя
         /// </summary>
         /// <value>Имя пользователя</value>
-        [DataMember(Name = "firstName", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "firstName", EmitDefaultValue = false)]
         public string FirstName { get; set; }
 
         /// <summary>
         /// Фамилия пользователя
         /// </summary>
         /// <value>Фамилия пользователя</value>
-        [DataMember(Name = "secondName", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "secondName", EmitDefaultValue = false)]
         public string SecondName { get; set; }
 
         /// <summary>
         /// Отчество пользователя
         /// </summary>
         /// <value>Отчество пользователя</value>
-        [DataMember(Name = "patronymic", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "patronymic", EmitDefaultValue = false)]
         public string Patronymic { get; set; }
 
         /// <summary>
         /// Может ли пользователь одобрять возвраты товаров
         /// </summary>
         /// <value>Может ли пользователь одобрять возвраты товаров</value>
-        [DataMember(Name = "goodsReturn", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "goodsReturn", EmitDefaultValue = true)]
         public bool GoodsReturn { get; set; }
 
         /// <summary>
         /// Приглашён ли пользователь
         /// </summary>
         /// <value>Приглашён ли пользователь</value>
-        [DataMember(Name = "isInvitee", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "isInvitee", EmitDefaultValue = true)]
         public bool IsInvitee { get; set; }
 
         /// <summary>
         /// Gets or Sets InviteeInfo
         /// </summary>
-        [DataMember(Name = "inviteeInfo", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "inviteeInfo", EmitDefaultValue = true)]
         public GetUsersResponseUsersInnerInviteeInfo InviteeInfo { get; set; }
 
         /// <summary>
@@ -219,7 +174,7 @@ namespace ValeryVerkhoturov.WbApiClient.General.Model
         /*
         <example>[{&quot;code&quot;:&quot;balance&quot;,&quot;disabled&quot;:false},{&quot;code&quot;:&quot;pointsForReviews&quot;,&quot;disabled&quot;:false},{&quot;code&quot;:&quot;brands&quot;,&quot;disabled&quot;:true},{&quot;code&quot;:&quot;finance&quot;,&quot;disabled&quot;:true},{&quot;code&quot;:&quot;supply&quot;,&quot;disabled&quot;:true}]</example>
         */
-        [DataMember(Name = "access", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "access", EmitDefaultValue = false)]
         public List<GetUsersResponseUsersInnerAccessInner> Access { get; set; }
 
         /// <summary>

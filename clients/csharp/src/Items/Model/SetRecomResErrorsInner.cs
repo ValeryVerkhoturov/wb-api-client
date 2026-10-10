@@ -34,33 +34,13 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SetRecomResErrorsInner" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected SetRecomResErrorsInner() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="SetRecomResErrorsInner" /> class.
-        /// </summary>
-        /// <param name="mainNm">Значение параметра &#x60;nmId&#x60; (required).</param>
-        /// <param name="recomNm">Значение параметра &#x60;recomNm&#x60; (required).</param>
-        /// <param name="message">Сообщение об ошибке (required).</param>
+        /// <param name="mainNm">Значение параметра &#x60;nmId&#x60;.</param>
+        /// <param name="recomNm">Значение параметра &#x60;recomNm&#x60;.</param>
+        /// <param name="message">Сообщение об ошибке.</param>
         public SetRecomResErrorsInner(string mainNm = default(string), string recomNm = default(string), string message = default(string))
         {
-            // to ensure "mainNm" is required (not null)
-            if (mainNm == null)
-            {
-                throw new ArgumentNullException("mainNm is a required property for SetRecomResErrorsInner and cannot be null");
-            }
             this.MainNm = mainNm;
-            // to ensure "recomNm" is required (not null)
-            if (recomNm == null)
-            {
-                throw new ArgumentNullException("recomNm is a required property for SetRecomResErrorsInner and cannot be null");
-            }
             this.RecomNm = recomNm;
-            // to ensure "message" is required (not null)
-            if (message == null)
-            {
-                throw new ArgumentNullException("message is a required property for SetRecomResErrorsInner and cannot be null");
-            }
             this.Message = message;
         }
 
@@ -71,7 +51,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /*
         <example>5870243</example>
         */
-        [DataMember(Name = "mainNm", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "mainNm", EmitDefaultValue = false)]
         public string MainNm { get; set; }
 
         /// <summary>
@@ -81,7 +61,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /*
         <example>5870244</example>
         */
-        [DataMember(Name = "recomNm", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "recomNm", EmitDefaultValue = false)]
         public string RecomNm { get; set; }
 
         /// <summary>
@@ -91,7 +71,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /*
         <example>The item has no photo</example>
         */
-        [DataMember(Name = "message", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "message", EmitDefaultValue = false)]
         public string Message { get; set; }
 
         /// <summary>

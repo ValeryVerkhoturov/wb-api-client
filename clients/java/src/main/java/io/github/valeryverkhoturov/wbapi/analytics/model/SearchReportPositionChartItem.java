@@ -36,24 +36,24 @@ public class SearchReportPositionChartItem {
   public static final String SERIALIZED_NAME_DT = "dt";
 
   @SerializedName(SERIALIZED_NAME_DT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String dt;
 
   public static final String SERIALIZED_NAME_AVERAGE = "average";
 
   @SerializedName(SERIALIZED_NAME_AVERAGE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer average;
 
   public static final String SERIALIZED_NAME_MEDIAN = "median";
 
   @SerializedName(SERIALIZED_NAME_MEDIAN)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer median;
 
   public SearchReportPositionChartItem() {}
 
-  public SearchReportPositionChartItem dt(@jakarta.annotation.Nonnull String dt) {
+  public SearchReportPositionChartItem dt(@jakarta.annotation.Nullable String dt) {
     this.dt = dt;
     return this;
   }
@@ -63,16 +63,16 @@ public class SearchReportPositionChartItem {
    *
    * @return dt
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getDt() {
     return dt;
   }
 
-  public void setDt(@jakarta.annotation.Nonnull String dt) {
+  public void setDt(@jakarta.annotation.Nullable String dt) {
     this.dt = dt;
   }
 
-  public SearchReportPositionChartItem average(@jakarta.annotation.Nonnull Integer average) {
+  public SearchReportPositionChartItem average(@jakarta.annotation.Nullable Integer average) {
     this.average = average;
     return this;
   }
@@ -82,16 +82,16 @@ public class SearchReportPositionChartItem {
    *
    * @return average
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getAverage() {
     return average;
   }
 
-  public void setAverage(@jakarta.annotation.Nonnull Integer average) {
+  public void setAverage(@jakarta.annotation.Nullable Integer average) {
     this.average = average;
   }
 
-  public SearchReportPositionChartItem median(@jakarta.annotation.Nonnull Integer median) {
+  public SearchReportPositionChartItem median(@jakarta.annotation.Nullable Integer median) {
     this.median = median;
     return this;
   }
@@ -101,12 +101,12 @@ public class SearchReportPositionChartItem {
    *
    * @return median
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getMedian() {
     return median;
   }
 
-  public void setMedian(@jakarta.annotation.Nonnull Integer median) {
+  public void setMedian(@jakarta.annotation.Nullable Integer median) {
     this.median = median;
   }
 
@@ -162,9 +162,6 @@ public class SearchReportPositionChartItem {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("dt");
-    openapiRequiredFields.add("average");
-    openapiRequiredFields.add("median");
   }
 
   /**
@@ -195,18 +192,9 @@ public class SearchReportPositionChartItem {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : SearchReportPositionChartItem.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    if (!jsonObj.get("dt").isJsonPrimitive()) {
+    if ((jsonObj.get("dt") != null && !jsonObj.get("dt").isJsonNull())
+        && !jsonObj.get("dt").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `dt` to be a primitive type in the JSON string but got `%s`",

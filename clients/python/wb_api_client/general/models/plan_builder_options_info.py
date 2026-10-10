@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt
-from typing import Any, ClassVar, Dict, List, Union
+from typing import Any, ClassVar, Dict, List, Optional, Union
 from wb_api_client.general.models.plan_builder_option import PlanBuilderOption
 from wb_api_client.general.models.plan_builder_package import PlanBuilderPackage
 from typing import Optional, Set
@@ -30,19 +30,27 @@ class PlanBuilderOptionsInfo(BaseModel):
     PlanBuilderOptionsInfo
     """  # noqa: E501
 
-    active_option_count: Union[StrictFloat, StrictInt] = Field(
+    active_option_count: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None,
         description="Количество активных опций, не включённых в пакеты",
         alias="activeOptionCount",
     )
-    active_package_count: Union[StrictFloat, StrictInt] = Field(
-        description="Количество активных пакетов опций", alias="activePackageCount"
+    active_package_count: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None,
+        description="Количество активных пакетов опций",
+        alias="activePackageCount",
     )
-    total_commission_rate: Union[StrictFloat, StrictInt] = Field(
+    total_commission_rate: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None,
         description="Итоговая комиссия за подключённые опции и пакеты, % от оборота",
         alias="totalCommissionRate",
     )
-    packages: List[PlanBuilderPackage] = Field(description="Подключённые пакеты опций")
-    options: List[PlanBuilderOption] = Field(description="Подключённые опции")
+    packages: Optional[List[PlanBuilderPackage]] = Field(
+        default=None, description="Подключённые пакеты опций"
+    )
+    options: Optional[List[PlanBuilderOption]] = Field(
+        default=None, description="Подключённые опции"
+    )
     __properties: ClassVar[List[str]] = [
         "activeOptionCount",
         "activePackageCount",

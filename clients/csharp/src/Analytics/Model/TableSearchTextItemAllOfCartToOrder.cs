@@ -34,19 +34,14 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TableSearchTextItemAllOfCartToOrder" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected TableSearchTextItemAllOfCartToOrder() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="TableSearchTextItemAllOfCartToOrder" /> class.
-        /// </summary>
-        /// <param name="current">Текущая конверсия (required).</param>
+        /// <param name="current">Текущая конверсия.</param>
         /// <param name="dynamics">Динамика по сравнению с предыдущим периодом, %.</param>
-        /// <param name="percentile">Процент, на который показатель конверсии в заказ выше, чем у карточек других продавцов по поисковому запросу (required).</param>
+        /// <param name="percentile">Процент, на который показатель конверсии в заказ выше, чем у карточек других продавцов по поисковому запросу.</param>
         public TableSearchTextItemAllOfCartToOrder(int current = default(int), int dynamics = default(int), int percentile = default(int))
         {
             this.Current = current;
-            this.Percentile = percentile;
             this.Dynamics = dynamics;
+            this.Percentile = percentile;
         }
 
         /// <summary>
@@ -56,7 +51,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>5</example>
         */
-        [DataMember(Name = "current", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "current", EmitDefaultValue = false)]
         public int Current { get; set; }
 
         /// <summary>
@@ -76,7 +71,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>50</example>
         */
-        [DataMember(Name = "percentile", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "percentile", EmitDefaultValue = false)]
         public int Percentile { get; set; }
 
         /// <summary>

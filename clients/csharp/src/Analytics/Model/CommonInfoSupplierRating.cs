@@ -34,12 +34,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CommonInfoSupplierRating" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected CommonInfoSupplierRating() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="CommonInfoSupplierRating" /> class.
-        /// </summary>
-        /// <param name="current">Текущий рейтинг продавца (required).</param>
+        /// <param name="current">Текущий рейтинг продавца.</param>
         /// <param name="dynamics">Динамика по сравнению с предыдущим периодом, %.</param>
         public CommonInfoSupplierRating(decimal current = default(decimal), decimal dynamics = default(decimal))
         {
@@ -54,7 +49,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>5.3</example>
         */
-        [DataMember(Name = "current", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "current", EmitDefaultValue = false)]
         public decimal Current { get; set; }
 
         /// <summary>

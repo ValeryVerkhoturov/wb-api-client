@@ -36,31 +36,31 @@ public class V1SetNormQueryBidsSuccessResponseItem {
   public static final String SERIALIZED_NAME_ADVERT_ID = "advertId";
 
   @SerializedName(SERIALIZED_NAME_ADVERT_ID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer advertId;
 
   public static final String SERIALIZED_NAME_NM_ID = "nmId";
 
   @SerializedName(SERIALIZED_NAME_NM_ID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer nmId;
 
   public static final String SERIALIZED_NAME_NORM_QUERY = "normQuery";
 
   @SerializedName(SERIALIZED_NAME_NORM_QUERY)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String normQuery;
 
   public static final String SERIALIZED_NAME_CURRENCY = "currency";
 
   @SerializedName(SERIALIZED_NAME_CURRENCY)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String currency;
 
   public V1SetNormQueryBidsSuccessResponseItem() {}
 
   public V1SetNormQueryBidsSuccessResponseItem advertId(
-      @jakarta.annotation.Nonnull Integer advertId) {
+      @jakarta.annotation.Nullable Integer advertId) {
     this.advertId = advertId;
     return this;
   }
@@ -70,16 +70,16 @@ public class V1SetNormQueryBidsSuccessResponseItem {
    *
    * @return advertId
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getAdvertId() {
     return advertId;
   }
 
-  public void setAdvertId(@jakarta.annotation.Nonnull Integer advertId) {
+  public void setAdvertId(@jakarta.annotation.Nullable Integer advertId) {
     this.advertId = advertId;
   }
 
-  public V1SetNormQueryBidsSuccessResponseItem nmId(@jakarta.annotation.Nonnull Integer nmId) {
+  public V1SetNormQueryBidsSuccessResponseItem nmId(@jakarta.annotation.Nullable Integer nmId) {
     this.nmId = nmId;
     return this;
   }
@@ -89,17 +89,17 @@ public class V1SetNormQueryBidsSuccessResponseItem {
    *
    * @return nmId
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getNmId() {
     return nmId;
   }
 
-  public void setNmId(@jakarta.annotation.Nonnull Integer nmId) {
+  public void setNmId(@jakarta.annotation.Nullable Integer nmId) {
     this.nmId = nmId;
   }
 
   public V1SetNormQueryBidsSuccessResponseItem normQuery(
-      @jakarta.annotation.Nonnull String normQuery) {
+      @jakarta.annotation.Nullable String normQuery) {
     this.normQuery = normQuery;
     return this;
   }
@@ -109,17 +109,17 @@ public class V1SetNormQueryBidsSuccessResponseItem {
    *
    * @return normQuery
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getNormQuery() {
     return normQuery;
   }
 
-  public void setNormQuery(@jakarta.annotation.Nonnull String normQuery) {
+  public void setNormQuery(@jakarta.annotation.Nullable String normQuery) {
     this.normQuery = normQuery;
   }
 
   public V1SetNormQueryBidsSuccessResponseItem currency(
-      @jakarta.annotation.Nonnull String currency) {
+      @jakarta.annotation.Nullable String currency) {
     this.currency = currency;
     return this;
   }
@@ -129,12 +129,12 @@ public class V1SetNormQueryBidsSuccessResponseItem {
    *
    * @return currency
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getCurrency() {
     return currency;
   }
 
-  public void setCurrency(@jakarta.annotation.Nonnull String currency) {
+  public void setCurrency(@jakarta.annotation.Nullable String currency) {
     this.currency = currency;
   }
 
@@ -194,10 +194,6 @@ public class V1SetNormQueryBidsSuccessResponseItem {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("advertId");
-    openapiRequiredFields.add("nmId");
-    openapiRequiredFields.add("normQuery");
-    openapiRequiredFields.add("currency");
   }
 
   /**
@@ -228,24 +224,16 @@ public class V1SetNormQueryBidsSuccessResponseItem {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : V1SetNormQueryBidsSuccessResponseItem.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    if (!jsonObj.get("normQuery").isJsonPrimitive()) {
+    if ((jsonObj.get("normQuery") != null && !jsonObj.get("normQuery").isJsonNull())
+        && !jsonObj.get("normQuery").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `normQuery` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("normQuery").toString()));
     }
-    if (!jsonObj.get("currency").isJsonPrimitive()) {
+    if ((jsonObj.get("currency") != null && !jsonObj.get("currency").isJsonNull())
+        && !jsonObj.get("currency").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `currency` to be a primitive type in the JSON string but got `%s`",

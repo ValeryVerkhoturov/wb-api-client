@@ -11,9 +11,7 @@ API version: analytics
 package analytics
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the InventorySellerResponseItemsInner type satisfies the MappedNullable interface at compile time
@@ -22,33 +20,25 @@ var _ MappedNullable = &InventorySellerResponseItemsInner{}
 // InventorySellerResponseItemsInner struct for InventorySellerResponseItemsInner
 type InventorySellerResponseItemsInner struct {
 	// Артикул WB
-	NmId int64 `json:"nmId"`
+	NmId *int64 `json:"nmId,omitempty"`
 	// ID размера
-	ChrtId int32 `json:"chrtId"`
+	ChrtId *int32 `json:"chrtId,omitempty"`
 	// ID склада
-	WarehouseId int64 `json:"warehouseId"`
+	WarehouseId *int64 `json:"warehouseId,omitempty"`
 	// Название склада
-	WarehouseName string `json:"warehouseName"`
+	WarehouseName *string `json:"warehouseName,omitempty"`
 	// Регион отгрузки
-	RegionName string `json:"regionName"`
+	RegionName *string `json:"regionName,omitempty"`
 	// Количество товара на складе, доступное клиентам для добавления в корзину
-	Quantity int32 `json:"quantity"`
+	Quantity *int32 `json:"quantity,omitempty"`
 }
-
-type _InventorySellerResponseItemsInner InventorySellerResponseItemsInner
 
 // NewInventorySellerResponseItemsInner instantiates a new InventorySellerResponseItemsInner object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInventorySellerResponseItemsInner(nmId int64, chrtId int32, warehouseId int64, warehouseName string, regionName string, quantity int32) *InventorySellerResponseItemsInner {
+func NewInventorySellerResponseItemsInner() *InventorySellerResponseItemsInner {
 	this := InventorySellerResponseItemsInner{}
-	this.NmId = nmId
-	this.ChrtId = chrtId
-	this.WarehouseId = warehouseId
-	this.WarehouseName = warehouseName
-	this.RegionName = regionName
-	this.Quantity = quantity
 	return &this
 }
 
@@ -60,148 +50,196 @@ func NewInventorySellerResponseItemsInnerWithDefaults() *InventorySellerResponse
 	return &this
 }
 
-// GetNmId returns the NmId field value
+// GetNmId returns the NmId field value if set, zero value otherwise.
 func (o *InventorySellerResponseItemsInner) GetNmId() int64 {
-	if o == nil {
+	if o == nil || IsNil(o.NmId) {
 		var ret int64
 		return ret
 	}
-
-	return o.NmId
+	return *o.NmId
 }
 
-// GetNmIdOk returns a tuple with the NmId field value
+// GetNmIdOk returns a tuple with the NmId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *InventorySellerResponseItemsInner) GetNmIdOk() (*int64, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.NmId) {
 		return nil, false
 	}
-	return &o.NmId, true
+	return o.NmId, true
 }
 
-// SetNmId sets field value
+// HasNmId returns a boolean if a field has been set.
+func (o *InventorySellerResponseItemsInner) HasNmId() bool {
+	if o != nil && !IsNil(o.NmId) {
+		return true
+	}
+
+	return false
+}
+
+// SetNmId gets a reference to the given int64 and assigns it to the NmId field.
 func (o *InventorySellerResponseItemsInner) SetNmId(v int64) {
-	o.NmId = v
+	o.NmId = &v
 }
 
-// GetChrtId returns the ChrtId field value
+// GetChrtId returns the ChrtId field value if set, zero value otherwise.
 func (o *InventorySellerResponseItemsInner) GetChrtId() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.ChrtId) {
 		var ret int32
 		return ret
 	}
-
-	return o.ChrtId
+	return *o.ChrtId
 }
 
-// GetChrtIdOk returns a tuple with the ChrtId field value
+// GetChrtIdOk returns a tuple with the ChrtId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *InventorySellerResponseItemsInner) GetChrtIdOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ChrtId) {
 		return nil, false
 	}
-	return &o.ChrtId, true
+	return o.ChrtId, true
 }
 
-// SetChrtId sets field value
+// HasChrtId returns a boolean if a field has been set.
+func (o *InventorySellerResponseItemsInner) HasChrtId() bool {
+	if o != nil && !IsNil(o.ChrtId) {
+		return true
+	}
+
+	return false
+}
+
+// SetChrtId gets a reference to the given int32 and assigns it to the ChrtId field.
 func (o *InventorySellerResponseItemsInner) SetChrtId(v int32) {
-	o.ChrtId = v
+	o.ChrtId = &v
 }
 
-// GetWarehouseId returns the WarehouseId field value
+// GetWarehouseId returns the WarehouseId field value if set, zero value otherwise.
 func (o *InventorySellerResponseItemsInner) GetWarehouseId() int64 {
-	if o == nil {
+	if o == nil || IsNil(o.WarehouseId) {
 		var ret int64
 		return ret
 	}
-
-	return o.WarehouseId
+	return *o.WarehouseId
 }
 
-// GetWarehouseIdOk returns a tuple with the WarehouseId field value
+// GetWarehouseIdOk returns a tuple with the WarehouseId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *InventorySellerResponseItemsInner) GetWarehouseIdOk() (*int64, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.WarehouseId) {
 		return nil, false
 	}
-	return &o.WarehouseId, true
+	return o.WarehouseId, true
 }
 
-// SetWarehouseId sets field value
+// HasWarehouseId returns a boolean if a field has been set.
+func (o *InventorySellerResponseItemsInner) HasWarehouseId() bool {
+	if o != nil && !IsNil(o.WarehouseId) {
+		return true
+	}
+
+	return false
+}
+
+// SetWarehouseId gets a reference to the given int64 and assigns it to the WarehouseId field.
 func (o *InventorySellerResponseItemsInner) SetWarehouseId(v int64) {
-	o.WarehouseId = v
+	o.WarehouseId = &v
 }
 
-// GetWarehouseName returns the WarehouseName field value
+// GetWarehouseName returns the WarehouseName field value if set, zero value otherwise.
 func (o *InventorySellerResponseItemsInner) GetWarehouseName() string {
-	if o == nil {
+	if o == nil || IsNil(o.WarehouseName) {
 		var ret string
 		return ret
 	}
-
-	return o.WarehouseName
+	return *o.WarehouseName
 }
 
-// GetWarehouseNameOk returns a tuple with the WarehouseName field value
+// GetWarehouseNameOk returns a tuple with the WarehouseName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *InventorySellerResponseItemsInner) GetWarehouseNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.WarehouseName) {
 		return nil, false
 	}
-	return &o.WarehouseName, true
+	return o.WarehouseName, true
 }
 
-// SetWarehouseName sets field value
+// HasWarehouseName returns a boolean if a field has been set.
+func (o *InventorySellerResponseItemsInner) HasWarehouseName() bool {
+	if o != nil && !IsNil(o.WarehouseName) {
+		return true
+	}
+
+	return false
+}
+
+// SetWarehouseName gets a reference to the given string and assigns it to the WarehouseName field.
 func (o *InventorySellerResponseItemsInner) SetWarehouseName(v string) {
-	o.WarehouseName = v
+	o.WarehouseName = &v
 }
 
-// GetRegionName returns the RegionName field value
+// GetRegionName returns the RegionName field value if set, zero value otherwise.
 func (o *InventorySellerResponseItemsInner) GetRegionName() string {
-	if o == nil {
+	if o == nil || IsNil(o.RegionName) {
 		var ret string
 		return ret
 	}
-
-	return o.RegionName
+	return *o.RegionName
 }
 
-// GetRegionNameOk returns a tuple with the RegionName field value
+// GetRegionNameOk returns a tuple with the RegionName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *InventorySellerResponseItemsInner) GetRegionNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.RegionName) {
 		return nil, false
 	}
-	return &o.RegionName, true
+	return o.RegionName, true
 }
 
-// SetRegionName sets field value
+// HasRegionName returns a boolean if a field has been set.
+func (o *InventorySellerResponseItemsInner) HasRegionName() bool {
+	if o != nil && !IsNil(o.RegionName) {
+		return true
+	}
+
+	return false
+}
+
+// SetRegionName gets a reference to the given string and assigns it to the RegionName field.
 func (o *InventorySellerResponseItemsInner) SetRegionName(v string) {
-	o.RegionName = v
+	o.RegionName = &v
 }
 
-// GetQuantity returns the Quantity field value
+// GetQuantity returns the Quantity field value if set, zero value otherwise.
 func (o *InventorySellerResponseItemsInner) GetQuantity() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.Quantity) {
 		var ret int32
 		return ret
 	}
-
-	return o.Quantity
+	return *o.Quantity
 }
 
-// GetQuantityOk returns a tuple with the Quantity field value
+// GetQuantityOk returns a tuple with the Quantity field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *InventorySellerResponseItemsInner) GetQuantityOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Quantity) {
 		return nil, false
 	}
-	return &o.Quantity, true
+	return o.Quantity, true
 }
 
-// SetQuantity sets field value
+// HasQuantity returns a boolean if a field has been set.
+func (o *InventorySellerResponseItemsInner) HasQuantity() bool {
+	if o != nil && !IsNil(o.Quantity) {
+		return true
+	}
+
+	return false
+}
+
+// SetQuantity gets a reference to the given int32 and assigns it to the Quantity field.
 func (o *InventorySellerResponseItemsInner) SetQuantity(v int32) {
-	o.Quantity = v
+	o.Quantity = &v
 }
 
 func (o InventorySellerResponseItemsInner) MarshalJSON() ([]byte, error) {
@@ -214,55 +252,25 @@ func (o InventorySellerResponseItemsInner) MarshalJSON() ([]byte, error) {
 
 func (o InventorySellerResponseItemsInner) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["nmId"] = o.NmId
-	toSerialize["chrtId"] = o.ChrtId
-	toSerialize["warehouseId"] = o.WarehouseId
-	toSerialize["warehouseName"] = o.WarehouseName
-	toSerialize["regionName"] = o.RegionName
-	toSerialize["quantity"] = o.Quantity
+	if !IsNil(o.NmId) {
+		toSerialize["nmId"] = o.NmId
+	}
+	if !IsNil(o.ChrtId) {
+		toSerialize["chrtId"] = o.ChrtId
+	}
+	if !IsNil(o.WarehouseId) {
+		toSerialize["warehouseId"] = o.WarehouseId
+	}
+	if !IsNil(o.WarehouseName) {
+		toSerialize["warehouseName"] = o.WarehouseName
+	}
+	if !IsNil(o.RegionName) {
+		toSerialize["regionName"] = o.RegionName
+	}
+	if !IsNil(o.Quantity) {
+		toSerialize["quantity"] = o.Quantity
+	}
 	return toSerialize, nil
-}
-
-func (o *InventorySellerResponseItemsInner) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"nmId",
-		"chrtId",
-		"warehouseId",
-		"warehouseName",
-		"regionName",
-		"quantity",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varInventorySellerResponseItemsInner := _InventorySellerResponseItemsInner{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varInventorySellerResponseItemsInner)
-
-	if err != nil {
-		return err
-	}
-
-	*o = InventorySellerResponseItemsInner(varInventorySellerResponseItemsInner)
-
-	return err
 }
 
 type NullableInventorySellerResponseItemsInner struct {

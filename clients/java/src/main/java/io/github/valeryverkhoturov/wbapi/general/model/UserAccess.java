@@ -46,7 +46,7 @@ public class UserAccess {
 
   @SerializedName(SERIALIZED_NAME_ACCESS)
   @jakarta.annotation.Nullable
-  private List<GetUsersResponseUsersInnerAccessInner> access = new ArrayList<>();
+  private List<CreateInviteRequestAccessInner> access = new ArrayList<>();
 
   public UserAccess() {}
 
@@ -70,12 +70,12 @@ public class UserAccess {
   }
 
   public UserAccess access(
-      @jakarta.annotation.Nullable List<GetUsersResponseUsersInnerAccessInner> access) {
+      @jakarta.annotation.Nullable List<CreateInviteRequestAccessInner> access) {
     this.access = access;
     return this;
   }
 
-  public UserAccess addAccessItem(GetUsersResponseUsersInnerAccessInner accessItem) {
+  public UserAccess addAccessItem(CreateInviteRequestAccessInner accessItem) {
     if (this.access == null) {
       this.access = new ArrayList<>();
     }
@@ -89,12 +89,11 @@ public class UserAccess {
    * @return access
    */
   @jakarta.annotation.Nullable
-  public List<GetUsersResponseUsersInnerAccessInner> getAccess() {
+  public List<CreateInviteRequestAccessInner> getAccess() {
     return access;
   }
 
-  public void setAccess(
-      @jakarta.annotation.Nullable List<GetUsersResponseUsersInnerAccessInner> access) {
+  public void setAccess(@jakarta.annotation.Nullable List<CreateInviteRequestAccessInner> access) {
     this.access = access;
   }
 
@@ -190,7 +189,7 @@ public class UserAccess {
 
         // validate the optional field `access` (array)
         for (int i = 0; i < jsonArrayaccess.size(); i++) {
-          GetUsersResponseUsersInnerAccessInner.validateJsonElement(jsonArrayaccess.get(i));
+          CreateInviteRequestAccessInner.validateJsonElement(jsonArrayaccess.get(i));
         }
         ;
       }

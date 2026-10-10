@@ -34,26 +34,11 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ModelsErrorTableListPublicRespV2" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected ModelsErrorTableListPublicRespV2() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ModelsErrorTableListPublicRespV2" /> class.
-        /// </summary>
-        /// <param name="items">Пакеты данных (required).</param>
-        /// <param name="cursor">cursor (required).</param>
+        /// <param name="items">Пакеты данных.</param>
+        /// <param name="cursor">cursor.</param>
         public ModelsErrorTableListPublicRespV2(List<ModelsErrorTableListPublicRespV2Item> items = default(List<ModelsErrorTableListPublicRespV2Item>), ViewerContractPublicErrorsCursorOutput cursor = default(ViewerContractPublicErrorsCursorOutput))
         {
-            // to ensure "items" is required (not null)
-            if (items == null)
-            {
-                throw new ArgumentNullException("items is a required property for ModelsErrorTableListPublicRespV2 and cannot be null");
-            }
             this.Items = items;
-            // to ensure "cursor" is required (not null)
-            if (cursor == null)
-            {
-                throw new ArgumentNullException("cursor is a required property for ModelsErrorTableListPublicRespV2 and cannot be null");
-            }
             this.Cursor = cursor;
         }
 
@@ -61,13 +46,13 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// Пакеты данных
         /// </summary>
         /// <value>Пакеты данных</value>
-        [DataMember(Name = "items", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "items", EmitDefaultValue = false)]
         public List<ModelsErrorTableListPublicRespV2Item> Items { get; set; }
 
         /// <summary>
         /// Gets or Sets Cursor
         /// </summary>
-        [DataMember(Name = "cursor", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "cursor", EmitDefaultValue = false)]
         public ViewerContractPublicErrorsCursorOutput Cursor { get; set; }
 
         /// <summary>

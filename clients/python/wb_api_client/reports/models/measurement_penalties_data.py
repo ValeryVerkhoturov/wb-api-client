@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from wb_api_client.reports.models.measurement_penalties_data_reports_inner import (
     MeasurementPenaltiesDataReportsInner,
 )
@@ -31,9 +31,12 @@ class MeasurementPenaltiesData(BaseModel):
     Данные ответа
     """  # noqa: E501
 
-    reports: List[MeasurementPenaltiesDataReportsInner] = Field(description="Удержания")
-    total: StrictInt = Field(
-        description="Количество удержаний в отчёте. Без учёта `limit` и `offset`"
+    reports: Optional[List[MeasurementPenaltiesDataReportsInner]] = Field(
+        default=None, description="Удержания"
+    )
+    total: Optional[StrictInt] = Field(
+        default=None,
+        description="Количество удержаний в отчёте. Без учёта `limit` и `offset`",
     )
     __properties: ClassVar[List[str]] = ["reports", "total"]
 

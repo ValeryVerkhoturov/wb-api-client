@@ -34,26 +34,11 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DatePeriod" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected DatePeriod() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="DatePeriod" /> class.
-        /// </summary>
-        /// <param name="start">Начало периода (required).</param>
-        /// <param name="end">Конец периода (required).</param>
+        /// <param name="start">Начало периода.</param>
+        /// <param name="end">Конец периода.</param>
         public DatePeriod(string start = default(string), string end = default(string))
         {
-            // to ensure "start" is required (not null)
-            if (start == null)
-            {
-                throw new ArgumentNullException("start is a required property for DatePeriod and cannot be null");
-            }
             this.Start = start;
-            // to ensure "end" is required (not null)
-            if (end == null)
-            {
-                throw new ArgumentNullException("end is a required property for DatePeriod and cannot be null");
-            }
             this.End = end;
         }
 
@@ -64,7 +49,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>2023-06-01</example>
         */
-        [DataMember(Name = "start", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "start", EmitDefaultValue = false)]
         public string Start { get; set; }
 
         /// <summary>
@@ -74,7 +59,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>2024-03-01</example>
         */
-        [DataMember(Name = "end", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "end", EmitDefaultValue = false)]
         public string End { get; set; }
 
         /// <summary>

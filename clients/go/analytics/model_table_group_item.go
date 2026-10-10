@@ -11,9 +11,7 @@ API version: analytics
 package analytics
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the TableGroupItem type satisfies the MappedNullable interface at compile time
@@ -30,22 +28,18 @@ type TableGroupItem struct {
 	// Название ярлыка
 	TagName *string `json:"tagName,omitempty"`
 	// ID ярлыка
-	TagId   *int64                `json:"tagId,omitempty"`
-	Metrics TableGroupItemMetrics `json:"metrics"`
+	TagId   *int64                 `json:"tagId,omitempty"`
+	Metrics *TableGroupItemMetrics `json:"metrics,omitempty"`
 	// Массив товаров группы
-	Items []TableItemItem `json:"items"`
+	Items []TableItemItem `json:"items,omitempty"`
 }
-
-type _TableGroupItem TableGroupItem
 
 // NewTableGroupItem instantiates a new TableGroupItem object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTableGroupItem(metrics TableGroupItemMetrics, items []TableItemItem) *TableGroupItem {
+func NewTableGroupItem() *TableGroupItem {
 	this := TableGroupItem{}
-	this.Metrics = metrics
-	this.Items = items
 	return &this
 }
 
@@ -217,50 +211,66 @@ func (o *TableGroupItem) SetTagId(v int64) {
 	o.TagId = &v
 }
 
-// GetMetrics returns the Metrics field value
+// GetMetrics returns the Metrics field value if set, zero value otherwise.
 func (o *TableGroupItem) GetMetrics() TableGroupItemMetrics {
-	if o == nil {
+	if o == nil || IsNil(o.Metrics) {
 		var ret TableGroupItemMetrics
 		return ret
 	}
-
-	return o.Metrics
+	return *o.Metrics
 }
 
-// GetMetricsOk returns a tuple with the Metrics field value
+// GetMetricsOk returns a tuple with the Metrics field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableGroupItem) GetMetricsOk() (*TableGroupItemMetrics, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Metrics) {
 		return nil, false
 	}
-	return &o.Metrics, true
+	return o.Metrics, true
 }
 
-// SetMetrics sets field value
+// HasMetrics returns a boolean if a field has been set.
+func (o *TableGroupItem) HasMetrics() bool {
+	if o != nil && !IsNil(o.Metrics) {
+		return true
+	}
+
+	return false
+}
+
+// SetMetrics gets a reference to the given TableGroupItemMetrics and assigns it to the Metrics field.
 func (o *TableGroupItem) SetMetrics(v TableGroupItemMetrics) {
-	o.Metrics = v
+	o.Metrics = &v
 }
 
-// GetItems returns the Items field value
+// GetItems returns the Items field value if set, zero value otherwise.
 func (o *TableGroupItem) GetItems() []TableItemItem {
-	if o == nil {
+	if o == nil || IsNil(o.Items) {
 		var ret []TableItemItem
 		return ret
 	}
-
 	return o.Items
 }
 
-// GetItemsOk returns a tuple with the Items field value
+// GetItemsOk returns a tuple with the Items field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableGroupItem) GetItemsOk() ([]TableItemItem, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Items) {
 		return nil, false
 	}
 	return o.Items, true
 }
 
-// SetItems sets field value
+// HasItems returns a boolean if a field has been set.
+func (o *TableGroupItem) HasItems() bool {
+	if o != nil && !IsNil(o.Items) {
+		return true
+	}
+
+	return false
+}
+
+// SetItems gets a reference to the given []TableItemItem and assigns it to the Items field.
 func (o *TableGroupItem) SetItems(v []TableItemItem) {
 	o.Items = v
 }
@@ -290,47 +300,13 @@ func (o TableGroupItem) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.TagId) {
 		toSerialize["tagId"] = o.TagId
 	}
-	toSerialize["metrics"] = o.Metrics
-	toSerialize["items"] = o.Items
+	if !IsNil(o.Metrics) {
+		toSerialize["metrics"] = o.Metrics
+	}
+	if !IsNil(o.Items) {
+		toSerialize["items"] = o.Items
+	}
 	return toSerialize, nil
-}
-
-func (o *TableGroupItem) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"metrics",
-		"items",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varTableGroupItem := _TableGroupItem{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varTableGroupItem)
-
-	if err != nil {
-		return err
-	}
-
-	*o = TableGroupItem(varTableGroupItem)
-
-	return err
 }
 
 type NullableTableGroupItem struct {

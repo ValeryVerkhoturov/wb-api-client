@@ -11,9 +11,7 @@ API version: analytics
 package analytics
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the TableItemItemAllOfPrice type satisfies the MappedNullable interface at compile time
@@ -22,21 +20,17 @@ var _ MappedNullable = &TableItemItemAllOfPrice{}
 // TableItemItemAllOfPrice Цена
 type TableItemItemAllOfPrice struct {
 	// Минимальная цена продавца со скидкой продавца (без учёта скидки WB Клуба)
-	MinPrice int32 `json:"minPrice"`
+	MinPrice *int32 `json:"minPrice,omitempty"`
 	// Максимальная цена продавца со скидкой продавца (без учёта скидки WB Клуба)
-	MaxPrice int32 `json:"maxPrice"`
+	MaxPrice *int32 `json:"maxPrice,omitempty"`
 }
-
-type _TableItemItemAllOfPrice TableItemItemAllOfPrice
 
 // NewTableItemItemAllOfPrice instantiates a new TableItemItemAllOfPrice object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTableItemItemAllOfPrice(minPrice int32, maxPrice int32) *TableItemItemAllOfPrice {
+func NewTableItemItemAllOfPrice() *TableItemItemAllOfPrice {
 	this := TableItemItemAllOfPrice{}
-	this.MinPrice = minPrice
-	this.MaxPrice = maxPrice
 	return &this
 }
 
@@ -48,52 +42,68 @@ func NewTableItemItemAllOfPriceWithDefaults() *TableItemItemAllOfPrice {
 	return &this
 }
 
-// GetMinPrice returns the MinPrice field value
+// GetMinPrice returns the MinPrice field value if set, zero value otherwise.
 func (o *TableItemItemAllOfPrice) GetMinPrice() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.MinPrice) {
 		var ret int32
 		return ret
 	}
-
-	return o.MinPrice
+	return *o.MinPrice
 }
 
-// GetMinPriceOk returns a tuple with the MinPrice field value
+// GetMinPriceOk returns a tuple with the MinPrice field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableItemItemAllOfPrice) GetMinPriceOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.MinPrice) {
 		return nil, false
 	}
-	return &o.MinPrice, true
+	return o.MinPrice, true
 }
 
-// SetMinPrice sets field value
+// HasMinPrice returns a boolean if a field has been set.
+func (o *TableItemItemAllOfPrice) HasMinPrice() bool {
+	if o != nil && !IsNil(o.MinPrice) {
+		return true
+	}
+
+	return false
+}
+
+// SetMinPrice gets a reference to the given int32 and assigns it to the MinPrice field.
 func (o *TableItemItemAllOfPrice) SetMinPrice(v int32) {
-	o.MinPrice = v
+	o.MinPrice = &v
 }
 
-// GetMaxPrice returns the MaxPrice field value
+// GetMaxPrice returns the MaxPrice field value if set, zero value otherwise.
 func (o *TableItemItemAllOfPrice) GetMaxPrice() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.MaxPrice) {
 		var ret int32
 		return ret
 	}
-
-	return o.MaxPrice
+	return *o.MaxPrice
 }
 
-// GetMaxPriceOk returns a tuple with the MaxPrice field value
+// GetMaxPriceOk returns a tuple with the MaxPrice field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableItemItemAllOfPrice) GetMaxPriceOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.MaxPrice) {
 		return nil, false
 	}
-	return &o.MaxPrice, true
+	return o.MaxPrice, true
 }
 
-// SetMaxPrice sets field value
+// HasMaxPrice returns a boolean if a field has been set.
+func (o *TableItemItemAllOfPrice) HasMaxPrice() bool {
+	if o != nil && !IsNil(o.MaxPrice) {
+		return true
+	}
+
+	return false
+}
+
+// SetMaxPrice gets a reference to the given int32 and assigns it to the MaxPrice field.
 func (o *TableItemItemAllOfPrice) SetMaxPrice(v int32) {
-	o.MaxPrice = v
+	o.MaxPrice = &v
 }
 
 func (o TableItemItemAllOfPrice) MarshalJSON() ([]byte, error) {
@@ -106,47 +116,13 @@ func (o TableItemItemAllOfPrice) MarshalJSON() ([]byte, error) {
 
 func (o TableItemItemAllOfPrice) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["minPrice"] = o.MinPrice
-	toSerialize["maxPrice"] = o.MaxPrice
+	if !IsNil(o.MinPrice) {
+		toSerialize["minPrice"] = o.MinPrice
+	}
+	if !IsNil(o.MaxPrice) {
+		toSerialize["maxPrice"] = o.MaxPrice
+	}
 	return toSerialize, nil
-}
-
-func (o *TableItemItemAllOfPrice) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"minPrice",
-		"maxPrice",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varTableItemItemAllOfPrice := _TableItemItemAllOfPrice{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varTableItemItemAllOfPrice)
-
-	if err != nil {
-		return err
-	}
-
-	*o = TableItemItemAllOfPrice(varTableItemItemAllOfPrice)
-
-	return err
 }
 
 type NullableTableItemItemAllOfPrice struct {

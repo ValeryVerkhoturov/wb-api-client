@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from wb_api_client.analytics.models.table_group_response_st import TableGroupResponseSt
 from typing import Optional, Set
 from typing_extensions import Self
@@ -29,7 +29,7 @@ class PostV2StocksReportProductsGroupsResponse200(BaseModel):
     PostV2StocksReportProductsGroupsResponse200
     """  # noqa: E501
 
-    data: TableGroupResponseSt
+    data: Optional[TableGroupResponseSt] = None
     __properties: ClassVar[List[str]] = ["data"]
 
     model_config = ConfigDict(

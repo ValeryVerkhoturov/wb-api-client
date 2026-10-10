@@ -48,7 +48,7 @@ public class UpdatedSuppliesShippingMethod {
   public static final String SERIALIZED_NAME_SUPPLY_ID = "supplyId";
 
   @SerializedName(SERIALIZED_NAME_SUPPLY_ID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String supplyId;
 
   public UpdatedSuppliesShippingMethod() {}
@@ -92,7 +92,7 @@ public class UpdatedSuppliesShippingMethod {
     this.success = success;
   }
 
-  public UpdatedSuppliesShippingMethod supplyId(@jakarta.annotation.Nonnull String supplyId) {
+  public UpdatedSuppliesShippingMethod supplyId(@jakarta.annotation.Nullable String supplyId) {
     this.supplyId = supplyId;
     return this;
   }
@@ -102,12 +102,12 @@ public class UpdatedSuppliesShippingMethod {
    *
    * @return supplyId
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getSupplyId() {
     return supplyId;
   }
 
-  public void setSupplyId(@jakarta.annotation.Nonnull String supplyId) {
+  public void setSupplyId(@jakarta.annotation.Nullable String supplyId) {
     this.supplyId = supplyId;
   }
 
@@ -163,7 +163,6 @@ public class UpdatedSuppliesShippingMethod {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("supplyId");
   }
 
   /**
@@ -194,22 +193,13 @@ public class UpdatedSuppliesShippingMethod {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : UpdatedSuppliesShippingMethod.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
     // validate the optional field `error`
     if (jsonObj.get("error") != null && !jsonObj.get("error").isJsonNull()) {
       UpdatedSuppliesShippingMethodError.validateJsonElement(jsonObj.get("error"));
     }
-    if (!jsonObj.get("supplyId").isJsonPrimitive()) {
+    if ((jsonObj.get("supplyId") != null && !jsonObj.get("supplyId").isJsonNull())
+        && !jsonObj.get("supplyId").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `supplyId` to be a primitive type in the JSON string but got `%s`",

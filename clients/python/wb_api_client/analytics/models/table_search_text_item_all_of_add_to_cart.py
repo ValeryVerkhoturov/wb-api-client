@@ -28,12 +28,13 @@ class TableSearchTextItemAllOfAddToCart(BaseModel):
     Сколько раз товар из поиска добавили в корзину
     """  # noqa: E501
 
-    current: StrictInt = Field(description="Текущее количество")
+    current: Optional[StrictInt] = Field(default=None, description="Текущее количество")
     dynamics: Optional[StrictInt] = Field(
         default=None, description="Динамика по сравнению с предыдущим периодом, %"
     )
-    percentile: StrictInt = Field(
-        description="Процент, на который показатель добавлений в корзину выше, чем у карточек других продавцов по поисковому запросу"
+    percentile: Optional[StrictInt] = Field(
+        default=None,
+        description="Процент, на который показатель добавлений в корзину выше, чем у карточек других продавцов по поисковому запросу",
     )
     __properties: ClassVar[List[str]] = ["current", "dynamics", "percentile"]
 

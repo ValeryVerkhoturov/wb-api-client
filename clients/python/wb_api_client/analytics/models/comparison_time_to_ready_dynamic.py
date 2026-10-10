@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,9 +28,9 @@ class ComparisonTimeToReadyDynamic(BaseModel):
     ComparisonTimeToReadyDynamic
     """  # noqa: E501
 
-    days: StrictInt = Field(description="Дни")
-    hours: StrictInt = Field(description="Часы")
-    mins: StrictInt = Field(description="Минуты")
+    days: Optional[StrictInt] = Field(default=None, description="Дни")
+    hours: Optional[StrictInt] = Field(default=None, description="Часы")
+    mins: Optional[StrictInt] = Field(default=None, description="Минуты")
     __properties: ClassVar[List[str]] = ["days", "hours", "mins"]
 
     model_config = ConfigDict(

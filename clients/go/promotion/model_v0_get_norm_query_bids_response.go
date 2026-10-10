@@ -11,9 +11,7 @@ API version: promotion
 package promotion
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the V0GetNormQueryBidsResponse type satisfies the MappedNullable interface at compile time
@@ -21,18 +19,15 @@ var _ MappedNullable = &V0GetNormQueryBidsResponse{}
 
 // V0GetNormQueryBidsResponse struct for V0GetNormQueryBidsResponse
 type V0GetNormQueryBidsResponse struct {
-	Bids []V0GetNormQueryBidsItem `json:"bids"`
+	Bids []V0GetNormQueryBidsItem `json:"bids,omitempty"`
 }
-
-type _V0GetNormQueryBidsResponse V0GetNormQueryBidsResponse
 
 // NewV0GetNormQueryBidsResponse instantiates a new V0GetNormQueryBidsResponse object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewV0GetNormQueryBidsResponse(bids []V0GetNormQueryBidsItem) *V0GetNormQueryBidsResponse {
+func NewV0GetNormQueryBidsResponse() *V0GetNormQueryBidsResponse {
 	this := V0GetNormQueryBidsResponse{}
-	this.Bids = bids
 	return &this
 }
 
@@ -44,26 +39,34 @@ func NewV0GetNormQueryBidsResponseWithDefaults() *V0GetNormQueryBidsResponse {
 	return &this
 }
 
-// GetBids returns the Bids field value
+// GetBids returns the Bids field value if set, zero value otherwise.
 func (o *V0GetNormQueryBidsResponse) GetBids() []V0GetNormQueryBidsItem {
-	if o == nil {
+	if o == nil || IsNil(o.Bids) {
 		var ret []V0GetNormQueryBidsItem
 		return ret
 	}
-
 	return o.Bids
 }
 
-// GetBidsOk returns a tuple with the Bids field value
+// GetBidsOk returns a tuple with the Bids field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *V0GetNormQueryBidsResponse) GetBidsOk() ([]V0GetNormQueryBidsItem, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Bids) {
 		return nil, false
 	}
 	return o.Bids, true
 }
 
-// SetBids sets field value
+// HasBids returns a boolean if a field has been set.
+func (o *V0GetNormQueryBidsResponse) HasBids() bool {
+	if o != nil && !IsNil(o.Bids) {
+		return true
+	}
+
+	return false
+}
+
+// SetBids gets a reference to the given []V0GetNormQueryBidsItem and assigns it to the Bids field.
 func (o *V0GetNormQueryBidsResponse) SetBids(v []V0GetNormQueryBidsItem) {
 	o.Bids = v
 }
@@ -78,45 +81,10 @@ func (o V0GetNormQueryBidsResponse) MarshalJSON() ([]byte, error) {
 
 func (o V0GetNormQueryBidsResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["bids"] = o.Bids
+	if !IsNil(o.Bids) {
+		toSerialize["bids"] = o.Bids
+	}
 	return toSerialize, nil
-}
-
-func (o *V0GetNormQueryBidsResponse) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"bids",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varV0GetNormQueryBidsResponse := _V0GetNormQueryBidsResponse{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varV0GetNormQueryBidsResponse)
-
-	if err != nil {
-		return err
-	}
-
-	*o = V0GetNormQueryBidsResponse(varV0GetNormQueryBidsResponse)
-
-	return err
 }
 
 type NullableV0GetNormQueryBidsResponse struct {

@@ -34,33 +34,13 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="V0BidRecommendationCPCLevels" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected V0BidRecommendationCPCLevels() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="V0BidRecommendationCPCLevels" /> class.
-        /// </summary>
-        /// <param name="range1To2">Ставка для попадания в позиции 1-2 (required).</param>
-        /// <param name="range3To10">Ставка для попадания в позиции 3-10 (required).</param>
-        /// <param name="range11To34">Ставка для попадания в позиции 11-34 (required).</param>
+        /// <param name="range1To2">Ставка для попадания в позиции 1-2.</param>
+        /// <param name="range3To10">Ставка для попадания в позиции 3-10.</param>
+        /// <param name="range11To34">Ставка для попадания в позиции 11-34.</param>
         public V0BidRecommendationCPCLevels(V0BidRecommendationBaseBid range1To2 = default(V0BidRecommendationBaseBid), V0BidRecommendationBaseBid range3To10 = default(V0BidRecommendationBaseBid), V0BidRecommendationBaseBid range11To34 = default(V0BidRecommendationBaseBid))
         {
-            // to ensure "range1To2" is required (not null)
-            if (range1To2 == null)
-            {
-                throw new ArgumentNullException("range1To2 is a required property for V0BidRecommendationCPCLevels and cannot be null");
-            }
             this.Range1To2 = range1To2;
-            // to ensure "range3To10" is required (not null)
-            if (range3To10 == null)
-            {
-                throw new ArgumentNullException("range3To10 is a required property for V0BidRecommendationCPCLevels and cannot be null");
-            }
             this.Range3To10 = range3To10;
-            // to ensure "range11To34" is required (not null)
-            if (range11To34 == null)
-            {
-                throw new ArgumentNullException("range11To34 is a required property for V0BidRecommendationCPCLevels and cannot be null");
-            }
             this.Range11To34 = range11To34;
         }
 
@@ -68,21 +48,21 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// Ставка для попадания в позиции 1-2
         /// </summary>
         /// <value>Ставка для попадания в позиции 1-2</value>
-        [DataMember(Name = "range1To2", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "range1To2", EmitDefaultValue = false)]
         public V0BidRecommendationBaseBid Range1To2 { get; set; }
 
         /// <summary>
         /// Ставка для попадания в позиции 3-10
         /// </summary>
         /// <value>Ставка для попадания в позиции 3-10</value>
-        [DataMember(Name = "range3To10", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "range3To10", EmitDefaultValue = false)]
         public V0BidRecommendationBaseBid Range3To10 { get; set; }
 
         /// <summary>
         /// Ставка для попадания в позиции 11-34
         /// </summary>
         /// <value>Ставка для попадания в позиции 11-34</value>
-        [DataMember(Name = "range11To34", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "range11To34", EmitDefaultValue = false)]
         public V0BidRecommendationBaseBid Range11To34 { get; set; }
 
         /// <summary>

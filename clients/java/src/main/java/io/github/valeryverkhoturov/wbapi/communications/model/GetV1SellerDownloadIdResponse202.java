@@ -36,19 +36,19 @@ public class GetV1SellerDownloadIdResponse202 {
   public static final String SERIALIZED_NAME_MODERATION_STATE = "moderationState";
 
   @SerializedName(SERIALIZED_NAME_MODERATION_STATE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String moderationState;
 
   public static final String SERIALIZED_NAME_RETRY_SECONDS = "retrySeconds";
 
   @SerializedName(SERIALIZED_NAME_RETRY_SECONDS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer retrySeconds;
 
   public GetV1SellerDownloadIdResponse202() {}
 
   public GetV1SellerDownloadIdResponse202 moderationState(
-      @jakarta.annotation.Nonnull String moderationState) {
+      @jakarta.annotation.Nullable String moderationState) {
     this.moderationState = moderationState;
     return this;
   }
@@ -58,17 +58,17 @@ public class GetV1SellerDownloadIdResponse202 {
    *
    * @return moderationState
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getModerationState() {
     return moderationState;
   }
 
-  public void setModerationState(@jakarta.annotation.Nonnull String moderationState) {
+  public void setModerationState(@jakarta.annotation.Nullable String moderationState) {
     this.moderationState = moderationState;
   }
 
   public GetV1SellerDownloadIdResponse202 retrySeconds(
-      @jakarta.annotation.Nonnull Integer retrySeconds) {
+      @jakarta.annotation.Nullable Integer retrySeconds) {
     this.retrySeconds = retrySeconds;
     return this;
   }
@@ -78,12 +78,12 @@ public class GetV1SellerDownloadIdResponse202 {
    *
    * @return retrySeconds
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getRetrySeconds() {
     return retrySeconds;
   }
 
-  public void setRetrySeconds(@jakarta.annotation.Nonnull Integer retrySeconds) {
+  public void setRetrySeconds(@jakarta.annotation.Nullable Integer retrySeconds) {
     this.retrySeconds = retrySeconds;
   }
 
@@ -137,8 +137,6 @@ public class GetV1SellerDownloadIdResponse202 {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("moderationState");
-    openapiRequiredFields.add("retrySeconds");
   }
 
   /**
@@ -169,18 +167,9 @@ public class GetV1SellerDownloadIdResponse202 {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : GetV1SellerDownloadIdResponse202.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    if (!jsonObj.get("moderationState").isJsonPrimitive()) {
+    if ((jsonObj.get("moderationState") != null && !jsonObj.get("moderationState").isJsonNull())
+        && !jsonObj.get("moderationState").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `moderationState` to be a primitive type in the JSON string but got `%s`",

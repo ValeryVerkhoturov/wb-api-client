@@ -34,21 +34,11 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Tag" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected Tag() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Tag" /> class.
-        /// </summary>
-        /// <param name="id">ID ярлыка (required).</param>
-        /// <param name="name">Название ярлыка (required).</param>
+        /// <param name="id">ID ярлыка.</param>
+        /// <param name="name">Название ярлыка.</param>
         public Tag(int id = default(int), string name = default(string))
         {
             this.Id = id;
-            // to ensure "name" is required (not null)
-            if (name == null)
-            {
-                throw new ArgumentNullException("name is a required property for Tag and cannot be null");
-            }
             this.Name = name;
         }
 
@@ -59,7 +49,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>1</example>
         */
-        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "id", EmitDefaultValue = false)]
         public int Id { get; set; }
 
         /// <summary>
@@ -69,7 +59,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>Обувь</example>
         */
-        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "name", EmitDefaultValue = false)]
         public string Name { get; set; }
 
         /// <summary>

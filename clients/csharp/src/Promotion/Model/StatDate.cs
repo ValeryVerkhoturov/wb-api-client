@@ -34,20 +34,10 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="StatDate" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected StatDate() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="StatDate" /> class.
-        /// </summary>
-        /// <param name="dates">Даты, за которые нужно получить информацию (required).</param>
+        /// <param name="dates">Даты, за которые нужно получить информацию.</param>
         /// <param name="stats">Блок статистики.</param>
         public StatDate(List<string> dates = default(List<string>), List<StatsBlok2> stats = default(List<StatsBlok2>))
         {
-            // to ensure "dates" is required (not null)
-            if (dates == null)
-            {
-                throw new ArgumentNullException("dates is a required property for StatDate and cannot be null");
-            }
             this.Dates = dates;
             this.Stats = stats;
         }
@@ -56,7 +46,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// Даты, за которые нужно получить информацию
         /// </summary>
         /// <value>Даты, за которые нужно получить информацию</value>
-        [DataMember(Name = "dates", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "dates", EmitDefaultValue = false)]
         public List<string> Dates { get; set; }
 
         /// <summary>

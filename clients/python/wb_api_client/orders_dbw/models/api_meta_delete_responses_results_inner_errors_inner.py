@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,9 +28,12 @@ class ApiMetaDeleteResponsesResultsInnerErrorsInner(BaseModel):
     ApiMetaDeleteResponsesResultsInnerErrorsInner
     """  # noqa: E501
 
-    code: StrictInt = Field(description="Код ошибки:   - `404`   - `409` ")
-    detail: StrictStr = Field(
-        description="- `NotFound` — сборочное задание не найдено - `StatusMismatch` — операция невозможна для этого статуса сборочного задания - `ImeiIsNotFilled` — не заполнен IMEI "
+    code: Optional[StrictInt] = Field(
+        default=None, description="Код ошибки:   - `404`   - `409` "
+    )
+    detail: Optional[StrictStr] = Field(
+        default=None,
+        description="- `NotFound` — сборочное задание не найдено - `StatusMismatch` — операция невозможна для этого статуса сборочного задания - `ImeiIsNotFilled` — не заполнен IMEI ",
     )
     __properties: ClassVar[List[str]] = ["code", "detail"]
 

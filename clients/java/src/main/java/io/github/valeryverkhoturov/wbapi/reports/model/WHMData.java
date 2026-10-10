@@ -39,18 +39,18 @@ public class WHMData {
   public static final String SERIALIZED_NAME_REPORTS = "reports";
 
   @SerializedName(SERIALIZED_NAME_REPORTS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private List<WHMDataReportsInner> reports = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_TOTAL = "total";
 
   @SerializedName(SERIALIZED_NAME_TOTAL)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer total;
 
   public WHMData() {}
 
-  public WHMData reports(@jakarta.annotation.Nonnull List<WHMDataReportsInner> reports) {
+  public WHMData reports(@jakarta.annotation.Nullable List<WHMDataReportsInner> reports) {
     this.reports = reports;
     return this;
   }
@@ -68,16 +68,16 @@ public class WHMData {
    *
    * @return reports
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public List<WHMDataReportsInner> getReports() {
     return reports;
   }
 
-  public void setReports(@jakarta.annotation.Nonnull List<WHMDataReportsInner> reports) {
+  public void setReports(@jakarta.annotation.Nullable List<WHMDataReportsInner> reports) {
     this.reports = reports;
   }
 
-  public WHMData total(@jakarta.annotation.Nonnull Integer total) {
+  public WHMData total(@jakarta.annotation.Nullable Integer total) {
     this.total = total;
     return this;
   }
@@ -87,12 +87,12 @@ public class WHMData {
    *
    * @return total
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getTotal() {
     return total;
   }
 
-  public void setTotal(@jakarta.annotation.Nonnull Integer total) {
+  public void setTotal(@jakarta.annotation.Nullable Integer total) {
     this.total = total;
   }
 
@@ -145,8 +145,6 @@ public class WHMData {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("reports");
-    openapiRequiredFields.add("total");
   }
 
   /**
@@ -176,31 +174,25 @@ public class WHMData {
                 entry.getKey(), jsonElement.toString()));
       }
     }
+    JsonObject jsonObj = jsonElement.getAsJsonObject();
+    if (jsonObj.get("reports") != null && !jsonObj.get("reports").isJsonNull()) {
+      JsonArray jsonArrayreports = jsonObj.getAsJsonArray("reports");
+      if (jsonArrayreports != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("reports").isJsonArray()) {
+          throw new IllegalArgumentException(
+              String.format(
+                  "Expected the field `reports` to be an array in the JSON string but got `%s`",
+                  jsonObj.get("reports").toString()));
+        }
 
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : WHMData.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
+        // validate the optional field `reports` (array)
+        for (int i = 0; i < jsonArrayreports.size(); i++) {
+          WHMDataReportsInner.validateJsonElement(jsonArrayreports.get(i));
+        }
+        ;
       }
     }
-    JsonObject jsonObj = jsonElement.getAsJsonObject();
-    // ensure the json data is an array
-    if (!jsonObj.get("reports").isJsonArray()) {
-      throw new IllegalArgumentException(
-          String.format(
-              "Expected the field `reports` to be an array in the JSON string but got `%s`",
-              jsonObj.get("reports").toString()));
-    }
-
-    JsonArray jsonArrayreports = jsonObj.getAsJsonArray("reports");
-    // validate the required field `reports` (array)
-    for (int i = 0; i < jsonArrayreports.size(); i++) {
-      WHMDataReportsInner.validateJsonElement(jsonArrayreports.get(i));
-    }
-    ;
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

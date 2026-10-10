@@ -36,18 +36,18 @@ public class PatchV0AuctionNmsResponse200NmsInner {
   public static final String SERIALIZED_NAME_ADVERT_ID = "advert_id";
 
   @SerializedName(SERIALIZED_NAME_ADVERT_ID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Long advertId;
 
   public static final String SERIALIZED_NAME_NMS = "nms";
 
   @SerializedName(SERIALIZED_NAME_NMS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private PatchV0AuctionNmsResponse200NmsInnerNms nms;
 
   public PatchV0AuctionNmsResponse200NmsInner() {}
 
-  public PatchV0AuctionNmsResponse200NmsInner advertId(@jakarta.annotation.Nonnull Long advertId) {
+  public PatchV0AuctionNmsResponse200NmsInner advertId(@jakarta.annotation.Nullable Long advertId) {
     this.advertId = advertId;
     return this;
   }
@@ -57,17 +57,17 @@ public class PatchV0AuctionNmsResponse200NmsInner {
    *
    * @return advertId
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Long getAdvertId() {
     return advertId;
   }
 
-  public void setAdvertId(@jakarta.annotation.Nonnull Long advertId) {
+  public void setAdvertId(@jakarta.annotation.Nullable Long advertId) {
     this.advertId = advertId;
   }
 
   public PatchV0AuctionNmsResponse200NmsInner nms(
-      @jakarta.annotation.Nonnull PatchV0AuctionNmsResponse200NmsInnerNms nms) {
+      @jakarta.annotation.Nullable PatchV0AuctionNmsResponse200NmsInnerNms nms) {
     this.nms = nms;
     return this;
   }
@@ -77,12 +77,12 @@ public class PatchV0AuctionNmsResponse200NmsInner {
    *
    * @return nms
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public PatchV0AuctionNmsResponse200NmsInnerNms getNms() {
     return nms;
   }
 
-  public void setNms(@jakarta.annotation.Nonnull PatchV0AuctionNmsResponse200NmsInnerNms nms) {
+  public void setNms(@jakarta.annotation.Nullable PatchV0AuctionNmsResponse200NmsInnerNms nms) {
     this.nms = nms;
   }
 
@@ -136,8 +136,6 @@ public class PatchV0AuctionNmsResponse200NmsInner {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("advert_id");
-    openapiRequiredFields.add("nms");
   }
 
   /**
@@ -168,19 +166,11 @@ public class PatchV0AuctionNmsResponse200NmsInner {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : PatchV0AuctionNmsResponse200NmsInner.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    // validate the required field `nms`
-    PatchV0AuctionNmsResponse200NmsInnerNms.validateJsonElement(jsonObj.get("nms"));
+    // validate the optional field `nms`
+    if (jsonObj.get("nms") != null && !jsonObj.get("nms").isJsonNull()) {
+      PatchV0AuctionNmsResponse200NmsInnerNms.validateJsonElement(jsonObj.get("nms"));
+    }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

@@ -41,7 +41,7 @@ namespace ValeryVerkhoturov.WbApiClient.General.Model
         /// </summary>
         /// <param name="access">Настройки доступа к разделам профиля продавца.</param>
         /// <param name="invite">invite (required).</param>
-        public CreateInviteRequest(List<GetUsersResponseUsersInnerAccessInner> access = default(List<GetUsersResponseUsersInnerAccessInner>), CreateInviteRequestInvite invite = default(CreateInviteRequestInvite))
+        public CreateInviteRequest(List<CreateInviteRequestAccessInner> access = default(List<CreateInviteRequestAccessInner>), CreateInviteRequestInvite invite = default(CreateInviteRequestInvite))
         {
             // to ensure "invite" is required (not null)
             if (invite == null)
@@ -60,7 +60,7 @@ namespace ValeryVerkhoturov.WbApiClient.General.Model
         <example>[{&quot;code&quot;:&quot;balance&quot;,&quot;disabled&quot;:false},{&quot;code&quot;:&quot;pointsForReviews&quot;,&quot;disabled&quot;:false},{&quot;code&quot;:&quot;brands&quot;,&quot;disabled&quot;:true},{&quot;code&quot;:&quot;finance&quot;,&quot;disabled&quot;:true},{&quot;code&quot;:&quot;supply&quot;,&quot;disabled&quot;:true}]</example>
         */
         [DataMember(Name = "access", EmitDefaultValue = false)]
-        public List<GetUsersResponseUsersInnerAccessInner> Access { get; set; }
+        public List<CreateInviteRequestAccessInner> Access { get; set; }
 
         /// <summary>
         /// Gets or Sets Invite

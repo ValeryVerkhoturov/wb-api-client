@@ -11,9 +11,7 @@ API version: analytics
 package analytics
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the InventorySellerResponse type satisfies the MappedNullable interface at compile time
@@ -22,18 +20,15 @@ var _ MappedNullable = &InventorySellerResponse{}
 // InventorySellerResponse Текущие остатки товаров на складах продавца
 type InventorySellerResponse struct {
 	// Остатки товаров на складах продавца по размерам
-	Items []InventorySellerResponseItemsInner `json:"items"`
+	Items []InventorySellerResponseItemsInner `json:"items,omitempty"`
 }
-
-type _InventorySellerResponse InventorySellerResponse
 
 // NewInventorySellerResponse instantiates a new InventorySellerResponse object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInventorySellerResponse(items []InventorySellerResponseItemsInner) *InventorySellerResponse {
+func NewInventorySellerResponse() *InventorySellerResponse {
 	this := InventorySellerResponse{}
-	this.Items = items
 	return &this
 }
 
@@ -45,26 +40,34 @@ func NewInventorySellerResponseWithDefaults() *InventorySellerResponse {
 	return &this
 }
 
-// GetItems returns the Items field value
+// GetItems returns the Items field value if set, zero value otherwise.
 func (o *InventorySellerResponse) GetItems() []InventorySellerResponseItemsInner {
-	if o == nil {
+	if o == nil || IsNil(o.Items) {
 		var ret []InventorySellerResponseItemsInner
 		return ret
 	}
-
 	return o.Items
 }
 
-// GetItemsOk returns a tuple with the Items field value
+// GetItemsOk returns a tuple with the Items field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *InventorySellerResponse) GetItemsOk() ([]InventorySellerResponseItemsInner, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Items) {
 		return nil, false
 	}
 	return o.Items, true
 }
 
-// SetItems sets field value
+// HasItems returns a boolean if a field has been set.
+func (o *InventorySellerResponse) HasItems() bool {
+	if o != nil && !IsNil(o.Items) {
+		return true
+	}
+
+	return false
+}
+
+// SetItems gets a reference to the given []InventorySellerResponseItemsInner and assigns it to the Items field.
 func (o *InventorySellerResponse) SetItems(v []InventorySellerResponseItemsInner) {
 	o.Items = v
 }
@@ -79,45 +82,10 @@ func (o InventorySellerResponse) MarshalJSON() ([]byte, error) {
 
 func (o InventorySellerResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["items"] = o.Items
+	if !IsNil(o.Items) {
+		toSerialize["items"] = o.Items
+	}
 	return toSerialize, nil
-}
-
-func (o *InventorySellerResponse) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"items",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varInventorySellerResponse := _InventorySellerResponse{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varInventorySellerResponse)
-
-	if err != nil {
-		return err
-	}
-
-	*o = InventorySellerResponse(varInventorySellerResponse)
-
-	return err
 }
 
 type NullableInventorySellerResponse struct {

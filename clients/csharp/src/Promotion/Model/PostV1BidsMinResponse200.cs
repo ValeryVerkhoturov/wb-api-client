@@ -34,19 +34,9 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PostV1BidsMinResponse200" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected PostV1BidsMinResponse200() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PostV1BidsMinResponse200" /> class.
-        /// </summary>
-        /// <param name="bids">Список карточек товаров со ставками (required).</param>
+        /// <param name="bids">Список карточек товаров со ставками.</param>
         public PostV1BidsMinResponse200(List<PostV1BidsMinResponse200BidsInner> bids = default(List<PostV1BidsMinResponse200BidsInner>))
         {
-            // to ensure "bids" is required (not null)
-            if (bids == null)
-            {
-                throw new ArgumentNullException("bids is a required property for PostV1BidsMinResponse200 and cannot be null");
-            }
             this.Bids = bids;
         }
 
@@ -54,7 +44,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// Список карточек товаров со ставками
         /// </summary>
         /// <value>Список карточек товаров со ставками</value>
-        [DataMember(Name = "bids", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "bids", EmitDefaultValue = false)]
         public List<PostV1BidsMinResponse200BidsInner> Bids { get; set; }
 
         /// <summary>

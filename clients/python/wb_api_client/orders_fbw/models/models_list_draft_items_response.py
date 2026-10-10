@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from wb_api_client.orders_fbw.models.models_draft_item_item import ModelsDraftItemItem
 from typing import Optional, Set
 from typing_extensions import Self
@@ -29,13 +29,15 @@ class ModelsListDraftItemsResponse(BaseModel):
     ModelsListDraftItemsResponse
     """  # noqa: E501
 
-    sku_quantity: StrictInt = Field(
-        description="Количество баркодов", alias="skuQuantity"
+    sku_quantity: Optional[StrictInt] = Field(
+        default=None, description="Количество баркодов", alias="skuQuantity"
     )
-    item_quantity: StrictInt = Field(
-        description="Количество единиц товара", alias="itemQuantity"
+    item_quantity: Optional[StrictInt] = Field(
+        default=None, description="Количество единиц товара", alias="itemQuantity"
     )
-    items: List[ModelsDraftItemItem] = Field(description="Список товаров")
+    items: Optional[List[ModelsDraftItemItem]] = Field(
+        default=None, description="Список товаров"
+    )
     __properties: ClassVar[List[str]] = ["skuQuantity", "itemQuantity", "items"]
 
     model_config = ConfigDict(

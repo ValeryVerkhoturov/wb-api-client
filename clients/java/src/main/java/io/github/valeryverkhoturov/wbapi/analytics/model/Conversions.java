@@ -36,24 +36,24 @@ public class Conversions {
   public static final String SERIALIZED_NAME_ADD_TO_CART_PERCENT = "addToCartPercent";
 
   @SerializedName(SERIALIZED_NAME_ADD_TO_CART_PERCENT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer addToCartPercent;
 
   public static final String SERIALIZED_NAME_CART_TO_ORDER_PERCENT = "cartToOrderPercent";
 
   @SerializedName(SERIALIZED_NAME_CART_TO_ORDER_PERCENT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer cartToOrderPercent;
 
   public static final String SERIALIZED_NAME_BUYOUT_PERCENT = "buyoutPercent";
 
   @SerializedName(SERIALIZED_NAME_BUYOUT_PERCENT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer buyoutPercent;
 
   public Conversions() {}
 
-  public Conversions addToCartPercent(@jakarta.annotation.Nonnull Integer addToCartPercent) {
+  public Conversions addToCartPercent(@jakarta.annotation.Nullable Integer addToCartPercent) {
     this.addToCartPercent = addToCartPercent;
     return this;
   }
@@ -64,16 +64,16 @@ public class Conversions {
    *
    * @return addToCartPercent
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getAddToCartPercent() {
     return addToCartPercent;
   }
 
-  public void setAddToCartPercent(@jakarta.annotation.Nonnull Integer addToCartPercent) {
+  public void setAddToCartPercent(@jakarta.annotation.Nullable Integer addToCartPercent) {
     this.addToCartPercent = addToCartPercent;
   }
 
-  public Conversions cartToOrderPercent(@jakarta.annotation.Nonnull Integer cartToOrderPercent) {
+  public Conversions cartToOrderPercent(@jakarta.annotation.Nullable Integer cartToOrderPercent) {
     this.cartToOrderPercent = cartToOrderPercent;
     return this;
   }
@@ -83,16 +83,16 @@ public class Conversions {
    *
    * @return cartToOrderPercent
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getCartToOrderPercent() {
     return cartToOrderPercent;
   }
 
-  public void setCartToOrderPercent(@jakarta.annotation.Nonnull Integer cartToOrderPercent) {
+  public void setCartToOrderPercent(@jakarta.annotation.Nullable Integer cartToOrderPercent) {
     this.cartToOrderPercent = cartToOrderPercent;
   }
 
-  public Conversions buyoutPercent(@jakarta.annotation.Nonnull Integer buyoutPercent) {
+  public Conversions buyoutPercent(@jakarta.annotation.Nullable Integer buyoutPercent) {
     this.buyoutPercent = buyoutPercent;
     return this;
   }
@@ -103,12 +103,12 @@ public class Conversions {
    *
    * @return buyoutPercent
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getBuyoutPercent() {
     return buyoutPercent;
   }
 
-  public void setBuyoutPercent(@jakarta.annotation.Nonnull Integer buyoutPercent) {
+  public void setBuyoutPercent(@jakarta.annotation.Nullable Integer buyoutPercent) {
     this.buyoutPercent = buyoutPercent;
   }
 
@@ -164,9 +164,6 @@ public class Conversions {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("addToCartPercent");
-    openapiRequiredFields.add("cartToOrderPercent");
-    openapiRequiredFields.add("buyoutPercent");
   }
 
   /**
@@ -194,16 +191,6 @@ public class Conversions {
             String.format(
                 "The field `%s` in the JSON string is not defined in the `Conversions` properties. JSON: %s",
                 entry.getKey(), jsonElement.toString()));
-      }
-    }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : Conversions.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
       }
     }
     JsonObject jsonObj = jsonElement.getAsJsonObject();

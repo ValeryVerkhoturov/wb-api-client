@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from wb_api_client.orders_fbw.models.models_discrepancy_response_item import (
     ModelsDiscrepancyResponseItem,
 )
@@ -31,19 +31,27 @@ class ModelsItemDiscrepancyResponse(BaseModel):
     ModelsItemDiscrepancyResponse
     """  # noqa: E501
 
-    package_code: StrictStr = Field(description="ID упаковки", alias="packageCode")
-    video_url: StrictStr = Field(
-        description="Видео фиксации расхождений в процессе приёмки", alias="videoUrl"
+    package_code: Optional[StrictStr] = Field(
+        default=None, description="ID упаковки", alias="packageCode"
     )
-    video_starts_at: StrictStr = Field(
+    video_url: Optional[StrictStr] = Field(
+        default=None,
+        description="Видео фиксации расхождений в процессе приёмки",
+        alias="videoUrl",
+    )
+    video_starts_at: Optional[StrictStr] = Field(
+        default=None,
         description="Дата и время видеофиксации расхождений в процессе приемки",
         alias="videoStartsAt",
     )
-    video_unavailable: StrictBool = Field(
+    video_unavailable: Optional[StrictBool] = Field(
+        default=None,
         description="Доступность видео:    - `false` — видео доступно    - `true` — видео недоступно ",
         alias="videoUnavailable",
     )
-    items: List[ModelsDiscrepancyResponseItem] = Field(description="Товары поставки")
+    items: Optional[List[ModelsDiscrepancyResponseItem]] = Field(
+        default=None, description="Товары поставки"
+    )
     __properties: ClassVar[List[str]] = [
         "packageCode",
         "videoUrl",

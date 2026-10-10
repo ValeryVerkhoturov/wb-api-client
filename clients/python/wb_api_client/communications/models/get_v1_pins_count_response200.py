@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,7 +28,7 @@ class GetV1PinsCountResponse200(BaseModel):
     GetV1PinsCountResponse200
     """  # noqa: E501
 
-    data: StrictInt = Field(description="Количество отзывов")
+    data: Optional[StrictInt] = Field(default=None, description="Количество отзывов")
     __properties: ClassVar[List[str]] = ["data"]
 
     model_config = ConfigDict(

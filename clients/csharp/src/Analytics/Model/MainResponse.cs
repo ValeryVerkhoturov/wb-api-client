@@ -34,61 +34,36 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MainResponse" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected MainResponse() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="MainResponse" /> class.
-        /// </summary>
-        /// <param name="commonInfo">commonInfo (required).</param>
-        /// <param name="positionInfo">positionInfo (required).</param>
-        /// <param name="visibilityInfo">visibilityInfo (required).</param>
+        /// <param name="commonInfo">commonInfo.</param>
+        /// <param name="positionInfo">positionInfo.</param>
+        /// <param name="visibilityInfo">visibilityInfo.</param>
         /// <param name="groups">Список элементов таблицы .</param>
-        /// <param name="currency">Валюта отчёта (required).</param>
+        /// <param name="currency">Валюта отчёта.</param>
         public MainResponse(CommonInfo commonInfo = default(CommonInfo), PositionInfo positionInfo = default(PositionInfo), VisibilityInfo visibilityInfo = default(VisibilityInfo), List<TableGroupItem> groups = default(List<TableGroupItem>), string currency = default(string))
         {
-            // to ensure "commonInfo" is required (not null)
-            if (commonInfo == null)
-            {
-                throw new ArgumentNullException("commonInfo is a required property for MainResponse and cannot be null");
-            }
             this.CommonInfo = commonInfo;
-            // to ensure "positionInfo" is required (not null)
-            if (positionInfo == null)
-            {
-                throw new ArgumentNullException("positionInfo is a required property for MainResponse and cannot be null");
-            }
             this.PositionInfo = positionInfo;
-            // to ensure "visibilityInfo" is required (not null)
-            if (visibilityInfo == null)
-            {
-                throw new ArgumentNullException("visibilityInfo is a required property for MainResponse and cannot be null");
-            }
             this.VisibilityInfo = visibilityInfo;
-            // to ensure "currency" is required (not null)
-            if (currency == null)
-            {
-                throw new ArgumentNullException("currency is a required property for MainResponse and cannot be null");
-            }
-            this.Currency = currency;
             this.Groups = groups;
+            this.Currency = currency;
         }
 
         /// <summary>
         /// Gets or Sets CommonInfo
         /// </summary>
-        [DataMember(Name = "commonInfo", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "commonInfo", EmitDefaultValue = false)]
         public CommonInfo CommonInfo { get; set; }
 
         /// <summary>
         /// Gets or Sets PositionInfo
         /// </summary>
-        [DataMember(Name = "positionInfo", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "positionInfo", EmitDefaultValue = false)]
         public PositionInfo PositionInfo { get; set; }
 
         /// <summary>
         /// Gets or Sets VisibilityInfo
         /// </summary>
-        [DataMember(Name = "visibilityInfo", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "visibilityInfo", EmitDefaultValue = false)]
         public VisibilityInfo VisibilityInfo { get; set; }
 
         /// <summary>
@@ -105,7 +80,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>RUB</example>
         */
-        [DataMember(Name = "currency", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "currency", EmitDefaultValue = false)]
         public string Currency { get; set; }
 
         /// <summary>

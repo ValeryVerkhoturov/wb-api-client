@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,11 +28,13 @@ class VisibilityInfoByDayInner(BaseModel):
     VisibilityInfoByDayInner
     """  # noqa: E501
 
-    dt: StrictStr = Field(description="Дата")
-    visibility: StrictInt = Field(
-        description="Видимость карточки в результатах поиска, %"
+    dt: Optional[StrictStr] = Field(default=None, description="Дата")
+    visibility: Optional[StrictInt] = Field(
+        default=None, description="Видимость карточки в результатах поиска, %"
     )
-    open: StrictInt = Field(description="Количество переходов в карточку")
+    open: Optional[StrictInt] = Field(
+        default=None, description="Количество переходов в карточку"
+    )
     __properties: ClassVar[List[str]] = ["dt", "visibility", "open"]
 
     model_config = ConfigDict(

@@ -11,9 +11,7 @@ API version: ordersdbw
 package orders_dbw
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the PostV3DbwOrdersMetaDeleteResponse200 type satisfies the MappedNullable interface at compile time
@@ -23,18 +21,15 @@ var _ MappedNullable = &PostV3DbwOrdersMetaDeleteResponse200{}
 type PostV3DbwOrdersMetaDeleteResponse200 struct {
 	// Уникальный ID запроса. Отображается для ответов с ошибками
 	RequestId *string                              `json:"requestId,omitempty"`
-	Results   []ApiMetaDeleteResponsesResultsInner `json:"results"`
+	Results   []ApiMetaDeleteResponsesResultsInner `json:"results,omitempty"`
 }
-
-type _PostV3DbwOrdersMetaDeleteResponse200 PostV3DbwOrdersMetaDeleteResponse200
 
 // NewPostV3DbwOrdersMetaDeleteResponse200 instantiates a new PostV3DbwOrdersMetaDeleteResponse200 object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPostV3DbwOrdersMetaDeleteResponse200(results []ApiMetaDeleteResponsesResultsInner) *PostV3DbwOrdersMetaDeleteResponse200 {
+func NewPostV3DbwOrdersMetaDeleteResponse200() *PostV3DbwOrdersMetaDeleteResponse200 {
 	this := PostV3DbwOrdersMetaDeleteResponse200{}
-	this.Results = results
 	return &this
 }
 
@@ -78,26 +73,34 @@ func (o *PostV3DbwOrdersMetaDeleteResponse200) SetRequestId(v string) {
 	o.RequestId = &v
 }
 
-// GetResults returns the Results field value
+// GetResults returns the Results field value if set, zero value otherwise.
 func (o *PostV3DbwOrdersMetaDeleteResponse200) GetResults() []ApiMetaDeleteResponsesResultsInner {
-	if o == nil {
+	if o == nil || IsNil(o.Results) {
 		var ret []ApiMetaDeleteResponsesResultsInner
 		return ret
 	}
-
 	return o.Results
 }
 
-// GetResultsOk returns a tuple with the Results field value
+// GetResultsOk returns a tuple with the Results field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PostV3DbwOrdersMetaDeleteResponse200) GetResultsOk() ([]ApiMetaDeleteResponsesResultsInner, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Results) {
 		return nil, false
 	}
 	return o.Results, true
 }
 
-// SetResults sets field value
+// HasResults returns a boolean if a field has been set.
+func (o *PostV3DbwOrdersMetaDeleteResponse200) HasResults() bool {
+	if o != nil && !IsNil(o.Results) {
+		return true
+	}
+
+	return false
+}
+
+// SetResults gets a reference to the given []ApiMetaDeleteResponsesResultsInner and assigns it to the Results field.
 func (o *PostV3DbwOrdersMetaDeleteResponse200) SetResults(v []ApiMetaDeleteResponsesResultsInner) {
 	o.Results = v
 }
@@ -115,45 +118,10 @@ func (o PostV3DbwOrdersMetaDeleteResponse200) ToMap() (map[string]interface{}, e
 	if !IsNil(o.RequestId) {
 		toSerialize["requestId"] = o.RequestId
 	}
-	toSerialize["results"] = o.Results
+	if !IsNil(o.Results) {
+		toSerialize["results"] = o.Results
+	}
 	return toSerialize, nil
-}
-
-func (o *PostV3DbwOrdersMetaDeleteResponse200) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"results",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varPostV3DbwOrdersMetaDeleteResponse200 := _PostV3DbwOrdersMetaDeleteResponse200{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varPostV3DbwOrdersMetaDeleteResponse200)
-
-	if err != nil {
-		return err
-	}
-
-	*o = PostV3DbwOrdersMetaDeleteResponse200(varPostV3DbwOrdersMetaDeleteResponse200)
-
-	return err
 }
 
 type NullablePostV3DbwOrdersMetaDeleteResponse200 struct {

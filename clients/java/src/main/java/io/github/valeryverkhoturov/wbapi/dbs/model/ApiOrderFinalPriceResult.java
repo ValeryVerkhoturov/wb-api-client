@@ -39,7 +39,7 @@ public class ApiOrderFinalPriceResult {
   public static final String SERIALIZED_NAME_ORDER_ID = "orderId";
 
   @SerializedName(SERIALIZED_NAME_ORDER_ID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer orderId;
 
   public static final String SERIALIZED_NAME_DATA = "data";
@@ -62,7 +62,7 @@ public class ApiOrderFinalPriceResult {
 
   public ApiOrderFinalPriceResult() {}
 
-  public ApiOrderFinalPriceResult orderId(@jakarta.annotation.Nonnull Integer orderId) {
+  public ApiOrderFinalPriceResult orderId(@jakarta.annotation.Nullable Integer orderId) {
     this.orderId = orderId;
     return this;
   }
@@ -72,12 +72,12 @@ public class ApiOrderFinalPriceResult {
    *
    * @return orderId
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getOrderId() {
     return orderId;
   }
 
-  public void setOrderId(@jakarta.annotation.Nonnull Integer orderId) {
+  public void setOrderId(@jakarta.annotation.Nullable Integer orderId) {
     this.orderId = orderId;
   }
 
@@ -203,7 +203,6 @@ public class ApiOrderFinalPriceResult {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("orderId");
   }
 
   /**
@@ -231,16 +230,6 @@ public class ApiOrderFinalPriceResult {
             String.format(
                 "The field `%s` in the JSON string is not defined in the `ApiOrderFinalPriceResult` properties. JSON: %s",
                 entry.getKey(), jsonElement.toString()));
-      }
-    }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : ApiOrderFinalPriceResult.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
       }
     }
     JsonObject jsonObj = jsonElement.getAsJsonObject();

@@ -36,7 +36,7 @@ public class ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner {
   public static final String SERIALIZED_NAME_KEY = "key";
 
   @SerializedName(SERIALIZED_NAME_KEY)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String key;
 
   public static final String SERIALIZED_NAME_VALUE = "value";
@@ -48,13 +48,13 @@ public class ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner {
   public static final String SERIALIZED_NAME_DECISION = "decision";
 
   @SerializedName(SERIALIZED_NAME_DECISION)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String decision;
 
   public ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner() {}
 
   public ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner key(
-      @jakarta.annotation.Nonnull String key) {
+      @jakarta.annotation.Nullable String key) {
     this.key = key;
     return this;
   }
@@ -76,12 +76,12 @@ public class ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner {
    *
    * @return key
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getKey() {
     return key;
   }
 
-  public void setKey(@jakarta.annotation.Nonnull String key) {
+  public void setKey(@jakarta.annotation.Nullable String key) {
     this.key = key;
   }
 
@@ -106,7 +106,7 @@ public class ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner {
   }
 
   public ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner decision(
-      @jakarta.annotation.Nonnull String decision) {
+      @jakarta.annotation.Nullable String decision) {
     this.decision = decision;
     return this;
   }
@@ -154,12 +154,12 @@ public class ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner {
    *
    * @return decision
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getDecision() {
     return decision;
   }
 
-  public void setDecision(@jakarta.annotation.Nonnull String decision) {
+  public void setDecision(@jakarta.annotation.Nullable String decision) {
     this.decision = decision;
   }
 
@@ -218,8 +218,6 @@ public class ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("key");
-    openapiRequiredFields.add("decision");
   }
 
   /**
@@ -252,19 +250,9 @@ public class ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField :
-        ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    if (!jsonObj.get("key").isJsonPrimitive()) {
+    if ((jsonObj.get("key") != null && !jsonObj.get("key").isJsonNull())
+        && !jsonObj.get("key").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `key` to be a primitive type in the JSON string but got `%s`",
@@ -277,7 +265,8 @@ public class ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner {
               "Expected the field `value` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("value").toString()));
     }
-    if (!jsonObj.get("decision").isJsonPrimitive()) {
+    if ((jsonObj.get("decision") != null && !jsonObj.get("decision").isJsonNull())
+        && !jsonObj.get("decision").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `decision` to be a primitive type in the JSON string but got `%s`",

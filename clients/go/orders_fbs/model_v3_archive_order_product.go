@@ -11,9 +11,7 @@ API version: order
 package orders_fbs
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the V3ArchiveOrderProduct type satisfies the MappedNullable interface at compile time
@@ -22,27 +20,21 @@ var _ MappedNullable = &V3ArchiveOrderProduct{}
 // V3ArchiveOrderProduct Информация о товаре
 type V3ArchiveOrderProduct struct {
 	// Артикул продавца
-	Article string `json:"article"`
+	Article *string `json:"article,omitempty"`
 	// ID размера товара в системе WB
-	ChrtId int32 `json:"chrtId"`
+	ChrtId *int32 `json:"chrtId,omitempty"`
 	// Артикул WB
-	NmId int32 `json:"nmId"`
+	NmId *int32 `json:"nmId,omitempty"`
 	// Список баркодов
-	Skus []string `json:"skus"`
+	Skus []string `json:"skus,omitempty"`
 }
-
-type _V3ArchiveOrderProduct V3ArchiveOrderProduct
 
 // NewV3ArchiveOrderProduct instantiates a new V3ArchiveOrderProduct object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewV3ArchiveOrderProduct(article string, chrtId int32, nmId int32, skus []string) *V3ArchiveOrderProduct {
+func NewV3ArchiveOrderProduct() *V3ArchiveOrderProduct {
 	this := V3ArchiveOrderProduct{}
-	this.Article = article
-	this.ChrtId = chrtId
-	this.NmId = nmId
-	this.Skus = skus
 	return &this
 }
 
@@ -54,98 +46,130 @@ func NewV3ArchiveOrderProductWithDefaults() *V3ArchiveOrderProduct {
 	return &this
 }
 
-// GetArticle returns the Article field value
+// GetArticle returns the Article field value if set, zero value otherwise.
 func (o *V3ArchiveOrderProduct) GetArticle() string {
-	if o == nil {
+	if o == nil || IsNil(o.Article) {
 		var ret string
 		return ret
 	}
-
-	return o.Article
+	return *o.Article
 }
 
-// GetArticleOk returns a tuple with the Article field value
+// GetArticleOk returns a tuple with the Article field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *V3ArchiveOrderProduct) GetArticleOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Article) {
 		return nil, false
 	}
-	return &o.Article, true
+	return o.Article, true
 }
 
-// SetArticle sets field value
+// HasArticle returns a boolean if a field has been set.
+func (o *V3ArchiveOrderProduct) HasArticle() bool {
+	if o != nil && !IsNil(o.Article) {
+		return true
+	}
+
+	return false
+}
+
+// SetArticle gets a reference to the given string and assigns it to the Article field.
 func (o *V3ArchiveOrderProduct) SetArticle(v string) {
-	o.Article = v
+	o.Article = &v
 }
 
-// GetChrtId returns the ChrtId field value
+// GetChrtId returns the ChrtId field value if set, zero value otherwise.
 func (o *V3ArchiveOrderProduct) GetChrtId() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.ChrtId) {
 		var ret int32
 		return ret
 	}
-
-	return o.ChrtId
+	return *o.ChrtId
 }
 
-// GetChrtIdOk returns a tuple with the ChrtId field value
+// GetChrtIdOk returns a tuple with the ChrtId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *V3ArchiveOrderProduct) GetChrtIdOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ChrtId) {
 		return nil, false
 	}
-	return &o.ChrtId, true
+	return o.ChrtId, true
 }
 
-// SetChrtId sets field value
+// HasChrtId returns a boolean if a field has been set.
+func (o *V3ArchiveOrderProduct) HasChrtId() bool {
+	if o != nil && !IsNil(o.ChrtId) {
+		return true
+	}
+
+	return false
+}
+
+// SetChrtId gets a reference to the given int32 and assigns it to the ChrtId field.
 func (o *V3ArchiveOrderProduct) SetChrtId(v int32) {
-	o.ChrtId = v
+	o.ChrtId = &v
 }
 
-// GetNmId returns the NmId field value
+// GetNmId returns the NmId field value if set, zero value otherwise.
 func (o *V3ArchiveOrderProduct) GetNmId() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.NmId) {
 		var ret int32
 		return ret
 	}
-
-	return o.NmId
+	return *o.NmId
 }
 
-// GetNmIdOk returns a tuple with the NmId field value
+// GetNmIdOk returns a tuple with the NmId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *V3ArchiveOrderProduct) GetNmIdOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.NmId) {
 		return nil, false
 	}
-	return &o.NmId, true
+	return o.NmId, true
 }
 
-// SetNmId sets field value
+// HasNmId returns a boolean if a field has been set.
+func (o *V3ArchiveOrderProduct) HasNmId() bool {
+	if o != nil && !IsNil(o.NmId) {
+		return true
+	}
+
+	return false
+}
+
+// SetNmId gets a reference to the given int32 and assigns it to the NmId field.
 func (o *V3ArchiveOrderProduct) SetNmId(v int32) {
-	o.NmId = v
+	o.NmId = &v
 }
 
-// GetSkus returns the Skus field value
+// GetSkus returns the Skus field value if set, zero value otherwise.
 func (o *V3ArchiveOrderProduct) GetSkus() []string {
-	if o == nil {
+	if o == nil || IsNil(o.Skus) {
 		var ret []string
 		return ret
 	}
-
 	return o.Skus
 }
 
-// GetSkusOk returns a tuple with the Skus field value
+// GetSkusOk returns a tuple with the Skus field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *V3ArchiveOrderProduct) GetSkusOk() ([]string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Skus) {
 		return nil, false
 	}
 	return o.Skus, true
 }
 
-// SetSkus sets field value
+// HasSkus returns a boolean if a field has been set.
+func (o *V3ArchiveOrderProduct) HasSkus() bool {
+	if o != nil && !IsNil(o.Skus) {
+		return true
+	}
+
+	return false
+}
+
+// SetSkus gets a reference to the given []string and assigns it to the Skus field.
 func (o *V3ArchiveOrderProduct) SetSkus(v []string) {
 	o.Skus = v
 }
@@ -160,51 +184,19 @@ func (o V3ArchiveOrderProduct) MarshalJSON() ([]byte, error) {
 
 func (o V3ArchiveOrderProduct) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["article"] = o.Article
-	toSerialize["chrtId"] = o.ChrtId
-	toSerialize["nmId"] = o.NmId
-	toSerialize["skus"] = o.Skus
+	if !IsNil(o.Article) {
+		toSerialize["article"] = o.Article
+	}
+	if !IsNil(o.ChrtId) {
+		toSerialize["chrtId"] = o.ChrtId
+	}
+	if !IsNil(o.NmId) {
+		toSerialize["nmId"] = o.NmId
+	}
+	if !IsNil(o.Skus) {
+		toSerialize["skus"] = o.Skus
+	}
 	return toSerialize, nil
-}
-
-func (o *V3ArchiveOrderProduct) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"article",
-		"chrtId",
-		"nmId",
-		"skus",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varV3ArchiveOrderProduct := _V3ArchiveOrderProduct{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varV3ArchiveOrderProduct)
-
-	if err != nil {
-		return err
-	}
-
-	*o = V3ArchiveOrderProduct(varV3ArchiveOrderProduct)
-
-	return err
 }
 
 type NullableV3ArchiveOrderProduct struct {

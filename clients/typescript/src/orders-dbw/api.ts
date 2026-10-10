@@ -81,13 +81,13 @@ export interface ApiBatchErrorResponse {
    * @type {number}
    * @memberof ApiBatchErrorResponse
    */
-  code: number;
+  code?: number;
   /**
    * - `NotFound` — сборочное задание не найдено - `StatusMismatch` — операция невозможна для этого статуса сборочного задания - `ImeiIsNotFilled` — не заполнен IMEI - `MetaValidationFail` — ошибки валидации идентификаторов маркировки
    * @type {string}
    * @memberof ApiBatchErrorResponse
    */
-  detail: string;
+  detail?: string;
   /**
    * Детали ошибки валидации идентификаторов маркировки
    * @type {Array<ApiBatchErrorResponseMetaDetailsInner>}
@@ -106,7 +106,7 @@ export interface ApiBatchErrorResponseMetaDetailsInner {
    * @type {string}
    * @memberof ApiBatchErrorResponseMetaDetailsInner
    */
-  key: string;
+  key?: string;
   /**
    * Значение идентификатора маркировки
    * @type {string}
@@ -118,7 +118,7 @@ export interface ApiBatchErrorResponseMetaDetailsInner {
    * @type {string}
    * @memberof ApiBatchErrorResponseMetaDetailsInner
    */
-  decision: string;
+  decision?: string;
 }
 /**
  *
@@ -137,7 +137,7 @@ export interface ApiMetaDeleteResponses {
    * @type {Array<ApiMetaDeleteResponsesResultsInner>}
    * @memberof ApiMetaDeleteResponses
    */
-  results: Array<ApiMetaDeleteResponsesResultsInner>;
+  results?: Array<ApiMetaDeleteResponsesResultsInner>;
 }
 /**
  *
@@ -156,13 +156,13 @@ export interface ApiMetaDeleteResponsesResultsInner {
    * @type {boolean}
    * @memberof ApiMetaDeleteResponsesResultsInner
    */
-  isError: boolean;
+  isError?: boolean;
   /**
    * ID сборочного задания с успешно обновлёнными данными
    * @type {number}
    * @memberof ApiMetaDeleteResponsesResultsInner
    */
-  orderId: number;
+  orderId?: number;
 }
 /**
  *
@@ -175,13 +175,13 @@ export interface ApiMetaDeleteResponsesResultsInnerErrorsInner {
    * @type {number}
    * @memberof ApiMetaDeleteResponsesResultsInnerErrorsInner
    */
-  code: number;
+  code?: number;
   /**
    * - `NotFound` — сборочное задание не найдено - `StatusMismatch` — операция невозможна для этого статуса сборочного задания - `ImeiIsNotFilled` — не заполнен IMEI
    * @type {string}
    * @memberof ApiMetaDeleteResponsesResultsInnerErrorsInner
    */
-  detail: string;
+  detail?: string;
 }
 /**
  *
@@ -194,7 +194,7 @@ export interface ApiOrdersMetaDetailsResponse {
    * @type {string}
    * @memberof ApiOrdersMetaDetailsResponse
    */
-  requestId: string;
+  requestId?: string;
   /**
    * Идентификаторы маркировки сборочных заданий и статусы их валидации
    * @type {Array<ApiOrdersMetaDetailsResponseOrdersInner>}
@@ -219,7 +219,7 @@ export interface ApiOrdersMetaDetailsResponseOrdersInner {
    * @type {boolean}
    * @memberof ApiOrdersMetaDetailsResponseOrdersInner
    */
-  isError: boolean;
+  isError?: boolean;
   /**
    * Информация об ошибке
    * @type {Array<ApiOrdersMetaDetailsResponseOrdersInnerErrorsInner>}
@@ -369,13 +369,13 @@ export interface ApiStatusSetResponse {
    * @type {boolean}
    * @memberof ApiStatusSetResponse
    */
-  isError: boolean;
+  isError?: boolean;
   /**
    * ID сборочного задания с успешно обновлёнными данными
    * @type {number}
    * @memberof ApiStatusSetResponse
    */
-  orderId: number;
+  orderId?: number;
 }
 /**
  *
@@ -394,7 +394,7 @@ export interface ApiStatusSetResponses {
    * @type {Array<ApiStatusSetResponse>}
    * @memberof ApiStatusSetResponses
    */
-  results: Array<ApiStatusSetResponse>;
+  results?: Array<ApiStatusSetResponse>;
 }
 /**
  *
@@ -1167,7 +1167,7 @@ export interface PostV3DbwOrdersMetaDeleteResponse200 {
    * @type {Array<ApiMetaDeleteResponsesResultsInner>}
    * @memberof PostV3DbwOrdersMetaDeleteResponse200
    */
-  results: Array<ApiMetaDeleteResponsesResultsInner>;
+  results?: Array<ApiMetaDeleteResponsesResultsInner>;
 }
 /**
  *

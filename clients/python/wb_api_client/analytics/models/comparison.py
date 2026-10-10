@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from wb_api_client.analytics.models.comparison_time_to_ready_dynamic import (
     ComparisonTimeToReadyDynamic,
 )
@@ -35,54 +35,72 @@ class Comparison(BaseModel):
     Comparison
     """  # noqa: E501
 
-    open_count_dynamic: StrictInt = Field(
-        description="Динамика переходов в карточку товара", alias="openCountDynamic"
+    open_count_dynamic: Optional[StrictInt] = Field(
+        default=None,
+        description="Динамика переходов в карточку товара",
+        alias="openCountDynamic",
     )
-    cart_count_dynamic: StrictInt = Field(
-        description="Динамика добавлений в корзину", alias="cartCountDynamic"
+    cart_count_dynamic: Optional[StrictInt] = Field(
+        default=None,
+        description="Динамика добавлений в корзину",
+        alias="cartCountDynamic",
     )
-    order_count_dynamic: StrictInt = Field(
-        description="Динамика количества заказов", alias="orderCountDynamic"
+    order_count_dynamic: Optional[StrictInt] = Field(
+        default=None,
+        description="Динамика количества заказов",
+        alias="orderCountDynamic",
     )
-    order_sum_dynamic: StrictInt = Field(
-        description="Динамика суммы заказов", alias="orderSumDynamic"
+    order_sum_dynamic: Optional[StrictInt] = Field(
+        default=None, description="Динамика суммы заказов", alias="orderSumDynamic"
     )
-    buyout_count_dynamic: StrictInt = Field(
-        description="Динамика выкупов", alias="buyoutCountDynamic"
+    buyout_count_dynamic: Optional[StrictInt] = Field(
+        default=None, description="Динамика выкупов", alias="buyoutCountDynamic"
     )
-    buyout_sum_dynamic: StrictInt = Field(
-        description="Динамика суммы выкупов", alias="buyoutSumDynamic"
+    buyout_sum_dynamic: Optional[StrictInt] = Field(
+        default=None, description="Динамика суммы выкупов", alias="buyoutSumDynamic"
     )
-    cancel_count_dynamic: StrictInt = Field(
-        description="Динамика отмен и возвратов товаров", alias="cancelCountDynamic"
+    cancel_count_dynamic: Optional[StrictInt] = Field(
+        default=None,
+        description="Динамика отмен и возвратов товаров",
+        alias="cancelCountDynamic",
     )
-    cancel_sum_dynamic: StrictInt = Field(
-        description="Динамика сумм отмен и возвратов товаров", alias="cancelSumDynamic"
+    cancel_sum_dynamic: Optional[StrictInt] = Field(
+        default=None,
+        description="Динамика сумм отмен и возвратов товаров",
+        alias="cancelSumDynamic",
     )
-    avg_orders_count_per_day_dynamic: StrictInt = Field(
+    avg_orders_count_per_day_dynamic: Optional[StrictInt] = Field(
+        default=None,
         description="Динамика среднего количества заказов в день",
         alias="avgOrdersCountPerDayDynamic",
     )
-    avg_price_dynamic: StrictInt = Field(
+    avg_price_dynamic: Optional[StrictInt] = Field(
+        default=None,
         description="Динамика средней цены на товары. Учитываются скидки для акций",
         alias="avgPriceDynamic",
     )
-    share_order_percent_dynamic: StrictInt = Field(
-        description="Динамика доли в выручке", alias="shareOrderPercentDynamic"
+    share_order_percent_dynamic: Optional[StrictInt] = Field(
+        default=None,
+        description="Динамика доли в выручке",
+        alias="shareOrderPercentDynamic",
     )
-    add_to_wishlist_dynamic: StrictInt = Field(
+    add_to_wishlist_dynamic: Optional[StrictInt] = Field(
+        default=None,
         description="Динамика добавлений товара в избранное",
         alias="addToWishlistDynamic",
     )
-    time_to_ready_dynamic: ComparisonTimeToReadyDynamic = Field(
-        alias="timeToReadyDynamic"
+    time_to_ready_dynamic: Optional[ComparisonTimeToReadyDynamic] = Field(
+        default=None, alias="timeToReadyDynamic"
     )
-    localization_percent_dynamic: StrictInt = Field(
+    localization_percent_dynamic: Optional[StrictInt] = Field(
+        default=None,
         description="Динамика локальных заказов в рамках одного региона. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `0`",
         alias="localizationPercentDynamic",
     )
-    wb_club_dynamic: ComparisonWbClubDynamic = Field(alias="wbClubDynamic")
-    conversions: StatisticConversions
+    wb_club_dynamic: Optional[ComparisonWbClubDynamic] = Field(
+        default=None, alias="wbClubDynamic"
+    )
+    conversions: Optional[StatisticConversions] = None
     __properties: ClassVar[List[str]] = [
         "openCountDynamic",
         "cartCountDynamic",

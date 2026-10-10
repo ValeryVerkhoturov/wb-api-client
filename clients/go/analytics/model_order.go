@@ -11,9 +11,7 @@ API version: analytics
 package analytics
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the Order type satisfies the MappedNullable interface at compile time
@@ -22,56 +20,41 @@ var _ MappedNullable = &Order{}
 // Order Заказ
 type Order struct {
 	// Артикул WB
-	NmId int64 `json:"nmId"`
+	NmId *int64 `json:"nmId,omitempty"`
 	// ID размера
-	ChrtId int32 `json:"chrtId"`
+	ChrtId *int32 `json:"chrtId,omitempty"`
 	// ID заказа
-	Srid string `json:"srid"`
+	Srid *string `json:"srid,omitempty"`
 	// Дата и время оформления заказа
-	CreatedAt string `json:"createdAt"`
+	CreatedAt *string `json:"createdAt,omitempty"`
 	// Дата и время текущего статуса. При `\"status\":\"created\"` возвращается значение поля `createdAt`
-	UpdatedAt string `json:"updatedAt"`
+	UpdatedAt *string `json:"updatedAt,omitempty"`
 	// Статус заказа:   - `created` — оформлен   - `buyout` — продан   - `cancel` — отменён   - `return` — возвращён   - `returnDefective` — возвращён по причине брака
-	Status string `json:"status"`
+	Status *string `json:"status,omitempty"`
 	// Тип отмены (при `\"status\":\"cancel\"`):   - `app` — отказ до получения   - `receipt` — отказ при получении   - `expire` — истёк срок получения   - `other` — техническая отмена
 	CancelType *string `json:"cancelType,omitempty"`
 	// Название склада. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) для складов WB может быть только `Склад WB`
-	WarehouseName string `json:"warehouseName"`
+	WarehouseName *string `json:"warehouseName,omitempty"`
 	// Федеральный округ склада. Если склад не в России, возвращается страна. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) для складов WB может быть только `\"\"`
-	WarehouseRegion string `json:"warehouseRegion"`
+	WarehouseRegion *string `json:"warehouseRegion,omitempty"`
 	// Тип склада:   - `true` — склад продавца   - `false` — склад WB
-	IsMp bool `json:"isMp"`
+	IsMp *bool `json:"isMp,omitempty"`
 	// Населённый пункт доставки
-	DestinationCity string `json:"destinationCity"`
+	DestinationCity *string `json:"destinationCity,omitempty"`
 	// Федеральный округ доставки. Если доставка не по России, возвращается страна
-	DestinationDistrict string `json:"destinationDistrict"`
+	DestinationDistrict *string `json:"destinationDistrict,omitempty"`
 	// Цена продавца со скидкой продавца (без учёта скидки WB Клуба и оптовой скидки для B2B-продаж)
-	SellerPrice float32 `json:"sellerPrice"`
+	SellerPrice *float32 `json:"sellerPrice,omitempty"`
 	// Тип продажи:   - `true` — B2B   - `false` — B2C
-	IsB2b bool `json:"isB2b"`
+	IsB2b *bool `json:"isB2b,omitempty"`
 }
-
-type _Order Order
 
 // NewOrder instantiates a new Order object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewOrder(nmId int64, chrtId int32, srid string, createdAt string, updatedAt string, status string, warehouseName string, warehouseRegion string, isMp bool, destinationCity string, destinationDistrict string, sellerPrice float32, isB2b bool) *Order {
+func NewOrder() *Order {
 	this := Order{}
-	this.NmId = nmId
-	this.ChrtId = chrtId
-	this.Srid = srid
-	this.CreatedAt = createdAt
-	this.UpdatedAt = updatedAt
-	this.Status = status
-	this.WarehouseName = warehouseName
-	this.WarehouseRegion = warehouseRegion
-	this.IsMp = isMp
-	this.DestinationCity = destinationCity
-	this.DestinationDistrict = destinationDistrict
-	this.SellerPrice = sellerPrice
-	this.IsB2b = isB2b
 	return &this
 }
 
@@ -83,148 +66,196 @@ func NewOrderWithDefaults() *Order {
 	return &this
 }
 
-// GetNmId returns the NmId field value
+// GetNmId returns the NmId field value if set, zero value otherwise.
 func (o *Order) GetNmId() int64 {
-	if o == nil {
+	if o == nil || IsNil(o.NmId) {
 		var ret int64
 		return ret
 	}
-
-	return o.NmId
+	return *o.NmId
 }
 
-// GetNmIdOk returns a tuple with the NmId field value
+// GetNmIdOk returns a tuple with the NmId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Order) GetNmIdOk() (*int64, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.NmId) {
 		return nil, false
 	}
-	return &o.NmId, true
+	return o.NmId, true
 }
 
-// SetNmId sets field value
+// HasNmId returns a boolean if a field has been set.
+func (o *Order) HasNmId() bool {
+	if o != nil && !IsNil(o.NmId) {
+		return true
+	}
+
+	return false
+}
+
+// SetNmId gets a reference to the given int64 and assigns it to the NmId field.
 func (o *Order) SetNmId(v int64) {
-	o.NmId = v
+	o.NmId = &v
 }
 
-// GetChrtId returns the ChrtId field value
+// GetChrtId returns the ChrtId field value if set, zero value otherwise.
 func (o *Order) GetChrtId() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.ChrtId) {
 		var ret int32
 		return ret
 	}
-
-	return o.ChrtId
+	return *o.ChrtId
 }
 
-// GetChrtIdOk returns a tuple with the ChrtId field value
+// GetChrtIdOk returns a tuple with the ChrtId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Order) GetChrtIdOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ChrtId) {
 		return nil, false
 	}
-	return &o.ChrtId, true
+	return o.ChrtId, true
 }
 
-// SetChrtId sets field value
+// HasChrtId returns a boolean if a field has been set.
+func (o *Order) HasChrtId() bool {
+	if o != nil && !IsNil(o.ChrtId) {
+		return true
+	}
+
+	return false
+}
+
+// SetChrtId gets a reference to the given int32 and assigns it to the ChrtId field.
 func (o *Order) SetChrtId(v int32) {
-	o.ChrtId = v
+	o.ChrtId = &v
 }
 
-// GetSrid returns the Srid field value
+// GetSrid returns the Srid field value if set, zero value otherwise.
 func (o *Order) GetSrid() string {
-	if o == nil {
+	if o == nil || IsNil(o.Srid) {
 		var ret string
 		return ret
 	}
-
-	return o.Srid
+	return *o.Srid
 }
 
-// GetSridOk returns a tuple with the Srid field value
+// GetSridOk returns a tuple with the Srid field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Order) GetSridOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Srid) {
 		return nil, false
 	}
-	return &o.Srid, true
+	return o.Srid, true
 }
 
-// SetSrid sets field value
+// HasSrid returns a boolean if a field has been set.
+func (o *Order) HasSrid() bool {
+	if o != nil && !IsNil(o.Srid) {
+		return true
+	}
+
+	return false
+}
+
+// SetSrid gets a reference to the given string and assigns it to the Srid field.
 func (o *Order) SetSrid(v string) {
-	o.Srid = v
+	o.Srid = &v
 }
 
-// GetCreatedAt returns the CreatedAt field value
+// GetCreatedAt returns the CreatedAt field value if set, zero value otherwise.
 func (o *Order) GetCreatedAt() string {
-	if o == nil {
+	if o == nil || IsNil(o.CreatedAt) {
 		var ret string
 		return ret
 	}
-
-	return o.CreatedAt
+	return *o.CreatedAt
 }
 
-// GetCreatedAtOk returns a tuple with the CreatedAt field value
+// GetCreatedAtOk returns a tuple with the CreatedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Order) GetCreatedAtOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.CreatedAt) {
 		return nil, false
 	}
-	return &o.CreatedAt, true
+	return o.CreatedAt, true
 }
 
-// SetCreatedAt sets field value
+// HasCreatedAt returns a boolean if a field has been set.
+func (o *Order) HasCreatedAt() bool {
+	if o != nil && !IsNil(o.CreatedAt) {
+		return true
+	}
+
+	return false
+}
+
+// SetCreatedAt gets a reference to the given string and assigns it to the CreatedAt field.
 func (o *Order) SetCreatedAt(v string) {
-	o.CreatedAt = v
+	o.CreatedAt = &v
 }
 
-// GetUpdatedAt returns the UpdatedAt field value
+// GetUpdatedAt returns the UpdatedAt field value if set, zero value otherwise.
 func (o *Order) GetUpdatedAt() string {
-	if o == nil {
+	if o == nil || IsNil(o.UpdatedAt) {
 		var ret string
 		return ret
 	}
-
-	return o.UpdatedAt
+	return *o.UpdatedAt
 }
 
-// GetUpdatedAtOk returns a tuple with the UpdatedAt field value
+// GetUpdatedAtOk returns a tuple with the UpdatedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Order) GetUpdatedAtOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.UpdatedAt) {
 		return nil, false
 	}
-	return &o.UpdatedAt, true
+	return o.UpdatedAt, true
 }
 
-// SetUpdatedAt sets field value
+// HasUpdatedAt returns a boolean if a field has been set.
+func (o *Order) HasUpdatedAt() bool {
+	if o != nil && !IsNil(o.UpdatedAt) {
+		return true
+	}
+
+	return false
+}
+
+// SetUpdatedAt gets a reference to the given string and assigns it to the UpdatedAt field.
 func (o *Order) SetUpdatedAt(v string) {
-	o.UpdatedAt = v
+	o.UpdatedAt = &v
 }
 
-// GetStatus returns the Status field value
+// GetStatus returns the Status field value if set, zero value otherwise.
 func (o *Order) GetStatus() string {
-	if o == nil {
+	if o == nil || IsNil(o.Status) {
 		var ret string
 		return ret
 	}
-
-	return o.Status
+	return *o.Status
 }
 
-// GetStatusOk returns a tuple with the Status field value
+// GetStatusOk returns a tuple with the Status field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Order) GetStatusOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Status) {
 		return nil, false
 	}
-	return &o.Status, true
+	return o.Status, true
 }
 
-// SetStatus sets field value
+// HasStatus returns a boolean if a field has been set.
+func (o *Order) HasStatus() bool {
+	if o != nil && !IsNil(o.Status) {
+		return true
+	}
+
+	return false
+}
+
+// SetStatus gets a reference to the given string and assigns it to the Status field.
 func (o *Order) SetStatus(v string) {
-	o.Status = v
+	o.Status = &v
 }
 
 // GetCancelType returns the CancelType field value if set, zero value otherwise.
@@ -259,172 +290,228 @@ func (o *Order) SetCancelType(v string) {
 	o.CancelType = &v
 }
 
-// GetWarehouseName returns the WarehouseName field value
+// GetWarehouseName returns the WarehouseName field value if set, zero value otherwise.
 func (o *Order) GetWarehouseName() string {
-	if o == nil {
+	if o == nil || IsNil(o.WarehouseName) {
 		var ret string
 		return ret
 	}
-
-	return o.WarehouseName
+	return *o.WarehouseName
 }
 
-// GetWarehouseNameOk returns a tuple with the WarehouseName field value
+// GetWarehouseNameOk returns a tuple with the WarehouseName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Order) GetWarehouseNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.WarehouseName) {
 		return nil, false
 	}
-	return &o.WarehouseName, true
+	return o.WarehouseName, true
 }
 
-// SetWarehouseName sets field value
+// HasWarehouseName returns a boolean if a field has been set.
+func (o *Order) HasWarehouseName() bool {
+	if o != nil && !IsNil(o.WarehouseName) {
+		return true
+	}
+
+	return false
+}
+
+// SetWarehouseName gets a reference to the given string and assigns it to the WarehouseName field.
 func (o *Order) SetWarehouseName(v string) {
-	o.WarehouseName = v
+	o.WarehouseName = &v
 }
 
-// GetWarehouseRegion returns the WarehouseRegion field value
+// GetWarehouseRegion returns the WarehouseRegion field value if set, zero value otherwise.
 func (o *Order) GetWarehouseRegion() string {
-	if o == nil {
+	if o == nil || IsNil(o.WarehouseRegion) {
 		var ret string
 		return ret
 	}
-
-	return o.WarehouseRegion
+	return *o.WarehouseRegion
 }
 
-// GetWarehouseRegionOk returns a tuple with the WarehouseRegion field value
+// GetWarehouseRegionOk returns a tuple with the WarehouseRegion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Order) GetWarehouseRegionOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.WarehouseRegion) {
 		return nil, false
 	}
-	return &o.WarehouseRegion, true
+	return o.WarehouseRegion, true
 }
 
-// SetWarehouseRegion sets field value
+// HasWarehouseRegion returns a boolean if a field has been set.
+func (o *Order) HasWarehouseRegion() bool {
+	if o != nil && !IsNil(o.WarehouseRegion) {
+		return true
+	}
+
+	return false
+}
+
+// SetWarehouseRegion gets a reference to the given string and assigns it to the WarehouseRegion field.
 func (o *Order) SetWarehouseRegion(v string) {
-	o.WarehouseRegion = v
+	o.WarehouseRegion = &v
 }
 
-// GetIsMp returns the IsMp field value
+// GetIsMp returns the IsMp field value if set, zero value otherwise.
 func (o *Order) GetIsMp() bool {
-	if o == nil {
+	if o == nil || IsNil(o.IsMp) {
 		var ret bool
 		return ret
 	}
-
-	return o.IsMp
+	return *o.IsMp
 }
 
-// GetIsMpOk returns a tuple with the IsMp field value
+// GetIsMpOk returns a tuple with the IsMp field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Order) GetIsMpOk() (*bool, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.IsMp) {
 		return nil, false
 	}
-	return &o.IsMp, true
+	return o.IsMp, true
 }
 
-// SetIsMp sets field value
+// HasIsMp returns a boolean if a field has been set.
+func (o *Order) HasIsMp() bool {
+	if o != nil && !IsNil(o.IsMp) {
+		return true
+	}
+
+	return false
+}
+
+// SetIsMp gets a reference to the given bool and assigns it to the IsMp field.
 func (o *Order) SetIsMp(v bool) {
-	o.IsMp = v
+	o.IsMp = &v
 }
 
-// GetDestinationCity returns the DestinationCity field value
+// GetDestinationCity returns the DestinationCity field value if set, zero value otherwise.
 func (o *Order) GetDestinationCity() string {
-	if o == nil {
+	if o == nil || IsNil(o.DestinationCity) {
 		var ret string
 		return ret
 	}
-
-	return o.DestinationCity
+	return *o.DestinationCity
 }
 
-// GetDestinationCityOk returns a tuple with the DestinationCity field value
+// GetDestinationCityOk returns a tuple with the DestinationCity field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Order) GetDestinationCityOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DestinationCity) {
 		return nil, false
 	}
-	return &o.DestinationCity, true
+	return o.DestinationCity, true
 }
 
-// SetDestinationCity sets field value
+// HasDestinationCity returns a boolean if a field has been set.
+func (o *Order) HasDestinationCity() bool {
+	if o != nil && !IsNil(o.DestinationCity) {
+		return true
+	}
+
+	return false
+}
+
+// SetDestinationCity gets a reference to the given string and assigns it to the DestinationCity field.
 func (o *Order) SetDestinationCity(v string) {
-	o.DestinationCity = v
+	o.DestinationCity = &v
 }
 
-// GetDestinationDistrict returns the DestinationDistrict field value
+// GetDestinationDistrict returns the DestinationDistrict field value if set, zero value otherwise.
 func (o *Order) GetDestinationDistrict() string {
-	if o == nil {
+	if o == nil || IsNil(o.DestinationDistrict) {
 		var ret string
 		return ret
 	}
-
-	return o.DestinationDistrict
+	return *o.DestinationDistrict
 }
 
-// GetDestinationDistrictOk returns a tuple with the DestinationDistrict field value
+// GetDestinationDistrictOk returns a tuple with the DestinationDistrict field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Order) GetDestinationDistrictOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DestinationDistrict) {
 		return nil, false
 	}
-	return &o.DestinationDistrict, true
+	return o.DestinationDistrict, true
 }
 
-// SetDestinationDistrict sets field value
+// HasDestinationDistrict returns a boolean if a field has been set.
+func (o *Order) HasDestinationDistrict() bool {
+	if o != nil && !IsNil(o.DestinationDistrict) {
+		return true
+	}
+
+	return false
+}
+
+// SetDestinationDistrict gets a reference to the given string and assigns it to the DestinationDistrict field.
 func (o *Order) SetDestinationDistrict(v string) {
-	o.DestinationDistrict = v
+	o.DestinationDistrict = &v
 }
 
-// GetSellerPrice returns the SellerPrice field value
+// GetSellerPrice returns the SellerPrice field value if set, zero value otherwise.
 func (o *Order) GetSellerPrice() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.SellerPrice) {
 		var ret float32
 		return ret
 	}
-
-	return o.SellerPrice
+	return *o.SellerPrice
 }
 
-// GetSellerPriceOk returns a tuple with the SellerPrice field value
+// GetSellerPriceOk returns a tuple with the SellerPrice field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Order) GetSellerPriceOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.SellerPrice) {
 		return nil, false
 	}
-	return &o.SellerPrice, true
+	return o.SellerPrice, true
 }
 
-// SetSellerPrice sets field value
+// HasSellerPrice returns a boolean if a field has been set.
+func (o *Order) HasSellerPrice() bool {
+	if o != nil && !IsNil(o.SellerPrice) {
+		return true
+	}
+
+	return false
+}
+
+// SetSellerPrice gets a reference to the given float32 and assigns it to the SellerPrice field.
 func (o *Order) SetSellerPrice(v float32) {
-	o.SellerPrice = v
+	o.SellerPrice = &v
 }
 
-// GetIsB2b returns the IsB2b field value
+// GetIsB2b returns the IsB2b field value if set, zero value otherwise.
 func (o *Order) GetIsB2b() bool {
-	if o == nil {
+	if o == nil || IsNil(o.IsB2b) {
 		var ret bool
 		return ret
 	}
-
-	return o.IsB2b
+	return *o.IsB2b
 }
 
-// GetIsB2bOk returns a tuple with the IsB2b field value
+// GetIsB2bOk returns a tuple with the IsB2b field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Order) GetIsB2bOk() (*bool, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.IsB2b) {
 		return nil, false
 	}
-	return &o.IsB2b, true
+	return o.IsB2b, true
 }
 
-// SetIsB2b sets field value
+// HasIsB2b returns a boolean if a field has been set.
+func (o *Order) HasIsB2b() bool {
+	if o != nil && !IsNil(o.IsB2b) {
+		return true
+	}
+
+	return false
+}
+
+// SetIsB2b gets a reference to the given bool and assigns it to the IsB2b field.
 func (o *Order) SetIsB2b(v bool) {
-	o.IsB2b = v
+	o.IsB2b = &v
 }
 
 func (o Order) MarshalJSON() ([]byte, error) {
@@ -437,72 +524,49 @@ func (o Order) MarshalJSON() ([]byte, error) {
 
 func (o Order) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["nmId"] = o.NmId
-	toSerialize["chrtId"] = o.ChrtId
-	toSerialize["srid"] = o.Srid
-	toSerialize["createdAt"] = o.CreatedAt
-	toSerialize["updatedAt"] = o.UpdatedAt
-	toSerialize["status"] = o.Status
+	if !IsNil(o.NmId) {
+		toSerialize["nmId"] = o.NmId
+	}
+	if !IsNil(o.ChrtId) {
+		toSerialize["chrtId"] = o.ChrtId
+	}
+	if !IsNil(o.Srid) {
+		toSerialize["srid"] = o.Srid
+	}
+	if !IsNil(o.CreatedAt) {
+		toSerialize["createdAt"] = o.CreatedAt
+	}
+	if !IsNil(o.UpdatedAt) {
+		toSerialize["updatedAt"] = o.UpdatedAt
+	}
+	if !IsNil(o.Status) {
+		toSerialize["status"] = o.Status
+	}
 	if !IsNil(o.CancelType) {
 		toSerialize["cancelType"] = o.CancelType
 	}
-	toSerialize["warehouseName"] = o.WarehouseName
-	toSerialize["warehouseRegion"] = o.WarehouseRegion
-	toSerialize["isMp"] = o.IsMp
-	toSerialize["destinationCity"] = o.DestinationCity
-	toSerialize["destinationDistrict"] = o.DestinationDistrict
-	toSerialize["sellerPrice"] = o.SellerPrice
-	toSerialize["isB2b"] = o.IsB2b
+	if !IsNil(o.WarehouseName) {
+		toSerialize["warehouseName"] = o.WarehouseName
+	}
+	if !IsNil(o.WarehouseRegion) {
+		toSerialize["warehouseRegion"] = o.WarehouseRegion
+	}
+	if !IsNil(o.IsMp) {
+		toSerialize["isMp"] = o.IsMp
+	}
+	if !IsNil(o.DestinationCity) {
+		toSerialize["destinationCity"] = o.DestinationCity
+	}
+	if !IsNil(o.DestinationDistrict) {
+		toSerialize["destinationDistrict"] = o.DestinationDistrict
+	}
+	if !IsNil(o.SellerPrice) {
+		toSerialize["sellerPrice"] = o.SellerPrice
+	}
+	if !IsNil(o.IsB2b) {
+		toSerialize["isB2b"] = o.IsB2b
+	}
 	return toSerialize, nil
-}
-
-func (o *Order) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"nmId",
-		"chrtId",
-		"srid",
-		"createdAt",
-		"updatedAt",
-		"status",
-		"warehouseName",
-		"warehouseRegion",
-		"isMp",
-		"destinationCity",
-		"destinationDistrict",
-		"sellerPrice",
-		"isB2b",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varOrder := _Order{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varOrder)
-
-	if err != nil {
-		return err
-	}
-
-	*o = Order(varOrder)
-
-	return err
 }
 
 type NullableOrder struct {

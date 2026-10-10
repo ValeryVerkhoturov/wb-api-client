@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,14 +28,18 @@ class ItemStocks(BaseModel):
     Остатки
     """  # noqa: E501
 
-    wb: StrictInt = Field(
-        description="Общее количество остатков на складах WB на текущий день, шт."
+    wb: Optional[StrictInt] = Field(
+        default=None,
+        description="Общее количество остатков на складах WB на текущий день, шт.",
     )
-    mp: StrictInt = Field(
-        description="Общее количество остатков на складах продавца на текущий день, шт."
+    mp: Optional[StrictInt] = Field(
+        default=None,
+        description="Общее количество остатков на складах продавца на текущий день, шт.",
     )
-    balance_sum: StrictInt = Field(
-        description="Сумма остатков на складах на текущий день, шт.", alias="balanceSum"
+    balance_sum: Optional[StrictInt] = Field(
+        default=None,
+        description="Сумма остатков на складах на текущий день, шт.",
+        alias="balanceSum",
     )
     __properties: ClassVar[List[str]] = ["wb", "mp", "balanceSum"]
 

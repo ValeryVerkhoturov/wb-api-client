@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from wb_api_client.promotion.models.patch_v1_bids_response200_bids_inner import (
     PatchV1BidsResponse200BidsInner,
 )
@@ -31,11 +31,12 @@ class PatchV1BidsResponse200(BaseModel):
     PatchV1BidsResponse200
     """  # noqa: E501
 
-    bids: List[PatchV1BidsResponse200BidsInner] = Field(
-        description="Результат отработки запроса"
+    bids: Optional[List[PatchV1BidsResponse200BidsInner]] = Field(
+        default=None, description="Результат отработки запроса"
     )
-    currency: StrictStr = Field(
-        description="Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)"
+    currency: Optional[StrictStr] = Field(
+        default=None,
+        description="Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)",
     )
     __properties: ClassVar[List[str]] = ["bids", "currency"]
 

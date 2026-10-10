@@ -11,9 +11,7 @@ API version: analytics
 package analytics
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the TimeToReady type satisfies the MappedNullable interface at compile time
@@ -22,24 +20,19 @@ var _ MappedNullable = &TimeToReady{}
 // TimeToReady struct for TimeToReady
 type TimeToReady struct {
 	// Дни
-	Days int32 `json:"days"`
+	Days *int32 `json:"days,omitempty"`
 	// Часы
-	Hours int32 `json:"hours"`
+	Hours *int32 `json:"hours,omitempty"`
 	// Минуты
-	Mins int32 `json:"mins"`
+	Mins *int32 `json:"mins,omitempty"`
 }
-
-type _TimeToReady TimeToReady
 
 // NewTimeToReady instantiates a new TimeToReady object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTimeToReady(days int32, hours int32, mins int32) *TimeToReady {
+func NewTimeToReady() *TimeToReady {
 	this := TimeToReady{}
-	this.Days = days
-	this.Hours = hours
-	this.Mins = mins
 	return &this
 }
 
@@ -51,76 +44,100 @@ func NewTimeToReadyWithDefaults() *TimeToReady {
 	return &this
 }
 
-// GetDays returns the Days field value
+// GetDays returns the Days field value if set, zero value otherwise.
 func (o *TimeToReady) GetDays() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.Days) {
 		var ret int32
 		return ret
 	}
-
-	return o.Days
+	return *o.Days
 }
 
-// GetDaysOk returns a tuple with the Days field value
+// GetDaysOk returns a tuple with the Days field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TimeToReady) GetDaysOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Days) {
 		return nil, false
 	}
-	return &o.Days, true
+	return o.Days, true
 }
 
-// SetDays sets field value
+// HasDays returns a boolean if a field has been set.
+func (o *TimeToReady) HasDays() bool {
+	if o != nil && !IsNil(o.Days) {
+		return true
+	}
+
+	return false
+}
+
+// SetDays gets a reference to the given int32 and assigns it to the Days field.
 func (o *TimeToReady) SetDays(v int32) {
-	o.Days = v
+	o.Days = &v
 }
 
-// GetHours returns the Hours field value
+// GetHours returns the Hours field value if set, zero value otherwise.
 func (o *TimeToReady) GetHours() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.Hours) {
 		var ret int32
 		return ret
 	}
-
-	return o.Hours
+	return *o.Hours
 }
 
-// GetHoursOk returns a tuple with the Hours field value
+// GetHoursOk returns a tuple with the Hours field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TimeToReady) GetHoursOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Hours) {
 		return nil, false
 	}
-	return &o.Hours, true
+	return o.Hours, true
 }
 
-// SetHours sets field value
+// HasHours returns a boolean if a field has been set.
+func (o *TimeToReady) HasHours() bool {
+	if o != nil && !IsNil(o.Hours) {
+		return true
+	}
+
+	return false
+}
+
+// SetHours gets a reference to the given int32 and assigns it to the Hours field.
 func (o *TimeToReady) SetHours(v int32) {
-	o.Hours = v
+	o.Hours = &v
 }
 
-// GetMins returns the Mins field value
+// GetMins returns the Mins field value if set, zero value otherwise.
 func (o *TimeToReady) GetMins() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.Mins) {
 		var ret int32
 		return ret
 	}
-
-	return o.Mins
+	return *o.Mins
 }
 
-// GetMinsOk returns a tuple with the Mins field value
+// GetMinsOk returns a tuple with the Mins field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TimeToReady) GetMinsOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Mins) {
 		return nil, false
 	}
-	return &o.Mins, true
+	return o.Mins, true
 }
 
-// SetMins sets field value
+// HasMins returns a boolean if a field has been set.
+func (o *TimeToReady) HasMins() bool {
+	if o != nil && !IsNil(o.Mins) {
+		return true
+	}
+
+	return false
+}
+
+// SetMins gets a reference to the given int32 and assigns it to the Mins field.
 func (o *TimeToReady) SetMins(v int32) {
-	o.Mins = v
+	o.Mins = &v
 }
 
 func (o TimeToReady) MarshalJSON() ([]byte, error) {
@@ -133,49 +150,16 @@ func (o TimeToReady) MarshalJSON() ([]byte, error) {
 
 func (o TimeToReady) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["days"] = o.Days
-	toSerialize["hours"] = o.Hours
-	toSerialize["mins"] = o.Mins
+	if !IsNil(o.Days) {
+		toSerialize["days"] = o.Days
+	}
+	if !IsNil(o.Hours) {
+		toSerialize["hours"] = o.Hours
+	}
+	if !IsNil(o.Mins) {
+		toSerialize["mins"] = o.Mins
+	}
 	return toSerialize, nil
-}
-
-func (o *TimeToReady) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"days",
-		"hours",
-		"mins",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varTimeToReady := _TimeToReady{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varTimeToReady)
-
-	if err != nil {
-		return err
-	}
-
-	*o = TimeToReady(varTimeToReady)
-
-	return err
 }
 
 type NullableTimeToReady struct {

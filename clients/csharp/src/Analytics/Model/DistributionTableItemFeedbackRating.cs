@@ -34,24 +34,14 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DistributionTableItemFeedbackRating" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected DistributionTableItemFeedbackRating() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="DistributionTableItemFeedbackRating" /> class.
-        /// </summary>
-        /// <param name="current">Текущий рейтинг (required).</param>
+        /// <param name="current">Текущий рейтинг.</param>
         /// <param name="dynamics">Динамика по сравнению с предыдущим периодом, %.</param>
-        /// <param name="percentile">Сколько процентов товаров этого предмета у других продавцов имеют рейтинг ниже, чем у этого товара (required).</param>
+        /// <param name="percentile">Сколько процентов товаров этого предмета у других продавцов имеют рейтинг ниже, чем у этого товара.</param>
         public DistributionTableItemFeedbackRating(decimal current = default(decimal), decimal dynamics = default(decimal), decimal? percentile = default(decimal?))
         {
             this.Current = current;
-            // to ensure "percentile" is required (not null)
-            if (percentile == null)
-            {
-                throw new ArgumentNullException("percentile is a required property for DistributionTableItemFeedbackRating and cannot be null");
-            }
-            this.Percentile = percentile;
             this.Dynamics = dynamics;
+            this.Percentile = percentile;
         }
 
         /// <summary>
@@ -61,7 +51,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>3.87</example>
         */
-        [DataMember(Name = "current", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "current", EmitDefaultValue = false)]
         public decimal Current { get; set; }
 
         /// <summary>
@@ -81,7 +71,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>1.7</example>
         */
-        [DataMember(Name = "percentile", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "percentile", EmitDefaultValue = true)]
         public decimal? Percentile { get; set; }
 
         /// <summary>

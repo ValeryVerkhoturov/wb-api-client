@@ -65,18 +65,13 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /*
         <example>allToWarehouse</example>
         */
-        [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
-        public TypeEnum Type { get; set; }
+        [DataMember(Name = "type", EmitDefaultValue = false)]
+        public TypeEnum? Type { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="GetV3FbsSettingsAutoreturnsResponse200" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected GetV3FbsSettingsAutoreturnsResponse200() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="GetV3FbsSettingsAutoreturnsResponse200" /> class.
-        /// </summary>
-        /// <param name="type">Тип автовозврата:   - &#x60;allToWarehouse&#x60; — все товары отправляются на склад WB, кроме товаров тех [предметов](https://dev.wildberries.ru/openapi/orders-fbs#tag/autoreturnSettings/operation/getV3FbsSettingsAutoreturnsSubcategoriesRestricted), которые автоматически возвращаются в ПВЗ   - &#x60;allToPickupPoint&#x60; — все товары отправляются на пункт выдачи заказов   - &#x60;manual&#x60; — используются ручные настройки  (required).</param>
-        public GetV3FbsSettingsAutoreturnsResponse200(TypeEnum type = default(TypeEnum))
+        /// <param name="type">Тип автовозврата:   - &#x60;allToWarehouse&#x60; — все товары отправляются на склад WB, кроме товаров тех [предметов](https://dev.wildberries.ru/openapi/orders-fbs#tag/autoreturnSettings/operation/getV3FbsSettingsAutoreturnsSubcategoriesRestricted), которые автоматически возвращаются в ПВЗ   - &#x60;allToPickupPoint&#x60; — все товары отправляются на пункт выдачи заказов   - &#x60;manual&#x60; — используются ручные настройки .</param>
+        public GetV3FbsSettingsAutoreturnsResponse200(TypeEnum? type = default(TypeEnum?))
         {
             this.Type = type;
         }

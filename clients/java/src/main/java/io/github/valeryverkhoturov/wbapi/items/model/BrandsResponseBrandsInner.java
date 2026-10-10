@@ -36,24 +36,24 @@ public class BrandsResponseBrandsInner {
   public static final String SERIALIZED_NAME_ID = "id";
 
   @SerializedName(SERIALIZED_NAME_ID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer id;
 
   public static final String SERIALIZED_NAME_LOGO_URL = "logoUrl";
 
   @SerializedName(SERIALIZED_NAME_LOGO_URL)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String logoUrl;
 
   public static final String SERIALIZED_NAME_NAME = "name";
 
   @SerializedName(SERIALIZED_NAME_NAME)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String name;
 
   public BrandsResponseBrandsInner() {}
 
-  public BrandsResponseBrandsInner id(@jakarta.annotation.Nonnull Integer id) {
+  public BrandsResponseBrandsInner id(@jakarta.annotation.Nullable Integer id) {
     this.id = id;
     return this;
   }
@@ -63,16 +63,16 @@ public class BrandsResponseBrandsInner {
    *
    * @return id
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getId() {
     return id;
   }
 
-  public void setId(@jakarta.annotation.Nonnull Integer id) {
+  public void setId(@jakarta.annotation.Nullable Integer id) {
     this.id = id;
   }
 
-  public BrandsResponseBrandsInner logoUrl(@jakarta.annotation.Nonnull String logoUrl) {
+  public BrandsResponseBrandsInner logoUrl(@jakarta.annotation.Nullable String logoUrl) {
     this.logoUrl = logoUrl;
     return this;
   }
@@ -82,16 +82,16 @@ public class BrandsResponseBrandsInner {
    *
    * @return logoUrl
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getLogoUrl() {
     return logoUrl;
   }
 
-  public void setLogoUrl(@jakarta.annotation.Nonnull String logoUrl) {
+  public void setLogoUrl(@jakarta.annotation.Nullable String logoUrl) {
     this.logoUrl = logoUrl;
   }
 
-  public BrandsResponseBrandsInner name(@jakarta.annotation.Nonnull String name) {
+  public BrandsResponseBrandsInner name(@jakarta.annotation.Nullable String name) {
     this.name = name;
     return this;
   }
@@ -101,12 +101,12 @@ public class BrandsResponseBrandsInner {
    *
    * @return name
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getName() {
     return name;
   }
 
-  public void setName(@jakarta.annotation.Nonnull String name) {
+  public void setName(@jakarta.annotation.Nullable String name) {
     this.name = name;
   }
 
@@ -162,9 +162,6 @@ public class BrandsResponseBrandsInner {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("id");
-    openapiRequiredFields.add("logoUrl");
-    openapiRequiredFields.add("name");
   }
 
   /**
@@ -194,24 +191,16 @@ public class BrandsResponseBrandsInner {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : BrandsResponseBrandsInner.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    if (!jsonObj.get("logoUrl").isJsonPrimitive()) {
+    if ((jsonObj.get("logoUrl") != null && !jsonObj.get("logoUrl").isJsonNull())
+        && !jsonObj.get("logoUrl").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `logoUrl` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("logoUrl").toString()));
     }
-    if (!jsonObj.get("name").isJsonPrimitive()) {
+    if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull())
+        && !jsonObj.get("name").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `name` to be a primitive type in the JSON string but got `%s`",

@@ -11,9 +11,7 @@ API version: analytics
 package analytics
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the ComparisonWbClubDynamic type satisfies the MappedNullable interface at compile time
@@ -22,42 +20,31 @@ var _ MappedNullable = &ComparisonWbClubDynamic{}
 // ComparisonWbClubDynamic struct for ComparisonWbClubDynamic
 type ComparisonWbClubDynamic struct {
 	// Динамика количества заказов с WB Клубом
-	OrderCount int32 `json:"orderCount"`
+	OrderCount *int32 `json:"orderCount,omitempty"`
 	// Динамика суммы заказов с WB Клубом
-	OrderSum int32 `json:"orderSum"`
+	OrderSum *int32 `json:"orderSum,omitempty"`
 	// Динамика суммы выкупов с WB Клубом
-	BuyoutSum int32 `json:"buyoutSum"`
+	BuyoutSum *int32 `json:"buyoutSum,omitempty"`
 	// Динамика выкупов с WB Клубом
-	BuyoutCount int32 `json:"buyoutCount"`
+	BuyoutCount *int32 `json:"buyoutCount,omitempty"`
 	// Динамика сумм отмен и возвратов товаров с WB Клубом
-	CancelSum int32 `json:"cancelSum"`
+	CancelSum *int32 `json:"cancelSum,omitempty"`
 	// Динамика отмен и возвратов товаров с WB Клубом
-	CancelCount int32 `json:"cancelCount"`
+	CancelCount *int32 `json:"cancelCount,omitempty"`
 	// Динамика средней цены на товары с WB Клубом
-	AvgPrice int32 `json:"avgPrice"`
+	AvgPrice *int32 `json:"avgPrice,omitempty"`
 	// Динамика процента выкупа с WB Клубом
-	BuyoutPercent int32 `json:"buyoutPercent"`
+	BuyoutPercent *int32 `json:"buyoutPercent,omitempty"`
 	// Динамика среднего количества заказов с WB Клубом в день
-	AvgOrderCountPerDay float32 `json:"avgOrderCountPerDay"`
+	AvgOrderCountPerDay *float32 `json:"avgOrderCountPerDay,omitempty"`
 }
-
-type _ComparisonWbClubDynamic ComparisonWbClubDynamic
 
 // NewComparisonWbClubDynamic instantiates a new ComparisonWbClubDynamic object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewComparisonWbClubDynamic(orderCount int32, orderSum int32, buyoutSum int32, buyoutCount int32, cancelSum int32, cancelCount int32, avgPrice int32, buyoutPercent int32, avgOrderCountPerDay float32) *ComparisonWbClubDynamic {
+func NewComparisonWbClubDynamic() *ComparisonWbClubDynamic {
 	this := ComparisonWbClubDynamic{}
-	this.OrderCount = orderCount
-	this.OrderSum = orderSum
-	this.BuyoutSum = buyoutSum
-	this.BuyoutCount = buyoutCount
-	this.CancelSum = cancelSum
-	this.CancelCount = cancelCount
-	this.AvgPrice = avgPrice
-	this.BuyoutPercent = buyoutPercent
-	this.AvgOrderCountPerDay = avgOrderCountPerDay
 	return &this
 }
 
@@ -69,220 +56,292 @@ func NewComparisonWbClubDynamicWithDefaults() *ComparisonWbClubDynamic {
 	return &this
 }
 
-// GetOrderCount returns the OrderCount field value
+// GetOrderCount returns the OrderCount field value if set, zero value otherwise.
 func (o *ComparisonWbClubDynamic) GetOrderCount() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.OrderCount) {
 		var ret int32
 		return ret
 	}
-
-	return o.OrderCount
+	return *o.OrderCount
 }
 
-// GetOrderCountOk returns a tuple with the OrderCount field value
+// GetOrderCountOk returns a tuple with the OrderCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ComparisonWbClubDynamic) GetOrderCountOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.OrderCount) {
 		return nil, false
 	}
-	return &o.OrderCount, true
+	return o.OrderCount, true
 }
 
-// SetOrderCount sets field value
+// HasOrderCount returns a boolean if a field has been set.
+func (o *ComparisonWbClubDynamic) HasOrderCount() bool {
+	if o != nil && !IsNil(o.OrderCount) {
+		return true
+	}
+
+	return false
+}
+
+// SetOrderCount gets a reference to the given int32 and assigns it to the OrderCount field.
 func (o *ComparisonWbClubDynamic) SetOrderCount(v int32) {
-	o.OrderCount = v
+	o.OrderCount = &v
 }
 
-// GetOrderSum returns the OrderSum field value
+// GetOrderSum returns the OrderSum field value if set, zero value otherwise.
 func (o *ComparisonWbClubDynamic) GetOrderSum() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.OrderSum) {
 		var ret int32
 		return ret
 	}
-
-	return o.OrderSum
+	return *o.OrderSum
 }
 
-// GetOrderSumOk returns a tuple with the OrderSum field value
+// GetOrderSumOk returns a tuple with the OrderSum field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ComparisonWbClubDynamic) GetOrderSumOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.OrderSum) {
 		return nil, false
 	}
-	return &o.OrderSum, true
+	return o.OrderSum, true
 }
 
-// SetOrderSum sets field value
+// HasOrderSum returns a boolean if a field has been set.
+func (o *ComparisonWbClubDynamic) HasOrderSum() bool {
+	if o != nil && !IsNil(o.OrderSum) {
+		return true
+	}
+
+	return false
+}
+
+// SetOrderSum gets a reference to the given int32 and assigns it to the OrderSum field.
 func (o *ComparisonWbClubDynamic) SetOrderSum(v int32) {
-	o.OrderSum = v
+	o.OrderSum = &v
 }
 
-// GetBuyoutSum returns the BuyoutSum field value
+// GetBuyoutSum returns the BuyoutSum field value if set, zero value otherwise.
 func (o *ComparisonWbClubDynamic) GetBuyoutSum() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.BuyoutSum) {
 		var ret int32
 		return ret
 	}
-
-	return o.BuyoutSum
+	return *o.BuyoutSum
 }
 
-// GetBuyoutSumOk returns a tuple with the BuyoutSum field value
+// GetBuyoutSumOk returns a tuple with the BuyoutSum field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ComparisonWbClubDynamic) GetBuyoutSumOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.BuyoutSum) {
 		return nil, false
 	}
-	return &o.BuyoutSum, true
+	return o.BuyoutSum, true
 }
 
-// SetBuyoutSum sets field value
+// HasBuyoutSum returns a boolean if a field has been set.
+func (o *ComparisonWbClubDynamic) HasBuyoutSum() bool {
+	if o != nil && !IsNil(o.BuyoutSum) {
+		return true
+	}
+
+	return false
+}
+
+// SetBuyoutSum gets a reference to the given int32 and assigns it to the BuyoutSum field.
 func (o *ComparisonWbClubDynamic) SetBuyoutSum(v int32) {
-	o.BuyoutSum = v
+	o.BuyoutSum = &v
 }
 
-// GetBuyoutCount returns the BuyoutCount field value
+// GetBuyoutCount returns the BuyoutCount field value if set, zero value otherwise.
 func (o *ComparisonWbClubDynamic) GetBuyoutCount() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.BuyoutCount) {
 		var ret int32
 		return ret
 	}
-
-	return o.BuyoutCount
+	return *o.BuyoutCount
 }
 
-// GetBuyoutCountOk returns a tuple with the BuyoutCount field value
+// GetBuyoutCountOk returns a tuple with the BuyoutCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ComparisonWbClubDynamic) GetBuyoutCountOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.BuyoutCount) {
 		return nil, false
 	}
-	return &o.BuyoutCount, true
+	return o.BuyoutCount, true
 }
 
-// SetBuyoutCount sets field value
+// HasBuyoutCount returns a boolean if a field has been set.
+func (o *ComparisonWbClubDynamic) HasBuyoutCount() bool {
+	if o != nil && !IsNil(o.BuyoutCount) {
+		return true
+	}
+
+	return false
+}
+
+// SetBuyoutCount gets a reference to the given int32 and assigns it to the BuyoutCount field.
 func (o *ComparisonWbClubDynamic) SetBuyoutCount(v int32) {
-	o.BuyoutCount = v
+	o.BuyoutCount = &v
 }
 
-// GetCancelSum returns the CancelSum field value
+// GetCancelSum returns the CancelSum field value if set, zero value otherwise.
 func (o *ComparisonWbClubDynamic) GetCancelSum() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.CancelSum) {
 		var ret int32
 		return ret
 	}
-
-	return o.CancelSum
+	return *o.CancelSum
 }
 
-// GetCancelSumOk returns a tuple with the CancelSum field value
+// GetCancelSumOk returns a tuple with the CancelSum field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ComparisonWbClubDynamic) GetCancelSumOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.CancelSum) {
 		return nil, false
 	}
-	return &o.CancelSum, true
+	return o.CancelSum, true
 }
 
-// SetCancelSum sets field value
+// HasCancelSum returns a boolean if a field has been set.
+func (o *ComparisonWbClubDynamic) HasCancelSum() bool {
+	if o != nil && !IsNil(o.CancelSum) {
+		return true
+	}
+
+	return false
+}
+
+// SetCancelSum gets a reference to the given int32 and assigns it to the CancelSum field.
 func (o *ComparisonWbClubDynamic) SetCancelSum(v int32) {
-	o.CancelSum = v
+	o.CancelSum = &v
 }
 
-// GetCancelCount returns the CancelCount field value
+// GetCancelCount returns the CancelCount field value if set, zero value otherwise.
 func (o *ComparisonWbClubDynamic) GetCancelCount() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.CancelCount) {
 		var ret int32
 		return ret
 	}
-
-	return o.CancelCount
+	return *o.CancelCount
 }
 
-// GetCancelCountOk returns a tuple with the CancelCount field value
+// GetCancelCountOk returns a tuple with the CancelCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ComparisonWbClubDynamic) GetCancelCountOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.CancelCount) {
 		return nil, false
 	}
-	return &o.CancelCount, true
+	return o.CancelCount, true
 }
 
-// SetCancelCount sets field value
+// HasCancelCount returns a boolean if a field has been set.
+func (o *ComparisonWbClubDynamic) HasCancelCount() bool {
+	if o != nil && !IsNil(o.CancelCount) {
+		return true
+	}
+
+	return false
+}
+
+// SetCancelCount gets a reference to the given int32 and assigns it to the CancelCount field.
 func (o *ComparisonWbClubDynamic) SetCancelCount(v int32) {
-	o.CancelCount = v
+	o.CancelCount = &v
 }
 
-// GetAvgPrice returns the AvgPrice field value
+// GetAvgPrice returns the AvgPrice field value if set, zero value otherwise.
 func (o *ComparisonWbClubDynamic) GetAvgPrice() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.AvgPrice) {
 		var ret int32
 		return ret
 	}
-
-	return o.AvgPrice
+	return *o.AvgPrice
 }
 
-// GetAvgPriceOk returns a tuple with the AvgPrice field value
+// GetAvgPriceOk returns a tuple with the AvgPrice field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ComparisonWbClubDynamic) GetAvgPriceOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AvgPrice) {
 		return nil, false
 	}
-	return &o.AvgPrice, true
+	return o.AvgPrice, true
 }
 
-// SetAvgPrice sets field value
+// HasAvgPrice returns a boolean if a field has been set.
+func (o *ComparisonWbClubDynamic) HasAvgPrice() bool {
+	if o != nil && !IsNil(o.AvgPrice) {
+		return true
+	}
+
+	return false
+}
+
+// SetAvgPrice gets a reference to the given int32 and assigns it to the AvgPrice field.
 func (o *ComparisonWbClubDynamic) SetAvgPrice(v int32) {
-	o.AvgPrice = v
+	o.AvgPrice = &v
 }
 
-// GetBuyoutPercent returns the BuyoutPercent field value
+// GetBuyoutPercent returns the BuyoutPercent field value if set, zero value otherwise.
 func (o *ComparisonWbClubDynamic) GetBuyoutPercent() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.BuyoutPercent) {
 		var ret int32
 		return ret
 	}
-
-	return o.BuyoutPercent
+	return *o.BuyoutPercent
 }
 
-// GetBuyoutPercentOk returns a tuple with the BuyoutPercent field value
+// GetBuyoutPercentOk returns a tuple with the BuyoutPercent field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ComparisonWbClubDynamic) GetBuyoutPercentOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.BuyoutPercent) {
 		return nil, false
 	}
-	return &o.BuyoutPercent, true
+	return o.BuyoutPercent, true
 }
 
-// SetBuyoutPercent sets field value
+// HasBuyoutPercent returns a boolean if a field has been set.
+func (o *ComparisonWbClubDynamic) HasBuyoutPercent() bool {
+	if o != nil && !IsNil(o.BuyoutPercent) {
+		return true
+	}
+
+	return false
+}
+
+// SetBuyoutPercent gets a reference to the given int32 and assigns it to the BuyoutPercent field.
 func (o *ComparisonWbClubDynamic) SetBuyoutPercent(v int32) {
-	o.BuyoutPercent = v
+	o.BuyoutPercent = &v
 }
 
-// GetAvgOrderCountPerDay returns the AvgOrderCountPerDay field value
+// GetAvgOrderCountPerDay returns the AvgOrderCountPerDay field value if set, zero value otherwise.
 func (o *ComparisonWbClubDynamic) GetAvgOrderCountPerDay() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.AvgOrderCountPerDay) {
 		var ret float32
 		return ret
 	}
-
-	return o.AvgOrderCountPerDay
+	return *o.AvgOrderCountPerDay
 }
 
-// GetAvgOrderCountPerDayOk returns a tuple with the AvgOrderCountPerDay field value
+// GetAvgOrderCountPerDayOk returns a tuple with the AvgOrderCountPerDay field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ComparisonWbClubDynamic) GetAvgOrderCountPerDayOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AvgOrderCountPerDay) {
 		return nil, false
 	}
-	return &o.AvgOrderCountPerDay, true
+	return o.AvgOrderCountPerDay, true
 }
 
-// SetAvgOrderCountPerDay sets field value
+// HasAvgOrderCountPerDay returns a boolean if a field has been set.
+func (o *ComparisonWbClubDynamic) HasAvgOrderCountPerDay() bool {
+	if o != nil && !IsNil(o.AvgOrderCountPerDay) {
+		return true
+	}
+
+	return false
+}
+
+// SetAvgOrderCountPerDay gets a reference to the given float32 and assigns it to the AvgOrderCountPerDay field.
 func (o *ComparisonWbClubDynamic) SetAvgOrderCountPerDay(v float32) {
-	o.AvgOrderCountPerDay = v
+	o.AvgOrderCountPerDay = &v
 }
 
 func (o ComparisonWbClubDynamic) MarshalJSON() ([]byte, error) {
@@ -295,61 +354,34 @@ func (o ComparisonWbClubDynamic) MarshalJSON() ([]byte, error) {
 
 func (o ComparisonWbClubDynamic) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["orderCount"] = o.OrderCount
-	toSerialize["orderSum"] = o.OrderSum
-	toSerialize["buyoutSum"] = o.BuyoutSum
-	toSerialize["buyoutCount"] = o.BuyoutCount
-	toSerialize["cancelSum"] = o.CancelSum
-	toSerialize["cancelCount"] = o.CancelCount
-	toSerialize["avgPrice"] = o.AvgPrice
-	toSerialize["buyoutPercent"] = o.BuyoutPercent
-	toSerialize["avgOrderCountPerDay"] = o.AvgOrderCountPerDay
+	if !IsNil(o.OrderCount) {
+		toSerialize["orderCount"] = o.OrderCount
+	}
+	if !IsNil(o.OrderSum) {
+		toSerialize["orderSum"] = o.OrderSum
+	}
+	if !IsNil(o.BuyoutSum) {
+		toSerialize["buyoutSum"] = o.BuyoutSum
+	}
+	if !IsNil(o.BuyoutCount) {
+		toSerialize["buyoutCount"] = o.BuyoutCount
+	}
+	if !IsNil(o.CancelSum) {
+		toSerialize["cancelSum"] = o.CancelSum
+	}
+	if !IsNil(o.CancelCount) {
+		toSerialize["cancelCount"] = o.CancelCount
+	}
+	if !IsNil(o.AvgPrice) {
+		toSerialize["avgPrice"] = o.AvgPrice
+	}
+	if !IsNil(o.BuyoutPercent) {
+		toSerialize["buyoutPercent"] = o.BuyoutPercent
+	}
+	if !IsNil(o.AvgOrderCountPerDay) {
+		toSerialize["avgOrderCountPerDay"] = o.AvgOrderCountPerDay
+	}
 	return toSerialize, nil
-}
-
-func (o *ComparisonWbClubDynamic) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"orderCount",
-		"orderSum",
-		"buyoutSum",
-		"buyoutCount",
-		"cancelSum",
-		"cancelCount",
-		"avgPrice",
-		"buyoutPercent",
-		"avgOrderCountPerDay",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varComparisonWbClubDynamic := _ComparisonWbClubDynamic{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varComparisonWbClubDynamic)
-
-	if err != nil {
-		return err
-	}
-
-	*o = ComparisonWbClubDynamic(varComparisonWbClubDynamic)
-
-	return err
 }
 
 type NullableComparisonWbClubDynamic struct {

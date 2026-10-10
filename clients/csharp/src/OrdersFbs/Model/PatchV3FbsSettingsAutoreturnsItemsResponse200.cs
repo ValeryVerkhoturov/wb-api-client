@@ -34,26 +34,16 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PatchV3FbsSettingsAutoreturnsItemsResponse200" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected PatchV3FbsSettingsAutoreturnsItemsResponse200() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PatchV3FbsSettingsAutoreturnsItemsResponse200" /> class.
-        /// </summary>
-        /// <param name="results">results (required).</param>
+        /// <param name="results">results.</param>
         public PatchV3FbsSettingsAutoreturnsItemsResponse200(List<PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInner> results = default(List<PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInner>))
         {
-            // to ensure "results" is required (not null)
-            if (results == null)
-            {
-                throw new ArgumentNullException("results is a required property for PatchV3FbsSettingsAutoreturnsItemsResponse200 and cannot be null");
-            }
             this.Results = results;
         }
 
         /// <summary>
         /// Gets or Sets Results
         /// </summary>
-        [DataMember(Name = "results", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "results", EmitDefaultValue = false)]
         public List<PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInner> Results { get; set; }
 
         /// <summary>

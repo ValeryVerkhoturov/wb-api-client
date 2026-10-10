@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from wb_api_client.in_store_pickup.models.api_orders_meta_details_response_orders_inner import (
     ApiOrdersMetaDetailsResponseOrdersInner,
 )
@@ -31,11 +31,12 @@ class ApiOrdersMetaDetailsResponse(BaseModel):
     ApiOrdersMetaDetailsResponse
     """  # noqa: E501
 
-    request_id: StrictStr = Field(
-        description="Уникальный ID запроса", alias="requestId"
+    request_id: Optional[StrictStr] = Field(
+        default=None, description="Уникальный ID запроса", alias="requestId"
     )
-    orders: List[ApiOrdersMetaDetailsResponseOrdersInner] = Field(
-        description="Идентификаторы маркировки сборочных заданий и статусы их валидации"
+    orders: Optional[List[ApiOrdersMetaDetailsResponseOrdersInner]] = Field(
+        default=None,
+        description="Идентификаторы маркировки сборочных заданий и статусы их валидации",
     )
     __properties: ClassVar[List[str]] = ["requestId", "orders"]
 

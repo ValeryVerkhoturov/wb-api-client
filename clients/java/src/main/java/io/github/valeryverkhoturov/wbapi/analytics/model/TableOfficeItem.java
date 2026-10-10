@@ -36,30 +36,30 @@ public class TableOfficeItem {
   public static final String SERIALIZED_NAME_REGION_NAME = "regionName";
 
   @SerializedName(SERIALIZED_NAME_REGION_NAME)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String regionName;
 
   public static final String SERIALIZED_NAME_OFFICE_I_D = "officeID";
 
   @SerializedName(SERIALIZED_NAME_OFFICE_I_D)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Long officeID;
 
   public static final String SERIALIZED_NAME_OFFICE_NAME = "officeName";
 
   @SerializedName(SERIALIZED_NAME_OFFICE_NAME)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String officeName;
 
   public static final String SERIALIZED_NAME_METRICS = "metrics";
 
   @SerializedName(SERIALIZED_NAME_METRICS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private TableCommonMetrics metrics;
 
   public TableOfficeItem() {}
 
-  public TableOfficeItem regionName(@jakarta.annotation.Nonnull String regionName) {
+  public TableOfficeItem regionName(@jakarta.annotation.Nullable String regionName) {
     this.regionName = regionName;
     return this;
   }
@@ -70,16 +70,16 @@ public class TableOfficeItem {
    *
    * @return regionName
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getRegionName() {
     return regionName;
   }
 
-  public void setRegionName(@jakarta.annotation.Nonnull String regionName) {
+  public void setRegionName(@jakarta.annotation.Nullable String regionName) {
     this.regionName = regionName;
   }
 
-  public TableOfficeItem officeID(@jakarta.annotation.Nonnull Long officeID) {
+  public TableOfficeItem officeID(@jakarta.annotation.Nullable Long officeID) {
     this.officeID = officeID;
     return this;
   }
@@ -90,16 +90,16 @@ public class TableOfficeItem {
    *
    * @return officeID
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Long getOfficeID() {
     return officeID;
   }
 
-  public void setOfficeID(@jakarta.annotation.Nonnull Long officeID) {
+  public void setOfficeID(@jakarta.annotation.Nullable Long officeID) {
     this.officeID = officeID;
   }
 
-  public TableOfficeItem officeName(@jakarta.annotation.Nonnull String officeName) {
+  public TableOfficeItem officeName(@jakarta.annotation.Nullable String officeName) {
     this.officeName = officeName;
     return this;
   }
@@ -110,16 +110,16 @@ public class TableOfficeItem {
    *
    * @return officeName
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getOfficeName() {
     return officeName;
   }
 
-  public void setOfficeName(@jakarta.annotation.Nonnull String officeName) {
+  public void setOfficeName(@jakarta.annotation.Nullable String officeName) {
     this.officeName = officeName;
   }
 
-  public TableOfficeItem metrics(@jakarta.annotation.Nonnull TableCommonMetrics metrics) {
+  public TableOfficeItem metrics(@jakarta.annotation.Nullable TableCommonMetrics metrics) {
     this.metrics = metrics;
     return this;
   }
@@ -129,12 +129,12 @@ public class TableOfficeItem {
    *
    * @return metrics
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public TableCommonMetrics getMetrics() {
     return metrics;
   }
 
-  public void setMetrics(@jakarta.annotation.Nonnull TableCommonMetrics metrics) {
+  public void setMetrics(@jakarta.annotation.Nullable TableCommonMetrics metrics) {
     this.metrics = metrics;
   }
 
@@ -193,10 +193,6 @@ public class TableOfficeItem {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("regionName");
-    openapiRequiredFields.add("officeID");
-    openapiRequiredFields.add("officeName");
-    openapiRequiredFields.add("metrics");
   }
 
   /**
@@ -226,31 +222,25 @@ public class TableOfficeItem {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : TableOfficeItem.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    if (!jsonObj.get("regionName").isJsonPrimitive()) {
+    if ((jsonObj.get("regionName") != null && !jsonObj.get("regionName").isJsonNull())
+        && !jsonObj.get("regionName").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `regionName` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("regionName").toString()));
     }
-    if (!jsonObj.get("officeName").isJsonPrimitive()) {
+    if ((jsonObj.get("officeName") != null && !jsonObj.get("officeName").isJsonNull())
+        && !jsonObj.get("officeName").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `officeName` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("officeName").toString()));
     }
-    // validate the required field `metrics`
-    TableCommonMetrics.validateJsonElement(jsonObj.get("metrics"));
+    // validate the optional field `metrics`
+    if (jsonObj.get("metrics") != null && !jsonObj.get("metrics").isJsonNull()) {
+      TableCommonMetrics.validateJsonElement(jsonObj.get("metrics"));
+    }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

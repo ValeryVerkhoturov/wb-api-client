@@ -34,7 +34,9 @@ class ApiOrderFinalPriceResult(BaseModel):
     ApiOrderFinalPriceResult
     """  # noqa: E501
 
-    order_id: StrictInt = Field(description="ID сборочного задания", alias="orderId")
+    order_id: Optional[StrictInt] = Field(
+        default=None, description="ID сборочного задания", alias="orderId"
+    )
     data: Optional[ApiOrderFinalPriceResultData] = None
     errors: Optional[List[ApiBatchErrorFinalPriceResponse]] = Field(
         default=None, description="Детали ошибки"

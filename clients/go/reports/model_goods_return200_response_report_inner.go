@@ -11,9 +11,7 @@ API version: reports
 package reports
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the GoodsReturn200ResponseReportInner type satisfies the MappedNullable interface at compile time
@@ -22,71 +20,51 @@ var _ MappedNullable = &GoodsReturn200ResponseReportInner{}
 // GoodsReturn200ResponseReportInner struct for GoodsReturn200ResponseReportInner
 type GoodsReturn200ResponseReportInner struct {
 	// Баркод
-	Sku string `json:"sku"`
+	Sku *string `json:"sku,omitempty"`
 	// Бренд
-	Brand string `json:"brand"`
+	Brand *string `json:"brand,omitempty"`
 	// Дата и время выдачи возврата продавцу
-	CompletedDt NullableString `json:"completedDt"`
+	CompletedDt NullableString `json:"completedDt,omitempty"`
 	// Адрес ПВЗ для выдачи возврата продавцу
-	DstOfficeAddress string `json:"dstOfficeAddress"`
+	DstOfficeAddress *string `json:"dstOfficeAddress,omitempty"`
 	// Код маркировки [Честного знака](https://честныйзнак.рф/)
-	Kiz NullableString `json:"kiz"`
+	Kiz NullableString `json:"kiz,omitempty"`
 	// ID ПВЗ для выдачи возврата продавцу
-	DstOfficeId int32 `json:"dstOfficeId"`
+	DstOfficeId *int32 `json:"dstOfficeId,omitempty"`
 	// Дата и время истечения срока хранения возврата
-	ExpiredDt NullableString `json:"expiredDt"`
+	ExpiredDt NullableString `json:"expiredDt,omitempty"`
 	// Артикул WB
-	NmId int32 `json:"nmId"`
+	NmId *int32 `json:"nmId,omitempty"`
 	// Дата заказа на возврат
-	OrderDt string `json:"orderDt"`
+	OrderDt *string `json:"orderDt,omitempty"`
 	// ID сборочного задания
-	OrderId int32 `json:"orderId"`
+	OrderId *int32 `json:"orderId,omitempty"`
 	// Дата и время готовности возврата к выдаче
-	ReadyToReturnDt NullableString `json:"readyToReturnDt"`
+	ReadyToReturnDt NullableString `json:"readyToReturnDt,omitempty"`
 	// Причина возврата.  Поле возвращается только при `\"returnType\":\"Возврат неопознанного товара\"`
 	ReturnReason *string `json:"returnReason,omitempty"`
 	// Тип возврата
-	ReturnType string `json:"returnType"`
+	ReturnType *string `json:"returnType,omitempty"`
 	// Штрихкод
-	ShkId int32 `json:"shkId"`
+	ShkId *int32 `json:"shkId,omitempty"`
 	// ID заказа на возврат
-	Srid string `json:"srid"`
+	Srid *string `json:"srid,omitempty"`
 	// Статус возврата
-	ReturnStatus string `json:"returnStatus"`
+	ReturnStatus *string `json:"returnStatus,omitempty"`
 	// Стикер заказа на возврат
-	StickerId string `json:"stickerId"`
+	StickerId *string `json:"stickerId,omitempty"`
 	// Предмет
-	SubjectName string `json:"subjectName"`
+	SubjectName *string `json:"subjectName,omitempty"`
 	// Размер
-	TechSize string `json:"techSize"`
+	TechSize *string `json:"techSize,omitempty"`
 }
-
-type _GoodsReturn200ResponseReportInner GoodsReturn200ResponseReportInner
 
 // NewGoodsReturn200ResponseReportInner instantiates a new GoodsReturn200ResponseReportInner object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGoodsReturn200ResponseReportInner(sku string, brand string, completedDt NullableString, dstOfficeAddress string, kiz NullableString, dstOfficeId int32, expiredDt NullableString, nmId int32, orderDt string, orderId int32, readyToReturnDt NullableString, returnType string, shkId int32, srid string, returnStatus string, stickerId string, subjectName string, techSize string) *GoodsReturn200ResponseReportInner {
+func NewGoodsReturn200ResponseReportInner() *GoodsReturn200ResponseReportInner {
 	this := GoodsReturn200ResponseReportInner{}
-	this.Sku = sku
-	this.Brand = brand
-	this.CompletedDt = completedDt
-	this.DstOfficeAddress = dstOfficeAddress
-	this.Kiz = kiz
-	this.DstOfficeId = dstOfficeId
-	this.ExpiredDt = expiredDt
-	this.NmId = nmId
-	this.OrderDt = orderDt
-	this.OrderId = orderId
-	this.ReadyToReturnDt = readyToReturnDt
-	this.ReturnType = returnType
-	this.ShkId = shkId
-	this.Srid = srid
-	this.ReturnStatus = returnStatus
-	this.StickerId = stickerId
-	this.SubjectName = subjectName
-	this.TechSize = techSize
 	return &this
 }
 
@@ -98,66 +76,80 @@ func NewGoodsReturn200ResponseReportInnerWithDefaults() *GoodsReturn200ResponseR
 	return &this
 }
 
-// GetSku returns the Sku field value
+// GetSku returns the Sku field value if set, zero value otherwise.
 func (o *GoodsReturn200ResponseReportInner) GetSku() string {
-	if o == nil {
+	if o == nil || IsNil(o.Sku) {
 		var ret string
 		return ret
 	}
-
-	return o.Sku
+	return *o.Sku
 }
 
-// GetSkuOk returns a tuple with the Sku field value
+// GetSkuOk returns a tuple with the Sku field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GoodsReturn200ResponseReportInner) GetSkuOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Sku) {
 		return nil, false
 	}
-	return &o.Sku, true
+	return o.Sku, true
 }
 
-// SetSku sets field value
+// HasSku returns a boolean if a field has been set.
+func (o *GoodsReturn200ResponseReportInner) HasSku() bool {
+	if o != nil && !IsNil(o.Sku) {
+		return true
+	}
+
+	return false
+}
+
+// SetSku gets a reference to the given string and assigns it to the Sku field.
 func (o *GoodsReturn200ResponseReportInner) SetSku(v string) {
-	o.Sku = v
+	o.Sku = &v
 }
 
-// GetBrand returns the Brand field value
+// GetBrand returns the Brand field value if set, zero value otherwise.
 func (o *GoodsReturn200ResponseReportInner) GetBrand() string {
-	if o == nil {
+	if o == nil || IsNil(o.Brand) {
 		var ret string
 		return ret
 	}
-
-	return o.Brand
+	return *o.Brand
 }
 
-// GetBrandOk returns a tuple with the Brand field value
+// GetBrandOk returns a tuple with the Brand field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GoodsReturn200ResponseReportInner) GetBrandOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Brand) {
 		return nil, false
 	}
-	return &o.Brand, true
+	return o.Brand, true
 }
 
-// SetBrand sets field value
+// HasBrand returns a boolean if a field has been set.
+func (o *GoodsReturn200ResponseReportInner) HasBrand() bool {
+	if o != nil && !IsNil(o.Brand) {
+		return true
+	}
+
+	return false
+}
+
+// SetBrand gets a reference to the given string and assigns it to the Brand field.
 func (o *GoodsReturn200ResponseReportInner) SetBrand(v string) {
-	o.Brand = v
+	o.Brand = &v
 }
 
-// GetCompletedDt returns the CompletedDt field value
-// If the value is explicit nil, the zero value for string will be returned
+// GetCompletedDt returns the CompletedDt field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *GoodsReturn200ResponseReportInner) GetCompletedDt() string {
-	if o == nil || o.CompletedDt.Get() == nil {
+	if o == nil || IsNil(o.CompletedDt.Get()) {
 		var ret string
 		return ret
 	}
-
 	return *o.CompletedDt.Get()
 }
 
-// GetCompletedDtOk returns a tuple with the CompletedDt field value
+// GetCompletedDtOk returns a tuple with the CompletedDt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GoodsReturn200ResponseReportInner) GetCompletedDtOk() (*string, bool) {
@@ -167,47 +159,72 @@ func (o *GoodsReturn200ResponseReportInner) GetCompletedDtOk() (*string, bool) {
 	return o.CompletedDt.Get(), o.CompletedDt.IsSet()
 }
 
-// SetCompletedDt sets field value
+// HasCompletedDt returns a boolean if a field has been set.
+func (o *GoodsReturn200ResponseReportInner) HasCompletedDt() bool {
+	if o != nil && o.CompletedDt.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetCompletedDt gets a reference to the given NullableString and assigns it to the CompletedDt field.
 func (o *GoodsReturn200ResponseReportInner) SetCompletedDt(v string) {
 	o.CompletedDt.Set(&v)
 }
 
-// GetDstOfficeAddress returns the DstOfficeAddress field value
+// SetCompletedDtNil sets the value for CompletedDt to be an explicit nil
+func (o *GoodsReturn200ResponseReportInner) SetCompletedDtNil() {
+	o.CompletedDt.Set(nil)
+}
+
+// UnsetCompletedDt ensures that no value is present for CompletedDt, not even an explicit nil
+func (o *GoodsReturn200ResponseReportInner) UnsetCompletedDt() {
+	o.CompletedDt.Unset()
+}
+
+// GetDstOfficeAddress returns the DstOfficeAddress field value if set, zero value otherwise.
 func (o *GoodsReturn200ResponseReportInner) GetDstOfficeAddress() string {
-	if o == nil {
+	if o == nil || IsNil(o.DstOfficeAddress) {
 		var ret string
 		return ret
 	}
-
-	return o.DstOfficeAddress
+	return *o.DstOfficeAddress
 }
 
-// GetDstOfficeAddressOk returns a tuple with the DstOfficeAddress field value
+// GetDstOfficeAddressOk returns a tuple with the DstOfficeAddress field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GoodsReturn200ResponseReportInner) GetDstOfficeAddressOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DstOfficeAddress) {
 		return nil, false
 	}
-	return &o.DstOfficeAddress, true
+	return o.DstOfficeAddress, true
 }
 
-// SetDstOfficeAddress sets field value
+// HasDstOfficeAddress returns a boolean if a field has been set.
+func (o *GoodsReturn200ResponseReportInner) HasDstOfficeAddress() bool {
+	if o != nil && !IsNil(o.DstOfficeAddress) {
+		return true
+	}
+
+	return false
+}
+
+// SetDstOfficeAddress gets a reference to the given string and assigns it to the DstOfficeAddress field.
 func (o *GoodsReturn200ResponseReportInner) SetDstOfficeAddress(v string) {
-	o.DstOfficeAddress = v
+	o.DstOfficeAddress = &v
 }
 
-// GetKiz returns the Kiz field value
-// If the value is explicit nil, the zero value for string will be returned
+// GetKiz returns the Kiz field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *GoodsReturn200ResponseReportInner) GetKiz() string {
-	if o == nil || o.Kiz.Get() == nil {
+	if o == nil || IsNil(o.Kiz.Get()) {
 		var ret string
 		return ret
 	}
-
 	return *o.Kiz.Get()
 }
 
-// GetKizOk returns a tuple with the Kiz field value
+// GetKizOk returns a tuple with the Kiz field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GoodsReturn200ResponseReportInner) GetKizOk() (*string, bool) {
@@ -217,47 +234,72 @@ func (o *GoodsReturn200ResponseReportInner) GetKizOk() (*string, bool) {
 	return o.Kiz.Get(), o.Kiz.IsSet()
 }
 
-// SetKiz sets field value
+// HasKiz returns a boolean if a field has been set.
+func (o *GoodsReturn200ResponseReportInner) HasKiz() bool {
+	if o != nil && o.Kiz.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetKiz gets a reference to the given NullableString and assigns it to the Kiz field.
 func (o *GoodsReturn200ResponseReportInner) SetKiz(v string) {
 	o.Kiz.Set(&v)
 }
 
-// GetDstOfficeId returns the DstOfficeId field value
+// SetKizNil sets the value for Kiz to be an explicit nil
+func (o *GoodsReturn200ResponseReportInner) SetKizNil() {
+	o.Kiz.Set(nil)
+}
+
+// UnsetKiz ensures that no value is present for Kiz, not even an explicit nil
+func (o *GoodsReturn200ResponseReportInner) UnsetKiz() {
+	o.Kiz.Unset()
+}
+
+// GetDstOfficeId returns the DstOfficeId field value if set, zero value otherwise.
 func (o *GoodsReturn200ResponseReportInner) GetDstOfficeId() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.DstOfficeId) {
 		var ret int32
 		return ret
 	}
-
-	return o.DstOfficeId
+	return *o.DstOfficeId
 }
 
-// GetDstOfficeIdOk returns a tuple with the DstOfficeId field value
+// GetDstOfficeIdOk returns a tuple with the DstOfficeId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GoodsReturn200ResponseReportInner) GetDstOfficeIdOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DstOfficeId) {
 		return nil, false
 	}
-	return &o.DstOfficeId, true
+	return o.DstOfficeId, true
 }
 
-// SetDstOfficeId sets field value
+// HasDstOfficeId returns a boolean if a field has been set.
+func (o *GoodsReturn200ResponseReportInner) HasDstOfficeId() bool {
+	if o != nil && !IsNil(o.DstOfficeId) {
+		return true
+	}
+
+	return false
+}
+
+// SetDstOfficeId gets a reference to the given int32 and assigns it to the DstOfficeId field.
 func (o *GoodsReturn200ResponseReportInner) SetDstOfficeId(v int32) {
-	o.DstOfficeId = v
+	o.DstOfficeId = &v
 }
 
-// GetExpiredDt returns the ExpiredDt field value
-// If the value is explicit nil, the zero value for string will be returned
+// GetExpiredDt returns the ExpiredDt field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *GoodsReturn200ResponseReportInner) GetExpiredDt() string {
-	if o == nil || o.ExpiredDt.Get() == nil {
+	if o == nil || IsNil(o.ExpiredDt.Get()) {
 		var ret string
 		return ret
 	}
-
 	return *o.ExpiredDt.Get()
 }
 
-// GetExpiredDtOk returns a tuple with the ExpiredDt field value
+// GetExpiredDtOk returns a tuple with the ExpiredDt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GoodsReturn200ResponseReportInner) GetExpiredDtOk() (*string, bool) {
@@ -267,95 +309,136 @@ func (o *GoodsReturn200ResponseReportInner) GetExpiredDtOk() (*string, bool) {
 	return o.ExpiredDt.Get(), o.ExpiredDt.IsSet()
 }
 
-// SetExpiredDt sets field value
+// HasExpiredDt returns a boolean if a field has been set.
+func (o *GoodsReturn200ResponseReportInner) HasExpiredDt() bool {
+	if o != nil && o.ExpiredDt.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetExpiredDt gets a reference to the given NullableString and assigns it to the ExpiredDt field.
 func (o *GoodsReturn200ResponseReportInner) SetExpiredDt(v string) {
 	o.ExpiredDt.Set(&v)
 }
 
-// GetNmId returns the NmId field value
+// SetExpiredDtNil sets the value for ExpiredDt to be an explicit nil
+func (o *GoodsReturn200ResponseReportInner) SetExpiredDtNil() {
+	o.ExpiredDt.Set(nil)
+}
+
+// UnsetExpiredDt ensures that no value is present for ExpiredDt, not even an explicit nil
+func (o *GoodsReturn200ResponseReportInner) UnsetExpiredDt() {
+	o.ExpiredDt.Unset()
+}
+
+// GetNmId returns the NmId field value if set, zero value otherwise.
 func (o *GoodsReturn200ResponseReportInner) GetNmId() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.NmId) {
 		var ret int32
 		return ret
 	}
-
-	return o.NmId
+	return *o.NmId
 }
 
-// GetNmIdOk returns a tuple with the NmId field value
+// GetNmIdOk returns a tuple with the NmId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GoodsReturn200ResponseReportInner) GetNmIdOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.NmId) {
 		return nil, false
 	}
-	return &o.NmId, true
+	return o.NmId, true
 }
 
-// SetNmId sets field value
+// HasNmId returns a boolean if a field has been set.
+func (o *GoodsReturn200ResponseReportInner) HasNmId() bool {
+	if o != nil && !IsNil(o.NmId) {
+		return true
+	}
+
+	return false
+}
+
+// SetNmId gets a reference to the given int32 and assigns it to the NmId field.
 func (o *GoodsReturn200ResponseReportInner) SetNmId(v int32) {
-	o.NmId = v
+	o.NmId = &v
 }
 
-// GetOrderDt returns the OrderDt field value
+// GetOrderDt returns the OrderDt field value if set, zero value otherwise.
 func (o *GoodsReturn200ResponseReportInner) GetOrderDt() string {
-	if o == nil {
+	if o == nil || IsNil(o.OrderDt) {
 		var ret string
 		return ret
 	}
-
-	return o.OrderDt
+	return *o.OrderDt
 }
 
-// GetOrderDtOk returns a tuple with the OrderDt field value
+// GetOrderDtOk returns a tuple with the OrderDt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GoodsReturn200ResponseReportInner) GetOrderDtOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.OrderDt) {
 		return nil, false
 	}
-	return &o.OrderDt, true
+	return o.OrderDt, true
 }
 
-// SetOrderDt sets field value
+// HasOrderDt returns a boolean if a field has been set.
+func (o *GoodsReturn200ResponseReportInner) HasOrderDt() bool {
+	if o != nil && !IsNil(o.OrderDt) {
+		return true
+	}
+
+	return false
+}
+
+// SetOrderDt gets a reference to the given string and assigns it to the OrderDt field.
 func (o *GoodsReturn200ResponseReportInner) SetOrderDt(v string) {
-	o.OrderDt = v
+	o.OrderDt = &v
 }
 
-// GetOrderId returns the OrderId field value
+// GetOrderId returns the OrderId field value if set, zero value otherwise.
 func (o *GoodsReturn200ResponseReportInner) GetOrderId() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.OrderId) {
 		var ret int32
 		return ret
 	}
-
-	return o.OrderId
+	return *o.OrderId
 }
 
-// GetOrderIdOk returns a tuple with the OrderId field value
+// GetOrderIdOk returns a tuple with the OrderId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GoodsReturn200ResponseReportInner) GetOrderIdOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.OrderId) {
 		return nil, false
 	}
-	return &o.OrderId, true
+	return o.OrderId, true
 }
 
-// SetOrderId sets field value
+// HasOrderId returns a boolean if a field has been set.
+func (o *GoodsReturn200ResponseReportInner) HasOrderId() bool {
+	if o != nil && !IsNil(o.OrderId) {
+		return true
+	}
+
+	return false
+}
+
+// SetOrderId gets a reference to the given int32 and assigns it to the OrderId field.
 func (o *GoodsReturn200ResponseReportInner) SetOrderId(v int32) {
-	o.OrderId = v
+	o.OrderId = &v
 }
 
-// GetReadyToReturnDt returns the ReadyToReturnDt field value
-// If the value is explicit nil, the zero value for string will be returned
+// GetReadyToReturnDt returns the ReadyToReturnDt field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *GoodsReturn200ResponseReportInner) GetReadyToReturnDt() string {
-	if o == nil || o.ReadyToReturnDt.Get() == nil {
+	if o == nil || IsNil(o.ReadyToReturnDt.Get()) {
 		var ret string
 		return ret
 	}
-
 	return *o.ReadyToReturnDt.Get()
 }
 
-// GetReadyToReturnDtOk returns a tuple with the ReadyToReturnDt field value
+// GetReadyToReturnDtOk returns a tuple with the ReadyToReturnDt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GoodsReturn200ResponseReportInner) GetReadyToReturnDtOk() (*string, bool) {
@@ -365,9 +448,28 @@ func (o *GoodsReturn200ResponseReportInner) GetReadyToReturnDtOk() (*string, boo
 	return o.ReadyToReturnDt.Get(), o.ReadyToReturnDt.IsSet()
 }
 
-// SetReadyToReturnDt sets field value
+// HasReadyToReturnDt returns a boolean if a field has been set.
+func (o *GoodsReturn200ResponseReportInner) HasReadyToReturnDt() bool {
+	if o != nil && o.ReadyToReturnDt.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetReadyToReturnDt gets a reference to the given NullableString and assigns it to the ReadyToReturnDt field.
 func (o *GoodsReturn200ResponseReportInner) SetReadyToReturnDt(v string) {
 	o.ReadyToReturnDt.Set(&v)
+}
+
+// SetReadyToReturnDtNil sets the value for ReadyToReturnDt to be an explicit nil
+func (o *GoodsReturn200ResponseReportInner) SetReadyToReturnDtNil() {
+	o.ReadyToReturnDt.Set(nil)
+}
+
+// UnsetReadyToReturnDt ensures that no value is present for ReadyToReturnDt, not even an explicit nil
+func (o *GoodsReturn200ResponseReportInner) UnsetReadyToReturnDt() {
+	o.ReadyToReturnDt.Unset()
 }
 
 // GetReturnReason returns the ReturnReason field value if set, zero value otherwise.
@@ -402,172 +504,228 @@ func (o *GoodsReturn200ResponseReportInner) SetReturnReason(v string) {
 	o.ReturnReason = &v
 }
 
-// GetReturnType returns the ReturnType field value
+// GetReturnType returns the ReturnType field value if set, zero value otherwise.
 func (o *GoodsReturn200ResponseReportInner) GetReturnType() string {
-	if o == nil {
+	if o == nil || IsNil(o.ReturnType) {
 		var ret string
 		return ret
 	}
-
-	return o.ReturnType
+	return *o.ReturnType
 }
 
-// GetReturnTypeOk returns a tuple with the ReturnType field value
+// GetReturnTypeOk returns a tuple with the ReturnType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GoodsReturn200ResponseReportInner) GetReturnTypeOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ReturnType) {
 		return nil, false
 	}
-	return &o.ReturnType, true
+	return o.ReturnType, true
 }
 
-// SetReturnType sets field value
+// HasReturnType returns a boolean if a field has been set.
+func (o *GoodsReturn200ResponseReportInner) HasReturnType() bool {
+	if o != nil && !IsNil(o.ReturnType) {
+		return true
+	}
+
+	return false
+}
+
+// SetReturnType gets a reference to the given string and assigns it to the ReturnType field.
 func (o *GoodsReturn200ResponseReportInner) SetReturnType(v string) {
-	o.ReturnType = v
+	o.ReturnType = &v
 }
 
-// GetShkId returns the ShkId field value
+// GetShkId returns the ShkId field value if set, zero value otherwise.
 func (o *GoodsReturn200ResponseReportInner) GetShkId() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.ShkId) {
 		var ret int32
 		return ret
 	}
-
-	return o.ShkId
+	return *o.ShkId
 }
 
-// GetShkIdOk returns a tuple with the ShkId field value
+// GetShkIdOk returns a tuple with the ShkId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GoodsReturn200ResponseReportInner) GetShkIdOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ShkId) {
 		return nil, false
 	}
-	return &o.ShkId, true
+	return o.ShkId, true
 }
 
-// SetShkId sets field value
+// HasShkId returns a boolean if a field has been set.
+func (o *GoodsReturn200ResponseReportInner) HasShkId() bool {
+	if o != nil && !IsNil(o.ShkId) {
+		return true
+	}
+
+	return false
+}
+
+// SetShkId gets a reference to the given int32 and assigns it to the ShkId field.
 func (o *GoodsReturn200ResponseReportInner) SetShkId(v int32) {
-	o.ShkId = v
+	o.ShkId = &v
 }
 
-// GetSrid returns the Srid field value
+// GetSrid returns the Srid field value if set, zero value otherwise.
 func (o *GoodsReturn200ResponseReportInner) GetSrid() string {
-	if o == nil {
+	if o == nil || IsNil(o.Srid) {
 		var ret string
 		return ret
 	}
-
-	return o.Srid
+	return *o.Srid
 }
 
-// GetSridOk returns a tuple with the Srid field value
+// GetSridOk returns a tuple with the Srid field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GoodsReturn200ResponseReportInner) GetSridOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Srid) {
 		return nil, false
 	}
-	return &o.Srid, true
+	return o.Srid, true
 }
 
-// SetSrid sets field value
+// HasSrid returns a boolean if a field has been set.
+func (o *GoodsReturn200ResponseReportInner) HasSrid() bool {
+	if o != nil && !IsNil(o.Srid) {
+		return true
+	}
+
+	return false
+}
+
+// SetSrid gets a reference to the given string and assigns it to the Srid field.
 func (o *GoodsReturn200ResponseReportInner) SetSrid(v string) {
-	o.Srid = v
+	o.Srid = &v
 }
 
-// GetReturnStatus returns the ReturnStatus field value
+// GetReturnStatus returns the ReturnStatus field value if set, zero value otherwise.
 func (o *GoodsReturn200ResponseReportInner) GetReturnStatus() string {
-	if o == nil {
+	if o == nil || IsNil(o.ReturnStatus) {
 		var ret string
 		return ret
 	}
-
-	return o.ReturnStatus
+	return *o.ReturnStatus
 }
 
-// GetReturnStatusOk returns a tuple with the ReturnStatus field value
+// GetReturnStatusOk returns a tuple with the ReturnStatus field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GoodsReturn200ResponseReportInner) GetReturnStatusOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ReturnStatus) {
 		return nil, false
 	}
-	return &o.ReturnStatus, true
+	return o.ReturnStatus, true
 }
 
-// SetReturnStatus sets field value
+// HasReturnStatus returns a boolean if a field has been set.
+func (o *GoodsReturn200ResponseReportInner) HasReturnStatus() bool {
+	if o != nil && !IsNil(o.ReturnStatus) {
+		return true
+	}
+
+	return false
+}
+
+// SetReturnStatus gets a reference to the given string and assigns it to the ReturnStatus field.
 func (o *GoodsReturn200ResponseReportInner) SetReturnStatus(v string) {
-	o.ReturnStatus = v
+	o.ReturnStatus = &v
 }
 
-// GetStickerId returns the StickerId field value
+// GetStickerId returns the StickerId field value if set, zero value otherwise.
 func (o *GoodsReturn200ResponseReportInner) GetStickerId() string {
-	if o == nil {
+	if o == nil || IsNil(o.StickerId) {
 		var ret string
 		return ret
 	}
-
-	return o.StickerId
+	return *o.StickerId
 }
 
-// GetStickerIdOk returns a tuple with the StickerId field value
+// GetStickerIdOk returns a tuple with the StickerId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GoodsReturn200ResponseReportInner) GetStickerIdOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.StickerId) {
 		return nil, false
 	}
-	return &o.StickerId, true
+	return o.StickerId, true
 }
 
-// SetStickerId sets field value
+// HasStickerId returns a boolean if a field has been set.
+func (o *GoodsReturn200ResponseReportInner) HasStickerId() bool {
+	if o != nil && !IsNil(o.StickerId) {
+		return true
+	}
+
+	return false
+}
+
+// SetStickerId gets a reference to the given string and assigns it to the StickerId field.
 func (o *GoodsReturn200ResponseReportInner) SetStickerId(v string) {
-	o.StickerId = v
+	o.StickerId = &v
 }
 
-// GetSubjectName returns the SubjectName field value
+// GetSubjectName returns the SubjectName field value if set, zero value otherwise.
 func (o *GoodsReturn200ResponseReportInner) GetSubjectName() string {
-	if o == nil {
+	if o == nil || IsNil(o.SubjectName) {
 		var ret string
 		return ret
 	}
-
-	return o.SubjectName
+	return *o.SubjectName
 }
 
-// GetSubjectNameOk returns a tuple with the SubjectName field value
+// GetSubjectNameOk returns a tuple with the SubjectName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GoodsReturn200ResponseReportInner) GetSubjectNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.SubjectName) {
 		return nil, false
 	}
-	return &o.SubjectName, true
+	return o.SubjectName, true
 }
 
-// SetSubjectName sets field value
+// HasSubjectName returns a boolean if a field has been set.
+func (o *GoodsReturn200ResponseReportInner) HasSubjectName() bool {
+	if o != nil && !IsNil(o.SubjectName) {
+		return true
+	}
+
+	return false
+}
+
+// SetSubjectName gets a reference to the given string and assigns it to the SubjectName field.
 func (o *GoodsReturn200ResponseReportInner) SetSubjectName(v string) {
-	o.SubjectName = v
+	o.SubjectName = &v
 }
 
-// GetTechSize returns the TechSize field value
+// GetTechSize returns the TechSize field value if set, zero value otherwise.
 func (o *GoodsReturn200ResponseReportInner) GetTechSize() string {
-	if o == nil {
+	if o == nil || IsNil(o.TechSize) {
 		var ret string
 		return ret
 	}
-
-	return o.TechSize
+	return *o.TechSize
 }
 
-// GetTechSizeOk returns a tuple with the TechSize field value
+// GetTechSizeOk returns a tuple with the TechSize field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GoodsReturn200ResponseReportInner) GetTechSizeOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.TechSize) {
 		return nil, false
 	}
-	return &o.TechSize, true
+	return o.TechSize, true
 }
 
-// SetTechSize sets field value
+// HasTechSize returns a boolean if a field has been set.
+func (o *GoodsReturn200ResponseReportInner) HasTechSize() bool {
+	if o != nil && !IsNil(o.TechSize) {
+		return true
+	}
+
+	return false
+}
+
+// SetTechSize gets a reference to the given string and assigns it to the TechSize field.
 func (o *GoodsReturn200ResponseReportInner) SetTechSize(v string) {
-	o.TechSize = v
+	o.TechSize = &v
 }
 
 func (o GoodsReturn200ResponseReportInner) MarshalJSON() ([]byte, error) {
@@ -580,82 +738,64 @@ func (o GoodsReturn200ResponseReportInner) MarshalJSON() ([]byte, error) {
 
 func (o GoodsReturn200ResponseReportInner) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["sku"] = o.Sku
-	toSerialize["brand"] = o.Brand
-	toSerialize["completedDt"] = o.CompletedDt.Get()
-	toSerialize["dstOfficeAddress"] = o.DstOfficeAddress
-	toSerialize["kiz"] = o.Kiz.Get()
-	toSerialize["dstOfficeId"] = o.DstOfficeId
-	toSerialize["expiredDt"] = o.ExpiredDt.Get()
-	toSerialize["nmId"] = o.NmId
-	toSerialize["orderDt"] = o.OrderDt
-	toSerialize["orderId"] = o.OrderId
-	toSerialize["readyToReturnDt"] = o.ReadyToReturnDt.Get()
+	if !IsNil(o.Sku) {
+		toSerialize["sku"] = o.Sku
+	}
+	if !IsNil(o.Brand) {
+		toSerialize["brand"] = o.Brand
+	}
+	if o.CompletedDt.IsSet() {
+		toSerialize["completedDt"] = o.CompletedDt.Get()
+	}
+	if !IsNil(o.DstOfficeAddress) {
+		toSerialize["dstOfficeAddress"] = o.DstOfficeAddress
+	}
+	if o.Kiz.IsSet() {
+		toSerialize["kiz"] = o.Kiz.Get()
+	}
+	if !IsNil(o.DstOfficeId) {
+		toSerialize["dstOfficeId"] = o.DstOfficeId
+	}
+	if o.ExpiredDt.IsSet() {
+		toSerialize["expiredDt"] = o.ExpiredDt.Get()
+	}
+	if !IsNil(o.NmId) {
+		toSerialize["nmId"] = o.NmId
+	}
+	if !IsNil(o.OrderDt) {
+		toSerialize["orderDt"] = o.OrderDt
+	}
+	if !IsNil(o.OrderId) {
+		toSerialize["orderId"] = o.OrderId
+	}
+	if o.ReadyToReturnDt.IsSet() {
+		toSerialize["readyToReturnDt"] = o.ReadyToReturnDt.Get()
+	}
 	if !IsNil(o.ReturnReason) {
 		toSerialize["returnReason"] = o.ReturnReason
 	}
-	toSerialize["returnType"] = o.ReturnType
-	toSerialize["shkId"] = o.ShkId
-	toSerialize["srid"] = o.Srid
-	toSerialize["returnStatus"] = o.ReturnStatus
-	toSerialize["stickerId"] = o.StickerId
-	toSerialize["subjectName"] = o.SubjectName
-	toSerialize["techSize"] = o.TechSize
+	if !IsNil(o.ReturnType) {
+		toSerialize["returnType"] = o.ReturnType
+	}
+	if !IsNil(o.ShkId) {
+		toSerialize["shkId"] = o.ShkId
+	}
+	if !IsNil(o.Srid) {
+		toSerialize["srid"] = o.Srid
+	}
+	if !IsNil(o.ReturnStatus) {
+		toSerialize["returnStatus"] = o.ReturnStatus
+	}
+	if !IsNil(o.StickerId) {
+		toSerialize["stickerId"] = o.StickerId
+	}
+	if !IsNil(o.SubjectName) {
+		toSerialize["subjectName"] = o.SubjectName
+	}
+	if !IsNil(o.TechSize) {
+		toSerialize["techSize"] = o.TechSize
+	}
 	return toSerialize, nil
-}
-
-func (o *GoodsReturn200ResponseReportInner) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"sku",
-		"brand",
-		"completedDt",
-		"dstOfficeAddress",
-		"kiz",
-		"dstOfficeId",
-		"expiredDt",
-		"nmId",
-		"orderDt",
-		"orderId",
-		"readyToReturnDt",
-		"returnType",
-		"shkId",
-		"srid",
-		"returnStatus",
-		"stickerId",
-		"subjectName",
-		"techSize",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varGoodsReturn200ResponseReportInner := _GoodsReturn200ResponseReportInner{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varGoodsReturn200ResponseReportInner)
-
-	if err != nil {
-		return err
-	}
-
-	*o = GoodsReturn200ResponseReportInner(varGoodsReturn200ResponseReportInner)
-
-	return err
 }
 
 type NullableGoodsReturn200ResponseReportInner struct {

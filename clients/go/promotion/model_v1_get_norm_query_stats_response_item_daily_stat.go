@@ -11,9 +11,7 @@ API version: promotion
 package promotion
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the V1GetNormQueryStatsResponseItemDailyStat type satisfies the MappedNullable interface at compile time
@@ -22,19 +20,16 @@ var _ MappedNullable = &V1GetNormQueryStatsResponseItemDailyStat{}
 // V1GetNormQueryStatsResponseItemDailyStat struct for V1GetNormQueryStatsResponseItemDailyStat
 type V1GetNormQueryStatsResponseItemDailyStat struct {
 	// Дата
-	Date string                               `json:"date"`
+	Date *string                              `json:"date,omitempty"`
 	Stat *V1GetNormQueryStatsResponseItemStat `json:"stat,omitempty"`
 }
-
-type _V1GetNormQueryStatsResponseItemDailyStat V1GetNormQueryStatsResponseItemDailyStat
 
 // NewV1GetNormQueryStatsResponseItemDailyStat instantiates a new V1GetNormQueryStatsResponseItemDailyStat object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewV1GetNormQueryStatsResponseItemDailyStat(date string) *V1GetNormQueryStatsResponseItemDailyStat {
+func NewV1GetNormQueryStatsResponseItemDailyStat() *V1GetNormQueryStatsResponseItemDailyStat {
 	this := V1GetNormQueryStatsResponseItemDailyStat{}
-	this.Date = date
 	return &this
 }
 
@@ -46,28 +41,36 @@ func NewV1GetNormQueryStatsResponseItemDailyStatWithDefaults() *V1GetNormQuerySt
 	return &this
 }
 
-// GetDate returns the Date field value
+// GetDate returns the Date field value if set, zero value otherwise.
 func (o *V1GetNormQueryStatsResponseItemDailyStat) GetDate() string {
-	if o == nil {
+	if o == nil || IsNil(o.Date) {
 		var ret string
 		return ret
 	}
-
-	return o.Date
+	return *o.Date
 }
 
-// GetDateOk returns a tuple with the Date field value
+// GetDateOk returns a tuple with the Date field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *V1GetNormQueryStatsResponseItemDailyStat) GetDateOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Date) {
 		return nil, false
 	}
-	return &o.Date, true
+	return o.Date, true
 }
 
-// SetDate sets field value
+// HasDate returns a boolean if a field has been set.
+func (o *V1GetNormQueryStatsResponseItemDailyStat) HasDate() bool {
+	if o != nil && !IsNil(o.Date) {
+		return true
+	}
+
+	return false
+}
+
+// SetDate gets a reference to the given string and assigns it to the Date field.
 func (o *V1GetNormQueryStatsResponseItemDailyStat) SetDate(v string) {
-	o.Date = v
+	o.Date = &v
 }
 
 // GetStat returns the Stat field value if set, zero value otherwise.
@@ -112,48 +115,13 @@ func (o V1GetNormQueryStatsResponseItemDailyStat) MarshalJSON() ([]byte, error) 
 
 func (o V1GetNormQueryStatsResponseItemDailyStat) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["date"] = o.Date
+	if !IsNil(o.Date) {
+		toSerialize["date"] = o.Date
+	}
 	if !IsNil(o.Stat) {
 		toSerialize["stat"] = o.Stat
 	}
 	return toSerialize, nil
-}
-
-func (o *V1GetNormQueryStatsResponseItemDailyStat) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"date",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varV1GetNormQueryStatsResponseItemDailyStat := _V1GetNormQueryStatsResponseItemDailyStat{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varV1GetNormQueryStatsResponseItemDailyStat)
-
-	if err != nil {
-		return err
-	}
-
-	*o = V1GetNormQueryStatsResponseItemDailyStat(varV1GetNormQueryStatsResponseItemDailyStat)
-
-	return err
 }
 
 type NullableV1GetNormQueryStatsResponseItemDailyStat struct {

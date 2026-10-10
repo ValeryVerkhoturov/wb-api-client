@@ -36,109 +36,109 @@ public class AcquiringReportsDetailedRes {
   public static final String SERIALIZED_NAME_RRD_ID = "rrdId";
 
   @SerializedName(SERIALIZED_NAME_RRD_ID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer rrdId;
 
   public static final String SERIALIZED_NAME_REPORT_ID = "reportId";
 
   @SerializedName(SERIALIZED_NAME_REPORT_ID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Long reportId;
 
   public static final String SERIALIZED_NAME_ACQ_DATE = "acqDate";
 
   @SerializedName(SERIALIZED_NAME_ACQ_DATE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String acqDate;
 
   public static final String SERIALIZED_NAME_ACQUIRING_BANK = "acquiringBank";
 
   @SerializedName(SERIALIZED_NAME_ACQUIRING_BANK)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String acquiringBank;
 
   public static final String SERIALIZED_NAME_TIN = "tin";
 
   @SerializedName(SERIALIZED_NAME_TIN)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String tin;
 
   public static final String SERIALIZED_NAME_TAX_REGISTRATION_REASON_CODE =
       "taxRegistrationReasonCode";
 
   @SerializedName(SERIALIZED_NAME_TAX_REGISTRATION_REASON_CODE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String taxRegistrationReasonCode;
 
   public static final String SERIALIZED_NAME_SALE_DATE = "saleDate";
 
   @SerializedName(SERIALIZED_NAME_SALE_DATE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String saleDate;
 
   public static final String SERIALIZED_NAME_SRID = "srid";
 
   @SerializedName(SERIALIZED_NAME_SRID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String srid;
 
   public static final String SERIALIZED_NAME_DOCUMENT_TYPE = "documentType";
 
   @SerializedName(SERIALIZED_NAME_DOCUMENT_TYPE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String documentType;
 
   public static final String SERIALIZED_NAME_NM_ID = "nmId";
 
   @SerializedName(SERIALIZED_NAME_NM_ID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer nmId;
 
   public static final String SERIALIZED_NAME_RETAIL_AMOUNT = "retailAmount";
 
   @SerializedName(SERIALIZED_NAME_RETAIL_AMOUNT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String retailAmount;
 
   public static final String SERIALIZED_NAME_ACQUIRING_FEE = "acquiringFee";
 
   @SerializedName(SERIALIZED_NAME_ACQUIRING_FEE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String acquiringFee;
 
   public static final String SERIALIZED_NAME_ACQUIRING_FEE_VAT = "acquiringFeeVat";
 
   @SerializedName(SERIALIZED_NAME_ACQUIRING_FEE_VAT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String acquiringFeeVat;
 
   public static final String SERIALIZED_NAME_INVOICE_NUMBER = "invoiceNumber";
 
   @SerializedName(SERIALIZED_NAME_INVOICE_NUMBER)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String invoiceNumber;
 
   public static final String SERIALIZED_NAME_INVOICE_DATE = "invoiceDate";
 
   @SerializedName(SERIALIZED_NAME_INVOICE_DATE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String invoiceDate;
 
   public static final String SERIALIZED_NAME_SHK_ID = "shkId";
 
   @SerializedName(SERIALIZED_NAME_SHK_ID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer shkId;
 
   public static final String SERIALIZED_NAME_CURRENCY = "currency";
 
   @SerializedName(SERIALIZED_NAME_CURRENCY)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String currency;
 
   public AcquiringReportsDetailedRes() {}
 
-  public AcquiringReportsDetailedRes rrdId(@jakarta.annotation.Nonnull Integer rrdId) {
+  public AcquiringReportsDetailedRes rrdId(@jakarta.annotation.Nullable Integer rrdId) {
     this.rrdId = rrdId;
     return this;
   }
@@ -148,16 +148,16 @@ public class AcquiringReportsDetailedRes {
    *
    * @return rrdId
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getRrdId() {
     return rrdId;
   }
 
-  public void setRrdId(@jakarta.annotation.Nonnull Integer rrdId) {
+  public void setRrdId(@jakarta.annotation.Nullable Integer rrdId) {
     this.rrdId = rrdId;
   }
 
-  public AcquiringReportsDetailedRes reportId(@jakarta.annotation.Nonnull Long reportId) {
+  public AcquiringReportsDetailedRes reportId(@jakarta.annotation.Nullable Long reportId) {
     this.reportId = reportId;
     return this;
   }
@@ -167,16 +167,16 @@ public class AcquiringReportsDetailedRes {
    *
    * @return reportId
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Long getReportId() {
     return reportId;
   }
 
-  public void setReportId(@jakarta.annotation.Nonnull Long reportId) {
+  public void setReportId(@jakarta.annotation.Nullable Long reportId) {
     this.reportId = reportId;
   }
 
-  public AcquiringReportsDetailedRes acqDate(@jakarta.annotation.Nonnull String acqDate) {
+  public AcquiringReportsDetailedRes acqDate(@jakarta.annotation.Nullable String acqDate) {
     this.acqDate = acqDate;
     return this;
   }
@@ -186,17 +186,17 @@ public class AcquiringReportsDetailedRes {
    *
    * @return acqDate
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getAcqDate() {
     return acqDate;
   }
 
-  public void setAcqDate(@jakarta.annotation.Nonnull String acqDate) {
+  public void setAcqDate(@jakarta.annotation.Nullable String acqDate) {
     this.acqDate = acqDate;
   }
 
   public AcquiringReportsDetailedRes acquiringBank(
-      @jakarta.annotation.Nonnull String acquiringBank) {
+      @jakarta.annotation.Nullable String acquiringBank) {
     this.acquiringBank = acquiringBank;
     return this;
   }
@@ -206,16 +206,16 @@ public class AcquiringReportsDetailedRes {
    *
    * @return acquiringBank
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getAcquiringBank() {
     return acquiringBank;
   }
 
-  public void setAcquiringBank(@jakarta.annotation.Nonnull String acquiringBank) {
+  public void setAcquiringBank(@jakarta.annotation.Nullable String acquiringBank) {
     this.acquiringBank = acquiringBank;
   }
 
-  public AcquiringReportsDetailedRes tin(@jakarta.annotation.Nonnull String tin) {
+  public AcquiringReportsDetailedRes tin(@jakarta.annotation.Nullable String tin) {
     this.tin = tin;
     return this;
   }
@@ -225,17 +225,17 @@ public class AcquiringReportsDetailedRes {
    *
    * @return tin
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getTin() {
     return tin;
   }
 
-  public void setTin(@jakarta.annotation.Nonnull String tin) {
+  public void setTin(@jakarta.annotation.Nullable String tin) {
     this.tin = tin;
   }
 
   public AcquiringReportsDetailedRes taxRegistrationReasonCode(
-      @jakarta.annotation.Nonnull String taxRegistrationReasonCode) {
+      @jakarta.annotation.Nullable String taxRegistrationReasonCode) {
     this.taxRegistrationReasonCode = taxRegistrationReasonCode;
     return this;
   }
@@ -245,17 +245,17 @@ public class AcquiringReportsDetailedRes {
    *
    * @return taxRegistrationReasonCode
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getTaxRegistrationReasonCode() {
     return taxRegistrationReasonCode;
   }
 
   public void setTaxRegistrationReasonCode(
-      @jakarta.annotation.Nonnull String taxRegistrationReasonCode) {
+      @jakarta.annotation.Nullable String taxRegistrationReasonCode) {
     this.taxRegistrationReasonCode = taxRegistrationReasonCode;
   }
 
-  public AcquiringReportsDetailedRes saleDate(@jakarta.annotation.Nonnull String saleDate) {
+  public AcquiringReportsDetailedRes saleDate(@jakarta.annotation.Nullable String saleDate) {
     this.saleDate = saleDate;
     return this;
   }
@@ -265,16 +265,16 @@ public class AcquiringReportsDetailedRes {
    *
    * @return saleDate
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getSaleDate() {
     return saleDate;
   }
 
-  public void setSaleDate(@jakarta.annotation.Nonnull String saleDate) {
+  public void setSaleDate(@jakarta.annotation.Nullable String saleDate) {
     this.saleDate = saleDate;
   }
 
-  public AcquiringReportsDetailedRes srid(@jakarta.annotation.Nonnull String srid) {
+  public AcquiringReportsDetailedRes srid(@jakarta.annotation.Nullable String srid) {
     this.srid = srid;
     return this;
   }
@@ -287,16 +287,17 @@ public class AcquiringReportsDetailedRes {
    *
    * @return srid
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getSrid() {
     return srid;
   }
 
-  public void setSrid(@jakarta.annotation.Nonnull String srid) {
+  public void setSrid(@jakarta.annotation.Nullable String srid) {
     this.srid = srid;
   }
 
-  public AcquiringReportsDetailedRes documentType(@jakarta.annotation.Nonnull String documentType) {
+  public AcquiringReportsDetailedRes documentType(
+      @jakarta.annotation.Nullable String documentType) {
     this.documentType = documentType;
     return this;
   }
@@ -306,16 +307,16 @@ public class AcquiringReportsDetailedRes {
    *
    * @return documentType
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getDocumentType() {
     return documentType;
   }
 
-  public void setDocumentType(@jakarta.annotation.Nonnull String documentType) {
+  public void setDocumentType(@jakarta.annotation.Nullable String documentType) {
     this.documentType = documentType;
   }
 
-  public AcquiringReportsDetailedRes nmId(@jakarta.annotation.Nonnull Integer nmId) {
+  public AcquiringReportsDetailedRes nmId(@jakarta.annotation.Nullable Integer nmId) {
     this.nmId = nmId;
     return this;
   }
@@ -325,16 +326,17 @@ public class AcquiringReportsDetailedRes {
    *
    * @return nmId
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getNmId() {
     return nmId;
   }
 
-  public void setNmId(@jakarta.annotation.Nonnull Integer nmId) {
+  public void setNmId(@jakarta.annotation.Nullable Integer nmId) {
     this.nmId = nmId;
   }
 
-  public AcquiringReportsDetailedRes retailAmount(@jakarta.annotation.Nonnull String retailAmount) {
+  public AcquiringReportsDetailedRes retailAmount(
+      @jakarta.annotation.Nullable String retailAmount) {
     this.retailAmount = retailAmount;
     return this;
   }
@@ -344,16 +346,17 @@ public class AcquiringReportsDetailedRes {
    *
    * @return retailAmount
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getRetailAmount() {
     return retailAmount;
   }
 
-  public void setRetailAmount(@jakarta.annotation.Nonnull String retailAmount) {
+  public void setRetailAmount(@jakarta.annotation.Nullable String retailAmount) {
     this.retailAmount = retailAmount;
   }
 
-  public AcquiringReportsDetailedRes acquiringFee(@jakarta.annotation.Nonnull String acquiringFee) {
+  public AcquiringReportsDetailedRes acquiringFee(
+      @jakarta.annotation.Nullable String acquiringFee) {
     this.acquiringFee = acquiringFee;
     return this;
   }
@@ -363,17 +366,17 @@ public class AcquiringReportsDetailedRes {
    *
    * @return acquiringFee
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getAcquiringFee() {
     return acquiringFee;
   }
 
-  public void setAcquiringFee(@jakarta.annotation.Nonnull String acquiringFee) {
+  public void setAcquiringFee(@jakarta.annotation.Nullable String acquiringFee) {
     this.acquiringFee = acquiringFee;
   }
 
   public AcquiringReportsDetailedRes acquiringFeeVat(
-      @jakarta.annotation.Nonnull String acquiringFeeVat) {
+      @jakarta.annotation.Nullable String acquiringFeeVat) {
     this.acquiringFeeVat = acquiringFeeVat;
     return this;
   }
@@ -383,17 +386,17 @@ public class AcquiringReportsDetailedRes {
    *
    * @return acquiringFeeVat
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getAcquiringFeeVat() {
     return acquiringFeeVat;
   }
 
-  public void setAcquiringFeeVat(@jakarta.annotation.Nonnull String acquiringFeeVat) {
+  public void setAcquiringFeeVat(@jakarta.annotation.Nullable String acquiringFeeVat) {
     this.acquiringFeeVat = acquiringFeeVat;
   }
 
   public AcquiringReportsDetailedRes invoiceNumber(
-      @jakarta.annotation.Nonnull String invoiceNumber) {
+      @jakarta.annotation.Nullable String invoiceNumber) {
     this.invoiceNumber = invoiceNumber;
     return this;
   }
@@ -403,16 +406,16 @@ public class AcquiringReportsDetailedRes {
    *
    * @return invoiceNumber
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getInvoiceNumber() {
     return invoiceNumber;
   }
 
-  public void setInvoiceNumber(@jakarta.annotation.Nonnull String invoiceNumber) {
+  public void setInvoiceNumber(@jakarta.annotation.Nullable String invoiceNumber) {
     this.invoiceNumber = invoiceNumber;
   }
 
-  public AcquiringReportsDetailedRes invoiceDate(@jakarta.annotation.Nonnull String invoiceDate) {
+  public AcquiringReportsDetailedRes invoiceDate(@jakarta.annotation.Nullable String invoiceDate) {
     this.invoiceDate = invoiceDate;
     return this;
   }
@@ -422,16 +425,16 @@ public class AcquiringReportsDetailedRes {
    *
    * @return invoiceDate
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getInvoiceDate() {
     return invoiceDate;
   }
 
-  public void setInvoiceDate(@jakarta.annotation.Nonnull String invoiceDate) {
+  public void setInvoiceDate(@jakarta.annotation.Nullable String invoiceDate) {
     this.invoiceDate = invoiceDate;
   }
 
-  public AcquiringReportsDetailedRes shkId(@jakarta.annotation.Nonnull Integer shkId) {
+  public AcquiringReportsDetailedRes shkId(@jakarta.annotation.Nullable Integer shkId) {
     this.shkId = shkId;
     return this;
   }
@@ -441,16 +444,16 @@ public class AcquiringReportsDetailedRes {
    *
    * @return shkId
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getShkId() {
     return shkId;
   }
 
-  public void setShkId(@jakarta.annotation.Nonnull Integer shkId) {
+  public void setShkId(@jakarta.annotation.Nullable Integer shkId) {
     this.shkId = shkId;
   }
 
-  public AcquiringReportsDetailedRes currency(@jakarta.annotation.Nonnull String currency) {
+  public AcquiringReportsDetailedRes currency(@jakarta.annotation.Nullable String currency) {
     this.currency = currency;
     return this;
   }
@@ -460,12 +463,12 @@ public class AcquiringReportsDetailedRes {
    *
    * @return currency
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getCurrency() {
     return currency;
   }
 
-  public void setCurrency(@jakarta.annotation.Nonnull String currency) {
+  public void setCurrency(@jakarta.annotation.Nullable String currency) {
     this.currency = currency;
   }
 
@@ -583,23 +586,6 @@ public class AcquiringReportsDetailedRes {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("rrdId");
-    openapiRequiredFields.add("reportId");
-    openapiRequiredFields.add("acqDate");
-    openapiRequiredFields.add("acquiringBank");
-    openapiRequiredFields.add("tin");
-    openapiRequiredFields.add("taxRegistrationReasonCode");
-    openapiRequiredFields.add("saleDate");
-    openapiRequiredFields.add("srid");
-    openapiRequiredFields.add("documentType");
-    openapiRequiredFields.add("nmId");
-    openapiRequiredFields.add("retailAmount");
-    openapiRequiredFields.add("acquiringFee");
-    openapiRequiredFields.add("acquiringFeeVat");
-    openapiRequiredFields.add("invoiceNumber");
-    openapiRequiredFields.add("invoiceDate");
-    openapiRequiredFields.add("shkId");
-    openapiRequiredFields.add("currency");
   }
 
   /**
@@ -629,90 +615,94 @@ public class AcquiringReportsDetailedRes {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : AcquiringReportsDetailedRes.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    if (!jsonObj.get("acqDate").isJsonPrimitive()) {
+    if ((jsonObj.get("acqDate") != null && !jsonObj.get("acqDate").isJsonNull())
+        && !jsonObj.get("acqDate").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `acqDate` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("acqDate").toString()));
     }
-    if (!jsonObj.get("acquiringBank").isJsonPrimitive()) {
+    if ((jsonObj.get("acquiringBank") != null && !jsonObj.get("acquiringBank").isJsonNull())
+        && !jsonObj.get("acquiringBank").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `acquiringBank` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("acquiringBank").toString()));
     }
-    if (!jsonObj.get("tin").isJsonPrimitive()) {
+    if ((jsonObj.get("tin") != null && !jsonObj.get("tin").isJsonNull())
+        && !jsonObj.get("tin").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `tin` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("tin").toString()));
     }
-    if (!jsonObj.get("taxRegistrationReasonCode").isJsonPrimitive()) {
+    if ((jsonObj.get("taxRegistrationReasonCode") != null
+            && !jsonObj.get("taxRegistrationReasonCode").isJsonNull())
+        && !jsonObj.get("taxRegistrationReasonCode").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `taxRegistrationReasonCode` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("taxRegistrationReasonCode").toString()));
     }
-    if (!jsonObj.get("saleDate").isJsonPrimitive()) {
+    if ((jsonObj.get("saleDate") != null && !jsonObj.get("saleDate").isJsonNull())
+        && !jsonObj.get("saleDate").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `saleDate` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("saleDate").toString()));
     }
-    if (!jsonObj.get("srid").isJsonPrimitive()) {
+    if ((jsonObj.get("srid") != null && !jsonObj.get("srid").isJsonNull())
+        && !jsonObj.get("srid").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `srid` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("srid").toString()));
     }
-    if (!jsonObj.get("documentType").isJsonPrimitive()) {
+    if ((jsonObj.get("documentType") != null && !jsonObj.get("documentType").isJsonNull())
+        && !jsonObj.get("documentType").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `documentType` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("documentType").toString()));
     }
-    if (!jsonObj.get("retailAmount").isJsonPrimitive()) {
+    if ((jsonObj.get("retailAmount") != null && !jsonObj.get("retailAmount").isJsonNull())
+        && !jsonObj.get("retailAmount").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `retailAmount` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("retailAmount").toString()));
     }
-    if (!jsonObj.get("acquiringFee").isJsonPrimitive()) {
+    if ((jsonObj.get("acquiringFee") != null && !jsonObj.get("acquiringFee").isJsonNull())
+        && !jsonObj.get("acquiringFee").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `acquiringFee` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("acquiringFee").toString()));
     }
-    if (!jsonObj.get("acquiringFeeVat").isJsonPrimitive()) {
+    if ((jsonObj.get("acquiringFeeVat") != null && !jsonObj.get("acquiringFeeVat").isJsonNull())
+        && !jsonObj.get("acquiringFeeVat").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `acquiringFeeVat` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("acquiringFeeVat").toString()));
     }
-    if (!jsonObj.get("invoiceNumber").isJsonPrimitive()) {
+    if ((jsonObj.get("invoiceNumber") != null && !jsonObj.get("invoiceNumber").isJsonNull())
+        && !jsonObj.get("invoiceNumber").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `invoiceNumber` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("invoiceNumber").toString()));
     }
-    if (!jsonObj.get("invoiceDate").isJsonPrimitive()) {
+    if ((jsonObj.get("invoiceDate") != null && !jsonObj.get("invoiceDate").isJsonNull())
+        && !jsonObj.get("invoiceDate").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `invoiceDate` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("invoiceDate").toString()));
     }
-    if (!jsonObj.get("currency").isJsonPrimitive()) {
+    if ((jsonObj.get("currency") != null && !jsonObj.get("currency").isJsonNull())
+        && !jsonObj.get("currency").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `currency` to be a primitive type in the JSON string but got `%s`",

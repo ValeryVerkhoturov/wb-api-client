@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,8 +28,10 @@ class UpdatedSuppliesShippingMethodError(BaseModel):
     Ошибка обработки запроса для поставки. Возможные варианты ошибок:   - `400 IncorrectRequestBody`:     - некорректный ID поставки     - место отгрузки не найдено     - склад назначения находится не в РФ     - неизвестный `shippingType`     - дата не соответствует формату `YYYY-MM-DD`   - `400 FulfillmentRequired` — в месте отгрузки недоступна услуга **Фулфилмент в СЦ**   - `404 NotFound` — поставка не найдена   - `409 SupplyAlreadyScanned` — поставка или её короба уже отсканированы в пункте отгрузки   - `409 InvalidShippingDt` — некорректная дата отгрузки поставки
     """  # noqa: E501
 
-    code: StrictInt = Field(description="Код ошибки")
-    detail: StrictStr = Field(description="Дополнительная информация об ошибке ")
+    code: Optional[StrictInt] = Field(default=None, description="Код ошибки")
+    detail: Optional[StrictStr] = Field(
+        default=None, description="Дополнительная информация об ошибке "
+    )
     __properties: ClassVar[List[str]] = ["code", "detail"]
 
     model_config = ConfigDict(

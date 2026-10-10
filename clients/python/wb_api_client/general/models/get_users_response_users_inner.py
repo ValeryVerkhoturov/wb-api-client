@@ -42,34 +42,45 @@ class GetUsersResponseUsersInner(BaseModel):
     GetUsersResponseUsersInner
     """  # noqa: E501
 
-    id: StrictInt = Field(description="ID пользователя")
-    role: StrictStr = Field(
-        description="Роль пользователя:   * `user` — пользователь, который активировал доступ   * ` ` (пустая строка) — пользователь, который не активировал доступ "
+    id: Optional[StrictInt] = Field(default=None, description="ID пользователя")
+    role: Optional[StrictStr] = Field(
+        default=None,
+        description="Роль пользователя:   * `user` — пользователь, который активировал доступ   * ` ` (пустая строка) — пользователь, который не активировал доступ ",
     )
-    position: StrictStr = Field(description="Должность пользователя")
-    phone: StrictStr = Field(description="Номер телефона пользователя")
-    email: StrictStr = Field(description="Email пользователя")
-    is_owner: StrictBool = Field(
+    position: Optional[StrictStr] = Field(
+        default=None, description="Должность пользователя"
+    )
+    phone: Optional[StrictStr] = Field(
+        default=None, description="Номер телефона пользователя"
+    )
+    email: Optional[StrictStr] = Field(default=None, description="Email пользователя")
+    is_owner: Optional[StrictBool] = Field(
+        default=None,
         description="Является ли пользователь владельцем профиля продавца",
         alias="isOwner",
     )
-    first_name: StrictStr = Field(description="Имя пользователя", alias="firstName")
-    second_name: StrictStr = Field(
-        description="Фамилия пользователя", alias="secondName"
+    first_name: Optional[StrictStr] = Field(
+        default=None, description="Имя пользователя", alias="firstName"
     )
-    patronymic: StrictStr = Field(description="Отчество пользователя")
-    goods_return: StrictBool = Field(
+    second_name: Optional[StrictStr] = Field(
+        default=None, description="Фамилия пользователя", alias="secondName"
+    )
+    patronymic: Optional[StrictStr] = Field(
+        default=None, description="Отчество пользователя"
+    )
+    goods_return: Optional[StrictBool] = Field(
+        default=None,
         description="Может ли пользователь одобрять возвраты товаров",
         alias="goodsReturn",
     )
-    is_invitee: StrictBool = Field(
-        description="Приглашён ли пользователь", alias="isInvitee"
+    is_invitee: Optional[StrictBool] = Field(
+        default=None, description="Приглашён ли пользователь", alias="isInvitee"
     )
     invitee_info: Optional[GetUsersResponseUsersInnerInviteeInfo] = Field(
-        alias="inviteeInfo"
+        default=None, alias="inviteeInfo"
     )
-    access: List[GetUsersResponseUsersInnerAccessInner] = Field(
-        description="Настройки доступа к разделам профиля продавца"
+    access: Optional[List[GetUsersResponseUsersInnerAccessInner]] = Field(
+        default=None, description="Настройки доступа к разделам профиля продавца"
     )
     __properties: ClassVar[List[str]] = [
         "id",
@@ -90,6 +101,9 @@ class GetUsersResponseUsersInner(BaseModel):
     @field_validator("role")
     def role_validate_enum(cls, value):
         """Validates the enum"""
+        if value is None:
+            return value
+
         if value not in set(["user", ""]):
             raise ValueError("must be one of enum values ('user', '')")
         return value

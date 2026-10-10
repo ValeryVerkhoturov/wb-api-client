@@ -34,26 +34,16 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UpdateSuppliesShippingMethodResponse" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected UpdateSuppliesShippingMethodResponse() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="UpdateSuppliesShippingMethodResponse" /> class.
-        /// </summary>
-        /// <param name="results">results (required).</param>
+        /// <param name="results">results.</param>
         public UpdateSuppliesShippingMethodResponse(List<UpdatedSuppliesShippingMethod> results = default(List<UpdatedSuppliesShippingMethod>))
         {
-            // to ensure "results" is required (not null)
-            if (results == null)
-            {
-                throw new ArgumentNullException("results is a required property for UpdateSuppliesShippingMethodResponse and cannot be null");
-            }
             this.Results = results;
         }
 
         /// <summary>
         /// Gets or Sets Results
         /// </summary>
-        [DataMember(Name = "results", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "results", EmitDefaultValue = false)]
         public List<UpdatedSuppliesShippingMethod> Results { get; set; }
 
         /// <summary>

@@ -11,9 +11,7 @@ API version: promotion
 package promotion
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the V0PutDailyLimitsResponse type satisfies the MappedNullable interface at compile time
@@ -21,18 +19,15 @@ var _ MappedNullable = &V0PutDailyLimitsResponse{}
 
 // V0PutDailyLimitsResponse struct for V0PutDailyLimitsResponse
 type V0PutDailyLimitsResponse struct {
-	Adverts []V0PutDailyLimitsAdvertResult `json:"adverts"`
+	Adverts []V0PutDailyLimitsAdvertResult `json:"adverts,omitempty"`
 }
-
-type _V0PutDailyLimitsResponse V0PutDailyLimitsResponse
 
 // NewV0PutDailyLimitsResponse instantiates a new V0PutDailyLimitsResponse object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewV0PutDailyLimitsResponse(adverts []V0PutDailyLimitsAdvertResult) *V0PutDailyLimitsResponse {
+func NewV0PutDailyLimitsResponse() *V0PutDailyLimitsResponse {
 	this := V0PutDailyLimitsResponse{}
-	this.Adverts = adverts
 	return &this
 }
 
@@ -44,26 +39,34 @@ func NewV0PutDailyLimitsResponseWithDefaults() *V0PutDailyLimitsResponse {
 	return &this
 }
 
-// GetAdverts returns the Adverts field value
+// GetAdverts returns the Adverts field value if set, zero value otherwise.
 func (o *V0PutDailyLimitsResponse) GetAdverts() []V0PutDailyLimitsAdvertResult {
-	if o == nil {
+	if o == nil || IsNil(o.Adverts) {
 		var ret []V0PutDailyLimitsAdvertResult
 		return ret
 	}
-
 	return o.Adverts
 }
 
-// GetAdvertsOk returns a tuple with the Adverts field value
+// GetAdvertsOk returns a tuple with the Adverts field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *V0PutDailyLimitsResponse) GetAdvertsOk() ([]V0PutDailyLimitsAdvertResult, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Adverts) {
 		return nil, false
 	}
 	return o.Adverts, true
 }
 
-// SetAdverts sets field value
+// HasAdverts returns a boolean if a field has been set.
+func (o *V0PutDailyLimitsResponse) HasAdverts() bool {
+	if o != nil && !IsNil(o.Adverts) {
+		return true
+	}
+
+	return false
+}
+
+// SetAdverts gets a reference to the given []V0PutDailyLimitsAdvertResult and assigns it to the Adverts field.
 func (o *V0PutDailyLimitsResponse) SetAdverts(v []V0PutDailyLimitsAdvertResult) {
 	o.Adverts = v
 }
@@ -78,45 +81,10 @@ func (o V0PutDailyLimitsResponse) MarshalJSON() ([]byte, error) {
 
 func (o V0PutDailyLimitsResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["adverts"] = o.Adverts
+	if !IsNil(o.Adverts) {
+		toSerialize["adverts"] = o.Adverts
+	}
 	return toSerialize, nil
-}
-
-func (o *V0PutDailyLimitsResponse) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"adverts",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varV0PutDailyLimitsResponse := _V0PutDailyLimitsResponse{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varV0PutDailyLimitsResponse)
-
-	if err != nil {
-		return err
-	}
-
-	*o = V0PutDailyLimitsResponse(varV0PutDailyLimitsResponse)
-
-	return err
 }
 
 type NullableV0PutDailyLimitsResponse struct {

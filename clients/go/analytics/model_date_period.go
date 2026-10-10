@@ -11,9 +11,7 @@ API version: analytics
 package analytics
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the DatePeriod type satisfies the MappedNullable interface at compile time
@@ -22,21 +20,17 @@ var _ MappedNullable = &DatePeriod{}
 // DatePeriod struct for DatePeriod
 type DatePeriod struct {
 	// Начало периода
-	Start string `json:"start"`
+	Start *string `json:"start,omitempty"`
 	// Конец периода
-	End string `json:"end"`
+	End *string `json:"end,omitempty"`
 }
-
-type _DatePeriod DatePeriod
 
 // NewDatePeriod instantiates a new DatePeriod object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewDatePeriod(start string, end string) *DatePeriod {
+func NewDatePeriod() *DatePeriod {
 	this := DatePeriod{}
-	this.Start = start
-	this.End = end
 	return &this
 }
 
@@ -48,52 +42,68 @@ func NewDatePeriodWithDefaults() *DatePeriod {
 	return &this
 }
 
-// GetStart returns the Start field value
+// GetStart returns the Start field value if set, zero value otherwise.
 func (o *DatePeriod) GetStart() string {
-	if o == nil {
+	if o == nil || IsNil(o.Start) {
 		var ret string
 		return ret
 	}
-
-	return o.Start
+	return *o.Start
 }
 
-// GetStartOk returns a tuple with the Start field value
+// GetStartOk returns a tuple with the Start field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DatePeriod) GetStartOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Start) {
 		return nil, false
 	}
-	return &o.Start, true
+	return o.Start, true
 }
 
-// SetStart sets field value
+// HasStart returns a boolean if a field has been set.
+func (o *DatePeriod) HasStart() bool {
+	if o != nil && !IsNil(o.Start) {
+		return true
+	}
+
+	return false
+}
+
+// SetStart gets a reference to the given string and assigns it to the Start field.
 func (o *DatePeriod) SetStart(v string) {
-	o.Start = v
+	o.Start = &v
 }
 
-// GetEnd returns the End field value
+// GetEnd returns the End field value if set, zero value otherwise.
 func (o *DatePeriod) GetEnd() string {
-	if o == nil {
+	if o == nil || IsNil(o.End) {
 		var ret string
 		return ret
 	}
-
-	return o.End
+	return *o.End
 }
 
-// GetEndOk returns a tuple with the End field value
+// GetEndOk returns a tuple with the End field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DatePeriod) GetEndOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.End) {
 		return nil, false
 	}
-	return &o.End, true
+	return o.End, true
 }
 
-// SetEnd sets field value
+// HasEnd returns a boolean if a field has been set.
+func (o *DatePeriod) HasEnd() bool {
+	if o != nil && !IsNil(o.End) {
+		return true
+	}
+
+	return false
+}
+
+// SetEnd gets a reference to the given string and assigns it to the End field.
 func (o *DatePeriod) SetEnd(v string) {
-	o.End = v
+	o.End = &v
 }
 
 func (o DatePeriod) MarshalJSON() ([]byte, error) {
@@ -106,47 +116,13 @@ func (o DatePeriod) MarshalJSON() ([]byte, error) {
 
 func (o DatePeriod) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["start"] = o.Start
-	toSerialize["end"] = o.End
+	if !IsNil(o.Start) {
+		toSerialize["start"] = o.Start
+	}
+	if !IsNil(o.End) {
+		toSerialize["end"] = o.End
+	}
 	return toSerialize, nil
-}
-
-func (o *DatePeriod) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"start",
-		"end",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varDatePeriod := _DatePeriod{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varDatePeriod)
-
-	if err != nil {
-		return err
-	}
-
-	*o = DatePeriod(varDatePeriod)
-
-	return err
 }
 
 type NullableDatePeriod struct {

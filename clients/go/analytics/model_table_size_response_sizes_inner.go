@@ -11,9 +11,7 @@ API version: analytics
 package analytics
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the TableSizeResponseSizesInner type satisfies the MappedNullable interface at compile time
@@ -22,25 +20,20 @@ var _ MappedNullable = &TableSizeResponseSizesInner{}
 // TableSizeResponseSizesInner struct for TableSizeResponseSizesInner
 type TableSizeResponseSizesInner struct {
 	// Название размера
-	Name string `json:"name"`
+	Name *string `json:"name,omitempty"`
 	// ID размера
-	ChrtID int32 `json:"chrtID"`
+	ChrtID *int32 `json:"chrtID,omitempty"`
 	// Склады
-	Offices []TableOfficeItem                  `json:"offices,omitempty"`
-	Metrics TableSizeResponseSizesInnerMetrics `json:"metrics"`
+	Offices []TableOfficeItem                   `json:"offices,omitempty"`
+	Metrics *TableSizeResponseSizesInnerMetrics `json:"metrics,omitempty"`
 }
-
-type _TableSizeResponseSizesInner TableSizeResponseSizesInner
 
 // NewTableSizeResponseSizesInner instantiates a new TableSizeResponseSizesInner object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTableSizeResponseSizesInner(name string, chrtID int32, metrics TableSizeResponseSizesInnerMetrics) *TableSizeResponseSizesInner {
+func NewTableSizeResponseSizesInner() *TableSizeResponseSizesInner {
 	this := TableSizeResponseSizesInner{}
-	this.Name = name
-	this.ChrtID = chrtID
-	this.Metrics = metrics
 	return &this
 }
 
@@ -52,52 +45,68 @@ func NewTableSizeResponseSizesInnerWithDefaults() *TableSizeResponseSizesInner {
 	return &this
 }
 
-// GetName returns the Name field value
+// GetName returns the Name field value if set, zero value otherwise.
 func (o *TableSizeResponseSizesInner) GetName() string {
-	if o == nil {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
-
-	return o.Name
+	return *o.Name
 }
 
-// GetNameOk returns a tuple with the Name field value
+// GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableSizeResponseSizesInner) GetNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Name) {
 		return nil, false
 	}
-	return &o.Name, true
+	return o.Name, true
 }
 
-// SetName sets field value
+// HasName returns a boolean if a field has been set.
+func (o *TableSizeResponseSizesInner) HasName() bool {
+	if o != nil && !IsNil(o.Name) {
+		return true
+	}
+
+	return false
+}
+
+// SetName gets a reference to the given string and assigns it to the Name field.
 func (o *TableSizeResponseSizesInner) SetName(v string) {
-	o.Name = v
+	o.Name = &v
 }
 
-// GetChrtID returns the ChrtID field value
+// GetChrtID returns the ChrtID field value if set, zero value otherwise.
 func (o *TableSizeResponseSizesInner) GetChrtID() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.ChrtID) {
 		var ret int32
 		return ret
 	}
-
-	return o.ChrtID
+	return *o.ChrtID
 }
 
-// GetChrtIDOk returns a tuple with the ChrtID field value
+// GetChrtIDOk returns a tuple with the ChrtID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableSizeResponseSizesInner) GetChrtIDOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ChrtID) {
 		return nil, false
 	}
-	return &o.ChrtID, true
+	return o.ChrtID, true
 }
 
-// SetChrtID sets field value
+// HasChrtID returns a boolean if a field has been set.
+func (o *TableSizeResponseSizesInner) HasChrtID() bool {
+	if o != nil && !IsNil(o.ChrtID) {
+		return true
+	}
+
+	return false
+}
+
+// SetChrtID gets a reference to the given int32 and assigns it to the ChrtID field.
 func (o *TableSizeResponseSizesInner) SetChrtID(v int32) {
-	o.ChrtID = v
+	o.ChrtID = &v
 }
 
 // GetOffices returns the Offices field value if set, zero value otherwise.
@@ -132,28 +141,36 @@ func (o *TableSizeResponseSizesInner) SetOffices(v []TableOfficeItem) {
 	o.Offices = v
 }
 
-// GetMetrics returns the Metrics field value
+// GetMetrics returns the Metrics field value if set, zero value otherwise.
 func (o *TableSizeResponseSizesInner) GetMetrics() TableSizeResponseSizesInnerMetrics {
-	if o == nil {
+	if o == nil || IsNil(o.Metrics) {
 		var ret TableSizeResponseSizesInnerMetrics
 		return ret
 	}
-
-	return o.Metrics
+	return *o.Metrics
 }
 
-// GetMetricsOk returns a tuple with the Metrics field value
+// GetMetricsOk returns a tuple with the Metrics field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableSizeResponseSizesInner) GetMetricsOk() (*TableSizeResponseSizesInnerMetrics, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Metrics) {
 		return nil, false
 	}
-	return &o.Metrics, true
+	return o.Metrics, true
 }
 
-// SetMetrics sets field value
+// HasMetrics returns a boolean if a field has been set.
+func (o *TableSizeResponseSizesInner) HasMetrics() bool {
+	if o != nil && !IsNil(o.Metrics) {
+		return true
+	}
+
+	return false
+}
+
+// SetMetrics gets a reference to the given TableSizeResponseSizesInnerMetrics and assigns it to the Metrics field.
 func (o *TableSizeResponseSizesInner) SetMetrics(v TableSizeResponseSizesInnerMetrics) {
-	o.Metrics = v
+	o.Metrics = &v
 }
 
 func (o TableSizeResponseSizesInner) MarshalJSON() ([]byte, error) {
@@ -166,52 +183,19 @@ func (o TableSizeResponseSizesInner) MarshalJSON() ([]byte, error) {
 
 func (o TableSizeResponseSizesInner) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["name"] = o.Name
-	toSerialize["chrtID"] = o.ChrtID
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
+	}
+	if !IsNil(o.ChrtID) {
+		toSerialize["chrtID"] = o.ChrtID
+	}
 	if !IsNil(o.Offices) {
 		toSerialize["offices"] = o.Offices
 	}
-	toSerialize["metrics"] = o.Metrics
+	if !IsNil(o.Metrics) {
+		toSerialize["metrics"] = o.Metrics
+	}
 	return toSerialize, nil
-}
-
-func (o *TableSizeResponseSizesInner) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"name",
-		"chrtID",
-		"metrics",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varTableSizeResponseSizesInner := _TableSizeResponseSizesInner{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varTableSizeResponseSizesInner)
-
-	if err != nil {
-		return err
-	}
-
-	*o = TableSizeResponseSizesInner(varTableSizeResponseSizesInner)
-
-	return err
 }
 
 type NullableTableSizeResponseSizesInner struct {

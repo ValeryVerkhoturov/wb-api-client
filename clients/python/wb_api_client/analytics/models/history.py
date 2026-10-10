@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,33 +28,44 @@ class History(BaseModel):
     History
     """  # noqa: E501
 
-    var_date: StrictStr = Field(description="Дата сбора статистики", alias="date")
-    open_count: StrictInt = Field(
-        description="Количество переходов в карточку товара", alias="openCount"
+    var_date: Optional[StrictStr] = Field(
+        default=None, description="Дата сбора статистики", alias="date"
     )
-    cart_count: StrictInt = Field(
-        description="Положили в корзину, шт.", alias="cartCount"
+    open_count: Optional[StrictInt] = Field(
+        default=None,
+        description="Количество переходов в карточку товара",
+        alias="openCount",
     )
-    order_count: StrictInt = Field(
-        description="Заказали товаров, шт.", alias="orderCount"
+    cart_count: Optional[StrictInt] = Field(
+        default=None, description="Положили в корзину, шт.", alias="cartCount"
     )
-    order_sum: StrictInt = Field(description="Заказали на сумму", alias="orderSum")
-    buyout_count: StrictInt = Field(
-        description="Выкупили товаров, шт.", alias="buyoutCount"
+    order_count: Optional[StrictInt] = Field(
+        default=None, description="Заказали товаров, шт.", alias="orderCount"
     )
-    buyout_sum: StrictInt = Field(description="Выкупили на сумму", alias="buyoutSum")
-    buyout_percent: StrictInt = Field(
-        description="Процент выкупа", alias="buyoutPercent"
+    order_sum: Optional[StrictInt] = Field(
+        default=None, description="Заказали на сумму", alias="orderSum"
     )
-    add_to_cart_conversion: StrictInt = Field(
+    buyout_count: Optional[StrictInt] = Field(
+        default=None, description="Выкупили товаров, шт.", alias="buyoutCount"
+    )
+    buyout_sum: Optional[StrictInt] = Field(
+        default=None, description="Выкупили на сумму", alias="buyoutSum"
+    )
+    buyout_percent: Optional[StrictInt] = Field(
+        default=None, description="Процент выкупа", alias="buyoutPercent"
+    )
+    add_to_cart_conversion: Optional[StrictInt] = Field(
+        default=None,
         description="Конверсия в корзину. Какой процент посетителей, открывших карточку товара, добавили товар в корзину, %",
         alias="addToCartConversion",
     )
-    cart_to_order_conversion: StrictInt = Field(
+    cart_to_order_conversion: Optional[StrictInt] = Field(
+        default=None,
         description="Конверсия в заказ. Какой процент посетителей, добавивших товар в корзину, сделали заказ",
         alias="cartToOrderConversion",
     )
-    add_to_wishlist_count: StrictInt = Field(
+    add_to_wishlist_count: Optional[StrictInt] = Field(
+        default=None,
         description="Количество добавлений товара в **Отложенные**",
         alias="addToWishlistCount",
     )

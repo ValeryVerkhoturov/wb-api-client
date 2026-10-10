@@ -39,18 +39,18 @@ public class GetRecomRes {
   public static final String SERIALIZED_NAME_DATA = "data";
 
   @SerializedName(SERIALIZED_NAME_DATA)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private List<GetRecomResDataInner> data = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_NEXT = "next";
 
   @SerializedName(SERIALIZED_NAME_NEXT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer next;
 
   public GetRecomRes() {}
 
-  public GetRecomRes data(@jakarta.annotation.Nonnull List<GetRecomResDataInner> data) {
+  public GetRecomRes data(@jakarta.annotation.Nullable List<GetRecomResDataInner> data) {
     this.data = data;
     return this;
   }
@@ -68,16 +68,16 @@ public class GetRecomRes {
    *
    * @return data
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public List<GetRecomResDataInner> getData() {
     return data;
   }
 
-  public void setData(@jakarta.annotation.Nonnull List<GetRecomResDataInner> data) {
+  public void setData(@jakarta.annotation.Nullable List<GetRecomResDataInner> data) {
     this.data = data;
   }
 
-  public GetRecomRes next(@jakarta.annotation.Nonnull Integer next) {
+  public GetRecomRes next(@jakarta.annotation.Nullable Integer next) {
     this.next = next;
     return this;
   }
@@ -87,12 +87,12 @@ public class GetRecomRes {
    *
    * @return next
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getNext() {
     return next;
   }
 
-  public void setNext(@jakarta.annotation.Nonnull Integer next) {
+  public void setNext(@jakarta.annotation.Nullable Integer next) {
     this.next = next;
   }
 
@@ -145,8 +145,6 @@ public class GetRecomRes {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("data");
-    openapiRequiredFields.add("next");
   }
 
   /**
@@ -176,31 +174,25 @@ public class GetRecomRes {
                 entry.getKey(), jsonElement.toString()));
       }
     }
+    JsonObject jsonObj = jsonElement.getAsJsonObject();
+    if (jsonObj.get("data") != null && !jsonObj.get("data").isJsonNull()) {
+      JsonArray jsonArraydata = jsonObj.getAsJsonArray("data");
+      if (jsonArraydata != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("data").isJsonArray()) {
+          throw new IllegalArgumentException(
+              String.format(
+                  "Expected the field `data` to be an array in the JSON string but got `%s`",
+                  jsonObj.get("data").toString()));
+        }
 
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : GetRecomRes.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
+        // validate the optional field `data` (array)
+        for (int i = 0; i < jsonArraydata.size(); i++) {
+          GetRecomResDataInner.validateJsonElement(jsonArraydata.get(i));
+        }
+        ;
       }
     }
-    JsonObject jsonObj = jsonElement.getAsJsonObject();
-    // ensure the json data is an array
-    if (!jsonObj.get("data").isJsonArray()) {
-      throw new IllegalArgumentException(
-          String.format(
-              "Expected the field `data` to be an array in the JSON string but got `%s`",
-              jsonObj.get("data").toString()));
-    }
-
-    JsonArray jsonArraydata = jsonObj.getAsJsonArray("data");
-    // validate the required field `data` (array)
-    for (int i = 0; i < jsonArraydata.size(); i++) {
-      GetRecomResDataInner.validateJsonElement(jsonArraydata.get(i));
-    }
-    ;
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

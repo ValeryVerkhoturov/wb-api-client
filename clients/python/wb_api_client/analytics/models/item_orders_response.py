@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from wb_api_client.analytics.models.item_orders_metrics import ItemOrdersMetrics
 from wb_api_client.analytics.models.item_orders_text_item import ItemOrdersTextItem
 from typing import Optional, Set
@@ -30,8 +30,12 @@ class ItemOrdersResponse(BaseModel):
     ItemOrdersResponse
     """  # noqa: E501
 
-    total: List[ItemOrdersMetrics] = Field(description="Итог по товарам")
-    items: List[ItemOrdersTextItem] = Field(description="Элементы таблицы")
+    total: Optional[List[ItemOrdersMetrics]] = Field(
+        default=None, description="Итог по товарам"
+    )
+    items: Optional[List[ItemOrdersTextItem]] = Field(
+        default=None, description="Элементы таблицы"
+    )
     __properties: ClassVar[List[str]] = ["total", "items"]
 
     model_config = ConfigDict(

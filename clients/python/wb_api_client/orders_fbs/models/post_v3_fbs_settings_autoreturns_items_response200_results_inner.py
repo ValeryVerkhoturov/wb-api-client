@@ -43,8 +43,8 @@ class PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInner(BaseModel):
         default=None,
         description="- `true` — настройки автовозврата товара успешно получены ",
     )
-    chrt_id: StrictInt = Field(
-        description="ID размера товара в системе WB", alias="chrtId"
+    chrt_id: Optional[StrictInt] = Field(
+        default=None, description="ID размера товара в системе WB", alias="chrtId"
     )
     type: Optional[StrictStr] = Field(
         default=None,

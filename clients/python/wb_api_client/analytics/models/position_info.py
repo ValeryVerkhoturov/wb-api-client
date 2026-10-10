@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from wb_api_client.analytics.models.position_info_average import PositionInfoAverage
 from wb_api_client.analytics.models.position_info_median import PositionInfoMedian
 from wb_api_client.analytics.models.search_report_position_chart_item import (
@@ -36,13 +36,14 @@ class PositionInfo(BaseModel):
     Информация о позиции товара
     """  # noqa: E501
 
-    average: PositionInfoAverage
-    median: PositionInfoMedian
-    chart_items: List[SearchReportPositionChartItem] = Field(
+    average: Optional[PositionInfoAverage] = None
+    median: Optional[PositionInfoMedian] = None
+    chart_items: Optional[List[SearchReportPositionChartItem]] = Field(
+        default=None,
         description="Данные для чарта по средней и медианной позиции товара в результатах поиска",
         alias="chartItems",
     )
-    clusters: SearchReportPositionClusters
+    clusters: Optional[SearchReportPositionClusters] = None
     __properties: ClassVar[List[str]] = ["average", "median", "chartItems", "clusters"]
 
     model_config = ConfigDict(

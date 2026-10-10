@@ -34,26 +34,16 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="V0GetNormQueryBidsResponse" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected V0GetNormQueryBidsResponse() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="V0GetNormQueryBidsResponse" /> class.
-        /// </summary>
-        /// <param name="bids">bids (required).</param>
+        /// <param name="bids">bids.</param>
         public V0GetNormQueryBidsResponse(List<V0GetNormQueryBidsItem> bids = default(List<V0GetNormQueryBidsItem>))
         {
-            // to ensure "bids" is required (not null)
-            if (bids == null)
-            {
-                throw new ArgumentNullException("bids is a required property for V0GetNormQueryBidsResponse and cannot be null");
-            }
             this.Bids = bids;
         }
 
         /// <summary>
         /// Gets or Sets Bids
         /// </summary>
-        [DataMember(Name = "bids", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "bids", EmitDefaultValue = false)]
         public List<V0GetNormQueryBidsItem> Bids { get; set; }
 
         /// <summary>

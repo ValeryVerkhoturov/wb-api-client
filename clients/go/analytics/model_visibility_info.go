@@ -11,9 +11,7 @@ API version: analytics
 package analytics
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the VisibilityInfo type satisfies the MappedNullable interface at compile time
@@ -21,8 +19,8 @@ var _ MappedNullable = &VisibilityInfo{}
 
 // VisibilityInfo Видимость карточек и переходы в карточки. По дням, неделям, месяцам
 type VisibilityInfo struct {
-	Visibility VisibilityInfoVisibility `json:"visibility"`
-	OpenCard   VisibilityInfoOpenCard   `json:"openCard"`
+	Visibility *VisibilityInfoVisibility `json:"visibility,omitempty"`
+	OpenCard   *VisibilityInfoOpenCard   `json:"openCard,omitempty"`
 	// Данные для отрисовки графика в личном кабинете по видимости и переходам в карточки по дням
 	ByDay []VisibilityInfoByDayInner `json:"byDay,omitempty"`
 	// Данные для отрисовки графика в личном кабинете по видимости и переходам в карточки по неделям
@@ -31,16 +29,12 @@ type VisibilityInfo struct {
 	ByMonth []VisibilityInfoByDayInner `json:"byMonth,omitempty"`
 }
 
-type _VisibilityInfo VisibilityInfo
-
 // NewVisibilityInfo instantiates a new VisibilityInfo object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewVisibilityInfo(visibility VisibilityInfoVisibility, openCard VisibilityInfoOpenCard) *VisibilityInfo {
+func NewVisibilityInfo() *VisibilityInfo {
 	this := VisibilityInfo{}
-	this.Visibility = visibility
-	this.OpenCard = openCard
 	return &this
 }
 
@@ -52,52 +46,68 @@ func NewVisibilityInfoWithDefaults() *VisibilityInfo {
 	return &this
 }
 
-// GetVisibility returns the Visibility field value
+// GetVisibility returns the Visibility field value if set, zero value otherwise.
 func (o *VisibilityInfo) GetVisibility() VisibilityInfoVisibility {
-	if o == nil {
+	if o == nil || IsNil(o.Visibility) {
 		var ret VisibilityInfoVisibility
 		return ret
 	}
-
-	return o.Visibility
+	return *o.Visibility
 }
 
-// GetVisibilityOk returns a tuple with the Visibility field value
+// GetVisibilityOk returns a tuple with the Visibility field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VisibilityInfo) GetVisibilityOk() (*VisibilityInfoVisibility, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Visibility) {
 		return nil, false
 	}
-	return &o.Visibility, true
+	return o.Visibility, true
 }
 
-// SetVisibility sets field value
+// HasVisibility returns a boolean if a field has been set.
+func (o *VisibilityInfo) HasVisibility() bool {
+	if o != nil && !IsNil(o.Visibility) {
+		return true
+	}
+
+	return false
+}
+
+// SetVisibility gets a reference to the given VisibilityInfoVisibility and assigns it to the Visibility field.
 func (o *VisibilityInfo) SetVisibility(v VisibilityInfoVisibility) {
-	o.Visibility = v
+	o.Visibility = &v
 }
 
-// GetOpenCard returns the OpenCard field value
+// GetOpenCard returns the OpenCard field value if set, zero value otherwise.
 func (o *VisibilityInfo) GetOpenCard() VisibilityInfoOpenCard {
-	if o == nil {
+	if o == nil || IsNil(o.OpenCard) {
 		var ret VisibilityInfoOpenCard
 		return ret
 	}
-
-	return o.OpenCard
+	return *o.OpenCard
 }
 
-// GetOpenCardOk returns a tuple with the OpenCard field value
+// GetOpenCardOk returns a tuple with the OpenCard field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VisibilityInfo) GetOpenCardOk() (*VisibilityInfoOpenCard, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.OpenCard) {
 		return nil, false
 	}
-	return &o.OpenCard, true
+	return o.OpenCard, true
 }
 
-// SetOpenCard sets field value
+// HasOpenCard returns a boolean if a field has been set.
+func (o *VisibilityInfo) HasOpenCard() bool {
+	if o != nil && !IsNil(o.OpenCard) {
+		return true
+	}
+
+	return false
+}
+
+// SetOpenCard gets a reference to the given VisibilityInfoOpenCard and assigns it to the OpenCard field.
 func (o *VisibilityInfo) SetOpenCard(v VisibilityInfoOpenCard) {
-	o.OpenCard = v
+	o.OpenCard = &v
 }
 
 // GetByDay returns the ByDay field value if set, zero value otherwise.
@@ -206,8 +216,12 @@ func (o VisibilityInfo) MarshalJSON() ([]byte, error) {
 
 func (o VisibilityInfo) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["visibility"] = o.Visibility
-	toSerialize["openCard"] = o.OpenCard
+	if !IsNil(o.Visibility) {
+		toSerialize["visibility"] = o.Visibility
+	}
+	if !IsNil(o.OpenCard) {
+		toSerialize["openCard"] = o.OpenCard
+	}
 	if !IsNil(o.ByDay) {
 		toSerialize["byDay"] = o.ByDay
 	}
@@ -218,44 +232,6 @@ func (o VisibilityInfo) ToMap() (map[string]interface{}, error) {
 		toSerialize["byMonth"] = o.ByMonth
 	}
 	return toSerialize, nil
-}
-
-func (o *VisibilityInfo) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"visibility",
-		"openCard",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varVisibilityInfo := _VisibilityInfo{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varVisibilityInfo)
-
-	if err != nil {
-		return err
-	}
-
-	*o = VisibilityInfo(varVisibilityInfo)
-
-	return err
 }
 
 type NullableVisibilityInfo struct {

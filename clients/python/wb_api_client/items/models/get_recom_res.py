@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from wb_api_client.items.models.get_recom_res_data_inner import GetRecomResDataInner
 from typing import Optional, Set
 from typing_extensions import Self
@@ -29,10 +29,12 @@ class GetRecomRes(BaseModel):
     Товары с рекомендациями
     """  # noqa: E501
 
-    data: List[GetRecomResDataInner] = Field(
-        description="Данные о товарах и их рекомендациях"
+    data: Optional[List[GetRecomResDataInner]] = Field(
+        default=None, description="Данные о товарах и их рекомендациях"
     )
-    next: StrictInt = Field(description="Курсор. Последний `nmId` в ответе")
+    next: Optional[StrictInt] = Field(
+        default=None, description="Курсор. Последний `nmId` в ответе"
+    )
     __properties: ClassVar[List[str]] = ["data", "next"]
 
     model_config = ConfigDict(

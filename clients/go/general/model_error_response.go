@@ -11,9 +11,7 @@ API version: general
 package general
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the ErrorResponse type satisfies the MappedNullable interface at compile time
@@ -22,30 +20,23 @@ var _ MappedNullable = &ErrorResponse{}
 // ErrorResponse struct for ErrorResponse
 type ErrorResponse struct {
 	// Заголовок ошибки
-	Title string `json:"title"`
+	Title *string `json:"title,omitempty"`
 	// Детали ошибки
-	Detail string `json:"detail"`
+	Detail *string `json:"detail,omitempty"`
 	// ID запроса
-	RequestId string `json:"requestId"`
+	RequestId *string `json:"requestId,omitempty"`
 	// Название внутреннего сервиса
-	Origin string `json:"origin"`
+	Origin *string `json:"origin,omitempty"`
 	// HTTP статус-код
-	Status float32 `json:"status"`
+	Status *float32 `json:"status,omitempty"`
 }
-
-type _ErrorResponse ErrorResponse
 
 // NewErrorResponse instantiates a new ErrorResponse object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewErrorResponse(title string, detail string, requestId string, origin string, status float32) *ErrorResponse {
+func NewErrorResponse() *ErrorResponse {
 	this := ErrorResponse{}
-	this.Title = title
-	this.Detail = detail
-	this.RequestId = requestId
-	this.Origin = origin
-	this.Status = status
 	return &this
 }
 
@@ -57,124 +48,164 @@ func NewErrorResponseWithDefaults() *ErrorResponse {
 	return &this
 }
 
-// GetTitle returns the Title field value
+// GetTitle returns the Title field value if set, zero value otherwise.
 func (o *ErrorResponse) GetTitle() string {
-	if o == nil {
+	if o == nil || IsNil(o.Title) {
 		var ret string
 		return ret
 	}
-
-	return o.Title
+	return *o.Title
 }
 
-// GetTitleOk returns a tuple with the Title field value
+// GetTitleOk returns a tuple with the Title field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ErrorResponse) GetTitleOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Title) {
 		return nil, false
 	}
-	return &o.Title, true
+	return o.Title, true
 }
 
-// SetTitle sets field value
+// HasTitle returns a boolean if a field has been set.
+func (o *ErrorResponse) HasTitle() bool {
+	if o != nil && !IsNil(o.Title) {
+		return true
+	}
+
+	return false
+}
+
+// SetTitle gets a reference to the given string and assigns it to the Title field.
 func (o *ErrorResponse) SetTitle(v string) {
-	o.Title = v
+	o.Title = &v
 }
 
-// GetDetail returns the Detail field value
+// GetDetail returns the Detail field value if set, zero value otherwise.
 func (o *ErrorResponse) GetDetail() string {
-	if o == nil {
+	if o == nil || IsNil(o.Detail) {
 		var ret string
 		return ret
 	}
-
-	return o.Detail
+	return *o.Detail
 }
 
-// GetDetailOk returns a tuple with the Detail field value
+// GetDetailOk returns a tuple with the Detail field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ErrorResponse) GetDetailOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Detail) {
 		return nil, false
 	}
-	return &o.Detail, true
+	return o.Detail, true
 }
 
-// SetDetail sets field value
+// HasDetail returns a boolean if a field has been set.
+func (o *ErrorResponse) HasDetail() bool {
+	if o != nil && !IsNil(o.Detail) {
+		return true
+	}
+
+	return false
+}
+
+// SetDetail gets a reference to the given string and assigns it to the Detail field.
 func (o *ErrorResponse) SetDetail(v string) {
-	o.Detail = v
+	o.Detail = &v
 }
 
-// GetRequestId returns the RequestId field value
+// GetRequestId returns the RequestId field value if set, zero value otherwise.
 func (o *ErrorResponse) GetRequestId() string {
-	if o == nil {
+	if o == nil || IsNil(o.RequestId) {
 		var ret string
 		return ret
 	}
-
-	return o.RequestId
+	return *o.RequestId
 }
 
-// GetRequestIdOk returns a tuple with the RequestId field value
+// GetRequestIdOk returns a tuple with the RequestId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ErrorResponse) GetRequestIdOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.RequestId) {
 		return nil, false
 	}
-	return &o.RequestId, true
+	return o.RequestId, true
 }
 
-// SetRequestId sets field value
+// HasRequestId returns a boolean if a field has been set.
+func (o *ErrorResponse) HasRequestId() bool {
+	if o != nil && !IsNil(o.RequestId) {
+		return true
+	}
+
+	return false
+}
+
+// SetRequestId gets a reference to the given string and assigns it to the RequestId field.
 func (o *ErrorResponse) SetRequestId(v string) {
-	o.RequestId = v
+	o.RequestId = &v
 }
 
-// GetOrigin returns the Origin field value
+// GetOrigin returns the Origin field value if set, zero value otherwise.
 func (o *ErrorResponse) GetOrigin() string {
-	if o == nil {
+	if o == nil || IsNil(o.Origin) {
 		var ret string
 		return ret
 	}
-
-	return o.Origin
+	return *o.Origin
 }
 
-// GetOriginOk returns a tuple with the Origin field value
+// GetOriginOk returns a tuple with the Origin field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ErrorResponse) GetOriginOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Origin) {
 		return nil, false
 	}
-	return &o.Origin, true
+	return o.Origin, true
 }
 
-// SetOrigin sets field value
+// HasOrigin returns a boolean if a field has been set.
+func (o *ErrorResponse) HasOrigin() bool {
+	if o != nil && !IsNil(o.Origin) {
+		return true
+	}
+
+	return false
+}
+
+// SetOrigin gets a reference to the given string and assigns it to the Origin field.
 func (o *ErrorResponse) SetOrigin(v string) {
-	o.Origin = v
+	o.Origin = &v
 }
 
-// GetStatus returns the Status field value
+// GetStatus returns the Status field value if set, zero value otherwise.
 func (o *ErrorResponse) GetStatus() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.Status) {
 		var ret float32
 		return ret
 	}
-
-	return o.Status
+	return *o.Status
 }
 
-// GetStatusOk returns a tuple with the Status field value
+// GetStatusOk returns a tuple with the Status field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ErrorResponse) GetStatusOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Status) {
 		return nil, false
 	}
-	return &o.Status, true
+	return o.Status, true
 }
 
-// SetStatus sets field value
+// HasStatus returns a boolean if a field has been set.
+func (o *ErrorResponse) HasStatus() bool {
+	if o != nil && !IsNil(o.Status) {
+		return true
+	}
+
+	return false
+}
+
+// SetStatus gets a reference to the given float32 and assigns it to the Status field.
 func (o *ErrorResponse) SetStatus(v float32) {
-	o.Status = v
+	o.Status = &v
 }
 
 func (o ErrorResponse) MarshalJSON() ([]byte, error) {
@@ -187,53 +218,22 @@ func (o ErrorResponse) MarshalJSON() ([]byte, error) {
 
 func (o ErrorResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["title"] = o.Title
-	toSerialize["detail"] = o.Detail
-	toSerialize["requestId"] = o.RequestId
-	toSerialize["origin"] = o.Origin
-	toSerialize["status"] = o.Status
+	if !IsNil(o.Title) {
+		toSerialize["title"] = o.Title
+	}
+	if !IsNil(o.Detail) {
+		toSerialize["detail"] = o.Detail
+	}
+	if !IsNil(o.RequestId) {
+		toSerialize["requestId"] = o.RequestId
+	}
+	if !IsNil(o.Origin) {
+		toSerialize["origin"] = o.Origin
+	}
+	if !IsNil(o.Status) {
+		toSerialize["status"] = o.Status
+	}
 	return toSerialize, nil
-}
-
-func (o *ErrorResponse) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"title",
-		"detail",
-		"requestId",
-		"origin",
-		"status",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varErrorResponse := _ErrorResponse{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varErrorResponse)
-
-	if err != nil {
-		return err
-	}
-
-	*o = ErrorResponse(varErrorResponse)
-
-	return err
 }
 
 type NullableErrorResponse struct {

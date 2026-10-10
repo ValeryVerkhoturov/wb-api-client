@@ -34,26 +34,16 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ResponseItemListAdditionalErrorsOneOf1" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected ResponseItemListAdditionalErrorsOneOf1() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ResponseItemListAdditionalErrorsOneOf1" /> class.
-        /// </summary>
-        /// <param name="error">error (required).</param>
+        /// <param name="error">error.</param>
         public ResponseItemListAdditionalErrorsOneOf1(string error = default(string))
         {
-            // to ensure "error" is required (not null)
-            if (error == null)
-            {
-                throw new ArgumentNullException("error is a required property for ResponseItemListAdditionalErrorsOneOf1 and cannot be null");
-            }
             this.Error = error;
         }
 
         /// <summary>
         /// Gets or Sets Error
         /// </summary>
-        [DataMember(Name = "error", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "error", EmitDefaultValue = false)]
         public string Error { get; set; }
 
         /// <summary>

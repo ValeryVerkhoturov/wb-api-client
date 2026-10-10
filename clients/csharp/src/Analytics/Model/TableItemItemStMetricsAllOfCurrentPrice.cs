@@ -34,13 +34,8 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TableItemItemStMetricsAllOfCurrentPrice" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected TableItemItemStMetricsAllOfCurrentPrice() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="TableItemItemStMetricsAllOfCurrentPrice" /> class.
-        /// </summary>
-        /// <param name="minPrice">Минимальная цена продавца со скидкой продавца (без учёта скидки WB Клуба) (required).</param>
-        /// <param name="maxPrice">Максимальная цена продавца со скидкой продавца (без учёта скидки WB Клуба) (required).</param>
+        /// <param name="minPrice">Минимальная цена продавца со скидкой продавца (без учёта скидки WB Клуба).</param>
+        /// <param name="maxPrice">Максимальная цена продавца со скидкой продавца (без учёта скидки WB Клуба).</param>
         public TableItemItemStMetricsAllOfCurrentPrice(int minPrice = default(int), int maxPrice = default(int))
         {
             this.MinPrice = minPrice;
@@ -54,7 +49,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>50</example>
         */
-        [DataMember(Name = "minPrice", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "minPrice", EmitDefaultValue = false)]
         public int MinPrice { get; set; }
 
         /// <summary>
@@ -64,7 +59,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>100</example>
         */
-        [DataMember(Name = "maxPrice", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "maxPrice", EmitDefaultValue = false)]
         public int MaxPrice { get; set; }
 
         /// <summary>

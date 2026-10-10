@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from wb_api_client.analytics.models.post_v3_sales_funnel_products_response200_data import (
     PostV3SalesFunnelProductsResponse200Data,
 )
@@ -31,7 +31,7 @@ class PostV3SalesFunnelProductsResponse200(BaseModel):
     PostV3SalesFunnelProductsResponse200
     """  # noqa: E501
 
-    data: PostV3SalesFunnelProductsResponse200Data
+    data: Optional[PostV3SalesFunnelProductsResponse200Data] = None
     __properties: ClassVar[List[str]] = ["data"]
 
     model_config = ConfigDict(

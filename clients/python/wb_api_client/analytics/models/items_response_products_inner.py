@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from wb_api_client.analytics.models.items_response_products_inner_product import (
     ItemsResponseProductsInnerProduct,
 )
@@ -34,8 +34,8 @@ class ItemsResponseProductsInner(BaseModel):
     ItemsResponseProductsInner
     """  # noqa: E501
 
-    product: ItemsResponseProductsInnerProduct
-    statistic: ItemsResponseProductsInnerStatistic
+    product: Optional[ItemsResponseProductsInnerProduct] = None
+    statistic: Optional[ItemsResponseProductsInnerStatistic] = None
     __properties: ClassVar[List[str]] = ["product", "statistic"]
 
     model_config = ConfigDict(

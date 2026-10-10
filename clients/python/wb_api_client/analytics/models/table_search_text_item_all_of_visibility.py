@@ -28,7 +28,7 @@ class TableSearchTextItemAllOfVisibility(BaseModel):
     Процент видимости товара в результатах поиска
     """  # noqa: E501
 
-    current: StrictInt = Field(description="Текущий процент")
+    current: Optional[StrictInt] = Field(default=None, description="Текущий процент")
     dynamics: Optional[StrictInt] = Field(
         default=None, description="Динамика по сравнению с предыдущим периодом, %"
     )

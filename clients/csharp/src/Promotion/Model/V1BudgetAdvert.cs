@@ -34,22 +34,12 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="V1BudgetAdvert" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected V1BudgetAdvert() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="V1BudgetAdvert" /> class.
-        /// </summary>
-        /// <param name="advertId">ID кампании (required).</param>
-        /// <param name="currency">Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) (required).</param>
-        /// <param name="total">Бюджет кампании в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) (required).</param>
+        /// <param name="advertId">ID кампании.</param>
+        /// <param name="currency">Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).</param>
+        /// <param name="total">Бюджет кампании в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).</param>
         public V1BudgetAdvert(int advertId = default(int), string currency = default(string), int total = default(int))
         {
             this.AdvertId = advertId;
-            // to ensure "currency" is required (not null)
-            if (currency == null)
-            {
-                throw new ArgumentNullException("currency is a required property for V1BudgetAdvert and cannot be null");
-            }
             this.Currency = currency;
             this.Total = total;
         }
@@ -61,7 +51,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /*
         <example>1234567</example>
         */
-        [DataMember(Name = "advertId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "advertId", EmitDefaultValue = false)]
         public int AdvertId { get; set; }
 
         /// <summary>
@@ -71,7 +61,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /*
         <example>RUB</example>
         */
-        [DataMember(Name = "currency", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "currency", EmitDefaultValue = false)]
         public string Currency { get; set; }
 
         /// <summary>
@@ -81,7 +71,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /*
         <example>3000</example>
         */
-        [DataMember(Name = "total", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "total", EmitDefaultValue = false)]
         public int Total { get; set; }
 
         /// <summary>

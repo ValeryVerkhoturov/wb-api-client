@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from wb_api_client.analytics.models.inventory_seller_response_items_inner import (
     InventorySellerResponseItemsInner,
 )
@@ -31,8 +31,8 @@ class InventorySellerResponse(BaseModel):
     Текущие остатки товаров на складах продавца
     """  # noqa: E501
 
-    items: List[InventorySellerResponseItemsInner] = Field(
-        description="Остатки товаров на складах продавца по размерам"
+    items: Optional[List[InventorySellerResponseItemsInner]] = Field(
+        default=None, description="Остатки товаров на складах продавца по размерам"
     )
     __properties: ClassVar[List[str]] = ["items"]
 

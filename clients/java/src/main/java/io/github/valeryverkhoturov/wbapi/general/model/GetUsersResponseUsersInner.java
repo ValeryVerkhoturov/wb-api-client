@@ -40,7 +40,7 @@ public class GetUsersResponseUsersInner {
   public static final String SERIALIZED_NAME_ID = "id";
 
   @SerializedName(SERIALIZED_NAME_ID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer id;
 
   /**
@@ -100,61 +100,61 @@ public class GetUsersResponseUsersInner {
   public static final String SERIALIZED_NAME_ROLE = "role";
 
   @SerializedName(SERIALIZED_NAME_ROLE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private RoleEnum role;
 
   public static final String SERIALIZED_NAME_POSITION = "position";
 
   @SerializedName(SERIALIZED_NAME_POSITION)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String position;
 
   public static final String SERIALIZED_NAME_PHONE = "phone";
 
   @SerializedName(SERIALIZED_NAME_PHONE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String phone;
 
   public static final String SERIALIZED_NAME_EMAIL = "email";
 
   @SerializedName(SERIALIZED_NAME_EMAIL)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String email;
 
   public static final String SERIALIZED_NAME_IS_OWNER = "isOwner";
 
   @SerializedName(SERIALIZED_NAME_IS_OWNER)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Boolean isOwner;
 
   public static final String SERIALIZED_NAME_FIRST_NAME = "firstName";
 
   @SerializedName(SERIALIZED_NAME_FIRST_NAME)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String firstName;
 
   public static final String SERIALIZED_NAME_SECOND_NAME = "secondName";
 
   @SerializedName(SERIALIZED_NAME_SECOND_NAME)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String secondName;
 
   public static final String SERIALIZED_NAME_PATRONYMIC = "patronymic";
 
   @SerializedName(SERIALIZED_NAME_PATRONYMIC)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String patronymic;
 
   public static final String SERIALIZED_NAME_GOODS_RETURN = "goodsReturn";
 
   @SerializedName(SERIALIZED_NAME_GOODS_RETURN)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Boolean goodsReturn;
 
   public static final String SERIALIZED_NAME_IS_INVITEE = "isInvitee";
 
   @SerializedName(SERIALIZED_NAME_IS_INVITEE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Boolean isInvitee;
 
   public static final String SERIALIZED_NAME_INVITEE_INFO = "inviteeInfo";
@@ -166,12 +166,12 @@ public class GetUsersResponseUsersInner {
   public static final String SERIALIZED_NAME_ACCESS = "access";
 
   @SerializedName(SERIALIZED_NAME_ACCESS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private List<GetUsersResponseUsersInnerAccessInner> access = new ArrayList<>();
 
   public GetUsersResponseUsersInner() {}
 
-  public GetUsersResponseUsersInner id(@jakarta.annotation.Nonnull Integer id) {
+  public GetUsersResponseUsersInner id(@jakarta.annotation.Nullable Integer id) {
     this.id = id;
     return this;
   }
@@ -181,16 +181,16 @@ public class GetUsersResponseUsersInner {
    *
    * @return id
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getId() {
     return id;
   }
 
-  public void setId(@jakarta.annotation.Nonnull Integer id) {
+  public void setId(@jakarta.annotation.Nullable Integer id) {
     this.id = id;
   }
 
-  public GetUsersResponseUsersInner role(@jakarta.annotation.Nonnull RoleEnum role) {
+  public GetUsersResponseUsersInner role(@jakarta.annotation.Nullable RoleEnum role) {
     this.role = role;
     return this;
   }
@@ -201,16 +201,16 @@ public class GetUsersResponseUsersInner {
    *
    * @return role
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public RoleEnum getRole() {
     return role;
   }
 
-  public void setRole(@jakarta.annotation.Nonnull RoleEnum role) {
+  public void setRole(@jakarta.annotation.Nullable RoleEnum role) {
     this.role = role;
   }
 
-  public GetUsersResponseUsersInner position(@jakarta.annotation.Nonnull String position) {
+  public GetUsersResponseUsersInner position(@jakarta.annotation.Nullable String position) {
     this.position = position;
     return this;
   }
@@ -220,16 +220,16 @@ public class GetUsersResponseUsersInner {
    *
    * @return position
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getPosition() {
     return position;
   }
 
-  public void setPosition(@jakarta.annotation.Nonnull String position) {
+  public void setPosition(@jakarta.annotation.Nullable String position) {
     this.position = position;
   }
 
-  public GetUsersResponseUsersInner phone(@jakarta.annotation.Nonnull String phone) {
+  public GetUsersResponseUsersInner phone(@jakarta.annotation.Nullable String phone) {
     this.phone = phone;
     return this;
   }
@@ -239,16 +239,16 @@ public class GetUsersResponseUsersInner {
    *
    * @return phone
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getPhone() {
     return phone;
   }
 
-  public void setPhone(@jakarta.annotation.Nonnull String phone) {
+  public void setPhone(@jakarta.annotation.Nullable String phone) {
     this.phone = phone;
   }
 
-  public GetUsersResponseUsersInner email(@jakarta.annotation.Nonnull String email) {
+  public GetUsersResponseUsersInner email(@jakarta.annotation.Nullable String email) {
     this.email = email;
     return this;
   }
@@ -258,16 +258,16 @@ public class GetUsersResponseUsersInner {
    *
    * @return email
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getEmail() {
     return email;
   }
 
-  public void setEmail(@jakarta.annotation.Nonnull String email) {
+  public void setEmail(@jakarta.annotation.Nullable String email) {
     this.email = email;
   }
 
-  public GetUsersResponseUsersInner isOwner(@jakarta.annotation.Nonnull Boolean isOwner) {
+  public GetUsersResponseUsersInner isOwner(@jakarta.annotation.Nullable Boolean isOwner) {
     this.isOwner = isOwner;
     return this;
   }
@@ -277,16 +277,16 @@ public class GetUsersResponseUsersInner {
    *
    * @return isOwner
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Boolean getIsOwner() {
     return isOwner;
   }
 
-  public void setIsOwner(@jakarta.annotation.Nonnull Boolean isOwner) {
+  public void setIsOwner(@jakarta.annotation.Nullable Boolean isOwner) {
     this.isOwner = isOwner;
   }
 
-  public GetUsersResponseUsersInner firstName(@jakarta.annotation.Nonnull String firstName) {
+  public GetUsersResponseUsersInner firstName(@jakarta.annotation.Nullable String firstName) {
     this.firstName = firstName;
     return this;
   }
@@ -296,16 +296,16 @@ public class GetUsersResponseUsersInner {
    *
    * @return firstName
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getFirstName() {
     return firstName;
   }
 
-  public void setFirstName(@jakarta.annotation.Nonnull String firstName) {
+  public void setFirstName(@jakarta.annotation.Nullable String firstName) {
     this.firstName = firstName;
   }
 
-  public GetUsersResponseUsersInner secondName(@jakarta.annotation.Nonnull String secondName) {
+  public GetUsersResponseUsersInner secondName(@jakarta.annotation.Nullable String secondName) {
     this.secondName = secondName;
     return this;
   }
@@ -315,16 +315,16 @@ public class GetUsersResponseUsersInner {
    *
    * @return secondName
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getSecondName() {
     return secondName;
   }
 
-  public void setSecondName(@jakarta.annotation.Nonnull String secondName) {
+  public void setSecondName(@jakarta.annotation.Nullable String secondName) {
     this.secondName = secondName;
   }
 
-  public GetUsersResponseUsersInner patronymic(@jakarta.annotation.Nonnull String patronymic) {
+  public GetUsersResponseUsersInner patronymic(@jakarta.annotation.Nullable String patronymic) {
     this.patronymic = patronymic;
     return this;
   }
@@ -334,16 +334,16 @@ public class GetUsersResponseUsersInner {
    *
    * @return patronymic
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getPatronymic() {
     return patronymic;
   }
 
-  public void setPatronymic(@jakarta.annotation.Nonnull String patronymic) {
+  public void setPatronymic(@jakarta.annotation.Nullable String patronymic) {
     this.patronymic = patronymic;
   }
 
-  public GetUsersResponseUsersInner goodsReturn(@jakarta.annotation.Nonnull Boolean goodsReturn) {
+  public GetUsersResponseUsersInner goodsReturn(@jakarta.annotation.Nullable Boolean goodsReturn) {
     this.goodsReturn = goodsReturn;
     return this;
   }
@@ -353,16 +353,16 @@ public class GetUsersResponseUsersInner {
    *
    * @return goodsReturn
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Boolean getGoodsReturn() {
     return goodsReturn;
   }
 
-  public void setGoodsReturn(@jakarta.annotation.Nonnull Boolean goodsReturn) {
+  public void setGoodsReturn(@jakarta.annotation.Nullable Boolean goodsReturn) {
     this.goodsReturn = goodsReturn;
   }
 
-  public GetUsersResponseUsersInner isInvitee(@jakarta.annotation.Nonnull Boolean isInvitee) {
+  public GetUsersResponseUsersInner isInvitee(@jakarta.annotation.Nullable Boolean isInvitee) {
     this.isInvitee = isInvitee;
     return this;
   }
@@ -372,12 +372,12 @@ public class GetUsersResponseUsersInner {
    *
    * @return isInvitee
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Boolean getIsInvitee() {
     return isInvitee;
   }
 
-  public void setIsInvitee(@jakarta.annotation.Nonnull Boolean isInvitee) {
+  public void setIsInvitee(@jakarta.annotation.Nullable Boolean isInvitee) {
     this.isInvitee = isInvitee;
   }
 
@@ -403,7 +403,7 @@ public class GetUsersResponseUsersInner {
   }
 
   public GetUsersResponseUsersInner access(
-      @jakarta.annotation.Nonnull List<GetUsersResponseUsersInnerAccessInner> access) {
+      @jakarta.annotation.Nullable List<GetUsersResponseUsersInnerAccessInner> access) {
     this.access = access;
     return this;
   }
@@ -422,13 +422,13 @@ public class GetUsersResponseUsersInner {
    *
    * @return access
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public List<GetUsersResponseUsersInnerAccessInner> getAccess() {
     return access;
   }
 
   public void setAccess(
-      @jakarta.annotation.Nonnull List<GetUsersResponseUsersInnerAccessInner> access) {
+      @jakarta.annotation.Nullable List<GetUsersResponseUsersInnerAccessInner> access) {
     this.access = access;
   }
 
@@ -527,19 +527,6 @@ public class GetUsersResponseUsersInner {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("id");
-    openapiRequiredFields.add("role");
-    openapiRequiredFields.add("position");
-    openapiRequiredFields.add("phone");
-    openapiRequiredFields.add("email");
-    openapiRequiredFields.add("isOwner");
-    openapiRequiredFields.add("firstName");
-    openapiRequiredFields.add("secondName");
-    openapiRequiredFields.add("patronymic");
-    openapiRequiredFields.add("goodsReturn");
-    openapiRequiredFields.add("isInvitee");
-    openapiRequiredFields.add("inviteeInfo");
-    openapiRequiredFields.add("access");
   }
 
   /**
@@ -569,77 +556,82 @@ public class GetUsersResponseUsersInner {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : GetUsersResponseUsersInner.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    if (!jsonObj.get("role").isJsonPrimitive()) {
+    if ((jsonObj.get("role") != null && !jsonObj.get("role").isJsonNull())
+        && !jsonObj.get("role").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `role` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("role").toString()));
     }
-    // validate the required field `role`
-    RoleEnum.validateJsonElement(jsonObj.get("role"));
-    if (!jsonObj.get("position").isJsonPrimitive()) {
+    // validate the optional field `role`
+    if (jsonObj.get("role") != null && !jsonObj.get("role").isJsonNull()) {
+      RoleEnum.validateJsonElement(jsonObj.get("role"));
+    }
+    if ((jsonObj.get("position") != null && !jsonObj.get("position").isJsonNull())
+        && !jsonObj.get("position").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `position` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("position").toString()));
     }
-    if (!jsonObj.get("phone").isJsonPrimitive()) {
+    if ((jsonObj.get("phone") != null && !jsonObj.get("phone").isJsonNull())
+        && !jsonObj.get("phone").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `phone` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("phone").toString()));
     }
-    if (!jsonObj.get("email").isJsonPrimitive()) {
+    if ((jsonObj.get("email") != null && !jsonObj.get("email").isJsonNull())
+        && !jsonObj.get("email").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `email` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("email").toString()));
     }
-    if (!jsonObj.get("firstName").isJsonPrimitive()) {
+    if ((jsonObj.get("firstName") != null && !jsonObj.get("firstName").isJsonNull())
+        && !jsonObj.get("firstName").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `firstName` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("firstName").toString()));
     }
-    if (!jsonObj.get("secondName").isJsonPrimitive()) {
+    if ((jsonObj.get("secondName") != null && !jsonObj.get("secondName").isJsonNull())
+        && !jsonObj.get("secondName").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `secondName` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("secondName").toString()));
     }
-    if (!jsonObj.get("patronymic").isJsonPrimitive()) {
+    if ((jsonObj.get("patronymic") != null && !jsonObj.get("patronymic").isJsonNull())
+        && !jsonObj.get("patronymic").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `patronymic` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("patronymic").toString()));
     }
-    // validate the required field `inviteeInfo`
-    GetUsersResponseUsersInnerInviteeInfo.validateJsonElement(jsonObj.get("inviteeInfo"));
-    // ensure the json data is an array
-    if (!jsonObj.get("access").isJsonArray()) {
-      throw new IllegalArgumentException(
-          String.format(
-              "Expected the field `access` to be an array in the JSON string but got `%s`",
-              jsonObj.get("access").toString()));
+    // validate the optional field `inviteeInfo`
+    if (jsonObj.get("inviteeInfo") != null && !jsonObj.get("inviteeInfo").isJsonNull()) {
+      GetUsersResponseUsersInnerInviteeInfo.validateJsonElement(jsonObj.get("inviteeInfo"));
     }
+    if (jsonObj.get("access") != null && !jsonObj.get("access").isJsonNull()) {
+      JsonArray jsonArrayaccess = jsonObj.getAsJsonArray("access");
+      if (jsonArrayaccess != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("access").isJsonArray()) {
+          throw new IllegalArgumentException(
+              String.format(
+                  "Expected the field `access` to be an array in the JSON string but got `%s`",
+                  jsonObj.get("access").toString()));
+        }
 
-    JsonArray jsonArrayaccess = jsonObj.getAsJsonArray("access");
-    // validate the required field `access` (array)
-    for (int i = 0; i < jsonArrayaccess.size(); i++) {
-      GetUsersResponseUsersInnerAccessInner.validateJsonElement(jsonArrayaccess.get(i));
+        // validate the optional field `access` (array)
+        for (int i = 0; i < jsonArrayaccess.size(); i++) {
+          GetUsersResponseUsersInnerAccessInner.validateJsonElement(jsonArrayaccess.get(i));
+        }
+        ;
+      }
     }
-    ;
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

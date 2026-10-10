@@ -34,13 +34,8 @@ namespace ValeryVerkhoturov.WbApiClient.InStorePickup.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiStatusSetCustomsDeclarationResponse" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected ApiStatusSetCustomsDeclarationResponse() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ApiStatusSetCustomsDeclarationResponse" /> class.
-        /// </summary>
-        /// <param name="orderId">ID сборочного задания (required).</param>
-        /// <param name="isError">Есть ли ошибки (required).</param>
+        /// <param name="orderId">ID сборочного задания.</param>
+        /// <param name="isError">Есть ли ошибки.</param>
         /// <param name="errors">Детали ошибки.</param>
         public ApiStatusSetCustomsDeclarationResponse(int orderId = default(int), bool isError = default(bool), List<ApiBatchCustomsDeclarationErrorResponse> errors = default(List<ApiBatchCustomsDeclarationErrorResponse>))
         {
@@ -56,7 +51,7 @@ namespace ValeryVerkhoturov.WbApiClient.InStorePickup.Model
         /*
         <example>123456</example>
         */
-        [DataMember(Name = "orderId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "orderId", EmitDefaultValue = false)]
         public int OrderId { get; set; }
 
         /// <summary>
@@ -66,7 +61,7 @@ namespace ValeryVerkhoturov.WbApiClient.InStorePickup.Model
         /*
         <example>true</example>
         */
-        [DataMember(Name = "isError", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "isError", EmitDefaultValue = true)]
         public bool IsError { get; set; }
 
         /// <summary>

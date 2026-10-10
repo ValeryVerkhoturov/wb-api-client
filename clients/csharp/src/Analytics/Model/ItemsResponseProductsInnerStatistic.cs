@@ -34,21 +34,11 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemsResponseProductsInnerStatistic" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected ItemsResponseProductsInnerStatistic() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ItemsResponseProductsInnerStatistic" /> class.
-        /// </summary>
-        /// <param name="selected">selected (required).</param>
+        /// <param name="selected">selected.</param>
         /// <param name="past">past.</param>
         /// <param name="comparison">comparison.</param>
         public ItemsResponseProductsInnerStatistic(StatisticsSelected selected = default(StatisticsSelected), StatisticsPast past = default(StatisticsPast), StatisticsComparison comparison = default(StatisticsComparison))
         {
-            // to ensure "selected" is required (not null)
-            if (selected == null)
-            {
-                throw new ArgumentNullException("selected is a required property for ItemsResponseProductsInnerStatistic and cannot be null");
-            }
             this.Selected = selected;
             this.Past = past;
             this.Comparison = comparison;
@@ -57,7 +47,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <summary>
         /// Gets or Sets Selected
         /// </summary>
-        [DataMember(Name = "selected", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "selected", EmitDefaultValue = false)]
         public StatisticsSelected Selected { get; set; }
 
         /// <summary>

@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from wb_api_client.promotion.models.patch_v0_auction_nms_response200_nms_inner_nms import (
     PatchV0AuctionNmsResponse200NmsInnerNms,
 )
@@ -31,8 +31,8 @@ class PatchV0AuctionNmsResponse200NmsInner(BaseModel):
     PatchV0AuctionNmsResponse200NmsInner
     """  # noqa: E501
 
-    advert_id: StrictInt = Field(description="ID кампании")
-    nms: PatchV0AuctionNmsResponse200NmsInnerNms
+    advert_id: Optional[StrictInt] = Field(default=None, description="ID кампании")
+    nms: Optional[PatchV0AuctionNmsResponse200NmsInnerNms] = None
     __properties: ClassVar[List[str]] = ["advert_id", "nms"]
 
     model_config = ConfigDict(

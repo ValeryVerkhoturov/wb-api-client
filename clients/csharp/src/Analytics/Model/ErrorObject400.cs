@@ -34,40 +34,15 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ErrorObject400" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected ErrorObject400() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ErrorObject400" /> class.
-        /// </summary>
-        /// <param name="title">Заголовок ошибки (required).</param>
-        /// <param name="detail">Детали ошибки (required).</param>
-        /// <param name="requestId">Уникальный ID запроса (required).</param>
-        /// <param name="origin">ID внутреннего сервиса WB (required).</param>
+        /// <param name="title">Заголовок ошибки.</param>
+        /// <param name="detail">Детали ошибки.</param>
+        /// <param name="requestId">Уникальный ID запроса.</param>
+        /// <param name="origin">ID внутреннего сервиса WB.</param>
         public ErrorObject400(string title = default(string), string detail = default(string), string requestId = default(string), string origin = default(string))
         {
-            // to ensure "title" is required (not null)
-            if (title == null)
-            {
-                throw new ArgumentNullException("title is a required property for ErrorObject400 and cannot be null");
-            }
             this.Title = title;
-            // to ensure "detail" is required (not null)
-            if (detail == null)
-            {
-                throw new ArgumentNullException("detail is a required property for ErrorObject400 and cannot be null");
-            }
             this.Detail = detail;
-            // to ensure "requestId" is required (not null)
-            if (requestId == null)
-            {
-                throw new ArgumentNullException("requestId is a required property for ErrorObject400 and cannot be null");
-            }
             this.RequestId = requestId;
-            // to ensure "origin" is required (not null)
-            if (origin == null)
-            {
-                throw new ArgumentNullException("origin is a required property for ErrorObject400 and cannot be null");
-            }
             this.Origin = origin;
         }
 
@@ -78,7 +53,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>Invalid request body</example>
         */
-        [DataMember(Name = "title", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "title", EmitDefaultValue = false)]
         public string Title { get; set; }
 
         /// <summary>
@@ -88,7 +63,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>code&#x3D;400, message&#x3D;invalid: positionCluster (field required), limit (field required), offset (field required), internal&#x3D;invalid: positionCluster (field required), limit (field required), offset (field required</example>
         */
-        [DataMember(Name = "detail", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "detail", EmitDefaultValue = false)]
         public string Detail { get; set; }
 
         /// <summary>
@@ -98,7 +73,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>fb25c9e9-cae8-52db-b68e-736c1466a3f5</example>
         */
-        [DataMember(Name = "requestId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "requestId", EmitDefaultValue = false)]
         public string RequestId { get; set; }
 
         /// <summary>
@@ -108,7 +83,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>analytic-open-api</example>
         */
-        [DataMember(Name = "origin", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "origin", EmitDefaultValue = false)]
         public string Origin { get; set; }
 
         /// <summary>

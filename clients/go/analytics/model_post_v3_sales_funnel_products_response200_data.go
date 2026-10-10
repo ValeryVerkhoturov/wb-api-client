@@ -11,9 +11,7 @@ API version: analytics
 package analytics
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the PostV3SalesFunnelProductsResponse200Data type satisfies the MappedNullable interface at compile time
@@ -22,21 +20,17 @@ var _ MappedNullable = &PostV3SalesFunnelProductsResponse200Data{}
 // PostV3SalesFunnelProductsResponse200Data struct for PostV3SalesFunnelProductsResponse200Data
 type PostV3SalesFunnelProductsResponse200Data struct {
 	// Список карточек товаров
-	Products []ItemsResponseProductsInner `json:"products"`
+	Products []ItemsResponseProductsInner `json:"products,omitempty"`
 	// Валюта отчёта
-	Currency string `json:"currency"`
+	Currency *string `json:"currency,omitempty"`
 }
-
-type _PostV3SalesFunnelProductsResponse200Data PostV3SalesFunnelProductsResponse200Data
 
 // NewPostV3SalesFunnelProductsResponse200Data instantiates a new PostV3SalesFunnelProductsResponse200Data object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPostV3SalesFunnelProductsResponse200Data(products []ItemsResponseProductsInner, currency string) *PostV3SalesFunnelProductsResponse200Data {
+func NewPostV3SalesFunnelProductsResponse200Data() *PostV3SalesFunnelProductsResponse200Data {
 	this := PostV3SalesFunnelProductsResponse200Data{}
-	this.Products = products
-	this.Currency = currency
 	return &this
 }
 
@@ -48,52 +42,68 @@ func NewPostV3SalesFunnelProductsResponse200DataWithDefaults() *PostV3SalesFunne
 	return &this
 }
 
-// GetProducts returns the Products field value
+// GetProducts returns the Products field value if set, zero value otherwise.
 func (o *PostV3SalesFunnelProductsResponse200Data) GetProducts() []ItemsResponseProductsInner {
-	if o == nil {
+	if o == nil || IsNil(o.Products) {
 		var ret []ItemsResponseProductsInner
 		return ret
 	}
-
 	return o.Products
 }
 
-// GetProductsOk returns a tuple with the Products field value
+// GetProductsOk returns a tuple with the Products field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PostV3SalesFunnelProductsResponse200Data) GetProductsOk() ([]ItemsResponseProductsInner, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Products) {
 		return nil, false
 	}
 	return o.Products, true
 }
 
-// SetProducts sets field value
+// HasProducts returns a boolean if a field has been set.
+func (o *PostV3SalesFunnelProductsResponse200Data) HasProducts() bool {
+	if o != nil && !IsNil(o.Products) {
+		return true
+	}
+
+	return false
+}
+
+// SetProducts gets a reference to the given []ItemsResponseProductsInner and assigns it to the Products field.
 func (o *PostV3SalesFunnelProductsResponse200Data) SetProducts(v []ItemsResponseProductsInner) {
 	o.Products = v
 }
 
-// GetCurrency returns the Currency field value
+// GetCurrency returns the Currency field value if set, zero value otherwise.
 func (o *PostV3SalesFunnelProductsResponse200Data) GetCurrency() string {
-	if o == nil {
+	if o == nil || IsNil(o.Currency) {
 		var ret string
 		return ret
 	}
-
-	return o.Currency
+	return *o.Currency
 }
 
-// GetCurrencyOk returns a tuple with the Currency field value
+// GetCurrencyOk returns a tuple with the Currency field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PostV3SalesFunnelProductsResponse200Data) GetCurrencyOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Currency) {
 		return nil, false
 	}
-	return &o.Currency, true
+	return o.Currency, true
 }
 
-// SetCurrency sets field value
+// HasCurrency returns a boolean if a field has been set.
+func (o *PostV3SalesFunnelProductsResponse200Data) HasCurrency() bool {
+	if o != nil && !IsNil(o.Currency) {
+		return true
+	}
+
+	return false
+}
+
+// SetCurrency gets a reference to the given string and assigns it to the Currency field.
 func (o *PostV3SalesFunnelProductsResponse200Data) SetCurrency(v string) {
-	o.Currency = v
+	o.Currency = &v
 }
 
 func (o PostV3SalesFunnelProductsResponse200Data) MarshalJSON() ([]byte, error) {
@@ -106,47 +116,13 @@ func (o PostV3SalesFunnelProductsResponse200Data) MarshalJSON() ([]byte, error) 
 
 func (o PostV3SalesFunnelProductsResponse200Data) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["products"] = o.Products
-	toSerialize["currency"] = o.Currency
+	if !IsNil(o.Products) {
+		toSerialize["products"] = o.Products
+	}
+	if !IsNil(o.Currency) {
+		toSerialize["currency"] = o.Currency
+	}
 	return toSerialize, nil
-}
-
-func (o *PostV3SalesFunnelProductsResponse200Data) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"products",
-		"currency",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varPostV3SalesFunnelProductsResponse200Data := _PostV3SalesFunnelProductsResponse200Data{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varPostV3SalesFunnelProductsResponse200Data)
-
-	if err != nil {
-		return err
-	}
-
-	*o = PostV3SalesFunnelProductsResponse200Data(varPostV3SalesFunnelProductsResponse200Data)
-
-	return err
 }
 
 type NullablePostV3SalesFunnelProductsResponse200Data struct {

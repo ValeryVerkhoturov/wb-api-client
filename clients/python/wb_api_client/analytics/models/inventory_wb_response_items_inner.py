@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,28 +28,36 @@ class InventoryWbResponseItemsInner(BaseModel):
     InventoryWbResponseItemsInner
     """  # noqa: E501
 
-    nm_id: StrictInt = Field(description="Артикул WB", alias="nmId")
-    chrt_id: StrictInt = Field(description="ID размера", alias="chrtId")
-    warehouse_id: StrictInt = Field(
+    nm_id: Optional[StrictInt] = Field(
+        default=None, description="Артикул WB", alias="nmId"
+    )
+    chrt_id: Optional[StrictInt] = Field(
+        default=None, description="ID размера", alias="chrtId"
+    )
+    warehouse_id: Optional[StrictInt] = Field(
+        default=None,
         description="ID склада. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `-999999`",
         alias="warehouseId",
     )
-    warehouse_name: StrictStr = Field(
+    warehouse_name: Optional[StrictStr] = Field(
+        default=None,
         description="Название склада. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `Склад WB`",
         alias="warehouseName",
     )
-    region_name: StrictStr = Field(
+    region_name: Optional[StrictStr] = Field(
+        default=None,
         description="Регион отгрузки. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `Склад WB`",
         alias="regionName",
     )
-    quantity: StrictInt = Field(
-        description="Количество товара на складе, доступное клиентам для добавления в корзину"
+    quantity: Optional[StrictInt] = Field(
+        default=None,
+        description="Количество товара на складе, доступное клиентам для добавления в корзину",
     )
-    in_way_to_client: StrictInt = Field(
-        description="В пути к клиенту", alias="inWayToClient"
+    in_way_to_client: Optional[StrictInt] = Field(
+        default=None, description="В пути к клиенту", alias="inWayToClient"
     )
-    in_way_from_client: StrictInt = Field(
-        description="В пути от клиента", alias="inWayFromClient"
+    in_way_from_client: Optional[StrictInt] = Field(
+        default=None, description="В пути от клиента", alias="inWayFromClient"
     )
     __properties: ClassVar[List[str]] = [
         "nmId",

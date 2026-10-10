@@ -47,10 +47,10 @@ import {
 export interface CreateInviteRequest {
   /**
    * Настройки доступа к разделам профиля продавца
-   * @type {Array<GetUsersResponseUsersInnerAccessInner>}
+   * @type {Array<CreateInviteRequestAccessInner>}
    * @memberof CreateInviteRequest
    */
-  access?: Array<GetUsersResponseUsersInnerAccessInner>;
+  access?: Array<CreateInviteRequestAccessInner>;
   /**
    *
    * @type {CreateInviteRequestInvite}
@@ -58,6 +58,52 @@ export interface CreateInviteRequest {
    */
   invite: CreateInviteRequestInvite;
 }
+/**
+ *
+ * @export
+ * @interface CreateInviteRequestAccessInner
+ */
+export interface CreateInviteRequestAccessInner {
+  /**
+   * Код раздела профиля продавца, к которому пользователь получит доступ: * `balance` — Просмотр баланса и вывод средств * `brands` — Управление брендами * `changeJam` — Доступ к подключению подписки **Джем**: **А/Б тесты**, отметки на фото, автозапуски видео, сравнение карточек * `discountPrice` — Изменение цен на товары, управление скидками и акциями * `finance` — Финансовая аналитика. Статистика по балансу, финансовые отчёты, история платежей * `showcase` — Управление витриной магазина * `suppliersDocuments` — Просмотр и скачивание документов по работе с площадкой * `supply` — Создание и управление поставками FBW * `questions` — Просмотр и ответы на вопросы покупателей * `pinFeedbacks` — Возможность закреплять и откреплять отзывы * `pointsForReviews` — Баллы за отзывы * `feedbacks` — Просмотр и ответы на отзывы покупателей * `oldAnalyticsReports` — Отчёты * `marketplace` — Свой склад * `brandsFlow` — Мои бренды * `copyrightComplaints` — Обращения правообладателей * `pretrialClaims` — Досудебные претензии * `sellersChat` — Чат с покупателями * `brandzone` — Бренд-зона. Публикация изменений * `brandzoneSubscribe` — Управление подпиской бренд-зоны
+   * @type {string}
+   * @memberof CreateInviteRequestAccessInner
+   */
+  code: CreateInviteRequestAccessInnerCodeEnum;
+  /**
+   * * `true` — доступ к разделу запрещён * `false` — доступ к разделу разрешён
+   * @type {boolean}
+   * @memberof CreateInviteRequestAccessInner
+   */
+  disabled: boolean;
+}
+
+export const CreateInviteRequestAccessInnerCodeEnum = {
+  Balance: "balance",
+  Brands: "brands",
+  ChangeJam: "changeJam",
+  DiscountPrice: "discountPrice",
+  Finance: "finance",
+  Showcase: "showcase",
+  SuppliersDocuments: "suppliersDocuments",
+  Supply: "supply",
+  Questions: "questions",
+  PinFeedbacks: "pinFeedbacks",
+  PointsForReviews: "pointsForReviews",
+  Feedbacks: "feedbacks",
+  OldAnalyticsReports: "oldAnalyticsReports",
+  Marketplace: "marketplace",
+  BrandsFlow: "brandsFlow",
+  CopyrightComplaints: "copyrightComplaints",
+  PretrialClaims: "pretrialClaims",
+  SellersChat: "sellersChat",
+  Brandzone: "brandzone",
+  BrandzoneSubscribe: "brandzoneSubscribe",
+} as const;
+
+export type CreateInviteRequestAccessInnerCodeEnum =
+  (typeof CreateInviteRequestAccessInnerCodeEnum)[keyof typeof CreateInviteRequestAccessInnerCodeEnum];
+
 /**
  *
  * @export
@@ -88,25 +134,25 @@ export interface CreateInviteResponse {
    * @type {string}
    * @memberof CreateInviteResponse
    */
-  inviteID: string;
+  inviteID?: string;
   /**
    * Дата и время окончания срока действия приглашения
    * @type {string}
    * @memberof CreateInviteResponse
    */
-  expiredAt: string;
+  expiredAt?: string;
   /**
    * - `true` — приглашение создано успешно - `false` — повторите запрос
    * @type {boolean}
    * @memberof CreateInviteResponse
    */
-  isSuccess: boolean;
+  isSuccess?: boolean;
   /**
    * URL приглашения, по которому должен перейти пользователь
    * @type {string}
    * @memberof CreateInviteResponse
    */
-  inviteUrl: string;
+  inviteUrl?: string;
 }
 /**
  *
@@ -119,31 +165,31 @@ export interface ErrorResponse {
    * @type {string}
    * @memberof ErrorResponse
    */
-  title: string;
+  title?: string;
   /**
    * Детали ошибки
    * @type {string}
    * @memberof ErrorResponse
    */
-  detail: string;
+  detail?: string;
   /**
    * ID запроса
    * @type {string}
    * @memberof ErrorResponse
    */
-  requestId: string;
+  requestId?: string;
   /**
    * Название внутреннего сервиса
    * @type {string}
    * @memberof ErrorResponse
    */
-  origin: string;
+  origin?: string;
   /**
    * HTTP статус-код
    * @type {number}
    * @memberof ErrorResponse
    */
-  status: number;
+  status?: number;
 }
 /**
  *
@@ -293,19 +339,19 @@ export interface GetUsersResponse {
    * @type {number}
    * @memberof GetUsersResponse
    */
-  total: number;
+  total?: number;
   /**
    * Количество активных или приглашённых пользователей на текущей странице
    * @type {number}
    * @memberof GetUsersResponse
    */
-  countInResponse: number;
+  countInResponse?: number;
   /**
    * Информация о пользователях
    * @type {Array<GetUsersResponseUsersInner>}
    * @memberof GetUsersResponse
    */
-  users: Array<GetUsersResponseUsersInner>;
+  users?: Array<GetUsersResponseUsersInner>;
 }
 /**
  *
@@ -318,79 +364,79 @@ export interface GetUsersResponseUsersInner {
    * @type {number}
    * @memberof GetUsersResponseUsersInner
    */
-  id: number;
+  id?: number;
   /**
    * Роль пользователя:   * `user` — пользователь, который активировал доступ   * ` ` (пустая строка) — пользователь, который не активировал доступ
    * @type {string}
    * @memberof GetUsersResponseUsersInner
    */
-  role: GetUsersResponseUsersInnerRoleEnum;
+  role?: GetUsersResponseUsersInnerRoleEnum;
   /**
    * Должность пользователя
    * @type {string}
    * @memberof GetUsersResponseUsersInner
    */
-  position: string;
+  position?: string;
   /**
    * Номер телефона пользователя
    * @type {string}
    * @memberof GetUsersResponseUsersInner
    */
-  phone: string;
+  phone?: string;
   /**
    * Email пользователя
    * @type {string}
    * @memberof GetUsersResponseUsersInner
    */
-  email: string;
+  email?: string;
   /**
    * Является ли пользователь владельцем профиля продавца
    * @type {boolean}
    * @memberof GetUsersResponseUsersInner
    */
-  isOwner: boolean;
+  isOwner?: boolean;
   /**
    * Имя пользователя
    * @type {string}
    * @memberof GetUsersResponseUsersInner
    */
-  firstName: string;
+  firstName?: string;
   /**
    * Фамилия пользователя
    * @type {string}
    * @memberof GetUsersResponseUsersInner
    */
-  secondName: string;
+  secondName?: string;
   /**
    * Отчество пользователя
    * @type {string}
    * @memberof GetUsersResponseUsersInner
    */
-  patronymic: string;
+  patronymic?: string;
   /**
    * Может ли пользователь одобрять возвраты товаров
    * @type {boolean}
    * @memberof GetUsersResponseUsersInner
    */
-  goodsReturn: boolean;
+  goodsReturn?: boolean;
   /**
    * Приглашён ли пользователь
    * @type {boolean}
    * @memberof GetUsersResponseUsersInner
    */
-  isInvitee: boolean;
+  isInvitee?: boolean;
   /**
    *
    * @type {GetUsersResponseUsersInnerInviteeInfo}
    * @memberof GetUsersResponseUsersInner
    */
-  inviteeInfo: GetUsersResponseUsersInnerInviteeInfo | null;
+  inviteeInfo?: GetUsersResponseUsersInnerInviteeInfo | null;
   /**
    * Настройки доступа к разделам профиля продавца
    * @type {Array<GetUsersResponseUsersInnerAccessInner>}
    * @memberof GetUsersResponseUsersInner
    */
-  access: Array<GetUsersResponseUsersInnerAccessInner>;
+  access?: Array<GetUsersResponseUsersInnerAccessInner>;
 }
 
 export const GetUsersResponseUsersInnerRoleEnum = {
@@ -412,13 +458,13 @@ export interface GetUsersResponseUsersInnerAccessInner {
    * @type {string}
    * @memberof GetUsersResponseUsersInnerAccessInner
    */
-  code: GetUsersResponseUsersInnerAccessInnerCodeEnum;
+  code?: GetUsersResponseUsersInnerAccessInnerCodeEnum;
   /**
    * * `true` — доступ к разделу запрещён * `false` — доступ к разделу разрешён
    * @type {boolean}
    * @memberof GetUsersResponseUsersInnerAccessInner
    */
-  disabled: boolean;
+  disabled?: boolean;
 }
 
 export const GetUsersResponseUsersInnerAccessInnerCodeEnum = {
@@ -778,31 +824,31 @@ export interface PlanBuilderOptionsInfo {
    * @type {number}
    * @memberof PlanBuilderOptionsInfo
    */
-  activeOptionCount: number;
+  activeOptionCount?: number;
   /**
    * Количество активных пакетов опций
    * @type {number}
    * @memberof PlanBuilderOptionsInfo
    */
-  activePackageCount: number;
+  activePackageCount?: number;
   /**
    * Итоговая комиссия за подключённые опции и пакеты, % от оборота
    * @type {number}
    * @memberof PlanBuilderOptionsInfo
    */
-  totalCommissionRate: number;
+  totalCommissionRate?: number;
   /**
    * Подключённые пакеты опций
    * @type {Array<PlanBuilderPackage>}
    * @memberof PlanBuilderOptionsInfo
    */
-  packages: Array<PlanBuilderPackage>;
+  packages?: Array<PlanBuilderPackage>;
   /**
    * Подключённые опции
    * @type {Array<PlanBuilderOption>}
    * @memberof PlanBuilderOptionsInfo
    */
-  options: Array<PlanBuilderOption>;
+  options?: Array<PlanBuilderOption>;
 }
 /**
  *
@@ -960,31 +1006,31 @@ export interface SubscriptionsJamInfo {
    * @type {string}
    * @memberof SubscriptionsJamInfo
    */
-  state: SubscriptionsJamInfoStateEnum;
+  state?: SubscriptionsJamInfoStateEnum;
   /**
    * Источник подключения подписки:   - `constructor` — покупка через раздел **Конструктор тарифов**   - `jam` — покупка через раздел **Подписка «Джем»**
    * @type {string}
    * @memberof SubscriptionsJamInfo
    */
-  activationSource: SubscriptionsJamInfoActivationSourceEnum;
+  activationSource?: SubscriptionsJamInfoActivationSourceEnum;
   /**
    * Уровень подписки:   - `standard`   - `advanced`   - `premium`
    * @type {string}
    * @memberof SubscriptionsJamInfo
    */
-  level: SubscriptionsJamInfoLevelEnum;
+  level?: SubscriptionsJamInfoLevelEnum;
   /**
    * Дата и время первой активации подписки. Не меняется при продлении или повторной активации
    * @type {string}
    * @memberof SubscriptionsJamInfo
    */
-  since: string;
+  since?: string;
   /**
    * Дата и время окончания подписки
    * @type {string}
    * @memberof SubscriptionsJamInfo
    */
-  till: string;
+  till?: string;
 }
 
 export const SubscriptionsJamInfoStateEnum = {
@@ -1056,10 +1102,10 @@ export interface UserAccess {
   userId?: number;
   /**
    * Настройки доступа к разделам профиля продавца
-   * @type {Array<GetUsersResponseUsersInnerAccessInner>}
+   * @type {Array<CreateInviteRequestAccessInner>}
    * @memberof UserAccess
    */
-  access?: Array<GetUsersResponseUsersInnerAccessInner>;
+  access?: Array<CreateInviteRequestAccessInner>;
 }
 
 /**

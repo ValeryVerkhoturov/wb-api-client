@@ -34,19 +34,14 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersDbw.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiStatusSetResponse" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected ApiStatusSetResponse() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ApiStatusSetResponse" /> class.
-        /// </summary>
         /// <param name="errors">Детали ошибки.</param>
-        /// <param name="isError">Есть ли ошибки (required).</param>
-        /// <param name="orderId">ID сборочного задания с успешно обновлёнными данными (required).</param>
+        /// <param name="isError">Есть ли ошибки.</param>
+        /// <param name="orderId">ID сборочного задания с успешно обновлёнными данными.</param>
         public ApiStatusSetResponse(List<ApiBatchErrorResponse> errors = default(List<ApiBatchErrorResponse>), bool isError = default(bool), int orderId = default(int))
         {
+            this.Errors = errors;
             this.IsError = isError;
             this.OrderId = orderId;
-            this.Errors = errors;
         }
 
         /// <summary>
@@ -63,7 +58,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersDbw.Model
         /*
         <example>true</example>
         */
-        [DataMember(Name = "isError", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "isError", EmitDefaultValue = true)]
         public bool IsError { get; set; }
 
         /// <summary>
@@ -73,7 +68,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersDbw.Model
         /*
         <example>123456</example>
         */
-        [DataMember(Name = "orderId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "orderId", EmitDefaultValue = false)]
         public int OrderId { get; set; }
 
         /// <summary>

@@ -39,19 +39,19 @@ public class V1SetNormQueryBidsResponse {
   public static final String SERIALIZED_NAME_SUCCESS = "success";
 
   @SerializedName(SERIALIZED_NAME_SUCCESS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private List<V1SetNormQueryBidsSuccessResponseItem> success = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_FAILED = "failed";
 
   @SerializedName(SERIALIZED_NAME_FAILED)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private List<NormQueryBidFailResponseItem> failed = new ArrayList<>();
 
   public V1SetNormQueryBidsResponse() {}
 
   public V1SetNormQueryBidsResponse success(
-      @jakarta.annotation.Nonnull List<V1SetNormQueryBidsSuccessResponseItem> success) {
+      @jakarta.annotation.Nullable List<V1SetNormQueryBidsSuccessResponseItem> success) {
     this.success = success;
     return this;
   }
@@ -70,18 +70,18 @@ public class V1SetNormQueryBidsResponse {
    *
    * @return success
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public List<V1SetNormQueryBidsSuccessResponseItem> getSuccess() {
     return success;
   }
 
   public void setSuccess(
-      @jakarta.annotation.Nonnull List<V1SetNormQueryBidsSuccessResponseItem> success) {
+      @jakarta.annotation.Nullable List<V1SetNormQueryBidsSuccessResponseItem> success) {
     this.success = success;
   }
 
   public V1SetNormQueryBidsResponse failed(
-      @jakarta.annotation.Nonnull List<NormQueryBidFailResponseItem> failed) {
+      @jakarta.annotation.Nullable List<NormQueryBidFailResponseItem> failed) {
     this.failed = failed;
     return this;
   }
@@ -99,12 +99,12 @@ public class V1SetNormQueryBidsResponse {
    *
    * @return failed
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public List<NormQueryBidFailResponseItem> getFailed() {
     return failed;
   }
 
-  public void setFailed(@jakarta.annotation.Nonnull List<NormQueryBidFailResponseItem> failed) {
+  public void setFailed(@jakarta.annotation.Nullable List<NormQueryBidFailResponseItem> failed) {
     this.failed = failed;
   }
 
@@ -157,8 +157,6 @@ public class V1SetNormQueryBidsResponse {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("success");
-    openapiRequiredFields.add("failed");
   }
 
   /**
@@ -188,45 +186,43 @@ public class V1SetNormQueryBidsResponse {
                 entry.getKey(), jsonElement.toString()));
       }
     }
+    JsonObject jsonObj = jsonElement.getAsJsonObject();
+    if (jsonObj.get("success") != null && !jsonObj.get("success").isJsonNull()) {
+      JsonArray jsonArraysuccess = jsonObj.getAsJsonArray("success");
+      if (jsonArraysuccess != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("success").isJsonArray()) {
+          throw new IllegalArgumentException(
+              String.format(
+                  "Expected the field `success` to be an array in the JSON string but got `%s`",
+                  jsonObj.get("success").toString()));
+        }
 
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : V1SetNormQueryBidsResponse.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
+        // validate the optional field `success` (array)
+        for (int i = 0; i < jsonArraysuccess.size(); i++) {
+          V1SetNormQueryBidsSuccessResponseItem.validateJsonElement(jsonArraysuccess.get(i));
+        }
+        ;
       }
     }
-    JsonObject jsonObj = jsonElement.getAsJsonObject();
-    // ensure the json data is an array
-    if (!jsonObj.get("success").isJsonArray()) {
-      throw new IllegalArgumentException(
-          String.format(
-              "Expected the field `success` to be an array in the JSON string but got `%s`",
-              jsonObj.get("success").toString()));
-    }
+    if (jsonObj.get("failed") != null && !jsonObj.get("failed").isJsonNull()) {
+      JsonArray jsonArrayfailed = jsonObj.getAsJsonArray("failed");
+      if (jsonArrayfailed != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("failed").isJsonArray()) {
+          throw new IllegalArgumentException(
+              String.format(
+                  "Expected the field `failed` to be an array in the JSON string but got `%s`",
+                  jsonObj.get("failed").toString()));
+        }
 
-    JsonArray jsonArraysuccess = jsonObj.getAsJsonArray("success");
-    // validate the required field `success` (array)
-    for (int i = 0; i < jsonArraysuccess.size(); i++) {
-      V1SetNormQueryBidsSuccessResponseItem.validateJsonElement(jsonArraysuccess.get(i));
+        // validate the optional field `failed` (array)
+        for (int i = 0; i < jsonArrayfailed.size(); i++) {
+          NormQueryBidFailResponseItem.validateJsonElement(jsonArrayfailed.get(i));
+        }
+        ;
+      }
     }
-    ;
-    // ensure the json data is an array
-    if (!jsonObj.get("failed").isJsonArray()) {
-      throw new IllegalArgumentException(
-          String.format(
-              "Expected the field `failed` to be an array in the JSON string but got `%s`",
-              jsonObj.get("failed").toString()));
-    }
-
-    JsonArray jsonArrayfailed = jsonObj.getAsJsonArray("failed");
-    // validate the required field `failed` (array)
-    for (int i = 0; i < jsonArrayfailed.size(); i++) {
-      NormQueryBidFailResponseItem.validateJsonElement(jsonArrayfailed.get(i));
-    }
-    ;
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

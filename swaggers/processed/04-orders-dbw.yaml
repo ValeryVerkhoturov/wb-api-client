@@ -1566,8 +1566,6 @@ components:
             type: string
     api.StatusSetResponses:
       type: object
-      required:
-      - results
       example:
         requestId: 03615778-eb9e-4f55-b4Of-fd3ac0fad2сc
         results:
@@ -1588,9 +1586,6 @@ components:
             $ref: '#/components/schemas/api.StatusSetResponse'
     api.StatusSetResponse:
       type: object
-      required:
-      - isError
-      - orderId
       properties:
         errors:
           items:
@@ -1606,9 +1601,6 @@ components:
           description: ID сборочного задания с успешно обновлёнными данными
           example: 123456
     api.BatchErrorResponse:
-      required:
-      - code
-      - detail
       properties:
         code:
           type: integer
@@ -1630,9 +1622,6 @@ components:
           description: Детали ошибки валидации идентификаторов маркировки
           items:
             type: object
-            required:
-            - decision
-            - key
             properties:
               key:
                 type: string
@@ -1663,8 +1652,6 @@ components:
       type: object
     api.MetaDeleteResponses:
       type: object
-      required:
-      - results
       properties:
         requestId:
           type: string
@@ -1673,16 +1660,10 @@ components:
           type: array
           items:
             type: object
-            required:
-            - isError
-            - orderId
             properties:
               errors:
                 items:
                   type: object
-                  required:
-                  - code
-                  - detail
                   properties:
                     code:
                       type: integer
@@ -1877,8 +1858,6 @@ components:
           example: '2025-09-06T11:33:10+03:00'
     api.OrdersMetaDetailsResponse:
       type: object
-      required:
-      - requestId
       properties:
         requestId:
           type: string
@@ -1889,8 +1868,6 @@ components:
           description: Идентификаторы маркировки сборочных заданий и статусы их валидации
           items:
             type: object
-            required:
-            - isError
             properties:
               orderId:
                 type: integer

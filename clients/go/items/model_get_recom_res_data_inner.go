@@ -11,9 +11,7 @@ API version: items
 package items
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the GetRecomResDataInner type satisfies the MappedNullable interface at compile time
@@ -22,50 +20,37 @@ var _ MappedNullable = &GetRecomResDataInner{}
 // GetRecomResDataInner struct for GetRecomResDataInner
 type GetRecomResDataInner struct {
 	// Артикул WB
-	NmId int32 `json:"nmId"`
+	NmId *int32 `json:"nmId,omitempty"`
 	// ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров
-	ImtId int64 `json:"imtId"`
+	ImtId *int64 `json:"imtId,omitempty"`
 	// Артикул продавца
-	VendorCode string `json:"vendorCode"`
+	VendorCode *string `json:"vendorCode,omitempty"`
 	// Бренд
-	BrandName string `json:"brandName"`
+	BrandName *string `json:"brandName,omitempty"`
 	// Дата и время последнего обновления рекомендаций
 	UpdatedAt NullableString `json:"updatedAt,omitempty"`
 	// Количество изображений в карточке товара
-	PicsCount int32 `json:"picsCount"`
+	PicsCount *int32 `json:"picsCount,omitempty"`
 	// Название товара
-	Title string `json:"title"`
+	Title *string `json:"title,omitempty"`
 	// Предмет
-	SubjectName string `json:"subjectName"`
+	SubjectName *string `json:"subjectName,omitempty"`
 	// URL основного изображения в карточке товара
-	Pic string `json:"pic"`
+	Pic *string `json:"pic,omitempty"`
 	// Количество рекомендуемых товаров
-	RecomCount int32 `json:"recomCount"`
+	RecomCount *int32 `json:"recomCount,omitempty"`
 	// Список URL основных изображений рекомендуемых товаров
-	RecomPics []string `json:"recomPics"`
+	RecomPics []string `json:"recomPics,omitempty"`
 	// Список `nmId` рекомендуемых товаров
-	RecomNms []int32 `json:"recomNms"`
+	RecomNms []int32 `json:"recomNms,omitempty"`
 }
-
-type _GetRecomResDataInner GetRecomResDataInner
 
 // NewGetRecomResDataInner instantiates a new GetRecomResDataInner object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetRecomResDataInner(nmId int32, imtId int64, vendorCode string, brandName string, picsCount int32, title string, subjectName string, pic string, recomCount int32, recomPics []string, recomNms []int32) *GetRecomResDataInner {
+func NewGetRecomResDataInner() *GetRecomResDataInner {
 	this := GetRecomResDataInner{}
-	this.NmId = nmId
-	this.ImtId = imtId
-	this.VendorCode = vendorCode
-	this.BrandName = brandName
-	this.PicsCount = picsCount
-	this.Title = title
-	this.SubjectName = subjectName
-	this.Pic = pic
-	this.RecomCount = recomCount
-	this.RecomPics = recomPics
-	this.RecomNms = recomNms
 	return &this
 }
 
@@ -77,100 +62,132 @@ func NewGetRecomResDataInnerWithDefaults() *GetRecomResDataInner {
 	return &this
 }
 
-// GetNmId returns the NmId field value
+// GetNmId returns the NmId field value if set, zero value otherwise.
 func (o *GetRecomResDataInner) GetNmId() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.NmId) {
 		var ret int32
 		return ret
 	}
-
-	return o.NmId
+	return *o.NmId
 }
 
-// GetNmIdOk returns a tuple with the NmId field value
+// GetNmIdOk returns a tuple with the NmId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetRecomResDataInner) GetNmIdOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.NmId) {
 		return nil, false
 	}
-	return &o.NmId, true
+	return o.NmId, true
 }
 
-// SetNmId sets field value
+// HasNmId returns a boolean if a field has been set.
+func (o *GetRecomResDataInner) HasNmId() bool {
+	if o != nil && !IsNil(o.NmId) {
+		return true
+	}
+
+	return false
+}
+
+// SetNmId gets a reference to the given int32 and assigns it to the NmId field.
 func (o *GetRecomResDataInner) SetNmId(v int32) {
-	o.NmId = v
+	o.NmId = &v
 }
 
-// GetImtId returns the ImtId field value
+// GetImtId returns the ImtId field value if set, zero value otherwise.
 func (o *GetRecomResDataInner) GetImtId() int64 {
-	if o == nil {
+	if o == nil || IsNil(o.ImtId) {
 		var ret int64
 		return ret
 	}
-
-	return o.ImtId
+	return *o.ImtId
 }
 
-// GetImtIdOk returns a tuple with the ImtId field value
+// GetImtIdOk returns a tuple with the ImtId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetRecomResDataInner) GetImtIdOk() (*int64, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ImtId) {
 		return nil, false
 	}
-	return &o.ImtId, true
+	return o.ImtId, true
 }
 
-// SetImtId sets field value
+// HasImtId returns a boolean if a field has been set.
+func (o *GetRecomResDataInner) HasImtId() bool {
+	if o != nil && !IsNil(o.ImtId) {
+		return true
+	}
+
+	return false
+}
+
+// SetImtId gets a reference to the given int64 and assigns it to the ImtId field.
 func (o *GetRecomResDataInner) SetImtId(v int64) {
-	o.ImtId = v
+	o.ImtId = &v
 }
 
-// GetVendorCode returns the VendorCode field value
+// GetVendorCode returns the VendorCode field value if set, zero value otherwise.
 func (o *GetRecomResDataInner) GetVendorCode() string {
-	if o == nil {
+	if o == nil || IsNil(o.VendorCode) {
 		var ret string
 		return ret
 	}
-
-	return o.VendorCode
+	return *o.VendorCode
 }
 
-// GetVendorCodeOk returns a tuple with the VendorCode field value
+// GetVendorCodeOk returns a tuple with the VendorCode field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetRecomResDataInner) GetVendorCodeOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.VendorCode) {
 		return nil, false
 	}
-	return &o.VendorCode, true
+	return o.VendorCode, true
 }
 
-// SetVendorCode sets field value
+// HasVendorCode returns a boolean if a field has been set.
+func (o *GetRecomResDataInner) HasVendorCode() bool {
+	if o != nil && !IsNil(o.VendorCode) {
+		return true
+	}
+
+	return false
+}
+
+// SetVendorCode gets a reference to the given string and assigns it to the VendorCode field.
 func (o *GetRecomResDataInner) SetVendorCode(v string) {
-	o.VendorCode = v
+	o.VendorCode = &v
 }
 
-// GetBrandName returns the BrandName field value
+// GetBrandName returns the BrandName field value if set, zero value otherwise.
 func (o *GetRecomResDataInner) GetBrandName() string {
-	if o == nil {
+	if o == nil || IsNil(o.BrandName) {
 		var ret string
 		return ret
 	}
-
-	return o.BrandName
+	return *o.BrandName
 }
 
-// GetBrandNameOk returns a tuple with the BrandName field value
+// GetBrandNameOk returns a tuple with the BrandName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetRecomResDataInner) GetBrandNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.BrandName) {
 		return nil, false
 	}
-	return &o.BrandName, true
+	return o.BrandName, true
 }
 
-// SetBrandName sets field value
+// HasBrandName returns a boolean if a field has been set.
+func (o *GetRecomResDataInner) HasBrandName() bool {
+	if o != nil && !IsNil(o.BrandName) {
+		return true
+	}
+
+	return false
+}
+
+// SetBrandName gets a reference to the given string and assigns it to the BrandName field.
 func (o *GetRecomResDataInner) SetBrandName(v string) {
-	o.BrandName = v
+	o.BrandName = &v
 }
 
 // GetUpdatedAt returns the UpdatedAt field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -216,170 +233,226 @@ func (o *GetRecomResDataInner) UnsetUpdatedAt() {
 	o.UpdatedAt.Unset()
 }
 
-// GetPicsCount returns the PicsCount field value
+// GetPicsCount returns the PicsCount field value if set, zero value otherwise.
 func (o *GetRecomResDataInner) GetPicsCount() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.PicsCount) {
 		var ret int32
 		return ret
 	}
-
-	return o.PicsCount
+	return *o.PicsCount
 }
 
-// GetPicsCountOk returns a tuple with the PicsCount field value
+// GetPicsCountOk returns a tuple with the PicsCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetRecomResDataInner) GetPicsCountOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.PicsCount) {
 		return nil, false
 	}
-	return &o.PicsCount, true
+	return o.PicsCount, true
 }
 
-// SetPicsCount sets field value
+// HasPicsCount returns a boolean if a field has been set.
+func (o *GetRecomResDataInner) HasPicsCount() bool {
+	if o != nil && !IsNil(o.PicsCount) {
+		return true
+	}
+
+	return false
+}
+
+// SetPicsCount gets a reference to the given int32 and assigns it to the PicsCount field.
 func (o *GetRecomResDataInner) SetPicsCount(v int32) {
-	o.PicsCount = v
+	o.PicsCount = &v
 }
 
-// GetTitle returns the Title field value
+// GetTitle returns the Title field value if set, zero value otherwise.
 func (o *GetRecomResDataInner) GetTitle() string {
-	if o == nil {
+	if o == nil || IsNil(o.Title) {
 		var ret string
 		return ret
 	}
-
-	return o.Title
+	return *o.Title
 }
 
-// GetTitleOk returns a tuple with the Title field value
+// GetTitleOk returns a tuple with the Title field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetRecomResDataInner) GetTitleOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Title) {
 		return nil, false
 	}
-	return &o.Title, true
+	return o.Title, true
 }
 
-// SetTitle sets field value
+// HasTitle returns a boolean if a field has been set.
+func (o *GetRecomResDataInner) HasTitle() bool {
+	if o != nil && !IsNil(o.Title) {
+		return true
+	}
+
+	return false
+}
+
+// SetTitle gets a reference to the given string and assigns it to the Title field.
 func (o *GetRecomResDataInner) SetTitle(v string) {
-	o.Title = v
+	o.Title = &v
 }
 
-// GetSubjectName returns the SubjectName field value
+// GetSubjectName returns the SubjectName field value if set, zero value otherwise.
 func (o *GetRecomResDataInner) GetSubjectName() string {
-	if o == nil {
+	if o == nil || IsNil(o.SubjectName) {
 		var ret string
 		return ret
 	}
-
-	return o.SubjectName
+	return *o.SubjectName
 }
 
-// GetSubjectNameOk returns a tuple with the SubjectName field value
+// GetSubjectNameOk returns a tuple with the SubjectName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetRecomResDataInner) GetSubjectNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.SubjectName) {
 		return nil, false
 	}
-	return &o.SubjectName, true
+	return o.SubjectName, true
 }
 
-// SetSubjectName sets field value
+// HasSubjectName returns a boolean if a field has been set.
+func (o *GetRecomResDataInner) HasSubjectName() bool {
+	if o != nil && !IsNil(o.SubjectName) {
+		return true
+	}
+
+	return false
+}
+
+// SetSubjectName gets a reference to the given string and assigns it to the SubjectName field.
 func (o *GetRecomResDataInner) SetSubjectName(v string) {
-	o.SubjectName = v
+	o.SubjectName = &v
 }
 
-// GetPic returns the Pic field value
+// GetPic returns the Pic field value if set, zero value otherwise.
 func (o *GetRecomResDataInner) GetPic() string {
-	if o == nil {
+	if o == nil || IsNil(o.Pic) {
 		var ret string
 		return ret
 	}
-
-	return o.Pic
+	return *o.Pic
 }
 
-// GetPicOk returns a tuple with the Pic field value
+// GetPicOk returns a tuple with the Pic field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetRecomResDataInner) GetPicOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Pic) {
 		return nil, false
 	}
-	return &o.Pic, true
+	return o.Pic, true
 }
 
-// SetPic sets field value
+// HasPic returns a boolean if a field has been set.
+func (o *GetRecomResDataInner) HasPic() bool {
+	if o != nil && !IsNil(o.Pic) {
+		return true
+	}
+
+	return false
+}
+
+// SetPic gets a reference to the given string and assigns it to the Pic field.
 func (o *GetRecomResDataInner) SetPic(v string) {
-	o.Pic = v
+	o.Pic = &v
 }
 
-// GetRecomCount returns the RecomCount field value
+// GetRecomCount returns the RecomCount field value if set, zero value otherwise.
 func (o *GetRecomResDataInner) GetRecomCount() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.RecomCount) {
 		var ret int32
 		return ret
 	}
-
-	return o.RecomCount
+	return *o.RecomCount
 }
 
-// GetRecomCountOk returns a tuple with the RecomCount field value
+// GetRecomCountOk returns a tuple with the RecomCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetRecomResDataInner) GetRecomCountOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.RecomCount) {
 		return nil, false
 	}
-	return &o.RecomCount, true
+	return o.RecomCount, true
 }
 
-// SetRecomCount sets field value
+// HasRecomCount returns a boolean if a field has been set.
+func (o *GetRecomResDataInner) HasRecomCount() bool {
+	if o != nil && !IsNil(o.RecomCount) {
+		return true
+	}
+
+	return false
+}
+
+// SetRecomCount gets a reference to the given int32 and assigns it to the RecomCount field.
 func (o *GetRecomResDataInner) SetRecomCount(v int32) {
-	o.RecomCount = v
+	o.RecomCount = &v
 }
 
-// GetRecomPics returns the RecomPics field value
+// GetRecomPics returns the RecomPics field value if set, zero value otherwise.
 func (o *GetRecomResDataInner) GetRecomPics() []string {
-	if o == nil {
+	if o == nil || IsNil(o.RecomPics) {
 		var ret []string
 		return ret
 	}
-
 	return o.RecomPics
 }
 
-// GetRecomPicsOk returns a tuple with the RecomPics field value
+// GetRecomPicsOk returns a tuple with the RecomPics field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetRecomResDataInner) GetRecomPicsOk() ([]string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.RecomPics) {
 		return nil, false
 	}
 	return o.RecomPics, true
 }
 
-// SetRecomPics sets field value
+// HasRecomPics returns a boolean if a field has been set.
+func (o *GetRecomResDataInner) HasRecomPics() bool {
+	if o != nil && !IsNil(o.RecomPics) {
+		return true
+	}
+
+	return false
+}
+
+// SetRecomPics gets a reference to the given []string and assigns it to the RecomPics field.
 func (o *GetRecomResDataInner) SetRecomPics(v []string) {
 	o.RecomPics = v
 }
 
-// GetRecomNms returns the RecomNms field value
+// GetRecomNms returns the RecomNms field value if set, zero value otherwise.
 func (o *GetRecomResDataInner) GetRecomNms() []int32 {
-	if o == nil {
+	if o == nil || IsNil(o.RecomNms) {
 		var ret []int32
 		return ret
 	}
-
 	return o.RecomNms
 }
 
-// GetRecomNmsOk returns a tuple with the RecomNms field value
+// GetRecomNmsOk returns a tuple with the RecomNms field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetRecomResDataInner) GetRecomNmsOk() ([]int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.RecomNms) {
 		return nil, false
 	}
 	return o.RecomNms, true
 }
 
-// SetRecomNms sets field value
+// HasRecomNms returns a boolean if a field has been set.
+func (o *GetRecomResDataInner) HasRecomNms() bool {
+	if o != nil && !IsNil(o.RecomNms) {
+		return true
+	}
+
+	return false
+}
+
+// SetRecomNms gets a reference to the given []int32 and assigns it to the RecomNms field.
 func (o *GetRecomResDataInner) SetRecomNms(v []int32) {
 	o.RecomNms = v
 }
@@ -394,68 +467,43 @@ func (o GetRecomResDataInner) MarshalJSON() ([]byte, error) {
 
 func (o GetRecomResDataInner) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["nmId"] = o.NmId
-	toSerialize["imtId"] = o.ImtId
-	toSerialize["vendorCode"] = o.VendorCode
-	toSerialize["brandName"] = o.BrandName
+	if !IsNil(o.NmId) {
+		toSerialize["nmId"] = o.NmId
+	}
+	if !IsNil(o.ImtId) {
+		toSerialize["imtId"] = o.ImtId
+	}
+	if !IsNil(o.VendorCode) {
+		toSerialize["vendorCode"] = o.VendorCode
+	}
+	if !IsNil(o.BrandName) {
+		toSerialize["brandName"] = o.BrandName
+	}
 	if o.UpdatedAt.IsSet() {
 		toSerialize["updatedAt"] = o.UpdatedAt.Get()
 	}
-	toSerialize["picsCount"] = o.PicsCount
-	toSerialize["title"] = o.Title
-	toSerialize["subjectName"] = o.SubjectName
-	toSerialize["pic"] = o.Pic
-	toSerialize["recomCount"] = o.RecomCount
-	toSerialize["recomPics"] = o.RecomPics
-	toSerialize["recomNms"] = o.RecomNms
+	if !IsNil(o.PicsCount) {
+		toSerialize["picsCount"] = o.PicsCount
+	}
+	if !IsNil(o.Title) {
+		toSerialize["title"] = o.Title
+	}
+	if !IsNil(o.SubjectName) {
+		toSerialize["subjectName"] = o.SubjectName
+	}
+	if !IsNil(o.Pic) {
+		toSerialize["pic"] = o.Pic
+	}
+	if !IsNil(o.RecomCount) {
+		toSerialize["recomCount"] = o.RecomCount
+	}
+	if !IsNil(o.RecomPics) {
+		toSerialize["recomPics"] = o.RecomPics
+	}
+	if !IsNil(o.RecomNms) {
+		toSerialize["recomNms"] = o.RecomNms
+	}
 	return toSerialize, nil
-}
-
-func (o *GetRecomResDataInner) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"nmId",
-		"imtId",
-		"vendorCode",
-		"brandName",
-		"picsCount",
-		"title",
-		"subjectName",
-		"pic",
-		"recomCount",
-		"recomPics",
-		"recomNms",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varGetRecomResDataInner := _GetRecomResDataInner{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varGetRecomResDataInner)
-
-	if err != nil {
-		return err
-	}
-
-	*o = GetRecomResDataInner(varGetRecomResDataInner)
-
-	return err
 }
 
 type NullableGetRecomResDataInner struct {

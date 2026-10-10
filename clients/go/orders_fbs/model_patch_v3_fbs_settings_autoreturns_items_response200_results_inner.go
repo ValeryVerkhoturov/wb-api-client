@@ -11,9 +11,7 @@ API version: order
 package orders_fbs
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInner type satisfies the MappedNullable interface at compile time
@@ -22,22 +20,19 @@ var _ MappedNullable = &PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInne
 // PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInner struct for PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInner
 type PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInner struct {
 	// ID размера товара в системе WB
-	ChrtId int32 `json:"chrtId"`
+	ChrtId *int32 `json:"chrtId,omitempty"`
 	// Детали ошибки
 	Error []PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner `json:"error,omitempty"`
 	// - `true` — настройки автовозврата товара обновлены
 	Success *bool `json:"success,omitempty"`
 }
 
-type _PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInner PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInner
-
 // NewPatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInner instantiates a new PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInner object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInner(chrtId int32) *PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInner {
+func NewPatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInner() *PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInner {
 	this := PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInner{}
-	this.ChrtId = chrtId
 	return &this
 }
 
@@ -49,28 +44,36 @@ func NewPatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerWithDefaults() 
 	return &this
 }
 
-// GetChrtId returns the ChrtId field value
+// GetChrtId returns the ChrtId field value if set, zero value otherwise.
 func (o *PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInner) GetChrtId() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.ChrtId) {
 		var ret int32
 		return ret
 	}
-
-	return o.ChrtId
+	return *o.ChrtId
 }
 
-// GetChrtIdOk returns a tuple with the ChrtId field value
+// GetChrtIdOk returns a tuple with the ChrtId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInner) GetChrtIdOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ChrtId) {
 		return nil, false
 	}
-	return &o.ChrtId, true
+	return o.ChrtId, true
 }
 
-// SetChrtId sets field value
+// HasChrtId returns a boolean if a field has been set.
+func (o *PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInner) HasChrtId() bool {
+	if o != nil && !IsNil(o.ChrtId) {
+		return true
+	}
+
+	return false
+}
+
+// SetChrtId gets a reference to the given int32 and assigns it to the ChrtId field.
 func (o *PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInner) SetChrtId(v int32) {
-	o.ChrtId = v
+	o.ChrtId = &v
 }
 
 // GetError returns the Error field value if set, zero value otherwise.
@@ -147,7 +150,9 @@ func (o PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInner) MarshalJSON()
 
 func (o PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInner) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["chrtId"] = o.ChrtId
+	if !IsNil(o.ChrtId) {
+		toSerialize["chrtId"] = o.ChrtId
+	}
 	if !IsNil(o.Error) {
 		toSerialize["error"] = o.Error
 	}
@@ -155,43 +160,6 @@ func (o PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInner) ToMap() (map[
 		toSerialize["success"] = o.Success
 	}
 	return toSerialize, nil
-}
-
-func (o *PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInner) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"chrtId",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varPatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInner := _PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInner{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varPatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInner)
-
-	if err != nil {
-		return err
-	}
-
-	*o = PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInner(varPatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInner)
-
-	return err
 }
 
 type NullablePatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInner struct {

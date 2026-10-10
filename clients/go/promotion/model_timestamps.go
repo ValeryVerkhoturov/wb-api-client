@@ -11,9 +11,7 @@ API version: promotion
 package promotion
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the Timestamps type satisfies the MappedNullable interface at compile time
@@ -22,27 +20,21 @@ var _ MappedNullable = &Timestamps{}
 // Timestamps Временные отметки
 type Timestamps struct {
 	// Время создания кампании
-	Created string `json:"created"`
+	Created *string `json:"created,omitempty"`
 	// Время последнего изменения кампании
-	Updated string `json:"updated"`
+	Updated *string `json:"updated,omitempty"`
 	// Время последнего запуска кампании
-	Started NullableString `json:"started"`
+	Started NullableString `json:"started,omitempty"`
 	// Время удаления кампании. Если кампания не удалена, время указывается в будущем
-	Deleted string `json:"deleted"`
+	Deleted *string `json:"deleted,omitempty"`
 }
-
-type _Timestamps Timestamps
 
 // NewTimestamps instantiates a new Timestamps object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTimestamps(created string, updated string, started NullableString, deleted string) *Timestamps {
+func NewTimestamps() *Timestamps {
 	this := Timestamps{}
-	this.Created = created
-	this.Updated = updated
-	this.Started = started
-	this.Deleted = deleted
 	return &this
 }
 
@@ -54,66 +46,80 @@ func NewTimestampsWithDefaults() *Timestamps {
 	return &this
 }
 
-// GetCreated returns the Created field value
+// GetCreated returns the Created field value if set, zero value otherwise.
 func (o *Timestamps) GetCreated() string {
-	if o == nil {
+	if o == nil || IsNil(o.Created) {
 		var ret string
 		return ret
 	}
-
-	return o.Created
+	return *o.Created
 }
 
-// GetCreatedOk returns a tuple with the Created field value
+// GetCreatedOk returns a tuple with the Created field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Timestamps) GetCreatedOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Created) {
 		return nil, false
 	}
-	return &o.Created, true
+	return o.Created, true
 }
 
-// SetCreated sets field value
+// HasCreated returns a boolean if a field has been set.
+func (o *Timestamps) HasCreated() bool {
+	if o != nil && !IsNil(o.Created) {
+		return true
+	}
+
+	return false
+}
+
+// SetCreated gets a reference to the given string and assigns it to the Created field.
 func (o *Timestamps) SetCreated(v string) {
-	o.Created = v
+	o.Created = &v
 }
 
-// GetUpdated returns the Updated field value
+// GetUpdated returns the Updated field value if set, zero value otherwise.
 func (o *Timestamps) GetUpdated() string {
-	if o == nil {
+	if o == nil || IsNil(o.Updated) {
 		var ret string
 		return ret
 	}
-
-	return o.Updated
+	return *o.Updated
 }
 
-// GetUpdatedOk returns a tuple with the Updated field value
+// GetUpdatedOk returns a tuple with the Updated field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Timestamps) GetUpdatedOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Updated) {
 		return nil, false
 	}
-	return &o.Updated, true
+	return o.Updated, true
 }
 
-// SetUpdated sets field value
+// HasUpdated returns a boolean if a field has been set.
+func (o *Timestamps) HasUpdated() bool {
+	if o != nil && !IsNil(o.Updated) {
+		return true
+	}
+
+	return false
+}
+
+// SetUpdated gets a reference to the given string and assigns it to the Updated field.
 func (o *Timestamps) SetUpdated(v string) {
-	o.Updated = v
+	o.Updated = &v
 }
 
-// GetStarted returns the Started field value
-// If the value is explicit nil, the zero value for string will be returned
+// GetStarted returns the Started field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *Timestamps) GetStarted() string {
-	if o == nil || o.Started.Get() == nil {
+	if o == nil || IsNil(o.Started.Get()) {
 		var ret string
 		return ret
 	}
-
 	return *o.Started.Get()
 }
 
-// GetStartedOk returns a tuple with the Started field value
+// GetStartedOk returns a tuple with the Started field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Timestamps) GetStartedOk() (*string, bool) {
@@ -123,33 +129,60 @@ func (o *Timestamps) GetStartedOk() (*string, bool) {
 	return o.Started.Get(), o.Started.IsSet()
 }
 
-// SetStarted sets field value
+// HasStarted returns a boolean if a field has been set.
+func (o *Timestamps) HasStarted() bool {
+	if o != nil && o.Started.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetStarted gets a reference to the given NullableString and assigns it to the Started field.
 func (o *Timestamps) SetStarted(v string) {
 	o.Started.Set(&v)
 }
 
-// GetDeleted returns the Deleted field value
+// SetStartedNil sets the value for Started to be an explicit nil
+func (o *Timestamps) SetStartedNil() {
+	o.Started.Set(nil)
+}
+
+// UnsetStarted ensures that no value is present for Started, not even an explicit nil
+func (o *Timestamps) UnsetStarted() {
+	o.Started.Unset()
+}
+
+// GetDeleted returns the Deleted field value if set, zero value otherwise.
 func (o *Timestamps) GetDeleted() string {
-	if o == nil {
+	if o == nil || IsNil(o.Deleted) {
 		var ret string
 		return ret
 	}
-
-	return o.Deleted
+	return *o.Deleted
 }
 
-// GetDeletedOk returns a tuple with the Deleted field value
+// GetDeletedOk returns a tuple with the Deleted field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Timestamps) GetDeletedOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Deleted) {
 		return nil, false
 	}
-	return &o.Deleted, true
+	return o.Deleted, true
 }
 
-// SetDeleted sets field value
+// HasDeleted returns a boolean if a field has been set.
+func (o *Timestamps) HasDeleted() bool {
+	if o != nil && !IsNil(o.Deleted) {
+		return true
+	}
+
+	return false
+}
+
+// SetDeleted gets a reference to the given string and assigns it to the Deleted field.
 func (o *Timestamps) SetDeleted(v string) {
-	o.Deleted = v
+	o.Deleted = &v
 }
 
 func (o Timestamps) MarshalJSON() ([]byte, error) {
@@ -162,51 +195,19 @@ func (o Timestamps) MarshalJSON() ([]byte, error) {
 
 func (o Timestamps) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["created"] = o.Created
-	toSerialize["updated"] = o.Updated
-	toSerialize["started"] = o.Started.Get()
-	toSerialize["deleted"] = o.Deleted
+	if !IsNil(o.Created) {
+		toSerialize["created"] = o.Created
+	}
+	if !IsNil(o.Updated) {
+		toSerialize["updated"] = o.Updated
+	}
+	if o.Started.IsSet() {
+		toSerialize["started"] = o.Started.Get()
+	}
+	if !IsNil(o.Deleted) {
+		toSerialize["deleted"] = o.Deleted
+	}
 	return toSerialize, nil
-}
-
-func (o *Timestamps) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"created",
-		"updated",
-		"started",
-		"deleted",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varTimestamps := _Timestamps{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varTimestamps)
-
-	if err != nil {
-		return err
-	}
-
-	*o = Timestamps(varTimestamps)
-
-	return err
 }
 
 type NullableTimestamps struct {

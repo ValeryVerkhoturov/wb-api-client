@@ -11,9 +11,7 @@ API version: promotion
 package promotion
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the GetAdverts type satisfies the MappedNullable interface at compile time
@@ -22,18 +20,15 @@ var _ MappedNullable = &GetAdverts{}
 // GetAdverts struct for GetAdverts
 type GetAdverts struct {
 	// Кампании
-	Adverts []GetAdvertsAdvertsInner `json:"adverts"`
+	Adverts []GetAdvertsAdvertsInner `json:"adverts,omitempty"`
 }
-
-type _GetAdverts GetAdverts
 
 // NewGetAdverts instantiates a new GetAdverts object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetAdverts(adverts []GetAdvertsAdvertsInner) *GetAdverts {
+func NewGetAdverts() *GetAdverts {
 	this := GetAdverts{}
-	this.Adverts = adverts
 	return &this
 }
 
@@ -45,26 +40,34 @@ func NewGetAdvertsWithDefaults() *GetAdverts {
 	return &this
 }
 
-// GetAdverts returns the Adverts field value
+// GetAdverts returns the Adverts field value if set, zero value otherwise.
 func (o *GetAdverts) GetAdverts() []GetAdvertsAdvertsInner {
-	if o == nil {
+	if o == nil || IsNil(o.Adverts) {
 		var ret []GetAdvertsAdvertsInner
 		return ret
 	}
-
 	return o.Adverts
 }
 
-// GetAdvertsOk returns a tuple with the Adverts field value
+// GetAdvertsOk returns a tuple with the Adverts field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetAdverts) GetAdvertsOk() ([]GetAdvertsAdvertsInner, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Adverts) {
 		return nil, false
 	}
 	return o.Adverts, true
 }
 
-// SetAdverts sets field value
+// HasAdverts returns a boolean if a field has been set.
+func (o *GetAdverts) HasAdverts() bool {
+	if o != nil && !IsNil(o.Adverts) {
+		return true
+	}
+
+	return false
+}
+
+// SetAdverts gets a reference to the given []GetAdvertsAdvertsInner and assigns it to the Adverts field.
 func (o *GetAdverts) SetAdverts(v []GetAdvertsAdvertsInner) {
 	o.Adverts = v
 }
@@ -79,45 +82,10 @@ func (o GetAdverts) MarshalJSON() ([]byte, error) {
 
 func (o GetAdverts) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["adverts"] = o.Adverts
+	if !IsNil(o.Adverts) {
+		toSerialize["adverts"] = o.Adverts
+	}
 	return toSerialize, nil
-}
-
-func (o *GetAdverts) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"adverts",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varGetAdverts := _GetAdverts{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varGetAdverts)
-
-	if err != nil {
-		return err
-	}
-
-	*o = GetAdverts(varGetAdverts)
-
-	return err
 }
 
 type NullableGetAdverts struct {

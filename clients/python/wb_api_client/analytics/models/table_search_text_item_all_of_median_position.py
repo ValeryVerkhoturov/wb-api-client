@@ -28,7 +28,9 @@ class TableSearchTextItemAllOfMedianPosition(BaseModel):
     Медианная позиция. Учитываются только те позиции, из которых пользователи добавляли товар в корзину или переходили в его карточку. Серединное значение позиции в поисковой выдаче, которое исключает сильные отклонения данных от среднего значения
     """  # noqa: E501
 
-    current: StrictInt = Field(description="Текущая медианная позиция")
+    current: Optional[StrictInt] = Field(
+        default=None, description="Текущая медианная позиция"
+    )
     dynamics: Optional[StrictInt] = Field(
         default=None, description="Динамика по сравнению с предыдущим периодом, %"
     )

@@ -11,9 +11,7 @@ API version: analytics
 package analytics
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the NmReportRetryReportResponse type satisfies the MappedNullable interface at compile time
@@ -22,18 +20,15 @@ var _ MappedNullable = &NmReportRetryReportResponse{}
 // NmReportRetryReportResponse struct for NmReportRetryReportResponse
 type NmReportRetryReportResponse struct {
 	// Уведомление, что началась повторная генерация отчёта
-	Data string `json:"data"`
+	Data *string `json:"data,omitempty"`
 }
-
-type _NmReportRetryReportResponse NmReportRetryReportResponse
 
 // NewNmReportRetryReportResponse instantiates a new NmReportRetryReportResponse object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewNmReportRetryReportResponse(data string) *NmReportRetryReportResponse {
+func NewNmReportRetryReportResponse() *NmReportRetryReportResponse {
 	this := NmReportRetryReportResponse{}
-	this.Data = data
 	return &this
 }
 
@@ -45,28 +40,36 @@ func NewNmReportRetryReportResponseWithDefaults() *NmReportRetryReportResponse {
 	return &this
 }
 
-// GetData returns the Data field value
+// GetData returns the Data field value if set, zero value otherwise.
 func (o *NmReportRetryReportResponse) GetData() string {
-	if o == nil {
+	if o == nil || IsNil(o.Data) {
 		var ret string
 		return ret
 	}
-
-	return o.Data
+	return *o.Data
 }
 
-// GetDataOk returns a tuple with the Data field value
+// GetDataOk returns a tuple with the Data field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NmReportRetryReportResponse) GetDataOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Data) {
 		return nil, false
 	}
-	return &o.Data, true
+	return o.Data, true
 }
 
-// SetData sets field value
+// HasData returns a boolean if a field has been set.
+func (o *NmReportRetryReportResponse) HasData() bool {
+	if o != nil && !IsNil(o.Data) {
+		return true
+	}
+
+	return false
+}
+
+// SetData gets a reference to the given string and assigns it to the Data field.
 func (o *NmReportRetryReportResponse) SetData(v string) {
-	o.Data = v
+	o.Data = &v
 }
 
 func (o NmReportRetryReportResponse) MarshalJSON() ([]byte, error) {
@@ -79,45 +82,10 @@ func (o NmReportRetryReportResponse) MarshalJSON() ([]byte, error) {
 
 func (o NmReportRetryReportResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["data"] = o.Data
+	if !IsNil(o.Data) {
+		toSerialize["data"] = o.Data
+	}
 	return toSerialize, nil
-}
-
-func (o *NmReportRetryReportResponse) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"data",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varNmReportRetryReportResponse := _NmReportRetryReportResponse{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varNmReportRetryReportResponse)
-
-	if err != nil {
-		return err
-	}
-
-	*o = NmReportRetryReportResponse(varNmReportRetryReportResponse)
-
-	return err
 }
 
 type NullableNmReportRetryReportResponse struct {

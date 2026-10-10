@@ -39,7 +39,7 @@ public class TableGroupItemMetricsOpenToCart {
   public static final String SERIALIZED_NAME_CURRENT = "current";
 
   @SerializedName(SERIALIZED_NAME_CURRENT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer current;
 
   public static final String SERIALIZED_NAME_DYNAMICS = "dynamics";
@@ -50,7 +50,7 @@ public class TableGroupItemMetricsOpenToCart {
 
   public TableGroupItemMetricsOpenToCart() {}
 
-  public TableGroupItemMetricsOpenToCart current(@jakarta.annotation.Nonnull Integer current) {
+  public TableGroupItemMetricsOpenToCart current(@jakarta.annotation.Nullable Integer current) {
     this.current = current;
     return this;
   }
@@ -60,12 +60,12 @@ public class TableGroupItemMetricsOpenToCart {
    *
    * @return current
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getCurrent() {
     return current;
   }
 
-  public void setCurrent(@jakarta.annotation.Nonnull Integer current) {
+  public void setCurrent(@jakarta.annotation.Nullable Integer current) {
     this.current = current;
   }
 
@@ -138,7 +138,6 @@ public class TableGroupItemMetricsOpenToCart {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("current");
   }
 
   /**
@@ -167,16 +166,6 @@ public class TableGroupItemMetricsOpenToCart {
             String.format(
                 "The field `%s` in the JSON string is not defined in the `TableGroupItemMetricsOpenToCart` properties. JSON: %s",
                 entry.getKey(), jsonElement.toString()));
-      }
-    }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : TableGroupItemMetricsOpenToCart.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
       }
     }
     JsonObject jsonObj = jsonElement.getAsJsonObject();

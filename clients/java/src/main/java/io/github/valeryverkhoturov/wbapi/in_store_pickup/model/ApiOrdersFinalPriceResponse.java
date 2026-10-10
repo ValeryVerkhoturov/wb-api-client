@@ -39,18 +39,18 @@ public class ApiOrdersFinalPriceResponse {
   public static final String SERIALIZED_NAME_REQUEST_ID = "requestId";
 
   @SerializedName(SERIALIZED_NAME_REQUEST_ID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String requestId;
 
   public static final String SERIALIZED_NAME_RESULTS = "results";
 
   @SerializedName(SERIALIZED_NAME_RESULTS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private List<ApiOrderFinalPriceResult> results = new ArrayList<>();
 
   public ApiOrdersFinalPriceResponse() {}
 
-  public ApiOrdersFinalPriceResponse requestId(@jakarta.annotation.Nonnull String requestId) {
+  public ApiOrdersFinalPriceResponse requestId(@jakarta.annotation.Nullable String requestId) {
     this.requestId = requestId;
     return this;
   }
@@ -60,17 +60,17 @@ public class ApiOrdersFinalPriceResponse {
    *
    * @return requestId
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getRequestId() {
     return requestId;
   }
 
-  public void setRequestId(@jakarta.annotation.Nonnull String requestId) {
+  public void setRequestId(@jakarta.annotation.Nullable String requestId) {
     this.requestId = requestId;
   }
 
   public ApiOrdersFinalPriceResponse results(
-      @jakarta.annotation.Nonnull List<ApiOrderFinalPriceResult> results) {
+      @jakarta.annotation.Nullable List<ApiOrderFinalPriceResult> results) {
     this.results = results;
     return this;
   }
@@ -88,12 +88,12 @@ public class ApiOrdersFinalPriceResponse {
    *
    * @return results
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public List<ApiOrderFinalPriceResult> getResults() {
     return results;
   }
 
-  public void setResults(@jakarta.annotation.Nonnull List<ApiOrderFinalPriceResult> results) {
+  public void setResults(@jakarta.annotation.Nullable List<ApiOrderFinalPriceResult> results) {
     this.results = results;
   }
 
@@ -146,8 +146,6 @@ public class ApiOrdersFinalPriceResponse {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("requestId");
-    openapiRequiredFields.add("results");
   }
 
   /**
@@ -177,37 +175,32 @@ public class ApiOrdersFinalPriceResponse {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : ApiOrdersFinalPriceResponse.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    if (!jsonObj.get("requestId").isJsonPrimitive()) {
+    if ((jsonObj.get("requestId") != null && !jsonObj.get("requestId").isJsonNull())
+        && !jsonObj.get("requestId").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `requestId` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("requestId").toString()));
     }
-    // ensure the json data is an array
-    if (!jsonObj.get("results").isJsonArray()) {
-      throw new IllegalArgumentException(
-          String.format(
-              "Expected the field `results` to be an array in the JSON string but got `%s`",
-              jsonObj.get("results").toString()));
-    }
+    if (jsonObj.get("results") != null && !jsonObj.get("results").isJsonNull()) {
+      JsonArray jsonArrayresults = jsonObj.getAsJsonArray("results");
+      if (jsonArrayresults != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("results").isJsonArray()) {
+          throw new IllegalArgumentException(
+              String.format(
+                  "Expected the field `results` to be an array in the JSON string but got `%s`",
+                  jsonObj.get("results").toString()));
+        }
 
-    JsonArray jsonArrayresults = jsonObj.getAsJsonArray("results");
-    // validate the required field `results` (array)
-    for (int i = 0; i < jsonArrayresults.size(); i++) {
-      ApiOrderFinalPriceResult.validateJsonElement(jsonArrayresults.get(i));
+        // validate the optional field `results` (array)
+        for (int i = 0; i < jsonArrayresults.size(); i++) {
+          ApiOrderFinalPriceResult.validateJsonElement(jsonArrayresults.get(i));
+        }
+        ;
+      }
     }
-    ;
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

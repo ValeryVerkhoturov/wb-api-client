@@ -87,13 +87,13 @@ export interface ApiB2bClientInfoResponse {
    * @type {boolean}
    * @memberof ApiB2bClientInfoResponse
    */
-  isError: boolean;
+  isError?: boolean;
   /**
    * ID сборочного задания
    * @type {number}
    * @memberof ApiB2bClientInfoResponse
    */
-  orderId: number;
+  orderId?: number;
 }
 /**
  *
@@ -125,7 +125,7 @@ export interface ApiB2bClientInfoResponses {
    * @type {string}
    * @memberof ApiB2bClientInfoResponses
    */
-  requestId: string;
+  requestId?: string;
   /**
    *
    * @type {Array<ApiB2bClientInfoResponse>}
@@ -225,13 +225,13 @@ export interface ApiBatchErrorFinalPriceResponse {
    * @type {number}
    * @memberof ApiBatchErrorFinalPriceResponse
    */
-  code: number;
+  code?: number;
   /**
    * - `NotFound` — сборочное задание не найдено (`404`) - `StatusMismatch` — операция невозможна для этого статуса сборочного задания (`400`) - `PriceNotCalculated` — операция невозможна для сборочных заданий, созданных ранее 23.07.2026 (`422`)
    * @type {string}
    * @memberof ApiBatchErrorFinalPriceResponse
    */
-  detail: string;
+  detail?: string;
 }
 /**
  *
@@ -351,7 +351,7 @@ export interface ApiOrderFinalPriceResult {
    * @type {number}
    * @memberof ApiOrderFinalPriceResult
    */
-  orderId: number;
+  orderId?: number;
   /**
    *
    * @type {ApiOrderFinalPriceResultData}
@@ -495,13 +495,13 @@ export interface ApiOrdersFinalPriceResponse {
    * @type {string}
    * @memberof ApiOrdersFinalPriceResponse
    */
-  requestId: string;
+  requestId?: string;
   /**
    *
    * @type {Array<ApiOrderFinalPriceResult>}
    * @memberof ApiOrdersFinalPriceResponse
    */
-  results: Array<ApiOrderFinalPriceResult>;
+  results?: Array<ApiOrderFinalPriceResult>;
 }
 /**
  *
@@ -571,7 +571,7 @@ export interface ApiOrdersMetaDetailsResponse {
    * @type {string}
    * @memberof ApiOrdersMetaDetailsResponse
    */
-  requestId: string;
+  requestId?: string;
   /**
    * Идентификаторы маркировки сборочных заданий и статусы их валидации
    * @type {Array<ApiOrdersMetaDetailsResponseOrdersInner>}
@@ -596,7 +596,7 @@ export interface ApiOrdersMetaDetailsResponseOrdersInner {
    * @type {boolean}
    * @memberof ApiOrdersMetaDetailsResponseOrdersInner
    */
-  isError: boolean;
+  isError?: boolean;
   /**
    * Информация об ошибке
    * @type {Array<ApiOrdersMetaDetailsResponseOrdersInnerErrorsInner>}
@@ -1710,31 +1710,31 @@ export interface PostV3DbsOrdersStickersResponse200StickersInner {
    * @type {number}
    * @memberof PostV3DbsOrdersStickersResponse200StickersInner
    */
-  orderId: number;
+  orderId?: number;
   /**
    * Первая часть ID стикера
    * @type {string}
    * @memberof PostV3DbsOrdersStickersResponse200StickersInner
    */
-  partA: string;
+  partA?: string;
   /**
    * Вторая часть ID стикера
    * @type {string}
    * @memberof PostV3DbsOrdersStickersResponse200StickersInner
    */
-  partB: string;
+  partB?: string;
   /**
    * Закодированное значение стикера
    * @type {string}
    * @memberof PostV3DbsOrdersStickersResponse200StickersInner
    */
-  barcode: string;
+  barcode?: string;
   /**
    * Полное представление стикера, кодировка base64
    * @type {string}
    * @memberof PostV3DbsOrdersStickersResponse200StickersInner
    */
-  file: string;
+  file?: string;
 }
 /**
  *

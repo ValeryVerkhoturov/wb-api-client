@@ -34,21 +34,11 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersDbw.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiMetaDeleteResponsesResultsInnerErrorsInner" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected ApiMetaDeleteResponsesResultsInnerErrorsInner() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ApiMetaDeleteResponsesResultsInnerErrorsInner" /> class.
-        /// </summary>
-        /// <param name="code">Код ошибки:   - &#x60;404&#x60;   - &#x60;409&#x60;  (required).</param>
-        /// <param name="detail">- &#x60;NotFound&#x60; — сборочное задание не найдено - &#x60;StatusMismatch&#x60; — операция невозможна для этого статуса сборочного задания - &#x60;ImeiIsNotFilled&#x60; — не заполнен IMEI  (required).</param>
+        /// <param name="code">Код ошибки:   - &#x60;404&#x60;   - &#x60;409&#x60; .</param>
+        /// <param name="detail">- &#x60;NotFound&#x60; — сборочное задание не найдено - &#x60;StatusMismatch&#x60; — операция невозможна для этого статуса сборочного задания - &#x60;ImeiIsNotFilled&#x60; — не заполнен IMEI .</param>
         public ApiMetaDeleteResponsesResultsInnerErrorsInner(int code = default(int), string detail = default(string))
         {
             this.Code = code;
-            // to ensure "detail" is required (not null)
-            if (detail == null)
-            {
-                throw new ArgumentNullException("detail is a required property for ApiMetaDeleteResponsesResultsInnerErrorsInner and cannot be null");
-            }
             this.Detail = detail;
         }
 
@@ -56,14 +46,14 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersDbw.Model
         /// Код ошибки:   - &#x60;404&#x60;   - &#x60;409&#x60; 
         /// </summary>
         /// <value>Код ошибки:   - &#x60;404&#x60;   - &#x60;409&#x60; </value>
-        [DataMember(Name = "code", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "code", EmitDefaultValue = false)]
         public int Code { get; set; }
 
         /// <summary>
         /// - &#x60;NotFound&#x60; — сборочное задание не найдено - &#x60;StatusMismatch&#x60; — операция невозможна для этого статуса сборочного задания - &#x60;ImeiIsNotFilled&#x60; — не заполнен IMEI 
         /// </summary>
         /// <value>- &#x60;NotFound&#x60; — сборочное задание не найдено - &#x60;StatusMismatch&#x60; — операция невозможна для этого статуса сборочного задания - &#x60;ImeiIsNotFilled&#x60; — не заполнен IMEI </value>
-        [DataMember(Name = "detail", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "detail", EmitDefaultValue = false)]
         public string Detail { get; set; }
 
         /// <summary>

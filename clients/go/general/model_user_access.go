@@ -22,7 +22,7 @@ type UserAccess struct {
 	// ID пользователя
 	UserId *int32 `json:"userId,omitempty"`
 	// Настройки доступа к разделам профиля продавца
-	Access []GetUsersResponseUsersInnerAccessInner `json:"access,omitempty"`
+	Access []CreateInviteRequestAccessInner `json:"access,omitempty"`
 }
 
 // NewUserAccess instantiates a new UserAccess object
@@ -75,9 +75,9 @@ func (o *UserAccess) SetUserId(v int32) {
 }
 
 // GetAccess returns the Access field value if set, zero value otherwise.
-func (o *UserAccess) GetAccess() []GetUsersResponseUsersInnerAccessInner {
+func (o *UserAccess) GetAccess() []CreateInviteRequestAccessInner {
 	if o == nil || IsNil(o.Access) {
-		var ret []GetUsersResponseUsersInnerAccessInner
+		var ret []CreateInviteRequestAccessInner
 		return ret
 	}
 	return o.Access
@@ -85,7 +85,7 @@ func (o *UserAccess) GetAccess() []GetUsersResponseUsersInnerAccessInner {
 
 // GetAccessOk returns a tuple with the Access field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *UserAccess) GetAccessOk() ([]GetUsersResponseUsersInnerAccessInner, bool) {
+func (o *UserAccess) GetAccessOk() ([]CreateInviteRequestAccessInner, bool) {
 	if o == nil || IsNil(o.Access) {
 		return nil, false
 	}
@@ -101,8 +101,8 @@ func (o *UserAccess) HasAccess() bool {
 	return false
 }
 
-// SetAccess gets a reference to the given []GetUsersResponseUsersInnerAccessInner and assigns it to the Access field.
-func (o *UserAccess) SetAccess(v []GetUsersResponseUsersInnerAccessInner) {
+// SetAccess gets a reference to the given []CreateInviteRequestAccessInner and assigns it to the Access field.
+func (o *UserAccess) SetAccess(v []CreateInviteRequestAccessInner) {
 	o.Access = v
 }
 

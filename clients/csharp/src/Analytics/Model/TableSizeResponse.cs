@@ -34,24 +34,14 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TableSizeResponse" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected TableSizeResponse() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="TableSizeResponse" /> class.
-        /// </summary>
         /// <param name="offices">Множество данных по складам.</param>
         /// <param name="sizes">Множество данных по размерам товара.</param>
-        /// <param name="currency">Валюта отчёта (required).</param>
+        /// <param name="currency">Валюта отчёта.</param>
         public TableSizeResponse(List<TableOfficeItem> offices = default(List<TableOfficeItem>), List<TableSizeResponseSizesInner> sizes = default(List<TableSizeResponseSizesInner>), string currency = default(string))
         {
-            // to ensure "currency" is required (not null)
-            if (currency == null)
-            {
-                throw new ArgumentNullException("currency is a required property for TableSizeResponse and cannot be null");
-            }
-            this.Currency = currency;
             this.Offices = offices;
             this.Sizes = sizes;
+            this.Currency = currency;
         }
 
         /// <summary>
@@ -75,7 +65,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>RUB</example>
         */
-        [DataMember(Name = "currency", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "currency", EmitDefaultValue = false)]
         public string Currency { get; set; }
 
         /// <summary>

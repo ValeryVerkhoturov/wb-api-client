@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from wb_api_client.promotion.models.v0_daily_limit_advert import V0DailyLimitAdvert
 from typing import Optional, Set
 from typing_extensions import Self
@@ -29,7 +29,7 @@ class V0GetDailyLimitsResponse(BaseModel):
     V0GetDailyLimitsResponse
     """  # noqa: E501
 
-    adverts: List[V0DailyLimitAdvert]
+    adverts: Optional[List[V0DailyLimitAdvert]] = None
     __properties: ClassVar[List[str]] = ["adverts"]
 
     model_config = ConfigDict(

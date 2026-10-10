@@ -34,21 +34,11 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ModelsErrorSubcategory" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected ModelsErrorSubcategory() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ModelsErrorSubcategory" /> class.
-        /// </summary>
-        /// <param name="id">ID предмета (required).</param>
-        /// <param name="name">Название предмета (required).</param>
+        /// <param name="id">ID предмета.</param>
+        /// <param name="name">Название предмета.</param>
         public ModelsErrorSubcategory(decimal id = default(decimal), string name = default(string))
         {
             this.Id = id;
-            // to ensure "name" is required (not null)
-            if (name == null)
-            {
-                throw new ArgumentNullException("name is a required property for ModelsErrorSubcategory and cannot be null");
-            }
             this.Name = name;
         }
 
@@ -56,14 +46,14 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// ID предмета
         /// </summary>
         /// <value>ID предмета</value>
-        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "id", EmitDefaultValue = false)]
         public decimal Id { get; set; }
 
         /// <summary>
         /// Название предмета
         /// </summary>
         /// <value>Название предмета</value>
-        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "name", EmitDefaultValue = false)]
         public string Name { get; set; }
 
         /// <summary>

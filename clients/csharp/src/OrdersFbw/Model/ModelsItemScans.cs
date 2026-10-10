@@ -62,42 +62,22 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Model
         /// Тип расхождения товара:  - &#x60;surplus&#x60; — товара больше, чем заявлено  - &#x60;shortage&#x60; — товара меньше, чем заявлено  - &#x60;re-sorting&#x60; — баркод принятого товара не соответствует заявленному при формировании поставки 
         /// </summary>
         /// <value>Тип расхождения товара:  - &#x60;surplus&#x60; — товара больше, чем заявлено  - &#x60;shortage&#x60; — товара меньше, чем заявлено  - &#x60;re-sorting&#x60; — баркод принятого товара не соответствует заявленному при формировании поставки </value>
-        [DataMember(Name = "discrepancyLabel", IsRequired = true, EmitDefaultValue = true)]
-        public DiscrepancyLabelEnum DiscrepancyLabel { get; set; }
+        [DataMember(Name = "discrepancyLabel", EmitDefaultValue = false)]
+        public DiscrepancyLabelEnum? DiscrepancyLabel { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="ModelsItemScans" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected ModelsItemScans() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ModelsItemScans" /> class.
-        /// </summary>
-        /// <param name="scanId">ID сканирования (required).</param>
-        /// <param name="declaredSku">Баркод, заявленный при формировании поставки (required).</param>
-        /// <param name="scanTime">Дата и время сканирования (required).</param>
-        /// <param name="discrepancyLabel">Тип расхождения товара:  - &#x60;surplus&#x60; — товара больше, чем заявлено  - &#x60;shortage&#x60; — товара меньше, чем заявлено  - &#x60;re-sorting&#x60; — баркод принятого товара не соответствует заявленному при формировании поставки  (required).</param>
-        /// <param name="actualSku">Фактический баркод (required).</param>
-        public ModelsItemScans(int scanId = default(int), string declaredSku = default(string), string scanTime = default(string), DiscrepancyLabelEnum discrepancyLabel = default(DiscrepancyLabelEnum), string actualSku = default(string))
+        /// <param name="scanId">ID сканирования.</param>
+        /// <param name="declaredSku">Баркод, заявленный при формировании поставки.</param>
+        /// <param name="scanTime">Дата и время сканирования.</param>
+        /// <param name="discrepancyLabel">Тип расхождения товара:  - &#x60;surplus&#x60; — товара больше, чем заявлено  - &#x60;shortage&#x60; — товара меньше, чем заявлено  - &#x60;re-sorting&#x60; — баркод принятого товара не соответствует заявленному при формировании поставки .</param>
+        /// <param name="actualSku">Фактический баркод.</param>
+        public ModelsItemScans(int scanId = default(int), string declaredSku = default(string), string scanTime = default(string), DiscrepancyLabelEnum? discrepancyLabel = default(DiscrepancyLabelEnum?), string actualSku = default(string))
         {
             this.ScanId = scanId;
-            // to ensure "declaredSku" is required (not null)
-            if (declaredSku == null)
-            {
-                throw new ArgumentNullException("declaredSku is a required property for ModelsItemScans and cannot be null");
-            }
             this.DeclaredSku = declaredSku;
-            // to ensure "scanTime" is required (not null)
-            if (scanTime == null)
-            {
-                throw new ArgumentNullException("scanTime is a required property for ModelsItemScans and cannot be null");
-            }
             this.ScanTime = scanTime;
             this.DiscrepancyLabel = discrepancyLabel;
-            // to ensure "actualSku" is required (not null)
-            if (actualSku == null)
-            {
-                throw new ArgumentNullException("actualSku is a required property for ModelsItemScans and cannot be null");
-            }
             this.ActualSku = actualSku;
         }
 
@@ -105,28 +85,28 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Model
         /// ID сканирования
         /// </summary>
         /// <value>ID сканирования</value>
-        [DataMember(Name = "scanId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "scanId", EmitDefaultValue = false)]
         public int ScanId { get; set; }
 
         /// <summary>
         /// Баркод, заявленный при формировании поставки
         /// </summary>
         /// <value>Баркод, заявленный при формировании поставки</value>
-        [DataMember(Name = "declaredSku", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "declaredSku", EmitDefaultValue = false)]
         public string DeclaredSku { get; set; }
 
         /// <summary>
         /// Дата и время сканирования
         /// </summary>
         /// <value>Дата и время сканирования</value>
-        [DataMember(Name = "scanTime", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "scanTime", EmitDefaultValue = false)]
         public string ScanTime { get; set; }
 
         /// <summary>
         /// Фактический баркод
         /// </summary>
         /// <value>Фактический баркод</value>
-        [DataMember(Name = "actualSku", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "actualSku", EmitDefaultValue = false)]
         public string ActualSku { get; set; }
 
         /// <summary>

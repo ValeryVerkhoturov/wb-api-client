@@ -34,22 +34,12 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersDbw.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiStatusSetResponses" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected ApiStatusSetResponses() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ApiStatusSetResponses" /> class.
-        /// </summary>
         /// <param name="requestId">Уникальный ID запроса, содержащего ошибки..</param>
-        /// <param name="results">results (required).</param>
+        /// <param name="results">results.</param>
         public ApiStatusSetResponses(string requestId = default(string), List<ApiStatusSetResponse> results = default(List<ApiStatusSetResponse>))
         {
-            // to ensure "results" is required (not null)
-            if (results == null)
-            {
-                throw new ArgumentNullException("results is a required property for ApiStatusSetResponses and cannot be null");
-            }
-            this.Results = results;
             this.RequestId = requestId;
+            this.Results = results;
         }
 
         /// <summary>
@@ -62,7 +52,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersDbw.Model
         /// <summary>
         /// Gets or Sets Results
         /// </summary>
-        [DataMember(Name = "results", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "results", EmitDefaultValue = false)]
         public List<ApiStatusSetResponse> Results { get; set; }
 
         /// <summary>

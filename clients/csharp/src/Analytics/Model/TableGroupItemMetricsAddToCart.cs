@@ -34,12 +34,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TableGroupItemMetricsAddToCart" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected TableGroupItemMetricsAddToCart() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="TableGroupItemMetricsAddToCart" /> class.
-        /// </summary>
-        /// <param name="current">Текущее количество (required).</param>
+        /// <param name="current">Текущее количество.</param>
         /// <param name="dynamics">Динамика по сравнению с предыдущим периодом, %.</param>
         public TableGroupItemMetricsAddToCart(int current = default(int), int dynamics = default(int))
         {
@@ -54,7 +49,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>5</example>
         */
-        [DataMember(Name = "current", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "current", EmitDefaultValue = false)]
         public int Current { get; set; }
 
         /// <summary>

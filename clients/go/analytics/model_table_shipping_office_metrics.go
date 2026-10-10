@@ -11,9 +11,7 @@ API version: analytics
 package analytics
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the TableShippingOfficeMetrics type satisfies the MappedNullable interface at compile time
@@ -22,29 +20,22 @@ var _ MappedNullable = &TableShippingOfficeMetrics{}
 // TableShippingOfficeMetrics Общие метрики по регионам/складам отгрузки
 type TableShippingOfficeMetrics struct {
 	// Остатки на текущий день, шт.
-	StockCount int32 `json:"stockCount"`
+	StockCount *int32 `json:"stockCount,omitempty"`
 	// Остатки на текущий день, сумма
-	StockSum int32                      `json:"stockSum"`
-	SaleRate TableCommonMetricsSaleRate `json:"saleRate"`
+	StockSum *int32                      `json:"stockSum,omitempty"`
+	SaleRate *TableCommonMetricsSaleRate `json:"saleRate,omitempty"`
 	// В пути к клиенту, шт.
-	ToClientCount int32 `json:"toClientCount"`
+	ToClientCount *int32 `json:"toClientCount,omitempty"`
 	// В пути от клиента, шт.
-	FromClientCount int32 `json:"fromClientCount"`
+	FromClientCount *int32 `json:"fromClientCount,omitempty"`
 }
-
-type _TableShippingOfficeMetrics TableShippingOfficeMetrics
 
 // NewTableShippingOfficeMetrics instantiates a new TableShippingOfficeMetrics object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTableShippingOfficeMetrics(stockCount int32, stockSum int32, saleRate TableCommonMetricsSaleRate, toClientCount int32, fromClientCount int32) *TableShippingOfficeMetrics {
+func NewTableShippingOfficeMetrics() *TableShippingOfficeMetrics {
 	this := TableShippingOfficeMetrics{}
-	this.StockCount = stockCount
-	this.StockSum = stockSum
-	this.SaleRate = saleRate
-	this.ToClientCount = toClientCount
-	this.FromClientCount = fromClientCount
 	return &this
 }
 
@@ -56,124 +47,164 @@ func NewTableShippingOfficeMetricsWithDefaults() *TableShippingOfficeMetrics {
 	return &this
 }
 
-// GetStockCount returns the StockCount field value
+// GetStockCount returns the StockCount field value if set, zero value otherwise.
 func (o *TableShippingOfficeMetrics) GetStockCount() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.StockCount) {
 		var ret int32
 		return ret
 	}
-
-	return o.StockCount
+	return *o.StockCount
 }
 
-// GetStockCountOk returns a tuple with the StockCount field value
+// GetStockCountOk returns a tuple with the StockCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableShippingOfficeMetrics) GetStockCountOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.StockCount) {
 		return nil, false
 	}
-	return &o.StockCount, true
+	return o.StockCount, true
 }
 
-// SetStockCount sets field value
+// HasStockCount returns a boolean if a field has been set.
+func (o *TableShippingOfficeMetrics) HasStockCount() bool {
+	if o != nil && !IsNil(o.StockCount) {
+		return true
+	}
+
+	return false
+}
+
+// SetStockCount gets a reference to the given int32 and assigns it to the StockCount field.
 func (o *TableShippingOfficeMetrics) SetStockCount(v int32) {
-	o.StockCount = v
+	o.StockCount = &v
 }
 
-// GetStockSum returns the StockSum field value
+// GetStockSum returns the StockSum field value if set, zero value otherwise.
 func (o *TableShippingOfficeMetrics) GetStockSum() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.StockSum) {
 		var ret int32
 		return ret
 	}
-
-	return o.StockSum
+	return *o.StockSum
 }
 
-// GetStockSumOk returns a tuple with the StockSum field value
+// GetStockSumOk returns a tuple with the StockSum field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableShippingOfficeMetrics) GetStockSumOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.StockSum) {
 		return nil, false
 	}
-	return &o.StockSum, true
+	return o.StockSum, true
 }
 
-// SetStockSum sets field value
+// HasStockSum returns a boolean if a field has been set.
+func (o *TableShippingOfficeMetrics) HasStockSum() bool {
+	if o != nil && !IsNil(o.StockSum) {
+		return true
+	}
+
+	return false
+}
+
+// SetStockSum gets a reference to the given int32 and assigns it to the StockSum field.
 func (o *TableShippingOfficeMetrics) SetStockSum(v int32) {
-	o.StockSum = v
+	o.StockSum = &v
 }
 
-// GetSaleRate returns the SaleRate field value
+// GetSaleRate returns the SaleRate field value if set, zero value otherwise.
 func (o *TableShippingOfficeMetrics) GetSaleRate() TableCommonMetricsSaleRate {
-	if o == nil {
+	if o == nil || IsNil(o.SaleRate) {
 		var ret TableCommonMetricsSaleRate
 		return ret
 	}
-
-	return o.SaleRate
+	return *o.SaleRate
 }
 
-// GetSaleRateOk returns a tuple with the SaleRate field value
+// GetSaleRateOk returns a tuple with the SaleRate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableShippingOfficeMetrics) GetSaleRateOk() (*TableCommonMetricsSaleRate, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.SaleRate) {
 		return nil, false
 	}
-	return &o.SaleRate, true
+	return o.SaleRate, true
 }
 
-// SetSaleRate sets field value
+// HasSaleRate returns a boolean if a field has been set.
+func (o *TableShippingOfficeMetrics) HasSaleRate() bool {
+	if o != nil && !IsNil(o.SaleRate) {
+		return true
+	}
+
+	return false
+}
+
+// SetSaleRate gets a reference to the given TableCommonMetricsSaleRate and assigns it to the SaleRate field.
 func (o *TableShippingOfficeMetrics) SetSaleRate(v TableCommonMetricsSaleRate) {
-	o.SaleRate = v
+	o.SaleRate = &v
 }
 
-// GetToClientCount returns the ToClientCount field value
+// GetToClientCount returns the ToClientCount field value if set, zero value otherwise.
 func (o *TableShippingOfficeMetrics) GetToClientCount() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.ToClientCount) {
 		var ret int32
 		return ret
 	}
-
-	return o.ToClientCount
+	return *o.ToClientCount
 }
 
-// GetToClientCountOk returns a tuple with the ToClientCount field value
+// GetToClientCountOk returns a tuple with the ToClientCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableShippingOfficeMetrics) GetToClientCountOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ToClientCount) {
 		return nil, false
 	}
-	return &o.ToClientCount, true
+	return o.ToClientCount, true
 }
 
-// SetToClientCount sets field value
+// HasToClientCount returns a boolean if a field has been set.
+func (o *TableShippingOfficeMetrics) HasToClientCount() bool {
+	if o != nil && !IsNil(o.ToClientCount) {
+		return true
+	}
+
+	return false
+}
+
+// SetToClientCount gets a reference to the given int32 and assigns it to the ToClientCount field.
 func (o *TableShippingOfficeMetrics) SetToClientCount(v int32) {
-	o.ToClientCount = v
+	o.ToClientCount = &v
 }
 
-// GetFromClientCount returns the FromClientCount field value
+// GetFromClientCount returns the FromClientCount field value if set, zero value otherwise.
 func (o *TableShippingOfficeMetrics) GetFromClientCount() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.FromClientCount) {
 		var ret int32
 		return ret
 	}
-
-	return o.FromClientCount
+	return *o.FromClientCount
 }
 
-// GetFromClientCountOk returns a tuple with the FromClientCount field value
+// GetFromClientCountOk returns a tuple with the FromClientCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableShippingOfficeMetrics) GetFromClientCountOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.FromClientCount) {
 		return nil, false
 	}
-	return &o.FromClientCount, true
+	return o.FromClientCount, true
 }
 
-// SetFromClientCount sets field value
+// HasFromClientCount returns a boolean if a field has been set.
+func (o *TableShippingOfficeMetrics) HasFromClientCount() bool {
+	if o != nil && !IsNil(o.FromClientCount) {
+		return true
+	}
+
+	return false
+}
+
+// SetFromClientCount gets a reference to the given int32 and assigns it to the FromClientCount field.
 func (o *TableShippingOfficeMetrics) SetFromClientCount(v int32) {
-	o.FromClientCount = v
+	o.FromClientCount = &v
 }
 
 func (o TableShippingOfficeMetrics) MarshalJSON() ([]byte, error) {
@@ -186,53 +217,22 @@ func (o TableShippingOfficeMetrics) MarshalJSON() ([]byte, error) {
 
 func (o TableShippingOfficeMetrics) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["stockCount"] = o.StockCount
-	toSerialize["stockSum"] = o.StockSum
-	toSerialize["saleRate"] = o.SaleRate
-	toSerialize["toClientCount"] = o.ToClientCount
-	toSerialize["fromClientCount"] = o.FromClientCount
+	if !IsNil(o.StockCount) {
+		toSerialize["stockCount"] = o.StockCount
+	}
+	if !IsNil(o.StockSum) {
+		toSerialize["stockSum"] = o.StockSum
+	}
+	if !IsNil(o.SaleRate) {
+		toSerialize["saleRate"] = o.SaleRate
+	}
+	if !IsNil(o.ToClientCount) {
+		toSerialize["toClientCount"] = o.ToClientCount
+	}
+	if !IsNil(o.FromClientCount) {
+		toSerialize["fromClientCount"] = o.FromClientCount
+	}
 	return toSerialize, nil
-}
-
-func (o *TableShippingOfficeMetrics) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"stockCount",
-		"stockSum",
-		"saleRate",
-		"toClientCount",
-		"fromClientCount",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varTableShippingOfficeMetrics := _TableShippingOfficeMetrics{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varTableShippingOfficeMetrics)
-
-	if err != nil {
-		return err
-	}
-
-	*o = TableShippingOfficeMetrics(varTableShippingOfficeMetrics)
-
-	return err
 }
 
 type NullableTableShippingOfficeMetrics struct {

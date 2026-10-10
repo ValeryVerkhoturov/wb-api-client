@@ -36,7 +36,7 @@ public class FeedbacksIncreaseItemThreeStar {
   public static final String SERIALIZED_NAME_CURRENT = "current";
 
   @SerializedName(SERIALIZED_NAME_CURRENT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer current;
 
   public static final String SERIALIZED_NAME_DYNAMICS = "dynamics";
@@ -48,12 +48,12 @@ public class FeedbacksIncreaseItemThreeStar {
   public static final String SERIALIZED_NAME_TOTAL = "total";
 
   @SerializedName(SERIALIZED_NAME_TOTAL)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer total;
 
   public FeedbacksIncreaseItemThreeStar() {}
 
-  public FeedbacksIncreaseItemThreeStar current(@jakarta.annotation.Nonnull Integer current) {
+  public FeedbacksIncreaseItemThreeStar current(@jakarta.annotation.Nullable Integer current) {
     this.current = current;
     return this;
   }
@@ -63,12 +63,12 @@ public class FeedbacksIncreaseItemThreeStar {
    *
    * @return current
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getCurrent() {
     return current;
   }
 
-  public void setCurrent(@jakarta.annotation.Nonnull Integer current) {
+  public void setCurrent(@jakarta.annotation.Nullable Integer current) {
     this.current = current;
   }
 
@@ -91,7 +91,7 @@ public class FeedbacksIncreaseItemThreeStar {
     this.dynamics = dynamics;
   }
 
-  public FeedbacksIncreaseItemThreeStar total(@jakarta.annotation.Nonnull Integer total) {
+  public FeedbacksIncreaseItemThreeStar total(@jakarta.annotation.Nullable Integer total) {
     this.total = total;
     return this;
   }
@@ -101,12 +101,12 @@ public class FeedbacksIncreaseItemThreeStar {
    *
    * @return total
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getTotal() {
     return total;
   }
 
-  public void setTotal(@jakarta.annotation.Nonnull Integer total) {
+  public void setTotal(@jakarta.annotation.Nullable Integer total) {
     this.total = total;
   }
 
@@ -163,8 +163,6 @@ public class FeedbacksIncreaseItemThreeStar {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("current");
-    openapiRequiredFields.add("total");
   }
 
   /**
@@ -193,16 +191,6 @@ public class FeedbacksIncreaseItemThreeStar {
             String.format(
                 "The field `%s` in the JSON string is not defined in the `FeedbacksIncreaseItemThreeStar` properties. JSON: %s",
                 entry.getKey(), jsonElement.toString()));
-      }
-    }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : FeedbacksIncreaseItemThreeStar.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
       }
     }
     JsonObject jsonObj = jsonElement.getAsJsonObject();

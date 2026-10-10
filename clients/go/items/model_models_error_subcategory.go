@@ -11,9 +11,7 @@ API version: items
 package items
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the ModelsErrorSubcategory type satisfies the MappedNullable interface at compile time
@@ -22,21 +20,17 @@ var _ MappedNullable = &ModelsErrorSubcategory{}
 // ModelsErrorSubcategory struct for ModelsErrorSubcategory
 type ModelsErrorSubcategory struct {
 	// ID предмета
-	Id float32 `json:"id"`
+	Id *float32 `json:"id,omitempty"`
 	// Название предмета
-	Name string `json:"name"`
+	Name *string `json:"name,omitempty"`
 }
-
-type _ModelsErrorSubcategory ModelsErrorSubcategory
 
 // NewModelsErrorSubcategory instantiates a new ModelsErrorSubcategory object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelsErrorSubcategory(id float32, name string) *ModelsErrorSubcategory {
+func NewModelsErrorSubcategory() *ModelsErrorSubcategory {
 	this := ModelsErrorSubcategory{}
-	this.Id = id
-	this.Name = name
 	return &this
 }
 
@@ -48,52 +42,68 @@ func NewModelsErrorSubcategoryWithDefaults() *ModelsErrorSubcategory {
 	return &this
 }
 
-// GetId returns the Id field value
+// GetId returns the Id field value if set, zero value otherwise.
 func (o *ModelsErrorSubcategory) GetId() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.Id) {
 		var ret float32
 		return ret
 	}
-
-	return o.Id
+	return *o.Id
 }
 
-// GetIdOk returns a tuple with the Id field value
+// GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModelsErrorSubcategory) GetIdOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Id) {
 		return nil, false
 	}
-	return &o.Id, true
+	return o.Id, true
 }
 
-// SetId sets field value
+// HasId returns a boolean if a field has been set.
+func (o *ModelsErrorSubcategory) HasId() bool {
+	if o != nil && !IsNil(o.Id) {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given float32 and assigns it to the Id field.
 func (o *ModelsErrorSubcategory) SetId(v float32) {
-	o.Id = v
+	o.Id = &v
 }
 
-// GetName returns the Name field value
+// GetName returns the Name field value if set, zero value otherwise.
 func (o *ModelsErrorSubcategory) GetName() string {
-	if o == nil {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
-
-	return o.Name
+	return *o.Name
 }
 
-// GetNameOk returns a tuple with the Name field value
+// GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModelsErrorSubcategory) GetNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Name) {
 		return nil, false
 	}
-	return &o.Name, true
+	return o.Name, true
 }
 
-// SetName sets field value
+// HasName returns a boolean if a field has been set.
+func (o *ModelsErrorSubcategory) HasName() bool {
+	if o != nil && !IsNil(o.Name) {
+		return true
+	}
+
+	return false
+}
+
+// SetName gets a reference to the given string and assigns it to the Name field.
 func (o *ModelsErrorSubcategory) SetName(v string) {
-	o.Name = v
+	o.Name = &v
 }
 
 func (o ModelsErrorSubcategory) MarshalJSON() ([]byte, error) {
@@ -106,47 +116,13 @@ func (o ModelsErrorSubcategory) MarshalJSON() ([]byte, error) {
 
 func (o ModelsErrorSubcategory) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["id"] = o.Id
-	toSerialize["name"] = o.Name
+	if !IsNil(o.Id) {
+		toSerialize["id"] = o.Id
+	}
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
+	}
 	return toSerialize, nil
-}
-
-func (o *ModelsErrorSubcategory) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"id",
-		"name",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varModelsErrorSubcategory := _ModelsErrorSubcategory{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varModelsErrorSubcategory)
-
-	if err != nil {
-		return err
-	}
-
-	*o = ModelsErrorSubcategory(varModelsErrorSubcategory)
-
-	return err
 }
 
 type NullableModelsErrorSubcategory struct {

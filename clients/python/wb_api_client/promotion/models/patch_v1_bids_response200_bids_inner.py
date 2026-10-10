@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from wb_api_client.promotion.models.patch_v1_bids_response200_bids_inner_nm_bids_inner import (
     PatchV1BidsResponse200BidsInnerNmBidsInner,
 )
@@ -31,9 +31,9 @@ class PatchV1BidsResponse200BidsInner(BaseModel):
     PatchV1BidsResponse200BidsInner
     """  # noqa: E501
 
-    advert_id: StrictInt = Field(description="ID кампании")
-    nm_bids: List[PatchV1BidsResponse200BidsInnerNmBidsInner] = Field(
-        description="Ставки"
+    advert_id: Optional[StrictInt] = Field(default=None, description="ID кампании")
+    nm_bids: Optional[List[PatchV1BidsResponse200BidsInnerNmBidsInner]] = Field(
+        default=None, description="Ставки"
     )
     __properties: ClassVar[List[str]] = ["advert_id", "nm_bids"]
 

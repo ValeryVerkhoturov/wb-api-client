@@ -31,9 +31,12 @@ class ApiBatchErrorResponse(BaseModel):
     ApiBatchErrorResponse
     """  # noqa: E501
 
-    code: StrictInt = Field(description="Код ошибки:   - `404`   - `409` ")
-    detail: StrictStr = Field(
-        description="- `NotFound` — сборочное задание не найдено - `StatusMismatch` — операция невозможна для этого статуса сборочного задания - `ImeiIsNotFilled` — не заполнен IMEI - `MetaValidationFail` — ошибки валидации идентификаторов маркировки "
+    code: Optional[StrictInt] = Field(
+        default=None, description="Код ошибки:   - `404`   - `409` "
+    )
+    detail: Optional[StrictStr] = Field(
+        default=None,
+        description="- `NotFound` — сборочное задание не найдено - `StatusMismatch` — операция невозможна для этого статуса сборочного задания - `ImeiIsNotFilled` — не заполнен IMEI - `MetaValidationFail` — ошибки валидации идентификаторов маркировки ",
     )
     meta_details: Optional[List[ApiBatchErrorResponseMetaDetailsInner]] = Field(
         default=None,

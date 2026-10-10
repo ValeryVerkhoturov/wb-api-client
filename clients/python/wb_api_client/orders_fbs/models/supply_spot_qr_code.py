@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,8 +28,8 @@ class SupplySpotQRCode(BaseModel):
     SupplySpotQRCode
     """  # noqa: E501
 
-    qr_code: StrictStr = Field(
-        description="QR-код поставки в кодировке base64", alias="qrCode"
+    qr_code: Optional[StrictStr] = Field(
+        default=None, description="QR-код поставки в кодировке base64", alias="qrCode"
     )
     __properties: ClassVar[List[str]] = ["qrCode"]
 

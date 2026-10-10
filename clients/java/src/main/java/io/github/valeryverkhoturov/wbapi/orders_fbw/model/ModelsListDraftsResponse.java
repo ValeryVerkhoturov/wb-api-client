@@ -39,18 +39,18 @@ public class ModelsListDraftsResponse {
   public static final String SERIALIZED_NAME_TOTAL = "total";
 
   @SerializedName(SERIALIZED_NAME_TOTAL)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer total;
 
   public static final String SERIALIZED_NAME_DRAFTS = "drafts";
 
   @SerializedName(SERIALIZED_NAME_DRAFTS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private List<ModelsDraftItem> drafts = new ArrayList<>();
 
   public ModelsListDraftsResponse() {}
 
-  public ModelsListDraftsResponse total(@jakarta.annotation.Nonnull Integer total) {
+  public ModelsListDraftsResponse total(@jakarta.annotation.Nullable Integer total) {
     this.total = total;
     return this;
   }
@@ -60,16 +60,17 @@ public class ModelsListDraftsResponse {
    *
    * @return total
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getTotal() {
     return total;
   }
 
-  public void setTotal(@jakarta.annotation.Nonnull Integer total) {
+  public void setTotal(@jakarta.annotation.Nullable Integer total) {
     this.total = total;
   }
 
-  public ModelsListDraftsResponse drafts(@jakarta.annotation.Nonnull List<ModelsDraftItem> drafts) {
+  public ModelsListDraftsResponse drafts(
+      @jakarta.annotation.Nullable List<ModelsDraftItem> drafts) {
     this.drafts = drafts;
     return this;
   }
@@ -87,12 +88,12 @@ public class ModelsListDraftsResponse {
    *
    * @return drafts
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public List<ModelsDraftItem> getDrafts() {
     return drafts;
   }
 
-  public void setDrafts(@jakarta.annotation.Nonnull List<ModelsDraftItem> drafts) {
+  public void setDrafts(@jakarta.annotation.Nullable List<ModelsDraftItem> drafts) {
     this.drafts = drafts;
   }
 
@@ -145,8 +146,6 @@ public class ModelsListDraftsResponse {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("total");
-    openapiRequiredFields.add("drafts");
   }
 
   /**
@@ -176,31 +175,25 @@ public class ModelsListDraftsResponse {
                 entry.getKey(), jsonElement.toString()));
       }
     }
+    JsonObject jsonObj = jsonElement.getAsJsonObject();
+    if (jsonObj.get("drafts") != null && !jsonObj.get("drafts").isJsonNull()) {
+      JsonArray jsonArraydrafts = jsonObj.getAsJsonArray("drafts");
+      if (jsonArraydrafts != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("drafts").isJsonArray()) {
+          throw new IllegalArgumentException(
+              String.format(
+                  "Expected the field `drafts` to be an array in the JSON string but got `%s`",
+                  jsonObj.get("drafts").toString()));
+        }
 
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : ModelsListDraftsResponse.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
+        // validate the optional field `drafts` (array)
+        for (int i = 0; i < jsonArraydrafts.size(); i++) {
+          ModelsDraftItem.validateJsonElement(jsonArraydrafts.get(i));
+        }
+        ;
       }
     }
-    JsonObject jsonObj = jsonElement.getAsJsonObject();
-    // ensure the json data is an array
-    if (!jsonObj.get("drafts").isJsonArray()) {
-      throw new IllegalArgumentException(
-          String.format(
-              "Expected the field `drafts` to be an array in the JSON string but got `%s`",
-              jsonObj.get("drafts").toString()));
-    }
-
-    JsonArray jsonArraydrafts = jsonObj.getAsJsonArray("drafts");
-    // validate the required field `drafts` (array)
-    for (int i = 0; i < jsonArraydrafts.size(); i++) {
-      ModelsDraftItem.validateJsonElement(jsonArraydrafts.get(i));
-    }
-    ;
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

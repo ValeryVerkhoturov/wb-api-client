@@ -11,9 +11,7 @@ API version: promotion
 package promotion
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the AdvertBidsKopecks type satisfies the MappedNullable interface at compile time
@@ -22,21 +20,17 @@ var _ MappedNullable = &AdvertBidsKopecks{}
 // AdvertBidsKopecks Ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
 type AdvertBidsKopecks struct {
 	// Ставка в поиске
-	Search int64 `json:"search"`
+	Search *int64 `json:"search,omitempty"`
 	// Ставка в рекомендациях
-	Recommendations int64 `json:"recommendations"`
+	Recommendations *int64 `json:"recommendations,omitempty"`
 }
-
-type _AdvertBidsKopecks AdvertBidsKopecks
 
 // NewAdvertBidsKopecks instantiates a new AdvertBidsKopecks object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAdvertBidsKopecks(search int64, recommendations int64) *AdvertBidsKopecks {
+func NewAdvertBidsKopecks() *AdvertBidsKopecks {
 	this := AdvertBidsKopecks{}
-	this.Search = search
-	this.Recommendations = recommendations
 	return &this
 }
 
@@ -48,52 +42,68 @@ func NewAdvertBidsKopecksWithDefaults() *AdvertBidsKopecks {
 	return &this
 }
 
-// GetSearch returns the Search field value
+// GetSearch returns the Search field value if set, zero value otherwise.
 func (o *AdvertBidsKopecks) GetSearch() int64 {
-	if o == nil {
+	if o == nil || IsNil(o.Search) {
 		var ret int64
 		return ret
 	}
-
-	return o.Search
+	return *o.Search
 }
 
-// GetSearchOk returns a tuple with the Search field value
+// GetSearchOk returns a tuple with the Search field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *AdvertBidsKopecks) GetSearchOk() (*int64, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Search) {
 		return nil, false
 	}
-	return &o.Search, true
+	return o.Search, true
 }
 
-// SetSearch sets field value
+// HasSearch returns a boolean if a field has been set.
+func (o *AdvertBidsKopecks) HasSearch() bool {
+	if o != nil && !IsNil(o.Search) {
+		return true
+	}
+
+	return false
+}
+
+// SetSearch gets a reference to the given int64 and assigns it to the Search field.
 func (o *AdvertBidsKopecks) SetSearch(v int64) {
-	o.Search = v
+	o.Search = &v
 }
 
-// GetRecommendations returns the Recommendations field value
+// GetRecommendations returns the Recommendations field value if set, zero value otherwise.
 func (o *AdvertBidsKopecks) GetRecommendations() int64 {
-	if o == nil {
+	if o == nil || IsNil(o.Recommendations) {
 		var ret int64
 		return ret
 	}
-
-	return o.Recommendations
+	return *o.Recommendations
 }
 
-// GetRecommendationsOk returns a tuple with the Recommendations field value
+// GetRecommendationsOk returns a tuple with the Recommendations field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *AdvertBidsKopecks) GetRecommendationsOk() (*int64, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Recommendations) {
 		return nil, false
 	}
-	return &o.Recommendations, true
+	return o.Recommendations, true
 }
 
-// SetRecommendations sets field value
+// HasRecommendations returns a boolean if a field has been set.
+func (o *AdvertBidsKopecks) HasRecommendations() bool {
+	if o != nil && !IsNil(o.Recommendations) {
+		return true
+	}
+
+	return false
+}
+
+// SetRecommendations gets a reference to the given int64 and assigns it to the Recommendations field.
 func (o *AdvertBidsKopecks) SetRecommendations(v int64) {
-	o.Recommendations = v
+	o.Recommendations = &v
 }
 
 func (o AdvertBidsKopecks) MarshalJSON() ([]byte, error) {
@@ -106,47 +116,13 @@ func (o AdvertBidsKopecks) MarshalJSON() ([]byte, error) {
 
 func (o AdvertBidsKopecks) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["search"] = o.Search
-	toSerialize["recommendations"] = o.Recommendations
+	if !IsNil(o.Search) {
+		toSerialize["search"] = o.Search
+	}
+	if !IsNil(o.Recommendations) {
+		toSerialize["recommendations"] = o.Recommendations
+	}
 	return toSerialize, nil
-}
-
-func (o *AdvertBidsKopecks) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"search",
-		"recommendations",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varAdvertBidsKopecks := _AdvertBidsKopecks{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varAdvertBidsKopecks)
-
-	if err != nil {
-		return err
-	}
-
-	*o = AdvertBidsKopecks(varAdvertBidsKopecks)
-
-	return err
 }
 
 type NullableAdvertBidsKopecks struct {

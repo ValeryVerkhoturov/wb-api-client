@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt
-from typing import Any, ClassVar, Dict, List, Union
+from typing import Any, ClassVar, Dict, List, Optional, Union
 from wb_api_client.analytics.models.statistic_conversions import StatisticConversions
 from wb_api_client.analytics.models.statistic_period import StatisticPeriod
 from wb_api_client.analytics.models.statistic_time_to_ready import StatisticTimeToReady
@@ -32,45 +32,57 @@ class StatisticsPast(BaseModel):
     StatisticsPast
     """  # noqa: E501
 
-    period: StatisticPeriod
-    open_count: StrictInt = Field(
-        description="Количество переходов в карточку товара", alias="openCount"
+    period: Optional[StatisticPeriod] = None
+    open_count: Optional[StrictInt] = Field(
+        default=None,
+        description="Количество переходов в карточку товара",
+        alias="openCount",
     )
-    cart_count: StrictInt = Field(
-        description="Положили в корзину, шт.", alias="cartCount"
+    cart_count: Optional[StrictInt] = Field(
+        default=None, description="Положили в корзину, шт.", alias="cartCount"
     )
-    order_count: StrictInt = Field(
-        description="Заказали товаров, шт.", alias="orderCount"
+    order_count: Optional[StrictInt] = Field(
+        default=None, description="Заказали товаров, шт.", alias="orderCount"
     )
-    order_sum: StrictInt = Field(description="Заказали на сумму", alias="orderSum")
-    buyout_count: StrictInt = Field(
-        description="Выкупили товаров, шт.", alias="buyoutCount"
+    order_sum: Optional[StrictInt] = Field(
+        default=None, description="Заказали на сумму", alias="orderSum"
     )
-    buyout_sum: StrictInt = Field(description="Выкупили на сумму", alias="buyoutSum")
-    cancel_count: StrictInt = Field(
-        description="Отменили и вернули товаров, шт.", alias="cancelCount"
+    buyout_count: Optional[StrictInt] = Field(
+        default=None, description="Выкупили товаров, шт.", alias="buyoutCount"
     )
-    cancel_sum: StrictInt = Field(
-        description="Отменили и вернули на сумму", alias="cancelSum"
+    buyout_sum: Optional[StrictInt] = Field(
+        default=None, description="Выкупили на сумму", alias="buyoutSum"
     )
-    avg_price: StrictInt = Field(description="Средняя цена", alias="avgPrice")
-    avg_orders_count_per_day: Union[StrictFloat, StrictInt] = Field(
+    cancel_count: Optional[StrictInt] = Field(
+        default=None, description="Отменили и вернули товаров, шт.", alias="cancelCount"
+    )
+    cancel_sum: Optional[StrictInt] = Field(
+        default=None, description="Отменили и вернули на сумму", alias="cancelSum"
+    )
+    avg_price: Optional[StrictInt] = Field(
+        default=None, description="Средняя цена", alias="avgPrice"
+    )
+    avg_orders_count_per_day: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None,
         description="Среднее количество заказов в день, шт.",
         alias="avgOrdersCountPerDay",
     )
-    share_order_percent: Union[StrictFloat, StrictInt] = Field(
-        description="Доля в выручке", alias="shareOrderPercent"
+    share_order_percent: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None, description="Доля в выручке", alias="shareOrderPercent"
     )
-    add_to_wishlist: StrictInt = Field(
-        description="Добавили в **Отложенные**", alias="addToWishlist"
+    add_to_wishlist: Optional[StrictInt] = Field(
+        default=None, description="Добавили в **Отложенные**", alias="addToWishlist"
     )
-    time_to_ready: StatisticTimeToReady = Field(alias="timeToReady")
-    localization_percent: StrictInt = Field(
+    time_to_ready: Optional[StatisticTimeToReady] = Field(
+        default=None, alias="timeToReady"
+    )
+    localization_percent: Optional[StrictInt] = Field(
+        default=None,
         description="Локальные заказы в рамках одного региона. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `100`",
         alias="localizationPercent",
     )
-    wb_club: StatisticWbClub = Field(alias="wbClub")
-    conversions: StatisticConversions
+    wb_club: Optional[StatisticWbClub] = Field(default=None, alias="wbClub")
+    conversions: Optional[StatisticConversions] = None
     __properties: ClassVar[List[str]] = [
         "period",
         "openCount",

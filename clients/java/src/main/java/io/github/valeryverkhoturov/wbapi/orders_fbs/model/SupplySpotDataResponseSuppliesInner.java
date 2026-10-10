@@ -36,7 +36,7 @@ public class SupplySpotDataResponseSuppliesInner {
   public static final String SERIALIZED_NAME_ID = "id";
 
   @SerializedName(SERIALIZED_NAME_ID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String id;
 
   public static final String SERIALIZED_NAME_SPOT = "spot";
@@ -53,7 +53,7 @@ public class SupplySpotDataResponseSuppliesInner {
 
   public SupplySpotDataResponseSuppliesInner() {}
 
-  public SupplySpotDataResponseSuppliesInner id(@jakarta.annotation.Nonnull String id) {
+  public SupplySpotDataResponseSuppliesInner id(@jakarta.annotation.Nullable String id) {
     this.id = id;
     return this;
   }
@@ -63,12 +63,12 @@ public class SupplySpotDataResponseSuppliesInner {
    *
    * @return id
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getId() {
     return id;
   }
 
-  public void setId(@jakarta.annotation.Nonnull String id) {
+  public void setId(@jakarta.annotation.Nullable String id) {
     this.id = id;
   }
 
@@ -166,7 +166,6 @@ public class SupplySpotDataResponseSuppliesInner {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("id");
   }
 
   /**
@@ -197,18 +196,9 @@ public class SupplySpotDataResponseSuppliesInner {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : SupplySpotDataResponseSuppliesInner.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    if (!jsonObj.get("id").isJsonPrimitive()) {
+    if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull())
+        && !jsonObj.get("id").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `id` to be a primitive type in the JSON string but got `%s`",

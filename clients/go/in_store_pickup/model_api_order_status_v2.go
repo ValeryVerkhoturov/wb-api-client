@@ -11,9 +11,7 @@ API version: instorepickup
 package in_store_pickup
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the ApiOrderStatusV2 type satisfies the MappedNullable interface at compile time
@@ -24,22 +22,19 @@ type ApiOrderStatusV2 struct {
 	// Информация об ошибке
 	Errors []ApiOrdersErrorResponse `json:"errors,omitempty"`
 	// ID сборочного задания
-	OrderId int32 `json:"orderId"`
+	OrderId *int32 `json:"orderId,omitempty"`
 	// Статус сборочного задания, установленный продавцом
 	SupplierStatus *string `json:"supplierStatus,omitempty"`
 	// Статус сборочного задания в системе Wildberries
 	WbStatus *string `json:"wbStatus,omitempty"`
 }
 
-type _ApiOrderStatusV2 ApiOrderStatusV2
-
 // NewApiOrderStatusV2 instantiates a new ApiOrderStatusV2 object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewApiOrderStatusV2(orderId int32) *ApiOrderStatusV2 {
+func NewApiOrderStatusV2() *ApiOrderStatusV2 {
 	this := ApiOrderStatusV2{}
-	this.OrderId = orderId
 	return &this
 }
 
@@ -83,28 +78,36 @@ func (o *ApiOrderStatusV2) SetErrors(v []ApiOrdersErrorResponse) {
 	o.Errors = v
 }
 
-// GetOrderId returns the OrderId field value
+// GetOrderId returns the OrderId field value if set, zero value otherwise.
 func (o *ApiOrderStatusV2) GetOrderId() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.OrderId) {
 		var ret int32
 		return ret
 	}
-
-	return o.OrderId
+	return *o.OrderId
 }
 
-// GetOrderIdOk returns a tuple with the OrderId field value
+// GetOrderIdOk returns a tuple with the OrderId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ApiOrderStatusV2) GetOrderIdOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.OrderId) {
 		return nil, false
 	}
-	return &o.OrderId, true
+	return o.OrderId, true
 }
 
-// SetOrderId sets field value
+// HasOrderId returns a boolean if a field has been set.
+func (o *ApiOrderStatusV2) HasOrderId() bool {
+	if o != nil && !IsNil(o.OrderId) {
+		return true
+	}
+
+	return false
+}
+
+// SetOrderId gets a reference to the given int32 and assigns it to the OrderId field.
 func (o *ApiOrderStatusV2) SetOrderId(v int32) {
-	o.OrderId = v
+	o.OrderId = &v
 }
 
 // GetSupplierStatus returns the SupplierStatus field value if set, zero value otherwise.
@@ -184,7 +187,9 @@ func (o ApiOrderStatusV2) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Errors) {
 		toSerialize["errors"] = o.Errors
 	}
-	toSerialize["orderId"] = o.OrderId
+	if !IsNil(o.OrderId) {
+		toSerialize["orderId"] = o.OrderId
+	}
 	if !IsNil(o.SupplierStatus) {
 		toSerialize["supplierStatus"] = o.SupplierStatus
 	}
@@ -192,43 +197,6 @@ func (o ApiOrderStatusV2) ToMap() (map[string]interface{}, error) {
 		toSerialize["wbStatus"] = o.WbStatus
 	}
 	return toSerialize, nil
-}
-
-func (o *ApiOrderStatusV2) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"orderId",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varApiOrderStatusV2 := _ApiOrderStatusV2{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varApiOrderStatusV2)
-
-	if err != nil {
-		return err
-	}
-
-	*o = ApiOrderStatusV2(varApiOrderStatusV2)
-
-	return err
 }
 
 type NullableApiOrderStatusV2 struct {

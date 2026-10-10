@@ -5510,18 +5510,11 @@ components:
   schemas:
     BrandsResponse:
       type: object
-      required:
-      - brands
-      - total
       properties:
         brands:
           type: array
           items:
             type: object
-            required:
-            - id
-            - logoUrl
-            - name
             properties:
               id:
                 description: ID бренда
@@ -5544,11 +5537,6 @@ components:
           example: 344534
     BrandsResponseError:
       type: object
-      required:
-      - title
-      - detail
-      - origin
-      - requestId
       properties:
         title:
           type: string
@@ -5631,8 +5619,6 @@ components:
             properties:
               error:
                 type: string
-            required:
-            - error
     requestMoveNmsImtConn:
       type: object
       required:
@@ -5673,8 +5659,6 @@ components:
       additionalProperties: false
     responseIncorrectDate:
       type: object
-      required:
-      - error
       properties:
         error:
           type: string
@@ -5781,12 +5765,6 @@ components:
           description: Описание ошибки
     ResponseErrorV3:
       type: object
-      required:
-      - status
-      - title
-      - detail
-      - requestId
-      - origin
       properties:
         status:
           type: integer
@@ -6433,11 +6411,6 @@ components:
           example: true
     responsePublicViewerPublicErrorsTableListV2:
       type: object
-      required:
-      - data
-      - error
-      - errorText
-      - additionalErrors
       properties:
         data:
           $ref: '#/components/schemas/models.ErrorTableListPublicRespV2'
@@ -6454,9 +6427,6 @@ components:
     models.ErrorTableListPublicRespV2:
       type: object
       description: Данные ответа
-      required:
-      - items
-      - cursor
       properties:
         items:
           type: array
@@ -6467,13 +6437,6 @@ components:
           $ref: '#/components/schemas/viewer_contract.PublicErrorsCursorOutput'
     models.ErrorTableListPublicRespV2Item:
       type: object
-      required:
-      - batchUUID
-      - subjects
-      - brands
-      - vendorCodes
-      - errors
-      - updatedAt
       properties:
         batchUUID:
           type: string
@@ -6506,10 +6469,6 @@ components:
           description: Дата и время создания или редактирования пакета
     viewer_contract.PublicErrorsCursorOutput:
       type: object
-      required:
-      - next
-      - updatedAt
-      - batchUUID
       description: Пагинатор
       properties:
         next:
@@ -6527,9 +6486,6 @@ components:
           description: ID последнего пакета в ответе
     models.ErrorSubcategory:
       type: object
-      required:
-      - id
-      - name
       properties:
         id:
           type: number
@@ -6625,27 +6581,12 @@ components:
     GetRecomRes:
       type: object
       description: Товары с рекомендациями
-      required:
-      - data
-      - next
       properties:
         data:
           type: array
           description: Данные о товарах и их рекомендациях
           items:
             type: object
-            required:
-            - brandName
-            - imtId
-            - nmId
-            - pic
-            - picsCount
-            - recomCount
-            - recomPics
-            - recomNms
-            - subjectName
-            - title
-            - vendorCode
             properties:
               nmId:
                 description: Артикул WB
@@ -6711,11 +6652,6 @@ components:
           example: 143
     response400GetRecom:
       type: object
-      required:
-      - detail
-      - origin
-      - requestId
-      - title
       properties:
         requestId:
           description: ID запроса
@@ -6796,8 +6732,6 @@ components:
           example: true
     SetRecomRes:
       type: object
-      required:
-      - isError
       properties:
         isError:
           description: |
@@ -6812,10 +6746,6 @@ components:
           items:
             type: object
             description: Ошибки установки рекомендаций
-            required:
-            - mainNm
-            - message
-            - recomNm
             properties:
               mainNm:
                 description: Значение параметра `nmId`
@@ -6831,11 +6761,6 @@ components:
                 example: The item has no photo
     response208SetRecom:
       type: object
-      required:
-      - detail
-      - origin
-      - requestId
-      - title
       properties:
         requestId:
           description: ID запроса
@@ -6855,11 +6780,6 @@ components:
           example: Recommendations already set
     response400SetRecom:
       type: object
-      required:
-      - detail
-      - origin
-      - requestId
-      - title
       properties:
         requestId:
           description: ID запроса
@@ -7279,20 +7199,12 @@ components:
           description: Дополнительные ошибки
     GetV2DirectoryTnvedAllResponse200:
       type: object
-      required:
-      - data
-      - error
-      - errorText
-      - additionalErrors
       properties:
         data:
           description: Данные
           type: array
           items:
             type: object
-            required:
-            - tnved
-            - description
             properties:
               tnved:
                 type: string
@@ -7317,20 +7229,12 @@ components:
           description: Дополнительные ошибки
     GetV2DirectoryOkpdResponse200:
       type: object
-      required:
-      - data
-      - error
-      - errorText
-      - additionalErrors
       properties:
         data:
           description: Данные
           type: array
           items:
             type: object
-            required:
-            - okpd2
-            - description
             properties:
               okpd2:
                 type: string
@@ -7355,20 +7259,12 @@ components:
           description: Дополнительные ошибки
     GetV2DirectoryOkpdAllResponse200:
       type: object
-      required:
-      - data
-      - error
-      - errorText
-      - additionalErrors
       properties:
         data:
           description: Данные
           type: array
           items:
             type: object
-            required:
-            - okpd2
-            - description
             properties:
               okpd2:
                 type: string

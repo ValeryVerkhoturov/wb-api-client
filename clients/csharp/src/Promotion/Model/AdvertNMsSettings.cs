@@ -34,27 +34,12 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AdvertNMsSettings" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected AdvertNMsSettings() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="AdvertNMsSettings" /> class.
-        /// </summary>
-        /// <param name="bidsKopecks">bidsKopecks (required).</param>
-        /// <param name="subject">subject (required).</param>
-        /// <param name="nmId">Артикул WB (required).</param>
+        /// <param name="bidsKopecks">bidsKopecks.</param>
+        /// <param name="subject">subject.</param>
+        /// <param name="nmId">Артикул WB.</param>
         public AdvertNMsSettings(AdvertBidsKopecks bidsKopecks = default(AdvertBidsKopecks), AdvertSubcategory subject = default(AdvertSubcategory), long nmId = default(long))
         {
-            // to ensure "bidsKopecks" is required (not null)
-            if (bidsKopecks == null)
-            {
-                throw new ArgumentNullException("bidsKopecks is a required property for AdvertNMsSettings and cannot be null");
-            }
             this.BidsKopecks = bidsKopecks;
-            // to ensure "subject" is required (not null)
-            if (subject == null)
-            {
-                throw new ArgumentNullException("subject is a required property for AdvertNMsSettings and cannot be null");
-            }
             this.Subject = subject;
             this.NmId = nmId;
         }
@@ -62,20 +47,20 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <summary>
         /// Gets or Sets BidsKopecks
         /// </summary>
-        [DataMember(Name = "bids_kopecks", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "bids_kopecks", EmitDefaultValue = false)]
         public AdvertBidsKopecks BidsKopecks { get; set; }
 
         /// <summary>
         /// Gets or Sets Subject
         /// </summary>
-        [DataMember(Name = "subject", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "subject", EmitDefaultValue = false)]
         public AdvertSubcategory Subject { get; set; }
 
         /// <summary>
         /// Артикул WB
         /// </summary>
         /// <value>Артикул WB</value>
-        [DataMember(Name = "nm_id", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "nm_id", EmitDefaultValue = false)]
         public long NmId { get; set; }
 
         /// <summary>

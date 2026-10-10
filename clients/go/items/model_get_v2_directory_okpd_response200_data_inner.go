@@ -11,9 +11,7 @@ API version: items
 package items
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the GetV2DirectoryOkpdResponse200DataInner type satisfies the MappedNullable interface at compile time
@@ -22,21 +20,17 @@ var _ MappedNullable = &GetV2DirectoryOkpdResponse200DataInner{}
 // GetV2DirectoryOkpdResponse200DataInner struct for GetV2DirectoryOkpdResponse200DataInner
 type GetV2DirectoryOkpdResponse200DataInner struct {
 	// Код ОКПД2
-	Okpd2 string `json:"okpd2"`
+	Okpd2 *string `json:"okpd2,omitempty"`
 	// Текстовое описание товаров, которые входят в группу
-	Description string `json:"description"`
+	Description *string `json:"description,omitempty"`
 }
-
-type _GetV2DirectoryOkpdResponse200DataInner GetV2DirectoryOkpdResponse200DataInner
 
 // NewGetV2DirectoryOkpdResponse200DataInner instantiates a new GetV2DirectoryOkpdResponse200DataInner object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetV2DirectoryOkpdResponse200DataInner(okpd2 string, description string) *GetV2DirectoryOkpdResponse200DataInner {
+func NewGetV2DirectoryOkpdResponse200DataInner() *GetV2DirectoryOkpdResponse200DataInner {
 	this := GetV2DirectoryOkpdResponse200DataInner{}
-	this.Okpd2 = okpd2
-	this.Description = description
 	return &this
 }
 
@@ -48,52 +42,68 @@ func NewGetV2DirectoryOkpdResponse200DataInnerWithDefaults() *GetV2DirectoryOkpd
 	return &this
 }
 
-// GetOkpd2 returns the Okpd2 field value
+// GetOkpd2 returns the Okpd2 field value if set, zero value otherwise.
 func (o *GetV2DirectoryOkpdResponse200DataInner) GetOkpd2() string {
-	if o == nil {
+	if o == nil || IsNil(o.Okpd2) {
 		var ret string
 		return ret
 	}
-
-	return o.Okpd2
+	return *o.Okpd2
 }
 
-// GetOkpd2Ok returns a tuple with the Okpd2 field value
+// GetOkpd2Ok returns a tuple with the Okpd2 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetV2DirectoryOkpdResponse200DataInner) GetOkpd2Ok() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Okpd2) {
 		return nil, false
 	}
-	return &o.Okpd2, true
+	return o.Okpd2, true
 }
 
-// SetOkpd2 sets field value
+// HasOkpd2 returns a boolean if a field has been set.
+func (o *GetV2DirectoryOkpdResponse200DataInner) HasOkpd2() bool {
+	if o != nil && !IsNil(o.Okpd2) {
+		return true
+	}
+
+	return false
+}
+
+// SetOkpd2 gets a reference to the given string and assigns it to the Okpd2 field.
 func (o *GetV2DirectoryOkpdResponse200DataInner) SetOkpd2(v string) {
-	o.Okpd2 = v
+	o.Okpd2 = &v
 }
 
-// GetDescription returns the Description field value
+// GetDescription returns the Description field value if set, zero value otherwise.
 func (o *GetV2DirectoryOkpdResponse200DataInner) GetDescription() string {
-	if o == nil {
+	if o == nil || IsNil(o.Description) {
 		var ret string
 		return ret
 	}
-
-	return o.Description
+	return *o.Description
 }
 
-// GetDescriptionOk returns a tuple with the Description field value
+// GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetV2DirectoryOkpdResponse200DataInner) GetDescriptionOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Description) {
 		return nil, false
 	}
-	return &o.Description, true
+	return o.Description, true
 }
 
-// SetDescription sets field value
+// HasDescription returns a boolean if a field has been set.
+func (o *GetV2DirectoryOkpdResponse200DataInner) HasDescription() bool {
+	if o != nil && !IsNil(o.Description) {
+		return true
+	}
+
+	return false
+}
+
+// SetDescription gets a reference to the given string and assigns it to the Description field.
 func (o *GetV2DirectoryOkpdResponse200DataInner) SetDescription(v string) {
-	o.Description = v
+	o.Description = &v
 }
 
 func (o GetV2DirectoryOkpdResponse200DataInner) MarshalJSON() ([]byte, error) {
@@ -106,47 +116,13 @@ func (o GetV2DirectoryOkpdResponse200DataInner) MarshalJSON() ([]byte, error) {
 
 func (o GetV2DirectoryOkpdResponse200DataInner) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["okpd2"] = o.Okpd2
-	toSerialize["description"] = o.Description
+	if !IsNil(o.Okpd2) {
+		toSerialize["okpd2"] = o.Okpd2
+	}
+	if !IsNil(o.Description) {
+		toSerialize["description"] = o.Description
+	}
 	return toSerialize, nil
-}
-
-func (o *GetV2DirectoryOkpdResponse200DataInner) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"okpd2",
-		"description",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varGetV2DirectoryOkpdResponse200DataInner := _GetV2DirectoryOkpdResponse200DataInner{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varGetV2DirectoryOkpdResponse200DataInner)
-
-	if err != nil {
-		return err
-	}
-
-	*o = GetV2DirectoryOkpdResponse200DataInner(varGetV2DirectoryOkpdResponse200DataInner)
-
-	return err
 }
 
 type NullableGetV2DirectoryOkpdResponse200DataInner struct {

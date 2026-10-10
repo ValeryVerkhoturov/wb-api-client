@@ -11,9 +11,7 @@ API version: promotion
 package promotion
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the FullStatsItemBoosterStatsInner type satisfies the MappedNullable interface at compile time
@@ -22,24 +20,19 @@ var _ MappedNullable = &FullStatsItemBoosterStatsInner{}
 // FullStatsItemBoosterStatsInner struct for FullStatsItemBoosterStatsInner
 type FullStatsItemBoosterStatsInner struct {
 	// Средняя позиция товара
-	AvgPosition int32 `json:"avg_position"`
+	AvgPosition *int32 `json:"avg_position,omitempty"`
 	// Дата, за которую предоставлены данные
-	Date string `json:"date"`
+	Date *string `json:"date,omitempty"`
 	// Артикул WB
-	Nm int32 `json:"nm"`
+	Nm *int32 `json:"nm,omitempty"`
 }
-
-type _FullStatsItemBoosterStatsInner FullStatsItemBoosterStatsInner
 
 // NewFullStatsItemBoosterStatsInner instantiates a new FullStatsItemBoosterStatsInner object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewFullStatsItemBoosterStatsInner(avgPosition int32, date string, nm int32) *FullStatsItemBoosterStatsInner {
+func NewFullStatsItemBoosterStatsInner() *FullStatsItemBoosterStatsInner {
 	this := FullStatsItemBoosterStatsInner{}
-	this.AvgPosition = avgPosition
-	this.Date = date
-	this.Nm = nm
 	return &this
 }
 
@@ -51,76 +44,100 @@ func NewFullStatsItemBoosterStatsInnerWithDefaults() *FullStatsItemBoosterStatsI
 	return &this
 }
 
-// GetAvgPosition returns the AvgPosition field value
+// GetAvgPosition returns the AvgPosition field value if set, zero value otherwise.
 func (o *FullStatsItemBoosterStatsInner) GetAvgPosition() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.AvgPosition) {
 		var ret int32
 		return ret
 	}
-
-	return o.AvgPosition
+	return *o.AvgPosition
 }
 
-// GetAvgPositionOk returns a tuple with the AvgPosition field value
+// GetAvgPositionOk returns a tuple with the AvgPosition field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FullStatsItemBoosterStatsInner) GetAvgPositionOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AvgPosition) {
 		return nil, false
 	}
-	return &o.AvgPosition, true
+	return o.AvgPosition, true
 }
 
-// SetAvgPosition sets field value
+// HasAvgPosition returns a boolean if a field has been set.
+func (o *FullStatsItemBoosterStatsInner) HasAvgPosition() bool {
+	if o != nil && !IsNil(o.AvgPosition) {
+		return true
+	}
+
+	return false
+}
+
+// SetAvgPosition gets a reference to the given int32 and assigns it to the AvgPosition field.
 func (o *FullStatsItemBoosterStatsInner) SetAvgPosition(v int32) {
-	o.AvgPosition = v
+	o.AvgPosition = &v
 }
 
-// GetDate returns the Date field value
+// GetDate returns the Date field value if set, zero value otherwise.
 func (o *FullStatsItemBoosterStatsInner) GetDate() string {
-	if o == nil {
+	if o == nil || IsNil(o.Date) {
 		var ret string
 		return ret
 	}
-
-	return o.Date
+	return *o.Date
 }
 
-// GetDateOk returns a tuple with the Date field value
+// GetDateOk returns a tuple with the Date field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FullStatsItemBoosterStatsInner) GetDateOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Date) {
 		return nil, false
 	}
-	return &o.Date, true
+	return o.Date, true
 }
 
-// SetDate sets field value
+// HasDate returns a boolean if a field has been set.
+func (o *FullStatsItemBoosterStatsInner) HasDate() bool {
+	if o != nil && !IsNil(o.Date) {
+		return true
+	}
+
+	return false
+}
+
+// SetDate gets a reference to the given string and assigns it to the Date field.
 func (o *FullStatsItemBoosterStatsInner) SetDate(v string) {
-	o.Date = v
+	o.Date = &v
 }
 
-// GetNm returns the Nm field value
+// GetNm returns the Nm field value if set, zero value otherwise.
 func (o *FullStatsItemBoosterStatsInner) GetNm() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.Nm) {
 		var ret int32
 		return ret
 	}
-
-	return o.Nm
+	return *o.Nm
 }
 
-// GetNmOk returns a tuple with the Nm field value
+// GetNmOk returns a tuple with the Nm field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FullStatsItemBoosterStatsInner) GetNmOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Nm) {
 		return nil, false
 	}
-	return &o.Nm, true
+	return o.Nm, true
 }
 
-// SetNm sets field value
+// HasNm returns a boolean if a field has been set.
+func (o *FullStatsItemBoosterStatsInner) HasNm() bool {
+	if o != nil && !IsNil(o.Nm) {
+		return true
+	}
+
+	return false
+}
+
+// SetNm gets a reference to the given int32 and assigns it to the Nm field.
 func (o *FullStatsItemBoosterStatsInner) SetNm(v int32) {
-	o.Nm = v
+	o.Nm = &v
 }
 
 func (o FullStatsItemBoosterStatsInner) MarshalJSON() ([]byte, error) {
@@ -133,49 +150,16 @@ func (o FullStatsItemBoosterStatsInner) MarshalJSON() ([]byte, error) {
 
 func (o FullStatsItemBoosterStatsInner) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["avg_position"] = o.AvgPosition
-	toSerialize["date"] = o.Date
-	toSerialize["nm"] = o.Nm
+	if !IsNil(o.AvgPosition) {
+		toSerialize["avg_position"] = o.AvgPosition
+	}
+	if !IsNil(o.Date) {
+		toSerialize["date"] = o.Date
+	}
+	if !IsNil(o.Nm) {
+		toSerialize["nm"] = o.Nm
+	}
 	return toSerialize, nil
-}
-
-func (o *FullStatsItemBoosterStatsInner) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"avg_position",
-		"date",
-		"nm",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varFullStatsItemBoosterStatsInner := _FullStatsItemBoosterStatsInner{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varFullStatsItemBoosterStatsInner)
-
-	if err != nil {
-		return err
-	}
-
-	*o = FullStatsItemBoosterStatsInner(varFullStatsItemBoosterStatsInner)
-
-	return err
 }
 
 type NullableFullStatsItemBoosterStatsInner struct {

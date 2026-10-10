@@ -34,24 +34,14 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UpdatedSuppliesShippingMethod" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected UpdatedSuppliesShippingMethod() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="UpdatedSuppliesShippingMethod" /> class.
-        /// </summary>
         /// <param name="error">error.</param>
         /// <param name="success">Успешна ли обработка запроса для данной поставки. Может быть только &#x60;true&#x60;.</param>
-        /// <param name="supplyId">ID поставки (required).</param>
+        /// <param name="supplyId">ID поставки.</param>
         public UpdatedSuppliesShippingMethod(UpdatedSuppliesShippingMethodError error = default(UpdatedSuppliesShippingMethodError), bool success = default(bool), string supplyId = default(string))
         {
-            // to ensure "supplyId" is required (not null)
-            if (supplyId == null)
-            {
-                throw new ArgumentNullException("supplyId is a required property for UpdatedSuppliesShippingMethod and cannot be null");
-            }
-            this.SupplyId = supplyId;
             this.Error = error;
             this.Success = success;
+            this.SupplyId = supplyId;
         }
 
         /// <summary>
@@ -71,7 +61,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// ID поставки
         /// </summary>
         /// <value>ID поставки</value>
-        [DataMember(Name = "supplyId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "supplyId", EmitDefaultValue = false)]
         public string SupplyId { get; set; }
 
         /// <summary>

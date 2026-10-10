@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,15 +28,18 @@ class Conversions(BaseModel):
     Conversions
     """  # noqa: E501
 
-    add_to_cart_percent: StrictInt = Field(
+    add_to_cart_percent: Optional[StrictInt] = Field(
+        default=None,
         description="Конверсия в корзину. Какой процент посетителей, открывших карточку товара, добавили товар в корзину, %",
         alias="addToCartPercent",
     )
-    cart_to_order_percent: StrictInt = Field(
+    cart_to_order_percent: Optional[StrictInt] = Field(
+        default=None,
         description="Конверсия в заказ. Какой процент посетителей, добавивших товар в корзину, сделали заказ, %",
         alias="cartToOrderPercent",
     )
-    buyout_percent: StrictInt = Field(
+    buyout_percent: Optional[StrictInt] = Field(
+        default=None,
         description="Процент выкупа. Какой процент посетителей, заказавших товар, его выкупили. Без учёта товаров, которые еще доставляются покупателю, %",
         alias="buyoutPercent",
     )

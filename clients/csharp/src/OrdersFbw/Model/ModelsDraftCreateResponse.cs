@@ -34,19 +34,9 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ModelsDraftCreateResponse" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected ModelsDraftCreateResponse() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ModelsDraftCreateResponse" /> class.
-        /// </summary>
-        /// <param name="draftId">ID черновика (required).</param>
+        /// <param name="draftId">ID черновика.</param>
         public ModelsDraftCreateResponse(string draftId = default(string))
         {
-            // to ensure "draftId" is required (not null)
-            if (draftId == null)
-            {
-                throw new ArgumentNullException("draftId is a required property for ModelsDraftCreateResponse and cannot be null");
-            }
             this.DraftId = draftId;
         }
 
@@ -57,7 +47,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Model
         /*
         <example>cd20d135-f13f-47a0-903c-3bd268b92047</example>
         */
-        [DataMember(Name = "draftId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "draftId", EmitDefaultValue = false)]
         public string DraftId { get; set; }
 
         /// <summary>

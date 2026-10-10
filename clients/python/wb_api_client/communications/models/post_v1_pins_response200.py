@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from wb_api_client.communications.models.openapi_pin_review_item_result_data_inner import (
     OpenapiPinReviewItemResultDataInner,
 )
@@ -31,7 +31,7 @@ class PostV1PinsResponse200(BaseModel):
     PostV1PinsResponse200
     """  # noqa: E501
 
-    data: List[OpenapiPinReviewItemResultDataInner]
+    data: Optional[List[OpenapiPinReviewItemResultDataInner]] = None
     __properties: ClassVar[List[str]] = ["data"]
 
     model_config = ConfigDict(

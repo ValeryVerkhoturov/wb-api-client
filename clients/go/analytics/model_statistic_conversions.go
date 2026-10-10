@@ -11,9 +11,7 @@ API version: analytics
 package analytics
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the StatisticConversions type satisfies the MappedNullable interface at compile time
@@ -22,24 +20,19 @@ var _ MappedNullable = &StatisticConversions{}
 // StatisticConversions struct for StatisticConversions
 type StatisticConversions struct {
 	// Конверсия в корзину. Какой процент посетителей, открывших карточку товара, добавили товар в корзину, %
-	AddToCartPercent int32 `json:"addToCartPercent"`
+	AddToCartPercent *int32 `json:"addToCartPercent,omitempty"`
 	// Конверсия в заказ. Какой процент посетителей, добавивших товар в корзину, сделали заказ, %
-	CartToOrderPercent int32 `json:"cartToOrderPercent"`
+	CartToOrderPercent *int32 `json:"cartToOrderPercent,omitempty"`
 	// Процент выкупа. Какой процент посетителей, заказавших товар, его выкупили. Без учёта товаров, которые еще доставляются покупателю, %
-	BuyoutPercent int32 `json:"buyoutPercent"`
+	BuyoutPercent *int32 `json:"buyoutPercent,omitempty"`
 }
-
-type _StatisticConversions StatisticConversions
 
 // NewStatisticConversions instantiates a new StatisticConversions object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewStatisticConversions(addToCartPercent int32, cartToOrderPercent int32, buyoutPercent int32) *StatisticConversions {
+func NewStatisticConversions() *StatisticConversions {
 	this := StatisticConversions{}
-	this.AddToCartPercent = addToCartPercent
-	this.CartToOrderPercent = cartToOrderPercent
-	this.BuyoutPercent = buyoutPercent
 	return &this
 }
 
@@ -51,76 +44,100 @@ func NewStatisticConversionsWithDefaults() *StatisticConversions {
 	return &this
 }
 
-// GetAddToCartPercent returns the AddToCartPercent field value
+// GetAddToCartPercent returns the AddToCartPercent field value if set, zero value otherwise.
 func (o *StatisticConversions) GetAddToCartPercent() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.AddToCartPercent) {
 		var ret int32
 		return ret
 	}
-
-	return o.AddToCartPercent
+	return *o.AddToCartPercent
 }
 
-// GetAddToCartPercentOk returns a tuple with the AddToCartPercent field value
+// GetAddToCartPercentOk returns a tuple with the AddToCartPercent field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *StatisticConversions) GetAddToCartPercentOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AddToCartPercent) {
 		return nil, false
 	}
-	return &o.AddToCartPercent, true
+	return o.AddToCartPercent, true
 }
 
-// SetAddToCartPercent sets field value
+// HasAddToCartPercent returns a boolean if a field has been set.
+func (o *StatisticConversions) HasAddToCartPercent() bool {
+	if o != nil && !IsNil(o.AddToCartPercent) {
+		return true
+	}
+
+	return false
+}
+
+// SetAddToCartPercent gets a reference to the given int32 and assigns it to the AddToCartPercent field.
 func (o *StatisticConversions) SetAddToCartPercent(v int32) {
-	o.AddToCartPercent = v
+	o.AddToCartPercent = &v
 }
 
-// GetCartToOrderPercent returns the CartToOrderPercent field value
+// GetCartToOrderPercent returns the CartToOrderPercent field value if set, zero value otherwise.
 func (o *StatisticConversions) GetCartToOrderPercent() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.CartToOrderPercent) {
 		var ret int32
 		return ret
 	}
-
-	return o.CartToOrderPercent
+	return *o.CartToOrderPercent
 }
 
-// GetCartToOrderPercentOk returns a tuple with the CartToOrderPercent field value
+// GetCartToOrderPercentOk returns a tuple with the CartToOrderPercent field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *StatisticConversions) GetCartToOrderPercentOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.CartToOrderPercent) {
 		return nil, false
 	}
-	return &o.CartToOrderPercent, true
+	return o.CartToOrderPercent, true
 }
 
-// SetCartToOrderPercent sets field value
+// HasCartToOrderPercent returns a boolean if a field has been set.
+func (o *StatisticConversions) HasCartToOrderPercent() bool {
+	if o != nil && !IsNil(o.CartToOrderPercent) {
+		return true
+	}
+
+	return false
+}
+
+// SetCartToOrderPercent gets a reference to the given int32 and assigns it to the CartToOrderPercent field.
 func (o *StatisticConversions) SetCartToOrderPercent(v int32) {
-	o.CartToOrderPercent = v
+	o.CartToOrderPercent = &v
 }
 
-// GetBuyoutPercent returns the BuyoutPercent field value
+// GetBuyoutPercent returns the BuyoutPercent field value if set, zero value otherwise.
 func (o *StatisticConversions) GetBuyoutPercent() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.BuyoutPercent) {
 		var ret int32
 		return ret
 	}
-
-	return o.BuyoutPercent
+	return *o.BuyoutPercent
 }
 
-// GetBuyoutPercentOk returns a tuple with the BuyoutPercent field value
+// GetBuyoutPercentOk returns a tuple with the BuyoutPercent field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *StatisticConversions) GetBuyoutPercentOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.BuyoutPercent) {
 		return nil, false
 	}
-	return &o.BuyoutPercent, true
+	return o.BuyoutPercent, true
 }
 
-// SetBuyoutPercent sets field value
+// HasBuyoutPercent returns a boolean if a field has been set.
+func (o *StatisticConversions) HasBuyoutPercent() bool {
+	if o != nil && !IsNil(o.BuyoutPercent) {
+		return true
+	}
+
+	return false
+}
+
+// SetBuyoutPercent gets a reference to the given int32 and assigns it to the BuyoutPercent field.
 func (o *StatisticConversions) SetBuyoutPercent(v int32) {
-	o.BuyoutPercent = v
+	o.BuyoutPercent = &v
 }
 
 func (o StatisticConversions) MarshalJSON() ([]byte, error) {
@@ -133,49 +150,16 @@ func (o StatisticConversions) MarshalJSON() ([]byte, error) {
 
 func (o StatisticConversions) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["addToCartPercent"] = o.AddToCartPercent
-	toSerialize["cartToOrderPercent"] = o.CartToOrderPercent
-	toSerialize["buyoutPercent"] = o.BuyoutPercent
+	if !IsNil(o.AddToCartPercent) {
+		toSerialize["addToCartPercent"] = o.AddToCartPercent
+	}
+	if !IsNil(o.CartToOrderPercent) {
+		toSerialize["cartToOrderPercent"] = o.CartToOrderPercent
+	}
+	if !IsNil(o.BuyoutPercent) {
+		toSerialize["buyoutPercent"] = o.BuyoutPercent
+	}
 	return toSerialize, nil
-}
-
-func (o *StatisticConversions) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"addToCartPercent",
-		"cartToOrderPercent",
-		"buyoutPercent",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varStatisticConversions := _StatisticConversions{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varStatisticConversions)
-
-	if err != nil {
-		return err
-	}
-
-	*o = StatisticConversions(varStatisticConversions)
-
-	return err
 }
 
 type NullableStatisticConversions struct {

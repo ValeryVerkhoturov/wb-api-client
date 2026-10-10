@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,11 +28,15 @@ class StandardizedBatchError(BaseModel):
     StandardizedBatchError
     """  # noqa: E501
 
-    detail: StrictStr = Field(description="Детали ошибки")
-    origin: StrictStr = Field(description="ID внутреннего сервиса WB")
-    request_id: StrictStr = Field(description="Уникальный ID запроса")
-    status: StrictInt = Field(description="HTTP статус-код")
-    title: StrictStr = Field(description="Заголовок ошибки")
+    detail: Optional[StrictStr] = Field(default=None, description="Детали ошибки")
+    origin: Optional[StrictStr] = Field(
+        default=None, description="ID внутреннего сервиса WB"
+    )
+    request_id: Optional[StrictStr] = Field(
+        default=None, description="Уникальный ID запроса"
+    )
+    status: Optional[StrictInt] = Field(default=None, description="HTTP статус-код")
+    title: Optional[StrictStr] = Field(default=None, description="Заголовок ошибки")
     __properties: ClassVar[List[str]] = [
         "detail",
         "origin",

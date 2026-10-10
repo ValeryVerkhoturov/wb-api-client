@@ -39,48 +39,48 @@ public class TableGroupItemSt {
   public static final String SERIALIZED_NAME_SUBJECT_I_D = "subjectID";
 
   @SerializedName(SERIALIZED_NAME_SUBJECT_I_D)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer subjectID;
 
   public static final String SERIALIZED_NAME_SUBJECT_NAME = "subjectName";
 
   @SerializedName(SERIALIZED_NAME_SUBJECT_NAME)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String subjectName;
 
   public static final String SERIALIZED_NAME_BRAND_NAME = "brandName";
 
   @SerializedName(SERIALIZED_NAME_BRAND_NAME)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String brandName;
 
   public static final String SERIALIZED_NAME_TAG_I_D = "tagID";
 
   @SerializedName(SERIALIZED_NAME_TAG_I_D)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Long tagID;
 
   public static final String SERIALIZED_NAME_TAG_NAME = "tagName";
 
   @SerializedName(SERIALIZED_NAME_TAG_NAME)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String tagName;
 
   public static final String SERIALIZED_NAME_METRICS = "metrics";
 
   @SerializedName(SERIALIZED_NAME_METRICS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private TableCommonMetrics metrics;
 
   public static final String SERIALIZED_NAME_ITEMS = "items";
 
   @SerializedName(SERIALIZED_NAME_ITEMS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private List<TableItemItemSt> items = new ArrayList<>();
 
   public TableGroupItemSt() {}
 
-  public TableGroupItemSt subjectID(@jakarta.annotation.Nonnull Integer subjectID) {
+  public TableGroupItemSt subjectID(@jakarta.annotation.Nullable Integer subjectID) {
     this.subjectID = subjectID;
     return this;
   }
@@ -90,16 +90,16 @@ public class TableGroupItemSt {
    *
    * @return subjectID
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getSubjectID() {
     return subjectID;
   }
 
-  public void setSubjectID(@jakarta.annotation.Nonnull Integer subjectID) {
+  public void setSubjectID(@jakarta.annotation.Nullable Integer subjectID) {
     this.subjectID = subjectID;
   }
 
-  public TableGroupItemSt subjectName(@jakarta.annotation.Nonnull String subjectName) {
+  public TableGroupItemSt subjectName(@jakarta.annotation.Nullable String subjectName) {
     this.subjectName = subjectName;
     return this;
   }
@@ -109,16 +109,16 @@ public class TableGroupItemSt {
    *
    * @return subjectName
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getSubjectName() {
     return subjectName;
   }
 
-  public void setSubjectName(@jakarta.annotation.Nonnull String subjectName) {
+  public void setSubjectName(@jakarta.annotation.Nullable String subjectName) {
     this.subjectName = subjectName;
   }
 
-  public TableGroupItemSt brandName(@jakarta.annotation.Nonnull String brandName) {
+  public TableGroupItemSt brandName(@jakarta.annotation.Nullable String brandName) {
     this.brandName = brandName;
     return this;
   }
@@ -128,16 +128,16 @@ public class TableGroupItemSt {
    *
    * @return brandName
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getBrandName() {
     return brandName;
   }
 
-  public void setBrandName(@jakarta.annotation.Nonnull String brandName) {
+  public void setBrandName(@jakarta.annotation.Nullable String brandName) {
     this.brandName = brandName;
   }
 
-  public TableGroupItemSt tagID(@jakarta.annotation.Nonnull Long tagID) {
+  public TableGroupItemSt tagID(@jakarta.annotation.Nullable Long tagID) {
     this.tagID = tagID;
     return this;
   }
@@ -147,16 +147,16 @@ public class TableGroupItemSt {
    *
    * @return tagID
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Long getTagID() {
     return tagID;
   }
 
-  public void setTagID(@jakarta.annotation.Nonnull Long tagID) {
+  public void setTagID(@jakarta.annotation.Nullable Long tagID) {
     this.tagID = tagID;
   }
 
-  public TableGroupItemSt tagName(@jakarta.annotation.Nonnull String tagName) {
+  public TableGroupItemSt tagName(@jakarta.annotation.Nullable String tagName) {
     this.tagName = tagName;
     return this;
   }
@@ -166,16 +166,16 @@ public class TableGroupItemSt {
    *
    * @return tagName
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getTagName() {
     return tagName;
   }
 
-  public void setTagName(@jakarta.annotation.Nonnull String tagName) {
+  public void setTagName(@jakarta.annotation.Nullable String tagName) {
     this.tagName = tagName;
   }
 
-  public TableGroupItemSt metrics(@jakarta.annotation.Nonnull TableCommonMetrics metrics) {
+  public TableGroupItemSt metrics(@jakarta.annotation.Nullable TableCommonMetrics metrics) {
     this.metrics = metrics;
     return this;
   }
@@ -185,16 +185,16 @@ public class TableGroupItemSt {
    *
    * @return metrics
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public TableCommonMetrics getMetrics() {
     return metrics;
   }
 
-  public void setMetrics(@jakarta.annotation.Nonnull TableCommonMetrics metrics) {
+  public void setMetrics(@jakarta.annotation.Nullable TableCommonMetrics metrics) {
     this.metrics = metrics;
   }
 
-  public TableGroupItemSt items(@jakarta.annotation.Nonnull List<TableItemItemSt> items) {
+  public TableGroupItemSt items(@jakarta.annotation.Nullable List<TableItemItemSt> items) {
     this.items = items;
     return this;
   }
@@ -212,12 +212,12 @@ public class TableGroupItemSt {
    *
    * @return items
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public List<TableItemItemSt> getItems() {
     return items;
   }
 
-  public void setItems(@jakarta.annotation.Nonnull List<TableItemItemSt> items) {
+  public void setItems(@jakarta.annotation.Nullable List<TableItemItemSt> items) {
     this.items = items;
   }
 
@@ -285,13 +285,6 @@ public class TableGroupItemSt {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("subjectID");
-    openapiRequiredFields.add("subjectName");
-    openapiRequiredFields.add("brandName");
-    openapiRequiredFields.add("tagID");
-    openapiRequiredFields.add("tagName");
-    openapiRequiredFields.add("metrics");
-    openapiRequiredFields.add("items");
   }
 
   /**
@@ -321,51 +314,50 @@ public class TableGroupItemSt {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : TableGroupItemSt.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    if (!jsonObj.get("subjectName").isJsonPrimitive()) {
+    if ((jsonObj.get("subjectName") != null && !jsonObj.get("subjectName").isJsonNull())
+        && !jsonObj.get("subjectName").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `subjectName` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("subjectName").toString()));
     }
-    if (!jsonObj.get("brandName").isJsonPrimitive()) {
+    if ((jsonObj.get("brandName") != null && !jsonObj.get("brandName").isJsonNull())
+        && !jsonObj.get("brandName").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `brandName` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("brandName").toString()));
     }
-    if (!jsonObj.get("tagName").isJsonPrimitive()) {
+    if ((jsonObj.get("tagName") != null && !jsonObj.get("tagName").isJsonNull())
+        && !jsonObj.get("tagName").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `tagName` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("tagName").toString()));
     }
-    // validate the required field `metrics`
-    TableCommonMetrics.validateJsonElement(jsonObj.get("metrics"));
-    // ensure the json data is an array
-    if (!jsonObj.get("items").isJsonArray()) {
-      throw new IllegalArgumentException(
-          String.format(
-              "Expected the field `items` to be an array in the JSON string but got `%s`",
-              jsonObj.get("items").toString()));
+    // validate the optional field `metrics`
+    if (jsonObj.get("metrics") != null && !jsonObj.get("metrics").isJsonNull()) {
+      TableCommonMetrics.validateJsonElement(jsonObj.get("metrics"));
     }
+    if (jsonObj.get("items") != null && !jsonObj.get("items").isJsonNull()) {
+      JsonArray jsonArrayitems = jsonObj.getAsJsonArray("items");
+      if (jsonArrayitems != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("items").isJsonArray()) {
+          throw new IllegalArgumentException(
+              String.format(
+                  "Expected the field `items` to be an array in the JSON string but got `%s`",
+                  jsonObj.get("items").toString()));
+        }
 
-    JsonArray jsonArrayitems = jsonObj.getAsJsonArray("items");
-    // validate the required field `items` (array)
-    for (int i = 0; i < jsonArrayitems.size(); i++) {
-      TableItemItemSt.validateJsonElement(jsonArrayitems.get(i));
+        // validate the optional field `items` (array)
+        for (int i = 0; i < jsonArrayitems.size(); i++) {
+          TableItemItemSt.validateJsonElement(jsonArrayitems.get(i));
+        }
+        ;
+      }
     }
-    ;
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

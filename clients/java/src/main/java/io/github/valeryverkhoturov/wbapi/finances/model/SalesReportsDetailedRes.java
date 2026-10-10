@@ -38,31 +38,31 @@ public class SalesReportsDetailedRes {
   public static final String SERIALIZED_NAME_REPORT_ID = "reportId";
 
   @SerializedName(SERIALIZED_NAME_REPORT_ID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Long reportId;
 
   public static final String SERIALIZED_NAME_DATE_FROM = "dateFrom";
 
   @SerializedName(SERIALIZED_NAME_DATE_FROM)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String dateFrom;
 
   public static final String SERIALIZED_NAME_DATE_TO = "dateTo";
 
   @SerializedName(SERIALIZED_NAME_DATE_TO)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String dateTo;
 
   public static final String SERIALIZED_NAME_CREATE_DATE = "createDate";
 
   @SerializedName(SERIALIZED_NAME_CREATE_DATE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String createDate;
 
   public static final String SERIALIZED_NAME_CURRENCY = "currency";
 
   @SerializedName(SERIALIZED_NAME_CURRENCY)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String currency;
 
   /** Тип отчёта: - &#x60;1&#x60; — основной - &#x60;2&#x60; — по выкупам */
@@ -119,308 +119,308 @@ public class SalesReportsDetailedRes {
   public static final String SERIALIZED_NAME_REPORT_TYPE = "reportType";
 
   @SerializedName(SERIALIZED_NAME_REPORT_TYPE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private ReportTypeEnum reportType;
 
   public static final String SERIALIZED_NAME_RRD_ID = "rrdId";
 
   @SerializedName(SERIALIZED_NAME_RRD_ID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer rrdId;
 
   public static final String SERIALIZED_NAME_GI_ID = "giId";
 
   @SerializedName(SERIALIZED_NAME_GI_ID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer giId;
 
   public static final String SERIALIZED_NAME_DLV_PRC = "dlvPrc";
 
   @SerializedName(SERIALIZED_NAME_DLV_PRC)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private BigDecimal dlvPrc;
 
   public static final String SERIALIZED_NAME_FIX_TARIFF_DATE_FROM = "fixTariffDateFrom";
 
   @SerializedName(SERIALIZED_NAME_FIX_TARIFF_DATE_FROM)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String fixTariffDateFrom;
 
   public static final String SERIALIZED_NAME_FIX_TARIFF_DATE_TO = "fixTariffDateTo";
 
   @SerializedName(SERIALIZED_NAME_FIX_TARIFF_DATE_TO)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String fixTariffDateTo;
 
   public static final String SERIALIZED_NAME_SUBJECT_NAME = "subjectName";
 
   @SerializedName(SERIALIZED_NAME_SUBJECT_NAME)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String subjectName;
 
   public static final String SERIALIZED_NAME_NM_ID = "nmId";
 
   @SerializedName(SERIALIZED_NAME_NM_ID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer nmId;
 
   public static final String SERIALIZED_NAME_BRAND_NAME = "brandName";
 
   @SerializedName(SERIALIZED_NAME_BRAND_NAME)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String brandName;
 
   public static final String SERIALIZED_NAME_VENDOR_CODE = "vendorCode";
 
   @SerializedName(SERIALIZED_NAME_VENDOR_CODE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String vendorCode;
 
   public static final String SERIALIZED_NAME_TITLE = "title";
 
   @SerializedName(SERIALIZED_NAME_TITLE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String title;
 
   public static final String SERIALIZED_NAME_TECH_SIZE = "techSize";
 
   @SerializedName(SERIALIZED_NAME_TECH_SIZE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String techSize;
 
   public static final String SERIALIZED_NAME_SKU = "sku";
 
   @SerializedName(SERIALIZED_NAME_SKU)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String sku;
 
   public static final String SERIALIZED_NAME_DOC_TYPE_NAME = "docTypeName";
 
   @SerializedName(SERIALIZED_NAME_DOC_TYPE_NAME)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String docTypeName;
 
   public static final String SERIALIZED_NAME_QUANTITY = "quantity";
 
   @SerializedName(SERIALIZED_NAME_QUANTITY)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer quantity;
 
   public static final String SERIALIZED_NAME_RETAIL_PRICE = "retailPrice";
 
   @SerializedName(SERIALIZED_NAME_RETAIL_PRICE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String retailPrice;
 
   public static final String SERIALIZED_NAME_RETAIL_AMOUNT = "retailAmount";
 
   @SerializedName(SERIALIZED_NAME_RETAIL_AMOUNT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String retailAmount;
 
   public static final String SERIALIZED_NAME_SALE_PERCENT = "salePercent";
 
   @SerializedName(SERIALIZED_NAME_SALE_PERCENT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer salePercent;
 
   public static final String SERIALIZED_NAME_COMMISSION_PERCENT = "commissionPercent";
 
   @SerializedName(SERIALIZED_NAME_COMMISSION_PERCENT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private BigDecimal commissionPercent;
 
   public static final String SERIALIZED_NAME_OFFICE_NAME = "officeName";
 
   @SerializedName(SERIALIZED_NAME_OFFICE_NAME)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String officeName;
 
   public static final String SERIALIZED_NAME_SELLER_OPER_NAME = "sellerOperName";
 
   @SerializedName(SERIALIZED_NAME_SELLER_OPER_NAME)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String sellerOperName;
 
   public static final String SERIALIZED_NAME_ORDER_DT = "orderDt";
 
   @SerializedName(SERIALIZED_NAME_ORDER_DT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String orderDt;
 
   public static final String SERIALIZED_NAME_SALE_DT = "saleDt";
 
   @SerializedName(SERIALIZED_NAME_SALE_DT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String saleDt;
 
   public static final String SERIALIZED_NAME_RR_DATE = "rrDate";
 
   @SerializedName(SERIALIZED_NAME_RR_DATE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String rrDate;
 
   public static final String SERIALIZED_NAME_SHK_ID = "shkId";
 
   @SerializedName(SERIALIZED_NAME_SHK_ID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer shkId;
 
   public static final String SERIALIZED_NAME_RETAIL_PRICE_WITH_DISC = "retailPriceWithDisc";
 
   @SerializedName(SERIALIZED_NAME_RETAIL_PRICE_WITH_DISC)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String retailPriceWithDisc;
 
   public static final String SERIALIZED_NAME_DELIVERY_AMOUNT = "deliveryAmount";
 
   @SerializedName(SERIALIZED_NAME_DELIVERY_AMOUNT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer deliveryAmount;
 
   public static final String SERIALIZED_NAME_RETURN_AMOUNT = "returnAmount";
 
   @SerializedName(SERIALIZED_NAME_RETURN_AMOUNT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer returnAmount;
 
   public static final String SERIALIZED_NAME_DELIVERY_SERVICE = "deliveryService";
 
   @SerializedName(SERIALIZED_NAME_DELIVERY_SERVICE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String deliveryService;
 
   public static final String SERIALIZED_NAME_GI_BOX_TYPE_NAME = "giBoxTypeName";
 
   @SerializedName(SERIALIZED_NAME_GI_BOX_TYPE_NAME)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String giBoxTypeName;
 
   public static final String SERIALIZED_NAME_PRODUCT_DISCOUNT_FOR_REPORT =
       "productDiscountForReport";
 
   @SerializedName(SERIALIZED_NAME_PRODUCT_DISCOUNT_FOR_REPORT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private BigDecimal productDiscountForReport;
 
   public static final String SERIALIZED_NAME_SELLER_PROMO = "sellerPromo";
 
   @SerializedName(SERIALIZED_NAME_SELLER_PROMO)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private BigDecimal sellerPromo;
 
   public static final String SERIALIZED_NAME_SPP = "spp";
 
   @SerializedName(SERIALIZED_NAME_SPP)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private BigDecimal spp;
 
   public static final String SERIALIZED_NAME_KVW_BASE = "kvwBase";
 
   @SerializedName(SERIALIZED_NAME_KVW_BASE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private BigDecimal kvwBase;
 
   public static final String SERIALIZED_NAME_KVW = "kvw";
 
   @SerializedName(SERIALIZED_NAME_KVW)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private BigDecimal kvw;
 
   public static final String SERIALIZED_NAME_SUP_RATING_UP = "supRatingUp";
 
   @SerializedName(SERIALIZED_NAME_SUP_RATING_UP)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private BigDecimal supRatingUp;
 
   public static final String SERIALIZED_NAME_IS_KGVP_V2 = "isKgvpV2";
 
   @SerializedName(SERIALIZED_NAME_IS_KGVP_V2)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private BigDecimal isKgvpV2;
 
   public static final String SERIALIZED_NAME_PPVZ_SALES_COMMISSION = "ppvzSalesCommission";
 
   @SerializedName(SERIALIZED_NAME_PPVZ_SALES_COMMISSION)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String ppvzSalesCommission;
 
   public static final String SERIALIZED_NAME_FOR_PAY = "forPay";
 
   @SerializedName(SERIALIZED_NAME_FOR_PAY)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String forPay;
 
   public static final String SERIALIZED_NAME_PPVZ_REWARD = "ppvzReward";
 
   @SerializedName(SERIALIZED_NAME_PPVZ_REWARD)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String ppvzReward;
 
   public static final String SERIALIZED_NAME_ACQUIRING_FEE = "acquiringFee";
 
   @SerializedName(SERIALIZED_NAME_ACQUIRING_FEE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String acquiringFee;
 
   public static final String SERIALIZED_NAME_ACQUIRING_PERCENT = "acquiringPercent";
 
   @SerializedName(SERIALIZED_NAME_ACQUIRING_PERCENT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private BigDecimal acquiringPercent;
 
   public static final String SERIALIZED_NAME_PAYMENT_PROCESSING = "paymentProcessing";
 
   @SerializedName(SERIALIZED_NAME_PAYMENT_PROCESSING)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String paymentProcessing;
 
   public static final String SERIALIZED_NAME_ACQUIRING_BANK = "acquiringBank";
 
   @SerializedName(SERIALIZED_NAME_ACQUIRING_BANK)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String acquiringBank;
 
   public static final String SERIALIZED_NAME_VW = "vw";
 
   @SerializedName(SERIALIZED_NAME_VW)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String vw;
 
   public static final String SERIALIZED_NAME_VW_NDS = "vwNds";
 
   @SerializedName(SERIALIZED_NAME_VW_NDS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String vwNds;
 
   public static final String SERIALIZED_NAME_PPVZ_OFFICE_NAME = "ppvzOfficeName";
 
   @SerializedName(SERIALIZED_NAME_PPVZ_OFFICE_NAME)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String ppvzOfficeName;
 
   public static final String SERIALIZED_NAME_PPVZ_OFFICE_ID = "ppvzOfficeId";
 
   @SerializedName(SERIALIZED_NAME_PPVZ_OFFICE_ID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer ppvzOfficeId;
 
   public static final String SERIALIZED_NAME_PPVZ_SUPPLIER_NAME = "ppvzSupplierName";
 
   @SerializedName(SERIALIZED_NAME_PPVZ_SUPPLIER_NAME)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String ppvzSupplierName;
 
   public static final String SERIALIZED_NAME_PPVZ_SUPPLIER_INN = "ppvzSupplierInn";
 
   @SerializedName(SERIALIZED_NAME_PPVZ_SUPPLIER_INN)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String ppvzSupplierInn;
 
   public static final String SERIALIZED_NAME_DECLARATION_NUMBER = "declarationNumber";
 
   @SerializedName(SERIALIZED_NAME_DECLARATION_NUMBER)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String declarationNumber;
 
   public static final String SERIALIZED_NAME_BONUS_TYPE_NAME = "bonusTypeName";
@@ -432,37 +432,37 @@ public class SalesReportsDetailedRes {
   public static final String SERIALIZED_NAME_STICKER_ID = "stickerId";
 
   @SerializedName(SERIALIZED_NAME_STICKER_ID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String stickerId;
 
   public static final String SERIALIZED_NAME_COUNTRY = "country";
 
   @SerializedName(SERIALIZED_NAME_COUNTRY)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String country;
 
   public static final String SERIALIZED_NAME_SRV_DBS = "srvDbs";
 
   @SerializedName(SERIALIZED_NAME_SRV_DBS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Boolean srvDbs;
 
   public static final String SERIALIZED_NAME_PENALTY = "penalty";
 
   @SerializedName(SERIALIZED_NAME_PENALTY)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String penalty;
 
   public static final String SERIALIZED_NAME_ADDITIONAL_PAYMENT = "additionalPayment";
 
   @SerializedName(SERIALIZED_NAME_ADDITIONAL_PAYMENT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String additionalPayment;
 
   public static final String SERIALIZED_NAME_REBILL_LOGISTIC_COST = "rebillLogisticCost";
 
   @SerializedName(SERIALIZED_NAME_REBILL_LOGISTIC_COST)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String rebillLogisticCost;
 
   public static final String SERIALIZED_NAME_REBILL_LOGISTIC_ORG = "rebillLogisticOrg";
@@ -474,25 +474,25 @@ public class SalesReportsDetailedRes {
   public static final String SERIALIZED_NAME_PAID_STORAGE = "paidStorage";
 
   @SerializedName(SERIALIZED_NAME_PAID_STORAGE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String paidStorage;
 
   public static final String SERIALIZED_NAME_DEDUCTION = "deduction";
 
   @SerializedName(SERIALIZED_NAME_DEDUCTION)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String deduction;
 
   public static final String SERIALIZED_NAME_PAID_ACCEPTANCE = "paidAcceptance";
 
   @SerializedName(SERIALIZED_NAME_PAID_ACCEPTANCE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String paidAcceptance;
 
   public static final String SERIALIZED_NAME_ORDER_ID = "orderId";
 
   @SerializedName(SERIALIZED_NAME_ORDER_ID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer orderId;
 
   public static final String SERIALIZED_NAME_KIZ = "kiz";
@@ -504,107 +504,107 @@ public class SalesReportsDetailedRes {
   public static final String SERIALIZED_NAME_IS_B2B = "isB2b";
 
   @SerializedName(SERIALIZED_NAME_IS_B2B)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Boolean isB2b;
 
   public static final String SERIALIZED_NAME_TRBX_ID = "trbxId";
 
   @SerializedName(SERIALIZED_NAME_TRBX_ID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String trbxId;
 
   public static final String SERIALIZED_NAME_INSTALLMENT_COFINANCING_AMOUNT =
       "installmentCofinancingAmount";
 
   @SerializedName(SERIALIZED_NAME_INSTALLMENT_COFINANCING_AMOUNT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String installmentCofinancingAmount;
 
   public static final String SERIALIZED_NAME_WIBES_DISCOUNT_PERCENT = "wibesDiscountPercent";
 
   @SerializedName(SERIALIZED_NAME_WIBES_DISCOUNT_PERCENT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private BigDecimal wibesDiscountPercent;
 
   public static final String SERIALIZED_NAME_CASHBACK_AMOUNT = "cashbackAmount";
 
   @SerializedName(SERIALIZED_NAME_CASHBACK_AMOUNT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String cashbackAmount;
 
   public static final String SERIALIZED_NAME_CASHBACK_DISCOUNT = "cashbackDiscount";
 
   @SerializedName(SERIALIZED_NAME_CASHBACK_DISCOUNT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String cashbackDiscount;
 
   public static final String SERIALIZED_NAME_CASHBACK_COMMISSION_CHANGE =
       "cashbackCommissionChange";
 
   @SerializedName(SERIALIZED_NAME_CASHBACK_COMMISSION_CHANGE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String cashbackCommissionChange;
 
   public static final String SERIALIZED_NAME_PAYMENT_SCHEDULE = "paymentSchedule";
 
   @SerializedName(SERIALIZED_NAME_PAYMENT_SCHEDULE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String paymentSchedule;
 
   public static final String SERIALIZED_NAME_DELIVERY_METHOD = "deliveryMethod";
 
   @SerializedName(SERIALIZED_NAME_DELIVERY_METHOD)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String deliveryMethod;
 
   public static final String SERIALIZED_NAME_SELLER_PROMO_ID = "sellerPromoId";
 
   @SerializedName(SERIALIZED_NAME_SELLER_PROMO_ID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer sellerPromoId;
 
   public static final String SERIALIZED_NAME_SELLER_PROMO_DISCOUNT = "sellerPromoDiscount";
 
   @SerializedName(SERIALIZED_NAME_SELLER_PROMO_DISCOUNT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private BigDecimal sellerPromoDiscount;
 
   public static final String SERIALIZED_NAME_LOYALTY_ID = "loyaltyId";
 
   @SerializedName(SERIALIZED_NAME_LOYALTY_ID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer loyaltyId;
 
   public static final String SERIALIZED_NAME_LOYALTY_DISCOUNT = "loyaltyDiscount";
 
   @SerializedName(SERIALIZED_NAME_LOYALTY_DISCOUNT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private BigDecimal loyaltyDiscount;
 
   public static final String SERIALIZED_NAME_UUID_PROMOCODE = "uuidPromocode";
 
   @SerializedName(SERIALIZED_NAME_UUID_PROMOCODE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String uuidPromocode;
 
   public static final String SERIALIZED_NAME_SALE_PRICE_PROMOCODE_DISCOUNT_PRC =
       "salePricePromocodeDiscountPrc";
 
   @SerializedName(SERIALIZED_NAME_SALE_PRICE_PROMOCODE_DISCOUNT_PRC)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private BigDecimal salePricePromocodeDiscountPrc;
 
   public static final String SERIALIZED_NAME_ARTICLE_SUBSTITUTION = "articleSubstitution";
 
   @SerializedName(SERIALIZED_NAME_ARTICLE_SUBSTITUTION)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String articleSubstitution;
 
   public static final String SERIALIZED_NAME_SALE_PRICE_AFFILIATED_DISCOUNT_PRC =
       "salePriceAffiliatedDiscountPrc";
 
   @SerializedName(SERIALIZED_NAME_SALE_PRICE_AFFILIATED_DISCOUNT_PRC)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private BigDecimal salePriceAffiliatedDiscountPrc;
 
   public static final String SERIALIZED_NAME_AGENCY_VAT = "agencyVat";
@@ -617,62 +617,62 @@ public class SalesReportsDetailedRes {
       "salePriceWholesaleDiscountPrc";
 
   @SerializedName(SERIALIZED_NAME_SALE_PRICE_WHOLESALE_DISCOUNT_PRC)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private BigDecimal salePriceWholesaleDiscountPrc;
 
   public static final String SERIALIZED_NAME_B2B_CUSTOMER_TIN = "b2bCustomerTin";
 
   @SerializedName(SERIALIZED_NAME_B2B_CUSTOMER_TIN)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String b2bCustomerTin;
 
   public static final String SERIALIZED_NAME_PAID_WITH_SOCIAL_CERTIFICATE =
       "paidWithSocialCertificate";
 
   @SerializedName(SERIALIZED_NAME_PAID_WITH_SOCIAL_CERTIFICATE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Boolean paidWithSocialCertificate;
 
   public static final String SERIALIZED_NAME_WAREHOUSE_LOGISTICS_COEFF = "warehouseLogisticsCoeff";
 
   @SerializedName(SERIALIZED_NAME_WAREHOUSE_LOGISTICS_COEFF)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private BigDecimal warehouseLogisticsCoeff;
 
   public static final String SERIALIZED_NAME_BUYER_TAX_REGISTRATION_REASON_CODE =
       "buyerTaxRegistrationReasonCode";
 
   @SerializedName(SERIALIZED_NAME_BUYER_TAX_REGISTRATION_REASON_CODE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String buyerTaxRegistrationReasonCode;
 
   public static final String SERIALIZED_NAME_UTD_UCD_NUMBER = "utdUcdNumber";
 
   @SerializedName(SERIALIZED_NAME_UTD_UCD_NUMBER)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String utdUcdNumber;
 
   public static final String SERIALIZED_NAME_UTD_UCD_DATE = "utdUcdDate";
 
   @SerializedName(SERIALIZED_NAME_UTD_UCD_DATE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String utdUcdDate;
 
   public static final String SERIALIZED_NAME_ORDER_UID = "orderUid";
 
   @SerializedName(SERIALIZED_NAME_ORDER_UID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String orderUid;
 
   public static final String SERIALIZED_NAME_SRID = "srid";
 
   @SerializedName(SERIALIZED_NAME_SRID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String srid;
 
   public SalesReportsDetailedRes() {}
 
-  public SalesReportsDetailedRes reportId(@jakarta.annotation.Nonnull Long reportId) {
+  public SalesReportsDetailedRes reportId(@jakarta.annotation.Nullable Long reportId) {
     this.reportId = reportId;
     return this;
   }
@@ -682,16 +682,16 @@ public class SalesReportsDetailedRes {
    *
    * @return reportId
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Long getReportId() {
     return reportId;
   }
 
-  public void setReportId(@jakarta.annotation.Nonnull Long reportId) {
+  public void setReportId(@jakarta.annotation.Nullable Long reportId) {
     this.reportId = reportId;
   }
 
-  public SalesReportsDetailedRes dateFrom(@jakarta.annotation.Nonnull String dateFrom) {
+  public SalesReportsDetailedRes dateFrom(@jakarta.annotation.Nullable String dateFrom) {
     this.dateFrom = dateFrom;
     return this;
   }
@@ -701,16 +701,16 @@ public class SalesReportsDetailedRes {
    *
    * @return dateFrom
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getDateFrom() {
     return dateFrom;
   }
 
-  public void setDateFrom(@jakarta.annotation.Nonnull String dateFrom) {
+  public void setDateFrom(@jakarta.annotation.Nullable String dateFrom) {
     this.dateFrom = dateFrom;
   }
 
-  public SalesReportsDetailedRes dateTo(@jakarta.annotation.Nonnull String dateTo) {
+  public SalesReportsDetailedRes dateTo(@jakarta.annotation.Nullable String dateTo) {
     this.dateTo = dateTo;
     return this;
   }
@@ -720,16 +720,16 @@ public class SalesReportsDetailedRes {
    *
    * @return dateTo
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getDateTo() {
     return dateTo;
   }
 
-  public void setDateTo(@jakarta.annotation.Nonnull String dateTo) {
+  public void setDateTo(@jakarta.annotation.Nullable String dateTo) {
     this.dateTo = dateTo;
   }
 
-  public SalesReportsDetailedRes createDate(@jakarta.annotation.Nonnull String createDate) {
+  public SalesReportsDetailedRes createDate(@jakarta.annotation.Nullable String createDate) {
     this.createDate = createDate;
     return this;
   }
@@ -739,16 +739,16 @@ public class SalesReportsDetailedRes {
    *
    * @return createDate
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getCreateDate() {
     return createDate;
   }
 
-  public void setCreateDate(@jakarta.annotation.Nonnull String createDate) {
+  public void setCreateDate(@jakarta.annotation.Nullable String createDate) {
     this.createDate = createDate;
   }
 
-  public SalesReportsDetailedRes currency(@jakarta.annotation.Nonnull String currency) {
+  public SalesReportsDetailedRes currency(@jakarta.annotation.Nullable String currency) {
     this.currency = currency;
     return this;
   }
@@ -758,16 +758,17 @@ public class SalesReportsDetailedRes {
    *
    * @return currency
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getCurrency() {
     return currency;
   }
 
-  public void setCurrency(@jakarta.annotation.Nonnull String currency) {
+  public void setCurrency(@jakarta.annotation.Nullable String currency) {
     this.currency = currency;
   }
 
-  public SalesReportsDetailedRes reportType(@jakarta.annotation.Nonnull ReportTypeEnum reportType) {
+  public SalesReportsDetailedRes reportType(
+      @jakarta.annotation.Nullable ReportTypeEnum reportType) {
     this.reportType = reportType;
     return this;
   }
@@ -777,16 +778,16 @@ public class SalesReportsDetailedRes {
    *
    * @return reportType
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public ReportTypeEnum getReportType() {
     return reportType;
   }
 
-  public void setReportType(@jakarta.annotation.Nonnull ReportTypeEnum reportType) {
+  public void setReportType(@jakarta.annotation.Nullable ReportTypeEnum reportType) {
     this.reportType = reportType;
   }
 
-  public SalesReportsDetailedRes rrdId(@jakarta.annotation.Nonnull Integer rrdId) {
+  public SalesReportsDetailedRes rrdId(@jakarta.annotation.Nullable Integer rrdId) {
     this.rrdId = rrdId;
     return this;
   }
@@ -796,16 +797,16 @@ public class SalesReportsDetailedRes {
    *
    * @return rrdId
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getRrdId() {
     return rrdId;
   }
 
-  public void setRrdId(@jakarta.annotation.Nonnull Integer rrdId) {
+  public void setRrdId(@jakarta.annotation.Nullable Integer rrdId) {
     this.rrdId = rrdId;
   }
 
-  public SalesReportsDetailedRes giId(@jakarta.annotation.Nonnull Integer giId) {
+  public SalesReportsDetailedRes giId(@jakarta.annotation.Nullable Integer giId) {
     this.giId = giId;
     return this;
   }
@@ -815,16 +816,16 @@ public class SalesReportsDetailedRes {
    *
    * @return giId
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getGiId() {
     return giId;
   }
 
-  public void setGiId(@jakarta.annotation.Nonnull Integer giId) {
+  public void setGiId(@jakarta.annotation.Nullable Integer giId) {
     this.giId = giId;
   }
 
-  public SalesReportsDetailedRes dlvPrc(@jakarta.annotation.Nonnull BigDecimal dlvPrc) {
+  public SalesReportsDetailedRes dlvPrc(@jakarta.annotation.Nullable BigDecimal dlvPrc) {
     this.dlvPrc = dlvPrc;
     return this;
   }
@@ -834,17 +835,17 @@ public class SalesReportsDetailedRes {
    *
    * @return dlvPrc
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public BigDecimal getDlvPrc() {
     return dlvPrc;
   }
 
-  public void setDlvPrc(@jakarta.annotation.Nonnull BigDecimal dlvPrc) {
+  public void setDlvPrc(@jakarta.annotation.Nullable BigDecimal dlvPrc) {
     this.dlvPrc = dlvPrc;
   }
 
   public SalesReportsDetailedRes fixTariffDateFrom(
-      @jakarta.annotation.Nonnull String fixTariffDateFrom) {
+      @jakarta.annotation.Nullable String fixTariffDateFrom) {
     this.fixTariffDateFrom = fixTariffDateFrom;
     return this;
   }
@@ -854,17 +855,17 @@ public class SalesReportsDetailedRes {
    *
    * @return fixTariffDateFrom
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getFixTariffDateFrom() {
     return fixTariffDateFrom;
   }
 
-  public void setFixTariffDateFrom(@jakarta.annotation.Nonnull String fixTariffDateFrom) {
+  public void setFixTariffDateFrom(@jakarta.annotation.Nullable String fixTariffDateFrom) {
     this.fixTariffDateFrom = fixTariffDateFrom;
   }
 
   public SalesReportsDetailedRes fixTariffDateTo(
-      @jakarta.annotation.Nonnull String fixTariffDateTo) {
+      @jakarta.annotation.Nullable String fixTariffDateTo) {
     this.fixTariffDateTo = fixTariffDateTo;
     return this;
   }
@@ -874,16 +875,16 @@ public class SalesReportsDetailedRes {
    *
    * @return fixTariffDateTo
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getFixTariffDateTo() {
     return fixTariffDateTo;
   }
 
-  public void setFixTariffDateTo(@jakarta.annotation.Nonnull String fixTariffDateTo) {
+  public void setFixTariffDateTo(@jakarta.annotation.Nullable String fixTariffDateTo) {
     this.fixTariffDateTo = fixTariffDateTo;
   }
 
-  public SalesReportsDetailedRes subjectName(@jakarta.annotation.Nonnull String subjectName) {
+  public SalesReportsDetailedRes subjectName(@jakarta.annotation.Nullable String subjectName) {
     this.subjectName = subjectName;
     return this;
   }
@@ -893,16 +894,16 @@ public class SalesReportsDetailedRes {
    *
    * @return subjectName
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getSubjectName() {
     return subjectName;
   }
 
-  public void setSubjectName(@jakarta.annotation.Nonnull String subjectName) {
+  public void setSubjectName(@jakarta.annotation.Nullable String subjectName) {
     this.subjectName = subjectName;
   }
 
-  public SalesReportsDetailedRes nmId(@jakarta.annotation.Nonnull Integer nmId) {
+  public SalesReportsDetailedRes nmId(@jakarta.annotation.Nullable Integer nmId) {
     this.nmId = nmId;
     return this;
   }
@@ -912,16 +913,16 @@ public class SalesReportsDetailedRes {
    *
    * @return nmId
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getNmId() {
     return nmId;
   }
 
-  public void setNmId(@jakarta.annotation.Nonnull Integer nmId) {
+  public void setNmId(@jakarta.annotation.Nullable Integer nmId) {
     this.nmId = nmId;
   }
 
-  public SalesReportsDetailedRes brandName(@jakarta.annotation.Nonnull String brandName) {
+  public SalesReportsDetailedRes brandName(@jakarta.annotation.Nullable String brandName) {
     this.brandName = brandName;
     return this;
   }
@@ -931,16 +932,16 @@ public class SalesReportsDetailedRes {
    *
    * @return brandName
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getBrandName() {
     return brandName;
   }
 
-  public void setBrandName(@jakarta.annotation.Nonnull String brandName) {
+  public void setBrandName(@jakarta.annotation.Nullable String brandName) {
     this.brandName = brandName;
   }
 
-  public SalesReportsDetailedRes vendorCode(@jakarta.annotation.Nonnull String vendorCode) {
+  public SalesReportsDetailedRes vendorCode(@jakarta.annotation.Nullable String vendorCode) {
     this.vendorCode = vendorCode;
     return this;
   }
@@ -950,16 +951,16 @@ public class SalesReportsDetailedRes {
    *
    * @return vendorCode
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getVendorCode() {
     return vendorCode;
   }
 
-  public void setVendorCode(@jakarta.annotation.Nonnull String vendorCode) {
+  public void setVendorCode(@jakarta.annotation.Nullable String vendorCode) {
     this.vendorCode = vendorCode;
   }
 
-  public SalesReportsDetailedRes title(@jakarta.annotation.Nonnull String title) {
+  public SalesReportsDetailedRes title(@jakarta.annotation.Nullable String title) {
     this.title = title;
     return this;
   }
@@ -969,16 +970,16 @@ public class SalesReportsDetailedRes {
    *
    * @return title
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getTitle() {
     return title;
   }
 
-  public void setTitle(@jakarta.annotation.Nonnull String title) {
+  public void setTitle(@jakarta.annotation.Nullable String title) {
     this.title = title;
   }
 
-  public SalesReportsDetailedRes techSize(@jakarta.annotation.Nonnull String techSize) {
+  public SalesReportsDetailedRes techSize(@jakarta.annotation.Nullable String techSize) {
     this.techSize = techSize;
     return this;
   }
@@ -988,16 +989,16 @@ public class SalesReportsDetailedRes {
    *
    * @return techSize
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getTechSize() {
     return techSize;
   }
 
-  public void setTechSize(@jakarta.annotation.Nonnull String techSize) {
+  public void setTechSize(@jakarta.annotation.Nullable String techSize) {
     this.techSize = techSize;
   }
 
-  public SalesReportsDetailedRes sku(@jakarta.annotation.Nonnull String sku) {
+  public SalesReportsDetailedRes sku(@jakarta.annotation.Nullable String sku) {
     this.sku = sku;
     return this;
   }
@@ -1007,16 +1008,16 @@ public class SalesReportsDetailedRes {
    *
    * @return sku
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getSku() {
     return sku;
   }
 
-  public void setSku(@jakarta.annotation.Nonnull String sku) {
+  public void setSku(@jakarta.annotation.Nullable String sku) {
     this.sku = sku;
   }
 
-  public SalesReportsDetailedRes docTypeName(@jakarta.annotation.Nonnull String docTypeName) {
+  public SalesReportsDetailedRes docTypeName(@jakarta.annotation.Nullable String docTypeName) {
     this.docTypeName = docTypeName;
     return this;
   }
@@ -1026,16 +1027,16 @@ public class SalesReportsDetailedRes {
    *
    * @return docTypeName
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getDocTypeName() {
     return docTypeName;
   }
 
-  public void setDocTypeName(@jakarta.annotation.Nonnull String docTypeName) {
+  public void setDocTypeName(@jakarta.annotation.Nullable String docTypeName) {
     this.docTypeName = docTypeName;
   }
 
-  public SalesReportsDetailedRes quantity(@jakarta.annotation.Nonnull Integer quantity) {
+  public SalesReportsDetailedRes quantity(@jakarta.annotation.Nullable Integer quantity) {
     this.quantity = quantity;
     return this;
   }
@@ -1045,16 +1046,16 @@ public class SalesReportsDetailedRes {
    *
    * @return quantity
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getQuantity() {
     return quantity;
   }
 
-  public void setQuantity(@jakarta.annotation.Nonnull Integer quantity) {
+  public void setQuantity(@jakarta.annotation.Nullable Integer quantity) {
     this.quantity = quantity;
   }
 
-  public SalesReportsDetailedRes retailPrice(@jakarta.annotation.Nonnull String retailPrice) {
+  public SalesReportsDetailedRes retailPrice(@jakarta.annotation.Nullable String retailPrice) {
     this.retailPrice = retailPrice;
     return this;
   }
@@ -1064,16 +1065,16 @@ public class SalesReportsDetailedRes {
    *
    * @return retailPrice
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getRetailPrice() {
     return retailPrice;
   }
 
-  public void setRetailPrice(@jakarta.annotation.Nonnull String retailPrice) {
+  public void setRetailPrice(@jakarta.annotation.Nullable String retailPrice) {
     this.retailPrice = retailPrice;
   }
 
-  public SalesReportsDetailedRes retailAmount(@jakarta.annotation.Nonnull String retailAmount) {
+  public SalesReportsDetailedRes retailAmount(@jakarta.annotation.Nullable String retailAmount) {
     this.retailAmount = retailAmount;
     return this;
   }
@@ -1083,16 +1084,16 @@ public class SalesReportsDetailedRes {
    *
    * @return retailAmount
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getRetailAmount() {
     return retailAmount;
   }
 
-  public void setRetailAmount(@jakarta.annotation.Nonnull String retailAmount) {
+  public void setRetailAmount(@jakarta.annotation.Nullable String retailAmount) {
     this.retailAmount = retailAmount;
   }
 
-  public SalesReportsDetailedRes salePercent(@jakarta.annotation.Nonnull Integer salePercent) {
+  public SalesReportsDetailedRes salePercent(@jakarta.annotation.Nullable Integer salePercent) {
     this.salePercent = salePercent;
     return this;
   }
@@ -1102,17 +1103,17 @@ public class SalesReportsDetailedRes {
    *
    * @return salePercent
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getSalePercent() {
     return salePercent;
   }
 
-  public void setSalePercent(@jakarta.annotation.Nonnull Integer salePercent) {
+  public void setSalePercent(@jakarta.annotation.Nullable Integer salePercent) {
     this.salePercent = salePercent;
   }
 
   public SalesReportsDetailedRes commissionPercent(
-      @jakarta.annotation.Nonnull BigDecimal commissionPercent) {
+      @jakarta.annotation.Nullable BigDecimal commissionPercent) {
     this.commissionPercent = commissionPercent;
     return this;
   }
@@ -1122,16 +1123,16 @@ public class SalesReportsDetailedRes {
    *
    * @return commissionPercent
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public BigDecimal getCommissionPercent() {
     return commissionPercent;
   }
 
-  public void setCommissionPercent(@jakarta.annotation.Nonnull BigDecimal commissionPercent) {
+  public void setCommissionPercent(@jakarta.annotation.Nullable BigDecimal commissionPercent) {
     this.commissionPercent = commissionPercent;
   }
 
-  public SalesReportsDetailedRes officeName(@jakarta.annotation.Nonnull String officeName) {
+  public SalesReportsDetailedRes officeName(@jakarta.annotation.Nullable String officeName) {
     this.officeName = officeName;
     return this;
   }
@@ -1141,16 +1142,17 @@ public class SalesReportsDetailedRes {
    *
    * @return officeName
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getOfficeName() {
     return officeName;
   }
 
-  public void setOfficeName(@jakarta.annotation.Nonnull String officeName) {
+  public void setOfficeName(@jakarta.annotation.Nullable String officeName) {
     this.officeName = officeName;
   }
 
-  public SalesReportsDetailedRes sellerOperName(@jakarta.annotation.Nonnull String sellerOperName) {
+  public SalesReportsDetailedRes sellerOperName(
+      @jakarta.annotation.Nullable String sellerOperName) {
     this.sellerOperName = sellerOperName;
     return this;
   }
@@ -1160,16 +1162,16 @@ public class SalesReportsDetailedRes {
    *
    * @return sellerOperName
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getSellerOperName() {
     return sellerOperName;
   }
 
-  public void setSellerOperName(@jakarta.annotation.Nonnull String sellerOperName) {
+  public void setSellerOperName(@jakarta.annotation.Nullable String sellerOperName) {
     this.sellerOperName = sellerOperName;
   }
 
-  public SalesReportsDetailedRes orderDt(@jakarta.annotation.Nonnull String orderDt) {
+  public SalesReportsDetailedRes orderDt(@jakarta.annotation.Nullable String orderDt) {
     this.orderDt = orderDt;
     return this;
   }
@@ -1179,16 +1181,16 @@ public class SalesReportsDetailedRes {
    *
    * @return orderDt
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getOrderDt() {
     return orderDt;
   }
 
-  public void setOrderDt(@jakarta.annotation.Nonnull String orderDt) {
+  public void setOrderDt(@jakarta.annotation.Nullable String orderDt) {
     this.orderDt = orderDt;
   }
 
-  public SalesReportsDetailedRes saleDt(@jakarta.annotation.Nonnull String saleDt) {
+  public SalesReportsDetailedRes saleDt(@jakarta.annotation.Nullable String saleDt) {
     this.saleDt = saleDt;
     return this;
   }
@@ -1198,16 +1200,16 @@ public class SalesReportsDetailedRes {
    *
    * @return saleDt
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getSaleDt() {
     return saleDt;
   }
 
-  public void setSaleDt(@jakarta.annotation.Nonnull String saleDt) {
+  public void setSaleDt(@jakarta.annotation.Nullable String saleDt) {
     this.saleDt = saleDt;
   }
 
-  public SalesReportsDetailedRes rrDate(@jakarta.annotation.Nonnull String rrDate) {
+  public SalesReportsDetailedRes rrDate(@jakarta.annotation.Nullable String rrDate) {
     this.rrDate = rrDate;
     return this;
   }
@@ -1217,16 +1219,16 @@ public class SalesReportsDetailedRes {
    *
    * @return rrDate
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getRrDate() {
     return rrDate;
   }
 
-  public void setRrDate(@jakarta.annotation.Nonnull String rrDate) {
+  public void setRrDate(@jakarta.annotation.Nullable String rrDate) {
     this.rrDate = rrDate;
   }
 
-  public SalesReportsDetailedRes shkId(@jakarta.annotation.Nonnull Integer shkId) {
+  public SalesReportsDetailedRes shkId(@jakarta.annotation.Nullable Integer shkId) {
     this.shkId = shkId;
     return this;
   }
@@ -1236,17 +1238,17 @@ public class SalesReportsDetailedRes {
    *
    * @return shkId
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getShkId() {
     return shkId;
   }
 
-  public void setShkId(@jakarta.annotation.Nonnull Integer shkId) {
+  public void setShkId(@jakarta.annotation.Nullable Integer shkId) {
     this.shkId = shkId;
   }
 
   public SalesReportsDetailedRes retailPriceWithDisc(
-      @jakarta.annotation.Nonnull String retailPriceWithDisc) {
+      @jakarta.annotation.Nullable String retailPriceWithDisc) {
     this.retailPriceWithDisc = retailPriceWithDisc;
     return this;
   }
@@ -1256,17 +1258,17 @@ public class SalesReportsDetailedRes {
    *
    * @return retailPriceWithDisc
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getRetailPriceWithDisc() {
     return retailPriceWithDisc;
   }
 
-  public void setRetailPriceWithDisc(@jakarta.annotation.Nonnull String retailPriceWithDisc) {
+  public void setRetailPriceWithDisc(@jakarta.annotation.Nullable String retailPriceWithDisc) {
     this.retailPriceWithDisc = retailPriceWithDisc;
   }
 
   public SalesReportsDetailedRes deliveryAmount(
-      @jakarta.annotation.Nonnull Integer deliveryAmount) {
+      @jakarta.annotation.Nullable Integer deliveryAmount) {
     this.deliveryAmount = deliveryAmount;
     return this;
   }
@@ -1276,16 +1278,16 @@ public class SalesReportsDetailedRes {
    *
    * @return deliveryAmount
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getDeliveryAmount() {
     return deliveryAmount;
   }
 
-  public void setDeliveryAmount(@jakarta.annotation.Nonnull Integer deliveryAmount) {
+  public void setDeliveryAmount(@jakarta.annotation.Nullable Integer deliveryAmount) {
     this.deliveryAmount = deliveryAmount;
   }
 
-  public SalesReportsDetailedRes returnAmount(@jakarta.annotation.Nonnull Integer returnAmount) {
+  public SalesReportsDetailedRes returnAmount(@jakarta.annotation.Nullable Integer returnAmount) {
     this.returnAmount = returnAmount;
     return this;
   }
@@ -1295,17 +1297,17 @@ public class SalesReportsDetailedRes {
    *
    * @return returnAmount
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getReturnAmount() {
     return returnAmount;
   }
 
-  public void setReturnAmount(@jakarta.annotation.Nonnull Integer returnAmount) {
+  public void setReturnAmount(@jakarta.annotation.Nullable Integer returnAmount) {
     this.returnAmount = returnAmount;
   }
 
   public SalesReportsDetailedRes deliveryService(
-      @jakarta.annotation.Nonnull String deliveryService) {
+      @jakarta.annotation.Nullable String deliveryService) {
     this.deliveryService = deliveryService;
     return this;
   }
@@ -1315,16 +1317,16 @@ public class SalesReportsDetailedRes {
    *
    * @return deliveryService
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getDeliveryService() {
     return deliveryService;
   }
 
-  public void setDeliveryService(@jakarta.annotation.Nonnull String deliveryService) {
+  public void setDeliveryService(@jakarta.annotation.Nullable String deliveryService) {
     this.deliveryService = deliveryService;
   }
 
-  public SalesReportsDetailedRes giBoxTypeName(@jakarta.annotation.Nonnull String giBoxTypeName) {
+  public SalesReportsDetailedRes giBoxTypeName(@jakarta.annotation.Nullable String giBoxTypeName) {
     this.giBoxTypeName = giBoxTypeName;
     return this;
   }
@@ -1334,17 +1336,17 @@ public class SalesReportsDetailedRes {
    *
    * @return giBoxTypeName
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getGiBoxTypeName() {
     return giBoxTypeName;
   }
 
-  public void setGiBoxTypeName(@jakarta.annotation.Nonnull String giBoxTypeName) {
+  public void setGiBoxTypeName(@jakarta.annotation.Nullable String giBoxTypeName) {
     this.giBoxTypeName = giBoxTypeName;
   }
 
   public SalesReportsDetailedRes productDiscountForReport(
-      @jakarta.annotation.Nonnull BigDecimal productDiscountForReport) {
+      @jakarta.annotation.Nullable BigDecimal productDiscountForReport) {
     this.productDiscountForReport = productDiscountForReport;
     return this;
   }
@@ -1354,17 +1356,17 @@ public class SalesReportsDetailedRes {
    *
    * @return productDiscountForReport
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public BigDecimal getProductDiscountForReport() {
     return productDiscountForReport;
   }
 
   public void setProductDiscountForReport(
-      @jakarta.annotation.Nonnull BigDecimal productDiscountForReport) {
+      @jakarta.annotation.Nullable BigDecimal productDiscountForReport) {
     this.productDiscountForReport = productDiscountForReport;
   }
 
-  public SalesReportsDetailedRes sellerPromo(@jakarta.annotation.Nonnull BigDecimal sellerPromo) {
+  public SalesReportsDetailedRes sellerPromo(@jakarta.annotation.Nullable BigDecimal sellerPromo) {
     this.sellerPromo = sellerPromo;
     return this;
   }
@@ -1374,16 +1376,16 @@ public class SalesReportsDetailedRes {
    *
    * @return sellerPromo
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public BigDecimal getSellerPromo() {
     return sellerPromo;
   }
 
-  public void setSellerPromo(@jakarta.annotation.Nonnull BigDecimal sellerPromo) {
+  public void setSellerPromo(@jakarta.annotation.Nullable BigDecimal sellerPromo) {
     this.sellerPromo = sellerPromo;
   }
 
-  public SalesReportsDetailedRes spp(@jakarta.annotation.Nonnull BigDecimal spp) {
+  public SalesReportsDetailedRes spp(@jakarta.annotation.Nullable BigDecimal spp) {
     this.spp = spp;
     return this;
   }
@@ -1393,16 +1395,16 @@ public class SalesReportsDetailedRes {
    *
    * @return spp
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public BigDecimal getSpp() {
     return spp;
   }
 
-  public void setSpp(@jakarta.annotation.Nonnull BigDecimal spp) {
+  public void setSpp(@jakarta.annotation.Nullable BigDecimal spp) {
     this.spp = spp;
   }
 
-  public SalesReportsDetailedRes kvwBase(@jakarta.annotation.Nonnull BigDecimal kvwBase) {
+  public SalesReportsDetailedRes kvwBase(@jakarta.annotation.Nullable BigDecimal kvwBase) {
     this.kvwBase = kvwBase;
     return this;
   }
@@ -1412,16 +1414,16 @@ public class SalesReportsDetailedRes {
    *
    * @return kvwBase
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public BigDecimal getKvwBase() {
     return kvwBase;
   }
 
-  public void setKvwBase(@jakarta.annotation.Nonnull BigDecimal kvwBase) {
+  public void setKvwBase(@jakarta.annotation.Nullable BigDecimal kvwBase) {
     this.kvwBase = kvwBase;
   }
 
-  public SalesReportsDetailedRes kvw(@jakarta.annotation.Nonnull BigDecimal kvw) {
+  public SalesReportsDetailedRes kvw(@jakarta.annotation.Nullable BigDecimal kvw) {
     this.kvw = kvw;
     return this;
   }
@@ -1431,16 +1433,16 @@ public class SalesReportsDetailedRes {
    *
    * @return kvw
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public BigDecimal getKvw() {
     return kvw;
   }
 
-  public void setKvw(@jakarta.annotation.Nonnull BigDecimal kvw) {
+  public void setKvw(@jakarta.annotation.Nullable BigDecimal kvw) {
     this.kvw = kvw;
   }
 
-  public SalesReportsDetailedRes supRatingUp(@jakarta.annotation.Nonnull BigDecimal supRatingUp) {
+  public SalesReportsDetailedRes supRatingUp(@jakarta.annotation.Nullable BigDecimal supRatingUp) {
     this.supRatingUp = supRatingUp;
     return this;
   }
@@ -1450,16 +1452,16 @@ public class SalesReportsDetailedRes {
    *
    * @return supRatingUp
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public BigDecimal getSupRatingUp() {
     return supRatingUp;
   }
 
-  public void setSupRatingUp(@jakarta.annotation.Nonnull BigDecimal supRatingUp) {
+  public void setSupRatingUp(@jakarta.annotation.Nullable BigDecimal supRatingUp) {
     this.supRatingUp = supRatingUp;
   }
 
-  public SalesReportsDetailedRes isKgvpV2(@jakarta.annotation.Nonnull BigDecimal isKgvpV2) {
+  public SalesReportsDetailedRes isKgvpV2(@jakarta.annotation.Nullable BigDecimal isKgvpV2) {
     this.isKgvpV2 = isKgvpV2;
     return this;
   }
@@ -1469,17 +1471,17 @@ public class SalesReportsDetailedRes {
    *
    * @return isKgvpV2
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public BigDecimal getIsKgvpV2() {
     return isKgvpV2;
   }
 
-  public void setIsKgvpV2(@jakarta.annotation.Nonnull BigDecimal isKgvpV2) {
+  public void setIsKgvpV2(@jakarta.annotation.Nullable BigDecimal isKgvpV2) {
     this.isKgvpV2 = isKgvpV2;
   }
 
   public SalesReportsDetailedRes ppvzSalesCommission(
-      @jakarta.annotation.Nonnull String ppvzSalesCommission) {
+      @jakarta.annotation.Nullable String ppvzSalesCommission) {
     this.ppvzSalesCommission = ppvzSalesCommission;
     return this;
   }
@@ -1489,16 +1491,16 @@ public class SalesReportsDetailedRes {
    *
    * @return ppvzSalesCommission
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getPpvzSalesCommission() {
     return ppvzSalesCommission;
   }
 
-  public void setPpvzSalesCommission(@jakarta.annotation.Nonnull String ppvzSalesCommission) {
+  public void setPpvzSalesCommission(@jakarta.annotation.Nullable String ppvzSalesCommission) {
     this.ppvzSalesCommission = ppvzSalesCommission;
   }
 
-  public SalesReportsDetailedRes forPay(@jakarta.annotation.Nonnull String forPay) {
+  public SalesReportsDetailedRes forPay(@jakarta.annotation.Nullable String forPay) {
     this.forPay = forPay;
     return this;
   }
@@ -1508,16 +1510,16 @@ public class SalesReportsDetailedRes {
    *
    * @return forPay
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getForPay() {
     return forPay;
   }
 
-  public void setForPay(@jakarta.annotation.Nonnull String forPay) {
+  public void setForPay(@jakarta.annotation.Nullable String forPay) {
     this.forPay = forPay;
   }
 
-  public SalesReportsDetailedRes ppvzReward(@jakarta.annotation.Nonnull String ppvzReward) {
+  public SalesReportsDetailedRes ppvzReward(@jakarta.annotation.Nullable String ppvzReward) {
     this.ppvzReward = ppvzReward;
     return this;
   }
@@ -1527,16 +1529,16 @@ public class SalesReportsDetailedRes {
    *
    * @return ppvzReward
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getPpvzReward() {
     return ppvzReward;
   }
 
-  public void setPpvzReward(@jakarta.annotation.Nonnull String ppvzReward) {
+  public void setPpvzReward(@jakarta.annotation.Nullable String ppvzReward) {
     this.ppvzReward = ppvzReward;
   }
 
-  public SalesReportsDetailedRes acquiringFee(@jakarta.annotation.Nonnull String acquiringFee) {
+  public SalesReportsDetailedRes acquiringFee(@jakarta.annotation.Nullable String acquiringFee) {
     this.acquiringFee = acquiringFee;
     return this;
   }
@@ -1546,17 +1548,17 @@ public class SalesReportsDetailedRes {
    *
    * @return acquiringFee
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getAcquiringFee() {
     return acquiringFee;
   }
 
-  public void setAcquiringFee(@jakarta.annotation.Nonnull String acquiringFee) {
+  public void setAcquiringFee(@jakarta.annotation.Nullable String acquiringFee) {
     this.acquiringFee = acquiringFee;
   }
 
   public SalesReportsDetailedRes acquiringPercent(
-      @jakarta.annotation.Nonnull BigDecimal acquiringPercent) {
+      @jakarta.annotation.Nullable BigDecimal acquiringPercent) {
     this.acquiringPercent = acquiringPercent;
     return this;
   }
@@ -1566,17 +1568,17 @@ public class SalesReportsDetailedRes {
    *
    * @return acquiringPercent
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public BigDecimal getAcquiringPercent() {
     return acquiringPercent;
   }
 
-  public void setAcquiringPercent(@jakarta.annotation.Nonnull BigDecimal acquiringPercent) {
+  public void setAcquiringPercent(@jakarta.annotation.Nullable BigDecimal acquiringPercent) {
     this.acquiringPercent = acquiringPercent;
   }
 
   public SalesReportsDetailedRes paymentProcessing(
-      @jakarta.annotation.Nonnull String paymentProcessing) {
+      @jakarta.annotation.Nullable String paymentProcessing) {
     this.paymentProcessing = paymentProcessing;
     return this;
   }
@@ -1586,16 +1588,16 @@ public class SalesReportsDetailedRes {
    *
    * @return paymentProcessing
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getPaymentProcessing() {
     return paymentProcessing;
   }
 
-  public void setPaymentProcessing(@jakarta.annotation.Nonnull String paymentProcessing) {
+  public void setPaymentProcessing(@jakarta.annotation.Nullable String paymentProcessing) {
     this.paymentProcessing = paymentProcessing;
   }
 
-  public SalesReportsDetailedRes acquiringBank(@jakarta.annotation.Nonnull String acquiringBank) {
+  public SalesReportsDetailedRes acquiringBank(@jakarta.annotation.Nullable String acquiringBank) {
     this.acquiringBank = acquiringBank;
     return this;
   }
@@ -1605,16 +1607,16 @@ public class SalesReportsDetailedRes {
    *
    * @return acquiringBank
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getAcquiringBank() {
     return acquiringBank;
   }
 
-  public void setAcquiringBank(@jakarta.annotation.Nonnull String acquiringBank) {
+  public void setAcquiringBank(@jakarta.annotation.Nullable String acquiringBank) {
     this.acquiringBank = acquiringBank;
   }
 
-  public SalesReportsDetailedRes vw(@jakarta.annotation.Nonnull String vw) {
+  public SalesReportsDetailedRes vw(@jakarta.annotation.Nullable String vw) {
     this.vw = vw;
     return this;
   }
@@ -1624,16 +1626,16 @@ public class SalesReportsDetailedRes {
    *
    * @return vw
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getVw() {
     return vw;
   }
 
-  public void setVw(@jakarta.annotation.Nonnull String vw) {
+  public void setVw(@jakarta.annotation.Nullable String vw) {
     this.vw = vw;
   }
 
-  public SalesReportsDetailedRes vwNds(@jakarta.annotation.Nonnull String vwNds) {
+  public SalesReportsDetailedRes vwNds(@jakarta.annotation.Nullable String vwNds) {
     this.vwNds = vwNds;
     return this;
   }
@@ -1643,16 +1645,17 @@ public class SalesReportsDetailedRes {
    *
    * @return vwNds
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getVwNds() {
     return vwNds;
   }
 
-  public void setVwNds(@jakarta.annotation.Nonnull String vwNds) {
+  public void setVwNds(@jakarta.annotation.Nullable String vwNds) {
     this.vwNds = vwNds;
   }
 
-  public SalesReportsDetailedRes ppvzOfficeName(@jakarta.annotation.Nonnull String ppvzOfficeName) {
+  public SalesReportsDetailedRes ppvzOfficeName(
+      @jakarta.annotation.Nullable String ppvzOfficeName) {
     this.ppvzOfficeName = ppvzOfficeName;
     return this;
   }
@@ -1662,16 +1665,16 @@ public class SalesReportsDetailedRes {
    *
    * @return ppvzOfficeName
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getPpvzOfficeName() {
     return ppvzOfficeName;
   }
 
-  public void setPpvzOfficeName(@jakarta.annotation.Nonnull String ppvzOfficeName) {
+  public void setPpvzOfficeName(@jakarta.annotation.Nullable String ppvzOfficeName) {
     this.ppvzOfficeName = ppvzOfficeName;
   }
 
-  public SalesReportsDetailedRes ppvzOfficeId(@jakarta.annotation.Nonnull Integer ppvzOfficeId) {
+  public SalesReportsDetailedRes ppvzOfficeId(@jakarta.annotation.Nullable Integer ppvzOfficeId) {
     this.ppvzOfficeId = ppvzOfficeId;
     return this;
   }
@@ -1681,17 +1684,17 @@ public class SalesReportsDetailedRes {
    *
    * @return ppvzOfficeId
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getPpvzOfficeId() {
     return ppvzOfficeId;
   }
 
-  public void setPpvzOfficeId(@jakarta.annotation.Nonnull Integer ppvzOfficeId) {
+  public void setPpvzOfficeId(@jakarta.annotation.Nullable Integer ppvzOfficeId) {
     this.ppvzOfficeId = ppvzOfficeId;
   }
 
   public SalesReportsDetailedRes ppvzSupplierName(
-      @jakarta.annotation.Nonnull String ppvzSupplierName) {
+      @jakarta.annotation.Nullable String ppvzSupplierName) {
     this.ppvzSupplierName = ppvzSupplierName;
     return this;
   }
@@ -1701,17 +1704,17 @@ public class SalesReportsDetailedRes {
    *
    * @return ppvzSupplierName
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getPpvzSupplierName() {
     return ppvzSupplierName;
   }
 
-  public void setPpvzSupplierName(@jakarta.annotation.Nonnull String ppvzSupplierName) {
+  public void setPpvzSupplierName(@jakarta.annotation.Nullable String ppvzSupplierName) {
     this.ppvzSupplierName = ppvzSupplierName;
   }
 
   public SalesReportsDetailedRes ppvzSupplierInn(
-      @jakarta.annotation.Nonnull String ppvzSupplierInn) {
+      @jakarta.annotation.Nullable String ppvzSupplierInn) {
     this.ppvzSupplierInn = ppvzSupplierInn;
     return this;
   }
@@ -1721,17 +1724,17 @@ public class SalesReportsDetailedRes {
    *
    * @return ppvzSupplierInn
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getPpvzSupplierInn() {
     return ppvzSupplierInn;
   }
 
-  public void setPpvzSupplierInn(@jakarta.annotation.Nonnull String ppvzSupplierInn) {
+  public void setPpvzSupplierInn(@jakarta.annotation.Nullable String ppvzSupplierInn) {
     this.ppvzSupplierInn = ppvzSupplierInn;
   }
 
   public SalesReportsDetailedRes declarationNumber(
-      @jakarta.annotation.Nonnull String declarationNumber) {
+      @jakarta.annotation.Nullable String declarationNumber) {
     this.declarationNumber = declarationNumber;
     return this;
   }
@@ -1741,12 +1744,12 @@ public class SalesReportsDetailedRes {
    *
    * @return declarationNumber
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getDeclarationNumber() {
     return declarationNumber;
   }
 
-  public void setDeclarationNumber(@jakarta.annotation.Nonnull String declarationNumber) {
+  public void setDeclarationNumber(@jakarta.annotation.Nullable String declarationNumber) {
     this.declarationNumber = declarationNumber;
   }
 
@@ -1769,7 +1772,7 @@ public class SalesReportsDetailedRes {
     this.bonusTypeName = bonusTypeName;
   }
 
-  public SalesReportsDetailedRes stickerId(@jakarta.annotation.Nonnull String stickerId) {
+  public SalesReportsDetailedRes stickerId(@jakarta.annotation.Nullable String stickerId) {
     this.stickerId = stickerId;
     return this;
   }
@@ -1779,16 +1782,16 @@ public class SalesReportsDetailedRes {
    *
    * @return stickerId
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getStickerId() {
     return stickerId;
   }
 
-  public void setStickerId(@jakarta.annotation.Nonnull String stickerId) {
+  public void setStickerId(@jakarta.annotation.Nullable String stickerId) {
     this.stickerId = stickerId;
   }
 
-  public SalesReportsDetailedRes country(@jakarta.annotation.Nonnull String country) {
+  public SalesReportsDetailedRes country(@jakarta.annotation.Nullable String country) {
     this.country = country;
     return this;
   }
@@ -1798,16 +1801,16 @@ public class SalesReportsDetailedRes {
    *
    * @return country
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getCountry() {
     return country;
   }
 
-  public void setCountry(@jakarta.annotation.Nonnull String country) {
+  public void setCountry(@jakarta.annotation.Nullable String country) {
     this.country = country;
   }
 
-  public SalesReportsDetailedRes srvDbs(@jakarta.annotation.Nonnull Boolean srvDbs) {
+  public SalesReportsDetailedRes srvDbs(@jakarta.annotation.Nullable Boolean srvDbs) {
     this.srvDbs = srvDbs;
     return this;
   }
@@ -1817,16 +1820,16 @@ public class SalesReportsDetailedRes {
    *
    * @return srvDbs
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Boolean getSrvDbs() {
     return srvDbs;
   }
 
-  public void setSrvDbs(@jakarta.annotation.Nonnull Boolean srvDbs) {
+  public void setSrvDbs(@jakarta.annotation.Nullable Boolean srvDbs) {
     this.srvDbs = srvDbs;
   }
 
-  public SalesReportsDetailedRes penalty(@jakarta.annotation.Nonnull String penalty) {
+  public SalesReportsDetailedRes penalty(@jakarta.annotation.Nullable String penalty) {
     this.penalty = penalty;
     return this;
   }
@@ -1836,17 +1839,17 @@ public class SalesReportsDetailedRes {
    *
    * @return penalty
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getPenalty() {
     return penalty;
   }
 
-  public void setPenalty(@jakarta.annotation.Nonnull String penalty) {
+  public void setPenalty(@jakarta.annotation.Nullable String penalty) {
     this.penalty = penalty;
   }
 
   public SalesReportsDetailedRes additionalPayment(
-      @jakarta.annotation.Nonnull String additionalPayment) {
+      @jakarta.annotation.Nullable String additionalPayment) {
     this.additionalPayment = additionalPayment;
     return this;
   }
@@ -1856,17 +1859,17 @@ public class SalesReportsDetailedRes {
    *
    * @return additionalPayment
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getAdditionalPayment() {
     return additionalPayment;
   }
 
-  public void setAdditionalPayment(@jakarta.annotation.Nonnull String additionalPayment) {
+  public void setAdditionalPayment(@jakarta.annotation.Nullable String additionalPayment) {
     this.additionalPayment = additionalPayment;
   }
 
   public SalesReportsDetailedRes rebillLogisticCost(
-      @jakarta.annotation.Nonnull String rebillLogisticCost) {
+      @jakarta.annotation.Nullable String rebillLogisticCost) {
     this.rebillLogisticCost = rebillLogisticCost;
     return this;
   }
@@ -1876,12 +1879,12 @@ public class SalesReportsDetailedRes {
    *
    * @return rebillLogisticCost
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getRebillLogisticCost() {
     return rebillLogisticCost;
   }
 
-  public void setRebillLogisticCost(@jakarta.annotation.Nonnull String rebillLogisticCost) {
+  public void setRebillLogisticCost(@jakarta.annotation.Nullable String rebillLogisticCost) {
     this.rebillLogisticCost = rebillLogisticCost;
   }
 
@@ -1905,7 +1908,7 @@ public class SalesReportsDetailedRes {
     this.rebillLogisticOrg = rebillLogisticOrg;
   }
 
-  public SalesReportsDetailedRes paidStorage(@jakarta.annotation.Nonnull String paidStorage) {
+  public SalesReportsDetailedRes paidStorage(@jakarta.annotation.Nullable String paidStorage) {
     this.paidStorage = paidStorage;
     return this;
   }
@@ -1915,16 +1918,16 @@ public class SalesReportsDetailedRes {
    *
    * @return paidStorage
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getPaidStorage() {
     return paidStorage;
   }
 
-  public void setPaidStorage(@jakarta.annotation.Nonnull String paidStorage) {
+  public void setPaidStorage(@jakarta.annotation.Nullable String paidStorage) {
     this.paidStorage = paidStorage;
   }
 
-  public SalesReportsDetailedRes deduction(@jakarta.annotation.Nonnull String deduction) {
+  public SalesReportsDetailedRes deduction(@jakarta.annotation.Nullable String deduction) {
     this.deduction = deduction;
     return this;
   }
@@ -1934,16 +1937,17 @@ public class SalesReportsDetailedRes {
    *
    * @return deduction
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getDeduction() {
     return deduction;
   }
 
-  public void setDeduction(@jakarta.annotation.Nonnull String deduction) {
+  public void setDeduction(@jakarta.annotation.Nullable String deduction) {
     this.deduction = deduction;
   }
 
-  public SalesReportsDetailedRes paidAcceptance(@jakarta.annotation.Nonnull String paidAcceptance) {
+  public SalesReportsDetailedRes paidAcceptance(
+      @jakarta.annotation.Nullable String paidAcceptance) {
     this.paidAcceptance = paidAcceptance;
     return this;
   }
@@ -1953,16 +1957,16 @@ public class SalesReportsDetailedRes {
    *
    * @return paidAcceptance
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getPaidAcceptance() {
     return paidAcceptance;
   }
 
-  public void setPaidAcceptance(@jakarta.annotation.Nonnull String paidAcceptance) {
+  public void setPaidAcceptance(@jakarta.annotation.Nullable String paidAcceptance) {
     this.paidAcceptance = paidAcceptance;
   }
 
-  public SalesReportsDetailedRes orderId(@jakarta.annotation.Nonnull Integer orderId) {
+  public SalesReportsDetailedRes orderId(@jakarta.annotation.Nullable Integer orderId) {
     this.orderId = orderId;
     return this;
   }
@@ -1972,12 +1976,12 @@ public class SalesReportsDetailedRes {
    *
    * @return orderId
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getOrderId() {
     return orderId;
   }
 
-  public void setOrderId(@jakarta.annotation.Nonnull Integer orderId) {
+  public void setOrderId(@jakarta.annotation.Nullable Integer orderId) {
     this.orderId = orderId;
   }
 
@@ -2000,7 +2004,7 @@ public class SalesReportsDetailedRes {
     this.kiz = kiz;
   }
 
-  public SalesReportsDetailedRes isB2b(@jakarta.annotation.Nonnull Boolean isB2b) {
+  public SalesReportsDetailedRes isB2b(@jakarta.annotation.Nullable Boolean isB2b) {
     this.isB2b = isB2b;
     return this;
   }
@@ -2010,16 +2014,16 @@ public class SalesReportsDetailedRes {
    *
    * @return isB2b
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Boolean getIsB2b() {
     return isB2b;
   }
 
-  public void setIsB2b(@jakarta.annotation.Nonnull Boolean isB2b) {
+  public void setIsB2b(@jakarta.annotation.Nullable Boolean isB2b) {
     this.isB2b = isB2b;
   }
 
-  public SalesReportsDetailedRes trbxId(@jakarta.annotation.Nonnull String trbxId) {
+  public SalesReportsDetailedRes trbxId(@jakarta.annotation.Nullable String trbxId) {
     this.trbxId = trbxId;
     return this;
   }
@@ -2029,17 +2033,17 @@ public class SalesReportsDetailedRes {
    *
    * @return trbxId
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getTrbxId() {
     return trbxId;
   }
 
-  public void setTrbxId(@jakarta.annotation.Nonnull String trbxId) {
+  public void setTrbxId(@jakarta.annotation.Nullable String trbxId) {
     this.trbxId = trbxId;
   }
 
   public SalesReportsDetailedRes installmentCofinancingAmount(
-      @jakarta.annotation.Nonnull String installmentCofinancingAmount) {
+      @jakarta.annotation.Nullable String installmentCofinancingAmount) {
     this.installmentCofinancingAmount = installmentCofinancingAmount;
     return this;
   }
@@ -2049,18 +2053,18 @@ public class SalesReportsDetailedRes {
    *
    * @return installmentCofinancingAmount
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getInstallmentCofinancingAmount() {
     return installmentCofinancingAmount;
   }
 
   public void setInstallmentCofinancingAmount(
-      @jakarta.annotation.Nonnull String installmentCofinancingAmount) {
+      @jakarta.annotation.Nullable String installmentCofinancingAmount) {
     this.installmentCofinancingAmount = installmentCofinancingAmount;
   }
 
   public SalesReportsDetailedRes wibesDiscountPercent(
-      @jakarta.annotation.Nonnull BigDecimal wibesDiscountPercent) {
+      @jakarta.annotation.Nullable BigDecimal wibesDiscountPercent) {
     this.wibesDiscountPercent = wibesDiscountPercent;
     return this;
   }
@@ -2070,16 +2074,18 @@ public class SalesReportsDetailedRes {
    *
    * @return wibesDiscountPercent
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public BigDecimal getWibesDiscountPercent() {
     return wibesDiscountPercent;
   }
 
-  public void setWibesDiscountPercent(@jakarta.annotation.Nonnull BigDecimal wibesDiscountPercent) {
+  public void setWibesDiscountPercent(
+      @jakarta.annotation.Nullable BigDecimal wibesDiscountPercent) {
     this.wibesDiscountPercent = wibesDiscountPercent;
   }
 
-  public SalesReportsDetailedRes cashbackAmount(@jakarta.annotation.Nonnull String cashbackAmount) {
+  public SalesReportsDetailedRes cashbackAmount(
+      @jakarta.annotation.Nullable String cashbackAmount) {
     this.cashbackAmount = cashbackAmount;
     return this;
   }
@@ -2089,17 +2095,17 @@ public class SalesReportsDetailedRes {
    *
    * @return cashbackAmount
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getCashbackAmount() {
     return cashbackAmount;
   }
 
-  public void setCashbackAmount(@jakarta.annotation.Nonnull String cashbackAmount) {
+  public void setCashbackAmount(@jakarta.annotation.Nullable String cashbackAmount) {
     this.cashbackAmount = cashbackAmount;
   }
 
   public SalesReportsDetailedRes cashbackDiscount(
-      @jakarta.annotation.Nonnull String cashbackDiscount) {
+      @jakarta.annotation.Nullable String cashbackDiscount) {
     this.cashbackDiscount = cashbackDiscount;
     return this;
   }
@@ -2109,17 +2115,17 @@ public class SalesReportsDetailedRes {
    *
    * @return cashbackDiscount
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getCashbackDiscount() {
     return cashbackDiscount;
   }
 
-  public void setCashbackDiscount(@jakarta.annotation.Nonnull String cashbackDiscount) {
+  public void setCashbackDiscount(@jakarta.annotation.Nullable String cashbackDiscount) {
     this.cashbackDiscount = cashbackDiscount;
   }
 
   public SalesReportsDetailedRes cashbackCommissionChange(
-      @jakarta.annotation.Nonnull String cashbackCommissionChange) {
+      @jakarta.annotation.Nullable String cashbackCommissionChange) {
     this.cashbackCommissionChange = cashbackCommissionChange;
     return this;
   }
@@ -2129,18 +2135,18 @@ public class SalesReportsDetailedRes {
    *
    * @return cashbackCommissionChange
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getCashbackCommissionChange() {
     return cashbackCommissionChange;
   }
 
   public void setCashbackCommissionChange(
-      @jakarta.annotation.Nonnull String cashbackCommissionChange) {
+      @jakarta.annotation.Nullable String cashbackCommissionChange) {
     this.cashbackCommissionChange = cashbackCommissionChange;
   }
 
   public SalesReportsDetailedRes paymentSchedule(
-      @jakarta.annotation.Nonnull String paymentSchedule) {
+      @jakarta.annotation.Nullable String paymentSchedule) {
     this.paymentSchedule = paymentSchedule;
     return this;
   }
@@ -2150,16 +2156,17 @@ public class SalesReportsDetailedRes {
    *
    * @return paymentSchedule
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getPaymentSchedule() {
     return paymentSchedule;
   }
 
-  public void setPaymentSchedule(@jakarta.annotation.Nonnull String paymentSchedule) {
+  public void setPaymentSchedule(@jakarta.annotation.Nullable String paymentSchedule) {
     this.paymentSchedule = paymentSchedule;
   }
 
-  public SalesReportsDetailedRes deliveryMethod(@jakarta.annotation.Nonnull String deliveryMethod) {
+  public SalesReportsDetailedRes deliveryMethod(
+      @jakarta.annotation.Nullable String deliveryMethod) {
     this.deliveryMethod = deliveryMethod;
     return this;
   }
@@ -2169,16 +2176,16 @@ public class SalesReportsDetailedRes {
    *
    * @return deliveryMethod
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getDeliveryMethod() {
     return deliveryMethod;
   }
 
-  public void setDeliveryMethod(@jakarta.annotation.Nonnull String deliveryMethod) {
+  public void setDeliveryMethod(@jakarta.annotation.Nullable String deliveryMethod) {
     this.deliveryMethod = deliveryMethod;
   }
 
-  public SalesReportsDetailedRes sellerPromoId(@jakarta.annotation.Nonnull Integer sellerPromoId) {
+  public SalesReportsDetailedRes sellerPromoId(@jakarta.annotation.Nullable Integer sellerPromoId) {
     this.sellerPromoId = sellerPromoId;
     return this;
   }
@@ -2188,17 +2195,17 @@ public class SalesReportsDetailedRes {
    *
    * @return sellerPromoId
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getSellerPromoId() {
     return sellerPromoId;
   }
 
-  public void setSellerPromoId(@jakarta.annotation.Nonnull Integer sellerPromoId) {
+  public void setSellerPromoId(@jakarta.annotation.Nullable Integer sellerPromoId) {
     this.sellerPromoId = sellerPromoId;
   }
 
   public SalesReportsDetailedRes sellerPromoDiscount(
-      @jakarta.annotation.Nonnull BigDecimal sellerPromoDiscount) {
+      @jakarta.annotation.Nullable BigDecimal sellerPromoDiscount) {
     this.sellerPromoDiscount = sellerPromoDiscount;
     return this;
   }
@@ -2208,16 +2215,16 @@ public class SalesReportsDetailedRes {
    *
    * @return sellerPromoDiscount
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public BigDecimal getSellerPromoDiscount() {
     return sellerPromoDiscount;
   }
 
-  public void setSellerPromoDiscount(@jakarta.annotation.Nonnull BigDecimal sellerPromoDiscount) {
+  public void setSellerPromoDiscount(@jakarta.annotation.Nullable BigDecimal sellerPromoDiscount) {
     this.sellerPromoDiscount = sellerPromoDiscount;
   }
 
-  public SalesReportsDetailedRes loyaltyId(@jakarta.annotation.Nonnull Integer loyaltyId) {
+  public SalesReportsDetailedRes loyaltyId(@jakarta.annotation.Nullable Integer loyaltyId) {
     this.loyaltyId = loyaltyId;
     return this;
   }
@@ -2227,17 +2234,17 @@ public class SalesReportsDetailedRes {
    *
    * @return loyaltyId
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getLoyaltyId() {
     return loyaltyId;
   }
 
-  public void setLoyaltyId(@jakarta.annotation.Nonnull Integer loyaltyId) {
+  public void setLoyaltyId(@jakarta.annotation.Nullable Integer loyaltyId) {
     this.loyaltyId = loyaltyId;
   }
 
   public SalesReportsDetailedRes loyaltyDiscount(
-      @jakarta.annotation.Nonnull BigDecimal loyaltyDiscount) {
+      @jakarta.annotation.Nullable BigDecimal loyaltyDiscount) {
     this.loyaltyDiscount = loyaltyDiscount;
     return this;
   }
@@ -2247,16 +2254,16 @@ public class SalesReportsDetailedRes {
    *
    * @return loyaltyDiscount
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public BigDecimal getLoyaltyDiscount() {
     return loyaltyDiscount;
   }
 
-  public void setLoyaltyDiscount(@jakarta.annotation.Nonnull BigDecimal loyaltyDiscount) {
+  public void setLoyaltyDiscount(@jakarta.annotation.Nullable BigDecimal loyaltyDiscount) {
     this.loyaltyDiscount = loyaltyDiscount;
   }
 
-  public SalesReportsDetailedRes uuidPromocode(@jakarta.annotation.Nonnull String uuidPromocode) {
+  public SalesReportsDetailedRes uuidPromocode(@jakarta.annotation.Nullable String uuidPromocode) {
     this.uuidPromocode = uuidPromocode;
     return this;
   }
@@ -2266,17 +2273,17 @@ public class SalesReportsDetailedRes {
    *
    * @return uuidPromocode
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getUuidPromocode() {
     return uuidPromocode;
   }
 
-  public void setUuidPromocode(@jakarta.annotation.Nonnull String uuidPromocode) {
+  public void setUuidPromocode(@jakarta.annotation.Nullable String uuidPromocode) {
     this.uuidPromocode = uuidPromocode;
   }
 
   public SalesReportsDetailedRes salePricePromocodeDiscountPrc(
-      @jakarta.annotation.Nonnull BigDecimal salePricePromocodeDiscountPrc) {
+      @jakarta.annotation.Nullable BigDecimal salePricePromocodeDiscountPrc) {
     this.salePricePromocodeDiscountPrc = salePricePromocodeDiscountPrc;
     return this;
   }
@@ -2286,18 +2293,18 @@ public class SalesReportsDetailedRes {
    *
    * @return salePricePromocodeDiscountPrc
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public BigDecimal getSalePricePromocodeDiscountPrc() {
     return salePricePromocodeDiscountPrc;
   }
 
   public void setSalePricePromocodeDiscountPrc(
-      @jakarta.annotation.Nonnull BigDecimal salePricePromocodeDiscountPrc) {
+      @jakarta.annotation.Nullable BigDecimal salePricePromocodeDiscountPrc) {
     this.salePricePromocodeDiscountPrc = salePricePromocodeDiscountPrc;
   }
 
   public SalesReportsDetailedRes articleSubstitution(
-      @jakarta.annotation.Nonnull String articleSubstitution) {
+      @jakarta.annotation.Nullable String articleSubstitution) {
     this.articleSubstitution = articleSubstitution;
     return this;
   }
@@ -2307,17 +2314,17 @@ public class SalesReportsDetailedRes {
    *
    * @return articleSubstitution
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getArticleSubstitution() {
     return articleSubstitution;
   }
 
-  public void setArticleSubstitution(@jakarta.annotation.Nonnull String articleSubstitution) {
+  public void setArticleSubstitution(@jakarta.annotation.Nullable String articleSubstitution) {
     this.articleSubstitution = articleSubstitution;
   }
 
   public SalesReportsDetailedRes salePriceAffiliatedDiscountPrc(
-      @jakarta.annotation.Nonnull BigDecimal salePriceAffiliatedDiscountPrc) {
+      @jakarta.annotation.Nullable BigDecimal salePriceAffiliatedDiscountPrc) {
     this.salePriceAffiliatedDiscountPrc = salePriceAffiliatedDiscountPrc;
     return this;
   }
@@ -2327,13 +2334,13 @@ public class SalesReportsDetailedRes {
    *
    * @return salePriceAffiliatedDiscountPrc
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public BigDecimal getSalePriceAffiliatedDiscountPrc() {
     return salePriceAffiliatedDiscountPrc;
   }
 
   public void setSalePriceAffiliatedDiscountPrc(
-      @jakarta.annotation.Nonnull BigDecimal salePriceAffiliatedDiscountPrc) {
+      @jakarta.annotation.Nullable BigDecimal salePriceAffiliatedDiscountPrc) {
     this.salePriceAffiliatedDiscountPrc = salePriceAffiliatedDiscountPrc;
   }
 
@@ -2357,7 +2364,7 @@ public class SalesReportsDetailedRes {
   }
 
   public SalesReportsDetailedRes salePriceWholesaleDiscountPrc(
-      @jakarta.annotation.Nonnull BigDecimal salePriceWholesaleDiscountPrc) {
+      @jakarta.annotation.Nullable BigDecimal salePriceWholesaleDiscountPrc) {
     this.salePriceWholesaleDiscountPrc = salePriceWholesaleDiscountPrc;
     return this;
   }
@@ -2367,17 +2374,18 @@ public class SalesReportsDetailedRes {
    *
    * @return salePriceWholesaleDiscountPrc
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public BigDecimal getSalePriceWholesaleDiscountPrc() {
     return salePriceWholesaleDiscountPrc;
   }
 
   public void setSalePriceWholesaleDiscountPrc(
-      @jakarta.annotation.Nonnull BigDecimal salePriceWholesaleDiscountPrc) {
+      @jakarta.annotation.Nullable BigDecimal salePriceWholesaleDiscountPrc) {
     this.salePriceWholesaleDiscountPrc = salePriceWholesaleDiscountPrc;
   }
 
-  public SalesReportsDetailedRes b2bCustomerTin(@jakarta.annotation.Nonnull String b2bCustomerTin) {
+  public SalesReportsDetailedRes b2bCustomerTin(
+      @jakarta.annotation.Nullable String b2bCustomerTin) {
     this.b2bCustomerTin = b2bCustomerTin;
     return this;
   }
@@ -2387,17 +2395,17 @@ public class SalesReportsDetailedRes {
    *
    * @return b2bCustomerTin
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getB2bCustomerTin() {
     return b2bCustomerTin;
   }
 
-  public void setB2bCustomerTin(@jakarta.annotation.Nonnull String b2bCustomerTin) {
+  public void setB2bCustomerTin(@jakarta.annotation.Nullable String b2bCustomerTin) {
     this.b2bCustomerTin = b2bCustomerTin;
   }
 
   public SalesReportsDetailedRes paidWithSocialCertificate(
-      @jakarta.annotation.Nonnull Boolean paidWithSocialCertificate) {
+      @jakarta.annotation.Nullable Boolean paidWithSocialCertificate) {
     this.paidWithSocialCertificate = paidWithSocialCertificate;
     return this;
   }
@@ -2407,18 +2415,18 @@ public class SalesReportsDetailedRes {
    *
    * @return paidWithSocialCertificate
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Boolean getPaidWithSocialCertificate() {
     return paidWithSocialCertificate;
   }
 
   public void setPaidWithSocialCertificate(
-      @jakarta.annotation.Nonnull Boolean paidWithSocialCertificate) {
+      @jakarta.annotation.Nullable Boolean paidWithSocialCertificate) {
     this.paidWithSocialCertificate = paidWithSocialCertificate;
   }
 
   public SalesReportsDetailedRes warehouseLogisticsCoeff(
-      @jakarta.annotation.Nonnull BigDecimal warehouseLogisticsCoeff) {
+      @jakarta.annotation.Nullable BigDecimal warehouseLogisticsCoeff) {
     this.warehouseLogisticsCoeff = warehouseLogisticsCoeff;
     return this;
   }
@@ -2428,18 +2436,18 @@ public class SalesReportsDetailedRes {
    *
    * @return warehouseLogisticsCoeff
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public BigDecimal getWarehouseLogisticsCoeff() {
     return warehouseLogisticsCoeff;
   }
 
   public void setWarehouseLogisticsCoeff(
-      @jakarta.annotation.Nonnull BigDecimal warehouseLogisticsCoeff) {
+      @jakarta.annotation.Nullable BigDecimal warehouseLogisticsCoeff) {
     this.warehouseLogisticsCoeff = warehouseLogisticsCoeff;
   }
 
   public SalesReportsDetailedRes buyerTaxRegistrationReasonCode(
-      @jakarta.annotation.Nonnull String buyerTaxRegistrationReasonCode) {
+      @jakarta.annotation.Nullable String buyerTaxRegistrationReasonCode) {
     this.buyerTaxRegistrationReasonCode = buyerTaxRegistrationReasonCode;
     return this;
   }
@@ -2449,17 +2457,17 @@ public class SalesReportsDetailedRes {
    *
    * @return buyerTaxRegistrationReasonCode
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getBuyerTaxRegistrationReasonCode() {
     return buyerTaxRegistrationReasonCode;
   }
 
   public void setBuyerTaxRegistrationReasonCode(
-      @jakarta.annotation.Nonnull String buyerTaxRegistrationReasonCode) {
+      @jakarta.annotation.Nullable String buyerTaxRegistrationReasonCode) {
     this.buyerTaxRegistrationReasonCode = buyerTaxRegistrationReasonCode;
   }
 
-  public SalesReportsDetailedRes utdUcdNumber(@jakarta.annotation.Nonnull String utdUcdNumber) {
+  public SalesReportsDetailedRes utdUcdNumber(@jakarta.annotation.Nullable String utdUcdNumber) {
     this.utdUcdNumber = utdUcdNumber;
     return this;
   }
@@ -2469,16 +2477,16 @@ public class SalesReportsDetailedRes {
    *
    * @return utdUcdNumber
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getUtdUcdNumber() {
     return utdUcdNumber;
   }
 
-  public void setUtdUcdNumber(@jakarta.annotation.Nonnull String utdUcdNumber) {
+  public void setUtdUcdNumber(@jakarta.annotation.Nullable String utdUcdNumber) {
     this.utdUcdNumber = utdUcdNumber;
   }
 
-  public SalesReportsDetailedRes utdUcdDate(@jakarta.annotation.Nonnull String utdUcdDate) {
+  public SalesReportsDetailedRes utdUcdDate(@jakarta.annotation.Nullable String utdUcdDate) {
     this.utdUcdDate = utdUcdDate;
     return this;
   }
@@ -2488,16 +2496,16 @@ public class SalesReportsDetailedRes {
    *
    * @return utdUcdDate
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getUtdUcdDate() {
     return utdUcdDate;
   }
 
-  public void setUtdUcdDate(@jakarta.annotation.Nonnull String utdUcdDate) {
+  public void setUtdUcdDate(@jakarta.annotation.Nullable String utdUcdDate) {
     this.utdUcdDate = utdUcdDate;
   }
 
-  public SalesReportsDetailedRes orderUid(@jakarta.annotation.Nonnull String orderUid) {
+  public SalesReportsDetailedRes orderUid(@jakarta.annotation.Nullable String orderUid) {
     this.orderUid = orderUid;
     return this;
   }
@@ -2508,16 +2516,16 @@ public class SalesReportsDetailedRes {
    *
    * @return orderUid
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getOrderUid() {
     return orderUid;
   }
 
-  public void setOrderUid(@jakarta.annotation.Nonnull String orderUid) {
+  public void setOrderUid(@jakarta.annotation.Nullable String orderUid) {
     this.orderUid = orderUid;
   }
 
-  public SalesReportsDetailedRes srid(@jakarta.annotation.Nonnull String srid) {
+  public SalesReportsDetailedRes srid(@jakarta.annotation.Nullable String srid) {
     this.srid = srid;
     return this;
   }
@@ -2530,12 +2538,12 @@ public class SalesReportsDetailedRes {
    *
    * @return srid
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getSrid() {
     return srid;
   }
 
-  public void setSrid(@jakarta.annotation.Nonnull String srid) {
+  public void setSrid(@jakarta.annotation.Nullable String srid) {
     this.srid = srid;
   }
 
@@ -3007,98 +3015,6 @@ public class SalesReportsDetailedRes {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("reportId");
-    openapiRequiredFields.add("dateFrom");
-    openapiRequiredFields.add("dateTo");
-    openapiRequiredFields.add("createDate");
-    openapiRequiredFields.add("currency");
-    openapiRequiredFields.add("reportType");
-    openapiRequiredFields.add("rrdId");
-    openapiRequiredFields.add("giId");
-    openapiRequiredFields.add("dlvPrc");
-    openapiRequiredFields.add("fixTariffDateFrom");
-    openapiRequiredFields.add("fixTariffDateTo");
-    openapiRequiredFields.add("subjectName");
-    openapiRequiredFields.add("nmId");
-    openapiRequiredFields.add("brandName");
-    openapiRequiredFields.add("vendorCode");
-    openapiRequiredFields.add("title");
-    openapiRequiredFields.add("techSize");
-    openapiRequiredFields.add("sku");
-    openapiRequiredFields.add("docTypeName");
-    openapiRequiredFields.add("quantity");
-    openapiRequiredFields.add("retailPrice");
-    openapiRequiredFields.add("retailAmount");
-    openapiRequiredFields.add("salePercent");
-    openapiRequiredFields.add("commissionPercent");
-    openapiRequiredFields.add("officeName");
-    openapiRequiredFields.add("sellerOperName");
-    openapiRequiredFields.add("orderDt");
-    openapiRequiredFields.add("saleDt");
-    openapiRequiredFields.add("rrDate");
-    openapiRequiredFields.add("shkId");
-    openapiRequiredFields.add("retailPriceWithDisc");
-    openapiRequiredFields.add("deliveryAmount");
-    openapiRequiredFields.add("returnAmount");
-    openapiRequiredFields.add("deliveryService");
-    openapiRequiredFields.add("giBoxTypeName");
-    openapiRequiredFields.add("productDiscountForReport");
-    openapiRequiredFields.add("sellerPromo");
-    openapiRequiredFields.add("spp");
-    openapiRequiredFields.add("kvwBase");
-    openapiRequiredFields.add("kvw");
-    openapiRequiredFields.add("supRatingUp");
-    openapiRequiredFields.add("isKgvpV2");
-    openapiRequiredFields.add("ppvzSalesCommission");
-    openapiRequiredFields.add("forPay");
-    openapiRequiredFields.add("ppvzReward");
-    openapiRequiredFields.add("acquiringFee");
-    openapiRequiredFields.add("acquiringPercent");
-    openapiRequiredFields.add("paymentProcessing");
-    openapiRequiredFields.add("acquiringBank");
-    openapiRequiredFields.add("vw");
-    openapiRequiredFields.add("vwNds");
-    openapiRequiredFields.add("ppvzOfficeName");
-    openapiRequiredFields.add("ppvzOfficeId");
-    openapiRequiredFields.add("ppvzSupplierName");
-    openapiRequiredFields.add("ppvzSupplierInn");
-    openapiRequiredFields.add("declarationNumber");
-    openapiRequiredFields.add("stickerId");
-    openapiRequiredFields.add("country");
-    openapiRequiredFields.add("srvDbs");
-    openapiRequiredFields.add("penalty");
-    openapiRequiredFields.add("additionalPayment");
-    openapiRequiredFields.add("rebillLogisticCost");
-    openapiRequiredFields.add("paidStorage");
-    openapiRequiredFields.add("deduction");
-    openapiRequiredFields.add("paidAcceptance");
-    openapiRequiredFields.add("orderId");
-    openapiRequiredFields.add("isB2b");
-    openapiRequiredFields.add("trbxId");
-    openapiRequiredFields.add("installmentCofinancingAmount");
-    openapiRequiredFields.add("wibesDiscountPercent");
-    openapiRequiredFields.add("cashbackAmount");
-    openapiRequiredFields.add("cashbackDiscount");
-    openapiRequiredFields.add("cashbackCommissionChange");
-    openapiRequiredFields.add("paymentSchedule");
-    openapiRequiredFields.add("deliveryMethod");
-    openapiRequiredFields.add("sellerPromoId");
-    openapiRequiredFields.add("sellerPromoDiscount");
-    openapiRequiredFields.add("loyaltyId");
-    openapiRequiredFields.add("loyaltyDiscount");
-    openapiRequiredFields.add("uuidPromocode");
-    openapiRequiredFields.add("salePricePromocodeDiscountPrc");
-    openapiRequiredFields.add("articleSubstitution");
-    openapiRequiredFields.add("salePriceAffiliatedDiscountPrc");
-    openapiRequiredFields.add("salePriceWholesaleDiscountPrc");
-    openapiRequiredFields.add("b2bCustomerTin");
-    openapiRequiredFields.add("paidWithSocialCertificate");
-    openapiRequiredFields.add("warehouseLogisticsCoeff");
-    openapiRequiredFields.add("buyerTaxRegistrationReasonCode");
-    openapiRequiredFields.add("utdUcdNumber");
-    openapiRequiredFields.add("utdUcdDate");
-    openapiRequiredFields.add("orderUid");
-    openapiRequiredFields.add("srid");
   }
 
   /**
@@ -3128,224 +3044,253 @@ public class SalesReportsDetailedRes {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : SalesReportsDetailedRes.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    if (!jsonObj.get("dateFrom").isJsonPrimitive()) {
+    if ((jsonObj.get("dateFrom") != null && !jsonObj.get("dateFrom").isJsonNull())
+        && !jsonObj.get("dateFrom").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `dateFrom` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("dateFrom").toString()));
     }
-    if (!jsonObj.get("dateTo").isJsonPrimitive()) {
+    if ((jsonObj.get("dateTo") != null && !jsonObj.get("dateTo").isJsonNull())
+        && !jsonObj.get("dateTo").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `dateTo` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("dateTo").toString()));
     }
-    if (!jsonObj.get("createDate").isJsonPrimitive()) {
+    if ((jsonObj.get("createDate") != null && !jsonObj.get("createDate").isJsonNull())
+        && !jsonObj.get("createDate").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `createDate` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("createDate").toString()));
     }
-    if (!jsonObj.get("currency").isJsonPrimitive()) {
+    if ((jsonObj.get("currency") != null && !jsonObj.get("currency").isJsonNull())
+        && !jsonObj.get("currency").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `currency` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("currency").toString()));
     }
-    // validate the required field `reportType`
-    ReportTypeEnum.validateJsonElement(jsonObj.get("reportType"));
-    if (!jsonObj.get("fixTariffDateFrom").isJsonPrimitive()) {
+    // validate the optional field `reportType`
+    if (jsonObj.get("reportType") != null && !jsonObj.get("reportType").isJsonNull()) {
+      ReportTypeEnum.validateJsonElement(jsonObj.get("reportType"));
+    }
+    if ((jsonObj.get("fixTariffDateFrom") != null && !jsonObj.get("fixTariffDateFrom").isJsonNull())
+        && !jsonObj.get("fixTariffDateFrom").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `fixTariffDateFrom` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("fixTariffDateFrom").toString()));
     }
-    if (!jsonObj.get("fixTariffDateTo").isJsonPrimitive()) {
+    if ((jsonObj.get("fixTariffDateTo") != null && !jsonObj.get("fixTariffDateTo").isJsonNull())
+        && !jsonObj.get("fixTariffDateTo").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `fixTariffDateTo` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("fixTariffDateTo").toString()));
     }
-    if (!jsonObj.get("subjectName").isJsonPrimitive()) {
+    if ((jsonObj.get("subjectName") != null && !jsonObj.get("subjectName").isJsonNull())
+        && !jsonObj.get("subjectName").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `subjectName` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("subjectName").toString()));
     }
-    if (!jsonObj.get("brandName").isJsonPrimitive()) {
+    if ((jsonObj.get("brandName") != null && !jsonObj.get("brandName").isJsonNull())
+        && !jsonObj.get("brandName").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `brandName` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("brandName").toString()));
     }
-    if (!jsonObj.get("vendorCode").isJsonPrimitive()) {
+    if ((jsonObj.get("vendorCode") != null && !jsonObj.get("vendorCode").isJsonNull())
+        && !jsonObj.get("vendorCode").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `vendorCode` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("vendorCode").toString()));
     }
-    if (!jsonObj.get("title").isJsonPrimitive()) {
+    if ((jsonObj.get("title") != null && !jsonObj.get("title").isJsonNull())
+        && !jsonObj.get("title").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `title` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("title").toString()));
     }
-    if (!jsonObj.get("techSize").isJsonPrimitive()) {
+    if ((jsonObj.get("techSize") != null && !jsonObj.get("techSize").isJsonNull())
+        && !jsonObj.get("techSize").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `techSize` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("techSize").toString()));
     }
-    if (!jsonObj.get("sku").isJsonPrimitive()) {
+    if ((jsonObj.get("sku") != null && !jsonObj.get("sku").isJsonNull())
+        && !jsonObj.get("sku").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `sku` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("sku").toString()));
     }
-    if (!jsonObj.get("docTypeName").isJsonPrimitive()) {
+    if ((jsonObj.get("docTypeName") != null && !jsonObj.get("docTypeName").isJsonNull())
+        && !jsonObj.get("docTypeName").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `docTypeName` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("docTypeName").toString()));
     }
-    if (!jsonObj.get("retailPrice").isJsonPrimitive()) {
+    if ((jsonObj.get("retailPrice") != null && !jsonObj.get("retailPrice").isJsonNull())
+        && !jsonObj.get("retailPrice").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `retailPrice` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("retailPrice").toString()));
     }
-    if (!jsonObj.get("retailAmount").isJsonPrimitive()) {
+    if ((jsonObj.get("retailAmount") != null && !jsonObj.get("retailAmount").isJsonNull())
+        && !jsonObj.get("retailAmount").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `retailAmount` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("retailAmount").toString()));
     }
-    if (!jsonObj.get("officeName").isJsonPrimitive()) {
+    if ((jsonObj.get("officeName") != null && !jsonObj.get("officeName").isJsonNull())
+        && !jsonObj.get("officeName").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `officeName` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("officeName").toString()));
     }
-    if (!jsonObj.get("sellerOperName").isJsonPrimitive()) {
+    if ((jsonObj.get("sellerOperName") != null && !jsonObj.get("sellerOperName").isJsonNull())
+        && !jsonObj.get("sellerOperName").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `sellerOperName` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("sellerOperName").toString()));
     }
-    if (!jsonObj.get("orderDt").isJsonPrimitive()) {
+    if ((jsonObj.get("orderDt") != null && !jsonObj.get("orderDt").isJsonNull())
+        && !jsonObj.get("orderDt").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `orderDt` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("orderDt").toString()));
     }
-    if (!jsonObj.get("saleDt").isJsonPrimitive()) {
+    if ((jsonObj.get("saleDt") != null && !jsonObj.get("saleDt").isJsonNull())
+        && !jsonObj.get("saleDt").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `saleDt` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("saleDt").toString()));
     }
-    if (!jsonObj.get("rrDate").isJsonPrimitive()) {
+    if ((jsonObj.get("rrDate") != null && !jsonObj.get("rrDate").isJsonNull())
+        && !jsonObj.get("rrDate").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `rrDate` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("rrDate").toString()));
     }
-    if (!jsonObj.get("retailPriceWithDisc").isJsonPrimitive()) {
+    if ((jsonObj.get("retailPriceWithDisc") != null
+            && !jsonObj.get("retailPriceWithDisc").isJsonNull())
+        && !jsonObj.get("retailPriceWithDisc").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `retailPriceWithDisc` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("retailPriceWithDisc").toString()));
     }
-    if (!jsonObj.get("deliveryService").isJsonPrimitive()) {
+    if ((jsonObj.get("deliveryService") != null && !jsonObj.get("deliveryService").isJsonNull())
+        && !jsonObj.get("deliveryService").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `deliveryService` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("deliveryService").toString()));
     }
-    if (!jsonObj.get("giBoxTypeName").isJsonPrimitive()) {
+    if ((jsonObj.get("giBoxTypeName") != null && !jsonObj.get("giBoxTypeName").isJsonNull())
+        && !jsonObj.get("giBoxTypeName").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `giBoxTypeName` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("giBoxTypeName").toString()));
     }
-    if (!jsonObj.get("ppvzSalesCommission").isJsonPrimitive()) {
+    if ((jsonObj.get("ppvzSalesCommission") != null
+            && !jsonObj.get("ppvzSalesCommission").isJsonNull())
+        && !jsonObj.get("ppvzSalesCommission").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `ppvzSalesCommission` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("ppvzSalesCommission").toString()));
     }
-    if (!jsonObj.get("forPay").isJsonPrimitive()) {
+    if ((jsonObj.get("forPay") != null && !jsonObj.get("forPay").isJsonNull())
+        && !jsonObj.get("forPay").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `forPay` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("forPay").toString()));
     }
-    if (!jsonObj.get("ppvzReward").isJsonPrimitive()) {
+    if ((jsonObj.get("ppvzReward") != null && !jsonObj.get("ppvzReward").isJsonNull())
+        && !jsonObj.get("ppvzReward").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `ppvzReward` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("ppvzReward").toString()));
     }
-    if (!jsonObj.get("acquiringFee").isJsonPrimitive()) {
+    if ((jsonObj.get("acquiringFee") != null && !jsonObj.get("acquiringFee").isJsonNull())
+        && !jsonObj.get("acquiringFee").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `acquiringFee` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("acquiringFee").toString()));
     }
-    if (!jsonObj.get("paymentProcessing").isJsonPrimitive()) {
+    if ((jsonObj.get("paymentProcessing") != null && !jsonObj.get("paymentProcessing").isJsonNull())
+        && !jsonObj.get("paymentProcessing").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `paymentProcessing` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("paymentProcessing").toString()));
     }
-    if (!jsonObj.get("acquiringBank").isJsonPrimitive()) {
+    if ((jsonObj.get("acquiringBank") != null && !jsonObj.get("acquiringBank").isJsonNull())
+        && !jsonObj.get("acquiringBank").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `acquiringBank` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("acquiringBank").toString()));
     }
-    if (!jsonObj.get("vw").isJsonPrimitive()) {
+    if ((jsonObj.get("vw") != null && !jsonObj.get("vw").isJsonNull())
+        && !jsonObj.get("vw").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `vw` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("vw").toString()));
     }
-    if (!jsonObj.get("vwNds").isJsonPrimitive()) {
+    if ((jsonObj.get("vwNds") != null && !jsonObj.get("vwNds").isJsonNull())
+        && !jsonObj.get("vwNds").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `vwNds` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("vwNds").toString()));
     }
-    if (!jsonObj.get("ppvzOfficeName").isJsonPrimitive()) {
+    if ((jsonObj.get("ppvzOfficeName") != null && !jsonObj.get("ppvzOfficeName").isJsonNull())
+        && !jsonObj.get("ppvzOfficeName").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `ppvzOfficeName` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("ppvzOfficeName").toString()));
     }
-    if (!jsonObj.get("ppvzSupplierName").isJsonPrimitive()) {
+    if ((jsonObj.get("ppvzSupplierName") != null && !jsonObj.get("ppvzSupplierName").isJsonNull())
+        && !jsonObj.get("ppvzSupplierName").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `ppvzSupplierName` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("ppvzSupplierName").toString()));
     }
-    if (!jsonObj.get("ppvzSupplierInn").isJsonPrimitive()) {
+    if ((jsonObj.get("ppvzSupplierInn") != null && !jsonObj.get("ppvzSupplierInn").isJsonNull())
+        && !jsonObj.get("ppvzSupplierInn").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `ppvzSupplierInn` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("ppvzSupplierInn").toString()));
     }
-    if (!jsonObj.get("declarationNumber").isJsonPrimitive()) {
+    if ((jsonObj.get("declarationNumber") != null && !jsonObj.get("declarationNumber").isJsonNull())
+        && !jsonObj.get("declarationNumber").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `declarationNumber` to be a primitive type in the JSON string but got `%s`",
@@ -3358,31 +3303,37 @@ public class SalesReportsDetailedRes {
               "Expected the field `bonusTypeName` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("bonusTypeName").toString()));
     }
-    if (!jsonObj.get("stickerId").isJsonPrimitive()) {
+    if ((jsonObj.get("stickerId") != null && !jsonObj.get("stickerId").isJsonNull())
+        && !jsonObj.get("stickerId").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `stickerId` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("stickerId").toString()));
     }
-    if (!jsonObj.get("country").isJsonPrimitive()) {
+    if ((jsonObj.get("country") != null && !jsonObj.get("country").isJsonNull())
+        && !jsonObj.get("country").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `country` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("country").toString()));
     }
-    if (!jsonObj.get("penalty").isJsonPrimitive()) {
+    if ((jsonObj.get("penalty") != null && !jsonObj.get("penalty").isJsonNull())
+        && !jsonObj.get("penalty").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `penalty` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("penalty").toString()));
     }
-    if (!jsonObj.get("additionalPayment").isJsonPrimitive()) {
+    if ((jsonObj.get("additionalPayment") != null && !jsonObj.get("additionalPayment").isJsonNull())
+        && !jsonObj.get("additionalPayment").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `additionalPayment` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("additionalPayment").toString()));
     }
-    if (!jsonObj.get("rebillLogisticCost").isJsonPrimitive()) {
+    if ((jsonObj.get("rebillLogisticCost") != null
+            && !jsonObj.get("rebillLogisticCost").isJsonNull())
+        && !jsonObj.get("rebillLogisticCost").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `rebillLogisticCost` to be a primitive type in the JSON string but got `%s`",
@@ -3395,19 +3346,22 @@ public class SalesReportsDetailedRes {
               "Expected the field `rebillLogisticOrg` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("rebillLogisticOrg").toString()));
     }
-    if (!jsonObj.get("paidStorage").isJsonPrimitive()) {
+    if ((jsonObj.get("paidStorage") != null && !jsonObj.get("paidStorage").isJsonNull())
+        && !jsonObj.get("paidStorage").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `paidStorage` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("paidStorage").toString()));
     }
-    if (!jsonObj.get("deduction").isJsonPrimitive()) {
+    if ((jsonObj.get("deduction") != null && !jsonObj.get("deduction").isJsonNull())
+        && !jsonObj.get("deduction").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `deduction` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("deduction").toString()));
     }
-    if (!jsonObj.get("paidAcceptance").isJsonPrimitive()) {
+    if ((jsonObj.get("paidAcceptance") != null && !jsonObj.get("paidAcceptance").isJsonNull())
+        && !jsonObj.get("paidAcceptance").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `paidAcceptance` to be a primitive type in the JSON string but got `%s`",
@@ -3420,91 +3374,110 @@ public class SalesReportsDetailedRes {
               "Expected the field `kiz` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("kiz").toString()));
     }
-    if (!jsonObj.get("trbxId").isJsonPrimitive()) {
+    if ((jsonObj.get("trbxId") != null && !jsonObj.get("trbxId").isJsonNull())
+        && !jsonObj.get("trbxId").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `trbxId` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("trbxId").toString()));
     }
-    if (!jsonObj.get("installmentCofinancingAmount").isJsonPrimitive()) {
+    if ((jsonObj.get("installmentCofinancingAmount") != null
+            && !jsonObj.get("installmentCofinancingAmount").isJsonNull())
+        && !jsonObj.get("installmentCofinancingAmount").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `installmentCofinancingAmount` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("installmentCofinancingAmount").toString()));
     }
-    if (!jsonObj.get("cashbackAmount").isJsonPrimitive()) {
+    if ((jsonObj.get("cashbackAmount") != null && !jsonObj.get("cashbackAmount").isJsonNull())
+        && !jsonObj.get("cashbackAmount").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `cashbackAmount` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("cashbackAmount").toString()));
     }
-    if (!jsonObj.get("cashbackDiscount").isJsonPrimitive()) {
+    if ((jsonObj.get("cashbackDiscount") != null && !jsonObj.get("cashbackDiscount").isJsonNull())
+        && !jsonObj.get("cashbackDiscount").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `cashbackDiscount` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("cashbackDiscount").toString()));
     }
-    if (!jsonObj.get("cashbackCommissionChange").isJsonPrimitive()) {
+    if ((jsonObj.get("cashbackCommissionChange") != null
+            && !jsonObj.get("cashbackCommissionChange").isJsonNull())
+        && !jsonObj.get("cashbackCommissionChange").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `cashbackCommissionChange` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("cashbackCommissionChange").toString()));
     }
-    if (!jsonObj.get("paymentSchedule").isJsonPrimitive()) {
+    if ((jsonObj.get("paymentSchedule") != null && !jsonObj.get("paymentSchedule").isJsonNull())
+        && !jsonObj.get("paymentSchedule").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `paymentSchedule` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("paymentSchedule").toString()));
     }
-    if (!jsonObj.get("deliveryMethod").isJsonPrimitive()) {
+    if ((jsonObj.get("deliveryMethod") != null && !jsonObj.get("deliveryMethod").isJsonNull())
+        && !jsonObj.get("deliveryMethod").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `deliveryMethod` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("deliveryMethod").toString()));
     }
-    if (!jsonObj.get("uuidPromocode").isJsonPrimitive()) {
+    if ((jsonObj.get("uuidPromocode") != null && !jsonObj.get("uuidPromocode").isJsonNull())
+        && !jsonObj.get("uuidPromocode").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `uuidPromocode` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("uuidPromocode").toString()));
     }
-    if (!jsonObj.get("articleSubstitution").isJsonPrimitive()) {
+    if ((jsonObj.get("articleSubstitution") != null
+            && !jsonObj.get("articleSubstitution").isJsonNull())
+        && !jsonObj.get("articleSubstitution").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `articleSubstitution` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("articleSubstitution").toString()));
     }
-    if (!jsonObj.get("b2bCustomerTin").isJsonPrimitive()) {
+    if ((jsonObj.get("b2bCustomerTin") != null && !jsonObj.get("b2bCustomerTin").isJsonNull())
+        && !jsonObj.get("b2bCustomerTin").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `b2bCustomerTin` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("b2bCustomerTin").toString()));
     }
-    if (!jsonObj.get("buyerTaxRegistrationReasonCode").isJsonPrimitive()) {
+    if ((jsonObj.get("buyerTaxRegistrationReasonCode") != null
+            && !jsonObj.get("buyerTaxRegistrationReasonCode").isJsonNull())
+        && !jsonObj.get("buyerTaxRegistrationReasonCode").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `buyerTaxRegistrationReasonCode` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("buyerTaxRegistrationReasonCode").toString()));
     }
-    if (!jsonObj.get("utdUcdNumber").isJsonPrimitive()) {
+    if ((jsonObj.get("utdUcdNumber") != null && !jsonObj.get("utdUcdNumber").isJsonNull())
+        && !jsonObj.get("utdUcdNumber").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `utdUcdNumber` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("utdUcdNumber").toString()));
     }
-    if (!jsonObj.get("utdUcdDate").isJsonPrimitive()) {
+    if ((jsonObj.get("utdUcdDate") != null && !jsonObj.get("utdUcdDate").isJsonNull())
+        && !jsonObj.get("utdUcdDate").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `utdUcdDate` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("utdUcdDate").toString()));
     }
-    if (!jsonObj.get("orderUid").isJsonPrimitive()) {
+    if ((jsonObj.get("orderUid") != null && !jsonObj.get("orderUid").isJsonNull())
+        && !jsonObj.get("orderUid").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `orderUid` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("orderUid").toString()));
     }
-    if (!jsonObj.get("srid").isJsonPrimitive()) {
+    if ((jsonObj.get("srid") != null && !jsonObj.get("srid").isJsonNull())
+        && !jsonObj.get("srid").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `srid` to be a primitive type in the JSON string but got `%s`",

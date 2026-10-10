@@ -11,9 +11,7 @@ API version: instorepickup
 package in_store_pickup
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the ApiOrdersMetaDetailsResponseOrdersInner type satisfies the MappedNullable interface at compile time
@@ -22,26 +20,21 @@ var _ MappedNullable = &ApiOrdersMetaDetailsResponseOrdersInner{}
 // ApiOrdersMetaDetailsResponseOrdersInner struct for ApiOrdersMetaDetailsResponseOrdersInner
 type ApiOrdersMetaDetailsResponseOrdersInner struct {
 	// ID сборочного задания
-	OrderId int32 `json:"orderId"`
+	OrderId *int32 `json:"orderId,omitempty"`
 	// Есть ли ошибки
-	IsError bool `json:"isError"`
+	IsError *bool `json:"isError,omitempty"`
 	// Информация об ошибке
 	Errors []ApiOrdersMetaDetailsResponseOrdersInnerErrorsInner `json:"errors,omitempty"`
 	// Идентификаторы маркировки и статусы их валидации
-	MetaDetails []ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner `json:"metaDetails"`
+	MetaDetails []ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner `json:"metaDetails,omitempty"`
 }
-
-type _ApiOrdersMetaDetailsResponseOrdersInner ApiOrdersMetaDetailsResponseOrdersInner
 
 // NewApiOrdersMetaDetailsResponseOrdersInner instantiates a new ApiOrdersMetaDetailsResponseOrdersInner object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewApiOrdersMetaDetailsResponseOrdersInner(orderId int32, isError bool, metaDetails []ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner) *ApiOrdersMetaDetailsResponseOrdersInner {
+func NewApiOrdersMetaDetailsResponseOrdersInner() *ApiOrdersMetaDetailsResponseOrdersInner {
 	this := ApiOrdersMetaDetailsResponseOrdersInner{}
-	this.OrderId = orderId
-	this.IsError = isError
-	this.MetaDetails = metaDetails
 	return &this
 }
 
@@ -53,52 +46,68 @@ func NewApiOrdersMetaDetailsResponseOrdersInnerWithDefaults() *ApiOrdersMetaDeta
 	return &this
 }
 
-// GetOrderId returns the OrderId field value
+// GetOrderId returns the OrderId field value if set, zero value otherwise.
 func (o *ApiOrdersMetaDetailsResponseOrdersInner) GetOrderId() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.OrderId) {
 		var ret int32
 		return ret
 	}
-
-	return o.OrderId
+	return *o.OrderId
 }
 
-// GetOrderIdOk returns a tuple with the OrderId field value
+// GetOrderIdOk returns a tuple with the OrderId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ApiOrdersMetaDetailsResponseOrdersInner) GetOrderIdOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.OrderId) {
 		return nil, false
 	}
-	return &o.OrderId, true
+	return o.OrderId, true
 }
 
-// SetOrderId sets field value
+// HasOrderId returns a boolean if a field has been set.
+func (o *ApiOrdersMetaDetailsResponseOrdersInner) HasOrderId() bool {
+	if o != nil && !IsNil(o.OrderId) {
+		return true
+	}
+
+	return false
+}
+
+// SetOrderId gets a reference to the given int32 and assigns it to the OrderId field.
 func (o *ApiOrdersMetaDetailsResponseOrdersInner) SetOrderId(v int32) {
-	o.OrderId = v
+	o.OrderId = &v
 }
 
-// GetIsError returns the IsError field value
+// GetIsError returns the IsError field value if set, zero value otherwise.
 func (o *ApiOrdersMetaDetailsResponseOrdersInner) GetIsError() bool {
-	if o == nil {
+	if o == nil || IsNil(o.IsError) {
 		var ret bool
 		return ret
 	}
-
-	return o.IsError
+	return *o.IsError
 }
 
-// GetIsErrorOk returns a tuple with the IsError field value
+// GetIsErrorOk returns a tuple with the IsError field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ApiOrdersMetaDetailsResponseOrdersInner) GetIsErrorOk() (*bool, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.IsError) {
 		return nil, false
 	}
-	return &o.IsError, true
+	return o.IsError, true
 }
 
-// SetIsError sets field value
+// HasIsError returns a boolean if a field has been set.
+func (o *ApiOrdersMetaDetailsResponseOrdersInner) HasIsError() bool {
+	if o != nil && !IsNil(o.IsError) {
+		return true
+	}
+
+	return false
+}
+
+// SetIsError gets a reference to the given bool and assigns it to the IsError field.
 func (o *ApiOrdersMetaDetailsResponseOrdersInner) SetIsError(v bool) {
-	o.IsError = v
+	o.IsError = &v
 }
 
 // GetErrors returns the Errors field value if set, zero value otherwise.
@@ -133,26 +142,34 @@ func (o *ApiOrdersMetaDetailsResponseOrdersInner) SetErrors(v []ApiOrdersMetaDet
 	o.Errors = v
 }
 
-// GetMetaDetails returns the MetaDetails field value
+// GetMetaDetails returns the MetaDetails field value if set, zero value otherwise.
 func (o *ApiOrdersMetaDetailsResponseOrdersInner) GetMetaDetails() []ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner {
-	if o == nil {
+	if o == nil || IsNil(o.MetaDetails) {
 		var ret []ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner
 		return ret
 	}
-
 	return o.MetaDetails
 }
 
-// GetMetaDetailsOk returns a tuple with the MetaDetails field value
+// GetMetaDetailsOk returns a tuple with the MetaDetails field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ApiOrdersMetaDetailsResponseOrdersInner) GetMetaDetailsOk() ([]ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.MetaDetails) {
 		return nil, false
 	}
 	return o.MetaDetails, true
 }
 
-// SetMetaDetails sets field value
+// HasMetaDetails returns a boolean if a field has been set.
+func (o *ApiOrdersMetaDetailsResponseOrdersInner) HasMetaDetails() bool {
+	if o != nil && !IsNil(o.MetaDetails) {
+		return true
+	}
+
+	return false
+}
+
+// SetMetaDetails gets a reference to the given []ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner and assigns it to the MetaDetails field.
 func (o *ApiOrdersMetaDetailsResponseOrdersInner) SetMetaDetails(v []ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner) {
 	o.MetaDetails = v
 }
@@ -167,52 +184,19 @@ func (o ApiOrdersMetaDetailsResponseOrdersInner) MarshalJSON() ([]byte, error) {
 
 func (o ApiOrdersMetaDetailsResponseOrdersInner) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["orderId"] = o.OrderId
-	toSerialize["isError"] = o.IsError
+	if !IsNil(o.OrderId) {
+		toSerialize["orderId"] = o.OrderId
+	}
+	if !IsNil(o.IsError) {
+		toSerialize["isError"] = o.IsError
+	}
 	if !IsNil(o.Errors) {
 		toSerialize["errors"] = o.Errors
 	}
-	toSerialize["metaDetails"] = o.MetaDetails
+	if !IsNil(o.MetaDetails) {
+		toSerialize["metaDetails"] = o.MetaDetails
+	}
 	return toSerialize, nil
-}
-
-func (o *ApiOrdersMetaDetailsResponseOrdersInner) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"orderId",
-		"isError",
-		"metaDetails",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varApiOrdersMetaDetailsResponseOrdersInner := _ApiOrdersMetaDetailsResponseOrdersInner{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varApiOrdersMetaDetailsResponseOrdersInner)
-
-	if err != nil {
-		return err
-	}
-
-	*o = ApiOrdersMetaDetailsResponseOrdersInner(varApiOrdersMetaDetailsResponseOrdersInner)
-
-	return err
 }
 
 type NullableApiOrdersMetaDetailsResponseOrdersInner struct {

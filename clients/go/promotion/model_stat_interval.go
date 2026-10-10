@@ -11,9 +11,7 @@ API version: promotion
 package promotion
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the StatInterval type satisfies the MappedNullable interface at compile time
@@ -21,20 +19,17 @@ var _ MappedNullable = &StatInterval{}
 
 // StatInterval struct for StatInterval
 type StatInterval struct {
-	Interval StatIntervalInterval `json:"interval"`
+	Interval *StatIntervalInterval `json:"interval,omitempty"`
 	// Блок статистики
 	Stats []StatsBlok1 `json:"stats,omitempty"`
 }
-
-type _StatInterval StatInterval
 
 // NewStatInterval instantiates a new StatInterval object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewStatInterval(interval StatIntervalInterval) *StatInterval {
+func NewStatInterval() *StatInterval {
 	this := StatInterval{}
-	this.Interval = interval
 	return &this
 }
 
@@ -46,28 +41,36 @@ func NewStatIntervalWithDefaults() *StatInterval {
 	return &this
 }
 
-// GetInterval returns the Interval field value
+// GetInterval returns the Interval field value if set, zero value otherwise.
 func (o *StatInterval) GetInterval() StatIntervalInterval {
-	if o == nil {
+	if o == nil || IsNil(o.Interval) {
 		var ret StatIntervalInterval
 		return ret
 	}
-
-	return o.Interval
+	return *o.Interval
 }
 
-// GetIntervalOk returns a tuple with the Interval field value
+// GetIntervalOk returns a tuple with the Interval field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *StatInterval) GetIntervalOk() (*StatIntervalInterval, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Interval) {
 		return nil, false
 	}
-	return &o.Interval, true
+	return o.Interval, true
 }
 
-// SetInterval sets field value
+// HasInterval returns a boolean if a field has been set.
+func (o *StatInterval) HasInterval() bool {
+	if o != nil && !IsNil(o.Interval) {
+		return true
+	}
+
+	return false
+}
+
+// SetInterval gets a reference to the given StatIntervalInterval and assigns it to the Interval field.
 func (o *StatInterval) SetInterval(v StatIntervalInterval) {
-	o.Interval = v
+	o.Interval = &v
 }
 
 // GetStats returns the Stats field value if set, zero value otherwise.
@@ -112,48 +115,13 @@ func (o StatInterval) MarshalJSON() ([]byte, error) {
 
 func (o StatInterval) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["interval"] = o.Interval
+	if !IsNil(o.Interval) {
+		toSerialize["interval"] = o.Interval
+	}
 	if !IsNil(o.Stats) {
 		toSerialize["stats"] = o.Stats
 	}
 	return toSerialize, nil
-}
-
-func (o *StatInterval) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"interval",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varStatInterval := _StatInterval{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varStatInterval)
-
-	if err != nil {
-		return err
-	}
-
-	*o = StatInterval(varStatInterval)
-
-	return err
 }
 
 type NullableStatInterval struct {

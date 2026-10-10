@@ -62,46 +62,26 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Model
         /// Тип расхождения в целом по коробу:  - &#x60;surplus&#x60; — товара в коробе больше заявленного  - &#x60;shortage&#x60; — товара в коробе меньше заявленного  - &#x60;re-sorting&#x60; — баркод принятого товара не соответствует заявленному при формировании поставки 
         /// </summary>
         /// <value>Тип расхождения в целом по коробу:  - &#x60;surplus&#x60; — товара в коробе больше заявленного  - &#x60;shortage&#x60; — товара в коробе меньше заявленного  - &#x60;re-sorting&#x60; — баркод принятого товара не соответствует заявленному при формировании поставки </value>
-        [DataMember(Name = "discrepancyType", IsRequired = true, EmitDefaultValue = true)]
-        public DiscrepancyTypeEnum DiscrepancyType { get; set; }
+        [DataMember(Name = "discrepancyType", EmitDefaultValue = false)]
+        public DiscrepancyTypeEnum? DiscrepancyType { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="ModelsDiscrepancyResponseItem" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected ModelsDiscrepancyResponseItem() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ModelsDiscrepancyResponseItem" /> class.
-        /// </summary>
-        /// <param name="declaredSku">Баркод, заявленный при формировании поставки (required).</param>
-        /// <param name="discrepancyType">Тип расхождения в целом по коробу:  - &#x60;surplus&#x60; — товара в коробе больше заявленного  - &#x60;shortage&#x60; — товара в коробе меньше заявленного  - &#x60;re-sorting&#x60; — баркод принятого товара не соответствует заявленному при формировании поставки  (required).</param>
-        /// <param name="declaredAmount">Количество товара, заявленное при формировании поставки (required).</param>
-        /// <param name="actualAmount">Фактическое количество товара (required).</param>
-        /// <param name="discrepancyQuantity">Разница между заявленным и фактическим количеством товара (required).</param>
-        /// <param name="actualSku">Фактический баркод (required).</param>
-        /// <param name="skuScans">Результаты сканирования товаров (required).</param>
-        public ModelsDiscrepancyResponseItem(string declaredSku = default(string), DiscrepancyTypeEnum discrepancyType = default(DiscrepancyTypeEnum), int declaredAmount = default(int), int actualAmount = default(int), int discrepancyQuantity = default(int), string actualSku = default(string), List<ModelsItemScans> skuScans = default(List<ModelsItemScans>))
+        /// <param name="declaredSku">Баркод, заявленный при формировании поставки.</param>
+        /// <param name="discrepancyType">Тип расхождения в целом по коробу:  - &#x60;surplus&#x60; — товара в коробе больше заявленного  - &#x60;shortage&#x60; — товара в коробе меньше заявленного  - &#x60;re-sorting&#x60; — баркод принятого товара не соответствует заявленному при формировании поставки .</param>
+        /// <param name="declaredAmount">Количество товара, заявленное при формировании поставки.</param>
+        /// <param name="actualAmount">Фактическое количество товара.</param>
+        /// <param name="discrepancyQuantity">Разница между заявленным и фактическим количеством товара.</param>
+        /// <param name="actualSku">Фактический баркод.</param>
+        /// <param name="skuScans">Результаты сканирования товаров.</param>
+        public ModelsDiscrepancyResponseItem(string declaredSku = default(string), DiscrepancyTypeEnum? discrepancyType = default(DiscrepancyTypeEnum?), int declaredAmount = default(int), int actualAmount = default(int), int discrepancyQuantity = default(int), string actualSku = default(string), List<ModelsItemScans> skuScans = default(List<ModelsItemScans>))
         {
-            // to ensure "declaredSku" is required (not null)
-            if (declaredSku == null)
-            {
-                throw new ArgumentNullException("declaredSku is a required property for ModelsDiscrepancyResponseItem and cannot be null");
-            }
             this.DeclaredSku = declaredSku;
             this.DiscrepancyType = discrepancyType;
             this.DeclaredAmount = declaredAmount;
             this.ActualAmount = actualAmount;
             this.DiscrepancyQuantity = discrepancyQuantity;
-            // to ensure "actualSku" is required (not null)
-            if (actualSku == null)
-            {
-                throw new ArgumentNullException("actualSku is a required property for ModelsDiscrepancyResponseItem and cannot be null");
-            }
             this.ActualSku = actualSku;
-            // to ensure "skuScans" is required (not null)
-            if (skuScans == null)
-            {
-                throw new ArgumentNullException("skuScans is a required property for ModelsDiscrepancyResponseItem and cannot be null");
-            }
             this.SkuScans = skuScans;
         }
 
@@ -109,42 +89,42 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Model
         /// Баркод, заявленный при формировании поставки
         /// </summary>
         /// <value>Баркод, заявленный при формировании поставки</value>
-        [DataMember(Name = "declaredSku", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "declaredSku", EmitDefaultValue = false)]
         public string DeclaredSku { get; set; }
 
         /// <summary>
         /// Количество товара, заявленное при формировании поставки
         /// </summary>
         /// <value>Количество товара, заявленное при формировании поставки</value>
-        [DataMember(Name = "declaredAmount", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "declaredAmount", EmitDefaultValue = false)]
         public int DeclaredAmount { get; set; }
 
         /// <summary>
         /// Фактическое количество товара
         /// </summary>
         /// <value>Фактическое количество товара</value>
-        [DataMember(Name = "actualAmount", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "actualAmount", EmitDefaultValue = false)]
         public int ActualAmount { get; set; }
 
         /// <summary>
         /// Разница между заявленным и фактическим количеством товара
         /// </summary>
         /// <value>Разница между заявленным и фактическим количеством товара</value>
-        [DataMember(Name = "discrepancyQuantity", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "discrepancyQuantity", EmitDefaultValue = false)]
         public int DiscrepancyQuantity { get; set; }
 
         /// <summary>
         /// Фактический баркод
         /// </summary>
         /// <value>Фактический баркод</value>
-        [DataMember(Name = "actualSku", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "actualSku", EmitDefaultValue = false)]
         public string ActualSku { get; set; }
 
         /// <summary>
         /// Результаты сканирования товаров
         /// </summary>
         /// <value>Результаты сканирования товаров</value>
-        [DataMember(Name = "skuScans", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "skuScans", EmitDefaultValue = true)]
         public List<ModelsItemScans> SkuScans { get; set; }
 
         /// <summary>

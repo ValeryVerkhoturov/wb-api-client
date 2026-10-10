@@ -28,11 +28,13 @@ class FeedbacksIncreaseItemOneStar(BaseModel):
     Отзывы 1 звезда
     """  # noqa: E501
 
-    current: StrictInt = Field(description="Прирост оценок за период")
+    current: Optional[StrictInt] = Field(
+        default=None, description="Прирост оценок за период"
+    )
     dynamics: Optional[StrictInt] = Field(
         default=None, description="Динамика по сравнению с предыдущим периодом, %"
     )
-    total: StrictInt = Field(description="Всего оценок")
+    total: Optional[StrictInt] = Field(default=None, description="Всего оценок")
     __properties: ClassVar[List[str]] = ["current", "dynamics", "total"]
 
     model_config = ConfigDict(

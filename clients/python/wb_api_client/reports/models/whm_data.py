@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from wb_api_client.reports.models.whm_data_reports_inner import WHMDataReportsInner
 from typing import Optional, Set
 from typing_extensions import Self
@@ -29,9 +29,12 @@ class WHMData(BaseModel):
     Данные ответа
     """  # noqa: E501
 
-    reports: List[WHMDataReportsInner] = Field(description="Замеры")
-    total: StrictInt = Field(
-        description="Количество замеров в отчёте. Без учёта `limit` и `offset`"
+    reports: Optional[List[WHMDataReportsInner]] = Field(
+        default=None, description="Замеры"
+    )
+    total: Optional[StrictInt] = Field(
+        default=None,
+        description="Количество замеров в отчёте. Без учёта `limit` и `offset`",
     )
     __properties: ClassVar[List[str]] = ["reports", "total"]
 

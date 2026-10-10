@@ -11,9 +11,7 @@ API version: promotion
 package promotion
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the V1GetNormQueryStatsResponseItem type satisfies the MappedNullable interface at compile time
@@ -22,23 +20,19 @@ var _ MappedNullable = &V1GetNormQueryStatsResponseItem{}
 // V1GetNormQueryStatsResponseItem struct for V1GetNormQueryStatsResponseItem
 type V1GetNormQueryStatsResponseItem struct {
 	// ID кампании
-	AdvertId int64 `json:"advertId"`
+	AdvertId *int64 `json:"advertId,omitempty"`
 	// Артикул WB
-	NmId int64 `json:"nmId"`
+	NmId *int64 `json:"nmId,omitempty"`
 	// Статистика с детализацией по дням
 	DailyStats []V1GetNormQueryStatsResponseItemDailyStat `json:"dailyStats,omitempty"`
 }
-
-type _V1GetNormQueryStatsResponseItem V1GetNormQueryStatsResponseItem
 
 // NewV1GetNormQueryStatsResponseItem instantiates a new V1GetNormQueryStatsResponseItem object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewV1GetNormQueryStatsResponseItem(advertId int64, nmId int64) *V1GetNormQueryStatsResponseItem {
+func NewV1GetNormQueryStatsResponseItem() *V1GetNormQueryStatsResponseItem {
 	this := V1GetNormQueryStatsResponseItem{}
-	this.AdvertId = advertId
-	this.NmId = nmId
 	return &this
 }
 
@@ -50,52 +44,68 @@ func NewV1GetNormQueryStatsResponseItemWithDefaults() *V1GetNormQueryStatsRespon
 	return &this
 }
 
-// GetAdvertId returns the AdvertId field value
+// GetAdvertId returns the AdvertId field value if set, zero value otherwise.
 func (o *V1GetNormQueryStatsResponseItem) GetAdvertId() int64 {
-	if o == nil {
+	if o == nil || IsNil(o.AdvertId) {
 		var ret int64
 		return ret
 	}
-
-	return o.AdvertId
+	return *o.AdvertId
 }
 
-// GetAdvertIdOk returns a tuple with the AdvertId field value
+// GetAdvertIdOk returns a tuple with the AdvertId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *V1GetNormQueryStatsResponseItem) GetAdvertIdOk() (*int64, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AdvertId) {
 		return nil, false
 	}
-	return &o.AdvertId, true
+	return o.AdvertId, true
 }
 
-// SetAdvertId sets field value
+// HasAdvertId returns a boolean if a field has been set.
+func (o *V1GetNormQueryStatsResponseItem) HasAdvertId() bool {
+	if o != nil && !IsNil(o.AdvertId) {
+		return true
+	}
+
+	return false
+}
+
+// SetAdvertId gets a reference to the given int64 and assigns it to the AdvertId field.
 func (o *V1GetNormQueryStatsResponseItem) SetAdvertId(v int64) {
-	o.AdvertId = v
+	o.AdvertId = &v
 }
 
-// GetNmId returns the NmId field value
+// GetNmId returns the NmId field value if set, zero value otherwise.
 func (o *V1GetNormQueryStatsResponseItem) GetNmId() int64 {
-	if o == nil {
+	if o == nil || IsNil(o.NmId) {
 		var ret int64
 		return ret
 	}
-
-	return o.NmId
+	return *o.NmId
 }
 
-// GetNmIdOk returns a tuple with the NmId field value
+// GetNmIdOk returns a tuple with the NmId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *V1GetNormQueryStatsResponseItem) GetNmIdOk() (*int64, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.NmId) {
 		return nil, false
 	}
-	return &o.NmId, true
+	return o.NmId, true
 }
 
-// SetNmId sets field value
+// HasNmId returns a boolean if a field has been set.
+func (o *V1GetNormQueryStatsResponseItem) HasNmId() bool {
+	if o != nil && !IsNil(o.NmId) {
+		return true
+	}
+
+	return false
+}
+
+// SetNmId gets a reference to the given int64 and assigns it to the NmId field.
 func (o *V1GetNormQueryStatsResponseItem) SetNmId(v int64) {
-	o.NmId = v
+	o.NmId = &v
 }
 
 // GetDailyStats returns the DailyStats field value if set, zero value otherwise.
@@ -140,50 +150,16 @@ func (o V1GetNormQueryStatsResponseItem) MarshalJSON() ([]byte, error) {
 
 func (o V1GetNormQueryStatsResponseItem) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["advertId"] = o.AdvertId
-	toSerialize["nmId"] = o.NmId
+	if !IsNil(o.AdvertId) {
+		toSerialize["advertId"] = o.AdvertId
+	}
+	if !IsNil(o.NmId) {
+		toSerialize["nmId"] = o.NmId
+	}
 	if !IsNil(o.DailyStats) {
 		toSerialize["dailyStats"] = o.DailyStats
 	}
 	return toSerialize, nil
-}
-
-func (o *V1GetNormQueryStatsResponseItem) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"advertId",
-		"nmId",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varV1GetNormQueryStatsResponseItem := _V1GetNormQueryStatsResponseItem{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varV1GetNormQueryStatsResponseItem)
-
-	if err != nil {
-		return err
-	}
-
-	*o = V1GetNormQueryStatsResponseItem(varV1GetNormQueryStatsResponseItem)
-
-	return err
 }
 
 type NullableV1GetNormQueryStatsResponseItem struct {

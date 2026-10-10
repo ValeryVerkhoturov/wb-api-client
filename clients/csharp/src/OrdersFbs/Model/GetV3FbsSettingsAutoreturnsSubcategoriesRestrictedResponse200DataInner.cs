@@ -34,12 +34,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataInner" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataInner() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataInner" /> class.
-        /// </summary>
-        /// <param name="subjectId">ID предмета (required).</param>
+        /// <param name="subjectId">ID предмета.</param>
         public GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataInner(int subjectId = default(int))
         {
             this.SubjectId = subjectId;
@@ -49,7 +44,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// ID предмета
         /// </summary>
         /// <value>ID предмета</value>
-        [DataMember(Name = "subjectId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "subjectId", EmitDefaultValue = false)]
         public int SubjectId { get; set; }
 
         /// <summary>

@@ -94,84 +94,84 @@ public class FullStatsItemDaysInnerAppsInner {
   public static final String SERIALIZED_NAME_APP_TYPE = "appType";
 
   @SerializedName(SERIALIZED_NAME_APP_TYPE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private AppTypeEnum appType;
 
   public static final String SERIALIZED_NAME_ATBS = "atbs";
 
   @SerializedName(SERIALIZED_NAME_ATBS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer atbs;
 
   public static final String SERIALIZED_NAME_CANCELED = "canceled";
 
   @SerializedName(SERIALIZED_NAME_CANCELED)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer canceled;
 
   public static final String SERIALIZED_NAME_CLICKS = "clicks";
 
   @SerializedName(SERIALIZED_NAME_CLICKS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer clicks;
 
   public static final String SERIALIZED_NAME_CPC = "cpc";
 
   @SerializedName(SERIALIZED_NAME_CPC)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private BigDecimal cpc;
 
   public static final String SERIALIZED_NAME_CR = "cr";
 
   @SerializedName(SERIALIZED_NAME_CR)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private BigDecimal cr;
 
   public static final String SERIALIZED_NAME_CTR = "ctr";
 
   @SerializedName(SERIALIZED_NAME_CTR)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private BigDecimal ctr;
 
   public static final String SERIALIZED_NAME_NMS = "nms";
 
   @SerializedName(SERIALIZED_NAME_NMS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private List<FullStatsItemDaysInnerAppsInnerNmsInner> nms = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_ORDERS = "orders";
 
   @SerializedName(SERIALIZED_NAME_ORDERS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer orders;
 
   public static final String SERIALIZED_NAME_SHKS = "shks";
 
   @SerializedName(SERIALIZED_NAME_SHKS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer shks;
 
   public static final String SERIALIZED_NAME_SUM = "sum";
 
   @SerializedName(SERIALIZED_NAME_SUM)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private BigDecimal sum;
 
   public static final String SERIALIZED_NAME_SUM_PRICE = "sum_price";
 
   @SerializedName(SERIALIZED_NAME_SUM_PRICE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private BigDecimal sumPrice;
 
   public static final String SERIALIZED_NAME_VIEWS = "views";
 
   @SerializedName(SERIALIZED_NAME_VIEWS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer views;
 
   public FullStatsItemDaysInnerAppsInner() {}
 
-  public FullStatsItemDaysInnerAppsInner appType(@jakarta.annotation.Nonnull AppTypeEnum appType) {
+  public FullStatsItemDaysInnerAppsInner appType(@jakarta.annotation.Nullable AppTypeEnum appType) {
     this.appType = appType;
     return this;
   }
@@ -181,16 +181,16 @@ public class FullStatsItemDaysInnerAppsInner {
    *
    * @return appType
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public AppTypeEnum getAppType() {
     return appType;
   }
 
-  public void setAppType(@jakarta.annotation.Nonnull AppTypeEnum appType) {
+  public void setAppType(@jakarta.annotation.Nullable AppTypeEnum appType) {
     this.appType = appType;
   }
 
-  public FullStatsItemDaysInnerAppsInner atbs(@jakarta.annotation.Nonnull Integer atbs) {
+  public FullStatsItemDaysInnerAppsInner atbs(@jakarta.annotation.Nullable Integer atbs) {
     this.atbs = atbs;
     return this;
   }
@@ -200,16 +200,16 @@ public class FullStatsItemDaysInnerAppsInner {
    *
    * @return atbs
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getAtbs() {
     return atbs;
   }
 
-  public void setAtbs(@jakarta.annotation.Nonnull Integer atbs) {
+  public void setAtbs(@jakarta.annotation.Nullable Integer atbs) {
     this.atbs = atbs;
   }
 
-  public FullStatsItemDaysInnerAppsInner canceled(@jakarta.annotation.Nonnull Integer canceled) {
+  public FullStatsItemDaysInnerAppsInner canceled(@jakarta.annotation.Nullable Integer canceled) {
     this.canceled = canceled;
     return this;
   }
@@ -219,16 +219,16 @@ public class FullStatsItemDaysInnerAppsInner {
    *
    * @return canceled
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getCanceled() {
     return canceled;
   }
 
-  public void setCanceled(@jakarta.annotation.Nonnull Integer canceled) {
+  public void setCanceled(@jakarta.annotation.Nullable Integer canceled) {
     this.canceled = canceled;
   }
 
-  public FullStatsItemDaysInnerAppsInner clicks(@jakarta.annotation.Nonnull Integer clicks) {
+  public FullStatsItemDaysInnerAppsInner clicks(@jakarta.annotation.Nullable Integer clicks) {
     this.clicks = clicks;
     return this;
   }
@@ -238,16 +238,16 @@ public class FullStatsItemDaysInnerAppsInner {
    *
    * @return clicks
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getClicks() {
     return clicks;
   }
 
-  public void setClicks(@jakarta.annotation.Nonnull Integer clicks) {
+  public void setClicks(@jakarta.annotation.Nullable Integer clicks) {
     this.clicks = clicks;
   }
 
-  public FullStatsItemDaysInnerAppsInner cpc(@jakarta.annotation.Nonnull BigDecimal cpc) {
+  public FullStatsItemDaysInnerAppsInner cpc(@jakarta.annotation.Nullable BigDecimal cpc) {
     this.cpc = cpc;
     return this;
   }
@@ -258,16 +258,16 @@ public class FullStatsItemDaysInnerAppsInner {
    *
    * @return cpc
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public BigDecimal getCpc() {
     return cpc;
   }
 
-  public void setCpc(@jakarta.annotation.Nonnull BigDecimal cpc) {
+  public void setCpc(@jakarta.annotation.Nullable BigDecimal cpc) {
     this.cpc = cpc;
   }
 
-  public FullStatsItemDaysInnerAppsInner cr(@jakarta.annotation.Nonnull BigDecimal cr) {
+  public FullStatsItemDaysInnerAppsInner cr(@jakarta.annotation.Nullable BigDecimal cr) {
     this.cr = cr;
     return this;
   }
@@ -277,16 +277,16 @@ public class FullStatsItemDaysInnerAppsInner {
    *
    * @return cr
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public BigDecimal getCr() {
     return cr;
   }
 
-  public void setCr(@jakarta.annotation.Nonnull BigDecimal cr) {
+  public void setCr(@jakarta.annotation.Nullable BigDecimal cr) {
     this.cr = cr;
   }
 
-  public FullStatsItemDaysInnerAppsInner ctr(@jakarta.annotation.Nonnull BigDecimal ctr) {
+  public FullStatsItemDaysInnerAppsInner ctr(@jakarta.annotation.Nullable BigDecimal ctr) {
     this.ctr = ctr;
     return this;
   }
@@ -296,17 +296,17 @@ public class FullStatsItemDaysInnerAppsInner {
    *
    * @return ctr
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public BigDecimal getCtr() {
     return ctr;
   }
 
-  public void setCtr(@jakarta.annotation.Nonnull BigDecimal ctr) {
+  public void setCtr(@jakarta.annotation.Nullable BigDecimal ctr) {
     this.ctr = ctr;
   }
 
   public FullStatsItemDaysInnerAppsInner nms(
-      @jakarta.annotation.Nonnull List<FullStatsItemDaysInnerAppsInnerNmsInner> nms) {
+      @jakarta.annotation.Nullable List<FullStatsItemDaysInnerAppsInnerNmsInner> nms) {
     this.nms = nms;
     return this;
   }
@@ -325,17 +325,17 @@ public class FullStatsItemDaysInnerAppsInner {
    *
    * @return nms
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public List<FullStatsItemDaysInnerAppsInnerNmsInner> getNms() {
     return nms;
   }
 
   public void setNms(
-      @jakarta.annotation.Nonnull List<FullStatsItemDaysInnerAppsInnerNmsInner> nms) {
+      @jakarta.annotation.Nullable List<FullStatsItemDaysInnerAppsInnerNmsInner> nms) {
     this.nms = nms;
   }
 
-  public FullStatsItemDaysInnerAppsInner orders(@jakarta.annotation.Nonnull Integer orders) {
+  public FullStatsItemDaysInnerAppsInner orders(@jakarta.annotation.Nullable Integer orders) {
     this.orders = orders;
     return this;
   }
@@ -345,16 +345,16 @@ public class FullStatsItemDaysInnerAppsInner {
    *
    * @return orders
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getOrders() {
     return orders;
   }
 
-  public void setOrders(@jakarta.annotation.Nonnull Integer orders) {
+  public void setOrders(@jakarta.annotation.Nullable Integer orders) {
     this.orders = orders;
   }
 
-  public FullStatsItemDaysInnerAppsInner shks(@jakarta.annotation.Nonnull Integer shks) {
+  public FullStatsItemDaysInnerAppsInner shks(@jakarta.annotation.Nullable Integer shks) {
     this.shks = shks;
     return this;
   }
@@ -364,16 +364,16 @@ public class FullStatsItemDaysInnerAppsInner {
    *
    * @return shks
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getShks() {
     return shks;
   }
 
-  public void setShks(@jakarta.annotation.Nonnull Integer shks) {
+  public void setShks(@jakarta.annotation.Nullable Integer shks) {
     this.shks = shks;
   }
 
-  public FullStatsItemDaysInnerAppsInner sum(@jakarta.annotation.Nonnull BigDecimal sum) {
+  public FullStatsItemDaysInnerAppsInner sum(@jakarta.annotation.Nullable BigDecimal sum) {
     this.sum = sum;
     return this;
   }
@@ -384,16 +384,17 @@ public class FullStatsItemDaysInnerAppsInner {
    *
    * @return sum
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public BigDecimal getSum() {
     return sum;
   }
 
-  public void setSum(@jakarta.annotation.Nonnull BigDecimal sum) {
+  public void setSum(@jakarta.annotation.Nullable BigDecimal sum) {
     this.sum = sum;
   }
 
-  public FullStatsItemDaysInnerAppsInner sumPrice(@jakarta.annotation.Nonnull BigDecimal sumPrice) {
+  public FullStatsItemDaysInnerAppsInner sumPrice(
+      @jakarta.annotation.Nullable BigDecimal sumPrice) {
     this.sumPrice = sumPrice;
     return this;
   }
@@ -404,16 +405,16 @@ public class FullStatsItemDaysInnerAppsInner {
    *
    * @return sumPrice
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public BigDecimal getSumPrice() {
     return sumPrice;
   }
 
-  public void setSumPrice(@jakarta.annotation.Nonnull BigDecimal sumPrice) {
+  public void setSumPrice(@jakarta.annotation.Nullable BigDecimal sumPrice) {
     this.sumPrice = sumPrice;
   }
 
-  public FullStatsItemDaysInnerAppsInner views(@jakarta.annotation.Nonnull Integer views) {
+  public FullStatsItemDaysInnerAppsInner views(@jakarta.annotation.Nullable Integer views) {
     this.views = views;
     return this;
   }
@@ -423,12 +424,12 @@ public class FullStatsItemDaysInnerAppsInner {
    *
    * @return views
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getViews() {
     return views;
   }
 
-  public void setViews(@jakarta.annotation.Nonnull Integer views) {
+  public void setViews(@jakarta.annotation.Nullable Integer views) {
     this.views = views;
   }
 
@@ -516,19 +517,6 @@ public class FullStatsItemDaysInnerAppsInner {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("appType");
-    openapiRequiredFields.add("atbs");
-    openapiRequiredFields.add("canceled");
-    openapiRequiredFields.add("clicks");
-    openapiRequiredFields.add("cpc");
-    openapiRequiredFields.add("cr");
-    openapiRequiredFields.add("ctr");
-    openapiRequiredFields.add("nms");
-    openapiRequiredFields.add("orders");
-    openapiRequiredFields.add("shks");
-    openapiRequiredFields.add("sum");
-    openapiRequiredFields.add("sum_price");
-    openapiRequiredFields.add("views");
   }
 
   /**
@@ -559,33 +547,29 @@ public class FullStatsItemDaysInnerAppsInner {
                 entry.getKey(), jsonElement.toString()));
       }
     }
+    JsonObject jsonObj = jsonElement.getAsJsonObject();
+    // validate the optional field `appType`
+    if (jsonObj.get("appType") != null && !jsonObj.get("appType").isJsonNull()) {
+      AppTypeEnum.validateJsonElement(jsonObj.get("appType"));
+    }
+    if (jsonObj.get("nms") != null && !jsonObj.get("nms").isJsonNull()) {
+      JsonArray jsonArraynms = jsonObj.getAsJsonArray("nms");
+      if (jsonArraynms != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("nms").isJsonArray()) {
+          throw new IllegalArgumentException(
+              String.format(
+                  "Expected the field `nms` to be an array in the JSON string but got `%s`",
+                  jsonObj.get("nms").toString()));
+        }
 
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : FullStatsItemDaysInnerAppsInner.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
+        // validate the optional field `nms` (array)
+        for (int i = 0; i < jsonArraynms.size(); i++) {
+          FullStatsItemDaysInnerAppsInnerNmsInner.validateJsonElement(jsonArraynms.get(i));
+        }
+        ;
       }
     }
-    JsonObject jsonObj = jsonElement.getAsJsonObject();
-    // validate the required field `appType`
-    AppTypeEnum.validateJsonElement(jsonObj.get("appType"));
-    // ensure the json data is an array
-    if (!jsonObj.get("nms").isJsonArray()) {
-      throw new IllegalArgumentException(
-          String.format(
-              "Expected the field `nms` to be an array in the JSON string but got `%s`",
-              jsonObj.get("nms").toString()));
-    }
-
-    JsonArray jsonArraynms = jsonObj.getAsJsonArray("nms");
-    // validate the required field `nms` (array)
-    for (int i = 0; i < jsonArraynms.size(); i++) {
-      FullStatsItemDaysInnerAppsInnerNmsInner.validateJsonElement(jsonArraynms.get(i));
-    }
-    ;
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

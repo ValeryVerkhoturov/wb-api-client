@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,10 +28,14 @@ class Response400GetRecom(BaseModel):
     Response400GetRecom
     """  # noqa: E501
 
-    request_id: StrictStr = Field(description="ID запроса", alias="requestId")
-    origin: StrictStr = Field(description="ID внутреннего сервиса WB")
-    title: StrictStr = Field(description="Заголовок ошибки")
-    detail: StrictStr = Field(description="Детали ошибки")
+    request_id: Optional[StrictStr] = Field(
+        default=None, description="ID запроса", alias="requestId"
+    )
+    origin: Optional[StrictStr] = Field(
+        default=None, description="ID внутреннего сервиса WB"
+    )
+    title: Optional[StrictStr] = Field(default=None, description="Заголовок ошибки")
+    detail: Optional[StrictStr] = Field(default=None, description="Детали ошибки")
     __properties: ClassVar[List[str]] = ["requestId", "origin", "title", "detail"]
 
     model_config = ConfigDict(

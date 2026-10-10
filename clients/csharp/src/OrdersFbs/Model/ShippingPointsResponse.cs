@@ -34,19 +34,9 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ShippingPointsResponse" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected ShippingPointsResponse() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ShippingPointsResponse" /> class.
-        /// </summary>
-        /// <param name="shippingPoints">Список пунктов отгрузки (required).</param>
+        /// <param name="shippingPoints">Список пунктов отгрузки.</param>
         public ShippingPointsResponse(List<ShippingPoint> shippingPoints = default(List<ShippingPoint>))
         {
-            // to ensure "shippingPoints" is required (not null)
-            if (shippingPoints == null)
-            {
-                throw new ArgumentNullException("shippingPoints is a required property for ShippingPointsResponse and cannot be null");
-            }
             this.ShippingPoints = shippingPoints;
         }
 
@@ -54,7 +44,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// Список пунктов отгрузки
         /// </summary>
         /// <value>Список пунктов отгрузки</value>
-        [DataMember(Name = "shippingPoints", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "shippingPoints", EmitDefaultValue = false)]
         public List<ShippingPoint> ShippingPoints { get; set; }
 
         /// <summary>

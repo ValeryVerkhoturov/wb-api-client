@@ -29,20 +29,23 @@ class SupplySpotData(BaseModel):
     SupplySpotData
     """  # noqa: E501
 
-    status: StrictStr = Field(
-        description="Статус СПОТ:   - `pending` — ожидается результат формирования ДОПП — документа о предстоящей поставке   - `completed` — ДОПП успешно сформирован. Можно [получить QR-код](./orders-fbs#tag/fbsSupplies/operation/getV3FbsSuppliesSupplyIdStickersSpot)   - `failed` — ошибка формирования ДОПП. Подробнее в поле `errorCode` "
+    status: Optional[StrictStr] = Field(
+        default=None,
+        description="Статус СПОТ:   - `pending` — ожидается результат формирования ДОПП — документа о предстоящей поставке   - `completed` — ДОПП успешно сформирован. Можно [получить QR-код](./orders-fbs#tag/fbsSupplies/operation/getV3FbsSuppliesSupplyIdStickersSpot)   - `failed` — ошибка формирования ДОПП. Подробнее в поле `errorCode` ",
     )
-    carrier_name: Annotated[str, Field(min_length=1, strict=True, max_length=1000)] = (
-        Field(description="Наименование перевозчика", alias="carrierName")
+    carrier_name: Optional[
+        Annotated[str, Field(min_length=1, strict=True, max_length=1000)]
+    ] = Field(default=None, description="Наименование перевозчика", alias="carrierName")
+    carrier_tax_number: Optional[StrictStr] = Field(
+        default=None, description="ИНН перевозчика", alias="carrierTaxNumber"
     )
-    carrier_tax_number: StrictStr = Field(
-        description="ИНН перевозчика", alias="carrierTaxNumber"
-    )
-    carrier_country_code: StrictStr = Field(
+    carrier_country_code: Optional[StrictStr] = Field(
+        default=None,
         description="Код страны перевозчика по [ОКСМ](./orders-fbs#tag/fbsSupplies/operation/getV3FbsDictionariesCountriesOksm)",
         alias="carrierCountryCode",
     )
-    vehicle_registration_number: StrictStr = Field(
+    vehicle_registration_number: Optional[StrictStr] = Field(
+        default=None,
         description="Регистрационный номер транспортного средства",
         alias="vehicleRegistrationNumber",
     )
@@ -69,6 +72,9 @@ class SupplySpotData(BaseModel):
     @field_validator("status")
     def status_validate_enum(cls, value):
         """Validates the enum"""
+        if value is None:
+            return value
+
         if value not in set(["pending", "completed", "failed"]):
             raise ValueError(
                 "must be one of enum values ('pending', 'completed', 'failed')"

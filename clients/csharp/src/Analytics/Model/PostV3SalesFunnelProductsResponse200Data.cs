@@ -34,26 +34,11 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PostV3SalesFunnelProductsResponse200Data" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected PostV3SalesFunnelProductsResponse200Data() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PostV3SalesFunnelProductsResponse200Data" /> class.
-        /// </summary>
-        /// <param name="products">Список карточек товаров (required).</param>
-        /// <param name="currency">Валюта отчёта (required).</param>
+        /// <param name="products">Список карточек товаров.</param>
+        /// <param name="currency">Валюта отчёта.</param>
         public PostV3SalesFunnelProductsResponse200Data(List<ItemsResponseProductsInner> products = default(List<ItemsResponseProductsInner>), string currency = default(string))
         {
-            // to ensure "products" is required (not null)
-            if (products == null)
-            {
-                throw new ArgumentNullException("products is a required property for PostV3SalesFunnelProductsResponse200Data and cannot be null");
-            }
             this.Products = products;
-            // to ensure "currency" is required (not null)
-            if (currency == null)
-            {
-                throw new ArgumentNullException("currency is a required property for PostV3SalesFunnelProductsResponse200Data and cannot be null");
-            }
             this.Currency = currency;
         }
 
@@ -61,7 +46,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// Список карточек товаров
         /// </summary>
         /// <value>Список карточек товаров</value>
-        [DataMember(Name = "products", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "products", EmitDefaultValue = false)]
         public List<ItemsResponseProductsInner> Products { get; set; }
 
         /// <summary>
@@ -71,7 +56,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>RUB</example>
         */
-        [DataMember(Name = "currency", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "currency", EmitDefaultValue = false)]
         public string Currency { get; set; }
 
         /// <summary>

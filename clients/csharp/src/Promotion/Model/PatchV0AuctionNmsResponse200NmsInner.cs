@@ -34,21 +34,11 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PatchV0AuctionNmsResponse200NmsInner" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected PatchV0AuctionNmsResponse200NmsInner() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PatchV0AuctionNmsResponse200NmsInner" /> class.
-        /// </summary>
-        /// <param name="advertId">ID кампании (required).</param>
-        /// <param name="nms">nms (required).</param>
+        /// <param name="advertId">ID кампании.</param>
+        /// <param name="nms">nms.</param>
         public PatchV0AuctionNmsResponse200NmsInner(long advertId = default(long), PatchV0AuctionNmsResponse200NmsInnerNms nms = default(PatchV0AuctionNmsResponse200NmsInnerNms))
         {
             this.AdvertId = advertId;
-            // to ensure "nms" is required (not null)
-            if (nms == null)
-            {
-                throw new ArgumentNullException("nms is a required property for PatchV0AuctionNmsResponse200NmsInner and cannot be null");
-            }
             this.Nms = nms;
         }
 
@@ -56,13 +46,13 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// ID кампании
         /// </summary>
         /// <value>ID кампании</value>
-        [DataMember(Name = "advert_id", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "advert_id", EmitDefaultValue = false)]
         public long AdvertId { get; set; }
 
         /// <summary>
         /// Gets or Sets Nms
         /// </summary>
-        [DataMember(Name = "nms", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "nms", EmitDefaultValue = false)]
         public PatchV0AuctionNmsResponse200NmsInnerNms Nms { get; set; }
 
         /// <summary>

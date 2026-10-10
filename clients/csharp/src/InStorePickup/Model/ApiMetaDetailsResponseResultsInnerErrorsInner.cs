@@ -34,22 +34,12 @@ namespace ValeryVerkhoturov.WbApiClient.InStorePickup.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiMetaDetailsResponseResultsInnerErrorsInner" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected ApiMetaDetailsResponseResultsInnerErrorsInner() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ApiMetaDetailsResponseResultsInnerErrorsInner" /> class.
-        /// </summary>
-        /// <param name="code">Код ошибки (required).</param>
-        /// <param name="detail">- &#x60;NotFound&#x60; — сборочное задание не найдено - &#x60;StatusMismatch&#x60; — операция невозможна для этого статуса сборочного задания - &#x60;MetaValidationFail&#x60; — идентификаторы маркировки не прошли проверку  (required).</param>
+        /// <param name="code">Код ошибки.</param>
+        /// <param name="detail">- &#x60;NotFound&#x60; — сборочное задание не найдено - &#x60;StatusMismatch&#x60; — операция невозможна для этого статуса сборочного задания - &#x60;MetaValidationFail&#x60; — идентификаторы маркировки не прошли проверку .</param>
         /// <param name="metaDetails">Ошибки проверки идентификаторов маркировки.</param>
         public ApiMetaDetailsResponseResultsInnerErrorsInner(int code = default(int), string detail = default(string), List<ApiMetaDetailsResponseResultsInnerErrorsInnerMetaDetailsInner> metaDetails = default(List<ApiMetaDetailsResponseResultsInnerErrorsInnerMetaDetailsInner>))
         {
             this.Code = code;
-            // to ensure "detail" is required (not null)
-            if (detail == null)
-            {
-                throw new ArgumentNullException("detail is a required property for ApiMetaDetailsResponseResultsInnerErrorsInner and cannot be null");
-            }
             this.Detail = detail;
             this.MetaDetails = metaDetails;
         }
@@ -58,14 +48,14 @@ namespace ValeryVerkhoturov.WbApiClient.InStorePickup.Model
         /// Код ошибки
         /// </summary>
         /// <value>Код ошибки</value>
-        [DataMember(Name = "code", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "code", EmitDefaultValue = false)]
         public int Code { get; set; }
 
         /// <summary>
         /// - &#x60;NotFound&#x60; — сборочное задание не найдено - &#x60;StatusMismatch&#x60; — операция невозможна для этого статуса сборочного задания - &#x60;MetaValidationFail&#x60; — идентификаторы маркировки не прошли проверку 
         /// </summary>
         /// <value>- &#x60;NotFound&#x60; — сборочное задание не найдено - &#x60;StatusMismatch&#x60; — операция невозможна для этого статуса сборочного задания - &#x60;MetaValidationFail&#x60; — идентификаторы маркировки не прошли проверку </value>
-        [DataMember(Name = "detail", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "detail", EmitDefaultValue = false)]
         public string Detail { get; set; }
 
         /// <summary>

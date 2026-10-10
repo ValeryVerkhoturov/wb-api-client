@@ -11,9 +11,7 @@ API version: promotion
 package promotion
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the PatchV0AuctionNmsResponse200NmsInner type satisfies the MappedNullable interface at compile time
@@ -22,20 +20,16 @@ var _ MappedNullable = &PatchV0AuctionNmsResponse200NmsInner{}
 // PatchV0AuctionNmsResponse200NmsInner struct for PatchV0AuctionNmsResponse200NmsInner
 type PatchV0AuctionNmsResponse200NmsInner struct {
 	// ID кампании
-	AdvertId int64                                   `json:"advert_id"`
-	Nms      PatchV0AuctionNmsResponse200NmsInnerNms `json:"nms"`
+	AdvertId *int64                                   `json:"advert_id,omitempty"`
+	Nms      *PatchV0AuctionNmsResponse200NmsInnerNms `json:"nms,omitempty"`
 }
-
-type _PatchV0AuctionNmsResponse200NmsInner PatchV0AuctionNmsResponse200NmsInner
 
 // NewPatchV0AuctionNmsResponse200NmsInner instantiates a new PatchV0AuctionNmsResponse200NmsInner object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPatchV0AuctionNmsResponse200NmsInner(advertId int64, nms PatchV0AuctionNmsResponse200NmsInnerNms) *PatchV0AuctionNmsResponse200NmsInner {
+func NewPatchV0AuctionNmsResponse200NmsInner() *PatchV0AuctionNmsResponse200NmsInner {
 	this := PatchV0AuctionNmsResponse200NmsInner{}
-	this.AdvertId = advertId
-	this.Nms = nms
 	return &this
 }
 
@@ -47,52 +41,68 @@ func NewPatchV0AuctionNmsResponse200NmsInnerWithDefaults() *PatchV0AuctionNmsRes
 	return &this
 }
 
-// GetAdvertId returns the AdvertId field value
+// GetAdvertId returns the AdvertId field value if set, zero value otherwise.
 func (o *PatchV0AuctionNmsResponse200NmsInner) GetAdvertId() int64 {
-	if o == nil {
+	if o == nil || IsNil(o.AdvertId) {
 		var ret int64
 		return ret
 	}
-
-	return o.AdvertId
+	return *o.AdvertId
 }
 
-// GetAdvertIdOk returns a tuple with the AdvertId field value
+// GetAdvertIdOk returns a tuple with the AdvertId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PatchV0AuctionNmsResponse200NmsInner) GetAdvertIdOk() (*int64, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AdvertId) {
 		return nil, false
 	}
-	return &o.AdvertId, true
+	return o.AdvertId, true
 }
 
-// SetAdvertId sets field value
+// HasAdvertId returns a boolean if a field has been set.
+func (o *PatchV0AuctionNmsResponse200NmsInner) HasAdvertId() bool {
+	if o != nil && !IsNil(o.AdvertId) {
+		return true
+	}
+
+	return false
+}
+
+// SetAdvertId gets a reference to the given int64 and assigns it to the AdvertId field.
 func (o *PatchV0AuctionNmsResponse200NmsInner) SetAdvertId(v int64) {
-	o.AdvertId = v
+	o.AdvertId = &v
 }
 
-// GetNms returns the Nms field value
+// GetNms returns the Nms field value if set, zero value otherwise.
 func (o *PatchV0AuctionNmsResponse200NmsInner) GetNms() PatchV0AuctionNmsResponse200NmsInnerNms {
-	if o == nil {
+	if o == nil || IsNil(o.Nms) {
 		var ret PatchV0AuctionNmsResponse200NmsInnerNms
 		return ret
 	}
-
-	return o.Nms
+	return *o.Nms
 }
 
-// GetNmsOk returns a tuple with the Nms field value
+// GetNmsOk returns a tuple with the Nms field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PatchV0AuctionNmsResponse200NmsInner) GetNmsOk() (*PatchV0AuctionNmsResponse200NmsInnerNms, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Nms) {
 		return nil, false
 	}
-	return &o.Nms, true
+	return o.Nms, true
 }
 
-// SetNms sets field value
+// HasNms returns a boolean if a field has been set.
+func (o *PatchV0AuctionNmsResponse200NmsInner) HasNms() bool {
+	if o != nil && !IsNil(o.Nms) {
+		return true
+	}
+
+	return false
+}
+
+// SetNms gets a reference to the given PatchV0AuctionNmsResponse200NmsInnerNms and assigns it to the Nms field.
 func (o *PatchV0AuctionNmsResponse200NmsInner) SetNms(v PatchV0AuctionNmsResponse200NmsInnerNms) {
-	o.Nms = v
+	o.Nms = &v
 }
 
 func (o PatchV0AuctionNmsResponse200NmsInner) MarshalJSON() ([]byte, error) {
@@ -105,47 +115,13 @@ func (o PatchV0AuctionNmsResponse200NmsInner) MarshalJSON() ([]byte, error) {
 
 func (o PatchV0AuctionNmsResponse200NmsInner) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["advert_id"] = o.AdvertId
-	toSerialize["nms"] = o.Nms
+	if !IsNil(o.AdvertId) {
+		toSerialize["advert_id"] = o.AdvertId
+	}
+	if !IsNil(o.Nms) {
+		toSerialize["nms"] = o.Nms
+	}
 	return toSerialize, nil
-}
-
-func (o *PatchV0AuctionNmsResponse200NmsInner) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"advert_id",
-		"nms",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varPatchV0AuctionNmsResponse200NmsInner := _PatchV0AuctionNmsResponse200NmsInner{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varPatchV0AuctionNmsResponse200NmsInner)
-
-	if err != nil {
-		return err
-	}
-
-	*o = PatchV0AuctionNmsResponse200NmsInner(varPatchV0AuctionNmsResponse200NmsInner)
-
-	return err
 }
 
 type NullablePatchV0AuctionNmsResponse200NmsInner struct {

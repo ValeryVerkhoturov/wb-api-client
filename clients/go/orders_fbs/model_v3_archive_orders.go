@@ -11,9 +11,7 @@ API version: order
 package orders_fbs
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the V3ArchiveOrders type satisfies the MappedNullable interface at compile time
@@ -22,21 +20,17 @@ var _ MappedNullable = &V3ArchiveOrders{}
 // V3ArchiveOrders Список архивных сборочных заданий
 type V3ArchiveOrders struct {
 	// Параметр пагинации. Содержит значение, которое необходимо указать в запросе для получения следующего пакета данных
-	Next NullableInt64 `json:"next"`
+	Next NullableInt64 `json:"next,omitempty"`
 	// Архивные сборочные задания
-	Orders []V3ArchiveOrder `json:"orders"`
+	Orders []V3ArchiveOrder `json:"orders,omitempty"`
 }
-
-type _V3ArchiveOrders V3ArchiveOrders
 
 // NewV3ArchiveOrders instantiates a new V3ArchiveOrders object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewV3ArchiveOrders(next NullableInt64, orders []V3ArchiveOrder) *V3ArchiveOrders {
+func NewV3ArchiveOrders() *V3ArchiveOrders {
 	this := V3ArchiveOrders{}
-	this.Next = next
-	this.Orders = orders
 	return &this
 }
 
@@ -48,18 +42,16 @@ func NewV3ArchiveOrdersWithDefaults() *V3ArchiveOrders {
 	return &this
 }
 
-// GetNext returns the Next field value
-// If the value is explicit nil, the zero value for int64 will be returned
+// GetNext returns the Next field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *V3ArchiveOrders) GetNext() int64 {
-	if o == nil || o.Next.Get() == nil {
+	if o == nil || IsNil(o.Next.Get()) {
 		var ret int64
 		return ret
 	}
-
 	return *o.Next.Get()
 }
 
-// GetNextOk returns a tuple with the Next field value
+// GetNextOk returns a tuple with the Next field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *V3ArchiveOrders) GetNextOk() (*int64, bool) {
@@ -69,31 +61,58 @@ func (o *V3ArchiveOrders) GetNextOk() (*int64, bool) {
 	return o.Next.Get(), o.Next.IsSet()
 }
 
-// SetNext sets field value
+// HasNext returns a boolean if a field has been set.
+func (o *V3ArchiveOrders) HasNext() bool {
+	if o != nil && o.Next.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetNext gets a reference to the given NullableInt64 and assigns it to the Next field.
 func (o *V3ArchiveOrders) SetNext(v int64) {
 	o.Next.Set(&v)
 }
 
-// GetOrders returns the Orders field value
+// SetNextNil sets the value for Next to be an explicit nil
+func (o *V3ArchiveOrders) SetNextNil() {
+	o.Next.Set(nil)
+}
+
+// UnsetNext ensures that no value is present for Next, not even an explicit nil
+func (o *V3ArchiveOrders) UnsetNext() {
+	o.Next.Unset()
+}
+
+// GetOrders returns the Orders field value if set, zero value otherwise.
 func (o *V3ArchiveOrders) GetOrders() []V3ArchiveOrder {
-	if o == nil {
+	if o == nil || IsNil(o.Orders) {
 		var ret []V3ArchiveOrder
 		return ret
 	}
-
 	return o.Orders
 }
 
-// GetOrdersOk returns a tuple with the Orders field value
+// GetOrdersOk returns a tuple with the Orders field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *V3ArchiveOrders) GetOrdersOk() ([]V3ArchiveOrder, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Orders) {
 		return nil, false
 	}
 	return o.Orders, true
 }
 
-// SetOrders sets field value
+// HasOrders returns a boolean if a field has been set.
+func (o *V3ArchiveOrders) HasOrders() bool {
+	if o != nil && !IsNil(o.Orders) {
+		return true
+	}
+
+	return false
+}
+
+// SetOrders gets a reference to the given []V3ArchiveOrder and assigns it to the Orders field.
 func (o *V3ArchiveOrders) SetOrders(v []V3ArchiveOrder) {
 	o.Orders = v
 }
@@ -108,47 +127,13 @@ func (o V3ArchiveOrders) MarshalJSON() ([]byte, error) {
 
 func (o V3ArchiveOrders) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["next"] = o.Next.Get()
-	toSerialize["orders"] = o.Orders
+	if o.Next.IsSet() {
+		toSerialize["next"] = o.Next.Get()
+	}
+	if !IsNil(o.Orders) {
+		toSerialize["orders"] = o.Orders
+	}
 	return toSerialize, nil
-}
-
-func (o *V3ArchiveOrders) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"next",
-		"orders",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varV3ArchiveOrders := _V3ArchiveOrders{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varV3ArchiveOrders)
-
-	if err != nil {
-		return err
-	}
-
-	*o = V3ArchiveOrders(varV3ArchiveOrders)
-
-	return err
 }
 
 type NullableV3ArchiveOrders struct {

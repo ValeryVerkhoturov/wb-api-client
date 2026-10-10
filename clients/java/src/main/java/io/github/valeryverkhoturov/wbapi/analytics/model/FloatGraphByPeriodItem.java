@@ -37,24 +37,24 @@ public class FloatGraphByPeriodItem {
   public static final String SERIALIZED_NAME_START = "start";
 
   @SerializedName(SERIALIZED_NAME_START)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String start;
 
   public static final String SERIALIZED_NAME_END = "end";
 
   @SerializedName(SERIALIZED_NAME_END)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String end;
 
   public static final String SERIALIZED_NAME_VALUE = "value";
 
   @SerializedName(SERIALIZED_NAME_VALUE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private BigDecimal value;
 
   public FloatGraphByPeriodItem() {}
 
-  public FloatGraphByPeriodItem start(@jakarta.annotation.Nonnull String start) {
+  public FloatGraphByPeriodItem start(@jakarta.annotation.Nullable String start) {
     this.start = start;
     return this;
   }
@@ -64,16 +64,16 @@ public class FloatGraphByPeriodItem {
    *
    * @return start
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getStart() {
     return start;
   }
 
-  public void setStart(@jakarta.annotation.Nonnull String start) {
+  public void setStart(@jakarta.annotation.Nullable String start) {
     this.start = start;
   }
 
-  public FloatGraphByPeriodItem end(@jakarta.annotation.Nonnull String end) {
+  public FloatGraphByPeriodItem end(@jakarta.annotation.Nullable String end) {
     this.end = end;
     return this;
   }
@@ -83,16 +83,16 @@ public class FloatGraphByPeriodItem {
    *
    * @return end
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getEnd() {
     return end;
   }
 
-  public void setEnd(@jakarta.annotation.Nonnull String end) {
+  public void setEnd(@jakarta.annotation.Nullable String end) {
     this.end = end;
   }
 
-  public FloatGraphByPeriodItem value(@jakarta.annotation.Nonnull BigDecimal value) {
+  public FloatGraphByPeriodItem value(@jakarta.annotation.Nullable BigDecimal value) {
     this.value = value;
     return this;
   }
@@ -102,12 +102,12 @@ public class FloatGraphByPeriodItem {
    *
    * @return value
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public BigDecimal getValue() {
     return value;
   }
 
-  public void setValue(@jakarta.annotation.Nonnull BigDecimal value) {
+  public void setValue(@jakarta.annotation.Nullable BigDecimal value) {
     this.value = value;
   }
 
@@ -163,9 +163,6 @@ public class FloatGraphByPeriodItem {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("start");
-    openapiRequiredFields.add("end");
-    openapiRequiredFields.add("value");
   }
 
   /**
@@ -195,24 +192,16 @@ public class FloatGraphByPeriodItem {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : FloatGraphByPeriodItem.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    if (!jsonObj.get("start").isJsonPrimitive()) {
+    if ((jsonObj.get("start") != null && !jsonObj.get("start").isJsonNull())
+        && !jsonObj.get("start").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `start` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("start").toString()));
     }
-    if (!jsonObj.get("end").isJsonPrimitive()) {
+    if ((jsonObj.get("end") != null && !jsonObj.get("end").isJsonNull())
+        && !jsonObj.get("end").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `end` to be a primitive type in the JSON string but got `%s`",

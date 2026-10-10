@@ -73,13 +73,13 @@ public class TableGroupItem {
   public static final String SERIALIZED_NAME_METRICS = "metrics";
 
   @SerializedName(SERIALIZED_NAME_METRICS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private TableGroupItemMetrics metrics;
 
   public static final String SERIALIZED_NAME_ITEMS = "items";
 
   @SerializedName(SERIALIZED_NAME_ITEMS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private List<TableItemItem> items = new ArrayList<>();
 
   public TableGroupItem() {}
@@ -179,7 +179,7 @@ public class TableGroupItem {
     this.tagId = tagId;
   }
 
-  public TableGroupItem metrics(@jakarta.annotation.Nonnull TableGroupItemMetrics metrics) {
+  public TableGroupItem metrics(@jakarta.annotation.Nullable TableGroupItemMetrics metrics) {
     this.metrics = metrics;
     return this;
   }
@@ -189,16 +189,16 @@ public class TableGroupItem {
    *
    * @return metrics
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public TableGroupItemMetrics getMetrics() {
     return metrics;
   }
 
-  public void setMetrics(@jakarta.annotation.Nonnull TableGroupItemMetrics metrics) {
+  public void setMetrics(@jakarta.annotation.Nullable TableGroupItemMetrics metrics) {
     this.metrics = metrics;
   }
 
-  public TableGroupItem items(@jakarta.annotation.Nonnull List<TableItemItem> items) {
+  public TableGroupItem items(@jakarta.annotation.Nullable List<TableItemItem> items) {
     this.items = items;
     return this;
   }
@@ -216,12 +216,12 @@ public class TableGroupItem {
    *
    * @return items
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public List<TableItemItem> getItems() {
     return items;
   }
 
-  public void setItems(@jakarta.annotation.Nonnull List<TableItemItem> items) {
+  public void setItems(@jakarta.annotation.Nullable List<TableItemItem> items) {
     this.items = items;
   }
 
@@ -289,8 +289,6 @@ public class TableGroupItem {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("metrics");
-    openapiRequiredFields.add("items");
   }
 
   /**
@@ -320,16 +318,6 @@ public class TableGroupItem {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : TableGroupItem.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
     if ((jsonObj.get("subjectName") != null && !jsonObj.get("subjectName").isJsonNull())
         && !jsonObj.get("subjectName").isJsonPrimitive()) {
@@ -352,22 +340,28 @@ public class TableGroupItem {
               "Expected the field `tagName` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("tagName").toString()));
     }
-    // validate the required field `metrics`
-    TableGroupItemMetrics.validateJsonElement(jsonObj.get("metrics"));
-    // ensure the json data is an array
-    if (!jsonObj.get("items").isJsonArray()) {
-      throw new IllegalArgumentException(
-          String.format(
-              "Expected the field `items` to be an array in the JSON string but got `%s`",
-              jsonObj.get("items").toString()));
+    // validate the optional field `metrics`
+    if (jsonObj.get("metrics") != null && !jsonObj.get("metrics").isJsonNull()) {
+      TableGroupItemMetrics.validateJsonElement(jsonObj.get("metrics"));
     }
+    if (jsonObj.get("items") != null && !jsonObj.get("items").isJsonNull()) {
+      JsonArray jsonArrayitems = jsonObj.getAsJsonArray("items");
+      if (jsonArrayitems != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("items").isJsonArray()) {
+          throw new IllegalArgumentException(
+              String.format(
+                  "Expected the field `items` to be an array in the JSON string but got `%s`",
+                  jsonObj.get("items").toString()));
+        }
 
-    JsonArray jsonArrayitems = jsonObj.getAsJsonArray("items");
-    // validate the required field `items` (array)
-    for (int i = 0; i < jsonArrayitems.size(); i++) {
-      TableItemItem.validateJsonElement(jsonArrayitems.get(i));
+        // validate the optional field `items` (array)
+        for (int i = 0; i < jsonArrayitems.size(); i++) {
+          TableItemItem.validateJsonElement(jsonArrayitems.get(i));
+        }
+        ;
+      }
     }
-    ;
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

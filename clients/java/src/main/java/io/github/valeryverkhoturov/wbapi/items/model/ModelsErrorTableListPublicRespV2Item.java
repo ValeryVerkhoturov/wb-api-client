@@ -40,43 +40,43 @@ public class ModelsErrorTableListPublicRespV2Item {
   public static final String SERIALIZED_NAME_BATCH_U_U_I_D = "batchUUID";
 
   @SerializedName(SERIALIZED_NAME_BATCH_U_U_I_D)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private UUID batchUUID;
 
   public static final String SERIALIZED_NAME_SUBJECTS = "subjects";
 
   @SerializedName(SERIALIZED_NAME_SUBJECTS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Map<String, ModelsErrorSubcategory> subjects = new HashMap<>();
 
   public static final String SERIALIZED_NAME_BRANDS = "brands";
 
   @SerializedName(SERIALIZED_NAME_BRANDS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Map<String, ModelsErrorBrand> brands = new HashMap<>();
 
   public static final String SERIALIZED_NAME_VENDOR_CODES = "vendorCodes";
 
   @SerializedName(SERIALIZED_NAME_VENDOR_CODES)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private List<String> vendorCodes = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_ERRORS = "errors";
 
   @SerializedName(SERIALIZED_NAME_ERRORS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Map<String, List<String>> errors = new HashMap<>();
 
   public static final String SERIALIZED_NAME_UPDATED_AT = "updatedAt";
 
   @SerializedName(SERIALIZED_NAME_UPDATED_AT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String updatedAt;
 
   public ModelsErrorTableListPublicRespV2Item() {}
 
   public ModelsErrorTableListPublicRespV2Item batchUUID(
-      @jakarta.annotation.Nonnull UUID batchUUID) {
+      @jakarta.annotation.Nullable UUID batchUUID) {
     this.batchUUID = batchUUID;
     return this;
   }
@@ -86,17 +86,17 @@ public class ModelsErrorTableListPublicRespV2Item {
    *
    * @return batchUUID
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public UUID getBatchUUID() {
     return batchUUID;
   }
 
-  public void setBatchUUID(@jakarta.annotation.Nonnull UUID batchUUID) {
+  public void setBatchUUID(@jakarta.annotation.Nullable UUID batchUUID) {
     this.batchUUID = batchUUID;
   }
 
   public ModelsErrorTableListPublicRespV2Item subjects(
-      @jakarta.annotation.Nonnull Map<String, ModelsErrorSubcategory> subjects) {
+      @jakarta.annotation.Nullable Map<String, ModelsErrorSubcategory> subjects) {
     this.subjects = subjects;
     return this;
   }
@@ -115,18 +115,18 @@ public class ModelsErrorTableListPublicRespV2Item {
    *
    * @return subjects
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Map<String, ModelsErrorSubcategory> getSubjects() {
     return subjects;
   }
 
   public void setSubjects(
-      @jakarta.annotation.Nonnull Map<String, ModelsErrorSubcategory> subjects) {
+      @jakarta.annotation.Nullable Map<String, ModelsErrorSubcategory> subjects) {
     this.subjects = subjects;
   }
 
   public ModelsErrorTableListPublicRespV2Item brands(
-      @jakarta.annotation.Nonnull Map<String, ModelsErrorBrand> brands) {
+      @jakarta.annotation.Nullable Map<String, ModelsErrorBrand> brands) {
     this.brands = brands;
     return this;
   }
@@ -145,17 +145,17 @@ public class ModelsErrorTableListPublicRespV2Item {
    *
    * @return brands
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Map<String, ModelsErrorBrand> getBrands() {
     return brands;
   }
 
-  public void setBrands(@jakarta.annotation.Nonnull Map<String, ModelsErrorBrand> brands) {
+  public void setBrands(@jakarta.annotation.Nullable Map<String, ModelsErrorBrand> brands) {
     this.brands = brands;
   }
 
   public ModelsErrorTableListPublicRespV2Item vendorCodes(
-      @jakarta.annotation.Nonnull List<String> vendorCodes) {
+      @jakarta.annotation.Nullable List<String> vendorCodes) {
     this.vendorCodes = vendorCodes;
     return this;
   }
@@ -173,17 +173,17 @@ public class ModelsErrorTableListPublicRespV2Item {
    *
    * @return vendorCodes
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public List<String> getVendorCodes() {
     return vendorCodes;
   }
 
-  public void setVendorCodes(@jakarta.annotation.Nonnull List<String> vendorCodes) {
+  public void setVendorCodes(@jakarta.annotation.Nullable List<String> vendorCodes) {
     this.vendorCodes = vendorCodes;
   }
 
   public ModelsErrorTableListPublicRespV2Item errors(
-      @jakarta.annotation.Nonnull Map<String, List<String>> errors) {
+      @jakarta.annotation.Nullable Map<String, List<String>> errors) {
     this.errors = errors;
     return this;
   }
@@ -201,17 +201,17 @@ public class ModelsErrorTableListPublicRespV2Item {
    *
    * @return errors
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Map<String, List<String>> getErrors() {
     return errors;
   }
 
-  public void setErrors(@jakarta.annotation.Nonnull Map<String, List<String>> errors) {
+  public void setErrors(@jakarta.annotation.Nullable Map<String, List<String>> errors) {
     this.errors = errors;
   }
 
   public ModelsErrorTableListPublicRespV2Item updatedAt(
-      @jakarta.annotation.Nonnull String updatedAt) {
+      @jakarta.annotation.Nullable String updatedAt) {
     this.updatedAt = updatedAt;
     return this;
   }
@@ -221,12 +221,12 @@ public class ModelsErrorTableListPublicRespV2Item {
    *
    * @return updatedAt
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getUpdatedAt() {
     return updatedAt;
   }
 
-  public void setUpdatedAt(@jakarta.annotation.Nonnull String updatedAt) {
+  public void setUpdatedAt(@jakarta.annotation.Nullable String updatedAt) {
     this.updatedAt = updatedAt;
   }
 
@@ -292,12 +292,6 @@ public class ModelsErrorTableListPublicRespV2Item {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("batchUUID");
-    openapiRequiredFields.add("subjects");
-    openapiRequiredFields.add("brands");
-    openapiRequiredFields.add("vendorCodes");
-    openapiRequiredFields.add("errors");
-    openapiRequiredFields.add("updatedAt");
   }
 
   /**
@@ -328,34 +322,25 @@ public class ModelsErrorTableListPublicRespV2Item {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : ModelsErrorTableListPublicRespV2Item.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    if (!jsonObj.get("batchUUID").isJsonPrimitive()) {
+    if ((jsonObj.get("batchUUID") != null && !jsonObj.get("batchUUID").isJsonNull())
+        && !jsonObj.get("batchUUID").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `batchUUID` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("batchUUID").toString()));
     }
-    // ensure the required json array is present
-    if (jsonObj.get("vendorCodes") == null) {
-      throw new IllegalArgumentException(
-          "Expected the field `linkedContent` to be an array in the JSON string but got `null`");
-    } else if (!jsonObj.get("vendorCodes").isJsonArray()) {
+    // ensure the optional json data is an array if present
+    if (jsonObj.get("vendorCodes") != null
+        && !jsonObj.get("vendorCodes").isJsonNull()
+        && !jsonObj.get("vendorCodes").isJsonArray()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `vendorCodes` to be an array in the JSON string but got `%s`",
               jsonObj.get("vendorCodes").toString()));
     }
-    if (!jsonObj.get("updatedAt").isJsonPrimitive()) {
+    if ((jsonObj.get("updatedAt") != null && !jsonObj.get("updatedAt").isJsonNull())
+        && !jsonObj.get("updatedAt").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `updatedAt` to be a primitive type in the JSON string but got `%s`",

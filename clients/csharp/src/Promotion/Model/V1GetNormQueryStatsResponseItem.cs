@@ -34,13 +34,8 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="V1GetNormQueryStatsResponseItem" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected V1GetNormQueryStatsResponseItem() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="V1GetNormQueryStatsResponseItem" /> class.
-        /// </summary>
-        /// <param name="advertId">ID кампании (required).</param>
-        /// <param name="nmId">Артикул WB (required).</param>
+        /// <param name="advertId">ID кампании.</param>
+        /// <param name="nmId">Артикул WB.</param>
         /// <param name="dailyStats">Статистика с детализацией по дням.</param>
         public V1GetNormQueryStatsResponseItem(long advertId = default(long), long nmId = default(long), List<V1GetNormQueryStatsResponseItemDailyStat> dailyStats = default(List<V1GetNormQueryStatsResponseItemDailyStat>))
         {
@@ -53,14 +48,14 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// ID кампании
         /// </summary>
         /// <value>ID кампании</value>
-        [DataMember(Name = "advertId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "advertId", EmitDefaultValue = false)]
         public long AdvertId { get; set; }
 
         /// <summary>
         /// Артикул WB
         /// </summary>
         /// <value>Артикул WB</value>
-        [DataMember(Name = "nmId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "nmId", EmitDefaultValue = false)]
         public long NmId { get; set; }
 
         /// <summary>

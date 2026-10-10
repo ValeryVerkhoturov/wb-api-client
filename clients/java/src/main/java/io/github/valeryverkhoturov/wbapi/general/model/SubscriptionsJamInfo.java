@@ -90,7 +90,7 @@ public class SubscriptionsJamInfo {
   public static final String SERIALIZED_NAME_STATE = "state";
 
   @SerializedName(SERIALIZED_NAME_STATE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private StateEnum state;
 
   /**
@@ -150,7 +150,7 @@ public class SubscriptionsJamInfo {
   public static final String SERIALIZED_NAME_ACTIVATION_SOURCE = "activationSource";
 
   @SerializedName(SERIALIZED_NAME_ACTIVATION_SOURCE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private ActivationSourceEnum activationSource;
 
   /** Уровень подписки: - &#x60;standard&#x60; - &#x60;advanced&#x60; - &#x60;premium&#x60; */
@@ -209,24 +209,24 @@ public class SubscriptionsJamInfo {
   public static final String SERIALIZED_NAME_LEVEL = "level";
 
   @SerializedName(SERIALIZED_NAME_LEVEL)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private LevelEnum level;
 
   public static final String SERIALIZED_NAME_SINCE = "since";
 
   @SerializedName(SERIALIZED_NAME_SINCE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String since;
 
   public static final String SERIALIZED_NAME_TILL = "till";
 
   @SerializedName(SERIALIZED_NAME_TILL)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String till;
 
   public SubscriptionsJamInfo() {}
 
-  public SubscriptionsJamInfo state(@jakarta.annotation.Nonnull StateEnum state) {
+  public SubscriptionsJamInfo state(@jakarta.annotation.Nullable StateEnum state) {
     this.state = state;
     return this;
   }
@@ -236,17 +236,17 @@ public class SubscriptionsJamInfo {
    *
    * @return state
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public StateEnum getState() {
     return state;
   }
 
-  public void setState(@jakarta.annotation.Nonnull StateEnum state) {
+  public void setState(@jakarta.annotation.Nullable StateEnum state) {
     this.state = state;
   }
 
   public SubscriptionsJamInfo activationSource(
-      @jakarta.annotation.Nonnull ActivationSourceEnum activationSource) {
+      @jakarta.annotation.Nullable ActivationSourceEnum activationSource) {
     this.activationSource = activationSource;
     return this;
   }
@@ -257,17 +257,17 @@ public class SubscriptionsJamInfo {
    *
    * @return activationSource
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public ActivationSourceEnum getActivationSource() {
     return activationSource;
   }
 
   public void setActivationSource(
-      @jakarta.annotation.Nonnull ActivationSourceEnum activationSource) {
+      @jakarta.annotation.Nullable ActivationSourceEnum activationSource) {
     this.activationSource = activationSource;
   }
 
-  public SubscriptionsJamInfo level(@jakarta.annotation.Nonnull LevelEnum level) {
+  public SubscriptionsJamInfo level(@jakarta.annotation.Nullable LevelEnum level) {
     this.level = level;
     return this;
   }
@@ -277,16 +277,16 @@ public class SubscriptionsJamInfo {
    *
    * @return level
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public LevelEnum getLevel() {
     return level;
   }
 
-  public void setLevel(@jakarta.annotation.Nonnull LevelEnum level) {
+  public void setLevel(@jakarta.annotation.Nullable LevelEnum level) {
     this.level = level;
   }
 
-  public SubscriptionsJamInfo since(@jakarta.annotation.Nonnull String since) {
+  public SubscriptionsJamInfo since(@jakarta.annotation.Nullable String since) {
     this.since = since;
     return this;
   }
@@ -296,16 +296,16 @@ public class SubscriptionsJamInfo {
    *
    * @return since
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getSince() {
     return since;
   }
 
-  public void setSince(@jakarta.annotation.Nonnull String since) {
+  public void setSince(@jakarta.annotation.Nullable String since) {
     this.since = since;
   }
 
-  public SubscriptionsJamInfo till(@jakarta.annotation.Nonnull String till) {
+  public SubscriptionsJamInfo till(@jakarta.annotation.Nullable String till) {
     this.till = till;
     return this;
   }
@@ -315,12 +315,12 @@ public class SubscriptionsJamInfo {
    *
    * @return till
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getTill() {
     return till;
   }
 
-  public void setTill(@jakarta.annotation.Nonnull String till) {
+  public void setTill(@jakarta.annotation.Nullable String till) {
     this.till = till;
   }
 
@@ -382,11 +382,6 @@ public class SubscriptionsJamInfo {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("state");
-    openapiRequiredFields.add("activationSource");
-    openapiRequiredFields.add("level");
-    openapiRequiredFields.add("since");
-    openapiRequiredFields.add("till");
   }
 
   /**
@@ -416,48 +411,49 @@ public class SubscriptionsJamInfo {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : SubscriptionsJamInfo.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    if (!jsonObj.get("state").isJsonPrimitive()) {
+    if ((jsonObj.get("state") != null && !jsonObj.get("state").isJsonNull())
+        && !jsonObj.get("state").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `state` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("state").toString()));
     }
-    // validate the required field `state`
-    StateEnum.validateJsonElement(jsonObj.get("state"));
-    if (!jsonObj.get("activationSource").isJsonPrimitive()) {
+    // validate the optional field `state`
+    if (jsonObj.get("state") != null && !jsonObj.get("state").isJsonNull()) {
+      StateEnum.validateJsonElement(jsonObj.get("state"));
+    }
+    if ((jsonObj.get("activationSource") != null && !jsonObj.get("activationSource").isJsonNull())
+        && !jsonObj.get("activationSource").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `activationSource` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("activationSource").toString()));
     }
-    // validate the required field `activationSource`
-    ActivationSourceEnum.validateJsonElement(jsonObj.get("activationSource"));
-    if (!jsonObj.get("level").isJsonPrimitive()) {
+    // validate the optional field `activationSource`
+    if (jsonObj.get("activationSource") != null && !jsonObj.get("activationSource").isJsonNull()) {
+      ActivationSourceEnum.validateJsonElement(jsonObj.get("activationSource"));
+    }
+    if ((jsonObj.get("level") != null && !jsonObj.get("level").isJsonNull())
+        && !jsonObj.get("level").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `level` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("level").toString()));
     }
-    // validate the required field `level`
-    LevelEnum.validateJsonElement(jsonObj.get("level"));
-    if (!jsonObj.get("since").isJsonPrimitive()) {
+    // validate the optional field `level`
+    if (jsonObj.get("level") != null && !jsonObj.get("level").isJsonNull()) {
+      LevelEnum.validateJsonElement(jsonObj.get("level"));
+    }
+    if ((jsonObj.get("since") != null && !jsonObj.get("since").isJsonNull())
+        && !jsonObj.get("since").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `since` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("since").toString()));
     }
-    if (!jsonObj.get("till").isJsonPrimitive()) {
+    if ((jsonObj.get("till") != null && !jsonObj.get("till").isJsonNull())
+        && !jsonObj.get("till").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `till` to be a primitive type in the JSON string but got `%s`",

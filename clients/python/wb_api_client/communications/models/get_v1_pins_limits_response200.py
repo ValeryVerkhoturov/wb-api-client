@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from wb_api_client.communications.models.openapi_seller_limits_response_data import (
     OpenapiSellerLimitsResponseData,
 )
@@ -31,7 +31,7 @@ class GetV1PinsLimitsResponse200(BaseModel):
     GetV1PinsLimitsResponse200
     """  # noqa: E501
 
-    data: OpenapiSellerLimitsResponseData
+    data: Optional[OpenapiSellerLimitsResponseData] = None
     __properties: ClassVar[List[str]] = ["data"]
 
     model_config = ConfigDict(

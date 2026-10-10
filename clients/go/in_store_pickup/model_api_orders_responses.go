@@ -11,9 +11,7 @@ API version: instorepickup
 package in_store_pickup
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the ApiOrdersResponses type satisfies the MappedNullable interface at compile time
@@ -22,20 +20,16 @@ var _ MappedNullable = &ApiOrdersResponses{}
 // ApiOrdersResponses struct for ApiOrdersResponses
 type ApiOrdersResponses struct {
 	// Уникальный ID запроса
-	RequestId interface{}         `json:"requestId"`
-	Results   []ApiOrdersResponse `json:"results"`
+	RequestId interface{}         `json:"requestId,omitempty"`
+	Results   []ApiOrdersResponse `json:"results,omitempty"`
 }
-
-type _ApiOrdersResponses ApiOrdersResponses
 
 // NewApiOrdersResponses instantiates a new ApiOrdersResponses object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewApiOrdersResponses(requestId interface{}, results []ApiOrdersResponse) *ApiOrdersResponses {
+func NewApiOrdersResponses() *ApiOrdersResponses {
 	this := ApiOrdersResponses{}
-	this.RequestId = requestId
-	this.Results = results
 	return &this
 }
 
@@ -47,18 +41,16 @@ func NewApiOrdersResponsesWithDefaults() *ApiOrdersResponses {
 	return &this
 }
 
-// GetRequestId returns the RequestId field value
-// If the value is explicit nil, the zero value for interface{} will be returned
+// GetRequestId returns the RequestId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ApiOrdersResponses) GetRequestId() interface{} {
 	if o == nil {
 		var ret interface{}
 		return ret
 	}
-
 	return o.RequestId
 }
 
-// GetRequestIdOk returns a tuple with the RequestId field value
+// GetRequestIdOk returns a tuple with the RequestId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApiOrdersResponses) GetRequestIdOk() (*interface{}, bool) {
@@ -68,31 +60,48 @@ func (o *ApiOrdersResponses) GetRequestIdOk() (*interface{}, bool) {
 	return &o.RequestId, true
 }
 
-// SetRequestId sets field value
+// HasRequestId returns a boolean if a field has been set.
+func (o *ApiOrdersResponses) HasRequestId() bool {
+	if o != nil && !IsNil(o.RequestId) {
+		return true
+	}
+
+	return false
+}
+
+// SetRequestId gets a reference to the given interface{} and assigns it to the RequestId field.
 func (o *ApiOrdersResponses) SetRequestId(v interface{}) {
 	o.RequestId = v
 }
 
-// GetResults returns the Results field value
+// GetResults returns the Results field value if set, zero value otherwise.
 func (o *ApiOrdersResponses) GetResults() []ApiOrdersResponse {
-	if o == nil {
+	if o == nil || IsNil(o.Results) {
 		var ret []ApiOrdersResponse
 		return ret
 	}
-
 	return o.Results
 }
 
-// GetResultsOk returns a tuple with the Results field value
+// GetResultsOk returns a tuple with the Results field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ApiOrdersResponses) GetResultsOk() ([]ApiOrdersResponse, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Results) {
 		return nil, false
 	}
 	return o.Results, true
 }
 
-// SetResults sets field value
+// HasResults returns a boolean if a field has been set.
+func (o *ApiOrdersResponses) HasResults() bool {
+	if o != nil && !IsNil(o.Results) {
+		return true
+	}
+
+	return false
+}
+
+// SetResults gets a reference to the given []ApiOrdersResponse and assigns it to the Results field.
 func (o *ApiOrdersResponses) SetResults(v []ApiOrdersResponse) {
 	o.Results = v
 }
@@ -110,46 +119,10 @@ func (o ApiOrdersResponses) ToMap() (map[string]interface{}, error) {
 	if o.RequestId != nil {
 		toSerialize["requestId"] = o.RequestId
 	}
-	toSerialize["results"] = o.Results
+	if !IsNil(o.Results) {
+		toSerialize["results"] = o.Results
+	}
 	return toSerialize, nil
-}
-
-func (o *ApiOrdersResponses) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"requestId",
-		"results",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varApiOrdersResponses := _ApiOrdersResponses{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varApiOrdersResponses)
-
-	if err != nil {
-		return err
-	}
-
-	*o = ApiOrdersResponses(varApiOrdersResponses)
-
-	return err
 }
 
 type NullableApiOrdersResponses struct {

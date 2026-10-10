@@ -39,25 +39,26 @@ public class PostV3SalesFunnelProductsHistoryResponse200Inner {
   public static final String SERIALIZED_NAME_PRODUCT = "product";
 
   @SerializedName(SERIALIZED_NAME_PRODUCT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private PostV3SalesFunnelProductsHistoryResponse200InnerProduct product;
 
   public static final String SERIALIZED_NAME_HISTORY = "history";
 
   @SerializedName(SERIALIZED_NAME_HISTORY)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private List<History> history = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_CURRENCY = "currency";
 
   @SerializedName(SERIALIZED_NAME_CURRENCY)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String currency;
 
   public PostV3SalesFunnelProductsHistoryResponse200Inner() {}
 
   public PostV3SalesFunnelProductsHistoryResponse200Inner product(
-      @jakarta.annotation.Nonnull PostV3SalesFunnelProductsHistoryResponse200InnerProduct product) {
+      @jakarta.annotation.Nullable
+          PostV3SalesFunnelProductsHistoryResponse200InnerProduct product) {
     this.product = product;
     return this;
   }
@@ -67,18 +68,19 @@ public class PostV3SalesFunnelProductsHistoryResponse200Inner {
    *
    * @return product
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public PostV3SalesFunnelProductsHistoryResponse200InnerProduct getProduct() {
     return product;
   }
 
   public void setProduct(
-      @jakarta.annotation.Nonnull PostV3SalesFunnelProductsHistoryResponse200InnerProduct product) {
+      @jakarta.annotation.Nullable
+          PostV3SalesFunnelProductsHistoryResponse200InnerProduct product) {
     this.product = product;
   }
 
   public PostV3SalesFunnelProductsHistoryResponse200Inner history(
-      @jakarta.annotation.Nonnull List<History> history) {
+      @jakarta.annotation.Nullable List<History> history) {
     this.history = history;
     return this;
   }
@@ -96,17 +98,17 @@ public class PostV3SalesFunnelProductsHistoryResponse200Inner {
    *
    * @return history
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public List<History> getHistory() {
     return history;
   }
 
-  public void setHistory(@jakarta.annotation.Nonnull List<History> history) {
+  public void setHistory(@jakarta.annotation.Nullable List<History> history) {
     this.history = history;
   }
 
   public PostV3SalesFunnelProductsHistoryResponse200Inner currency(
-      @jakarta.annotation.Nonnull String currency) {
+      @jakarta.annotation.Nullable String currency) {
     this.currency = currency;
     return this;
   }
@@ -116,12 +118,12 @@ public class PostV3SalesFunnelProductsHistoryResponse200Inner {
    *
    * @return currency
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getCurrency() {
     return currency;
   }
 
-  public void setCurrency(@jakarta.annotation.Nonnull String currency) {
+  public void setCurrency(@jakarta.annotation.Nullable String currency) {
     this.currency = currency;
   }
 
@@ -179,9 +181,6 @@ public class PostV3SalesFunnelProductsHistoryResponse200Inner {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("product");
-    openapiRequiredFields.add("history");
-    openapiRequiredFields.add("currency");
   }
 
   /**
@@ -213,36 +212,32 @@ public class PostV3SalesFunnelProductsHistoryResponse200Inner {
                 entry.getKey(), jsonElement.toString()));
       }
     }
+    JsonObject jsonObj = jsonElement.getAsJsonObject();
+    // validate the optional field `product`
+    if (jsonObj.get("product") != null && !jsonObj.get("product").isJsonNull()) {
+      PostV3SalesFunnelProductsHistoryResponse200InnerProduct.validateJsonElement(
+          jsonObj.get("product"));
+    }
+    if (jsonObj.get("history") != null && !jsonObj.get("history").isJsonNull()) {
+      JsonArray jsonArrayhistory = jsonObj.getAsJsonArray("history");
+      if (jsonArrayhistory != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("history").isJsonArray()) {
+          throw new IllegalArgumentException(
+              String.format(
+                  "Expected the field `history` to be an array in the JSON string but got `%s`",
+                  jsonObj.get("history").toString()));
+        }
 
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField :
-        PostV3SalesFunnelProductsHistoryResponse200Inner.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
+        // validate the optional field `history` (array)
+        for (int i = 0; i < jsonArrayhistory.size(); i++) {
+          History.validateJsonElement(jsonArrayhistory.get(i));
+        }
+        ;
       }
     }
-    JsonObject jsonObj = jsonElement.getAsJsonObject();
-    // validate the required field `product`
-    PostV3SalesFunnelProductsHistoryResponse200InnerProduct.validateJsonElement(
-        jsonObj.get("product"));
-    // ensure the json data is an array
-    if (!jsonObj.get("history").isJsonArray()) {
-      throw new IllegalArgumentException(
-          String.format(
-              "Expected the field `history` to be an array in the JSON string but got `%s`",
-              jsonObj.get("history").toString()));
-    }
-
-    JsonArray jsonArrayhistory = jsonObj.getAsJsonArray("history");
-    // validate the required field `history` (array)
-    for (int i = 0; i < jsonArrayhistory.size(); i++) {
-      History.validateJsonElement(jsonArrayhistory.get(i));
-    }
-    ;
-    if (!jsonObj.get("currency").isJsonPrimitive()) {
+    if ((jsonObj.get("currency") != null && !jsonObj.get("currency").isJsonNull())
+        && !jsonObj.get("currency").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `currency` to be a primitive type in the JSON string but got `%s`",

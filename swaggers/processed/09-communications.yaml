@@ -2874,11 +2874,6 @@ components:
                   detail: item not found or does not belong to seller
                   requestId: 0414dс48df701618e0а3bfc414fe3136
                   origin: pin-open-api
-            required:
-            - feedbackId
-            - isErrors
-            - pinMethod
-            - pinOn
     openapi.PinnedReviewItemResult:
       type: object
       properties:
@@ -2943,15 +2938,6 @@ components:
           - sysLimitReached
           - sysNoratingUnpinned
           - sysAdditionalSlot
-      required:
-      - changeStateAt
-      - feedbackId
-      - imtId
-      - nmId
-      - pinId
-      - pinMethod
-      - pinOn
-      - state
     openapi.ResultErr:
       type: object
       properties:
@@ -2986,11 +2972,6 @@ components:
           type: string
           example: feedbackNotFound
           description: Заголовок ошибки
-      required:
-      - origin
-      - requestId
-      - status
-      - title
     openapi.SellerLimit:
       properties:
         perUnitLimit:
@@ -3016,12 +2997,6 @@ components:
           type: integer
           description: Текущее количество закреплённых отзывов
           example: 10
-      required:
-      - perUnitLimit
-      - remaining
-      - totalLimit
-      - unlimited
-      - used
     openapi.SellerLimitsResponse:
       type: object
       properties:
@@ -3058,18 +3033,11 @@ components:
         title:
           type: string
           description: Заголовок ошибки
-      required:
-      - origin
-      - requestId
-      - status
-      - title
     respond.SuccessResponse:
       type: object
       properties:
         data:
           type: object
-      required:
-      - data
     Response4XX:
       type: object
       properties:
@@ -4141,9 +4109,6 @@ components:
           type: integer
           description: Секунд до следующей попытки запроса файла
           example: 30
-      required:
-      - moderationState
-      - retrySeconds
     GetV1SellerDownloadIdResponse400:
       type: object
       properties:

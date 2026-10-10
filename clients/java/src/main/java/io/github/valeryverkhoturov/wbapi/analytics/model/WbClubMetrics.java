@@ -37,60 +37,60 @@ public class WbClubMetrics {
   public static final String SERIALIZED_NAME_ORDER_COUNT = "orderCount";
 
   @SerializedName(SERIALIZED_NAME_ORDER_COUNT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer orderCount;
 
   public static final String SERIALIZED_NAME_ORDER_SUM = "orderSum";
 
   @SerializedName(SERIALIZED_NAME_ORDER_SUM)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer orderSum;
 
   public static final String SERIALIZED_NAME_BUYOUT_SUM = "buyoutSum";
 
   @SerializedName(SERIALIZED_NAME_BUYOUT_SUM)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer buyoutSum;
 
   public static final String SERIALIZED_NAME_BUYOUT_COUNT = "buyoutCount";
 
   @SerializedName(SERIALIZED_NAME_BUYOUT_COUNT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer buyoutCount;
 
   public static final String SERIALIZED_NAME_CANCEL_SUM = "cancelSum";
 
   @SerializedName(SERIALIZED_NAME_CANCEL_SUM)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer cancelSum;
 
   public static final String SERIALIZED_NAME_CANCEL_COUNT = "cancelCount";
 
   @SerializedName(SERIALIZED_NAME_CANCEL_COUNT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer cancelCount;
 
   public static final String SERIALIZED_NAME_AVG_PRICE = "avgPrice";
 
   @SerializedName(SERIALIZED_NAME_AVG_PRICE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer avgPrice;
 
   public static final String SERIALIZED_NAME_BUYOUT_PERCENT = "buyoutPercent";
 
   @SerializedName(SERIALIZED_NAME_BUYOUT_PERCENT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer buyoutPercent;
 
   public static final String SERIALIZED_NAME_AVG_ORDER_COUNT_PER_DAY = "avgOrderCountPerDay";
 
   @SerializedName(SERIALIZED_NAME_AVG_ORDER_COUNT_PER_DAY)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private BigDecimal avgOrderCountPerDay;
 
   public WbClubMetrics() {}
 
-  public WbClubMetrics orderCount(@jakarta.annotation.Nonnull Integer orderCount) {
+  public WbClubMetrics orderCount(@jakarta.annotation.Nullable Integer orderCount) {
     this.orderCount = orderCount;
     return this;
   }
@@ -100,16 +100,16 @@ public class WbClubMetrics {
    *
    * @return orderCount
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getOrderCount() {
     return orderCount;
   }
 
-  public void setOrderCount(@jakarta.annotation.Nonnull Integer orderCount) {
+  public void setOrderCount(@jakarta.annotation.Nullable Integer orderCount) {
     this.orderCount = orderCount;
   }
 
-  public WbClubMetrics orderSum(@jakarta.annotation.Nonnull Integer orderSum) {
+  public WbClubMetrics orderSum(@jakarta.annotation.Nullable Integer orderSum) {
     this.orderSum = orderSum;
     return this;
   }
@@ -119,16 +119,16 @@ public class WbClubMetrics {
    *
    * @return orderSum
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getOrderSum() {
     return orderSum;
   }
 
-  public void setOrderSum(@jakarta.annotation.Nonnull Integer orderSum) {
+  public void setOrderSum(@jakarta.annotation.Nullable Integer orderSum) {
     this.orderSum = orderSum;
   }
 
-  public WbClubMetrics buyoutSum(@jakarta.annotation.Nonnull Integer buyoutSum) {
+  public WbClubMetrics buyoutSum(@jakarta.annotation.Nullable Integer buyoutSum) {
     this.buyoutSum = buyoutSum;
     return this;
   }
@@ -138,16 +138,16 @@ public class WbClubMetrics {
    *
    * @return buyoutSum
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getBuyoutSum() {
     return buyoutSum;
   }
 
-  public void setBuyoutSum(@jakarta.annotation.Nonnull Integer buyoutSum) {
+  public void setBuyoutSum(@jakarta.annotation.Nullable Integer buyoutSum) {
     this.buyoutSum = buyoutSum;
   }
 
-  public WbClubMetrics buyoutCount(@jakarta.annotation.Nonnull Integer buyoutCount) {
+  public WbClubMetrics buyoutCount(@jakarta.annotation.Nullable Integer buyoutCount) {
     this.buyoutCount = buyoutCount;
     return this;
   }
@@ -157,16 +157,16 @@ public class WbClubMetrics {
    *
    * @return buyoutCount
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getBuyoutCount() {
     return buyoutCount;
   }
 
-  public void setBuyoutCount(@jakarta.annotation.Nonnull Integer buyoutCount) {
+  public void setBuyoutCount(@jakarta.annotation.Nullable Integer buyoutCount) {
     this.buyoutCount = buyoutCount;
   }
 
-  public WbClubMetrics cancelSum(@jakarta.annotation.Nonnull Integer cancelSum) {
+  public WbClubMetrics cancelSum(@jakarta.annotation.Nullable Integer cancelSum) {
     this.cancelSum = cancelSum;
     return this;
   }
@@ -176,16 +176,16 @@ public class WbClubMetrics {
    *
    * @return cancelSum
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getCancelSum() {
     return cancelSum;
   }
 
-  public void setCancelSum(@jakarta.annotation.Nonnull Integer cancelSum) {
+  public void setCancelSum(@jakarta.annotation.Nullable Integer cancelSum) {
     this.cancelSum = cancelSum;
   }
 
-  public WbClubMetrics cancelCount(@jakarta.annotation.Nonnull Integer cancelCount) {
+  public WbClubMetrics cancelCount(@jakarta.annotation.Nullable Integer cancelCount) {
     this.cancelCount = cancelCount;
     return this;
   }
@@ -195,16 +195,16 @@ public class WbClubMetrics {
    *
    * @return cancelCount
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getCancelCount() {
     return cancelCount;
   }
 
-  public void setCancelCount(@jakarta.annotation.Nonnull Integer cancelCount) {
+  public void setCancelCount(@jakarta.annotation.Nullable Integer cancelCount) {
     this.cancelCount = cancelCount;
   }
 
-  public WbClubMetrics avgPrice(@jakarta.annotation.Nonnull Integer avgPrice) {
+  public WbClubMetrics avgPrice(@jakarta.annotation.Nullable Integer avgPrice) {
     this.avgPrice = avgPrice;
     return this;
   }
@@ -214,16 +214,16 @@ public class WbClubMetrics {
    *
    * @return avgPrice
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getAvgPrice() {
     return avgPrice;
   }
 
-  public void setAvgPrice(@jakarta.annotation.Nonnull Integer avgPrice) {
+  public void setAvgPrice(@jakarta.annotation.Nullable Integer avgPrice) {
     this.avgPrice = avgPrice;
   }
 
-  public WbClubMetrics buyoutPercent(@jakarta.annotation.Nonnull Integer buyoutPercent) {
+  public WbClubMetrics buyoutPercent(@jakarta.annotation.Nullable Integer buyoutPercent) {
     this.buyoutPercent = buyoutPercent;
     return this;
   }
@@ -233,17 +233,17 @@ public class WbClubMetrics {
    *
    * @return buyoutPercent
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getBuyoutPercent() {
     return buyoutPercent;
   }
 
-  public void setBuyoutPercent(@jakarta.annotation.Nonnull Integer buyoutPercent) {
+  public void setBuyoutPercent(@jakarta.annotation.Nullable Integer buyoutPercent) {
     this.buyoutPercent = buyoutPercent;
   }
 
   public WbClubMetrics avgOrderCountPerDay(
-      @jakarta.annotation.Nonnull BigDecimal avgOrderCountPerDay) {
+      @jakarta.annotation.Nullable BigDecimal avgOrderCountPerDay) {
     this.avgOrderCountPerDay = avgOrderCountPerDay;
     return this;
   }
@@ -253,12 +253,12 @@ public class WbClubMetrics {
    *
    * @return avgOrderCountPerDay
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public BigDecimal getAvgOrderCountPerDay() {
     return avgOrderCountPerDay;
   }
 
-  public void setAvgOrderCountPerDay(@jakarta.annotation.Nonnull BigDecimal avgOrderCountPerDay) {
+  public void setAvgOrderCountPerDay(@jakarta.annotation.Nullable BigDecimal avgOrderCountPerDay) {
     this.avgOrderCountPerDay = avgOrderCountPerDay;
   }
 
@@ -343,15 +343,6 @@ public class WbClubMetrics {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("orderCount");
-    openapiRequiredFields.add("orderSum");
-    openapiRequiredFields.add("buyoutSum");
-    openapiRequiredFields.add("buyoutCount");
-    openapiRequiredFields.add("cancelSum");
-    openapiRequiredFields.add("cancelCount");
-    openapiRequiredFields.add("avgPrice");
-    openapiRequiredFields.add("buyoutPercent");
-    openapiRequiredFields.add("avgOrderCountPerDay");
   }
 
   /**
@@ -379,16 +370,6 @@ public class WbClubMetrics {
             String.format(
                 "The field `%s` in the JSON string is not defined in the `WbClubMetrics` properties. JSON: %s",
                 entry.getKey(), jsonElement.toString()));
-      }
-    }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : WbClubMetrics.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
       }
     }
     JsonObject jsonObj = jsonElement.getAsJsonObject();

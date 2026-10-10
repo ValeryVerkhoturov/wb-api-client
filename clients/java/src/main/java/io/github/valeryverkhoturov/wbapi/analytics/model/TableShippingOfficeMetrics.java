@@ -36,36 +36,36 @@ public class TableShippingOfficeMetrics {
   public static final String SERIALIZED_NAME_STOCK_COUNT = "stockCount";
 
   @SerializedName(SERIALIZED_NAME_STOCK_COUNT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer stockCount;
 
   public static final String SERIALIZED_NAME_STOCK_SUM = "stockSum";
 
   @SerializedName(SERIALIZED_NAME_STOCK_SUM)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer stockSum;
 
   public static final String SERIALIZED_NAME_SALE_RATE = "saleRate";
 
   @SerializedName(SERIALIZED_NAME_SALE_RATE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private TableCommonMetricsSaleRate saleRate;
 
   public static final String SERIALIZED_NAME_TO_CLIENT_COUNT = "toClientCount";
 
   @SerializedName(SERIALIZED_NAME_TO_CLIENT_COUNT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer toClientCount;
 
   public static final String SERIALIZED_NAME_FROM_CLIENT_COUNT = "fromClientCount";
 
   @SerializedName(SERIALIZED_NAME_FROM_CLIENT_COUNT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer fromClientCount;
 
   public TableShippingOfficeMetrics() {}
 
-  public TableShippingOfficeMetrics stockCount(@jakarta.annotation.Nonnull Integer stockCount) {
+  public TableShippingOfficeMetrics stockCount(@jakarta.annotation.Nullable Integer stockCount) {
     this.stockCount = stockCount;
     return this;
   }
@@ -75,16 +75,16 @@ public class TableShippingOfficeMetrics {
    *
    * @return stockCount
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getStockCount() {
     return stockCount;
   }
 
-  public void setStockCount(@jakarta.annotation.Nonnull Integer stockCount) {
+  public void setStockCount(@jakarta.annotation.Nullable Integer stockCount) {
     this.stockCount = stockCount;
   }
 
-  public TableShippingOfficeMetrics stockSum(@jakarta.annotation.Nonnull Integer stockSum) {
+  public TableShippingOfficeMetrics stockSum(@jakarta.annotation.Nullable Integer stockSum) {
     this.stockSum = stockSum;
     return this;
   }
@@ -94,17 +94,17 @@ public class TableShippingOfficeMetrics {
    *
    * @return stockSum
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getStockSum() {
     return stockSum;
   }
 
-  public void setStockSum(@jakarta.annotation.Nonnull Integer stockSum) {
+  public void setStockSum(@jakarta.annotation.Nullable Integer stockSum) {
     this.stockSum = stockSum;
   }
 
   public TableShippingOfficeMetrics saleRate(
-      @jakarta.annotation.Nonnull TableCommonMetricsSaleRate saleRate) {
+      @jakarta.annotation.Nullable TableCommonMetricsSaleRate saleRate) {
     this.saleRate = saleRate;
     return this;
   }
@@ -114,17 +114,17 @@ public class TableShippingOfficeMetrics {
    *
    * @return saleRate
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public TableCommonMetricsSaleRate getSaleRate() {
     return saleRate;
   }
 
-  public void setSaleRate(@jakarta.annotation.Nonnull TableCommonMetricsSaleRate saleRate) {
+  public void setSaleRate(@jakarta.annotation.Nullable TableCommonMetricsSaleRate saleRate) {
     this.saleRate = saleRate;
   }
 
   public TableShippingOfficeMetrics toClientCount(
-      @jakarta.annotation.Nonnull Integer toClientCount) {
+      @jakarta.annotation.Nullable Integer toClientCount) {
     this.toClientCount = toClientCount;
     return this;
   }
@@ -134,17 +134,17 @@ public class TableShippingOfficeMetrics {
    *
    * @return toClientCount
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getToClientCount() {
     return toClientCount;
   }
 
-  public void setToClientCount(@jakarta.annotation.Nonnull Integer toClientCount) {
+  public void setToClientCount(@jakarta.annotation.Nullable Integer toClientCount) {
     this.toClientCount = toClientCount;
   }
 
   public TableShippingOfficeMetrics fromClientCount(
-      @jakarta.annotation.Nonnull Integer fromClientCount) {
+      @jakarta.annotation.Nullable Integer fromClientCount) {
     this.fromClientCount = fromClientCount;
     return this;
   }
@@ -154,12 +154,12 @@ public class TableShippingOfficeMetrics {
    *
    * @return fromClientCount
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getFromClientCount() {
     return fromClientCount;
   }
 
-  public void setFromClientCount(@jakarta.annotation.Nonnull Integer fromClientCount) {
+  public void setFromClientCount(@jakarta.annotation.Nullable Integer fromClientCount) {
     this.fromClientCount = fromClientCount;
   }
 
@@ -221,11 +221,6 @@ public class TableShippingOfficeMetrics {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("stockCount");
-    openapiRequiredFields.add("stockSum");
-    openapiRequiredFields.add("saleRate");
-    openapiRequiredFields.add("toClientCount");
-    openapiRequiredFields.add("fromClientCount");
   }
 
   /**
@@ -255,19 +250,11 @@ public class TableShippingOfficeMetrics {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : TableShippingOfficeMetrics.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    // validate the required field `saleRate`
-    TableCommonMetricsSaleRate.validateJsonElement(jsonObj.get("saleRate"));
+    // validate the optional field `saleRate`
+    if (jsonObj.get("saleRate") != null && !jsonObj.get("saleRate").isJsonNull()) {
+      TableCommonMetricsSaleRate.validateJsonElement(jsonObj.get("saleRate"));
+    }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

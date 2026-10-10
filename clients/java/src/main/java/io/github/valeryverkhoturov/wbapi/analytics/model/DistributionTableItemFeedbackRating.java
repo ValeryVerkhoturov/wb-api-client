@@ -37,7 +37,7 @@ public class DistributionTableItemFeedbackRating {
   public static final String SERIALIZED_NAME_CURRENT = "current";
 
   @SerializedName(SERIALIZED_NAME_CURRENT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private BigDecimal current;
 
   public static final String SERIALIZED_NAME_DYNAMICS = "dynamics";
@@ -55,7 +55,7 @@ public class DistributionTableItemFeedbackRating {
   public DistributionTableItemFeedbackRating() {}
 
   public DistributionTableItemFeedbackRating current(
-      @jakarta.annotation.Nonnull BigDecimal current) {
+      @jakarta.annotation.Nullable BigDecimal current) {
     this.current = current;
     return this;
   }
@@ -65,12 +65,12 @@ public class DistributionTableItemFeedbackRating {
    *
    * @return current
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public BigDecimal getCurrent() {
     return current;
   }
 
-  public void setCurrent(@jakarta.annotation.Nonnull BigDecimal current) {
+  public void setCurrent(@jakarta.annotation.Nullable BigDecimal current) {
     this.current = current;
   }
 
@@ -168,8 +168,6 @@ public class DistributionTableItemFeedbackRating {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("current");
-    openapiRequiredFields.add("percentile");
   }
 
   /**
@@ -198,16 +196,6 @@ public class DistributionTableItemFeedbackRating {
             String.format(
                 "The field `%s` in the JSON string is not defined in the `DistributionTableItemFeedbackRating` properties. JSON: %s",
                 entry.getKey(), jsonElement.toString()));
-      }
-    }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : DistributionTableItemFeedbackRating.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
       }
     }
     JsonObject jsonObj = jsonElement.getAsJsonObject();

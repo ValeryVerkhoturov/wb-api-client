@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,9 +28,10 @@ class PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner(BaseMo
     PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner
     """  # noqa: E501
 
-    code: StrictInt = Field(description="Код ошибки")
-    detail: StrictStr = Field(
-        description="Дополнительная информация об ошибке:   - `Not Found` — ID размера товара не найден или указан ID размера немалогабаритного товара "
+    code: Optional[StrictInt] = Field(default=None, description="Код ошибки")
+    detail: Optional[StrictStr] = Field(
+        default=None,
+        description="Дополнительная информация об ошибке:   - `Not Found` — ID размера товара не найден или указан ID размера немалогабаритного товара ",
     )
     __properties: ClassVar[List[str]] = ["code", "detail"]
 

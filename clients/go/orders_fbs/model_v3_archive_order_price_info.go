@@ -11,9 +11,7 @@ API version: order
 package orders_fbs
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the V3ArchiveOrderPriceInfo type satisfies the MappedNullable interface at compile time
@@ -22,27 +20,21 @@ var _ MappedNullable = &V3ArchiveOrderPriceInfo{}
 // V3ArchiveOrderPriceInfo Информация о цене заказа
 type V3ArchiveOrderPriceInfo struct {
 	// Код валюты страны продавца
-	ConvertedCurrencyCode int32 `json:"convertedCurrencyCode"`
+	ConvertedCurrencyCode *int32 `json:"convertedCurrencyCode,omitempty"`
 	// Цена в валюте страны продавца с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100
-	ConvertedPrice int32 `json:"convertedPrice"`
+	ConvertedPrice *int32 `json:"convertedPrice,omitempty"`
 	// Код валюты продажи
-	CurrencyCode int32 `json:"currencyCode"`
+	CurrencyCode *int32 `json:"currencyCode,omitempty"`
 	// Цена в валюте продажи с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100
-	Price int32 `json:"price"`
+	Price *int32 `json:"price,omitempty"`
 }
-
-type _V3ArchiveOrderPriceInfo V3ArchiveOrderPriceInfo
 
 // NewV3ArchiveOrderPriceInfo instantiates a new V3ArchiveOrderPriceInfo object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewV3ArchiveOrderPriceInfo(convertedCurrencyCode int32, convertedPrice int32, currencyCode int32, price int32) *V3ArchiveOrderPriceInfo {
+func NewV3ArchiveOrderPriceInfo() *V3ArchiveOrderPriceInfo {
 	this := V3ArchiveOrderPriceInfo{}
-	this.ConvertedCurrencyCode = convertedCurrencyCode
-	this.ConvertedPrice = convertedPrice
-	this.CurrencyCode = currencyCode
-	this.Price = price
 	return &this
 }
 
@@ -54,100 +46,132 @@ func NewV3ArchiveOrderPriceInfoWithDefaults() *V3ArchiveOrderPriceInfo {
 	return &this
 }
 
-// GetConvertedCurrencyCode returns the ConvertedCurrencyCode field value
+// GetConvertedCurrencyCode returns the ConvertedCurrencyCode field value if set, zero value otherwise.
 func (o *V3ArchiveOrderPriceInfo) GetConvertedCurrencyCode() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.ConvertedCurrencyCode) {
 		var ret int32
 		return ret
 	}
-
-	return o.ConvertedCurrencyCode
+	return *o.ConvertedCurrencyCode
 }
 
-// GetConvertedCurrencyCodeOk returns a tuple with the ConvertedCurrencyCode field value
+// GetConvertedCurrencyCodeOk returns a tuple with the ConvertedCurrencyCode field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *V3ArchiveOrderPriceInfo) GetConvertedCurrencyCodeOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ConvertedCurrencyCode) {
 		return nil, false
 	}
-	return &o.ConvertedCurrencyCode, true
+	return o.ConvertedCurrencyCode, true
 }
 
-// SetConvertedCurrencyCode sets field value
+// HasConvertedCurrencyCode returns a boolean if a field has been set.
+func (o *V3ArchiveOrderPriceInfo) HasConvertedCurrencyCode() bool {
+	if o != nil && !IsNil(o.ConvertedCurrencyCode) {
+		return true
+	}
+
+	return false
+}
+
+// SetConvertedCurrencyCode gets a reference to the given int32 and assigns it to the ConvertedCurrencyCode field.
 func (o *V3ArchiveOrderPriceInfo) SetConvertedCurrencyCode(v int32) {
-	o.ConvertedCurrencyCode = v
+	o.ConvertedCurrencyCode = &v
 }
 
-// GetConvertedPrice returns the ConvertedPrice field value
+// GetConvertedPrice returns the ConvertedPrice field value if set, zero value otherwise.
 func (o *V3ArchiveOrderPriceInfo) GetConvertedPrice() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.ConvertedPrice) {
 		var ret int32
 		return ret
 	}
-
-	return o.ConvertedPrice
+	return *o.ConvertedPrice
 }
 
-// GetConvertedPriceOk returns a tuple with the ConvertedPrice field value
+// GetConvertedPriceOk returns a tuple with the ConvertedPrice field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *V3ArchiveOrderPriceInfo) GetConvertedPriceOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ConvertedPrice) {
 		return nil, false
 	}
-	return &o.ConvertedPrice, true
+	return o.ConvertedPrice, true
 }
 
-// SetConvertedPrice sets field value
+// HasConvertedPrice returns a boolean if a field has been set.
+func (o *V3ArchiveOrderPriceInfo) HasConvertedPrice() bool {
+	if o != nil && !IsNil(o.ConvertedPrice) {
+		return true
+	}
+
+	return false
+}
+
+// SetConvertedPrice gets a reference to the given int32 and assigns it to the ConvertedPrice field.
 func (o *V3ArchiveOrderPriceInfo) SetConvertedPrice(v int32) {
-	o.ConvertedPrice = v
+	o.ConvertedPrice = &v
 }
 
-// GetCurrencyCode returns the CurrencyCode field value
+// GetCurrencyCode returns the CurrencyCode field value if set, zero value otherwise.
 func (o *V3ArchiveOrderPriceInfo) GetCurrencyCode() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.CurrencyCode) {
 		var ret int32
 		return ret
 	}
-
-	return o.CurrencyCode
+	return *o.CurrencyCode
 }
 
-// GetCurrencyCodeOk returns a tuple with the CurrencyCode field value
+// GetCurrencyCodeOk returns a tuple with the CurrencyCode field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *V3ArchiveOrderPriceInfo) GetCurrencyCodeOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.CurrencyCode) {
 		return nil, false
 	}
-	return &o.CurrencyCode, true
+	return o.CurrencyCode, true
 }
 
-// SetCurrencyCode sets field value
+// HasCurrencyCode returns a boolean if a field has been set.
+func (o *V3ArchiveOrderPriceInfo) HasCurrencyCode() bool {
+	if o != nil && !IsNil(o.CurrencyCode) {
+		return true
+	}
+
+	return false
+}
+
+// SetCurrencyCode gets a reference to the given int32 and assigns it to the CurrencyCode field.
 func (o *V3ArchiveOrderPriceInfo) SetCurrencyCode(v int32) {
-	o.CurrencyCode = v
+	o.CurrencyCode = &v
 }
 
-// GetPrice returns the Price field value
+// GetPrice returns the Price field value if set, zero value otherwise.
 func (o *V3ArchiveOrderPriceInfo) GetPrice() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.Price) {
 		var ret int32
 		return ret
 	}
-
-	return o.Price
+	return *o.Price
 }
 
-// GetPriceOk returns a tuple with the Price field value
+// GetPriceOk returns a tuple with the Price field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *V3ArchiveOrderPriceInfo) GetPriceOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Price) {
 		return nil, false
 	}
-	return &o.Price, true
+	return o.Price, true
 }
 
-// SetPrice sets field value
+// HasPrice returns a boolean if a field has been set.
+func (o *V3ArchiveOrderPriceInfo) HasPrice() bool {
+	if o != nil && !IsNil(o.Price) {
+		return true
+	}
+
+	return false
+}
+
+// SetPrice gets a reference to the given int32 and assigns it to the Price field.
 func (o *V3ArchiveOrderPriceInfo) SetPrice(v int32) {
-	o.Price = v
+	o.Price = &v
 }
 
 func (o V3ArchiveOrderPriceInfo) MarshalJSON() ([]byte, error) {
@@ -160,51 +184,19 @@ func (o V3ArchiveOrderPriceInfo) MarshalJSON() ([]byte, error) {
 
 func (o V3ArchiveOrderPriceInfo) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["convertedCurrencyCode"] = o.ConvertedCurrencyCode
-	toSerialize["convertedPrice"] = o.ConvertedPrice
-	toSerialize["currencyCode"] = o.CurrencyCode
-	toSerialize["price"] = o.Price
+	if !IsNil(o.ConvertedCurrencyCode) {
+		toSerialize["convertedCurrencyCode"] = o.ConvertedCurrencyCode
+	}
+	if !IsNil(o.ConvertedPrice) {
+		toSerialize["convertedPrice"] = o.ConvertedPrice
+	}
+	if !IsNil(o.CurrencyCode) {
+		toSerialize["currencyCode"] = o.CurrencyCode
+	}
+	if !IsNil(o.Price) {
+		toSerialize["price"] = o.Price
+	}
 	return toSerialize, nil
-}
-
-func (o *V3ArchiveOrderPriceInfo) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"convertedCurrencyCode",
-		"convertedPrice",
-		"currencyCode",
-		"price",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varV3ArchiveOrderPriceInfo := _V3ArchiveOrderPriceInfo{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varV3ArchiveOrderPriceInfo)
-
-	if err != nil {
-		return err
-	}
-
-	*o = V3ArchiveOrderPriceInfo(varV3ArchiveOrderPriceInfo)
-
-	return err
 }
 
 type NullableV3ArchiveOrderPriceInfo struct {

@@ -35,26 +35,16 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <summary>
         /// Gets or Sets Type
         /// </summary>
-        [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
-        public PlacementType Type { get; set; }
+        [DataMember(Name = "type", EmitDefaultValue = false)]
+        public PlacementType? Type { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="PostV1BidsMinResponse200BidsInnerBidsInner" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected PostV1BidsMinResponse200BidsInnerBidsInner() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PostV1BidsMinResponse200BidsInnerBidsInner" /> class.
-        /// </summary>
-        /// <param name="currency">Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) (required).</param>
-        /// <param name="type">type (required).</param>
-        /// <param name="value">Минимальная ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)  (required).</param>
-        public PostV1BidsMinResponse200BidsInnerBidsInner(string currency = default(string), PlacementType type = default(PlacementType), int value = default(int))
+        /// <param name="currency">Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).</param>
+        /// <param name="type">type.</param>
+        /// <param name="value">Минимальная ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) .</param>
+        public PostV1BidsMinResponse200BidsInnerBidsInner(string currency = default(string), PlacementType? type = default(PlacementType?), int value = default(int))
         {
-            // to ensure "currency" is required (not null)
-            if (currency == null)
-            {
-                throw new ArgumentNullException("currency is a required property for PostV1BidsMinResponse200BidsInnerBidsInner and cannot be null");
-            }
             this.Currency = currency;
             this.Type = type;
             this.Value = value;
@@ -64,14 +54,14 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
         /// </summary>
         /// <value>Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)</value>
-        [DataMember(Name = "currency", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "currency", EmitDefaultValue = false)]
         public string Currency { get; set; }
 
         /// <summary>
         /// Минимальная ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) 
         /// </summary>
         /// <value>Минимальная ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) </value>
-        [DataMember(Name = "value", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "value", EmitDefaultValue = false)]
         public int Value { get; set; }
 
         /// <summary>

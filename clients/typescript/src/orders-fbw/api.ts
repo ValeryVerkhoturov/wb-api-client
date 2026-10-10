@@ -50,13 +50,13 @@ export interface ErrorsDraftError {
    * @type {number}
    * @memberof ErrorsDraftError
    */
-  status: number;
+  status?: number;
   /**
    * Заголовок ошибки
    * @type {string}
    * @memberof ErrorsDraftError
    */
-  title: string;
+  title?: string;
   /**
    * Детали ошибки
    * @type {string}
@@ -68,13 +68,13 @@ export interface ErrorsDraftError {
    * @type {string}
    * @memberof ErrorsDraftError
    */
-  requestId: string;
+  requestId?: string;
   /**
    * ID внутреннего сервиса WB
    * @type {string}
    * @memberof ErrorsDraftError
    */
-  origin: string;
+  origin?: string;
 }
 /**
  *
@@ -148,43 +148,43 @@ export interface ModelsDiscrepancyResponseItem {
    * @type {string}
    * @memberof ModelsDiscrepancyResponseItem
    */
-  declaredSku: string;
+  declaredSku?: string;
   /**
    * Тип расхождения в целом по коробу:  - `surplus` — товара в коробе больше заявленного  - `shortage` — товара в коробе меньше заявленного  - `re-sorting` — баркод принятого товара не соответствует заявленному при формировании поставки
    * @type {string}
    * @memberof ModelsDiscrepancyResponseItem
    */
-  discrepancyType: ModelsDiscrepancyResponseItemDiscrepancyTypeEnum;
+  discrepancyType?: ModelsDiscrepancyResponseItemDiscrepancyTypeEnum;
   /**
    * Количество товара, заявленное при формировании поставки
    * @type {number}
    * @memberof ModelsDiscrepancyResponseItem
    */
-  declaredAmount: number;
+  declaredAmount?: number;
   /**
    * Фактическое количество товара
    * @type {number}
    * @memberof ModelsDiscrepancyResponseItem
    */
-  actualAmount: number;
+  actualAmount?: number;
   /**
    * Разница между заявленным и фактическим количеством товара
    * @type {number}
    * @memberof ModelsDiscrepancyResponseItem
    */
-  discrepancyQuantity: number;
+  discrepancyQuantity?: number;
   /**
    * Фактический баркод
    * @type {string}
    * @memberof ModelsDiscrepancyResponseItem
    */
-  actualSku: string;
+  actualSku?: string;
   /**
    * Результаты сканирования товаров
    * @type {Array<ModelsItemScans>}
    * @memberof ModelsDiscrepancyResponseItem
    */
-  skuScans: Array<ModelsItemScans> | null;
+  skuScans?: Array<ModelsItemScans> | null;
 }
 
 export const ModelsDiscrepancyResponseItemDiscrepancyTypeEnum = {
@@ -207,7 +207,7 @@ export interface ModelsDraftAddItemsErrorResponse {
    * @type {Array<ModelsDraftAddItemsResultItem>}
    * @memberof ModelsDraftAddItemsErrorResponse
    */
-  results: Array<ModelsDraftAddItemsResultItem>;
+  results?: Array<ModelsDraftAddItemsResultItem>;
 }
 /**
  *
@@ -220,13 +220,13 @@ export interface ModelsDraftAddItemsResultError {
    * @type {string}
    * @memberof ModelsDraftAddItemsResultError
    */
-  detail: string;
+  detail?: string;
   /**
    * Заголовок ошибки
    * @type {string}
    * @memberof ModelsDraftAddItemsResultError
    */
-  title: string;
+  title?: string;
 }
 /**
  *
@@ -239,13 +239,13 @@ export interface ModelsDraftAddItemsResultItem {
    * @type {ModelsDraftAddItemsResultError}
    * @memberof ModelsDraftAddItemsResultItem
    */
-  error: ModelsDraftAddItemsResultError;
+  error?: ModelsDraftAddItemsResultError;
   /**
    * Баркод
    * @type {string}
    * @memberof ModelsDraftAddItemsResultItem
    */
-  sku: string;
+  sku?: string;
 }
 /**
  *
@@ -271,7 +271,7 @@ export interface ModelsDraftCreateResponse {
    * @type {string}
    * @memberof ModelsDraftCreateResponse
    */
-  draftId: string;
+  draftId?: string;
 }
 /**
  *
@@ -284,7 +284,7 @@ export interface ModelsDraftDeleteItemsErrorResponse {
    * @type {Array<string>}
    * @memberof ModelsDraftDeleteItemsErrorResponse
    */
-  results: Array<string>;
+  results?: Array<string>;
 }
 /**
  *
@@ -310,37 +310,37 @@ export interface ModelsDraftItem {
    * @type {string}
    * @memberof ModelsDraftItem
    */
-  draftId: string;
+  draftId?: string;
   /**
    * Телефон пользователя, создавшего черновик
    * @type {string}
    * @memberof ModelsDraftItem
    */
-  phone: string;
+  phone?: string;
   /**
    * Дата и время создания черновика
    * @type {string}
    * @memberof ModelsDraftItem
    */
-  createdAt: string;
+  createdAt?: string;
   /**
    * Дата и время последнего обновления черновика
    * @type {string}
    * @memberof ModelsDraftItem
    */
-  updatedAt: string;
+  updatedAt?: string;
   /**
    * Количество баркодов
    * @type {number}
    * @memberof ModelsDraftItem
    */
-  skuQuantity: number;
+  skuQuantity?: number;
   /**
    * Количество единиц товара
    * @type {number}
    * @memberof ModelsDraftItem
    */
-  itemQuantity: number;
+  itemQuantity?: number;
 }
 /**
  *
@@ -353,61 +353,61 @@ export interface ModelsDraftItemItem {
    * @type {string}
    * @memberof ModelsDraftItemItem
    */
-  sku: string;
+  sku?: string;
   /**
    * Цвет товара
    * @type {string}
    * @memberof ModelsDraftItemItem
    */
-  color: string;
+  color?: string;
   /**
    * Количество единиц товара
    * @type {number}
    * @memberof ModelsDraftItemItem
    */
-  quantity: number;
+  quantity?: number;
   /**
    * Бренд
    * @type {string}
    * @memberof ModelsDraftItemItem
    */
-  brandName: string;
+  brandName?: string;
   /**
    * Ссылка на изображение товара
    * @type {string}
    * @memberof ModelsDraftItemItem
    */
-  imgSrc: string;
+  imgSrc?: string;
   /**
    * Артикул WB
    * @type {number}
    * @memberof ModelsDraftItemItem
    */
-  nmId: number;
+  nmId?: number;
   /**
    * Предмет
    * @type {string}
    * @memberof ModelsDraftItemItem
    */
-  subjectName: string;
+  subjectName?: string;
   /**
    * Размер товара
    * @type {string}
    * @memberof ModelsDraftItemItem
    */
-  techSize: string;
+  techSize?: string;
   /**
    * Название товара
    * @type {string}
    * @memberof ModelsDraftItemItem
    */
-  title: string;
+  title?: string;
   /**
    * Артикул продавца
    * @type {string}
    * @memberof ModelsDraftItemItem
    */
-  vendorCode: string;
+  vendorCode?: string;
 }
 /**
  *
@@ -611,31 +611,31 @@ export interface ModelsItemDiscrepancyResponse {
    * @type {string}
    * @memberof ModelsItemDiscrepancyResponse
    */
-  packageCode: string;
+  packageCode?: string;
   /**
    * Видео фиксации расхождений в процессе приёмки
    * @type {string}
    * @memberof ModelsItemDiscrepancyResponse
    */
-  videoUrl: string;
+  videoUrl?: string;
   /**
    * Дата и время видеофиксации расхождений в процессе приемки
    * @type {string}
    * @memberof ModelsItemDiscrepancyResponse
    */
-  videoStartsAt: string;
+  videoStartsAt?: string;
   /**
    * Доступность видео:    - `false` — видео доступно    - `true` — видео недоступно
    * @type {boolean}
    * @memberof ModelsItemDiscrepancyResponse
    */
-  videoUnavailable: boolean;
+  videoUnavailable?: boolean;
   /**
    * Товары поставки
    * @type {Array<ModelsDiscrepancyResponseItem>}
    * @memberof ModelsItemDiscrepancyResponse
    */
-  items: Array<ModelsDiscrepancyResponseItem>;
+  items?: Array<ModelsDiscrepancyResponseItem>;
 }
 /**
  *
@@ -648,31 +648,31 @@ export interface ModelsItemScans {
    * @type {number}
    * @memberof ModelsItemScans
    */
-  scanId: number;
+  scanId?: number;
   /**
    * Баркод, заявленный при формировании поставки
    * @type {string}
    * @memberof ModelsItemScans
    */
-  declaredSku: string;
+  declaredSku?: string;
   /**
    * Дата и время сканирования
    * @type {string}
    * @memberof ModelsItemScans
    */
-  scanTime: string;
+  scanTime?: string;
   /**
    * Тип расхождения товара:  - `surplus` — товара больше, чем заявлено  - `shortage` — товара меньше, чем заявлено  - `re-sorting` — баркод принятого товара не соответствует заявленному при формировании поставки
    * @type {string}
    * @memberof ModelsItemScans
    */
-  discrepancyLabel: ModelsItemScansDiscrepancyLabelEnum;
+  discrepancyLabel?: ModelsItemScansDiscrepancyLabelEnum;
   /**
    * Фактический баркод
    * @type {string}
    * @memberof ModelsItemScans
    */
-  actualSku: string;
+  actualSku?: string;
 }
 
 export const ModelsItemScansDiscrepancyLabelEnum = {
@@ -695,19 +695,19 @@ export interface ModelsListDraftItemsResponse {
    * @type {number}
    * @memberof ModelsListDraftItemsResponse
    */
-  skuQuantity: number;
+  skuQuantity?: number;
   /**
    * Количество единиц товара
    * @type {number}
    * @memberof ModelsListDraftItemsResponse
    */
-  itemQuantity: number;
+  itemQuantity?: number;
   /**
    * Список товаров
    * @type {Array<ModelsDraftItemItem>}
    * @memberof ModelsListDraftItemsResponse
    */
-  items: Array<ModelsDraftItemItem>;
+  items?: Array<ModelsDraftItemItem>;
 }
 /**
  *
@@ -720,13 +720,13 @@ export interface ModelsListDraftsResponse {
    * @type {number}
    * @memberof ModelsListDraftsResponse
    */
-  total: number;
+  total?: number;
   /**
    * Список черновиков
    * @type {Array<ModelsDraftItem>}
    * @memberof ModelsListDraftsResponse
    */
-  drafts: Array<ModelsDraftItem>;
+  drafts?: Array<ModelsDraftItem>;
 }
 /**
  *
@@ -944,31 +944,31 @@ export interface ModelsSupplyAcceptedMoreThanYearAgo {
    * @type {number}
    * @memberof ModelsSupplyAcceptedMoreThanYearAgo
    */
-  status: number;
+  status?: number;
   /**
    * Краткое описание ошибки
    * @type {string}
    * @memberof ModelsSupplyAcceptedMoreThanYearAgo
    */
-  title: string;
+  title?: string;
   /**
    * Подробное описание ошибки
    * @type {string}
    * @memberof ModelsSupplyAcceptedMoreThanYearAgo
    */
-  detail: string;
+  detail?: string;
   /**
    * ID запроса
    * @type {string}
    * @memberof ModelsSupplyAcceptedMoreThanYearAgo
    */
-  requestId: string;
+  requestId?: string;
   /**
    * Сервис, в котором произошла ошибка
    * @type {string}
    * @memberof ModelsSupplyAcceptedMoreThanYearAgo
    */
-  origin: string;
+  origin?: string;
 }
 /**
  *

@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from wb_api_client.promotion.models.v0_get_norm_query_bids_item import (
     V0GetNormQueryBidsItem,
 )
@@ -31,7 +31,7 @@ class V0GetNormQueryBidsResponse(BaseModel):
     V0GetNormQueryBidsResponse
     """  # noqa: E501
 
-    bids: List[V0GetNormQueryBidsItem]
+    bids: Optional[List[V0GetNormQueryBidsItem]] = None
     __properties: ClassVar[List[str]] = ["bids"]
 
     model_config = ConfigDict(

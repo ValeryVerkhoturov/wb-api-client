@@ -11,9 +11,7 @@ API version: analytics
 package analytics
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the NmReportGetReportsResponse type satisfies the MappedNullable interface at compile time
@@ -21,18 +19,15 @@ var _ MappedNullable = &NmReportGetReportsResponse{}
 
 // NmReportGetReportsResponse struct for NmReportGetReportsResponse
 type NmReportGetReportsResponse struct {
-	Data []NmReportGetReportsResponseDataInner `json:"data"`
+	Data []NmReportGetReportsResponseDataInner `json:"data,omitempty"`
 }
-
-type _NmReportGetReportsResponse NmReportGetReportsResponse
 
 // NewNmReportGetReportsResponse instantiates a new NmReportGetReportsResponse object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewNmReportGetReportsResponse(data []NmReportGetReportsResponseDataInner) *NmReportGetReportsResponse {
+func NewNmReportGetReportsResponse() *NmReportGetReportsResponse {
 	this := NmReportGetReportsResponse{}
-	this.Data = data
 	return &this
 }
 
@@ -44,26 +39,34 @@ func NewNmReportGetReportsResponseWithDefaults() *NmReportGetReportsResponse {
 	return &this
 }
 
-// GetData returns the Data field value
+// GetData returns the Data field value if set, zero value otherwise.
 func (o *NmReportGetReportsResponse) GetData() []NmReportGetReportsResponseDataInner {
-	if o == nil {
+	if o == nil || IsNil(o.Data) {
 		var ret []NmReportGetReportsResponseDataInner
 		return ret
 	}
-
 	return o.Data
 }
 
-// GetDataOk returns a tuple with the Data field value
+// GetDataOk returns a tuple with the Data field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NmReportGetReportsResponse) GetDataOk() ([]NmReportGetReportsResponseDataInner, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Data) {
 		return nil, false
 	}
 	return o.Data, true
 }
 
-// SetData sets field value
+// HasData returns a boolean if a field has been set.
+func (o *NmReportGetReportsResponse) HasData() bool {
+	if o != nil && !IsNil(o.Data) {
+		return true
+	}
+
+	return false
+}
+
+// SetData gets a reference to the given []NmReportGetReportsResponseDataInner and assigns it to the Data field.
 func (o *NmReportGetReportsResponse) SetData(v []NmReportGetReportsResponseDataInner) {
 	o.Data = v
 }
@@ -78,45 +81,10 @@ func (o NmReportGetReportsResponse) MarshalJSON() ([]byte, error) {
 
 func (o NmReportGetReportsResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["data"] = o.Data
+	if !IsNil(o.Data) {
+		toSerialize["data"] = o.Data
+	}
 	return toSerialize, nil
-}
-
-func (o *NmReportGetReportsResponse) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"data",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varNmReportGetReportsResponse := _NmReportGetReportsResponse{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varNmReportGetReportsResponse)
-
-	if err != nil {
-		return err
-	}
-
-	*o = NmReportGetReportsResponse(varNmReportGetReportsResponse)
-
-	return err
 }
 
 type NullableNmReportGetReportsResponse struct {

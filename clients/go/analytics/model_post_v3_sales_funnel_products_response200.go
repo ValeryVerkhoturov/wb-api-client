@@ -11,9 +11,7 @@ API version: analytics
 package analytics
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the PostV3SalesFunnelProductsResponse200 type satisfies the MappedNullable interface at compile time
@@ -21,18 +19,15 @@ var _ MappedNullable = &PostV3SalesFunnelProductsResponse200{}
 
 // PostV3SalesFunnelProductsResponse200 struct for PostV3SalesFunnelProductsResponse200
 type PostV3SalesFunnelProductsResponse200 struct {
-	Data PostV3SalesFunnelProductsResponse200Data `json:"data"`
+	Data *PostV3SalesFunnelProductsResponse200Data `json:"data,omitempty"`
 }
-
-type _PostV3SalesFunnelProductsResponse200 PostV3SalesFunnelProductsResponse200
 
 // NewPostV3SalesFunnelProductsResponse200 instantiates a new PostV3SalesFunnelProductsResponse200 object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPostV3SalesFunnelProductsResponse200(data PostV3SalesFunnelProductsResponse200Data) *PostV3SalesFunnelProductsResponse200 {
+func NewPostV3SalesFunnelProductsResponse200() *PostV3SalesFunnelProductsResponse200 {
 	this := PostV3SalesFunnelProductsResponse200{}
-	this.Data = data
 	return &this
 }
 
@@ -44,28 +39,36 @@ func NewPostV3SalesFunnelProductsResponse200WithDefaults() *PostV3SalesFunnelPro
 	return &this
 }
 
-// GetData returns the Data field value
+// GetData returns the Data field value if set, zero value otherwise.
 func (o *PostV3SalesFunnelProductsResponse200) GetData() PostV3SalesFunnelProductsResponse200Data {
-	if o == nil {
+	if o == nil || IsNil(o.Data) {
 		var ret PostV3SalesFunnelProductsResponse200Data
 		return ret
 	}
-
-	return o.Data
+	return *o.Data
 }
 
-// GetDataOk returns a tuple with the Data field value
+// GetDataOk returns a tuple with the Data field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PostV3SalesFunnelProductsResponse200) GetDataOk() (*PostV3SalesFunnelProductsResponse200Data, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Data) {
 		return nil, false
 	}
-	return &o.Data, true
+	return o.Data, true
 }
 
-// SetData sets field value
+// HasData returns a boolean if a field has been set.
+func (o *PostV3SalesFunnelProductsResponse200) HasData() bool {
+	if o != nil && !IsNil(o.Data) {
+		return true
+	}
+
+	return false
+}
+
+// SetData gets a reference to the given PostV3SalesFunnelProductsResponse200Data and assigns it to the Data field.
 func (o *PostV3SalesFunnelProductsResponse200) SetData(v PostV3SalesFunnelProductsResponse200Data) {
-	o.Data = v
+	o.Data = &v
 }
 
 func (o PostV3SalesFunnelProductsResponse200) MarshalJSON() ([]byte, error) {
@@ -78,45 +81,10 @@ func (o PostV3SalesFunnelProductsResponse200) MarshalJSON() ([]byte, error) {
 
 func (o PostV3SalesFunnelProductsResponse200) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["data"] = o.Data
+	if !IsNil(o.Data) {
+		toSerialize["data"] = o.Data
+	}
 	return toSerialize, nil
-}
-
-func (o *PostV3SalesFunnelProductsResponse200) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"data",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varPostV3SalesFunnelProductsResponse200 := _PostV3SalesFunnelProductsResponse200{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varPostV3SalesFunnelProductsResponse200)
-
-	if err != nil {
-		return err
-	}
-
-	*o = PostV3SalesFunnelProductsResponse200(varPostV3SalesFunnelProductsResponse200)
-
-	return err
 }
 
 type NullablePostV3SalesFunnelProductsResponse200 struct {

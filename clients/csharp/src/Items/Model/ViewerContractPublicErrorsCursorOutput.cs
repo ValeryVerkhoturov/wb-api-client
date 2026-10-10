@@ -34,22 +34,12 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ViewerContractPublicErrorsCursorOutput" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected ViewerContractPublicErrorsCursorOutput() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ViewerContractPublicErrorsCursorOutput" /> class.
-        /// </summary>
-        /// <param name="next">Есть ли ещё черновики:   - &#x60;false&#x60; — нет   - &#x60;true&#x60; — да  (required).</param>
-        /// <param name="updatedAt">Дата и время формирования последнего пакета в ответе (required).</param>
-        /// <param name="batchUUID">ID последнего пакета в ответе (required).</param>
+        /// <param name="next">Есть ли ещё черновики:   - &#x60;false&#x60; — нет   - &#x60;true&#x60; — да .</param>
+        /// <param name="updatedAt">Дата и время формирования последнего пакета в ответе.</param>
+        /// <param name="batchUUID">ID последнего пакета в ответе.</param>
         public ViewerContractPublicErrorsCursorOutput(bool next = default(bool), string updatedAt = default(string), Guid batchUUID = default(Guid))
         {
             this.Next = next;
-            // to ensure "updatedAt" is required (not null)
-            if (updatedAt == null)
-            {
-                throw new ArgumentNullException("updatedAt is a required property for ViewerContractPublicErrorsCursorOutput and cannot be null");
-            }
             this.UpdatedAt = updatedAt;
             this.BatchUUID = batchUUID;
         }
@@ -58,21 +48,21 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// Есть ли ещё черновики:   - &#x60;false&#x60; — нет   - &#x60;true&#x60; — да 
         /// </summary>
         /// <value>Есть ли ещё черновики:   - &#x60;false&#x60; — нет   - &#x60;true&#x60; — да </value>
-        [DataMember(Name = "next", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "next", EmitDefaultValue = true)]
         public bool Next { get; set; }
 
         /// <summary>
         /// Дата и время формирования последнего пакета в ответе
         /// </summary>
         /// <value>Дата и время формирования последнего пакета в ответе</value>
-        [DataMember(Name = "updatedAt", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "updatedAt", EmitDefaultValue = false)]
         public string UpdatedAt { get; set; }
 
         /// <summary>
         /// ID последнего пакета в ответе
         /// </summary>
         /// <value>ID последнего пакета в ответе</value>
-        [DataMember(Name = "batchUUID", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "batchUUID", EmitDefaultValue = false)]
         public Guid BatchUUID { get; set; }
 
         /// <summary>

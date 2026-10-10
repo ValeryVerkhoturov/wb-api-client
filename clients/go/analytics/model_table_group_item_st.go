@@ -11,9 +11,7 @@ API version: analytics
 package analytics
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the TableGroupItemSt type satisfies the MappedNullable interface at compile time
@@ -22,36 +20,27 @@ var _ MappedNullable = &TableGroupItemSt{}
 // TableGroupItemSt Данные по группе
 type TableGroupItemSt struct {
 	// ID предмета
-	SubjectID int32 `json:"subjectID"`
+	SubjectID *int32 `json:"subjectID,omitempty"`
 	// Название предмета
-	SubjectName string `json:"subjectName"`
+	SubjectName *string `json:"subjectName,omitempty"`
 	// Бренд
-	BrandName string `json:"brandName"`
+	BrandName *string `json:"brandName,omitempty"`
 	// ID ярлыка
-	TagID int64 `json:"tagID"`
+	TagID *int64 `json:"tagID,omitempty"`
 	// Название ярлыка
-	TagName string `json:"tagName"`
+	TagName *string `json:"tagName,omitempty"`
 	// Метрики группы
-	Metrics TableCommonMetrics `json:"metrics"`
+	Metrics *TableCommonMetrics `json:"metrics,omitempty"`
 	// Товары группы
-	Items []TableItemItemSt `json:"items"`
+	Items []TableItemItemSt `json:"items,omitempty"`
 }
-
-type _TableGroupItemSt TableGroupItemSt
 
 // NewTableGroupItemSt instantiates a new TableGroupItemSt object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTableGroupItemSt(subjectID int32, subjectName string, brandName string, tagID int64, tagName string, metrics TableCommonMetrics, items []TableItemItemSt) *TableGroupItemSt {
+func NewTableGroupItemSt() *TableGroupItemSt {
 	this := TableGroupItemSt{}
-	this.SubjectID = subjectID
-	this.SubjectName = subjectName
-	this.BrandName = brandName
-	this.TagID = tagID
-	this.TagName = tagName
-	this.Metrics = metrics
-	this.Items = items
 	return &this
 }
 
@@ -63,170 +52,226 @@ func NewTableGroupItemStWithDefaults() *TableGroupItemSt {
 	return &this
 }
 
-// GetSubjectID returns the SubjectID field value
+// GetSubjectID returns the SubjectID field value if set, zero value otherwise.
 func (o *TableGroupItemSt) GetSubjectID() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.SubjectID) {
 		var ret int32
 		return ret
 	}
-
-	return o.SubjectID
+	return *o.SubjectID
 }
 
-// GetSubjectIDOk returns a tuple with the SubjectID field value
+// GetSubjectIDOk returns a tuple with the SubjectID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableGroupItemSt) GetSubjectIDOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.SubjectID) {
 		return nil, false
 	}
-	return &o.SubjectID, true
+	return o.SubjectID, true
 }
 
-// SetSubjectID sets field value
+// HasSubjectID returns a boolean if a field has been set.
+func (o *TableGroupItemSt) HasSubjectID() bool {
+	if o != nil && !IsNil(o.SubjectID) {
+		return true
+	}
+
+	return false
+}
+
+// SetSubjectID gets a reference to the given int32 and assigns it to the SubjectID field.
 func (o *TableGroupItemSt) SetSubjectID(v int32) {
-	o.SubjectID = v
+	o.SubjectID = &v
 }
 
-// GetSubjectName returns the SubjectName field value
+// GetSubjectName returns the SubjectName field value if set, zero value otherwise.
 func (o *TableGroupItemSt) GetSubjectName() string {
-	if o == nil {
+	if o == nil || IsNil(o.SubjectName) {
 		var ret string
 		return ret
 	}
-
-	return o.SubjectName
+	return *o.SubjectName
 }
 
-// GetSubjectNameOk returns a tuple with the SubjectName field value
+// GetSubjectNameOk returns a tuple with the SubjectName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableGroupItemSt) GetSubjectNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.SubjectName) {
 		return nil, false
 	}
-	return &o.SubjectName, true
+	return o.SubjectName, true
 }
 
-// SetSubjectName sets field value
+// HasSubjectName returns a boolean if a field has been set.
+func (o *TableGroupItemSt) HasSubjectName() bool {
+	if o != nil && !IsNil(o.SubjectName) {
+		return true
+	}
+
+	return false
+}
+
+// SetSubjectName gets a reference to the given string and assigns it to the SubjectName field.
 func (o *TableGroupItemSt) SetSubjectName(v string) {
-	o.SubjectName = v
+	o.SubjectName = &v
 }
 
-// GetBrandName returns the BrandName field value
+// GetBrandName returns the BrandName field value if set, zero value otherwise.
 func (o *TableGroupItemSt) GetBrandName() string {
-	if o == nil {
+	if o == nil || IsNil(o.BrandName) {
 		var ret string
 		return ret
 	}
-
-	return o.BrandName
+	return *o.BrandName
 }
 
-// GetBrandNameOk returns a tuple with the BrandName field value
+// GetBrandNameOk returns a tuple with the BrandName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableGroupItemSt) GetBrandNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.BrandName) {
 		return nil, false
 	}
-	return &o.BrandName, true
+	return o.BrandName, true
 }
 
-// SetBrandName sets field value
+// HasBrandName returns a boolean if a field has been set.
+func (o *TableGroupItemSt) HasBrandName() bool {
+	if o != nil && !IsNil(o.BrandName) {
+		return true
+	}
+
+	return false
+}
+
+// SetBrandName gets a reference to the given string and assigns it to the BrandName field.
 func (o *TableGroupItemSt) SetBrandName(v string) {
-	o.BrandName = v
+	o.BrandName = &v
 }
 
-// GetTagID returns the TagID field value
+// GetTagID returns the TagID field value if set, zero value otherwise.
 func (o *TableGroupItemSt) GetTagID() int64 {
-	if o == nil {
+	if o == nil || IsNil(o.TagID) {
 		var ret int64
 		return ret
 	}
-
-	return o.TagID
+	return *o.TagID
 }
 
-// GetTagIDOk returns a tuple with the TagID field value
+// GetTagIDOk returns a tuple with the TagID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableGroupItemSt) GetTagIDOk() (*int64, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.TagID) {
 		return nil, false
 	}
-	return &o.TagID, true
+	return o.TagID, true
 }
 
-// SetTagID sets field value
+// HasTagID returns a boolean if a field has been set.
+func (o *TableGroupItemSt) HasTagID() bool {
+	if o != nil && !IsNil(o.TagID) {
+		return true
+	}
+
+	return false
+}
+
+// SetTagID gets a reference to the given int64 and assigns it to the TagID field.
 func (o *TableGroupItemSt) SetTagID(v int64) {
-	o.TagID = v
+	o.TagID = &v
 }
 
-// GetTagName returns the TagName field value
+// GetTagName returns the TagName field value if set, zero value otherwise.
 func (o *TableGroupItemSt) GetTagName() string {
-	if o == nil {
+	if o == nil || IsNil(o.TagName) {
 		var ret string
 		return ret
 	}
-
-	return o.TagName
+	return *o.TagName
 }
 
-// GetTagNameOk returns a tuple with the TagName field value
+// GetTagNameOk returns a tuple with the TagName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableGroupItemSt) GetTagNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.TagName) {
 		return nil, false
 	}
-	return &o.TagName, true
+	return o.TagName, true
 }
 
-// SetTagName sets field value
+// HasTagName returns a boolean if a field has been set.
+func (o *TableGroupItemSt) HasTagName() bool {
+	if o != nil && !IsNil(o.TagName) {
+		return true
+	}
+
+	return false
+}
+
+// SetTagName gets a reference to the given string and assigns it to the TagName field.
 func (o *TableGroupItemSt) SetTagName(v string) {
-	o.TagName = v
+	o.TagName = &v
 }
 
-// GetMetrics returns the Metrics field value
+// GetMetrics returns the Metrics field value if set, zero value otherwise.
 func (o *TableGroupItemSt) GetMetrics() TableCommonMetrics {
-	if o == nil {
+	if o == nil || IsNil(o.Metrics) {
 		var ret TableCommonMetrics
 		return ret
 	}
-
-	return o.Metrics
+	return *o.Metrics
 }
 
-// GetMetricsOk returns a tuple with the Metrics field value
+// GetMetricsOk returns a tuple with the Metrics field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableGroupItemSt) GetMetricsOk() (*TableCommonMetrics, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Metrics) {
 		return nil, false
 	}
-	return &o.Metrics, true
+	return o.Metrics, true
 }
 
-// SetMetrics sets field value
+// HasMetrics returns a boolean if a field has been set.
+func (o *TableGroupItemSt) HasMetrics() bool {
+	if o != nil && !IsNil(o.Metrics) {
+		return true
+	}
+
+	return false
+}
+
+// SetMetrics gets a reference to the given TableCommonMetrics and assigns it to the Metrics field.
 func (o *TableGroupItemSt) SetMetrics(v TableCommonMetrics) {
-	o.Metrics = v
+	o.Metrics = &v
 }
 
-// GetItems returns the Items field value
+// GetItems returns the Items field value if set, zero value otherwise.
 func (o *TableGroupItemSt) GetItems() []TableItemItemSt {
-	if o == nil {
+	if o == nil || IsNil(o.Items) {
 		var ret []TableItemItemSt
 		return ret
 	}
-
 	return o.Items
 }
 
-// GetItemsOk returns a tuple with the Items field value
+// GetItemsOk returns a tuple with the Items field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableGroupItemSt) GetItemsOk() ([]TableItemItemSt, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Items) {
 		return nil, false
 	}
 	return o.Items, true
 }
 
-// SetItems sets field value
+// HasItems returns a boolean if a field has been set.
+func (o *TableGroupItemSt) HasItems() bool {
+	if o != nil && !IsNil(o.Items) {
+		return true
+	}
+
+	return false
+}
+
+// SetItems gets a reference to the given []TableItemItemSt and assigns it to the Items field.
 func (o *TableGroupItemSt) SetItems(v []TableItemItemSt) {
 	o.Items = v
 }
@@ -241,57 +286,28 @@ func (o TableGroupItemSt) MarshalJSON() ([]byte, error) {
 
 func (o TableGroupItemSt) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["subjectID"] = o.SubjectID
-	toSerialize["subjectName"] = o.SubjectName
-	toSerialize["brandName"] = o.BrandName
-	toSerialize["tagID"] = o.TagID
-	toSerialize["tagName"] = o.TagName
-	toSerialize["metrics"] = o.Metrics
-	toSerialize["items"] = o.Items
+	if !IsNil(o.SubjectID) {
+		toSerialize["subjectID"] = o.SubjectID
+	}
+	if !IsNil(o.SubjectName) {
+		toSerialize["subjectName"] = o.SubjectName
+	}
+	if !IsNil(o.BrandName) {
+		toSerialize["brandName"] = o.BrandName
+	}
+	if !IsNil(o.TagID) {
+		toSerialize["tagID"] = o.TagID
+	}
+	if !IsNil(o.TagName) {
+		toSerialize["tagName"] = o.TagName
+	}
+	if !IsNil(o.Metrics) {
+		toSerialize["metrics"] = o.Metrics
+	}
+	if !IsNil(o.Items) {
+		toSerialize["items"] = o.Items
+	}
 	return toSerialize, nil
-}
-
-func (o *TableGroupItemSt) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"subjectID",
-		"subjectName",
-		"brandName",
-		"tagID",
-		"tagName",
-		"metrics",
-		"items",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varTableGroupItemSt := _TableGroupItemSt{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varTableGroupItemSt)
-
-	if err != nil {
-		return err
-	}
-
-	*o = TableGroupItemSt(varTableGroupItemSt)
-
-	return err
 }
 
 type NullableTableGroupItemSt struct {

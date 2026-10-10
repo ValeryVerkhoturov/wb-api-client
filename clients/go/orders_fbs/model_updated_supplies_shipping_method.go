@@ -11,9 +11,7 @@ API version: order
 package orders_fbs
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the UpdatedSuppliesShippingMethod type satisfies the MappedNullable interface at compile time
@@ -25,18 +23,15 @@ type UpdatedSuppliesShippingMethod struct {
 	// Успешна ли обработка запроса для данной поставки. Может быть только `true`
 	Success *bool `json:"success,omitempty"`
 	// ID поставки
-	SupplyId string `json:"supplyId"`
+	SupplyId *string `json:"supplyId,omitempty"`
 }
-
-type _UpdatedSuppliesShippingMethod UpdatedSuppliesShippingMethod
 
 // NewUpdatedSuppliesShippingMethod instantiates a new UpdatedSuppliesShippingMethod object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewUpdatedSuppliesShippingMethod(supplyId string) *UpdatedSuppliesShippingMethod {
+func NewUpdatedSuppliesShippingMethod() *UpdatedSuppliesShippingMethod {
 	this := UpdatedSuppliesShippingMethod{}
-	this.SupplyId = supplyId
 	return &this
 }
 
@@ -112,28 +107,36 @@ func (o *UpdatedSuppliesShippingMethod) SetSuccess(v bool) {
 	o.Success = &v
 }
 
-// GetSupplyId returns the SupplyId field value
+// GetSupplyId returns the SupplyId field value if set, zero value otherwise.
 func (o *UpdatedSuppliesShippingMethod) GetSupplyId() string {
-	if o == nil {
+	if o == nil || IsNil(o.SupplyId) {
 		var ret string
 		return ret
 	}
-
-	return o.SupplyId
+	return *o.SupplyId
 }
 
-// GetSupplyIdOk returns a tuple with the SupplyId field value
+// GetSupplyIdOk returns a tuple with the SupplyId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UpdatedSuppliesShippingMethod) GetSupplyIdOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.SupplyId) {
 		return nil, false
 	}
-	return &o.SupplyId, true
+	return o.SupplyId, true
 }
 
-// SetSupplyId sets field value
+// HasSupplyId returns a boolean if a field has been set.
+func (o *UpdatedSuppliesShippingMethod) HasSupplyId() bool {
+	if o != nil && !IsNil(o.SupplyId) {
+		return true
+	}
+
+	return false
+}
+
+// SetSupplyId gets a reference to the given string and assigns it to the SupplyId field.
 func (o *UpdatedSuppliesShippingMethod) SetSupplyId(v string) {
-	o.SupplyId = v
+	o.SupplyId = &v
 }
 
 func (o UpdatedSuppliesShippingMethod) MarshalJSON() ([]byte, error) {
@@ -152,45 +155,10 @@ func (o UpdatedSuppliesShippingMethod) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Success) {
 		toSerialize["success"] = o.Success
 	}
-	toSerialize["supplyId"] = o.SupplyId
+	if !IsNil(o.SupplyId) {
+		toSerialize["supplyId"] = o.SupplyId
+	}
 	return toSerialize, nil
-}
-
-func (o *UpdatedSuppliesShippingMethod) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"supplyId",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varUpdatedSuppliesShippingMethod := _UpdatedSuppliesShippingMethod{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varUpdatedSuppliesShippingMethod)
-
-	if err != nil {
-		return err
-	}
-
-	*o = UpdatedSuppliesShippingMethod(varUpdatedSuppliesShippingMethod)
-
-	return err
 }
 
 type NullableUpdatedSuppliesShippingMethod struct {

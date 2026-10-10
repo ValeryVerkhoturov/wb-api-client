@@ -34,26 +34,16 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="WHM" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected WHM() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="WHM" /> class.
-        /// </summary>
-        /// <param name="data">data (required).</param>
+        /// <param name="data">data.</param>
         public WHM(WHMData data = default(WHMData))
         {
-            // to ensure "data" is required (not null)
-            if (data == null)
-            {
-                throw new ArgumentNullException("data is a required property for WHM and cannot be null");
-            }
             this.Data = data;
         }
 
         /// <summary>
         /// Gets or Sets Data
         /// </summary>
-        [DataMember(Name = "data", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "data", EmitDefaultValue = false)]
         public WHMData Data { get; set; }
 
         /// <summary>

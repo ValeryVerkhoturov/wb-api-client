@@ -34,42 +34,17 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ResponseErrorV3" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected ResponseErrorV3() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ResponseErrorV3" /> class.
-        /// </summary>
-        /// <param name="status">HTTP статус-код (required).</param>
-        /// <param name="title">Заголовок ошибки (required).</param>
-        /// <param name="detail">Детали ошибки (required).</param>
-        /// <param name="requestId">ID запроса (required).</param>
-        /// <param name="origin">ID внутреннего сервиса WB (required).</param>
+        /// <param name="status">HTTP статус-код.</param>
+        /// <param name="title">Заголовок ошибки.</param>
+        /// <param name="detail">Детали ошибки.</param>
+        /// <param name="requestId">ID запроса.</param>
+        /// <param name="origin">ID внутреннего сервиса WB.</param>
         public ResponseErrorV3(int status = default(int), string title = default(string), string detail = default(string), string requestId = default(string), string origin = default(string))
         {
             this.Status = status;
-            // to ensure "title" is required (not null)
-            if (title == null)
-            {
-                throw new ArgumentNullException("title is a required property for ResponseErrorV3 and cannot be null");
-            }
             this.Title = title;
-            // to ensure "detail" is required (not null)
-            if (detail == null)
-            {
-                throw new ArgumentNullException("detail is a required property for ResponseErrorV3 and cannot be null");
-            }
             this.Detail = detail;
-            // to ensure "requestId" is required (not null)
-            if (requestId == null)
-            {
-                throw new ArgumentNullException("requestId is a required property for ResponseErrorV3 and cannot be null");
-            }
             this.RequestId = requestId;
-            // to ensure "origin" is required (not null)
-            if (origin == null)
-            {
-                throw new ArgumentNullException("origin is a required property for ResponseErrorV3 and cannot be null");
-            }
             this.Origin = origin;
         }
 
@@ -80,7 +55,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /*
         <example>400</example>
         */
-        [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "status", EmitDefaultValue = false)]
         public int Status { get; set; }
 
         /// <summary>
@@ -90,7 +65,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /*
         <example>Bad Request</example>
         */
-        [DataMember(Name = "title", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "title", EmitDefaultValue = false)]
         public string Title { get; set; }
 
         /// <summary>
@@ -100,7 +75,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /*
         <example>Invalid data format</example>
         */
-        [DataMember(Name = "detail", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "detail", EmitDefaultValue = false)]
         public string Detail { get; set; }
 
         /// <summary>
@@ -110,7 +85,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /*
         <example>4b387d2e-13b0-4be7-a34c-be01fb35fd2d</example>
         */
-        [DataMember(Name = "requestId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "requestId", EmitDefaultValue = false)]
         public string RequestId { get; set; }
 
         /// <summary>
@@ -120,7 +95,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /*
         <example>discounts-prices</example>
         */
-        [DataMember(Name = "origin", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "origin", EmitDefaultValue = false)]
         public string Origin { get; set; }
 
         /// <summary>

@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,12 +28,12 @@ class SearchReportPositionChartItem(BaseModel):
     SearchReportPositionChartItem
     """  # noqa: E501
 
-    dt: StrictStr = Field(description="Дата")
-    average: StrictInt = Field(
-        description="Средняя позиция товара в результатах поиска"
+    dt: Optional[StrictStr] = Field(default=None, description="Дата")
+    average: Optional[StrictInt] = Field(
+        default=None, description="Средняя позиция товара в результатах поиска"
     )
-    median: StrictInt = Field(
-        description="Медианная позиция товара в результатах поиска"
+    median: Optional[StrictInt] = Field(
+        default=None, description="Медианная позиция товара в результатах поиска"
     )
     __properties: ClassVar[List[str]] = ["dt", "average", "median"]
 

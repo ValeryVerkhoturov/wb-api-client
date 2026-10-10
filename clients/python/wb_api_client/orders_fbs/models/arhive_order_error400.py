@@ -32,7 +32,7 @@ class ArhiveOrderError400(BaseModel):
     """  # noqa: E501
 
     code: Optional[StrictStr] = Field(default=None, description="Код ошибки")
-    detail: StrictStr = Field(description="Детали ошибки")
+    detail: Optional[StrictStr] = Field(default=None, description="Детали ошибки")
     errors: Optional[List[ArhiveOrderError400ErrorsInner]] = Field(
         default=None, description="Информация об ошибке"
     )
@@ -45,7 +45,7 @@ class ArhiveOrderError400(BaseModel):
     status: Optional[StrictInt] = Field(
         default=None, description="HTTP статус-код ответа"
     )
-    title: StrictStr = Field(description="Заголовок ошибки")
+    title: Optional[StrictStr] = Field(default=None, description="Заголовок ошибки")
     __properties: ClassVar[List[str]] = [
         "code",
         "detail",

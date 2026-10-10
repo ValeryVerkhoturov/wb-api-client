@@ -36,18 +36,18 @@ public class TableItemItemAllOfPrice {
   public static final String SERIALIZED_NAME_MIN_PRICE = "minPrice";
 
   @SerializedName(SERIALIZED_NAME_MIN_PRICE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer minPrice;
 
   public static final String SERIALIZED_NAME_MAX_PRICE = "maxPrice";
 
   @SerializedName(SERIALIZED_NAME_MAX_PRICE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer maxPrice;
 
   public TableItemItemAllOfPrice() {}
 
-  public TableItemItemAllOfPrice minPrice(@jakarta.annotation.Nonnull Integer minPrice) {
+  public TableItemItemAllOfPrice minPrice(@jakarta.annotation.Nullable Integer minPrice) {
     this.minPrice = minPrice;
     return this;
   }
@@ -57,16 +57,16 @@ public class TableItemItemAllOfPrice {
    *
    * @return minPrice
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getMinPrice() {
     return minPrice;
   }
 
-  public void setMinPrice(@jakarta.annotation.Nonnull Integer minPrice) {
+  public void setMinPrice(@jakarta.annotation.Nullable Integer minPrice) {
     this.minPrice = minPrice;
   }
 
-  public TableItemItemAllOfPrice maxPrice(@jakarta.annotation.Nonnull Integer maxPrice) {
+  public TableItemItemAllOfPrice maxPrice(@jakarta.annotation.Nullable Integer maxPrice) {
     this.maxPrice = maxPrice;
     return this;
   }
@@ -76,12 +76,12 @@ public class TableItemItemAllOfPrice {
    *
    * @return maxPrice
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getMaxPrice() {
     return maxPrice;
   }
 
-  public void setMaxPrice(@jakarta.annotation.Nonnull Integer maxPrice) {
+  public void setMaxPrice(@jakarta.annotation.Nullable Integer maxPrice) {
     this.maxPrice = maxPrice;
   }
 
@@ -134,8 +134,6 @@ public class TableItemItemAllOfPrice {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("minPrice");
-    openapiRequiredFields.add("maxPrice");
   }
 
   /**
@@ -163,16 +161,6 @@ public class TableItemItemAllOfPrice {
             String.format(
                 "The field `%s` in the JSON string is not defined in the `TableItemItemAllOfPrice` properties. JSON: %s",
                 entry.getKey(), jsonElement.toString()));
-      }
-    }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : TableItemItemAllOfPrice.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
       }
     }
     JsonObject jsonObj = jsonElement.getAsJsonObject();

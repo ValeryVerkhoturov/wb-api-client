@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,12 +28,15 @@ class V3ArchiveOrderStatus(BaseModel):
     Последние статусы сборочного задания
     """  # noqa: E501
 
-    supplier_status: StrictStr = Field(
+    supplier_status: Optional[StrictStr] = Field(
+        default=None,
         description="Статус сборочного задания, установленный продавцом",
         alias="supplierStatus",
     )
-    wb_status: StrictStr = Field(
-        description="Статус сборочного задания в системе Wildberries", alias="wbStatus"
+    wb_status: Optional[StrictStr] = Field(
+        default=None,
+        description="Статус сборочного задания в системе Wildberries",
+        alias="wbStatus",
     )
     __properties: ClassVar[List[str]] = ["supplierStatus", "wbStatus"]
 

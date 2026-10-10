@@ -39,13 +39,13 @@ public class PostV1BidsMinResponse200 {
   public static final String SERIALIZED_NAME_BIDS = "bids";
 
   @SerializedName(SERIALIZED_NAME_BIDS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private List<PostV1BidsMinResponse200BidsInner> bids = new ArrayList<>();
 
   public PostV1BidsMinResponse200() {}
 
   public PostV1BidsMinResponse200 bids(
-      @jakarta.annotation.Nonnull List<PostV1BidsMinResponse200BidsInner> bids) {
+      @jakarta.annotation.Nullable List<PostV1BidsMinResponse200BidsInner> bids) {
     this.bids = bids;
     return this;
   }
@@ -63,12 +63,12 @@ public class PostV1BidsMinResponse200 {
    *
    * @return bids
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public List<PostV1BidsMinResponse200BidsInner> getBids() {
     return bids;
   }
 
-  public void setBids(@jakarta.annotation.Nonnull List<PostV1BidsMinResponse200BidsInner> bids) {
+  public void setBids(@jakarta.annotation.Nullable List<PostV1BidsMinResponse200BidsInner> bids) {
     this.bids = bids;
   }
 
@@ -118,7 +118,6 @@ public class PostV1BidsMinResponse200 {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("bids");
   }
 
   /**
@@ -148,31 +147,25 @@ public class PostV1BidsMinResponse200 {
                 entry.getKey(), jsonElement.toString()));
       }
     }
+    JsonObject jsonObj = jsonElement.getAsJsonObject();
+    if (jsonObj.get("bids") != null && !jsonObj.get("bids").isJsonNull()) {
+      JsonArray jsonArraybids = jsonObj.getAsJsonArray("bids");
+      if (jsonArraybids != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("bids").isJsonArray()) {
+          throw new IllegalArgumentException(
+              String.format(
+                  "Expected the field `bids` to be an array in the JSON string but got `%s`",
+                  jsonObj.get("bids").toString()));
+        }
 
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : PostV1BidsMinResponse200.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
+        // validate the optional field `bids` (array)
+        for (int i = 0; i < jsonArraybids.size(); i++) {
+          PostV1BidsMinResponse200BidsInner.validateJsonElement(jsonArraybids.get(i));
+        }
+        ;
       }
     }
-    JsonObject jsonObj = jsonElement.getAsJsonObject();
-    // ensure the json data is an array
-    if (!jsonObj.get("bids").isJsonArray()) {
-      throw new IllegalArgumentException(
-          String.format(
-              "Expected the field `bids` to be an array in the JSON string but got `%s`",
-              jsonObj.get("bids").toString()));
-    }
-
-    JsonArray jsonArraybids = jsonObj.getAsJsonArray("bids");
-    // validate the required field `bids` (array)
-    for (int i = 0; i < jsonArraybids.size(); i++) {
-      PostV1BidsMinResponse200BidsInner.validateJsonElement(jsonArraybids.get(i));
-    }
-    ;
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

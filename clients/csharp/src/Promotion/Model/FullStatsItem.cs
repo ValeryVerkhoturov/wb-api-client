@@ -34,67 +34,52 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FullStatsItem" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected FullStatsItem() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="FullStatsItem" /> class.
-        /// </summary>
-        /// <param name="advertId">ID кампании (required).</param>
-        /// <param name="atbs">Количество добавлений товаров в корзину (required).</param>
+        /// <param name="advertId">ID кампании.</param>
+        /// <param name="atbs">Количество добавлений товаров в корзину.</param>
         /// <param name="boosterStats">Статистика по средней позиции товара (для кампаний с единой ставкой).</param>
-        /// <param name="canceled">Отмены, шт. (required).</param>
-        /// <param name="clicks">Количество кликов (required).</param>
-        /// <param name="cpc">Средняя стоимость клика в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) (required).</param>
-        /// <param name="cr">CR (conversion rate) — отношение количества заказов к общему количеству кликов (required).</param>
-        /// <param name="ctr">CTR (click-through rate) — отношение числа кликов к количеству показов в процентах (required).</param>
-        /// <param name="days">Статистка по дням (required).</param>
-        /// <param name="orders">Количество заказов (required).</param>
-        /// <param name="shks">Количество заказанных товаров, шт. (required).</param>
-        /// <param name="sum">Затраты в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) (required).</param>
-        /// <param name="sumPrice">Сумма заказов в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) (required).</param>
-        /// <param name="views">Количество просмотров (required).</param>
-        /// <param name="currency">Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) (required).</param>
+        /// <param name="canceled">Отмены, шт..</param>
+        /// <param name="clicks">Количество кликов.</param>
+        /// <param name="cpc">Средняя стоимость клика в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).</param>
+        /// <param name="cr">CR (conversion rate) — отношение количества заказов к общему количеству кликов.</param>
+        /// <param name="ctr">CTR (click-through rate) — отношение числа кликов к количеству показов в процентах.</param>
+        /// <param name="days">Статистка по дням.</param>
+        /// <param name="orders">Количество заказов.</param>
+        /// <param name="shks">Количество заказанных товаров, шт..</param>
+        /// <param name="sum">Затраты в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).</param>
+        /// <param name="sumPrice">Сумма заказов в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).</param>
+        /// <param name="views">Количество просмотров.</param>
+        /// <param name="currency">Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).</param>
         public FullStatsItem(int advertId = default(int), int atbs = default(int), List<FullStatsItemBoosterStatsInner> boosterStats = default(List<FullStatsItemBoosterStatsInner>), int canceled = default(int), int clicks = default(int), double cpc = default(double), double cr = default(double), double ctr = default(double), List<FullStatsItemDaysInner> days = default(List<FullStatsItemDaysInner>), int orders = default(int), int shks = default(int), double sum = default(double), double sumPrice = default(double), int views = default(int), string currency = default(string))
         {
             this.AdvertId = advertId;
             this.Atbs = atbs;
+            this.BoosterStats = boosterStats;
             this.Canceled = canceled;
             this.Clicks = clicks;
             this.Cpc = cpc;
             this.Cr = cr;
             this.Ctr = ctr;
-            // to ensure "days" is required (not null)
-            if (days == null)
-            {
-                throw new ArgumentNullException("days is a required property for FullStatsItem and cannot be null");
-            }
             this.Days = days;
             this.Orders = orders;
             this.Shks = shks;
             this.Sum = sum;
             this.SumPrice = sumPrice;
             this.Views = views;
-            // to ensure "currency" is required (not null)
-            if (currency == null)
-            {
-                throw new ArgumentNullException("currency is a required property for FullStatsItem and cannot be null");
-            }
             this.Currency = currency;
-            this.BoosterStats = boosterStats;
         }
 
         /// <summary>
         /// ID кампании
         /// </summary>
         /// <value>ID кампании</value>
-        [DataMember(Name = "advertId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "advertId", EmitDefaultValue = false)]
         public int AdvertId { get; set; }
 
         /// <summary>
         /// Количество добавлений товаров в корзину
         /// </summary>
         /// <value>Количество добавлений товаров в корзину</value>
-        [DataMember(Name = "atbs", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "atbs", EmitDefaultValue = false)]
         public int Atbs { get; set; }
 
         /// <summary>
@@ -108,84 +93,84 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// Отмены, шт.
         /// </summary>
         /// <value>Отмены, шт.</value>
-        [DataMember(Name = "canceled", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "canceled", EmitDefaultValue = false)]
         public int Canceled { get; set; }
 
         /// <summary>
         /// Количество кликов
         /// </summary>
         /// <value>Количество кликов</value>
-        [DataMember(Name = "clicks", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "clicks", EmitDefaultValue = false)]
         public int Clicks { get; set; }
 
         /// <summary>
         /// Средняя стоимость клика в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
         /// </summary>
         /// <value>Средняя стоимость клика в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)</value>
-        [DataMember(Name = "cpc", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "cpc", EmitDefaultValue = false)]
         public double Cpc { get; set; }
 
         /// <summary>
         /// CR (conversion rate) — отношение количества заказов к общему количеству кликов
         /// </summary>
         /// <value>CR (conversion rate) — отношение количества заказов к общему количеству кликов</value>
-        [DataMember(Name = "cr", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "cr", EmitDefaultValue = false)]
         public double Cr { get; set; }
 
         /// <summary>
         /// CTR (click-through rate) — отношение числа кликов к количеству показов в процентах
         /// </summary>
         /// <value>CTR (click-through rate) — отношение числа кликов к количеству показов в процентах</value>
-        [DataMember(Name = "ctr", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "ctr", EmitDefaultValue = false)]
         public double Ctr { get; set; }
 
         /// <summary>
         /// Статистка по дням
         /// </summary>
         /// <value>Статистка по дням</value>
-        [DataMember(Name = "days", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "days", EmitDefaultValue = false)]
         public List<FullStatsItemDaysInner> Days { get; set; }
 
         /// <summary>
         /// Количество заказов
         /// </summary>
         /// <value>Количество заказов</value>
-        [DataMember(Name = "orders", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "orders", EmitDefaultValue = false)]
         public int Orders { get; set; }
 
         /// <summary>
         /// Количество заказанных товаров, шт.
         /// </summary>
         /// <value>Количество заказанных товаров, шт.</value>
-        [DataMember(Name = "shks", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "shks", EmitDefaultValue = false)]
         public int Shks { get; set; }
 
         /// <summary>
         /// Затраты в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
         /// </summary>
         /// <value>Затраты в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)</value>
-        [DataMember(Name = "sum", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "sum", EmitDefaultValue = false)]
         public double Sum { get; set; }
 
         /// <summary>
         /// Сумма заказов в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
         /// </summary>
         /// <value>Сумма заказов в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)</value>
-        [DataMember(Name = "sum_price", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "sum_price", EmitDefaultValue = false)]
         public double SumPrice { get; set; }
 
         /// <summary>
         /// Количество просмотров
         /// </summary>
         /// <value>Количество просмотров</value>
-        [DataMember(Name = "views", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "views", EmitDefaultValue = false)]
         public int Views { get; set; }
 
         /// <summary>
         /// Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
         /// </summary>
         /// <value>Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)</value>
-        [DataMember(Name = "currency", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "currency", EmitDefaultValue = false)]
         public string Currency { get; set; }
 
         /// <summary>

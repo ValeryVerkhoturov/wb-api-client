@@ -34,20 +34,10 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GetRecomRes" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected GetRecomRes() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="GetRecomRes" /> class.
-        /// </summary>
-        /// <param name="data">Данные о товарах и их рекомендациях (required).</param>
-        /// <param name="next">Курсор. Последний &#x60;nmId&#x60; в ответе (required).</param>
+        /// <param name="data">Данные о товарах и их рекомендациях.</param>
+        /// <param name="next">Курсор. Последний &#x60;nmId&#x60; в ответе.</param>
         public GetRecomRes(List<GetRecomResDataInner> data = default(List<GetRecomResDataInner>), int next = default(int))
         {
-            // to ensure "data" is required (not null)
-            if (data == null)
-            {
-                throw new ArgumentNullException("data is a required property for GetRecomRes and cannot be null");
-            }
             this.Data = data;
             this.Next = next;
         }
@@ -56,7 +46,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// Данные о товарах и их рекомендациях
         /// </summary>
         /// <value>Данные о товарах и их рекомендациях</value>
-        [DataMember(Name = "data", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "data", EmitDefaultValue = false)]
         public List<GetRecomResDataInner> Data { get; set; }
 
         /// <summary>
@@ -66,7 +56,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /*
         <example>143</example>
         */
-        [DataMember(Name = "next", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "next", EmitDefaultValue = false)]
         public int Next { get; set; }
 
         /// <summary>

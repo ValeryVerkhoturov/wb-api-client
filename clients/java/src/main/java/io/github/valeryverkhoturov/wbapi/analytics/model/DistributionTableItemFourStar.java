@@ -36,7 +36,7 @@ public class DistributionTableItemFourStar {
   public static final String SERIALIZED_NAME_CURRENT = "current";
 
   @SerializedName(SERIALIZED_NAME_CURRENT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer current;
 
   public static final String SERIALIZED_NAME_DYNAMICS = "dynamics";
@@ -47,7 +47,7 @@ public class DistributionTableItemFourStar {
 
   public DistributionTableItemFourStar() {}
 
-  public DistributionTableItemFourStar current(@jakarta.annotation.Nonnull Integer current) {
+  public DistributionTableItemFourStar current(@jakarta.annotation.Nullable Integer current) {
     this.current = current;
     return this;
   }
@@ -57,12 +57,12 @@ public class DistributionTableItemFourStar {
    *
    * @return current
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getCurrent() {
     return current;
   }
 
-  public void setCurrent(@jakarta.annotation.Nonnull Integer current) {
+  public void setCurrent(@jakarta.annotation.Nullable Integer current) {
     this.current = current;
   }
 
@@ -134,7 +134,6 @@ public class DistributionTableItemFourStar {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("current");
   }
 
   /**
@@ -163,16 +162,6 @@ public class DistributionTableItemFourStar {
             String.format(
                 "The field `%s` in the JSON string is not defined in the `DistributionTableItemFourStar` properties. JSON: %s",
                 entry.getKey(), jsonElement.toString()));
-      }
-    }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : DistributionTableItemFourStar.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
       }
     }
     JsonObject jsonObj = jsonElement.getAsJsonObject();

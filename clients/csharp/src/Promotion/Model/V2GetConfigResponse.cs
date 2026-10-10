@@ -34,24 +34,14 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="V2GetConfigResponse" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected V2GetConfigResponse() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="V2GetConfigResponse" /> class.
-        /// </summary>
-        /// <param name="currency">Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) (required).</param>
-        /// <param name="currencyCode">Код валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) (required).</param>
-        /// <param name="cpmStep">Шаг ставки в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) для CPM-кампаний (required).</param>
-        /// <param name="cpcStep">Шаг ставки в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) для кампаний CPC (required).</param>
-        /// <param name="minTopUp">Минимальная сумма пополнения бюджета кампании в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).  Например, минимальная сумма пополнения бюджета при &#x60;\&quot;minTopUp\&quot;: 10000&#x60; и &#x60;\&quot;currency\&quot;: \&quot;UZS\&quot;&#x60; — 100 узбекских сум  (required).</param>
-        /// <param name="minDailyLimit">Минимально допустимый размер дневного лимита, вне зависимости от ставок кампании. Указывается в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)  (required).</param>
+        /// <param name="currency">Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).</param>
+        /// <param name="currencyCode">Код валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).</param>
+        /// <param name="cpmStep">Шаг ставки в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) для CPM-кампаний.</param>
+        /// <param name="cpcStep">Шаг ставки в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) для кампаний CPC.</param>
+        /// <param name="minTopUp">Минимальная сумма пополнения бюджета кампании в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).  Например, минимальная сумма пополнения бюджета при &#x60;\&quot;minTopUp\&quot;: 10000&#x60; и &#x60;\&quot;currency\&quot;: \&quot;UZS\&quot;&#x60; — 100 узбекских сум .</param>
+        /// <param name="minDailyLimit">Минимально допустимый размер дневного лимита, вне зависимости от ставок кампании. Указывается в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) .</param>
         public V2GetConfigResponse(string currency = default(string), int currencyCode = default(int), long cpmStep = default(long), long cpcStep = default(long), long minTopUp = default(long), long minDailyLimit = default(long))
         {
-            // to ensure "currency" is required (not null)
-            if (currency == null)
-            {
-                throw new ArgumentNullException("currency is a required property for V2GetConfigResponse and cannot be null");
-            }
             this.Currency = currency;
             this.CurrencyCode = currencyCode;
             this.CpmStep = cpmStep;
@@ -64,42 +54,42 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
         /// </summary>
         /// <value>Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)</value>
-        [DataMember(Name = "currency", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "currency", EmitDefaultValue = false)]
         public string Currency { get; set; }
 
         /// <summary>
         /// Код валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
         /// </summary>
         /// <value>Код валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)</value>
-        [DataMember(Name = "currencyCode", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "currencyCode", EmitDefaultValue = false)]
         public int CurrencyCode { get; set; }
 
         /// <summary>
         /// Шаг ставки в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) для CPM-кампаний
         /// </summary>
         /// <value>Шаг ставки в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) для CPM-кампаний</value>
-        [DataMember(Name = "cpmStep", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "cpmStep", EmitDefaultValue = false)]
         public long CpmStep { get; set; }
 
         /// <summary>
         /// Шаг ставки в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) для кампаний CPC
         /// </summary>
         /// <value>Шаг ставки в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) для кампаний CPC</value>
-        [DataMember(Name = "cpcStep", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "cpcStep", EmitDefaultValue = false)]
         public long CpcStep { get; set; }
 
         /// <summary>
         /// Минимальная сумма пополнения бюджета кампании в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).  Например, минимальная сумма пополнения бюджета при &#x60;\&quot;minTopUp\&quot;: 10000&#x60; и &#x60;\&quot;currency\&quot;: \&quot;UZS\&quot;&#x60; — 100 узбекских сум 
         /// </summary>
         /// <value>Минимальная сумма пополнения бюджета кампании в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).  Например, минимальная сумма пополнения бюджета при &#x60;\&quot;minTopUp\&quot;: 10000&#x60; и &#x60;\&quot;currency\&quot;: \&quot;UZS\&quot;&#x60; — 100 узбекских сум </value>
-        [DataMember(Name = "minTopUp", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "minTopUp", EmitDefaultValue = false)]
         public long MinTopUp { get; set; }
 
         /// <summary>
         /// Минимально допустимый размер дневного лимита, вне зависимости от ставок кампании. Указывается в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) 
         /// </summary>
         /// <value>Минимально допустимый размер дневного лимита, вне зависимости от ставок кампании. Указывается в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) </value>
-        [DataMember(Name = "minDailyLimit", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "minDailyLimit", EmitDefaultValue = false)]
         public long MinDailyLimit { get; set; }
 
         /// <summary>

@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from wb_api_client.analytics.models.items_response_products_inner import (
     ItemsResponseProductsInner,
 )
@@ -31,10 +31,10 @@ class PostV3SalesFunnelProductsResponse200Data(BaseModel):
     PostV3SalesFunnelProductsResponse200Data
     """  # noqa: E501
 
-    products: List[ItemsResponseProductsInner] = Field(
-        description="Список карточек товаров"
+    products: Optional[List[ItemsResponseProductsInner]] = Field(
+        default=None, description="Список карточек товаров"
     )
-    currency: StrictStr = Field(description="Валюта отчёта")
+    currency: Optional[StrictStr] = Field(default=None, description="Валюта отчёта")
     __properties: ClassVar[List[str]] = ["products", "currency"]
 
     model_config = ConfigDict(

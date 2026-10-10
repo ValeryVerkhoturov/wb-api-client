@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,12 +28,16 @@ class V0PutDailyLimitsAdvertResult(BaseModel):
     V0PutDailyLimitsAdvertResult
     """  # noqa: E501
 
-    advert_id: StrictInt = Field(description="ID кампании", alias="advertId")
-    below_min_limit: StrictBool = Field(
+    advert_id: Optional[StrictInt] = Field(
+        default=None, description="ID кампании", alias="advertId"
+    )
+    below_min_limit: Optional[StrictBool] = Field(
+        default=None,
         description="Установленный размер дневного лимита ниже рекомендуемого минимума относительно текущих ставок `requiredLimit`:   - `true` — да   - `false` — нет ",
         alias="belowMinLimit",
     )
-    required_limit: StrictInt = Field(
+    required_limit: Optional[StrictInt] = Field(
+        default=None,
         description="Рекомендуемый минимальный размер дневного лимита при текущих ставках кампании. Указывается в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances). С меньшим лимитом бюджет может расходоваться неравномерно и в кампании возникнут ошибки ",
         alias="requiredLimit",
     )

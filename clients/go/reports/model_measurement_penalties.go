@@ -11,9 +11,7 @@ API version: reports
 package reports
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the MeasurementPenalties type satisfies the MappedNullable interface at compile time
@@ -21,18 +19,15 @@ var _ MappedNullable = &MeasurementPenalties{}
 
 // MeasurementPenalties struct for MeasurementPenalties
 type MeasurementPenalties struct {
-	Data MeasurementPenaltiesData `json:"data"`
+	Data *MeasurementPenaltiesData `json:"data,omitempty"`
 }
-
-type _MeasurementPenalties MeasurementPenalties
 
 // NewMeasurementPenalties instantiates a new MeasurementPenalties object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewMeasurementPenalties(data MeasurementPenaltiesData) *MeasurementPenalties {
+func NewMeasurementPenalties() *MeasurementPenalties {
 	this := MeasurementPenalties{}
-	this.Data = data
 	return &this
 }
 
@@ -44,28 +39,36 @@ func NewMeasurementPenaltiesWithDefaults() *MeasurementPenalties {
 	return &this
 }
 
-// GetData returns the Data field value
+// GetData returns the Data field value if set, zero value otherwise.
 func (o *MeasurementPenalties) GetData() MeasurementPenaltiesData {
-	if o == nil {
+	if o == nil || IsNil(o.Data) {
 		var ret MeasurementPenaltiesData
 		return ret
 	}
-
-	return o.Data
+	return *o.Data
 }
 
-// GetDataOk returns a tuple with the Data field value
+// GetDataOk returns a tuple with the Data field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MeasurementPenalties) GetDataOk() (*MeasurementPenaltiesData, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Data) {
 		return nil, false
 	}
-	return &o.Data, true
+	return o.Data, true
 }
 
-// SetData sets field value
+// HasData returns a boolean if a field has been set.
+func (o *MeasurementPenalties) HasData() bool {
+	if o != nil && !IsNil(o.Data) {
+		return true
+	}
+
+	return false
+}
+
+// SetData gets a reference to the given MeasurementPenaltiesData and assigns it to the Data field.
 func (o *MeasurementPenalties) SetData(v MeasurementPenaltiesData) {
-	o.Data = v
+	o.Data = &v
 }
 
 func (o MeasurementPenalties) MarshalJSON() ([]byte, error) {
@@ -78,45 +81,10 @@ func (o MeasurementPenalties) MarshalJSON() ([]byte, error) {
 
 func (o MeasurementPenalties) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["data"] = o.Data
+	if !IsNil(o.Data) {
+		toSerialize["data"] = o.Data
+	}
 	return toSerialize, nil
-}
-
-func (o *MeasurementPenalties) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"data",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varMeasurementPenalties := _MeasurementPenalties{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varMeasurementPenalties)
-
-	if err != nil {
-		return err
-	}
-
-	*o = MeasurementPenalties(varMeasurementPenalties)
-
-	return err
 }
 
 type NullableMeasurementPenalties struct {

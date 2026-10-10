@@ -11,9 +11,7 @@ API version: promotion
 package promotion
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the GetAdvertsAdvertsInner type satisfies the MappedNullable interface at compile time
@@ -22,35 +20,26 @@ var _ MappedNullable = &GetAdvertsAdvertsInner{}
 // GetAdvertsAdvertsInner struct for GetAdvertsAdvertsInner
 type GetAdvertsAdvertsInner struct {
 	// Тип ставки:   - `unified` — единая ставка   - `manual` — ручная ставка
-	BidType string `json:"bid_type"`
+	BidType *string `json:"bid_type,omitempty"`
 	// Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
 	Currency *string `json:"currency,omitempty"`
 	// ID кампании
-	Id int64 `json:"id"`
+	Id *int64 `json:"id,omitempty"`
 	// Настройки товаров
-	NmSettings   []AdvertNMsSettings                `json:"nm_settings"`
-	Settings     AdvertSettings                     `json:"settings"`
-	Restrictions GetAdvertsAdvertsInnerRestrictions `json:"restrictions"`
+	NmSettings   []AdvertNMsSettings                 `json:"nm_settings,omitempty"`
+	Settings     *AdvertSettings                     `json:"settings,omitempty"`
+	Restrictions *GetAdvertsAdvertsInnerRestrictions `json:"restrictions,omitempty"`
 	// Статус кампании: - `-1` — удалена, процесс удаления будет завершён в течение 10 минут - `4` — готова к запуску - `7` — завершена - `8` — отменена - `9` — активна - `11` — на паузе
-	Status     int32      `json:"status"`
-	Timestamps Timestamps `json:"timestamps"`
+	Status     *int32      `json:"status,omitempty"`
+	Timestamps *Timestamps `json:"timestamps,omitempty"`
 }
-
-type _GetAdvertsAdvertsInner GetAdvertsAdvertsInner
 
 // NewGetAdvertsAdvertsInner instantiates a new GetAdvertsAdvertsInner object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetAdvertsAdvertsInner(bidType string, id int64, nmSettings []AdvertNMsSettings, settings AdvertSettings, restrictions GetAdvertsAdvertsInnerRestrictions, status int32, timestamps Timestamps) *GetAdvertsAdvertsInner {
+func NewGetAdvertsAdvertsInner() *GetAdvertsAdvertsInner {
 	this := GetAdvertsAdvertsInner{}
-	this.BidType = bidType
-	this.Id = id
-	this.NmSettings = nmSettings
-	this.Settings = settings
-	this.Restrictions = restrictions
-	this.Status = status
-	this.Timestamps = timestamps
 	return &this
 }
 
@@ -62,28 +51,36 @@ func NewGetAdvertsAdvertsInnerWithDefaults() *GetAdvertsAdvertsInner {
 	return &this
 }
 
-// GetBidType returns the BidType field value
+// GetBidType returns the BidType field value if set, zero value otherwise.
 func (o *GetAdvertsAdvertsInner) GetBidType() string {
-	if o == nil {
+	if o == nil || IsNil(o.BidType) {
 		var ret string
 		return ret
 	}
-
-	return o.BidType
+	return *o.BidType
 }
 
-// GetBidTypeOk returns a tuple with the BidType field value
+// GetBidTypeOk returns a tuple with the BidType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetAdvertsAdvertsInner) GetBidTypeOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.BidType) {
 		return nil, false
 	}
-	return &o.BidType, true
+	return o.BidType, true
 }
 
-// SetBidType sets field value
+// HasBidType returns a boolean if a field has been set.
+func (o *GetAdvertsAdvertsInner) HasBidType() bool {
+	if o != nil && !IsNil(o.BidType) {
+		return true
+	}
+
+	return false
+}
+
+// SetBidType gets a reference to the given string and assigns it to the BidType field.
 func (o *GetAdvertsAdvertsInner) SetBidType(v string) {
-	o.BidType = v
+	o.BidType = &v
 }
 
 // GetCurrency returns the Currency field value if set, zero value otherwise.
@@ -118,42 +115,48 @@ func (o *GetAdvertsAdvertsInner) SetCurrency(v string) {
 	o.Currency = &v
 }
 
-// GetId returns the Id field value
+// GetId returns the Id field value if set, zero value otherwise.
 func (o *GetAdvertsAdvertsInner) GetId() int64 {
-	if o == nil {
+	if o == nil || IsNil(o.Id) {
 		var ret int64
 		return ret
 	}
-
-	return o.Id
+	return *o.Id
 }
 
-// GetIdOk returns a tuple with the Id field value
+// GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetAdvertsAdvertsInner) GetIdOk() (*int64, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Id) {
 		return nil, false
 	}
-	return &o.Id, true
+	return o.Id, true
 }
 
-// SetId sets field value
+// HasId returns a boolean if a field has been set.
+func (o *GetAdvertsAdvertsInner) HasId() bool {
+	if o != nil && !IsNil(o.Id) {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given int64 and assigns it to the Id field.
 func (o *GetAdvertsAdvertsInner) SetId(v int64) {
-	o.Id = v
+	o.Id = &v
 }
 
-// GetNmSettings returns the NmSettings field value
-// If the value is explicit nil, the zero value for []AdvertNMsSettings will be returned
+// GetNmSettings returns the NmSettings field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *GetAdvertsAdvertsInner) GetNmSettings() []AdvertNMsSettings {
 	if o == nil {
 		var ret []AdvertNMsSettings
 		return ret
 	}
-
 	return o.NmSettings
 }
 
-// GetNmSettingsOk returns a tuple with the NmSettings field value
+// GetNmSettingsOk returns a tuple with the NmSettings field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GetAdvertsAdvertsInner) GetNmSettingsOk() ([]AdvertNMsSettings, bool) {
@@ -163,105 +166,146 @@ func (o *GetAdvertsAdvertsInner) GetNmSettingsOk() ([]AdvertNMsSettings, bool) {
 	return o.NmSettings, true
 }
 
-// SetNmSettings sets field value
+// HasNmSettings returns a boolean if a field has been set.
+func (o *GetAdvertsAdvertsInner) HasNmSettings() bool {
+	if o != nil && !IsNil(o.NmSettings) {
+		return true
+	}
+
+	return false
+}
+
+// SetNmSettings gets a reference to the given []AdvertNMsSettings and assigns it to the NmSettings field.
 func (o *GetAdvertsAdvertsInner) SetNmSettings(v []AdvertNMsSettings) {
 	o.NmSettings = v
 }
 
-// GetSettings returns the Settings field value
+// GetSettings returns the Settings field value if set, zero value otherwise.
 func (o *GetAdvertsAdvertsInner) GetSettings() AdvertSettings {
-	if o == nil {
+	if o == nil || IsNil(o.Settings) {
 		var ret AdvertSettings
 		return ret
 	}
-
-	return o.Settings
+	return *o.Settings
 }
 
-// GetSettingsOk returns a tuple with the Settings field value
+// GetSettingsOk returns a tuple with the Settings field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetAdvertsAdvertsInner) GetSettingsOk() (*AdvertSettings, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Settings) {
 		return nil, false
 	}
-	return &o.Settings, true
+	return o.Settings, true
 }
 
-// SetSettings sets field value
+// HasSettings returns a boolean if a field has been set.
+func (o *GetAdvertsAdvertsInner) HasSettings() bool {
+	if o != nil && !IsNil(o.Settings) {
+		return true
+	}
+
+	return false
+}
+
+// SetSettings gets a reference to the given AdvertSettings and assigns it to the Settings field.
 func (o *GetAdvertsAdvertsInner) SetSettings(v AdvertSettings) {
-	o.Settings = v
+	o.Settings = &v
 }
 
-// GetRestrictions returns the Restrictions field value
+// GetRestrictions returns the Restrictions field value if set, zero value otherwise.
 func (o *GetAdvertsAdvertsInner) GetRestrictions() GetAdvertsAdvertsInnerRestrictions {
-	if o == nil {
+	if o == nil || IsNil(o.Restrictions) {
 		var ret GetAdvertsAdvertsInnerRestrictions
 		return ret
 	}
-
-	return o.Restrictions
+	return *o.Restrictions
 }
 
-// GetRestrictionsOk returns a tuple with the Restrictions field value
+// GetRestrictionsOk returns a tuple with the Restrictions field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetAdvertsAdvertsInner) GetRestrictionsOk() (*GetAdvertsAdvertsInnerRestrictions, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Restrictions) {
 		return nil, false
 	}
-	return &o.Restrictions, true
+	return o.Restrictions, true
 }
 
-// SetRestrictions sets field value
+// HasRestrictions returns a boolean if a field has been set.
+func (o *GetAdvertsAdvertsInner) HasRestrictions() bool {
+	if o != nil && !IsNil(o.Restrictions) {
+		return true
+	}
+
+	return false
+}
+
+// SetRestrictions gets a reference to the given GetAdvertsAdvertsInnerRestrictions and assigns it to the Restrictions field.
 func (o *GetAdvertsAdvertsInner) SetRestrictions(v GetAdvertsAdvertsInnerRestrictions) {
-	o.Restrictions = v
+	o.Restrictions = &v
 }
 
-// GetStatus returns the Status field value
+// GetStatus returns the Status field value if set, zero value otherwise.
 func (o *GetAdvertsAdvertsInner) GetStatus() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.Status) {
 		var ret int32
 		return ret
 	}
-
-	return o.Status
+	return *o.Status
 }
 
-// GetStatusOk returns a tuple with the Status field value
+// GetStatusOk returns a tuple with the Status field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetAdvertsAdvertsInner) GetStatusOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Status) {
 		return nil, false
 	}
-	return &o.Status, true
+	return o.Status, true
 }
 
-// SetStatus sets field value
+// HasStatus returns a boolean if a field has been set.
+func (o *GetAdvertsAdvertsInner) HasStatus() bool {
+	if o != nil && !IsNil(o.Status) {
+		return true
+	}
+
+	return false
+}
+
+// SetStatus gets a reference to the given int32 and assigns it to the Status field.
 func (o *GetAdvertsAdvertsInner) SetStatus(v int32) {
-	o.Status = v
+	o.Status = &v
 }
 
-// GetTimestamps returns the Timestamps field value
+// GetTimestamps returns the Timestamps field value if set, zero value otherwise.
 func (o *GetAdvertsAdvertsInner) GetTimestamps() Timestamps {
-	if o == nil {
+	if o == nil || IsNil(o.Timestamps) {
 		var ret Timestamps
 		return ret
 	}
-
-	return o.Timestamps
+	return *o.Timestamps
 }
 
-// GetTimestampsOk returns a tuple with the Timestamps field value
+// GetTimestampsOk returns a tuple with the Timestamps field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetAdvertsAdvertsInner) GetTimestampsOk() (*Timestamps, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Timestamps) {
 		return nil, false
 	}
-	return &o.Timestamps, true
+	return o.Timestamps, true
 }
 
-// SetTimestamps sets field value
+// HasTimestamps returns a boolean if a field has been set.
+func (o *GetAdvertsAdvertsInner) HasTimestamps() bool {
+	if o != nil && !IsNil(o.Timestamps) {
+		return true
+	}
+
+	return false
+}
+
+// SetTimestamps gets a reference to the given Timestamps and assigns it to the Timestamps field.
 func (o *GetAdvertsAdvertsInner) SetTimestamps(v Timestamps) {
-	o.Timestamps = v
+	o.Timestamps = &v
 }
 
 func (o GetAdvertsAdvertsInner) MarshalJSON() ([]byte, error) {
@@ -274,62 +318,31 @@ func (o GetAdvertsAdvertsInner) MarshalJSON() ([]byte, error) {
 
 func (o GetAdvertsAdvertsInner) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["bid_type"] = o.BidType
+	if !IsNil(o.BidType) {
+		toSerialize["bid_type"] = o.BidType
+	}
 	if !IsNil(o.Currency) {
 		toSerialize["currency"] = o.Currency
 	}
-	toSerialize["id"] = o.Id
+	if !IsNil(o.Id) {
+		toSerialize["id"] = o.Id
+	}
 	if o.NmSettings != nil {
 		toSerialize["nm_settings"] = o.NmSettings
 	}
-	toSerialize["settings"] = o.Settings
-	toSerialize["restrictions"] = o.Restrictions
-	toSerialize["status"] = o.Status
-	toSerialize["timestamps"] = o.Timestamps
+	if !IsNil(o.Settings) {
+		toSerialize["settings"] = o.Settings
+	}
+	if !IsNil(o.Restrictions) {
+		toSerialize["restrictions"] = o.Restrictions
+	}
+	if !IsNil(o.Status) {
+		toSerialize["status"] = o.Status
+	}
+	if !IsNil(o.Timestamps) {
+		toSerialize["timestamps"] = o.Timestamps
+	}
 	return toSerialize, nil
-}
-
-func (o *GetAdvertsAdvertsInner) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"bid_type",
-		"id",
-		"nm_settings",
-		"settings",
-		"restrictions",
-		"status",
-		"timestamps",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varGetAdvertsAdvertsInner := _GetAdvertsAdvertsInner{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varGetAdvertsAdvertsInner)
-
-	if err != nil {
-		return err
-	}
-
-	*o = GetAdvertsAdvertsInner(varGetAdvertsAdvertsInner)
-
-	return err
 }
 
 type NullableGetAdvertsAdvertsInner struct {

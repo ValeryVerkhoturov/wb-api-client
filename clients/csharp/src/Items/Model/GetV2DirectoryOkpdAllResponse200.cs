@@ -34,35 +34,15 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GetV2DirectoryOkpdAllResponse200" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected GetV2DirectoryOkpdAllResponse200() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="GetV2DirectoryOkpdAllResponse200" /> class.
-        /// </summary>
-        /// <param name="data">Данные (required).</param>
-        /// <param name="error">Флаг наличия ошибки (required).</param>
-        /// <param name="errorText">Текст ошибки (required).</param>
-        /// <param name="additionalErrors">Дополнительные ошибки (required).</param>
+        /// <param name="data">Данные.</param>
+        /// <param name="error">Флаг наличия ошибки.</param>
+        /// <param name="errorText">Текст ошибки.</param>
+        /// <param name="additionalErrors">Дополнительные ошибки.</param>
         public GetV2DirectoryOkpdAllResponse200(List<GetV2DirectoryOkpdResponse200DataInner> data = default(List<GetV2DirectoryOkpdResponse200DataInner>), bool error = default(bool), string errorText = default(string), string additionalErrors = default(string))
         {
-            // to ensure "data" is required (not null)
-            if (data == null)
-            {
-                throw new ArgumentNullException("data is a required property for GetV2DirectoryOkpdAllResponse200 and cannot be null");
-            }
             this.Data = data;
             this.Error = error;
-            // to ensure "errorText" is required (not null)
-            if (errorText == null)
-            {
-                throw new ArgumentNullException("errorText is a required property for GetV2DirectoryOkpdAllResponse200 and cannot be null");
-            }
             this.ErrorText = errorText;
-            // to ensure "additionalErrors" is required (not null)
-            if (additionalErrors == null)
-            {
-                throw new ArgumentNullException("additionalErrors is a required property for GetV2DirectoryOkpdAllResponse200 and cannot be null");
-            }
             this.AdditionalErrors = additionalErrors;
         }
 
@@ -70,7 +50,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// Данные
         /// </summary>
         /// <value>Данные</value>
-        [DataMember(Name = "data", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "data", EmitDefaultValue = false)]
         public List<GetV2DirectoryOkpdResponse200DataInner> Data { get; set; }
 
         /// <summary>
@@ -80,21 +60,21 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /*
         <example>false</example>
         */
-        [DataMember(Name = "error", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "error", EmitDefaultValue = true)]
         public bool Error { get; set; }
 
         /// <summary>
         /// Текст ошибки
         /// </summary>
         /// <value>Текст ошибки</value>
-        [DataMember(Name = "errorText", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "errorText", EmitDefaultValue = false)]
         public string ErrorText { get; set; }
 
         /// <summary>
         /// Дополнительные ошибки
         /// </summary>
         /// <value>Дополнительные ошибки</value>
-        [DataMember(Name = "additionalErrors", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "additionalErrors", EmitDefaultValue = true)]
         public string AdditionalErrors { get; set; }
 
         /// <summary>

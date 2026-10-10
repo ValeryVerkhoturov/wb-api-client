@@ -37,49 +37,62 @@ class Order(BaseModel):
     Заказ
     """  # noqa: E501
 
-    nm_id: StrictInt = Field(description="Артикул WB", alias="nmId")
-    chrt_id: StrictInt = Field(description="ID размера", alias="chrtId")
-    srid: StrictStr = Field(description="ID заказа")
-    created_at: StrictStr = Field(
-        description="Дата и время оформления заказа", alias="createdAt"
+    nm_id: Optional[StrictInt] = Field(
+        default=None, description="Артикул WB", alias="nmId"
     )
-    updated_at: StrictStr = Field(
+    chrt_id: Optional[StrictInt] = Field(
+        default=None, description="ID размера", alias="chrtId"
+    )
+    srid: Optional[StrictStr] = Field(default=None, description="ID заказа")
+    created_at: Optional[StrictStr] = Field(
+        default=None, description="Дата и время оформления заказа", alias="createdAt"
+    )
+    updated_at: Optional[StrictStr] = Field(
+        default=None,
         description='Дата и время текущего статуса. При `"status":"created"` возвращается значение поля `createdAt`',
         alias="updatedAt",
     )
-    status: StrictStr = Field(
-        description="Статус заказа:   - `created` — оформлен   - `buyout` — продан   - `cancel` — отменён   - `return` — возвращён   - `returnDefective` — возвращён по причине брака "
+    status: Optional[StrictStr] = Field(
+        default=None,
+        description="Статус заказа:   - `created` — оформлен   - `buyout` — продан   - `cancel` — отменён   - `return` — возвращён   - `returnDefective` — возвращён по причине брака ",
     )
     cancel_type: Optional[StrictStr] = Field(
         default=None,
         description='Тип отмены (при `"status":"cancel"`):   - `app` — отказ до получения   - `receipt` — отказ при получении   - `expire` — истёк срок получения   - `other` — техническая отмена ',
         alias="cancelType",
     )
-    warehouse_name: StrictStr = Field(
+    warehouse_name: Optional[StrictStr] = Field(
+        default=None,
         description="Название склада. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) для складов WB может быть только `Склад WB`",
         alias="warehouseName",
     )
-    warehouse_region: StrictStr = Field(
+    warehouse_region: Optional[StrictStr] = Field(
+        default=None,
         description='Федеральный округ склада. Если склад не в России, возвращается страна. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) для складов WB может быть только `""`',
         alias="warehouseRegion",
     )
-    is_mp: StrictBool = Field(
+    is_mp: Optional[StrictBool] = Field(
+        default=None,
         description="Тип склада:   - `true` — склад продавца   - `false` — склад WB ",
         alias="isMp",
     )
-    destination_city: StrictStr = Field(
-        description="Населённый пункт доставки", alias="destinationCity"
+    destination_city: Optional[StrictStr] = Field(
+        default=None, description="Населённый пункт доставки", alias="destinationCity"
     )
-    destination_district: StrictStr = Field(
+    destination_district: Optional[StrictStr] = Field(
+        default=None,
         description="Федеральный округ доставки. Если доставка не по России, возвращается страна",
         alias="destinationDistrict",
     )
-    seller_price: Union[StrictFloat, StrictInt] = Field(
+    seller_price: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None,
         description="Цена продавца со скидкой продавца (без учёта скидки WB Клуба и оптовой скидки для B2B-продаж)",
         alias="sellerPrice",
     )
-    is_b2b: StrictBool = Field(
-        description="Тип продажи:   - `true` — B2B   - `false` — B2C ", alias="isB2b"
+    is_b2b: Optional[StrictBool] = Field(
+        default=None,
+        description="Тип продажи:   - `true` — B2B   - `false` — B2C ",
+        alias="isB2b",
     )
     __properties: ClassVar[List[str]] = [
         "nmId",
@@ -101,6 +114,9 @@ class Order(BaseModel):
     @field_validator("status")
     def status_validate_enum(cls, value):
         """Validates the enum"""
+        if value is None:
+            return value
+
         if value not in set(
             ["created", "buyout", "cancel", "return", "returnDefective"]
         ):

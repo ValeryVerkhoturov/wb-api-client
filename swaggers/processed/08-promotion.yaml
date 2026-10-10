@@ -3770,8 +3770,6 @@ components:
   schemas:
     V0GetDailyLimitsResponse:
       type: object
-      required:
-      - adverts
       properties:
         adverts:
           type: array
@@ -3779,15 +3777,6 @@ components:
             $ref: '#/components/schemas/V0DailyLimitAdvert'
     V0DailyLimitAdvert:
       type: object
-      required:
-      - advertId
-      - enabled
-      - dailyLimit
-      - spentToday
-      - currency
-      - carryOverEnabled
-      - valid
-      - requiredLimit
       properties:
         advertId:
           type: integer
@@ -3880,10 +3869,6 @@ components:
           example: true
     V0PutDailyLimitsAdvertResult:
       type: object
-      required:
-      - advertId
-      - belowMinLimit
-      - requiredLimit
       properties:
         advertId:
           type: integer
@@ -3906,8 +3891,6 @@ components:
           example: 3001
     V0PutDailyLimitsResponse:
       type: object
-      required:
-      - adverts
       properties:
         adverts:
           type: array
@@ -3915,8 +3898,6 @@ components:
             $ref: '#/components/schemas/V0PutDailyLimitsAdvertResult'
     V2BudgetResponse:
       type: object
-      required:
-      - adverts
       properties:
         adverts:
           type: array
@@ -3926,10 +3907,6 @@ components:
             $ref: '#/components/schemas/V1BudgetAdvert'
     V1BudgetAdvert:
       type: object
-      required:
-      - advertId
-      - currency
-      - total
       properties:
         advertId:
           type: integer
@@ -3993,11 +3970,6 @@ components:
             $ref: '#/components/schemas/V1SetNormQueryBidsRequestItem'
     V1SetNormQueryBidsSuccessResponseItem:
       type: object
-      required:
-      - advertId
-      - nmId
-      - normQuery
-      - currency
       properties:
         advertId:
           type: integer
@@ -4014,11 +3986,6 @@ components:
           format: ISO 4217
     NormQueryBidFailResponseItem:
       type: object
-      required:
-      - advertId
-      - nmId
-      - normQuery
-      - reason
       properties:
         advertId:
           type: integer
@@ -4034,9 +4001,6 @@ components:
           description: Описание причины ошибки
     V1SetNormQueryBidsResponse:
       type: object
-      required:
-      - success
-      - failed
       properties:
         success:
           type: array
@@ -4048,13 +4012,6 @@ components:
             $ref: '#/components/schemas/NormQueryBidFailResponseItem'
     V2GetConfigResponse:
       type: object
-      required:
-      - currency
-      - currencyCode
-      - cpmStep
-      - cpcStep
-      - minTopUp
-      - minDailyLimit
       properties:
         currency:
           type: string
@@ -4132,10 +4089,6 @@ components:
               - `cpc` — за клики
     V0BidRecommendationCPCLevels:
       type: object
-      required:
-      - range1To2
-      - range3To10
-      - range11To34
       properties:
         range1To2:
           allOf:
@@ -4261,8 +4214,6 @@ components:
           description: Артикул WB
     V0GetNormQueryListResponse:
       type: object
-      required:
-      - items
       properties:
         items:
           type: array
@@ -4338,8 +4289,6 @@ components:
                 description: Артикул WB
     V1GetNormQueryStatsResponse:
       type: object
-      required:
-      - items
       properties:
         items:
           type: array
@@ -4347,9 +4296,6 @@ components:
             $ref: '#/components/schemas/V1GetNormQueryStatsResponseItem'
     V1GetNormQueryStatsResponseItem:
       type: object
-      required:
-      - advertId
-      - nmId
       properties:
         advertId:
           type: integer
@@ -4366,8 +4312,6 @@ components:
           description: Статистика с детализацией по дням
     V1GetNormQueryStatsResponseItemDailyStat:
       type: object
-      required:
-      - date
       properties:
         date:
           type: string
@@ -4471,9 +4415,6 @@ components:
                 description: Артикул WB
     V0GetNormQueryStatsItem:
       type: object
-      required:
-      - advert_id
-      - nm_id
       properties:
         advert_id:
           type: integer
@@ -4546,8 +4487,6 @@ components:
     V0GetNormQueryStatsResponse:
       type: object
       description: Статистика по поисковым кластерам
-      required:
-      - stats
       properties:
         stats:
           type: array
@@ -4652,13 +4591,6 @@ components:
             $ref: '#/components/schemas/V0GetNormQueryBidsRequestItem'
     V0GetNormQueryBidsItem:
       type: object
-      required:
-      - advert_id
-      - nm_id
-      - bid
-      - norm_query
-      - bid_kopecks
-      - currency
       properties:
         advert_id:
           type: integer
@@ -4681,8 +4613,6 @@ components:
           format: ISO 4217
     V0GetNormQueryBidsResponse:
       type: object
-      required:
-      - bids
       properties:
         bids:
           type: array
@@ -4754,12 +4684,6 @@ components:
           type: string
           description: Заголовок ошибки
           example: Invalid Params
-      required:
-      - title
-      - detail
-      - request_id
-      - origin
-      - status
     ResponseWithReturn:
       type: object
       properties:
@@ -4813,22 +4737,12 @@ components:
           description: Рекомендуемая скидка для участия в акции
     GetAdverts:
       type: object
-      required:
-      - adverts
       properties:
         adverts:
           description: Кампании
           type: array
           items:
             type: object
-            required:
-            - id
-            - timestamps
-            - settings
-            - nm_settings
-            - status
-            - bid_type
-            - restrictions
             properties:
               bid_type:
                 type: string
@@ -4883,10 +4797,6 @@ components:
                 $ref: '#/components/schemas/Timestamps'
     AdvertNMsSettings:
       type: object
-      required:
-      - subject
-      - bids_kopecks
-      - nm_id
       properties:
         bids_kopecks:
           $ref: '#/components/schemas/AdvertBidsKopecks'
@@ -4899,9 +4809,6 @@ components:
     AdvertSubcategory:
       description: Предмет
       type: object
-      required:
-      - id
-      - name
       properties:
         id:
           type: integer
@@ -4913,9 +4820,6 @@ components:
     AdvertBidsKopecks:
       description: |
         Ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
-      required:
-      - recommendations
-      - search
       properties:
         search:
           type: integer
@@ -4928,10 +4832,6 @@ components:
     AdvertSettings:
       description: Настройки кампании
       type: object
-      required:
-      - payment_type
-      - name
-      - placements
       properties:
         payment_type:
           type: string
@@ -4945,9 +4845,6 @@ components:
         placements:
           description: Места размещения
           type: object
-          required:
-          - search
-          - recommendations
           properties:
             search:
               type: boolean
@@ -4964,11 +4861,6 @@ components:
     Timestamps:
       description: Временные отметки
       type: object
-      required:
-      - created
-      - updated
-      - started
-      - deleted
       properties:
         created:
           description: Время создания кампании
@@ -5005,17 +4897,9 @@ components:
           type: string
           description: Заголовок ошибки
           example: invalid payload
-      required:
-      - detail
-      - title
-      - request_id
-      - origin
-      - status
     StatInterval:
       additionalProperties: false
       type: object
-      required:
-      - interval
       properties:
         interval:
           description: Период
@@ -5035,8 +4919,6 @@ components:
     StatDate:
       additionalProperties: false
       type: object
-      required:
-      - dates
       properties:
         dates:
           description: Даты, за которые нужно получить информацию
@@ -5335,21 +5217,6 @@ components:
               type: string
     FullStatsItem:
       type: object
-      required:
-      - advertId
-      - atbs
-      - canceled
-      - clicks
-      - cpc
-      - cr
-      - ctr
-      - days
-      - orders
-      - shks
-      - sum
-      - sum_price
-      - views
-      - currency
       description: Статистика по одной кампании за период, указанный в запросе. По всем артикулам WB и платформам
       properties:
         advertId:
@@ -5363,10 +5230,6 @@ components:
           description: Статистика по средней позиции товара (для кампаний с единой ставкой)
           items:
             type: object
-            required:
-            - avg_position
-            - date
-            - nm
             properties:
               avg_position:
                 description: Средняя позиция товара
@@ -5400,40 +5263,12 @@ components:
           description: Статистка по дням
           items:
             type: object
-            required:
-            - apps
-            - atbs
-            - canceled
-            - clicks
-            - cpc
-            - cr
-            - ctr
-            - date
-            - orders
-            - shks
-            - sum
-            - sum_price
-            - views
             properties:
               apps:
                 description: Блок информации о платформе
                 type: array
                 items:
                   type: object
-                  required:
-                  - appType
-                  - atbs
-                  - canceled
-                  - clicks
-                  - cpc
-                  - cr
-                  - ctr
-                  - nms
-                  - orders
-                  - shks
-                  - sum
-                  - sum_price
-                  - views
                   properties:
                     appType:
                       type: integer
@@ -5469,20 +5304,6 @@ components:
                       type: array
                       items:
                         type: object
-                        required:
-                        - atbs
-                        - canceled
-                        - clicks
-                        - cpc
-                        - cr
-                        - ctr
-                        - name
-                        - nmId
-                        - orders
-                        - shks
-                        - sum
-                        - sum_price
-                        - views
                         properties:
                           atbs:
                             type: integer
@@ -5628,11 +5449,6 @@ components:
         type:
           type: string
           description: Тип ошибки
-      required:
-      - title
-      - request_id
-      - status
-      - origin
     Response4XX:
       type: object
       properties:
@@ -5704,27 +5520,18 @@ components:
           type: integer
     PostV1BidsMinResponse200:
       type: object
-      required:
-      - bids
       properties:
         bids:
           type: array
           description: Список карточек товаров со ставками
           items:
             type: object
-            required:
-            - nm_id
-            - bids
             properties:
               bids:
                 type: array
                 description: Список ставок по местам размещения
                 items:
                   type: object
-                  required:
-                  - type
-                  - value
-                  - currency
                   properties:
                     currency:
                       type: string
@@ -5777,18 +5584,12 @@ components:
             example: 765
     PatchV1BidsResponse200:
       type: object
-      required:
-      - bids
-      - currency
       properties:
         bids:
           description: Результат отработки запроса
           type: array
           items:
             type: object
-            required:
-            - advert_id
-            - nm_bids
             properties:
               advert_id:
                 description: ID кампании
@@ -5799,10 +5600,6 @@ components:
                 type: array
                 items:
                   type: object
-                  required:
-                  - nm_id
-                  - bid_kopecks
-                  - placement
                   properties:
                     nm_id:
                       type: integer
@@ -5960,17 +5757,12 @@ components:
             format: ISO 4217
     PatchV0AuctionNmsResponse200:
       type: object
-      required:
-      - nms
       properties:
         nms:
           description: Результат отработки запроса
           type: array
           items:
             type: object
-            required:
-            - advert_id
-            - nms
             properties:
               advert_id:
                 description: ID кампании
@@ -5979,9 +5771,6 @@ components:
               nms:
                 description: Карточки товаров
                 type: object
-                required:
-                - added
-                - deleted
                 properties:
                   added:
                     description: Добавленные карточки товаров

@@ -34,52 +34,32 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SearchReportPositionClusters" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected SearchReportPositionClusters() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="SearchReportPositionClusters" /> class.
-        /// </summary>
-        /// <param name="firstHundred">firstHundred (required).</param>
-        /// <param name="secondHundred">secondHundred (required).</param>
-        /// <param name="below">below (required).</param>
+        /// <param name="firstHundred">firstHundred.</param>
+        /// <param name="secondHundred">secondHundred.</param>
+        /// <param name="below">below.</param>
         public SearchReportPositionClusters(SearchReportPositionClustersFirstHundred firstHundred = default(SearchReportPositionClustersFirstHundred), SearchReportPositionClustersSecondHundred secondHundred = default(SearchReportPositionClustersSecondHundred), SearchReportPositionClustersBelow below = default(SearchReportPositionClustersBelow))
         {
-            // to ensure "firstHundred" is required (not null)
-            if (firstHundred == null)
-            {
-                throw new ArgumentNullException("firstHundred is a required property for SearchReportPositionClusters and cannot be null");
-            }
             this.FirstHundred = firstHundred;
-            // to ensure "secondHundred" is required (not null)
-            if (secondHundred == null)
-            {
-                throw new ArgumentNullException("secondHundred is a required property for SearchReportPositionClusters and cannot be null");
-            }
             this.SecondHundred = secondHundred;
-            // to ensure "below" is required (not null)
-            if (below == null)
-            {
-                throw new ArgumentNullException("below is a required property for SearchReportPositionClusters and cannot be null");
-            }
             this.Below = below;
         }
 
         /// <summary>
         /// Gets or Sets FirstHundred
         /// </summary>
-        [DataMember(Name = "firstHundred", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "firstHundred", EmitDefaultValue = false)]
         public SearchReportPositionClustersFirstHundred FirstHundred { get; set; }
 
         /// <summary>
         /// Gets or Sets SecondHundred
         /// </summary>
-        [DataMember(Name = "secondHundred", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "secondHundred", EmitDefaultValue = false)]
         public SearchReportPositionClustersSecondHundred SecondHundred { get; set; }
 
         /// <summary>
         /// Gets or Sets Below
         /// </summary>
-        [DataMember(Name = "below", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "below", EmitDefaultValue = false)]
         public SearchReportPositionClustersBelow Below { get; set; }
 
         /// <summary>

@@ -36,37 +36,37 @@ public class PostV3DbsOrdersStickersResponse200StickersInner {
   public static final String SERIALIZED_NAME_ORDER_ID = "orderId";
 
   @SerializedName(SERIALIZED_NAME_ORDER_ID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Long orderId;
 
   public static final String SERIALIZED_NAME_PART_A = "partA";
 
   @SerializedName(SERIALIZED_NAME_PART_A)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String partA;
 
   public static final String SERIALIZED_NAME_PART_B = "partB";
 
   @SerializedName(SERIALIZED_NAME_PART_B)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String partB;
 
   public static final String SERIALIZED_NAME_BARCODE = "barcode";
 
   @SerializedName(SERIALIZED_NAME_BARCODE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String barcode;
 
   public static final String SERIALIZED_NAME_FILE = "file";
 
   @SerializedName(SERIALIZED_NAME_FILE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String _file;
 
   public PostV3DbsOrdersStickersResponse200StickersInner() {}
 
   public PostV3DbsOrdersStickersResponse200StickersInner orderId(
-      @jakarta.annotation.Nonnull Long orderId) {
+      @jakarta.annotation.Nullable Long orderId) {
     this.orderId = orderId;
     return this;
   }
@@ -76,17 +76,17 @@ public class PostV3DbsOrdersStickersResponse200StickersInner {
    *
    * @return orderId
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Long getOrderId() {
     return orderId;
   }
 
-  public void setOrderId(@jakarta.annotation.Nonnull Long orderId) {
+  public void setOrderId(@jakarta.annotation.Nullable Long orderId) {
     this.orderId = orderId;
   }
 
   public PostV3DbsOrdersStickersResponse200StickersInner partA(
-      @jakarta.annotation.Nonnull String partA) {
+      @jakarta.annotation.Nullable String partA) {
     this.partA = partA;
     return this;
   }
@@ -96,17 +96,17 @@ public class PostV3DbsOrdersStickersResponse200StickersInner {
    *
    * @return partA
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getPartA() {
     return partA;
   }
 
-  public void setPartA(@jakarta.annotation.Nonnull String partA) {
+  public void setPartA(@jakarta.annotation.Nullable String partA) {
     this.partA = partA;
   }
 
   public PostV3DbsOrdersStickersResponse200StickersInner partB(
-      @jakarta.annotation.Nonnull String partB) {
+      @jakarta.annotation.Nullable String partB) {
     this.partB = partB;
     return this;
   }
@@ -116,17 +116,17 @@ public class PostV3DbsOrdersStickersResponse200StickersInner {
    *
    * @return partB
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getPartB() {
     return partB;
   }
 
-  public void setPartB(@jakarta.annotation.Nonnull String partB) {
+  public void setPartB(@jakarta.annotation.Nullable String partB) {
     this.partB = partB;
   }
 
   public PostV3DbsOrdersStickersResponse200StickersInner barcode(
-      @jakarta.annotation.Nonnull String barcode) {
+      @jakarta.annotation.Nullable String barcode) {
     this.barcode = barcode;
     return this;
   }
@@ -136,17 +136,17 @@ public class PostV3DbsOrdersStickersResponse200StickersInner {
    *
    * @return barcode
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getBarcode() {
     return barcode;
   }
 
-  public void setBarcode(@jakarta.annotation.Nonnull String barcode) {
+  public void setBarcode(@jakarta.annotation.Nullable String barcode) {
     this.barcode = barcode;
   }
 
   public PostV3DbsOrdersStickersResponse200StickersInner _file(
-      @jakarta.annotation.Nonnull String _file) {
+      @jakarta.annotation.Nullable String _file) {
     this._file = _file;
     return this;
   }
@@ -156,12 +156,12 @@ public class PostV3DbsOrdersStickersResponse200StickersInner {
    *
    * @return _file
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getFile() {
     return _file;
   }
 
-  public void setFile(@jakarta.annotation.Nonnull String _file) {
+  public void setFile(@jakarta.annotation.Nullable String _file) {
     this._file = _file;
   }
 
@@ -225,11 +225,6 @@ public class PostV3DbsOrdersStickersResponse200StickersInner {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("orderId");
-    openapiRequiredFields.add("partA");
-    openapiRequiredFields.add("partB");
-    openapiRequiredFields.add("barcode");
-    openapiRequiredFields.add("file");
   }
 
   /**
@@ -260,37 +255,30 @@ public class PostV3DbsOrdersStickersResponse200StickersInner {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField :
-        PostV3DbsOrdersStickersResponse200StickersInner.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    if (!jsonObj.get("partA").isJsonPrimitive()) {
+    if ((jsonObj.get("partA") != null && !jsonObj.get("partA").isJsonNull())
+        && !jsonObj.get("partA").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `partA` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("partA").toString()));
     }
-    if (!jsonObj.get("partB").isJsonPrimitive()) {
+    if ((jsonObj.get("partB") != null && !jsonObj.get("partB").isJsonNull())
+        && !jsonObj.get("partB").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `partB` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("partB").toString()));
     }
-    if (!jsonObj.get("barcode").isJsonPrimitive()) {
+    if ((jsonObj.get("barcode") != null && !jsonObj.get("barcode").isJsonNull())
+        && !jsonObj.get("barcode").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `barcode` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("barcode").toString()));
     }
-    if (!jsonObj.get("file").isJsonPrimitive()) {
+    if ((jsonObj.get("file") != null && !jsonObj.get("file").isJsonNull())
+        && !jsonObj.get("file").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `file` to be a primitive type in the JSON string but got `%s`",

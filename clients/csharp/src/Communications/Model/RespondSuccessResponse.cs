@@ -34,26 +34,16 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RespondSuccessResponse" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected RespondSuccessResponse() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="RespondSuccessResponse" /> class.
-        /// </summary>
-        /// <param name="data">data (required).</param>
+        /// <param name="data">data.</param>
         public RespondSuccessResponse(Object data = default(Object))
         {
-            // to ensure "data" is required (not null)
-            if (data == null)
-            {
-                throw new ArgumentNullException("data is a required property for RespondSuccessResponse and cannot be null");
-            }
             this.Data = data;
         }
 
         /// <summary>
         /// Gets or Sets Data
         /// </summary>
-        [DataMember(Name = "data", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "data", EmitDefaultValue = false)]
         public Object Data { get; set; }
 
         /// <summary>

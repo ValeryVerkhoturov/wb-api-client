@@ -28,11 +28,15 @@ class OpenapiResultErr(BaseModel):
     OpenapiResultErr
     """  # noqa: E501
 
-    origin: StrictStr = Field(description="ID внутреннего сервиса WB")
+    origin: Optional[StrictStr] = Field(
+        default=None, description="ID внутреннего сервиса WB"
+    )
     detail: Optional[StrictStr] = Field(default=None, description="Детали ошибки")
-    request_id: StrictStr = Field(description="ID запроса", alias="requestId")
-    status: StrictStr = Field(description="Статус")
-    title: StrictStr = Field(description="Заголовок ошибки")
+    request_id: Optional[StrictStr] = Field(
+        default=None, description="ID запроса", alias="requestId"
+    )
+    status: Optional[StrictStr] = Field(default=None, description="Статус")
+    title: Optional[StrictStr] = Field(default=None, description="Заголовок ошибки")
     __properties: ClassVar[List[str]] = [
         "origin",
         "detail",
@@ -44,6 +48,9 @@ class OpenapiResultErr(BaseModel):
     @field_validator("status")
     def status_validate_enum(cls, value):
         """Validates the enum"""
+        if value is None:
+            return value
+
         if value not in set(
             [
                 "feedbackNotFound",

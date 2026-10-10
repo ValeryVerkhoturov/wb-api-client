@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List, Union
+from typing import Any, ClassVar, Dict, List, Optional, Union
 from wb_api_client.promotion.models.full_stats_item_days_inner_apps_inner import (
     FullStatsItemDaysInnerAppsInner,
 )
@@ -31,33 +31,44 @@ class FullStatsItemDaysInner(BaseModel):
     FullStatsItemDaysInner
     """  # noqa: E501
 
-    apps: List[FullStatsItemDaysInnerAppsInner] = Field(
-        description="Блок информации о платформе"
+    apps: Optional[List[FullStatsItemDaysInnerAppsInner]] = Field(
+        default=None, description="Блок информации о платформе"
     )
-    atbs: StrictInt = Field(description="Количество добавлений товаров в корзину")
-    canceled: StrictInt = Field(description="Отмены, шт.")
-    var_date: StrictStr = Field(
-        description="Дата, за которую представлены данные", alias="date"
+    atbs: Optional[StrictInt] = Field(
+        default=None, description="Количество добавлений товаров в корзину"
     )
-    clicks: StrictInt = Field(description="Количество кликов")
-    cpc: Union[StrictFloat, StrictInt] = Field(
-        description="Средняя стоимость клика в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)"
+    canceled: Optional[StrictInt] = Field(default=None, description="Отмены, шт.")
+    var_date: Optional[StrictStr] = Field(
+        default=None, description="Дата, за которую представлены данные", alias="date"
     )
-    cr: Union[StrictFloat, StrictInt] = Field(
-        description="CR (conversion rate) — отношение количества заказов к общему количеству посещений кампании"
+    clicks: Optional[StrictInt] = Field(default=None, description="Количество кликов")
+    cpc: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None,
+        description="Средняя стоимость клика в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)",
     )
-    ctr: Union[StrictFloat, StrictInt] = Field(
-        description="CTR (click-through rate) — отношение числа кликов к количеству показов в процентах"
+    cr: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None,
+        description="CR (conversion rate) — отношение количества заказов к общему количеству посещений кампании",
     )
-    orders: StrictInt = Field(description="Количество заказов")
-    shks: StrictInt = Field(description="Количество заказанных товаров, шт.")
-    sum: Union[StrictFloat, StrictInt] = Field(
-        description="Затраты в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)"
+    ctr: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None,
+        description="CTR (click-through rate) — отношение числа кликов к количеству показов в процентах",
     )
-    sum_price: Union[StrictFloat, StrictInt] = Field(
-        description="Заказов на сумму в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)"
+    orders: Optional[StrictInt] = Field(default=None, description="Количество заказов")
+    shks: Optional[StrictInt] = Field(
+        default=None, description="Количество заказанных товаров, шт."
     )
-    views: StrictInt = Field(description="Количество просмотров")
+    sum: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None,
+        description="Затраты в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)",
+    )
+    sum_price: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None,
+        description="Заказов на сумму в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)",
+    )
+    views: Optional[StrictInt] = Field(
+        default=None, description="Количество просмотров"
+    )
     __properties: ClassVar[List[str]] = [
         "apps",
         "atbs",

@@ -1078,12 +1078,6 @@ components:
       description: 'Wildberries API token (JWT). Create in the seller portal → Настройки → Доступ к API. Sent as `Authorization: Bearer `.'
   schemas:
     models.ItemDiscrepancyResponse:
-      required:
-      - packageCode
-      - videoUrl
-      - videoStartsAt
-      - videoUnavailable
-      - items
       type: object
       properties:
         packageCode:
@@ -1108,14 +1102,6 @@ components:
             $ref: '#/components/schemas/models.DiscrepancyResponseItem'
     models.DiscrepancyResponseItem:
       type: object
-      required:
-      - actualAmount
-      - actualSku
-      - declaredAmount
-      - discrepancyQuantity
-      - discrepancyType
-      - declaredSku
-      - skuScans
       properties:
         declaredSku:
           nullable: false
@@ -1156,12 +1142,6 @@ components:
           items:
             $ref: '#/components/schemas/models.ItemScans'
     models.ItemScans:
-      required:
-      - scanId
-      - declaredSku
-      - scanTime
-      - discrepancyLabel
-      - actualSku
       type: object
       properties:
         scanId:
@@ -1193,11 +1173,6 @@ components:
           type: string
           description: Фактический баркод
     errors.DraftError:
-      required:
-      - status
-      - title
-      - requestId
-      - origin
       type: object
       properties:
         status:
@@ -1227,8 +1202,6 @@ components:
           description: Список товаров
           maxItems: 1000
     models.DraftAddItemsErrorResponse:
-      required:
-      - results
       properties:
         results:
           description: Список невалидных баркодов с ошибками
@@ -1237,8 +1210,6 @@ components:
           type: array
       type: object
     models.DraftDeleteItemsErrorResponse:
-      required:
-      - results
       properties:
         results:
           type: array
@@ -1246,9 +1217,6 @@ components:
             type: string
       type: object
     models.DraftAddItemsResultItem:
-      required:
-      - error
-      - sku
       properties:
         error:
           allOf:
@@ -1259,9 +1227,6 @@ components:
           type: string
       type: object
     models.DraftAddItemsResultError:
-      required:
-      - detail
-      - title
       properties:
         detail:
           description: Детали ошибки
@@ -1273,8 +1238,6 @@ components:
           type: string
       type: object
     models.DraftCreateResponse:
-      required:
-      - draftId
       type: object
       properties:
         draftId:
@@ -1293,17 +1256,6 @@ components:
             type: string
           description: Список баркодов
     models.DraftItemItem:
-      required:
-      - sku
-      - color
-      - quantity
-      - brandName
-      - imgSrc
-      - nmId
-      - subjectName
-      - techSize
-      - title
-      - vendorCode
       type: object
       properties:
         sku:
@@ -1337,13 +1289,6 @@ components:
           type: string
           description: Артикул продавца
     models.DraftItem:
-      required:
-      - draftId
-      - phone
-      - createdAt
-      - updatedAt
-      - skuQuantity
-      - itemQuantity
       type: object
       properties:
         draftId:
@@ -1367,10 +1312,6 @@ components:
           type: integer
           description: Количество единиц товара
     models.ListDraftItemsResponse:
-      required:
-      - skuQuantity
-      - itemQuantity
-      - items
       type: object
       properties:
         skuQuantity:
@@ -1385,9 +1326,6 @@ components:
             $ref: '#/components/schemas/models.DraftItemItem'
           description: Список товаров
     models.ListDraftsResponse:
-      required:
-      - total
-      - drafts
       type: object
       properties:
         total:
@@ -1952,12 +1890,6 @@ components:
           description: ID запроса при наличии ошибок
     models.SupplyAcceptedMoreThanYearAgo:
       type: object
-      required:
-      - status
-      - title
-      - detail
-      - requestId
-      - origin
       properties:
         status:
           type: integer

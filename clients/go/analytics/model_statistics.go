@@ -11,9 +11,7 @@ API version: analytics
 package analytics
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the Statistics type satisfies the MappedNullable interface at compile time
@@ -21,20 +19,17 @@ var _ MappedNullable = &Statistics{}
 
 // Statistics struct for Statistics
 type Statistics struct {
-	Selected   StatisticsSelected    `json:"selected"`
+	Selected   *StatisticsSelected   `json:"selected,omitempty"`
 	Past       *StatisticsPast       `json:"past,omitempty"`
 	Comparison *StatisticsComparison `json:"comparison,omitempty"`
 }
-
-type _Statistics Statistics
 
 // NewStatistics instantiates a new Statistics object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewStatistics(selected StatisticsSelected) *Statistics {
+func NewStatistics() *Statistics {
 	this := Statistics{}
-	this.Selected = selected
 	return &this
 }
 
@@ -46,28 +41,36 @@ func NewStatisticsWithDefaults() *Statistics {
 	return &this
 }
 
-// GetSelected returns the Selected field value
+// GetSelected returns the Selected field value if set, zero value otherwise.
 func (o *Statistics) GetSelected() StatisticsSelected {
-	if o == nil {
+	if o == nil || IsNil(o.Selected) {
 		var ret StatisticsSelected
 		return ret
 	}
-
-	return o.Selected
+	return *o.Selected
 }
 
-// GetSelectedOk returns a tuple with the Selected field value
+// GetSelectedOk returns a tuple with the Selected field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Statistics) GetSelectedOk() (*StatisticsSelected, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Selected) {
 		return nil, false
 	}
-	return &o.Selected, true
+	return o.Selected, true
 }
 
-// SetSelected sets field value
+// HasSelected returns a boolean if a field has been set.
+func (o *Statistics) HasSelected() bool {
+	if o != nil && !IsNil(o.Selected) {
+		return true
+	}
+
+	return false
+}
+
+// SetSelected gets a reference to the given StatisticsSelected and assigns it to the Selected field.
 func (o *Statistics) SetSelected(v StatisticsSelected) {
-	o.Selected = v
+	o.Selected = &v
 }
 
 // GetPast returns the Past field value if set, zero value otherwise.
@@ -144,7 +147,9 @@ func (o Statistics) MarshalJSON() ([]byte, error) {
 
 func (o Statistics) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["selected"] = o.Selected
+	if !IsNil(o.Selected) {
+		toSerialize["selected"] = o.Selected
+	}
 	if !IsNil(o.Past) {
 		toSerialize["past"] = o.Past
 	}
@@ -152,43 +157,6 @@ func (o Statistics) ToMap() (map[string]interface{}, error) {
 		toSerialize["comparison"] = o.Comparison
 	}
 	return toSerialize, nil
-}
-
-func (o *Statistics) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"selected",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varStatistics := _Statistics{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varStatistics)
-
-	if err != nil {
-		return err
-	}
-
-	*o = Statistics(varStatistics)
-
-	return err
 }
 
 type NullableStatistics struct {

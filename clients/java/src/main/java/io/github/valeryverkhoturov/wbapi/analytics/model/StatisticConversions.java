@@ -36,25 +36,25 @@ public class StatisticConversions {
   public static final String SERIALIZED_NAME_ADD_TO_CART_PERCENT = "addToCartPercent";
 
   @SerializedName(SERIALIZED_NAME_ADD_TO_CART_PERCENT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer addToCartPercent;
 
   public static final String SERIALIZED_NAME_CART_TO_ORDER_PERCENT = "cartToOrderPercent";
 
   @SerializedName(SERIALIZED_NAME_CART_TO_ORDER_PERCENT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer cartToOrderPercent;
 
   public static final String SERIALIZED_NAME_BUYOUT_PERCENT = "buyoutPercent";
 
   @SerializedName(SERIALIZED_NAME_BUYOUT_PERCENT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer buyoutPercent;
 
   public StatisticConversions() {}
 
   public StatisticConversions addToCartPercent(
-      @jakarta.annotation.Nonnull Integer addToCartPercent) {
+      @jakarta.annotation.Nullable Integer addToCartPercent) {
     this.addToCartPercent = addToCartPercent;
     return this;
   }
@@ -65,17 +65,17 @@ public class StatisticConversions {
    *
    * @return addToCartPercent
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getAddToCartPercent() {
     return addToCartPercent;
   }
 
-  public void setAddToCartPercent(@jakarta.annotation.Nonnull Integer addToCartPercent) {
+  public void setAddToCartPercent(@jakarta.annotation.Nullable Integer addToCartPercent) {
     this.addToCartPercent = addToCartPercent;
   }
 
   public StatisticConversions cartToOrderPercent(
-      @jakarta.annotation.Nonnull Integer cartToOrderPercent) {
+      @jakarta.annotation.Nullable Integer cartToOrderPercent) {
     this.cartToOrderPercent = cartToOrderPercent;
     return this;
   }
@@ -85,16 +85,16 @@ public class StatisticConversions {
    *
    * @return cartToOrderPercent
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getCartToOrderPercent() {
     return cartToOrderPercent;
   }
 
-  public void setCartToOrderPercent(@jakarta.annotation.Nonnull Integer cartToOrderPercent) {
+  public void setCartToOrderPercent(@jakarta.annotation.Nullable Integer cartToOrderPercent) {
     this.cartToOrderPercent = cartToOrderPercent;
   }
 
-  public StatisticConversions buyoutPercent(@jakarta.annotation.Nonnull Integer buyoutPercent) {
+  public StatisticConversions buyoutPercent(@jakarta.annotation.Nullable Integer buyoutPercent) {
     this.buyoutPercent = buyoutPercent;
     return this;
   }
@@ -105,12 +105,12 @@ public class StatisticConversions {
    *
    * @return buyoutPercent
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getBuyoutPercent() {
     return buyoutPercent;
   }
 
-  public void setBuyoutPercent(@jakarta.annotation.Nonnull Integer buyoutPercent) {
+  public void setBuyoutPercent(@jakarta.annotation.Nullable Integer buyoutPercent) {
     this.buyoutPercent = buyoutPercent;
   }
 
@@ -166,9 +166,6 @@ public class StatisticConversions {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("addToCartPercent");
-    openapiRequiredFields.add("cartToOrderPercent");
-    openapiRequiredFields.add("buyoutPercent");
   }
 
   /**
@@ -196,16 +193,6 @@ public class StatisticConversions {
             String.format(
                 "The field `%s` in the JSON string is not defined in the `StatisticConversions` properties. JSON: %s",
                 entry.getKey(), jsonElement.toString()));
-      }
-    }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : StatisticConversions.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
       }
     }
     JsonObject jsonObj = jsonElement.getAsJsonObject();

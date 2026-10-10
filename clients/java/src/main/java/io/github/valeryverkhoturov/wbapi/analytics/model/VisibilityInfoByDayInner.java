@@ -36,24 +36,24 @@ public class VisibilityInfoByDayInner {
   public static final String SERIALIZED_NAME_DT = "dt";
 
   @SerializedName(SERIALIZED_NAME_DT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String dt;
 
   public static final String SERIALIZED_NAME_VISIBILITY = "visibility";
 
   @SerializedName(SERIALIZED_NAME_VISIBILITY)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer visibility;
 
   public static final String SERIALIZED_NAME_OPEN = "open";
 
   @SerializedName(SERIALIZED_NAME_OPEN)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer open;
 
   public VisibilityInfoByDayInner() {}
 
-  public VisibilityInfoByDayInner dt(@jakarta.annotation.Nonnull String dt) {
+  public VisibilityInfoByDayInner dt(@jakarta.annotation.Nullable String dt) {
     this.dt = dt;
     return this;
   }
@@ -63,16 +63,16 @@ public class VisibilityInfoByDayInner {
    *
    * @return dt
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getDt() {
     return dt;
   }
 
-  public void setDt(@jakarta.annotation.Nonnull String dt) {
+  public void setDt(@jakarta.annotation.Nullable String dt) {
     this.dt = dt;
   }
 
-  public VisibilityInfoByDayInner visibility(@jakarta.annotation.Nonnull Integer visibility) {
+  public VisibilityInfoByDayInner visibility(@jakarta.annotation.Nullable Integer visibility) {
     this.visibility = visibility;
     return this;
   }
@@ -82,16 +82,16 @@ public class VisibilityInfoByDayInner {
    *
    * @return visibility
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getVisibility() {
     return visibility;
   }
 
-  public void setVisibility(@jakarta.annotation.Nonnull Integer visibility) {
+  public void setVisibility(@jakarta.annotation.Nullable Integer visibility) {
     this.visibility = visibility;
   }
 
-  public VisibilityInfoByDayInner open(@jakarta.annotation.Nonnull Integer open) {
+  public VisibilityInfoByDayInner open(@jakarta.annotation.Nullable Integer open) {
     this.open = open;
     return this;
   }
@@ -101,12 +101,12 @@ public class VisibilityInfoByDayInner {
    *
    * @return open
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getOpen() {
     return open;
   }
 
-  public void setOpen(@jakarta.annotation.Nonnull Integer open) {
+  public void setOpen(@jakarta.annotation.Nullable Integer open) {
     this.open = open;
   }
 
@@ -162,9 +162,6 @@ public class VisibilityInfoByDayInner {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("dt");
-    openapiRequiredFields.add("visibility");
-    openapiRequiredFields.add("open");
   }
 
   /**
@@ -194,18 +191,9 @@ public class VisibilityInfoByDayInner {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : VisibilityInfoByDayInner.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    if (!jsonObj.get("dt").isJsonPrimitive()) {
+    if ((jsonObj.get("dt") != null && !jsonObj.get("dt").isJsonNull())
+        && !jsonObj.get("dt").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `dt` to be a primitive type in the JSON string but got `%s`",

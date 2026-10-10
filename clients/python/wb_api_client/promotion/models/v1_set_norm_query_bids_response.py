@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from wb_api_client.promotion.models.norm_query_bid_fail_response_item import (
     NormQueryBidFailResponseItem,
 )
@@ -34,8 +34,8 @@ class V1SetNormQueryBidsResponse(BaseModel):
     V1SetNormQueryBidsResponse
     """  # noqa: E501
 
-    success: List[V1SetNormQueryBidsSuccessResponseItem]
-    failed: List[NormQueryBidFailResponseItem]
+    success: Optional[List[V1SetNormQueryBidsSuccessResponseItem]] = None
+    failed: Optional[List[NormQueryBidFailResponseItem]] = None
     __properties: ClassVar[List[str]] = ["success", "failed"]
 
     model_config = ConfigDict(

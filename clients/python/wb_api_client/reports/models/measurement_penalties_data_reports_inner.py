@@ -36,37 +36,55 @@ class MeasurementPenaltiesDataReportsInner(BaseModel):
     MeasurementPenaltiesDataReportsInner
     """  # noqa: E501
 
-    nm_id: StrictInt = Field(description="Артикул WB", alias="nmId")
-    subject_name: StrictStr = Field(description="Предмет", alias="subjectName")
-    dim_id: StrictInt = Field(description="ID замера", alias="dimId")
-    prc_over: Union[StrictFloat, StrictInt] = Field(
-        description="Разница в габаритах, %", alias="prcOver"
+    nm_id: Optional[StrictInt] = Field(
+        default=None, description="Артикул WB", alias="nmId"
     )
-    volume: Union[StrictFloat, StrictInt] = Field(
-        description="Объём, л (фактические габариты по замеру на складе)"
+    subject_name: Optional[StrictStr] = Field(
+        default=None, description="Предмет", alias="subjectName"
     )
-    width: StrictInt = Field(
-        description="Ширина, см (фактические габариты по замеру на складе)"
+    dim_id: Optional[StrictInt] = Field(
+        default=None, description="ID замера", alias="dimId"
     )
-    length: StrictInt = Field(
-        description="Длина, см (фактические габариты по замеру на складе)"
+    prc_over: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None, description="Разница в габаритах, %", alias="prcOver"
     )
-    height: StrictInt = Field(
-        description="Высота, см (фактические габариты по замеру на складе)"
+    volume: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None, description="Объём, л (фактические габариты по замеру на складе)"
     )
-    volume_sup: Union[StrictFloat, StrictInt] = Field(
-        description="Объём, л (габариты карточки товара)", alias="volumeSup"
+    width: Optional[StrictInt] = Field(
+        default=None,
+        description="Ширина, см (фактические габариты по замеру на складе)",
     )
-    width_sup: StrictInt = Field(
-        description="Ширина, см (габариты карточки товара)", alias="widthSup"
+    length: Optional[StrictInt] = Field(
+        default=None, description="Длина, см (фактические габариты по замеру на складе)"
     )
-    length_sup: StrictInt = Field(
-        description="Длина, см (габариты карточки товара)", alias="lengthSup"
+    height: Optional[StrictInt] = Field(
+        default=None,
+        description="Высота, см (фактические габариты по замеру на складе)",
     )
-    height_sup: StrictInt = Field(
-        description="Высота, см (габариты карточки товара)", alias="heightSup"
+    volume_sup: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None,
+        description="Объём, л (габариты карточки товара)",
+        alias="volumeSup",
     )
-    photo_urls: List[StrictStr] = Field(description="Фото замеров", alias="photoUrls")
+    width_sup: Optional[StrictInt] = Field(
+        default=None,
+        description="Ширина, см (габариты карточки товара)",
+        alias="widthSup",
+    )
+    length_sup: Optional[StrictInt] = Field(
+        default=None,
+        description="Длина, см (габариты карточки товара)",
+        alias="lengthSup",
+    )
+    height_sup: Optional[StrictInt] = Field(
+        default=None,
+        description="Высота, см (габариты карточки товара)",
+        alias="heightSup",
+    )
+    photo_urls: Optional[List[StrictStr]] = Field(
+        default=None, description="Фото замеров", alias="photoUrls"
+    )
     dt_bonus: Optional[StrictStr] = Field(
         default=None, description="Дата штрафа", alias="dtBonus"
     )

@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List, Union
+from typing import Any, ClassVar, Dict, List, Optional, Union
 from wb_api_client.analytics.models.item_stocks import ItemStocks
 from wb_api_client.analytics.models.tag import Tag
 from typing import Optional, Set
@@ -30,22 +30,32 @@ class Item(BaseModel):
     Item
     """  # noqa: E501
 
-    nm_id: StrictInt = Field(description="Артикул WB", alias="nmId")
-    title: StrictStr = Field(description="Название карточки товара")
-    vendor_code: StrictStr = Field(description="Артикул продавца", alias="vendorCode")
-    brand_name: StrictStr = Field(description="Бренд", alias="brandName")
-    subject_id: StrictInt = Field(description="ID предмета", alias="subjectId")
-    subject_name: StrictStr = Field(
-        description="Название предмета", alias="subjectName"
+    nm_id: Optional[StrictInt] = Field(
+        default=None, description="Артикул WB", alias="nmId"
     )
-    tags: List[Tag] = Field(description="Ярлыки")
-    product_rating: Union[StrictFloat, StrictInt] = Field(
-        description="Оценка карточки", alias="productRating"
+    title: Optional[StrictStr] = Field(
+        default=None, description="Название карточки товара"
     )
-    feedback_rating: Union[StrictFloat, StrictInt] = Field(
-        description="Оценка пользователей", alias="feedbackRating"
+    vendor_code: Optional[StrictStr] = Field(
+        default=None, description="Артикул продавца", alias="vendorCode"
     )
-    stocks: ItemStocks
+    brand_name: Optional[StrictStr] = Field(
+        default=None, description="Бренд", alias="brandName"
+    )
+    subject_id: Optional[StrictInt] = Field(
+        default=None, description="ID предмета", alias="subjectId"
+    )
+    subject_name: Optional[StrictStr] = Field(
+        default=None, description="Название предмета", alias="subjectName"
+    )
+    tags: Optional[List[Tag]] = Field(default=None, description="Ярлыки")
+    product_rating: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None, description="Оценка карточки", alias="productRating"
+    )
+    feedback_rating: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None, description="Оценка пользователей", alias="feedbackRating"
+    )
+    stocks: Optional[ItemStocks] = None
     __properties: ClassVar[List[str]] = [
         "nmId",
         "title",

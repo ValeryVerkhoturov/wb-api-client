@@ -34,24 +34,19 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FullStatsItemDaysInnerAppsInnerNmsInner" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected FullStatsItemDaysInnerAppsInnerNmsInner() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="FullStatsItemDaysInnerAppsInnerNmsInner" /> class.
-        /// </summary>
-        /// <param name="atbs">Количество добавлений товаров в корзину (required).</param>
-        /// <param name="canceled">Отмены, шт. (required).</param>
-        /// <param name="clicks">Количество кликов (required).</param>
-        /// <param name="cpc">Средняя стоимость клика в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) (required).</param>
-        /// <param name="cr">CR (conversion rate) — отношение количества заказов к общему количеству кликов (required).</param>
-        /// <param name="ctr">CTR (click-through rate) — отношение числа кликов к количеству показов в процентах (required).</param>
-        /// <param name="name">Название товара (required).</param>
-        /// <param name="nmId">Артикул WB (required).</param>
-        /// <param name="orders">Количество заказов (required).</param>
-        /// <param name="shks">Количество заказанных товаров, шт. (required).</param>
-        /// <param name="sum">Затраты в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) (required).</param>
-        /// <param name="sumPrice">Заказов на сумму в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) (required).</param>
-        /// <param name="views">Количество просмотров (required).</param>
+        /// <param name="atbs">Количество добавлений товаров в корзину.</param>
+        /// <param name="canceled">Отмены, шт..</param>
+        /// <param name="clicks">Количество кликов.</param>
+        /// <param name="cpc">Средняя стоимость клика в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).</param>
+        /// <param name="cr">CR (conversion rate) — отношение количества заказов к общему количеству кликов.</param>
+        /// <param name="ctr">CTR (click-through rate) — отношение числа кликов к количеству показов в процентах.</param>
+        /// <param name="name">Название товара.</param>
+        /// <param name="nmId">Артикул WB.</param>
+        /// <param name="orders">Количество заказов.</param>
+        /// <param name="shks">Количество заказанных товаров, шт..</param>
+        /// <param name="sum">Затраты в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).</param>
+        /// <param name="sumPrice">Заказов на сумму в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).</param>
+        /// <param name="views">Количество просмотров.</param>
         public FullStatsItemDaysInnerAppsInnerNmsInner(int atbs = default(int), int canceled = default(int), int clicks = default(int), decimal cpc = default(decimal), decimal cr = default(decimal), decimal ctr = default(decimal), string name = default(string), int nmId = default(int), int orders = default(int), int shks = default(int), decimal sum = default(decimal), decimal sumPrice = default(decimal), int views = default(int))
         {
             this.Atbs = atbs;
@@ -60,11 +55,6 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
             this.Cpc = cpc;
             this.Cr = cr;
             this.Ctr = ctr;
-            // to ensure "name" is required (not null)
-            if (name == null)
-            {
-                throw new ArgumentNullException("name is a required property for FullStatsItemDaysInnerAppsInnerNmsInner and cannot be null");
-            }
             this.Name = name;
             this.NmId = nmId;
             this.Orders = orders;
@@ -78,91 +68,91 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// Количество добавлений товаров в корзину
         /// </summary>
         /// <value>Количество добавлений товаров в корзину</value>
-        [DataMember(Name = "atbs", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "atbs", EmitDefaultValue = false)]
         public int Atbs { get; set; }
 
         /// <summary>
         /// Отмены, шт.
         /// </summary>
         /// <value>Отмены, шт.</value>
-        [DataMember(Name = "canceled", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "canceled", EmitDefaultValue = false)]
         public int Canceled { get; set; }
 
         /// <summary>
         /// Количество кликов
         /// </summary>
         /// <value>Количество кликов</value>
-        [DataMember(Name = "clicks", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "clicks", EmitDefaultValue = false)]
         public int Clicks { get; set; }
 
         /// <summary>
         /// Средняя стоимость клика в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
         /// </summary>
         /// <value>Средняя стоимость клика в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)</value>
-        [DataMember(Name = "cpc", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "cpc", EmitDefaultValue = false)]
         public decimal Cpc { get; set; }
 
         /// <summary>
         /// CR (conversion rate) — отношение количества заказов к общему количеству кликов
         /// </summary>
         /// <value>CR (conversion rate) — отношение количества заказов к общему количеству кликов</value>
-        [DataMember(Name = "cr", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "cr", EmitDefaultValue = false)]
         public decimal Cr { get; set; }
 
         /// <summary>
         /// CTR (click-through rate) — отношение числа кликов к количеству показов в процентах
         /// </summary>
         /// <value>CTR (click-through rate) — отношение числа кликов к количеству показов в процентах</value>
-        [DataMember(Name = "ctr", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "ctr", EmitDefaultValue = false)]
         public decimal Ctr { get; set; }
 
         /// <summary>
         /// Название товара
         /// </summary>
         /// <value>Название товара</value>
-        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "name", EmitDefaultValue = false)]
         public string Name { get; set; }
 
         /// <summary>
         /// Артикул WB
         /// </summary>
         /// <value>Артикул WB</value>
-        [DataMember(Name = "nmId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "nmId", EmitDefaultValue = false)]
         public int NmId { get; set; }
 
         /// <summary>
         /// Количество заказов
         /// </summary>
         /// <value>Количество заказов</value>
-        [DataMember(Name = "orders", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "orders", EmitDefaultValue = false)]
         public int Orders { get; set; }
 
         /// <summary>
         /// Количество заказанных товаров, шт.
         /// </summary>
         /// <value>Количество заказанных товаров, шт.</value>
-        [DataMember(Name = "shks", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "shks", EmitDefaultValue = false)]
         public int Shks { get; set; }
 
         /// <summary>
         /// Затраты в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
         /// </summary>
         /// <value>Затраты в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)</value>
-        [DataMember(Name = "sum", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "sum", EmitDefaultValue = false)]
         public decimal Sum { get; set; }
 
         /// <summary>
         /// Заказов на сумму в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
         /// </summary>
         /// <value>Заказов на сумму в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)</value>
-        [DataMember(Name = "sum_price", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "sum_price", EmitDefaultValue = false)]
         public decimal SumPrice { get; set; }
 
         /// <summary>
         /// Количество просмотров
         /// </summary>
         /// <value>Количество просмотров</value>
-        [DataMember(Name = "views", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "views", EmitDefaultValue = false)]
         public int Views { get; set; }
 
         /// <summary>

@@ -36,54 +36,54 @@ public class FeedbacksIncreaseItem {
   public static final String SERIALIZED_NAME_CURRENT = "current";
 
   @SerializedName(SERIALIZED_NAME_CURRENT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer current;
 
   public static final String SERIALIZED_NAME_TOTAL = "total";
 
   @SerializedName(SERIALIZED_NAME_TOTAL)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer total;
 
   public static final String SERIALIZED_NAME_DYNAMICS = "dynamics";
 
   @SerializedName(SERIALIZED_NAME_DYNAMICS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer dynamics;
 
   public static final String SERIALIZED_NAME_FIVE_STAR = "fiveStar";
 
   @SerializedName(SERIALIZED_NAME_FIVE_STAR)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private FeedbacksIncreaseItemFiveStar fiveStar;
 
   public static final String SERIALIZED_NAME_FOUR_STAR = "fourStar";
 
   @SerializedName(SERIALIZED_NAME_FOUR_STAR)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private FeedbacksIncreaseItemFourStar fourStar;
 
   public static final String SERIALIZED_NAME_THREE_STAR = "threeStar";
 
   @SerializedName(SERIALIZED_NAME_THREE_STAR)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private FeedbacksIncreaseItemThreeStar threeStar;
 
   public static final String SERIALIZED_NAME_TWO_STAR = "twoStar";
 
   @SerializedName(SERIALIZED_NAME_TWO_STAR)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private FeedbacksIncreaseItemTwoStar twoStar;
 
   public static final String SERIALIZED_NAME_ONE_STAR = "oneStar";
 
   @SerializedName(SERIALIZED_NAME_ONE_STAR)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private FeedbacksIncreaseItemOneStar oneStar;
 
   public FeedbacksIncreaseItem() {}
 
-  public FeedbacksIncreaseItem current(@jakarta.annotation.Nonnull Integer current) {
+  public FeedbacksIncreaseItem current(@jakarta.annotation.Nullable Integer current) {
     this.current = current;
     return this;
   }
@@ -93,16 +93,16 @@ public class FeedbacksIncreaseItem {
    *
    * @return current
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getCurrent() {
     return current;
   }
 
-  public void setCurrent(@jakarta.annotation.Nonnull Integer current) {
+  public void setCurrent(@jakarta.annotation.Nullable Integer current) {
     this.current = current;
   }
 
-  public FeedbacksIncreaseItem total(@jakarta.annotation.Nonnull Integer total) {
+  public FeedbacksIncreaseItem total(@jakarta.annotation.Nullable Integer total) {
     this.total = total;
     return this;
   }
@@ -112,16 +112,16 @@ public class FeedbacksIncreaseItem {
    *
    * @return total
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getTotal() {
     return total;
   }
 
-  public void setTotal(@jakarta.annotation.Nonnull Integer total) {
+  public void setTotal(@jakarta.annotation.Nullable Integer total) {
     this.total = total;
   }
 
-  public FeedbacksIncreaseItem dynamics(@jakarta.annotation.Nonnull Integer dynamics) {
+  public FeedbacksIncreaseItem dynamics(@jakarta.annotation.Nullable Integer dynamics) {
     this.dynamics = dynamics;
     return this;
   }
@@ -131,17 +131,17 @@ public class FeedbacksIncreaseItem {
    *
    * @return dynamics
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getDynamics() {
     return dynamics;
   }
 
-  public void setDynamics(@jakarta.annotation.Nonnull Integer dynamics) {
+  public void setDynamics(@jakarta.annotation.Nullable Integer dynamics) {
     this.dynamics = dynamics;
   }
 
   public FeedbacksIncreaseItem fiveStar(
-      @jakarta.annotation.Nonnull FeedbacksIncreaseItemFiveStar fiveStar) {
+      @jakarta.annotation.Nullable FeedbacksIncreaseItemFiveStar fiveStar) {
     this.fiveStar = fiveStar;
     return this;
   }
@@ -151,17 +151,17 @@ public class FeedbacksIncreaseItem {
    *
    * @return fiveStar
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public FeedbacksIncreaseItemFiveStar getFiveStar() {
     return fiveStar;
   }
 
-  public void setFiveStar(@jakarta.annotation.Nonnull FeedbacksIncreaseItemFiveStar fiveStar) {
+  public void setFiveStar(@jakarta.annotation.Nullable FeedbacksIncreaseItemFiveStar fiveStar) {
     this.fiveStar = fiveStar;
   }
 
   public FeedbacksIncreaseItem fourStar(
-      @jakarta.annotation.Nonnull FeedbacksIncreaseItemFourStar fourStar) {
+      @jakarta.annotation.Nullable FeedbacksIncreaseItemFourStar fourStar) {
     this.fourStar = fourStar;
     return this;
   }
@@ -171,17 +171,17 @@ public class FeedbacksIncreaseItem {
    *
    * @return fourStar
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public FeedbacksIncreaseItemFourStar getFourStar() {
     return fourStar;
   }
 
-  public void setFourStar(@jakarta.annotation.Nonnull FeedbacksIncreaseItemFourStar fourStar) {
+  public void setFourStar(@jakarta.annotation.Nullable FeedbacksIncreaseItemFourStar fourStar) {
     this.fourStar = fourStar;
   }
 
   public FeedbacksIncreaseItem threeStar(
-      @jakarta.annotation.Nonnull FeedbacksIncreaseItemThreeStar threeStar) {
+      @jakarta.annotation.Nullable FeedbacksIncreaseItemThreeStar threeStar) {
     this.threeStar = threeStar;
     return this;
   }
@@ -191,17 +191,17 @@ public class FeedbacksIncreaseItem {
    *
    * @return threeStar
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public FeedbacksIncreaseItemThreeStar getThreeStar() {
     return threeStar;
   }
 
-  public void setThreeStar(@jakarta.annotation.Nonnull FeedbacksIncreaseItemThreeStar threeStar) {
+  public void setThreeStar(@jakarta.annotation.Nullable FeedbacksIncreaseItemThreeStar threeStar) {
     this.threeStar = threeStar;
   }
 
   public FeedbacksIncreaseItem twoStar(
-      @jakarta.annotation.Nonnull FeedbacksIncreaseItemTwoStar twoStar) {
+      @jakarta.annotation.Nullable FeedbacksIncreaseItemTwoStar twoStar) {
     this.twoStar = twoStar;
     return this;
   }
@@ -211,17 +211,17 @@ public class FeedbacksIncreaseItem {
    *
    * @return twoStar
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public FeedbacksIncreaseItemTwoStar getTwoStar() {
     return twoStar;
   }
 
-  public void setTwoStar(@jakarta.annotation.Nonnull FeedbacksIncreaseItemTwoStar twoStar) {
+  public void setTwoStar(@jakarta.annotation.Nullable FeedbacksIncreaseItemTwoStar twoStar) {
     this.twoStar = twoStar;
   }
 
   public FeedbacksIncreaseItem oneStar(
-      @jakarta.annotation.Nonnull FeedbacksIncreaseItemOneStar oneStar) {
+      @jakarta.annotation.Nullable FeedbacksIncreaseItemOneStar oneStar) {
     this.oneStar = oneStar;
     return this;
   }
@@ -231,12 +231,12 @@ public class FeedbacksIncreaseItem {
    *
    * @return oneStar
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public FeedbacksIncreaseItemOneStar getOneStar() {
     return oneStar;
   }
 
-  public void setOneStar(@jakarta.annotation.Nonnull FeedbacksIncreaseItemOneStar oneStar) {
+  public void setOneStar(@jakarta.annotation.Nullable FeedbacksIncreaseItemOneStar oneStar) {
     this.oneStar = oneStar;
   }
 
@@ -307,14 +307,6 @@ public class FeedbacksIncreaseItem {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("current");
-    openapiRequiredFields.add("total");
-    openapiRequiredFields.add("dynamics");
-    openapiRequiredFields.add("fiveStar");
-    openapiRequiredFields.add("fourStar");
-    openapiRequiredFields.add("threeStar");
-    openapiRequiredFields.add("twoStar");
-    openapiRequiredFields.add("oneStar");
   }
 
   /**
@@ -344,27 +336,27 @@ public class FeedbacksIncreaseItem {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : FeedbacksIncreaseItem.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    // validate the required field `fiveStar`
-    FeedbacksIncreaseItemFiveStar.validateJsonElement(jsonObj.get("fiveStar"));
-    // validate the required field `fourStar`
-    FeedbacksIncreaseItemFourStar.validateJsonElement(jsonObj.get("fourStar"));
-    // validate the required field `threeStar`
-    FeedbacksIncreaseItemThreeStar.validateJsonElement(jsonObj.get("threeStar"));
-    // validate the required field `twoStar`
-    FeedbacksIncreaseItemTwoStar.validateJsonElement(jsonObj.get("twoStar"));
-    // validate the required field `oneStar`
-    FeedbacksIncreaseItemOneStar.validateJsonElement(jsonObj.get("oneStar"));
+    // validate the optional field `fiveStar`
+    if (jsonObj.get("fiveStar") != null && !jsonObj.get("fiveStar").isJsonNull()) {
+      FeedbacksIncreaseItemFiveStar.validateJsonElement(jsonObj.get("fiveStar"));
+    }
+    // validate the optional field `fourStar`
+    if (jsonObj.get("fourStar") != null && !jsonObj.get("fourStar").isJsonNull()) {
+      FeedbacksIncreaseItemFourStar.validateJsonElement(jsonObj.get("fourStar"));
+    }
+    // validate the optional field `threeStar`
+    if (jsonObj.get("threeStar") != null && !jsonObj.get("threeStar").isJsonNull()) {
+      FeedbacksIncreaseItemThreeStar.validateJsonElement(jsonObj.get("threeStar"));
+    }
+    // validate the optional field `twoStar`
+    if (jsonObj.get("twoStar") != null && !jsonObj.get("twoStar").isJsonNull()) {
+      FeedbacksIncreaseItemTwoStar.validateJsonElement(jsonObj.get("twoStar"));
+    }
+    // validate the optional field `oneStar`
+    if (jsonObj.get("oneStar") != null && !jsonObj.get("oneStar").isJsonNull()) {
+      FeedbacksIncreaseItemOneStar.validateJsonElement(jsonObj.get("oneStar"));
+    }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

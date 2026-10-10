@@ -36,18 +36,18 @@ public class CountriesOKSMListCountriesInner {
   public static final String SERIALIZED_NAME_CODE = "code";
 
   @SerializedName(SERIALIZED_NAME_CODE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String code;
 
   public static final String SERIALIZED_NAME_NAME = "name";
 
   @SerializedName(SERIALIZED_NAME_NAME)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String name;
 
   public CountriesOKSMListCountriesInner() {}
 
-  public CountriesOKSMListCountriesInner code(@jakarta.annotation.Nonnull String code) {
+  public CountriesOKSMListCountriesInner code(@jakarta.annotation.Nullable String code) {
     this.code = code;
     return this;
   }
@@ -57,16 +57,16 @@ public class CountriesOKSMListCountriesInner {
    *
    * @return code
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getCode() {
     return code;
   }
 
-  public void setCode(@jakarta.annotation.Nonnull String code) {
+  public void setCode(@jakarta.annotation.Nullable String code) {
     this.code = code;
   }
 
-  public CountriesOKSMListCountriesInner name(@jakarta.annotation.Nonnull String name) {
+  public CountriesOKSMListCountriesInner name(@jakarta.annotation.Nullable String name) {
     this.name = name;
     return this;
   }
@@ -76,12 +76,12 @@ public class CountriesOKSMListCountriesInner {
    *
    * @return name
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getName() {
     return name;
   }
 
-  public void setName(@jakarta.annotation.Nonnull String name) {
+  public void setName(@jakarta.annotation.Nullable String name) {
     this.name = name;
   }
 
@@ -135,8 +135,6 @@ public class CountriesOKSMListCountriesInner {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("code");
-    openapiRequiredFields.add("name");
   }
 
   /**
@@ -167,24 +165,16 @@ public class CountriesOKSMListCountriesInner {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : CountriesOKSMListCountriesInner.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    if (!jsonObj.get("code").isJsonPrimitive()) {
+    if ((jsonObj.get("code") != null && !jsonObj.get("code").isJsonNull())
+        && !jsonObj.get("code").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `code` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("code").toString()));
     }
-    if (!jsonObj.get("name").isJsonPrimitive()) {
+    if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull())
+        && !jsonObj.get("name").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `name` to be a primitive type in the JSON string but got `%s`",

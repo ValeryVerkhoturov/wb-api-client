@@ -34,19 +34,9 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PostV3SalesFunnelGroupedHistoryResponse200" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected PostV3SalesFunnelGroupedHistoryResponse200() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PostV3SalesFunnelGroupedHistoryResponse200" /> class.
-        /// </summary>
-        /// <param name="data">Статистика (required).</param>
+        /// <param name="data">Статистика.</param>
         public PostV3SalesFunnelGroupedHistoryResponse200(List<PostV3SalesFunnelProductsHistoryResponse200Inner> data = default(List<PostV3SalesFunnelProductsHistoryResponse200Inner>))
         {
-            // to ensure "data" is required (not null)
-            if (data == null)
-            {
-                throw new ArgumentNullException("data is a required property for PostV3SalesFunnelGroupedHistoryResponse200 and cannot be null");
-            }
             this.Data = data;
         }
 
@@ -54,7 +44,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// Статистика
         /// </summary>
         /// <value>Статистика</value>
-        [DataMember(Name = "data", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "data", EmitDefaultValue = false)]
         public List<PostV3SalesFunnelProductsHistoryResponse200Inner> Data { get; set; }
 
         /// <summary>

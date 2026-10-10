@@ -34,12 +34,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiOrderFinalPriceResult" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected ApiOrderFinalPriceResult() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ApiOrderFinalPriceResult" /> class.
-        /// </summary>
-        /// <param name="orderId">ID сборочного задания (required).</param>
+        /// <param name="orderId">ID сборочного задания.</param>
         /// <param name="data">data.</param>
         /// <param name="errors">Детали ошибки.</param>
         /// <param name="isError">Есть ли ошибки.</param>
@@ -55,7 +50,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Model
         /// ID сборочного задания
         /// </summary>
         /// <value>ID сборочного задания</value>
-        [DataMember(Name = "orderId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "orderId", EmitDefaultValue = false)]
         public int OrderId { get; set; }
 
         /// <summary>

@@ -4415,9 +4415,6 @@ components:
     v3.ArchiveOrders:
       type: object
       description: Список архивных сборочных заданий
-      required:
-      - orders
-      - next
       properties:
         next:
           description: Параметр пагинации. Содержит значение, которое необходимо указать в запросе для получения следующего пакета данных
@@ -4432,25 +4429,6 @@ components:
     v3.ArchiveOrder:
       type: object
       description: Архивное сборочное задание
-      required:
-      - cargoType
-      - colorCode
-      - createdAt
-      - crossBorder
-      - crossBorderType
-      - id
-      - isZeroOrder
-      - metaDetails
-      - options
-      - orderUid
-      - priceInfo
-      - product
-      - rid
-      - scanPrice
-      - status
-      - stickerId
-      - supplyId
-      - warehouseId
       properties:
         cargoType:
           description: |
@@ -4534,11 +4512,6 @@ components:
         priceInfo:
           description: Информация о цене заказа
           type: object
-          required:
-          - convertedCurrencyCode
-          - convertedPrice
-          - currencyCode
-          - price
           properties:
             convertedCurrencyCode:
               description: Код валюты страны продавца
@@ -4559,11 +4532,6 @@ components:
         product:
           description: Информация о товаре
           type: object
-          required:
-          - article
-          - chrtId
-          - nmId
-          - skus
           properties:
             article:
               description: Артикул продавца
@@ -4609,9 +4577,6 @@ components:
           example: 5200
         status:
           description: Последние статусы сборочного задания
-          required:
-          - supplierStatus
-          - wbStatus
           properties:
             supplierStatus:
               description: Статус сборочного задания, установленный продавцом
@@ -4685,9 +4650,6 @@ components:
           description: Дополнительные данные ошибки
           nullable: true
     ArhiveOrderError400:
-      required:
-      - title
-      - detail
       properties:
         code:
           description: Код ошибки
@@ -4723,9 +4685,6 @@ components:
           type: string
       type: object
     ApiErrorV3:
-      required:
-      - title
-      - detail
       properties:
         title:
           description: Заголовок ошибки
@@ -4931,8 +4890,6 @@ components:
                   - `true` — B2B-продажа
     Supply:
       type: object
-      required:
-      - spotAvailable
       properties:
         id:
           type: string
@@ -5490,8 +5447,6 @@ components:
             $ref: '#/components/schemas/UpdateSupplyShippingMethod'
     UpdateSuppliesShippingMethodResponse:
       type: object
-      required:
-      - results
       properties:
         results:
           type: array
@@ -5530,8 +5485,6 @@ components:
     UpdatedSuppliesShippingMethod:
       description: Результат обработки запроса для одной поставки
       type: object
-      required:
-      - supplyId
       properties:
         error:
           description: |
@@ -5547,9 +5500,6 @@ components:
               - `409 SupplyAlreadyScanned` — поставка или её короба уже отсканированы в пункте отгрузки
               - `409 InvalidShippingDt` — некорректная дата отгрузки поставки
           type: object
-          required:
-          - code
-          - detail
           properties:
             code:
               type: integer
@@ -5567,16 +5517,6 @@ components:
     ShippingPoint:
       description: Данные пункта отгрузки
       type: object
-      required:
-      - id
-      - name
-      - address
-      - city
-      - officeType
-      - cargoTypes
-      - latitude
-      - longitude
-      - fulfillment
       properties:
         id:
           format: int64
@@ -5640,8 +5580,6 @@ components:
           example: true
     ShippingPointsResponse:
       type: object
-      required:
-      - shippingPoints
       properties:
         shippingPoints:
           description: Список пунктов отгрузки
@@ -5650,8 +5588,6 @@ components:
             $ref: '#/components/schemas/ShippingPoint'
     SupplySpotQRCode:
       type: object
-      required:
-      - qrCode
       properties:
         qrCode:
           description: QR-код поставки в кодировке base64
@@ -5660,17 +5596,12 @@ components:
           type: string
     CountriesOKSMList:
       type: object
-      required:
-      - countries
       properties:
         countries:
           description: Список стран ОКСМ
           type: array
           items:
             type: object
-            required:
-            - code
-            - name
             properties:
               code:
                 description: Код страны
@@ -5682,15 +5613,11 @@ components:
                 example: Австралия
     SupplySpotDataResponse:
       type: object
-      required:
-      - supplies
       properties:
         supplies:
           type: array
           items:
             type: object
-            required:
-            - id
             properties:
               id:
                 description: ID поставки
@@ -5708,12 +5635,6 @@ components:
                       title: IncorrectRequestBody
     SupplySpotData:
       type: object
-      required:
-      - status
-      - carrierTaxNumber
-      - carrierName
-      - carrierCountryCode
-      - vehicleRegistrationNumber
       properties:
         status:
           type: string
@@ -6189,8 +6110,6 @@ components:
             $ref: '#/components/schemas/TrbxStickers'
     GetV3FbsSettingsAutoreturnsResponse200:
       type: object
-      required:
-      - type
       properties:
         type:
           type: string
@@ -6206,8 +6125,6 @@ components:
           - allToPickupPoint
           - manual
     PostV3FbsSettingsAutoreturnsItemsResponse200:
-      required:
-      - results
       example:
         results:
         - success: true
@@ -6223,8 +6140,6 @@ components:
           type: array
           items:
             type: object
-            required:
-            - chrtId
             properties:
               success:
                 type: boolean
@@ -6254,9 +6169,6 @@ components:
               error:
                 items:
                   type: object
-                  required:
-                  - code
-                  - detail
                   properties:
                     code:
                       type: integer
@@ -6269,8 +6181,6 @@ components:
                 description: Детали ошибки
     PatchV3FbsSettingsAutoreturnsItemsResponse200:
       type: object
-      required:
-      - results
       example:
         results:
         - success: true
@@ -6284,8 +6194,6 @@ components:
           type: array
           items:
             type: object
-            required:
-            - chrtId
             properties:
               chrtId:
                 type: integer
@@ -6294,9 +6202,6 @@ components:
               error:
                 items:
                   type: object
-                  required:
-                  - code
-                  - detail
                   properties:
                     code:
                       type: integer
@@ -6313,9 +6218,6 @@ components:
                   - `true` — настройки автовозврата товара обновлены
     GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200:
       type: object
-      required:
-      - next
-      - data
       example:
         next: 300
         data:
@@ -6333,8 +6235,6 @@ components:
           description: Список ID предметов, товары которых не хранятся на складах WB
           items:
             type: object
-            required:
-            - subjectId
             properties:
               subjectId:
                 type: integer

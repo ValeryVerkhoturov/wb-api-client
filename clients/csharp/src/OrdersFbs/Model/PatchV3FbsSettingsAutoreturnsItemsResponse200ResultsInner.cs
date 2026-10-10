@@ -34,12 +34,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInner" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInner() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInner" /> class.
-        /// </summary>
-        /// <param name="chrtId">ID размера товара в системе WB (required).</param>
+        /// <param name="chrtId">ID размера товара в системе WB.</param>
         /// <param name="error">Детали ошибки.</param>
         /// <param name="success">- &#x60;true&#x60; — настройки автовозврата товара обновлены .</param>
         public PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInner(int chrtId = default(int), List<PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner> error = default(List<PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner>), bool success = default(bool))
@@ -53,7 +48,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// ID размера товара в системе WB
         /// </summary>
         /// <value>ID размера товара в системе WB</value>
-        [DataMember(Name = "chrtId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "chrtId", EmitDefaultValue = false)]
         public int ChrtId { get; set; }
 
         /// <summary>

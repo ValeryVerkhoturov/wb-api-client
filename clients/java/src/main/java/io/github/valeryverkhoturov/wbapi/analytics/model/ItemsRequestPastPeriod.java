@@ -36,18 +36,18 @@ public class ItemsRequestPastPeriod {
   public static final String SERIALIZED_NAME_START = "start";
 
   @SerializedName(SERIALIZED_NAME_START)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String start;
 
   public static final String SERIALIZED_NAME_END = "end";
 
   @SerializedName(SERIALIZED_NAME_END)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String end;
 
   public ItemsRequestPastPeriod() {}
 
-  public ItemsRequestPastPeriod start(@jakarta.annotation.Nonnull String start) {
+  public ItemsRequestPastPeriod start(@jakarta.annotation.Nullable String start) {
     this.start = start;
     return this;
   }
@@ -57,16 +57,16 @@ public class ItemsRequestPastPeriod {
    *
    * @return start
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getStart() {
     return start;
   }
 
-  public void setStart(@jakarta.annotation.Nonnull String start) {
+  public void setStart(@jakarta.annotation.Nullable String start) {
     this.start = start;
   }
 
-  public ItemsRequestPastPeriod end(@jakarta.annotation.Nonnull String end) {
+  public ItemsRequestPastPeriod end(@jakarta.annotation.Nullable String end) {
     this.end = end;
     return this;
   }
@@ -76,12 +76,12 @@ public class ItemsRequestPastPeriod {
    *
    * @return end
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getEnd() {
     return end;
   }
 
-  public void setEnd(@jakarta.annotation.Nonnull String end) {
+  public void setEnd(@jakarta.annotation.Nullable String end) {
     this.end = end;
   }
 
@@ -134,8 +134,6 @@ public class ItemsRequestPastPeriod {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("start");
-    openapiRequiredFields.add("end");
   }
 
   /**
@@ -165,24 +163,16 @@ public class ItemsRequestPastPeriod {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : ItemsRequestPastPeriod.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    if (!jsonObj.get("start").isJsonPrimitive()) {
+    if ((jsonObj.get("start") != null && !jsonObj.get("start").isJsonNull())
+        && !jsonObj.get("start").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `start` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("start").toString()));
     }
-    if (!jsonObj.get("end").isJsonPrimitive()) {
+    if ((jsonObj.get("end") != null && !jsonObj.get("end").isJsonNull())
+        && !jsonObj.get("end").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `end` to be a primitive type in the JSON string but got `%s`",

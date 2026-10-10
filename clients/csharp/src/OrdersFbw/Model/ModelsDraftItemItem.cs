@@ -34,72 +34,27 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ModelsDraftItemItem" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected ModelsDraftItemItem() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ModelsDraftItemItem" /> class.
-        /// </summary>
-        /// <param name="sku">Баркод (required).</param>
-        /// <param name="color">Цвет товара (required).</param>
-        /// <param name="quantity">Количество единиц товара (required).</param>
-        /// <param name="brandName">Бренд (required).</param>
-        /// <param name="imgSrc">Ссылка на изображение товара (required).</param>
-        /// <param name="nmId">Артикул WB (required).</param>
-        /// <param name="subjectName">Предмет (required).</param>
-        /// <param name="techSize">Размер товара (required).</param>
-        /// <param name="title">Название товара (required).</param>
-        /// <param name="vendorCode">Артикул продавца (required).</param>
+        /// <param name="sku">Баркод.</param>
+        /// <param name="color">Цвет товара.</param>
+        /// <param name="quantity">Количество единиц товара.</param>
+        /// <param name="brandName">Бренд.</param>
+        /// <param name="imgSrc">Ссылка на изображение товара.</param>
+        /// <param name="nmId">Артикул WB.</param>
+        /// <param name="subjectName">Предмет.</param>
+        /// <param name="techSize">Размер товара.</param>
+        /// <param name="title">Название товара.</param>
+        /// <param name="vendorCode">Артикул продавца.</param>
         public ModelsDraftItemItem(string sku = default(string), string color = default(string), int quantity = default(int), string brandName = default(string), string imgSrc = default(string), int nmId = default(int), string subjectName = default(string), string techSize = default(string), string title = default(string), string vendorCode = default(string))
         {
-            // to ensure "sku" is required (not null)
-            if (sku == null)
-            {
-                throw new ArgumentNullException("sku is a required property for ModelsDraftItemItem and cannot be null");
-            }
             this.Sku = sku;
-            // to ensure "color" is required (not null)
-            if (color == null)
-            {
-                throw new ArgumentNullException("color is a required property for ModelsDraftItemItem and cannot be null");
-            }
             this.Color = color;
             this.Quantity = quantity;
-            // to ensure "brandName" is required (not null)
-            if (brandName == null)
-            {
-                throw new ArgumentNullException("brandName is a required property for ModelsDraftItemItem and cannot be null");
-            }
             this.BrandName = brandName;
-            // to ensure "imgSrc" is required (not null)
-            if (imgSrc == null)
-            {
-                throw new ArgumentNullException("imgSrc is a required property for ModelsDraftItemItem and cannot be null");
-            }
             this.ImgSrc = imgSrc;
             this.NmId = nmId;
-            // to ensure "subjectName" is required (not null)
-            if (subjectName == null)
-            {
-                throw new ArgumentNullException("subjectName is a required property for ModelsDraftItemItem and cannot be null");
-            }
             this.SubjectName = subjectName;
-            // to ensure "techSize" is required (not null)
-            if (techSize == null)
-            {
-                throw new ArgumentNullException("techSize is a required property for ModelsDraftItemItem and cannot be null");
-            }
             this.TechSize = techSize;
-            // to ensure "title" is required (not null)
-            if (title == null)
-            {
-                throw new ArgumentNullException("title is a required property for ModelsDraftItemItem and cannot be null");
-            }
             this.Title = title;
-            // to ensure "vendorCode" is required (not null)
-            if (vendorCode == null)
-            {
-                throw new ArgumentNullException("vendorCode is a required property for ModelsDraftItemItem and cannot be null");
-            }
             this.VendorCode = vendorCode;
         }
 
@@ -107,70 +62,70 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Model
         /// Баркод
         /// </summary>
         /// <value>Баркод</value>
-        [DataMember(Name = "sku", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "sku", EmitDefaultValue = false)]
         public string Sku { get; set; }
 
         /// <summary>
         /// Цвет товара
         /// </summary>
         /// <value>Цвет товара</value>
-        [DataMember(Name = "color", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "color", EmitDefaultValue = false)]
         public string Color { get; set; }
 
         /// <summary>
         /// Количество единиц товара
         /// </summary>
         /// <value>Количество единиц товара</value>
-        [DataMember(Name = "quantity", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "quantity", EmitDefaultValue = false)]
         public int Quantity { get; set; }
 
         /// <summary>
         /// Бренд
         /// </summary>
         /// <value>Бренд</value>
-        [DataMember(Name = "brandName", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "brandName", EmitDefaultValue = false)]
         public string BrandName { get; set; }
 
         /// <summary>
         /// Ссылка на изображение товара
         /// </summary>
         /// <value>Ссылка на изображение товара</value>
-        [DataMember(Name = "imgSrc", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "imgSrc", EmitDefaultValue = false)]
         public string ImgSrc { get; set; }
 
         /// <summary>
         /// Артикул WB
         /// </summary>
         /// <value>Артикул WB</value>
-        [DataMember(Name = "nmId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "nmId", EmitDefaultValue = false)]
         public int NmId { get; set; }
 
         /// <summary>
         /// Предмет
         /// </summary>
         /// <value>Предмет</value>
-        [DataMember(Name = "subjectName", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "subjectName", EmitDefaultValue = false)]
         public string SubjectName { get; set; }
 
         /// <summary>
         /// Размер товара
         /// </summary>
         /// <value>Размер товара</value>
-        [DataMember(Name = "techSize", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "techSize", EmitDefaultValue = false)]
         public string TechSize { get; set; }
 
         /// <summary>
         /// Название товара
         /// </summary>
         /// <value>Название товара</value>
-        [DataMember(Name = "title", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "title", EmitDefaultValue = false)]
         public string Title { get; set; }
 
         /// <summary>
         /// Артикул продавца
         /// </summary>
         /// <value>Артикул продавца</value>
-        [DataMember(Name = "vendorCode", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "vendorCode", EmitDefaultValue = false)]
         public string VendorCode { get; set; }
 
         /// <summary>

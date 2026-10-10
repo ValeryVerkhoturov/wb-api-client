@@ -36,25 +36,25 @@ public class CommonInfo {
   public static final String SERIALIZED_NAME_SUPPLIER_RATING = "supplierRating";
 
   @SerializedName(SERIALIZED_NAME_SUPPLIER_RATING)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private CommonInfoSupplierRating supplierRating;
 
   public static final String SERIALIZED_NAME_ADVERTISED_PRODUCTS = "advertisedProducts";
 
   @SerializedName(SERIALIZED_NAME_ADVERTISED_PRODUCTS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private CommonInfoAdvertisedProducts advertisedProducts;
 
   public static final String SERIALIZED_NAME_TOTAL_PRODUCTS = "totalProducts";
 
   @SerializedName(SERIALIZED_NAME_TOTAL_PRODUCTS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer totalProducts;
 
   public CommonInfo() {}
 
   public CommonInfo supplierRating(
-      @jakarta.annotation.Nonnull CommonInfoSupplierRating supplierRating) {
+      @jakarta.annotation.Nullable CommonInfoSupplierRating supplierRating) {
     this.supplierRating = supplierRating;
     return this;
   }
@@ -64,18 +64,18 @@ public class CommonInfo {
    *
    * @return supplierRating
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public CommonInfoSupplierRating getSupplierRating() {
     return supplierRating;
   }
 
   public void setSupplierRating(
-      @jakarta.annotation.Nonnull CommonInfoSupplierRating supplierRating) {
+      @jakarta.annotation.Nullable CommonInfoSupplierRating supplierRating) {
     this.supplierRating = supplierRating;
   }
 
   public CommonInfo advertisedProducts(
-      @jakarta.annotation.Nonnull CommonInfoAdvertisedProducts advertisedProducts) {
+      @jakarta.annotation.Nullable CommonInfoAdvertisedProducts advertisedProducts) {
     this.advertisedProducts = advertisedProducts;
     return this;
   }
@@ -85,17 +85,17 @@ public class CommonInfo {
    *
    * @return advertisedProducts
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public CommonInfoAdvertisedProducts getAdvertisedProducts() {
     return advertisedProducts;
   }
 
   public void setAdvertisedProducts(
-      @jakarta.annotation.Nonnull CommonInfoAdvertisedProducts advertisedProducts) {
+      @jakarta.annotation.Nullable CommonInfoAdvertisedProducts advertisedProducts) {
     this.advertisedProducts = advertisedProducts;
   }
 
-  public CommonInfo totalProducts(@jakarta.annotation.Nonnull Integer totalProducts) {
+  public CommonInfo totalProducts(@jakarta.annotation.Nullable Integer totalProducts) {
     this.totalProducts = totalProducts;
     return this;
   }
@@ -105,12 +105,12 @@ public class CommonInfo {
    *
    * @return totalProducts
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getTotalProducts() {
     return totalProducts;
   }
 
-  public void setTotalProducts(@jakarta.annotation.Nonnull Integer totalProducts) {
+  public void setTotalProducts(@jakarta.annotation.Nullable Integer totalProducts) {
     this.totalProducts = totalProducts;
   }
 
@@ -166,9 +166,6 @@ public class CommonInfo {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("supplierRating");
-    openapiRequiredFields.add("advertisedProducts");
-    openapiRequiredFields.add("totalProducts");
   }
 
   /**
@@ -198,21 +195,16 @@ public class CommonInfo {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : CommonInfo.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    // validate the required field `supplierRating`
-    CommonInfoSupplierRating.validateJsonElement(jsonObj.get("supplierRating"));
-    // validate the required field `advertisedProducts`
-    CommonInfoAdvertisedProducts.validateJsonElement(jsonObj.get("advertisedProducts"));
+    // validate the optional field `supplierRating`
+    if (jsonObj.get("supplierRating") != null && !jsonObj.get("supplierRating").isJsonNull()) {
+      CommonInfoSupplierRating.validateJsonElement(jsonObj.get("supplierRating"));
+    }
+    // validate the optional field `advertisedProducts`
+    if (jsonObj.get("advertisedProducts") != null
+        && !jsonObj.get("advertisedProducts").isJsonNull()) {
+      CommonInfoAdvertisedProducts.validateJsonElement(jsonObj.get("advertisedProducts"));
+    }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

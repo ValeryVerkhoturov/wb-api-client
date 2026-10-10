@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from wb_api_client.analytics.models.search_report_position_clusters_below import (
     SearchReportPositionClustersBelow,
 )
@@ -37,13 +37,13 @@ class SearchReportPositionClusters(BaseModel):
     Количество товаров со средней позицией в поиске:   - `firstHundred` — от 1 до 100   - `secondHundred` — от 101 до 200   - `below` — от 201 и ниже
     """  # noqa: E501
 
-    first_hundred: SearchReportPositionClustersFirstHundred = Field(
-        alias="firstHundred"
+    first_hundred: Optional[SearchReportPositionClustersFirstHundred] = Field(
+        default=None, alias="firstHundred"
     )
-    second_hundred: SearchReportPositionClustersSecondHundred = Field(
-        alias="secondHundred"
+    second_hundred: Optional[SearchReportPositionClustersSecondHundred] = Field(
+        default=None, alias="secondHundred"
     )
-    below: SearchReportPositionClustersBelow
+    below: Optional[SearchReportPositionClustersBelow] = None
     __properties: ClassVar[List[str]] = ["firstHundred", "secondHundred", "below"]
 
     model_config = ConfigDict(

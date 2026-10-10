@@ -11,9 +11,7 @@ API version: analytics
 package analytics
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the StatisticsSelected type satisfies the MappedNullable interface at compile time
@@ -21,63 +19,44 @@ var _ MappedNullable = &StatisticsSelected{}
 
 // StatisticsSelected struct for StatisticsSelected
 type StatisticsSelected struct {
-	Period StatisticPeriod `json:"period"`
+	Period *StatisticPeriod `json:"period,omitempty"`
 	// Количество переходов в карточку товара
-	OpenCount int32 `json:"openCount"`
+	OpenCount *int32 `json:"openCount,omitempty"`
 	// Положили в корзину, шт.
-	CartCount int32 `json:"cartCount"`
+	CartCount *int32 `json:"cartCount,omitempty"`
 	// Заказали товаров, шт.
-	OrderCount int32 `json:"orderCount"`
+	OrderCount *int32 `json:"orderCount,omitempty"`
 	// Заказали на сумму
-	OrderSum int32 `json:"orderSum"`
+	OrderSum *int32 `json:"orderSum,omitempty"`
 	// Выкупили товаров, шт.
-	BuyoutCount int32 `json:"buyoutCount"`
+	BuyoutCount *int32 `json:"buyoutCount,omitempty"`
 	// Выкупили на сумму
-	BuyoutSum int32 `json:"buyoutSum"`
+	BuyoutSum *int32 `json:"buyoutSum,omitempty"`
 	// Отменили и вернули товаров, шт.
-	CancelCount int32 `json:"cancelCount"`
+	CancelCount *int32 `json:"cancelCount,omitempty"`
 	// Отменили и вернули на сумму
-	CancelSum int32 `json:"cancelSum"`
+	CancelSum *int32 `json:"cancelSum,omitempty"`
 	// Средняя цена
-	AvgPrice int32 `json:"avgPrice"`
+	AvgPrice *int32 `json:"avgPrice,omitempty"`
 	// Среднее количество заказов в день, шт.
-	AvgOrdersCountPerDay float32 `json:"avgOrdersCountPerDay"`
+	AvgOrdersCountPerDay *float32 `json:"avgOrdersCountPerDay,omitempty"`
 	// Доля в выручке
-	ShareOrderPercent float32 `json:"shareOrderPercent"`
+	ShareOrderPercent *float32 `json:"shareOrderPercent,omitempty"`
 	// Добавили в **Отложенные**
-	AddToWishlist int32                `json:"addToWishlist"`
-	TimeToReady   StatisticTimeToReady `json:"timeToReady"`
+	AddToWishlist *int32                `json:"addToWishlist,omitempty"`
+	TimeToReady   *StatisticTimeToReady `json:"timeToReady,omitempty"`
 	// Локальные заказы в рамках одного региона. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `100`
-	LocalizationPercent int32                `json:"localizationPercent"`
-	WbClub              StatisticWbClub      `json:"wbClub"`
-	Conversions         StatisticConversions `json:"conversions"`
+	LocalizationPercent *int32                `json:"localizationPercent,omitempty"`
+	WbClub              *StatisticWbClub      `json:"wbClub,omitempty"`
+	Conversions         *StatisticConversions `json:"conversions,omitempty"`
 }
-
-type _StatisticsSelected StatisticsSelected
 
 // NewStatisticsSelected instantiates a new StatisticsSelected object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewStatisticsSelected(period StatisticPeriod, openCount int32, cartCount int32, orderCount int32, orderSum int32, buyoutCount int32, buyoutSum int32, cancelCount int32, cancelSum int32, avgPrice int32, avgOrdersCountPerDay float32, shareOrderPercent float32, addToWishlist int32, timeToReady StatisticTimeToReady, localizationPercent int32, wbClub StatisticWbClub, conversions StatisticConversions) *StatisticsSelected {
+func NewStatisticsSelected() *StatisticsSelected {
 	this := StatisticsSelected{}
-	this.Period = period
-	this.OpenCount = openCount
-	this.CartCount = cartCount
-	this.OrderCount = orderCount
-	this.OrderSum = orderSum
-	this.BuyoutCount = buyoutCount
-	this.BuyoutSum = buyoutSum
-	this.CancelCount = cancelCount
-	this.CancelSum = cancelSum
-	this.AvgPrice = avgPrice
-	this.AvgOrdersCountPerDay = avgOrdersCountPerDay
-	this.ShareOrderPercent = shareOrderPercent
-	this.AddToWishlist = addToWishlist
-	this.TimeToReady = timeToReady
-	this.LocalizationPercent = localizationPercent
-	this.WbClub = wbClub
-	this.Conversions = conversions
 	return &this
 }
 
@@ -89,412 +68,548 @@ func NewStatisticsSelectedWithDefaults() *StatisticsSelected {
 	return &this
 }
 
-// GetPeriod returns the Period field value
+// GetPeriod returns the Period field value if set, zero value otherwise.
 func (o *StatisticsSelected) GetPeriod() StatisticPeriod {
-	if o == nil {
+	if o == nil || IsNil(o.Period) {
 		var ret StatisticPeriod
 		return ret
 	}
-
-	return o.Period
+	return *o.Period
 }
 
-// GetPeriodOk returns a tuple with the Period field value
+// GetPeriodOk returns a tuple with the Period field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *StatisticsSelected) GetPeriodOk() (*StatisticPeriod, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Period) {
 		return nil, false
 	}
-	return &o.Period, true
+	return o.Period, true
 }
 
-// SetPeriod sets field value
+// HasPeriod returns a boolean if a field has been set.
+func (o *StatisticsSelected) HasPeriod() bool {
+	if o != nil && !IsNil(o.Period) {
+		return true
+	}
+
+	return false
+}
+
+// SetPeriod gets a reference to the given StatisticPeriod and assigns it to the Period field.
 func (o *StatisticsSelected) SetPeriod(v StatisticPeriod) {
-	o.Period = v
+	o.Period = &v
 }
 
-// GetOpenCount returns the OpenCount field value
+// GetOpenCount returns the OpenCount field value if set, zero value otherwise.
 func (o *StatisticsSelected) GetOpenCount() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.OpenCount) {
 		var ret int32
 		return ret
 	}
-
-	return o.OpenCount
+	return *o.OpenCount
 }
 
-// GetOpenCountOk returns a tuple with the OpenCount field value
+// GetOpenCountOk returns a tuple with the OpenCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *StatisticsSelected) GetOpenCountOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.OpenCount) {
 		return nil, false
 	}
-	return &o.OpenCount, true
+	return o.OpenCount, true
 }
 
-// SetOpenCount sets field value
+// HasOpenCount returns a boolean if a field has been set.
+func (o *StatisticsSelected) HasOpenCount() bool {
+	if o != nil && !IsNil(o.OpenCount) {
+		return true
+	}
+
+	return false
+}
+
+// SetOpenCount gets a reference to the given int32 and assigns it to the OpenCount field.
 func (o *StatisticsSelected) SetOpenCount(v int32) {
-	o.OpenCount = v
+	o.OpenCount = &v
 }
 
-// GetCartCount returns the CartCount field value
+// GetCartCount returns the CartCount field value if set, zero value otherwise.
 func (o *StatisticsSelected) GetCartCount() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.CartCount) {
 		var ret int32
 		return ret
 	}
-
-	return o.CartCount
+	return *o.CartCount
 }
 
-// GetCartCountOk returns a tuple with the CartCount field value
+// GetCartCountOk returns a tuple with the CartCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *StatisticsSelected) GetCartCountOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.CartCount) {
 		return nil, false
 	}
-	return &o.CartCount, true
+	return o.CartCount, true
 }
 
-// SetCartCount sets field value
+// HasCartCount returns a boolean if a field has been set.
+func (o *StatisticsSelected) HasCartCount() bool {
+	if o != nil && !IsNil(o.CartCount) {
+		return true
+	}
+
+	return false
+}
+
+// SetCartCount gets a reference to the given int32 and assigns it to the CartCount field.
 func (o *StatisticsSelected) SetCartCount(v int32) {
-	o.CartCount = v
+	o.CartCount = &v
 }
 
-// GetOrderCount returns the OrderCount field value
+// GetOrderCount returns the OrderCount field value if set, zero value otherwise.
 func (o *StatisticsSelected) GetOrderCount() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.OrderCount) {
 		var ret int32
 		return ret
 	}
-
-	return o.OrderCount
+	return *o.OrderCount
 }
 
-// GetOrderCountOk returns a tuple with the OrderCount field value
+// GetOrderCountOk returns a tuple with the OrderCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *StatisticsSelected) GetOrderCountOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.OrderCount) {
 		return nil, false
 	}
-	return &o.OrderCount, true
+	return o.OrderCount, true
 }
 
-// SetOrderCount sets field value
+// HasOrderCount returns a boolean if a field has been set.
+func (o *StatisticsSelected) HasOrderCount() bool {
+	if o != nil && !IsNil(o.OrderCount) {
+		return true
+	}
+
+	return false
+}
+
+// SetOrderCount gets a reference to the given int32 and assigns it to the OrderCount field.
 func (o *StatisticsSelected) SetOrderCount(v int32) {
-	o.OrderCount = v
+	o.OrderCount = &v
 }
 
-// GetOrderSum returns the OrderSum field value
+// GetOrderSum returns the OrderSum field value if set, zero value otherwise.
 func (o *StatisticsSelected) GetOrderSum() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.OrderSum) {
 		var ret int32
 		return ret
 	}
-
-	return o.OrderSum
+	return *o.OrderSum
 }
 
-// GetOrderSumOk returns a tuple with the OrderSum field value
+// GetOrderSumOk returns a tuple with the OrderSum field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *StatisticsSelected) GetOrderSumOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.OrderSum) {
 		return nil, false
 	}
-	return &o.OrderSum, true
+	return o.OrderSum, true
 }
 
-// SetOrderSum sets field value
+// HasOrderSum returns a boolean if a field has been set.
+func (o *StatisticsSelected) HasOrderSum() bool {
+	if o != nil && !IsNil(o.OrderSum) {
+		return true
+	}
+
+	return false
+}
+
+// SetOrderSum gets a reference to the given int32 and assigns it to the OrderSum field.
 func (o *StatisticsSelected) SetOrderSum(v int32) {
-	o.OrderSum = v
+	o.OrderSum = &v
 }
 
-// GetBuyoutCount returns the BuyoutCount field value
+// GetBuyoutCount returns the BuyoutCount field value if set, zero value otherwise.
 func (o *StatisticsSelected) GetBuyoutCount() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.BuyoutCount) {
 		var ret int32
 		return ret
 	}
-
-	return o.BuyoutCount
+	return *o.BuyoutCount
 }
 
-// GetBuyoutCountOk returns a tuple with the BuyoutCount field value
+// GetBuyoutCountOk returns a tuple with the BuyoutCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *StatisticsSelected) GetBuyoutCountOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.BuyoutCount) {
 		return nil, false
 	}
-	return &o.BuyoutCount, true
+	return o.BuyoutCount, true
 }
 
-// SetBuyoutCount sets field value
+// HasBuyoutCount returns a boolean if a field has been set.
+func (o *StatisticsSelected) HasBuyoutCount() bool {
+	if o != nil && !IsNil(o.BuyoutCount) {
+		return true
+	}
+
+	return false
+}
+
+// SetBuyoutCount gets a reference to the given int32 and assigns it to the BuyoutCount field.
 func (o *StatisticsSelected) SetBuyoutCount(v int32) {
-	o.BuyoutCount = v
+	o.BuyoutCount = &v
 }
 
-// GetBuyoutSum returns the BuyoutSum field value
+// GetBuyoutSum returns the BuyoutSum field value if set, zero value otherwise.
 func (o *StatisticsSelected) GetBuyoutSum() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.BuyoutSum) {
 		var ret int32
 		return ret
 	}
-
-	return o.BuyoutSum
+	return *o.BuyoutSum
 }
 
-// GetBuyoutSumOk returns a tuple with the BuyoutSum field value
+// GetBuyoutSumOk returns a tuple with the BuyoutSum field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *StatisticsSelected) GetBuyoutSumOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.BuyoutSum) {
 		return nil, false
 	}
-	return &o.BuyoutSum, true
+	return o.BuyoutSum, true
 }
 
-// SetBuyoutSum sets field value
+// HasBuyoutSum returns a boolean if a field has been set.
+func (o *StatisticsSelected) HasBuyoutSum() bool {
+	if o != nil && !IsNil(o.BuyoutSum) {
+		return true
+	}
+
+	return false
+}
+
+// SetBuyoutSum gets a reference to the given int32 and assigns it to the BuyoutSum field.
 func (o *StatisticsSelected) SetBuyoutSum(v int32) {
-	o.BuyoutSum = v
+	o.BuyoutSum = &v
 }
 
-// GetCancelCount returns the CancelCount field value
+// GetCancelCount returns the CancelCount field value if set, zero value otherwise.
 func (o *StatisticsSelected) GetCancelCount() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.CancelCount) {
 		var ret int32
 		return ret
 	}
-
-	return o.CancelCount
+	return *o.CancelCount
 }
 
-// GetCancelCountOk returns a tuple with the CancelCount field value
+// GetCancelCountOk returns a tuple with the CancelCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *StatisticsSelected) GetCancelCountOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.CancelCount) {
 		return nil, false
 	}
-	return &o.CancelCount, true
+	return o.CancelCount, true
 }
 
-// SetCancelCount sets field value
+// HasCancelCount returns a boolean if a field has been set.
+func (o *StatisticsSelected) HasCancelCount() bool {
+	if o != nil && !IsNil(o.CancelCount) {
+		return true
+	}
+
+	return false
+}
+
+// SetCancelCount gets a reference to the given int32 and assigns it to the CancelCount field.
 func (o *StatisticsSelected) SetCancelCount(v int32) {
-	o.CancelCount = v
+	o.CancelCount = &v
 }
 
-// GetCancelSum returns the CancelSum field value
+// GetCancelSum returns the CancelSum field value if set, zero value otherwise.
 func (o *StatisticsSelected) GetCancelSum() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.CancelSum) {
 		var ret int32
 		return ret
 	}
-
-	return o.CancelSum
+	return *o.CancelSum
 }
 
-// GetCancelSumOk returns a tuple with the CancelSum field value
+// GetCancelSumOk returns a tuple with the CancelSum field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *StatisticsSelected) GetCancelSumOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.CancelSum) {
 		return nil, false
 	}
-	return &o.CancelSum, true
+	return o.CancelSum, true
 }
 
-// SetCancelSum sets field value
+// HasCancelSum returns a boolean if a field has been set.
+func (o *StatisticsSelected) HasCancelSum() bool {
+	if o != nil && !IsNil(o.CancelSum) {
+		return true
+	}
+
+	return false
+}
+
+// SetCancelSum gets a reference to the given int32 and assigns it to the CancelSum field.
 func (o *StatisticsSelected) SetCancelSum(v int32) {
-	o.CancelSum = v
+	o.CancelSum = &v
 }
 
-// GetAvgPrice returns the AvgPrice field value
+// GetAvgPrice returns the AvgPrice field value if set, zero value otherwise.
 func (o *StatisticsSelected) GetAvgPrice() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.AvgPrice) {
 		var ret int32
 		return ret
 	}
-
-	return o.AvgPrice
+	return *o.AvgPrice
 }
 
-// GetAvgPriceOk returns a tuple with the AvgPrice field value
+// GetAvgPriceOk returns a tuple with the AvgPrice field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *StatisticsSelected) GetAvgPriceOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AvgPrice) {
 		return nil, false
 	}
-	return &o.AvgPrice, true
+	return o.AvgPrice, true
 }
 
-// SetAvgPrice sets field value
+// HasAvgPrice returns a boolean if a field has been set.
+func (o *StatisticsSelected) HasAvgPrice() bool {
+	if o != nil && !IsNil(o.AvgPrice) {
+		return true
+	}
+
+	return false
+}
+
+// SetAvgPrice gets a reference to the given int32 and assigns it to the AvgPrice field.
 func (o *StatisticsSelected) SetAvgPrice(v int32) {
-	o.AvgPrice = v
+	o.AvgPrice = &v
 }
 
-// GetAvgOrdersCountPerDay returns the AvgOrdersCountPerDay field value
+// GetAvgOrdersCountPerDay returns the AvgOrdersCountPerDay field value if set, zero value otherwise.
 func (o *StatisticsSelected) GetAvgOrdersCountPerDay() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.AvgOrdersCountPerDay) {
 		var ret float32
 		return ret
 	}
-
-	return o.AvgOrdersCountPerDay
+	return *o.AvgOrdersCountPerDay
 }
 
-// GetAvgOrdersCountPerDayOk returns a tuple with the AvgOrdersCountPerDay field value
+// GetAvgOrdersCountPerDayOk returns a tuple with the AvgOrdersCountPerDay field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *StatisticsSelected) GetAvgOrdersCountPerDayOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AvgOrdersCountPerDay) {
 		return nil, false
 	}
-	return &o.AvgOrdersCountPerDay, true
+	return o.AvgOrdersCountPerDay, true
 }
 
-// SetAvgOrdersCountPerDay sets field value
+// HasAvgOrdersCountPerDay returns a boolean if a field has been set.
+func (o *StatisticsSelected) HasAvgOrdersCountPerDay() bool {
+	if o != nil && !IsNil(o.AvgOrdersCountPerDay) {
+		return true
+	}
+
+	return false
+}
+
+// SetAvgOrdersCountPerDay gets a reference to the given float32 and assigns it to the AvgOrdersCountPerDay field.
 func (o *StatisticsSelected) SetAvgOrdersCountPerDay(v float32) {
-	o.AvgOrdersCountPerDay = v
+	o.AvgOrdersCountPerDay = &v
 }
 
-// GetShareOrderPercent returns the ShareOrderPercent field value
+// GetShareOrderPercent returns the ShareOrderPercent field value if set, zero value otherwise.
 func (o *StatisticsSelected) GetShareOrderPercent() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.ShareOrderPercent) {
 		var ret float32
 		return ret
 	}
-
-	return o.ShareOrderPercent
+	return *o.ShareOrderPercent
 }
 
-// GetShareOrderPercentOk returns a tuple with the ShareOrderPercent field value
+// GetShareOrderPercentOk returns a tuple with the ShareOrderPercent field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *StatisticsSelected) GetShareOrderPercentOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ShareOrderPercent) {
 		return nil, false
 	}
-	return &o.ShareOrderPercent, true
+	return o.ShareOrderPercent, true
 }
 
-// SetShareOrderPercent sets field value
+// HasShareOrderPercent returns a boolean if a field has been set.
+func (o *StatisticsSelected) HasShareOrderPercent() bool {
+	if o != nil && !IsNil(o.ShareOrderPercent) {
+		return true
+	}
+
+	return false
+}
+
+// SetShareOrderPercent gets a reference to the given float32 and assigns it to the ShareOrderPercent field.
 func (o *StatisticsSelected) SetShareOrderPercent(v float32) {
-	o.ShareOrderPercent = v
+	o.ShareOrderPercent = &v
 }
 
-// GetAddToWishlist returns the AddToWishlist field value
+// GetAddToWishlist returns the AddToWishlist field value if set, zero value otherwise.
 func (o *StatisticsSelected) GetAddToWishlist() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.AddToWishlist) {
 		var ret int32
 		return ret
 	}
-
-	return o.AddToWishlist
+	return *o.AddToWishlist
 }
 
-// GetAddToWishlistOk returns a tuple with the AddToWishlist field value
+// GetAddToWishlistOk returns a tuple with the AddToWishlist field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *StatisticsSelected) GetAddToWishlistOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AddToWishlist) {
 		return nil, false
 	}
-	return &o.AddToWishlist, true
+	return o.AddToWishlist, true
 }
 
-// SetAddToWishlist sets field value
+// HasAddToWishlist returns a boolean if a field has been set.
+func (o *StatisticsSelected) HasAddToWishlist() bool {
+	if o != nil && !IsNil(o.AddToWishlist) {
+		return true
+	}
+
+	return false
+}
+
+// SetAddToWishlist gets a reference to the given int32 and assigns it to the AddToWishlist field.
 func (o *StatisticsSelected) SetAddToWishlist(v int32) {
-	o.AddToWishlist = v
+	o.AddToWishlist = &v
 }
 
-// GetTimeToReady returns the TimeToReady field value
+// GetTimeToReady returns the TimeToReady field value if set, zero value otherwise.
 func (o *StatisticsSelected) GetTimeToReady() StatisticTimeToReady {
-	if o == nil {
+	if o == nil || IsNil(o.TimeToReady) {
 		var ret StatisticTimeToReady
 		return ret
 	}
-
-	return o.TimeToReady
+	return *o.TimeToReady
 }
 
-// GetTimeToReadyOk returns a tuple with the TimeToReady field value
+// GetTimeToReadyOk returns a tuple with the TimeToReady field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *StatisticsSelected) GetTimeToReadyOk() (*StatisticTimeToReady, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.TimeToReady) {
 		return nil, false
 	}
-	return &o.TimeToReady, true
+	return o.TimeToReady, true
 }
 
-// SetTimeToReady sets field value
+// HasTimeToReady returns a boolean if a field has been set.
+func (o *StatisticsSelected) HasTimeToReady() bool {
+	if o != nil && !IsNil(o.TimeToReady) {
+		return true
+	}
+
+	return false
+}
+
+// SetTimeToReady gets a reference to the given StatisticTimeToReady and assigns it to the TimeToReady field.
 func (o *StatisticsSelected) SetTimeToReady(v StatisticTimeToReady) {
-	o.TimeToReady = v
+	o.TimeToReady = &v
 }
 
-// GetLocalizationPercent returns the LocalizationPercent field value
+// GetLocalizationPercent returns the LocalizationPercent field value if set, zero value otherwise.
 func (o *StatisticsSelected) GetLocalizationPercent() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.LocalizationPercent) {
 		var ret int32
 		return ret
 	}
-
-	return o.LocalizationPercent
+	return *o.LocalizationPercent
 }
 
-// GetLocalizationPercentOk returns a tuple with the LocalizationPercent field value
+// GetLocalizationPercentOk returns a tuple with the LocalizationPercent field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *StatisticsSelected) GetLocalizationPercentOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.LocalizationPercent) {
 		return nil, false
 	}
-	return &o.LocalizationPercent, true
+	return o.LocalizationPercent, true
 }
 
-// SetLocalizationPercent sets field value
+// HasLocalizationPercent returns a boolean if a field has been set.
+func (o *StatisticsSelected) HasLocalizationPercent() bool {
+	if o != nil && !IsNil(o.LocalizationPercent) {
+		return true
+	}
+
+	return false
+}
+
+// SetLocalizationPercent gets a reference to the given int32 and assigns it to the LocalizationPercent field.
 func (o *StatisticsSelected) SetLocalizationPercent(v int32) {
-	o.LocalizationPercent = v
+	o.LocalizationPercent = &v
 }
 
-// GetWbClub returns the WbClub field value
+// GetWbClub returns the WbClub field value if set, zero value otherwise.
 func (o *StatisticsSelected) GetWbClub() StatisticWbClub {
-	if o == nil {
+	if o == nil || IsNil(o.WbClub) {
 		var ret StatisticWbClub
 		return ret
 	}
-
-	return o.WbClub
+	return *o.WbClub
 }
 
-// GetWbClubOk returns a tuple with the WbClub field value
+// GetWbClubOk returns a tuple with the WbClub field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *StatisticsSelected) GetWbClubOk() (*StatisticWbClub, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.WbClub) {
 		return nil, false
 	}
-	return &o.WbClub, true
+	return o.WbClub, true
 }
 
-// SetWbClub sets field value
+// HasWbClub returns a boolean if a field has been set.
+func (o *StatisticsSelected) HasWbClub() bool {
+	if o != nil && !IsNil(o.WbClub) {
+		return true
+	}
+
+	return false
+}
+
+// SetWbClub gets a reference to the given StatisticWbClub and assigns it to the WbClub field.
 func (o *StatisticsSelected) SetWbClub(v StatisticWbClub) {
-	o.WbClub = v
+	o.WbClub = &v
 }
 
-// GetConversions returns the Conversions field value
+// GetConversions returns the Conversions field value if set, zero value otherwise.
 func (o *StatisticsSelected) GetConversions() StatisticConversions {
-	if o == nil {
+	if o == nil || IsNil(o.Conversions) {
 		var ret StatisticConversions
 		return ret
 	}
-
-	return o.Conversions
+	return *o.Conversions
 }
 
-// GetConversionsOk returns a tuple with the Conversions field value
+// GetConversionsOk returns a tuple with the Conversions field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *StatisticsSelected) GetConversionsOk() (*StatisticConversions, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Conversions) {
 		return nil, false
 	}
-	return &o.Conversions, true
+	return o.Conversions, true
 }
 
-// SetConversions sets field value
+// HasConversions returns a boolean if a field has been set.
+func (o *StatisticsSelected) HasConversions() bool {
+	if o != nil && !IsNil(o.Conversions) {
+		return true
+	}
+
+	return false
+}
+
+// SetConversions gets a reference to the given StatisticConversions and assigns it to the Conversions field.
 func (o *StatisticsSelected) SetConversions(v StatisticConversions) {
-	o.Conversions = v
+	o.Conversions = &v
 }
 
 func (o StatisticsSelected) MarshalJSON() ([]byte, error) {
@@ -507,77 +622,58 @@ func (o StatisticsSelected) MarshalJSON() ([]byte, error) {
 
 func (o StatisticsSelected) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["period"] = o.Period
-	toSerialize["openCount"] = o.OpenCount
-	toSerialize["cartCount"] = o.CartCount
-	toSerialize["orderCount"] = o.OrderCount
-	toSerialize["orderSum"] = o.OrderSum
-	toSerialize["buyoutCount"] = o.BuyoutCount
-	toSerialize["buyoutSum"] = o.BuyoutSum
-	toSerialize["cancelCount"] = o.CancelCount
-	toSerialize["cancelSum"] = o.CancelSum
-	toSerialize["avgPrice"] = o.AvgPrice
-	toSerialize["avgOrdersCountPerDay"] = o.AvgOrdersCountPerDay
-	toSerialize["shareOrderPercent"] = o.ShareOrderPercent
-	toSerialize["addToWishlist"] = o.AddToWishlist
-	toSerialize["timeToReady"] = o.TimeToReady
-	toSerialize["localizationPercent"] = o.LocalizationPercent
-	toSerialize["wbClub"] = o.WbClub
-	toSerialize["conversions"] = o.Conversions
+	if !IsNil(o.Period) {
+		toSerialize["period"] = o.Period
+	}
+	if !IsNil(o.OpenCount) {
+		toSerialize["openCount"] = o.OpenCount
+	}
+	if !IsNil(o.CartCount) {
+		toSerialize["cartCount"] = o.CartCount
+	}
+	if !IsNil(o.OrderCount) {
+		toSerialize["orderCount"] = o.OrderCount
+	}
+	if !IsNil(o.OrderSum) {
+		toSerialize["orderSum"] = o.OrderSum
+	}
+	if !IsNil(o.BuyoutCount) {
+		toSerialize["buyoutCount"] = o.BuyoutCount
+	}
+	if !IsNil(o.BuyoutSum) {
+		toSerialize["buyoutSum"] = o.BuyoutSum
+	}
+	if !IsNil(o.CancelCount) {
+		toSerialize["cancelCount"] = o.CancelCount
+	}
+	if !IsNil(o.CancelSum) {
+		toSerialize["cancelSum"] = o.CancelSum
+	}
+	if !IsNil(o.AvgPrice) {
+		toSerialize["avgPrice"] = o.AvgPrice
+	}
+	if !IsNil(o.AvgOrdersCountPerDay) {
+		toSerialize["avgOrdersCountPerDay"] = o.AvgOrdersCountPerDay
+	}
+	if !IsNil(o.ShareOrderPercent) {
+		toSerialize["shareOrderPercent"] = o.ShareOrderPercent
+	}
+	if !IsNil(o.AddToWishlist) {
+		toSerialize["addToWishlist"] = o.AddToWishlist
+	}
+	if !IsNil(o.TimeToReady) {
+		toSerialize["timeToReady"] = o.TimeToReady
+	}
+	if !IsNil(o.LocalizationPercent) {
+		toSerialize["localizationPercent"] = o.LocalizationPercent
+	}
+	if !IsNil(o.WbClub) {
+		toSerialize["wbClub"] = o.WbClub
+	}
+	if !IsNil(o.Conversions) {
+		toSerialize["conversions"] = o.Conversions
+	}
 	return toSerialize, nil
-}
-
-func (o *StatisticsSelected) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"period",
-		"openCount",
-		"cartCount",
-		"orderCount",
-		"orderSum",
-		"buyoutCount",
-		"buyoutSum",
-		"cancelCount",
-		"cancelSum",
-		"avgPrice",
-		"avgOrdersCountPerDay",
-		"shareOrderPercent",
-		"addToWishlist",
-		"timeToReady",
-		"localizationPercent",
-		"wbClub",
-		"conversions",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varStatisticsSelected := _StatisticsSelected{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varStatisticsSelected)
-
-	if err != nil {
-		return err
-	}
-
-	*o = StatisticsSelected(varStatisticsSelected)
-
-	return err
 }
 
 type NullableStatisticsSelected struct {

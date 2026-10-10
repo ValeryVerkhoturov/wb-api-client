@@ -34,26 +34,11 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PatchV1BidsResponse200" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected PatchV1BidsResponse200() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PatchV1BidsResponse200" /> class.
-        /// </summary>
-        /// <param name="bids">Результат отработки запроса (required).</param>
-        /// <param name="currency">Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) (required).</param>
+        /// <param name="bids">Результат отработки запроса.</param>
+        /// <param name="currency">Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).</param>
         public PatchV1BidsResponse200(List<PatchV1BidsResponse200BidsInner> bids = default(List<PatchV1BidsResponse200BidsInner>), string currency = default(string))
         {
-            // to ensure "bids" is required (not null)
-            if (bids == null)
-            {
-                throw new ArgumentNullException("bids is a required property for PatchV1BidsResponse200 and cannot be null");
-            }
             this.Bids = bids;
-            // to ensure "currency" is required (not null)
-            if (currency == null)
-            {
-                throw new ArgumentNullException("currency is a required property for PatchV1BidsResponse200 and cannot be null");
-            }
             this.Currency = currency;
         }
 
@@ -61,14 +46,14 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// Результат отработки запроса
         /// </summary>
         /// <value>Результат отработки запроса</value>
-        [DataMember(Name = "bids", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "bids", EmitDefaultValue = false)]
         public List<PatchV1BidsResponse200BidsInner> Bids { get; set; }
 
         /// <summary>
         /// Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
         /// </summary>
         /// <value>Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)</value>
-        [DataMember(Name = "currency", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "currency", EmitDefaultValue = false)]
         public string Currency { get; set; }
 
         /// <summary>

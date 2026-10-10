@@ -11,9 +11,7 @@ API version: communication
 package communications
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the GetV1SellerDownloadIdResponse202 type satisfies the MappedNullable interface at compile time
@@ -22,21 +20,17 @@ var _ MappedNullable = &GetV1SellerDownloadIdResponse202{}
 // GetV1SellerDownloadIdResponse202 struct for GetV1SellerDownloadIdResponse202
 type GetV1SellerDownloadIdResponse202 struct {
 	// Статус модерации
-	ModerationState string `json:"moderationState"`
+	ModerationState *string `json:"moderationState,omitempty"`
 	// Секунд до следующей попытки запроса файла
-	RetrySeconds int32 `json:"retrySeconds"`
+	RetrySeconds *int32 `json:"retrySeconds,omitempty"`
 }
-
-type _GetV1SellerDownloadIdResponse202 GetV1SellerDownloadIdResponse202
 
 // NewGetV1SellerDownloadIdResponse202 instantiates a new GetV1SellerDownloadIdResponse202 object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetV1SellerDownloadIdResponse202(moderationState string, retrySeconds int32) *GetV1SellerDownloadIdResponse202 {
+func NewGetV1SellerDownloadIdResponse202() *GetV1SellerDownloadIdResponse202 {
 	this := GetV1SellerDownloadIdResponse202{}
-	this.ModerationState = moderationState
-	this.RetrySeconds = retrySeconds
 	return &this
 }
 
@@ -48,52 +42,68 @@ func NewGetV1SellerDownloadIdResponse202WithDefaults() *GetV1SellerDownloadIdRes
 	return &this
 }
 
-// GetModerationState returns the ModerationState field value
+// GetModerationState returns the ModerationState field value if set, zero value otherwise.
 func (o *GetV1SellerDownloadIdResponse202) GetModerationState() string {
-	if o == nil {
+	if o == nil || IsNil(o.ModerationState) {
 		var ret string
 		return ret
 	}
-
-	return o.ModerationState
+	return *o.ModerationState
 }
 
-// GetModerationStateOk returns a tuple with the ModerationState field value
+// GetModerationStateOk returns a tuple with the ModerationState field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetV1SellerDownloadIdResponse202) GetModerationStateOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ModerationState) {
 		return nil, false
 	}
-	return &o.ModerationState, true
+	return o.ModerationState, true
 }
 
-// SetModerationState sets field value
+// HasModerationState returns a boolean if a field has been set.
+func (o *GetV1SellerDownloadIdResponse202) HasModerationState() bool {
+	if o != nil && !IsNil(o.ModerationState) {
+		return true
+	}
+
+	return false
+}
+
+// SetModerationState gets a reference to the given string and assigns it to the ModerationState field.
 func (o *GetV1SellerDownloadIdResponse202) SetModerationState(v string) {
-	o.ModerationState = v
+	o.ModerationState = &v
 }
 
-// GetRetrySeconds returns the RetrySeconds field value
+// GetRetrySeconds returns the RetrySeconds field value if set, zero value otherwise.
 func (o *GetV1SellerDownloadIdResponse202) GetRetrySeconds() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.RetrySeconds) {
 		var ret int32
 		return ret
 	}
-
-	return o.RetrySeconds
+	return *o.RetrySeconds
 }
 
-// GetRetrySecondsOk returns a tuple with the RetrySeconds field value
+// GetRetrySecondsOk returns a tuple with the RetrySeconds field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetV1SellerDownloadIdResponse202) GetRetrySecondsOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.RetrySeconds) {
 		return nil, false
 	}
-	return &o.RetrySeconds, true
+	return o.RetrySeconds, true
 }
 
-// SetRetrySeconds sets field value
+// HasRetrySeconds returns a boolean if a field has been set.
+func (o *GetV1SellerDownloadIdResponse202) HasRetrySeconds() bool {
+	if o != nil && !IsNil(o.RetrySeconds) {
+		return true
+	}
+
+	return false
+}
+
+// SetRetrySeconds gets a reference to the given int32 and assigns it to the RetrySeconds field.
 func (o *GetV1SellerDownloadIdResponse202) SetRetrySeconds(v int32) {
-	o.RetrySeconds = v
+	o.RetrySeconds = &v
 }
 
 func (o GetV1SellerDownloadIdResponse202) MarshalJSON() ([]byte, error) {
@@ -106,47 +116,13 @@ func (o GetV1SellerDownloadIdResponse202) MarshalJSON() ([]byte, error) {
 
 func (o GetV1SellerDownloadIdResponse202) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["moderationState"] = o.ModerationState
-	toSerialize["retrySeconds"] = o.RetrySeconds
+	if !IsNil(o.ModerationState) {
+		toSerialize["moderationState"] = o.ModerationState
+	}
+	if !IsNil(o.RetrySeconds) {
+		toSerialize["retrySeconds"] = o.RetrySeconds
+	}
 	return toSerialize, nil
-}
-
-func (o *GetV1SellerDownloadIdResponse202) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"moderationState",
-		"retrySeconds",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varGetV1SellerDownloadIdResponse202 := _GetV1SellerDownloadIdResponse202{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varGetV1SellerDownloadIdResponse202)
-
-	if err != nil {
-		return err
-	}
-
-	*o = GetV1SellerDownloadIdResponse202(varGetV1SellerDownloadIdResponse202)
-
-	return err
 }
 
 type NullableGetV1SellerDownloadIdResponse202 struct {

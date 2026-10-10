@@ -28,7 +28,9 @@ class DistributionTableItemFiveStar(BaseModel):
     Отзывы 5 звёзд
     """  # noqa: E501
 
-    current: StrictInt = Field(description="Прирост оценок за период")
+    current: Optional[StrictInt] = Field(
+        default=None, description="Прирост оценок за период"
+    )
     dynamics: Optional[StrictInt] = Field(
         default=None, description="Динамика по сравнению с предыдущим периодом, %"
     )

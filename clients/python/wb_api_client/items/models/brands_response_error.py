@@ -31,11 +31,13 @@ class BrandsResponseError(BaseModel):
     BrandsResponseError
     """  # noqa: E501
 
-    title: StrictStr = Field(description="Заголовок ошибки")
-    detail: StrictStr = Field(description="Детали ошибки")
-    origin: StrictStr = Field(description="ID внутреннего сервиса WB")
-    request_id: StrictStr = Field(
-        description="Уникальный ID запроса", alias="requestId"
+    title: Optional[StrictStr] = Field(default=None, description="Заголовок ошибки")
+    detail: Optional[StrictStr] = Field(default=None, description="Детали ошибки")
+    origin: Optional[StrictStr] = Field(
+        default=None, description="ID внутреннего сервиса WB"
+    )
+    request_id: Optional[StrictStr] = Field(
+        default=None, description="Уникальный ID запроса", alias="requestId"
     )
     errors: Optional[List[BrandsResponseErrorErrorsInner]] = None
     __properties: ClassVar[List[str]] = [

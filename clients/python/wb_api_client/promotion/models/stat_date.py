@@ -29,8 +29,8 @@ class StatDate(BaseModel):
     StatDate
     """  # noqa: E501
 
-    dates: List[StrictStr] = Field(
-        description="Даты, за которые нужно получить информацию"
+    dates: Optional[List[StrictStr]] = Field(
+        default=None, description="Даты, за которые нужно получить информацию"
     )
     stats: Optional[List[StatsBlok2]] = Field(
         default=None, description="Блок статистики"

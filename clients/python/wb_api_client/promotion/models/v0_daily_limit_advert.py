@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,27 +28,35 @@ class V0DailyLimitAdvert(BaseModel):
     V0DailyLimitAdvert
     """  # noqa: E501
 
-    advert_id: StrictInt = Field(description="ID кампании", alias="advertId")
-    enabled: StrictBool = Field(
-        description="- `true` — дневной лимит включен - `false` — дневной лимит отключен "
+    advert_id: Optional[StrictInt] = Field(
+        default=None, description="ID кампании", alias="advertId"
     )
-    daily_limit: StrictInt = Field(
+    enabled: Optional[StrictBool] = Field(
+        default=None,
+        description="- `true` — дневной лимит включен - `false` — дневной лимит отключен ",
+    )
+    daily_limit: Optional[StrictInt] = Field(
+        default=None,
         description="Размер дневного лимита в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)",
         alias="dailyLimit",
     )
-    spent_today: StrictInt = Field(
+    spent_today: Optional[StrictInt] = Field(
+        default=None,
         description="Потрачено сегодня в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)",
         alias="spentToday",
     )
-    currency: StrictStr = Field(description="Код валюты")
-    carry_over_enabled: StrictBool = Field(
+    currency: Optional[StrictStr] = Field(default=None, description="Код валюты")
+    carry_over_enabled: Optional[StrictBool] = Field(
+        default=None,
         description="Перенос остатка дневного лимита на следующий день. Если за 24 часа лимит потратится не полностью, добавим остаток суммы к лимиту следующего дня. Расходы на продвижение не увеличатся.   - `true` — перенос остатка включен   - `false` — перенос остатка отключен ",
         alias="carryOverEnabled",
     )
-    valid: StrictBool = Field(
-        description="Хватает ли текущего размера лимита на установку ставок кампании:   - `true` — да   - `false` — нет, рекомендуем повысить лимит, иначе бюджет кампании может расходоваться неравномерно "
+    valid: Optional[StrictBool] = Field(
+        default=None,
+        description="Хватает ли текущего размера лимита на установку ставок кампании:   - `true` — да   - `false` — нет, рекомендуем повысить лимит, иначе бюджет кампании может расходоваться неравномерно ",
     )
-    required_limit: StrictInt = Field(
+    required_limit: Optional[StrictInt] = Field(
+        default=None,
         description="Рекомендуемый минимальный размер дневного лимита при текущих ставках кампании. Указывается в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) ",
         alias="requiredLimit",
     )

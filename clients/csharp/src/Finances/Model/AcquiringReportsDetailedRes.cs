@@ -34,111 +34,41 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AcquiringReportsDetailedRes" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected AcquiringReportsDetailedRes() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="AcquiringReportsDetailedRes" /> class.
-        /// </summary>
-        /// <param name="rrdId">ID строки (required).</param>
-        /// <param name="reportId">ID отчёта (required).</param>
-        /// <param name="acqDate">Дата операции (required).</param>
-        /// <param name="acquiringBank">Наименование банка-эквайера (required).</param>
-        /// <param name="tin">ИНН (required).</param>
-        /// <param name="taxRegistrationReasonCode">КПП (required).</param>
-        /// <param name="saleDate">Дата продажи (required).</param>
-        /// <param name="srid">ID заказа. В ответах методов сборочных заданий [FBS](./orders-fbs#tag/fbsAssemblyOrders), [DBW](./orders-dbw#tag/dbwAssemblyOrders), [DBS](./dbs#tag/dbsAssemblyOrders) и [Самовывоз](./in-store-pickup#tag/inStorePickupAssemblyOrders) &#x60;srid&#x60; равен &#x60;rid&#x60; (required).</param>
-        /// <param name="documentType">Тип документа (required).</param>
-        /// <param name="nmId">Артикул WB (required).</param>
-        /// <param name="retailAmount">Wildberries реализовал Товар (Пр) (required).</param>
-        /// <param name="acquiringFee">Размер комиссии за эквайринг, в том числе НДС (required).</param>
-        /// <param name="acquiringFeeVat">Сумма НДС (required).</param>
-        /// <param name="invoiceNumber">Номер счёта-фактуры (required).</param>
-        /// <param name="invoiceDate">Дата счёта-фактуры (required).</param>
-        /// <param name="shkId">Штрихкод (required).</param>
-        /// <param name="currency">Валюта отчёта (required).</param>
+        /// <param name="rrdId">ID строки.</param>
+        /// <param name="reportId">ID отчёта.</param>
+        /// <param name="acqDate">Дата операции.</param>
+        /// <param name="acquiringBank">Наименование банка-эквайера.</param>
+        /// <param name="tin">ИНН.</param>
+        /// <param name="taxRegistrationReasonCode">КПП.</param>
+        /// <param name="saleDate">Дата продажи.</param>
+        /// <param name="srid">ID заказа. В ответах методов сборочных заданий [FBS](./orders-fbs#tag/fbsAssemblyOrders), [DBW](./orders-dbw#tag/dbwAssemblyOrders), [DBS](./dbs#tag/dbsAssemblyOrders) и [Самовывоз](./in-store-pickup#tag/inStorePickupAssemblyOrders) &#x60;srid&#x60; равен &#x60;rid&#x60;.</param>
+        /// <param name="documentType">Тип документа.</param>
+        /// <param name="nmId">Артикул WB.</param>
+        /// <param name="retailAmount">Wildberries реализовал Товар (Пр).</param>
+        /// <param name="acquiringFee">Размер комиссии за эквайринг, в том числе НДС.</param>
+        /// <param name="acquiringFeeVat">Сумма НДС.</param>
+        /// <param name="invoiceNumber">Номер счёта-фактуры.</param>
+        /// <param name="invoiceDate">Дата счёта-фактуры.</param>
+        /// <param name="shkId">Штрихкод.</param>
+        /// <param name="currency">Валюта отчёта.</param>
         public AcquiringReportsDetailedRes(int rrdId = default(int), long reportId = default(long), string acqDate = default(string), string acquiringBank = default(string), string tin = default(string), string taxRegistrationReasonCode = default(string), string saleDate = default(string), string srid = default(string), string documentType = default(string), int nmId = default(int), string retailAmount = default(string), string acquiringFee = default(string), string acquiringFeeVat = default(string), string invoiceNumber = default(string), string invoiceDate = default(string), int shkId = default(int), string currency = default(string))
         {
             this.RrdId = rrdId;
             this.ReportId = reportId;
-            // to ensure "acqDate" is required (not null)
-            if (acqDate == null)
-            {
-                throw new ArgumentNullException("acqDate is a required property for AcquiringReportsDetailedRes and cannot be null");
-            }
             this.AcqDate = acqDate;
-            // to ensure "acquiringBank" is required (not null)
-            if (acquiringBank == null)
-            {
-                throw new ArgumentNullException("acquiringBank is a required property for AcquiringReportsDetailedRes and cannot be null");
-            }
             this.AcquiringBank = acquiringBank;
-            // to ensure "tin" is required (not null)
-            if (tin == null)
-            {
-                throw new ArgumentNullException("tin is a required property for AcquiringReportsDetailedRes and cannot be null");
-            }
             this.Tin = tin;
-            // to ensure "taxRegistrationReasonCode" is required (not null)
-            if (taxRegistrationReasonCode == null)
-            {
-                throw new ArgumentNullException("taxRegistrationReasonCode is a required property for AcquiringReportsDetailedRes and cannot be null");
-            }
             this.TaxRegistrationReasonCode = taxRegistrationReasonCode;
-            // to ensure "saleDate" is required (not null)
-            if (saleDate == null)
-            {
-                throw new ArgumentNullException("saleDate is a required property for AcquiringReportsDetailedRes and cannot be null");
-            }
             this.SaleDate = saleDate;
-            // to ensure "srid" is required (not null)
-            if (srid == null)
-            {
-                throw new ArgumentNullException("srid is a required property for AcquiringReportsDetailedRes and cannot be null");
-            }
             this.Srid = srid;
-            // to ensure "documentType" is required (not null)
-            if (documentType == null)
-            {
-                throw new ArgumentNullException("documentType is a required property for AcquiringReportsDetailedRes and cannot be null");
-            }
             this.DocumentType = documentType;
             this.NmId = nmId;
-            // to ensure "retailAmount" is required (not null)
-            if (retailAmount == null)
-            {
-                throw new ArgumentNullException("retailAmount is a required property for AcquiringReportsDetailedRes and cannot be null");
-            }
             this.RetailAmount = retailAmount;
-            // to ensure "acquiringFee" is required (not null)
-            if (acquiringFee == null)
-            {
-                throw new ArgumentNullException("acquiringFee is a required property for AcquiringReportsDetailedRes and cannot be null");
-            }
             this.AcquiringFee = acquiringFee;
-            // to ensure "acquiringFeeVat" is required (not null)
-            if (acquiringFeeVat == null)
-            {
-                throw new ArgumentNullException("acquiringFeeVat is a required property for AcquiringReportsDetailedRes and cannot be null");
-            }
             this.AcquiringFeeVat = acquiringFeeVat;
-            // to ensure "invoiceNumber" is required (not null)
-            if (invoiceNumber == null)
-            {
-                throw new ArgumentNullException("invoiceNumber is a required property for AcquiringReportsDetailedRes and cannot be null");
-            }
             this.InvoiceNumber = invoiceNumber;
-            // to ensure "invoiceDate" is required (not null)
-            if (invoiceDate == null)
-            {
-                throw new ArgumentNullException("invoiceDate is a required property for AcquiringReportsDetailedRes and cannot be null");
-            }
             this.InvoiceDate = invoiceDate;
             this.ShkId = shkId;
-            // to ensure "currency" is required (not null)
-            if (currency == null)
-            {
-                throw new ArgumentNullException("currency is a required property for AcquiringReportsDetailedRes and cannot be null");
-            }
             this.Currency = currency;
         }
 
@@ -149,7 +79,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>1232610467</example>
         */
-        [DataMember(Name = "rrdId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "rrdId", EmitDefaultValue = false)]
         public int RrdId { get; set; }
 
         /// <summary>
@@ -159,7 +89,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>1234567</example>
         */
-        [DataMember(Name = "reportId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "reportId", EmitDefaultValue = false)]
         public long ReportId { get; set; }
 
         /// <summary>
@@ -169,7 +99,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>2026-03-21</example>
         */
-        [DataMember(Name = "acqDate", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "acqDate", EmitDefaultValue = false)]
         public string AcqDate { get; set; }
 
         /// <summary>
@@ -179,7 +109,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>Вайлдберриз Банк</example>
         */
-        [DataMember(Name = "acquiringBank", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "acquiringBank", EmitDefaultValue = false)]
         public string AcquiringBank { get; set; }
 
         /// <summary>
@@ -189,7 +119,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>010101010101</example>
         */
-        [DataMember(Name = "tin", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "tin", EmitDefaultValue = false)]
         public string Tin { get; set; }
 
         /// <summary>
@@ -199,7 +129,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>7701123301</example>
         */
-        [DataMember(Name = "taxRegistrationReasonCode", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "taxRegistrationReasonCode", EmitDefaultValue = false)]
         public string TaxRegistrationReasonCode { get; set; }
 
         /// <summary>
@@ -209,7 +139,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>2026-03-21</example>
         */
-        [DataMember(Name = "saleDate", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "saleDate", EmitDefaultValue = false)]
         public string SaleDate { get; set; }
 
         /// <summary>
@@ -219,7 +149,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>D0.r3f80c3eec6f845c6840128b4c19986f9.0.0</example>
         */
-        [DataMember(Name = "srid", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "srid", EmitDefaultValue = false)]
         public string Srid { get; set; }
 
         /// <summary>
@@ -229,7 +159,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>Продажа</example>
         */
-        [DataMember(Name = "documentType", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "documentType", EmitDefaultValue = false)]
         public string DocumentType { get; set; }
 
         /// <summary>
@@ -239,7 +169,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>1234567</example>
         */
-        [DataMember(Name = "nmId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "nmId", EmitDefaultValue = false)]
         public int NmId { get; set; }
 
         /// <summary>
@@ -249,7 +179,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>367</example>
         */
-        [DataMember(Name = "retailAmount", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "retailAmount", EmitDefaultValue = false)]
         public string RetailAmount { get; set; }
 
         /// <summary>
@@ -259,7 +189,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>14.89</example>
         */
-        [DataMember(Name = "acquiringFee", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "acquiringFee", EmitDefaultValue = false)]
         public string AcquiringFee { get; set; }
 
         /// <summary>
@@ -269,7 +199,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>4.06</example>
         */
-        [DataMember(Name = "acquiringFeeVat", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "acquiringFeeVat", EmitDefaultValue = false)]
         public string AcquiringFeeVat { get; set; }
 
         /// <summary>
@@ -279,7 +209,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>С/Ф 123</example>
         */
-        [DataMember(Name = "invoiceNumber", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "invoiceNumber", EmitDefaultValue = false)]
         public string InvoiceNumber { get; set; }
 
         /// <summary>
@@ -289,7 +219,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>2026-03-20</example>
         */
-        [DataMember(Name = "invoiceDate", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "invoiceDate", EmitDefaultValue = false)]
         public string InvoiceDate { get; set; }
 
         /// <summary>
@@ -299,7 +229,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>1239159661</example>
         */
-        [DataMember(Name = "shkId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "shkId", EmitDefaultValue = false)]
         public int ShkId { get; set; }
 
         /// <summary>
@@ -309,7 +239,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /*
         <example>RUB</example>
         */
-        [DataMember(Name = "currency", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "currency", EmitDefaultValue = false)]
         public string Currency { get; set; }
 
         /// <summary>

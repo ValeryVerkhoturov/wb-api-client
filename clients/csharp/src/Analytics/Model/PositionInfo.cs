@@ -34,66 +34,41 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PositionInfo" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected PositionInfo() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PositionInfo" /> class.
-        /// </summary>
-        /// <param name="average">average (required).</param>
-        /// <param name="median">median (required).</param>
-        /// <param name="chartItems">Данные для чарта по средней и медианной позиции товара в результатах поиска (required).</param>
-        /// <param name="clusters">clusters (required).</param>
+        /// <param name="average">average.</param>
+        /// <param name="median">median.</param>
+        /// <param name="chartItems">Данные для чарта по средней и медианной позиции товара в результатах поиска.</param>
+        /// <param name="clusters">clusters.</param>
         public PositionInfo(PositionInfoAverage average = default(PositionInfoAverage), PositionInfoMedian median = default(PositionInfoMedian), List<SearchReportPositionChartItem> chartItems = default(List<SearchReportPositionChartItem>), SearchReportPositionClusters clusters = default(SearchReportPositionClusters))
         {
-            // to ensure "average" is required (not null)
-            if (average == null)
-            {
-                throw new ArgumentNullException("average is a required property for PositionInfo and cannot be null");
-            }
             this.Average = average;
-            // to ensure "median" is required (not null)
-            if (median == null)
-            {
-                throw new ArgumentNullException("median is a required property for PositionInfo and cannot be null");
-            }
             this.Median = median;
-            // to ensure "chartItems" is required (not null)
-            if (chartItems == null)
-            {
-                throw new ArgumentNullException("chartItems is a required property for PositionInfo and cannot be null");
-            }
             this.ChartItems = chartItems;
-            // to ensure "clusters" is required (not null)
-            if (clusters == null)
-            {
-                throw new ArgumentNullException("clusters is a required property for PositionInfo and cannot be null");
-            }
             this.Clusters = clusters;
         }
 
         /// <summary>
         /// Gets or Sets Average
         /// </summary>
-        [DataMember(Name = "average", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "average", EmitDefaultValue = false)]
         public PositionInfoAverage Average { get; set; }
 
         /// <summary>
         /// Gets or Sets Median
         /// </summary>
-        [DataMember(Name = "median", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "median", EmitDefaultValue = false)]
         public PositionInfoMedian Median { get; set; }
 
         /// <summary>
         /// Данные для чарта по средней и медианной позиции товара в результатах поиска
         /// </summary>
         /// <value>Данные для чарта по средней и медианной позиции товара в результатах поиска</value>
-        [DataMember(Name = "chartItems", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "chartItems", EmitDefaultValue = false)]
         public List<SearchReportPositionChartItem> ChartItems { get; set; }
 
         /// <summary>
         /// Gets or Sets Clusters
         /// </summary>
-        [DataMember(Name = "clusters", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "clusters", EmitDefaultValue = false)]
         public SearchReportPositionClusters Clusters { get; set; }
 
         /// <summary>

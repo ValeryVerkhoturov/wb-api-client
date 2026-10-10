@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt
-from typing import Any, ClassVar, Dict, List, Union
+from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,33 +28,44 @@ class ComparisonWbClubDynamic(BaseModel):
     ComparisonWbClubDynamic
     """  # noqa: E501
 
-    order_count: StrictInt = Field(
-        description="Динамика количества заказов с WB Клубом", alias="orderCount"
+    order_count: Optional[StrictInt] = Field(
+        default=None,
+        description="Динамика количества заказов с WB Клубом",
+        alias="orderCount",
     )
-    order_sum: StrictInt = Field(
-        description="Динамика суммы заказов с WB Клубом", alias="orderSum"
+    order_sum: Optional[StrictInt] = Field(
+        default=None, description="Динамика суммы заказов с WB Клубом", alias="orderSum"
     )
-    buyout_sum: StrictInt = Field(
-        description="Динамика суммы выкупов с WB Клубом", alias="buyoutSum"
+    buyout_sum: Optional[StrictInt] = Field(
+        default=None,
+        description="Динамика суммы выкупов с WB Клубом",
+        alias="buyoutSum",
     )
-    buyout_count: StrictInt = Field(
-        description="Динамика выкупов с WB Клубом", alias="buyoutCount"
+    buyout_count: Optional[StrictInt] = Field(
+        default=None, description="Динамика выкупов с WB Клубом", alias="buyoutCount"
     )
-    cancel_sum: StrictInt = Field(
+    cancel_sum: Optional[StrictInt] = Field(
+        default=None,
         description="Динамика сумм отмен и возвратов товаров с WB Клубом",
         alias="cancelSum",
     )
-    cancel_count: StrictInt = Field(
+    cancel_count: Optional[StrictInt] = Field(
+        default=None,
         description="Динамика отмен и возвратов товаров с WB Клубом",
         alias="cancelCount",
     )
-    avg_price: StrictInt = Field(
-        description="Динамика средней цены на товары с WB Клубом", alias="avgPrice"
+    avg_price: Optional[StrictInt] = Field(
+        default=None,
+        description="Динамика средней цены на товары с WB Клубом",
+        alias="avgPrice",
     )
-    buyout_percent: StrictInt = Field(
-        description="Динамика процента выкупа с WB Клубом", alias="buyoutPercent"
+    buyout_percent: Optional[StrictInt] = Field(
+        default=None,
+        description="Динамика процента выкупа с WB Клубом",
+        alias="buyoutPercent",
     )
-    avg_order_count_per_day: Union[StrictFloat, StrictInt] = Field(
+    avg_order_count_per_day: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None,
         description="Динамика среднего количества заказов с WB Клубом в день",
         alias="avgOrderCountPerDay",
     )

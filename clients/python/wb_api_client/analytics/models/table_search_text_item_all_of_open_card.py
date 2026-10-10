@@ -28,12 +28,15 @@ class TableSearchTextItemAllOfOpenCard(BaseModel):
     Количество переходов в карточку товара из поиска
     """  # noqa: E501
 
-    current: StrictInt = Field(description="Текущее количество переходов")
+    current: Optional[StrictInt] = Field(
+        default=None, description="Текущее количество переходов"
+    )
     dynamics: Optional[StrictInt] = Field(
         default=None, description="Динамика по сравнению с предыдущим периодом, %"
     )
-    percentile: StrictInt = Field(
-        description="Процент, на который показатель количества открытий карточки товара выше, чем у карточек других продавцов по поисковому запросу"
+    percentile: Optional[StrictInt] = Field(
+        default=None,
+        description="Процент, на который показатель количества открытий карточки товара выше, чем у карточек других продавцов по поисковому запросу",
     )
     __properties: ClassVar[List[str]] = ["current", "dynamics", "percentile"]
 

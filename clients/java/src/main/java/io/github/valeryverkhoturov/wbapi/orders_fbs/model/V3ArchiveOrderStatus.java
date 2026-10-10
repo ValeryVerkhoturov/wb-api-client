@@ -36,18 +36,18 @@ public class V3ArchiveOrderStatus {
   public static final String SERIALIZED_NAME_SUPPLIER_STATUS = "supplierStatus";
 
   @SerializedName(SERIALIZED_NAME_SUPPLIER_STATUS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String supplierStatus;
 
   public static final String SERIALIZED_NAME_WB_STATUS = "wbStatus";
 
   @SerializedName(SERIALIZED_NAME_WB_STATUS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String wbStatus;
 
   public V3ArchiveOrderStatus() {}
 
-  public V3ArchiveOrderStatus supplierStatus(@jakarta.annotation.Nonnull String supplierStatus) {
+  public V3ArchiveOrderStatus supplierStatus(@jakarta.annotation.Nullable String supplierStatus) {
     this.supplierStatus = supplierStatus;
     return this;
   }
@@ -57,16 +57,16 @@ public class V3ArchiveOrderStatus {
    *
    * @return supplierStatus
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getSupplierStatus() {
     return supplierStatus;
   }
 
-  public void setSupplierStatus(@jakarta.annotation.Nonnull String supplierStatus) {
+  public void setSupplierStatus(@jakarta.annotation.Nullable String supplierStatus) {
     this.supplierStatus = supplierStatus;
   }
 
-  public V3ArchiveOrderStatus wbStatus(@jakarta.annotation.Nonnull String wbStatus) {
+  public V3ArchiveOrderStatus wbStatus(@jakarta.annotation.Nullable String wbStatus) {
     this.wbStatus = wbStatus;
     return this;
   }
@@ -76,12 +76,12 @@ public class V3ArchiveOrderStatus {
    *
    * @return wbStatus
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getWbStatus() {
     return wbStatus;
   }
 
-  public void setWbStatus(@jakarta.annotation.Nonnull String wbStatus) {
+  public void setWbStatus(@jakarta.annotation.Nullable String wbStatus) {
     this.wbStatus = wbStatus;
   }
 
@@ -134,8 +134,6 @@ public class V3ArchiveOrderStatus {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("supplierStatus");
-    openapiRequiredFields.add("wbStatus");
   }
 
   /**
@@ -165,24 +163,16 @@ public class V3ArchiveOrderStatus {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : V3ArchiveOrderStatus.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    if (!jsonObj.get("supplierStatus").isJsonPrimitive()) {
+    if ((jsonObj.get("supplierStatus") != null && !jsonObj.get("supplierStatus").isJsonNull())
+        && !jsonObj.get("supplierStatus").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `supplierStatus` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("supplierStatus").toString()));
     }
-    if (!jsonObj.get("wbStatus").isJsonPrimitive()) {
+    if ((jsonObj.get("wbStatus") != null && !jsonObj.get("wbStatus").isJsonNull())
+        && !jsonObj.get("wbStatus").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `wbStatus` to be a primitive type in the JSON string but got `%s`",

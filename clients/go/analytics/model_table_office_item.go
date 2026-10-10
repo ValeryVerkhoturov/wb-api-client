@@ -11,9 +11,7 @@ API version: analytics
 package analytics
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the TableOfficeItem type satisfies the MappedNullable interface at compile time
@@ -22,27 +20,21 @@ var _ MappedNullable = &TableOfficeItem{}
 // TableOfficeItem Данные по складу
 type TableOfficeItem struct {
 	// Регион отгрузки. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) для складов WB может быть только `Склад WB`
-	RegionName string `json:"regionName"`
+	RegionName *string `json:"regionName,omitempty"`
 	// ID склада. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) для складов WB может быть только `-999999`
-	OfficeID int64 `json:"officeID"`
+	OfficeID *int64 `json:"officeID,omitempty"`
 	// Название склада. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) для складов WB может быть только `\"\"`
-	OfficeName string `json:"officeName"`
+	OfficeName *string `json:"officeName,omitempty"`
 	// Метрики склада
-	Metrics TableCommonMetrics `json:"metrics"`
+	Metrics *TableCommonMetrics `json:"metrics,omitempty"`
 }
-
-type _TableOfficeItem TableOfficeItem
 
 // NewTableOfficeItem instantiates a new TableOfficeItem object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTableOfficeItem(regionName string, officeID int64, officeName string, metrics TableCommonMetrics) *TableOfficeItem {
+func NewTableOfficeItem() *TableOfficeItem {
 	this := TableOfficeItem{}
-	this.RegionName = regionName
-	this.OfficeID = officeID
-	this.OfficeName = officeName
-	this.Metrics = metrics
 	return &this
 }
 
@@ -54,100 +46,132 @@ func NewTableOfficeItemWithDefaults() *TableOfficeItem {
 	return &this
 }
 
-// GetRegionName returns the RegionName field value
+// GetRegionName returns the RegionName field value if set, zero value otherwise.
 func (o *TableOfficeItem) GetRegionName() string {
-	if o == nil {
+	if o == nil || IsNil(o.RegionName) {
 		var ret string
 		return ret
 	}
-
-	return o.RegionName
+	return *o.RegionName
 }
 
-// GetRegionNameOk returns a tuple with the RegionName field value
+// GetRegionNameOk returns a tuple with the RegionName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableOfficeItem) GetRegionNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.RegionName) {
 		return nil, false
 	}
-	return &o.RegionName, true
+	return o.RegionName, true
 }
 
-// SetRegionName sets field value
+// HasRegionName returns a boolean if a field has been set.
+func (o *TableOfficeItem) HasRegionName() bool {
+	if o != nil && !IsNil(o.RegionName) {
+		return true
+	}
+
+	return false
+}
+
+// SetRegionName gets a reference to the given string and assigns it to the RegionName field.
 func (o *TableOfficeItem) SetRegionName(v string) {
-	o.RegionName = v
+	o.RegionName = &v
 }
 
-// GetOfficeID returns the OfficeID field value
+// GetOfficeID returns the OfficeID field value if set, zero value otherwise.
 func (o *TableOfficeItem) GetOfficeID() int64 {
-	if o == nil {
+	if o == nil || IsNil(o.OfficeID) {
 		var ret int64
 		return ret
 	}
-
-	return o.OfficeID
+	return *o.OfficeID
 }
 
-// GetOfficeIDOk returns a tuple with the OfficeID field value
+// GetOfficeIDOk returns a tuple with the OfficeID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableOfficeItem) GetOfficeIDOk() (*int64, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.OfficeID) {
 		return nil, false
 	}
-	return &o.OfficeID, true
+	return o.OfficeID, true
 }
 
-// SetOfficeID sets field value
+// HasOfficeID returns a boolean if a field has been set.
+func (o *TableOfficeItem) HasOfficeID() bool {
+	if o != nil && !IsNil(o.OfficeID) {
+		return true
+	}
+
+	return false
+}
+
+// SetOfficeID gets a reference to the given int64 and assigns it to the OfficeID field.
 func (o *TableOfficeItem) SetOfficeID(v int64) {
-	o.OfficeID = v
+	o.OfficeID = &v
 }
 
-// GetOfficeName returns the OfficeName field value
+// GetOfficeName returns the OfficeName field value if set, zero value otherwise.
 func (o *TableOfficeItem) GetOfficeName() string {
-	if o == nil {
+	if o == nil || IsNil(o.OfficeName) {
 		var ret string
 		return ret
 	}
-
-	return o.OfficeName
+	return *o.OfficeName
 }
 
-// GetOfficeNameOk returns a tuple with the OfficeName field value
+// GetOfficeNameOk returns a tuple with the OfficeName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableOfficeItem) GetOfficeNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.OfficeName) {
 		return nil, false
 	}
-	return &o.OfficeName, true
+	return o.OfficeName, true
 }
 
-// SetOfficeName sets field value
+// HasOfficeName returns a boolean if a field has been set.
+func (o *TableOfficeItem) HasOfficeName() bool {
+	if o != nil && !IsNil(o.OfficeName) {
+		return true
+	}
+
+	return false
+}
+
+// SetOfficeName gets a reference to the given string and assigns it to the OfficeName field.
 func (o *TableOfficeItem) SetOfficeName(v string) {
-	o.OfficeName = v
+	o.OfficeName = &v
 }
 
-// GetMetrics returns the Metrics field value
+// GetMetrics returns the Metrics field value if set, zero value otherwise.
 func (o *TableOfficeItem) GetMetrics() TableCommonMetrics {
-	if o == nil {
+	if o == nil || IsNil(o.Metrics) {
 		var ret TableCommonMetrics
 		return ret
 	}
-
-	return o.Metrics
+	return *o.Metrics
 }
 
-// GetMetricsOk returns a tuple with the Metrics field value
+// GetMetricsOk returns a tuple with the Metrics field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableOfficeItem) GetMetricsOk() (*TableCommonMetrics, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Metrics) {
 		return nil, false
 	}
-	return &o.Metrics, true
+	return o.Metrics, true
 }
 
-// SetMetrics sets field value
+// HasMetrics returns a boolean if a field has been set.
+func (o *TableOfficeItem) HasMetrics() bool {
+	if o != nil && !IsNil(o.Metrics) {
+		return true
+	}
+
+	return false
+}
+
+// SetMetrics gets a reference to the given TableCommonMetrics and assigns it to the Metrics field.
 func (o *TableOfficeItem) SetMetrics(v TableCommonMetrics) {
-	o.Metrics = v
+	o.Metrics = &v
 }
 
 func (o TableOfficeItem) MarshalJSON() ([]byte, error) {
@@ -160,51 +184,19 @@ func (o TableOfficeItem) MarshalJSON() ([]byte, error) {
 
 func (o TableOfficeItem) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["regionName"] = o.RegionName
-	toSerialize["officeID"] = o.OfficeID
-	toSerialize["officeName"] = o.OfficeName
-	toSerialize["metrics"] = o.Metrics
+	if !IsNil(o.RegionName) {
+		toSerialize["regionName"] = o.RegionName
+	}
+	if !IsNil(o.OfficeID) {
+		toSerialize["officeID"] = o.OfficeID
+	}
+	if !IsNil(o.OfficeName) {
+		toSerialize["officeName"] = o.OfficeName
+	}
+	if !IsNil(o.Metrics) {
+		toSerialize["metrics"] = o.Metrics
+	}
 	return toSerialize, nil
-}
-
-func (o *TableOfficeItem) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"regionName",
-		"officeID",
-		"officeName",
-		"metrics",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varTableOfficeItem := _TableOfficeItem{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varTableOfficeItem)
-
-	if err != nil {
-		return err
-	}
-
-	*o = TableOfficeItem(varTableOfficeItem)
-
-	return err
 }
 
 type NullableTableOfficeItem struct {

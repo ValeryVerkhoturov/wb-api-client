@@ -37,8 +37,8 @@ class VisibilityInfo(BaseModel):
     Видимость карточек и переходы в карточки. По дням, неделям, месяцам
     """  # noqa: E501
 
-    visibility: VisibilityInfoVisibility
-    open_card: VisibilityInfoOpenCard = Field(alias="openCard")
+    visibility: Optional[VisibilityInfoVisibility] = None
+    open_card: Optional[VisibilityInfoOpenCard] = Field(default=None, alias="openCard")
     by_day: Optional[List[VisibilityInfoByDayInner]] = Field(
         default=None,
         description="Данные для отрисовки графика в личном кабинете по видимости и переходам в карточки по дням",

@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from wb_api_client.orders_fbs.models.updated_supplies_shipping_method import (
     UpdatedSuppliesShippingMethod,
 )
@@ -31,7 +31,7 @@ class UpdateSuppliesShippingMethodResponse(BaseModel):
     UpdateSuppliesShippingMethodResponse
     """  # noqa: E501
 
-    results: List[UpdatedSuppliesShippingMethod]
+    results: Optional[List[UpdatedSuppliesShippingMethod]] = None
     __properties: ClassVar[List[str]] = ["results"]
 
     model_config = ConfigDict(

@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,20 +28,26 @@ class SubscriptionsJamInfo(BaseModel):
     Информация о подписке Джем
     """  # noqa: E501
 
-    state: StrictStr = Field(
-        description="Статус подписки:   - `active` — активна   - `inactive` — истекла или отменена "
+    state: Optional[StrictStr] = Field(
+        default=None,
+        description="Статус подписки:   - `active` — активна   - `inactive` — истекла или отменена ",
     )
-    activation_source: StrictStr = Field(
+    activation_source: Optional[StrictStr] = Field(
+        default=None,
         description="Источник подключения подписки:   - `constructor` — покупка через раздел **Конструктор тарифов**   - `jam` — покупка через раздел **Подписка «Джем»** ",
         alias="activationSource",
     )
-    level: StrictStr = Field(
-        description="Уровень подписки:   - `standard`   - `advanced`   - `premium` "
+    level: Optional[StrictStr] = Field(
+        default=None,
+        description="Уровень подписки:   - `standard`   - `advanced`   - `premium` ",
     )
-    since: StrictStr = Field(
-        description="Дата и время первой активации подписки. Не меняется при продлении или повторной активации"
+    since: Optional[StrictStr] = Field(
+        default=None,
+        description="Дата и время первой активации подписки. Не меняется при продлении или повторной активации",
     )
-    till: StrictStr = Field(description="Дата и время окончания подписки")
+    till: Optional[StrictStr] = Field(
+        default=None, description="Дата и время окончания подписки"
+    )
     __properties: ClassVar[List[str]] = [
         "state",
         "activationSource",
@@ -53,6 +59,9 @@ class SubscriptionsJamInfo(BaseModel):
     @field_validator("state")
     def state_validate_enum(cls, value):
         """Validates the enum"""
+        if value is None:
+            return value
+
         if value not in set(["active", "inactive"]):
             raise ValueError("must be one of enum values ('active', 'inactive')")
         return value
@@ -60,6 +69,9 @@ class SubscriptionsJamInfo(BaseModel):
     @field_validator("activation_source")
     def activation_source_validate_enum(cls, value):
         """Validates the enum"""
+        if value is None:
+            return value
+
         if value not in set(["constructor", "jam"]):
             raise ValueError("must be one of enum values ('constructor', 'jam')")
         return value
@@ -67,6 +79,9 @@ class SubscriptionsJamInfo(BaseModel):
     @field_validator("level")
     def level_validate_enum(cls, value):
         """Validates the enum"""
+        if value is None:
+            return value
+
         if value not in set(["standard", "advanced", "premium"]):
             raise ValueError(
                 "must be one of enum values ('standard', 'advanced', 'premium')"

@@ -11,9 +11,7 @@ API version: ordersfbw
 package orders_fbw
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the ModelsListDraftItemsResponse type satisfies the MappedNullable interface at compile time
@@ -22,24 +20,19 @@ var _ MappedNullable = &ModelsListDraftItemsResponse{}
 // ModelsListDraftItemsResponse struct for ModelsListDraftItemsResponse
 type ModelsListDraftItemsResponse struct {
 	// Количество баркодов
-	SkuQuantity int32 `json:"skuQuantity"`
+	SkuQuantity *int32 `json:"skuQuantity,omitempty"`
 	// Количество единиц товара
-	ItemQuantity int32 `json:"itemQuantity"`
+	ItemQuantity *int32 `json:"itemQuantity,omitempty"`
 	// Список товаров
-	Items []ModelsDraftItemItem `json:"items"`
+	Items []ModelsDraftItemItem `json:"items,omitempty"`
 }
-
-type _ModelsListDraftItemsResponse ModelsListDraftItemsResponse
 
 // NewModelsListDraftItemsResponse instantiates a new ModelsListDraftItemsResponse object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelsListDraftItemsResponse(skuQuantity int32, itemQuantity int32, items []ModelsDraftItemItem) *ModelsListDraftItemsResponse {
+func NewModelsListDraftItemsResponse() *ModelsListDraftItemsResponse {
 	this := ModelsListDraftItemsResponse{}
-	this.SkuQuantity = skuQuantity
-	this.ItemQuantity = itemQuantity
-	this.Items = items
 	return &this
 }
 
@@ -51,74 +44,98 @@ func NewModelsListDraftItemsResponseWithDefaults() *ModelsListDraftItemsResponse
 	return &this
 }
 
-// GetSkuQuantity returns the SkuQuantity field value
+// GetSkuQuantity returns the SkuQuantity field value if set, zero value otherwise.
 func (o *ModelsListDraftItemsResponse) GetSkuQuantity() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.SkuQuantity) {
 		var ret int32
 		return ret
 	}
-
-	return o.SkuQuantity
+	return *o.SkuQuantity
 }
 
-// GetSkuQuantityOk returns a tuple with the SkuQuantity field value
+// GetSkuQuantityOk returns a tuple with the SkuQuantity field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModelsListDraftItemsResponse) GetSkuQuantityOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.SkuQuantity) {
 		return nil, false
 	}
-	return &o.SkuQuantity, true
+	return o.SkuQuantity, true
 }
 
-// SetSkuQuantity sets field value
+// HasSkuQuantity returns a boolean if a field has been set.
+func (o *ModelsListDraftItemsResponse) HasSkuQuantity() bool {
+	if o != nil && !IsNil(o.SkuQuantity) {
+		return true
+	}
+
+	return false
+}
+
+// SetSkuQuantity gets a reference to the given int32 and assigns it to the SkuQuantity field.
 func (o *ModelsListDraftItemsResponse) SetSkuQuantity(v int32) {
-	o.SkuQuantity = v
+	o.SkuQuantity = &v
 }
 
-// GetItemQuantity returns the ItemQuantity field value
+// GetItemQuantity returns the ItemQuantity field value if set, zero value otherwise.
 func (o *ModelsListDraftItemsResponse) GetItemQuantity() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.ItemQuantity) {
 		var ret int32
 		return ret
 	}
-
-	return o.ItemQuantity
+	return *o.ItemQuantity
 }
 
-// GetItemQuantityOk returns a tuple with the ItemQuantity field value
+// GetItemQuantityOk returns a tuple with the ItemQuantity field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModelsListDraftItemsResponse) GetItemQuantityOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ItemQuantity) {
 		return nil, false
 	}
-	return &o.ItemQuantity, true
+	return o.ItemQuantity, true
 }
 
-// SetItemQuantity sets field value
+// HasItemQuantity returns a boolean if a field has been set.
+func (o *ModelsListDraftItemsResponse) HasItemQuantity() bool {
+	if o != nil && !IsNil(o.ItemQuantity) {
+		return true
+	}
+
+	return false
+}
+
+// SetItemQuantity gets a reference to the given int32 and assigns it to the ItemQuantity field.
 func (o *ModelsListDraftItemsResponse) SetItemQuantity(v int32) {
-	o.ItemQuantity = v
+	o.ItemQuantity = &v
 }
 
-// GetItems returns the Items field value
+// GetItems returns the Items field value if set, zero value otherwise.
 func (o *ModelsListDraftItemsResponse) GetItems() []ModelsDraftItemItem {
-	if o == nil {
+	if o == nil || IsNil(o.Items) {
 		var ret []ModelsDraftItemItem
 		return ret
 	}
-
 	return o.Items
 }
 
-// GetItemsOk returns a tuple with the Items field value
+// GetItemsOk returns a tuple with the Items field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModelsListDraftItemsResponse) GetItemsOk() ([]ModelsDraftItemItem, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Items) {
 		return nil, false
 	}
 	return o.Items, true
 }
 
-// SetItems sets field value
+// HasItems returns a boolean if a field has been set.
+func (o *ModelsListDraftItemsResponse) HasItems() bool {
+	if o != nil && !IsNil(o.Items) {
+		return true
+	}
+
+	return false
+}
+
+// SetItems gets a reference to the given []ModelsDraftItemItem and assigns it to the Items field.
 func (o *ModelsListDraftItemsResponse) SetItems(v []ModelsDraftItemItem) {
 	o.Items = v
 }
@@ -133,49 +150,16 @@ func (o ModelsListDraftItemsResponse) MarshalJSON() ([]byte, error) {
 
 func (o ModelsListDraftItemsResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["skuQuantity"] = o.SkuQuantity
-	toSerialize["itemQuantity"] = o.ItemQuantity
-	toSerialize["items"] = o.Items
+	if !IsNil(o.SkuQuantity) {
+		toSerialize["skuQuantity"] = o.SkuQuantity
+	}
+	if !IsNil(o.ItemQuantity) {
+		toSerialize["itemQuantity"] = o.ItemQuantity
+	}
+	if !IsNil(o.Items) {
+		toSerialize["items"] = o.Items
+	}
 	return toSerialize, nil
-}
-
-func (o *ModelsListDraftItemsResponse) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"skuQuantity",
-		"itemQuantity",
-		"items",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varModelsListDraftItemsResponse := _ModelsListDraftItemsResponse{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varModelsListDraftItemsResponse)
-
-	if err != nil {
-		return err
-	}
-
-	*o = ModelsListDraftItemsResponse(varModelsListDraftItemsResponse)
-
-	return err
 }
 
 type NullableModelsListDraftItemsResponse struct {

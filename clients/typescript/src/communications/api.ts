@@ -106,7 +106,7 @@ export interface DeleteV1PinsResponse200 {
    * @type {Array<number>}
    * @memberof DeleteV1PinsResponse200
    */
-  data: Array<number>;
+  data?: Array<number>;
 }
 /**
  *
@@ -1427,7 +1427,7 @@ export interface GetV1PinsCountResponse200 {
    * @type {number}
    * @memberof GetV1PinsCountResponse200
    */
-  data: number;
+  data?: number;
 }
 /**
  *
@@ -1440,7 +1440,7 @@ export interface GetV1PinsLimitsResponse200 {
    * @type {OpenapiSellerLimitsResponseData}
    * @memberof GetV1PinsLimitsResponse200
    */
-  data: OpenapiSellerLimitsResponseData;
+  data?: OpenapiSellerLimitsResponseData;
 }
 /**
  *
@@ -1453,7 +1453,7 @@ export interface GetV1PinsResponse200 {
    * @type {Array<OpenapiPinnedReviewItemResult>}
    * @memberof GetV1PinsResponse200
    */
-  data: Array<OpenapiPinnedReviewItemResult>;
+  data?: Array<OpenapiPinnedReviewItemResult>;
   /**
    * Параметр пагинации. Укажите это значение в запросе, чтобы получить следующий пакет данных. Если поле отсутствует, вы получили все данные
    * @type {number}
@@ -1886,13 +1886,13 @@ export interface GetV1SellerDownloadIdResponse202 {
    * @type {string}
    * @memberof GetV1SellerDownloadIdResponse202
    */
-  moderationState: string;
+  moderationState?: string;
   /**
    * Секунд до следующей попытки запроса файла
    * @type {number}
    * @memberof GetV1SellerDownloadIdResponse202
    */
-  retrySeconds: number;
+  retrySeconds?: number;
 }
 /**
  *
@@ -2250,7 +2250,7 @@ export interface OpenapiPinReviewItemResultDataInner {
    * @type {string}
    * @memberof OpenapiPinReviewItemResultDataInner
    */
-  feedbackId: string;
+  feedbackId?: string;
   /**
    * ID операции закрепления. Если поле отсутствует — закрепить отзыв не удалось
    * @type {number}
@@ -2262,19 +2262,19 @@ export interface OpenapiPinReviewItemResultDataInner {
    * @type {string}
    * @memberof OpenapiPinReviewItemResultDataInner
    */
-  pinMethod: OpenapiPinReviewItemResultDataInnerPinMethodEnum;
+  pinMethod?: OpenapiPinReviewItemResultDataInnerPinMethodEnum;
   /**
    * Место закрепления отзыва:   - `nm` — карточка товара   - `imt` — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров
    * @type {string}
    * @memberof OpenapiPinReviewItemResultDataInner
    */
-  pinOn: OpenapiPinReviewItemResultDataInnerPinOnEnum;
+  pinOn?: OpenapiPinReviewItemResultDataInnerPinOnEnum;
   /**
    * Есть ли ошибки
    * @type {boolean}
    * @memberof OpenapiPinReviewItemResultDataInner
    */
-  isErrors: boolean;
+  isErrors?: boolean;
   /**
    * Детали ошибок
    * @type {Array<OpenapiResultErr>}
@@ -2309,49 +2309,49 @@ export interface OpenapiPinnedReviewItemResult {
    * @type {string}
    * @memberof OpenapiPinnedReviewItemResult
    */
-  changeStateAt: string;
+  changeStateAt?: string;
   /**
    * ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров
    * @type {number}
    * @memberof OpenapiPinnedReviewItemResult
    */
-  imtId: number;
+  imtId?: number;
   /**
    * Артикул WB
    * @type {number}
    * @memberof OpenapiPinnedReviewItemResult
    */
-  nmId: number;
+  nmId?: number;
   /**
    * ID операции закрепления отзыва
    * @type {number}
    * @memberof OpenapiPinnedReviewItemResult
    */
-  pinId: number;
+  pinId?: number;
   /**
    * Метод закрепления:   - `subscription` — подписка Джем   - `tariff` — тарифная опция
    * @type {DomainReviewPinMethod}
    * @memberof OpenapiPinnedReviewItemResult
    */
-  pinMethod: DomainReviewPinMethod;
+  pinMethod?: DomainReviewPinMethod;
   /**
    * Место закрепления отзыва:   - `nm` — карточка товара   - `imt` — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров
    * @type {DomainReviewPinOn}
    * @memberof OpenapiPinnedReviewItemResult
    */
-  pinOn: DomainReviewPinOn;
+  pinOn?: DomainReviewPinOn;
   /**
    * ID отзыва
    * @type {string}
    * @memberof OpenapiPinnedReviewItemResult
    */
-  feedbackId: string;
+  feedbackId?: string;
   /**
    * Закреплён ли отзыв:   - `pinned` — да   - `unpinned` — нет
    * @type {DomainReviewState}
    * @memberof OpenapiPinnedReviewItemResult
    */
-  state: DomainReviewState;
+  state?: DomainReviewState;
   /**
    * Причина открепления отзыва:   - `sysTariffUnpinned` — закончилась подписка или тарифная опция   - `sysLimitReached` — закончился общий лимит по подписке   - `sysNoratingUnpinned` — отзыв исключён из рейтинга. Например, удалён или забанен   - `sysAdditionalSlot` — к карточке или к группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек прикреплено максимальное количество отзывов
    * @type {string}
@@ -2381,7 +2381,7 @@ export interface OpenapiResultErr {
    * @type {string}
    * @memberof OpenapiResultErr
    */
-  origin: string;
+  origin?: string;
   /**
    * Детали ошибки
    * @type {string}
@@ -2393,19 +2393,19 @@ export interface OpenapiResultErr {
    * @type {string}
    * @memberof OpenapiResultErr
    */
-  requestId: string;
+  requestId?: string;
   /**
    * Статус
    * @type {string}
    * @memberof OpenapiResultErr
    */
-  status: OpenapiResultErrStatusEnum;
+  status?: OpenapiResultErrStatusEnum;
   /**
    * Заголовок ошибки
    * @type {string}
    * @memberof OpenapiResultErr
    */
-  title: string;
+  title?: string;
 }
 
 export const OpenapiResultErrStatusEnum = {
@@ -2437,31 +2437,31 @@ export interface OpenapiSellerLimit {
    * @type {number}
    * @memberof OpenapiSellerLimit
    */
-  perUnitLimit: number;
+  perUnitLimit?: number;
   /**
    * Сколько ещё отзывов можно закрепить
    * @type {number}
    * @memberof OpenapiSellerLimit
    */
-  remaining: number;
+  remaining?: number;
   /**
    * Общий лимит закреплений
    * @type {number}
    * @memberof OpenapiSellerLimit
    */
-  totalLimit: number;
+  totalLimit?: number;
   /**
    * Количество закреплённых отзывов не ограничено:   - `true` — да   - `false` — нет
    * @type {boolean}
    * @memberof OpenapiSellerLimit
    */
-  unlimited: boolean;
+  unlimited?: boolean;
   /**
    * Текущее количество закреплённых отзывов
    * @type {number}
    * @memberof OpenapiSellerLimit
    */
-  used: number;
+  used?: number;
 }
 /**
  *
@@ -2506,31 +2506,31 @@ export interface OpenapiSellerLimitsResponseDataSubscription {
    * @type {number}
    * @memberof OpenapiSellerLimitsResponseDataSubscription
    */
-  perUnitLimit: number;
+  perUnitLimit?: number;
   /**
    * Сколько ещё отзывов можно закрепить
    * @type {number}
    * @memberof OpenapiSellerLimitsResponseDataSubscription
    */
-  remaining: number;
+  remaining?: number;
   /**
    * Общий лимит закреплений
    * @type {number}
    * @memberof OpenapiSellerLimitsResponseDataSubscription
    */
-  totalLimit: number;
+  totalLimit?: number;
   /**
    * Количество закреплённых отзывов не ограничено:   - `true` — да   - `false` — нет
    * @type {boolean}
    * @memberof OpenapiSellerLimitsResponseDataSubscription
    */
-  unlimited: boolean;
+  unlimited?: boolean;
   /**
    * Текущее количество закреплённых отзывов
    * @type {number}
    * @memberof OpenapiSellerLimitsResponseDataSubscription
    */
-  used: number;
+  used?: number;
 }
 /**
  *
@@ -2543,31 +2543,31 @@ export interface OpenapiSellerLimitsResponseDataTariff {
    * @type {number}
    * @memberof OpenapiSellerLimitsResponseDataTariff
    */
-  perUnitLimit: number;
+  perUnitLimit?: number;
   /**
    * Сколько ещё отзывов можно закрепить
    * @type {number}
    * @memberof OpenapiSellerLimitsResponseDataTariff
    */
-  remaining: number;
+  remaining?: number;
   /**
    * Общий лимит закреплений
    * @type {number}
    * @memberof OpenapiSellerLimitsResponseDataTariff
    */
-  totalLimit: number;
+  totalLimit?: number;
   /**
    * Количество закреплённых отзывов не ограничено:   - `true` — да   - `false` — нет
    * @type {boolean}
    * @memberof OpenapiSellerLimitsResponseDataTariff
    */
-  unlimited: boolean;
+  unlimited?: boolean;
   /**
    * Текущее количество закреплённых отзывов
    * @type {number}
    * @memberof OpenapiSellerLimitsResponseDataTariff
    */
-  used: number;
+  used?: number;
 }
 /**
  *
@@ -2863,7 +2863,7 @@ export interface PostV1PinsResponse200 {
    * @type {Array<OpenapiPinReviewItemResultDataInner>}
    * @memberof PostV1PinsResponse200
    */
-  data: Array<OpenapiPinReviewItemResultDataInner>;
+  data?: Array<OpenapiPinReviewItemResultDataInner>;
 }
 /**
  *
@@ -2950,25 +2950,25 @@ export interface RespondResultErr {
    * @type {string}
    * @memberof RespondResultErr
    */
-  origin: string;
+  origin?: string;
   /**
    * ID запроса
    * @type {string}
    * @memberof RespondResultErr
    */
-  requestId: string;
+  requestId?: string;
   /**
    * HTTP статус-код
    * @type {number}
    * @memberof RespondResultErr
    */
-  status: number;
+  status?: number;
   /**
    * Заголовок ошибки
    * @type {string}
    * @memberof RespondResultErr
    */
-  title: string;
+  title?: string;
 }
 /**
  *
@@ -2981,7 +2981,7 @@ export interface RespondSuccessResponse {
    * @type {object}
    * @memberof RespondSuccessResponse
    */
-  data: object;
+  data?: object;
 }
 /**
  *

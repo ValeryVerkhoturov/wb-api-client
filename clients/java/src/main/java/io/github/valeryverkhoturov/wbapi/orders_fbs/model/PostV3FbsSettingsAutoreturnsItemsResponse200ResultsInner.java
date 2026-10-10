@@ -46,7 +46,7 @@ public class PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInner {
   public static final String SERIALIZED_NAME_CHRT_ID = "chrtId";
 
   @SerializedName(SERIALIZED_NAME_CHRT_ID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer chrtId;
 
   /**
@@ -152,7 +152,7 @@ public class PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInner {
   }
 
   public PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInner chrtId(
-      @jakarta.annotation.Nonnull Integer chrtId) {
+      @jakarta.annotation.Nullable Integer chrtId) {
     this.chrtId = chrtId;
     return this;
   }
@@ -162,12 +162,12 @@ public class PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInner {
    *
    * @return chrtId
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getChrtId() {
     return chrtId;
   }
 
-  public void setChrtId(@jakarta.annotation.Nonnull Integer chrtId) {
+  public void setChrtId(@jakarta.annotation.Nullable Integer chrtId) {
     this.chrtId = chrtId;
   }
 
@@ -311,7 +311,6 @@ public class PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInner {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("chrtId");
   }
 
   /**
@@ -342,17 +341,6 @@ public class PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInner {
             String.format(
                 "The field `%s` in the JSON string is not defined in the `PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInner` properties. JSON: %s",
                 entry.getKey(), jsonElement.toString()));
-      }
-    }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField :
-        PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInner.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
       }
     }
     JsonObject jsonObj = jsonElement.getAsJsonObject();

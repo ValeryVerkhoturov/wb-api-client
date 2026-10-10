@@ -34,33 +34,13 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AdvertSettings" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected AdvertSettings() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="AdvertSettings" /> class.
-        /// </summary>
-        /// <param name="paymentType">Тип оплаты: - &#x60;cpm&#x60; — за показы - &#x60;cpc&#x60; — за клик  (required).</param>
-        /// <param name="name">Название кампании (required).</param>
-        /// <param name="placements">placements (required).</param>
-        public AdvertSettings(string paymentType = default(string), string name = default(string), PutV0AuctionPlacementsRequestPlacementsInnerPlacements placements = default(PutV0AuctionPlacementsRequestPlacementsInnerPlacements))
+        /// <param name="paymentType">Тип оплаты: - &#x60;cpm&#x60; — за показы - &#x60;cpc&#x60; — за клик .</param>
+        /// <param name="name">Название кампании.</param>
+        /// <param name="placements">placements.</param>
+        public AdvertSettings(string paymentType = default(string), string name = default(string), AdvertSettingsPlacements placements = default(AdvertSettingsPlacements))
         {
-            // to ensure "paymentType" is required (not null)
-            if (paymentType == null)
-            {
-                throw new ArgumentNullException("paymentType is a required property for AdvertSettings and cannot be null");
-            }
             this.PaymentType = paymentType;
-            // to ensure "name" is required (not null)
-            if (name == null)
-            {
-                throw new ArgumentNullException("name is a required property for AdvertSettings and cannot be null");
-            }
             this.Name = name;
-            // to ensure "placements" is required (not null)
-            if (placements == null)
-            {
-                throw new ArgumentNullException("placements is a required property for AdvertSettings and cannot be null");
-            }
             this.Placements = placements;
         }
 
@@ -68,21 +48,21 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// Тип оплаты: - &#x60;cpm&#x60; — за показы - &#x60;cpc&#x60; — за клик 
         /// </summary>
         /// <value>Тип оплаты: - &#x60;cpm&#x60; — за показы - &#x60;cpc&#x60; — за клик </value>
-        [DataMember(Name = "payment_type", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "payment_type", EmitDefaultValue = false)]
         public string PaymentType { get; set; }
 
         /// <summary>
         /// Название кампании
         /// </summary>
         /// <value>Название кампании</value>
-        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "name", EmitDefaultValue = false)]
         public string Name { get; set; }
 
         /// <summary>
         /// Gets or Sets Placements
         /// </summary>
-        [DataMember(Name = "placements", IsRequired = true, EmitDefaultValue = true)]
-        public PutV0AuctionPlacementsRequestPlacementsInnerPlacements Placements { get; set; }
+        [DataMember(Name = "placements", EmitDefaultValue = false)]
+        public AdvertSettingsPlacements Placements { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

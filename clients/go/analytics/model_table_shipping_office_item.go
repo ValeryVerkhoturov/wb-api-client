@@ -11,9 +11,7 @@ API version: analytics
 package analytics
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the TableShippingOfficeItem type satisfies the MappedNullable interface at compile time
@@ -22,24 +20,19 @@ var _ MappedNullable = &TableShippingOfficeItem{}
 // TableShippingOfficeItem Данные по региону отгрузки
 type TableShippingOfficeItem struct {
 	// Регион отгрузки. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) для складов WB может быть только `Склад WB`
-	RegionName string `json:"regionName"`
+	RegionName *string `json:"regionName,omitempty"`
 	// Метрики по региону
-	Metrics TableShippingOfficeMetrics `json:"metrics"`
+	Metrics *TableShippingOfficeMetrics `json:"metrics,omitempty"`
 	// Данные по складам. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `[]`
-	Offices []TableShippingOfficeItemOfficesInner `json:"offices"`
+	Offices []TableShippingOfficeItemOfficesInner `json:"offices,omitempty"`
 }
-
-type _TableShippingOfficeItem TableShippingOfficeItem
 
 // NewTableShippingOfficeItem instantiates a new TableShippingOfficeItem object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTableShippingOfficeItem(regionName string, metrics TableShippingOfficeMetrics, offices []TableShippingOfficeItemOfficesInner) *TableShippingOfficeItem {
+func NewTableShippingOfficeItem() *TableShippingOfficeItem {
 	this := TableShippingOfficeItem{}
-	this.RegionName = regionName
-	this.Metrics = metrics
-	this.Offices = offices
 	return &this
 }
 
@@ -51,74 +44,98 @@ func NewTableShippingOfficeItemWithDefaults() *TableShippingOfficeItem {
 	return &this
 }
 
-// GetRegionName returns the RegionName field value
+// GetRegionName returns the RegionName field value if set, zero value otherwise.
 func (o *TableShippingOfficeItem) GetRegionName() string {
-	if o == nil {
+	if o == nil || IsNil(o.RegionName) {
 		var ret string
 		return ret
 	}
-
-	return o.RegionName
+	return *o.RegionName
 }
 
-// GetRegionNameOk returns a tuple with the RegionName field value
+// GetRegionNameOk returns a tuple with the RegionName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableShippingOfficeItem) GetRegionNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.RegionName) {
 		return nil, false
 	}
-	return &o.RegionName, true
+	return o.RegionName, true
 }
 
-// SetRegionName sets field value
+// HasRegionName returns a boolean if a field has been set.
+func (o *TableShippingOfficeItem) HasRegionName() bool {
+	if o != nil && !IsNil(o.RegionName) {
+		return true
+	}
+
+	return false
+}
+
+// SetRegionName gets a reference to the given string and assigns it to the RegionName field.
 func (o *TableShippingOfficeItem) SetRegionName(v string) {
-	o.RegionName = v
+	o.RegionName = &v
 }
 
-// GetMetrics returns the Metrics field value
+// GetMetrics returns the Metrics field value if set, zero value otherwise.
 func (o *TableShippingOfficeItem) GetMetrics() TableShippingOfficeMetrics {
-	if o == nil {
+	if o == nil || IsNil(o.Metrics) {
 		var ret TableShippingOfficeMetrics
 		return ret
 	}
-
-	return o.Metrics
+	return *o.Metrics
 }
 
-// GetMetricsOk returns a tuple with the Metrics field value
+// GetMetricsOk returns a tuple with the Metrics field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableShippingOfficeItem) GetMetricsOk() (*TableShippingOfficeMetrics, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Metrics) {
 		return nil, false
 	}
-	return &o.Metrics, true
+	return o.Metrics, true
 }
 
-// SetMetrics sets field value
+// HasMetrics returns a boolean if a field has been set.
+func (o *TableShippingOfficeItem) HasMetrics() bool {
+	if o != nil && !IsNil(o.Metrics) {
+		return true
+	}
+
+	return false
+}
+
+// SetMetrics gets a reference to the given TableShippingOfficeMetrics and assigns it to the Metrics field.
 func (o *TableShippingOfficeItem) SetMetrics(v TableShippingOfficeMetrics) {
-	o.Metrics = v
+	o.Metrics = &v
 }
 
-// GetOffices returns the Offices field value
+// GetOffices returns the Offices field value if set, zero value otherwise.
 func (o *TableShippingOfficeItem) GetOffices() []TableShippingOfficeItemOfficesInner {
-	if o == nil {
+	if o == nil || IsNil(o.Offices) {
 		var ret []TableShippingOfficeItemOfficesInner
 		return ret
 	}
-
 	return o.Offices
 }
 
-// GetOfficesOk returns a tuple with the Offices field value
+// GetOfficesOk returns a tuple with the Offices field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableShippingOfficeItem) GetOfficesOk() ([]TableShippingOfficeItemOfficesInner, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Offices) {
 		return nil, false
 	}
 	return o.Offices, true
 }
 
-// SetOffices sets field value
+// HasOffices returns a boolean if a field has been set.
+func (o *TableShippingOfficeItem) HasOffices() bool {
+	if o != nil && !IsNil(o.Offices) {
+		return true
+	}
+
+	return false
+}
+
+// SetOffices gets a reference to the given []TableShippingOfficeItemOfficesInner and assigns it to the Offices field.
 func (o *TableShippingOfficeItem) SetOffices(v []TableShippingOfficeItemOfficesInner) {
 	o.Offices = v
 }
@@ -133,49 +150,16 @@ func (o TableShippingOfficeItem) MarshalJSON() ([]byte, error) {
 
 func (o TableShippingOfficeItem) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["regionName"] = o.RegionName
-	toSerialize["metrics"] = o.Metrics
-	toSerialize["offices"] = o.Offices
+	if !IsNil(o.RegionName) {
+		toSerialize["regionName"] = o.RegionName
+	}
+	if !IsNil(o.Metrics) {
+		toSerialize["metrics"] = o.Metrics
+	}
+	if !IsNil(o.Offices) {
+		toSerialize["offices"] = o.Offices
+	}
 	return toSerialize, nil
-}
-
-func (o *TableShippingOfficeItem) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"regionName",
-		"metrics",
-		"offices",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varTableShippingOfficeItem := _TableShippingOfficeItem{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varTableShippingOfficeItem)
-
-	if err != nil {
-		return err
-	}
-
-	*o = TableShippingOfficeItem(varTableShippingOfficeItem)
-
-	return err
 }
 
 type NullableTableShippingOfficeItem struct {

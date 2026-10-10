@@ -11,9 +11,7 @@ API version: analytics
 package analytics
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the TableCommonMetricsOfficeMissingTime type satisfies the MappedNullable interface at compile time
@@ -22,21 +20,17 @@ var _ MappedNullable = &TableCommonMetricsOfficeMissingTime{}
 // TableCommonMetricsOfficeMissingTime Время отсутствия товара на складе. Особые случаи:   1. `\"hours\":-1` — бесконечная длительность   2. `\"hours\":-2` — нулевая длительность   3. `\"hours\":-3` — нерассчитанная длительность   4. `\"hours\":-4` — отсутствие в течение всего периода
 type TableCommonMetricsOfficeMissingTime struct {
 	// Количество дней
-	Days int32 `json:"days"`
+	Days *int32 `json:"days,omitempty"`
 	// Количество часов
-	Hours int32 `json:"hours"`
+	Hours *int32 `json:"hours,omitempty"`
 }
-
-type _TableCommonMetricsOfficeMissingTime TableCommonMetricsOfficeMissingTime
 
 // NewTableCommonMetricsOfficeMissingTime instantiates a new TableCommonMetricsOfficeMissingTime object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTableCommonMetricsOfficeMissingTime(days int32, hours int32) *TableCommonMetricsOfficeMissingTime {
+func NewTableCommonMetricsOfficeMissingTime() *TableCommonMetricsOfficeMissingTime {
 	this := TableCommonMetricsOfficeMissingTime{}
-	this.Days = days
-	this.Hours = hours
 	return &this
 }
 
@@ -48,52 +42,68 @@ func NewTableCommonMetricsOfficeMissingTimeWithDefaults() *TableCommonMetricsOff
 	return &this
 }
 
-// GetDays returns the Days field value
+// GetDays returns the Days field value if set, zero value otherwise.
 func (o *TableCommonMetricsOfficeMissingTime) GetDays() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.Days) {
 		var ret int32
 		return ret
 	}
-
-	return o.Days
+	return *o.Days
 }
 
-// GetDaysOk returns a tuple with the Days field value
+// GetDaysOk returns a tuple with the Days field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableCommonMetricsOfficeMissingTime) GetDaysOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Days) {
 		return nil, false
 	}
-	return &o.Days, true
+	return o.Days, true
 }
 
-// SetDays sets field value
+// HasDays returns a boolean if a field has been set.
+func (o *TableCommonMetricsOfficeMissingTime) HasDays() bool {
+	if o != nil && !IsNil(o.Days) {
+		return true
+	}
+
+	return false
+}
+
+// SetDays gets a reference to the given int32 and assigns it to the Days field.
 func (o *TableCommonMetricsOfficeMissingTime) SetDays(v int32) {
-	o.Days = v
+	o.Days = &v
 }
 
-// GetHours returns the Hours field value
+// GetHours returns the Hours field value if set, zero value otherwise.
 func (o *TableCommonMetricsOfficeMissingTime) GetHours() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.Hours) {
 		var ret int32
 		return ret
 	}
-
-	return o.Hours
+	return *o.Hours
 }
 
-// GetHoursOk returns a tuple with the Hours field value
+// GetHoursOk returns a tuple with the Hours field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableCommonMetricsOfficeMissingTime) GetHoursOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Hours) {
 		return nil, false
 	}
-	return &o.Hours, true
+	return o.Hours, true
 }
 
-// SetHours sets field value
+// HasHours returns a boolean if a field has been set.
+func (o *TableCommonMetricsOfficeMissingTime) HasHours() bool {
+	if o != nil && !IsNil(o.Hours) {
+		return true
+	}
+
+	return false
+}
+
+// SetHours gets a reference to the given int32 and assigns it to the Hours field.
 func (o *TableCommonMetricsOfficeMissingTime) SetHours(v int32) {
-	o.Hours = v
+	o.Hours = &v
 }
 
 func (o TableCommonMetricsOfficeMissingTime) MarshalJSON() ([]byte, error) {
@@ -106,47 +116,13 @@ func (o TableCommonMetricsOfficeMissingTime) MarshalJSON() ([]byte, error) {
 
 func (o TableCommonMetricsOfficeMissingTime) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["days"] = o.Days
-	toSerialize["hours"] = o.Hours
+	if !IsNil(o.Days) {
+		toSerialize["days"] = o.Days
+	}
+	if !IsNil(o.Hours) {
+		toSerialize["hours"] = o.Hours
+	}
 	return toSerialize, nil
-}
-
-func (o *TableCommonMetricsOfficeMissingTime) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"days",
-		"hours",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varTableCommonMetricsOfficeMissingTime := _TableCommonMetricsOfficeMissingTime{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varTableCommonMetricsOfficeMissingTime)
-
-	if err != nil {
-		return err
-	}
-
-	*o = TableCommonMetricsOfficeMissingTime(varTableCommonMetricsOfficeMissingTime)
-
-	return err
 }
 
 type NullableTableCommonMetricsOfficeMissingTime struct {

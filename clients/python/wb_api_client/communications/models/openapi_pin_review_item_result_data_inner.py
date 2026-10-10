@@ -37,21 +37,27 @@ class OpenapiPinReviewItemResultDataInner(BaseModel):
     OpenapiPinReviewItemResultDataInner
     """  # noqa: E501
 
-    feedback_id: StrictStr = Field(description="ID отзыва", alias="feedbackId")
+    feedback_id: Optional[StrictStr] = Field(
+        default=None, description="ID отзыва", alias="feedbackId"
+    )
     pin_id: Optional[StrictInt] = Field(
         default=None,
         description="ID операции закрепления. Если поле отсутствует — закрепить отзыв не удалось ",
         alias="pinId",
     )
-    pin_method: StrictStr = Field(
+    pin_method: Optional[StrictStr] = Field(
+        default=None,
         description="Метод закрепления:   - `subscription` — подписка Джем   - `tariff` — тарифная опция ",
         alias="pinMethod",
     )
-    pin_on: StrictStr = Field(
+    pin_on: Optional[StrictStr] = Field(
+        default=None,
         description="Место закрепления отзыва:   - `nm` — карточка товара   - `imt` — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров ",
         alias="pinOn",
     )
-    is_errors: StrictBool = Field(description="Есть ли ошибки", alias="isErrors")
+    is_errors: Optional[StrictBool] = Field(
+        default=None, description="Есть ли ошибки", alias="isErrors"
+    )
     errors: Optional[List[OpenapiResultErr]] = Field(
         default=None, description="Детали ошибок"
     )
@@ -67,6 +73,9 @@ class OpenapiPinReviewItemResultDataInner(BaseModel):
     @field_validator("pin_method")
     def pin_method_validate_enum(cls, value):
         """Validates the enum"""
+        if value is None:
+            return value
+
         if value not in set(["tariff", "subscription"]):
             raise ValueError("must be one of enum values ('tariff', 'subscription')")
         return value
@@ -74,6 +83,9 @@ class OpenapiPinReviewItemResultDataInner(BaseModel):
     @field_validator("pin_on")
     def pin_on_validate_enum(cls, value):
         """Validates the enum"""
+        if value is None:
+            return value
+
         if value not in set(["nm", "imt"]):
             raise ValueError("must be one of enum values ('nm', 'imt')")
         return value

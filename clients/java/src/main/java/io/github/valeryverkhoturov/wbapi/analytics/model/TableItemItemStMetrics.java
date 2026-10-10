@@ -41,115 +41,115 @@ public class TableItemItemStMetrics {
   public static final String SERIALIZED_NAME_ORDERS_COUNT = "ordersCount";
 
   @SerializedName(SERIALIZED_NAME_ORDERS_COUNT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer ordersCount;
 
   public static final String SERIALIZED_NAME_ORDERS_SUM = "ordersSum";
 
   @SerializedName(SERIALIZED_NAME_ORDERS_SUM)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer ordersSum;
 
   public static final String SERIALIZED_NAME_AVG_ORDERS = "avgOrders";
 
   @SerializedName(SERIALIZED_NAME_AVG_ORDERS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private BigDecimal avgOrders;
 
   public static final String SERIALIZED_NAME_AVG_ORDERS_BY_MONTH = "avgOrdersByMonth";
 
   @SerializedName(SERIALIZED_NAME_AVG_ORDERS_BY_MONTH)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private List<FloatGraphByPeriodItem> avgOrdersByMonth = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_BUYOUT_COUNT = "buyoutCount";
 
   @SerializedName(SERIALIZED_NAME_BUYOUT_COUNT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer buyoutCount;
 
   public static final String SERIALIZED_NAME_BUYOUT_SUM = "buyoutSum";
 
   @SerializedName(SERIALIZED_NAME_BUYOUT_SUM)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer buyoutSum;
 
   public static final String SERIALIZED_NAME_BUYOUT_PERCENT = "buyoutPercent";
 
   @SerializedName(SERIALIZED_NAME_BUYOUT_PERCENT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer buyoutPercent;
 
   public static final String SERIALIZED_NAME_STOCK_COUNT = "stockCount";
 
   @SerializedName(SERIALIZED_NAME_STOCK_COUNT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer stockCount;
 
   public static final String SERIALIZED_NAME_STOCK_SUM = "stockSum";
 
   @SerializedName(SERIALIZED_NAME_STOCK_SUM)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer stockSum;
 
   public static final String SERIALIZED_NAME_SALE_RATE = "saleRate";
 
   @SerializedName(SERIALIZED_NAME_SALE_RATE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private TableCommonMetricsSaleRate saleRate;
 
   public static final String SERIALIZED_NAME_AVG_STOCK_TURNOVER = "avgStockTurnover";
 
   @SerializedName(SERIALIZED_NAME_AVG_STOCK_TURNOVER)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private TableCommonMetricsAvgStockTurnover avgStockTurnover;
 
   public static final String SERIALIZED_NAME_TO_CLIENT_COUNT = "toClientCount";
 
   @SerializedName(SERIALIZED_NAME_TO_CLIENT_COUNT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer toClientCount;
 
   public static final String SERIALIZED_NAME_FROM_CLIENT_COUNT = "fromClientCount";
 
   @SerializedName(SERIALIZED_NAME_FROM_CLIENT_COUNT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer fromClientCount;
 
   public static final String SERIALIZED_NAME_OFFICE_MISSING_TIME = "officeMissingTime";
 
   @SerializedName(SERIALIZED_NAME_OFFICE_MISSING_TIME)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private TableCommonMetricsOfficeMissingTime officeMissingTime;
 
   public static final String SERIALIZED_NAME_LOST_ORDERS_COUNT = "lostOrdersCount";
 
   @SerializedName(SERIALIZED_NAME_LOST_ORDERS_COUNT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private BigDecimal lostOrdersCount;
 
   public static final String SERIALIZED_NAME_LOST_ORDERS_SUM = "lostOrdersSum";
 
   @SerializedName(SERIALIZED_NAME_LOST_ORDERS_SUM)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private BigDecimal lostOrdersSum;
 
   public static final String SERIALIZED_NAME_LOST_BUYOUTS_COUNT = "lostBuyoutsCount";
 
   @SerializedName(SERIALIZED_NAME_LOST_BUYOUTS_COUNT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private BigDecimal lostBuyoutsCount;
 
   public static final String SERIALIZED_NAME_LOST_BUYOUTS_SUM = "lostBuyoutsSum";
 
   @SerializedName(SERIALIZED_NAME_LOST_BUYOUTS_SUM)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private BigDecimal lostBuyoutsSum;
 
   public static final String SERIALIZED_NAME_CURRENT_PRICE = "currentPrice";
 
   @SerializedName(SERIALIZED_NAME_CURRENT_PRICE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private TableItemItemStMetricsAllOfCurrentPrice currentPrice;
 
   /**
@@ -218,12 +218,12 @@ public class TableItemItemStMetrics {
   public static final String SERIALIZED_NAME_AVAILABILITY = "availability";
 
   @SerializedName(SERIALIZED_NAME_AVAILABILITY)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private AvailabilityEnum availability;
 
   public TableItemItemStMetrics() {}
 
-  public TableItemItemStMetrics ordersCount(@jakarta.annotation.Nonnull Integer ordersCount) {
+  public TableItemItemStMetrics ordersCount(@jakarta.annotation.Nullable Integer ordersCount) {
     this.ordersCount = ordersCount;
     return this;
   }
@@ -233,16 +233,16 @@ public class TableItemItemStMetrics {
    *
    * @return ordersCount
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getOrdersCount() {
     return ordersCount;
   }
 
-  public void setOrdersCount(@jakarta.annotation.Nonnull Integer ordersCount) {
+  public void setOrdersCount(@jakarta.annotation.Nullable Integer ordersCount) {
     this.ordersCount = ordersCount;
   }
 
-  public TableItemItemStMetrics ordersSum(@jakarta.annotation.Nonnull Integer ordersSum) {
+  public TableItemItemStMetrics ordersSum(@jakarta.annotation.Nullable Integer ordersSum) {
     this.ordersSum = ordersSum;
     return this;
   }
@@ -252,16 +252,16 @@ public class TableItemItemStMetrics {
    *
    * @return ordersSum
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getOrdersSum() {
     return ordersSum;
   }
 
-  public void setOrdersSum(@jakarta.annotation.Nonnull Integer ordersSum) {
+  public void setOrdersSum(@jakarta.annotation.Nullable Integer ordersSum) {
     this.ordersSum = ordersSum;
   }
 
-  public TableItemItemStMetrics avgOrders(@jakarta.annotation.Nonnull BigDecimal avgOrders) {
+  public TableItemItemStMetrics avgOrders(@jakarta.annotation.Nullable BigDecimal avgOrders) {
     this.avgOrders = avgOrders;
     return this;
   }
@@ -271,17 +271,17 @@ public class TableItemItemStMetrics {
    *
    * @return avgOrders
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public BigDecimal getAvgOrders() {
     return avgOrders;
   }
 
-  public void setAvgOrders(@jakarta.annotation.Nonnull BigDecimal avgOrders) {
+  public void setAvgOrders(@jakarta.annotation.Nullable BigDecimal avgOrders) {
     this.avgOrders = avgOrders;
   }
 
   public TableItemItemStMetrics avgOrdersByMonth(
-      @jakarta.annotation.Nonnull List<FloatGraphByPeriodItem> avgOrdersByMonth) {
+      @jakarta.annotation.Nullable List<FloatGraphByPeriodItem> avgOrdersByMonth) {
     this.avgOrdersByMonth = avgOrdersByMonth;
     return this;
   }
@@ -300,17 +300,17 @@ public class TableItemItemStMetrics {
    *
    * @return avgOrdersByMonth
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public List<FloatGraphByPeriodItem> getAvgOrdersByMonth() {
     return avgOrdersByMonth;
   }
 
   public void setAvgOrdersByMonth(
-      @jakarta.annotation.Nonnull List<FloatGraphByPeriodItem> avgOrdersByMonth) {
+      @jakarta.annotation.Nullable List<FloatGraphByPeriodItem> avgOrdersByMonth) {
     this.avgOrdersByMonth = avgOrdersByMonth;
   }
 
-  public TableItemItemStMetrics buyoutCount(@jakarta.annotation.Nonnull Integer buyoutCount) {
+  public TableItemItemStMetrics buyoutCount(@jakarta.annotation.Nullable Integer buyoutCount) {
     this.buyoutCount = buyoutCount;
     return this;
   }
@@ -320,16 +320,16 @@ public class TableItemItemStMetrics {
    *
    * @return buyoutCount
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getBuyoutCount() {
     return buyoutCount;
   }
 
-  public void setBuyoutCount(@jakarta.annotation.Nonnull Integer buyoutCount) {
+  public void setBuyoutCount(@jakarta.annotation.Nullable Integer buyoutCount) {
     this.buyoutCount = buyoutCount;
   }
 
-  public TableItemItemStMetrics buyoutSum(@jakarta.annotation.Nonnull Integer buyoutSum) {
+  public TableItemItemStMetrics buyoutSum(@jakarta.annotation.Nullable Integer buyoutSum) {
     this.buyoutSum = buyoutSum;
     return this;
   }
@@ -339,16 +339,16 @@ public class TableItemItemStMetrics {
    *
    * @return buyoutSum
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getBuyoutSum() {
     return buyoutSum;
   }
 
-  public void setBuyoutSum(@jakarta.annotation.Nonnull Integer buyoutSum) {
+  public void setBuyoutSum(@jakarta.annotation.Nullable Integer buyoutSum) {
     this.buyoutSum = buyoutSum;
   }
 
-  public TableItemItemStMetrics buyoutPercent(@jakarta.annotation.Nonnull Integer buyoutPercent) {
+  public TableItemItemStMetrics buyoutPercent(@jakarta.annotation.Nullable Integer buyoutPercent) {
     this.buyoutPercent = buyoutPercent;
     return this;
   }
@@ -358,16 +358,16 @@ public class TableItemItemStMetrics {
    *
    * @return buyoutPercent
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getBuyoutPercent() {
     return buyoutPercent;
   }
 
-  public void setBuyoutPercent(@jakarta.annotation.Nonnull Integer buyoutPercent) {
+  public void setBuyoutPercent(@jakarta.annotation.Nullable Integer buyoutPercent) {
     this.buyoutPercent = buyoutPercent;
   }
 
-  public TableItemItemStMetrics stockCount(@jakarta.annotation.Nonnull Integer stockCount) {
+  public TableItemItemStMetrics stockCount(@jakarta.annotation.Nullable Integer stockCount) {
     this.stockCount = stockCount;
     return this;
   }
@@ -377,16 +377,16 @@ public class TableItemItemStMetrics {
    *
    * @return stockCount
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getStockCount() {
     return stockCount;
   }
 
-  public void setStockCount(@jakarta.annotation.Nonnull Integer stockCount) {
+  public void setStockCount(@jakarta.annotation.Nullable Integer stockCount) {
     this.stockCount = stockCount;
   }
 
-  public TableItemItemStMetrics stockSum(@jakarta.annotation.Nonnull Integer stockSum) {
+  public TableItemItemStMetrics stockSum(@jakarta.annotation.Nullable Integer stockSum) {
     this.stockSum = stockSum;
     return this;
   }
@@ -396,17 +396,17 @@ public class TableItemItemStMetrics {
    *
    * @return stockSum
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getStockSum() {
     return stockSum;
   }
 
-  public void setStockSum(@jakarta.annotation.Nonnull Integer stockSum) {
+  public void setStockSum(@jakarta.annotation.Nullable Integer stockSum) {
     this.stockSum = stockSum;
   }
 
   public TableItemItemStMetrics saleRate(
-      @jakarta.annotation.Nonnull TableCommonMetricsSaleRate saleRate) {
+      @jakarta.annotation.Nullable TableCommonMetricsSaleRate saleRate) {
     this.saleRate = saleRate;
     return this;
   }
@@ -416,17 +416,17 @@ public class TableItemItemStMetrics {
    *
    * @return saleRate
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public TableCommonMetricsSaleRate getSaleRate() {
     return saleRate;
   }
 
-  public void setSaleRate(@jakarta.annotation.Nonnull TableCommonMetricsSaleRate saleRate) {
+  public void setSaleRate(@jakarta.annotation.Nullable TableCommonMetricsSaleRate saleRate) {
     this.saleRate = saleRate;
   }
 
   public TableItemItemStMetrics avgStockTurnover(
-      @jakarta.annotation.Nonnull TableCommonMetricsAvgStockTurnover avgStockTurnover) {
+      @jakarta.annotation.Nullable TableCommonMetricsAvgStockTurnover avgStockTurnover) {
     this.avgStockTurnover = avgStockTurnover;
     return this;
   }
@@ -436,17 +436,17 @@ public class TableItemItemStMetrics {
    *
    * @return avgStockTurnover
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public TableCommonMetricsAvgStockTurnover getAvgStockTurnover() {
     return avgStockTurnover;
   }
 
   public void setAvgStockTurnover(
-      @jakarta.annotation.Nonnull TableCommonMetricsAvgStockTurnover avgStockTurnover) {
+      @jakarta.annotation.Nullable TableCommonMetricsAvgStockTurnover avgStockTurnover) {
     this.avgStockTurnover = avgStockTurnover;
   }
 
-  public TableItemItemStMetrics toClientCount(@jakarta.annotation.Nonnull Integer toClientCount) {
+  public TableItemItemStMetrics toClientCount(@jakarta.annotation.Nullable Integer toClientCount) {
     this.toClientCount = toClientCount;
     return this;
   }
@@ -456,17 +456,17 @@ public class TableItemItemStMetrics {
    *
    * @return toClientCount
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getToClientCount() {
     return toClientCount;
   }
 
-  public void setToClientCount(@jakarta.annotation.Nonnull Integer toClientCount) {
+  public void setToClientCount(@jakarta.annotation.Nullable Integer toClientCount) {
     this.toClientCount = toClientCount;
   }
 
   public TableItemItemStMetrics fromClientCount(
-      @jakarta.annotation.Nonnull Integer fromClientCount) {
+      @jakarta.annotation.Nullable Integer fromClientCount) {
     this.fromClientCount = fromClientCount;
     return this;
   }
@@ -476,17 +476,17 @@ public class TableItemItemStMetrics {
    *
    * @return fromClientCount
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getFromClientCount() {
     return fromClientCount;
   }
 
-  public void setFromClientCount(@jakarta.annotation.Nonnull Integer fromClientCount) {
+  public void setFromClientCount(@jakarta.annotation.Nullable Integer fromClientCount) {
     this.fromClientCount = fromClientCount;
   }
 
   public TableItemItemStMetrics officeMissingTime(
-      @jakarta.annotation.Nonnull TableCommonMetricsOfficeMissingTime officeMissingTime) {
+      @jakarta.annotation.Nullable TableCommonMetricsOfficeMissingTime officeMissingTime) {
     this.officeMissingTime = officeMissingTime;
     return this;
   }
@@ -496,18 +496,18 @@ public class TableItemItemStMetrics {
    *
    * @return officeMissingTime
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public TableCommonMetricsOfficeMissingTime getOfficeMissingTime() {
     return officeMissingTime;
   }
 
   public void setOfficeMissingTime(
-      @jakarta.annotation.Nonnull TableCommonMetricsOfficeMissingTime officeMissingTime) {
+      @jakarta.annotation.Nullable TableCommonMetricsOfficeMissingTime officeMissingTime) {
     this.officeMissingTime = officeMissingTime;
   }
 
   public TableItemItemStMetrics lostOrdersCount(
-      @jakarta.annotation.Nonnull BigDecimal lostOrdersCount) {
+      @jakarta.annotation.Nullable BigDecimal lostOrdersCount) {
     this.lostOrdersCount = lostOrdersCount;
     return this;
   }
@@ -518,17 +518,17 @@ public class TableItemItemStMetrics {
    *
    * @return lostOrdersCount
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public BigDecimal getLostOrdersCount() {
     return lostOrdersCount;
   }
 
-  public void setLostOrdersCount(@jakarta.annotation.Nonnull BigDecimal lostOrdersCount) {
+  public void setLostOrdersCount(@jakarta.annotation.Nullable BigDecimal lostOrdersCount) {
     this.lostOrdersCount = lostOrdersCount;
   }
 
   public TableItemItemStMetrics lostOrdersSum(
-      @jakarta.annotation.Nonnull BigDecimal lostOrdersSum) {
+      @jakarta.annotation.Nullable BigDecimal lostOrdersSum) {
     this.lostOrdersSum = lostOrdersSum;
     return this;
   }
@@ -539,17 +539,17 @@ public class TableItemItemStMetrics {
    *
    * @return lostOrdersSum
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public BigDecimal getLostOrdersSum() {
     return lostOrdersSum;
   }
 
-  public void setLostOrdersSum(@jakarta.annotation.Nonnull BigDecimal lostOrdersSum) {
+  public void setLostOrdersSum(@jakarta.annotation.Nullable BigDecimal lostOrdersSum) {
     this.lostOrdersSum = lostOrdersSum;
   }
 
   public TableItemItemStMetrics lostBuyoutsCount(
-      @jakarta.annotation.Nonnull BigDecimal lostBuyoutsCount) {
+      @jakarta.annotation.Nullable BigDecimal lostBuyoutsCount) {
     this.lostBuyoutsCount = lostBuyoutsCount;
     return this;
   }
@@ -560,17 +560,17 @@ public class TableItemItemStMetrics {
    *
    * @return lostBuyoutsCount
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public BigDecimal getLostBuyoutsCount() {
     return lostBuyoutsCount;
   }
 
-  public void setLostBuyoutsCount(@jakarta.annotation.Nonnull BigDecimal lostBuyoutsCount) {
+  public void setLostBuyoutsCount(@jakarta.annotation.Nullable BigDecimal lostBuyoutsCount) {
     this.lostBuyoutsCount = lostBuyoutsCount;
   }
 
   public TableItemItemStMetrics lostBuyoutsSum(
-      @jakarta.annotation.Nonnull BigDecimal lostBuyoutsSum) {
+      @jakarta.annotation.Nullable BigDecimal lostBuyoutsSum) {
     this.lostBuyoutsSum = lostBuyoutsSum;
     return this;
   }
@@ -581,17 +581,17 @@ public class TableItemItemStMetrics {
    *
    * @return lostBuyoutsSum
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public BigDecimal getLostBuyoutsSum() {
     return lostBuyoutsSum;
   }
 
-  public void setLostBuyoutsSum(@jakarta.annotation.Nonnull BigDecimal lostBuyoutsSum) {
+  public void setLostBuyoutsSum(@jakarta.annotation.Nullable BigDecimal lostBuyoutsSum) {
     this.lostBuyoutsSum = lostBuyoutsSum;
   }
 
   public TableItemItemStMetrics currentPrice(
-      @jakarta.annotation.Nonnull TableItemItemStMetricsAllOfCurrentPrice currentPrice) {
+      @jakarta.annotation.Nullable TableItemItemStMetricsAllOfCurrentPrice currentPrice) {
     this.currentPrice = currentPrice;
     return this;
   }
@@ -601,18 +601,18 @@ public class TableItemItemStMetrics {
    *
    * @return currentPrice
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public TableItemItemStMetricsAllOfCurrentPrice getCurrentPrice() {
     return currentPrice;
   }
 
   public void setCurrentPrice(
-      @jakarta.annotation.Nonnull TableItemItemStMetricsAllOfCurrentPrice currentPrice) {
+      @jakarta.annotation.Nullable TableItemItemStMetricsAllOfCurrentPrice currentPrice) {
     this.currentPrice = currentPrice;
   }
 
   public TableItemItemStMetrics availability(
-      @jakarta.annotation.Nonnull AvailabilityEnum availability) {
+      @jakarta.annotation.Nullable AvailabilityEnum availability) {
     this.availability = availability;
     return this;
   }
@@ -624,12 +624,12 @@ public class TableItemItemStMetrics {
    *
    * @return availability
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public AvailabilityEnum getAvailability() {
     return availability;
   }
 
-  public void setAvailability(@jakarta.annotation.Nonnull AvailabilityEnum availability) {
+  public void setAvailability(@jakarta.annotation.Nullable AvailabilityEnum availability) {
     this.availability = availability;
   }
 
@@ -756,26 +756,6 @@ public class TableItemItemStMetrics {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("ordersCount");
-    openapiRequiredFields.add("ordersSum");
-    openapiRequiredFields.add("avgOrders");
-    openapiRequiredFields.add("avgOrdersByMonth");
-    openapiRequiredFields.add("buyoutCount");
-    openapiRequiredFields.add("buyoutSum");
-    openapiRequiredFields.add("buyoutPercent");
-    openapiRequiredFields.add("stockCount");
-    openapiRequiredFields.add("stockSum");
-    openapiRequiredFields.add("saleRate");
-    openapiRequiredFields.add("avgStockTurnover");
-    openapiRequiredFields.add("toClientCount");
-    openapiRequiredFields.add("fromClientCount");
-    openapiRequiredFields.add("officeMissingTime");
-    openapiRequiredFields.add("lostOrdersCount");
-    openapiRequiredFields.add("lostOrdersSum");
-    openapiRequiredFields.add("lostBuyoutsCount");
-    openapiRequiredFields.add("lostBuyoutsSum");
-    openapiRequiredFields.add("currentPrice");
-    openapiRequiredFields.add("availability");
   }
 
   /**
@@ -805,47 +785,53 @@ public class TableItemItemStMetrics {
                 entry.getKey(), jsonElement.toString()));
       }
     }
+    JsonObject jsonObj = jsonElement.getAsJsonObject();
+    if (jsonObj.get("avgOrdersByMonth") != null && !jsonObj.get("avgOrdersByMonth").isJsonNull()) {
+      JsonArray jsonArrayavgOrdersByMonth = jsonObj.getAsJsonArray("avgOrdersByMonth");
+      if (jsonArrayavgOrdersByMonth != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("avgOrdersByMonth").isJsonArray()) {
+          throw new IllegalArgumentException(
+              String.format(
+                  "Expected the field `avgOrdersByMonth` to be an array in the JSON string but got `%s`",
+                  jsonObj.get("avgOrdersByMonth").toString()));
+        }
 
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : TableItemItemStMetrics.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
+        // validate the optional field `avgOrdersByMonth` (array)
+        for (int i = 0; i < jsonArrayavgOrdersByMonth.size(); i++) {
+          FloatGraphByPeriodItem.validateJsonElement(jsonArrayavgOrdersByMonth.get(i));
+        }
+        ;
       }
     }
-    JsonObject jsonObj = jsonElement.getAsJsonObject();
-    // ensure the json data is an array
-    if (!jsonObj.get("avgOrdersByMonth").isJsonArray()) {
-      throw new IllegalArgumentException(
-          String.format(
-              "Expected the field `avgOrdersByMonth` to be an array in the JSON string but got `%s`",
-              jsonObj.get("avgOrdersByMonth").toString()));
+    // validate the optional field `saleRate`
+    if (jsonObj.get("saleRate") != null && !jsonObj.get("saleRate").isJsonNull()) {
+      TableCommonMetricsSaleRate.validateJsonElement(jsonObj.get("saleRate"));
     }
-
-    JsonArray jsonArrayavgOrdersByMonth = jsonObj.getAsJsonArray("avgOrdersByMonth");
-    // validate the required field `avgOrdersByMonth` (array)
-    for (int i = 0; i < jsonArrayavgOrdersByMonth.size(); i++) {
-      FloatGraphByPeriodItem.validateJsonElement(jsonArrayavgOrdersByMonth.get(i));
+    // validate the optional field `avgStockTurnover`
+    if (jsonObj.get("avgStockTurnover") != null && !jsonObj.get("avgStockTurnover").isJsonNull()) {
+      TableCommonMetricsAvgStockTurnover.validateJsonElement(jsonObj.get("avgStockTurnover"));
     }
-    ;
-    // validate the required field `saleRate`
-    TableCommonMetricsSaleRate.validateJsonElement(jsonObj.get("saleRate"));
-    // validate the required field `avgStockTurnover`
-    TableCommonMetricsAvgStockTurnover.validateJsonElement(jsonObj.get("avgStockTurnover"));
-    // validate the required field `officeMissingTime`
-    TableCommonMetricsOfficeMissingTime.validateJsonElement(jsonObj.get("officeMissingTime"));
-    // validate the required field `currentPrice`
-    TableItemItemStMetricsAllOfCurrentPrice.validateJsonElement(jsonObj.get("currentPrice"));
-    if (!jsonObj.get("availability").isJsonPrimitive()) {
+    // validate the optional field `officeMissingTime`
+    if (jsonObj.get("officeMissingTime") != null
+        && !jsonObj.get("officeMissingTime").isJsonNull()) {
+      TableCommonMetricsOfficeMissingTime.validateJsonElement(jsonObj.get("officeMissingTime"));
+    }
+    // validate the optional field `currentPrice`
+    if (jsonObj.get("currentPrice") != null && !jsonObj.get("currentPrice").isJsonNull()) {
+      TableItemItemStMetricsAllOfCurrentPrice.validateJsonElement(jsonObj.get("currentPrice"));
+    }
+    if ((jsonObj.get("availability") != null && !jsonObj.get("availability").isJsonNull())
+        && !jsonObj.get("availability").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `availability` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("availability").toString()));
     }
-    // validate the required field `availability`
-    AvailabilityEnum.validateJsonElement(jsonObj.get("availability"));
+    // validate the optional field `availability`
+    if (jsonObj.get("availability") != null && !jsonObj.get("availability").isJsonNull()) {
+      AvailabilityEnum.validateJsonElement(jsonObj.get("availability"));
+    }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

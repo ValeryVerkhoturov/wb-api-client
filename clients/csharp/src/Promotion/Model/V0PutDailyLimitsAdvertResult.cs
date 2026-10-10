@@ -34,14 +34,9 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="V0PutDailyLimitsAdvertResult" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected V0PutDailyLimitsAdvertResult() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="V0PutDailyLimitsAdvertResult" /> class.
-        /// </summary>
-        /// <param name="advertId">ID кампании (required).</param>
-        /// <param name="belowMinLimit">Установленный размер дневного лимита ниже рекомендуемого минимума относительно текущих ставок &#x60;requiredLimit&#x60;:   - &#x60;true&#x60; — да   - &#x60;false&#x60; — нет  (required).</param>
-        /// <param name="requiredLimit">Рекомендуемый минимальный размер дневного лимита при текущих ставках кампании. Указывается в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances). С меньшим лимитом бюджет может расходоваться неравномерно и в кампании возникнут ошибки  (required).</param>
+        /// <param name="advertId">ID кампании.</param>
+        /// <param name="belowMinLimit">Установленный размер дневного лимита ниже рекомендуемого минимума относительно текущих ставок &#x60;requiredLimit&#x60;:   - &#x60;true&#x60; — да   - &#x60;false&#x60; — нет .</param>
+        /// <param name="requiredLimit">Рекомендуемый минимальный размер дневного лимита при текущих ставках кампании. Указывается в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances). С меньшим лимитом бюджет может расходоваться неравномерно и в кампании возникнут ошибки .</param>
         public V0PutDailyLimitsAdvertResult(long advertId = default(long), bool belowMinLimit = default(bool), long requiredLimit = default(long))
         {
             this.AdvertId = advertId;
@@ -56,7 +51,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /*
         <example>1234</example>
         */
-        [DataMember(Name = "advertId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "advertId", EmitDefaultValue = false)]
         public long AdvertId { get; set; }
 
         /// <summary>
@@ -66,7 +61,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /*
         <example>false</example>
         */
-        [DataMember(Name = "belowMinLimit", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "belowMinLimit", EmitDefaultValue = true)]
         public bool BelowMinLimit { get; set; }
 
         /// <summary>
@@ -76,7 +71,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /*
         <example>3001</example>
         */
-        [DataMember(Name = "requiredLimit", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "requiredLimit", EmitDefaultValue = false)]
         public long RequiredLimit { get; set; }
 
         /// <summary>

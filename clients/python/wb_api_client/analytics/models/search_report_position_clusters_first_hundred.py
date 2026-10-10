@@ -28,7 +28,9 @@ class SearchReportPositionClustersFirstHundred(BaseModel):
     от 1 до 100
     """  # noqa: E501
 
-    current: StrictInt = Field(description="Текущее количество товаров")
+    current: Optional[StrictInt] = Field(
+        default=None, description="Текущее количество товаров"
+    )
     dynamics: Optional[StrictInt] = Field(
         default=None, description="Динамика по сравнению с предыдущим периодом, %"
     )

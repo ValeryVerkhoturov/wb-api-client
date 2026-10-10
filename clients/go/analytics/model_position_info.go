@@ -11,9 +11,7 @@ API version: analytics
 package analytics
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the PositionInfo type satisfies the MappedNullable interface at compile time
@@ -21,25 +19,19 @@ var _ MappedNullable = &PositionInfo{}
 
 // PositionInfo Информация о позиции товара
 type PositionInfo struct {
-	Average PositionInfoAverage `json:"average"`
-	Median  PositionInfoMedian  `json:"median"`
+	Average *PositionInfoAverage `json:"average,omitempty"`
+	Median  *PositionInfoMedian  `json:"median,omitempty"`
 	// Данные для чарта по средней и медианной позиции товара в результатах поиска
-	ChartItems []SearchReportPositionChartItem `json:"chartItems"`
-	Clusters   SearchReportPositionClusters    `json:"clusters"`
+	ChartItems []SearchReportPositionChartItem `json:"chartItems,omitempty"`
+	Clusters   *SearchReportPositionClusters   `json:"clusters,omitempty"`
 }
-
-type _PositionInfo PositionInfo
 
 // NewPositionInfo instantiates a new PositionInfo object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPositionInfo(average PositionInfoAverage, median PositionInfoMedian, chartItems []SearchReportPositionChartItem, clusters SearchReportPositionClusters) *PositionInfo {
+func NewPositionInfo() *PositionInfo {
 	this := PositionInfo{}
-	this.Average = average
-	this.Median = median
-	this.ChartItems = chartItems
-	this.Clusters = clusters
 	return &this
 }
 
@@ -51,100 +43,132 @@ func NewPositionInfoWithDefaults() *PositionInfo {
 	return &this
 }
 
-// GetAverage returns the Average field value
+// GetAverage returns the Average field value if set, zero value otherwise.
 func (o *PositionInfo) GetAverage() PositionInfoAverage {
-	if o == nil {
+	if o == nil || IsNil(o.Average) {
 		var ret PositionInfoAverage
 		return ret
 	}
-
-	return o.Average
+	return *o.Average
 }
 
-// GetAverageOk returns a tuple with the Average field value
+// GetAverageOk returns a tuple with the Average field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PositionInfo) GetAverageOk() (*PositionInfoAverage, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Average) {
 		return nil, false
 	}
-	return &o.Average, true
+	return o.Average, true
 }
 
-// SetAverage sets field value
+// HasAverage returns a boolean if a field has been set.
+func (o *PositionInfo) HasAverage() bool {
+	if o != nil && !IsNil(o.Average) {
+		return true
+	}
+
+	return false
+}
+
+// SetAverage gets a reference to the given PositionInfoAverage and assigns it to the Average field.
 func (o *PositionInfo) SetAverage(v PositionInfoAverage) {
-	o.Average = v
+	o.Average = &v
 }
 
-// GetMedian returns the Median field value
+// GetMedian returns the Median field value if set, zero value otherwise.
 func (o *PositionInfo) GetMedian() PositionInfoMedian {
-	if o == nil {
+	if o == nil || IsNil(o.Median) {
 		var ret PositionInfoMedian
 		return ret
 	}
-
-	return o.Median
+	return *o.Median
 }
 
-// GetMedianOk returns a tuple with the Median field value
+// GetMedianOk returns a tuple with the Median field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PositionInfo) GetMedianOk() (*PositionInfoMedian, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Median) {
 		return nil, false
 	}
-	return &o.Median, true
+	return o.Median, true
 }
 
-// SetMedian sets field value
+// HasMedian returns a boolean if a field has been set.
+func (o *PositionInfo) HasMedian() bool {
+	if o != nil && !IsNil(o.Median) {
+		return true
+	}
+
+	return false
+}
+
+// SetMedian gets a reference to the given PositionInfoMedian and assigns it to the Median field.
 func (o *PositionInfo) SetMedian(v PositionInfoMedian) {
-	o.Median = v
+	o.Median = &v
 }
 
-// GetChartItems returns the ChartItems field value
+// GetChartItems returns the ChartItems field value if set, zero value otherwise.
 func (o *PositionInfo) GetChartItems() []SearchReportPositionChartItem {
-	if o == nil {
+	if o == nil || IsNil(o.ChartItems) {
 		var ret []SearchReportPositionChartItem
 		return ret
 	}
-
 	return o.ChartItems
 }
 
-// GetChartItemsOk returns a tuple with the ChartItems field value
+// GetChartItemsOk returns a tuple with the ChartItems field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PositionInfo) GetChartItemsOk() ([]SearchReportPositionChartItem, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ChartItems) {
 		return nil, false
 	}
 	return o.ChartItems, true
 }
 
-// SetChartItems sets field value
+// HasChartItems returns a boolean if a field has been set.
+func (o *PositionInfo) HasChartItems() bool {
+	if o != nil && !IsNil(o.ChartItems) {
+		return true
+	}
+
+	return false
+}
+
+// SetChartItems gets a reference to the given []SearchReportPositionChartItem and assigns it to the ChartItems field.
 func (o *PositionInfo) SetChartItems(v []SearchReportPositionChartItem) {
 	o.ChartItems = v
 }
 
-// GetClusters returns the Clusters field value
+// GetClusters returns the Clusters field value if set, zero value otherwise.
 func (o *PositionInfo) GetClusters() SearchReportPositionClusters {
-	if o == nil {
+	if o == nil || IsNil(o.Clusters) {
 		var ret SearchReportPositionClusters
 		return ret
 	}
-
-	return o.Clusters
+	return *o.Clusters
 }
 
-// GetClustersOk returns a tuple with the Clusters field value
+// GetClustersOk returns a tuple with the Clusters field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PositionInfo) GetClustersOk() (*SearchReportPositionClusters, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Clusters) {
 		return nil, false
 	}
-	return &o.Clusters, true
+	return o.Clusters, true
 }
 
-// SetClusters sets field value
+// HasClusters returns a boolean if a field has been set.
+func (o *PositionInfo) HasClusters() bool {
+	if o != nil && !IsNil(o.Clusters) {
+		return true
+	}
+
+	return false
+}
+
+// SetClusters gets a reference to the given SearchReportPositionClusters and assigns it to the Clusters field.
 func (o *PositionInfo) SetClusters(v SearchReportPositionClusters) {
-	o.Clusters = v
+	o.Clusters = &v
 }
 
 func (o PositionInfo) MarshalJSON() ([]byte, error) {
@@ -157,51 +181,19 @@ func (o PositionInfo) MarshalJSON() ([]byte, error) {
 
 func (o PositionInfo) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["average"] = o.Average
-	toSerialize["median"] = o.Median
-	toSerialize["chartItems"] = o.ChartItems
-	toSerialize["clusters"] = o.Clusters
+	if !IsNil(o.Average) {
+		toSerialize["average"] = o.Average
+	}
+	if !IsNil(o.Median) {
+		toSerialize["median"] = o.Median
+	}
+	if !IsNil(o.ChartItems) {
+		toSerialize["chartItems"] = o.ChartItems
+	}
+	if !IsNil(o.Clusters) {
+		toSerialize["clusters"] = o.Clusters
+	}
 	return toSerialize, nil
-}
-
-func (o *PositionInfo) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"average",
-		"median",
-		"chartItems",
-		"clusters",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varPositionInfo := _PositionInfo{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varPositionInfo)
-
-	if err != nil {
-		return err
-	}
-
-	*o = PositionInfo(varPositionInfo)
-
-	return err
 }
 
 type NullablePositionInfo struct {

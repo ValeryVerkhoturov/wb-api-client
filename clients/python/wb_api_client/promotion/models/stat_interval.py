@@ -30,7 +30,7 @@ class StatInterval(BaseModel):
     StatInterval
     """  # noqa: E501
 
-    interval: StatIntervalInterval
+    interval: Optional[StatIntervalInterval] = None
     stats: Optional[List[StatsBlok1]] = Field(
         default=None, description="Блок статистики"
     )

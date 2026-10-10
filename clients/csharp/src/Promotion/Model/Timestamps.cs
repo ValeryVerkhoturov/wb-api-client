@@ -34,40 +34,15 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Timestamps" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected Timestamps() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Timestamps" /> class.
-        /// </summary>
-        /// <param name="created">Время создания кампании (required).</param>
-        /// <param name="updated">Время последнего изменения кампании (required).</param>
-        /// <param name="started">Время последнего запуска кампании (required).</param>
-        /// <param name="deleted">Время удаления кампании. Если кампания не удалена, время указывается в будущем (required).</param>
+        /// <param name="created">Время создания кампании.</param>
+        /// <param name="updated">Время последнего изменения кампании.</param>
+        /// <param name="started">Время последнего запуска кампании.</param>
+        /// <param name="deleted">Время удаления кампании. Если кампания не удалена, время указывается в будущем.</param>
         public Timestamps(string created = default(string), string updated = default(string), string started = default(string), string deleted = default(string))
         {
-            // to ensure "created" is required (not null)
-            if (created == null)
-            {
-                throw new ArgumentNullException("created is a required property for Timestamps and cannot be null");
-            }
             this.Created = created;
-            // to ensure "updated" is required (not null)
-            if (updated == null)
-            {
-                throw new ArgumentNullException("updated is a required property for Timestamps and cannot be null");
-            }
             this.Updated = updated;
-            // to ensure "started" is required (not null)
-            if (started == null)
-            {
-                throw new ArgumentNullException("started is a required property for Timestamps and cannot be null");
-            }
             this.Started = started;
-            // to ensure "deleted" is required (not null)
-            if (deleted == null)
-            {
-                throw new ArgumentNullException("deleted is a required property for Timestamps and cannot be null");
-            }
             this.Deleted = deleted;
         }
 
@@ -75,28 +50,28 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// Время создания кампании
         /// </summary>
         /// <value>Время создания кампании</value>
-        [DataMember(Name = "created", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "created", EmitDefaultValue = false)]
         public string Created { get; set; }
 
         /// <summary>
         /// Время последнего изменения кампании
         /// </summary>
         /// <value>Время последнего изменения кампании</value>
-        [DataMember(Name = "updated", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "updated", EmitDefaultValue = false)]
         public string Updated { get; set; }
 
         /// <summary>
         /// Время последнего запуска кампании
         /// </summary>
         /// <value>Время последнего запуска кампании</value>
-        [DataMember(Name = "started", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "started", EmitDefaultValue = true)]
         public string Started { get; set; }
 
         /// <summary>
         /// Время удаления кампании. Если кампания не удалена, время указывается в будущем
         /// </summary>
         /// <value>Время удаления кампании. Если кампания не удалена, время указывается в будущем</value>
-        [DataMember(Name = "deleted", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "deleted", EmitDefaultValue = false)]
         public string Deleted { get; set; }
 
         /// <summary>

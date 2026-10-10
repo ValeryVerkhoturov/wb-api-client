@@ -17,7 +17,7 @@ Everything under `clients/` is generated output. Do not edit it — regenerate.
 
 ```
 download-swaggers.sh   →  swaggers/*.yaml         (raw upstream, checksummed)
-post-process.py        →  swaggers/processed/     (8 passes; see below)
+post-process.py        →  swaggers/processed/     (9 passes; see below)
 generate.sh <ver>      →  clients/<lang>/…        (openapi-generator-cli, 7 langs)
     ├── inject-secret.py           (SecretString wrapper per lang; OneScript ships its own)
     ├── {black|prettier|gofmt|spotless|php-cs-fixer}   (canonicalize formatting)
@@ -84,6 +84,8 @@ The daily workflow uses `swaggers/checksums.txt` to decide whether upstream chan
 ## Auth model — non-obvious
 
 Upstream YAMLs (mirrored from `dev.wildberries.ru` at `wb-api-client-specs/specs/ru/*.yaml`) declare a `HeaderApiKey` scheme (apiKey named "Authorization"), which duplicates the actual bearer JWT semantics and makes openapi-generator emit two auth code paths per operation. `scripts/post-process.py`'s `inject_bearer_auth` deletes every pre-existing scheme and rewires every `security` requirement to a single `BearerAuth` (HTTP bearer, JWT). Generated clients then expose exactly one token parameter.
+
+Response models are fully optional by design: `drop_response_required` strips `required` from every response-reachable schema because WB omits "required" fields at will — a missing field must deserialize to a default, never throw. Request models keep their `required` lists, so input validation still catches caller mistakes client-side.
 
 The bearer JWT is stored inside a **secret-string wrapper** per language so it redacts under logs / `print` / `console.log` / `System.out.println` / `fmt.Printf` / `var_dump` unless explicitly exposed. `scripts/inject-secret.py` patches every generated `Configuration`/`ApiClient` to accept the wrapper:
 
@@ -160,8 +162,9 @@ Every generated client sends `ValeryVerkhoturov/wb-api-client/<lang>` on every r
 7. `htmlize_descriptions_to_markdown` — every `description` field goes through `markdownify` (`<div>`, `<a href>`, `<br>`, `<ul>`, `<code>` → Markdown for readable doc-comments)
 8. `absolutize_description_links` — prefixes `[…](/openapi/…)` with `https://dev.wildberries.ru` so links in generated docstrings resolve
 9. `drop_date_formats` — strips `format: date` / `date-time` from string schemas (WB returns `""` for unset dates like `fixTariffDateFrom`/`utdUcdDate`, which crashes strict date parsers in every language; plain strings are the honest contract)
+10. `drop_response_required` — deletes `required` arrays from every schema reachable from a response definition, so missing response fields deserialize to defaults (`None` / null / zero value) instead of throwing. Request-body schemas keep their `required` lists — input validation is unaffected
 
-(Counted as "9 passes" if you split HTML→MD and link-absolutize; the pipeline diagram calls it 8 for the sake of the "one big semantic step for descriptions" reading.)
+(Counted as "10 passes" if you split HTML→MD and link-absolutize; the pipeline diagram calls it 9 for the sake of the "one big semantic step for descriptions" reading.)
 
 ## Spec source — GitLab mirror
 

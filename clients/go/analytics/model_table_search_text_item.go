@@ -11,9 +11,7 @@ API version: analytics
 package analytics
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the TableSearchTextItem type satisfies the MappedNullable interface at compile time
@@ -22,65 +20,43 @@ var _ MappedNullable = &TableSearchTextItem{}
 // TableSearchTextItem struct for TableSearchTextItem
 type TableSearchTextItem struct {
 	// Текст поискового запроса
-	Text string `json:"text"`
+	Text *string `json:"text,omitempty"`
 	// Артикул WB
-	NmId int32 `json:"nmId"`
+	NmId *int32 `json:"nmId,omitempty"`
 	// Название предмета
-	SubjectName string `json:"subjectName"`
+	SubjectName *string `json:"subjectName,omitempty"`
 	// Бренд
-	BrandName string `json:"brandName"`
+	BrandName *string `json:"brandName,omitempty"`
 	// Артикул продавца
-	VendorCode string `json:"vendorCode"`
+	VendorCode *string `json:"vendorCode,omitempty"`
 	// Название товара
-	Name string `json:"name"`
+	Name *string `json:"name,omitempty"`
 	// Есть ли рейтинг у карточки товара
-	IsCardRated bool `json:"isCardRated"`
+	IsCardRated *bool `json:"isCardRated,omitempty"`
 	// Рейтинг карточки товара
-	Rating float32 `json:"rating"`
+	Rating *float32 `json:"rating,omitempty"`
 	// Рейтинг по отзывам
-	FeedbackRating float32                           `json:"feedbackRating"`
-	Price          TableItemItemAllOfPrice           `json:"price"`
-	Frequency      TableSearchTextItemAllOfFrequency `json:"frequency"`
+	FeedbackRating *float32                           `json:"feedbackRating,omitempty"`
+	Price          *TableItemItemAllOfPrice           `json:"price,omitempty"`
+	Frequency      *TableSearchTextItemAllOfFrequency `json:"frequency,omitempty"`
 	// Количество обращений с поисковым запросом за неделю
-	WeekFrequency  int32                                  `json:"weekFrequency"`
-	MedianPosition TableSearchTextItemAllOfMedianPosition `json:"medianPosition"`
-	AvgPosition    TableGroupItemMetricsAvgPosition       `json:"avgPosition"`
-	OpenCard       TableSearchTextItemAllOfOpenCard       `json:"openCard"`
-	AddToCart      TableSearchTextItemAllOfAddToCart      `json:"addToCart"`
-	OpenToCart     TableSearchTextItemAllOfOpenToCart     `json:"openToCart"`
-	Orders         TableSearchTextItemAllOfOrders         `json:"orders"`
-	CartToOrder    TableSearchTextItemAllOfCartToOrder    `json:"cartToOrder"`
-	Visibility     TableSearchTextItemAllOfVisibility     `json:"visibility"`
+	WeekFrequency  *int32                                  `json:"weekFrequency,omitempty"`
+	MedianPosition *TableSearchTextItemAllOfMedianPosition `json:"medianPosition,omitempty"`
+	AvgPosition    *TableGroupItemMetricsAvgPosition       `json:"avgPosition,omitempty"`
+	OpenCard       *TableSearchTextItemAllOfOpenCard       `json:"openCard,omitempty"`
+	AddToCart      *TableSearchTextItemAllOfAddToCart      `json:"addToCart,omitempty"`
+	OpenToCart     *TableSearchTextItemAllOfOpenToCart     `json:"openToCart,omitempty"`
+	Orders         *TableSearchTextItemAllOfOrders         `json:"orders,omitempty"`
+	CartToOrder    *TableSearchTextItemAllOfCartToOrder    `json:"cartToOrder,omitempty"`
+	Visibility     *TableSearchTextItemAllOfVisibility     `json:"visibility,omitempty"`
 }
-
-type _TableSearchTextItem TableSearchTextItem
 
 // NewTableSearchTextItem instantiates a new TableSearchTextItem object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTableSearchTextItem(text string, nmId int32, subjectName string, brandName string, vendorCode string, name string, isCardRated bool, rating float32, feedbackRating float32, price TableItemItemAllOfPrice, frequency TableSearchTextItemAllOfFrequency, weekFrequency int32, medianPosition TableSearchTextItemAllOfMedianPosition, avgPosition TableGroupItemMetricsAvgPosition, openCard TableSearchTextItemAllOfOpenCard, addToCart TableSearchTextItemAllOfAddToCart, openToCart TableSearchTextItemAllOfOpenToCart, orders TableSearchTextItemAllOfOrders, cartToOrder TableSearchTextItemAllOfCartToOrder, visibility TableSearchTextItemAllOfVisibility) *TableSearchTextItem {
+func NewTableSearchTextItem() *TableSearchTextItem {
 	this := TableSearchTextItem{}
-	this.Text = text
-	this.NmId = nmId
-	this.SubjectName = subjectName
-	this.BrandName = brandName
-	this.VendorCode = vendorCode
-	this.Name = name
-	this.IsCardRated = isCardRated
-	this.Rating = rating
-	this.FeedbackRating = feedbackRating
-	this.Price = price
-	this.Frequency = frequency
-	this.WeekFrequency = weekFrequency
-	this.MedianPosition = medianPosition
-	this.AvgPosition = avgPosition
-	this.OpenCard = openCard
-	this.AddToCart = addToCart
-	this.OpenToCart = openToCart
-	this.Orders = orders
-	this.CartToOrder = cartToOrder
-	this.Visibility = visibility
 	return &this
 }
 
@@ -92,484 +68,644 @@ func NewTableSearchTextItemWithDefaults() *TableSearchTextItem {
 	return &this
 }
 
-// GetText returns the Text field value
+// GetText returns the Text field value if set, zero value otherwise.
 func (o *TableSearchTextItem) GetText() string {
-	if o == nil {
+	if o == nil || IsNil(o.Text) {
 		var ret string
 		return ret
 	}
-
-	return o.Text
+	return *o.Text
 }
 
-// GetTextOk returns a tuple with the Text field value
+// GetTextOk returns a tuple with the Text field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableSearchTextItem) GetTextOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Text) {
 		return nil, false
 	}
-	return &o.Text, true
+	return o.Text, true
 }
 
-// SetText sets field value
+// HasText returns a boolean if a field has been set.
+func (o *TableSearchTextItem) HasText() bool {
+	if o != nil && !IsNil(o.Text) {
+		return true
+	}
+
+	return false
+}
+
+// SetText gets a reference to the given string and assigns it to the Text field.
 func (o *TableSearchTextItem) SetText(v string) {
-	o.Text = v
+	o.Text = &v
 }
 
-// GetNmId returns the NmId field value
+// GetNmId returns the NmId field value if set, zero value otherwise.
 func (o *TableSearchTextItem) GetNmId() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.NmId) {
 		var ret int32
 		return ret
 	}
-
-	return o.NmId
+	return *o.NmId
 }
 
-// GetNmIdOk returns a tuple with the NmId field value
+// GetNmIdOk returns a tuple with the NmId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableSearchTextItem) GetNmIdOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.NmId) {
 		return nil, false
 	}
-	return &o.NmId, true
+	return o.NmId, true
 }
 
-// SetNmId sets field value
+// HasNmId returns a boolean if a field has been set.
+func (o *TableSearchTextItem) HasNmId() bool {
+	if o != nil && !IsNil(o.NmId) {
+		return true
+	}
+
+	return false
+}
+
+// SetNmId gets a reference to the given int32 and assigns it to the NmId field.
 func (o *TableSearchTextItem) SetNmId(v int32) {
-	o.NmId = v
+	o.NmId = &v
 }
 
-// GetSubjectName returns the SubjectName field value
+// GetSubjectName returns the SubjectName field value if set, zero value otherwise.
 func (o *TableSearchTextItem) GetSubjectName() string {
-	if o == nil {
+	if o == nil || IsNil(o.SubjectName) {
 		var ret string
 		return ret
 	}
-
-	return o.SubjectName
+	return *o.SubjectName
 }
 
-// GetSubjectNameOk returns a tuple with the SubjectName field value
+// GetSubjectNameOk returns a tuple with the SubjectName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableSearchTextItem) GetSubjectNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.SubjectName) {
 		return nil, false
 	}
-	return &o.SubjectName, true
+	return o.SubjectName, true
 }
 
-// SetSubjectName sets field value
+// HasSubjectName returns a boolean if a field has been set.
+func (o *TableSearchTextItem) HasSubjectName() bool {
+	if o != nil && !IsNil(o.SubjectName) {
+		return true
+	}
+
+	return false
+}
+
+// SetSubjectName gets a reference to the given string and assigns it to the SubjectName field.
 func (o *TableSearchTextItem) SetSubjectName(v string) {
-	o.SubjectName = v
+	o.SubjectName = &v
 }
 
-// GetBrandName returns the BrandName field value
+// GetBrandName returns the BrandName field value if set, zero value otherwise.
 func (o *TableSearchTextItem) GetBrandName() string {
-	if o == nil {
+	if o == nil || IsNil(o.BrandName) {
 		var ret string
 		return ret
 	}
-
-	return o.BrandName
+	return *o.BrandName
 }
 
-// GetBrandNameOk returns a tuple with the BrandName field value
+// GetBrandNameOk returns a tuple with the BrandName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableSearchTextItem) GetBrandNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.BrandName) {
 		return nil, false
 	}
-	return &o.BrandName, true
+	return o.BrandName, true
 }
 
-// SetBrandName sets field value
+// HasBrandName returns a boolean if a field has been set.
+func (o *TableSearchTextItem) HasBrandName() bool {
+	if o != nil && !IsNil(o.BrandName) {
+		return true
+	}
+
+	return false
+}
+
+// SetBrandName gets a reference to the given string and assigns it to the BrandName field.
 func (o *TableSearchTextItem) SetBrandName(v string) {
-	o.BrandName = v
+	o.BrandName = &v
 }
 
-// GetVendorCode returns the VendorCode field value
+// GetVendorCode returns the VendorCode field value if set, zero value otherwise.
 func (o *TableSearchTextItem) GetVendorCode() string {
-	if o == nil {
+	if o == nil || IsNil(o.VendorCode) {
 		var ret string
 		return ret
 	}
-
-	return o.VendorCode
+	return *o.VendorCode
 }
 
-// GetVendorCodeOk returns a tuple with the VendorCode field value
+// GetVendorCodeOk returns a tuple with the VendorCode field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableSearchTextItem) GetVendorCodeOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.VendorCode) {
 		return nil, false
 	}
-	return &o.VendorCode, true
+	return o.VendorCode, true
 }
 
-// SetVendorCode sets field value
+// HasVendorCode returns a boolean if a field has been set.
+func (o *TableSearchTextItem) HasVendorCode() bool {
+	if o != nil && !IsNil(o.VendorCode) {
+		return true
+	}
+
+	return false
+}
+
+// SetVendorCode gets a reference to the given string and assigns it to the VendorCode field.
 func (o *TableSearchTextItem) SetVendorCode(v string) {
-	o.VendorCode = v
+	o.VendorCode = &v
 }
 
-// GetName returns the Name field value
+// GetName returns the Name field value if set, zero value otherwise.
 func (o *TableSearchTextItem) GetName() string {
-	if o == nil {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
-
-	return o.Name
+	return *o.Name
 }
 
-// GetNameOk returns a tuple with the Name field value
+// GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableSearchTextItem) GetNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Name) {
 		return nil, false
 	}
-	return &o.Name, true
+	return o.Name, true
 }
 
-// SetName sets field value
+// HasName returns a boolean if a field has been set.
+func (o *TableSearchTextItem) HasName() bool {
+	if o != nil && !IsNil(o.Name) {
+		return true
+	}
+
+	return false
+}
+
+// SetName gets a reference to the given string and assigns it to the Name field.
 func (o *TableSearchTextItem) SetName(v string) {
-	o.Name = v
+	o.Name = &v
 }
 
-// GetIsCardRated returns the IsCardRated field value
+// GetIsCardRated returns the IsCardRated field value if set, zero value otherwise.
 func (o *TableSearchTextItem) GetIsCardRated() bool {
-	if o == nil {
+	if o == nil || IsNil(o.IsCardRated) {
 		var ret bool
 		return ret
 	}
-
-	return o.IsCardRated
+	return *o.IsCardRated
 }
 
-// GetIsCardRatedOk returns a tuple with the IsCardRated field value
+// GetIsCardRatedOk returns a tuple with the IsCardRated field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableSearchTextItem) GetIsCardRatedOk() (*bool, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.IsCardRated) {
 		return nil, false
 	}
-	return &o.IsCardRated, true
+	return o.IsCardRated, true
 }
 
-// SetIsCardRated sets field value
+// HasIsCardRated returns a boolean if a field has been set.
+func (o *TableSearchTextItem) HasIsCardRated() bool {
+	if o != nil && !IsNil(o.IsCardRated) {
+		return true
+	}
+
+	return false
+}
+
+// SetIsCardRated gets a reference to the given bool and assigns it to the IsCardRated field.
 func (o *TableSearchTextItem) SetIsCardRated(v bool) {
-	o.IsCardRated = v
+	o.IsCardRated = &v
 }
 
-// GetRating returns the Rating field value
+// GetRating returns the Rating field value if set, zero value otherwise.
 func (o *TableSearchTextItem) GetRating() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.Rating) {
 		var ret float32
 		return ret
 	}
-
-	return o.Rating
+	return *o.Rating
 }
 
-// GetRatingOk returns a tuple with the Rating field value
+// GetRatingOk returns a tuple with the Rating field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableSearchTextItem) GetRatingOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Rating) {
 		return nil, false
 	}
-	return &o.Rating, true
+	return o.Rating, true
 }
 
-// SetRating sets field value
+// HasRating returns a boolean if a field has been set.
+func (o *TableSearchTextItem) HasRating() bool {
+	if o != nil && !IsNil(o.Rating) {
+		return true
+	}
+
+	return false
+}
+
+// SetRating gets a reference to the given float32 and assigns it to the Rating field.
 func (o *TableSearchTextItem) SetRating(v float32) {
-	o.Rating = v
+	o.Rating = &v
 }
 
-// GetFeedbackRating returns the FeedbackRating field value
+// GetFeedbackRating returns the FeedbackRating field value if set, zero value otherwise.
 func (o *TableSearchTextItem) GetFeedbackRating() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.FeedbackRating) {
 		var ret float32
 		return ret
 	}
-
-	return o.FeedbackRating
+	return *o.FeedbackRating
 }
 
-// GetFeedbackRatingOk returns a tuple with the FeedbackRating field value
+// GetFeedbackRatingOk returns a tuple with the FeedbackRating field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableSearchTextItem) GetFeedbackRatingOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.FeedbackRating) {
 		return nil, false
 	}
-	return &o.FeedbackRating, true
+	return o.FeedbackRating, true
 }
 
-// SetFeedbackRating sets field value
+// HasFeedbackRating returns a boolean if a field has been set.
+func (o *TableSearchTextItem) HasFeedbackRating() bool {
+	if o != nil && !IsNil(o.FeedbackRating) {
+		return true
+	}
+
+	return false
+}
+
+// SetFeedbackRating gets a reference to the given float32 and assigns it to the FeedbackRating field.
 func (o *TableSearchTextItem) SetFeedbackRating(v float32) {
-	o.FeedbackRating = v
+	o.FeedbackRating = &v
 }
 
-// GetPrice returns the Price field value
+// GetPrice returns the Price field value if set, zero value otherwise.
 func (o *TableSearchTextItem) GetPrice() TableItemItemAllOfPrice {
-	if o == nil {
+	if o == nil || IsNil(o.Price) {
 		var ret TableItemItemAllOfPrice
 		return ret
 	}
-
-	return o.Price
+	return *o.Price
 }
 
-// GetPriceOk returns a tuple with the Price field value
+// GetPriceOk returns a tuple with the Price field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableSearchTextItem) GetPriceOk() (*TableItemItemAllOfPrice, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Price) {
 		return nil, false
 	}
-	return &o.Price, true
+	return o.Price, true
 }
 
-// SetPrice sets field value
+// HasPrice returns a boolean if a field has been set.
+func (o *TableSearchTextItem) HasPrice() bool {
+	if o != nil && !IsNil(o.Price) {
+		return true
+	}
+
+	return false
+}
+
+// SetPrice gets a reference to the given TableItemItemAllOfPrice and assigns it to the Price field.
 func (o *TableSearchTextItem) SetPrice(v TableItemItemAllOfPrice) {
-	o.Price = v
+	o.Price = &v
 }
 
-// GetFrequency returns the Frequency field value
+// GetFrequency returns the Frequency field value if set, zero value otherwise.
 func (o *TableSearchTextItem) GetFrequency() TableSearchTextItemAllOfFrequency {
-	if o == nil {
+	if o == nil || IsNil(o.Frequency) {
 		var ret TableSearchTextItemAllOfFrequency
 		return ret
 	}
-
-	return o.Frequency
+	return *o.Frequency
 }
 
-// GetFrequencyOk returns a tuple with the Frequency field value
+// GetFrequencyOk returns a tuple with the Frequency field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableSearchTextItem) GetFrequencyOk() (*TableSearchTextItemAllOfFrequency, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Frequency) {
 		return nil, false
 	}
-	return &o.Frequency, true
+	return o.Frequency, true
 }
 
-// SetFrequency sets field value
+// HasFrequency returns a boolean if a field has been set.
+func (o *TableSearchTextItem) HasFrequency() bool {
+	if o != nil && !IsNil(o.Frequency) {
+		return true
+	}
+
+	return false
+}
+
+// SetFrequency gets a reference to the given TableSearchTextItemAllOfFrequency and assigns it to the Frequency field.
 func (o *TableSearchTextItem) SetFrequency(v TableSearchTextItemAllOfFrequency) {
-	o.Frequency = v
+	o.Frequency = &v
 }
 
-// GetWeekFrequency returns the WeekFrequency field value
+// GetWeekFrequency returns the WeekFrequency field value if set, zero value otherwise.
 func (o *TableSearchTextItem) GetWeekFrequency() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.WeekFrequency) {
 		var ret int32
 		return ret
 	}
-
-	return o.WeekFrequency
+	return *o.WeekFrequency
 }
 
-// GetWeekFrequencyOk returns a tuple with the WeekFrequency field value
+// GetWeekFrequencyOk returns a tuple with the WeekFrequency field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableSearchTextItem) GetWeekFrequencyOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.WeekFrequency) {
 		return nil, false
 	}
-	return &o.WeekFrequency, true
+	return o.WeekFrequency, true
 }
 
-// SetWeekFrequency sets field value
+// HasWeekFrequency returns a boolean if a field has been set.
+func (o *TableSearchTextItem) HasWeekFrequency() bool {
+	if o != nil && !IsNil(o.WeekFrequency) {
+		return true
+	}
+
+	return false
+}
+
+// SetWeekFrequency gets a reference to the given int32 and assigns it to the WeekFrequency field.
 func (o *TableSearchTextItem) SetWeekFrequency(v int32) {
-	o.WeekFrequency = v
+	o.WeekFrequency = &v
 }
 
-// GetMedianPosition returns the MedianPosition field value
+// GetMedianPosition returns the MedianPosition field value if set, zero value otherwise.
 func (o *TableSearchTextItem) GetMedianPosition() TableSearchTextItemAllOfMedianPosition {
-	if o == nil {
+	if o == nil || IsNil(o.MedianPosition) {
 		var ret TableSearchTextItemAllOfMedianPosition
 		return ret
 	}
-
-	return o.MedianPosition
+	return *o.MedianPosition
 }
 
-// GetMedianPositionOk returns a tuple with the MedianPosition field value
+// GetMedianPositionOk returns a tuple with the MedianPosition field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableSearchTextItem) GetMedianPositionOk() (*TableSearchTextItemAllOfMedianPosition, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.MedianPosition) {
 		return nil, false
 	}
-	return &o.MedianPosition, true
+	return o.MedianPosition, true
 }
 
-// SetMedianPosition sets field value
+// HasMedianPosition returns a boolean if a field has been set.
+func (o *TableSearchTextItem) HasMedianPosition() bool {
+	if o != nil && !IsNil(o.MedianPosition) {
+		return true
+	}
+
+	return false
+}
+
+// SetMedianPosition gets a reference to the given TableSearchTextItemAllOfMedianPosition and assigns it to the MedianPosition field.
 func (o *TableSearchTextItem) SetMedianPosition(v TableSearchTextItemAllOfMedianPosition) {
-	o.MedianPosition = v
+	o.MedianPosition = &v
 }
 
-// GetAvgPosition returns the AvgPosition field value
+// GetAvgPosition returns the AvgPosition field value if set, zero value otherwise.
 func (o *TableSearchTextItem) GetAvgPosition() TableGroupItemMetricsAvgPosition {
-	if o == nil {
+	if o == nil || IsNil(o.AvgPosition) {
 		var ret TableGroupItemMetricsAvgPosition
 		return ret
 	}
-
-	return o.AvgPosition
+	return *o.AvgPosition
 }
 
-// GetAvgPositionOk returns a tuple with the AvgPosition field value
+// GetAvgPositionOk returns a tuple with the AvgPosition field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableSearchTextItem) GetAvgPositionOk() (*TableGroupItemMetricsAvgPosition, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AvgPosition) {
 		return nil, false
 	}
-	return &o.AvgPosition, true
+	return o.AvgPosition, true
 }
 
-// SetAvgPosition sets field value
+// HasAvgPosition returns a boolean if a field has been set.
+func (o *TableSearchTextItem) HasAvgPosition() bool {
+	if o != nil && !IsNil(o.AvgPosition) {
+		return true
+	}
+
+	return false
+}
+
+// SetAvgPosition gets a reference to the given TableGroupItemMetricsAvgPosition and assigns it to the AvgPosition field.
 func (o *TableSearchTextItem) SetAvgPosition(v TableGroupItemMetricsAvgPosition) {
-	o.AvgPosition = v
+	o.AvgPosition = &v
 }
 
-// GetOpenCard returns the OpenCard field value
+// GetOpenCard returns the OpenCard field value if set, zero value otherwise.
 func (o *TableSearchTextItem) GetOpenCard() TableSearchTextItemAllOfOpenCard {
-	if o == nil {
+	if o == nil || IsNil(o.OpenCard) {
 		var ret TableSearchTextItemAllOfOpenCard
 		return ret
 	}
-
-	return o.OpenCard
+	return *o.OpenCard
 }
 
-// GetOpenCardOk returns a tuple with the OpenCard field value
+// GetOpenCardOk returns a tuple with the OpenCard field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableSearchTextItem) GetOpenCardOk() (*TableSearchTextItemAllOfOpenCard, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.OpenCard) {
 		return nil, false
 	}
-	return &o.OpenCard, true
+	return o.OpenCard, true
 }
 
-// SetOpenCard sets field value
+// HasOpenCard returns a boolean if a field has been set.
+func (o *TableSearchTextItem) HasOpenCard() bool {
+	if o != nil && !IsNil(o.OpenCard) {
+		return true
+	}
+
+	return false
+}
+
+// SetOpenCard gets a reference to the given TableSearchTextItemAllOfOpenCard and assigns it to the OpenCard field.
 func (o *TableSearchTextItem) SetOpenCard(v TableSearchTextItemAllOfOpenCard) {
-	o.OpenCard = v
+	o.OpenCard = &v
 }
 
-// GetAddToCart returns the AddToCart field value
+// GetAddToCart returns the AddToCart field value if set, zero value otherwise.
 func (o *TableSearchTextItem) GetAddToCart() TableSearchTextItemAllOfAddToCart {
-	if o == nil {
+	if o == nil || IsNil(o.AddToCart) {
 		var ret TableSearchTextItemAllOfAddToCart
 		return ret
 	}
-
-	return o.AddToCart
+	return *o.AddToCart
 }
 
-// GetAddToCartOk returns a tuple with the AddToCart field value
+// GetAddToCartOk returns a tuple with the AddToCart field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableSearchTextItem) GetAddToCartOk() (*TableSearchTextItemAllOfAddToCart, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AddToCart) {
 		return nil, false
 	}
-	return &o.AddToCart, true
+	return o.AddToCart, true
 }
 
-// SetAddToCart sets field value
+// HasAddToCart returns a boolean if a field has been set.
+func (o *TableSearchTextItem) HasAddToCart() bool {
+	if o != nil && !IsNil(o.AddToCart) {
+		return true
+	}
+
+	return false
+}
+
+// SetAddToCart gets a reference to the given TableSearchTextItemAllOfAddToCart and assigns it to the AddToCart field.
 func (o *TableSearchTextItem) SetAddToCart(v TableSearchTextItemAllOfAddToCart) {
-	o.AddToCart = v
+	o.AddToCart = &v
 }
 
-// GetOpenToCart returns the OpenToCart field value
+// GetOpenToCart returns the OpenToCart field value if set, zero value otherwise.
 func (o *TableSearchTextItem) GetOpenToCart() TableSearchTextItemAllOfOpenToCart {
-	if o == nil {
+	if o == nil || IsNil(o.OpenToCart) {
 		var ret TableSearchTextItemAllOfOpenToCart
 		return ret
 	}
-
-	return o.OpenToCart
+	return *o.OpenToCart
 }
 
-// GetOpenToCartOk returns a tuple with the OpenToCart field value
+// GetOpenToCartOk returns a tuple with the OpenToCart field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableSearchTextItem) GetOpenToCartOk() (*TableSearchTextItemAllOfOpenToCart, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.OpenToCart) {
 		return nil, false
 	}
-	return &o.OpenToCart, true
+	return o.OpenToCart, true
 }
 
-// SetOpenToCart sets field value
+// HasOpenToCart returns a boolean if a field has been set.
+func (o *TableSearchTextItem) HasOpenToCart() bool {
+	if o != nil && !IsNil(o.OpenToCart) {
+		return true
+	}
+
+	return false
+}
+
+// SetOpenToCart gets a reference to the given TableSearchTextItemAllOfOpenToCart and assigns it to the OpenToCart field.
 func (o *TableSearchTextItem) SetOpenToCart(v TableSearchTextItemAllOfOpenToCart) {
-	o.OpenToCart = v
+	o.OpenToCart = &v
 }
 
-// GetOrders returns the Orders field value
+// GetOrders returns the Orders field value if set, zero value otherwise.
 func (o *TableSearchTextItem) GetOrders() TableSearchTextItemAllOfOrders {
-	if o == nil {
+	if o == nil || IsNil(o.Orders) {
 		var ret TableSearchTextItemAllOfOrders
 		return ret
 	}
-
-	return o.Orders
+	return *o.Orders
 }
 
-// GetOrdersOk returns a tuple with the Orders field value
+// GetOrdersOk returns a tuple with the Orders field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableSearchTextItem) GetOrdersOk() (*TableSearchTextItemAllOfOrders, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Orders) {
 		return nil, false
 	}
-	return &o.Orders, true
+	return o.Orders, true
 }
 
-// SetOrders sets field value
+// HasOrders returns a boolean if a field has been set.
+func (o *TableSearchTextItem) HasOrders() bool {
+	if o != nil && !IsNil(o.Orders) {
+		return true
+	}
+
+	return false
+}
+
+// SetOrders gets a reference to the given TableSearchTextItemAllOfOrders and assigns it to the Orders field.
 func (o *TableSearchTextItem) SetOrders(v TableSearchTextItemAllOfOrders) {
-	o.Orders = v
+	o.Orders = &v
 }
 
-// GetCartToOrder returns the CartToOrder field value
+// GetCartToOrder returns the CartToOrder field value if set, zero value otherwise.
 func (o *TableSearchTextItem) GetCartToOrder() TableSearchTextItemAllOfCartToOrder {
-	if o == nil {
+	if o == nil || IsNil(o.CartToOrder) {
 		var ret TableSearchTextItemAllOfCartToOrder
 		return ret
 	}
-
-	return o.CartToOrder
+	return *o.CartToOrder
 }
 
-// GetCartToOrderOk returns a tuple with the CartToOrder field value
+// GetCartToOrderOk returns a tuple with the CartToOrder field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableSearchTextItem) GetCartToOrderOk() (*TableSearchTextItemAllOfCartToOrder, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.CartToOrder) {
 		return nil, false
 	}
-	return &o.CartToOrder, true
+	return o.CartToOrder, true
 }
 
-// SetCartToOrder sets field value
+// HasCartToOrder returns a boolean if a field has been set.
+func (o *TableSearchTextItem) HasCartToOrder() bool {
+	if o != nil && !IsNil(o.CartToOrder) {
+		return true
+	}
+
+	return false
+}
+
+// SetCartToOrder gets a reference to the given TableSearchTextItemAllOfCartToOrder and assigns it to the CartToOrder field.
 func (o *TableSearchTextItem) SetCartToOrder(v TableSearchTextItemAllOfCartToOrder) {
-	o.CartToOrder = v
+	o.CartToOrder = &v
 }
 
-// GetVisibility returns the Visibility field value
+// GetVisibility returns the Visibility field value if set, zero value otherwise.
 func (o *TableSearchTextItem) GetVisibility() TableSearchTextItemAllOfVisibility {
-	if o == nil {
+	if o == nil || IsNil(o.Visibility) {
 		var ret TableSearchTextItemAllOfVisibility
 		return ret
 	}
-
-	return o.Visibility
+	return *o.Visibility
 }
 
-// GetVisibilityOk returns a tuple with the Visibility field value
+// GetVisibilityOk returns a tuple with the Visibility field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableSearchTextItem) GetVisibilityOk() (*TableSearchTextItemAllOfVisibility, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Visibility) {
 		return nil, false
 	}
-	return &o.Visibility, true
+	return o.Visibility, true
 }
 
-// SetVisibility sets field value
+// HasVisibility returns a boolean if a field has been set.
+func (o *TableSearchTextItem) HasVisibility() bool {
+	if o != nil && !IsNil(o.Visibility) {
+		return true
+	}
+
+	return false
+}
+
+// SetVisibility gets a reference to the given TableSearchTextItemAllOfVisibility and assigns it to the Visibility field.
 func (o *TableSearchTextItem) SetVisibility(v TableSearchTextItemAllOfVisibility) {
-	o.Visibility = v
+	o.Visibility = &v
 }
 
 func (o TableSearchTextItem) MarshalJSON() ([]byte, error) {
@@ -582,83 +718,67 @@ func (o TableSearchTextItem) MarshalJSON() ([]byte, error) {
 
 func (o TableSearchTextItem) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["text"] = o.Text
-	toSerialize["nmId"] = o.NmId
-	toSerialize["subjectName"] = o.SubjectName
-	toSerialize["brandName"] = o.BrandName
-	toSerialize["vendorCode"] = o.VendorCode
-	toSerialize["name"] = o.Name
-	toSerialize["isCardRated"] = o.IsCardRated
-	toSerialize["rating"] = o.Rating
-	toSerialize["feedbackRating"] = o.FeedbackRating
-	toSerialize["price"] = o.Price
-	toSerialize["frequency"] = o.Frequency
-	toSerialize["weekFrequency"] = o.WeekFrequency
-	toSerialize["medianPosition"] = o.MedianPosition
-	toSerialize["avgPosition"] = o.AvgPosition
-	toSerialize["openCard"] = o.OpenCard
-	toSerialize["addToCart"] = o.AddToCart
-	toSerialize["openToCart"] = o.OpenToCart
-	toSerialize["orders"] = o.Orders
-	toSerialize["cartToOrder"] = o.CartToOrder
-	toSerialize["visibility"] = o.Visibility
+	if !IsNil(o.Text) {
+		toSerialize["text"] = o.Text
+	}
+	if !IsNil(o.NmId) {
+		toSerialize["nmId"] = o.NmId
+	}
+	if !IsNil(o.SubjectName) {
+		toSerialize["subjectName"] = o.SubjectName
+	}
+	if !IsNil(o.BrandName) {
+		toSerialize["brandName"] = o.BrandName
+	}
+	if !IsNil(o.VendorCode) {
+		toSerialize["vendorCode"] = o.VendorCode
+	}
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
+	}
+	if !IsNil(o.IsCardRated) {
+		toSerialize["isCardRated"] = o.IsCardRated
+	}
+	if !IsNil(o.Rating) {
+		toSerialize["rating"] = o.Rating
+	}
+	if !IsNil(o.FeedbackRating) {
+		toSerialize["feedbackRating"] = o.FeedbackRating
+	}
+	if !IsNil(o.Price) {
+		toSerialize["price"] = o.Price
+	}
+	if !IsNil(o.Frequency) {
+		toSerialize["frequency"] = o.Frequency
+	}
+	if !IsNil(o.WeekFrequency) {
+		toSerialize["weekFrequency"] = o.WeekFrequency
+	}
+	if !IsNil(o.MedianPosition) {
+		toSerialize["medianPosition"] = o.MedianPosition
+	}
+	if !IsNil(o.AvgPosition) {
+		toSerialize["avgPosition"] = o.AvgPosition
+	}
+	if !IsNil(o.OpenCard) {
+		toSerialize["openCard"] = o.OpenCard
+	}
+	if !IsNil(o.AddToCart) {
+		toSerialize["addToCart"] = o.AddToCart
+	}
+	if !IsNil(o.OpenToCart) {
+		toSerialize["openToCart"] = o.OpenToCart
+	}
+	if !IsNil(o.Orders) {
+		toSerialize["orders"] = o.Orders
+	}
+	if !IsNil(o.CartToOrder) {
+		toSerialize["cartToOrder"] = o.CartToOrder
+	}
+	if !IsNil(o.Visibility) {
+		toSerialize["visibility"] = o.Visibility
+	}
 	return toSerialize, nil
-}
-
-func (o *TableSearchTextItem) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"text",
-		"nmId",
-		"subjectName",
-		"brandName",
-		"vendorCode",
-		"name",
-		"isCardRated",
-		"rating",
-		"feedbackRating",
-		"price",
-		"frequency",
-		"weekFrequency",
-		"medianPosition",
-		"avgPosition",
-		"openCard",
-		"addToCart",
-		"openToCart",
-		"orders",
-		"cartToOrder",
-		"visibility",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varTableSearchTextItem := _TableSearchTextItem{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varTableSearchTextItem)
-
-	if err != nil {
-		return err
-	}
-
-	*o = TableSearchTextItem(varTableSearchTextItem)
-
-	return err
 }
 
 type NullableTableSearchTextItem struct {

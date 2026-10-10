@@ -34,26 +34,11 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ModelsDraftAddItemsResultError" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected ModelsDraftAddItemsResultError() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ModelsDraftAddItemsResultError" /> class.
-        /// </summary>
-        /// <param name="detail">Детали ошибки (required).</param>
-        /// <param name="title">Заголовок ошибки (required).</param>
+        /// <param name="detail">Детали ошибки.</param>
+        /// <param name="title">Заголовок ошибки.</param>
         public ModelsDraftAddItemsResultError(string detail = default(string), string title = default(string))
         {
-            // to ensure "detail" is required (not null)
-            if (detail == null)
-            {
-                throw new ArgumentNullException("detail is a required property for ModelsDraftAddItemsResultError and cannot be null");
-            }
             this.Detail = detail;
-            // to ensure "title" is required (not null)
-            if (title == null)
-            {
-                throw new ArgumentNullException("title is a required property for ModelsDraftAddItemsResultError and cannot be null");
-            }
             this.Title = title;
         }
 
@@ -64,7 +49,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Model
         /*
         <example>Создайте карточку товара с этим баркодом</example>
         */
-        [DataMember(Name = "detail", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "detail", EmitDefaultValue = false)]
         public string Detail { get; set; }
 
         /// <summary>
@@ -74,7 +59,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Model
         /*
         <example>Invalid sku</example>
         */
-        [DataMember(Name = "title", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "title", EmitDefaultValue = false)]
         public string Title { get; set; }
 
         /// <summary>

@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,15 +28,17 @@ class ViewerContractPublicErrorsCursorOutput(BaseModel):
     Пагинатор
     """  # noqa: E501
 
-    next: StrictBool = Field(
-        description="Есть ли ещё черновики:   - `false` — нет   - `true` — да "
+    next: Optional[StrictBool] = Field(
+        default=None,
+        description="Есть ли ещё черновики:   - `false` — нет   - `true` — да ",
     )
-    updated_at: StrictStr = Field(
+    updated_at: Optional[StrictStr] = Field(
+        default=None,
         description="Дата и время формирования последнего пакета в ответе",
         alias="updatedAt",
     )
-    batch_uuid: StrictStr = Field(
-        description="ID последнего пакета в ответе", alias="batchUUID"
+    batch_uuid: Optional[StrictStr] = Field(
+        default=None, description="ID последнего пакета в ответе", alias="batchUUID"
     )
     __properties: ClassVar[List[str]] = ["next", "updatedAt", "batchUUID"]
 

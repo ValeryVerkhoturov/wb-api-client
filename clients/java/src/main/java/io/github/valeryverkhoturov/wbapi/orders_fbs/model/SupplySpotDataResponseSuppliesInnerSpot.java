@@ -95,32 +95,32 @@ public class SupplySpotDataResponseSuppliesInnerSpot {
   public static final String SERIALIZED_NAME_STATUS = "status";
 
   @SerializedName(SERIALIZED_NAME_STATUS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private StatusEnum status;
 
   public static final String SERIALIZED_NAME_CARRIER_NAME = "carrierName";
 
   @SerializedName(SERIALIZED_NAME_CARRIER_NAME)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String carrierName;
 
   public static final String SERIALIZED_NAME_CARRIER_TAX_NUMBER = "carrierTaxNumber";
 
   @SerializedName(SERIALIZED_NAME_CARRIER_TAX_NUMBER)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String carrierTaxNumber;
 
   public static final String SERIALIZED_NAME_CARRIER_COUNTRY_CODE = "carrierCountryCode";
 
   @SerializedName(SERIALIZED_NAME_CARRIER_COUNTRY_CODE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String carrierCountryCode;
 
   public static final String SERIALIZED_NAME_VEHICLE_REGISTRATION_NUMBER =
       "vehicleRegistrationNumber";
 
   @SerializedName(SERIALIZED_NAME_VEHICLE_REGISTRATION_NUMBER)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String vehicleRegistrationNumber;
 
   public static final String SERIALIZED_NAME_TRAILER_REGISTRATION_NUMBER =
@@ -193,7 +193,7 @@ public class SupplySpotDataResponseSuppliesInnerSpot {
   public SupplySpotDataResponseSuppliesInnerSpot() {}
 
   public SupplySpotDataResponseSuppliesInnerSpot status(
-      @jakarta.annotation.Nonnull StatusEnum status) {
+      @jakarta.annotation.Nullable StatusEnum status) {
     this.status = status;
     return this;
   }
@@ -206,17 +206,17 @@ public class SupplySpotDataResponseSuppliesInnerSpot {
    *
    * @return status
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public StatusEnum getStatus() {
     return status;
   }
 
-  public void setStatus(@jakarta.annotation.Nonnull StatusEnum status) {
+  public void setStatus(@jakarta.annotation.Nullable StatusEnum status) {
     this.status = status;
   }
 
   public SupplySpotDataResponseSuppliesInnerSpot carrierName(
-      @jakarta.annotation.Nonnull String carrierName) {
+      @jakarta.annotation.Nullable String carrierName) {
     this.carrierName = carrierName;
     return this;
   }
@@ -226,17 +226,17 @@ public class SupplySpotDataResponseSuppliesInnerSpot {
    *
    * @return carrierName
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getCarrierName() {
     return carrierName;
   }
 
-  public void setCarrierName(@jakarta.annotation.Nonnull String carrierName) {
+  public void setCarrierName(@jakarta.annotation.Nullable String carrierName) {
     this.carrierName = carrierName;
   }
 
   public SupplySpotDataResponseSuppliesInnerSpot carrierTaxNumber(
-      @jakarta.annotation.Nonnull String carrierTaxNumber) {
+      @jakarta.annotation.Nullable String carrierTaxNumber) {
     this.carrierTaxNumber = carrierTaxNumber;
     return this;
   }
@@ -246,17 +246,17 @@ public class SupplySpotDataResponseSuppliesInnerSpot {
    *
    * @return carrierTaxNumber
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getCarrierTaxNumber() {
     return carrierTaxNumber;
   }
 
-  public void setCarrierTaxNumber(@jakarta.annotation.Nonnull String carrierTaxNumber) {
+  public void setCarrierTaxNumber(@jakarta.annotation.Nullable String carrierTaxNumber) {
     this.carrierTaxNumber = carrierTaxNumber;
   }
 
   public SupplySpotDataResponseSuppliesInnerSpot carrierCountryCode(
-      @jakarta.annotation.Nonnull String carrierCountryCode) {
+      @jakarta.annotation.Nullable String carrierCountryCode) {
     this.carrierCountryCode = carrierCountryCode;
     return this;
   }
@@ -267,17 +267,17 @@ public class SupplySpotDataResponseSuppliesInnerSpot {
    *
    * @return carrierCountryCode
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getCarrierCountryCode() {
     return carrierCountryCode;
   }
 
-  public void setCarrierCountryCode(@jakarta.annotation.Nonnull String carrierCountryCode) {
+  public void setCarrierCountryCode(@jakarta.annotation.Nullable String carrierCountryCode) {
     this.carrierCountryCode = carrierCountryCode;
   }
 
   public SupplySpotDataResponseSuppliesInnerSpot vehicleRegistrationNumber(
-      @jakarta.annotation.Nonnull String vehicleRegistrationNumber) {
+      @jakarta.annotation.Nullable String vehicleRegistrationNumber) {
     this.vehicleRegistrationNumber = vehicleRegistrationNumber;
     return this;
   }
@@ -287,13 +287,13 @@ public class SupplySpotDataResponseSuppliesInnerSpot {
    *
    * @return vehicleRegistrationNumber
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getVehicleRegistrationNumber() {
     return vehicleRegistrationNumber;
   }
 
   public void setVehicleRegistrationNumber(
-      @jakarta.annotation.Nonnull String vehicleRegistrationNumber) {
+      @jakarta.annotation.Nullable String vehicleRegistrationNumber) {
     this.vehicleRegistrationNumber = vehicleRegistrationNumber;
   }
 
@@ -423,11 +423,6 @@ public class SupplySpotDataResponseSuppliesInnerSpot {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("status");
-    openapiRequiredFields.add("carrierName");
-    openapiRequiredFields.add("carrierTaxNumber");
-    openapiRequiredFields.add("carrierCountryCode");
-    openapiRequiredFields.add("vehicleRegistrationNumber");
   }
 
   /**
@@ -458,44 +453,43 @@ public class SupplySpotDataResponseSuppliesInnerSpot {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : SupplySpotDataResponseSuppliesInnerSpot.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    if (!jsonObj.get("status").isJsonPrimitive()) {
+    if ((jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull())
+        && !jsonObj.get("status").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `status` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("status").toString()));
     }
-    // validate the required field `status`
-    StatusEnum.validateJsonElement(jsonObj.get("status"));
-    if (!jsonObj.get("carrierName").isJsonPrimitive()) {
+    // validate the optional field `status`
+    if (jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull()) {
+      StatusEnum.validateJsonElement(jsonObj.get("status"));
+    }
+    if ((jsonObj.get("carrierName") != null && !jsonObj.get("carrierName").isJsonNull())
+        && !jsonObj.get("carrierName").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `carrierName` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("carrierName").toString()));
     }
-    if (!jsonObj.get("carrierTaxNumber").isJsonPrimitive()) {
+    if ((jsonObj.get("carrierTaxNumber") != null && !jsonObj.get("carrierTaxNumber").isJsonNull())
+        && !jsonObj.get("carrierTaxNumber").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `carrierTaxNumber` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("carrierTaxNumber").toString()));
     }
-    if (!jsonObj.get("carrierCountryCode").isJsonPrimitive()) {
+    if ((jsonObj.get("carrierCountryCode") != null
+            && !jsonObj.get("carrierCountryCode").isJsonNull())
+        && !jsonObj.get("carrierCountryCode").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `carrierCountryCode` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("carrierCountryCode").toString()));
     }
-    if (!jsonObj.get("vehicleRegistrationNumber").isJsonPrimitive()) {
+    if ((jsonObj.get("vehicleRegistrationNumber") != null
+            && !jsonObj.get("vehicleRegistrationNumber").isJsonNull())
+        && !jsonObj.get("vehicleRegistrationNumber").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `vehicleRegistrationNumber` to be a primitive type in the JSON string but got `%s`",

@@ -34,8 +34,11 @@ class ApiMetaDeleteResponsesResultsInner(BaseModel):
     errors: Optional[List[ApiMetaDeleteResponsesResultsInnerErrorsInner]] = Field(
         default=None, description="Детали ошибки"
     )
-    is_error: StrictBool = Field(description="Есть ли ошибки", alias="isError")
-    order_id: StrictInt = Field(
+    is_error: Optional[StrictBool] = Field(
+        default=None, description="Есть ли ошибки", alias="isError"
+    )
+    order_id: Optional[StrictInt] = Field(
+        default=None,
         description="ID сборочного задания с успешно обновлёнными данными",
         alias="orderId",
     )

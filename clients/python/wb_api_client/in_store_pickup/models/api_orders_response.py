@@ -31,8 +31,12 @@ class ApiOrdersResponse(BaseModel):
     ApiOrdersResponse
     """  # noqa: E501
 
-    order_id: StrictInt = Field(description="ID сборочного задания", alias="orderId")
-    is_error: StrictBool = Field(description="Есть ли ошибки", alias="isError")
+    order_id: Optional[StrictInt] = Field(
+        default=None, description="ID сборочного задания", alias="orderId"
+    )
+    is_error: Optional[StrictBool] = Field(
+        default=None, description="Есть ли ошибки", alias="isError"
+    )
     errors: Optional[List[ApiOrdersErrorResponse]] = Field(
         default=None, description="Детали ошибки"
     )

@@ -26,7 +26,7 @@ from pydantic import (
     StrictStr,
     field_validator,
 )
-from typing import Any, ClassVar, Dict, List, Union
+from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -36,68 +36,80 @@ class SalesReportListRes(BaseModel):
     Список отчётов реализации
     """  # noqa: E501
 
-    report_id: StrictInt = Field(description="ID отчёта", alias="reportId")
-    seller_finance_name: StrictStr = Field(
-        description="Наименование продавца", alias="sellerFinanceName"
+    report_id: Optional[StrictInt] = Field(
+        default=None, description="ID отчёта", alias="reportId"
     )
-    date_from: StrictStr = Field(
-        description="Дата начала отчётного периода", alias="dateFrom"
+    seller_finance_name: Optional[StrictStr] = Field(
+        default=None, description="Наименование продавца", alias="sellerFinanceName"
     )
-    date_to: StrictStr = Field(
-        description="Дата конца отчётного периода", alias="dateTo"
+    date_from: Optional[StrictStr] = Field(
+        default=None, description="Дата начала отчётного периода", alias="dateFrom"
     )
-    create_date: StrictStr = Field(
-        description="Дата формирования отчёта", alias="createDate"
+    date_to: Optional[StrictStr] = Field(
+        default=None, description="Дата конца отчётного периода", alias="dateTo"
     )
-    currency: StrictStr = Field(description="Валюта отчёта")
-    report_type: StrictInt = Field(
+    create_date: Optional[StrictStr] = Field(
+        default=None, description="Дата формирования отчёта", alias="createDate"
+    )
+    currency: Optional[StrictStr] = Field(default=None, description="Валюта отчёта")
+    report_type: Optional[StrictInt] = Field(
+        default=None,
         description="Тип отчёта:   - `1` — основной   - `2` — по выкупам ",
         alias="reportType",
     )
-    retail_amount_sum: StrictStr = Field(description="Продажа", alias="retailAmountSum")
-    for_pay_sum: StrictStr = Field(
-        description="К перечислению за товар", alias="forPaySum"
+    retail_amount_sum: Optional[StrictStr] = Field(
+        default=None, description="Продажа", alias="retailAmountSum"
     )
-    avg_sale_percent: Union[StrictFloat, StrictInt] = Field(
-        description="Согласованная скидка, %", alias="avgSalePercent"
+    for_pay_sum: Optional[StrictStr] = Field(
+        default=None, description="К перечислению за товар", alias="forPaySum"
     )
-    delivery_service_sum: StrictStr = Field(
-        description="Стоимость доставки", alias="deliveryServiceSum"
+    avg_sale_percent: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None, description="Согласованная скидка, %", alias="avgSalePercent"
     )
-    paid_storage_sum: StrictStr = Field(
-        description="Стоимость хранения", alias="paidStorageSum"
+    delivery_service_sum: Optional[StrictStr] = Field(
+        default=None, description="Стоимость доставки", alias="deliveryServiceSum"
     )
-    paid_acceptance_sum: StrictStr = Field(
-        description="Стоимость операций при приёмке", alias="paidAcceptanceSum"
+    paid_storage_sum: Optional[StrictStr] = Field(
+        default=None, description="Стоимость хранения", alias="paidStorageSum"
     )
-    deduction_sum: StrictStr = Field(
-        description="Прочие удержания/выплаты", alias="deductionSum"
+    paid_acceptance_sum: Optional[StrictStr] = Field(
+        default=None,
+        description="Стоимость операций при приёмке",
+        alias="paidAcceptanceSum",
     )
-    penalty_sum: StrictStr = Field(
-        description="Общая сумма штрафов", alias="penaltySum"
+    deduction_sum: Optional[StrictStr] = Field(
+        default=None, description="Прочие удержания/выплаты", alias="deductionSum"
     )
-    additional_payment_sum: StrictStr = Field(
+    penalty_sum: Optional[StrictStr] = Field(
+        default=None, description="Общая сумма штрафов", alias="penaltySum"
+    )
+    additional_payment_sum: Optional[StrictStr] = Field(
+        default=None,
         description="Корректировка Вознаграждения Wildberries (ВВ)",
         alias="additionalPaymentSum",
     )
-    cashback_amount_sum: StrictStr = Field(
+    cashback_amount_sum: Optional[StrictStr] = Field(
+        default=None,
         description="Сумма баллов, удержанных по программе лояльности",
         alias="cashbackAmountSum",
     )
-    cashback_discount_sum: StrictStr = Field(
+    cashback_discount_sum: Optional[StrictStr] = Field(
+        default=None,
         description="Компенсация скидки по программе лояльности",
         alias="cashbackDiscountSum",
     )
-    cashback_commission_change_sum: StrictStr = Field(
+    cashback_commission_change_sum: Optional[StrictStr] = Field(
+        default=None,
         description="Стоимость участия в программе лояльности",
         alias="cashbackCommissionChangeSum",
     )
-    payment_schedule: StrictStr = Field(
+    payment_schedule: Optional[StrictStr] = Field(
+        default=None,
         description="Разовое изменение срока перечисления денежных средств",
         alias="paymentSchedule",
     )
-    bank_payment_sum: StrictStr = Field(
-        description="Итого к оплате", alias="bankPaymentSum"
+    bank_payment_sum: Optional[StrictStr] = Field(
+        default=None, description="Итого к оплате", alias="bankPaymentSum"
     )
     __properties: ClassVar[List[str]] = [
         "reportId",
@@ -126,6 +138,9 @@ class SalesReportListRes(BaseModel):
     @field_validator("report_type")
     def report_type_validate_enum(cls, value):
         """Validates the enum"""
+        if value is None:
+            return value
+
         if value not in set([1, 2]):
             raise ValueError("must be one of enum values (1, 2)")
         return value

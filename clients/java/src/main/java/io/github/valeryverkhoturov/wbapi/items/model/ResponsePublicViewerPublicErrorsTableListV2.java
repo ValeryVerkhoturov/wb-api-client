@@ -36,19 +36,19 @@ public class ResponsePublicViewerPublicErrorsTableListV2 {
   public static final String SERIALIZED_NAME_DATA = "data";
 
   @SerializedName(SERIALIZED_NAME_DATA)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private ModelsErrorTableListPublicRespV2 data;
 
   public static final String SERIALIZED_NAME_ERROR = "error";
 
   @SerializedName(SERIALIZED_NAME_ERROR)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Boolean error;
 
   public static final String SERIALIZED_NAME_ERROR_TEXT = "errorText";
 
   @SerializedName(SERIALIZED_NAME_ERROR_TEXT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String errorText;
 
   public static final String SERIALIZED_NAME_ADDITIONAL_ERRORS = "additionalErrors";
@@ -60,7 +60,7 @@ public class ResponsePublicViewerPublicErrorsTableListV2 {
   public ResponsePublicViewerPublicErrorsTableListV2() {}
 
   public ResponsePublicViewerPublicErrorsTableListV2 data(
-      @jakarta.annotation.Nonnull ModelsErrorTableListPublicRespV2 data) {
+      @jakarta.annotation.Nullable ModelsErrorTableListPublicRespV2 data) {
     this.data = data;
     return this;
   }
@@ -70,17 +70,17 @@ public class ResponsePublicViewerPublicErrorsTableListV2 {
    *
    * @return data
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public ModelsErrorTableListPublicRespV2 getData() {
     return data;
   }
 
-  public void setData(@jakarta.annotation.Nonnull ModelsErrorTableListPublicRespV2 data) {
+  public void setData(@jakarta.annotation.Nullable ModelsErrorTableListPublicRespV2 data) {
     this.data = data;
   }
 
   public ResponsePublicViewerPublicErrorsTableListV2 error(
-      @jakarta.annotation.Nonnull Boolean error) {
+      @jakarta.annotation.Nullable Boolean error) {
     this.error = error;
     return this;
   }
@@ -90,17 +90,17 @@ public class ResponsePublicViewerPublicErrorsTableListV2 {
    *
    * @return error
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Boolean getError() {
     return error;
   }
 
-  public void setError(@jakarta.annotation.Nonnull Boolean error) {
+  public void setError(@jakarta.annotation.Nullable Boolean error) {
     this.error = error;
   }
 
   public ResponsePublicViewerPublicErrorsTableListV2 errorText(
-      @jakarta.annotation.Nonnull String errorText) {
+      @jakarta.annotation.Nullable String errorText) {
     this.errorText = errorText;
     return this;
   }
@@ -110,12 +110,12 @@ public class ResponsePublicViewerPublicErrorsTableListV2 {
    *
    * @return errorText
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getErrorText() {
     return errorText;
   }
 
-  public void setErrorText(@jakarta.annotation.Nonnull String errorText) {
+  public void setErrorText(@jakarta.annotation.Nullable String errorText) {
     this.errorText = errorText;
   }
 
@@ -196,10 +196,6 @@ public class ResponsePublicViewerPublicErrorsTableListV2 {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("data");
-    openapiRequiredFields.add("error");
-    openapiRequiredFields.add("errorText");
-    openapiRequiredFields.add("additionalErrors");
   }
 
   /**
@@ -230,20 +226,13 @@ public class ResponsePublicViewerPublicErrorsTableListV2 {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : ResponsePublicViewerPublicErrorsTableListV2.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    // validate the required field `data`
-    ModelsErrorTableListPublicRespV2.validateJsonElement(jsonObj.get("data"));
-    if (!jsonObj.get("errorText").isJsonPrimitive()) {
+    // validate the optional field `data`
+    if (jsonObj.get("data") != null && !jsonObj.get("data").isJsonNull()) {
+      ModelsErrorTableListPublicRespV2.validateJsonElement(jsonObj.get("data"));
+    }
+    if ((jsonObj.get("errorText") != null && !jsonObj.get("errorText").isJsonNull())
+        && !jsonObj.get("errorText").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `errorText` to be a primitive type in the JSON string but got `%s`",

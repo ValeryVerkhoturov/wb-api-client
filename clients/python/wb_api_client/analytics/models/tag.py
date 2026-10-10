@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,8 +28,8 @@ class Tag(BaseModel):
     Ярлык
     """  # noqa: E501
 
-    id: StrictInt = Field(description="ID ярлыка")
-    name: StrictStr = Field(description="Название ярлыка")
+    id: Optional[StrictInt] = Field(default=None, description="ID ярлыка")
+    name: Optional[StrictStr] = Field(default=None, description="Название ярлыка")
     __properties: ClassVar[List[str]] = ["id", "name"]
 
     model_config = ConfigDict(

@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt
-from typing import Any, ClassVar, Dict, List, Union
+from typing import Any, ClassVar, Dict, List, Optional, Union
 from wb_api_client.analytics.models.float_graph_by_period_item import (
     FloatGraphByPeriodItem,
 )
@@ -43,55 +43,73 @@ class TableSizeResponseSizesInnerMetrics(BaseModel):
     Метрики размера
     """  # noqa: E501
 
-    orders_count: StrictInt = Field(description="Заказы, шт.", alias="ordersCount")
-    orders_sum: StrictInt = Field(description="Заказы, сумма", alias="ordersSum")
-    avg_orders: Union[StrictFloat, StrictInt] = Field(
-        description="Среднее количество заказов в день", alias="avgOrders"
+    orders_count: Optional[StrictInt] = Field(
+        default=None, description="Заказы, шт.", alias="ordersCount"
     )
-    avg_orders_by_month: List[FloatGraphByPeriodItem] = Field(
-        description="Среднее количество заказов по месяцам", alias="avgOrdersByMonth"
+    orders_sum: Optional[StrictInt] = Field(
+        default=None, description="Заказы, сумма", alias="ordersSum"
     )
-    buyout_count: StrictInt = Field(description="Выкупы, шт.", alias="buyoutCount")
-    buyout_sum: StrictInt = Field(description="Выкупы, сумма", alias="buyoutSum")
-    buyout_percent: StrictInt = Field(
-        description="Процент выкупа", alias="buyoutPercent"
+    avg_orders: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None, description="Среднее количество заказов в день", alias="avgOrders"
     )
-    stock_count: StrictInt = Field(
-        description="Остатки на текущий день, шт.", alias="stockCount"
+    avg_orders_by_month: Optional[List[FloatGraphByPeriodItem]] = Field(
+        default=None,
+        description="Среднее количество заказов по месяцам",
+        alias="avgOrdersByMonth",
     )
-    stock_sum: StrictInt = Field(
-        description="Стоимость остатков на текущий день", alias="stockSum"
+    buyout_count: Optional[StrictInt] = Field(
+        default=None, description="Выкупы, шт.", alias="buyoutCount"
     )
-    sale_rate: TableCommonMetricsSaleRate = Field(alias="saleRate")
-    avg_stock_turnover: TableCommonMetricsAvgStockTurnover = Field(
-        alias="avgStockTurnover"
+    buyout_sum: Optional[StrictInt] = Field(
+        default=None, description="Выкупы, сумма", alias="buyoutSum"
     )
-    to_client_count: StrictInt = Field(
-        description="В пути к клиенту, шт.", alias="toClientCount"
+    buyout_percent: Optional[StrictInt] = Field(
+        default=None, description="Процент выкупа", alias="buyoutPercent"
     )
-    from_client_count: StrictInt = Field(
-        description="В пути от клиента, шт.", alias="fromClientCount"
+    stock_count: Optional[StrictInt] = Field(
+        default=None, description="Остатки на текущий день, шт.", alias="stockCount"
     )
-    office_missing_time: TableCommonMetricsOfficeMissingTime = Field(
-        alias="officeMissingTime"
+    stock_sum: Optional[StrictInt] = Field(
+        default=None, description="Стоимость остатков на текущий день", alias="stockSum"
     )
-    lost_orders_count: Union[StrictFloat, StrictInt] = Field(
+    sale_rate: Optional[TableCommonMetricsSaleRate] = Field(
+        default=None, alias="saleRate"
+    )
+    avg_stock_turnover: Optional[TableCommonMetricsAvgStockTurnover] = Field(
+        default=None, alias="avgStockTurnover"
+    )
+    to_client_count: Optional[StrictInt] = Field(
+        default=None, description="В пути к клиенту, шт.", alias="toClientCount"
+    )
+    from_client_count: Optional[StrictInt] = Field(
+        default=None, description="В пути от клиента, шт.", alias="fromClientCount"
+    )
+    office_missing_time: Optional[TableCommonMetricsOfficeMissingTime] = Field(
+        default=None, alias="officeMissingTime"
+    )
+    lost_orders_count: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None,
         description="Упущенные заказы, шт. Особые случаи:   1. Значение меньше `0` и не равно `-2` — значение не рассчитано   2. Значение `-2` — нулевое значение ",
         alias="lostOrdersCount",
     )
-    lost_orders_sum: Union[StrictFloat, StrictInt] = Field(
+    lost_orders_sum: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None,
         description="Упущенные заказы, сумма. Особые случаи:   1. Значение меньше `0` и не равно `-2` — значение не рассчитано   2. Значение `-2` — нулевое значение ",
         alias="lostOrdersSum",
     )
-    lost_buyouts_count: Union[StrictFloat, StrictInt] = Field(
+    lost_buyouts_count: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None,
         description="Упущенные выкупы, шт. Особые случаи:   1. Значение меньше `0` и не равно `-2` — значение не рассчитано   2. Значение `-2` — нулевое значение ",
         alias="lostBuyoutsCount",
     )
-    lost_buyouts_sum: Union[StrictFloat, StrictInt] = Field(
+    lost_buyouts_sum: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None,
         description="Упущенные выкупы, сумма. Особые случаи:   1. Значение меньше `0` и не равно `-2` — значение не рассчитано   2. Значение `-2` — нулевое значение ",
         alias="lostBuyoutsSum",
     )
-    current_price: TableItemItemStMetricsAllOfCurrentPrice = Field(alias="currentPrice")
+    current_price: Optional[TableItemItemStMetricsAllOfCurrentPrice] = Field(
+        default=None, alias="currentPrice"
+    )
     __properties: ClassVar[List[str]] = [
         "ordersCount",
         "ordersSum",

@@ -40,37 +40,37 @@ public class PlanBuilderOptionsInfo {
   public static final String SERIALIZED_NAME_ACTIVE_OPTION_COUNT = "activeOptionCount";
 
   @SerializedName(SERIALIZED_NAME_ACTIVE_OPTION_COUNT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private BigDecimal activeOptionCount;
 
   public static final String SERIALIZED_NAME_ACTIVE_PACKAGE_COUNT = "activePackageCount";
 
   @SerializedName(SERIALIZED_NAME_ACTIVE_PACKAGE_COUNT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private BigDecimal activePackageCount;
 
   public static final String SERIALIZED_NAME_TOTAL_COMMISSION_RATE = "totalCommissionRate";
 
   @SerializedName(SERIALIZED_NAME_TOTAL_COMMISSION_RATE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Float totalCommissionRate;
 
   public static final String SERIALIZED_NAME_PACKAGES = "packages";
 
   @SerializedName(SERIALIZED_NAME_PACKAGES)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private List<PlanBuilderPackage> packages = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_OPTIONS = "options";
 
   @SerializedName(SERIALIZED_NAME_OPTIONS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private List<PlanBuilderOption> options = new ArrayList<>();
 
   public PlanBuilderOptionsInfo() {}
 
   public PlanBuilderOptionsInfo activeOptionCount(
-      @jakarta.annotation.Nonnull BigDecimal activeOptionCount) {
+      @jakarta.annotation.Nullable BigDecimal activeOptionCount) {
     this.activeOptionCount = activeOptionCount;
     return this;
   }
@@ -80,17 +80,17 @@ public class PlanBuilderOptionsInfo {
    *
    * @return activeOptionCount
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public BigDecimal getActiveOptionCount() {
     return activeOptionCount;
   }
 
-  public void setActiveOptionCount(@jakarta.annotation.Nonnull BigDecimal activeOptionCount) {
+  public void setActiveOptionCount(@jakarta.annotation.Nullable BigDecimal activeOptionCount) {
     this.activeOptionCount = activeOptionCount;
   }
 
   public PlanBuilderOptionsInfo activePackageCount(
-      @jakarta.annotation.Nonnull BigDecimal activePackageCount) {
+      @jakarta.annotation.Nullable BigDecimal activePackageCount) {
     this.activePackageCount = activePackageCount;
     return this;
   }
@@ -100,17 +100,17 @@ public class PlanBuilderOptionsInfo {
    *
    * @return activePackageCount
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public BigDecimal getActivePackageCount() {
     return activePackageCount;
   }
 
-  public void setActivePackageCount(@jakarta.annotation.Nonnull BigDecimal activePackageCount) {
+  public void setActivePackageCount(@jakarta.annotation.Nullable BigDecimal activePackageCount) {
     this.activePackageCount = activePackageCount;
   }
 
   public PlanBuilderOptionsInfo totalCommissionRate(
-      @jakarta.annotation.Nonnull Float totalCommissionRate) {
+      @jakarta.annotation.Nullable Float totalCommissionRate) {
     this.totalCommissionRate = totalCommissionRate;
     return this;
   }
@@ -120,17 +120,17 @@ public class PlanBuilderOptionsInfo {
    *
    * @return totalCommissionRate
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Float getTotalCommissionRate() {
     return totalCommissionRate;
   }
 
-  public void setTotalCommissionRate(@jakarta.annotation.Nonnull Float totalCommissionRate) {
+  public void setTotalCommissionRate(@jakarta.annotation.Nullable Float totalCommissionRate) {
     this.totalCommissionRate = totalCommissionRate;
   }
 
   public PlanBuilderOptionsInfo packages(
-      @jakarta.annotation.Nonnull List<PlanBuilderPackage> packages) {
+      @jakarta.annotation.Nullable List<PlanBuilderPackage> packages) {
     this.packages = packages;
     return this;
   }
@@ -148,17 +148,17 @@ public class PlanBuilderOptionsInfo {
    *
    * @return packages
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public List<PlanBuilderPackage> getPackages() {
     return packages;
   }
 
-  public void setPackages(@jakarta.annotation.Nonnull List<PlanBuilderPackage> packages) {
+  public void setPackages(@jakarta.annotation.Nullable List<PlanBuilderPackage> packages) {
     this.packages = packages;
   }
 
   public PlanBuilderOptionsInfo options(
-      @jakarta.annotation.Nonnull List<PlanBuilderOption> options) {
+      @jakarta.annotation.Nullable List<PlanBuilderOption> options) {
     this.options = options;
     return this;
   }
@@ -176,12 +176,12 @@ public class PlanBuilderOptionsInfo {
    *
    * @return options
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public List<PlanBuilderOption> getOptions() {
     return options;
   }
 
-  public void setOptions(@jakarta.annotation.Nonnull List<PlanBuilderOption> options) {
+  public void setOptions(@jakarta.annotation.Nullable List<PlanBuilderOption> options) {
     this.options = options;
   }
 
@@ -246,11 +246,6 @@ public class PlanBuilderOptionsInfo {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("activeOptionCount");
-    openapiRequiredFields.add("activePackageCount");
-    openapiRequiredFields.add("totalCommissionRate");
-    openapiRequiredFields.add("packages");
-    openapiRequiredFields.add("options");
   }
 
   /**
@@ -280,45 +275,43 @@ public class PlanBuilderOptionsInfo {
                 entry.getKey(), jsonElement.toString()));
       }
     }
+    JsonObject jsonObj = jsonElement.getAsJsonObject();
+    if (jsonObj.get("packages") != null && !jsonObj.get("packages").isJsonNull()) {
+      JsonArray jsonArraypackages = jsonObj.getAsJsonArray("packages");
+      if (jsonArraypackages != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("packages").isJsonArray()) {
+          throw new IllegalArgumentException(
+              String.format(
+                  "Expected the field `packages` to be an array in the JSON string but got `%s`",
+                  jsonObj.get("packages").toString()));
+        }
 
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : PlanBuilderOptionsInfo.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
+        // validate the optional field `packages` (array)
+        for (int i = 0; i < jsonArraypackages.size(); i++) {
+          PlanBuilderPackage.validateJsonElement(jsonArraypackages.get(i));
+        }
+        ;
       }
     }
-    JsonObject jsonObj = jsonElement.getAsJsonObject();
-    // ensure the json data is an array
-    if (!jsonObj.get("packages").isJsonArray()) {
-      throw new IllegalArgumentException(
-          String.format(
-              "Expected the field `packages` to be an array in the JSON string but got `%s`",
-              jsonObj.get("packages").toString()));
-    }
+    if (jsonObj.get("options") != null && !jsonObj.get("options").isJsonNull()) {
+      JsonArray jsonArrayoptions = jsonObj.getAsJsonArray("options");
+      if (jsonArrayoptions != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("options").isJsonArray()) {
+          throw new IllegalArgumentException(
+              String.format(
+                  "Expected the field `options` to be an array in the JSON string but got `%s`",
+                  jsonObj.get("options").toString()));
+        }
 
-    JsonArray jsonArraypackages = jsonObj.getAsJsonArray("packages");
-    // validate the required field `packages` (array)
-    for (int i = 0; i < jsonArraypackages.size(); i++) {
-      PlanBuilderPackage.validateJsonElement(jsonArraypackages.get(i));
+        // validate the optional field `options` (array)
+        for (int i = 0; i < jsonArrayoptions.size(); i++) {
+          PlanBuilderOption.validateJsonElement(jsonArrayoptions.get(i));
+        }
+        ;
+      }
     }
-    ;
-    // ensure the json data is an array
-    if (!jsonObj.get("options").isJsonArray()) {
-      throw new IllegalArgumentException(
-          String.format(
-              "Expected the field `options` to be an array in the JSON string but got `%s`",
-              jsonObj.get("options").toString()));
-    }
-
-    JsonArray jsonArrayoptions = jsonObj.getAsJsonArray("options");
-    // validate the required field `options` (array)
-    for (int i = 0; i < jsonArrayoptions.size(); i++) {
-      PlanBuilderOption.validateJsonElement(jsonArrayoptions.get(i));
-    }
-    ;
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

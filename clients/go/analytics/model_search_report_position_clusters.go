@@ -11,9 +11,7 @@ API version: analytics
 package analytics
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the SearchReportPositionClusters type satisfies the MappedNullable interface at compile time
@@ -21,22 +19,17 @@ var _ MappedNullable = &SearchReportPositionClusters{}
 
 // SearchReportPositionClusters Количество товаров со средней позицией в поиске:   - `firstHundred` — от 1 до 100   - `secondHundred` — от 101 до 200   - `below` — от 201 и ниже
 type SearchReportPositionClusters struct {
-	FirstHundred  SearchReportPositionClustersFirstHundred  `json:"firstHundred"`
-	SecondHundred SearchReportPositionClustersSecondHundred `json:"secondHundred"`
-	Below         SearchReportPositionClustersBelow         `json:"below"`
+	FirstHundred  *SearchReportPositionClustersFirstHundred  `json:"firstHundred,omitempty"`
+	SecondHundred *SearchReportPositionClustersSecondHundred `json:"secondHundred,omitempty"`
+	Below         *SearchReportPositionClustersBelow         `json:"below,omitempty"`
 }
-
-type _SearchReportPositionClusters SearchReportPositionClusters
 
 // NewSearchReportPositionClusters instantiates a new SearchReportPositionClusters object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSearchReportPositionClusters(firstHundred SearchReportPositionClustersFirstHundred, secondHundred SearchReportPositionClustersSecondHundred, below SearchReportPositionClustersBelow) *SearchReportPositionClusters {
+func NewSearchReportPositionClusters() *SearchReportPositionClusters {
 	this := SearchReportPositionClusters{}
-	this.FirstHundred = firstHundred
-	this.SecondHundred = secondHundred
-	this.Below = below
 	return &this
 }
 
@@ -48,76 +41,100 @@ func NewSearchReportPositionClustersWithDefaults() *SearchReportPositionClusters
 	return &this
 }
 
-// GetFirstHundred returns the FirstHundred field value
+// GetFirstHundred returns the FirstHundred field value if set, zero value otherwise.
 func (o *SearchReportPositionClusters) GetFirstHundred() SearchReportPositionClustersFirstHundred {
-	if o == nil {
+	if o == nil || IsNil(o.FirstHundred) {
 		var ret SearchReportPositionClustersFirstHundred
 		return ret
 	}
-
-	return o.FirstHundred
+	return *o.FirstHundred
 }
 
-// GetFirstHundredOk returns a tuple with the FirstHundred field value
+// GetFirstHundredOk returns a tuple with the FirstHundred field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SearchReportPositionClusters) GetFirstHundredOk() (*SearchReportPositionClustersFirstHundred, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.FirstHundred) {
 		return nil, false
 	}
-	return &o.FirstHundred, true
+	return o.FirstHundred, true
 }
 
-// SetFirstHundred sets field value
+// HasFirstHundred returns a boolean if a field has been set.
+func (o *SearchReportPositionClusters) HasFirstHundred() bool {
+	if o != nil && !IsNil(o.FirstHundred) {
+		return true
+	}
+
+	return false
+}
+
+// SetFirstHundred gets a reference to the given SearchReportPositionClustersFirstHundred and assigns it to the FirstHundred field.
 func (o *SearchReportPositionClusters) SetFirstHundred(v SearchReportPositionClustersFirstHundred) {
-	o.FirstHundred = v
+	o.FirstHundred = &v
 }
 
-// GetSecondHundred returns the SecondHundred field value
+// GetSecondHundred returns the SecondHundred field value if set, zero value otherwise.
 func (o *SearchReportPositionClusters) GetSecondHundred() SearchReportPositionClustersSecondHundred {
-	if o == nil {
+	if o == nil || IsNil(o.SecondHundred) {
 		var ret SearchReportPositionClustersSecondHundred
 		return ret
 	}
-
-	return o.SecondHundred
+	return *o.SecondHundred
 }
 
-// GetSecondHundredOk returns a tuple with the SecondHundred field value
+// GetSecondHundredOk returns a tuple with the SecondHundred field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SearchReportPositionClusters) GetSecondHundredOk() (*SearchReportPositionClustersSecondHundred, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.SecondHundred) {
 		return nil, false
 	}
-	return &o.SecondHundred, true
+	return o.SecondHundred, true
 }
 
-// SetSecondHundred sets field value
+// HasSecondHundred returns a boolean if a field has been set.
+func (o *SearchReportPositionClusters) HasSecondHundred() bool {
+	if o != nil && !IsNil(o.SecondHundred) {
+		return true
+	}
+
+	return false
+}
+
+// SetSecondHundred gets a reference to the given SearchReportPositionClustersSecondHundred and assigns it to the SecondHundred field.
 func (o *SearchReportPositionClusters) SetSecondHundred(v SearchReportPositionClustersSecondHundred) {
-	o.SecondHundred = v
+	o.SecondHundred = &v
 }
 
-// GetBelow returns the Below field value
+// GetBelow returns the Below field value if set, zero value otherwise.
 func (o *SearchReportPositionClusters) GetBelow() SearchReportPositionClustersBelow {
-	if o == nil {
+	if o == nil || IsNil(o.Below) {
 		var ret SearchReportPositionClustersBelow
 		return ret
 	}
-
-	return o.Below
+	return *o.Below
 }
 
-// GetBelowOk returns a tuple with the Below field value
+// GetBelowOk returns a tuple with the Below field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SearchReportPositionClusters) GetBelowOk() (*SearchReportPositionClustersBelow, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Below) {
 		return nil, false
 	}
-	return &o.Below, true
+	return o.Below, true
 }
 
-// SetBelow sets field value
+// HasBelow returns a boolean if a field has been set.
+func (o *SearchReportPositionClusters) HasBelow() bool {
+	if o != nil && !IsNil(o.Below) {
+		return true
+	}
+
+	return false
+}
+
+// SetBelow gets a reference to the given SearchReportPositionClustersBelow and assigns it to the Below field.
 func (o *SearchReportPositionClusters) SetBelow(v SearchReportPositionClustersBelow) {
-	o.Below = v
+	o.Below = &v
 }
 
 func (o SearchReportPositionClusters) MarshalJSON() ([]byte, error) {
@@ -130,49 +147,16 @@ func (o SearchReportPositionClusters) MarshalJSON() ([]byte, error) {
 
 func (o SearchReportPositionClusters) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["firstHundred"] = o.FirstHundred
-	toSerialize["secondHundred"] = o.SecondHundred
-	toSerialize["below"] = o.Below
+	if !IsNil(o.FirstHundred) {
+		toSerialize["firstHundred"] = o.FirstHundred
+	}
+	if !IsNil(o.SecondHundred) {
+		toSerialize["secondHundred"] = o.SecondHundred
+	}
+	if !IsNil(o.Below) {
+		toSerialize["below"] = o.Below
+	}
 	return toSerialize, nil
-}
-
-func (o *SearchReportPositionClusters) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"firstHundred",
-		"secondHundred",
-		"below",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varSearchReportPositionClusters := _SearchReportPositionClusters{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varSearchReportPositionClusters)
-
-	if err != nil {
-		return err
-	}
-
-	*o = SearchReportPositionClusters(varSearchReportPositionClusters)
-
-	return err
 }
 
 type NullableSearchReportPositionClusters struct {

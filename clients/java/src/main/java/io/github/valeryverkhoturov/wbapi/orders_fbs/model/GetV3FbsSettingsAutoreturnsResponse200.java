@@ -96,12 +96,12 @@ public class GetV3FbsSettingsAutoreturnsResponse200 {
   public static final String SERIALIZED_NAME_TYPE = "type";
 
   @SerializedName(SERIALIZED_NAME_TYPE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private TypeEnum type;
 
   public GetV3FbsSettingsAutoreturnsResponse200() {}
 
-  public GetV3FbsSettingsAutoreturnsResponse200 type(@jakarta.annotation.Nonnull TypeEnum type) {
+  public GetV3FbsSettingsAutoreturnsResponse200 type(@jakarta.annotation.Nullable TypeEnum type) {
     this.type = type;
     return this;
   }
@@ -115,12 +115,12 @@ public class GetV3FbsSettingsAutoreturnsResponse200 {
    *
    * @return type
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public TypeEnum getType() {
     return type;
   }
 
-  public void setType(@jakarta.annotation.Nonnull TypeEnum type) {
+  public void setType(@jakarta.annotation.Nullable TypeEnum type) {
     this.type = type;
   }
 
@@ -171,7 +171,6 @@ public class GetV3FbsSettingsAutoreturnsResponse200 {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("type");
   }
 
   /**
@@ -202,25 +201,18 @@ public class GetV3FbsSettingsAutoreturnsResponse200 {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : GetV3FbsSettingsAutoreturnsResponse200.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    if (!jsonObj.get("type").isJsonPrimitive()) {
+    if ((jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull())
+        && !jsonObj.get("type").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `type` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("type").toString()));
     }
-    // validate the required field `type`
-    TypeEnum.validateJsonElement(jsonObj.get("type"));
+    // validate the optional field `type`
+    if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()) {
+      TypeEnum.validateJsonElement(jsonObj.get("type"));
+    }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

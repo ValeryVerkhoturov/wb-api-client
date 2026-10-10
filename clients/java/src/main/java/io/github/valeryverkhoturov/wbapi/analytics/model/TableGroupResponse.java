@@ -39,18 +39,18 @@ public class TableGroupResponse {
   public static final String SERIALIZED_NAME_GROUPS = "groups";
 
   @SerializedName(SERIALIZED_NAME_GROUPS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private List<TableGroupItem> groups = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_CURRENCY = "currency";
 
   @SerializedName(SERIALIZED_NAME_CURRENCY)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String currency;
 
   public TableGroupResponse() {}
 
-  public TableGroupResponse groups(@jakarta.annotation.Nonnull List<TableGroupItem> groups) {
+  public TableGroupResponse groups(@jakarta.annotation.Nullable List<TableGroupItem> groups) {
     this.groups = groups;
     return this;
   }
@@ -68,16 +68,16 @@ public class TableGroupResponse {
    *
    * @return groups
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public List<TableGroupItem> getGroups() {
     return groups;
   }
 
-  public void setGroups(@jakarta.annotation.Nonnull List<TableGroupItem> groups) {
+  public void setGroups(@jakarta.annotation.Nullable List<TableGroupItem> groups) {
     this.groups = groups;
   }
 
-  public TableGroupResponse currency(@jakarta.annotation.Nonnull String currency) {
+  public TableGroupResponse currency(@jakarta.annotation.Nullable String currency) {
     this.currency = currency;
     return this;
   }
@@ -87,12 +87,12 @@ public class TableGroupResponse {
    *
    * @return currency
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getCurrency() {
     return currency;
   }
 
-  public void setCurrency(@jakarta.annotation.Nonnull String currency) {
+  public void setCurrency(@jakarta.annotation.Nullable String currency) {
     this.currency = currency;
   }
 
@@ -145,8 +145,6 @@ public class TableGroupResponse {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("groups");
-    openapiRequiredFields.add("currency");
   }
 
   /**
@@ -176,32 +174,27 @@ public class TableGroupResponse {
                 entry.getKey(), jsonElement.toString()));
       }
     }
+    JsonObject jsonObj = jsonElement.getAsJsonObject();
+    if (jsonObj.get("groups") != null && !jsonObj.get("groups").isJsonNull()) {
+      JsonArray jsonArraygroups = jsonObj.getAsJsonArray("groups");
+      if (jsonArraygroups != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("groups").isJsonArray()) {
+          throw new IllegalArgumentException(
+              String.format(
+                  "Expected the field `groups` to be an array in the JSON string but got `%s`",
+                  jsonObj.get("groups").toString()));
+        }
 
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : TableGroupResponse.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
+        // validate the optional field `groups` (array)
+        for (int i = 0; i < jsonArraygroups.size(); i++) {
+          TableGroupItem.validateJsonElement(jsonArraygroups.get(i));
+        }
+        ;
       }
     }
-    JsonObject jsonObj = jsonElement.getAsJsonObject();
-    // ensure the json data is an array
-    if (!jsonObj.get("groups").isJsonArray()) {
-      throw new IllegalArgumentException(
-          String.format(
-              "Expected the field `groups` to be an array in the JSON string but got `%s`",
-              jsonObj.get("groups").toString()));
-    }
-
-    JsonArray jsonArraygroups = jsonObj.getAsJsonArray("groups");
-    // validate the required field `groups` (array)
-    for (int i = 0; i < jsonArraygroups.size(); i++) {
-      TableGroupItem.validateJsonElement(jsonArraygroups.get(i));
-    }
-    ;
-    if (!jsonObj.get("currency").isJsonPrimitive()) {
+    if ((jsonObj.get("currency") != null && !jsonObj.get("currency").isJsonNull())
+        && !jsonObj.get("currency").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `currency` to be a primitive type in the JSON string but got `%s`",

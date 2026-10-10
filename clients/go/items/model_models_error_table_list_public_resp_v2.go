@@ -11,9 +11,7 @@ API version: items
 package items
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the ModelsErrorTableListPublicRespV2 type satisfies the MappedNullable interface at compile time
@@ -22,20 +20,16 @@ var _ MappedNullable = &ModelsErrorTableListPublicRespV2{}
 // ModelsErrorTableListPublicRespV2 Данные ответа
 type ModelsErrorTableListPublicRespV2 struct {
 	// Пакеты данных
-	Items  []ModelsErrorTableListPublicRespV2Item `json:"items"`
-	Cursor ViewerContractPublicErrorsCursorOutput `json:"cursor"`
+	Items  []ModelsErrorTableListPublicRespV2Item  `json:"items,omitempty"`
+	Cursor *ViewerContractPublicErrorsCursorOutput `json:"cursor,omitempty"`
 }
-
-type _ModelsErrorTableListPublicRespV2 ModelsErrorTableListPublicRespV2
 
 // NewModelsErrorTableListPublicRespV2 instantiates a new ModelsErrorTableListPublicRespV2 object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelsErrorTableListPublicRespV2(items []ModelsErrorTableListPublicRespV2Item, cursor ViewerContractPublicErrorsCursorOutput) *ModelsErrorTableListPublicRespV2 {
+func NewModelsErrorTableListPublicRespV2() *ModelsErrorTableListPublicRespV2 {
 	this := ModelsErrorTableListPublicRespV2{}
-	this.Items = items
-	this.Cursor = cursor
 	return &this
 }
 
@@ -47,52 +41,68 @@ func NewModelsErrorTableListPublicRespV2WithDefaults() *ModelsErrorTableListPubl
 	return &this
 }
 
-// GetItems returns the Items field value
+// GetItems returns the Items field value if set, zero value otherwise.
 func (o *ModelsErrorTableListPublicRespV2) GetItems() []ModelsErrorTableListPublicRespV2Item {
-	if o == nil {
+	if o == nil || IsNil(o.Items) {
 		var ret []ModelsErrorTableListPublicRespV2Item
 		return ret
 	}
-
 	return o.Items
 }
 
-// GetItemsOk returns a tuple with the Items field value
+// GetItemsOk returns a tuple with the Items field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModelsErrorTableListPublicRespV2) GetItemsOk() ([]ModelsErrorTableListPublicRespV2Item, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Items) {
 		return nil, false
 	}
 	return o.Items, true
 }
 
-// SetItems sets field value
+// HasItems returns a boolean if a field has been set.
+func (o *ModelsErrorTableListPublicRespV2) HasItems() bool {
+	if o != nil && !IsNil(o.Items) {
+		return true
+	}
+
+	return false
+}
+
+// SetItems gets a reference to the given []ModelsErrorTableListPublicRespV2Item and assigns it to the Items field.
 func (o *ModelsErrorTableListPublicRespV2) SetItems(v []ModelsErrorTableListPublicRespV2Item) {
 	o.Items = v
 }
 
-// GetCursor returns the Cursor field value
+// GetCursor returns the Cursor field value if set, zero value otherwise.
 func (o *ModelsErrorTableListPublicRespV2) GetCursor() ViewerContractPublicErrorsCursorOutput {
-	if o == nil {
+	if o == nil || IsNil(o.Cursor) {
 		var ret ViewerContractPublicErrorsCursorOutput
 		return ret
 	}
-
-	return o.Cursor
+	return *o.Cursor
 }
 
-// GetCursorOk returns a tuple with the Cursor field value
+// GetCursorOk returns a tuple with the Cursor field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModelsErrorTableListPublicRespV2) GetCursorOk() (*ViewerContractPublicErrorsCursorOutput, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Cursor) {
 		return nil, false
 	}
-	return &o.Cursor, true
+	return o.Cursor, true
 }
 
-// SetCursor sets field value
+// HasCursor returns a boolean if a field has been set.
+func (o *ModelsErrorTableListPublicRespV2) HasCursor() bool {
+	if o != nil && !IsNil(o.Cursor) {
+		return true
+	}
+
+	return false
+}
+
+// SetCursor gets a reference to the given ViewerContractPublicErrorsCursorOutput and assigns it to the Cursor field.
 func (o *ModelsErrorTableListPublicRespV2) SetCursor(v ViewerContractPublicErrorsCursorOutput) {
-	o.Cursor = v
+	o.Cursor = &v
 }
 
 func (o ModelsErrorTableListPublicRespV2) MarshalJSON() ([]byte, error) {
@@ -105,47 +115,13 @@ func (o ModelsErrorTableListPublicRespV2) MarshalJSON() ([]byte, error) {
 
 func (o ModelsErrorTableListPublicRespV2) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["items"] = o.Items
-	toSerialize["cursor"] = o.Cursor
+	if !IsNil(o.Items) {
+		toSerialize["items"] = o.Items
+	}
+	if !IsNil(o.Cursor) {
+		toSerialize["cursor"] = o.Cursor
+	}
 	return toSerialize, nil
-}
-
-func (o *ModelsErrorTableListPublicRespV2) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"items",
-		"cursor",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varModelsErrorTableListPublicRespV2 := _ModelsErrorTableListPublicRespV2{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varModelsErrorTableListPublicRespV2)
-
-	if err != nil {
-		return err
-	}
-
-	*o = ModelsErrorTableListPublicRespV2(varModelsErrorTableListPublicRespV2)
-
-	return err
 }
 
 type NullableModelsErrorTableListPublicRespV2 struct {

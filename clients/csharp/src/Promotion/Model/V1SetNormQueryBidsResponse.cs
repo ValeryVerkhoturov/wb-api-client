@@ -34,39 +34,24 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="V1SetNormQueryBidsResponse" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected V1SetNormQueryBidsResponse() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="V1SetNormQueryBidsResponse" /> class.
-        /// </summary>
-        /// <param name="success">success (required).</param>
-        /// <param name="failed">failed (required).</param>
+        /// <param name="success">success.</param>
+        /// <param name="failed">failed.</param>
         public V1SetNormQueryBidsResponse(List<V1SetNormQueryBidsSuccessResponseItem> success = default(List<V1SetNormQueryBidsSuccessResponseItem>), List<NormQueryBidFailResponseItem> failed = default(List<NormQueryBidFailResponseItem>))
         {
-            // to ensure "success" is required (not null)
-            if (success == null)
-            {
-                throw new ArgumentNullException("success is a required property for V1SetNormQueryBidsResponse and cannot be null");
-            }
             this.Success = success;
-            // to ensure "failed" is required (not null)
-            if (failed == null)
-            {
-                throw new ArgumentNullException("failed is a required property for V1SetNormQueryBidsResponse and cannot be null");
-            }
             this.Failed = failed;
         }
 
         /// <summary>
         /// Gets or Sets Success
         /// </summary>
-        [DataMember(Name = "success", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "success", EmitDefaultValue = false)]
         public List<V1SetNormQueryBidsSuccessResponseItem> Success { get; set; }
 
         /// <summary>
         /// Gets or Sets Failed
         /// </summary>
-        [DataMember(Name = "failed", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "failed", EmitDefaultValue = false)]
         public List<NormQueryBidFailResponseItem> Failed { get; set; }
 
         /// <summary>

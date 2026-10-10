@@ -36,42 +36,42 @@ public class V2GetConfigResponse {
   public static final String SERIALIZED_NAME_CURRENCY = "currency";
 
   @SerializedName(SERIALIZED_NAME_CURRENCY)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String currency;
 
   public static final String SERIALIZED_NAME_CURRENCY_CODE = "currencyCode";
 
   @SerializedName(SERIALIZED_NAME_CURRENCY_CODE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer currencyCode;
 
   public static final String SERIALIZED_NAME_CPM_STEP = "cpmStep";
 
   @SerializedName(SERIALIZED_NAME_CPM_STEP)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Long cpmStep;
 
   public static final String SERIALIZED_NAME_CPC_STEP = "cpcStep";
 
   @SerializedName(SERIALIZED_NAME_CPC_STEP)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Long cpcStep;
 
   public static final String SERIALIZED_NAME_MIN_TOP_UP = "minTopUp";
 
   @SerializedName(SERIALIZED_NAME_MIN_TOP_UP)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Long minTopUp;
 
   public static final String SERIALIZED_NAME_MIN_DAILY_LIMIT = "minDailyLimit";
 
   @SerializedName(SERIALIZED_NAME_MIN_DAILY_LIMIT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Long minDailyLimit;
 
   public V2GetConfigResponse() {}
 
-  public V2GetConfigResponse currency(@jakarta.annotation.Nonnull String currency) {
+  public V2GetConfigResponse currency(@jakarta.annotation.Nullable String currency) {
     this.currency = currency;
     return this;
   }
@@ -81,16 +81,16 @@ public class V2GetConfigResponse {
    *
    * @return currency
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getCurrency() {
     return currency;
   }
 
-  public void setCurrency(@jakarta.annotation.Nonnull String currency) {
+  public void setCurrency(@jakarta.annotation.Nullable String currency) {
     this.currency = currency;
   }
 
-  public V2GetConfigResponse currencyCode(@jakarta.annotation.Nonnull Integer currencyCode) {
+  public V2GetConfigResponse currencyCode(@jakarta.annotation.Nullable Integer currencyCode) {
     this.currencyCode = currencyCode;
     return this;
   }
@@ -100,16 +100,16 @@ public class V2GetConfigResponse {
    *
    * @return currencyCode
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getCurrencyCode() {
     return currencyCode;
   }
 
-  public void setCurrencyCode(@jakarta.annotation.Nonnull Integer currencyCode) {
+  public void setCurrencyCode(@jakarta.annotation.Nullable Integer currencyCode) {
     this.currencyCode = currencyCode;
   }
 
-  public V2GetConfigResponse cpmStep(@jakarta.annotation.Nonnull Long cpmStep) {
+  public V2GetConfigResponse cpmStep(@jakarta.annotation.Nullable Long cpmStep) {
     this.cpmStep = cpmStep;
     return this;
   }
@@ -120,16 +120,16 @@ public class V2GetConfigResponse {
    *
    * @return cpmStep
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Long getCpmStep() {
     return cpmStep;
   }
 
-  public void setCpmStep(@jakarta.annotation.Nonnull Long cpmStep) {
+  public void setCpmStep(@jakarta.annotation.Nullable Long cpmStep) {
     this.cpmStep = cpmStep;
   }
 
-  public V2GetConfigResponse cpcStep(@jakarta.annotation.Nonnull Long cpcStep) {
+  public V2GetConfigResponse cpcStep(@jakarta.annotation.Nullable Long cpcStep) {
     this.cpcStep = cpcStep;
     return this;
   }
@@ -140,16 +140,16 @@ public class V2GetConfigResponse {
    *
    * @return cpcStep
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Long getCpcStep() {
     return cpcStep;
   }
 
-  public void setCpcStep(@jakarta.annotation.Nonnull Long cpcStep) {
+  public void setCpcStep(@jakarta.annotation.Nullable Long cpcStep) {
     this.cpcStep = cpcStep;
   }
 
-  public V2GetConfigResponse minTopUp(@jakarta.annotation.Nonnull Long minTopUp) {
+  public V2GetConfigResponse minTopUp(@jakarta.annotation.Nullable Long minTopUp) {
     this.minTopUp = minTopUp;
     return this;
   }
@@ -162,16 +162,16 @@ public class V2GetConfigResponse {
    *
    * @return minTopUp
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Long getMinTopUp() {
     return minTopUp;
   }
 
-  public void setMinTopUp(@jakarta.annotation.Nonnull Long minTopUp) {
+  public void setMinTopUp(@jakarta.annotation.Nullable Long minTopUp) {
     this.minTopUp = minTopUp;
   }
 
-  public V2GetConfigResponse minDailyLimit(@jakarta.annotation.Nonnull Long minDailyLimit) {
+  public V2GetConfigResponse minDailyLimit(@jakarta.annotation.Nullable Long minDailyLimit) {
     this.minDailyLimit = minDailyLimit;
     return this;
   }
@@ -183,12 +183,12 @@ public class V2GetConfigResponse {
    *
    * @return minDailyLimit
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Long getMinDailyLimit() {
     return minDailyLimit;
   }
 
-  public void setMinDailyLimit(@jakarta.annotation.Nonnull Long minDailyLimit) {
+  public void setMinDailyLimit(@jakarta.annotation.Nullable Long minDailyLimit) {
     this.minDailyLimit = minDailyLimit;
   }
 
@@ -253,12 +253,6 @@ public class V2GetConfigResponse {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("currency");
-    openapiRequiredFields.add("currencyCode");
-    openapiRequiredFields.add("cpmStep");
-    openapiRequiredFields.add("cpcStep");
-    openapiRequiredFields.add("minTopUp");
-    openapiRequiredFields.add("minDailyLimit");
   }
 
   /**
@@ -288,18 +282,9 @@ public class V2GetConfigResponse {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : V2GetConfigResponse.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    if (!jsonObj.get("currency").isJsonPrimitive()) {
+    if ((jsonObj.get("currency") != null && !jsonObj.get("currency").isJsonNull())
+        && !jsonObj.get("currency").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `currency` to be a primitive type in the JSON string but got `%s`",

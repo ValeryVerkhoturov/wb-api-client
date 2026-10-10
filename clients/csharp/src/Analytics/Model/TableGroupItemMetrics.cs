@@ -34,104 +34,64 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TableGroupItemMetrics" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected TableGroupItemMetrics() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="TableGroupItemMetrics" /> class.
-        /// </summary>
-        /// <param name="avgPosition">avgPosition (required).</param>
-        /// <param name="openCard">openCard (required).</param>
-        /// <param name="addToCart">addToCart (required).</param>
-        /// <param name="openToCart">openToCart (required).</param>
-        /// <param name="orders">orders (required).</param>
-        /// <param name="cartToOrder">cartToOrder (required).</param>
-        /// <param name="visibility">visibility (required).</param>
+        /// <param name="avgPosition">avgPosition.</param>
+        /// <param name="openCard">openCard.</param>
+        /// <param name="addToCart">addToCart.</param>
+        /// <param name="openToCart">openToCart.</param>
+        /// <param name="orders">orders.</param>
+        /// <param name="cartToOrder">cartToOrder.</param>
+        /// <param name="visibility">visibility.</param>
         public TableGroupItemMetrics(TableGroupItemMetricsAvgPosition avgPosition = default(TableGroupItemMetricsAvgPosition), VisibilityInfoOpenCard openCard = default(VisibilityInfoOpenCard), TableGroupItemMetricsAddToCart addToCart = default(TableGroupItemMetricsAddToCart), TableGroupItemMetricsOpenToCart openToCart = default(TableGroupItemMetricsOpenToCart), TableGroupItemMetricsOrders orders = default(TableGroupItemMetricsOrders), TableGroupItemMetricsCartToOrder cartToOrder = default(TableGroupItemMetricsCartToOrder), TableGroupItemMetricsVisibility visibility = default(TableGroupItemMetricsVisibility))
         {
-            // to ensure "avgPosition" is required (not null)
-            if (avgPosition == null)
-            {
-                throw new ArgumentNullException("avgPosition is a required property for TableGroupItemMetrics and cannot be null");
-            }
             this.AvgPosition = avgPosition;
-            // to ensure "openCard" is required (not null)
-            if (openCard == null)
-            {
-                throw new ArgumentNullException("openCard is a required property for TableGroupItemMetrics and cannot be null");
-            }
             this.OpenCard = openCard;
-            // to ensure "addToCart" is required (not null)
-            if (addToCart == null)
-            {
-                throw new ArgumentNullException("addToCart is a required property for TableGroupItemMetrics and cannot be null");
-            }
             this.AddToCart = addToCart;
-            // to ensure "openToCart" is required (not null)
-            if (openToCart == null)
-            {
-                throw new ArgumentNullException("openToCart is a required property for TableGroupItemMetrics and cannot be null");
-            }
             this.OpenToCart = openToCart;
-            // to ensure "orders" is required (not null)
-            if (orders == null)
-            {
-                throw new ArgumentNullException("orders is a required property for TableGroupItemMetrics and cannot be null");
-            }
             this.Orders = orders;
-            // to ensure "cartToOrder" is required (not null)
-            if (cartToOrder == null)
-            {
-                throw new ArgumentNullException("cartToOrder is a required property for TableGroupItemMetrics and cannot be null");
-            }
             this.CartToOrder = cartToOrder;
-            // to ensure "visibility" is required (not null)
-            if (visibility == null)
-            {
-                throw new ArgumentNullException("visibility is a required property for TableGroupItemMetrics and cannot be null");
-            }
             this.Visibility = visibility;
         }
 
         /// <summary>
         /// Gets or Sets AvgPosition
         /// </summary>
-        [DataMember(Name = "avgPosition", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "avgPosition", EmitDefaultValue = false)]
         public TableGroupItemMetricsAvgPosition AvgPosition { get; set; }
 
         /// <summary>
         /// Gets or Sets OpenCard
         /// </summary>
-        [DataMember(Name = "openCard", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "openCard", EmitDefaultValue = false)]
         public VisibilityInfoOpenCard OpenCard { get; set; }
 
         /// <summary>
         /// Gets or Sets AddToCart
         /// </summary>
-        [DataMember(Name = "addToCart", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "addToCart", EmitDefaultValue = false)]
         public TableGroupItemMetricsAddToCart AddToCart { get; set; }
 
         /// <summary>
         /// Gets or Sets OpenToCart
         /// </summary>
-        [DataMember(Name = "openToCart", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "openToCart", EmitDefaultValue = false)]
         public TableGroupItemMetricsOpenToCart OpenToCart { get; set; }
 
         /// <summary>
         /// Gets or Sets Orders
         /// </summary>
-        [DataMember(Name = "orders", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "orders", EmitDefaultValue = false)]
         public TableGroupItemMetricsOrders Orders { get; set; }
 
         /// <summary>
         /// Gets or Sets CartToOrder
         /// </summary>
-        [DataMember(Name = "cartToOrder", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "cartToOrder", EmitDefaultValue = false)]
         public TableGroupItemMetricsCartToOrder CartToOrder { get; set; }
 
         /// <summary>
         /// Gets or Sets Visibility
         /// </summary>
-        [DataMember(Name = "visibility", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "visibility", EmitDefaultValue = false)]
         public TableGroupItemMetricsVisibility Visibility { get; set; }
 
         /// <summary>

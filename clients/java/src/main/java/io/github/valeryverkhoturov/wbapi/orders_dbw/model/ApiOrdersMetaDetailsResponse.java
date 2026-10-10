@@ -39,7 +39,7 @@ public class ApiOrdersMetaDetailsResponse {
   public static final String SERIALIZED_NAME_REQUEST_ID = "requestId";
 
   @SerializedName(SERIALIZED_NAME_REQUEST_ID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String requestId;
 
   public static final String SERIALIZED_NAME_ORDERS = "orders";
@@ -50,7 +50,7 @@ public class ApiOrdersMetaDetailsResponse {
 
   public ApiOrdersMetaDetailsResponse() {}
 
-  public ApiOrdersMetaDetailsResponse requestId(@jakarta.annotation.Nonnull String requestId) {
+  public ApiOrdersMetaDetailsResponse requestId(@jakarta.annotation.Nullable String requestId) {
     this.requestId = requestId;
     return this;
   }
@@ -60,12 +60,12 @@ public class ApiOrdersMetaDetailsResponse {
    *
    * @return requestId
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getRequestId() {
     return requestId;
   }
 
-  public void setRequestId(@jakarta.annotation.Nonnull String requestId) {
+  public void setRequestId(@jakarta.annotation.Nullable String requestId) {
     this.requestId = requestId;
   }
 
@@ -148,7 +148,6 @@ public class ApiOrdersMetaDetailsResponse {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("requestId");
   }
 
   /**
@@ -178,18 +177,9 @@ public class ApiOrdersMetaDetailsResponse {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : ApiOrdersMetaDetailsResponse.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    if (!jsonObj.get("requestId").isJsonPrimitive()) {
+    if ((jsonObj.get("requestId") != null && !jsonObj.get("requestId").isJsonNull())
+        && !jsonObj.get("requestId").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `requestId` to be a primitive type in the JSON string but got `%s`",

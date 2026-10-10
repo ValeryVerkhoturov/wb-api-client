@@ -34,7 +34,7 @@ class SupplySpotDataResponseSuppliesInner(BaseModel):
     SupplySpotDataResponseSuppliesInner
     """  # noqa: E501
 
-    id: StrictStr = Field(description="ID поставки")
+    id: Optional[StrictStr] = Field(default=None, description="ID поставки")
     spot: Optional[SupplySpotDataResponseSuppliesInnerSpot] = None
     error: Optional[SupplySpotDataResponseSuppliesInnerError] = None
     __properties: ClassVar[List[str]] = ["id", "spot", "error"]

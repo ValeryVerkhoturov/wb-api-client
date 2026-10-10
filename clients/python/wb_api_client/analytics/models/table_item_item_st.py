@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from wb_api_client.analytics.models.table_item_item_st_metrics import (
     TableItemItemStMetrics,
 )
@@ -31,24 +31,31 @@ class TableItemItemSt(BaseModel):
     Данные по товару
     """  # noqa: E501
 
-    nm_id: StrictInt = Field(description="Артикул WB", alias="nmID")
-    is_deleted: StrictBool = Field(
-        description="Является ли товар удалённым", alias="isDeleted"
+    nm_id: Optional[StrictInt] = Field(
+        default=None, description="Артикул WB", alias="nmID"
     )
-    subject_name: StrictStr = Field(
-        description="Название предмета", alias="subjectName"
+    is_deleted: Optional[StrictBool] = Field(
+        default=None, description="Является ли товар удалённым", alias="isDeleted"
     )
-    name: StrictStr = Field(description="Название товара")
-    vendor_code: StrictStr = Field(description="Артикул продавца", alias="vendorCode")
-    brand_name: StrictStr = Field(description="Бренд", alias="brandName")
-    main_photo: StrictStr = Field(
-        description="Ссылка на главное фото", alias="mainPhoto"
+    subject_name: Optional[StrictStr] = Field(
+        default=None, description="Название предмета", alias="subjectName"
     )
-    has_sizes: StrictBool = Field(
+    name: Optional[StrictStr] = Field(default=None, description="Название товара")
+    vendor_code: Optional[StrictStr] = Field(
+        default=None, description="Артикул продавца", alias="vendorCode"
+    )
+    brand_name: Optional[StrictStr] = Field(
+        default=None, description="Бренд", alias="brandName"
+    )
+    main_photo: Optional[StrictStr] = Field(
+        default=None, description="Ссылка на главное фото", alias="mainPhoto"
+    )
+    has_sizes: Optional[StrictBool] = Field(
+        default=None,
         description='Является ли товар размерным. Неразмерный товар имеет единственный размер, с `"techSize":"0"`',
         alias="hasSizes",
     )
-    metrics: TableItemItemStMetrics
+    metrics: Optional[TableItemItemStMetrics] = None
     __properties: ClassVar[List[str]] = [
         "nmID",
         "isDeleted",

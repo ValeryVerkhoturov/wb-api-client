@@ -11,9 +11,7 @@ API version: dbs
 package dbs
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the ApiB2bClientInfoResponses type satisfies the MappedNullable interface at compile time
@@ -22,19 +20,16 @@ var _ MappedNullable = &ApiB2bClientInfoResponses{}
 // ApiB2bClientInfoResponses struct for ApiB2bClientInfoResponses
 type ApiB2bClientInfoResponses struct {
 	// Уникальный ID запроса
-	RequestId string                     `json:"requestId"`
+	RequestId *string                    `json:"requestId,omitempty"`
 	Results   []ApiB2bClientInfoResponse `json:"results,omitempty"`
 }
-
-type _ApiB2bClientInfoResponses ApiB2bClientInfoResponses
 
 // NewApiB2bClientInfoResponses instantiates a new ApiB2bClientInfoResponses object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewApiB2bClientInfoResponses(requestId string) *ApiB2bClientInfoResponses {
+func NewApiB2bClientInfoResponses() *ApiB2bClientInfoResponses {
 	this := ApiB2bClientInfoResponses{}
-	this.RequestId = requestId
 	return &this
 }
 
@@ -46,28 +41,36 @@ func NewApiB2bClientInfoResponsesWithDefaults() *ApiB2bClientInfoResponses {
 	return &this
 }
 
-// GetRequestId returns the RequestId field value
+// GetRequestId returns the RequestId field value if set, zero value otherwise.
 func (o *ApiB2bClientInfoResponses) GetRequestId() string {
-	if o == nil {
+	if o == nil || IsNil(o.RequestId) {
 		var ret string
 		return ret
 	}
-
-	return o.RequestId
+	return *o.RequestId
 }
 
-// GetRequestIdOk returns a tuple with the RequestId field value
+// GetRequestIdOk returns a tuple with the RequestId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ApiB2bClientInfoResponses) GetRequestIdOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.RequestId) {
 		return nil, false
 	}
-	return &o.RequestId, true
+	return o.RequestId, true
 }
 
-// SetRequestId sets field value
+// HasRequestId returns a boolean if a field has been set.
+func (o *ApiB2bClientInfoResponses) HasRequestId() bool {
+	if o != nil && !IsNil(o.RequestId) {
+		return true
+	}
+
+	return false
+}
+
+// SetRequestId gets a reference to the given string and assigns it to the RequestId field.
 func (o *ApiB2bClientInfoResponses) SetRequestId(v string) {
-	o.RequestId = v
+	o.RequestId = &v
 }
 
 // GetResults returns the Results field value if set, zero value otherwise.
@@ -112,48 +115,13 @@ func (o ApiB2bClientInfoResponses) MarshalJSON() ([]byte, error) {
 
 func (o ApiB2bClientInfoResponses) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["requestId"] = o.RequestId
+	if !IsNil(o.RequestId) {
+		toSerialize["requestId"] = o.RequestId
+	}
 	if !IsNil(o.Results) {
 		toSerialize["results"] = o.Results
 	}
 	return toSerialize, nil
-}
-
-func (o *ApiB2bClientInfoResponses) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"requestId",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varApiB2bClientInfoResponses := _ApiB2bClientInfoResponses{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varApiB2bClientInfoResponses)
-
-	if err != nil {
-		return err
-	}
-
-	*o = ApiB2bClientInfoResponses(varApiB2bClientInfoResponses)
-
-	return err
 }
 
 type NullableApiB2bClientInfoResponses struct {

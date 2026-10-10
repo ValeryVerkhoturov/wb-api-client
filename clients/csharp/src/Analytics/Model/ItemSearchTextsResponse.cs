@@ -34,26 +34,11 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemSearchTextsResponse" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected ItemSearchTextsResponse() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ItemSearchTextsResponse" /> class.
-        /// </summary>
-        /// <param name="items">Элементы таблицы (required).</param>
-        /// <param name="currency">Валюта отчёта (required).</param>
+        /// <param name="items">Элементы таблицы.</param>
+        /// <param name="currency">Валюта отчёта.</param>
         public ItemSearchTextsResponse(List<TableSearchTextItem> items = default(List<TableSearchTextItem>), string currency = default(string))
         {
-            // to ensure "items" is required (not null)
-            if (items == null)
-            {
-                throw new ArgumentNullException("items is a required property for ItemSearchTextsResponse and cannot be null");
-            }
             this.Items = items;
-            // to ensure "currency" is required (not null)
-            if (currency == null)
-            {
-                throw new ArgumentNullException("currency is a required property for ItemSearchTextsResponse and cannot be null");
-            }
             this.Currency = currency;
         }
 
@@ -61,7 +46,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// Элементы таблицы
         /// </summary>
         /// <value>Элементы таблицы</value>
-        [DataMember(Name = "items", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "items", EmitDefaultValue = false)]
         public List<TableSearchTextItem> Items { get; set; }
 
         /// <summary>
@@ -71,7 +56,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>RUB</example>
         */
-        [DataMember(Name = "currency", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "currency", EmitDefaultValue = false)]
         public string Currency { get; set; }
 
         /// <summary>

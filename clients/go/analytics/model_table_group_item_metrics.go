@@ -11,9 +11,7 @@ API version: analytics
 package analytics
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the TableGroupItemMetrics type satisfies the MappedNullable interface at compile time
@@ -21,30 +19,21 @@ var _ MappedNullable = &TableGroupItemMetrics{}
 
 // TableGroupItemMetrics Метрики товара в таблице
 type TableGroupItemMetrics struct {
-	AvgPosition TableGroupItemMetricsAvgPosition `json:"avgPosition"`
-	OpenCard    VisibilityInfoOpenCard           `json:"openCard"`
-	AddToCart   TableGroupItemMetricsAddToCart   `json:"addToCart"`
-	OpenToCart  TableGroupItemMetricsOpenToCart  `json:"openToCart"`
-	Orders      TableGroupItemMetricsOrders      `json:"orders"`
-	CartToOrder TableGroupItemMetricsCartToOrder `json:"cartToOrder"`
-	Visibility  TableGroupItemMetricsVisibility  `json:"visibility"`
+	AvgPosition *TableGroupItemMetricsAvgPosition `json:"avgPosition,omitempty"`
+	OpenCard    *VisibilityInfoOpenCard           `json:"openCard,omitempty"`
+	AddToCart   *TableGroupItemMetricsAddToCart   `json:"addToCart,omitempty"`
+	OpenToCart  *TableGroupItemMetricsOpenToCart  `json:"openToCart,omitempty"`
+	Orders      *TableGroupItemMetricsOrders      `json:"orders,omitempty"`
+	CartToOrder *TableGroupItemMetricsCartToOrder `json:"cartToOrder,omitempty"`
+	Visibility  *TableGroupItemMetricsVisibility  `json:"visibility,omitempty"`
 }
-
-type _TableGroupItemMetrics TableGroupItemMetrics
 
 // NewTableGroupItemMetrics instantiates a new TableGroupItemMetrics object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTableGroupItemMetrics(avgPosition TableGroupItemMetricsAvgPosition, openCard VisibilityInfoOpenCard, addToCart TableGroupItemMetricsAddToCart, openToCart TableGroupItemMetricsOpenToCart, orders TableGroupItemMetricsOrders, cartToOrder TableGroupItemMetricsCartToOrder, visibility TableGroupItemMetricsVisibility) *TableGroupItemMetrics {
+func NewTableGroupItemMetrics() *TableGroupItemMetrics {
 	this := TableGroupItemMetrics{}
-	this.AvgPosition = avgPosition
-	this.OpenCard = openCard
-	this.AddToCart = addToCart
-	this.OpenToCart = openToCart
-	this.Orders = orders
-	this.CartToOrder = cartToOrder
-	this.Visibility = visibility
 	return &this
 }
 
@@ -56,172 +45,228 @@ func NewTableGroupItemMetricsWithDefaults() *TableGroupItemMetrics {
 	return &this
 }
 
-// GetAvgPosition returns the AvgPosition field value
+// GetAvgPosition returns the AvgPosition field value if set, zero value otherwise.
 func (o *TableGroupItemMetrics) GetAvgPosition() TableGroupItemMetricsAvgPosition {
-	if o == nil {
+	if o == nil || IsNil(o.AvgPosition) {
 		var ret TableGroupItemMetricsAvgPosition
 		return ret
 	}
-
-	return o.AvgPosition
+	return *o.AvgPosition
 }
 
-// GetAvgPositionOk returns a tuple with the AvgPosition field value
+// GetAvgPositionOk returns a tuple with the AvgPosition field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableGroupItemMetrics) GetAvgPositionOk() (*TableGroupItemMetricsAvgPosition, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AvgPosition) {
 		return nil, false
 	}
-	return &o.AvgPosition, true
+	return o.AvgPosition, true
 }
 
-// SetAvgPosition sets field value
+// HasAvgPosition returns a boolean if a field has been set.
+func (o *TableGroupItemMetrics) HasAvgPosition() bool {
+	if o != nil && !IsNil(o.AvgPosition) {
+		return true
+	}
+
+	return false
+}
+
+// SetAvgPosition gets a reference to the given TableGroupItemMetricsAvgPosition and assigns it to the AvgPosition field.
 func (o *TableGroupItemMetrics) SetAvgPosition(v TableGroupItemMetricsAvgPosition) {
-	o.AvgPosition = v
+	o.AvgPosition = &v
 }
 
-// GetOpenCard returns the OpenCard field value
+// GetOpenCard returns the OpenCard field value if set, zero value otherwise.
 func (o *TableGroupItemMetrics) GetOpenCard() VisibilityInfoOpenCard {
-	if o == nil {
+	if o == nil || IsNil(o.OpenCard) {
 		var ret VisibilityInfoOpenCard
 		return ret
 	}
-
-	return o.OpenCard
+	return *o.OpenCard
 }
 
-// GetOpenCardOk returns a tuple with the OpenCard field value
+// GetOpenCardOk returns a tuple with the OpenCard field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableGroupItemMetrics) GetOpenCardOk() (*VisibilityInfoOpenCard, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.OpenCard) {
 		return nil, false
 	}
-	return &o.OpenCard, true
+	return o.OpenCard, true
 }
 
-// SetOpenCard sets field value
+// HasOpenCard returns a boolean if a field has been set.
+func (o *TableGroupItemMetrics) HasOpenCard() bool {
+	if o != nil && !IsNil(o.OpenCard) {
+		return true
+	}
+
+	return false
+}
+
+// SetOpenCard gets a reference to the given VisibilityInfoOpenCard and assigns it to the OpenCard field.
 func (o *TableGroupItemMetrics) SetOpenCard(v VisibilityInfoOpenCard) {
-	o.OpenCard = v
+	o.OpenCard = &v
 }
 
-// GetAddToCart returns the AddToCart field value
+// GetAddToCart returns the AddToCart field value if set, zero value otherwise.
 func (o *TableGroupItemMetrics) GetAddToCart() TableGroupItemMetricsAddToCart {
-	if o == nil {
+	if o == nil || IsNil(o.AddToCart) {
 		var ret TableGroupItemMetricsAddToCart
 		return ret
 	}
-
-	return o.AddToCart
+	return *o.AddToCart
 }
 
-// GetAddToCartOk returns a tuple with the AddToCart field value
+// GetAddToCartOk returns a tuple with the AddToCart field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableGroupItemMetrics) GetAddToCartOk() (*TableGroupItemMetricsAddToCart, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AddToCart) {
 		return nil, false
 	}
-	return &o.AddToCart, true
+	return o.AddToCart, true
 }
 
-// SetAddToCart sets field value
+// HasAddToCart returns a boolean if a field has been set.
+func (o *TableGroupItemMetrics) HasAddToCart() bool {
+	if o != nil && !IsNil(o.AddToCart) {
+		return true
+	}
+
+	return false
+}
+
+// SetAddToCart gets a reference to the given TableGroupItemMetricsAddToCart and assigns it to the AddToCart field.
 func (o *TableGroupItemMetrics) SetAddToCart(v TableGroupItemMetricsAddToCart) {
-	o.AddToCart = v
+	o.AddToCart = &v
 }
 
-// GetOpenToCart returns the OpenToCart field value
+// GetOpenToCart returns the OpenToCart field value if set, zero value otherwise.
 func (o *TableGroupItemMetrics) GetOpenToCart() TableGroupItemMetricsOpenToCart {
-	if o == nil {
+	if o == nil || IsNil(o.OpenToCart) {
 		var ret TableGroupItemMetricsOpenToCart
 		return ret
 	}
-
-	return o.OpenToCart
+	return *o.OpenToCart
 }
 
-// GetOpenToCartOk returns a tuple with the OpenToCart field value
+// GetOpenToCartOk returns a tuple with the OpenToCart field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableGroupItemMetrics) GetOpenToCartOk() (*TableGroupItemMetricsOpenToCart, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.OpenToCart) {
 		return nil, false
 	}
-	return &o.OpenToCart, true
+	return o.OpenToCart, true
 }
 
-// SetOpenToCart sets field value
+// HasOpenToCart returns a boolean if a field has been set.
+func (o *TableGroupItemMetrics) HasOpenToCart() bool {
+	if o != nil && !IsNil(o.OpenToCart) {
+		return true
+	}
+
+	return false
+}
+
+// SetOpenToCart gets a reference to the given TableGroupItemMetricsOpenToCart and assigns it to the OpenToCart field.
 func (o *TableGroupItemMetrics) SetOpenToCart(v TableGroupItemMetricsOpenToCart) {
-	o.OpenToCart = v
+	o.OpenToCart = &v
 }
 
-// GetOrders returns the Orders field value
+// GetOrders returns the Orders field value if set, zero value otherwise.
 func (o *TableGroupItemMetrics) GetOrders() TableGroupItemMetricsOrders {
-	if o == nil {
+	if o == nil || IsNil(o.Orders) {
 		var ret TableGroupItemMetricsOrders
 		return ret
 	}
-
-	return o.Orders
+	return *o.Orders
 }
 
-// GetOrdersOk returns a tuple with the Orders field value
+// GetOrdersOk returns a tuple with the Orders field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableGroupItemMetrics) GetOrdersOk() (*TableGroupItemMetricsOrders, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Orders) {
 		return nil, false
 	}
-	return &o.Orders, true
+	return o.Orders, true
 }
 
-// SetOrders sets field value
+// HasOrders returns a boolean if a field has been set.
+func (o *TableGroupItemMetrics) HasOrders() bool {
+	if o != nil && !IsNil(o.Orders) {
+		return true
+	}
+
+	return false
+}
+
+// SetOrders gets a reference to the given TableGroupItemMetricsOrders and assigns it to the Orders field.
 func (o *TableGroupItemMetrics) SetOrders(v TableGroupItemMetricsOrders) {
-	o.Orders = v
+	o.Orders = &v
 }
 
-// GetCartToOrder returns the CartToOrder field value
+// GetCartToOrder returns the CartToOrder field value if set, zero value otherwise.
 func (o *TableGroupItemMetrics) GetCartToOrder() TableGroupItemMetricsCartToOrder {
-	if o == nil {
+	if o == nil || IsNil(o.CartToOrder) {
 		var ret TableGroupItemMetricsCartToOrder
 		return ret
 	}
-
-	return o.CartToOrder
+	return *o.CartToOrder
 }
 
-// GetCartToOrderOk returns a tuple with the CartToOrder field value
+// GetCartToOrderOk returns a tuple with the CartToOrder field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableGroupItemMetrics) GetCartToOrderOk() (*TableGroupItemMetricsCartToOrder, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.CartToOrder) {
 		return nil, false
 	}
-	return &o.CartToOrder, true
+	return o.CartToOrder, true
 }
 
-// SetCartToOrder sets field value
+// HasCartToOrder returns a boolean if a field has been set.
+func (o *TableGroupItemMetrics) HasCartToOrder() bool {
+	if o != nil && !IsNil(o.CartToOrder) {
+		return true
+	}
+
+	return false
+}
+
+// SetCartToOrder gets a reference to the given TableGroupItemMetricsCartToOrder and assigns it to the CartToOrder field.
 func (o *TableGroupItemMetrics) SetCartToOrder(v TableGroupItemMetricsCartToOrder) {
-	o.CartToOrder = v
+	o.CartToOrder = &v
 }
 
-// GetVisibility returns the Visibility field value
+// GetVisibility returns the Visibility field value if set, zero value otherwise.
 func (o *TableGroupItemMetrics) GetVisibility() TableGroupItemMetricsVisibility {
-	if o == nil {
+	if o == nil || IsNil(o.Visibility) {
 		var ret TableGroupItemMetricsVisibility
 		return ret
 	}
-
-	return o.Visibility
+	return *o.Visibility
 }
 
-// GetVisibilityOk returns a tuple with the Visibility field value
+// GetVisibilityOk returns a tuple with the Visibility field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableGroupItemMetrics) GetVisibilityOk() (*TableGroupItemMetricsVisibility, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Visibility) {
 		return nil, false
 	}
-	return &o.Visibility, true
+	return o.Visibility, true
 }
 
-// SetVisibility sets field value
+// HasVisibility returns a boolean if a field has been set.
+func (o *TableGroupItemMetrics) HasVisibility() bool {
+	if o != nil && !IsNil(o.Visibility) {
+		return true
+	}
+
+	return false
+}
+
+// SetVisibility gets a reference to the given TableGroupItemMetricsVisibility and assigns it to the Visibility field.
 func (o *TableGroupItemMetrics) SetVisibility(v TableGroupItemMetricsVisibility) {
-	o.Visibility = v
+	o.Visibility = &v
 }
 
 func (o TableGroupItemMetrics) MarshalJSON() ([]byte, error) {
@@ -234,57 +279,28 @@ func (o TableGroupItemMetrics) MarshalJSON() ([]byte, error) {
 
 func (o TableGroupItemMetrics) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["avgPosition"] = o.AvgPosition
-	toSerialize["openCard"] = o.OpenCard
-	toSerialize["addToCart"] = o.AddToCart
-	toSerialize["openToCart"] = o.OpenToCart
-	toSerialize["orders"] = o.Orders
-	toSerialize["cartToOrder"] = o.CartToOrder
-	toSerialize["visibility"] = o.Visibility
+	if !IsNil(o.AvgPosition) {
+		toSerialize["avgPosition"] = o.AvgPosition
+	}
+	if !IsNil(o.OpenCard) {
+		toSerialize["openCard"] = o.OpenCard
+	}
+	if !IsNil(o.AddToCart) {
+		toSerialize["addToCart"] = o.AddToCart
+	}
+	if !IsNil(o.OpenToCart) {
+		toSerialize["openToCart"] = o.OpenToCart
+	}
+	if !IsNil(o.Orders) {
+		toSerialize["orders"] = o.Orders
+	}
+	if !IsNil(o.CartToOrder) {
+		toSerialize["cartToOrder"] = o.CartToOrder
+	}
+	if !IsNil(o.Visibility) {
+		toSerialize["visibility"] = o.Visibility
+	}
 	return toSerialize, nil
-}
-
-func (o *TableGroupItemMetrics) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"avgPosition",
-		"openCard",
-		"addToCart",
-		"openToCart",
-		"orders",
-		"cartToOrder",
-		"visibility",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varTableGroupItemMetrics := _TableGroupItemMetrics{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varTableGroupItemMetrics)
-
-	if err != nil {
-		return err
-	}
-
-	*o = TableGroupItemMetrics(varTableGroupItemMetrics)
-
-	return err
 }
 
 type NullableTableGroupItemMetrics struct {

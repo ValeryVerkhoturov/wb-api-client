@@ -39,24 +39,25 @@ public class ModelsListDraftItemsResponse {
   public static final String SERIALIZED_NAME_SKU_QUANTITY = "skuQuantity";
 
   @SerializedName(SERIALIZED_NAME_SKU_QUANTITY)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer skuQuantity;
 
   public static final String SERIALIZED_NAME_ITEM_QUANTITY = "itemQuantity";
 
   @SerializedName(SERIALIZED_NAME_ITEM_QUANTITY)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer itemQuantity;
 
   public static final String SERIALIZED_NAME_ITEMS = "items";
 
   @SerializedName(SERIALIZED_NAME_ITEMS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private List<ModelsDraftItemItem> items = new ArrayList<>();
 
   public ModelsListDraftItemsResponse() {}
 
-  public ModelsListDraftItemsResponse skuQuantity(@jakarta.annotation.Nonnull Integer skuQuantity) {
+  public ModelsListDraftItemsResponse skuQuantity(
+      @jakarta.annotation.Nullable Integer skuQuantity) {
     this.skuQuantity = skuQuantity;
     return this;
   }
@@ -66,17 +67,17 @@ public class ModelsListDraftItemsResponse {
    *
    * @return skuQuantity
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getSkuQuantity() {
     return skuQuantity;
   }
 
-  public void setSkuQuantity(@jakarta.annotation.Nonnull Integer skuQuantity) {
+  public void setSkuQuantity(@jakarta.annotation.Nullable Integer skuQuantity) {
     this.skuQuantity = skuQuantity;
   }
 
   public ModelsListDraftItemsResponse itemQuantity(
-      @jakarta.annotation.Nonnull Integer itemQuantity) {
+      @jakarta.annotation.Nullable Integer itemQuantity) {
     this.itemQuantity = itemQuantity;
     return this;
   }
@@ -86,17 +87,17 @@ public class ModelsListDraftItemsResponse {
    *
    * @return itemQuantity
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getItemQuantity() {
     return itemQuantity;
   }
 
-  public void setItemQuantity(@jakarta.annotation.Nonnull Integer itemQuantity) {
+  public void setItemQuantity(@jakarta.annotation.Nullable Integer itemQuantity) {
     this.itemQuantity = itemQuantity;
   }
 
   public ModelsListDraftItemsResponse items(
-      @jakarta.annotation.Nonnull List<ModelsDraftItemItem> items) {
+      @jakarta.annotation.Nullable List<ModelsDraftItemItem> items) {
     this.items = items;
     return this;
   }
@@ -114,12 +115,12 @@ public class ModelsListDraftItemsResponse {
    *
    * @return items
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public List<ModelsDraftItemItem> getItems() {
     return items;
   }
 
-  public void setItems(@jakarta.annotation.Nonnull List<ModelsDraftItemItem> items) {
+  public void setItems(@jakarta.annotation.Nullable List<ModelsDraftItemItem> items) {
     this.items = items;
   }
 
@@ -175,9 +176,6 @@ public class ModelsListDraftItemsResponse {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("skuQuantity");
-    openapiRequiredFields.add("itemQuantity");
-    openapiRequiredFields.add("items");
   }
 
   /**
@@ -207,31 +205,25 @@ public class ModelsListDraftItemsResponse {
                 entry.getKey(), jsonElement.toString()));
       }
     }
+    JsonObject jsonObj = jsonElement.getAsJsonObject();
+    if (jsonObj.get("items") != null && !jsonObj.get("items").isJsonNull()) {
+      JsonArray jsonArrayitems = jsonObj.getAsJsonArray("items");
+      if (jsonArrayitems != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("items").isJsonArray()) {
+          throw new IllegalArgumentException(
+              String.format(
+                  "Expected the field `items` to be an array in the JSON string but got `%s`",
+                  jsonObj.get("items").toString()));
+        }
 
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : ModelsListDraftItemsResponse.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
+        // validate the optional field `items` (array)
+        for (int i = 0; i < jsonArrayitems.size(); i++) {
+          ModelsDraftItemItem.validateJsonElement(jsonArrayitems.get(i));
+        }
+        ;
       }
     }
-    JsonObject jsonObj = jsonElement.getAsJsonObject();
-    // ensure the json data is an array
-    if (!jsonObj.get("items").isJsonArray()) {
-      throw new IllegalArgumentException(
-          String.format(
-              "Expected the field `items` to be an array in the JSON string but got `%s`",
-              jsonObj.get("items").toString()));
-    }
-
-    JsonArray jsonArrayitems = jsonObj.getAsJsonArray("items");
-    // validate the required field `items` (array)
-    for (int i = 0; i < jsonArrayitems.size(); i++) {
-      ModelsDraftItemItem.validateJsonElement(jsonArrayitems.get(i));
-    }
-    ;
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

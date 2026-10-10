@@ -11,9 +11,7 @@ API version: order
 package orders_fbs
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the V3ArchiveOrder type satisfies the MappedNullable interface at compile time
@@ -22,64 +20,44 @@ var _ MappedNullable = &V3ArchiveOrder{}
 // V3ArchiveOrder Архивное сборочное задание
 type V3ArchiveOrder struct {
 	// Тип товара:   - `mgt` — малогабаритный товар (МГТ)   - `sgt` — сверхгабаритный товар (СГТ)   - `kgtPlus` — крупногабаритный товар (КГТ+)
-	CargoType string `json:"cargoType"`
+	CargoType *string `json:"cargoType,omitempty"`
 	// Код цвета для колеруемых товаров
-	ColorCode NullableString `json:"colorCode"`
+	ColorCode NullableString `json:"colorCode,omitempty"`
 	// Дата создания заказа
-	CreatedAt   string                            `json:"createdAt"`
-	CrossBorder NullableV3ArchiveOrderCrossBorder `json:"crossBorder"`
+	CreatedAt   *string                           `json:"createdAt,omitempty"`
+	CrossBorder NullableV3ArchiveOrderCrossBorder `json:"crossBorder,omitempty"`
 	// Тип сборочного задания:   - `local` — внутренняя поставка   - `crossBorder` — трансграничная поставка
-	CrossBorderType string `json:"crossBorderType"`
+	CrossBorderType *string `json:"crossBorderType,omitempty"`
 	// ID сборочного задания
-	Id int32 `json:"id"`
+	Id *int32 `json:"id,omitempty"`
 	// Признак заказа товара с нулевым остатком:   - `false` — заказ сделан на товар с ненулевым остатком   - `true` — заказ сделан на товар с нулевым остатком
-	IsZeroOrder bool `json:"isZeroOrder"`
+	IsZeroOrder *bool `json:"isZeroOrder,omitempty"`
 	// Детали маркировки
-	MetaDetails []V3ArchiveOrderMetaDetailsInner `json:"metaDetails"`
-	Options     V3ArchiveOrderOptions            `json:"options"`
+	MetaDetails []V3ArchiveOrderMetaDetailsInner `json:"metaDetails,omitempty"`
+	Options     *V3ArchiveOrderOptions           `json:"options,omitempty"`
 	// ID транзакции для группировки сборочных заданий. Сборочные задания в одной корзине покупателя будут иметь одинаковый `orderUid`
-	OrderUid  string                  `json:"orderUid"`
-	PriceInfo V3ArchiveOrderPriceInfo `json:"priceInfo"`
-	Product   V3ArchiveOrderProduct   `json:"product"`
+	OrderUid  *string                  `json:"orderUid,omitempty"`
+	PriceInfo *V3ArchiveOrderPriceInfo `json:"priceInfo,omitempty"`
+	Product   *V3ArchiveOrderProduct   `json:"product,omitempty"`
 	// Уникальный ID заказа. Примечание: `rid` — это `srid` в ответах методов: - [Заявки покупателей на возврат](./customer-communication#tag/buyersReturns/operation/getV1Claims) - [Лента заказов](./analytics#tag/orderFeed/operation/postV1OrderFeed) - [Заказы](./reports#tag/mainReports/operation/getV1SupplierOrders) - [Продажи](./reports#tag/mainReports/operation/getV1SupplierSales) - [Отчёт о возвратах и перемещении товаров](./reports#tag/returnsAndItemMovementReport) - [Детализации к отчётам реализации по ID отчётов](./documents-and-accounting#tag/financialReports/operation/postV1SalesReportsDetailedReportId) - [Детализации к отчётам реализации за период](./documents-and-accounting#tag/financialReports/operation/postV1SalesReportsDetailed) - [Детализации к отчётам об издержках на приём платежей по ID отчётов](./documents-and-accounting#tag/financialReports/operation/postV1AcquiringDetailedReportId) - [Детализации к отчётам об издержках на приём платежей за период](./documents-and-accounting#tag/financialReports/operation/postV1AcquiringDetailed)
-	Rid string `json:"rid"`
+	Rid *string `json:"rid,omitempty"`
 	// Цена приёмки заказа в копейках
-	ScanPrice NullableInt32        `json:"scanPrice"`
-	Status    V3ArchiveOrderStatus `json:"status"`
+	ScanPrice NullableInt32         `json:"scanPrice,omitempty"`
+	Status    *V3ArchiveOrderStatus `json:"status,omitempty"`
 	// ID стикера
-	StickerId int32 `json:"stickerId"`
+	StickerId *int32 `json:"stickerId,omitempty"`
 	// ID поставки
-	SupplyId NullableString `json:"supplyId"`
+	SupplyId NullableString `json:"supplyId,omitempty"`
 	// ID склада продавца, с которого был отгружен товар
-	WarehouseId int32 `json:"warehouseId"`
+	WarehouseId *int32 `json:"warehouseId,omitempty"`
 }
-
-type _V3ArchiveOrder V3ArchiveOrder
 
 // NewV3ArchiveOrder instantiates a new V3ArchiveOrder object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewV3ArchiveOrder(cargoType string, colorCode NullableString, createdAt string, crossBorder NullableV3ArchiveOrderCrossBorder, crossBorderType string, id int32, isZeroOrder bool, metaDetails []V3ArchiveOrderMetaDetailsInner, options V3ArchiveOrderOptions, orderUid string, priceInfo V3ArchiveOrderPriceInfo, product V3ArchiveOrderProduct, rid string, scanPrice NullableInt32, status V3ArchiveOrderStatus, stickerId int32, supplyId NullableString, warehouseId int32) *V3ArchiveOrder {
+func NewV3ArchiveOrder() *V3ArchiveOrder {
 	this := V3ArchiveOrder{}
-	this.CargoType = cargoType
-	this.ColorCode = colorCode
-	this.CreatedAt = createdAt
-	this.CrossBorder = crossBorder
-	this.CrossBorderType = crossBorderType
-	this.Id = id
-	this.IsZeroOrder = isZeroOrder
-	this.MetaDetails = metaDetails
-	this.Options = options
-	this.OrderUid = orderUid
-	this.PriceInfo = priceInfo
-	this.Product = product
-	this.Rid = rid
-	this.ScanPrice = scanPrice
-	this.Status = status
-	this.StickerId = stickerId
-	this.SupplyId = supplyId
-	this.WarehouseId = warehouseId
 	return &this
 }
 
@@ -91,42 +69,48 @@ func NewV3ArchiveOrderWithDefaults() *V3ArchiveOrder {
 	return &this
 }
 
-// GetCargoType returns the CargoType field value
+// GetCargoType returns the CargoType field value if set, zero value otherwise.
 func (o *V3ArchiveOrder) GetCargoType() string {
-	if o == nil {
+	if o == nil || IsNil(o.CargoType) {
 		var ret string
 		return ret
 	}
-
-	return o.CargoType
+	return *o.CargoType
 }
 
-// GetCargoTypeOk returns a tuple with the CargoType field value
+// GetCargoTypeOk returns a tuple with the CargoType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *V3ArchiveOrder) GetCargoTypeOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.CargoType) {
 		return nil, false
 	}
-	return &o.CargoType, true
+	return o.CargoType, true
 }
 
-// SetCargoType sets field value
+// HasCargoType returns a boolean if a field has been set.
+func (o *V3ArchiveOrder) HasCargoType() bool {
+	if o != nil && !IsNil(o.CargoType) {
+		return true
+	}
+
+	return false
+}
+
+// SetCargoType gets a reference to the given string and assigns it to the CargoType field.
 func (o *V3ArchiveOrder) SetCargoType(v string) {
-	o.CargoType = v
+	o.CargoType = &v
 }
 
-// GetColorCode returns the ColorCode field value
-// If the value is explicit nil, the zero value for string will be returned
+// GetColorCode returns the ColorCode field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *V3ArchiveOrder) GetColorCode() string {
-	if o == nil || o.ColorCode.Get() == nil {
+	if o == nil || IsNil(o.ColorCode.Get()) {
 		var ret string
 		return ret
 	}
-
 	return *o.ColorCode.Get()
 }
 
-// GetColorCodeOk returns a tuple with the ColorCode field value
+// GetColorCodeOk returns a tuple with the ColorCode field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *V3ArchiveOrder) GetColorCodeOk() (*string, bool) {
@@ -136,47 +120,72 @@ func (o *V3ArchiveOrder) GetColorCodeOk() (*string, bool) {
 	return o.ColorCode.Get(), o.ColorCode.IsSet()
 }
 
-// SetColorCode sets field value
+// HasColorCode returns a boolean if a field has been set.
+func (o *V3ArchiveOrder) HasColorCode() bool {
+	if o != nil && o.ColorCode.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetColorCode gets a reference to the given NullableString and assigns it to the ColorCode field.
 func (o *V3ArchiveOrder) SetColorCode(v string) {
 	o.ColorCode.Set(&v)
 }
 
-// GetCreatedAt returns the CreatedAt field value
+// SetColorCodeNil sets the value for ColorCode to be an explicit nil
+func (o *V3ArchiveOrder) SetColorCodeNil() {
+	o.ColorCode.Set(nil)
+}
+
+// UnsetColorCode ensures that no value is present for ColorCode, not even an explicit nil
+func (o *V3ArchiveOrder) UnsetColorCode() {
+	o.ColorCode.Unset()
+}
+
+// GetCreatedAt returns the CreatedAt field value if set, zero value otherwise.
 func (o *V3ArchiveOrder) GetCreatedAt() string {
-	if o == nil {
+	if o == nil || IsNil(o.CreatedAt) {
 		var ret string
 		return ret
 	}
-
-	return o.CreatedAt
+	return *o.CreatedAt
 }
 
-// GetCreatedAtOk returns a tuple with the CreatedAt field value
+// GetCreatedAtOk returns a tuple with the CreatedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *V3ArchiveOrder) GetCreatedAtOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.CreatedAt) {
 		return nil, false
 	}
-	return &o.CreatedAt, true
+	return o.CreatedAt, true
 }
 
-// SetCreatedAt sets field value
+// HasCreatedAt returns a boolean if a field has been set.
+func (o *V3ArchiveOrder) HasCreatedAt() bool {
+	if o != nil && !IsNil(o.CreatedAt) {
+		return true
+	}
+
+	return false
+}
+
+// SetCreatedAt gets a reference to the given string and assigns it to the CreatedAt field.
 func (o *V3ArchiveOrder) SetCreatedAt(v string) {
-	o.CreatedAt = v
+	o.CreatedAt = &v
 }
 
-// GetCrossBorder returns the CrossBorder field value
-// If the value is explicit nil, the zero value for V3ArchiveOrderCrossBorder will be returned
+// GetCrossBorder returns the CrossBorder field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *V3ArchiveOrder) GetCrossBorder() V3ArchiveOrderCrossBorder {
-	if o == nil || o.CrossBorder.Get() == nil {
+	if o == nil || IsNil(o.CrossBorder.Get()) {
 		var ret V3ArchiveOrderCrossBorder
 		return ret
 	}
-
 	return *o.CrossBorder.Get()
 }
 
-// GetCrossBorderOk returns a tuple with the CrossBorder field value
+// GetCrossBorderOk returns a tuple with the CrossBorder field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *V3ArchiveOrder) GetCrossBorderOk() (*V3ArchiveOrderCrossBorder, bool) {
@@ -186,239 +195,328 @@ func (o *V3ArchiveOrder) GetCrossBorderOk() (*V3ArchiveOrderCrossBorder, bool) {
 	return o.CrossBorder.Get(), o.CrossBorder.IsSet()
 }
 
-// SetCrossBorder sets field value
+// HasCrossBorder returns a boolean if a field has been set.
+func (o *V3ArchiveOrder) HasCrossBorder() bool {
+	if o != nil && o.CrossBorder.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetCrossBorder gets a reference to the given NullableV3ArchiveOrderCrossBorder and assigns it to the CrossBorder field.
 func (o *V3ArchiveOrder) SetCrossBorder(v V3ArchiveOrderCrossBorder) {
 	o.CrossBorder.Set(&v)
 }
 
-// GetCrossBorderType returns the CrossBorderType field value
+// SetCrossBorderNil sets the value for CrossBorder to be an explicit nil
+func (o *V3ArchiveOrder) SetCrossBorderNil() {
+	o.CrossBorder.Set(nil)
+}
+
+// UnsetCrossBorder ensures that no value is present for CrossBorder, not even an explicit nil
+func (o *V3ArchiveOrder) UnsetCrossBorder() {
+	o.CrossBorder.Unset()
+}
+
+// GetCrossBorderType returns the CrossBorderType field value if set, zero value otherwise.
 func (o *V3ArchiveOrder) GetCrossBorderType() string {
-	if o == nil {
+	if o == nil || IsNil(o.CrossBorderType) {
 		var ret string
 		return ret
 	}
-
-	return o.CrossBorderType
+	return *o.CrossBorderType
 }
 
-// GetCrossBorderTypeOk returns a tuple with the CrossBorderType field value
+// GetCrossBorderTypeOk returns a tuple with the CrossBorderType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *V3ArchiveOrder) GetCrossBorderTypeOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.CrossBorderType) {
 		return nil, false
 	}
-	return &o.CrossBorderType, true
+	return o.CrossBorderType, true
 }
 
-// SetCrossBorderType sets field value
+// HasCrossBorderType returns a boolean if a field has been set.
+func (o *V3ArchiveOrder) HasCrossBorderType() bool {
+	if o != nil && !IsNil(o.CrossBorderType) {
+		return true
+	}
+
+	return false
+}
+
+// SetCrossBorderType gets a reference to the given string and assigns it to the CrossBorderType field.
 func (o *V3ArchiveOrder) SetCrossBorderType(v string) {
-	o.CrossBorderType = v
+	o.CrossBorderType = &v
 }
 
-// GetId returns the Id field value
+// GetId returns the Id field value if set, zero value otherwise.
 func (o *V3ArchiveOrder) GetId() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.Id) {
 		var ret int32
 		return ret
 	}
-
-	return o.Id
+	return *o.Id
 }
 
-// GetIdOk returns a tuple with the Id field value
+// GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *V3ArchiveOrder) GetIdOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Id) {
 		return nil, false
 	}
-	return &o.Id, true
+	return o.Id, true
 }
 
-// SetId sets field value
+// HasId returns a boolean if a field has been set.
+func (o *V3ArchiveOrder) HasId() bool {
+	if o != nil && !IsNil(o.Id) {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given int32 and assigns it to the Id field.
 func (o *V3ArchiveOrder) SetId(v int32) {
-	o.Id = v
+	o.Id = &v
 }
 
-// GetIsZeroOrder returns the IsZeroOrder field value
+// GetIsZeroOrder returns the IsZeroOrder field value if set, zero value otherwise.
 func (o *V3ArchiveOrder) GetIsZeroOrder() bool {
-	if o == nil {
+	if o == nil || IsNil(o.IsZeroOrder) {
 		var ret bool
 		return ret
 	}
-
-	return o.IsZeroOrder
+	return *o.IsZeroOrder
 }
 
-// GetIsZeroOrderOk returns a tuple with the IsZeroOrder field value
+// GetIsZeroOrderOk returns a tuple with the IsZeroOrder field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *V3ArchiveOrder) GetIsZeroOrderOk() (*bool, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.IsZeroOrder) {
 		return nil, false
 	}
-	return &o.IsZeroOrder, true
+	return o.IsZeroOrder, true
 }
 
-// SetIsZeroOrder sets field value
+// HasIsZeroOrder returns a boolean if a field has been set.
+func (o *V3ArchiveOrder) HasIsZeroOrder() bool {
+	if o != nil && !IsNil(o.IsZeroOrder) {
+		return true
+	}
+
+	return false
+}
+
+// SetIsZeroOrder gets a reference to the given bool and assigns it to the IsZeroOrder field.
 func (o *V3ArchiveOrder) SetIsZeroOrder(v bool) {
-	o.IsZeroOrder = v
+	o.IsZeroOrder = &v
 }
 
-// GetMetaDetails returns the MetaDetails field value
+// GetMetaDetails returns the MetaDetails field value if set, zero value otherwise.
 func (o *V3ArchiveOrder) GetMetaDetails() []V3ArchiveOrderMetaDetailsInner {
-	if o == nil {
+	if o == nil || IsNil(o.MetaDetails) {
 		var ret []V3ArchiveOrderMetaDetailsInner
 		return ret
 	}
-
 	return o.MetaDetails
 }
 
-// GetMetaDetailsOk returns a tuple with the MetaDetails field value
+// GetMetaDetailsOk returns a tuple with the MetaDetails field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *V3ArchiveOrder) GetMetaDetailsOk() ([]V3ArchiveOrderMetaDetailsInner, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.MetaDetails) {
 		return nil, false
 	}
 	return o.MetaDetails, true
 }
 
-// SetMetaDetails sets field value
+// HasMetaDetails returns a boolean if a field has been set.
+func (o *V3ArchiveOrder) HasMetaDetails() bool {
+	if o != nil && !IsNil(o.MetaDetails) {
+		return true
+	}
+
+	return false
+}
+
+// SetMetaDetails gets a reference to the given []V3ArchiveOrderMetaDetailsInner and assigns it to the MetaDetails field.
 func (o *V3ArchiveOrder) SetMetaDetails(v []V3ArchiveOrderMetaDetailsInner) {
 	o.MetaDetails = v
 }
 
-// GetOptions returns the Options field value
+// GetOptions returns the Options field value if set, zero value otherwise.
 func (o *V3ArchiveOrder) GetOptions() V3ArchiveOrderOptions {
-	if o == nil {
+	if o == nil || IsNil(o.Options) {
 		var ret V3ArchiveOrderOptions
 		return ret
 	}
-
-	return o.Options
+	return *o.Options
 }
 
-// GetOptionsOk returns a tuple with the Options field value
+// GetOptionsOk returns a tuple with the Options field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *V3ArchiveOrder) GetOptionsOk() (*V3ArchiveOrderOptions, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Options) {
 		return nil, false
 	}
-	return &o.Options, true
+	return o.Options, true
 }
 
-// SetOptions sets field value
+// HasOptions returns a boolean if a field has been set.
+func (o *V3ArchiveOrder) HasOptions() bool {
+	if o != nil && !IsNil(o.Options) {
+		return true
+	}
+
+	return false
+}
+
+// SetOptions gets a reference to the given V3ArchiveOrderOptions and assigns it to the Options field.
 func (o *V3ArchiveOrder) SetOptions(v V3ArchiveOrderOptions) {
-	o.Options = v
+	o.Options = &v
 }
 
-// GetOrderUid returns the OrderUid field value
+// GetOrderUid returns the OrderUid field value if set, zero value otherwise.
 func (o *V3ArchiveOrder) GetOrderUid() string {
-	if o == nil {
+	if o == nil || IsNil(o.OrderUid) {
 		var ret string
 		return ret
 	}
-
-	return o.OrderUid
+	return *o.OrderUid
 }
 
-// GetOrderUidOk returns a tuple with the OrderUid field value
+// GetOrderUidOk returns a tuple with the OrderUid field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *V3ArchiveOrder) GetOrderUidOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.OrderUid) {
 		return nil, false
 	}
-	return &o.OrderUid, true
+	return o.OrderUid, true
 }
 
-// SetOrderUid sets field value
+// HasOrderUid returns a boolean if a field has been set.
+func (o *V3ArchiveOrder) HasOrderUid() bool {
+	if o != nil && !IsNil(o.OrderUid) {
+		return true
+	}
+
+	return false
+}
+
+// SetOrderUid gets a reference to the given string and assigns it to the OrderUid field.
 func (o *V3ArchiveOrder) SetOrderUid(v string) {
-	o.OrderUid = v
+	o.OrderUid = &v
 }
 
-// GetPriceInfo returns the PriceInfo field value
+// GetPriceInfo returns the PriceInfo field value if set, zero value otherwise.
 func (o *V3ArchiveOrder) GetPriceInfo() V3ArchiveOrderPriceInfo {
-	if o == nil {
+	if o == nil || IsNil(o.PriceInfo) {
 		var ret V3ArchiveOrderPriceInfo
 		return ret
 	}
-
-	return o.PriceInfo
+	return *o.PriceInfo
 }
 
-// GetPriceInfoOk returns a tuple with the PriceInfo field value
+// GetPriceInfoOk returns a tuple with the PriceInfo field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *V3ArchiveOrder) GetPriceInfoOk() (*V3ArchiveOrderPriceInfo, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.PriceInfo) {
 		return nil, false
 	}
-	return &o.PriceInfo, true
+	return o.PriceInfo, true
 }
 
-// SetPriceInfo sets field value
+// HasPriceInfo returns a boolean if a field has been set.
+func (o *V3ArchiveOrder) HasPriceInfo() bool {
+	if o != nil && !IsNil(o.PriceInfo) {
+		return true
+	}
+
+	return false
+}
+
+// SetPriceInfo gets a reference to the given V3ArchiveOrderPriceInfo and assigns it to the PriceInfo field.
 func (o *V3ArchiveOrder) SetPriceInfo(v V3ArchiveOrderPriceInfo) {
-	o.PriceInfo = v
+	o.PriceInfo = &v
 }
 
-// GetProduct returns the Product field value
+// GetProduct returns the Product field value if set, zero value otherwise.
 func (o *V3ArchiveOrder) GetProduct() V3ArchiveOrderProduct {
-	if o == nil {
+	if o == nil || IsNil(o.Product) {
 		var ret V3ArchiveOrderProduct
 		return ret
 	}
-
-	return o.Product
+	return *o.Product
 }
 
-// GetProductOk returns a tuple with the Product field value
+// GetProductOk returns a tuple with the Product field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *V3ArchiveOrder) GetProductOk() (*V3ArchiveOrderProduct, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Product) {
 		return nil, false
 	}
-	return &o.Product, true
+	return o.Product, true
 }
 
-// SetProduct sets field value
+// HasProduct returns a boolean if a field has been set.
+func (o *V3ArchiveOrder) HasProduct() bool {
+	if o != nil && !IsNil(o.Product) {
+		return true
+	}
+
+	return false
+}
+
+// SetProduct gets a reference to the given V3ArchiveOrderProduct and assigns it to the Product field.
 func (o *V3ArchiveOrder) SetProduct(v V3ArchiveOrderProduct) {
-	o.Product = v
+	o.Product = &v
 }
 
-// GetRid returns the Rid field value
+// GetRid returns the Rid field value if set, zero value otherwise.
 func (o *V3ArchiveOrder) GetRid() string {
-	if o == nil {
+	if o == nil || IsNil(o.Rid) {
 		var ret string
 		return ret
 	}
-
-	return o.Rid
+	return *o.Rid
 }
 
-// GetRidOk returns a tuple with the Rid field value
+// GetRidOk returns a tuple with the Rid field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *V3ArchiveOrder) GetRidOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Rid) {
 		return nil, false
 	}
-	return &o.Rid, true
+	return o.Rid, true
 }
 
-// SetRid sets field value
+// HasRid returns a boolean if a field has been set.
+func (o *V3ArchiveOrder) HasRid() bool {
+	if o != nil && !IsNil(o.Rid) {
+		return true
+	}
+
+	return false
+}
+
+// SetRid gets a reference to the given string and assigns it to the Rid field.
 func (o *V3ArchiveOrder) SetRid(v string) {
-	o.Rid = v
+	o.Rid = &v
 }
 
-// GetScanPrice returns the ScanPrice field value
-// If the value is explicit nil, the zero value for int32 will be returned
+// GetScanPrice returns the ScanPrice field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *V3ArchiveOrder) GetScanPrice() int32 {
-	if o == nil || o.ScanPrice.Get() == nil {
+	if o == nil || IsNil(o.ScanPrice.Get()) {
 		var ret int32
 		return ret
 	}
-
 	return *o.ScanPrice.Get()
 }
 
-// GetScanPriceOk returns a tuple with the ScanPrice field value
+// GetScanPriceOk returns a tuple with the ScanPrice field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *V3ArchiveOrder) GetScanPriceOk() (*int32, bool) {
@@ -428,71 +526,104 @@ func (o *V3ArchiveOrder) GetScanPriceOk() (*int32, bool) {
 	return o.ScanPrice.Get(), o.ScanPrice.IsSet()
 }
 
-// SetScanPrice sets field value
+// HasScanPrice returns a boolean if a field has been set.
+func (o *V3ArchiveOrder) HasScanPrice() bool {
+	if o != nil && o.ScanPrice.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetScanPrice gets a reference to the given NullableInt32 and assigns it to the ScanPrice field.
 func (o *V3ArchiveOrder) SetScanPrice(v int32) {
 	o.ScanPrice.Set(&v)
 }
 
-// GetStatus returns the Status field value
+// SetScanPriceNil sets the value for ScanPrice to be an explicit nil
+func (o *V3ArchiveOrder) SetScanPriceNil() {
+	o.ScanPrice.Set(nil)
+}
+
+// UnsetScanPrice ensures that no value is present for ScanPrice, not even an explicit nil
+func (o *V3ArchiveOrder) UnsetScanPrice() {
+	o.ScanPrice.Unset()
+}
+
+// GetStatus returns the Status field value if set, zero value otherwise.
 func (o *V3ArchiveOrder) GetStatus() V3ArchiveOrderStatus {
-	if o == nil {
+	if o == nil || IsNil(o.Status) {
 		var ret V3ArchiveOrderStatus
 		return ret
 	}
-
-	return o.Status
+	return *o.Status
 }
 
-// GetStatusOk returns a tuple with the Status field value
+// GetStatusOk returns a tuple with the Status field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *V3ArchiveOrder) GetStatusOk() (*V3ArchiveOrderStatus, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Status) {
 		return nil, false
 	}
-	return &o.Status, true
+	return o.Status, true
 }
 
-// SetStatus sets field value
+// HasStatus returns a boolean if a field has been set.
+func (o *V3ArchiveOrder) HasStatus() bool {
+	if o != nil && !IsNil(o.Status) {
+		return true
+	}
+
+	return false
+}
+
+// SetStatus gets a reference to the given V3ArchiveOrderStatus and assigns it to the Status field.
 func (o *V3ArchiveOrder) SetStatus(v V3ArchiveOrderStatus) {
-	o.Status = v
+	o.Status = &v
 }
 
-// GetStickerId returns the StickerId field value
+// GetStickerId returns the StickerId field value if set, zero value otherwise.
 func (o *V3ArchiveOrder) GetStickerId() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.StickerId) {
 		var ret int32
 		return ret
 	}
-
-	return o.StickerId
+	return *o.StickerId
 }
 
-// GetStickerIdOk returns a tuple with the StickerId field value
+// GetStickerIdOk returns a tuple with the StickerId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *V3ArchiveOrder) GetStickerIdOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.StickerId) {
 		return nil, false
 	}
-	return &o.StickerId, true
+	return o.StickerId, true
 }
 
-// SetStickerId sets field value
+// HasStickerId returns a boolean if a field has been set.
+func (o *V3ArchiveOrder) HasStickerId() bool {
+	if o != nil && !IsNil(o.StickerId) {
+		return true
+	}
+
+	return false
+}
+
+// SetStickerId gets a reference to the given int32 and assigns it to the StickerId field.
 func (o *V3ArchiveOrder) SetStickerId(v int32) {
-	o.StickerId = v
+	o.StickerId = &v
 }
 
-// GetSupplyId returns the SupplyId field value
-// If the value is explicit nil, the zero value for string will be returned
+// GetSupplyId returns the SupplyId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *V3ArchiveOrder) GetSupplyId() string {
-	if o == nil || o.SupplyId.Get() == nil {
+	if o == nil || IsNil(o.SupplyId.Get()) {
 		var ret string
 		return ret
 	}
-
 	return *o.SupplyId.Get()
 }
 
-// GetSupplyIdOk returns a tuple with the SupplyId field value
+// GetSupplyIdOk returns a tuple with the SupplyId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *V3ArchiveOrder) GetSupplyIdOk() (*string, bool) {
@@ -502,33 +633,60 @@ func (o *V3ArchiveOrder) GetSupplyIdOk() (*string, bool) {
 	return o.SupplyId.Get(), o.SupplyId.IsSet()
 }
 
-// SetSupplyId sets field value
+// HasSupplyId returns a boolean if a field has been set.
+func (o *V3ArchiveOrder) HasSupplyId() bool {
+	if o != nil && o.SupplyId.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetSupplyId gets a reference to the given NullableString and assigns it to the SupplyId field.
 func (o *V3ArchiveOrder) SetSupplyId(v string) {
 	o.SupplyId.Set(&v)
 }
 
-// GetWarehouseId returns the WarehouseId field value
+// SetSupplyIdNil sets the value for SupplyId to be an explicit nil
+func (o *V3ArchiveOrder) SetSupplyIdNil() {
+	o.SupplyId.Set(nil)
+}
+
+// UnsetSupplyId ensures that no value is present for SupplyId, not even an explicit nil
+func (o *V3ArchiveOrder) UnsetSupplyId() {
+	o.SupplyId.Unset()
+}
+
+// GetWarehouseId returns the WarehouseId field value if set, zero value otherwise.
 func (o *V3ArchiveOrder) GetWarehouseId() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.WarehouseId) {
 		var ret int32
 		return ret
 	}
-
-	return o.WarehouseId
+	return *o.WarehouseId
 }
 
-// GetWarehouseIdOk returns a tuple with the WarehouseId field value
+// GetWarehouseIdOk returns a tuple with the WarehouseId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *V3ArchiveOrder) GetWarehouseIdOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.WarehouseId) {
 		return nil, false
 	}
-	return &o.WarehouseId, true
+	return o.WarehouseId, true
 }
 
-// SetWarehouseId sets field value
+// HasWarehouseId returns a boolean if a field has been set.
+func (o *V3ArchiveOrder) HasWarehouseId() bool {
+	if o != nil && !IsNil(o.WarehouseId) {
+		return true
+	}
+
+	return false
+}
+
+// SetWarehouseId gets a reference to the given int32 and assigns it to the WarehouseId field.
 func (o *V3ArchiveOrder) SetWarehouseId(v int32) {
-	o.WarehouseId = v
+	o.WarehouseId = &v
 }
 
 func (o V3ArchiveOrder) MarshalJSON() ([]byte, error) {
@@ -541,79 +699,61 @@ func (o V3ArchiveOrder) MarshalJSON() ([]byte, error) {
 
 func (o V3ArchiveOrder) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["cargoType"] = o.CargoType
-	toSerialize["colorCode"] = o.ColorCode.Get()
-	toSerialize["createdAt"] = o.CreatedAt
-	toSerialize["crossBorder"] = o.CrossBorder.Get()
-	toSerialize["crossBorderType"] = o.CrossBorderType
-	toSerialize["id"] = o.Id
-	toSerialize["isZeroOrder"] = o.IsZeroOrder
-	toSerialize["metaDetails"] = o.MetaDetails
-	toSerialize["options"] = o.Options
-	toSerialize["orderUid"] = o.OrderUid
-	toSerialize["priceInfo"] = o.PriceInfo
-	toSerialize["product"] = o.Product
-	toSerialize["rid"] = o.Rid
-	toSerialize["scanPrice"] = o.ScanPrice.Get()
-	toSerialize["status"] = o.Status
-	toSerialize["stickerId"] = o.StickerId
-	toSerialize["supplyId"] = o.SupplyId.Get()
-	toSerialize["warehouseId"] = o.WarehouseId
+	if !IsNil(o.CargoType) {
+		toSerialize["cargoType"] = o.CargoType
+	}
+	if o.ColorCode.IsSet() {
+		toSerialize["colorCode"] = o.ColorCode.Get()
+	}
+	if !IsNil(o.CreatedAt) {
+		toSerialize["createdAt"] = o.CreatedAt
+	}
+	if o.CrossBorder.IsSet() {
+		toSerialize["crossBorder"] = o.CrossBorder.Get()
+	}
+	if !IsNil(o.CrossBorderType) {
+		toSerialize["crossBorderType"] = o.CrossBorderType
+	}
+	if !IsNil(o.Id) {
+		toSerialize["id"] = o.Id
+	}
+	if !IsNil(o.IsZeroOrder) {
+		toSerialize["isZeroOrder"] = o.IsZeroOrder
+	}
+	if !IsNil(o.MetaDetails) {
+		toSerialize["metaDetails"] = o.MetaDetails
+	}
+	if !IsNil(o.Options) {
+		toSerialize["options"] = o.Options
+	}
+	if !IsNil(o.OrderUid) {
+		toSerialize["orderUid"] = o.OrderUid
+	}
+	if !IsNil(o.PriceInfo) {
+		toSerialize["priceInfo"] = o.PriceInfo
+	}
+	if !IsNil(o.Product) {
+		toSerialize["product"] = o.Product
+	}
+	if !IsNil(o.Rid) {
+		toSerialize["rid"] = o.Rid
+	}
+	if o.ScanPrice.IsSet() {
+		toSerialize["scanPrice"] = o.ScanPrice.Get()
+	}
+	if !IsNil(o.Status) {
+		toSerialize["status"] = o.Status
+	}
+	if !IsNil(o.StickerId) {
+		toSerialize["stickerId"] = o.StickerId
+	}
+	if o.SupplyId.IsSet() {
+		toSerialize["supplyId"] = o.SupplyId.Get()
+	}
+	if !IsNil(o.WarehouseId) {
+		toSerialize["warehouseId"] = o.WarehouseId
+	}
 	return toSerialize, nil
-}
-
-func (o *V3ArchiveOrder) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"cargoType",
-		"colorCode",
-		"createdAt",
-		"crossBorder",
-		"crossBorderType",
-		"id",
-		"isZeroOrder",
-		"metaDetails",
-		"options",
-		"orderUid",
-		"priceInfo",
-		"product",
-		"rid",
-		"scanPrice",
-		"status",
-		"stickerId",
-		"supplyId",
-		"warehouseId",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varV3ArchiveOrder := _V3ArchiveOrder{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varV3ArchiveOrder)
-
-	if err != nil {
-		return err
-	}
-
-	*o = V3ArchiveOrder(varV3ArchiveOrder)
-
-	return err
 }
 
 type NullableV3ArchiveOrder struct {

@@ -11,9 +11,7 @@ API version: general
 package general
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the GetUsersResponseUsersInner type satisfies the MappedNullable interface at compile time
@@ -22,53 +20,38 @@ var _ MappedNullable = &GetUsersResponseUsersInner{}
 // GetUsersResponseUsersInner struct for GetUsersResponseUsersInner
 type GetUsersResponseUsersInner struct {
 	// ID пользователя
-	Id int32 `json:"id"`
+	Id *int32 `json:"id,omitempty"`
 	// Роль пользователя:   * `user` — пользователь, который активировал доступ   * ` ` (пустая строка) — пользователь, который не активировал доступ
-	Role string `json:"role"`
+	Role *string `json:"role,omitempty"`
 	// Должность пользователя
-	Position string `json:"position"`
+	Position *string `json:"position,omitempty"`
 	// Номер телефона пользователя
-	Phone string `json:"phone"`
+	Phone *string `json:"phone,omitempty"`
 	// Email пользователя
-	Email string `json:"email"`
+	Email *string `json:"email,omitempty"`
 	// Является ли пользователь владельцем профиля продавца
-	IsOwner bool `json:"isOwner"`
+	IsOwner *bool `json:"isOwner,omitempty"`
 	// Имя пользователя
-	FirstName string `json:"firstName"`
+	FirstName *string `json:"firstName,omitempty"`
 	// Фамилия пользователя
-	SecondName string `json:"secondName"`
+	SecondName *string `json:"secondName,omitempty"`
 	// Отчество пользователя
-	Patronymic string `json:"patronymic"`
+	Patronymic *string `json:"patronymic,omitempty"`
 	// Может ли пользователь одобрять возвраты товаров
-	GoodsReturn bool `json:"goodsReturn"`
+	GoodsReturn *bool `json:"goodsReturn,omitempty"`
 	// Приглашён ли пользователь
-	IsInvitee   bool                                          `json:"isInvitee"`
-	InviteeInfo NullableGetUsersResponseUsersInnerInviteeInfo `json:"inviteeInfo"`
+	IsInvitee   *bool                                         `json:"isInvitee,omitempty"`
+	InviteeInfo NullableGetUsersResponseUsersInnerInviteeInfo `json:"inviteeInfo,omitempty"`
 	// Настройки доступа к разделам профиля продавца
-	Access []GetUsersResponseUsersInnerAccessInner `json:"access"`
+	Access []GetUsersResponseUsersInnerAccessInner `json:"access,omitempty"`
 }
-
-type _GetUsersResponseUsersInner GetUsersResponseUsersInner
 
 // NewGetUsersResponseUsersInner instantiates a new GetUsersResponseUsersInner object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetUsersResponseUsersInner(id int32, role string, position string, phone string, email string, isOwner bool, firstName string, secondName string, patronymic string, goodsReturn bool, isInvitee bool, inviteeInfo NullableGetUsersResponseUsersInnerInviteeInfo, access []GetUsersResponseUsersInnerAccessInner) *GetUsersResponseUsersInner {
+func NewGetUsersResponseUsersInner() *GetUsersResponseUsersInner {
 	this := GetUsersResponseUsersInner{}
-	this.Id = id
-	this.Role = role
-	this.Position = position
-	this.Phone = phone
-	this.Email = email
-	this.IsOwner = isOwner
-	this.FirstName = firstName
-	this.SecondName = secondName
-	this.Patronymic = patronymic
-	this.GoodsReturn = goodsReturn
-	this.IsInvitee = isInvitee
-	this.InviteeInfo = inviteeInfo
-	this.Access = access
 	return &this
 }
 
@@ -80,282 +63,368 @@ func NewGetUsersResponseUsersInnerWithDefaults() *GetUsersResponseUsersInner {
 	return &this
 }
 
-// GetId returns the Id field value
+// GetId returns the Id field value if set, zero value otherwise.
 func (o *GetUsersResponseUsersInner) GetId() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.Id) {
 		var ret int32
 		return ret
 	}
-
-	return o.Id
+	return *o.Id
 }
 
-// GetIdOk returns a tuple with the Id field value
+// GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetUsersResponseUsersInner) GetIdOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Id) {
 		return nil, false
 	}
-	return &o.Id, true
+	return o.Id, true
 }
 
-// SetId sets field value
+// HasId returns a boolean if a field has been set.
+func (o *GetUsersResponseUsersInner) HasId() bool {
+	if o != nil && !IsNil(o.Id) {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given int32 and assigns it to the Id field.
 func (o *GetUsersResponseUsersInner) SetId(v int32) {
-	o.Id = v
+	o.Id = &v
 }
 
-// GetRole returns the Role field value
+// GetRole returns the Role field value if set, zero value otherwise.
 func (o *GetUsersResponseUsersInner) GetRole() string {
-	if o == nil {
+	if o == nil || IsNil(o.Role) {
 		var ret string
 		return ret
 	}
-
-	return o.Role
+	return *o.Role
 }
 
-// GetRoleOk returns a tuple with the Role field value
+// GetRoleOk returns a tuple with the Role field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetUsersResponseUsersInner) GetRoleOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Role) {
 		return nil, false
 	}
-	return &o.Role, true
+	return o.Role, true
 }
 
-// SetRole sets field value
+// HasRole returns a boolean if a field has been set.
+func (o *GetUsersResponseUsersInner) HasRole() bool {
+	if o != nil && !IsNil(o.Role) {
+		return true
+	}
+
+	return false
+}
+
+// SetRole gets a reference to the given string and assigns it to the Role field.
 func (o *GetUsersResponseUsersInner) SetRole(v string) {
-	o.Role = v
+	o.Role = &v
 }
 
-// GetPosition returns the Position field value
+// GetPosition returns the Position field value if set, zero value otherwise.
 func (o *GetUsersResponseUsersInner) GetPosition() string {
-	if o == nil {
+	if o == nil || IsNil(o.Position) {
 		var ret string
 		return ret
 	}
-
-	return o.Position
+	return *o.Position
 }
 
-// GetPositionOk returns a tuple with the Position field value
+// GetPositionOk returns a tuple with the Position field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetUsersResponseUsersInner) GetPositionOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Position) {
 		return nil, false
 	}
-	return &o.Position, true
+	return o.Position, true
 }
 
-// SetPosition sets field value
+// HasPosition returns a boolean if a field has been set.
+func (o *GetUsersResponseUsersInner) HasPosition() bool {
+	if o != nil && !IsNil(o.Position) {
+		return true
+	}
+
+	return false
+}
+
+// SetPosition gets a reference to the given string and assigns it to the Position field.
 func (o *GetUsersResponseUsersInner) SetPosition(v string) {
-	o.Position = v
+	o.Position = &v
 }
 
-// GetPhone returns the Phone field value
+// GetPhone returns the Phone field value if set, zero value otherwise.
 func (o *GetUsersResponseUsersInner) GetPhone() string {
-	if o == nil {
+	if o == nil || IsNil(o.Phone) {
 		var ret string
 		return ret
 	}
-
-	return o.Phone
+	return *o.Phone
 }
 
-// GetPhoneOk returns a tuple with the Phone field value
+// GetPhoneOk returns a tuple with the Phone field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetUsersResponseUsersInner) GetPhoneOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Phone) {
 		return nil, false
 	}
-	return &o.Phone, true
+	return o.Phone, true
 }
 
-// SetPhone sets field value
+// HasPhone returns a boolean if a field has been set.
+func (o *GetUsersResponseUsersInner) HasPhone() bool {
+	if o != nil && !IsNil(o.Phone) {
+		return true
+	}
+
+	return false
+}
+
+// SetPhone gets a reference to the given string and assigns it to the Phone field.
 func (o *GetUsersResponseUsersInner) SetPhone(v string) {
-	o.Phone = v
+	o.Phone = &v
 }
 
-// GetEmail returns the Email field value
+// GetEmail returns the Email field value if set, zero value otherwise.
 func (o *GetUsersResponseUsersInner) GetEmail() string {
-	if o == nil {
+	if o == nil || IsNil(o.Email) {
 		var ret string
 		return ret
 	}
-
-	return o.Email
+	return *o.Email
 }
 
-// GetEmailOk returns a tuple with the Email field value
+// GetEmailOk returns a tuple with the Email field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetUsersResponseUsersInner) GetEmailOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Email) {
 		return nil, false
 	}
-	return &o.Email, true
+	return o.Email, true
 }
 
-// SetEmail sets field value
+// HasEmail returns a boolean if a field has been set.
+func (o *GetUsersResponseUsersInner) HasEmail() bool {
+	if o != nil && !IsNil(o.Email) {
+		return true
+	}
+
+	return false
+}
+
+// SetEmail gets a reference to the given string and assigns it to the Email field.
 func (o *GetUsersResponseUsersInner) SetEmail(v string) {
-	o.Email = v
+	o.Email = &v
 }
 
-// GetIsOwner returns the IsOwner field value
+// GetIsOwner returns the IsOwner field value if set, zero value otherwise.
 func (o *GetUsersResponseUsersInner) GetIsOwner() bool {
-	if o == nil {
+	if o == nil || IsNil(o.IsOwner) {
 		var ret bool
 		return ret
 	}
-
-	return o.IsOwner
+	return *o.IsOwner
 }
 
-// GetIsOwnerOk returns a tuple with the IsOwner field value
+// GetIsOwnerOk returns a tuple with the IsOwner field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetUsersResponseUsersInner) GetIsOwnerOk() (*bool, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.IsOwner) {
 		return nil, false
 	}
-	return &o.IsOwner, true
+	return o.IsOwner, true
 }
 
-// SetIsOwner sets field value
+// HasIsOwner returns a boolean if a field has been set.
+func (o *GetUsersResponseUsersInner) HasIsOwner() bool {
+	if o != nil && !IsNil(o.IsOwner) {
+		return true
+	}
+
+	return false
+}
+
+// SetIsOwner gets a reference to the given bool and assigns it to the IsOwner field.
 func (o *GetUsersResponseUsersInner) SetIsOwner(v bool) {
-	o.IsOwner = v
+	o.IsOwner = &v
 }
 
-// GetFirstName returns the FirstName field value
+// GetFirstName returns the FirstName field value if set, zero value otherwise.
 func (o *GetUsersResponseUsersInner) GetFirstName() string {
-	if o == nil {
+	if o == nil || IsNil(o.FirstName) {
 		var ret string
 		return ret
 	}
-
-	return o.FirstName
+	return *o.FirstName
 }
 
-// GetFirstNameOk returns a tuple with the FirstName field value
+// GetFirstNameOk returns a tuple with the FirstName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetUsersResponseUsersInner) GetFirstNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.FirstName) {
 		return nil, false
 	}
-	return &o.FirstName, true
+	return o.FirstName, true
 }
 
-// SetFirstName sets field value
+// HasFirstName returns a boolean if a field has been set.
+func (o *GetUsersResponseUsersInner) HasFirstName() bool {
+	if o != nil && !IsNil(o.FirstName) {
+		return true
+	}
+
+	return false
+}
+
+// SetFirstName gets a reference to the given string and assigns it to the FirstName field.
 func (o *GetUsersResponseUsersInner) SetFirstName(v string) {
-	o.FirstName = v
+	o.FirstName = &v
 }
 
-// GetSecondName returns the SecondName field value
+// GetSecondName returns the SecondName field value if set, zero value otherwise.
 func (o *GetUsersResponseUsersInner) GetSecondName() string {
-	if o == nil {
+	if o == nil || IsNil(o.SecondName) {
 		var ret string
 		return ret
 	}
-
-	return o.SecondName
+	return *o.SecondName
 }
 
-// GetSecondNameOk returns a tuple with the SecondName field value
+// GetSecondNameOk returns a tuple with the SecondName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetUsersResponseUsersInner) GetSecondNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.SecondName) {
 		return nil, false
 	}
-	return &o.SecondName, true
+	return o.SecondName, true
 }
 
-// SetSecondName sets field value
+// HasSecondName returns a boolean if a field has been set.
+func (o *GetUsersResponseUsersInner) HasSecondName() bool {
+	if o != nil && !IsNil(o.SecondName) {
+		return true
+	}
+
+	return false
+}
+
+// SetSecondName gets a reference to the given string and assigns it to the SecondName field.
 func (o *GetUsersResponseUsersInner) SetSecondName(v string) {
-	o.SecondName = v
+	o.SecondName = &v
 }
 
-// GetPatronymic returns the Patronymic field value
+// GetPatronymic returns the Patronymic field value if set, zero value otherwise.
 func (o *GetUsersResponseUsersInner) GetPatronymic() string {
-	if o == nil {
+	if o == nil || IsNil(o.Patronymic) {
 		var ret string
 		return ret
 	}
-
-	return o.Patronymic
+	return *o.Patronymic
 }
 
-// GetPatronymicOk returns a tuple with the Patronymic field value
+// GetPatronymicOk returns a tuple with the Patronymic field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetUsersResponseUsersInner) GetPatronymicOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Patronymic) {
 		return nil, false
 	}
-	return &o.Patronymic, true
+	return o.Patronymic, true
 }
 
-// SetPatronymic sets field value
+// HasPatronymic returns a boolean if a field has been set.
+func (o *GetUsersResponseUsersInner) HasPatronymic() bool {
+	if o != nil && !IsNil(o.Patronymic) {
+		return true
+	}
+
+	return false
+}
+
+// SetPatronymic gets a reference to the given string and assigns it to the Patronymic field.
 func (o *GetUsersResponseUsersInner) SetPatronymic(v string) {
-	o.Patronymic = v
+	o.Patronymic = &v
 }
 
-// GetGoodsReturn returns the GoodsReturn field value
+// GetGoodsReturn returns the GoodsReturn field value if set, zero value otherwise.
 func (o *GetUsersResponseUsersInner) GetGoodsReturn() bool {
-	if o == nil {
+	if o == nil || IsNil(o.GoodsReturn) {
 		var ret bool
 		return ret
 	}
-
-	return o.GoodsReturn
+	return *o.GoodsReturn
 }
 
-// GetGoodsReturnOk returns a tuple with the GoodsReturn field value
+// GetGoodsReturnOk returns a tuple with the GoodsReturn field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetUsersResponseUsersInner) GetGoodsReturnOk() (*bool, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.GoodsReturn) {
 		return nil, false
 	}
-	return &o.GoodsReturn, true
+	return o.GoodsReturn, true
 }
 
-// SetGoodsReturn sets field value
+// HasGoodsReturn returns a boolean if a field has been set.
+func (o *GetUsersResponseUsersInner) HasGoodsReturn() bool {
+	if o != nil && !IsNil(o.GoodsReturn) {
+		return true
+	}
+
+	return false
+}
+
+// SetGoodsReturn gets a reference to the given bool and assigns it to the GoodsReturn field.
 func (o *GetUsersResponseUsersInner) SetGoodsReturn(v bool) {
-	o.GoodsReturn = v
+	o.GoodsReturn = &v
 }
 
-// GetIsInvitee returns the IsInvitee field value
+// GetIsInvitee returns the IsInvitee field value if set, zero value otherwise.
 func (o *GetUsersResponseUsersInner) GetIsInvitee() bool {
-	if o == nil {
+	if o == nil || IsNil(o.IsInvitee) {
 		var ret bool
 		return ret
 	}
-
-	return o.IsInvitee
+	return *o.IsInvitee
 }
 
-// GetIsInviteeOk returns a tuple with the IsInvitee field value
+// GetIsInviteeOk returns a tuple with the IsInvitee field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetUsersResponseUsersInner) GetIsInviteeOk() (*bool, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.IsInvitee) {
 		return nil, false
 	}
-	return &o.IsInvitee, true
+	return o.IsInvitee, true
 }
 
-// SetIsInvitee sets field value
+// HasIsInvitee returns a boolean if a field has been set.
+func (o *GetUsersResponseUsersInner) HasIsInvitee() bool {
+	if o != nil && !IsNil(o.IsInvitee) {
+		return true
+	}
+
+	return false
+}
+
+// SetIsInvitee gets a reference to the given bool and assigns it to the IsInvitee field.
 func (o *GetUsersResponseUsersInner) SetIsInvitee(v bool) {
-	o.IsInvitee = v
+	o.IsInvitee = &v
 }
 
-// GetInviteeInfo returns the InviteeInfo field value
-// If the value is explicit nil, the zero value for GetUsersResponseUsersInnerInviteeInfo will be returned
+// GetInviteeInfo returns the InviteeInfo field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *GetUsersResponseUsersInner) GetInviteeInfo() GetUsersResponseUsersInnerInviteeInfo {
-	if o == nil || o.InviteeInfo.Get() == nil {
+	if o == nil || IsNil(o.InviteeInfo.Get()) {
 		var ret GetUsersResponseUsersInnerInviteeInfo
 		return ret
 	}
-
 	return *o.InviteeInfo.Get()
 }
 
-// GetInviteeInfoOk returns a tuple with the InviteeInfo field value
+// GetInviteeInfoOk returns a tuple with the InviteeInfo field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GetUsersResponseUsersInner) GetInviteeInfoOk() (*GetUsersResponseUsersInnerInviteeInfo, bool) {
@@ -365,31 +434,58 @@ func (o *GetUsersResponseUsersInner) GetInviteeInfoOk() (*GetUsersResponseUsersI
 	return o.InviteeInfo.Get(), o.InviteeInfo.IsSet()
 }
 
-// SetInviteeInfo sets field value
+// HasInviteeInfo returns a boolean if a field has been set.
+func (o *GetUsersResponseUsersInner) HasInviteeInfo() bool {
+	if o != nil && o.InviteeInfo.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetInviteeInfo gets a reference to the given NullableGetUsersResponseUsersInnerInviteeInfo and assigns it to the InviteeInfo field.
 func (o *GetUsersResponseUsersInner) SetInviteeInfo(v GetUsersResponseUsersInnerInviteeInfo) {
 	o.InviteeInfo.Set(&v)
 }
 
-// GetAccess returns the Access field value
+// SetInviteeInfoNil sets the value for InviteeInfo to be an explicit nil
+func (o *GetUsersResponseUsersInner) SetInviteeInfoNil() {
+	o.InviteeInfo.Set(nil)
+}
+
+// UnsetInviteeInfo ensures that no value is present for InviteeInfo, not even an explicit nil
+func (o *GetUsersResponseUsersInner) UnsetInviteeInfo() {
+	o.InviteeInfo.Unset()
+}
+
+// GetAccess returns the Access field value if set, zero value otherwise.
 func (o *GetUsersResponseUsersInner) GetAccess() []GetUsersResponseUsersInnerAccessInner {
-	if o == nil {
+	if o == nil || IsNil(o.Access) {
 		var ret []GetUsersResponseUsersInnerAccessInner
 		return ret
 	}
-
 	return o.Access
 }
 
-// GetAccessOk returns a tuple with the Access field value
+// GetAccessOk returns a tuple with the Access field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetUsersResponseUsersInner) GetAccessOk() ([]GetUsersResponseUsersInnerAccessInner, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Access) {
 		return nil, false
 	}
 	return o.Access, true
 }
 
-// SetAccess sets field value
+// HasAccess returns a boolean if a field has been set.
+func (o *GetUsersResponseUsersInner) HasAccess() bool {
+	if o != nil && !IsNil(o.Access) {
+		return true
+	}
+
+	return false
+}
+
+// SetAccess gets a reference to the given []GetUsersResponseUsersInnerAccessInner and assigns it to the Access field.
 func (o *GetUsersResponseUsersInner) SetAccess(v []GetUsersResponseUsersInnerAccessInner) {
 	o.Access = v
 }
@@ -404,69 +500,46 @@ func (o GetUsersResponseUsersInner) MarshalJSON() ([]byte, error) {
 
 func (o GetUsersResponseUsersInner) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["id"] = o.Id
-	toSerialize["role"] = o.Role
-	toSerialize["position"] = o.Position
-	toSerialize["phone"] = o.Phone
-	toSerialize["email"] = o.Email
-	toSerialize["isOwner"] = o.IsOwner
-	toSerialize["firstName"] = o.FirstName
-	toSerialize["secondName"] = o.SecondName
-	toSerialize["patronymic"] = o.Patronymic
-	toSerialize["goodsReturn"] = o.GoodsReturn
-	toSerialize["isInvitee"] = o.IsInvitee
-	toSerialize["inviteeInfo"] = o.InviteeInfo.Get()
-	toSerialize["access"] = o.Access
+	if !IsNil(o.Id) {
+		toSerialize["id"] = o.Id
+	}
+	if !IsNil(o.Role) {
+		toSerialize["role"] = o.Role
+	}
+	if !IsNil(o.Position) {
+		toSerialize["position"] = o.Position
+	}
+	if !IsNil(o.Phone) {
+		toSerialize["phone"] = o.Phone
+	}
+	if !IsNil(o.Email) {
+		toSerialize["email"] = o.Email
+	}
+	if !IsNil(o.IsOwner) {
+		toSerialize["isOwner"] = o.IsOwner
+	}
+	if !IsNil(o.FirstName) {
+		toSerialize["firstName"] = o.FirstName
+	}
+	if !IsNil(o.SecondName) {
+		toSerialize["secondName"] = o.SecondName
+	}
+	if !IsNil(o.Patronymic) {
+		toSerialize["patronymic"] = o.Patronymic
+	}
+	if !IsNil(o.GoodsReturn) {
+		toSerialize["goodsReturn"] = o.GoodsReturn
+	}
+	if !IsNil(o.IsInvitee) {
+		toSerialize["isInvitee"] = o.IsInvitee
+	}
+	if o.InviteeInfo.IsSet() {
+		toSerialize["inviteeInfo"] = o.InviteeInfo.Get()
+	}
+	if !IsNil(o.Access) {
+		toSerialize["access"] = o.Access
+	}
 	return toSerialize, nil
-}
-
-func (o *GetUsersResponseUsersInner) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"id",
-		"role",
-		"position",
-		"phone",
-		"email",
-		"isOwner",
-		"firstName",
-		"secondName",
-		"patronymic",
-		"goodsReturn",
-		"isInvitee",
-		"inviteeInfo",
-		"access",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varGetUsersResponseUsersInner := _GetUsersResponseUsersInner{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varGetUsersResponseUsersInner)
-
-	if err != nil {
-		return err
-	}
-
-	*o = GetUsersResponseUsersInner(varGetUsersResponseUsersInner)
-
-	return err
 }
 
 type NullableGetUsersResponseUsersInner struct {

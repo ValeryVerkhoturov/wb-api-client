@@ -11,9 +11,7 @@ API version: order
 package orders_fbs
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the ShippingPoint type satisfies the MappedNullable interface at compile time
@@ -22,42 +20,31 @@ var _ MappedNullable = &ShippingPoint{}
 // ShippingPoint Данные пункта отгрузки
 type ShippingPoint struct {
 	// ID пункта отгрузки
-	Id int64 `json:"id"`
+	Id *int64 `json:"id,omitempty"`
 	// Название
-	Name string `json:"name"`
+	Name *string `json:"name,omitempty"`
 	// Адрес
-	Address string `json:"address"`
+	Address *string `json:"address,omitempty"`
 	// Населённый пункт
-	City string `json:"city"`
+	City *string `json:"city,omitempty"`
 	// Тип пункта отгрузки:   - `sc` — сортировочный центр   - `sw` — склад   - `pp` — ПВЗ
-	OfficeType string `json:"officeType"`
+	OfficeType *string `json:"officeType,omitempty"`
 	// Типы товаров, которые принимает пункт отгрузки:   - `1` — малогабаритный товар (МГТ)   - `2` — сверхгабаритный товар (СГТ)   - `3` — крупногабаритный товар (КГТ+)
-	CargoTypes []int32 `json:"cargoTypes"`
+	CargoTypes []int32 `json:"cargoTypes,omitempty"`
 	// Широта
-	Latitude float32 `json:"latitude"`
+	Latitude *float32 `json:"latitude,omitempty"`
 	// Долгота
-	Longitude float32 `json:"longitude"`
+	Longitude *float32 `json:"longitude,omitempty"`
 	// Услуга **Фулфилмент в СЦ** для поставки по модели FBS:   - `true` — доступна   - `false` — недоступна
-	Fulfillment bool `json:"fulfillment"`
+	Fulfillment *bool `json:"fulfillment,omitempty"`
 }
-
-type _ShippingPoint ShippingPoint
 
 // NewShippingPoint instantiates a new ShippingPoint object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewShippingPoint(id int64, name string, address string, city string, officeType string, cargoTypes []int32, latitude float32, longitude float32, fulfillment bool) *ShippingPoint {
+func NewShippingPoint() *ShippingPoint {
 	this := ShippingPoint{}
-	this.Id = id
-	this.Name = name
-	this.Address = address
-	this.City = city
-	this.OfficeType = officeType
-	this.CargoTypes = cargoTypes
-	this.Latitude = latitude
-	this.Longitude = longitude
-	this.Fulfillment = fulfillment
 	return &this
 }
 
@@ -69,220 +56,292 @@ func NewShippingPointWithDefaults() *ShippingPoint {
 	return &this
 }
 
-// GetId returns the Id field value
+// GetId returns the Id field value if set, zero value otherwise.
 func (o *ShippingPoint) GetId() int64 {
-	if o == nil {
+	if o == nil || IsNil(o.Id) {
 		var ret int64
 		return ret
 	}
-
-	return o.Id
+	return *o.Id
 }
 
-// GetIdOk returns a tuple with the Id field value
+// GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ShippingPoint) GetIdOk() (*int64, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Id) {
 		return nil, false
 	}
-	return &o.Id, true
+	return o.Id, true
 }
 
-// SetId sets field value
+// HasId returns a boolean if a field has been set.
+func (o *ShippingPoint) HasId() bool {
+	if o != nil && !IsNil(o.Id) {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given int64 and assigns it to the Id field.
 func (o *ShippingPoint) SetId(v int64) {
-	o.Id = v
+	o.Id = &v
 }
 
-// GetName returns the Name field value
+// GetName returns the Name field value if set, zero value otherwise.
 func (o *ShippingPoint) GetName() string {
-	if o == nil {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
-
-	return o.Name
+	return *o.Name
 }
 
-// GetNameOk returns a tuple with the Name field value
+// GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ShippingPoint) GetNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Name) {
 		return nil, false
 	}
-	return &o.Name, true
+	return o.Name, true
 }
 
-// SetName sets field value
+// HasName returns a boolean if a field has been set.
+func (o *ShippingPoint) HasName() bool {
+	if o != nil && !IsNil(o.Name) {
+		return true
+	}
+
+	return false
+}
+
+// SetName gets a reference to the given string and assigns it to the Name field.
 func (o *ShippingPoint) SetName(v string) {
-	o.Name = v
+	o.Name = &v
 }
 
-// GetAddress returns the Address field value
+// GetAddress returns the Address field value if set, zero value otherwise.
 func (o *ShippingPoint) GetAddress() string {
-	if o == nil {
+	if o == nil || IsNil(o.Address) {
 		var ret string
 		return ret
 	}
-
-	return o.Address
+	return *o.Address
 }
 
-// GetAddressOk returns a tuple with the Address field value
+// GetAddressOk returns a tuple with the Address field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ShippingPoint) GetAddressOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Address) {
 		return nil, false
 	}
-	return &o.Address, true
+	return o.Address, true
 }
 
-// SetAddress sets field value
+// HasAddress returns a boolean if a field has been set.
+func (o *ShippingPoint) HasAddress() bool {
+	if o != nil && !IsNil(o.Address) {
+		return true
+	}
+
+	return false
+}
+
+// SetAddress gets a reference to the given string and assigns it to the Address field.
 func (o *ShippingPoint) SetAddress(v string) {
-	o.Address = v
+	o.Address = &v
 }
 
-// GetCity returns the City field value
+// GetCity returns the City field value if set, zero value otherwise.
 func (o *ShippingPoint) GetCity() string {
-	if o == nil {
+	if o == nil || IsNil(o.City) {
 		var ret string
 		return ret
 	}
-
-	return o.City
+	return *o.City
 }
 
-// GetCityOk returns a tuple with the City field value
+// GetCityOk returns a tuple with the City field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ShippingPoint) GetCityOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.City) {
 		return nil, false
 	}
-	return &o.City, true
+	return o.City, true
 }
 
-// SetCity sets field value
+// HasCity returns a boolean if a field has been set.
+func (o *ShippingPoint) HasCity() bool {
+	if o != nil && !IsNil(o.City) {
+		return true
+	}
+
+	return false
+}
+
+// SetCity gets a reference to the given string and assigns it to the City field.
 func (o *ShippingPoint) SetCity(v string) {
-	o.City = v
+	o.City = &v
 }
 
-// GetOfficeType returns the OfficeType field value
+// GetOfficeType returns the OfficeType field value if set, zero value otherwise.
 func (o *ShippingPoint) GetOfficeType() string {
-	if o == nil {
+	if o == nil || IsNil(o.OfficeType) {
 		var ret string
 		return ret
 	}
-
-	return o.OfficeType
+	return *o.OfficeType
 }
 
-// GetOfficeTypeOk returns a tuple with the OfficeType field value
+// GetOfficeTypeOk returns a tuple with the OfficeType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ShippingPoint) GetOfficeTypeOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.OfficeType) {
 		return nil, false
 	}
-	return &o.OfficeType, true
+	return o.OfficeType, true
 }
 
-// SetOfficeType sets field value
+// HasOfficeType returns a boolean if a field has been set.
+func (o *ShippingPoint) HasOfficeType() bool {
+	if o != nil && !IsNil(o.OfficeType) {
+		return true
+	}
+
+	return false
+}
+
+// SetOfficeType gets a reference to the given string and assigns it to the OfficeType field.
 func (o *ShippingPoint) SetOfficeType(v string) {
-	o.OfficeType = v
+	o.OfficeType = &v
 }
 
-// GetCargoTypes returns the CargoTypes field value
+// GetCargoTypes returns the CargoTypes field value if set, zero value otherwise.
 func (o *ShippingPoint) GetCargoTypes() []int32 {
-	if o == nil {
+	if o == nil || IsNil(o.CargoTypes) {
 		var ret []int32
 		return ret
 	}
-
 	return o.CargoTypes
 }
 
-// GetCargoTypesOk returns a tuple with the CargoTypes field value
+// GetCargoTypesOk returns a tuple with the CargoTypes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ShippingPoint) GetCargoTypesOk() ([]int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.CargoTypes) {
 		return nil, false
 	}
 	return o.CargoTypes, true
 }
 
-// SetCargoTypes sets field value
+// HasCargoTypes returns a boolean if a field has been set.
+func (o *ShippingPoint) HasCargoTypes() bool {
+	if o != nil && !IsNil(o.CargoTypes) {
+		return true
+	}
+
+	return false
+}
+
+// SetCargoTypes gets a reference to the given []int32 and assigns it to the CargoTypes field.
 func (o *ShippingPoint) SetCargoTypes(v []int32) {
 	o.CargoTypes = v
 }
 
-// GetLatitude returns the Latitude field value
+// GetLatitude returns the Latitude field value if set, zero value otherwise.
 func (o *ShippingPoint) GetLatitude() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.Latitude) {
 		var ret float32
 		return ret
 	}
-
-	return o.Latitude
+	return *o.Latitude
 }
 
-// GetLatitudeOk returns a tuple with the Latitude field value
+// GetLatitudeOk returns a tuple with the Latitude field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ShippingPoint) GetLatitudeOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Latitude) {
 		return nil, false
 	}
-	return &o.Latitude, true
+	return o.Latitude, true
 }
 
-// SetLatitude sets field value
+// HasLatitude returns a boolean if a field has been set.
+func (o *ShippingPoint) HasLatitude() bool {
+	if o != nil && !IsNil(o.Latitude) {
+		return true
+	}
+
+	return false
+}
+
+// SetLatitude gets a reference to the given float32 and assigns it to the Latitude field.
 func (o *ShippingPoint) SetLatitude(v float32) {
-	o.Latitude = v
+	o.Latitude = &v
 }
 
-// GetLongitude returns the Longitude field value
+// GetLongitude returns the Longitude field value if set, zero value otherwise.
 func (o *ShippingPoint) GetLongitude() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.Longitude) {
 		var ret float32
 		return ret
 	}
-
-	return o.Longitude
+	return *o.Longitude
 }
 
-// GetLongitudeOk returns a tuple with the Longitude field value
+// GetLongitudeOk returns a tuple with the Longitude field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ShippingPoint) GetLongitudeOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Longitude) {
 		return nil, false
 	}
-	return &o.Longitude, true
+	return o.Longitude, true
 }
 
-// SetLongitude sets field value
+// HasLongitude returns a boolean if a field has been set.
+func (o *ShippingPoint) HasLongitude() bool {
+	if o != nil && !IsNil(o.Longitude) {
+		return true
+	}
+
+	return false
+}
+
+// SetLongitude gets a reference to the given float32 and assigns it to the Longitude field.
 func (o *ShippingPoint) SetLongitude(v float32) {
-	o.Longitude = v
+	o.Longitude = &v
 }
 
-// GetFulfillment returns the Fulfillment field value
+// GetFulfillment returns the Fulfillment field value if set, zero value otherwise.
 func (o *ShippingPoint) GetFulfillment() bool {
-	if o == nil {
+	if o == nil || IsNil(o.Fulfillment) {
 		var ret bool
 		return ret
 	}
-
-	return o.Fulfillment
+	return *o.Fulfillment
 }
 
-// GetFulfillmentOk returns a tuple with the Fulfillment field value
+// GetFulfillmentOk returns a tuple with the Fulfillment field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ShippingPoint) GetFulfillmentOk() (*bool, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Fulfillment) {
 		return nil, false
 	}
-	return &o.Fulfillment, true
+	return o.Fulfillment, true
 }
 
-// SetFulfillment sets field value
+// HasFulfillment returns a boolean if a field has been set.
+func (o *ShippingPoint) HasFulfillment() bool {
+	if o != nil && !IsNil(o.Fulfillment) {
+		return true
+	}
+
+	return false
+}
+
+// SetFulfillment gets a reference to the given bool and assigns it to the Fulfillment field.
 func (o *ShippingPoint) SetFulfillment(v bool) {
-	o.Fulfillment = v
+	o.Fulfillment = &v
 }
 
 func (o ShippingPoint) MarshalJSON() ([]byte, error) {
@@ -295,61 +354,34 @@ func (o ShippingPoint) MarshalJSON() ([]byte, error) {
 
 func (o ShippingPoint) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["id"] = o.Id
-	toSerialize["name"] = o.Name
-	toSerialize["address"] = o.Address
-	toSerialize["city"] = o.City
-	toSerialize["officeType"] = o.OfficeType
-	toSerialize["cargoTypes"] = o.CargoTypes
-	toSerialize["latitude"] = o.Latitude
-	toSerialize["longitude"] = o.Longitude
-	toSerialize["fulfillment"] = o.Fulfillment
+	if !IsNil(o.Id) {
+		toSerialize["id"] = o.Id
+	}
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
+	}
+	if !IsNil(o.Address) {
+		toSerialize["address"] = o.Address
+	}
+	if !IsNil(o.City) {
+		toSerialize["city"] = o.City
+	}
+	if !IsNil(o.OfficeType) {
+		toSerialize["officeType"] = o.OfficeType
+	}
+	if !IsNil(o.CargoTypes) {
+		toSerialize["cargoTypes"] = o.CargoTypes
+	}
+	if !IsNil(o.Latitude) {
+		toSerialize["latitude"] = o.Latitude
+	}
+	if !IsNil(o.Longitude) {
+		toSerialize["longitude"] = o.Longitude
+	}
+	if !IsNil(o.Fulfillment) {
+		toSerialize["fulfillment"] = o.Fulfillment
+	}
 	return toSerialize, nil
-}
-
-func (o *ShippingPoint) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"id",
-		"name",
-		"address",
-		"city",
-		"officeType",
-		"cargoTypes",
-		"latitude",
-		"longitude",
-		"fulfillment",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varShippingPoint := _ShippingPoint{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varShippingPoint)
-
-	if err != nil {
-		return err
-	}
-
-	*o = ShippingPoint(varShippingPoint)
-
-	return err
 }
 
 type NullableShippingPoint struct {

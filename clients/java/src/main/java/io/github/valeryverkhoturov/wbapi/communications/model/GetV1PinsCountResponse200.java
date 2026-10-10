@@ -36,12 +36,12 @@ public class GetV1PinsCountResponse200 {
   public static final String SERIALIZED_NAME_DATA = "data";
 
   @SerializedName(SERIALIZED_NAME_DATA)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer data;
 
   public GetV1PinsCountResponse200() {}
 
-  public GetV1PinsCountResponse200 data(@jakarta.annotation.Nonnull Integer data) {
+  public GetV1PinsCountResponse200 data(@jakarta.annotation.Nullable Integer data) {
     this.data = data;
     return this;
   }
@@ -51,12 +51,12 @@ public class GetV1PinsCountResponse200 {
    *
    * @return data
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getData() {
     return data;
   }
 
-  public void setData(@jakarta.annotation.Nonnull Integer data) {
+  public void setData(@jakarta.annotation.Nullable Integer data) {
     this.data = data;
   }
 
@@ -106,7 +106,6 @@ public class GetV1PinsCountResponse200 {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("data");
   }
 
   /**
@@ -134,16 +133,6 @@ public class GetV1PinsCountResponse200 {
             String.format(
                 "The field `%s` in the JSON string is not defined in the `GetV1PinsCountResponse200` properties. JSON: %s",
                 entry.getKey(), jsonElement.toString()));
-      }
-    }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : GetV1PinsCountResponse200.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
       }
     }
     JsonObject jsonObj = jsonElement.getAsJsonObject();

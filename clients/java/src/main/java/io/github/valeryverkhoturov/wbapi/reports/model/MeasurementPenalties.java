@@ -36,12 +36,12 @@ public class MeasurementPenalties {
   public static final String SERIALIZED_NAME_DATA = "data";
 
   @SerializedName(SERIALIZED_NAME_DATA)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private MeasurementPenaltiesData data;
 
   public MeasurementPenalties() {}
 
-  public MeasurementPenalties data(@jakarta.annotation.Nonnull MeasurementPenaltiesData data) {
+  public MeasurementPenalties data(@jakarta.annotation.Nullable MeasurementPenaltiesData data) {
     this.data = data;
     return this;
   }
@@ -51,12 +51,12 @@ public class MeasurementPenalties {
    *
    * @return data
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public MeasurementPenaltiesData getData() {
     return data;
   }
 
-  public void setData(@jakarta.annotation.Nonnull MeasurementPenaltiesData data) {
+  public void setData(@jakarta.annotation.Nullable MeasurementPenaltiesData data) {
     this.data = data;
   }
 
@@ -106,7 +106,6 @@ public class MeasurementPenalties {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("data");
   }
 
   /**
@@ -136,19 +135,11 @@ public class MeasurementPenalties {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : MeasurementPenalties.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    // validate the required field `data`
-    MeasurementPenaltiesData.validateJsonElement(jsonObj.get("data"));
+    // validate the optional field `data`
+    if (jsonObj.get("data") != null && !jsonObj.get("data").isJsonNull()) {
+      MeasurementPenaltiesData.validateJsonElement(jsonObj.get("data"));
+    }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

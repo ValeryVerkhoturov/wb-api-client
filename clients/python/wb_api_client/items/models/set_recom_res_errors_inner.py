@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,11 +28,15 @@ class SetRecomResErrorsInner(BaseModel):
     Ошибки установки рекомендаций
     """  # noqa: E501
 
-    main_nm: StrictStr = Field(description="Значение параметра `nmId`", alias="mainNm")
-    recom_nm: StrictStr = Field(
-        description="Значение параметра `recomNm`", alias="recomNm"
+    main_nm: Optional[StrictStr] = Field(
+        default=None, description="Значение параметра `nmId`", alias="mainNm"
     )
-    message: StrictStr = Field(description="Сообщение об ошибке")
+    recom_nm: Optional[StrictStr] = Field(
+        default=None, description="Значение параметра `recomNm`", alias="recomNm"
+    )
+    message: Optional[StrictStr] = Field(
+        default=None, description="Сообщение об ошибке"
+    )
     __properties: ClassVar[List[str]] = ["mainNm", "recomNm", "message"]
 
     model_config = ConfigDict(

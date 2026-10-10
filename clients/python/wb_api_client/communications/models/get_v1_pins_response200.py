@@ -31,7 +31,7 @@ class GetV1PinsResponse200(BaseModel):
     GetV1PinsResponse200
     """  # noqa: E501
 
-    data: List[OpenapiPinnedReviewItemResult]
+    data: Optional[List[OpenapiPinnedReviewItemResult]] = None
     next: Optional[StrictInt] = Field(
         default=None,
         description="Параметр пагинации. Укажите это значение в запросе, чтобы получить следующий пакет данных. Если поле отсутствует, вы получили все данные",

@@ -34,23 +34,25 @@ class GetAdvertsAdvertsInner(BaseModel):
     GetAdvertsAdvertsInner
     """  # noqa: E501
 
-    bid_type: StrictStr = Field(
-        description="Тип ставки:   - `unified` — единая ставка   - `manual` — ручная ставка "
+    bid_type: Optional[StrictStr] = Field(
+        default=None,
+        description="Тип ставки:   - `unified` — единая ставка   - `manual` — ручная ставка ",
     )
     currency: Optional[StrictStr] = Field(
         default=None,
         description="Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)",
     )
-    id: StrictInt = Field(description="ID кампании")
+    id: Optional[StrictInt] = Field(default=None, description="ID кампании")
     nm_settings: Optional[List[AdvertNMsSettings]] = Field(
-        description="Настройки товаров"
+        default=None, description="Настройки товаров"
     )
-    settings: AdvertSettings
-    restrictions: GetAdvertsAdvertsInnerRestrictions
-    status: StrictInt = Field(
-        description="Статус кампании: - `-1` — удалена, процесс удаления будет завершён в течение 10 минут - `4` — готова к запуску - `7` — завершена - `8` — отменена - `9` — активна - `11` — на паузе "
+    settings: Optional[AdvertSettings] = None
+    restrictions: Optional[GetAdvertsAdvertsInnerRestrictions] = None
+    status: Optional[StrictInt] = Field(
+        default=None,
+        description="Статус кампании: - `-1` — удалена, процесс удаления будет завершён в течение 10 минут - `4` — готова к запуску - `7` — завершена - `8` — отменена - `9` — активна - `11` — на паузе ",
     )
-    timestamps: Timestamps
+    timestamps: Optional[Timestamps] = None
     __properties: ClassVar[List[str]] = [
         "bid_type",
         "currency",
@@ -65,6 +67,9 @@ class GetAdvertsAdvertsInner(BaseModel):
     @field_validator("status")
     def status_validate_enum(cls, value):
         """Validates the enum"""
+        if value is None:
+            return value
+
         if value not in set([-1, 4, 7, 8, 9, 11]):
             raise ValueError("must be one of enum values (-1, 4, 7, 8, 9, 11)")
         return value

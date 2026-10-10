@@ -34,39 +34,24 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemsResponseProductsInner" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected ItemsResponseProductsInner() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ItemsResponseProductsInner" /> class.
-        /// </summary>
-        /// <param name="product">product (required).</param>
-        /// <param name="statistic">statistic (required).</param>
+        /// <param name="product">product.</param>
+        /// <param name="statistic">statistic.</param>
         public ItemsResponseProductsInner(ItemsResponseProductsInnerProduct product = default(ItemsResponseProductsInnerProduct), ItemsResponseProductsInnerStatistic statistic = default(ItemsResponseProductsInnerStatistic))
         {
-            // to ensure "product" is required (not null)
-            if (product == null)
-            {
-                throw new ArgumentNullException("product is a required property for ItemsResponseProductsInner and cannot be null");
-            }
             this.Product = product;
-            // to ensure "statistic" is required (not null)
-            if (statistic == null)
-            {
-                throw new ArgumentNullException("statistic is a required property for ItemsResponseProductsInner and cannot be null");
-            }
             this.Statistic = statistic;
         }
 
         /// <summary>
         /// Gets or Sets Product
         /// </summary>
-        [DataMember(Name = "product", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "product", EmitDefaultValue = false)]
         public ItemsResponseProductsInnerProduct Product { get; set; }
 
         /// <summary>
         /// Gets or Sets Statistic
         /// </summary>
-        [DataMember(Name = "statistic", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "statistic", EmitDefaultValue = false)]
         public ItemsResponseProductsInnerStatistic Statistic { get; set; }
 
         /// <summary>

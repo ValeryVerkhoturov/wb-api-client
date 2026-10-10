@@ -26,7 +26,7 @@ from pydantic import (
     StrictInt,
     StrictStr,
 )
-from typing import Any, ClassVar, Dict, List, Union
+from typing import Any, ClassVar, Dict, List, Optional, Union
 from wb_api_client.analytics.models.distribution_table_item_feedback_count import (
     DistributionTableItemFeedbackCount,
 )
@@ -57,29 +57,60 @@ class DistributionTableItem(BaseModel):
     DistributionTableItem
     """  # noqa: E501
 
-    nm_id: StrictInt = Field(description="Артикул WB", alias="nmId")
-    title: StrictStr = Field(description="Название товара")
-    vendor_code: StrictStr = Field(description="Артикул продавца", alias="vendorCode")
-    subject_id: StrictInt = Field(description="ID предмета", alias="subjectId")
-    subject_name: StrictStr = Field(
-        description="Название предмета", alias="subjectName"
+    nm_id: Optional[StrictInt] = Field(
+        default=None, description="Артикул WB", alias="nmId"
     )
-    brand_name: StrictStr = Field(description="Бренд", alias="brandName")
-    tag_name: StrictStr = Field(description="Название ярлыка", alias="tagName")
-    tag_id: StrictInt = Field(description="ID ярлыка", alias="tagId")
-    pinned_feedback: StrictBool = Field(
-        description="Отзыв закреплён", alias="pinnedFeedback"
+    title: Optional[StrictStr] = Field(default=None, description="Название товара")
+    vendor_code: Optional[StrictStr] = Field(
+        default=None, description="Артикул продавца", alias="vendorCode"
     )
-    rating: Union[StrictFloat, StrictInt] = Field(description="Рейтинг карточки товара")
-    feedback_rating: DistributionTableItemFeedbackRating = Field(alias="feedbackRating")
-    feedback_count: DistributionTableItemFeedbackCount = Field(alias="feedbackCount")
-    five_star: DistributionTableItemFiveStar = Field(alias="fiveStar")
-    four_star: DistributionTableItemFourStar = Field(alias="fourStar")
-    three_star: DistributionTableItemThreeStar = Field(alias="threeStar")
-    two_star: DistributionTableItemTwoStar = Field(alias="twoStar")
-    one_star: DistributionTableItemOneStar = Field(alias="oneStar")
-    disqualified: StrictInt = Field(description="Отзывы, исключённые из рейтинга")
-    is_shadowed: StrictBool = Field(
+    subject_id: Optional[StrictInt] = Field(
+        default=None, description="ID предмета", alias="subjectId"
+    )
+    subject_name: Optional[StrictStr] = Field(
+        default=None, description="Название предмета", alias="subjectName"
+    )
+    brand_name: Optional[StrictStr] = Field(
+        default=None, description="Бренд", alias="brandName"
+    )
+    tag_name: Optional[StrictStr] = Field(
+        default=None, description="Название ярлыка", alias="tagName"
+    )
+    tag_id: Optional[StrictInt] = Field(
+        default=None, description="ID ярлыка", alias="tagId"
+    )
+    pinned_feedback: Optional[StrictBool] = Field(
+        default=None, description="Отзыв закреплён", alias="pinnedFeedback"
+    )
+    rating: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None, description="Рейтинг карточки товара"
+    )
+    feedback_rating: Optional[DistributionTableItemFeedbackRating] = Field(
+        default=None, alias="feedbackRating"
+    )
+    feedback_count: Optional[DistributionTableItemFeedbackCount] = Field(
+        default=None, alias="feedbackCount"
+    )
+    five_star: Optional[DistributionTableItemFiveStar] = Field(
+        default=None, alias="fiveStar"
+    )
+    four_star: Optional[DistributionTableItemFourStar] = Field(
+        default=None, alias="fourStar"
+    )
+    three_star: Optional[DistributionTableItemThreeStar] = Field(
+        default=None, alias="threeStar"
+    )
+    two_star: Optional[DistributionTableItemTwoStar] = Field(
+        default=None, alias="twoStar"
+    )
+    one_star: Optional[DistributionTableItemOneStar] = Field(
+        default=None, alias="oneStar"
+    )
+    disqualified: Optional[StrictInt] = Field(
+        default=None, description="Отзывы, исключённые из рейтинга"
+    )
+    is_shadowed: Optional[StrictBool] = Field(
+        default=None,
         description="Является ли товар скрытым из каталога:   - `true` — товар скрыт из каталога   - `false` — товар не скрыт из каталога ",
         alias="isShadowed",
     )

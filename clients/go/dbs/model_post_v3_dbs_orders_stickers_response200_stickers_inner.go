@@ -11,9 +11,7 @@ API version: dbs
 package dbs
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the PostV3DbsOrdersStickersResponse200StickersInner type satisfies the MappedNullable interface at compile time
@@ -22,30 +20,23 @@ var _ MappedNullable = &PostV3DbsOrdersStickersResponse200StickersInner{}
 // PostV3DbsOrdersStickersResponse200StickersInner struct for PostV3DbsOrdersStickersResponse200StickersInner
 type PostV3DbsOrdersStickersResponse200StickersInner struct {
 	// ID сборочного задания
-	OrderId int64 `json:"orderId"`
+	OrderId *int64 `json:"orderId,omitempty"`
 	// Первая часть ID стикера
-	PartA string `json:"partA"`
+	PartA *string `json:"partA,omitempty"`
 	// Вторая часть ID стикера
-	PartB string `json:"partB"`
+	PartB *string `json:"partB,omitempty"`
 	// Закодированное значение стикера
-	Barcode string `json:"barcode"`
+	Barcode *string `json:"barcode,omitempty"`
 	// Полное представление стикера, кодировка base64
-	File string `json:"file"`
+	File *string `json:"file,omitempty"`
 }
-
-type _PostV3DbsOrdersStickersResponse200StickersInner PostV3DbsOrdersStickersResponse200StickersInner
 
 // NewPostV3DbsOrdersStickersResponse200StickersInner instantiates a new PostV3DbsOrdersStickersResponse200StickersInner object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPostV3DbsOrdersStickersResponse200StickersInner(orderId int64, partA string, partB string, barcode string, file string) *PostV3DbsOrdersStickersResponse200StickersInner {
+func NewPostV3DbsOrdersStickersResponse200StickersInner() *PostV3DbsOrdersStickersResponse200StickersInner {
 	this := PostV3DbsOrdersStickersResponse200StickersInner{}
-	this.OrderId = orderId
-	this.PartA = partA
-	this.PartB = partB
-	this.Barcode = barcode
-	this.File = file
 	return &this
 }
 
@@ -57,124 +48,164 @@ func NewPostV3DbsOrdersStickersResponse200StickersInnerWithDefaults() *PostV3Dbs
 	return &this
 }
 
-// GetOrderId returns the OrderId field value
+// GetOrderId returns the OrderId field value if set, zero value otherwise.
 func (o *PostV3DbsOrdersStickersResponse200StickersInner) GetOrderId() int64 {
-	if o == nil {
+	if o == nil || IsNil(o.OrderId) {
 		var ret int64
 		return ret
 	}
-
-	return o.OrderId
+	return *o.OrderId
 }
 
-// GetOrderIdOk returns a tuple with the OrderId field value
+// GetOrderIdOk returns a tuple with the OrderId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PostV3DbsOrdersStickersResponse200StickersInner) GetOrderIdOk() (*int64, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.OrderId) {
 		return nil, false
 	}
-	return &o.OrderId, true
+	return o.OrderId, true
 }
 
-// SetOrderId sets field value
+// HasOrderId returns a boolean if a field has been set.
+func (o *PostV3DbsOrdersStickersResponse200StickersInner) HasOrderId() bool {
+	if o != nil && !IsNil(o.OrderId) {
+		return true
+	}
+
+	return false
+}
+
+// SetOrderId gets a reference to the given int64 and assigns it to the OrderId field.
 func (o *PostV3DbsOrdersStickersResponse200StickersInner) SetOrderId(v int64) {
-	o.OrderId = v
+	o.OrderId = &v
 }
 
-// GetPartA returns the PartA field value
+// GetPartA returns the PartA field value if set, zero value otherwise.
 func (o *PostV3DbsOrdersStickersResponse200StickersInner) GetPartA() string {
-	if o == nil {
+	if o == nil || IsNil(o.PartA) {
 		var ret string
 		return ret
 	}
-
-	return o.PartA
+	return *o.PartA
 }
 
-// GetPartAOk returns a tuple with the PartA field value
+// GetPartAOk returns a tuple with the PartA field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PostV3DbsOrdersStickersResponse200StickersInner) GetPartAOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.PartA) {
 		return nil, false
 	}
-	return &o.PartA, true
+	return o.PartA, true
 }
 
-// SetPartA sets field value
+// HasPartA returns a boolean if a field has been set.
+func (o *PostV3DbsOrdersStickersResponse200StickersInner) HasPartA() bool {
+	if o != nil && !IsNil(o.PartA) {
+		return true
+	}
+
+	return false
+}
+
+// SetPartA gets a reference to the given string and assigns it to the PartA field.
 func (o *PostV3DbsOrdersStickersResponse200StickersInner) SetPartA(v string) {
-	o.PartA = v
+	o.PartA = &v
 }
 
-// GetPartB returns the PartB field value
+// GetPartB returns the PartB field value if set, zero value otherwise.
 func (o *PostV3DbsOrdersStickersResponse200StickersInner) GetPartB() string {
-	if o == nil {
+	if o == nil || IsNil(o.PartB) {
 		var ret string
 		return ret
 	}
-
-	return o.PartB
+	return *o.PartB
 }
 
-// GetPartBOk returns a tuple with the PartB field value
+// GetPartBOk returns a tuple with the PartB field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PostV3DbsOrdersStickersResponse200StickersInner) GetPartBOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.PartB) {
 		return nil, false
 	}
-	return &o.PartB, true
+	return o.PartB, true
 }
 
-// SetPartB sets field value
+// HasPartB returns a boolean if a field has been set.
+func (o *PostV3DbsOrdersStickersResponse200StickersInner) HasPartB() bool {
+	if o != nil && !IsNil(o.PartB) {
+		return true
+	}
+
+	return false
+}
+
+// SetPartB gets a reference to the given string and assigns it to the PartB field.
 func (o *PostV3DbsOrdersStickersResponse200StickersInner) SetPartB(v string) {
-	o.PartB = v
+	o.PartB = &v
 }
 
-// GetBarcode returns the Barcode field value
+// GetBarcode returns the Barcode field value if set, zero value otherwise.
 func (o *PostV3DbsOrdersStickersResponse200StickersInner) GetBarcode() string {
-	if o == nil {
+	if o == nil || IsNil(o.Barcode) {
 		var ret string
 		return ret
 	}
-
-	return o.Barcode
+	return *o.Barcode
 }
 
-// GetBarcodeOk returns a tuple with the Barcode field value
+// GetBarcodeOk returns a tuple with the Barcode field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PostV3DbsOrdersStickersResponse200StickersInner) GetBarcodeOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Barcode) {
 		return nil, false
 	}
-	return &o.Barcode, true
+	return o.Barcode, true
 }
 
-// SetBarcode sets field value
+// HasBarcode returns a boolean if a field has been set.
+func (o *PostV3DbsOrdersStickersResponse200StickersInner) HasBarcode() bool {
+	if o != nil && !IsNil(o.Barcode) {
+		return true
+	}
+
+	return false
+}
+
+// SetBarcode gets a reference to the given string and assigns it to the Barcode field.
 func (o *PostV3DbsOrdersStickersResponse200StickersInner) SetBarcode(v string) {
-	o.Barcode = v
+	o.Barcode = &v
 }
 
-// GetFile returns the File field value
+// GetFile returns the File field value if set, zero value otherwise.
 func (o *PostV3DbsOrdersStickersResponse200StickersInner) GetFile() string {
-	if o == nil {
+	if o == nil || IsNil(o.File) {
 		var ret string
 		return ret
 	}
-
-	return o.File
+	return *o.File
 }
 
-// GetFileOk returns a tuple with the File field value
+// GetFileOk returns a tuple with the File field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PostV3DbsOrdersStickersResponse200StickersInner) GetFileOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.File) {
 		return nil, false
 	}
-	return &o.File, true
+	return o.File, true
 }
 
-// SetFile sets field value
+// HasFile returns a boolean if a field has been set.
+func (o *PostV3DbsOrdersStickersResponse200StickersInner) HasFile() bool {
+	if o != nil && !IsNil(o.File) {
+		return true
+	}
+
+	return false
+}
+
+// SetFile gets a reference to the given string and assigns it to the File field.
 func (o *PostV3DbsOrdersStickersResponse200StickersInner) SetFile(v string) {
-	o.File = v
+	o.File = &v
 }
 
 func (o PostV3DbsOrdersStickersResponse200StickersInner) MarshalJSON() ([]byte, error) {
@@ -187,53 +218,22 @@ func (o PostV3DbsOrdersStickersResponse200StickersInner) MarshalJSON() ([]byte, 
 
 func (o PostV3DbsOrdersStickersResponse200StickersInner) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["orderId"] = o.OrderId
-	toSerialize["partA"] = o.PartA
-	toSerialize["partB"] = o.PartB
-	toSerialize["barcode"] = o.Barcode
-	toSerialize["file"] = o.File
+	if !IsNil(o.OrderId) {
+		toSerialize["orderId"] = o.OrderId
+	}
+	if !IsNil(o.PartA) {
+		toSerialize["partA"] = o.PartA
+	}
+	if !IsNil(o.PartB) {
+		toSerialize["partB"] = o.PartB
+	}
+	if !IsNil(o.Barcode) {
+		toSerialize["barcode"] = o.Barcode
+	}
+	if !IsNil(o.File) {
+		toSerialize["file"] = o.File
+	}
 	return toSerialize, nil
-}
-
-func (o *PostV3DbsOrdersStickersResponse200StickersInner) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"orderId",
-		"partA",
-		"partB",
-		"barcode",
-		"file",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varPostV3DbsOrdersStickersResponse200StickersInner := _PostV3DbsOrdersStickersResponse200StickersInner{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varPostV3DbsOrdersStickersResponse200StickersInner)
-
-	if err != nil {
-		return err
-	}
-
-	*o = PostV3DbsOrdersStickersResponse200StickersInner(varPostV3DbsOrdersStickersResponse200StickersInner)
-
-	return err
 }
 
 type NullablePostV3DbsOrdersStickersResponse200StickersInner struct {

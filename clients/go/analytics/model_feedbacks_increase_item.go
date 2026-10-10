@@ -11,9 +11,7 @@ API version: analytics
 package analytics
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the FeedbacksIncreaseItem type satisfies the MappedNullable interface at compile time
@@ -22,34 +20,24 @@ var _ MappedNullable = &FeedbacksIncreaseItem{}
 // FeedbacksIncreaseItem Прирост оценок
 type FeedbacksIncreaseItem struct {
 	// Прирост оценок за период
-	Current int32 `json:"current"`
+	Current *int32 `json:"current,omitempty"`
 	// Всего оценок
-	Total int32 `json:"total"`
+	Total *int32 `json:"total,omitempty"`
 	// Динамика по сравнению с предыдущим периодом, %
-	Dynamics  int32                          `json:"dynamics"`
-	FiveStar  FeedbacksIncreaseItemFiveStar  `json:"fiveStar"`
-	FourStar  FeedbacksIncreaseItemFourStar  `json:"fourStar"`
-	ThreeStar FeedbacksIncreaseItemThreeStar `json:"threeStar"`
-	TwoStar   FeedbacksIncreaseItemTwoStar   `json:"twoStar"`
-	OneStar   FeedbacksIncreaseItemOneStar   `json:"oneStar"`
+	Dynamics  *int32                          `json:"dynamics,omitempty"`
+	FiveStar  *FeedbacksIncreaseItemFiveStar  `json:"fiveStar,omitempty"`
+	FourStar  *FeedbacksIncreaseItemFourStar  `json:"fourStar,omitempty"`
+	ThreeStar *FeedbacksIncreaseItemThreeStar `json:"threeStar,omitempty"`
+	TwoStar   *FeedbacksIncreaseItemTwoStar   `json:"twoStar,omitempty"`
+	OneStar   *FeedbacksIncreaseItemOneStar   `json:"oneStar,omitempty"`
 }
-
-type _FeedbacksIncreaseItem FeedbacksIncreaseItem
 
 // NewFeedbacksIncreaseItem instantiates a new FeedbacksIncreaseItem object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewFeedbacksIncreaseItem(current int32, total int32, dynamics int32, fiveStar FeedbacksIncreaseItemFiveStar, fourStar FeedbacksIncreaseItemFourStar, threeStar FeedbacksIncreaseItemThreeStar, twoStar FeedbacksIncreaseItemTwoStar, oneStar FeedbacksIncreaseItemOneStar) *FeedbacksIncreaseItem {
+func NewFeedbacksIncreaseItem() *FeedbacksIncreaseItem {
 	this := FeedbacksIncreaseItem{}
-	this.Current = current
-	this.Total = total
-	this.Dynamics = dynamics
-	this.FiveStar = fiveStar
-	this.FourStar = fourStar
-	this.ThreeStar = threeStar
-	this.TwoStar = twoStar
-	this.OneStar = oneStar
 	return &this
 }
 
@@ -61,196 +49,260 @@ func NewFeedbacksIncreaseItemWithDefaults() *FeedbacksIncreaseItem {
 	return &this
 }
 
-// GetCurrent returns the Current field value
+// GetCurrent returns the Current field value if set, zero value otherwise.
 func (o *FeedbacksIncreaseItem) GetCurrent() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.Current) {
 		var ret int32
 		return ret
 	}
-
-	return o.Current
+	return *o.Current
 }
 
-// GetCurrentOk returns a tuple with the Current field value
+// GetCurrentOk returns a tuple with the Current field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FeedbacksIncreaseItem) GetCurrentOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Current) {
 		return nil, false
 	}
-	return &o.Current, true
+	return o.Current, true
 }
 
-// SetCurrent sets field value
+// HasCurrent returns a boolean if a field has been set.
+func (o *FeedbacksIncreaseItem) HasCurrent() bool {
+	if o != nil && !IsNil(o.Current) {
+		return true
+	}
+
+	return false
+}
+
+// SetCurrent gets a reference to the given int32 and assigns it to the Current field.
 func (o *FeedbacksIncreaseItem) SetCurrent(v int32) {
-	o.Current = v
+	o.Current = &v
 }
 
-// GetTotal returns the Total field value
+// GetTotal returns the Total field value if set, zero value otherwise.
 func (o *FeedbacksIncreaseItem) GetTotal() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.Total) {
 		var ret int32
 		return ret
 	}
-
-	return o.Total
+	return *o.Total
 }
 
-// GetTotalOk returns a tuple with the Total field value
+// GetTotalOk returns a tuple with the Total field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FeedbacksIncreaseItem) GetTotalOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Total) {
 		return nil, false
 	}
-	return &o.Total, true
+	return o.Total, true
 }
 
-// SetTotal sets field value
+// HasTotal returns a boolean if a field has been set.
+func (o *FeedbacksIncreaseItem) HasTotal() bool {
+	if o != nil && !IsNil(o.Total) {
+		return true
+	}
+
+	return false
+}
+
+// SetTotal gets a reference to the given int32 and assigns it to the Total field.
 func (o *FeedbacksIncreaseItem) SetTotal(v int32) {
-	o.Total = v
+	o.Total = &v
 }
 
-// GetDynamics returns the Dynamics field value
+// GetDynamics returns the Dynamics field value if set, zero value otherwise.
 func (o *FeedbacksIncreaseItem) GetDynamics() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.Dynamics) {
 		var ret int32
 		return ret
 	}
-
-	return o.Dynamics
+	return *o.Dynamics
 }
 
-// GetDynamicsOk returns a tuple with the Dynamics field value
+// GetDynamicsOk returns a tuple with the Dynamics field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FeedbacksIncreaseItem) GetDynamicsOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Dynamics) {
 		return nil, false
 	}
-	return &o.Dynamics, true
+	return o.Dynamics, true
 }
 
-// SetDynamics sets field value
+// HasDynamics returns a boolean if a field has been set.
+func (o *FeedbacksIncreaseItem) HasDynamics() bool {
+	if o != nil && !IsNil(o.Dynamics) {
+		return true
+	}
+
+	return false
+}
+
+// SetDynamics gets a reference to the given int32 and assigns it to the Dynamics field.
 func (o *FeedbacksIncreaseItem) SetDynamics(v int32) {
-	o.Dynamics = v
+	o.Dynamics = &v
 }
 
-// GetFiveStar returns the FiveStar field value
+// GetFiveStar returns the FiveStar field value if set, zero value otherwise.
 func (o *FeedbacksIncreaseItem) GetFiveStar() FeedbacksIncreaseItemFiveStar {
-	if o == nil {
+	if o == nil || IsNil(o.FiveStar) {
 		var ret FeedbacksIncreaseItemFiveStar
 		return ret
 	}
-
-	return o.FiveStar
+	return *o.FiveStar
 }
 
-// GetFiveStarOk returns a tuple with the FiveStar field value
+// GetFiveStarOk returns a tuple with the FiveStar field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FeedbacksIncreaseItem) GetFiveStarOk() (*FeedbacksIncreaseItemFiveStar, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.FiveStar) {
 		return nil, false
 	}
-	return &o.FiveStar, true
+	return o.FiveStar, true
 }
 
-// SetFiveStar sets field value
+// HasFiveStar returns a boolean if a field has been set.
+func (o *FeedbacksIncreaseItem) HasFiveStar() bool {
+	if o != nil && !IsNil(o.FiveStar) {
+		return true
+	}
+
+	return false
+}
+
+// SetFiveStar gets a reference to the given FeedbacksIncreaseItemFiveStar and assigns it to the FiveStar field.
 func (o *FeedbacksIncreaseItem) SetFiveStar(v FeedbacksIncreaseItemFiveStar) {
-	o.FiveStar = v
+	o.FiveStar = &v
 }
 
-// GetFourStar returns the FourStar field value
+// GetFourStar returns the FourStar field value if set, zero value otherwise.
 func (o *FeedbacksIncreaseItem) GetFourStar() FeedbacksIncreaseItemFourStar {
-	if o == nil {
+	if o == nil || IsNil(o.FourStar) {
 		var ret FeedbacksIncreaseItemFourStar
 		return ret
 	}
-
-	return o.FourStar
+	return *o.FourStar
 }
 
-// GetFourStarOk returns a tuple with the FourStar field value
+// GetFourStarOk returns a tuple with the FourStar field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FeedbacksIncreaseItem) GetFourStarOk() (*FeedbacksIncreaseItemFourStar, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.FourStar) {
 		return nil, false
 	}
-	return &o.FourStar, true
+	return o.FourStar, true
 }
 
-// SetFourStar sets field value
+// HasFourStar returns a boolean if a field has been set.
+func (o *FeedbacksIncreaseItem) HasFourStar() bool {
+	if o != nil && !IsNil(o.FourStar) {
+		return true
+	}
+
+	return false
+}
+
+// SetFourStar gets a reference to the given FeedbacksIncreaseItemFourStar and assigns it to the FourStar field.
 func (o *FeedbacksIncreaseItem) SetFourStar(v FeedbacksIncreaseItemFourStar) {
-	o.FourStar = v
+	o.FourStar = &v
 }
 
-// GetThreeStar returns the ThreeStar field value
+// GetThreeStar returns the ThreeStar field value if set, zero value otherwise.
 func (o *FeedbacksIncreaseItem) GetThreeStar() FeedbacksIncreaseItemThreeStar {
-	if o == nil {
+	if o == nil || IsNil(o.ThreeStar) {
 		var ret FeedbacksIncreaseItemThreeStar
 		return ret
 	}
-
-	return o.ThreeStar
+	return *o.ThreeStar
 }
 
-// GetThreeStarOk returns a tuple with the ThreeStar field value
+// GetThreeStarOk returns a tuple with the ThreeStar field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FeedbacksIncreaseItem) GetThreeStarOk() (*FeedbacksIncreaseItemThreeStar, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ThreeStar) {
 		return nil, false
 	}
-	return &o.ThreeStar, true
+	return o.ThreeStar, true
 }
 
-// SetThreeStar sets field value
+// HasThreeStar returns a boolean if a field has been set.
+func (o *FeedbacksIncreaseItem) HasThreeStar() bool {
+	if o != nil && !IsNil(o.ThreeStar) {
+		return true
+	}
+
+	return false
+}
+
+// SetThreeStar gets a reference to the given FeedbacksIncreaseItemThreeStar and assigns it to the ThreeStar field.
 func (o *FeedbacksIncreaseItem) SetThreeStar(v FeedbacksIncreaseItemThreeStar) {
-	o.ThreeStar = v
+	o.ThreeStar = &v
 }
 
-// GetTwoStar returns the TwoStar field value
+// GetTwoStar returns the TwoStar field value if set, zero value otherwise.
 func (o *FeedbacksIncreaseItem) GetTwoStar() FeedbacksIncreaseItemTwoStar {
-	if o == nil {
+	if o == nil || IsNil(o.TwoStar) {
 		var ret FeedbacksIncreaseItemTwoStar
 		return ret
 	}
-
-	return o.TwoStar
+	return *o.TwoStar
 }
 
-// GetTwoStarOk returns a tuple with the TwoStar field value
+// GetTwoStarOk returns a tuple with the TwoStar field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FeedbacksIncreaseItem) GetTwoStarOk() (*FeedbacksIncreaseItemTwoStar, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.TwoStar) {
 		return nil, false
 	}
-	return &o.TwoStar, true
+	return o.TwoStar, true
 }
 
-// SetTwoStar sets field value
+// HasTwoStar returns a boolean if a field has been set.
+func (o *FeedbacksIncreaseItem) HasTwoStar() bool {
+	if o != nil && !IsNil(o.TwoStar) {
+		return true
+	}
+
+	return false
+}
+
+// SetTwoStar gets a reference to the given FeedbacksIncreaseItemTwoStar and assigns it to the TwoStar field.
 func (o *FeedbacksIncreaseItem) SetTwoStar(v FeedbacksIncreaseItemTwoStar) {
-	o.TwoStar = v
+	o.TwoStar = &v
 }
 
-// GetOneStar returns the OneStar field value
+// GetOneStar returns the OneStar field value if set, zero value otherwise.
 func (o *FeedbacksIncreaseItem) GetOneStar() FeedbacksIncreaseItemOneStar {
-	if o == nil {
+	if o == nil || IsNil(o.OneStar) {
 		var ret FeedbacksIncreaseItemOneStar
 		return ret
 	}
-
-	return o.OneStar
+	return *o.OneStar
 }
 
-// GetOneStarOk returns a tuple with the OneStar field value
+// GetOneStarOk returns a tuple with the OneStar field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FeedbacksIncreaseItem) GetOneStarOk() (*FeedbacksIncreaseItemOneStar, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.OneStar) {
 		return nil, false
 	}
-	return &o.OneStar, true
+	return o.OneStar, true
 }
 
-// SetOneStar sets field value
+// HasOneStar returns a boolean if a field has been set.
+func (o *FeedbacksIncreaseItem) HasOneStar() bool {
+	if o != nil && !IsNil(o.OneStar) {
+		return true
+	}
+
+	return false
+}
+
+// SetOneStar gets a reference to the given FeedbacksIncreaseItemOneStar and assigns it to the OneStar field.
 func (o *FeedbacksIncreaseItem) SetOneStar(v FeedbacksIncreaseItemOneStar) {
-	o.OneStar = v
+	o.OneStar = &v
 }
 
 func (o FeedbacksIncreaseItem) MarshalJSON() ([]byte, error) {
@@ -263,59 +315,31 @@ func (o FeedbacksIncreaseItem) MarshalJSON() ([]byte, error) {
 
 func (o FeedbacksIncreaseItem) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["current"] = o.Current
-	toSerialize["total"] = o.Total
-	toSerialize["dynamics"] = o.Dynamics
-	toSerialize["fiveStar"] = o.FiveStar
-	toSerialize["fourStar"] = o.FourStar
-	toSerialize["threeStar"] = o.ThreeStar
-	toSerialize["twoStar"] = o.TwoStar
-	toSerialize["oneStar"] = o.OneStar
+	if !IsNil(o.Current) {
+		toSerialize["current"] = o.Current
+	}
+	if !IsNil(o.Total) {
+		toSerialize["total"] = o.Total
+	}
+	if !IsNil(o.Dynamics) {
+		toSerialize["dynamics"] = o.Dynamics
+	}
+	if !IsNil(o.FiveStar) {
+		toSerialize["fiveStar"] = o.FiveStar
+	}
+	if !IsNil(o.FourStar) {
+		toSerialize["fourStar"] = o.FourStar
+	}
+	if !IsNil(o.ThreeStar) {
+		toSerialize["threeStar"] = o.ThreeStar
+	}
+	if !IsNil(o.TwoStar) {
+		toSerialize["twoStar"] = o.TwoStar
+	}
+	if !IsNil(o.OneStar) {
+		toSerialize["oneStar"] = o.OneStar
+	}
 	return toSerialize, nil
-}
-
-func (o *FeedbacksIncreaseItem) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"current",
-		"total",
-		"dynamics",
-		"fiveStar",
-		"fourStar",
-		"threeStar",
-		"twoStar",
-		"oneStar",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varFeedbacksIncreaseItem := _FeedbacksIncreaseItem{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varFeedbacksIncreaseItem)
-
-	if err != nil {
-		return err
-	}
-
-	*o = FeedbacksIncreaseItem(varFeedbacksIncreaseItem)
-
-	return err
 }
 
 type NullableFeedbacksIncreaseItem struct {

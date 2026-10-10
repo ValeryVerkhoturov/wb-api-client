@@ -36,12 +36,12 @@ public class ResponseItemListAdditionalErrorsOneOf1 {
   public static final String SERIALIZED_NAME_ERROR = "error";
 
   @SerializedName(SERIALIZED_NAME_ERROR)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String error;
 
   public ResponseItemListAdditionalErrorsOneOf1() {}
 
-  public ResponseItemListAdditionalErrorsOneOf1 error(@jakarta.annotation.Nonnull String error) {
+  public ResponseItemListAdditionalErrorsOneOf1 error(@jakarta.annotation.Nullable String error) {
     this.error = error;
     return this;
   }
@@ -51,12 +51,12 @@ public class ResponseItemListAdditionalErrorsOneOf1 {
    *
    * @return error
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getError() {
     return error;
   }
 
-  public void setError(@jakarta.annotation.Nonnull String error) {
+  public void setError(@jakarta.annotation.Nullable String error) {
     this.error = error;
   }
 
@@ -107,7 +107,6 @@ public class ResponseItemListAdditionalErrorsOneOf1 {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("error");
   }
 
   /**
@@ -138,18 +137,9 @@ public class ResponseItemListAdditionalErrorsOneOf1 {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : ResponseItemListAdditionalErrorsOneOf1.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    if (!jsonObj.get("error").isJsonPrimitive()) {
+    if ((jsonObj.get("error") != null && !jsonObj.get("error").isJsonNull())
+        && !jsonObj.get("error").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `error` to be a primitive type in the JSON string but got `%s`",

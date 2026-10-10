@@ -34,26 +34,11 @@ namespace ValeryVerkhoturov.WbApiClient.InStorePickup.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiOrdersResponses" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected ApiOrdersResponses() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ApiOrdersResponses" /> class.
-        /// </summary>
-        /// <param name="requestId">Уникальный ID запроса (required).</param>
-        /// <param name="results">results (required).</param>
+        /// <param name="requestId">Уникальный ID запроса.</param>
+        /// <param name="results">results.</param>
         public ApiOrdersResponses(Object requestId = default(Object), List<ApiOrdersResponse> results = default(List<ApiOrdersResponse>))
         {
-            // to ensure "requestId" is required (not null)
-            if (requestId == null)
-            {
-                throw new ArgumentNullException("requestId is a required property for ApiOrdersResponses and cannot be null");
-            }
             this.RequestId = requestId;
-            // to ensure "results" is required (not null)
-            if (results == null)
-            {
-                throw new ArgumentNullException("results is a required property for ApiOrdersResponses and cannot be null");
-            }
             this.Results = results;
         }
 
@@ -64,13 +49,13 @@ namespace ValeryVerkhoturov.WbApiClient.InStorePickup.Model
         /*
         <example>f1787bd2d1fdс35d6f537316514у4a05</example>
         */
-        [DataMember(Name = "requestId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "requestId", EmitDefaultValue = true)]
         public Object RequestId { get; set; }
 
         /// <summary>
         /// Gets or Sets Results
         /// </summary>
-        [DataMember(Name = "results", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "results", EmitDefaultValue = false)]
         public List<ApiOrdersResponse> Results { get; set; }
 
         /// <summary>

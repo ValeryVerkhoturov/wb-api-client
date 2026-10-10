@@ -11,9 +11,7 @@ API version: analytics
 package analytics
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the Comparison type satisfies the MappedNullable interface at compile time
@@ -22,60 +20,42 @@ var _ MappedNullable = &Comparison{}
 // Comparison struct for Comparison
 type Comparison struct {
 	// Динамика переходов в карточку товара
-	OpenCountDynamic int32 `json:"openCountDynamic"`
+	OpenCountDynamic *int32 `json:"openCountDynamic,omitempty"`
 	// Динамика добавлений в корзину
-	CartCountDynamic int32 `json:"cartCountDynamic"`
+	CartCountDynamic *int32 `json:"cartCountDynamic,omitempty"`
 	// Динамика количества заказов
-	OrderCountDynamic int32 `json:"orderCountDynamic"`
+	OrderCountDynamic *int32 `json:"orderCountDynamic,omitempty"`
 	// Динамика суммы заказов
-	OrderSumDynamic int32 `json:"orderSumDynamic"`
+	OrderSumDynamic *int32 `json:"orderSumDynamic,omitempty"`
 	// Динамика выкупов
-	BuyoutCountDynamic int32 `json:"buyoutCountDynamic"`
+	BuyoutCountDynamic *int32 `json:"buyoutCountDynamic,omitempty"`
 	// Динамика суммы выкупов
-	BuyoutSumDynamic int32 `json:"buyoutSumDynamic"`
+	BuyoutSumDynamic *int32 `json:"buyoutSumDynamic,omitempty"`
 	// Динамика отмен и возвратов товаров
-	CancelCountDynamic int32 `json:"cancelCountDynamic"`
+	CancelCountDynamic *int32 `json:"cancelCountDynamic,omitempty"`
 	// Динамика сумм отмен и возвратов товаров
-	CancelSumDynamic int32 `json:"cancelSumDynamic"`
+	CancelSumDynamic *int32 `json:"cancelSumDynamic,omitempty"`
 	// Динамика среднего количества заказов в день
-	AvgOrdersCountPerDayDynamic int32 `json:"avgOrdersCountPerDayDynamic"`
+	AvgOrdersCountPerDayDynamic *int32 `json:"avgOrdersCountPerDayDynamic,omitempty"`
 	// Динамика средней цены на товары. Учитываются скидки для акций
-	AvgPriceDynamic int32 `json:"avgPriceDynamic"`
+	AvgPriceDynamic *int32 `json:"avgPriceDynamic,omitempty"`
 	// Динамика доли в выручке
-	ShareOrderPercentDynamic int32 `json:"shareOrderPercentDynamic"`
+	ShareOrderPercentDynamic *int32 `json:"shareOrderPercentDynamic,omitempty"`
 	// Динамика добавлений товара в избранное
-	AddToWishlistDynamic int32                        `json:"addToWishlistDynamic"`
-	TimeToReadyDynamic   ComparisonTimeToReadyDynamic `json:"timeToReadyDynamic"`
+	AddToWishlistDynamic *int32                        `json:"addToWishlistDynamic,omitempty"`
+	TimeToReadyDynamic   *ComparisonTimeToReadyDynamic `json:"timeToReadyDynamic,omitempty"`
 	// Динамика локальных заказов в рамках одного региона. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `0`
-	LocalizationPercentDynamic int32                   `json:"localizationPercentDynamic"`
-	WbClubDynamic              ComparisonWbClubDynamic `json:"wbClubDynamic"`
-	Conversions                StatisticConversions    `json:"conversions"`
+	LocalizationPercentDynamic *int32                   `json:"localizationPercentDynamic,omitempty"`
+	WbClubDynamic              *ComparisonWbClubDynamic `json:"wbClubDynamic,omitempty"`
+	Conversions                *StatisticConversions    `json:"conversions,omitempty"`
 }
-
-type _Comparison Comparison
 
 // NewComparison instantiates a new Comparison object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewComparison(openCountDynamic int32, cartCountDynamic int32, orderCountDynamic int32, orderSumDynamic int32, buyoutCountDynamic int32, buyoutSumDynamic int32, cancelCountDynamic int32, cancelSumDynamic int32, avgOrdersCountPerDayDynamic int32, avgPriceDynamic int32, shareOrderPercentDynamic int32, addToWishlistDynamic int32, timeToReadyDynamic ComparisonTimeToReadyDynamic, localizationPercentDynamic int32, wbClubDynamic ComparisonWbClubDynamic, conversions StatisticConversions) *Comparison {
+func NewComparison() *Comparison {
 	this := Comparison{}
-	this.OpenCountDynamic = openCountDynamic
-	this.CartCountDynamic = cartCountDynamic
-	this.OrderCountDynamic = orderCountDynamic
-	this.OrderSumDynamic = orderSumDynamic
-	this.BuyoutCountDynamic = buyoutCountDynamic
-	this.BuyoutSumDynamic = buyoutSumDynamic
-	this.CancelCountDynamic = cancelCountDynamic
-	this.CancelSumDynamic = cancelSumDynamic
-	this.AvgOrdersCountPerDayDynamic = avgOrdersCountPerDayDynamic
-	this.AvgPriceDynamic = avgPriceDynamic
-	this.ShareOrderPercentDynamic = shareOrderPercentDynamic
-	this.AddToWishlistDynamic = addToWishlistDynamic
-	this.TimeToReadyDynamic = timeToReadyDynamic
-	this.LocalizationPercentDynamic = localizationPercentDynamic
-	this.WbClubDynamic = wbClubDynamic
-	this.Conversions = conversions
 	return &this
 }
 
@@ -87,388 +67,516 @@ func NewComparisonWithDefaults() *Comparison {
 	return &this
 }
 
-// GetOpenCountDynamic returns the OpenCountDynamic field value
+// GetOpenCountDynamic returns the OpenCountDynamic field value if set, zero value otherwise.
 func (o *Comparison) GetOpenCountDynamic() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.OpenCountDynamic) {
 		var ret int32
 		return ret
 	}
-
-	return o.OpenCountDynamic
+	return *o.OpenCountDynamic
 }
 
-// GetOpenCountDynamicOk returns a tuple with the OpenCountDynamic field value
+// GetOpenCountDynamicOk returns a tuple with the OpenCountDynamic field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Comparison) GetOpenCountDynamicOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.OpenCountDynamic) {
 		return nil, false
 	}
-	return &o.OpenCountDynamic, true
+	return o.OpenCountDynamic, true
 }
 
-// SetOpenCountDynamic sets field value
+// HasOpenCountDynamic returns a boolean if a field has been set.
+func (o *Comparison) HasOpenCountDynamic() bool {
+	if o != nil && !IsNil(o.OpenCountDynamic) {
+		return true
+	}
+
+	return false
+}
+
+// SetOpenCountDynamic gets a reference to the given int32 and assigns it to the OpenCountDynamic field.
 func (o *Comparison) SetOpenCountDynamic(v int32) {
-	o.OpenCountDynamic = v
+	o.OpenCountDynamic = &v
 }
 
-// GetCartCountDynamic returns the CartCountDynamic field value
+// GetCartCountDynamic returns the CartCountDynamic field value if set, zero value otherwise.
 func (o *Comparison) GetCartCountDynamic() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.CartCountDynamic) {
 		var ret int32
 		return ret
 	}
-
-	return o.CartCountDynamic
+	return *o.CartCountDynamic
 }
 
-// GetCartCountDynamicOk returns a tuple with the CartCountDynamic field value
+// GetCartCountDynamicOk returns a tuple with the CartCountDynamic field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Comparison) GetCartCountDynamicOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.CartCountDynamic) {
 		return nil, false
 	}
-	return &o.CartCountDynamic, true
+	return o.CartCountDynamic, true
 }
 
-// SetCartCountDynamic sets field value
+// HasCartCountDynamic returns a boolean if a field has been set.
+func (o *Comparison) HasCartCountDynamic() bool {
+	if o != nil && !IsNil(o.CartCountDynamic) {
+		return true
+	}
+
+	return false
+}
+
+// SetCartCountDynamic gets a reference to the given int32 and assigns it to the CartCountDynamic field.
 func (o *Comparison) SetCartCountDynamic(v int32) {
-	o.CartCountDynamic = v
+	o.CartCountDynamic = &v
 }
 
-// GetOrderCountDynamic returns the OrderCountDynamic field value
+// GetOrderCountDynamic returns the OrderCountDynamic field value if set, zero value otherwise.
 func (o *Comparison) GetOrderCountDynamic() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.OrderCountDynamic) {
 		var ret int32
 		return ret
 	}
-
-	return o.OrderCountDynamic
+	return *o.OrderCountDynamic
 }
 
-// GetOrderCountDynamicOk returns a tuple with the OrderCountDynamic field value
+// GetOrderCountDynamicOk returns a tuple with the OrderCountDynamic field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Comparison) GetOrderCountDynamicOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.OrderCountDynamic) {
 		return nil, false
 	}
-	return &o.OrderCountDynamic, true
+	return o.OrderCountDynamic, true
 }
 
-// SetOrderCountDynamic sets field value
+// HasOrderCountDynamic returns a boolean if a field has been set.
+func (o *Comparison) HasOrderCountDynamic() bool {
+	if o != nil && !IsNil(o.OrderCountDynamic) {
+		return true
+	}
+
+	return false
+}
+
+// SetOrderCountDynamic gets a reference to the given int32 and assigns it to the OrderCountDynamic field.
 func (o *Comparison) SetOrderCountDynamic(v int32) {
-	o.OrderCountDynamic = v
+	o.OrderCountDynamic = &v
 }
 
-// GetOrderSumDynamic returns the OrderSumDynamic field value
+// GetOrderSumDynamic returns the OrderSumDynamic field value if set, zero value otherwise.
 func (o *Comparison) GetOrderSumDynamic() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.OrderSumDynamic) {
 		var ret int32
 		return ret
 	}
-
-	return o.OrderSumDynamic
+	return *o.OrderSumDynamic
 }
 
-// GetOrderSumDynamicOk returns a tuple with the OrderSumDynamic field value
+// GetOrderSumDynamicOk returns a tuple with the OrderSumDynamic field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Comparison) GetOrderSumDynamicOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.OrderSumDynamic) {
 		return nil, false
 	}
-	return &o.OrderSumDynamic, true
+	return o.OrderSumDynamic, true
 }
 
-// SetOrderSumDynamic sets field value
+// HasOrderSumDynamic returns a boolean if a field has been set.
+func (o *Comparison) HasOrderSumDynamic() bool {
+	if o != nil && !IsNil(o.OrderSumDynamic) {
+		return true
+	}
+
+	return false
+}
+
+// SetOrderSumDynamic gets a reference to the given int32 and assigns it to the OrderSumDynamic field.
 func (o *Comparison) SetOrderSumDynamic(v int32) {
-	o.OrderSumDynamic = v
+	o.OrderSumDynamic = &v
 }
 
-// GetBuyoutCountDynamic returns the BuyoutCountDynamic field value
+// GetBuyoutCountDynamic returns the BuyoutCountDynamic field value if set, zero value otherwise.
 func (o *Comparison) GetBuyoutCountDynamic() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.BuyoutCountDynamic) {
 		var ret int32
 		return ret
 	}
-
-	return o.BuyoutCountDynamic
+	return *o.BuyoutCountDynamic
 }
 
-// GetBuyoutCountDynamicOk returns a tuple with the BuyoutCountDynamic field value
+// GetBuyoutCountDynamicOk returns a tuple with the BuyoutCountDynamic field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Comparison) GetBuyoutCountDynamicOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.BuyoutCountDynamic) {
 		return nil, false
 	}
-	return &o.BuyoutCountDynamic, true
+	return o.BuyoutCountDynamic, true
 }
 
-// SetBuyoutCountDynamic sets field value
+// HasBuyoutCountDynamic returns a boolean if a field has been set.
+func (o *Comparison) HasBuyoutCountDynamic() bool {
+	if o != nil && !IsNil(o.BuyoutCountDynamic) {
+		return true
+	}
+
+	return false
+}
+
+// SetBuyoutCountDynamic gets a reference to the given int32 and assigns it to the BuyoutCountDynamic field.
 func (o *Comparison) SetBuyoutCountDynamic(v int32) {
-	o.BuyoutCountDynamic = v
+	o.BuyoutCountDynamic = &v
 }
 
-// GetBuyoutSumDynamic returns the BuyoutSumDynamic field value
+// GetBuyoutSumDynamic returns the BuyoutSumDynamic field value if set, zero value otherwise.
 func (o *Comparison) GetBuyoutSumDynamic() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.BuyoutSumDynamic) {
 		var ret int32
 		return ret
 	}
-
-	return o.BuyoutSumDynamic
+	return *o.BuyoutSumDynamic
 }
 
-// GetBuyoutSumDynamicOk returns a tuple with the BuyoutSumDynamic field value
+// GetBuyoutSumDynamicOk returns a tuple with the BuyoutSumDynamic field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Comparison) GetBuyoutSumDynamicOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.BuyoutSumDynamic) {
 		return nil, false
 	}
-	return &o.BuyoutSumDynamic, true
+	return o.BuyoutSumDynamic, true
 }
 
-// SetBuyoutSumDynamic sets field value
+// HasBuyoutSumDynamic returns a boolean if a field has been set.
+func (o *Comparison) HasBuyoutSumDynamic() bool {
+	if o != nil && !IsNil(o.BuyoutSumDynamic) {
+		return true
+	}
+
+	return false
+}
+
+// SetBuyoutSumDynamic gets a reference to the given int32 and assigns it to the BuyoutSumDynamic field.
 func (o *Comparison) SetBuyoutSumDynamic(v int32) {
-	o.BuyoutSumDynamic = v
+	o.BuyoutSumDynamic = &v
 }
 
-// GetCancelCountDynamic returns the CancelCountDynamic field value
+// GetCancelCountDynamic returns the CancelCountDynamic field value if set, zero value otherwise.
 func (o *Comparison) GetCancelCountDynamic() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.CancelCountDynamic) {
 		var ret int32
 		return ret
 	}
-
-	return o.CancelCountDynamic
+	return *o.CancelCountDynamic
 }
 
-// GetCancelCountDynamicOk returns a tuple with the CancelCountDynamic field value
+// GetCancelCountDynamicOk returns a tuple with the CancelCountDynamic field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Comparison) GetCancelCountDynamicOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.CancelCountDynamic) {
 		return nil, false
 	}
-	return &o.CancelCountDynamic, true
+	return o.CancelCountDynamic, true
 }
 
-// SetCancelCountDynamic sets field value
+// HasCancelCountDynamic returns a boolean if a field has been set.
+func (o *Comparison) HasCancelCountDynamic() bool {
+	if o != nil && !IsNil(o.CancelCountDynamic) {
+		return true
+	}
+
+	return false
+}
+
+// SetCancelCountDynamic gets a reference to the given int32 and assigns it to the CancelCountDynamic field.
 func (o *Comparison) SetCancelCountDynamic(v int32) {
-	o.CancelCountDynamic = v
+	o.CancelCountDynamic = &v
 }
 
-// GetCancelSumDynamic returns the CancelSumDynamic field value
+// GetCancelSumDynamic returns the CancelSumDynamic field value if set, zero value otherwise.
 func (o *Comparison) GetCancelSumDynamic() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.CancelSumDynamic) {
 		var ret int32
 		return ret
 	}
-
-	return o.CancelSumDynamic
+	return *o.CancelSumDynamic
 }
 
-// GetCancelSumDynamicOk returns a tuple with the CancelSumDynamic field value
+// GetCancelSumDynamicOk returns a tuple with the CancelSumDynamic field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Comparison) GetCancelSumDynamicOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.CancelSumDynamic) {
 		return nil, false
 	}
-	return &o.CancelSumDynamic, true
+	return o.CancelSumDynamic, true
 }
 
-// SetCancelSumDynamic sets field value
+// HasCancelSumDynamic returns a boolean if a field has been set.
+func (o *Comparison) HasCancelSumDynamic() bool {
+	if o != nil && !IsNil(o.CancelSumDynamic) {
+		return true
+	}
+
+	return false
+}
+
+// SetCancelSumDynamic gets a reference to the given int32 and assigns it to the CancelSumDynamic field.
 func (o *Comparison) SetCancelSumDynamic(v int32) {
-	o.CancelSumDynamic = v
+	o.CancelSumDynamic = &v
 }
 
-// GetAvgOrdersCountPerDayDynamic returns the AvgOrdersCountPerDayDynamic field value
+// GetAvgOrdersCountPerDayDynamic returns the AvgOrdersCountPerDayDynamic field value if set, zero value otherwise.
 func (o *Comparison) GetAvgOrdersCountPerDayDynamic() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.AvgOrdersCountPerDayDynamic) {
 		var ret int32
 		return ret
 	}
-
-	return o.AvgOrdersCountPerDayDynamic
+	return *o.AvgOrdersCountPerDayDynamic
 }
 
-// GetAvgOrdersCountPerDayDynamicOk returns a tuple with the AvgOrdersCountPerDayDynamic field value
+// GetAvgOrdersCountPerDayDynamicOk returns a tuple with the AvgOrdersCountPerDayDynamic field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Comparison) GetAvgOrdersCountPerDayDynamicOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AvgOrdersCountPerDayDynamic) {
 		return nil, false
 	}
-	return &o.AvgOrdersCountPerDayDynamic, true
+	return o.AvgOrdersCountPerDayDynamic, true
 }
 
-// SetAvgOrdersCountPerDayDynamic sets field value
+// HasAvgOrdersCountPerDayDynamic returns a boolean if a field has been set.
+func (o *Comparison) HasAvgOrdersCountPerDayDynamic() bool {
+	if o != nil && !IsNil(o.AvgOrdersCountPerDayDynamic) {
+		return true
+	}
+
+	return false
+}
+
+// SetAvgOrdersCountPerDayDynamic gets a reference to the given int32 and assigns it to the AvgOrdersCountPerDayDynamic field.
 func (o *Comparison) SetAvgOrdersCountPerDayDynamic(v int32) {
-	o.AvgOrdersCountPerDayDynamic = v
+	o.AvgOrdersCountPerDayDynamic = &v
 }
 
-// GetAvgPriceDynamic returns the AvgPriceDynamic field value
+// GetAvgPriceDynamic returns the AvgPriceDynamic field value if set, zero value otherwise.
 func (o *Comparison) GetAvgPriceDynamic() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.AvgPriceDynamic) {
 		var ret int32
 		return ret
 	}
-
-	return o.AvgPriceDynamic
+	return *o.AvgPriceDynamic
 }
 
-// GetAvgPriceDynamicOk returns a tuple with the AvgPriceDynamic field value
+// GetAvgPriceDynamicOk returns a tuple with the AvgPriceDynamic field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Comparison) GetAvgPriceDynamicOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AvgPriceDynamic) {
 		return nil, false
 	}
-	return &o.AvgPriceDynamic, true
+	return o.AvgPriceDynamic, true
 }
 
-// SetAvgPriceDynamic sets field value
+// HasAvgPriceDynamic returns a boolean if a field has been set.
+func (o *Comparison) HasAvgPriceDynamic() bool {
+	if o != nil && !IsNil(o.AvgPriceDynamic) {
+		return true
+	}
+
+	return false
+}
+
+// SetAvgPriceDynamic gets a reference to the given int32 and assigns it to the AvgPriceDynamic field.
 func (o *Comparison) SetAvgPriceDynamic(v int32) {
-	o.AvgPriceDynamic = v
+	o.AvgPriceDynamic = &v
 }
 
-// GetShareOrderPercentDynamic returns the ShareOrderPercentDynamic field value
+// GetShareOrderPercentDynamic returns the ShareOrderPercentDynamic field value if set, zero value otherwise.
 func (o *Comparison) GetShareOrderPercentDynamic() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.ShareOrderPercentDynamic) {
 		var ret int32
 		return ret
 	}
-
-	return o.ShareOrderPercentDynamic
+	return *o.ShareOrderPercentDynamic
 }
 
-// GetShareOrderPercentDynamicOk returns a tuple with the ShareOrderPercentDynamic field value
+// GetShareOrderPercentDynamicOk returns a tuple with the ShareOrderPercentDynamic field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Comparison) GetShareOrderPercentDynamicOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ShareOrderPercentDynamic) {
 		return nil, false
 	}
-	return &o.ShareOrderPercentDynamic, true
+	return o.ShareOrderPercentDynamic, true
 }
 
-// SetShareOrderPercentDynamic sets field value
+// HasShareOrderPercentDynamic returns a boolean if a field has been set.
+func (o *Comparison) HasShareOrderPercentDynamic() bool {
+	if o != nil && !IsNil(o.ShareOrderPercentDynamic) {
+		return true
+	}
+
+	return false
+}
+
+// SetShareOrderPercentDynamic gets a reference to the given int32 and assigns it to the ShareOrderPercentDynamic field.
 func (o *Comparison) SetShareOrderPercentDynamic(v int32) {
-	o.ShareOrderPercentDynamic = v
+	o.ShareOrderPercentDynamic = &v
 }
 
-// GetAddToWishlistDynamic returns the AddToWishlistDynamic field value
+// GetAddToWishlistDynamic returns the AddToWishlistDynamic field value if set, zero value otherwise.
 func (o *Comparison) GetAddToWishlistDynamic() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.AddToWishlistDynamic) {
 		var ret int32
 		return ret
 	}
-
-	return o.AddToWishlistDynamic
+	return *o.AddToWishlistDynamic
 }
 
-// GetAddToWishlistDynamicOk returns a tuple with the AddToWishlistDynamic field value
+// GetAddToWishlistDynamicOk returns a tuple with the AddToWishlistDynamic field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Comparison) GetAddToWishlistDynamicOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AddToWishlistDynamic) {
 		return nil, false
 	}
-	return &o.AddToWishlistDynamic, true
+	return o.AddToWishlistDynamic, true
 }
 
-// SetAddToWishlistDynamic sets field value
+// HasAddToWishlistDynamic returns a boolean if a field has been set.
+func (o *Comparison) HasAddToWishlistDynamic() bool {
+	if o != nil && !IsNil(o.AddToWishlistDynamic) {
+		return true
+	}
+
+	return false
+}
+
+// SetAddToWishlistDynamic gets a reference to the given int32 and assigns it to the AddToWishlistDynamic field.
 func (o *Comparison) SetAddToWishlistDynamic(v int32) {
-	o.AddToWishlistDynamic = v
+	o.AddToWishlistDynamic = &v
 }
 
-// GetTimeToReadyDynamic returns the TimeToReadyDynamic field value
+// GetTimeToReadyDynamic returns the TimeToReadyDynamic field value if set, zero value otherwise.
 func (o *Comparison) GetTimeToReadyDynamic() ComparisonTimeToReadyDynamic {
-	if o == nil {
+	if o == nil || IsNil(o.TimeToReadyDynamic) {
 		var ret ComparisonTimeToReadyDynamic
 		return ret
 	}
-
-	return o.TimeToReadyDynamic
+	return *o.TimeToReadyDynamic
 }
 
-// GetTimeToReadyDynamicOk returns a tuple with the TimeToReadyDynamic field value
+// GetTimeToReadyDynamicOk returns a tuple with the TimeToReadyDynamic field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Comparison) GetTimeToReadyDynamicOk() (*ComparisonTimeToReadyDynamic, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.TimeToReadyDynamic) {
 		return nil, false
 	}
-	return &o.TimeToReadyDynamic, true
+	return o.TimeToReadyDynamic, true
 }
 
-// SetTimeToReadyDynamic sets field value
+// HasTimeToReadyDynamic returns a boolean if a field has been set.
+func (o *Comparison) HasTimeToReadyDynamic() bool {
+	if o != nil && !IsNil(o.TimeToReadyDynamic) {
+		return true
+	}
+
+	return false
+}
+
+// SetTimeToReadyDynamic gets a reference to the given ComparisonTimeToReadyDynamic and assigns it to the TimeToReadyDynamic field.
 func (o *Comparison) SetTimeToReadyDynamic(v ComparisonTimeToReadyDynamic) {
-	o.TimeToReadyDynamic = v
+	o.TimeToReadyDynamic = &v
 }
 
-// GetLocalizationPercentDynamic returns the LocalizationPercentDynamic field value
+// GetLocalizationPercentDynamic returns the LocalizationPercentDynamic field value if set, zero value otherwise.
 func (o *Comparison) GetLocalizationPercentDynamic() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.LocalizationPercentDynamic) {
 		var ret int32
 		return ret
 	}
-
-	return o.LocalizationPercentDynamic
+	return *o.LocalizationPercentDynamic
 }
 
-// GetLocalizationPercentDynamicOk returns a tuple with the LocalizationPercentDynamic field value
+// GetLocalizationPercentDynamicOk returns a tuple with the LocalizationPercentDynamic field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Comparison) GetLocalizationPercentDynamicOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.LocalizationPercentDynamic) {
 		return nil, false
 	}
-	return &o.LocalizationPercentDynamic, true
+	return o.LocalizationPercentDynamic, true
 }
 
-// SetLocalizationPercentDynamic sets field value
+// HasLocalizationPercentDynamic returns a boolean if a field has been set.
+func (o *Comparison) HasLocalizationPercentDynamic() bool {
+	if o != nil && !IsNil(o.LocalizationPercentDynamic) {
+		return true
+	}
+
+	return false
+}
+
+// SetLocalizationPercentDynamic gets a reference to the given int32 and assigns it to the LocalizationPercentDynamic field.
 func (o *Comparison) SetLocalizationPercentDynamic(v int32) {
-	o.LocalizationPercentDynamic = v
+	o.LocalizationPercentDynamic = &v
 }
 
-// GetWbClubDynamic returns the WbClubDynamic field value
+// GetWbClubDynamic returns the WbClubDynamic field value if set, zero value otherwise.
 func (o *Comparison) GetWbClubDynamic() ComparisonWbClubDynamic {
-	if o == nil {
+	if o == nil || IsNil(o.WbClubDynamic) {
 		var ret ComparisonWbClubDynamic
 		return ret
 	}
-
-	return o.WbClubDynamic
+	return *o.WbClubDynamic
 }
 
-// GetWbClubDynamicOk returns a tuple with the WbClubDynamic field value
+// GetWbClubDynamicOk returns a tuple with the WbClubDynamic field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Comparison) GetWbClubDynamicOk() (*ComparisonWbClubDynamic, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.WbClubDynamic) {
 		return nil, false
 	}
-	return &o.WbClubDynamic, true
+	return o.WbClubDynamic, true
 }
 
-// SetWbClubDynamic sets field value
+// HasWbClubDynamic returns a boolean if a field has been set.
+func (o *Comparison) HasWbClubDynamic() bool {
+	if o != nil && !IsNil(o.WbClubDynamic) {
+		return true
+	}
+
+	return false
+}
+
+// SetWbClubDynamic gets a reference to the given ComparisonWbClubDynamic and assigns it to the WbClubDynamic field.
 func (o *Comparison) SetWbClubDynamic(v ComparisonWbClubDynamic) {
-	o.WbClubDynamic = v
+	o.WbClubDynamic = &v
 }
 
-// GetConversions returns the Conversions field value
+// GetConversions returns the Conversions field value if set, zero value otherwise.
 func (o *Comparison) GetConversions() StatisticConversions {
-	if o == nil {
+	if o == nil || IsNil(o.Conversions) {
 		var ret StatisticConversions
 		return ret
 	}
-
-	return o.Conversions
+	return *o.Conversions
 }
 
-// GetConversionsOk returns a tuple with the Conversions field value
+// GetConversionsOk returns a tuple with the Conversions field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Comparison) GetConversionsOk() (*StatisticConversions, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Conversions) {
 		return nil, false
 	}
-	return &o.Conversions, true
+	return o.Conversions, true
 }
 
-// SetConversions sets field value
+// HasConversions returns a boolean if a field has been set.
+func (o *Comparison) HasConversions() bool {
+	if o != nil && !IsNil(o.Conversions) {
+		return true
+	}
+
+	return false
+}
+
+// SetConversions gets a reference to the given StatisticConversions and assigns it to the Conversions field.
 func (o *Comparison) SetConversions(v StatisticConversions) {
-	o.Conversions = v
+	o.Conversions = &v
 }
 
 func (o Comparison) MarshalJSON() ([]byte, error) {
@@ -481,75 +589,55 @@ func (o Comparison) MarshalJSON() ([]byte, error) {
 
 func (o Comparison) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["openCountDynamic"] = o.OpenCountDynamic
-	toSerialize["cartCountDynamic"] = o.CartCountDynamic
-	toSerialize["orderCountDynamic"] = o.OrderCountDynamic
-	toSerialize["orderSumDynamic"] = o.OrderSumDynamic
-	toSerialize["buyoutCountDynamic"] = o.BuyoutCountDynamic
-	toSerialize["buyoutSumDynamic"] = o.BuyoutSumDynamic
-	toSerialize["cancelCountDynamic"] = o.CancelCountDynamic
-	toSerialize["cancelSumDynamic"] = o.CancelSumDynamic
-	toSerialize["avgOrdersCountPerDayDynamic"] = o.AvgOrdersCountPerDayDynamic
-	toSerialize["avgPriceDynamic"] = o.AvgPriceDynamic
-	toSerialize["shareOrderPercentDynamic"] = o.ShareOrderPercentDynamic
-	toSerialize["addToWishlistDynamic"] = o.AddToWishlistDynamic
-	toSerialize["timeToReadyDynamic"] = o.TimeToReadyDynamic
-	toSerialize["localizationPercentDynamic"] = o.LocalizationPercentDynamic
-	toSerialize["wbClubDynamic"] = o.WbClubDynamic
-	toSerialize["conversions"] = o.Conversions
+	if !IsNil(o.OpenCountDynamic) {
+		toSerialize["openCountDynamic"] = o.OpenCountDynamic
+	}
+	if !IsNil(o.CartCountDynamic) {
+		toSerialize["cartCountDynamic"] = o.CartCountDynamic
+	}
+	if !IsNil(o.OrderCountDynamic) {
+		toSerialize["orderCountDynamic"] = o.OrderCountDynamic
+	}
+	if !IsNil(o.OrderSumDynamic) {
+		toSerialize["orderSumDynamic"] = o.OrderSumDynamic
+	}
+	if !IsNil(o.BuyoutCountDynamic) {
+		toSerialize["buyoutCountDynamic"] = o.BuyoutCountDynamic
+	}
+	if !IsNil(o.BuyoutSumDynamic) {
+		toSerialize["buyoutSumDynamic"] = o.BuyoutSumDynamic
+	}
+	if !IsNil(o.CancelCountDynamic) {
+		toSerialize["cancelCountDynamic"] = o.CancelCountDynamic
+	}
+	if !IsNil(o.CancelSumDynamic) {
+		toSerialize["cancelSumDynamic"] = o.CancelSumDynamic
+	}
+	if !IsNil(o.AvgOrdersCountPerDayDynamic) {
+		toSerialize["avgOrdersCountPerDayDynamic"] = o.AvgOrdersCountPerDayDynamic
+	}
+	if !IsNil(o.AvgPriceDynamic) {
+		toSerialize["avgPriceDynamic"] = o.AvgPriceDynamic
+	}
+	if !IsNil(o.ShareOrderPercentDynamic) {
+		toSerialize["shareOrderPercentDynamic"] = o.ShareOrderPercentDynamic
+	}
+	if !IsNil(o.AddToWishlistDynamic) {
+		toSerialize["addToWishlistDynamic"] = o.AddToWishlistDynamic
+	}
+	if !IsNil(o.TimeToReadyDynamic) {
+		toSerialize["timeToReadyDynamic"] = o.TimeToReadyDynamic
+	}
+	if !IsNil(o.LocalizationPercentDynamic) {
+		toSerialize["localizationPercentDynamic"] = o.LocalizationPercentDynamic
+	}
+	if !IsNil(o.WbClubDynamic) {
+		toSerialize["wbClubDynamic"] = o.WbClubDynamic
+	}
+	if !IsNil(o.Conversions) {
+		toSerialize["conversions"] = o.Conversions
+	}
 	return toSerialize, nil
-}
-
-func (o *Comparison) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"openCountDynamic",
-		"cartCountDynamic",
-		"orderCountDynamic",
-		"orderSumDynamic",
-		"buyoutCountDynamic",
-		"buyoutSumDynamic",
-		"cancelCountDynamic",
-		"cancelSumDynamic",
-		"avgOrdersCountPerDayDynamic",
-		"avgPriceDynamic",
-		"shareOrderPercentDynamic",
-		"addToWishlistDynamic",
-		"timeToReadyDynamic",
-		"localizationPercentDynamic",
-		"wbClubDynamic",
-		"conversions",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varComparison := _Comparison{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varComparison)
-
-	if err != nil {
-		return err
-	}
-
-	*o = Comparison(varComparison)
-
-	return err
 }
 
 type NullableComparison struct {

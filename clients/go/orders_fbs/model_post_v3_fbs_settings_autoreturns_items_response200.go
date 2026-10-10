@@ -11,9 +11,7 @@ API version: order
 package orders_fbs
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the PostV3FbsSettingsAutoreturnsItemsResponse200 type satisfies the MappedNullable interface at compile time
@@ -21,18 +19,15 @@ var _ MappedNullable = &PostV3FbsSettingsAutoreturnsItemsResponse200{}
 
 // PostV3FbsSettingsAutoreturnsItemsResponse200 struct for PostV3FbsSettingsAutoreturnsItemsResponse200
 type PostV3FbsSettingsAutoreturnsItemsResponse200 struct {
-	Results []PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInner `json:"results"`
+	Results []PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInner `json:"results,omitempty"`
 }
-
-type _PostV3FbsSettingsAutoreturnsItemsResponse200 PostV3FbsSettingsAutoreturnsItemsResponse200
 
 // NewPostV3FbsSettingsAutoreturnsItemsResponse200 instantiates a new PostV3FbsSettingsAutoreturnsItemsResponse200 object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPostV3FbsSettingsAutoreturnsItemsResponse200(results []PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInner) *PostV3FbsSettingsAutoreturnsItemsResponse200 {
+func NewPostV3FbsSettingsAutoreturnsItemsResponse200() *PostV3FbsSettingsAutoreturnsItemsResponse200 {
 	this := PostV3FbsSettingsAutoreturnsItemsResponse200{}
-	this.Results = results
 	return &this
 }
 
@@ -44,26 +39,34 @@ func NewPostV3FbsSettingsAutoreturnsItemsResponse200WithDefaults() *PostV3FbsSet
 	return &this
 }
 
-// GetResults returns the Results field value
+// GetResults returns the Results field value if set, zero value otherwise.
 func (o *PostV3FbsSettingsAutoreturnsItemsResponse200) GetResults() []PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInner {
-	if o == nil {
+	if o == nil || IsNil(o.Results) {
 		var ret []PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInner
 		return ret
 	}
-
 	return o.Results
 }
 
-// GetResultsOk returns a tuple with the Results field value
+// GetResultsOk returns a tuple with the Results field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PostV3FbsSettingsAutoreturnsItemsResponse200) GetResultsOk() ([]PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInner, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Results) {
 		return nil, false
 	}
 	return o.Results, true
 }
 
-// SetResults sets field value
+// HasResults returns a boolean if a field has been set.
+func (o *PostV3FbsSettingsAutoreturnsItemsResponse200) HasResults() bool {
+	if o != nil && !IsNil(o.Results) {
+		return true
+	}
+
+	return false
+}
+
+// SetResults gets a reference to the given []PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInner and assigns it to the Results field.
 func (o *PostV3FbsSettingsAutoreturnsItemsResponse200) SetResults(v []PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInner) {
 	o.Results = v
 }
@@ -78,45 +81,10 @@ func (o PostV3FbsSettingsAutoreturnsItemsResponse200) MarshalJSON() ([]byte, err
 
 func (o PostV3FbsSettingsAutoreturnsItemsResponse200) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["results"] = o.Results
+	if !IsNil(o.Results) {
+		toSerialize["results"] = o.Results
+	}
 	return toSerialize, nil
-}
-
-func (o *PostV3FbsSettingsAutoreturnsItemsResponse200) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"results",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varPostV3FbsSettingsAutoreturnsItemsResponse200 := _PostV3FbsSettingsAutoreturnsItemsResponse200{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varPostV3FbsSettingsAutoreturnsItemsResponse200)
-
-	if err != nil {
-		return err
-	}
-
-	*o = PostV3FbsSettingsAutoreturnsItemsResponse200(varPostV3FbsSettingsAutoreturnsItemsResponse200)
-
-	return err
 }
 
 type NullablePostV3FbsSettingsAutoreturnsItemsResponse200 struct {

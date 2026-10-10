@@ -34,40 +34,15 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Response400GetRecom" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected Response400GetRecom() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Response400GetRecom" /> class.
-        /// </summary>
-        /// <param name="requestId">ID запроса (required).</param>
-        /// <param name="origin">ID внутреннего сервиса WB (required).</param>
-        /// <param name="title">Заголовок ошибки (required).</param>
-        /// <param name="detail">Детали ошибки (required).</param>
+        /// <param name="requestId">ID запроса.</param>
+        /// <param name="origin">ID внутреннего сервиса WB.</param>
+        /// <param name="title">Заголовок ошибки.</param>
+        /// <param name="detail">Детали ошибки.</param>
         public Response400GetRecom(string requestId = default(string), string origin = default(string), string title = default(string), string detail = default(string))
         {
-            // to ensure "requestId" is required (not null)
-            if (requestId == null)
-            {
-                throw new ArgumentNullException("requestId is a required property for Response400GetRecom and cannot be null");
-            }
             this.RequestId = requestId;
-            // to ensure "origin" is required (not null)
-            if (origin == null)
-            {
-                throw new ArgumentNullException("origin is a required property for Response400GetRecom and cannot be null");
-            }
             this.Origin = origin;
-            // to ensure "title" is required (not null)
-            if (title == null)
-            {
-                throw new ArgumentNullException("title is a required property for Response400GetRecom and cannot be null");
-            }
             this.Title = title;
-            // to ensure "detail" is required (not null)
-            if (detail == null)
-            {
-                throw new ArgumentNullException("detail is a required property for Response400GetRecom and cannot be null");
-            }
             this.Detail = detail;
         }
 
@@ -78,7 +53,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /*
         <example>a03341a9-7b2c-41fd-9902-12a2705f0d24</example>
         */
-        [DataMember(Name = "requestId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "requestId", EmitDefaultValue = false)]
         public string RequestId { get; set; }
 
         /// <summary>
@@ -88,7 +63,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /*
         <example>recoms</example>
         */
-        [DataMember(Name = "origin", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "origin", EmitDefaultValue = false)]
         public string Origin { get; set; }
 
         /// <summary>
@@ -98,7 +73,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /*
         <example>Bad Request</example>
         */
-        [DataMember(Name = "title", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "title", EmitDefaultValue = false)]
         public string Title { get; set; }
 
         /// <summary>
@@ -108,7 +83,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /*
         <example>Search string length limit exceeded, maximum 72 required</example>
         */
-        [DataMember(Name = "detail", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "detail", EmitDefaultValue = false)]
         public string Detail { get; set; }
 
         /// <summary>

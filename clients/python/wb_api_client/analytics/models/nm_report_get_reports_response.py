@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from wb_api_client.analytics.models.nm_report_get_reports_response_data_inner import (
     NmReportGetReportsResponseDataInner,
 )
@@ -31,7 +31,7 @@ class NmReportGetReportsResponse(BaseModel):
     NmReportGetReportsResponse
     """  # noqa: E501
 
-    data: List[NmReportGetReportsResponseDataInner]
+    data: Optional[List[NmReportGetReportsResponseDataInner]] = None
     __properties: ClassVar[List[str]] = ["data"]
 
     model_config = ConfigDict(

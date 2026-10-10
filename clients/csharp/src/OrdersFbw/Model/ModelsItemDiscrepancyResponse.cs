@@ -34,42 +34,17 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ModelsItemDiscrepancyResponse" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected ModelsItemDiscrepancyResponse() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ModelsItemDiscrepancyResponse" /> class.
-        /// </summary>
-        /// <param name="packageCode">ID упаковки (required).</param>
-        /// <param name="videoUrl">Видео фиксации расхождений в процессе приёмки (required).</param>
-        /// <param name="videoStartsAt">Дата и время видеофиксации расхождений в процессе приемки (required).</param>
-        /// <param name="videoUnavailable">Доступность видео:    - &#x60;false&#x60; — видео доступно    - &#x60;true&#x60; — видео недоступно  (required).</param>
-        /// <param name="items">Товары поставки (required).</param>
+        /// <param name="packageCode">ID упаковки.</param>
+        /// <param name="videoUrl">Видео фиксации расхождений в процессе приёмки.</param>
+        /// <param name="videoStartsAt">Дата и время видеофиксации расхождений в процессе приемки.</param>
+        /// <param name="videoUnavailable">Доступность видео:    - &#x60;false&#x60; — видео доступно    - &#x60;true&#x60; — видео недоступно .</param>
+        /// <param name="items">Товары поставки.</param>
         public ModelsItemDiscrepancyResponse(string packageCode = default(string), string videoUrl = default(string), string videoStartsAt = default(string), bool videoUnavailable = default(bool), List<ModelsDiscrepancyResponseItem> items = default(List<ModelsDiscrepancyResponseItem>))
         {
-            // to ensure "packageCode" is required (not null)
-            if (packageCode == null)
-            {
-                throw new ArgumentNullException("packageCode is a required property for ModelsItemDiscrepancyResponse and cannot be null");
-            }
             this.PackageCode = packageCode;
-            // to ensure "videoUrl" is required (not null)
-            if (videoUrl == null)
-            {
-                throw new ArgumentNullException("videoUrl is a required property for ModelsItemDiscrepancyResponse and cannot be null");
-            }
             this.VideoUrl = videoUrl;
-            // to ensure "videoStartsAt" is required (not null)
-            if (videoStartsAt == null)
-            {
-                throw new ArgumentNullException("videoStartsAt is a required property for ModelsItemDiscrepancyResponse and cannot be null");
-            }
             this.VideoStartsAt = videoStartsAt;
             this.VideoUnavailable = videoUnavailable;
-            // to ensure "items" is required (not null)
-            if (items == null)
-            {
-                throw new ArgumentNullException("items is a required property for ModelsItemDiscrepancyResponse and cannot be null");
-            }
             this.Items = items;
         }
 
@@ -77,35 +52,35 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Model
         /// ID упаковки
         /// </summary>
         /// <value>ID упаковки</value>
-        [DataMember(Name = "packageCode", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "packageCode", EmitDefaultValue = false)]
         public string PackageCode { get; set; }
 
         /// <summary>
         /// Видео фиксации расхождений в процессе приёмки
         /// </summary>
         /// <value>Видео фиксации расхождений в процессе приёмки</value>
-        [DataMember(Name = "videoUrl", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "videoUrl", EmitDefaultValue = false)]
         public string VideoUrl { get; set; }
 
         /// <summary>
         /// Дата и время видеофиксации расхождений в процессе приемки
         /// </summary>
         /// <value>Дата и время видеофиксации расхождений в процессе приемки</value>
-        [DataMember(Name = "videoStartsAt", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "videoStartsAt", EmitDefaultValue = false)]
         public string VideoStartsAt { get; set; }
 
         /// <summary>
         /// Доступность видео:    - &#x60;false&#x60; — видео доступно    - &#x60;true&#x60; — видео недоступно 
         /// </summary>
         /// <value>Доступность видео:    - &#x60;false&#x60; — видео доступно    - &#x60;true&#x60; — видео недоступно </value>
-        [DataMember(Name = "videoUnavailable", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "videoUnavailable", EmitDefaultValue = true)]
         public bool VideoUnavailable { get; set; }
 
         /// <summary>
         /// Товары поставки
         /// </summary>
         /// <value>Товары поставки</value>
-        [DataMember(Name = "items", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "items", EmitDefaultValue = false)]
         public List<ModelsDiscrepancyResponseItem> Items { get; set; }
 
         /// <summary>

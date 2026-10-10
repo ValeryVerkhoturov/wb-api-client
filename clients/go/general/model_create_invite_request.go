@@ -22,8 +22,8 @@ var _ MappedNullable = &CreateInviteRequest{}
 // CreateInviteRequest struct for CreateInviteRequest
 type CreateInviteRequest struct {
 	// Настройки доступа к разделам профиля продавца
-	Access []GetUsersResponseUsersInnerAccessInner `json:"access,omitempty"`
-	Invite CreateInviteRequestInvite               `json:"invite"`
+	Access []CreateInviteRequestAccessInner `json:"access,omitempty"`
+	Invite CreateInviteRequestInvite        `json:"invite"`
 }
 
 type _CreateInviteRequest CreateInviteRequest
@@ -47,9 +47,9 @@ func NewCreateInviteRequestWithDefaults() *CreateInviteRequest {
 }
 
 // GetAccess returns the Access field value if set, zero value otherwise.
-func (o *CreateInviteRequest) GetAccess() []GetUsersResponseUsersInnerAccessInner {
+func (o *CreateInviteRequest) GetAccess() []CreateInviteRequestAccessInner {
 	if o == nil || IsNil(o.Access) {
-		var ret []GetUsersResponseUsersInnerAccessInner
+		var ret []CreateInviteRequestAccessInner
 		return ret
 	}
 	return o.Access
@@ -57,7 +57,7 @@ func (o *CreateInviteRequest) GetAccess() []GetUsersResponseUsersInnerAccessInne
 
 // GetAccessOk returns a tuple with the Access field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CreateInviteRequest) GetAccessOk() ([]GetUsersResponseUsersInnerAccessInner, bool) {
+func (o *CreateInviteRequest) GetAccessOk() ([]CreateInviteRequestAccessInner, bool) {
 	if o == nil || IsNil(o.Access) {
 		return nil, false
 	}
@@ -73,8 +73,8 @@ func (o *CreateInviteRequest) HasAccess() bool {
 	return false
 }
 
-// SetAccess gets a reference to the given []GetUsersResponseUsersInnerAccessInner and assigns it to the Access field.
-func (o *CreateInviteRequest) SetAccess(v []GetUsersResponseUsersInnerAccessInner) {
+// SetAccess gets a reference to the given []CreateInviteRequestAccessInner and assigns it to the Access field.
+func (o *CreateInviteRequest) SetAccess(v []CreateInviteRequestAccessInner) {
 	o.Access = v
 }
 

@@ -11,9 +11,7 @@ API version: order
 package orders_fbs
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the SupplySpotQRCode type satisfies the MappedNullable interface at compile time
@@ -22,18 +20,15 @@ var _ MappedNullable = &SupplySpotQRCode{}
 // SupplySpotQRCode struct for SupplySpotQRCode
 type SupplySpotQRCode struct {
 	// QR-код поставки в кодировке base64
-	QrCode string `json:"qrCode"`
+	QrCode *string `json:"qrCode,omitempty"`
 }
-
-type _SupplySpotQRCode SupplySpotQRCode
 
 // NewSupplySpotQRCode instantiates a new SupplySpotQRCode object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSupplySpotQRCode(qrCode string) *SupplySpotQRCode {
+func NewSupplySpotQRCode() *SupplySpotQRCode {
 	this := SupplySpotQRCode{}
-	this.QrCode = qrCode
 	return &this
 }
 
@@ -45,28 +40,36 @@ func NewSupplySpotQRCodeWithDefaults() *SupplySpotQRCode {
 	return &this
 }
 
-// GetQrCode returns the QrCode field value
+// GetQrCode returns the QrCode field value if set, zero value otherwise.
 func (o *SupplySpotQRCode) GetQrCode() string {
-	if o == nil {
+	if o == nil || IsNil(o.QrCode) {
 		var ret string
 		return ret
 	}
-
-	return o.QrCode
+	return *o.QrCode
 }
 
-// GetQrCodeOk returns a tuple with the QrCode field value
+// GetQrCodeOk returns a tuple with the QrCode field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SupplySpotQRCode) GetQrCodeOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.QrCode) {
 		return nil, false
 	}
-	return &o.QrCode, true
+	return o.QrCode, true
 }
 
-// SetQrCode sets field value
+// HasQrCode returns a boolean if a field has been set.
+func (o *SupplySpotQRCode) HasQrCode() bool {
+	if o != nil && !IsNil(o.QrCode) {
+		return true
+	}
+
+	return false
+}
+
+// SetQrCode gets a reference to the given string and assigns it to the QrCode field.
 func (o *SupplySpotQRCode) SetQrCode(v string) {
-	o.QrCode = v
+	o.QrCode = &v
 }
 
 func (o SupplySpotQRCode) MarshalJSON() ([]byte, error) {
@@ -79,45 +82,10 @@ func (o SupplySpotQRCode) MarshalJSON() ([]byte, error) {
 
 func (o SupplySpotQRCode) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["qrCode"] = o.QrCode
+	if !IsNil(o.QrCode) {
+		toSerialize["qrCode"] = o.QrCode
+	}
 	return toSerialize, nil
-}
-
-func (o *SupplySpotQRCode) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"qrCode",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varSupplySpotQRCode := _SupplySpotQRCode{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varSupplySpotQRCode)
-
-	if err != nil {
-		return err
-	}
-
-	*o = SupplySpotQRCode(varSupplySpotQRCode)
-
-	return err
 }
 
 type NullableSupplySpotQRCode struct {

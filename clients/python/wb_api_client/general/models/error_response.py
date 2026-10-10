@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List, Union
+from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,11 +28,17 @@ class ErrorResponse(BaseModel):
     ErrorResponse
     """  # noqa: E501
 
-    title: StrictStr = Field(description="Заголовок ошибки")
-    detail: StrictStr = Field(description="Детали ошибки")
-    request_id: StrictStr = Field(description="ID запроса", alias="requestId")
-    origin: StrictStr = Field(description="Название внутреннего сервиса")
-    status: Union[StrictFloat, StrictInt] = Field(description="HTTP статус-код")
+    title: Optional[StrictStr] = Field(default=None, description="Заголовок ошибки")
+    detail: Optional[StrictStr] = Field(default=None, description="Детали ошибки")
+    request_id: Optional[StrictStr] = Field(
+        default=None, description="ID запроса", alias="requestId"
+    )
+    origin: Optional[StrictStr] = Field(
+        default=None, description="Название внутреннего сервиса"
+    )
+    status: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None, description="HTTP статус-код"
+    )
     __properties: ClassVar[List[str]] = [
         "title",
         "detail",

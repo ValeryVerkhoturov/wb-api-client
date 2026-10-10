@@ -31,8 +31,8 @@ class V0GetNormQueryStatsItem(BaseModel):
     V0GetNormQueryStatsItem
     """  # noqa: E501
 
-    advert_id: StrictInt = Field(description="ID кампании")
-    nm_id: StrictInt = Field(description="Артикул WB")
+    advert_id: Optional[StrictInt] = Field(default=None, description="ID кампании")
+    nm_id: Optional[StrictInt] = Field(default=None, description="Артикул WB")
     stats: Optional[List[V0GetNormQueryStatsItemStat]] = None
     __properties: ClassVar[List[str]] = ["advert_id", "nm_id", "stats"]
 

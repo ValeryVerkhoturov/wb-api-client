@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from wb_api_client.analytics.models.order import Order
 from typing import Optional, Set
 from typing_extensions import Self
@@ -29,12 +29,13 @@ class OrderFeedResponse(BaseModel):
     Данные ответа
     """  # noqa: E501
 
-    snapshot_time: StrictStr = Field(
+    snapshot_time: Optional[StrictStr] = Field(
+        default=None,
         description="Метка снимка данных, в рамках которого выполняется пагинация",
         alias="snapshotTime",
     )
-    currency: StrictStr = Field(description="Валюта отчёта")
-    orders: List[Order] = Field(description="Заказы")
+    currency: Optional[StrictStr] = Field(default=None, description="Валюта отчёта")
+    orders: Optional[List[Order]] = Field(default=None, description="Заказы")
     __properties: ClassVar[List[str]] = ["snapshotTime", "currency", "orders"]
 
     model_config = ConfigDict(

@@ -34,60 +34,25 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TableItemItemSt" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected TableItemItemSt() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="TableItemItemSt" /> class.
-        /// </summary>
-        /// <param name="nmID">Артикул WB (required).</param>
-        /// <param name="isDeleted">Является ли товар удалённым (required).</param>
-        /// <param name="subjectName">Название предмета (required).</param>
-        /// <param name="name">Название товара (required).</param>
-        /// <param name="vendorCode">Артикул продавца (required).</param>
-        /// <param name="brandName">Бренд (required).</param>
-        /// <param name="mainPhoto">Ссылка на главное фото (required).</param>
-        /// <param name="hasSizes">Является ли товар размерным. Неразмерный товар имеет единственный размер, с &#x60;\&quot;techSize\&quot;:\&quot;0\&quot;&#x60; (required).</param>
-        /// <param name="metrics">metrics (required).</param>
+        /// <param name="nmID">Артикул WB.</param>
+        /// <param name="isDeleted">Является ли товар удалённым.</param>
+        /// <param name="subjectName">Название предмета.</param>
+        /// <param name="name">Название товара.</param>
+        /// <param name="vendorCode">Артикул продавца.</param>
+        /// <param name="brandName">Бренд.</param>
+        /// <param name="mainPhoto">Ссылка на главное фото.</param>
+        /// <param name="hasSizes">Является ли товар размерным. Неразмерный товар имеет единственный размер, с &#x60;\&quot;techSize\&quot;:\&quot;0\&quot;&#x60;.</param>
+        /// <param name="metrics">metrics.</param>
         public TableItemItemSt(long nmID = default(long), bool isDeleted = default(bool), string subjectName = default(string), string name = default(string), string vendorCode = default(string), string brandName = default(string), string mainPhoto = default(string), bool hasSizes = default(bool), TableItemItemStMetrics metrics = default(TableItemItemStMetrics))
         {
             this.NmID = nmID;
             this.IsDeleted = isDeleted;
-            // to ensure "subjectName" is required (not null)
-            if (subjectName == null)
-            {
-                throw new ArgumentNullException("subjectName is a required property for TableItemItemSt and cannot be null");
-            }
             this.SubjectName = subjectName;
-            // to ensure "name" is required (not null)
-            if (name == null)
-            {
-                throw new ArgumentNullException("name is a required property for TableItemItemSt and cannot be null");
-            }
             this.Name = name;
-            // to ensure "vendorCode" is required (not null)
-            if (vendorCode == null)
-            {
-                throw new ArgumentNullException("vendorCode is a required property for TableItemItemSt and cannot be null");
-            }
             this.VendorCode = vendorCode;
-            // to ensure "brandName" is required (not null)
-            if (brandName == null)
-            {
-                throw new ArgumentNullException("brandName is a required property for TableItemItemSt and cannot be null");
-            }
             this.BrandName = brandName;
-            // to ensure "mainPhoto" is required (not null)
-            if (mainPhoto == null)
-            {
-                throw new ArgumentNullException("mainPhoto is a required property for TableItemItemSt and cannot be null");
-            }
             this.MainPhoto = mainPhoto;
             this.HasSizes = hasSizes;
-            // to ensure "metrics" is required (not null)
-            if (metrics == null)
-            {
-                throw new ArgumentNullException("metrics is a required property for TableItemItemSt and cannot be null");
-            }
             this.Metrics = metrics;
         }
 
@@ -98,7 +63,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>123456789</example>
         */
-        [DataMember(Name = "nmID", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "nmID", EmitDefaultValue = false)]
         public long NmID { get; set; }
 
         /// <summary>
@@ -108,7 +73,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>false</example>
         */
-        [DataMember(Name = "isDeleted", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "isDeleted", EmitDefaultValue = true)]
         public bool IsDeleted { get; set; }
 
         /// <summary>
@@ -118,7 +83,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>Принтеры</example>
         */
-        [DataMember(Name = "subjectName", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "subjectName", EmitDefaultValue = false)]
         public string SubjectName { get; set; }
 
         /// <summary>
@@ -128,7 +93,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>Печатник 3000</example>
         */
-        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "name", EmitDefaultValue = false)]
         public string Name { get; set; }
 
         /// <summary>
@@ -138,7 +103,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>pechatnik3000</example>
         */
-        [DataMember(Name = "vendorCode", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "vendorCode", EmitDefaultValue = false)]
         public string VendorCode { get; set; }
 
         /// <summary>
@@ -148,7 +113,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>Компик</example>
         */
-        [DataMember(Name = "brandName", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "brandName", EmitDefaultValue = false)]
         public string BrandName { get; set; }
 
         /// <summary>
@@ -158,7 +123,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>https://basket-12.wbbasket.ru/vol1788/part178840/178840836/images/c246x328/1.webp</example>
         */
-        [DataMember(Name = "mainPhoto", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "mainPhoto", EmitDefaultValue = false)]
         public string MainPhoto { get; set; }
 
         /// <summary>
@@ -168,13 +133,13 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>true</example>
         */
-        [DataMember(Name = "hasSizes", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "hasSizes", EmitDefaultValue = true)]
         public bool HasSizes { get; set; }
 
         /// <summary>
         /// Gets or Sets Metrics
         /// </summary>
-        [DataMember(Name = "metrics", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "metrics", EmitDefaultValue = false)]
         public TableItemItemStMetrics Metrics { get; set; }
 
         /// <summary>

@@ -36,13 +36,13 @@ public class GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataIn
   public static final String SERIALIZED_NAME_SUBJECT_ID = "subjectId";
 
   @SerializedName(SERIALIZED_NAME_SUBJECT_ID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer subjectId;
 
   public GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataInner() {}
 
   public GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataInner subjectId(
-      @jakarta.annotation.Nonnull Integer subjectId) {
+      @jakarta.annotation.Nullable Integer subjectId) {
     this.subjectId = subjectId;
     return this;
   }
@@ -52,12 +52,12 @@ public class GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataIn
    *
    * @return subjectId
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getSubjectId() {
     return subjectId;
   }
 
-  public void setSubjectId(@jakarta.annotation.Nonnull Integer subjectId) {
+  public void setSubjectId(@jakarta.annotation.Nullable Integer subjectId) {
     this.subjectId = subjectId;
   }
 
@@ -111,7 +111,6 @@ public class GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataIn
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("subjectId");
   }
 
   /**
@@ -144,18 +143,6 @@ public class GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataIn
             String.format(
                 "The field `%s` in the JSON string is not defined in the `GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataInner` properties. JSON: %s",
                 entry.getKey(), jsonElement.toString()));
-      }
-    }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField :
-        GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataInner
-            .openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
       }
     }
     JsonObject jsonObj = jsonElement.getAsJsonObject();

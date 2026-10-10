@@ -31,11 +31,13 @@ class ResponsePublicViewerPublicErrorsTableListV2(BaseModel):
     ResponsePublicViewerPublicErrorsTableListV2
     """  # noqa: E501
 
-    data: ModelsErrorTableListPublicRespV2
-    error: StrictBool = Field(description="Флаг ошибки")
-    error_text: StrictStr = Field(description="Описание ошибки", alias="errorText")
+    data: Optional[ModelsErrorTableListPublicRespV2] = None
+    error: Optional[StrictBool] = Field(default=None, description="Флаг ошибки")
+    error_text: Optional[StrictStr] = Field(
+        default=None, description="Описание ошибки", alias="errorText"
+    )
     additional_errors: Optional[Dict[str, Any]] = Field(
-        description="Дополнительные ошибки", alias="additionalErrors"
+        default=None, description="Дополнительные ошибки", alias="additionalErrors"
     )
     __properties: ClassVar[List[str]] = [
         "data",

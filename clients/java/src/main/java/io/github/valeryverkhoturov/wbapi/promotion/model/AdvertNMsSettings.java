@@ -36,24 +36,24 @@ public class AdvertNMsSettings {
   public static final String SERIALIZED_NAME_BIDS_KOPECKS = "bids_kopecks";
 
   @SerializedName(SERIALIZED_NAME_BIDS_KOPECKS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private AdvertBidsKopecks bidsKopecks;
 
   public static final String SERIALIZED_NAME_SUBJECT = "subject";
 
   @SerializedName(SERIALIZED_NAME_SUBJECT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private AdvertSubcategory subject;
 
   public static final String SERIALIZED_NAME_NM_ID = "nm_id";
 
   @SerializedName(SERIALIZED_NAME_NM_ID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Long nmId;
 
   public AdvertNMsSettings() {}
 
-  public AdvertNMsSettings bidsKopecks(@jakarta.annotation.Nonnull AdvertBidsKopecks bidsKopecks) {
+  public AdvertNMsSettings bidsKopecks(@jakarta.annotation.Nullable AdvertBidsKopecks bidsKopecks) {
     this.bidsKopecks = bidsKopecks;
     return this;
   }
@@ -63,16 +63,16 @@ public class AdvertNMsSettings {
    *
    * @return bidsKopecks
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public AdvertBidsKopecks getBidsKopecks() {
     return bidsKopecks;
   }
 
-  public void setBidsKopecks(@jakarta.annotation.Nonnull AdvertBidsKopecks bidsKopecks) {
+  public void setBidsKopecks(@jakarta.annotation.Nullable AdvertBidsKopecks bidsKopecks) {
     this.bidsKopecks = bidsKopecks;
   }
 
-  public AdvertNMsSettings subject(@jakarta.annotation.Nonnull AdvertSubcategory subject) {
+  public AdvertNMsSettings subject(@jakarta.annotation.Nullable AdvertSubcategory subject) {
     this.subject = subject;
     return this;
   }
@@ -82,16 +82,16 @@ public class AdvertNMsSettings {
    *
    * @return subject
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public AdvertSubcategory getSubject() {
     return subject;
   }
 
-  public void setSubject(@jakarta.annotation.Nonnull AdvertSubcategory subject) {
+  public void setSubject(@jakarta.annotation.Nullable AdvertSubcategory subject) {
     this.subject = subject;
   }
 
-  public AdvertNMsSettings nmId(@jakarta.annotation.Nonnull Long nmId) {
+  public AdvertNMsSettings nmId(@jakarta.annotation.Nullable Long nmId) {
     this.nmId = nmId;
     return this;
   }
@@ -101,12 +101,12 @@ public class AdvertNMsSettings {
    *
    * @return nmId
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Long getNmId() {
     return nmId;
   }
 
-  public void setNmId(@jakarta.annotation.Nonnull Long nmId) {
+  public void setNmId(@jakarta.annotation.Nullable Long nmId) {
     this.nmId = nmId;
   }
 
@@ -162,9 +162,6 @@ public class AdvertNMsSettings {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("bids_kopecks");
-    openapiRequiredFields.add("subject");
-    openapiRequiredFields.add("nm_id");
   }
 
   /**
@@ -194,21 +191,15 @@ public class AdvertNMsSettings {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : AdvertNMsSettings.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    // validate the required field `bids_kopecks`
-    AdvertBidsKopecks.validateJsonElement(jsonObj.get("bids_kopecks"));
-    // validate the required field `subject`
-    AdvertSubcategory.validateJsonElement(jsonObj.get("subject"));
+    // validate the optional field `bids_kopecks`
+    if (jsonObj.get("bids_kopecks") != null && !jsonObj.get("bids_kopecks").isJsonNull()) {
+      AdvertBidsKopecks.validateJsonElement(jsonObj.get("bids_kopecks"));
+    }
+    // validate the optional field `subject`
+    if (jsonObj.get("subject") != null && !jsonObj.get("subject").isJsonNull()) {
+      AdvertSubcategory.validateJsonElement(jsonObj.get("subject"));
+    }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

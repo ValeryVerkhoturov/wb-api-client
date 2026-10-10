@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,7 +28,9 @@ class GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataInner(Bas
     GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataInner
     """  # noqa: E501
 
-    subject_id: StrictInt = Field(description="ID предмета", alias="subjectId")
+    subject_id: Optional[StrictInt] = Field(
+        default=None, description="ID предмета", alias="subjectId"
+    )
     __properties: ClassVar[List[str]] = ["subjectId"]
 
     model_config = ConfigDict(

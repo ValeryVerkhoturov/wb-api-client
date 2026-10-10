@@ -34,30 +34,15 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="V1SetNormQueryBidsSuccessResponseItem" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected V1SetNormQueryBidsSuccessResponseItem() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="V1SetNormQueryBidsSuccessResponseItem" /> class.
-        /// </summary>
-        /// <param name="advertId">ID кампании (required).</param>
-        /// <param name="nmId">Артикул WB (required).</param>
-        /// <param name="normQuery">Поисковый кластер — это группа похожих поисковых запросов, по которым покупатели находят товары (required).</param>
-        /// <param name="currency">Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) (required).</param>
+        /// <param name="advertId">ID кампании.</param>
+        /// <param name="nmId">Артикул WB.</param>
+        /// <param name="normQuery">Поисковый кластер — это группа похожих поисковых запросов, по которым покупатели находят товары.</param>
+        /// <param name="currency">Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).</param>
         public V1SetNormQueryBidsSuccessResponseItem(int advertId = default(int), int nmId = default(int), string normQuery = default(string), string currency = default(string))
         {
             this.AdvertId = advertId;
             this.NmId = nmId;
-            // to ensure "normQuery" is required (not null)
-            if (normQuery == null)
-            {
-                throw new ArgumentNullException("normQuery is a required property for V1SetNormQueryBidsSuccessResponseItem and cannot be null");
-            }
             this.NormQuery = normQuery;
-            // to ensure "currency" is required (not null)
-            if (currency == null)
-            {
-                throw new ArgumentNullException("currency is a required property for V1SetNormQueryBidsSuccessResponseItem and cannot be null");
-            }
             this.Currency = currency;
         }
 
@@ -65,28 +50,28 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// ID кампании
         /// </summary>
         /// <value>ID кампании</value>
-        [DataMember(Name = "advertId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "advertId", EmitDefaultValue = false)]
         public int AdvertId { get; set; }
 
         /// <summary>
         /// Артикул WB
         /// </summary>
         /// <value>Артикул WB</value>
-        [DataMember(Name = "nmId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "nmId", EmitDefaultValue = false)]
         public int NmId { get; set; }
 
         /// <summary>
         /// Поисковый кластер — это группа похожих поисковых запросов, по которым покупатели находят товары
         /// </summary>
         /// <value>Поисковый кластер — это группа похожих поисковых запросов, по которым покупатели находят товары</value>
-        [DataMember(Name = "normQuery", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "normQuery", EmitDefaultValue = false)]
         public string NormQuery { get; set; }
 
         /// <summary>
         /// Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
         /// </summary>
         /// <value>Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)</value>
-        [DataMember(Name = "currency", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "currency", EmitDefaultValue = false)]
         public string Currency { get; set; }
 
         /// <summary>

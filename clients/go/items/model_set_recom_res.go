@@ -11,9 +11,7 @@ API version: items
 package items
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the SetRecomRes type satisfies the MappedNullable interface at compile time
@@ -22,20 +20,17 @@ var _ MappedNullable = &SetRecomRes{}
 // SetRecomRes struct for SetRecomRes
 type SetRecomRes struct {
 	// Есть ли ошибки:   - `false` — ошибок нет. Запрос полностью успешен   - `true` — ошибки есть
-	IsError bool `json:"isError"`
+	IsError *bool `json:"isError,omitempty"`
 	// Ошибки. При `\"isError\":true`
 	Errors []SetRecomResErrorsInner `json:"errors,omitempty"`
 }
-
-type _SetRecomRes SetRecomRes
 
 // NewSetRecomRes instantiates a new SetRecomRes object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSetRecomRes(isError bool) *SetRecomRes {
+func NewSetRecomRes() *SetRecomRes {
 	this := SetRecomRes{}
-	this.IsError = isError
 	return &this
 }
 
@@ -47,28 +42,36 @@ func NewSetRecomResWithDefaults() *SetRecomRes {
 	return &this
 }
 
-// GetIsError returns the IsError field value
+// GetIsError returns the IsError field value if set, zero value otherwise.
 func (o *SetRecomRes) GetIsError() bool {
-	if o == nil {
+	if o == nil || IsNil(o.IsError) {
 		var ret bool
 		return ret
 	}
-
-	return o.IsError
+	return *o.IsError
 }
 
-// GetIsErrorOk returns a tuple with the IsError field value
+// GetIsErrorOk returns a tuple with the IsError field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SetRecomRes) GetIsErrorOk() (*bool, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.IsError) {
 		return nil, false
 	}
-	return &o.IsError, true
+	return o.IsError, true
 }
 
-// SetIsError sets field value
+// HasIsError returns a boolean if a field has been set.
+func (o *SetRecomRes) HasIsError() bool {
+	if o != nil && !IsNil(o.IsError) {
+		return true
+	}
+
+	return false
+}
+
+// SetIsError gets a reference to the given bool and assigns it to the IsError field.
 func (o *SetRecomRes) SetIsError(v bool) {
-	o.IsError = v
+	o.IsError = &v
 }
 
 // GetErrors returns the Errors field value if set, zero value otherwise.
@@ -113,48 +116,13 @@ func (o SetRecomRes) MarshalJSON() ([]byte, error) {
 
 func (o SetRecomRes) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["isError"] = o.IsError
+	if !IsNil(o.IsError) {
+		toSerialize["isError"] = o.IsError
+	}
 	if !IsNil(o.Errors) {
 		toSerialize["errors"] = o.Errors
 	}
 	return toSerialize, nil
-}
-
-func (o *SetRecomRes) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"isError",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varSetRecomRes := _SetRecomRes{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varSetRecomRes)
-
-	if err != nil {
-		return err
-	}
-
-	*o = SetRecomRes(varSetRecomRes)
-
-	return err
 }
 
 type NullableSetRecomRes struct {

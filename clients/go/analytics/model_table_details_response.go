@@ -11,9 +11,7 @@ API version: analytics
 package analytics
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the TableDetailsResponse type satisfies the MappedNullable interface at compile time
@@ -22,21 +20,17 @@ var _ MappedNullable = &TableDetailsResponse{}
 // TableDetailsResponse struct for TableDetailsResponse
 type TableDetailsResponse struct {
 	// Список товаров в группе по фильтру
-	Products []TableItemItem `json:"products"`
+	Products []TableItemItem `json:"products,omitempty"`
 	// Валюта отчёта
-	Currency string `json:"currency"`
+	Currency *string `json:"currency,omitempty"`
 }
-
-type _TableDetailsResponse TableDetailsResponse
 
 // NewTableDetailsResponse instantiates a new TableDetailsResponse object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTableDetailsResponse(products []TableItemItem, currency string) *TableDetailsResponse {
+func NewTableDetailsResponse() *TableDetailsResponse {
 	this := TableDetailsResponse{}
-	this.Products = products
-	this.Currency = currency
 	return &this
 }
 
@@ -48,52 +42,68 @@ func NewTableDetailsResponseWithDefaults() *TableDetailsResponse {
 	return &this
 }
 
-// GetProducts returns the Products field value
+// GetProducts returns the Products field value if set, zero value otherwise.
 func (o *TableDetailsResponse) GetProducts() []TableItemItem {
-	if o == nil {
+	if o == nil || IsNil(o.Products) {
 		var ret []TableItemItem
 		return ret
 	}
-
 	return o.Products
 }
 
-// GetProductsOk returns a tuple with the Products field value
+// GetProductsOk returns a tuple with the Products field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableDetailsResponse) GetProductsOk() ([]TableItemItem, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Products) {
 		return nil, false
 	}
 	return o.Products, true
 }
 
-// SetProducts sets field value
+// HasProducts returns a boolean if a field has been set.
+func (o *TableDetailsResponse) HasProducts() bool {
+	if o != nil && !IsNil(o.Products) {
+		return true
+	}
+
+	return false
+}
+
+// SetProducts gets a reference to the given []TableItemItem and assigns it to the Products field.
 func (o *TableDetailsResponse) SetProducts(v []TableItemItem) {
 	o.Products = v
 }
 
-// GetCurrency returns the Currency field value
+// GetCurrency returns the Currency field value if set, zero value otherwise.
 func (o *TableDetailsResponse) GetCurrency() string {
-	if o == nil {
+	if o == nil || IsNil(o.Currency) {
 		var ret string
 		return ret
 	}
-
-	return o.Currency
+	return *o.Currency
 }
 
-// GetCurrencyOk returns a tuple with the Currency field value
+// GetCurrencyOk returns a tuple with the Currency field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TableDetailsResponse) GetCurrencyOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Currency) {
 		return nil, false
 	}
-	return &o.Currency, true
+	return o.Currency, true
 }
 
-// SetCurrency sets field value
+// HasCurrency returns a boolean if a field has been set.
+func (o *TableDetailsResponse) HasCurrency() bool {
+	if o != nil && !IsNil(o.Currency) {
+		return true
+	}
+
+	return false
+}
+
+// SetCurrency gets a reference to the given string and assigns it to the Currency field.
 func (o *TableDetailsResponse) SetCurrency(v string) {
-	o.Currency = v
+	o.Currency = &v
 }
 
 func (o TableDetailsResponse) MarshalJSON() ([]byte, error) {
@@ -106,47 +116,13 @@ func (o TableDetailsResponse) MarshalJSON() ([]byte, error) {
 
 func (o TableDetailsResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["products"] = o.Products
-	toSerialize["currency"] = o.Currency
+	if !IsNil(o.Products) {
+		toSerialize["products"] = o.Products
+	}
+	if !IsNil(o.Currency) {
+		toSerialize["currency"] = o.Currency
+	}
 	return toSerialize, nil
-}
-
-func (o *TableDetailsResponse) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"products",
-		"currency",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varTableDetailsResponse := _TableDetailsResponse{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varTableDetailsResponse)
-
-	if err != nil {
-		return err
-	}
-
-	*o = TableDetailsResponse(varTableDetailsResponse)
-
-	return err
 }
 
 type NullableTableDetailsResponse struct {

@@ -38,37 +38,37 @@ public class SalesReportListRes {
   public static final String SERIALIZED_NAME_REPORT_ID = "reportId";
 
   @SerializedName(SERIALIZED_NAME_REPORT_ID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Long reportId;
 
   public static final String SERIALIZED_NAME_SELLER_FINANCE_NAME = "sellerFinanceName";
 
   @SerializedName(SERIALIZED_NAME_SELLER_FINANCE_NAME)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String sellerFinanceName;
 
   public static final String SERIALIZED_NAME_DATE_FROM = "dateFrom";
 
   @SerializedName(SERIALIZED_NAME_DATE_FROM)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String dateFrom;
 
   public static final String SERIALIZED_NAME_DATE_TO = "dateTo";
 
   @SerializedName(SERIALIZED_NAME_DATE_TO)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String dateTo;
 
   public static final String SERIALIZED_NAME_CREATE_DATE = "createDate";
 
   @SerializedName(SERIALIZED_NAME_CREATE_DATE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String createDate;
 
   public static final String SERIALIZED_NAME_CURRENCY = "currency";
 
   @SerializedName(SERIALIZED_NAME_CURRENCY)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String currency;
 
   /** Тип отчёта: - &#x60;1&#x60; — основной - &#x60;2&#x60; — по выкупам */
@@ -125,97 +125,97 @@ public class SalesReportListRes {
   public static final String SERIALIZED_NAME_REPORT_TYPE = "reportType";
 
   @SerializedName(SERIALIZED_NAME_REPORT_TYPE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private ReportTypeEnum reportType;
 
   public static final String SERIALIZED_NAME_RETAIL_AMOUNT_SUM = "retailAmountSum";
 
   @SerializedName(SERIALIZED_NAME_RETAIL_AMOUNT_SUM)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String retailAmountSum;
 
   public static final String SERIALIZED_NAME_FOR_PAY_SUM = "forPaySum";
 
   @SerializedName(SERIALIZED_NAME_FOR_PAY_SUM)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String forPaySum;
 
   public static final String SERIALIZED_NAME_AVG_SALE_PERCENT = "avgSalePercent";
 
   @SerializedName(SERIALIZED_NAME_AVG_SALE_PERCENT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private BigDecimal avgSalePercent;
 
   public static final String SERIALIZED_NAME_DELIVERY_SERVICE_SUM = "deliveryServiceSum";
 
   @SerializedName(SERIALIZED_NAME_DELIVERY_SERVICE_SUM)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String deliveryServiceSum;
 
   public static final String SERIALIZED_NAME_PAID_STORAGE_SUM = "paidStorageSum";
 
   @SerializedName(SERIALIZED_NAME_PAID_STORAGE_SUM)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String paidStorageSum;
 
   public static final String SERIALIZED_NAME_PAID_ACCEPTANCE_SUM = "paidAcceptanceSum";
 
   @SerializedName(SERIALIZED_NAME_PAID_ACCEPTANCE_SUM)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String paidAcceptanceSum;
 
   public static final String SERIALIZED_NAME_DEDUCTION_SUM = "deductionSum";
 
   @SerializedName(SERIALIZED_NAME_DEDUCTION_SUM)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String deductionSum;
 
   public static final String SERIALIZED_NAME_PENALTY_SUM = "penaltySum";
 
   @SerializedName(SERIALIZED_NAME_PENALTY_SUM)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String penaltySum;
 
   public static final String SERIALIZED_NAME_ADDITIONAL_PAYMENT_SUM = "additionalPaymentSum";
 
   @SerializedName(SERIALIZED_NAME_ADDITIONAL_PAYMENT_SUM)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String additionalPaymentSum;
 
   public static final String SERIALIZED_NAME_CASHBACK_AMOUNT_SUM = "cashbackAmountSum";
 
   @SerializedName(SERIALIZED_NAME_CASHBACK_AMOUNT_SUM)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String cashbackAmountSum;
 
   public static final String SERIALIZED_NAME_CASHBACK_DISCOUNT_SUM = "cashbackDiscountSum";
 
   @SerializedName(SERIALIZED_NAME_CASHBACK_DISCOUNT_SUM)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String cashbackDiscountSum;
 
   public static final String SERIALIZED_NAME_CASHBACK_COMMISSION_CHANGE_SUM =
       "cashbackCommissionChangeSum";
 
   @SerializedName(SERIALIZED_NAME_CASHBACK_COMMISSION_CHANGE_SUM)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String cashbackCommissionChangeSum;
 
   public static final String SERIALIZED_NAME_PAYMENT_SCHEDULE = "paymentSchedule";
 
   @SerializedName(SERIALIZED_NAME_PAYMENT_SCHEDULE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String paymentSchedule;
 
   public static final String SERIALIZED_NAME_BANK_PAYMENT_SUM = "bankPaymentSum";
 
   @SerializedName(SERIALIZED_NAME_BANK_PAYMENT_SUM)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String bankPaymentSum;
 
   public SalesReportListRes() {}
 
-  public SalesReportListRes reportId(@jakarta.annotation.Nonnull Long reportId) {
+  public SalesReportListRes reportId(@jakarta.annotation.Nullable Long reportId) {
     this.reportId = reportId;
     return this;
   }
@@ -225,17 +225,17 @@ public class SalesReportListRes {
    *
    * @return reportId
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Long getReportId() {
     return reportId;
   }
 
-  public void setReportId(@jakarta.annotation.Nonnull Long reportId) {
+  public void setReportId(@jakarta.annotation.Nullable Long reportId) {
     this.reportId = reportId;
   }
 
   public SalesReportListRes sellerFinanceName(
-      @jakarta.annotation.Nonnull String sellerFinanceName) {
+      @jakarta.annotation.Nullable String sellerFinanceName) {
     this.sellerFinanceName = sellerFinanceName;
     return this;
   }
@@ -245,16 +245,16 @@ public class SalesReportListRes {
    *
    * @return sellerFinanceName
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getSellerFinanceName() {
     return sellerFinanceName;
   }
 
-  public void setSellerFinanceName(@jakarta.annotation.Nonnull String sellerFinanceName) {
+  public void setSellerFinanceName(@jakarta.annotation.Nullable String sellerFinanceName) {
     this.sellerFinanceName = sellerFinanceName;
   }
 
-  public SalesReportListRes dateFrom(@jakarta.annotation.Nonnull String dateFrom) {
+  public SalesReportListRes dateFrom(@jakarta.annotation.Nullable String dateFrom) {
     this.dateFrom = dateFrom;
     return this;
   }
@@ -264,16 +264,16 @@ public class SalesReportListRes {
    *
    * @return dateFrom
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getDateFrom() {
     return dateFrom;
   }
 
-  public void setDateFrom(@jakarta.annotation.Nonnull String dateFrom) {
+  public void setDateFrom(@jakarta.annotation.Nullable String dateFrom) {
     this.dateFrom = dateFrom;
   }
 
-  public SalesReportListRes dateTo(@jakarta.annotation.Nonnull String dateTo) {
+  public SalesReportListRes dateTo(@jakarta.annotation.Nullable String dateTo) {
     this.dateTo = dateTo;
     return this;
   }
@@ -283,16 +283,16 @@ public class SalesReportListRes {
    *
    * @return dateTo
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getDateTo() {
     return dateTo;
   }
 
-  public void setDateTo(@jakarta.annotation.Nonnull String dateTo) {
+  public void setDateTo(@jakarta.annotation.Nullable String dateTo) {
     this.dateTo = dateTo;
   }
 
-  public SalesReportListRes createDate(@jakarta.annotation.Nonnull String createDate) {
+  public SalesReportListRes createDate(@jakarta.annotation.Nullable String createDate) {
     this.createDate = createDate;
     return this;
   }
@@ -302,16 +302,16 @@ public class SalesReportListRes {
    *
    * @return createDate
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getCreateDate() {
     return createDate;
   }
 
-  public void setCreateDate(@jakarta.annotation.Nonnull String createDate) {
+  public void setCreateDate(@jakarta.annotation.Nullable String createDate) {
     this.createDate = createDate;
   }
 
-  public SalesReportListRes currency(@jakarta.annotation.Nonnull String currency) {
+  public SalesReportListRes currency(@jakarta.annotation.Nullable String currency) {
     this.currency = currency;
     return this;
   }
@@ -321,16 +321,16 @@ public class SalesReportListRes {
    *
    * @return currency
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getCurrency() {
     return currency;
   }
 
-  public void setCurrency(@jakarta.annotation.Nonnull String currency) {
+  public void setCurrency(@jakarta.annotation.Nullable String currency) {
     this.currency = currency;
   }
 
-  public SalesReportListRes reportType(@jakarta.annotation.Nonnull ReportTypeEnum reportType) {
+  public SalesReportListRes reportType(@jakarta.annotation.Nullable ReportTypeEnum reportType) {
     this.reportType = reportType;
     return this;
   }
@@ -340,16 +340,16 @@ public class SalesReportListRes {
    *
    * @return reportType
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public ReportTypeEnum getReportType() {
     return reportType;
   }
 
-  public void setReportType(@jakarta.annotation.Nonnull ReportTypeEnum reportType) {
+  public void setReportType(@jakarta.annotation.Nullable ReportTypeEnum reportType) {
     this.reportType = reportType;
   }
 
-  public SalesReportListRes retailAmountSum(@jakarta.annotation.Nonnull String retailAmountSum) {
+  public SalesReportListRes retailAmountSum(@jakarta.annotation.Nullable String retailAmountSum) {
     this.retailAmountSum = retailAmountSum;
     return this;
   }
@@ -359,16 +359,16 @@ public class SalesReportListRes {
    *
    * @return retailAmountSum
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getRetailAmountSum() {
     return retailAmountSum;
   }
 
-  public void setRetailAmountSum(@jakarta.annotation.Nonnull String retailAmountSum) {
+  public void setRetailAmountSum(@jakarta.annotation.Nullable String retailAmountSum) {
     this.retailAmountSum = retailAmountSum;
   }
 
-  public SalesReportListRes forPaySum(@jakarta.annotation.Nonnull String forPaySum) {
+  public SalesReportListRes forPaySum(@jakarta.annotation.Nullable String forPaySum) {
     this.forPaySum = forPaySum;
     return this;
   }
@@ -378,16 +378,16 @@ public class SalesReportListRes {
    *
    * @return forPaySum
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getForPaySum() {
     return forPaySum;
   }
 
-  public void setForPaySum(@jakarta.annotation.Nonnull String forPaySum) {
+  public void setForPaySum(@jakarta.annotation.Nullable String forPaySum) {
     this.forPaySum = forPaySum;
   }
 
-  public SalesReportListRes avgSalePercent(@jakarta.annotation.Nonnull BigDecimal avgSalePercent) {
+  public SalesReportListRes avgSalePercent(@jakarta.annotation.Nullable BigDecimal avgSalePercent) {
     this.avgSalePercent = avgSalePercent;
     return this;
   }
@@ -397,17 +397,17 @@ public class SalesReportListRes {
    *
    * @return avgSalePercent
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public BigDecimal getAvgSalePercent() {
     return avgSalePercent;
   }
 
-  public void setAvgSalePercent(@jakarta.annotation.Nonnull BigDecimal avgSalePercent) {
+  public void setAvgSalePercent(@jakarta.annotation.Nullable BigDecimal avgSalePercent) {
     this.avgSalePercent = avgSalePercent;
   }
 
   public SalesReportListRes deliveryServiceSum(
-      @jakarta.annotation.Nonnull String deliveryServiceSum) {
+      @jakarta.annotation.Nullable String deliveryServiceSum) {
     this.deliveryServiceSum = deliveryServiceSum;
     return this;
   }
@@ -417,16 +417,16 @@ public class SalesReportListRes {
    *
    * @return deliveryServiceSum
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getDeliveryServiceSum() {
     return deliveryServiceSum;
   }
 
-  public void setDeliveryServiceSum(@jakarta.annotation.Nonnull String deliveryServiceSum) {
+  public void setDeliveryServiceSum(@jakarta.annotation.Nullable String deliveryServiceSum) {
     this.deliveryServiceSum = deliveryServiceSum;
   }
 
-  public SalesReportListRes paidStorageSum(@jakarta.annotation.Nonnull String paidStorageSum) {
+  public SalesReportListRes paidStorageSum(@jakarta.annotation.Nullable String paidStorageSum) {
     this.paidStorageSum = paidStorageSum;
     return this;
   }
@@ -436,17 +436,17 @@ public class SalesReportListRes {
    *
    * @return paidStorageSum
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getPaidStorageSum() {
     return paidStorageSum;
   }
 
-  public void setPaidStorageSum(@jakarta.annotation.Nonnull String paidStorageSum) {
+  public void setPaidStorageSum(@jakarta.annotation.Nullable String paidStorageSum) {
     this.paidStorageSum = paidStorageSum;
   }
 
   public SalesReportListRes paidAcceptanceSum(
-      @jakarta.annotation.Nonnull String paidAcceptanceSum) {
+      @jakarta.annotation.Nullable String paidAcceptanceSum) {
     this.paidAcceptanceSum = paidAcceptanceSum;
     return this;
   }
@@ -456,16 +456,16 @@ public class SalesReportListRes {
    *
    * @return paidAcceptanceSum
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getPaidAcceptanceSum() {
     return paidAcceptanceSum;
   }
 
-  public void setPaidAcceptanceSum(@jakarta.annotation.Nonnull String paidAcceptanceSum) {
+  public void setPaidAcceptanceSum(@jakarta.annotation.Nullable String paidAcceptanceSum) {
     this.paidAcceptanceSum = paidAcceptanceSum;
   }
 
-  public SalesReportListRes deductionSum(@jakarta.annotation.Nonnull String deductionSum) {
+  public SalesReportListRes deductionSum(@jakarta.annotation.Nullable String deductionSum) {
     this.deductionSum = deductionSum;
     return this;
   }
@@ -475,16 +475,16 @@ public class SalesReportListRes {
    *
    * @return deductionSum
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getDeductionSum() {
     return deductionSum;
   }
 
-  public void setDeductionSum(@jakarta.annotation.Nonnull String deductionSum) {
+  public void setDeductionSum(@jakarta.annotation.Nullable String deductionSum) {
     this.deductionSum = deductionSum;
   }
 
-  public SalesReportListRes penaltySum(@jakarta.annotation.Nonnull String penaltySum) {
+  public SalesReportListRes penaltySum(@jakarta.annotation.Nullable String penaltySum) {
     this.penaltySum = penaltySum;
     return this;
   }
@@ -494,17 +494,17 @@ public class SalesReportListRes {
    *
    * @return penaltySum
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getPenaltySum() {
     return penaltySum;
   }
 
-  public void setPenaltySum(@jakarta.annotation.Nonnull String penaltySum) {
+  public void setPenaltySum(@jakarta.annotation.Nullable String penaltySum) {
     this.penaltySum = penaltySum;
   }
 
   public SalesReportListRes additionalPaymentSum(
-      @jakarta.annotation.Nonnull String additionalPaymentSum) {
+      @jakarta.annotation.Nullable String additionalPaymentSum) {
     this.additionalPaymentSum = additionalPaymentSum;
     return this;
   }
@@ -514,17 +514,17 @@ public class SalesReportListRes {
    *
    * @return additionalPaymentSum
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getAdditionalPaymentSum() {
     return additionalPaymentSum;
   }
 
-  public void setAdditionalPaymentSum(@jakarta.annotation.Nonnull String additionalPaymentSum) {
+  public void setAdditionalPaymentSum(@jakarta.annotation.Nullable String additionalPaymentSum) {
     this.additionalPaymentSum = additionalPaymentSum;
   }
 
   public SalesReportListRes cashbackAmountSum(
-      @jakarta.annotation.Nonnull String cashbackAmountSum) {
+      @jakarta.annotation.Nullable String cashbackAmountSum) {
     this.cashbackAmountSum = cashbackAmountSum;
     return this;
   }
@@ -534,17 +534,17 @@ public class SalesReportListRes {
    *
    * @return cashbackAmountSum
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getCashbackAmountSum() {
     return cashbackAmountSum;
   }
 
-  public void setCashbackAmountSum(@jakarta.annotation.Nonnull String cashbackAmountSum) {
+  public void setCashbackAmountSum(@jakarta.annotation.Nullable String cashbackAmountSum) {
     this.cashbackAmountSum = cashbackAmountSum;
   }
 
   public SalesReportListRes cashbackDiscountSum(
-      @jakarta.annotation.Nonnull String cashbackDiscountSum) {
+      @jakarta.annotation.Nullable String cashbackDiscountSum) {
     this.cashbackDiscountSum = cashbackDiscountSum;
     return this;
   }
@@ -554,17 +554,17 @@ public class SalesReportListRes {
    *
    * @return cashbackDiscountSum
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getCashbackDiscountSum() {
     return cashbackDiscountSum;
   }
 
-  public void setCashbackDiscountSum(@jakarta.annotation.Nonnull String cashbackDiscountSum) {
+  public void setCashbackDiscountSum(@jakarta.annotation.Nullable String cashbackDiscountSum) {
     this.cashbackDiscountSum = cashbackDiscountSum;
   }
 
   public SalesReportListRes cashbackCommissionChangeSum(
-      @jakarta.annotation.Nonnull String cashbackCommissionChangeSum) {
+      @jakarta.annotation.Nullable String cashbackCommissionChangeSum) {
     this.cashbackCommissionChangeSum = cashbackCommissionChangeSum;
     return this;
   }
@@ -574,17 +574,17 @@ public class SalesReportListRes {
    *
    * @return cashbackCommissionChangeSum
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getCashbackCommissionChangeSum() {
     return cashbackCommissionChangeSum;
   }
 
   public void setCashbackCommissionChangeSum(
-      @jakarta.annotation.Nonnull String cashbackCommissionChangeSum) {
+      @jakarta.annotation.Nullable String cashbackCommissionChangeSum) {
     this.cashbackCommissionChangeSum = cashbackCommissionChangeSum;
   }
 
-  public SalesReportListRes paymentSchedule(@jakarta.annotation.Nonnull String paymentSchedule) {
+  public SalesReportListRes paymentSchedule(@jakarta.annotation.Nullable String paymentSchedule) {
     this.paymentSchedule = paymentSchedule;
     return this;
   }
@@ -594,16 +594,16 @@ public class SalesReportListRes {
    *
    * @return paymentSchedule
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getPaymentSchedule() {
     return paymentSchedule;
   }
 
-  public void setPaymentSchedule(@jakarta.annotation.Nonnull String paymentSchedule) {
+  public void setPaymentSchedule(@jakarta.annotation.Nullable String paymentSchedule) {
     this.paymentSchedule = paymentSchedule;
   }
 
-  public SalesReportListRes bankPaymentSum(@jakarta.annotation.Nonnull String bankPaymentSum) {
+  public SalesReportListRes bankPaymentSum(@jakarta.annotation.Nullable String bankPaymentSum) {
     this.bankPaymentSum = bankPaymentSum;
     return this;
   }
@@ -613,12 +613,12 @@ public class SalesReportListRes {
    *
    * @return bankPaymentSum
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getBankPaymentSum() {
     return bankPaymentSum;
   }
 
-  public void setBankPaymentSum(@jakarta.annotation.Nonnull String bankPaymentSum) {
+  public void setBankPaymentSum(@jakarta.annotation.Nullable String bankPaymentSum) {
     this.bankPaymentSum = bankPaymentSum;
   }
 
@@ -756,27 +756,6 @@ public class SalesReportListRes {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("reportId");
-    openapiRequiredFields.add("sellerFinanceName");
-    openapiRequiredFields.add("dateFrom");
-    openapiRequiredFields.add("dateTo");
-    openapiRequiredFields.add("createDate");
-    openapiRequiredFields.add("currency");
-    openapiRequiredFields.add("reportType");
-    openapiRequiredFields.add("retailAmountSum");
-    openapiRequiredFields.add("forPaySum");
-    openapiRequiredFields.add("avgSalePercent");
-    openapiRequiredFields.add("deliveryServiceSum");
-    openapiRequiredFields.add("paidStorageSum");
-    openapiRequiredFields.add("paidAcceptanceSum");
-    openapiRequiredFields.add("deductionSum");
-    openapiRequiredFields.add("penaltySum");
-    openapiRequiredFields.add("additionalPaymentSum");
-    openapiRequiredFields.add("cashbackAmountSum");
-    openapiRequiredFields.add("cashbackDiscountSum");
-    openapiRequiredFields.add("cashbackCommissionChangeSum");
-    openapiRequiredFields.add("paymentSchedule");
-    openapiRequiredFields.add("bankPaymentSum");
   }
 
   /**
@@ -806,122 +785,136 @@ public class SalesReportListRes {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : SalesReportListRes.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    if (!jsonObj.get("sellerFinanceName").isJsonPrimitive()) {
+    if ((jsonObj.get("sellerFinanceName") != null && !jsonObj.get("sellerFinanceName").isJsonNull())
+        && !jsonObj.get("sellerFinanceName").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `sellerFinanceName` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("sellerFinanceName").toString()));
     }
-    if (!jsonObj.get("dateFrom").isJsonPrimitive()) {
+    if ((jsonObj.get("dateFrom") != null && !jsonObj.get("dateFrom").isJsonNull())
+        && !jsonObj.get("dateFrom").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `dateFrom` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("dateFrom").toString()));
     }
-    if (!jsonObj.get("dateTo").isJsonPrimitive()) {
+    if ((jsonObj.get("dateTo") != null && !jsonObj.get("dateTo").isJsonNull())
+        && !jsonObj.get("dateTo").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `dateTo` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("dateTo").toString()));
     }
-    if (!jsonObj.get("createDate").isJsonPrimitive()) {
+    if ((jsonObj.get("createDate") != null && !jsonObj.get("createDate").isJsonNull())
+        && !jsonObj.get("createDate").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `createDate` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("createDate").toString()));
     }
-    if (!jsonObj.get("currency").isJsonPrimitive()) {
+    if ((jsonObj.get("currency") != null && !jsonObj.get("currency").isJsonNull())
+        && !jsonObj.get("currency").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `currency` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("currency").toString()));
     }
-    // validate the required field `reportType`
-    ReportTypeEnum.validateJsonElement(jsonObj.get("reportType"));
-    if (!jsonObj.get("retailAmountSum").isJsonPrimitive()) {
+    // validate the optional field `reportType`
+    if (jsonObj.get("reportType") != null && !jsonObj.get("reportType").isJsonNull()) {
+      ReportTypeEnum.validateJsonElement(jsonObj.get("reportType"));
+    }
+    if ((jsonObj.get("retailAmountSum") != null && !jsonObj.get("retailAmountSum").isJsonNull())
+        && !jsonObj.get("retailAmountSum").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `retailAmountSum` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("retailAmountSum").toString()));
     }
-    if (!jsonObj.get("forPaySum").isJsonPrimitive()) {
+    if ((jsonObj.get("forPaySum") != null && !jsonObj.get("forPaySum").isJsonNull())
+        && !jsonObj.get("forPaySum").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `forPaySum` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("forPaySum").toString()));
     }
-    if (!jsonObj.get("deliveryServiceSum").isJsonPrimitive()) {
+    if ((jsonObj.get("deliveryServiceSum") != null
+            && !jsonObj.get("deliveryServiceSum").isJsonNull())
+        && !jsonObj.get("deliveryServiceSum").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `deliveryServiceSum` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("deliveryServiceSum").toString()));
     }
-    if (!jsonObj.get("paidStorageSum").isJsonPrimitive()) {
+    if ((jsonObj.get("paidStorageSum") != null && !jsonObj.get("paidStorageSum").isJsonNull())
+        && !jsonObj.get("paidStorageSum").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `paidStorageSum` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("paidStorageSum").toString()));
     }
-    if (!jsonObj.get("paidAcceptanceSum").isJsonPrimitive()) {
+    if ((jsonObj.get("paidAcceptanceSum") != null && !jsonObj.get("paidAcceptanceSum").isJsonNull())
+        && !jsonObj.get("paidAcceptanceSum").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `paidAcceptanceSum` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("paidAcceptanceSum").toString()));
     }
-    if (!jsonObj.get("deductionSum").isJsonPrimitive()) {
+    if ((jsonObj.get("deductionSum") != null && !jsonObj.get("deductionSum").isJsonNull())
+        && !jsonObj.get("deductionSum").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `deductionSum` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("deductionSum").toString()));
     }
-    if (!jsonObj.get("penaltySum").isJsonPrimitive()) {
+    if ((jsonObj.get("penaltySum") != null && !jsonObj.get("penaltySum").isJsonNull())
+        && !jsonObj.get("penaltySum").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `penaltySum` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("penaltySum").toString()));
     }
-    if (!jsonObj.get("additionalPaymentSum").isJsonPrimitive()) {
+    if ((jsonObj.get("additionalPaymentSum") != null
+            && !jsonObj.get("additionalPaymentSum").isJsonNull())
+        && !jsonObj.get("additionalPaymentSum").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `additionalPaymentSum` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("additionalPaymentSum").toString()));
     }
-    if (!jsonObj.get("cashbackAmountSum").isJsonPrimitive()) {
+    if ((jsonObj.get("cashbackAmountSum") != null && !jsonObj.get("cashbackAmountSum").isJsonNull())
+        && !jsonObj.get("cashbackAmountSum").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `cashbackAmountSum` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("cashbackAmountSum").toString()));
     }
-    if (!jsonObj.get("cashbackDiscountSum").isJsonPrimitive()) {
+    if ((jsonObj.get("cashbackDiscountSum") != null
+            && !jsonObj.get("cashbackDiscountSum").isJsonNull())
+        && !jsonObj.get("cashbackDiscountSum").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `cashbackDiscountSum` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("cashbackDiscountSum").toString()));
     }
-    if (!jsonObj.get("cashbackCommissionChangeSum").isJsonPrimitive()) {
+    if ((jsonObj.get("cashbackCommissionChangeSum") != null
+            && !jsonObj.get("cashbackCommissionChangeSum").isJsonNull())
+        && !jsonObj.get("cashbackCommissionChangeSum").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `cashbackCommissionChangeSum` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("cashbackCommissionChangeSum").toString()));
     }
-    if (!jsonObj.get("paymentSchedule").isJsonPrimitive()) {
+    if ((jsonObj.get("paymentSchedule") != null && !jsonObj.get("paymentSchedule").isJsonNull())
+        && !jsonObj.get("paymentSchedule").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `paymentSchedule` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("paymentSchedule").toString()));
     }
-    if (!jsonObj.get("bankPaymentSum").isJsonPrimitive()) {
+    if ((jsonObj.get("bankPaymentSum") != null && !jsonObj.get("bankPaymentSum").isJsonNull())
+        && !jsonObj.get("bankPaymentSum").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `bankPaymentSum` to be a primitive type in the JSON string but got `%s`",

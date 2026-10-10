@@ -11,9 +11,7 @@ API version: analytics
 package analytics
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the ItemOrdersTextItem type satisfies the MappedNullable interface at compile time
@@ -22,24 +20,19 @@ var _ MappedNullable = &ItemOrdersTextItem{}
 // ItemOrdersTextItem struct for ItemOrdersTextItem
 type ItemOrdersTextItem struct {
 	// Текст поискового запроса
-	Text string `json:"text"`
+	Text *string `json:"text,omitempty"`
 	// Количество обращений с поисковым запросом
-	Frequency int32 `json:"frequency"`
+	Frequency *int32 `json:"frequency,omitempty"`
 	// Статистика по датам
-	DateItems []ItemOrdersMetrics `json:"dateItems"`
+	DateItems []ItemOrdersMetrics `json:"dateItems,omitempty"`
 }
-
-type _ItemOrdersTextItem ItemOrdersTextItem
 
 // NewItemOrdersTextItem instantiates a new ItemOrdersTextItem object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewItemOrdersTextItem(text string, frequency int32, dateItems []ItemOrdersMetrics) *ItemOrdersTextItem {
+func NewItemOrdersTextItem() *ItemOrdersTextItem {
 	this := ItemOrdersTextItem{}
-	this.Text = text
-	this.Frequency = frequency
-	this.DateItems = dateItems
 	return &this
 }
 
@@ -51,74 +44,98 @@ func NewItemOrdersTextItemWithDefaults() *ItemOrdersTextItem {
 	return &this
 }
 
-// GetText returns the Text field value
+// GetText returns the Text field value if set, zero value otherwise.
 func (o *ItemOrdersTextItem) GetText() string {
-	if o == nil {
+	if o == nil || IsNil(o.Text) {
 		var ret string
 		return ret
 	}
-
-	return o.Text
+	return *o.Text
 }
 
-// GetTextOk returns a tuple with the Text field value
+// GetTextOk returns a tuple with the Text field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ItemOrdersTextItem) GetTextOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Text) {
 		return nil, false
 	}
-	return &o.Text, true
+	return o.Text, true
 }
 
-// SetText sets field value
+// HasText returns a boolean if a field has been set.
+func (o *ItemOrdersTextItem) HasText() bool {
+	if o != nil && !IsNil(o.Text) {
+		return true
+	}
+
+	return false
+}
+
+// SetText gets a reference to the given string and assigns it to the Text field.
 func (o *ItemOrdersTextItem) SetText(v string) {
-	o.Text = v
+	o.Text = &v
 }
 
-// GetFrequency returns the Frequency field value
+// GetFrequency returns the Frequency field value if set, zero value otherwise.
 func (o *ItemOrdersTextItem) GetFrequency() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.Frequency) {
 		var ret int32
 		return ret
 	}
-
-	return o.Frequency
+	return *o.Frequency
 }
 
-// GetFrequencyOk returns a tuple with the Frequency field value
+// GetFrequencyOk returns a tuple with the Frequency field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ItemOrdersTextItem) GetFrequencyOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Frequency) {
 		return nil, false
 	}
-	return &o.Frequency, true
+	return o.Frequency, true
 }
 
-// SetFrequency sets field value
+// HasFrequency returns a boolean if a field has been set.
+func (o *ItemOrdersTextItem) HasFrequency() bool {
+	if o != nil && !IsNil(o.Frequency) {
+		return true
+	}
+
+	return false
+}
+
+// SetFrequency gets a reference to the given int32 and assigns it to the Frequency field.
 func (o *ItemOrdersTextItem) SetFrequency(v int32) {
-	o.Frequency = v
+	o.Frequency = &v
 }
 
-// GetDateItems returns the DateItems field value
+// GetDateItems returns the DateItems field value if set, zero value otherwise.
 func (o *ItemOrdersTextItem) GetDateItems() []ItemOrdersMetrics {
-	if o == nil {
+	if o == nil || IsNil(o.DateItems) {
 		var ret []ItemOrdersMetrics
 		return ret
 	}
-
 	return o.DateItems
 }
 
-// GetDateItemsOk returns a tuple with the DateItems field value
+// GetDateItemsOk returns a tuple with the DateItems field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ItemOrdersTextItem) GetDateItemsOk() ([]ItemOrdersMetrics, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DateItems) {
 		return nil, false
 	}
 	return o.DateItems, true
 }
 
-// SetDateItems sets field value
+// HasDateItems returns a boolean if a field has been set.
+func (o *ItemOrdersTextItem) HasDateItems() bool {
+	if o != nil && !IsNil(o.DateItems) {
+		return true
+	}
+
+	return false
+}
+
+// SetDateItems gets a reference to the given []ItemOrdersMetrics and assigns it to the DateItems field.
 func (o *ItemOrdersTextItem) SetDateItems(v []ItemOrdersMetrics) {
 	o.DateItems = v
 }
@@ -133,49 +150,16 @@ func (o ItemOrdersTextItem) MarshalJSON() ([]byte, error) {
 
 func (o ItemOrdersTextItem) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["text"] = o.Text
-	toSerialize["frequency"] = o.Frequency
-	toSerialize["dateItems"] = o.DateItems
+	if !IsNil(o.Text) {
+		toSerialize["text"] = o.Text
+	}
+	if !IsNil(o.Frequency) {
+		toSerialize["frequency"] = o.Frequency
+	}
+	if !IsNil(o.DateItems) {
+		toSerialize["dateItems"] = o.DateItems
+	}
 	return toSerialize, nil
-}
-
-func (o *ItemOrdersTextItem) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"text",
-		"frequency",
-		"dateItems",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varItemOrdersTextItem := _ItemOrdersTextItem{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varItemOrdersTextItem)
-
-	if err != nil {
-		return err
-	}
-
-	*o = ItemOrdersTextItem(varItemOrdersTextItem)
-
-	return err
 }
 
 type NullableItemOrdersTextItem struct {

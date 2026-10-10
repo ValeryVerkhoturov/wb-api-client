@@ -39,19 +39,19 @@ public class ItemsResponse {
   public static final String SERIALIZED_NAME_PRODUCTS = "products";
 
   @SerializedName(SERIALIZED_NAME_PRODUCTS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private List<ItemsResponseProductsInner> products = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_CURRENCY = "currency";
 
   @SerializedName(SERIALIZED_NAME_CURRENCY)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String currency;
 
   public ItemsResponse() {}
 
   public ItemsResponse products(
-      @jakarta.annotation.Nonnull List<ItemsResponseProductsInner> products) {
+      @jakarta.annotation.Nullable List<ItemsResponseProductsInner> products) {
     this.products = products;
     return this;
   }
@@ -69,16 +69,16 @@ public class ItemsResponse {
    *
    * @return products
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public List<ItemsResponseProductsInner> getProducts() {
     return products;
   }
 
-  public void setProducts(@jakarta.annotation.Nonnull List<ItemsResponseProductsInner> products) {
+  public void setProducts(@jakarta.annotation.Nullable List<ItemsResponseProductsInner> products) {
     this.products = products;
   }
 
-  public ItemsResponse currency(@jakarta.annotation.Nonnull String currency) {
+  public ItemsResponse currency(@jakarta.annotation.Nullable String currency) {
     this.currency = currency;
     return this;
   }
@@ -88,12 +88,12 @@ public class ItemsResponse {
    *
    * @return currency
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getCurrency() {
     return currency;
   }
 
-  public void setCurrency(@jakarta.annotation.Nonnull String currency) {
+  public void setCurrency(@jakarta.annotation.Nullable String currency) {
     this.currency = currency;
   }
 
@@ -146,8 +146,6 @@ public class ItemsResponse {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("products");
-    openapiRequiredFields.add("currency");
   }
 
   /**
@@ -177,32 +175,27 @@ public class ItemsResponse {
                 entry.getKey(), jsonElement.toString()));
       }
     }
+    JsonObject jsonObj = jsonElement.getAsJsonObject();
+    if (jsonObj.get("products") != null && !jsonObj.get("products").isJsonNull()) {
+      JsonArray jsonArrayproducts = jsonObj.getAsJsonArray("products");
+      if (jsonArrayproducts != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("products").isJsonArray()) {
+          throw new IllegalArgumentException(
+              String.format(
+                  "Expected the field `products` to be an array in the JSON string but got `%s`",
+                  jsonObj.get("products").toString()));
+        }
 
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : ItemsResponse.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
+        // validate the optional field `products` (array)
+        for (int i = 0; i < jsonArrayproducts.size(); i++) {
+          ItemsResponseProductsInner.validateJsonElement(jsonArrayproducts.get(i));
+        }
+        ;
       }
     }
-    JsonObject jsonObj = jsonElement.getAsJsonObject();
-    // ensure the json data is an array
-    if (!jsonObj.get("products").isJsonArray()) {
-      throw new IllegalArgumentException(
-          String.format(
-              "Expected the field `products` to be an array in the JSON string but got `%s`",
-              jsonObj.get("products").toString()));
-    }
-
-    JsonArray jsonArrayproducts = jsonObj.getAsJsonArray("products");
-    // validate the required field `products` (array)
-    for (int i = 0; i < jsonArrayproducts.size(); i++) {
-      ItemsResponseProductsInner.validateJsonElement(jsonArrayproducts.get(i));
-    }
-    ;
-    if (!jsonObj.get("currency").isJsonPrimitive()) {
+    if ((jsonObj.get("currency") != null && !jsonObj.get("currency").isJsonNull())
+        && !jsonObj.get("currency").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `currency` to be a primitive type in the JSON string but got `%s`",

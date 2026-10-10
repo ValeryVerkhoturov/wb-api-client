@@ -45,7 +45,7 @@ public class ApiMetaDetailsResponse {
   public static final String SERIALIZED_NAME_RESULTS = "results";
 
   @SerializedName(SERIALIZED_NAME_RESULTS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private List<ApiMetaDetailsResponseResultsInner> results = new ArrayList<>();
 
   public ApiMetaDetailsResponse() {}
@@ -70,7 +70,7 @@ public class ApiMetaDetailsResponse {
   }
 
   public ApiMetaDetailsResponse results(
-      @jakarta.annotation.Nonnull List<ApiMetaDetailsResponseResultsInner> results) {
+      @jakarta.annotation.Nullable List<ApiMetaDetailsResponseResultsInner> results) {
     this.results = results;
     return this;
   }
@@ -88,13 +88,13 @@ public class ApiMetaDetailsResponse {
    *
    * @return results
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public List<ApiMetaDetailsResponseResultsInner> getResults() {
     return results;
   }
 
   public void setResults(
-      @jakarta.annotation.Nonnull List<ApiMetaDetailsResponseResultsInner> results) {
+      @jakarta.annotation.Nullable List<ApiMetaDetailsResponseResultsInner> results) {
     this.results = results;
   }
 
@@ -147,8 +147,6 @@ public class ApiMetaDetailsResponse {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("requestId");
-    openapiRequiredFields.add("results");
   }
 
   /**
@@ -178,31 +176,25 @@ public class ApiMetaDetailsResponse {
                 entry.getKey(), jsonElement.toString()));
       }
     }
+    JsonObject jsonObj = jsonElement.getAsJsonObject();
+    if (jsonObj.get("results") != null && !jsonObj.get("results").isJsonNull()) {
+      JsonArray jsonArrayresults = jsonObj.getAsJsonArray("results");
+      if (jsonArrayresults != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("results").isJsonArray()) {
+          throw new IllegalArgumentException(
+              String.format(
+                  "Expected the field `results` to be an array in the JSON string but got `%s`",
+                  jsonObj.get("results").toString()));
+        }
 
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : ApiMetaDetailsResponse.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
+        // validate the optional field `results` (array)
+        for (int i = 0; i < jsonArrayresults.size(); i++) {
+          ApiMetaDetailsResponseResultsInner.validateJsonElement(jsonArrayresults.get(i));
+        }
+        ;
       }
     }
-    JsonObject jsonObj = jsonElement.getAsJsonObject();
-    // ensure the json data is an array
-    if (!jsonObj.get("results").isJsonArray()) {
-      throw new IllegalArgumentException(
-          String.format(
-              "Expected the field `results` to be an array in the JSON string but got `%s`",
-              jsonObj.get("results").toString()));
-    }
-
-    JsonArray jsonArrayresults = jsonObj.getAsJsonArray("results");
-    // validate the required field `results` (array)
-    for (int i = 0; i < jsonArrayresults.size(); i++) {
-      ApiMetaDetailsResponseResultsInner.validateJsonElement(jsonArrayresults.get(i));
-    }
-    ;
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

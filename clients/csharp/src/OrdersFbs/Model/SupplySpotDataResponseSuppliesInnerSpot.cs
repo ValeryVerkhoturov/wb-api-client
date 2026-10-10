@@ -62,8 +62,8 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// Статус СПОТ:   - &#x60;pending&#x60; — ожидается результат формирования ДОПП — документа о предстоящей поставке   - &#x60;completed&#x60; — ДОПП успешно сформирован. Можно [получить QR-код](./orders-fbs#tag/fbsSupplies/operation/getV3FbsSuppliesSupplyIdStickersSpot)   - &#x60;failed&#x60; — ошибка формирования ДОПП. Подробнее в поле &#x60;errorCode&#x60; 
         /// </summary>
         /// <value>Статус СПОТ:   - &#x60;pending&#x60; — ожидается результат формирования ДОПП — документа о предстоящей поставке   - &#x60;completed&#x60; — ДОПП успешно сформирован. Можно [получить QR-код](./orders-fbs#tag/fbsSupplies/operation/getV3FbsSuppliesSupplyIdStickersSpot)   - &#x60;failed&#x60; — ошибка формирования ДОПП. Подробнее в поле &#x60;errorCode&#x60; </value>
-        [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = true)]
-        public StatusEnum Status { get; set; }
+        [DataMember(Name = "status", EmitDefaultValue = false)]
+        public StatusEnum? Status { get; set; }
         /// <summary>
         /// Код ошибки от сервиса формирования ДОПП — документа о предстоящей поставке. Возвращается при &#x60;\&quot;status\&quot;: \&quot;failed\&quot;&#x60;. Чтобы исправить ошибку, проверьте данные СПОТ и [добавьте их в поставку](./orders-fbs#tag/fbsSupplies/operation/getV3FbsSuppliesSupplyIdSpot) ещё раз 
         /// </summary>
@@ -88,44 +88,19 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SupplySpotDataResponseSuppliesInnerSpot" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected SupplySpotDataResponseSuppliesInnerSpot() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="SupplySpotDataResponseSuppliesInnerSpot" /> class.
-        /// </summary>
-        /// <param name="status">Статус СПОТ:   - &#x60;pending&#x60; — ожидается результат формирования ДОПП — документа о предстоящей поставке   - &#x60;completed&#x60; — ДОПП успешно сформирован. Можно [получить QR-код](./orders-fbs#tag/fbsSupplies/operation/getV3FbsSuppliesSupplyIdStickersSpot)   - &#x60;failed&#x60; — ошибка формирования ДОПП. Подробнее в поле &#x60;errorCode&#x60;  (required).</param>
-        /// <param name="carrierName">Наименование перевозчика (required).</param>
-        /// <param name="carrierTaxNumber">ИНН перевозчика (required).</param>
-        /// <param name="carrierCountryCode">Код страны перевозчика по [ОКСМ](./orders-fbs#tag/fbsSupplies/operation/getV3FbsDictionariesCountriesOksm) (required).</param>
-        /// <param name="vehicleRegistrationNumber">Регистрационный номер транспортного средства (required).</param>
+        /// <param name="status">Статус СПОТ:   - &#x60;pending&#x60; — ожидается результат формирования ДОПП — документа о предстоящей поставке   - &#x60;completed&#x60; — ДОПП успешно сформирован. Можно [получить QR-код](./orders-fbs#tag/fbsSupplies/operation/getV3FbsSuppliesSupplyIdStickersSpot)   - &#x60;failed&#x60; — ошибка формирования ДОПП. Подробнее в поле &#x60;errorCode&#x60; .</param>
+        /// <param name="carrierName">Наименование перевозчика.</param>
+        /// <param name="carrierTaxNumber">ИНН перевозчика.</param>
+        /// <param name="carrierCountryCode">Код страны перевозчика по [ОКСМ](./orders-fbs#tag/fbsSupplies/operation/getV3FbsDictionariesCountriesOksm).</param>
+        /// <param name="vehicleRegistrationNumber">Регистрационный номер транспортного средства.</param>
         /// <param name="trailerRegistrationNumber">Регистрационный номер прицепа.</param>
         /// <param name="errorCode">Код ошибки от сервиса формирования ДОПП — документа о предстоящей поставке. Возвращается при &#x60;\&quot;status\&quot;: \&quot;failed\&quot;&#x60;. Чтобы исправить ошибку, проверьте данные СПОТ и [добавьте их в поставку](./orders-fbs#tag/fbsSupplies/operation/getV3FbsSuppliesSupplyIdSpot) ещё раз .</param>
-        public SupplySpotDataResponseSuppliesInnerSpot(StatusEnum status = default(StatusEnum), string carrierName = default(string), string carrierTaxNumber = default(string), string carrierCountryCode = default(string), string vehicleRegistrationNumber = default(string), string trailerRegistrationNumber = default(string), ErrorCodeEnum? errorCode = default(ErrorCodeEnum?))
+        public SupplySpotDataResponseSuppliesInnerSpot(StatusEnum? status = default(StatusEnum?), string carrierName = default(string), string carrierTaxNumber = default(string), string carrierCountryCode = default(string), string vehicleRegistrationNumber = default(string), string trailerRegistrationNumber = default(string), ErrorCodeEnum? errorCode = default(ErrorCodeEnum?))
         {
             this.Status = status;
-            // to ensure "carrierName" is required (not null)
-            if (carrierName == null)
-            {
-                throw new ArgumentNullException("carrierName is a required property for SupplySpotDataResponseSuppliesInnerSpot and cannot be null");
-            }
             this.CarrierName = carrierName;
-            // to ensure "carrierTaxNumber" is required (not null)
-            if (carrierTaxNumber == null)
-            {
-                throw new ArgumentNullException("carrierTaxNumber is a required property for SupplySpotDataResponseSuppliesInnerSpot and cannot be null");
-            }
             this.CarrierTaxNumber = carrierTaxNumber;
-            // to ensure "carrierCountryCode" is required (not null)
-            if (carrierCountryCode == null)
-            {
-                throw new ArgumentNullException("carrierCountryCode is a required property for SupplySpotDataResponseSuppliesInnerSpot and cannot be null");
-            }
             this.CarrierCountryCode = carrierCountryCode;
-            // to ensure "vehicleRegistrationNumber" is required (not null)
-            if (vehicleRegistrationNumber == null)
-            {
-                throw new ArgumentNullException("vehicleRegistrationNumber is a required property for SupplySpotDataResponseSuppliesInnerSpot and cannot be null");
-            }
             this.VehicleRegistrationNumber = vehicleRegistrationNumber;
             this.TrailerRegistrationNumber = trailerRegistrationNumber;
             this.ErrorCode = errorCode;
@@ -135,28 +110,28 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// Наименование перевозчика
         /// </summary>
         /// <value>Наименование перевозчика</value>
-        [DataMember(Name = "carrierName", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "carrierName", EmitDefaultValue = false)]
         public string CarrierName { get; set; }
 
         /// <summary>
         /// ИНН перевозчика
         /// </summary>
         /// <value>ИНН перевозчика</value>
-        [DataMember(Name = "carrierTaxNumber", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "carrierTaxNumber", EmitDefaultValue = false)]
         public string CarrierTaxNumber { get; set; }
 
         /// <summary>
         /// Код страны перевозчика по [ОКСМ](./orders-fbs#tag/fbsSupplies/operation/getV3FbsDictionariesCountriesOksm)
         /// </summary>
         /// <value>Код страны перевозчика по [ОКСМ](./orders-fbs#tag/fbsSupplies/operation/getV3FbsDictionariesCountriesOksm)</value>
-        [DataMember(Name = "carrierCountryCode", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "carrierCountryCode", EmitDefaultValue = false)]
         public string CarrierCountryCode { get; set; }
 
         /// <summary>
         /// Регистрационный номер транспортного средства
         /// </summary>
         /// <value>Регистрационный номер транспортного средства</value>
-        [DataMember(Name = "vehicleRegistrationNumber", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "vehicleRegistrationNumber", EmitDefaultValue = false)]
         public string VehicleRegistrationNumber { get; set; }
 
         /// <summary>

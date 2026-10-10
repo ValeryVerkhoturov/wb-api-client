@@ -50,13 +50,13 @@ export interface ApiBatchCustomsDeclarationErrorResponse {
    * @type {number}
    * @memberof ApiBatchCustomsDeclarationErrorResponse
    */
-  code: number;
+  code?: number;
   /**
    * - `NotFound` — сборочное задание не найдено - `StatusMismatch` — операция невозможна для этого статуса сборочного задания - `OrderNotB2B` — операция доступна только для сборочных заданий с признаком B2B-продажи `\"isB2b\":true` - `InvalidOriginCountryCode` — некорректный код страны происхождения товара
    * @type {string}
    * @memberof ApiBatchCustomsDeclarationErrorResponse
    */
-  detail: string;
+  detail?: string;
 }
 /**
  *
@@ -75,19 +75,19 @@ export interface ApiBatchError {
    * @type {string}
    * @memberof ApiBatchError
    */
-  origin: string;
+  origin?: string;
   /**
    * Уникальный ID запроса
    * @type {string}
    * @memberof ApiBatchError
    */
-  requestId: string;
+  requestId?: string;
   /**
    * Заголовок ошибки
    * @type {string}
    * @memberof ApiBatchError
    */
-  title: string;
+  title?: string;
 }
 /**
  *
@@ -100,13 +100,13 @@ export interface ApiBatchErrorFinalPriceResponse {
    * @type {number}
    * @memberof ApiBatchErrorFinalPriceResponse
    */
-  code: number;
+  code?: number;
   /**
    * - `NotFound` — сборочное задание не найдено (`404`) - `StatusMismatch` — операция невозможна для этого статуса сборочного задания (`400`) - `PriceNotCalculated` — операция невозможна для сборочных заданий, созданных ранее 23.07.2026 (`422`)
    * @type {string}
    * @memberof ApiBatchErrorFinalPriceResponse
    */
-  detail: string;
+  detail?: string;
 }
 /**
  *
@@ -170,13 +170,13 @@ export interface ApiCustomsDeclarationSetResponse {
    * @type {any}
    * @memberof ApiCustomsDeclarationSetResponse
    */
-  requestId: any;
+  requestId?: any;
   /**
    *
    * @type {Array<ApiStatusSetCustomsDeclarationResponse>}
    * @memberof ApiCustomsDeclarationSetResponse
    */
-  results: Array<ApiStatusSetCustomsDeclarationResponse>;
+  results?: Array<ApiStatusSetCustomsDeclarationResponse>;
 }
 /**
  *
@@ -252,13 +252,13 @@ export interface ApiMetaDetailsResponse {
    * @type {any}
    * @memberof ApiMetaDetailsResponse
    */
-  requestId: any;
+  requestId?: any;
   /**
    *
    * @type {Array<ApiMetaDetailsResponseResultsInner>}
    * @memberof ApiMetaDetailsResponse
    */
-  results: Array<ApiMetaDetailsResponseResultsInner>;
+  results?: Array<ApiMetaDetailsResponseResultsInner>;
 }
 /**
  *
@@ -271,13 +271,13 @@ export interface ApiMetaDetailsResponseResultsInner {
    * @type {number}
    * @memberof ApiMetaDetailsResponseResultsInner
    */
-  orderId: number;
+  orderId?: number;
   /**
    * Есть ли ошибки
    * @type {boolean}
    * @memberof ApiMetaDetailsResponseResultsInner
    */
-  isError: boolean;
+  isError?: boolean;
   /**
    * Детали ошибки
    * @type {Array<ApiMetaDetailsResponseResultsInnerErrorsInner>}
@@ -296,13 +296,13 @@ export interface ApiMetaDetailsResponseResultsInnerErrorsInner {
    * @type {number}
    * @memberof ApiMetaDetailsResponseResultsInnerErrorsInner
    */
-  code: number;
+  code?: number;
   /**
    * - `NotFound` — сборочное задание не найдено - `StatusMismatch` — операция невозможна для этого статуса сборочного задания - `MetaValidationFail` — идентификаторы маркировки не прошли проверку
    * @type {string}
    * @memberof ApiMetaDetailsResponseResultsInnerErrorsInner
    */
-  detail: string;
+  detail?: string;
   /**
    * Ошибки проверки идентификаторов маркировки
    * @type {Array<ApiMetaDetailsResponseResultsInnerErrorsInnerMetaDetailsInner>}
@@ -346,13 +346,13 @@ export interface ApiMetaErrorResponse {
    * @type {number}
    * @memberof ApiMetaErrorResponse
    */
-  code: number;
+  code?: number;
   /**
    * - `NotFound` — сборочное задание не найдено - `IncorrectRequestBody` — неправильный запрос - `IncorrectRequest` — передан некорректный параметр
    * @type {string}
    * @memberof ApiMetaErrorResponse
    */
-  detail: string;
+  detail?: string;
 }
 /**
  *
@@ -365,13 +365,13 @@ export interface ApiMetaSetResponse {
    * @type {number}
    * @memberof ApiMetaSetResponse
    */
-  orderId: number;
+  orderId?: number;
   /**
    * Есть ли ошибки
    * @type {boolean}
    * @memberof ApiMetaSetResponse
    */
-  isError: boolean;
+  isError?: boolean;
   /**
    * Детали ошибки
    * @type {Array<ApiMetaErrorResponse>}
@@ -390,13 +390,13 @@ export interface ApiMetaSetResponses {
    * @type {any}
    * @memberof ApiMetaSetResponses
    */
-  requestId: any;
+  requestId?: any;
   /**
    *
    * @type {Array<ApiMetaSetResponse>}
    * @memberof ApiMetaSetResponses
    */
-  results: Array<ApiMetaSetResponse>;
+  results?: Array<ApiMetaSetResponse>;
 }
 /**
  *
@@ -783,7 +783,7 @@ export interface ApiOrderFinalPriceResult {
    * @type {number}
    * @memberof ApiOrderFinalPriceResult
    */
-  orderId: number;
+  orderId?: number;
   /**
    *
    * @type {ApiOrderFinalPriceResultData}
@@ -876,7 +876,7 @@ export interface ApiOrderStatusV2 {
    * @type {number}
    * @memberof ApiOrderStatusV2
    */
-  orderId: number;
+  orderId?: number;
   /**
    * Статус сборочного задания, установленный продавцом
    * @type {string}
@@ -933,13 +933,13 @@ export interface ApiOrdersErrorResponse {
    * @type {number}
    * @memberof ApiOrdersErrorResponse
    */
-  code: number;
+  code?: number;
   /**
    * - `NotFound` — сборочное задание не найдено
    * @type {string}
    * @memberof ApiOrdersErrorResponse
    */
-  detail: string;
+  detail?: string;
 }
 /**
  *
@@ -952,13 +952,13 @@ export interface ApiOrdersFinalPriceResponse {
    * @type {string}
    * @memberof ApiOrdersFinalPriceResponse
    */
-  requestId: string;
+  requestId?: string;
   /**
    * Данные ответа
    * @type {Array<ApiOrderFinalPriceResult>}
    * @memberof ApiOrdersFinalPriceResponse
    */
-  results: Array<ApiOrderFinalPriceResult>;
+  results?: Array<ApiOrderFinalPriceResult>;
 }
 /**
  *
@@ -1028,13 +1028,13 @@ export interface ApiOrdersMetaDetailsResponse {
    * @type {string}
    * @memberof ApiOrdersMetaDetailsResponse
    */
-  requestId: string;
+  requestId?: string;
   /**
    * Идентификаторы маркировки сборочных заданий и статусы их валидации
    * @type {Array<ApiOrdersMetaDetailsResponseOrdersInner>}
    * @memberof ApiOrdersMetaDetailsResponse
    */
-  orders: Array<ApiOrdersMetaDetailsResponseOrdersInner>;
+  orders?: Array<ApiOrdersMetaDetailsResponseOrdersInner>;
 }
 /**
  *
@@ -1047,13 +1047,13 @@ export interface ApiOrdersMetaDetailsResponseOrdersInner {
    * @type {number}
    * @memberof ApiOrdersMetaDetailsResponseOrdersInner
    */
-  orderId: number;
+  orderId?: number;
   /**
    * Есть ли ошибки
    * @type {boolean}
    * @memberof ApiOrdersMetaDetailsResponseOrdersInner
    */
-  isError: boolean;
+  isError?: boolean;
   /**
    * Информация об ошибке
    * @type {Array<ApiOrdersMetaDetailsResponseOrdersInnerErrorsInner>}
@@ -1065,7 +1065,7 @@ export interface ApiOrdersMetaDetailsResponseOrdersInner {
    * @type {Array<ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner>}
    * @memberof ApiOrdersMetaDetailsResponseOrdersInner
    */
-  metaDetails: Array<ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner>;
+  metaDetails?: Array<ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner>;
 }
 /**
  *
@@ -1078,13 +1078,13 @@ export interface ApiOrdersMetaDetailsResponseOrdersInnerErrorsInner {
    * @type {number}
    * @memberof ApiOrdersMetaDetailsResponseOrdersInnerErrorsInner
    */
-  code: number;
+  code?: number;
   /**
    * Дополнительная информация об ошибке
    * @type {string}
    * @memberof ApiOrdersMetaDetailsResponseOrdersInnerErrorsInner
    */
-  detail: string;
+  detail?: string;
 }
 /**
  *
@@ -1097,7 +1097,7 @@ export interface ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner {
    * @type {string}
    * @memberof ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner
    */
-  key: string;
+  key?: string;
   /**
    * Значение идентификатора маркировки
    * @type {string}
@@ -1109,7 +1109,7 @@ export interface ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner {
    * @type {string}
    * @memberof ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner
    */
-  decision: string;
+  decision?: string;
 }
 /**
  *
@@ -1148,13 +1148,13 @@ export interface ApiOrdersResponse {
    * @type {number}
    * @memberof ApiOrdersResponse
    */
-  orderId: number;
+  orderId?: number;
   /**
    * Есть ли ошибки
    * @type {boolean}
    * @memberof ApiOrdersResponse
    */
-  isError: boolean;
+  isError?: boolean;
   /**
    * Детали ошибки
    * @type {Array<ApiOrdersErrorResponse>}
@@ -1173,13 +1173,13 @@ export interface ApiOrdersResponses {
    * @type {any}
    * @memberof ApiOrdersResponses
    */
-  requestId: any;
+  requestId?: any;
   /**
    *
    * @type {Array<ApiOrdersResponse>}
    * @memberof ApiOrdersResponses
    */
-  results: Array<ApiOrdersResponse>;
+  results?: Array<ApiOrdersResponse>;
 }
 /**
  *
@@ -1237,13 +1237,13 @@ export interface ApiStatusSetCustomsDeclarationResponse {
    * @type {number}
    * @memberof ApiStatusSetCustomsDeclarationResponse
    */
-  orderId: number;
+  orderId?: number;
   /**
    * Есть ли ошибки
    * @type {boolean}
    * @memberof ApiStatusSetCustomsDeclarationResponse
    */
-  isError: boolean;
+  isError?: boolean;
   /**
    * Детали ошибки
    * @type {Array<ApiBatchCustomsDeclarationErrorResponse>}
@@ -1262,13 +1262,13 @@ export interface ApiStatusSetResponse {
    * @type {number}
    * @memberof ApiStatusSetResponse
    */
-  orderId: number;
+  orderId?: number;
   /**
    * Есть ли ошибки
    * @type {boolean}
    * @memberof ApiStatusSetResponse
    */
-  isError: boolean;
+  isError?: boolean;
   /**
    * Детали ошибки
    * @type {Array<ApiBatchErrorResponse>}
@@ -1287,13 +1287,13 @@ export interface ApiStatusSetResponses {
    * @type {any}
    * @memberof ApiStatusSetResponses
    */
-  requestId: any;
+  requestId?: any;
   /**
    *
    * @type {Array<ApiStatusSetResponse>}
    * @memberof ApiStatusSetResponses
    */
-  results: Array<ApiStatusSetResponse>;
+  results?: Array<ApiStatusSetResponse>;
 }
 /**
  *

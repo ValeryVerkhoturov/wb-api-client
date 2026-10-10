@@ -39,13 +39,13 @@ public class V0GetDailyLimitsResponse {
   public static final String SERIALIZED_NAME_ADVERTS = "adverts";
 
   @SerializedName(SERIALIZED_NAME_ADVERTS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private List<V0DailyLimitAdvert> adverts = new ArrayList<>();
 
   public V0GetDailyLimitsResponse() {}
 
   public V0GetDailyLimitsResponse adverts(
-      @jakarta.annotation.Nonnull List<V0DailyLimitAdvert> adverts) {
+      @jakarta.annotation.Nullable List<V0DailyLimitAdvert> adverts) {
     this.adverts = adverts;
     return this;
   }
@@ -63,12 +63,12 @@ public class V0GetDailyLimitsResponse {
    *
    * @return adverts
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public List<V0DailyLimitAdvert> getAdverts() {
     return adverts;
   }
 
-  public void setAdverts(@jakarta.annotation.Nonnull List<V0DailyLimitAdvert> adverts) {
+  public void setAdverts(@jakarta.annotation.Nullable List<V0DailyLimitAdvert> adverts) {
     this.adverts = adverts;
   }
 
@@ -118,7 +118,6 @@ public class V0GetDailyLimitsResponse {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("adverts");
   }
 
   /**
@@ -148,31 +147,25 @@ public class V0GetDailyLimitsResponse {
                 entry.getKey(), jsonElement.toString()));
       }
     }
+    JsonObject jsonObj = jsonElement.getAsJsonObject();
+    if (jsonObj.get("adverts") != null && !jsonObj.get("adverts").isJsonNull()) {
+      JsonArray jsonArrayadverts = jsonObj.getAsJsonArray("adverts");
+      if (jsonArrayadverts != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("adverts").isJsonArray()) {
+          throw new IllegalArgumentException(
+              String.format(
+                  "Expected the field `adverts` to be an array in the JSON string but got `%s`",
+                  jsonObj.get("adverts").toString()));
+        }
 
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : V0GetDailyLimitsResponse.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
+        // validate the optional field `adverts` (array)
+        for (int i = 0; i < jsonArrayadverts.size(); i++) {
+          V0DailyLimitAdvert.validateJsonElement(jsonArrayadverts.get(i));
+        }
+        ;
       }
     }
-    JsonObject jsonObj = jsonElement.getAsJsonObject();
-    // ensure the json data is an array
-    if (!jsonObj.get("adverts").isJsonArray()) {
-      throw new IllegalArgumentException(
-          String.format(
-              "Expected the field `adverts` to be an array in the JSON string but got `%s`",
-              jsonObj.get("adverts").toString()));
-    }
-
-    JsonArray jsonArrayadverts = jsonObj.getAsJsonArray("adverts");
-    // validate the required field `adverts` (array)
-    for (int i = 0; i < jsonArrayadverts.size(); i++) {
-      V0DailyLimitAdvert.validateJsonElement(jsonArrayadverts.get(i));
-    }
-    ;
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

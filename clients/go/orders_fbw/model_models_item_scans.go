@@ -11,9 +11,7 @@ API version: ordersfbw
 package orders_fbw
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the ModelsItemScans type satisfies the MappedNullable interface at compile time
@@ -22,30 +20,23 @@ var _ MappedNullable = &ModelsItemScans{}
 // ModelsItemScans struct for ModelsItemScans
 type ModelsItemScans struct {
 	// ID сканирования
-	ScanId int32 `json:"scanId"`
+	ScanId *int32 `json:"scanId,omitempty"`
 	// Баркод, заявленный при формировании поставки
-	DeclaredSku string `json:"declaredSku"`
+	DeclaredSku *string `json:"declaredSku,omitempty"`
 	// Дата и время сканирования
-	ScanTime string `json:"scanTime"`
+	ScanTime *string `json:"scanTime,omitempty"`
 	// Тип расхождения товара:  - `surplus` — товара больше, чем заявлено  - `shortage` — товара меньше, чем заявлено  - `re-sorting` — баркод принятого товара не соответствует заявленному при формировании поставки
-	DiscrepancyLabel string `json:"discrepancyLabel"`
+	DiscrepancyLabel *string `json:"discrepancyLabel,omitempty"`
 	// Фактический баркод
-	ActualSku string `json:"actualSku"`
+	ActualSku *string `json:"actualSku,omitempty"`
 }
-
-type _ModelsItemScans ModelsItemScans
 
 // NewModelsItemScans instantiates a new ModelsItemScans object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelsItemScans(scanId int32, declaredSku string, scanTime string, discrepancyLabel string, actualSku string) *ModelsItemScans {
+func NewModelsItemScans() *ModelsItemScans {
 	this := ModelsItemScans{}
-	this.ScanId = scanId
-	this.DeclaredSku = declaredSku
-	this.ScanTime = scanTime
-	this.DiscrepancyLabel = discrepancyLabel
-	this.ActualSku = actualSku
 	return &this
 }
 
@@ -57,124 +48,164 @@ func NewModelsItemScansWithDefaults() *ModelsItemScans {
 	return &this
 }
 
-// GetScanId returns the ScanId field value
+// GetScanId returns the ScanId field value if set, zero value otherwise.
 func (o *ModelsItemScans) GetScanId() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.ScanId) {
 		var ret int32
 		return ret
 	}
-
-	return o.ScanId
+	return *o.ScanId
 }
 
-// GetScanIdOk returns a tuple with the ScanId field value
+// GetScanIdOk returns a tuple with the ScanId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModelsItemScans) GetScanIdOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ScanId) {
 		return nil, false
 	}
-	return &o.ScanId, true
+	return o.ScanId, true
 }
 
-// SetScanId sets field value
+// HasScanId returns a boolean if a field has been set.
+func (o *ModelsItemScans) HasScanId() bool {
+	if o != nil && !IsNil(o.ScanId) {
+		return true
+	}
+
+	return false
+}
+
+// SetScanId gets a reference to the given int32 and assigns it to the ScanId field.
 func (o *ModelsItemScans) SetScanId(v int32) {
-	o.ScanId = v
+	o.ScanId = &v
 }
 
-// GetDeclaredSku returns the DeclaredSku field value
+// GetDeclaredSku returns the DeclaredSku field value if set, zero value otherwise.
 func (o *ModelsItemScans) GetDeclaredSku() string {
-	if o == nil {
+	if o == nil || IsNil(o.DeclaredSku) {
 		var ret string
 		return ret
 	}
-
-	return o.DeclaredSku
+	return *o.DeclaredSku
 }
 
-// GetDeclaredSkuOk returns a tuple with the DeclaredSku field value
+// GetDeclaredSkuOk returns a tuple with the DeclaredSku field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModelsItemScans) GetDeclaredSkuOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DeclaredSku) {
 		return nil, false
 	}
-	return &o.DeclaredSku, true
+	return o.DeclaredSku, true
 }
 
-// SetDeclaredSku sets field value
+// HasDeclaredSku returns a boolean if a field has been set.
+func (o *ModelsItemScans) HasDeclaredSku() bool {
+	if o != nil && !IsNil(o.DeclaredSku) {
+		return true
+	}
+
+	return false
+}
+
+// SetDeclaredSku gets a reference to the given string and assigns it to the DeclaredSku field.
 func (o *ModelsItemScans) SetDeclaredSku(v string) {
-	o.DeclaredSku = v
+	o.DeclaredSku = &v
 }
 
-// GetScanTime returns the ScanTime field value
+// GetScanTime returns the ScanTime field value if set, zero value otherwise.
 func (o *ModelsItemScans) GetScanTime() string {
-	if o == nil {
+	if o == nil || IsNil(o.ScanTime) {
 		var ret string
 		return ret
 	}
-
-	return o.ScanTime
+	return *o.ScanTime
 }
 
-// GetScanTimeOk returns a tuple with the ScanTime field value
+// GetScanTimeOk returns a tuple with the ScanTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModelsItemScans) GetScanTimeOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ScanTime) {
 		return nil, false
 	}
-	return &o.ScanTime, true
+	return o.ScanTime, true
 }
 
-// SetScanTime sets field value
+// HasScanTime returns a boolean if a field has been set.
+func (o *ModelsItemScans) HasScanTime() bool {
+	if o != nil && !IsNil(o.ScanTime) {
+		return true
+	}
+
+	return false
+}
+
+// SetScanTime gets a reference to the given string and assigns it to the ScanTime field.
 func (o *ModelsItemScans) SetScanTime(v string) {
-	o.ScanTime = v
+	o.ScanTime = &v
 }
 
-// GetDiscrepancyLabel returns the DiscrepancyLabel field value
+// GetDiscrepancyLabel returns the DiscrepancyLabel field value if set, zero value otherwise.
 func (o *ModelsItemScans) GetDiscrepancyLabel() string {
-	if o == nil {
+	if o == nil || IsNil(o.DiscrepancyLabel) {
 		var ret string
 		return ret
 	}
-
-	return o.DiscrepancyLabel
+	return *o.DiscrepancyLabel
 }
 
-// GetDiscrepancyLabelOk returns a tuple with the DiscrepancyLabel field value
+// GetDiscrepancyLabelOk returns a tuple with the DiscrepancyLabel field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModelsItemScans) GetDiscrepancyLabelOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DiscrepancyLabel) {
 		return nil, false
 	}
-	return &o.DiscrepancyLabel, true
+	return o.DiscrepancyLabel, true
 }
 
-// SetDiscrepancyLabel sets field value
+// HasDiscrepancyLabel returns a boolean if a field has been set.
+func (o *ModelsItemScans) HasDiscrepancyLabel() bool {
+	if o != nil && !IsNil(o.DiscrepancyLabel) {
+		return true
+	}
+
+	return false
+}
+
+// SetDiscrepancyLabel gets a reference to the given string and assigns it to the DiscrepancyLabel field.
 func (o *ModelsItemScans) SetDiscrepancyLabel(v string) {
-	o.DiscrepancyLabel = v
+	o.DiscrepancyLabel = &v
 }
 
-// GetActualSku returns the ActualSku field value
+// GetActualSku returns the ActualSku field value if set, zero value otherwise.
 func (o *ModelsItemScans) GetActualSku() string {
-	if o == nil {
+	if o == nil || IsNil(o.ActualSku) {
 		var ret string
 		return ret
 	}
-
-	return o.ActualSku
+	return *o.ActualSku
 }
 
-// GetActualSkuOk returns a tuple with the ActualSku field value
+// GetActualSkuOk returns a tuple with the ActualSku field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModelsItemScans) GetActualSkuOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ActualSku) {
 		return nil, false
 	}
-	return &o.ActualSku, true
+	return o.ActualSku, true
 }
 
-// SetActualSku sets field value
+// HasActualSku returns a boolean if a field has been set.
+func (o *ModelsItemScans) HasActualSku() bool {
+	if o != nil && !IsNil(o.ActualSku) {
+		return true
+	}
+
+	return false
+}
+
+// SetActualSku gets a reference to the given string and assigns it to the ActualSku field.
 func (o *ModelsItemScans) SetActualSku(v string) {
-	o.ActualSku = v
+	o.ActualSku = &v
 }
 
 func (o ModelsItemScans) MarshalJSON() ([]byte, error) {
@@ -187,53 +218,22 @@ func (o ModelsItemScans) MarshalJSON() ([]byte, error) {
 
 func (o ModelsItemScans) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["scanId"] = o.ScanId
-	toSerialize["declaredSku"] = o.DeclaredSku
-	toSerialize["scanTime"] = o.ScanTime
-	toSerialize["discrepancyLabel"] = o.DiscrepancyLabel
-	toSerialize["actualSku"] = o.ActualSku
+	if !IsNil(o.ScanId) {
+		toSerialize["scanId"] = o.ScanId
+	}
+	if !IsNil(o.DeclaredSku) {
+		toSerialize["declaredSku"] = o.DeclaredSku
+	}
+	if !IsNil(o.ScanTime) {
+		toSerialize["scanTime"] = o.ScanTime
+	}
+	if !IsNil(o.DiscrepancyLabel) {
+		toSerialize["discrepancyLabel"] = o.DiscrepancyLabel
+	}
+	if !IsNil(o.ActualSku) {
+		toSerialize["actualSku"] = o.ActualSku
+	}
 	return toSerialize, nil
-}
-
-func (o *ModelsItemScans) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"scanId",
-		"declaredSku",
-		"scanTime",
-		"discrepancyLabel",
-		"actualSku",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varModelsItemScans := _ModelsItemScans{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varModelsItemScans)
-
-	if err != nil {
-		return err
-	}
-
-	*o = ModelsItemScans(varModelsItemScans)
-
-	return err
 }
 
 type NullableModelsItemScans struct {

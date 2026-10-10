@@ -11,9 +11,7 @@ API version: order
 package orders_fbs
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the SupplySpotData type satisfies the MappedNullable interface at compile time
@@ -22,34 +20,27 @@ var _ MappedNullable = &SupplySpotData{}
 // SupplySpotData struct for SupplySpotData
 type SupplySpotData struct {
 	// Статус СПОТ:   - `pending` — ожидается результат формирования ДОПП — документа о предстоящей поставке   - `completed` — ДОПП успешно сформирован. Можно [получить QR-код](./orders-fbs#tag/fbsSupplies/operation/getV3FbsSuppliesSupplyIdStickersSpot)   - `failed` — ошибка формирования ДОПП. Подробнее в поле `errorCode`
-	Status string `json:"status"`
+	Status *string `json:"status,omitempty"`
 	// Наименование перевозчика
-	CarrierName string `json:"carrierName"`
+	CarrierName *string `json:"carrierName,omitempty"`
 	// ИНН перевозчика
-	CarrierTaxNumber string `json:"carrierTaxNumber"`
+	CarrierTaxNumber *string `json:"carrierTaxNumber,omitempty"`
 	// Код страны перевозчика по [ОКСМ](./orders-fbs#tag/fbsSupplies/operation/getV3FbsDictionariesCountriesOksm)
-	CarrierCountryCode string `json:"carrierCountryCode"`
+	CarrierCountryCode *string `json:"carrierCountryCode,omitempty"`
 	// Регистрационный номер транспортного средства
-	VehicleRegistrationNumber string `json:"vehicleRegistrationNumber"`
+	VehicleRegistrationNumber *string `json:"vehicleRegistrationNumber,omitempty"`
 	// Регистрационный номер прицепа
 	TrailerRegistrationNumber *string `json:"trailerRegistrationNumber,omitempty"`
 	// Код ошибки от сервиса формирования ДОПП — документа о предстоящей поставке. Возвращается при `\"status\": \"failed\"`. Чтобы исправить ошибку, проверьте данные СПОТ и [добавьте их в поставку](./orders-fbs#tag/fbsSupplies/operation/getV3FbsSuppliesSupplyIdSpot) ещё раз
 	ErrorCode *string `json:"errorCode,omitempty"`
 }
 
-type _SupplySpotData SupplySpotData
-
 // NewSupplySpotData instantiates a new SupplySpotData object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSupplySpotData(status string, carrierName string, carrierTaxNumber string, carrierCountryCode string, vehicleRegistrationNumber string) *SupplySpotData {
+func NewSupplySpotData() *SupplySpotData {
 	this := SupplySpotData{}
-	this.Status = status
-	this.CarrierName = carrierName
-	this.CarrierTaxNumber = carrierTaxNumber
-	this.CarrierCountryCode = carrierCountryCode
-	this.VehicleRegistrationNumber = vehicleRegistrationNumber
 	return &this
 }
 
@@ -61,124 +52,164 @@ func NewSupplySpotDataWithDefaults() *SupplySpotData {
 	return &this
 }
 
-// GetStatus returns the Status field value
+// GetStatus returns the Status field value if set, zero value otherwise.
 func (o *SupplySpotData) GetStatus() string {
-	if o == nil {
+	if o == nil || IsNil(o.Status) {
 		var ret string
 		return ret
 	}
-
-	return o.Status
+	return *o.Status
 }
 
-// GetStatusOk returns a tuple with the Status field value
+// GetStatusOk returns a tuple with the Status field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SupplySpotData) GetStatusOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Status) {
 		return nil, false
 	}
-	return &o.Status, true
+	return o.Status, true
 }
 
-// SetStatus sets field value
+// HasStatus returns a boolean if a field has been set.
+func (o *SupplySpotData) HasStatus() bool {
+	if o != nil && !IsNil(o.Status) {
+		return true
+	}
+
+	return false
+}
+
+// SetStatus gets a reference to the given string and assigns it to the Status field.
 func (o *SupplySpotData) SetStatus(v string) {
-	o.Status = v
+	o.Status = &v
 }
 
-// GetCarrierName returns the CarrierName field value
+// GetCarrierName returns the CarrierName field value if set, zero value otherwise.
 func (o *SupplySpotData) GetCarrierName() string {
-	if o == nil {
+	if o == nil || IsNil(o.CarrierName) {
 		var ret string
 		return ret
 	}
-
-	return o.CarrierName
+	return *o.CarrierName
 }
 
-// GetCarrierNameOk returns a tuple with the CarrierName field value
+// GetCarrierNameOk returns a tuple with the CarrierName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SupplySpotData) GetCarrierNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.CarrierName) {
 		return nil, false
 	}
-	return &o.CarrierName, true
+	return o.CarrierName, true
 }
 
-// SetCarrierName sets field value
+// HasCarrierName returns a boolean if a field has been set.
+func (o *SupplySpotData) HasCarrierName() bool {
+	if o != nil && !IsNil(o.CarrierName) {
+		return true
+	}
+
+	return false
+}
+
+// SetCarrierName gets a reference to the given string and assigns it to the CarrierName field.
 func (o *SupplySpotData) SetCarrierName(v string) {
-	o.CarrierName = v
+	o.CarrierName = &v
 }
 
-// GetCarrierTaxNumber returns the CarrierTaxNumber field value
+// GetCarrierTaxNumber returns the CarrierTaxNumber field value if set, zero value otherwise.
 func (o *SupplySpotData) GetCarrierTaxNumber() string {
-	if o == nil {
+	if o == nil || IsNil(o.CarrierTaxNumber) {
 		var ret string
 		return ret
 	}
-
-	return o.CarrierTaxNumber
+	return *o.CarrierTaxNumber
 }
 
-// GetCarrierTaxNumberOk returns a tuple with the CarrierTaxNumber field value
+// GetCarrierTaxNumberOk returns a tuple with the CarrierTaxNumber field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SupplySpotData) GetCarrierTaxNumberOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.CarrierTaxNumber) {
 		return nil, false
 	}
-	return &o.CarrierTaxNumber, true
+	return o.CarrierTaxNumber, true
 }
 
-// SetCarrierTaxNumber sets field value
+// HasCarrierTaxNumber returns a boolean if a field has been set.
+func (o *SupplySpotData) HasCarrierTaxNumber() bool {
+	if o != nil && !IsNil(o.CarrierTaxNumber) {
+		return true
+	}
+
+	return false
+}
+
+// SetCarrierTaxNumber gets a reference to the given string and assigns it to the CarrierTaxNumber field.
 func (o *SupplySpotData) SetCarrierTaxNumber(v string) {
-	o.CarrierTaxNumber = v
+	o.CarrierTaxNumber = &v
 }
 
-// GetCarrierCountryCode returns the CarrierCountryCode field value
+// GetCarrierCountryCode returns the CarrierCountryCode field value if set, zero value otherwise.
 func (o *SupplySpotData) GetCarrierCountryCode() string {
-	if o == nil {
+	if o == nil || IsNil(o.CarrierCountryCode) {
 		var ret string
 		return ret
 	}
-
-	return o.CarrierCountryCode
+	return *o.CarrierCountryCode
 }
 
-// GetCarrierCountryCodeOk returns a tuple with the CarrierCountryCode field value
+// GetCarrierCountryCodeOk returns a tuple with the CarrierCountryCode field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SupplySpotData) GetCarrierCountryCodeOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.CarrierCountryCode) {
 		return nil, false
 	}
-	return &o.CarrierCountryCode, true
+	return o.CarrierCountryCode, true
 }
 
-// SetCarrierCountryCode sets field value
+// HasCarrierCountryCode returns a boolean if a field has been set.
+func (o *SupplySpotData) HasCarrierCountryCode() bool {
+	if o != nil && !IsNil(o.CarrierCountryCode) {
+		return true
+	}
+
+	return false
+}
+
+// SetCarrierCountryCode gets a reference to the given string and assigns it to the CarrierCountryCode field.
 func (o *SupplySpotData) SetCarrierCountryCode(v string) {
-	o.CarrierCountryCode = v
+	o.CarrierCountryCode = &v
 }
 
-// GetVehicleRegistrationNumber returns the VehicleRegistrationNumber field value
+// GetVehicleRegistrationNumber returns the VehicleRegistrationNumber field value if set, zero value otherwise.
 func (o *SupplySpotData) GetVehicleRegistrationNumber() string {
-	if o == nil {
+	if o == nil || IsNil(o.VehicleRegistrationNumber) {
 		var ret string
 		return ret
 	}
-
-	return o.VehicleRegistrationNumber
+	return *o.VehicleRegistrationNumber
 }
 
-// GetVehicleRegistrationNumberOk returns a tuple with the VehicleRegistrationNumber field value
+// GetVehicleRegistrationNumberOk returns a tuple with the VehicleRegistrationNumber field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SupplySpotData) GetVehicleRegistrationNumberOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.VehicleRegistrationNumber) {
 		return nil, false
 	}
-	return &o.VehicleRegistrationNumber, true
+	return o.VehicleRegistrationNumber, true
 }
 
-// SetVehicleRegistrationNumber sets field value
+// HasVehicleRegistrationNumber returns a boolean if a field has been set.
+func (o *SupplySpotData) HasVehicleRegistrationNumber() bool {
+	if o != nil && !IsNil(o.VehicleRegistrationNumber) {
+		return true
+	}
+
+	return false
+}
+
+// SetVehicleRegistrationNumber gets a reference to the given string and assigns it to the VehicleRegistrationNumber field.
 func (o *SupplySpotData) SetVehicleRegistrationNumber(v string) {
-	o.VehicleRegistrationNumber = v
+	o.VehicleRegistrationNumber = &v
 }
 
 // GetTrailerRegistrationNumber returns the TrailerRegistrationNumber field value if set, zero value otherwise.
@@ -255,11 +286,21 @@ func (o SupplySpotData) MarshalJSON() ([]byte, error) {
 
 func (o SupplySpotData) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["status"] = o.Status
-	toSerialize["carrierName"] = o.CarrierName
-	toSerialize["carrierTaxNumber"] = o.CarrierTaxNumber
-	toSerialize["carrierCountryCode"] = o.CarrierCountryCode
-	toSerialize["vehicleRegistrationNumber"] = o.VehicleRegistrationNumber
+	if !IsNil(o.Status) {
+		toSerialize["status"] = o.Status
+	}
+	if !IsNil(o.CarrierName) {
+		toSerialize["carrierName"] = o.CarrierName
+	}
+	if !IsNil(o.CarrierTaxNumber) {
+		toSerialize["carrierTaxNumber"] = o.CarrierTaxNumber
+	}
+	if !IsNil(o.CarrierCountryCode) {
+		toSerialize["carrierCountryCode"] = o.CarrierCountryCode
+	}
+	if !IsNil(o.VehicleRegistrationNumber) {
+		toSerialize["vehicleRegistrationNumber"] = o.VehicleRegistrationNumber
+	}
 	if !IsNil(o.TrailerRegistrationNumber) {
 		toSerialize["trailerRegistrationNumber"] = o.TrailerRegistrationNumber
 	}
@@ -267,47 +308,6 @@ func (o SupplySpotData) ToMap() (map[string]interface{}, error) {
 		toSerialize["errorCode"] = o.ErrorCode
 	}
 	return toSerialize, nil
-}
-
-func (o *SupplySpotData) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"status",
-		"carrierName",
-		"carrierTaxNumber",
-		"carrierCountryCode",
-		"vehicleRegistrationNumber",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varSupplySpotData := _SupplySpotData{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varSupplySpotData)
-
-	if err != nil {
-		return err
-	}
-
-	*o = SupplySpotData(varSupplySpotData)
-
-	return err
 }
 
 type NullableSupplySpotData struct {

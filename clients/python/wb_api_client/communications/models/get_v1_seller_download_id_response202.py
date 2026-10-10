@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,11 +28,13 @@ class GetV1SellerDownloadIdResponse202(BaseModel):
     GetV1SellerDownloadIdResponse202
     """  # noqa: E501
 
-    moderation_state: StrictStr = Field(
-        description="Статус модерации", alias="moderationState"
+    moderation_state: Optional[StrictStr] = Field(
+        default=None, description="Статус модерации", alias="moderationState"
     )
-    retry_seconds: StrictInt = Field(
-        description="Секунд до следующей попытки запроса файла", alias="retrySeconds"
+    retry_seconds: Optional[StrictInt] = Field(
+        default=None,
+        description="Секунд до следующей попытки запроса файла",
+        alias="retrySeconds",
     )
     __properties: ClassVar[List[str]] = ["moderationState", "retrySeconds"]
 

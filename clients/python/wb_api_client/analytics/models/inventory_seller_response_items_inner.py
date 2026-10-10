@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,15 +28,24 @@ class InventorySellerResponseItemsInner(BaseModel):
     InventorySellerResponseItemsInner
     """  # noqa: E501
 
-    nm_id: StrictInt = Field(description="Артикул WB", alias="nmId")
-    chrt_id: StrictInt = Field(description="ID размера", alias="chrtId")
-    warehouse_id: StrictInt = Field(description="ID склада", alias="warehouseId")
-    warehouse_name: StrictStr = Field(
-        description="Название склада", alias="warehouseName"
+    nm_id: Optional[StrictInt] = Field(
+        default=None, description="Артикул WB", alias="nmId"
     )
-    region_name: StrictStr = Field(description="Регион отгрузки", alias="regionName")
-    quantity: StrictInt = Field(
-        description="Количество товара на складе, доступное клиентам для добавления в корзину"
+    chrt_id: Optional[StrictInt] = Field(
+        default=None, description="ID размера", alias="chrtId"
+    )
+    warehouse_id: Optional[StrictInt] = Field(
+        default=None, description="ID склада", alias="warehouseId"
+    )
+    warehouse_name: Optional[StrictStr] = Field(
+        default=None, description="Название склада", alias="warehouseName"
+    )
+    region_name: Optional[StrictStr] = Field(
+        default=None, description="Регион отгрузки", alias="regionName"
+    )
+    quantity: Optional[StrictInt] = Field(
+        default=None,
+        description="Количество товара на складе, доступное клиентам для добавления в корзину",
     )
     __properties: ClassVar[List[str]] = [
         "nmId",

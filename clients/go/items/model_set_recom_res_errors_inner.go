@@ -11,9 +11,7 @@ API version: items
 package items
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the SetRecomResErrorsInner type satisfies the MappedNullable interface at compile time
@@ -22,24 +20,19 @@ var _ MappedNullable = &SetRecomResErrorsInner{}
 // SetRecomResErrorsInner Ошибки установки рекомендаций
 type SetRecomResErrorsInner struct {
 	// Значение параметра `nmId`
-	MainNm string `json:"mainNm"`
+	MainNm *string `json:"mainNm,omitempty"`
 	// Значение параметра `recomNm`
-	RecomNm string `json:"recomNm"`
+	RecomNm *string `json:"recomNm,omitempty"`
 	// Сообщение об ошибке
-	Message string `json:"message"`
+	Message *string `json:"message,omitempty"`
 }
-
-type _SetRecomResErrorsInner SetRecomResErrorsInner
 
 // NewSetRecomResErrorsInner instantiates a new SetRecomResErrorsInner object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSetRecomResErrorsInner(mainNm string, recomNm string, message string) *SetRecomResErrorsInner {
+func NewSetRecomResErrorsInner() *SetRecomResErrorsInner {
 	this := SetRecomResErrorsInner{}
-	this.MainNm = mainNm
-	this.RecomNm = recomNm
-	this.Message = message
 	return &this
 }
 
@@ -51,76 +44,100 @@ func NewSetRecomResErrorsInnerWithDefaults() *SetRecomResErrorsInner {
 	return &this
 }
 
-// GetMainNm returns the MainNm field value
+// GetMainNm returns the MainNm field value if set, zero value otherwise.
 func (o *SetRecomResErrorsInner) GetMainNm() string {
-	if o == nil {
+	if o == nil || IsNil(o.MainNm) {
 		var ret string
 		return ret
 	}
-
-	return o.MainNm
+	return *o.MainNm
 }
 
-// GetMainNmOk returns a tuple with the MainNm field value
+// GetMainNmOk returns a tuple with the MainNm field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SetRecomResErrorsInner) GetMainNmOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.MainNm) {
 		return nil, false
 	}
-	return &o.MainNm, true
+	return o.MainNm, true
 }
 
-// SetMainNm sets field value
+// HasMainNm returns a boolean if a field has been set.
+func (o *SetRecomResErrorsInner) HasMainNm() bool {
+	if o != nil && !IsNil(o.MainNm) {
+		return true
+	}
+
+	return false
+}
+
+// SetMainNm gets a reference to the given string and assigns it to the MainNm field.
 func (o *SetRecomResErrorsInner) SetMainNm(v string) {
-	o.MainNm = v
+	o.MainNm = &v
 }
 
-// GetRecomNm returns the RecomNm field value
+// GetRecomNm returns the RecomNm field value if set, zero value otherwise.
 func (o *SetRecomResErrorsInner) GetRecomNm() string {
-	if o == nil {
+	if o == nil || IsNil(o.RecomNm) {
 		var ret string
 		return ret
 	}
-
-	return o.RecomNm
+	return *o.RecomNm
 }
 
-// GetRecomNmOk returns a tuple with the RecomNm field value
+// GetRecomNmOk returns a tuple with the RecomNm field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SetRecomResErrorsInner) GetRecomNmOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.RecomNm) {
 		return nil, false
 	}
-	return &o.RecomNm, true
+	return o.RecomNm, true
 }
 
-// SetRecomNm sets field value
+// HasRecomNm returns a boolean if a field has been set.
+func (o *SetRecomResErrorsInner) HasRecomNm() bool {
+	if o != nil && !IsNil(o.RecomNm) {
+		return true
+	}
+
+	return false
+}
+
+// SetRecomNm gets a reference to the given string and assigns it to the RecomNm field.
 func (o *SetRecomResErrorsInner) SetRecomNm(v string) {
-	o.RecomNm = v
+	o.RecomNm = &v
 }
 
-// GetMessage returns the Message field value
+// GetMessage returns the Message field value if set, zero value otherwise.
 func (o *SetRecomResErrorsInner) GetMessage() string {
-	if o == nil {
+	if o == nil || IsNil(o.Message) {
 		var ret string
 		return ret
 	}
-
-	return o.Message
+	return *o.Message
 }
 
-// GetMessageOk returns a tuple with the Message field value
+// GetMessageOk returns a tuple with the Message field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SetRecomResErrorsInner) GetMessageOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Message) {
 		return nil, false
 	}
-	return &o.Message, true
+	return o.Message, true
 }
 
-// SetMessage sets field value
+// HasMessage returns a boolean if a field has been set.
+func (o *SetRecomResErrorsInner) HasMessage() bool {
+	if o != nil && !IsNil(o.Message) {
+		return true
+	}
+
+	return false
+}
+
+// SetMessage gets a reference to the given string and assigns it to the Message field.
 func (o *SetRecomResErrorsInner) SetMessage(v string) {
-	o.Message = v
+	o.Message = &v
 }
 
 func (o SetRecomResErrorsInner) MarshalJSON() ([]byte, error) {
@@ -133,49 +150,16 @@ func (o SetRecomResErrorsInner) MarshalJSON() ([]byte, error) {
 
 func (o SetRecomResErrorsInner) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["mainNm"] = o.MainNm
-	toSerialize["recomNm"] = o.RecomNm
-	toSerialize["message"] = o.Message
+	if !IsNil(o.MainNm) {
+		toSerialize["mainNm"] = o.MainNm
+	}
+	if !IsNil(o.RecomNm) {
+		toSerialize["recomNm"] = o.RecomNm
+	}
+	if !IsNil(o.Message) {
+		toSerialize["message"] = o.Message
+	}
 	return toSerialize, nil
-}
-
-func (o *SetRecomResErrorsInner) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"mainNm",
-		"recomNm",
-		"message",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varSetRecomResErrorsInner := _SetRecomResErrorsInner{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varSetRecomResErrorsInner)
-
-	if err != nil {
-		return err
-	}
-
-	*o = SetRecomResErrorsInner(varSetRecomResErrorsInner)
-
-	return err
 }
 
 type NullableSetRecomResErrorsInner struct {

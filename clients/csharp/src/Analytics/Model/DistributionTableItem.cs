@@ -34,108 +34,43 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DistributionTableItem" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected DistributionTableItem() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="DistributionTableItem" /> class.
-        /// </summary>
-        /// <param name="nmId">Артикул WB (required).</param>
-        /// <param name="title">Название товара (required).</param>
-        /// <param name="vendorCode">Артикул продавца (required).</param>
-        /// <param name="subjectId">ID предмета (required).</param>
-        /// <param name="subjectName">Название предмета (required).</param>
-        /// <param name="brandName">Бренд (required).</param>
-        /// <param name="tagName">Название ярлыка (required).</param>
-        /// <param name="tagId">ID ярлыка (required).</param>
-        /// <param name="pinnedFeedback">Отзыв закреплён (required).</param>
-        /// <param name="rating">Рейтинг карточки товара (required).</param>
-        /// <param name="feedbackRating">feedbackRating (required).</param>
-        /// <param name="feedbackCount">feedbackCount (required).</param>
-        /// <param name="fiveStar">fiveStar (required).</param>
-        /// <param name="fourStar">fourStar (required).</param>
-        /// <param name="threeStar">threeStar (required).</param>
-        /// <param name="twoStar">twoStar (required).</param>
-        /// <param name="oneStar">oneStar (required).</param>
-        /// <param name="disqualified">Отзывы, исключённые из рейтинга (required).</param>
-        /// <param name="isShadowed">Является ли товар скрытым из каталога:   - &#x60;true&#x60; — товар скрыт из каталога   - &#x60;false&#x60; — товар не скрыт из каталога  (required).</param>
+        /// <param name="nmId">Артикул WB.</param>
+        /// <param name="title">Название товара.</param>
+        /// <param name="vendorCode">Артикул продавца.</param>
+        /// <param name="subjectId">ID предмета.</param>
+        /// <param name="subjectName">Название предмета.</param>
+        /// <param name="brandName">Бренд.</param>
+        /// <param name="tagName">Название ярлыка.</param>
+        /// <param name="tagId">ID ярлыка.</param>
+        /// <param name="pinnedFeedback">Отзыв закреплён.</param>
+        /// <param name="rating">Рейтинг карточки товара.</param>
+        /// <param name="feedbackRating">feedbackRating.</param>
+        /// <param name="feedbackCount">feedbackCount.</param>
+        /// <param name="fiveStar">fiveStar.</param>
+        /// <param name="fourStar">fourStar.</param>
+        /// <param name="threeStar">threeStar.</param>
+        /// <param name="twoStar">twoStar.</param>
+        /// <param name="oneStar">oneStar.</param>
+        /// <param name="disqualified">Отзывы, исключённые из рейтинга.</param>
+        /// <param name="isShadowed">Является ли товар скрытым из каталога:   - &#x60;true&#x60; — товар скрыт из каталога   - &#x60;false&#x60; — товар не скрыт из каталога .</param>
         public DistributionTableItem(long nmId = default(long), string title = default(string), string vendorCode = default(string), int subjectId = default(int), string subjectName = default(string), string brandName = default(string), string tagName = default(string), long tagId = default(long), bool pinnedFeedback = default(bool), decimal rating = default(decimal), DistributionTableItemFeedbackRating feedbackRating = default(DistributionTableItemFeedbackRating), DistributionTableItemFeedbackCount feedbackCount = default(DistributionTableItemFeedbackCount), DistributionTableItemFiveStar fiveStar = default(DistributionTableItemFiveStar), DistributionTableItemFourStar fourStar = default(DistributionTableItemFourStar), DistributionTableItemThreeStar threeStar = default(DistributionTableItemThreeStar), DistributionTableItemTwoStar twoStar = default(DistributionTableItemTwoStar), DistributionTableItemOneStar oneStar = default(DistributionTableItemOneStar), int disqualified = default(int), bool isShadowed = default(bool))
         {
             this.NmId = nmId;
-            // to ensure "title" is required (not null)
-            if (title == null)
-            {
-                throw new ArgumentNullException("title is a required property for DistributionTableItem and cannot be null");
-            }
             this.Title = title;
-            // to ensure "vendorCode" is required (not null)
-            if (vendorCode == null)
-            {
-                throw new ArgumentNullException("vendorCode is a required property for DistributionTableItem and cannot be null");
-            }
             this.VendorCode = vendorCode;
             this.SubjectId = subjectId;
-            // to ensure "subjectName" is required (not null)
-            if (subjectName == null)
-            {
-                throw new ArgumentNullException("subjectName is a required property for DistributionTableItem and cannot be null");
-            }
             this.SubjectName = subjectName;
-            // to ensure "brandName" is required (not null)
-            if (brandName == null)
-            {
-                throw new ArgumentNullException("brandName is a required property for DistributionTableItem and cannot be null");
-            }
             this.BrandName = brandName;
-            // to ensure "tagName" is required (not null)
-            if (tagName == null)
-            {
-                throw new ArgumentNullException("tagName is a required property for DistributionTableItem and cannot be null");
-            }
             this.TagName = tagName;
             this.TagId = tagId;
             this.PinnedFeedback = pinnedFeedback;
             this.Rating = rating;
-            // to ensure "feedbackRating" is required (not null)
-            if (feedbackRating == null)
-            {
-                throw new ArgumentNullException("feedbackRating is a required property for DistributionTableItem and cannot be null");
-            }
             this.FeedbackRating = feedbackRating;
-            // to ensure "feedbackCount" is required (not null)
-            if (feedbackCount == null)
-            {
-                throw new ArgumentNullException("feedbackCount is a required property for DistributionTableItem and cannot be null");
-            }
             this.FeedbackCount = feedbackCount;
-            // to ensure "fiveStar" is required (not null)
-            if (fiveStar == null)
-            {
-                throw new ArgumentNullException("fiveStar is a required property for DistributionTableItem and cannot be null");
-            }
             this.FiveStar = fiveStar;
-            // to ensure "fourStar" is required (not null)
-            if (fourStar == null)
-            {
-                throw new ArgumentNullException("fourStar is a required property for DistributionTableItem and cannot be null");
-            }
             this.FourStar = fourStar;
-            // to ensure "threeStar" is required (not null)
-            if (threeStar == null)
-            {
-                throw new ArgumentNullException("threeStar is a required property for DistributionTableItem and cannot be null");
-            }
             this.ThreeStar = threeStar;
-            // to ensure "twoStar" is required (not null)
-            if (twoStar == null)
-            {
-                throw new ArgumentNullException("twoStar is a required property for DistributionTableItem and cannot be null");
-            }
             this.TwoStar = twoStar;
-            // to ensure "oneStar" is required (not null)
-            if (oneStar == null)
-            {
-                throw new ArgumentNullException("oneStar is a required property for DistributionTableItem and cannot be null");
-            }
             this.OneStar = oneStar;
             this.Disqualified = disqualified;
             this.IsShadowed = isShadowed;
@@ -148,7 +83,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>123456789</example>
         */
-        [DataMember(Name = "nmId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "nmId", EmitDefaultValue = false)]
         public long NmId { get; set; }
 
         /// <summary>
@@ -158,7 +93,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>iPh 17 512 ГБ Серебристый</example>
         */
-        [DataMember(Name = "title", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "title", EmitDefaultValue = false)]
         public string Title { get; set; }
 
         /// <summary>
@@ -168,7 +103,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>wb3ha2668w</example>
         */
-        [DataMember(Name = "vendorCode", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "vendorCode", EmitDefaultValue = false)]
         public string VendorCode { get; set; }
 
         /// <summary>
@@ -178,7 +113,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>50</example>
         */
-        [DataMember(Name = "subjectId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "subjectId", EmitDefaultValue = false)]
         public int SubjectId { get; set; }
 
         /// <summary>
@@ -188,7 +123,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>Phones</example>
         */
-        [DataMember(Name = "subjectName", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "subjectName", EmitDefaultValue = false)]
         public string SubjectName { get; set; }
 
         /// <summary>
@@ -198,7 +133,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>Attlee</example>
         */
-        [DataMember(Name = "brandName", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "brandName", EmitDefaultValue = false)]
         public string BrandName { get; set; }
 
         /// <summary>
@@ -208,7 +143,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>Phones</example>
         */
-        [DataMember(Name = "tagName", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "tagName", EmitDefaultValue = false)]
         public string TagName { get; set; }
 
         /// <summary>
@@ -218,7 +153,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>65</example>
         */
-        [DataMember(Name = "tagId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "tagId", EmitDefaultValue = false)]
         public long TagId { get; set; }
 
         /// <summary>
@@ -228,7 +163,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>true</example>
         */
-        [DataMember(Name = "pinnedFeedback", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "pinnedFeedback", EmitDefaultValue = true)]
         public bool PinnedFeedback { get; set; }
 
         /// <summary>
@@ -238,49 +173,49 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>10</example>
         */
-        [DataMember(Name = "rating", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "rating", EmitDefaultValue = false)]
         public decimal Rating { get; set; }
 
         /// <summary>
         /// Gets or Sets FeedbackRating
         /// </summary>
-        [DataMember(Name = "feedbackRating", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "feedbackRating", EmitDefaultValue = false)]
         public DistributionTableItemFeedbackRating FeedbackRating { get; set; }
 
         /// <summary>
         /// Gets or Sets FeedbackCount
         /// </summary>
-        [DataMember(Name = "feedbackCount", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "feedbackCount", EmitDefaultValue = false)]
         public DistributionTableItemFeedbackCount FeedbackCount { get; set; }
 
         /// <summary>
         /// Gets or Sets FiveStar
         /// </summary>
-        [DataMember(Name = "fiveStar", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "fiveStar", EmitDefaultValue = false)]
         public DistributionTableItemFiveStar FiveStar { get; set; }
 
         /// <summary>
         /// Gets or Sets FourStar
         /// </summary>
-        [DataMember(Name = "fourStar", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "fourStar", EmitDefaultValue = false)]
         public DistributionTableItemFourStar FourStar { get; set; }
 
         /// <summary>
         /// Gets or Sets ThreeStar
         /// </summary>
-        [DataMember(Name = "threeStar", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "threeStar", EmitDefaultValue = false)]
         public DistributionTableItemThreeStar ThreeStar { get; set; }
 
         /// <summary>
         /// Gets or Sets TwoStar
         /// </summary>
-        [DataMember(Name = "twoStar", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "twoStar", EmitDefaultValue = false)]
         public DistributionTableItemTwoStar TwoStar { get; set; }
 
         /// <summary>
         /// Gets or Sets OneStar
         /// </summary>
-        [DataMember(Name = "oneStar", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "oneStar", EmitDefaultValue = false)]
         public DistributionTableItemOneStar OneStar { get; set; }
 
         /// <summary>
@@ -290,7 +225,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>7</example>
         */
-        [DataMember(Name = "disqualified", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "disqualified", EmitDefaultValue = false)]
         public int Disqualified { get; set; }
 
         /// <summary>
@@ -300,7 +235,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>true</example>
         */
-        [DataMember(Name = "isShadowed", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "isShadowed", EmitDefaultValue = true)]
         public bool IsShadowed { get; set; }
 
         /// <summary>

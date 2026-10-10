@@ -34,26 +34,16 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GetV1PinsLimitsResponse200" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected GetV1PinsLimitsResponse200() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="GetV1PinsLimitsResponse200" /> class.
-        /// </summary>
-        /// <param name="data">data (required).</param>
+        /// <param name="data">data.</param>
         public GetV1PinsLimitsResponse200(OpenapiSellerLimitsResponseData data = default(OpenapiSellerLimitsResponseData))
         {
-            // to ensure "data" is required (not null)
-            if (data == null)
-            {
-                throw new ArgumentNullException("data is a required property for GetV1PinsLimitsResponse200 and cannot be null");
-            }
             this.Data = data;
         }
 
         /// <summary>
         /// Gets or Sets Data
         /// </summary>
-        [DataMember(Name = "data", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "data", EmitDefaultValue = false)]
         public OpenapiSellerLimitsResponseData Data { get; set; }
 
         /// <summary>

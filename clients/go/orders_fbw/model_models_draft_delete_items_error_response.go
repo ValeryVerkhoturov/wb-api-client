@@ -11,9 +11,7 @@ API version: ordersfbw
 package orders_fbw
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the ModelsDraftDeleteItemsErrorResponse type satisfies the MappedNullable interface at compile time
@@ -21,18 +19,15 @@ var _ MappedNullable = &ModelsDraftDeleteItemsErrorResponse{}
 
 // ModelsDraftDeleteItemsErrorResponse struct for ModelsDraftDeleteItemsErrorResponse
 type ModelsDraftDeleteItemsErrorResponse struct {
-	Results []string `json:"results"`
+	Results []string `json:"results,omitempty"`
 }
-
-type _ModelsDraftDeleteItemsErrorResponse ModelsDraftDeleteItemsErrorResponse
 
 // NewModelsDraftDeleteItemsErrorResponse instantiates a new ModelsDraftDeleteItemsErrorResponse object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelsDraftDeleteItemsErrorResponse(results []string) *ModelsDraftDeleteItemsErrorResponse {
+func NewModelsDraftDeleteItemsErrorResponse() *ModelsDraftDeleteItemsErrorResponse {
 	this := ModelsDraftDeleteItemsErrorResponse{}
-	this.Results = results
 	return &this
 }
 
@@ -44,26 +39,34 @@ func NewModelsDraftDeleteItemsErrorResponseWithDefaults() *ModelsDraftDeleteItem
 	return &this
 }
 
-// GetResults returns the Results field value
+// GetResults returns the Results field value if set, zero value otherwise.
 func (o *ModelsDraftDeleteItemsErrorResponse) GetResults() []string {
-	if o == nil {
+	if o == nil || IsNil(o.Results) {
 		var ret []string
 		return ret
 	}
-
 	return o.Results
 }
 
-// GetResultsOk returns a tuple with the Results field value
+// GetResultsOk returns a tuple with the Results field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModelsDraftDeleteItemsErrorResponse) GetResultsOk() ([]string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Results) {
 		return nil, false
 	}
 	return o.Results, true
 }
 
-// SetResults sets field value
+// HasResults returns a boolean if a field has been set.
+func (o *ModelsDraftDeleteItemsErrorResponse) HasResults() bool {
+	if o != nil && !IsNil(o.Results) {
+		return true
+	}
+
+	return false
+}
+
+// SetResults gets a reference to the given []string and assigns it to the Results field.
 func (o *ModelsDraftDeleteItemsErrorResponse) SetResults(v []string) {
 	o.Results = v
 }
@@ -78,45 +81,10 @@ func (o ModelsDraftDeleteItemsErrorResponse) MarshalJSON() ([]byte, error) {
 
 func (o ModelsDraftDeleteItemsErrorResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["results"] = o.Results
+	if !IsNil(o.Results) {
+		toSerialize["results"] = o.Results
+	}
 	return toSerialize, nil
-}
-
-func (o *ModelsDraftDeleteItemsErrorResponse) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"results",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varModelsDraftDeleteItemsErrorResponse := _ModelsDraftDeleteItemsErrorResponse{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varModelsDraftDeleteItemsErrorResponse)
-
-	if err != nil {
-		return err
-	}
-
-	*o = ModelsDraftDeleteItemsErrorResponse(varModelsDraftDeleteItemsErrorResponse)
-
-	return err
 }
 
 type NullableModelsDraftDeleteItemsErrorResponse struct {

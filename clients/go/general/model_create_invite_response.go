@@ -11,9 +11,7 @@ API version: general
 package general
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the CreateInviteResponse type satisfies the MappedNullable interface at compile time
@@ -22,27 +20,21 @@ var _ MappedNullable = &CreateInviteResponse{}
 // CreateInviteResponse Данные приглашения
 type CreateInviteResponse struct {
 	// ID приглашения
-	InviteID string `json:"inviteID"`
+	InviteID *string `json:"inviteID,omitempty"`
 	// Дата и время окончания срока действия приглашения
-	ExpiredAt string `json:"expiredAt"`
+	ExpiredAt *string `json:"expiredAt,omitempty"`
 	// - `true` — приглашение создано успешно - `false` — повторите запрос
-	IsSuccess bool `json:"isSuccess"`
+	IsSuccess *bool `json:"isSuccess,omitempty"`
 	// URL приглашения, по которому должен перейти пользователь
-	InviteUrl string `json:"inviteUrl"`
+	InviteUrl *string `json:"inviteUrl,omitempty"`
 }
-
-type _CreateInviteResponse CreateInviteResponse
 
 // NewCreateInviteResponse instantiates a new CreateInviteResponse object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCreateInviteResponse(inviteID string, expiredAt string, isSuccess bool, inviteUrl string) *CreateInviteResponse {
+func NewCreateInviteResponse() *CreateInviteResponse {
 	this := CreateInviteResponse{}
-	this.InviteID = inviteID
-	this.ExpiredAt = expiredAt
-	this.IsSuccess = isSuccess
-	this.InviteUrl = inviteUrl
 	return &this
 }
 
@@ -54,100 +46,132 @@ func NewCreateInviteResponseWithDefaults() *CreateInviteResponse {
 	return &this
 }
 
-// GetInviteID returns the InviteID field value
+// GetInviteID returns the InviteID field value if set, zero value otherwise.
 func (o *CreateInviteResponse) GetInviteID() string {
-	if o == nil {
+	if o == nil || IsNil(o.InviteID) {
 		var ret string
 		return ret
 	}
-
-	return o.InviteID
+	return *o.InviteID
 }
 
-// GetInviteIDOk returns a tuple with the InviteID field value
+// GetInviteIDOk returns a tuple with the InviteID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateInviteResponse) GetInviteIDOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.InviteID) {
 		return nil, false
 	}
-	return &o.InviteID, true
+	return o.InviteID, true
 }
 
-// SetInviteID sets field value
+// HasInviteID returns a boolean if a field has been set.
+func (o *CreateInviteResponse) HasInviteID() bool {
+	if o != nil && !IsNil(o.InviteID) {
+		return true
+	}
+
+	return false
+}
+
+// SetInviteID gets a reference to the given string and assigns it to the InviteID field.
 func (o *CreateInviteResponse) SetInviteID(v string) {
-	o.InviteID = v
+	o.InviteID = &v
 }
 
-// GetExpiredAt returns the ExpiredAt field value
+// GetExpiredAt returns the ExpiredAt field value if set, zero value otherwise.
 func (o *CreateInviteResponse) GetExpiredAt() string {
-	if o == nil {
+	if o == nil || IsNil(o.ExpiredAt) {
 		var ret string
 		return ret
 	}
-
-	return o.ExpiredAt
+	return *o.ExpiredAt
 }
 
-// GetExpiredAtOk returns a tuple with the ExpiredAt field value
+// GetExpiredAtOk returns a tuple with the ExpiredAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateInviteResponse) GetExpiredAtOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ExpiredAt) {
 		return nil, false
 	}
-	return &o.ExpiredAt, true
+	return o.ExpiredAt, true
 }
 
-// SetExpiredAt sets field value
+// HasExpiredAt returns a boolean if a field has been set.
+func (o *CreateInviteResponse) HasExpiredAt() bool {
+	if o != nil && !IsNil(o.ExpiredAt) {
+		return true
+	}
+
+	return false
+}
+
+// SetExpiredAt gets a reference to the given string and assigns it to the ExpiredAt field.
 func (o *CreateInviteResponse) SetExpiredAt(v string) {
-	o.ExpiredAt = v
+	o.ExpiredAt = &v
 }
 
-// GetIsSuccess returns the IsSuccess field value
+// GetIsSuccess returns the IsSuccess field value if set, zero value otherwise.
 func (o *CreateInviteResponse) GetIsSuccess() bool {
-	if o == nil {
+	if o == nil || IsNil(o.IsSuccess) {
 		var ret bool
 		return ret
 	}
-
-	return o.IsSuccess
+	return *o.IsSuccess
 }
 
-// GetIsSuccessOk returns a tuple with the IsSuccess field value
+// GetIsSuccessOk returns a tuple with the IsSuccess field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateInviteResponse) GetIsSuccessOk() (*bool, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.IsSuccess) {
 		return nil, false
 	}
-	return &o.IsSuccess, true
+	return o.IsSuccess, true
 }
 
-// SetIsSuccess sets field value
+// HasIsSuccess returns a boolean if a field has been set.
+func (o *CreateInviteResponse) HasIsSuccess() bool {
+	if o != nil && !IsNil(o.IsSuccess) {
+		return true
+	}
+
+	return false
+}
+
+// SetIsSuccess gets a reference to the given bool and assigns it to the IsSuccess field.
 func (o *CreateInviteResponse) SetIsSuccess(v bool) {
-	o.IsSuccess = v
+	o.IsSuccess = &v
 }
 
-// GetInviteUrl returns the InviteUrl field value
+// GetInviteUrl returns the InviteUrl field value if set, zero value otherwise.
 func (o *CreateInviteResponse) GetInviteUrl() string {
-	if o == nil {
+	if o == nil || IsNil(o.InviteUrl) {
 		var ret string
 		return ret
 	}
-
-	return o.InviteUrl
+	return *o.InviteUrl
 }
 
-// GetInviteUrlOk returns a tuple with the InviteUrl field value
+// GetInviteUrlOk returns a tuple with the InviteUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateInviteResponse) GetInviteUrlOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.InviteUrl) {
 		return nil, false
 	}
-	return &o.InviteUrl, true
+	return o.InviteUrl, true
 }
 
-// SetInviteUrl sets field value
+// HasInviteUrl returns a boolean if a field has been set.
+func (o *CreateInviteResponse) HasInviteUrl() bool {
+	if o != nil && !IsNil(o.InviteUrl) {
+		return true
+	}
+
+	return false
+}
+
+// SetInviteUrl gets a reference to the given string and assigns it to the InviteUrl field.
 func (o *CreateInviteResponse) SetInviteUrl(v string) {
-	o.InviteUrl = v
+	o.InviteUrl = &v
 }
 
 func (o CreateInviteResponse) MarshalJSON() ([]byte, error) {
@@ -160,51 +184,19 @@ func (o CreateInviteResponse) MarshalJSON() ([]byte, error) {
 
 func (o CreateInviteResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["inviteID"] = o.InviteID
-	toSerialize["expiredAt"] = o.ExpiredAt
-	toSerialize["isSuccess"] = o.IsSuccess
-	toSerialize["inviteUrl"] = o.InviteUrl
+	if !IsNil(o.InviteID) {
+		toSerialize["inviteID"] = o.InviteID
+	}
+	if !IsNil(o.ExpiredAt) {
+		toSerialize["expiredAt"] = o.ExpiredAt
+	}
+	if !IsNil(o.IsSuccess) {
+		toSerialize["isSuccess"] = o.IsSuccess
+	}
+	if !IsNil(o.InviteUrl) {
+		toSerialize["inviteUrl"] = o.InviteUrl
+	}
 	return toSerialize, nil
-}
-
-func (o *CreateInviteResponse) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"inviteID",
-		"expiredAt",
-		"isSuccess",
-		"inviteUrl",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varCreateInviteResponse := _CreateInviteResponse{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varCreateInviteResponse)
-
-	if err != nil {
-		return err
-	}
-
-	*o = CreateInviteResponse(varCreateInviteResponse)
-
-	return err
 }
 
 type NullableCreateInviteResponse struct {

@@ -11,9 +11,7 @@ API version: analytics
 package analytics
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the ItemOrdersResponse type satisfies the MappedNullable interface at compile time
@@ -22,21 +20,17 @@ var _ MappedNullable = &ItemOrdersResponse{}
 // ItemOrdersResponse struct for ItemOrdersResponse
 type ItemOrdersResponse struct {
 	// Итог по товарам
-	Total []ItemOrdersMetrics `json:"total"`
+	Total []ItemOrdersMetrics `json:"total,omitempty"`
 	// Элементы таблицы
-	Items []ItemOrdersTextItem `json:"items"`
+	Items []ItemOrdersTextItem `json:"items,omitempty"`
 }
-
-type _ItemOrdersResponse ItemOrdersResponse
 
 // NewItemOrdersResponse instantiates a new ItemOrdersResponse object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewItemOrdersResponse(total []ItemOrdersMetrics, items []ItemOrdersTextItem) *ItemOrdersResponse {
+func NewItemOrdersResponse() *ItemOrdersResponse {
 	this := ItemOrdersResponse{}
-	this.Total = total
-	this.Items = items
 	return &this
 }
 
@@ -48,50 +42,66 @@ func NewItemOrdersResponseWithDefaults() *ItemOrdersResponse {
 	return &this
 }
 
-// GetTotal returns the Total field value
+// GetTotal returns the Total field value if set, zero value otherwise.
 func (o *ItemOrdersResponse) GetTotal() []ItemOrdersMetrics {
-	if o == nil {
+	if o == nil || IsNil(o.Total) {
 		var ret []ItemOrdersMetrics
 		return ret
 	}
-
 	return o.Total
 }
 
-// GetTotalOk returns a tuple with the Total field value
+// GetTotalOk returns a tuple with the Total field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ItemOrdersResponse) GetTotalOk() ([]ItemOrdersMetrics, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Total) {
 		return nil, false
 	}
 	return o.Total, true
 }
 
-// SetTotal sets field value
+// HasTotal returns a boolean if a field has been set.
+func (o *ItemOrdersResponse) HasTotal() bool {
+	if o != nil && !IsNil(o.Total) {
+		return true
+	}
+
+	return false
+}
+
+// SetTotal gets a reference to the given []ItemOrdersMetrics and assigns it to the Total field.
 func (o *ItemOrdersResponse) SetTotal(v []ItemOrdersMetrics) {
 	o.Total = v
 }
 
-// GetItems returns the Items field value
+// GetItems returns the Items field value if set, zero value otherwise.
 func (o *ItemOrdersResponse) GetItems() []ItemOrdersTextItem {
-	if o == nil {
+	if o == nil || IsNil(o.Items) {
 		var ret []ItemOrdersTextItem
 		return ret
 	}
-
 	return o.Items
 }
 
-// GetItemsOk returns a tuple with the Items field value
+// GetItemsOk returns a tuple with the Items field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ItemOrdersResponse) GetItemsOk() ([]ItemOrdersTextItem, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Items) {
 		return nil, false
 	}
 	return o.Items, true
 }
 
-// SetItems sets field value
+// HasItems returns a boolean if a field has been set.
+func (o *ItemOrdersResponse) HasItems() bool {
+	if o != nil && !IsNil(o.Items) {
+		return true
+	}
+
+	return false
+}
+
+// SetItems gets a reference to the given []ItemOrdersTextItem and assigns it to the Items field.
 func (o *ItemOrdersResponse) SetItems(v []ItemOrdersTextItem) {
 	o.Items = v
 }
@@ -106,47 +116,13 @@ func (o ItemOrdersResponse) MarshalJSON() ([]byte, error) {
 
 func (o ItemOrdersResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["total"] = o.Total
-	toSerialize["items"] = o.Items
+	if !IsNil(o.Total) {
+		toSerialize["total"] = o.Total
+	}
+	if !IsNil(o.Items) {
+		toSerialize["items"] = o.Items
+	}
 	return toSerialize, nil
-}
-
-func (o *ItemOrdersResponse) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"total",
-		"items",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varItemOrdersResponse := _ItemOrdersResponse{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varItemOrdersResponse)
-
-	if err != nil {
-		return err
-	}
-
-	*o = ItemOrdersResponse(varItemOrdersResponse)
-
-	return err
 }
 
 type NullableItemOrdersResponse struct {

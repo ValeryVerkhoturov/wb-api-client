@@ -34,37 +34,22 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ArhiveOrderError400" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected ArhiveOrderError400() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ArhiveOrderError400" /> class.
-        /// </summary>
         /// <param name="code">Код ошибки.</param>
-        /// <param name="detail">Детали ошибки (required).</param>
+        /// <param name="detail">Детали ошибки.</param>
         /// <param name="errors">Информация об ошибке.</param>
         /// <param name="origin">ID внутреннего сервиса WB.</param>
         /// <param name="requestId">Уникальный ID запроса.</param>
         /// <param name="status">HTTP статус-код ответа.</param>
-        /// <param name="title">Заголовок ошибки (required).</param>
+        /// <param name="title">Заголовок ошибки.</param>
         public ArhiveOrderError400(string code = default(string), string detail = default(string), List<ArhiveOrderError400ErrorsInner> errors = default(List<ArhiveOrderError400ErrorsInner>), string origin = default(string), string requestId = default(string), int status = default(int), string title = default(string))
         {
-            // to ensure "detail" is required (not null)
-            if (detail == null)
-            {
-                throw new ArgumentNullException("detail is a required property for ArhiveOrderError400 and cannot be null");
-            }
-            this.Detail = detail;
-            // to ensure "title" is required (not null)
-            if (title == null)
-            {
-                throw new ArgumentNullException("title is a required property for ArhiveOrderError400 and cannot be null");
-            }
-            this.Title = title;
             this.Code = code;
+            this.Detail = detail;
             this.Errors = errors;
             this.Origin = origin;
             this.RequestId = requestId;
             this.Status = status;
+            this.Title = title;
         }
 
         /// <summary>
@@ -78,7 +63,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// Детали ошибки
         /// </summary>
         /// <value>Детали ошибки</value>
-        [DataMember(Name = "detail", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "detail", EmitDefaultValue = false)]
         public string Detail { get; set; }
 
         /// <summary>
@@ -113,7 +98,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// Заголовок ошибки
         /// </summary>
         /// <value>Заголовок ошибки</value>
-        [DataMember(Name = "title", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "title", EmitDefaultValue = false)]
         public string Title { get; set; }
 
         /// <summary>

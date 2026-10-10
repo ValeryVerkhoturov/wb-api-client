@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from wb_api_client.reports.models.whm_data import WHMData
 from typing import Optional, Set
 from typing_extensions import Self
@@ -29,7 +29,7 @@ class WHM(BaseModel):
     WHM
     """  # noqa: E501
 
-    data: WHMData
+    data: Optional[WHMData] = None
     __properties: ClassVar[List[str]] = ["data"]
 
     model_config = ConfigDict(

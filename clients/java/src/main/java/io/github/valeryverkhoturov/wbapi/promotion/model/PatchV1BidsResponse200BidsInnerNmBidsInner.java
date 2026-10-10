@@ -36,24 +36,24 @@ public class PatchV1BidsResponse200BidsInnerNmBidsInner {
   public static final String SERIALIZED_NAME_NM_ID = "nm_id";
 
   @SerializedName(SERIALIZED_NAME_NM_ID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Long nmId;
 
   public static final String SERIALIZED_NAME_BID_KOPECKS = "bid_kopecks";
 
   @SerializedName(SERIALIZED_NAME_BID_KOPECKS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Long bidKopecks;
 
   public static final String SERIALIZED_NAME_PLACEMENT = "placement";
 
   @SerializedName(SERIALIZED_NAME_PLACEMENT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String placement;
 
   public PatchV1BidsResponse200BidsInnerNmBidsInner() {}
 
-  public PatchV1BidsResponse200BidsInnerNmBidsInner nmId(@jakarta.annotation.Nonnull Long nmId) {
+  public PatchV1BidsResponse200BidsInnerNmBidsInner nmId(@jakarta.annotation.Nullable Long nmId) {
     this.nmId = nmId;
     return this;
   }
@@ -63,17 +63,17 @@ public class PatchV1BidsResponse200BidsInnerNmBidsInner {
    *
    * @return nmId
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Long getNmId() {
     return nmId;
   }
 
-  public void setNmId(@jakarta.annotation.Nonnull Long nmId) {
+  public void setNmId(@jakarta.annotation.Nullable Long nmId) {
     this.nmId = nmId;
   }
 
   public PatchV1BidsResponse200BidsInnerNmBidsInner bidKopecks(
-      @jakarta.annotation.Nonnull Long bidKopecks) {
+      @jakarta.annotation.Nullable Long bidKopecks) {
     this.bidKopecks = bidKopecks;
     return this;
   }
@@ -84,17 +84,17 @@ public class PatchV1BidsResponse200BidsInnerNmBidsInner {
    *
    * @return bidKopecks
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Long getBidKopecks() {
     return bidKopecks;
   }
 
-  public void setBidKopecks(@jakarta.annotation.Nonnull Long bidKopecks) {
+  public void setBidKopecks(@jakarta.annotation.Nullable Long bidKopecks) {
     this.bidKopecks = bidKopecks;
   }
 
   public PatchV1BidsResponse200BidsInnerNmBidsInner placement(
-      @jakarta.annotation.Nonnull String placement) {
+      @jakarta.annotation.Nullable String placement) {
     this.placement = placement;
     return this;
   }
@@ -105,12 +105,12 @@ public class PatchV1BidsResponse200BidsInnerNmBidsInner {
    *
    * @return placement
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getPlacement() {
     return placement;
   }
 
-  public void setPlacement(@jakarta.annotation.Nonnull String placement) {
+  public void setPlacement(@jakarta.annotation.Nullable String placement) {
     this.placement = placement;
   }
 
@@ -167,9 +167,6 @@ public class PatchV1BidsResponse200BidsInnerNmBidsInner {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("nm_id");
-    openapiRequiredFields.add("bid_kopecks");
-    openapiRequiredFields.add("placement");
   }
 
   /**
@@ -200,18 +197,9 @@ public class PatchV1BidsResponse200BidsInnerNmBidsInner {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : PatchV1BidsResponse200BidsInnerNmBidsInner.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    if (!jsonObj.get("placement").isJsonPrimitive()) {
+    if ((jsonObj.get("placement") != null && !jsonObj.get("placement").isJsonNull())
+        && !jsonObj.get("placement").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `placement` to be a primitive type in the JSON string but got `%s`",

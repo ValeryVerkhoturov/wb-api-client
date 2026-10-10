@@ -45,7 +45,7 @@ public class TableShippingOfficeResponse {
   public static final String SERIALIZED_NAME_CURRENCY = "currency";
 
   @SerializedName(SERIALIZED_NAME_CURRENCY)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String currency;
 
   public TableShippingOfficeResponse() {}
@@ -78,7 +78,7 @@ public class TableShippingOfficeResponse {
     this.regions = regions;
   }
 
-  public TableShippingOfficeResponse currency(@jakarta.annotation.Nonnull String currency) {
+  public TableShippingOfficeResponse currency(@jakarta.annotation.Nullable String currency) {
     this.currency = currency;
     return this;
   }
@@ -88,12 +88,12 @@ public class TableShippingOfficeResponse {
    *
    * @return currency
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getCurrency() {
     return currency;
   }
 
-  public void setCurrency(@jakarta.annotation.Nonnull String currency) {
+  public void setCurrency(@jakarta.annotation.Nullable String currency) {
     this.currency = currency;
   }
 
@@ -146,7 +146,6 @@ public class TableShippingOfficeResponse {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("currency");
   }
 
   /**
@@ -176,16 +175,6 @@ public class TableShippingOfficeResponse {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : TableShippingOfficeResponse.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
     if (jsonObj.get("regions") != null && !jsonObj.get("regions").isJsonNull()) {
       JsonArray jsonArrayregions = jsonObj.getAsJsonArray("regions");
@@ -205,7 +194,8 @@ public class TableShippingOfficeResponse {
         ;
       }
     }
-    if (!jsonObj.get("currency").isJsonPrimitive()) {
+    if ((jsonObj.get("currency") != null && !jsonObj.get("currency").isJsonNull())
+        && !jsonObj.get("currency").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `currency` to be a primitive type in the JSON string but got `%s`",

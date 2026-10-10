@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from wb_api_client.promotion.models.v0_bid_recommendation_base_bid import (
     V0BidRecommendationBaseBid,
 )
@@ -31,14 +31,20 @@ class V0BidRecommendationCPCLevels(BaseModel):
     V0BidRecommendationCPCLevels
     """  # noqa: E501
 
-    range1_to2: V0BidRecommendationBaseBid = Field(
-        description="Ставка для попадания в позиции 1-2", alias="range1To2"
+    range1_to2: Optional[V0BidRecommendationBaseBid] = Field(
+        default=None,
+        description="Ставка для попадания в позиции 1-2",
+        alias="range1To2",
     )
-    range3_to10: V0BidRecommendationBaseBid = Field(
-        description="Ставка для попадания в позиции 3-10", alias="range3To10"
+    range3_to10: Optional[V0BidRecommendationBaseBid] = Field(
+        default=None,
+        description="Ставка для попадания в позиции 3-10",
+        alias="range3To10",
     )
-    range11_to34: V0BidRecommendationBaseBid = Field(
-        description="Ставка для попадания в позиции 11-34", alias="range11To34"
+    range11_to34: Optional[V0BidRecommendationBaseBid] = Field(
+        default=None,
+        description="Ставка для попадания в позиции 11-34",
+        alias="range11To34",
     )
     __properties: ClassVar[List[str]] = ["range1To2", "range3To10", "range11To34"]
 

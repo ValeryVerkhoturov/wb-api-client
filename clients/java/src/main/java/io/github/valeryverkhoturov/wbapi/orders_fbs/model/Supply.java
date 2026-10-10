@@ -298,7 +298,7 @@ public class Supply {
   public static final String SERIALIZED_NAME_SPOT_AVAILABLE = "spotAvailable";
 
   @SerializedName(SERIALIZED_NAME_SPOT_AVAILABLE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Boolean spotAvailable;
 
   public Supply() {}
@@ -618,7 +618,7 @@ public class Supply {
     this.waybillUuid = waybillUuid;
   }
 
-  public Supply spotAvailable(@jakarta.annotation.Nonnull Boolean spotAvailable) {
+  public Supply spotAvailable(@jakarta.annotation.Nullable Boolean spotAvailable) {
     this.spotAvailable = spotAvailable;
     return this;
   }
@@ -630,12 +630,12 @@ public class Supply {
    *
    * @return spotAvailable
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Boolean getSpotAvailable() {
     return spotAvailable;
   }
 
-  public void setSpotAvailable(@jakarta.annotation.Nonnull Boolean spotAvailable) {
+  public void setSpotAvailable(@jakarta.annotation.Nullable Boolean spotAvailable) {
     this.spotAvailable = spotAvailable;
   }
 
@@ -754,7 +754,6 @@ public class Supply {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("spotAvailable");
   }
 
   /**
@@ -781,16 +780,6 @@ public class Supply {
             String.format(
                 "The field `%s` in the JSON string is not defined in the `Supply` properties. JSON: %s",
                 entry.getKey(), jsonElement.toString()));
-      }
-    }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : Supply.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
       }
     }
     JsonObject jsonObj = jsonElement.getAsJsonObject();

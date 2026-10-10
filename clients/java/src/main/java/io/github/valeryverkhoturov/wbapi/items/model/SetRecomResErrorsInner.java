@@ -36,24 +36,24 @@ public class SetRecomResErrorsInner {
   public static final String SERIALIZED_NAME_MAIN_NM = "mainNm";
 
   @SerializedName(SERIALIZED_NAME_MAIN_NM)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String mainNm;
 
   public static final String SERIALIZED_NAME_RECOM_NM = "recomNm";
 
   @SerializedName(SERIALIZED_NAME_RECOM_NM)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String recomNm;
 
   public static final String SERIALIZED_NAME_MESSAGE = "message";
 
   @SerializedName(SERIALIZED_NAME_MESSAGE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String message;
 
   public SetRecomResErrorsInner() {}
 
-  public SetRecomResErrorsInner mainNm(@jakarta.annotation.Nonnull String mainNm) {
+  public SetRecomResErrorsInner mainNm(@jakarta.annotation.Nullable String mainNm) {
     this.mainNm = mainNm;
     return this;
   }
@@ -63,16 +63,16 @@ public class SetRecomResErrorsInner {
    *
    * @return mainNm
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getMainNm() {
     return mainNm;
   }
 
-  public void setMainNm(@jakarta.annotation.Nonnull String mainNm) {
+  public void setMainNm(@jakarta.annotation.Nullable String mainNm) {
     this.mainNm = mainNm;
   }
 
-  public SetRecomResErrorsInner recomNm(@jakarta.annotation.Nonnull String recomNm) {
+  public SetRecomResErrorsInner recomNm(@jakarta.annotation.Nullable String recomNm) {
     this.recomNm = recomNm;
     return this;
   }
@@ -82,16 +82,16 @@ public class SetRecomResErrorsInner {
    *
    * @return recomNm
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getRecomNm() {
     return recomNm;
   }
 
-  public void setRecomNm(@jakarta.annotation.Nonnull String recomNm) {
+  public void setRecomNm(@jakarta.annotation.Nullable String recomNm) {
     this.recomNm = recomNm;
   }
 
-  public SetRecomResErrorsInner message(@jakarta.annotation.Nonnull String message) {
+  public SetRecomResErrorsInner message(@jakarta.annotation.Nullable String message) {
     this.message = message;
     return this;
   }
@@ -101,12 +101,12 @@ public class SetRecomResErrorsInner {
    *
    * @return message
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getMessage() {
     return message;
   }
 
-  public void setMessage(@jakarta.annotation.Nonnull String message) {
+  public void setMessage(@jakarta.annotation.Nullable String message) {
     this.message = message;
   }
 
@@ -162,9 +162,6 @@ public class SetRecomResErrorsInner {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("mainNm");
-    openapiRequiredFields.add("recomNm");
-    openapiRequiredFields.add("message");
   }
 
   /**
@@ -194,30 +191,23 @@ public class SetRecomResErrorsInner {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : SetRecomResErrorsInner.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    if (!jsonObj.get("mainNm").isJsonPrimitive()) {
+    if ((jsonObj.get("mainNm") != null && !jsonObj.get("mainNm").isJsonNull())
+        && !jsonObj.get("mainNm").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `mainNm` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("mainNm").toString()));
     }
-    if (!jsonObj.get("recomNm").isJsonPrimitive()) {
+    if ((jsonObj.get("recomNm") != null && !jsonObj.get("recomNm").isJsonNull())
+        && !jsonObj.get("recomNm").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `recomNm` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("recomNm").toString()));
     }
-    if (!jsonObj.get("message").isJsonPrimitive()) {
+    if ((jsonObj.get("message") != null && !jsonObj.get("message").isJsonNull())
+        && !jsonObj.get("message").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `message` to be a primitive type in the JSON string but got `%s`",

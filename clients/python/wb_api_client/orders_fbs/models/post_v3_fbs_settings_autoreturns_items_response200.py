@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from wb_api_client.orders_fbs.models.post_v3_fbs_settings_autoreturns_items_response200_results_inner import (
     PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInner,
 )
@@ -31,7 +31,9 @@ class PostV3FbsSettingsAutoreturnsItemsResponse200(BaseModel):
     PostV3FbsSettingsAutoreturnsItemsResponse200
     """  # noqa: E501
 
-    results: List[PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInner]
+    results: Optional[
+        List[PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInner]
+    ] = None
     __properties: ClassVar[List[str]] = ["results"]
 
     model_config = ConfigDict(

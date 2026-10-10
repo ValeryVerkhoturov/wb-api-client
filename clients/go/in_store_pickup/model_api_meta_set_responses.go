@@ -11,9 +11,7 @@ API version: instorepickup
 package in_store_pickup
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the ApiMetaSetResponses type satisfies the MappedNullable interface at compile time
@@ -22,20 +20,16 @@ var _ MappedNullable = &ApiMetaSetResponses{}
 // ApiMetaSetResponses struct for ApiMetaSetResponses
 type ApiMetaSetResponses struct {
 	// Уникальный ID запроса
-	RequestId interface{}          `json:"requestId"`
-	Results   []ApiMetaSetResponse `json:"results"`
+	RequestId interface{}          `json:"requestId,omitempty"`
+	Results   []ApiMetaSetResponse `json:"results,omitempty"`
 }
-
-type _ApiMetaSetResponses ApiMetaSetResponses
 
 // NewApiMetaSetResponses instantiates a new ApiMetaSetResponses object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewApiMetaSetResponses(requestId interface{}, results []ApiMetaSetResponse) *ApiMetaSetResponses {
+func NewApiMetaSetResponses() *ApiMetaSetResponses {
 	this := ApiMetaSetResponses{}
-	this.RequestId = requestId
-	this.Results = results
 	return &this
 }
 
@@ -47,18 +41,16 @@ func NewApiMetaSetResponsesWithDefaults() *ApiMetaSetResponses {
 	return &this
 }
 
-// GetRequestId returns the RequestId field value
-// If the value is explicit nil, the zero value for interface{} will be returned
+// GetRequestId returns the RequestId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ApiMetaSetResponses) GetRequestId() interface{} {
 	if o == nil {
 		var ret interface{}
 		return ret
 	}
-
 	return o.RequestId
 }
 
-// GetRequestIdOk returns a tuple with the RequestId field value
+// GetRequestIdOk returns a tuple with the RequestId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApiMetaSetResponses) GetRequestIdOk() (*interface{}, bool) {
@@ -68,31 +60,48 @@ func (o *ApiMetaSetResponses) GetRequestIdOk() (*interface{}, bool) {
 	return &o.RequestId, true
 }
 
-// SetRequestId sets field value
+// HasRequestId returns a boolean if a field has been set.
+func (o *ApiMetaSetResponses) HasRequestId() bool {
+	if o != nil && !IsNil(o.RequestId) {
+		return true
+	}
+
+	return false
+}
+
+// SetRequestId gets a reference to the given interface{} and assigns it to the RequestId field.
 func (o *ApiMetaSetResponses) SetRequestId(v interface{}) {
 	o.RequestId = v
 }
 
-// GetResults returns the Results field value
+// GetResults returns the Results field value if set, zero value otherwise.
 func (o *ApiMetaSetResponses) GetResults() []ApiMetaSetResponse {
-	if o == nil {
+	if o == nil || IsNil(o.Results) {
 		var ret []ApiMetaSetResponse
 		return ret
 	}
-
 	return o.Results
 }
 
-// GetResultsOk returns a tuple with the Results field value
+// GetResultsOk returns a tuple with the Results field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ApiMetaSetResponses) GetResultsOk() ([]ApiMetaSetResponse, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Results) {
 		return nil, false
 	}
 	return o.Results, true
 }
 
-// SetResults sets field value
+// HasResults returns a boolean if a field has been set.
+func (o *ApiMetaSetResponses) HasResults() bool {
+	if o != nil && !IsNil(o.Results) {
+		return true
+	}
+
+	return false
+}
+
+// SetResults gets a reference to the given []ApiMetaSetResponse and assigns it to the Results field.
 func (o *ApiMetaSetResponses) SetResults(v []ApiMetaSetResponse) {
 	o.Results = v
 }
@@ -110,46 +119,10 @@ func (o ApiMetaSetResponses) ToMap() (map[string]interface{}, error) {
 	if o.RequestId != nil {
 		toSerialize["requestId"] = o.RequestId
 	}
-	toSerialize["results"] = o.Results
+	if !IsNil(o.Results) {
+		toSerialize["results"] = o.Results
+	}
 	return toSerialize, nil
-}
-
-func (o *ApiMetaSetResponses) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"requestId",
-		"results",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varApiMetaSetResponses := _ApiMetaSetResponses{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varApiMetaSetResponses)
-
-	if err != nil {
-		return err
-	}
-
-	*o = ApiMetaSetResponses(varApiMetaSetResponses)
-
-	return err
 }
 
 type NullableApiMetaSetResponses struct {

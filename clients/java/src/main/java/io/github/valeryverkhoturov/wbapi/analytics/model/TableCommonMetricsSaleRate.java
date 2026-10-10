@@ -40,18 +40,18 @@ public class TableCommonMetricsSaleRate {
   public static final String SERIALIZED_NAME_DAYS = "days";
 
   @SerializedName(SERIALIZED_NAME_DAYS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer days;
 
   public static final String SERIALIZED_NAME_HOURS = "hours";
 
   @SerializedName(SERIALIZED_NAME_HOURS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer hours;
 
   public TableCommonMetricsSaleRate() {}
 
-  public TableCommonMetricsSaleRate days(@jakarta.annotation.Nonnull Integer days) {
+  public TableCommonMetricsSaleRate days(@jakarta.annotation.Nullable Integer days) {
     this.days = days;
     return this;
   }
@@ -61,16 +61,16 @@ public class TableCommonMetricsSaleRate {
    *
    * @return days
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getDays() {
     return days;
   }
 
-  public void setDays(@jakarta.annotation.Nonnull Integer days) {
+  public void setDays(@jakarta.annotation.Nullable Integer days) {
     this.days = days;
   }
 
-  public TableCommonMetricsSaleRate hours(@jakarta.annotation.Nonnull Integer hours) {
+  public TableCommonMetricsSaleRate hours(@jakarta.annotation.Nullable Integer hours) {
     this.hours = hours;
     return this;
   }
@@ -80,12 +80,12 @@ public class TableCommonMetricsSaleRate {
    *
    * @return hours
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getHours() {
     return hours;
   }
 
-  public void setHours(@jakarta.annotation.Nonnull Integer hours) {
+  public void setHours(@jakarta.annotation.Nullable Integer hours) {
     this.hours = hours;
   }
 
@@ -138,8 +138,6 @@ public class TableCommonMetricsSaleRate {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("days");
-    openapiRequiredFields.add("hours");
   }
 
   /**
@@ -167,16 +165,6 @@ public class TableCommonMetricsSaleRate {
             String.format(
                 "The field `%s` in the JSON string is not defined in the `TableCommonMetricsSaleRate` properties. JSON: %s",
                 entry.getKey(), jsonElement.toString()));
-      }
-    }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : TableCommonMetricsSaleRate.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
       }
     }
     JsonObject jsonObj = jsonElement.getAsJsonObject();

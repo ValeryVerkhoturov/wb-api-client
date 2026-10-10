@@ -40,7 +40,7 @@ public class ModelsDiscrepancyResponseItem {
   public static final String SERIALIZED_NAME_DECLARED_SKU = "declaredSku";
 
   @SerializedName(SERIALIZED_NAME_DECLARED_SKU)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String declaredSku;
 
   /**
@@ -103,31 +103,31 @@ public class ModelsDiscrepancyResponseItem {
   public static final String SERIALIZED_NAME_DISCREPANCY_TYPE = "discrepancyType";
 
   @SerializedName(SERIALIZED_NAME_DISCREPANCY_TYPE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private DiscrepancyTypeEnum discrepancyType;
 
   public static final String SERIALIZED_NAME_DECLARED_AMOUNT = "declaredAmount";
 
   @SerializedName(SERIALIZED_NAME_DECLARED_AMOUNT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer declaredAmount;
 
   public static final String SERIALIZED_NAME_ACTUAL_AMOUNT = "actualAmount";
 
   @SerializedName(SERIALIZED_NAME_ACTUAL_AMOUNT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer actualAmount;
 
   public static final String SERIALIZED_NAME_DISCREPANCY_QUANTITY = "discrepancyQuantity";
 
   @SerializedName(SERIALIZED_NAME_DISCREPANCY_QUANTITY)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer discrepancyQuantity;
 
   public static final String SERIALIZED_NAME_ACTUAL_SKU = "actualSku";
 
   @SerializedName(SERIALIZED_NAME_ACTUAL_SKU)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String actualSku;
 
   public static final String SERIALIZED_NAME_SKU_SCANS = "skuScans";
@@ -138,7 +138,8 @@ public class ModelsDiscrepancyResponseItem {
 
   public ModelsDiscrepancyResponseItem() {}
 
-  public ModelsDiscrepancyResponseItem declaredSku(@jakarta.annotation.Nonnull String declaredSku) {
+  public ModelsDiscrepancyResponseItem declaredSku(
+      @jakarta.annotation.Nullable String declaredSku) {
     this.declaredSku = declaredSku;
     return this;
   }
@@ -148,17 +149,17 @@ public class ModelsDiscrepancyResponseItem {
    *
    * @return declaredSku
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getDeclaredSku() {
     return declaredSku;
   }
 
-  public void setDeclaredSku(@jakarta.annotation.Nonnull String declaredSku) {
+  public void setDeclaredSku(@jakarta.annotation.Nullable String declaredSku) {
     this.declaredSku = declaredSku;
   }
 
   public ModelsDiscrepancyResponseItem discrepancyType(
-      @jakarta.annotation.Nonnull DiscrepancyTypeEnum discrepancyType) {
+      @jakarta.annotation.Nullable DiscrepancyTypeEnum discrepancyType) {
     this.discrepancyType = discrepancyType;
     return this;
   }
@@ -170,17 +171,17 @@ public class ModelsDiscrepancyResponseItem {
    *
    * @return discrepancyType
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public DiscrepancyTypeEnum getDiscrepancyType() {
     return discrepancyType;
   }
 
-  public void setDiscrepancyType(@jakarta.annotation.Nonnull DiscrepancyTypeEnum discrepancyType) {
+  public void setDiscrepancyType(@jakarta.annotation.Nullable DiscrepancyTypeEnum discrepancyType) {
     this.discrepancyType = discrepancyType;
   }
 
   public ModelsDiscrepancyResponseItem declaredAmount(
-      @jakarta.annotation.Nonnull Integer declaredAmount) {
+      @jakarta.annotation.Nullable Integer declaredAmount) {
     this.declaredAmount = declaredAmount;
     return this;
   }
@@ -190,17 +191,17 @@ public class ModelsDiscrepancyResponseItem {
    *
    * @return declaredAmount
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getDeclaredAmount() {
     return declaredAmount;
   }
 
-  public void setDeclaredAmount(@jakarta.annotation.Nonnull Integer declaredAmount) {
+  public void setDeclaredAmount(@jakarta.annotation.Nullable Integer declaredAmount) {
     this.declaredAmount = declaredAmount;
   }
 
   public ModelsDiscrepancyResponseItem actualAmount(
-      @jakarta.annotation.Nonnull Integer actualAmount) {
+      @jakarta.annotation.Nullable Integer actualAmount) {
     this.actualAmount = actualAmount;
     return this;
   }
@@ -210,17 +211,17 @@ public class ModelsDiscrepancyResponseItem {
    *
    * @return actualAmount
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getActualAmount() {
     return actualAmount;
   }
 
-  public void setActualAmount(@jakarta.annotation.Nonnull Integer actualAmount) {
+  public void setActualAmount(@jakarta.annotation.Nullable Integer actualAmount) {
     this.actualAmount = actualAmount;
   }
 
   public ModelsDiscrepancyResponseItem discrepancyQuantity(
-      @jakarta.annotation.Nonnull Integer discrepancyQuantity) {
+      @jakarta.annotation.Nullable Integer discrepancyQuantity) {
     this.discrepancyQuantity = discrepancyQuantity;
     return this;
   }
@@ -230,16 +231,16 @@ public class ModelsDiscrepancyResponseItem {
    *
    * @return discrepancyQuantity
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getDiscrepancyQuantity() {
     return discrepancyQuantity;
   }
 
-  public void setDiscrepancyQuantity(@jakarta.annotation.Nonnull Integer discrepancyQuantity) {
+  public void setDiscrepancyQuantity(@jakarta.annotation.Nullable Integer discrepancyQuantity) {
     this.discrepancyQuantity = discrepancyQuantity;
   }
 
-  public ModelsDiscrepancyResponseItem actualSku(@jakarta.annotation.Nonnull String actualSku) {
+  public ModelsDiscrepancyResponseItem actualSku(@jakarta.annotation.Nullable String actualSku) {
     this.actualSku = actualSku;
     return this;
   }
@@ -249,12 +250,12 @@ public class ModelsDiscrepancyResponseItem {
    *
    * @return actualSku
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getActualSku() {
     return actualSku;
   }
 
-  public void setActualSku(@jakarta.annotation.Nonnull String actualSku) {
+  public void setActualSku(@jakarta.annotation.Nullable String actualSku) {
     this.actualSku = actualSku;
   }
 
@@ -360,13 +361,6 @@ public class ModelsDiscrepancyResponseItem {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("declaredSku");
-    openapiRequiredFields.add("discrepancyType");
-    openapiRequiredFields.add("declaredAmount");
-    openapiRequiredFields.add("actualAmount");
-    openapiRequiredFields.add("discrepancyQuantity");
-    openapiRequiredFields.add("actualSku");
-    openapiRequiredFields.add("skuScans");
   }
 
   /**
@@ -397,51 +391,50 @@ public class ModelsDiscrepancyResponseItem {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : ModelsDiscrepancyResponseItem.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    if (!jsonObj.get("declaredSku").isJsonPrimitive()) {
+    if ((jsonObj.get("declaredSku") != null && !jsonObj.get("declaredSku").isJsonNull())
+        && !jsonObj.get("declaredSku").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `declaredSku` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("declaredSku").toString()));
     }
-    if (!jsonObj.get("discrepancyType").isJsonPrimitive()) {
+    if ((jsonObj.get("discrepancyType") != null && !jsonObj.get("discrepancyType").isJsonNull())
+        && !jsonObj.get("discrepancyType").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `discrepancyType` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("discrepancyType").toString()));
     }
-    // validate the required field `discrepancyType`
-    DiscrepancyTypeEnum.validateJsonElement(jsonObj.get("discrepancyType"));
-    if (!jsonObj.get("actualSku").isJsonPrimitive()) {
+    // validate the optional field `discrepancyType`
+    if (jsonObj.get("discrepancyType") != null && !jsonObj.get("discrepancyType").isJsonNull()) {
+      DiscrepancyTypeEnum.validateJsonElement(jsonObj.get("discrepancyType"));
+    }
+    if ((jsonObj.get("actualSku") != null && !jsonObj.get("actualSku").isJsonNull())
+        && !jsonObj.get("actualSku").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `actualSku` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("actualSku").toString()));
     }
-    // ensure the json data is an array
-    if (!jsonObj.get("skuScans").isJsonArray()) {
-      throw new IllegalArgumentException(
-          String.format(
-              "Expected the field `skuScans` to be an array in the JSON string but got `%s`",
-              jsonObj.get("skuScans").toString()));
-    }
+    if (jsonObj.get("skuScans") != null && !jsonObj.get("skuScans").isJsonNull()) {
+      JsonArray jsonArrayskuScans = jsonObj.getAsJsonArray("skuScans");
+      if (jsonArrayskuScans != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("skuScans").isJsonArray()) {
+          throw new IllegalArgumentException(
+              String.format(
+                  "Expected the field `skuScans` to be an array in the JSON string but got `%s`",
+                  jsonObj.get("skuScans").toString()));
+        }
 
-    JsonArray jsonArrayskuScans = jsonObj.getAsJsonArray("skuScans");
-    // validate the required field `skuScans` (array)
-    for (int i = 0; i < jsonArrayskuScans.size(); i++) {
-      ModelsItemScans.validateJsonElement(jsonArrayskuScans.get(i));
+        // validate the optional field `skuScans` (array)
+        for (int i = 0; i < jsonArrayskuScans.size(); i++) {
+          ModelsItemScans.validateJsonElement(jsonArrayskuScans.get(i));
+        }
+        ;
+      }
     }
-    ;
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

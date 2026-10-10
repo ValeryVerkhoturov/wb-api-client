@@ -34,26 +34,16 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="V0GetDailyLimitsResponse" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected V0GetDailyLimitsResponse() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="V0GetDailyLimitsResponse" /> class.
-        /// </summary>
-        /// <param name="adverts">adverts (required).</param>
+        /// <param name="adverts">adverts.</param>
         public V0GetDailyLimitsResponse(List<V0DailyLimitAdvert> adverts = default(List<V0DailyLimitAdvert>))
         {
-            // to ensure "adverts" is required (not null)
-            if (adverts == null)
-            {
-                throw new ArgumentNullException("adverts is a required property for V0GetDailyLimitsResponse and cannot be null");
-            }
             this.Adverts = adverts;
         }
 
         /// <summary>
         /// Gets or Sets Adverts
         /// </summary>
-        [DataMember(Name = "adverts", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "adverts", EmitDefaultValue = false)]
         public List<V0DailyLimitAdvert> Adverts { get; set; }
 
         /// <summary>

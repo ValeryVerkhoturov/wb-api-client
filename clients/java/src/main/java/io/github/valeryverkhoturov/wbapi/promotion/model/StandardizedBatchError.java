@@ -36,36 +36,36 @@ public class StandardizedBatchError {
   public static final String SERIALIZED_NAME_DETAIL = "detail";
 
   @SerializedName(SERIALIZED_NAME_DETAIL)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String detail;
 
   public static final String SERIALIZED_NAME_ORIGIN = "origin";
 
   @SerializedName(SERIALIZED_NAME_ORIGIN)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String origin;
 
   public static final String SERIALIZED_NAME_REQUEST_ID = "request_id";
 
   @SerializedName(SERIALIZED_NAME_REQUEST_ID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String requestId;
 
   public static final String SERIALIZED_NAME_STATUS = "status";
 
   @SerializedName(SERIALIZED_NAME_STATUS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer status;
 
   public static final String SERIALIZED_NAME_TITLE = "title";
 
   @SerializedName(SERIALIZED_NAME_TITLE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String title;
 
   public StandardizedBatchError() {}
 
-  public StandardizedBatchError detail(@jakarta.annotation.Nonnull String detail) {
+  public StandardizedBatchError detail(@jakarta.annotation.Nullable String detail) {
     this.detail = detail;
     return this;
   }
@@ -75,16 +75,16 @@ public class StandardizedBatchError {
    *
    * @return detail
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getDetail() {
     return detail;
   }
 
-  public void setDetail(@jakarta.annotation.Nonnull String detail) {
+  public void setDetail(@jakarta.annotation.Nullable String detail) {
     this.detail = detail;
   }
 
-  public StandardizedBatchError origin(@jakarta.annotation.Nonnull String origin) {
+  public StandardizedBatchError origin(@jakarta.annotation.Nullable String origin) {
     this.origin = origin;
     return this;
   }
@@ -94,16 +94,16 @@ public class StandardizedBatchError {
    *
    * @return origin
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getOrigin() {
     return origin;
   }
 
-  public void setOrigin(@jakarta.annotation.Nonnull String origin) {
+  public void setOrigin(@jakarta.annotation.Nullable String origin) {
     this.origin = origin;
   }
 
-  public StandardizedBatchError requestId(@jakarta.annotation.Nonnull String requestId) {
+  public StandardizedBatchError requestId(@jakarta.annotation.Nullable String requestId) {
     this.requestId = requestId;
     return this;
   }
@@ -113,16 +113,16 @@ public class StandardizedBatchError {
    *
    * @return requestId
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getRequestId() {
     return requestId;
   }
 
-  public void setRequestId(@jakarta.annotation.Nonnull String requestId) {
+  public void setRequestId(@jakarta.annotation.Nullable String requestId) {
     this.requestId = requestId;
   }
 
-  public StandardizedBatchError status(@jakarta.annotation.Nonnull Integer status) {
+  public StandardizedBatchError status(@jakarta.annotation.Nullable Integer status) {
     this.status = status;
     return this;
   }
@@ -132,16 +132,16 @@ public class StandardizedBatchError {
    *
    * @return status
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getStatus() {
     return status;
   }
 
-  public void setStatus(@jakarta.annotation.Nonnull Integer status) {
+  public void setStatus(@jakarta.annotation.Nullable Integer status) {
     this.status = status;
   }
 
-  public StandardizedBatchError title(@jakarta.annotation.Nonnull String title) {
+  public StandardizedBatchError title(@jakarta.annotation.Nullable String title) {
     this.title = title;
     return this;
   }
@@ -151,12 +151,12 @@ public class StandardizedBatchError {
    *
    * @return title
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getTitle() {
     return title;
   }
 
-  public void setTitle(@jakarta.annotation.Nonnull String title) {
+  public void setTitle(@jakarta.annotation.Nullable String title) {
     this.title = title;
   }
 
@@ -218,11 +218,6 @@ public class StandardizedBatchError {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("detail");
-    openapiRequiredFields.add("origin");
-    openapiRequiredFields.add("request_id");
-    openapiRequiredFields.add("status");
-    openapiRequiredFields.add("title");
   }
 
   /**
@@ -252,36 +247,30 @@ public class StandardizedBatchError {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : StandardizedBatchError.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    if (!jsonObj.get("detail").isJsonPrimitive()) {
+    if ((jsonObj.get("detail") != null && !jsonObj.get("detail").isJsonNull())
+        && !jsonObj.get("detail").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `detail` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("detail").toString()));
     }
-    if (!jsonObj.get("origin").isJsonPrimitive()) {
+    if ((jsonObj.get("origin") != null && !jsonObj.get("origin").isJsonNull())
+        && !jsonObj.get("origin").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `origin` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("origin").toString()));
     }
-    if (!jsonObj.get("request_id").isJsonPrimitive()) {
+    if ((jsonObj.get("request_id") != null && !jsonObj.get("request_id").isJsonNull())
+        && !jsonObj.get("request_id").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `request_id` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("request_id").toString()));
     }
-    if (!jsonObj.get("title").isJsonPrimitive()) {
+    if ((jsonObj.get("title") != null && !jsonObj.get("title").isJsonNull())
+        && !jsonObj.get("title").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `title` to be a primitive type in the JSON string but got `%s`",

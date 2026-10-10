@@ -36,13 +36,13 @@ public class Timestamps {
   public static final String SERIALIZED_NAME_CREATED = "created";
 
   @SerializedName(SERIALIZED_NAME_CREATED)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String created;
 
   public static final String SERIALIZED_NAME_UPDATED = "updated";
 
   @SerializedName(SERIALIZED_NAME_UPDATED)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String updated;
 
   public static final String SERIALIZED_NAME_STARTED = "started";
@@ -54,12 +54,12 @@ public class Timestamps {
   public static final String SERIALIZED_NAME_DELETED = "deleted";
 
   @SerializedName(SERIALIZED_NAME_DELETED)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String deleted;
 
   public Timestamps() {}
 
-  public Timestamps created(@jakarta.annotation.Nonnull String created) {
+  public Timestamps created(@jakarta.annotation.Nullable String created) {
     this.created = created;
     return this;
   }
@@ -69,16 +69,16 @@ public class Timestamps {
    *
    * @return created
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getCreated() {
     return created;
   }
 
-  public void setCreated(@jakarta.annotation.Nonnull String created) {
+  public void setCreated(@jakarta.annotation.Nullable String created) {
     this.created = created;
   }
 
-  public Timestamps updated(@jakarta.annotation.Nonnull String updated) {
+  public Timestamps updated(@jakarta.annotation.Nullable String updated) {
     this.updated = updated;
     return this;
   }
@@ -88,12 +88,12 @@ public class Timestamps {
    *
    * @return updated
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getUpdated() {
     return updated;
   }
 
-  public void setUpdated(@jakarta.annotation.Nonnull String updated) {
+  public void setUpdated(@jakarta.annotation.Nullable String updated) {
     this.updated = updated;
   }
 
@@ -116,7 +116,7 @@ public class Timestamps {
     this.started = started;
   }
 
-  public Timestamps deleted(@jakarta.annotation.Nonnull String deleted) {
+  public Timestamps deleted(@jakarta.annotation.Nullable String deleted) {
     this.deleted = deleted;
     return this;
   }
@@ -126,12 +126,12 @@ public class Timestamps {
    *
    * @return deleted
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getDeleted() {
     return deleted;
   }
 
-  public void setDeleted(@jakarta.annotation.Nonnull String deleted) {
+  public void setDeleted(@jakarta.annotation.Nullable String deleted) {
     this.deleted = deleted;
   }
 
@@ -190,10 +190,6 @@ public class Timestamps {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("created");
-    openapiRequiredFields.add("updated");
-    openapiRequiredFields.add("started");
-    openapiRequiredFields.add("deleted");
   }
 
   /**
@@ -223,24 +219,16 @@ public class Timestamps {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : Timestamps.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    if (!jsonObj.get("created").isJsonPrimitive()) {
+    if ((jsonObj.get("created") != null && !jsonObj.get("created").isJsonNull())
+        && !jsonObj.get("created").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `created` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("created").toString()));
     }
-    if (!jsonObj.get("updated").isJsonPrimitive()) {
+    if ((jsonObj.get("updated") != null && !jsonObj.get("updated").isJsonNull())
+        && !jsonObj.get("updated").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `updated` to be a primitive type in the JSON string but got `%s`",
@@ -253,7 +241,8 @@ public class Timestamps {
               "Expected the field `started` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("started").toString()));
     }
-    if (!jsonObj.get("deleted").isJsonPrimitive()) {
+    if ((jsonObj.get("deleted") != null && !jsonObj.get("deleted").isJsonNull())
+        && !jsonObj.get("deleted").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `deleted` to be a primitive type in the JSON string but got `%s`",

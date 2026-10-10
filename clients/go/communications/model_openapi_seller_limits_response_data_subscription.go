@@ -11,9 +11,7 @@ API version: communication
 package communications
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the OpenapiSellerLimitsResponseDataSubscription type satisfies the MappedNullable interface at compile time
@@ -22,30 +20,23 @@ var _ MappedNullable = &OpenapiSellerLimitsResponseDataSubscription{}
 // OpenapiSellerLimitsResponseDataSubscription struct for OpenapiSellerLimitsResponseDataSubscription
 type OpenapiSellerLimitsResponseDataSubscription struct {
 	// Максимальное количество закреплённых отзывов в одной карточке товара или в группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек
-	PerUnitLimit int32 `json:"perUnitLimit"`
+	PerUnitLimit *int32 `json:"perUnitLimit,omitempty"`
 	// Сколько ещё отзывов можно закрепить
-	Remaining int32 `json:"remaining"`
+	Remaining *int32 `json:"remaining,omitempty"`
 	// Общий лимит закреплений
-	TotalLimit int32 `json:"totalLimit"`
+	TotalLimit *int32 `json:"totalLimit,omitempty"`
 	// Количество закреплённых отзывов не ограничено:   - `true` — да   - `false` — нет
-	Unlimited bool `json:"unlimited"`
+	Unlimited *bool `json:"unlimited,omitempty"`
 	// Текущее количество закреплённых отзывов
-	Used int32 `json:"used"`
+	Used *int32 `json:"used,omitempty"`
 }
-
-type _OpenapiSellerLimitsResponseDataSubscription OpenapiSellerLimitsResponseDataSubscription
 
 // NewOpenapiSellerLimitsResponseDataSubscription instantiates a new OpenapiSellerLimitsResponseDataSubscription object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewOpenapiSellerLimitsResponseDataSubscription(perUnitLimit int32, remaining int32, totalLimit int32, unlimited bool, used int32) *OpenapiSellerLimitsResponseDataSubscription {
+func NewOpenapiSellerLimitsResponseDataSubscription() *OpenapiSellerLimitsResponseDataSubscription {
 	this := OpenapiSellerLimitsResponseDataSubscription{}
-	this.PerUnitLimit = perUnitLimit
-	this.Remaining = remaining
-	this.TotalLimit = totalLimit
-	this.Unlimited = unlimited
-	this.Used = used
 	return &this
 }
 
@@ -57,124 +48,164 @@ func NewOpenapiSellerLimitsResponseDataSubscriptionWithDefaults() *OpenapiSeller
 	return &this
 }
 
-// GetPerUnitLimit returns the PerUnitLimit field value
+// GetPerUnitLimit returns the PerUnitLimit field value if set, zero value otherwise.
 func (o *OpenapiSellerLimitsResponseDataSubscription) GetPerUnitLimit() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.PerUnitLimit) {
 		var ret int32
 		return ret
 	}
-
-	return o.PerUnitLimit
+	return *o.PerUnitLimit
 }
 
-// GetPerUnitLimitOk returns a tuple with the PerUnitLimit field value
+// GetPerUnitLimitOk returns a tuple with the PerUnitLimit field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *OpenapiSellerLimitsResponseDataSubscription) GetPerUnitLimitOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.PerUnitLimit) {
 		return nil, false
 	}
-	return &o.PerUnitLimit, true
+	return o.PerUnitLimit, true
 }
 
-// SetPerUnitLimit sets field value
+// HasPerUnitLimit returns a boolean if a field has been set.
+func (o *OpenapiSellerLimitsResponseDataSubscription) HasPerUnitLimit() bool {
+	if o != nil && !IsNil(o.PerUnitLimit) {
+		return true
+	}
+
+	return false
+}
+
+// SetPerUnitLimit gets a reference to the given int32 and assigns it to the PerUnitLimit field.
 func (o *OpenapiSellerLimitsResponseDataSubscription) SetPerUnitLimit(v int32) {
-	o.PerUnitLimit = v
+	o.PerUnitLimit = &v
 }
 
-// GetRemaining returns the Remaining field value
+// GetRemaining returns the Remaining field value if set, zero value otherwise.
 func (o *OpenapiSellerLimitsResponseDataSubscription) GetRemaining() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.Remaining) {
 		var ret int32
 		return ret
 	}
-
-	return o.Remaining
+	return *o.Remaining
 }
 
-// GetRemainingOk returns a tuple with the Remaining field value
+// GetRemainingOk returns a tuple with the Remaining field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *OpenapiSellerLimitsResponseDataSubscription) GetRemainingOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Remaining) {
 		return nil, false
 	}
-	return &o.Remaining, true
+	return o.Remaining, true
 }
 
-// SetRemaining sets field value
+// HasRemaining returns a boolean if a field has been set.
+func (o *OpenapiSellerLimitsResponseDataSubscription) HasRemaining() bool {
+	if o != nil && !IsNil(o.Remaining) {
+		return true
+	}
+
+	return false
+}
+
+// SetRemaining gets a reference to the given int32 and assigns it to the Remaining field.
 func (o *OpenapiSellerLimitsResponseDataSubscription) SetRemaining(v int32) {
-	o.Remaining = v
+	o.Remaining = &v
 }
 
-// GetTotalLimit returns the TotalLimit field value
+// GetTotalLimit returns the TotalLimit field value if set, zero value otherwise.
 func (o *OpenapiSellerLimitsResponseDataSubscription) GetTotalLimit() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.TotalLimit) {
 		var ret int32
 		return ret
 	}
-
-	return o.TotalLimit
+	return *o.TotalLimit
 }
 
-// GetTotalLimitOk returns a tuple with the TotalLimit field value
+// GetTotalLimitOk returns a tuple with the TotalLimit field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *OpenapiSellerLimitsResponseDataSubscription) GetTotalLimitOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.TotalLimit) {
 		return nil, false
 	}
-	return &o.TotalLimit, true
+	return o.TotalLimit, true
 }
 
-// SetTotalLimit sets field value
+// HasTotalLimit returns a boolean if a field has been set.
+func (o *OpenapiSellerLimitsResponseDataSubscription) HasTotalLimit() bool {
+	if o != nil && !IsNil(o.TotalLimit) {
+		return true
+	}
+
+	return false
+}
+
+// SetTotalLimit gets a reference to the given int32 and assigns it to the TotalLimit field.
 func (o *OpenapiSellerLimitsResponseDataSubscription) SetTotalLimit(v int32) {
-	o.TotalLimit = v
+	o.TotalLimit = &v
 }
 
-// GetUnlimited returns the Unlimited field value
+// GetUnlimited returns the Unlimited field value if set, zero value otherwise.
 func (o *OpenapiSellerLimitsResponseDataSubscription) GetUnlimited() bool {
-	if o == nil {
+	if o == nil || IsNil(o.Unlimited) {
 		var ret bool
 		return ret
 	}
-
-	return o.Unlimited
+	return *o.Unlimited
 }
 
-// GetUnlimitedOk returns a tuple with the Unlimited field value
+// GetUnlimitedOk returns a tuple with the Unlimited field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *OpenapiSellerLimitsResponseDataSubscription) GetUnlimitedOk() (*bool, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Unlimited) {
 		return nil, false
 	}
-	return &o.Unlimited, true
+	return o.Unlimited, true
 }
 
-// SetUnlimited sets field value
+// HasUnlimited returns a boolean if a field has been set.
+func (o *OpenapiSellerLimitsResponseDataSubscription) HasUnlimited() bool {
+	if o != nil && !IsNil(o.Unlimited) {
+		return true
+	}
+
+	return false
+}
+
+// SetUnlimited gets a reference to the given bool and assigns it to the Unlimited field.
 func (o *OpenapiSellerLimitsResponseDataSubscription) SetUnlimited(v bool) {
-	o.Unlimited = v
+	o.Unlimited = &v
 }
 
-// GetUsed returns the Used field value
+// GetUsed returns the Used field value if set, zero value otherwise.
 func (o *OpenapiSellerLimitsResponseDataSubscription) GetUsed() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.Used) {
 		var ret int32
 		return ret
 	}
-
-	return o.Used
+	return *o.Used
 }
 
-// GetUsedOk returns a tuple with the Used field value
+// GetUsedOk returns a tuple with the Used field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *OpenapiSellerLimitsResponseDataSubscription) GetUsedOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Used) {
 		return nil, false
 	}
-	return &o.Used, true
+	return o.Used, true
 }
 
-// SetUsed sets field value
+// HasUsed returns a boolean if a field has been set.
+func (o *OpenapiSellerLimitsResponseDataSubscription) HasUsed() bool {
+	if o != nil && !IsNil(o.Used) {
+		return true
+	}
+
+	return false
+}
+
+// SetUsed gets a reference to the given int32 and assigns it to the Used field.
 func (o *OpenapiSellerLimitsResponseDataSubscription) SetUsed(v int32) {
-	o.Used = v
+	o.Used = &v
 }
 
 func (o OpenapiSellerLimitsResponseDataSubscription) MarshalJSON() ([]byte, error) {
@@ -187,53 +218,22 @@ func (o OpenapiSellerLimitsResponseDataSubscription) MarshalJSON() ([]byte, erro
 
 func (o OpenapiSellerLimitsResponseDataSubscription) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["perUnitLimit"] = o.PerUnitLimit
-	toSerialize["remaining"] = o.Remaining
-	toSerialize["totalLimit"] = o.TotalLimit
-	toSerialize["unlimited"] = o.Unlimited
-	toSerialize["used"] = o.Used
+	if !IsNil(o.PerUnitLimit) {
+		toSerialize["perUnitLimit"] = o.PerUnitLimit
+	}
+	if !IsNil(o.Remaining) {
+		toSerialize["remaining"] = o.Remaining
+	}
+	if !IsNil(o.TotalLimit) {
+		toSerialize["totalLimit"] = o.TotalLimit
+	}
+	if !IsNil(o.Unlimited) {
+		toSerialize["unlimited"] = o.Unlimited
+	}
+	if !IsNil(o.Used) {
+		toSerialize["used"] = o.Used
+	}
 	return toSerialize, nil
-}
-
-func (o *OpenapiSellerLimitsResponseDataSubscription) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"perUnitLimit",
-		"remaining",
-		"totalLimit",
-		"unlimited",
-		"used",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varOpenapiSellerLimitsResponseDataSubscription := _OpenapiSellerLimitsResponseDataSubscription{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varOpenapiSellerLimitsResponseDataSubscription)
-
-	if err != nil {
-		return err
-	}
-
-	*o = OpenapiSellerLimitsResponseDataSubscription(varOpenapiSellerLimitsResponseDataSubscription)
-
-	return err
 }
 
 type NullableOpenapiSellerLimitsResponseDataSubscription struct {

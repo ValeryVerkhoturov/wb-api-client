@@ -39,13 +39,13 @@ public class ModelsDraftAddItemsErrorResponse {
   public static final String SERIALIZED_NAME_RESULTS = "results";
 
   @SerializedName(SERIALIZED_NAME_RESULTS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private List<ModelsDraftAddItemsResultItem> results = new ArrayList<>();
 
   public ModelsDraftAddItemsErrorResponse() {}
 
   public ModelsDraftAddItemsErrorResponse results(
-      @jakarta.annotation.Nonnull List<ModelsDraftAddItemsResultItem> results) {
+      @jakarta.annotation.Nullable List<ModelsDraftAddItemsResultItem> results) {
     this.results = results;
     return this;
   }
@@ -64,12 +64,12 @@ public class ModelsDraftAddItemsErrorResponse {
    *
    * @return results
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public List<ModelsDraftAddItemsResultItem> getResults() {
     return results;
   }
 
-  public void setResults(@jakarta.annotation.Nonnull List<ModelsDraftAddItemsResultItem> results) {
+  public void setResults(@jakarta.annotation.Nullable List<ModelsDraftAddItemsResultItem> results) {
     this.results = results;
   }
 
@@ -120,7 +120,6 @@ public class ModelsDraftAddItemsErrorResponse {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("results");
   }
 
   /**
@@ -151,31 +150,25 @@ public class ModelsDraftAddItemsErrorResponse {
                 entry.getKey(), jsonElement.toString()));
       }
     }
+    JsonObject jsonObj = jsonElement.getAsJsonObject();
+    if (jsonObj.get("results") != null && !jsonObj.get("results").isJsonNull()) {
+      JsonArray jsonArrayresults = jsonObj.getAsJsonArray("results");
+      if (jsonArrayresults != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("results").isJsonArray()) {
+          throw new IllegalArgumentException(
+              String.format(
+                  "Expected the field `results` to be an array in the JSON string but got `%s`",
+                  jsonObj.get("results").toString()));
+        }
 
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : ModelsDraftAddItemsErrorResponse.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
+        // validate the optional field `results` (array)
+        for (int i = 0; i < jsonArrayresults.size(); i++) {
+          ModelsDraftAddItemsResultItem.validateJsonElement(jsonArrayresults.get(i));
+        }
+        ;
       }
     }
-    JsonObject jsonObj = jsonElement.getAsJsonObject();
-    // ensure the json data is an array
-    if (!jsonObj.get("results").isJsonArray()) {
-      throw new IllegalArgumentException(
-          String.format(
-              "Expected the field `results` to be an array in the JSON string but got `%s`",
-              jsonObj.get("results").toString()));
-    }
-
-    JsonArray jsonArrayresults = jsonObj.getAsJsonArray("results");
-    // validate the required field `results` (array)
-    for (int i = 0; i < jsonArrayresults.size(); i++) {
-      ModelsDraftAddItemsResultItem.validateJsonElement(jsonArrayresults.get(i));
-    }
-    ;
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

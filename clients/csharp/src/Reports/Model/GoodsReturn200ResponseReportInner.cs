@@ -34,121 +34,46 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GoodsReturn200ResponseReportInner" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected GoodsReturn200ResponseReportInner() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="GoodsReturn200ResponseReportInner" /> class.
-        /// </summary>
-        /// <param name="sku">Баркод (required).</param>
-        /// <param name="brand">Бренд (required).</param>
-        /// <param name="completedDt">Дата и время выдачи возврата продавцу (required).</param>
-        /// <param name="dstOfficeAddress">Адрес ПВЗ для выдачи возврата продавцу (required).</param>
-        /// <param name="kiz">Код маркировки [Честного знака](https://честныйзнак.рф/) (required).</param>
-        /// <param name="dstOfficeId">ID ПВЗ для выдачи возврата продавцу (required).</param>
-        /// <param name="expiredDt">Дата и время истечения срока хранения возврата (required).</param>
-        /// <param name="nmId">Артикул WB (required).</param>
-        /// <param name="orderDt">Дата заказа на возврат (required).</param>
-        /// <param name="orderId">ID сборочного задания (required).</param>
-        /// <param name="readyToReturnDt">Дата и время готовности возврата к выдаче (required).</param>
+        /// <param name="sku">Баркод.</param>
+        /// <param name="brand">Бренд.</param>
+        /// <param name="completedDt">Дата и время выдачи возврата продавцу.</param>
+        /// <param name="dstOfficeAddress">Адрес ПВЗ для выдачи возврата продавцу.</param>
+        /// <param name="kiz">Код маркировки [Честного знака](https://честныйзнак.рф/).</param>
+        /// <param name="dstOfficeId">ID ПВЗ для выдачи возврата продавцу.</param>
+        /// <param name="expiredDt">Дата и время истечения срока хранения возврата.</param>
+        /// <param name="nmId">Артикул WB.</param>
+        /// <param name="orderDt">Дата заказа на возврат.</param>
+        /// <param name="orderId">ID сборочного задания.</param>
+        /// <param name="readyToReturnDt">Дата и время готовности возврата к выдаче.</param>
         /// <param name="returnReason">Причина возврата.  Поле возвращается только при &#x60;\&quot;returnType\&quot;:\&quot;Возврат неопознанного товара\&quot;&#x60;.</param>
-        /// <param name="returnType">Тип возврата (required).</param>
-        /// <param name="shkId">Штрихкод (required).</param>
-        /// <param name="srid">ID заказа на возврат (required).</param>
-        /// <param name="returnStatus">Статус возврата (required).</param>
-        /// <param name="stickerId">Стикер заказа на возврат (required).</param>
-        /// <param name="subjectName">Предмет (required).</param>
-        /// <param name="techSize">Размер (required).</param>
+        /// <param name="returnType">Тип возврата.</param>
+        /// <param name="shkId">Штрихкод.</param>
+        /// <param name="srid">ID заказа на возврат.</param>
+        /// <param name="returnStatus">Статус возврата.</param>
+        /// <param name="stickerId">Стикер заказа на возврат.</param>
+        /// <param name="subjectName">Предмет.</param>
+        /// <param name="techSize">Размер.</param>
         public GoodsReturn200ResponseReportInner(string sku = default(string), string brand = default(string), string completedDt = default(string), string dstOfficeAddress = default(string), string kiz = default(string), int dstOfficeId = default(int), string expiredDt = default(string), int nmId = default(int), string orderDt = default(string), int orderId = default(int), string readyToReturnDt = default(string), string returnReason = default(string), string returnType = default(string), int shkId = default(int), string srid = default(string), string returnStatus = default(string), string stickerId = default(string), string subjectName = default(string), string techSize = default(string))
         {
-            // to ensure "sku" is required (not null)
-            if (sku == null)
-            {
-                throw new ArgumentNullException("sku is a required property for GoodsReturn200ResponseReportInner and cannot be null");
-            }
             this.Sku = sku;
-            // to ensure "brand" is required (not null)
-            if (brand == null)
-            {
-                throw new ArgumentNullException("brand is a required property for GoodsReturn200ResponseReportInner and cannot be null");
-            }
             this.Brand = brand;
-            // to ensure "completedDt" is required (not null)
-            if (completedDt == null)
-            {
-                throw new ArgumentNullException("completedDt is a required property for GoodsReturn200ResponseReportInner and cannot be null");
-            }
             this.CompletedDt = completedDt;
-            // to ensure "dstOfficeAddress" is required (not null)
-            if (dstOfficeAddress == null)
-            {
-                throw new ArgumentNullException("dstOfficeAddress is a required property for GoodsReturn200ResponseReportInner and cannot be null");
-            }
             this.DstOfficeAddress = dstOfficeAddress;
-            // to ensure "kiz" is required (not null)
-            if (kiz == null)
-            {
-                throw new ArgumentNullException("kiz is a required property for GoodsReturn200ResponseReportInner and cannot be null");
-            }
             this.Kiz = kiz;
             this.DstOfficeId = dstOfficeId;
-            // to ensure "expiredDt" is required (not null)
-            if (expiredDt == null)
-            {
-                throw new ArgumentNullException("expiredDt is a required property for GoodsReturn200ResponseReportInner and cannot be null");
-            }
             this.ExpiredDt = expiredDt;
             this.NmId = nmId;
-            // to ensure "orderDt" is required (not null)
-            if (orderDt == null)
-            {
-                throw new ArgumentNullException("orderDt is a required property for GoodsReturn200ResponseReportInner and cannot be null");
-            }
             this.OrderDt = orderDt;
             this.OrderId = orderId;
-            // to ensure "readyToReturnDt" is required (not null)
-            if (readyToReturnDt == null)
-            {
-                throw new ArgumentNullException("readyToReturnDt is a required property for GoodsReturn200ResponseReportInner and cannot be null");
-            }
             this.ReadyToReturnDt = readyToReturnDt;
-            // to ensure "returnType" is required (not null)
-            if (returnType == null)
-            {
-                throw new ArgumentNullException("returnType is a required property for GoodsReturn200ResponseReportInner and cannot be null");
-            }
+            this.ReturnReason = returnReason;
             this.ReturnType = returnType;
             this.ShkId = shkId;
-            // to ensure "srid" is required (not null)
-            if (srid == null)
-            {
-                throw new ArgumentNullException("srid is a required property for GoodsReturn200ResponseReportInner and cannot be null");
-            }
             this.Srid = srid;
-            // to ensure "returnStatus" is required (not null)
-            if (returnStatus == null)
-            {
-                throw new ArgumentNullException("returnStatus is a required property for GoodsReturn200ResponseReportInner and cannot be null");
-            }
             this.ReturnStatus = returnStatus;
-            // to ensure "stickerId" is required (not null)
-            if (stickerId == null)
-            {
-                throw new ArgumentNullException("stickerId is a required property for GoodsReturn200ResponseReportInner and cannot be null");
-            }
             this.StickerId = stickerId;
-            // to ensure "subjectName" is required (not null)
-            if (subjectName == null)
-            {
-                throw new ArgumentNullException("subjectName is a required property for GoodsReturn200ResponseReportInner and cannot be null");
-            }
             this.SubjectName = subjectName;
-            // to ensure "techSize" is required (not null)
-            if (techSize == null)
-            {
-                throw new ArgumentNullException("techSize is a required property for GoodsReturn200ResponseReportInner and cannot be null");
-            }
             this.TechSize = techSize;
-            this.ReturnReason = returnReason;
         }
 
         /// <summary>
@@ -158,7 +83,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /*
         <example>1680063403480</example>
         */
-        [DataMember(Name = "sku", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "sku", EmitDefaultValue = false)]
         public string Sku { get; set; }
 
         /// <summary>
@@ -168,7 +93,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /*
         <example>dub</example>
         */
-        [DataMember(Name = "brand", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "brand", EmitDefaultValue = false)]
         public string Brand { get; set; }
 
         /// <summary>
@@ -178,7 +103,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /*
         <example>2025-03-31T11:33:53</example>
         */
-        [DataMember(Name = "completedDt", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "completedDt", EmitDefaultValue = true)]
         public string CompletedDt { get; set; }
 
         /// <summary>
@@ -188,7 +113,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /*
         <example>Жуковский Улица Маяковского 19</example>
         */
-        [DataMember(Name = "dstOfficeAddress", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "dstOfficeAddress", EmitDefaultValue = false)]
         public string DstOfficeAddress { get; set; }
 
         /// <summary>
@@ -198,7 +123,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /*
         <example>0102900000376311210G2CIS?ehge)S91002A92F9Qof4FDo/31Icm14kmtuVYQzLypxm3HWkC1vQ/+pVVjm1dNAth1laFMoAGn7yEMWlTjxIe7lQnJqZ7TRZhlHQ&#x3D;&#x3D;</example>
         */
-        [DataMember(Name = "kiz", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "kiz", EmitDefaultValue = true)]
         public string Kiz { get; set; }
 
         /// <summary>
@@ -208,7 +133,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /*
         <example>310105</example>
         */
-        [DataMember(Name = "dstOfficeId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "dstOfficeId", EmitDefaultValue = false)]
         public int DstOfficeId { get; set; }
 
         /// <summary>
@@ -218,7 +143,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /*
         <example>2025-03-31T11:33:53</example>
         */
-        [DataMember(Name = "expiredDt", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "expiredDt", EmitDefaultValue = true)]
         public string ExpiredDt { get; set; }
 
         /// <summary>
@@ -228,7 +153,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /*
         <example>12862181</example>
         */
-        [DataMember(Name = "nmId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "nmId", EmitDefaultValue = false)]
         public int NmId { get; set; }
 
         /// <summary>
@@ -238,7 +163,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /*
         <example>2024-08-26</example>
         */
-        [DataMember(Name = "orderDt", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "orderDt", EmitDefaultValue = false)]
         public string OrderDt { get; set; }
 
         /// <summary>
@@ -248,7 +173,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /*
         <example>2034240826</example>
         */
-        [DataMember(Name = "orderId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "orderId", EmitDefaultValue = false)]
         public int OrderId { get; set; }
 
         /// <summary>
@@ -258,7 +183,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /*
         <example>2025-01-31T08:33:50</example>
         */
-        [DataMember(Name = "readyToReturnDt", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "readyToReturnDt", EmitDefaultValue = true)]
         public string ReadyToReturnDt { get; set; }
 
         /// <summary>
@@ -278,7 +203,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /*
         <example>Возврат заблокированного товара</example>
         */
-        [DataMember(Name = "returnType", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "returnType", EmitDefaultValue = false)]
         public string ReturnType { get; set; }
 
         /// <summary>
@@ -288,7 +213,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /*
         <example>23411783472</example>
         */
-        [DataMember(Name = "shkId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "shkId", EmitDefaultValue = false)]
         public int ShkId { get; set; }
 
         /// <summary>
@@ -298,7 +223,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /*
         <example>mp.123130940efa4d67af77f901594c7d2c.r</example>
         */
-        [DataMember(Name = "srid", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "srid", EmitDefaultValue = false)]
         public string Srid { get; set; }
 
         /// <summary>
@@ -308,7 +233,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /*
         <example>В пути в пвз</example>
         */
-        [DataMember(Name = "returnStatus", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "returnStatus", EmitDefaultValue = false)]
         public string ReturnStatus { get; set; }
 
         /// <summary>
@@ -318,7 +243,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /*
         <example>33811984302</example>
         */
-        [DataMember(Name = "stickerId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "stickerId", EmitDefaultValue = false)]
         public string StickerId { get; set; }
 
         /// <summary>
@@ -328,7 +253,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /*
         <example>Багажные бирки</example>
         */
-        [DataMember(Name = "subjectName", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "subjectName", EmitDefaultValue = false)]
         public string SubjectName { get; set; }
 
         /// <summary>
@@ -338,7 +263,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /*
         <example>0</example>
         */
-        [DataMember(Name = "techSize", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "techSize", EmitDefaultValue = false)]
         public string TechSize { get; set; }
 
         /// <summary>

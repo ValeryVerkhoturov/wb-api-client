@@ -34,21 +34,11 @@ namespace ValeryVerkhoturov.WbApiClient.InStorePickup.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiBatchCustomsDeclarationErrorResponse" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected ApiBatchCustomsDeclarationErrorResponse() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ApiBatchCustomsDeclarationErrorResponse" /> class.
-        /// </summary>
-        /// <param name="code">Код ошибки:   - &#x60;404&#x60;   - &#x60;409&#x60;   - &#x60;400&#x60;  (required).</param>
-        /// <param name="detail">- &#x60;NotFound&#x60; — сборочное задание не найдено - &#x60;StatusMismatch&#x60; — операция невозможна для этого статуса сборочного задания - &#x60;OrderNotB2B&#x60; — операция доступна только для сборочных заданий с признаком B2B-продажи &#x60;\&quot;isB2b\&quot;:true&#x60; - &#x60;InvalidOriginCountryCode&#x60; — некорректный код страны происхождения товара  (required).</param>
+        /// <param name="code">Код ошибки:   - &#x60;404&#x60;   - &#x60;409&#x60;   - &#x60;400&#x60; .</param>
+        /// <param name="detail">- &#x60;NotFound&#x60; — сборочное задание не найдено - &#x60;StatusMismatch&#x60; — операция невозможна для этого статуса сборочного задания - &#x60;OrderNotB2B&#x60; — операция доступна только для сборочных заданий с признаком B2B-продажи &#x60;\&quot;isB2b\&quot;:true&#x60; - &#x60;InvalidOriginCountryCode&#x60; — некорректный код страны происхождения товара .</param>
         public ApiBatchCustomsDeclarationErrorResponse(int code = default(int), string detail = default(string))
         {
             this.Code = code;
-            // to ensure "detail" is required (not null)
-            if (detail == null)
-            {
-                throw new ArgumentNullException("detail is a required property for ApiBatchCustomsDeclarationErrorResponse and cannot be null");
-            }
             this.Detail = detail;
         }
 
@@ -59,7 +49,7 @@ namespace ValeryVerkhoturov.WbApiClient.InStorePickup.Model
         /*
         <example>404</example>
         */
-        [DataMember(Name = "code", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "code", EmitDefaultValue = false)]
         public int Code { get; set; }
 
         /// <summary>
@@ -69,7 +59,7 @@ namespace ValeryVerkhoturov.WbApiClient.InStorePickup.Model
         /*
         <example>NotFound</example>
         */
-        [DataMember(Name = "detail", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "detail", EmitDefaultValue = false)]
         public string Detail { get; set; }
 
         /// <summary>

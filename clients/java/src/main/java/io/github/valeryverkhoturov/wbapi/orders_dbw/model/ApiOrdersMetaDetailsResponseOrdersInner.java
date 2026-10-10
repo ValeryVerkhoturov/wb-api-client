@@ -45,7 +45,7 @@ public class ApiOrdersMetaDetailsResponseOrdersInner {
   public static final String SERIALIZED_NAME_IS_ERROR = "isError";
 
   @SerializedName(SERIALIZED_NAME_IS_ERROR)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Boolean isError;
 
   public static final String SERIALIZED_NAME_ERRORS = "errors";
@@ -84,7 +84,7 @@ public class ApiOrdersMetaDetailsResponseOrdersInner {
   }
 
   public ApiOrdersMetaDetailsResponseOrdersInner isError(
-      @jakarta.annotation.Nonnull Boolean isError) {
+      @jakarta.annotation.Nullable Boolean isError) {
     this.isError = isError;
     return this;
   }
@@ -94,12 +94,12 @@ public class ApiOrdersMetaDetailsResponseOrdersInner {
    *
    * @return isError
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Boolean getIsError() {
     return isError;
   }
 
-  public void setIsError(@jakarta.annotation.Nonnull Boolean isError) {
+  public void setIsError(@jakarta.annotation.Nullable Boolean isError) {
     this.isError = isError;
   }
 
@@ -223,7 +223,6 @@ public class ApiOrdersMetaDetailsResponseOrdersInner {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("isError");
   }
 
   /**
@@ -252,16 +251,6 @@ public class ApiOrdersMetaDetailsResponseOrdersInner {
             String.format(
                 "The field `%s` in the JSON string is not defined in the `ApiOrdersMetaDetailsResponseOrdersInner` properties. JSON: %s",
                 entry.getKey(), jsonElement.toString()));
-      }
-    }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : ApiOrdersMetaDetailsResponseOrdersInner.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
       }
     }
     JsonObject jsonObj = jsonElement.getAsJsonObject();

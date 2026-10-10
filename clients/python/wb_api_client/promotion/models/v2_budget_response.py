@@ -29,7 +29,9 @@ class V2BudgetResponse(BaseModel):
     V2BudgetResponse
     """  # noqa: E501
 
-    adverts: Optional[List[V1BudgetAdvert]] = Field(description="Данные по кампаниям")
+    adverts: Optional[List[V1BudgetAdvert]] = Field(
+        default=None, description="Данные по кампаниям"
+    )
     __properties: ClassVar[List[str]] = ["adverts"]
 
     model_config = ConfigDict(

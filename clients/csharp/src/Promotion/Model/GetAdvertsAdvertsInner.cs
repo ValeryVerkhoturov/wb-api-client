@@ -73,66 +73,36 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// Статус кампании: - &#x60;-1&#x60; — удалена, процесс удаления будет завершён в течение 10 минут - &#x60;4&#x60; — готова к запуску - &#x60;7&#x60; — завершена - &#x60;8&#x60; — отменена - &#x60;9&#x60; — активна - &#x60;11&#x60; — на паузе 
         /// </summary>
         /// <value>Статус кампании: - &#x60;-1&#x60; — удалена, процесс удаления будет завершён в течение 10 минут - &#x60;4&#x60; — готова к запуску - &#x60;7&#x60; — завершена - &#x60;8&#x60; — отменена - &#x60;9&#x60; — активна - &#x60;11&#x60; — на паузе </value>
-        [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = true)]
-        public StatusEnum Status { get; set; }
+        [DataMember(Name = "status", EmitDefaultValue = false)]
+        public StatusEnum? Status { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="GetAdvertsAdvertsInner" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected GetAdvertsAdvertsInner() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="GetAdvertsAdvertsInner" /> class.
-        /// </summary>
-        /// <param name="bidType">Тип ставки:   - &#x60;unified&#x60; — единая ставка   - &#x60;manual&#x60; — ручная ставка  (required).</param>
+        /// <param name="bidType">Тип ставки:   - &#x60;unified&#x60; — единая ставка   - &#x60;manual&#x60; — ручная ставка .</param>
         /// <param name="currency">Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).</param>
-        /// <param name="id">ID кампании (required).</param>
-        /// <param name="nmSettings">Настройки товаров (required).</param>
-        /// <param name="settings">settings (required).</param>
-        /// <param name="restrictions">restrictions (required).</param>
-        /// <param name="status">Статус кампании: - &#x60;-1&#x60; — удалена, процесс удаления будет завершён в течение 10 минут - &#x60;4&#x60; — готова к запуску - &#x60;7&#x60; — завершена - &#x60;8&#x60; — отменена - &#x60;9&#x60; — активна - &#x60;11&#x60; — на паузе  (required).</param>
-        /// <param name="timestamps">timestamps (required).</param>
-        public GetAdvertsAdvertsInner(string bidType = default(string), string currency = default(string), long id = default(long), List<AdvertNMsSettings> nmSettings = default(List<AdvertNMsSettings>), AdvertSettings settings = default(AdvertSettings), GetAdvertsAdvertsInnerRestrictions restrictions = default(GetAdvertsAdvertsInnerRestrictions), StatusEnum status = default(StatusEnum), Timestamps timestamps = default(Timestamps))
+        /// <param name="id">ID кампании.</param>
+        /// <param name="nmSettings">Настройки товаров.</param>
+        /// <param name="settings">settings.</param>
+        /// <param name="restrictions">restrictions.</param>
+        /// <param name="status">Статус кампании: - &#x60;-1&#x60; — удалена, процесс удаления будет завершён в течение 10 минут - &#x60;4&#x60; — готова к запуску - &#x60;7&#x60; — завершена - &#x60;8&#x60; — отменена - &#x60;9&#x60; — активна - &#x60;11&#x60; — на паузе .</param>
+        /// <param name="timestamps">timestamps.</param>
+        public GetAdvertsAdvertsInner(string bidType = default(string), string currency = default(string), long id = default(long), List<AdvertNMsSettings> nmSettings = default(List<AdvertNMsSettings>), AdvertSettings settings = default(AdvertSettings), GetAdvertsAdvertsInnerRestrictions restrictions = default(GetAdvertsAdvertsInnerRestrictions), StatusEnum? status = default(StatusEnum?), Timestamps timestamps = default(Timestamps))
         {
-            // to ensure "bidType" is required (not null)
-            if (bidType == null)
-            {
-                throw new ArgumentNullException("bidType is a required property for GetAdvertsAdvertsInner and cannot be null");
-            }
             this.BidType = bidType;
+            this.Currency = currency;
             this.Id = id;
-            // to ensure "nmSettings" is required (not null)
-            if (nmSettings == null)
-            {
-                throw new ArgumentNullException("nmSettings is a required property for GetAdvertsAdvertsInner and cannot be null");
-            }
             this.NmSettings = nmSettings;
-            // to ensure "settings" is required (not null)
-            if (settings == null)
-            {
-                throw new ArgumentNullException("settings is a required property for GetAdvertsAdvertsInner and cannot be null");
-            }
             this.Settings = settings;
-            // to ensure "restrictions" is required (not null)
-            if (restrictions == null)
-            {
-                throw new ArgumentNullException("restrictions is a required property for GetAdvertsAdvertsInner and cannot be null");
-            }
             this.Restrictions = restrictions;
             this.Status = status;
-            // to ensure "timestamps" is required (not null)
-            if (timestamps == null)
-            {
-                throw new ArgumentNullException("timestamps is a required property for GetAdvertsAdvertsInner and cannot be null");
-            }
             this.Timestamps = timestamps;
-            this.Currency = currency;
         }
 
         /// <summary>
         /// Тип ставки:   - &#x60;unified&#x60; — единая ставка   - &#x60;manual&#x60; — ручная ставка 
         /// </summary>
         /// <value>Тип ставки:   - &#x60;unified&#x60; — единая ставка   - &#x60;manual&#x60; — ручная ставка </value>
-        [DataMember(Name = "bid_type", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "bid_type", EmitDefaultValue = false)]
         public string BidType { get; set; }
 
         /// <summary>
@@ -146,32 +116,32 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// ID кампании
         /// </summary>
         /// <value>ID кампании</value>
-        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "id", EmitDefaultValue = false)]
         public long Id { get; set; }
 
         /// <summary>
         /// Настройки товаров
         /// </summary>
         /// <value>Настройки товаров</value>
-        [DataMember(Name = "nm_settings", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "nm_settings", EmitDefaultValue = true)]
         public List<AdvertNMsSettings> NmSettings { get; set; }
 
         /// <summary>
         /// Gets or Sets Settings
         /// </summary>
-        [DataMember(Name = "settings", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "settings", EmitDefaultValue = false)]
         public AdvertSettings Settings { get; set; }
 
         /// <summary>
         /// Gets or Sets Restrictions
         /// </summary>
-        [DataMember(Name = "restrictions", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "restrictions", EmitDefaultValue = false)]
         public GetAdvertsAdvertsInnerRestrictions Restrictions { get; set; }
 
         /// <summary>
         /// Gets or Sets Timestamps
         /// </summary>
-        [DataMember(Name = "timestamps", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "timestamps", EmitDefaultValue = false)]
         public Timestamps Timestamps { get; set; }
 
         /// <summary>

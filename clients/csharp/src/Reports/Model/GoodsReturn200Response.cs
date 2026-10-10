@@ -34,21 +34,11 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GoodsReturn200Response" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected GoodsReturn200Response() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="GoodsReturn200Response" /> class.
-        /// </summary>
-        /// <param name="count">Общее количество возвратов за запрашиваемый период (required).</param>
-        /// <param name="report">Отчёт (required).</param>
+        /// <param name="count">Общее количество возвратов за запрашиваемый период.</param>
+        /// <param name="report">Отчёт.</param>
         public GoodsReturn200Response(int count = default(int), List<GoodsReturn200ResponseReportInner> report = default(List<GoodsReturn200ResponseReportInner>))
         {
             this.Count = count;
-            // to ensure "report" is required (not null)
-            if (report == null)
-            {
-                throw new ArgumentNullException("report is a required property for GoodsReturn200Response and cannot be null");
-            }
             this.Report = report;
         }
 
@@ -56,14 +46,14 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /// Общее количество возвратов за запрашиваемый период
         /// </summary>
         /// <value>Общее количество возвратов за запрашиваемый период</value>
-        [DataMember(Name = "count", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "count", EmitDefaultValue = false)]
         public int Count { get; set; }
 
         /// <summary>
         /// Отчёт
         /// </summary>
         /// <value>Отчёт</value>
-        [DataMember(Name = "report", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "report", EmitDefaultValue = false)]
         public List<GoodsReturn200ResponseReportInner> Report { get; set; }
 
         /// <summary>

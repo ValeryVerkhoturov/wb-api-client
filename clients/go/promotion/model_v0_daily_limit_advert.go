@@ -11,9 +11,7 @@ API version: promotion
 package promotion
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the V0DailyLimitAdvert type satisfies the MappedNullable interface at compile time
@@ -22,39 +20,29 @@ var _ MappedNullable = &V0DailyLimitAdvert{}
 // V0DailyLimitAdvert struct for V0DailyLimitAdvert
 type V0DailyLimitAdvert struct {
 	// ID кампании
-	AdvertId int64 `json:"advertId"`
+	AdvertId *int64 `json:"advertId,omitempty"`
 	// - `true` — дневной лимит включен - `false` — дневной лимит отключен
-	Enabled bool `json:"enabled"`
+	Enabled *bool `json:"enabled,omitempty"`
 	// Размер дневного лимита в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
-	DailyLimit int64 `json:"dailyLimit"`
+	DailyLimit *int64 `json:"dailyLimit,omitempty"`
 	// Потрачено сегодня в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
-	SpentToday int64 `json:"spentToday"`
+	SpentToday *int64 `json:"spentToday,omitempty"`
 	// Код валюты
-	Currency string `json:"currency"`
+	Currency *string `json:"currency,omitempty"`
 	// Перенос остатка дневного лимита на следующий день. Если за 24 часа лимит потратится не полностью, добавим остаток суммы к лимиту следующего дня. Расходы на продвижение не увеличатся.   - `true` — перенос остатка включен   - `false` — перенос остатка отключен
-	CarryOverEnabled bool `json:"carryOverEnabled"`
+	CarryOverEnabled *bool `json:"carryOverEnabled,omitempty"`
 	// Хватает ли текущего размера лимита на установку ставок кампании:   - `true` — да   - `false` — нет, рекомендуем повысить лимит, иначе бюджет кампании может расходоваться неравномерно
-	Valid bool `json:"valid"`
+	Valid *bool `json:"valid,omitempty"`
 	// Рекомендуемый минимальный размер дневного лимита при текущих ставках кампании. Указывается в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
-	RequiredLimit int64 `json:"requiredLimit"`
+	RequiredLimit *int64 `json:"requiredLimit,omitempty"`
 }
-
-type _V0DailyLimitAdvert V0DailyLimitAdvert
 
 // NewV0DailyLimitAdvert instantiates a new V0DailyLimitAdvert object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewV0DailyLimitAdvert(advertId int64, enabled bool, dailyLimit int64, spentToday int64, currency string, carryOverEnabled bool, valid bool, requiredLimit int64) *V0DailyLimitAdvert {
+func NewV0DailyLimitAdvert() *V0DailyLimitAdvert {
 	this := V0DailyLimitAdvert{}
-	this.AdvertId = advertId
-	this.Enabled = enabled
-	this.DailyLimit = dailyLimit
-	this.SpentToday = spentToday
-	this.Currency = currency
-	this.CarryOverEnabled = carryOverEnabled
-	this.Valid = valid
-	this.RequiredLimit = requiredLimit
 	return &this
 }
 
@@ -66,196 +54,260 @@ func NewV0DailyLimitAdvertWithDefaults() *V0DailyLimitAdvert {
 	return &this
 }
 
-// GetAdvertId returns the AdvertId field value
+// GetAdvertId returns the AdvertId field value if set, zero value otherwise.
 func (o *V0DailyLimitAdvert) GetAdvertId() int64 {
-	if o == nil {
+	if o == nil || IsNil(o.AdvertId) {
 		var ret int64
 		return ret
 	}
-
-	return o.AdvertId
+	return *o.AdvertId
 }
 
-// GetAdvertIdOk returns a tuple with the AdvertId field value
+// GetAdvertIdOk returns a tuple with the AdvertId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *V0DailyLimitAdvert) GetAdvertIdOk() (*int64, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AdvertId) {
 		return nil, false
 	}
-	return &o.AdvertId, true
+	return o.AdvertId, true
 }
 
-// SetAdvertId sets field value
+// HasAdvertId returns a boolean if a field has been set.
+func (o *V0DailyLimitAdvert) HasAdvertId() bool {
+	if o != nil && !IsNil(o.AdvertId) {
+		return true
+	}
+
+	return false
+}
+
+// SetAdvertId gets a reference to the given int64 and assigns it to the AdvertId field.
 func (o *V0DailyLimitAdvert) SetAdvertId(v int64) {
-	o.AdvertId = v
+	o.AdvertId = &v
 }
 
-// GetEnabled returns the Enabled field value
+// GetEnabled returns the Enabled field value if set, zero value otherwise.
 func (o *V0DailyLimitAdvert) GetEnabled() bool {
-	if o == nil {
+	if o == nil || IsNil(o.Enabled) {
 		var ret bool
 		return ret
 	}
-
-	return o.Enabled
+	return *o.Enabled
 }
 
-// GetEnabledOk returns a tuple with the Enabled field value
+// GetEnabledOk returns a tuple with the Enabled field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *V0DailyLimitAdvert) GetEnabledOk() (*bool, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Enabled) {
 		return nil, false
 	}
-	return &o.Enabled, true
+	return o.Enabled, true
 }
 
-// SetEnabled sets field value
+// HasEnabled returns a boolean if a field has been set.
+func (o *V0DailyLimitAdvert) HasEnabled() bool {
+	if o != nil && !IsNil(o.Enabled) {
+		return true
+	}
+
+	return false
+}
+
+// SetEnabled gets a reference to the given bool and assigns it to the Enabled field.
 func (o *V0DailyLimitAdvert) SetEnabled(v bool) {
-	o.Enabled = v
+	o.Enabled = &v
 }
 
-// GetDailyLimit returns the DailyLimit field value
+// GetDailyLimit returns the DailyLimit field value if set, zero value otherwise.
 func (o *V0DailyLimitAdvert) GetDailyLimit() int64 {
-	if o == nil {
+	if o == nil || IsNil(o.DailyLimit) {
 		var ret int64
 		return ret
 	}
-
-	return o.DailyLimit
+	return *o.DailyLimit
 }
 
-// GetDailyLimitOk returns a tuple with the DailyLimit field value
+// GetDailyLimitOk returns a tuple with the DailyLimit field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *V0DailyLimitAdvert) GetDailyLimitOk() (*int64, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DailyLimit) {
 		return nil, false
 	}
-	return &o.DailyLimit, true
+	return o.DailyLimit, true
 }
 
-// SetDailyLimit sets field value
+// HasDailyLimit returns a boolean if a field has been set.
+func (o *V0DailyLimitAdvert) HasDailyLimit() bool {
+	if o != nil && !IsNil(o.DailyLimit) {
+		return true
+	}
+
+	return false
+}
+
+// SetDailyLimit gets a reference to the given int64 and assigns it to the DailyLimit field.
 func (o *V0DailyLimitAdvert) SetDailyLimit(v int64) {
-	o.DailyLimit = v
+	o.DailyLimit = &v
 }
 
-// GetSpentToday returns the SpentToday field value
+// GetSpentToday returns the SpentToday field value if set, zero value otherwise.
 func (o *V0DailyLimitAdvert) GetSpentToday() int64 {
-	if o == nil {
+	if o == nil || IsNil(o.SpentToday) {
 		var ret int64
 		return ret
 	}
-
-	return o.SpentToday
+	return *o.SpentToday
 }
 
-// GetSpentTodayOk returns a tuple with the SpentToday field value
+// GetSpentTodayOk returns a tuple with the SpentToday field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *V0DailyLimitAdvert) GetSpentTodayOk() (*int64, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.SpentToday) {
 		return nil, false
 	}
-	return &o.SpentToday, true
+	return o.SpentToday, true
 }
 
-// SetSpentToday sets field value
+// HasSpentToday returns a boolean if a field has been set.
+func (o *V0DailyLimitAdvert) HasSpentToday() bool {
+	if o != nil && !IsNil(o.SpentToday) {
+		return true
+	}
+
+	return false
+}
+
+// SetSpentToday gets a reference to the given int64 and assigns it to the SpentToday field.
 func (o *V0DailyLimitAdvert) SetSpentToday(v int64) {
-	o.SpentToday = v
+	o.SpentToday = &v
 }
 
-// GetCurrency returns the Currency field value
+// GetCurrency returns the Currency field value if set, zero value otherwise.
 func (o *V0DailyLimitAdvert) GetCurrency() string {
-	if o == nil {
+	if o == nil || IsNil(o.Currency) {
 		var ret string
 		return ret
 	}
-
-	return o.Currency
+	return *o.Currency
 }
 
-// GetCurrencyOk returns a tuple with the Currency field value
+// GetCurrencyOk returns a tuple with the Currency field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *V0DailyLimitAdvert) GetCurrencyOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Currency) {
 		return nil, false
 	}
-	return &o.Currency, true
+	return o.Currency, true
 }
 
-// SetCurrency sets field value
+// HasCurrency returns a boolean if a field has been set.
+func (o *V0DailyLimitAdvert) HasCurrency() bool {
+	if o != nil && !IsNil(o.Currency) {
+		return true
+	}
+
+	return false
+}
+
+// SetCurrency gets a reference to the given string and assigns it to the Currency field.
 func (o *V0DailyLimitAdvert) SetCurrency(v string) {
-	o.Currency = v
+	o.Currency = &v
 }
 
-// GetCarryOverEnabled returns the CarryOverEnabled field value
+// GetCarryOverEnabled returns the CarryOverEnabled field value if set, zero value otherwise.
 func (o *V0DailyLimitAdvert) GetCarryOverEnabled() bool {
-	if o == nil {
+	if o == nil || IsNil(o.CarryOverEnabled) {
 		var ret bool
 		return ret
 	}
-
-	return o.CarryOverEnabled
+	return *o.CarryOverEnabled
 }
 
-// GetCarryOverEnabledOk returns a tuple with the CarryOverEnabled field value
+// GetCarryOverEnabledOk returns a tuple with the CarryOverEnabled field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *V0DailyLimitAdvert) GetCarryOverEnabledOk() (*bool, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.CarryOverEnabled) {
 		return nil, false
 	}
-	return &o.CarryOverEnabled, true
+	return o.CarryOverEnabled, true
 }
 
-// SetCarryOverEnabled sets field value
+// HasCarryOverEnabled returns a boolean if a field has been set.
+func (o *V0DailyLimitAdvert) HasCarryOverEnabled() bool {
+	if o != nil && !IsNil(o.CarryOverEnabled) {
+		return true
+	}
+
+	return false
+}
+
+// SetCarryOverEnabled gets a reference to the given bool and assigns it to the CarryOverEnabled field.
 func (o *V0DailyLimitAdvert) SetCarryOverEnabled(v bool) {
-	o.CarryOverEnabled = v
+	o.CarryOverEnabled = &v
 }
 
-// GetValid returns the Valid field value
+// GetValid returns the Valid field value if set, zero value otherwise.
 func (o *V0DailyLimitAdvert) GetValid() bool {
-	if o == nil {
+	if o == nil || IsNil(o.Valid) {
 		var ret bool
 		return ret
 	}
-
-	return o.Valid
+	return *o.Valid
 }
 
-// GetValidOk returns a tuple with the Valid field value
+// GetValidOk returns a tuple with the Valid field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *V0DailyLimitAdvert) GetValidOk() (*bool, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Valid) {
 		return nil, false
 	}
-	return &o.Valid, true
+	return o.Valid, true
 }
 
-// SetValid sets field value
+// HasValid returns a boolean if a field has been set.
+func (o *V0DailyLimitAdvert) HasValid() bool {
+	if o != nil && !IsNil(o.Valid) {
+		return true
+	}
+
+	return false
+}
+
+// SetValid gets a reference to the given bool and assigns it to the Valid field.
 func (o *V0DailyLimitAdvert) SetValid(v bool) {
-	o.Valid = v
+	o.Valid = &v
 }
 
-// GetRequiredLimit returns the RequiredLimit field value
+// GetRequiredLimit returns the RequiredLimit field value if set, zero value otherwise.
 func (o *V0DailyLimitAdvert) GetRequiredLimit() int64 {
-	if o == nil {
+	if o == nil || IsNil(o.RequiredLimit) {
 		var ret int64
 		return ret
 	}
-
-	return o.RequiredLimit
+	return *o.RequiredLimit
 }
 
-// GetRequiredLimitOk returns a tuple with the RequiredLimit field value
+// GetRequiredLimitOk returns a tuple with the RequiredLimit field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *V0DailyLimitAdvert) GetRequiredLimitOk() (*int64, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.RequiredLimit) {
 		return nil, false
 	}
-	return &o.RequiredLimit, true
+	return o.RequiredLimit, true
 }
 
-// SetRequiredLimit sets field value
+// HasRequiredLimit returns a boolean if a field has been set.
+func (o *V0DailyLimitAdvert) HasRequiredLimit() bool {
+	if o != nil && !IsNil(o.RequiredLimit) {
+		return true
+	}
+
+	return false
+}
+
+// SetRequiredLimit gets a reference to the given int64 and assigns it to the RequiredLimit field.
 func (o *V0DailyLimitAdvert) SetRequiredLimit(v int64) {
-	o.RequiredLimit = v
+	o.RequiredLimit = &v
 }
 
 func (o V0DailyLimitAdvert) MarshalJSON() ([]byte, error) {
@@ -268,59 +320,31 @@ func (o V0DailyLimitAdvert) MarshalJSON() ([]byte, error) {
 
 func (o V0DailyLimitAdvert) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["advertId"] = o.AdvertId
-	toSerialize["enabled"] = o.Enabled
-	toSerialize["dailyLimit"] = o.DailyLimit
-	toSerialize["spentToday"] = o.SpentToday
-	toSerialize["currency"] = o.Currency
-	toSerialize["carryOverEnabled"] = o.CarryOverEnabled
-	toSerialize["valid"] = o.Valid
-	toSerialize["requiredLimit"] = o.RequiredLimit
+	if !IsNil(o.AdvertId) {
+		toSerialize["advertId"] = o.AdvertId
+	}
+	if !IsNil(o.Enabled) {
+		toSerialize["enabled"] = o.Enabled
+	}
+	if !IsNil(o.DailyLimit) {
+		toSerialize["dailyLimit"] = o.DailyLimit
+	}
+	if !IsNil(o.SpentToday) {
+		toSerialize["spentToday"] = o.SpentToday
+	}
+	if !IsNil(o.Currency) {
+		toSerialize["currency"] = o.Currency
+	}
+	if !IsNil(o.CarryOverEnabled) {
+		toSerialize["carryOverEnabled"] = o.CarryOverEnabled
+	}
+	if !IsNil(o.Valid) {
+		toSerialize["valid"] = o.Valid
+	}
+	if !IsNil(o.RequiredLimit) {
+		toSerialize["requiredLimit"] = o.RequiredLimit
+	}
 	return toSerialize, nil
-}
-
-func (o *V0DailyLimitAdvert) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"advertId",
-		"enabled",
-		"dailyLimit",
-		"spentToday",
-		"currency",
-		"carryOverEnabled",
-		"valid",
-		"requiredLimit",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varV0DailyLimitAdvert := _V0DailyLimitAdvert{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varV0DailyLimitAdvert)
-
-	if err != nil {
-		return err
-	}
-
-	*o = V0DailyLimitAdvert(varV0DailyLimitAdvert)
-
-	return err
 }
 
 type NullableV0DailyLimitAdvert struct {

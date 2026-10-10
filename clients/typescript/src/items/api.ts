@@ -50,7 +50,7 @@ export interface BrandsResponse {
    * @type {Array<BrandsResponseBrandsInner>}
    * @memberof BrandsResponse
    */
-  brands: Array<BrandsResponseBrandsInner>;
+  brands?: Array<BrandsResponseBrandsInner>;
   /**
    * Параметр пагинации. Укажите это значение в запросе, чтобы получить следующий пакет данных. Если поле отсутствует, вы получили все данные
    * @type {number}
@@ -62,7 +62,7 @@ export interface BrandsResponse {
    * @type {number}
    * @memberof BrandsResponse
    */
-  total: number;
+  total?: number;
 }
 /**
  *
@@ -75,19 +75,19 @@ export interface BrandsResponseBrandsInner {
    * @type {number}
    * @memberof BrandsResponseBrandsInner
    */
-  id: number;
+  id?: number;
   /**
    * URL логотипа бренда
    * @type {string}
    * @memberof BrandsResponseBrandsInner
    */
-  logoUrl: string;
+  logoUrl?: string;
   /**
    * Название бренда
    * @type {string}
    * @memberof BrandsResponseBrandsInner
    */
-  name: string;
+  name?: string;
 }
 /**
  *
@@ -100,25 +100,25 @@ export interface BrandsResponseError {
    * @type {string}
    * @memberof BrandsResponseError
    */
-  title: string;
+  title?: string;
   /**
    * Детали ошибки
    * @type {string}
    * @memberof BrandsResponseError
    */
-  detail: string;
+  detail?: string;
   /**
    * ID внутреннего сервиса WB
    * @type {string}
    * @memberof BrandsResponseError
    */
-  origin: string;
+  origin?: string;
   /**
    * Уникальный ID запроса
    * @type {string}
    * @memberof BrandsResponseError
    */
-  requestId: string;
+  requestId?: string;
   /**
    *
    * @type {Array<BrandsResponseErrorErrorsInner>}
@@ -286,13 +286,13 @@ export interface GetRecomRes {
    * @type {Array<GetRecomResDataInner>}
    * @memberof GetRecomRes
    */
-  data: Array<GetRecomResDataInner>;
+  data?: Array<GetRecomResDataInner>;
   /**
    * Курсор. Последний `nmId` в ответе
    * @type {number}
    * @memberof GetRecomRes
    */
-  next: number;
+  next?: number;
 }
 /**
  *
@@ -305,25 +305,25 @@ export interface GetRecomResDataInner {
    * @type {number}
    * @memberof GetRecomResDataInner
    */
-  nmId: number;
+  nmId?: number;
   /**
    * ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров
    * @type {number}
    * @memberof GetRecomResDataInner
    */
-  imtId: number;
+  imtId?: number;
   /**
    * Артикул продавца
    * @type {string}
    * @memberof GetRecomResDataInner
    */
-  vendorCode: string;
+  vendorCode?: string;
   /**
    * Бренд
    * @type {string}
    * @memberof GetRecomResDataInner
    */
-  brandName: string;
+  brandName?: string;
   /**
    * Дата и время последнего обновления рекомендаций
    * @type {string}
@@ -335,43 +335,43 @@ export interface GetRecomResDataInner {
    * @type {number}
    * @memberof GetRecomResDataInner
    */
-  picsCount: number;
+  picsCount?: number;
   /**
    * Название товара
    * @type {string}
    * @memberof GetRecomResDataInner
    */
-  title: string;
+  title?: string;
   /**
    * Предмет
    * @type {string}
    * @memberof GetRecomResDataInner
    */
-  subjectName: string;
+  subjectName?: string;
   /**
    * URL основного изображения в карточке товара
    * @type {string}
    * @memberof GetRecomResDataInner
    */
-  pic: string;
+  pic?: string;
   /**
    * Количество рекомендуемых товаров
    * @type {number}
    * @memberof GetRecomResDataInner
    */
-  recomCount: number;
+  recomCount?: number;
   /**
    * Список URL основных изображений рекомендуемых товаров
    * @type {Array<string>}
    * @memberof GetRecomResDataInner
    */
-  recomPics: Array<string>;
+  recomPics?: Array<string>;
   /**
    * Список `nmId` рекомендуемых товаров
    * @type {Array<number>}
    * @memberof GetRecomResDataInner
    */
-  recomNms: Array<number>;
+  recomNms?: Array<number>;
 }
 /**
  *
@@ -640,25 +640,25 @@ export interface GetV2DirectoryOkpdAllResponse200 {
    * @type {Array<GetV2DirectoryOkpdResponse200DataInner>}
    * @memberof GetV2DirectoryOkpdAllResponse200
    */
-  data: Array<GetV2DirectoryOkpdResponse200DataInner>;
+  data?: Array<GetV2DirectoryOkpdResponse200DataInner>;
   /**
    * Флаг наличия ошибки
    * @type {boolean}
    * @memberof GetV2DirectoryOkpdAllResponse200
    */
-  error: boolean;
+  error?: boolean;
   /**
    * Текст ошибки
    * @type {string}
    * @memberof GetV2DirectoryOkpdAllResponse200
    */
-  errorText: string;
+  errorText?: string;
   /**
    * Дополнительные ошибки
    * @type {string}
    * @memberof GetV2DirectoryOkpdAllResponse200
    */
-  additionalErrors: string | null;
+  additionalErrors?: string | null;
 }
 /**
  *
@@ -671,25 +671,25 @@ export interface GetV2DirectoryOkpdResponse200 {
    * @type {Array<GetV2DirectoryOkpdResponse200DataInner>}
    * @memberof GetV2DirectoryOkpdResponse200
    */
-  data: Array<GetV2DirectoryOkpdResponse200DataInner>;
+  data?: Array<GetV2DirectoryOkpdResponse200DataInner>;
   /**
    * Флаг наличия ошибки
    * @type {boolean}
    * @memberof GetV2DirectoryOkpdResponse200
    */
-  error: boolean;
+  error?: boolean;
   /**
    * Текст ошибки
    * @type {string}
    * @memberof GetV2DirectoryOkpdResponse200
    */
-  errorText: string;
+  errorText?: string;
   /**
    * Дополнительные ошибки
    * @type {string}
    * @memberof GetV2DirectoryOkpdResponse200
    */
-  additionalErrors: string | null;
+  additionalErrors?: string | null;
 }
 /**
  *
@@ -702,13 +702,13 @@ export interface GetV2DirectoryOkpdResponse200DataInner {
    * @type {string}
    * @memberof GetV2DirectoryOkpdResponse200DataInner
    */
-  okpd2: string;
+  okpd2?: string;
   /**
    * Текстовое описание товаров, которые входят в группу
    * @type {string}
    * @memberof GetV2DirectoryOkpdResponse200DataInner
    */
-  description: string;
+  description?: string;
 }
 /**
  *
@@ -752,25 +752,25 @@ export interface GetV2DirectoryTnvedAllResponse200 {
    * @type {Array<GetV2DirectoryTnvedAllResponse200DataInner>}
    * @memberof GetV2DirectoryTnvedAllResponse200
    */
-  data: Array<GetV2DirectoryTnvedAllResponse200DataInner>;
+  data?: Array<GetV2DirectoryTnvedAllResponse200DataInner>;
   /**
    * Флаг наличия ошибки
    * @type {boolean}
    * @memberof GetV2DirectoryTnvedAllResponse200
    */
-  error: boolean;
+  error?: boolean;
   /**
    * Текст ошибки
    * @type {string}
    * @memberof GetV2DirectoryTnvedAllResponse200
    */
-  errorText: string;
+  errorText?: string;
   /**
    * Дополнительные ошибки
    * @type {string}
    * @memberof GetV2DirectoryTnvedAllResponse200
    */
-  additionalErrors: string | null;
+  additionalErrors?: string | null;
 }
 /**
  *
@@ -783,13 +783,13 @@ export interface GetV2DirectoryTnvedAllResponse200DataInner {
    * @type {string}
    * @memberof GetV2DirectoryTnvedAllResponse200DataInner
    */
-  tnved: string;
+  tnved?: string;
   /**
    * Текстовое описание товаров, которые входят в группу
    * @type {string}
    * @memberof GetV2DirectoryTnvedAllResponse200DataInner
    */
-  description: string;
+  description?: string;
 }
 /**
  *
@@ -1825,13 +1825,13 @@ export interface ModelsErrorSubcategory {
    * @type {number}
    * @memberof ModelsErrorSubcategory
    */
-  id: number;
+  id?: number;
   /**
    * Название предмета
    * @type {string}
    * @memberof ModelsErrorSubcategory
    */
-  name: string;
+  name?: string;
 }
 /**
  * Данные ответа
@@ -1844,13 +1844,13 @@ export interface ModelsErrorTableListPublicRespV2 {
    * @type {Array<ModelsErrorTableListPublicRespV2Item>}
    * @memberof ModelsErrorTableListPublicRespV2
    */
-  items: Array<ModelsErrorTableListPublicRespV2Item>;
+  items?: Array<ModelsErrorTableListPublicRespV2Item>;
   /**
    *
    * @type {ViewerContractPublicErrorsCursorOutput}
    * @memberof ModelsErrorTableListPublicRespV2
    */
-  cursor: ViewerContractPublicErrorsCursorOutput;
+  cursor?: ViewerContractPublicErrorsCursorOutput;
 }
 /**
  *
@@ -1863,37 +1863,37 @@ export interface ModelsErrorTableListPublicRespV2Item {
    * @type {string}
    * @memberof ModelsErrorTableListPublicRespV2Item
    */
-  batchUUID: string;
+  batchUUID?: string;
   /**
    * Предметы. Разбивка по `vendorCodes`
    * @type {{ [key: string]: ModelsErrorSubcategory; }}
    * @memberof ModelsErrorTableListPublicRespV2Item
    */
-  subjects: { [key: string]: ModelsErrorSubcategory };
+  subjects?: { [key: string]: ModelsErrorSubcategory };
   /**
    * Бренды. Разбивка по `vendorCodes`
    * @type {{ [key: string]: ModelsErrorBrand; }}
    * @memberof ModelsErrorTableListPublicRespV2Item
    */
-  brands: { [key: string]: ModelsErrorBrand };
+  brands?: { [key: string]: ModelsErrorBrand };
   /**
    * Артикулы продавца
    * @type {Array<string>}
    * @memberof ModelsErrorTableListPublicRespV2Item
    */
-  vendorCodes: Array<string>;
+  vendorCodes?: Array<string>;
   /**
    * Ошибки. Разбивка по `vendorCodes`
    * @type {{ [key: string]: Array<string>; }}
    * @memberof ModelsErrorTableListPublicRespV2Item
    */
-  errors: { [key: string]: Array<string> };
+  errors?: { [key: string]: Array<string> };
   /**
    * Дата и время создания или редактирования пакета
    * @type {string}
    * @memberof ModelsErrorTableListPublicRespV2Item
    */
-  updatedAt: string;
+  updatedAt?: string;
 }
 /**
  * Данные о складе WB
@@ -4468,25 +4468,25 @@ export interface Response208SetRecom {
    * @type {string}
    * @memberof Response208SetRecom
    */
-  requestId: string;
+  requestId?: string;
   /**
    * ID внутреннего сервиса WB
    * @type {string}
    * @memberof Response208SetRecom
    */
-  origin: string;
+  origin?: string;
   /**
    * Заголовок ответа
    * @type {string}
    * @memberof Response208SetRecom
    */
-  title: string;
+  title?: string;
   /**
    * Детали ответа
    * @type {string}
    * @memberof Response208SetRecom
    */
-  detail: string;
+  detail?: string;
 }
 /**
  *
@@ -4499,25 +4499,25 @@ export interface Response400GetRecom {
    * @type {string}
    * @memberof Response400GetRecom
    */
-  requestId: string;
+  requestId?: string;
   /**
    * ID внутреннего сервиса WB
    * @type {string}
    * @memberof Response400GetRecom
    */
-  origin: string;
+  origin?: string;
   /**
    * Заголовок ошибки
    * @type {string}
    * @memberof Response400GetRecom
    */
-  title: string;
+  title?: string;
   /**
    * Детали ошибки
    * @type {string}
    * @memberof Response400GetRecom
    */
-  detail: string;
+  detail?: string;
 }
 /**
  *
@@ -4530,25 +4530,25 @@ export interface Response400SetRecom {
    * @type {string}
    * @memberof Response400SetRecom
    */
-  requestId: string;
+  requestId?: string;
   /**
    * ID внутреннего сервиса WB
    * @type {string}
    * @memberof Response400SetRecom
    */
-  origin: string;
+  origin?: string;
   /**
    * Заголовок ошибки
    * @type {string}
    * @memberof Response400SetRecom
    */
-  title: string;
+  title?: string;
   /**
    * Детали ошибки
    * @type {string}
    * @memberof Response400SetRecom
    */
-  detail: string;
+  detail?: string;
 }
 /**
  *
@@ -4734,31 +4734,31 @@ export interface ResponseErrorV3 {
    * @type {number}
    * @memberof ResponseErrorV3
    */
-  status: number;
+  status?: number;
   /**
    * Заголовок ошибки
    * @type {string}
    * @memberof ResponseErrorV3
    */
-  title: string;
+  title?: string;
   /**
    * Детали ошибки
    * @type {string}
    * @memberof ResponseErrorV3
    */
-  detail: string;
+  detail?: string;
   /**
    * ID запроса
    * @type {string}
    * @memberof ResponseErrorV3
    */
-  requestId: string;
+  requestId?: string;
   /**
    * ID внутреннего сервиса WB
    * @type {string}
    * @memberof ResponseErrorV3
    */
-  origin: string;
+  origin?: string;
 }
 /**
  *
@@ -4771,7 +4771,7 @@ export interface ResponseIncorrectDate {
    * @type {string}
    * @memberof ResponseIncorrectDate
    */
-  error: string;
+  error?: string;
 }
 /**
  *
@@ -4838,7 +4838,7 @@ export interface ResponseItemListAdditionalErrorsOneOf1 {
    * @type {string}
    * @memberof ResponseItemListAdditionalErrorsOneOf1
    */
-  error: string;
+  error?: string;
 }
 /**
  *
@@ -4851,25 +4851,25 @@ export interface ResponsePublicViewerPublicErrorsTableListV2 {
    * @type {ModelsErrorTableListPublicRespV2}
    * @memberof ResponsePublicViewerPublicErrorsTableListV2
    */
-  data: ModelsErrorTableListPublicRespV2;
+  data?: ModelsErrorTableListPublicRespV2;
   /**
    * Флаг ошибки
    * @type {boolean}
    * @memberof ResponsePublicViewerPublicErrorsTableListV2
    */
-  error: boolean;
+  error?: boolean;
   /**
    * Описание ошибки
    * @type {string}
    * @memberof ResponsePublicViewerPublicErrorsTableListV2
    */
-  errorText: string;
+  errorText?: string;
   /**
    * Дополнительные ошибки
    * @type {object}
    * @memberof ResponsePublicViewerPublicErrorsTableListV2
    */
-  additionalErrors: object | null;
+  additionalErrors?: object | null;
 }
 /**
  * Данные ответа
@@ -5025,7 +5025,7 @@ export interface SetRecomRes {
    * @type {boolean}
    * @memberof SetRecomRes
    */
-  isError: boolean;
+  isError?: boolean;
   /**
    * Ошибки. При `\"isError\":true`
    * @type {Array<SetRecomResErrorsInner>}
@@ -5044,19 +5044,19 @@ export interface SetRecomResErrorsInner {
    * @type {string}
    * @memberof SetRecomResErrorsInner
    */
-  mainNm: string;
+  mainNm?: string;
   /**
    * Значение параметра `recomNm`
    * @type {string}
    * @memberof SetRecomResErrorsInner
    */
-  recomNm: string;
+  recomNm?: string;
   /**
    * Сообщение об ошибке
    * @type {string}
    * @memberof SetRecomResErrorsInner
    */
-  message: string;
+  message?: string;
 }
 /**
  * Информация о размере
@@ -5306,19 +5306,19 @@ export interface ViewerContractPublicErrorsCursorOutput {
    * @type {boolean}
    * @memberof ViewerContractPublicErrorsCursorOutput
    */
-  next: boolean;
+  next?: boolean;
   /**
    * Дата и время формирования последнего пакета в ответе
    * @type {string}
    * @memberof ViewerContractPublicErrorsCursorOutput
    */
-  updatedAt: string;
+  updatedAt?: string;
   /**
    * ID последнего пакета в ответе
    * @type {string}
    * @memberof ViewerContractPublicErrorsCursorOutput
    */
-  batchUUID: string;
+  batchUUID?: string;
 }
 /**
  * Данные о складе продавца

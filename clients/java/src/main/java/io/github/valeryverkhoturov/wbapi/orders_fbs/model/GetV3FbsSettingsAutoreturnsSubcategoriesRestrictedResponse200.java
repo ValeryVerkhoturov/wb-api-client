@@ -45,7 +45,7 @@ public class GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200 {
   public static final String SERIALIZED_NAME_DATA = "data";
 
   @SerializedName(SERIALIZED_NAME_DATA)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private List<GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataInner> data =
       new ArrayList<>();
 
@@ -73,7 +73,7 @@ public class GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200 {
   }
 
   public GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200 data(
-      @jakarta.annotation.Nonnull
+      @jakarta.annotation.Nullable
           List<GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataInner> data) {
     this.data = data;
     return this;
@@ -93,13 +93,13 @@ public class GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200 {
    *
    * @return data
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public List<GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataInner> getData() {
     return data;
   }
 
   public void setData(
-      @jakarta.annotation.Nonnull
+      @jakarta.annotation.Nullable
           List<GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataInner> data) {
     this.data = data;
   }
@@ -157,8 +157,6 @@ public class GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200 {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("next");
-    openapiRequiredFields.add("data");
   }
 
   /**
@@ -191,33 +189,26 @@ public class GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200 {
                 entry.getKey(), jsonElement.toString()));
       }
     }
+    JsonObject jsonObj = jsonElement.getAsJsonObject();
+    if (jsonObj.get("data") != null && !jsonObj.get("data").isJsonNull()) {
+      JsonArray jsonArraydata = jsonObj.getAsJsonArray("data");
+      if (jsonArraydata != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("data").isJsonArray()) {
+          throw new IllegalArgumentException(
+              String.format(
+                  "Expected the field `data` to be an array in the JSON string but got `%s`",
+                  jsonObj.get("data").toString()));
+        }
 
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField :
-        GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
+        // validate the optional field `data` (array)
+        for (int i = 0; i < jsonArraydata.size(); i++) {
+          GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataInner
+              .validateJsonElement(jsonArraydata.get(i));
+        }
+        ;
       }
     }
-    JsonObject jsonObj = jsonElement.getAsJsonObject();
-    // ensure the json data is an array
-    if (!jsonObj.get("data").isJsonArray()) {
-      throw new IllegalArgumentException(
-          String.format(
-              "Expected the field `data` to be an array in the JSON string but got `%s`",
-              jsonObj.get("data").toString()));
-    }
-
-    JsonArray jsonArraydata = jsonObj.getAsJsonArray("data");
-    // validate the required field `data` (array)
-    for (int i = 0; i < jsonArraydata.size(); i++) {
-      GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataInner.validateJsonElement(
-          jsonArraydata.get(i));
-    }
-    ;
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

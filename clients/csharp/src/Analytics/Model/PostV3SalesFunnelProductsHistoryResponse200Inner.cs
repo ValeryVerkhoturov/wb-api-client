@@ -34,47 +34,27 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PostV3SalesFunnelProductsHistoryResponse200Inner" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected PostV3SalesFunnelProductsHistoryResponse200Inner() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PostV3SalesFunnelProductsHistoryResponse200Inner" /> class.
-        /// </summary>
-        /// <param name="product">product (required).</param>
-        /// <param name="history">Статистика за период (required).</param>
-        /// <param name="currency">Валюта отчёта (required).</param>
+        /// <param name="product">product.</param>
+        /// <param name="history">Статистика за период.</param>
+        /// <param name="currency">Валюта отчёта.</param>
         public PostV3SalesFunnelProductsHistoryResponse200Inner(PostV3SalesFunnelProductsHistoryResponse200InnerProduct product = default(PostV3SalesFunnelProductsHistoryResponse200InnerProduct), List<History> history = default(List<History>), string currency = default(string))
         {
-            // to ensure "product" is required (not null)
-            if (product == null)
-            {
-                throw new ArgumentNullException("product is a required property for PostV3SalesFunnelProductsHistoryResponse200Inner and cannot be null");
-            }
             this.Product = product;
-            // to ensure "history" is required (not null)
-            if (history == null)
-            {
-                throw new ArgumentNullException("history is a required property for PostV3SalesFunnelProductsHistoryResponse200Inner and cannot be null");
-            }
             this.History = history;
-            // to ensure "currency" is required (not null)
-            if (currency == null)
-            {
-                throw new ArgumentNullException("currency is a required property for PostV3SalesFunnelProductsHistoryResponse200Inner and cannot be null");
-            }
             this.Currency = currency;
         }
 
         /// <summary>
         /// Gets or Sets Product
         /// </summary>
-        [DataMember(Name = "product", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "product", EmitDefaultValue = false)]
         public PostV3SalesFunnelProductsHistoryResponse200InnerProduct Product { get; set; }
 
         /// <summary>
         /// Статистика за период
         /// </summary>
         /// <value>Статистика за период</value>
-        [DataMember(Name = "history", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "history", EmitDefaultValue = false)]
         public List<History> History { get; set; }
 
         /// <summary>
@@ -84,7 +64,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>RUB</example>
         */
-        [DataMember(Name = "currency", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "currency", EmitDefaultValue = false)]
         public string Currency { get; set; }
 
         /// <summary>

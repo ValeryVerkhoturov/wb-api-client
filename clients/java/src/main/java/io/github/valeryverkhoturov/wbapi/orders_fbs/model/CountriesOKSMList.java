@@ -39,13 +39,13 @@ public class CountriesOKSMList {
   public static final String SERIALIZED_NAME_COUNTRIES = "countries";
 
   @SerializedName(SERIALIZED_NAME_COUNTRIES)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private List<CountriesOKSMListCountriesInner> countries = new ArrayList<>();
 
   public CountriesOKSMList() {}
 
   public CountriesOKSMList countries(
-      @jakarta.annotation.Nonnull List<CountriesOKSMListCountriesInner> countries) {
+      @jakarta.annotation.Nullable List<CountriesOKSMListCountriesInner> countries) {
     this.countries = countries;
     return this;
   }
@@ -63,13 +63,13 @@ public class CountriesOKSMList {
    *
    * @return countries
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public List<CountriesOKSMListCountriesInner> getCountries() {
     return countries;
   }
 
   public void setCountries(
-      @jakarta.annotation.Nonnull List<CountriesOKSMListCountriesInner> countries) {
+      @jakarta.annotation.Nullable List<CountriesOKSMListCountriesInner> countries) {
     this.countries = countries;
   }
 
@@ -119,7 +119,6 @@ public class CountriesOKSMList {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("countries");
   }
 
   /**
@@ -149,31 +148,25 @@ public class CountriesOKSMList {
                 entry.getKey(), jsonElement.toString()));
       }
     }
+    JsonObject jsonObj = jsonElement.getAsJsonObject();
+    if (jsonObj.get("countries") != null && !jsonObj.get("countries").isJsonNull()) {
+      JsonArray jsonArraycountries = jsonObj.getAsJsonArray("countries");
+      if (jsonArraycountries != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("countries").isJsonArray()) {
+          throw new IllegalArgumentException(
+              String.format(
+                  "Expected the field `countries` to be an array in the JSON string but got `%s`",
+                  jsonObj.get("countries").toString()));
+        }
 
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : CountriesOKSMList.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
+        // validate the optional field `countries` (array)
+        for (int i = 0; i < jsonArraycountries.size(); i++) {
+          CountriesOKSMListCountriesInner.validateJsonElement(jsonArraycountries.get(i));
+        }
+        ;
       }
     }
-    JsonObject jsonObj = jsonElement.getAsJsonObject();
-    // ensure the json data is an array
-    if (!jsonObj.get("countries").isJsonArray()) {
-      throw new IllegalArgumentException(
-          String.format(
-              "Expected the field `countries` to be an array in the JSON string but got `%s`",
-              jsonObj.get("countries").toString()));
-    }
-
-    JsonArray jsonArraycountries = jsonObj.getAsJsonArray("countries");
-    // validate the required field `countries` (array)
-    for (int i = 0; i < jsonArraycountries.size(); i++) {
-      CountriesOKSMListCountriesInner.validateJsonElement(jsonArraycountries.get(i));
-    }
-    ;
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

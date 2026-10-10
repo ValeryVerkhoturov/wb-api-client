@@ -38,12 +38,12 @@ public class DeleteV1PinsResponse200 {
   public static final String SERIALIZED_NAME_DATA = "data";
 
   @SerializedName(SERIALIZED_NAME_DATA)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private List<Integer> data = new ArrayList<>();
 
   public DeleteV1PinsResponse200() {}
 
-  public DeleteV1PinsResponse200 data(@jakarta.annotation.Nonnull List<Integer> data) {
+  public DeleteV1PinsResponse200 data(@jakarta.annotation.Nullable List<Integer> data) {
     this.data = data;
     return this;
   }
@@ -61,12 +61,12 @@ public class DeleteV1PinsResponse200 {
    *
    * @return data
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public List<Integer> getData() {
     return data;
   }
 
-  public void setData(@jakarta.annotation.Nonnull List<Integer> data) {
+  public void setData(@jakarta.annotation.Nullable List<Integer> data) {
     this.data = data;
   }
 
@@ -116,7 +116,6 @@ public class DeleteV1PinsResponse200 {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("data");
   }
 
   /**
@@ -146,22 +145,11 @@ public class DeleteV1PinsResponse200 {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : DeleteV1PinsResponse200.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    // ensure the required json array is present
-    if (jsonObj.get("data") == null) {
-      throw new IllegalArgumentException(
-          "Expected the field `linkedContent` to be an array in the JSON string but got `null`");
-    } else if (!jsonObj.get("data").isJsonArray()) {
+    // ensure the optional json data is an array if present
+    if (jsonObj.get("data") != null
+        && !jsonObj.get("data").isJsonNull()
+        && !jsonObj.get("data").isJsonArray()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `data` to be an array in the JSON string but got `%s`",

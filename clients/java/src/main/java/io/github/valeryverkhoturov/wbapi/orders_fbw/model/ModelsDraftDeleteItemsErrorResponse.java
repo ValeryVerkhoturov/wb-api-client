@@ -38,13 +38,13 @@ public class ModelsDraftDeleteItemsErrorResponse {
   public static final String SERIALIZED_NAME_RESULTS = "results";
 
   @SerializedName(SERIALIZED_NAME_RESULTS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private List<String> results = new ArrayList<>();
 
   public ModelsDraftDeleteItemsErrorResponse() {}
 
   public ModelsDraftDeleteItemsErrorResponse results(
-      @jakarta.annotation.Nonnull List<String> results) {
+      @jakarta.annotation.Nullable List<String> results) {
     this.results = results;
     return this;
   }
@@ -62,12 +62,12 @@ public class ModelsDraftDeleteItemsErrorResponse {
    *
    * @return results
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public List<String> getResults() {
     return results;
   }
 
-  public void setResults(@jakarta.annotation.Nonnull List<String> results) {
+  public void setResults(@jakarta.annotation.Nullable List<String> results) {
     this.results = results;
   }
 
@@ -118,7 +118,6 @@ public class ModelsDraftDeleteItemsErrorResponse {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("results");
   }
 
   /**
@@ -149,22 +148,11 @@ public class ModelsDraftDeleteItemsErrorResponse {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : ModelsDraftDeleteItemsErrorResponse.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    // ensure the required json array is present
-    if (jsonObj.get("results") == null) {
-      throw new IllegalArgumentException(
-          "Expected the field `linkedContent` to be an array in the JSON string but got `null`");
-    } else if (!jsonObj.get("results").isJsonArray()) {
+    // ensure the optional json data is an array if present
+    if (jsonObj.get("results") != null
+        && !jsonObj.get("results").isJsonNull()
+        && !jsonObj.get("results").isJsonArray()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `results` to be an array in the JSON string but got `%s`",

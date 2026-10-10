@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,40 +28,58 @@ class AcquiringReportsDetailedRes(BaseModel):
     Детализации к отчётам об издержках на приём платежей
     """  # noqa: E501
 
-    rrd_id: StrictInt = Field(description="ID строки", alias="rrdId")
-    report_id: StrictInt = Field(description="ID отчёта", alias="reportId")
-    acq_date: StrictStr = Field(description="Дата операции", alias="acqDate")
-    acquiring_bank: StrictStr = Field(
-        description="Наименование банка-эквайера", alias="acquiringBank"
+    rrd_id: Optional[StrictInt] = Field(
+        default=None, description="ID строки", alias="rrdId"
     )
-    tin: StrictStr = Field(description="ИНН")
-    tax_registration_reason_code: StrictStr = Field(
-        description="КПП", alias="taxRegistrationReasonCode"
+    report_id: Optional[StrictInt] = Field(
+        default=None, description="ID отчёта", alias="reportId"
     )
-    sale_date: StrictStr = Field(description="Дата продажи", alias="saleDate")
-    srid: StrictStr = Field(
-        description="ID заказа. В ответах методов сборочных заданий [FBS](./orders-fbs#tag/fbsAssemblyOrders), [DBW](./orders-dbw#tag/dbwAssemblyOrders), [DBS](./dbs#tag/dbsAssemblyOrders) и [Самовывоз](./in-store-pickup#tag/inStorePickupAssemblyOrders) `srid` равен `rid`"
+    acq_date: Optional[StrictStr] = Field(
+        default=None, description="Дата операции", alias="acqDate"
     )
-    document_type: StrictStr = Field(description="Тип документа", alias="documentType")
-    nm_id: StrictInt = Field(description="Артикул WB", alias="nmId")
-    retail_amount: StrictStr = Field(
-        description="Wildberries реализовал Товар (Пр)", alias="retailAmount"
+    acquiring_bank: Optional[StrictStr] = Field(
+        default=None, description="Наименование банка-эквайера", alias="acquiringBank"
     )
-    acquiring_fee: StrictStr = Field(
+    tin: Optional[StrictStr] = Field(default=None, description="ИНН")
+    tax_registration_reason_code: Optional[StrictStr] = Field(
+        default=None, description="КПП", alias="taxRegistrationReasonCode"
+    )
+    sale_date: Optional[StrictStr] = Field(
+        default=None, description="Дата продажи", alias="saleDate"
+    )
+    srid: Optional[StrictStr] = Field(
+        default=None,
+        description="ID заказа. В ответах методов сборочных заданий [FBS](./orders-fbs#tag/fbsAssemblyOrders), [DBW](./orders-dbw#tag/dbwAssemblyOrders), [DBS](./dbs#tag/dbsAssemblyOrders) и [Самовывоз](./in-store-pickup#tag/inStorePickupAssemblyOrders) `srid` равен `rid`",
+    )
+    document_type: Optional[StrictStr] = Field(
+        default=None, description="Тип документа", alias="documentType"
+    )
+    nm_id: Optional[StrictInt] = Field(
+        default=None, description="Артикул WB", alias="nmId"
+    )
+    retail_amount: Optional[StrictStr] = Field(
+        default=None,
+        description="Wildberries реализовал Товар (Пр)",
+        alias="retailAmount",
+    )
+    acquiring_fee: Optional[StrictStr] = Field(
+        default=None,
         description="Размер комиссии за эквайринг, в том числе НДС",
         alias="acquiringFee",
     )
-    acquiring_fee_vat: StrictStr = Field(
-        description="Сумма НДС", alias="acquiringFeeVat"
+    acquiring_fee_vat: Optional[StrictStr] = Field(
+        default=None, description="Сумма НДС", alias="acquiringFeeVat"
     )
-    invoice_number: StrictStr = Field(
-        description="Номер счёта-фактуры", alias="invoiceNumber"
+    invoice_number: Optional[StrictStr] = Field(
+        default=None, description="Номер счёта-фактуры", alias="invoiceNumber"
     )
-    invoice_date: StrictStr = Field(
-        description="Дата счёта-фактуры", alias="invoiceDate"
+    invoice_date: Optional[StrictStr] = Field(
+        default=None, description="Дата счёта-фактуры", alias="invoiceDate"
     )
-    shk_id: StrictInt = Field(description="Штрихкод", alias="shkId")
-    currency: StrictStr = Field(description="Валюта отчёта")
+    shk_id: Optional[StrictInt] = Field(
+        default=None, description="Штрихкод", alias="shkId"
+    )
+    currency: Optional[StrictStr] = Field(default=None, description="Валюта отчёта")
     __properties: ClassVar[List[str]] = [
         "rrdId",
         "reportId",

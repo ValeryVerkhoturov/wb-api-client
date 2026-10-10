@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from wb_api_client.analytics.models.table_group_item_st import TableGroupItemSt
 from typing import Optional, Set
 from typing_extensions import Self
@@ -29,8 +29,10 @@ class TableGroupResponseSt(BaseModel):
     TableGroupResponseSt
     """  # noqa: E501
 
-    groups: List[TableGroupItemSt] = Field(description="Множество данных по группам")
-    currency: StrictStr = Field(description="Валюта отчёта")
+    groups: Optional[List[TableGroupItemSt]] = Field(
+        default=None, description="Множество данных по группам"
+    )
+    currency: Optional[StrictStr] = Field(default=None, description="Валюта отчёта")
     __properties: ClassVar[List[str]] = ["groups", "currency"]
 
     model_config = ConfigDict(

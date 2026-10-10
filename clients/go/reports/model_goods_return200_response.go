@@ -11,9 +11,7 @@ API version: reports
 package reports
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the GoodsReturn200Response type satisfies the MappedNullable interface at compile time
@@ -22,21 +20,17 @@ var _ MappedNullable = &GoodsReturn200Response{}
 // GoodsReturn200Response struct for GoodsReturn200Response
 type GoodsReturn200Response struct {
 	// Общее количество возвратов за запрашиваемый период
-	Count int32 `json:"count"`
+	Count *int32 `json:"count,omitempty"`
 	// Отчёт
-	Report []GoodsReturn200ResponseReportInner `json:"report"`
+	Report []GoodsReturn200ResponseReportInner `json:"report,omitempty"`
 }
-
-type _GoodsReturn200Response GoodsReturn200Response
 
 // NewGoodsReturn200Response instantiates a new GoodsReturn200Response object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGoodsReturn200Response(count int32, report []GoodsReturn200ResponseReportInner) *GoodsReturn200Response {
+func NewGoodsReturn200Response() *GoodsReturn200Response {
 	this := GoodsReturn200Response{}
-	this.Count = count
-	this.Report = report
 	return &this
 }
 
@@ -48,50 +42,66 @@ func NewGoodsReturn200ResponseWithDefaults() *GoodsReturn200Response {
 	return &this
 }
 
-// GetCount returns the Count field value
+// GetCount returns the Count field value if set, zero value otherwise.
 func (o *GoodsReturn200Response) GetCount() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.Count) {
 		var ret int32
 		return ret
 	}
-
-	return o.Count
+	return *o.Count
 }
 
-// GetCountOk returns a tuple with the Count field value
+// GetCountOk returns a tuple with the Count field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GoodsReturn200Response) GetCountOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Count) {
 		return nil, false
 	}
-	return &o.Count, true
+	return o.Count, true
 }
 
-// SetCount sets field value
+// HasCount returns a boolean if a field has been set.
+func (o *GoodsReturn200Response) HasCount() bool {
+	if o != nil && !IsNil(o.Count) {
+		return true
+	}
+
+	return false
+}
+
+// SetCount gets a reference to the given int32 and assigns it to the Count field.
 func (o *GoodsReturn200Response) SetCount(v int32) {
-	o.Count = v
+	o.Count = &v
 }
 
-// GetReport returns the Report field value
+// GetReport returns the Report field value if set, zero value otherwise.
 func (o *GoodsReturn200Response) GetReport() []GoodsReturn200ResponseReportInner {
-	if o == nil {
+	if o == nil || IsNil(o.Report) {
 		var ret []GoodsReturn200ResponseReportInner
 		return ret
 	}
-
 	return o.Report
 }
 
-// GetReportOk returns a tuple with the Report field value
+// GetReportOk returns a tuple with the Report field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GoodsReturn200Response) GetReportOk() ([]GoodsReturn200ResponseReportInner, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Report) {
 		return nil, false
 	}
 	return o.Report, true
 }
 
-// SetReport sets field value
+// HasReport returns a boolean if a field has been set.
+func (o *GoodsReturn200Response) HasReport() bool {
+	if o != nil && !IsNil(o.Report) {
+		return true
+	}
+
+	return false
+}
+
+// SetReport gets a reference to the given []GoodsReturn200ResponseReportInner and assigns it to the Report field.
 func (o *GoodsReturn200Response) SetReport(v []GoodsReturn200ResponseReportInner) {
 	o.Report = v
 }
@@ -106,47 +116,13 @@ func (o GoodsReturn200Response) MarshalJSON() ([]byte, error) {
 
 func (o GoodsReturn200Response) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["count"] = o.Count
-	toSerialize["report"] = o.Report
+	if !IsNil(o.Count) {
+		toSerialize["count"] = o.Count
+	}
+	if !IsNil(o.Report) {
+		toSerialize["report"] = o.Report
+	}
 	return toSerialize, nil
-}
-
-func (o *GoodsReturn200Response) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"count",
-		"report",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varGoodsReturn200Response := _GoodsReturn200Response{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varGoodsReturn200Response)
-
-	if err != nil {
-		return err
-	}
-
-	*o = GoodsReturn200Response(varGoodsReturn200Response)
-
-	return err
 }
 
 type NullableGoodsReturn200Response struct {

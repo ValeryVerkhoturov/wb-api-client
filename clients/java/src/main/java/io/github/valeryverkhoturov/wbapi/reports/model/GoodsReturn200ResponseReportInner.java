@@ -36,13 +36,13 @@ public class GoodsReturn200ResponseReportInner {
   public static final String SERIALIZED_NAME_SKU = "sku";
 
   @SerializedName(SERIALIZED_NAME_SKU)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String sku;
 
   public static final String SERIALIZED_NAME_BRAND = "brand";
 
   @SerializedName(SERIALIZED_NAME_BRAND)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String brand;
 
   public static final String SERIALIZED_NAME_COMPLETED_DT = "completedDt";
@@ -54,7 +54,7 @@ public class GoodsReturn200ResponseReportInner {
   public static final String SERIALIZED_NAME_DST_OFFICE_ADDRESS = "dstOfficeAddress";
 
   @SerializedName(SERIALIZED_NAME_DST_OFFICE_ADDRESS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String dstOfficeAddress;
 
   public static final String SERIALIZED_NAME_KIZ = "kiz";
@@ -66,7 +66,7 @@ public class GoodsReturn200ResponseReportInner {
   public static final String SERIALIZED_NAME_DST_OFFICE_ID = "dstOfficeId";
 
   @SerializedName(SERIALIZED_NAME_DST_OFFICE_ID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer dstOfficeId;
 
   public static final String SERIALIZED_NAME_EXPIRED_DT = "expiredDt";
@@ -78,19 +78,19 @@ public class GoodsReturn200ResponseReportInner {
   public static final String SERIALIZED_NAME_NM_ID = "nmId";
 
   @SerializedName(SERIALIZED_NAME_NM_ID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer nmId;
 
   public static final String SERIALIZED_NAME_ORDER_DT = "orderDt";
 
   @SerializedName(SERIALIZED_NAME_ORDER_DT)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String orderDt;
 
   public static final String SERIALIZED_NAME_ORDER_ID = "orderId";
 
   @SerializedName(SERIALIZED_NAME_ORDER_ID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer orderId;
 
   public static final String SERIALIZED_NAME_READY_TO_RETURN_DT = "readyToReturnDt";
@@ -108,48 +108,48 @@ public class GoodsReturn200ResponseReportInner {
   public static final String SERIALIZED_NAME_RETURN_TYPE = "returnType";
 
   @SerializedName(SERIALIZED_NAME_RETURN_TYPE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String returnType;
 
   public static final String SERIALIZED_NAME_SHK_ID = "shkId";
 
   @SerializedName(SERIALIZED_NAME_SHK_ID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer shkId;
 
   public static final String SERIALIZED_NAME_SRID = "srid";
 
   @SerializedName(SERIALIZED_NAME_SRID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String srid;
 
   public static final String SERIALIZED_NAME_RETURN_STATUS = "returnStatus";
 
   @SerializedName(SERIALIZED_NAME_RETURN_STATUS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String returnStatus;
 
   public static final String SERIALIZED_NAME_STICKER_ID = "stickerId";
 
   @SerializedName(SERIALIZED_NAME_STICKER_ID)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String stickerId;
 
   public static final String SERIALIZED_NAME_SUBJECT_NAME = "subjectName";
 
   @SerializedName(SERIALIZED_NAME_SUBJECT_NAME)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String subjectName;
 
   public static final String SERIALIZED_NAME_TECH_SIZE = "techSize";
 
   @SerializedName(SERIALIZED_NAME_TECH_SIZE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String techSize;
 
   public GoodsReturn200ResponseReportInner() {}
 
-  public GoodsReturn200ResponseReportInner sku(@jakarta.annotation.Nonnull String sku) {
+  public GoodsReturn200ResponseReportInner sku(@jakarta.annotation.Nullable String sku) {
     this.sku = sku;
     return this;
   }
@@ -159,16 +159,16 @@ public class GoodsReturn200ResponseReportInner {
    *
    * @return sku
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getSku() {
     return sku;
   }
 
-  public void setSku(@jakarta.annotation.Nonnull String sku) {
+  public void setSku(@jakarta.annotation.Nullable String sku) {
     this.sku = sku;
   }
 
-  public GoodsReturn200ResponseReportInner brand(@jakarta.annotation.Nonnull String brand) {
+  public GoodsReturn200ResponseReportInner brand(@jakarta.annotation.Nullable String brand) {
     this.brand = brand;
     return this;
   }
@@ -178,12 +178,12 @@ public class GoodsReturn200ResponseReportInner {
    *
    * @return brand
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getBrand() {
     return brand;
   }
 
-  public void setBrand(@jakarta.annotation.Nonnull String brand) {
+  public void setBrand(@jakarta.annotation.Nullable String brand) {
     this.brand = brand;
   }
 
@@ -208,7 +208,7 @@ public class GoodsReturn200ResponseReportInner {
   }
 
   public GoodsReturn200ResponseReportInner dstOfficeAddress(
-      @jakarta.annotation.Nonnull String dstOfficeAddress) {
+      @jakarta.annotation.Nullable String dstOfficeAddress) {
     this.dstOfficeAddress = dstOfficeAddress;
     return this;
   }
@@ -218,12 +218,12 @@ public class GoodsReturn200ResponseReportInner {
    *
    * @return dstOfficeAddress
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getDstOfficeAddress() {
     return dstOfficeAddress;
   }
 
-  public void setDstOfficeAddress(@jakarta.annotation.Nonnull String dstOfficeAddress) {
+  public void setDstOfficeAddress(@jakarta.annotation.Nullable String dstOfficeAddress) {
     this.dstOfficeAddress = dstOfficeAddress;
   }
 
@@ -247,7 +247,7 @@ public class GoodsReturn200ResponseReportInner {
   }
 
   public GoodsReturn200ResponseReportInner dstOfficeId(
-      @jakarta.annotation.Nonnull Integer dstOfficeId) {
+      @jakarta.annotation.Nullable Integer dstOfficeId) {
     this.dstOfficeId = dstOfficeId;
     return this;
   }
@@ -257,12 +257,12 @@ public class GoodsReturn200ResponseReportInner {
    *
    * @return dstOfficeId
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getDstOfficeId() {
     return dstOfficeId;
   }
 
-  public void setDstOfficeId(@jakarta.annotation.Nonnull Integer dstOfficeId) {
+  public void setDstOfficeId(@jakarta.annotation.Nullable Integer dstOfficeId) {
     this.dstOfficeId = dstOfficeId;
   }
 
@@ -286,7 +286,7 @@ public class GoodsReturn200ResponseReportInner {
     this.expiredDt = expiredDt;
   }
 
-  public GoodsReturn200ResponseReportInner nmId(@jakarta.annotation.Nonnull Integer nmId) {
+  public GoodsReturn200ResponseReportInner nmId(@jakarta.annotation.Nullable Integer nmId) {
     this.nmId = nmId;
     return this;
   }
@@ -296,16 +296,16 @@ public class GoodsReturn200ResponseReportInner {
    *
    * @return nmId
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getNmId() {
     return nmId;
   }
 
-  public void setNmId(@jakarta.annotation.Nonnull Integer nmId) {
+  public void setNmId(@jakarta.annotation.Nullable Integer nmId) {
     this.nmId = nmId;
   }
 
-  public GoodsReturn200ResponseReportInner orderDt(@jakarta.annotation.Nonnull String orderDt) {
+  public GoodsReturn200ResponseReportInner orderDt(@jakarta.annotation.Nullable String orderDt) {
     this.orderDt = orderDt;
     return this;
   }
@@ -315,16 +315,16 @@ public class GoodsReturn200ResponseReportInner {
    *
    * @return orderDt
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getOrderDt() {
     return orderDt;
   }
 
-  public void setOrderDt(@jakarta.annotation.Nonnull String orderDt) {
+  public void setOrderDt(@jakarta.annotation.Nullable String orderDt) {
     this.orderDt = orderDt;
   }
 
-  public GoodsReturn200ResponseReportInner orderId(@jakarta.annotation.Nonnull Integer orderId) {
+  public GoodsReturn200ResponseReportInner orderId(@jakarta.annotation.Nullable Integer orderId) {
     this.orderId = orderId;
     return this;
   }
@@ -334,12 +334,12 @@ public class GoodsReturn200ResponseReportInner {
    *
    * @return orderId
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getOrderId() {
     return orderId;
   }
 
-  public void setOrderId(@jakarta.annotation.Nonnull Integer orderId) {
+  public void setOrderId(@jakarta.annotation.Nullable Integer orderId) {
     this.orderId = orderId;
   }
 
@@ -385,7 +385,7 @@ public class GoodsReturn200ResponseReportInner {
   }
 
   public GoodsReturn200ResponseReportInner returnType(
-      @jakarta.annotation.Nonnull String returnType) {
+      @jakarta.annotation.Nullable String returnType) {
     this.returnType = returnType;
     return this;
   }
@@ -395,16 +395,16 @@ public class GoodsReturn200ResponseReportInner {
    *
    * @return returnType
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getReturnType() {
     return returnType;
   }
 
-  public void setReturnType(@jakarta.annotation.Nonnull String returnType) {
+  public void setReturnType(@jakarta.annotation.Nullable String returnType) {
     this.returnType = returnType;
   }
 
-  public GoodsReturn200ResponseReportInner shkId(@jakarta.annotation.Nonnull Integer shkId) {
+  public GoodsReturn200ResponseReportInner shkId(@jakarta.annotation.Nullable Integer shkId) {
     this.shkId = shkId;
     return this;
   }
@@ -414,16 +414,16 @@ public class GoodsReturn200ResponseReportInner {
    *
    * @return shkId
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public Integer getShkId() {
     return shkId;
   }
 
-  public void setShkId(@jakarta.annotation.Nonnull Integer shkId) {
+  public void setShkId(@jakarta.annotation.Nullable Integer shkId) {
     this.shkId = shkId;
   }
 
-  public GoodsReturn200ResponseReportInner srid(@jakarta.annotation.Nonnull String srid) {
+  public GoodsReturn200ResponseReportInner srid(@jakarta.annotation.Nullable String srid) {
     this.srid = srid;
     return this;
   }
@@ -433,17 +433,17 @@ public class GoodsReturn200ResponseReportInner {
    *
    * @return srid
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getSrid() {
     return srid;
   }
 
-  public void setSrid(@jakarta.annotation.Nonnull String srid) {
+  public void setSrid(@jakarta.annotation.Nullable String srid) {
     this.srid = srid;
   }
 
   public GoodsReturn200ResponseReportInner returnStatus(
-      @jakarta.annotation.Nonnull String returnStatus) {
+      @jakarta.annotation.Nullable String returnStatus) {
     this.returnStatus = returnStatus;
     return this;
   }
@@ -453,16 +453,17 @@ public class GoodsReturn200ResponseReportInner {
    *
    * @return returnStatus
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getReturnStatus() {
     return returnStatus;
   }
 
-  public void setReturnStatus(@jakarta.annotation.Nonnull String returnStatus) {
+  public void setReturnStatus(@jakarta.annotation.Nullable String returnStatus) {
     this.returnStatus = returnStatus;
   }
 
-  public GoodsReturn200ResponseReportInner stickerId(@jakarta.annotation.Nonnull String stickerId) {
+  public GoodsReturn200ResponseReportInner stickerId(
+      @jakarta.annotation.Nullable String stickerId) {
     this.stickerId = stickerId;
     return this;
   }
@@ -472,17 +473,17 @@ public class GoodsReturn200ResponseReportInner {
    *
    * @return stickerId
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getStickerId() {
     return stickerId;
   }
 
-  public void setStickerId(@jakarta.annotation.Nonnull String stickerId) {
+  public void setStickerId(@jakarta.annotation.Nullable String stickerId) {
     this.stickerId = stickerId;
   }
 
   public GoodsReturn200ResponseReportInner subjectName(
-      @jakarta.annotation.Nonnull String subjectName) {
+      @jakarta.annotation.Nullable String subjectName) {
     this.subjectName = subjectName;
     return this;
   }
@@ -492,16 +493,16 @@ public class GoodsReturn200ResponseReportInner {
    *
    * @return subjectName
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getSubjectName() {
     return subjectName;
   }
 
-  public void setSubjectName(@jakarta.annotation.Nonnull String subjectName) {
+  public void setSubjectName(@jakarta.annotation.Nullable String subjectName) {
     this.subjectName = subjectName;
   }
 
-  public GoodsReturn200ResponseReportInner techSize(@jakarta.annotation.Nonnull String techSize) {
+  public GoodsReturn200ResponseReportInner techSize(@jakarta.annotation.Nullable String techSize) {
     this.techSize = techSize;
     return this;
   }
@@ -511,12 +512,12 @@ public class GoodsReturn200ResponseReportInner {
    *
    * @return techSize
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getTechSize() {
     return techSize;
   }
 
-  public void setTechSize(@jakarta.annotation.Nonnull String techSize) {
+  public void setTechSize(@jakarta.annotation.Nullable String techSize) {
     this.techSize = techSize;
   }
 
@@ -640,24 +641,6 @@ public class GoodsReturn200ResponseReportInner {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("sku");
-    openapiRequiredFields.add("brand");
-    openapiRequiredFields.add("completedDt");
-    openapiRequiredFields.add("dstOfficeAddress");
-    openapiRequiredFields.add("kiz");
-    openapiRequiredFields.add("dstOfficeId");
-    openapiRequiredFields.add("expiredDt");
-    openapiRequiredFields.add("nmId");
-    openapiRequiredFields.add("orderDt");
-    openapiRequiredFields.add("orderId");
-    openapiRequiredFields.add("readyToReturnDt");
-    openapiRequiredFields.add("returnType");
-    openapiRequiredFields.add("shkId");
-    openapiRequiredFields.add("srid");
-    openapiRequiredFields.add("returnStatus");
-    openapiRequiredFields.add("stickerId");
-    openapiRequiredFields.add("subjectName");
-    openapiRequiredFields.add("techSize");
   }
 
   /**
@@ -688,24 +671,16 @@ public class GoodsReturn200ResponseReportInner {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-
-    // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : GoodsReturn200ResponseReportInner.openapiRequiredFields) {
-      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-        throw new IllegalArgumentException(
-            String.format(
-                "The required field `%s` is not found in the JSON string: %s",
-                requiredField, jsonElement.toString()));
-      }
-    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    if (!jsonObj.get("sku").isJsonPrimitive()) {
+    if ((jsonObj.get("sku") != null && !jsonObj.get("sku").isJsonNull())
+        && !jsonObj.get("sku").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `sku` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("sku").toString()));
     }
-    if (!jsonObj.get("brand").isJsonPrimitive()) {
+    if ((jsonObj.get("brand") != null && !jsonObj.get("brand").isJsonNull())
+        && !jsonObj.get("brand").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `brand` to be a primitive type in the JSON string but got `%s`",
@@ -718,7 +693,8 @@ public class GoodsReturn200ResponseReportInner {
               "Expected the field `completedDt` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("completedDt").toString()));
     }
-    if (!jsonObj.get("dstOfficeAddress").isJsonPrimitive()) {
+    if ((jsonObj.get("dstOfficeAddress") != null && !jsonObj.get("dstOfficeAddress").isJsonNull())
+        && !jsonObj.get("dstOfficeAddress").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `dstOfficeAddress` to be a primitive type in the JSON string but got `%s`",
@@ -738,7 +714,8 @@ public class GoodsReturn200ResponseReportInner {
               "Expected the field `expiredDt` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("expiredDt").toString()));
     }
-    if (!jsonObj.get("orderDt").isJsonPrimitive()) {
+    if ((jsonObj.get("orderDt") != null && !jsonObj.get("orderDt").isJsonNull())
+        && !jsonObj.get("orderDt").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `orderDt` to be a primitive type in the JSON string but got `%s`",
@@ -758,37 +735,43 @@ public class GoodsReturn200ResponseReportInner {
               "Expected the field `returnReason` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("returnReason").toString()));
     }
-    if (!jsonObj.get("returnType").isJsonPrimitive()) {
+    if ((jsonObj.get("returnType") != null && !jsonObj.get("returnType").isJsonNull())
+        && !jsonObj.get("returnType").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `returnType` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("returnType").toString()));
     }
-    if (!jsonObj.get("srid").isJsonPrimitive()) {
+    if ((jsonObj.get("srid") != null && !jsonObj.get("srid").isJsonNull())
+        && !jsonObj.get("srid").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `srid` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("srid").toString()));
     }
-    if (!jsonObj.get("returnStatus").isJsonPrimitive()) {
+    if ((jsonObj.get("returnStatus") != null && !jsonObj.get("returnStatus").isJsonNull())
+        && !jsonObj.get("returnStatus").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `returnStatus` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("returnStatus").toString()));
     }
-    if (!jsonObj.get("stickerId").isJsonPrimitive()) {
+    if ((jsonObj.get("stickerId") != null && !jsonObj.get("stickerId").isJsonNull())
+        && !jsonObj.get("stickerId").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `stickerId` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("stickerId").toString()));
     }
-    if (!jsonObj.get("subjectName").isJsonPrimitive()) {
+    if ((jsonObj.get("subjectName") != null && !jsonObj.get("subjectName").isJsonNull())
+        && !jsonObj.get("subjectName").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `subjectName` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("subjectName").toString()));
     }
-    if (!jsonObj.get("techSize").isJsonPrimitive()) {
+    if ((jsonObj.get("techSize") != null && !jsonObj.get("techSize").isJsonNull())
+        && !jsonObj.get("techSize").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `techSize` to be a primitive type in the JSON string but got `%s`",

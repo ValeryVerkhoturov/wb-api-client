@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from wb_api_client.orders_fbs.models.countries_oksm_list_countries_inner import (
     CountriesOKSMListCountriesInner,
 )
@@ -31,8 +31,8 @@ class CountriesOKSMList(BaseModel):
     CountriesOKSMList
     """  # noqa: E501
 
-    countries: List[CountriesOKSMListCountriesInner] = Field(
-        description="Список стран ОКСМ"
+    countries: Optional[List[CountriesOKSMListCountriesInner]] = Field(
+        default=None, description="Список стран ОКСМ"
     )
     __properties: ClassVar[List[str]] = ["countries"]
 

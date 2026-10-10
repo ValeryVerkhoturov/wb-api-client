@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,25 +28,29 @@ class AcquiringReportListRes(BaseModel):
     Список отчётов об издержках на приём платежей
     """  # noqa: E501
 
-    report_id: StrictInt = Field(description="ID отчёта", alias="reportId")
-    seller_finance_name: StrictStr = Field(
-        description="Наименование продавца", alias="sellerFinanceName"
+    report_id: Optional[StrictInt] = Field(
+        default=None, description="ID отчёта", alias="reportId"
     )
-    date_from: StrictStr = Field(
-        description="Дата начала отчётного периода", alias="dateFrom"
+    seller_finance_name: Optional[StrictStr] = Field(
+        default=None, description="Наименование продавца", alias="sellerFinanceName"
     )
-    date_to: StrictStr = Field(
-        description="Дата конца отчётного периода", alias="dateTo"
+    date_from: Optional[StrictStr] = Field(
+        default=None, description="Дата начала отчётного периода", alias="dateFrom"
     )
-    create_date: StrictStr = Field(
-        description="Дата формирования отчёта", alias="createDate"
+    date_to: Optional[StrictStr] = Field(
+        default=None, description="Дата конца отчётного периода", alias="dateTo"
     )
-    currency: StrictStr = Field(description="Валюта отчёта")
-    acquiring_fee_sum: StrictStr = Field(
-        description="Сумма издержек по эквайрингу", alias="acquiringFeeSum"
+    create_date: Optional[StrictStr] = Field(
+        default=None, description="Дата формирования отчёта", alias="createDate"
     )
-    acquiring_fee_vat_sum: StrictStr = Field(
-        description="В том числе НДС", alias="acquiringFeeVatSum"
+    currency: Optional[StrictStr] = Field(default=None, description="Валюта отчёта")
+    acquiring_fee_sum: Optional[StrictStr] = Field(
+        default=None,
+        description="Сумма издержек по эквайрингу",
+        alias="acquiringFeeSum",
+    )
+    acquiring_fee_vat_sum: Optional[StrictStr] = Field(
+        default=None, description="В том числе НДС", alias="acquiringFeeVatSum"
     )
     __properties: ClassVar[List[str]] = [
         "reportId",
