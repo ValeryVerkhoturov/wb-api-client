@@ -33,7 +33,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "1.20261010.1";
+        public const string Version = "1.20261010.2";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -1346,7 +1346,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version + "\n";
             report += "    Version of the API: order\n";
-            report += "    SDK Package Version: 1.20261010.1\n";
+            report += "    SDK Package Version: 1.20261010.2\n";
 
             return report;
         }

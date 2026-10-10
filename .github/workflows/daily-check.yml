@@ -33,11 +33,12 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0    # need history for `git tag --list` version calc
-          # Fetch both sibling submodules (clients/php, clients/onescript).
+          # Fetch the sibling submodules (clients/php, clients/onescript,
+          # clients/go).
           # Uses a PAT instead of the default GITHUB_TOKEN because we need
           # PUSH rights on those repos and the default token is scoped to
-          # this one. Store a PAT with `repo` scope covering BOTH
-          # wb-api-client-php and wb-api-client-1c as
+          # this one. Store a PAT with `repo` scope covering ALL THREE —
+          # wb-api-client-php, wb-api-client-1c and wb-api-client-go — as
           # secrets.SIBLING_REPO_TOKEN. PHP_REPO_TOKEN is still accepted so
           # an existing single-repo setup keeps working until it is rotated.
           submodules: recursive
@@ -243,6 +244,40 @@ jobs:
             --title "${TAG}" \
             --notes-file /tmp/onescript-release-notes.md
 
+      - name: Commit Go submodule (separate repo)
+        if: steps.diff.outputs.changed == 'true' || inputs.force
+        # The Go client lives in wb-api-client-go with go.mod at its root,
+        # so `go get github.com/ValeryVerkhoturov/wb-api-client-go@vX.Y.Z`
+        # resolves straight from this repo's tags — no registry publish
+        # needed (see publish.yml's publish-go job). Same ordering as the
+        # other siblings: commit + tag + push inside the submodule FIRST,
+        # so the main repo's commit below records the new submodule SHA.
+        # No GitHub Release here: Go modules need only the tag.
+        working-directory: clients/go
+        run: |
+          git config user.name "wb-api-client-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git fetch origin main
+          if ! git diff --quiet || [ -n "$(git ls-files --others --exclude-standard)" ]; then
+            git stash push -u -m "regen"
+            git checkout -B main origin/main
+            git stash pop
+          else
+            git checkout -B main origin/main
+          fi
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No Go changes to commit"
+          else
+            git commit -m "chore(release): regenerate at ${{ steps.version.outputs.version }}"
+            git push origin main
+          fi
+          # Idempotent tag: skip if identical tag already exists.
+          if ! git rev-parse "${{ steps.version.outputs.tag }}" >/dev/null 2>&1; then
+            git tag -a "${{ steps.version.outputs.tag }}" -m "Release ${{ steps.version.outputs.tag }}"
+            git push origin "${{ steps.version.outputs.tag }}"
+          fi
+
       - name: Commit specs + generated clients + submodule pointer, push tag
         if: steps.diff.outputs.changed == 'true' || inputs.force
         run: |
@@ -250,8 +285,8 @@ jobs:
           git config user.email "bot@users.noreply.github.com"
           # Stage explicitly rather than `git add -A` to avoid picking up
           # workflow scratch (dist/, node_modules/, target/ …). Also
-          # include clients/php and clients/onescript to record the
-          # submodule pointer bumps from the sibling-repo commits above.
+          # include clients/php, clients/onescript and clients/go to record
+          # the submodule pointer bumps from the sibling-repo commits above.
           git add swaggers/ clients/
           if git diff --cached --quiet; then
             echo "No file changes to commit despite checksum diff — nothing to do"
@@ -336,7 +371,7 @@ jobs:
           ```bash
           pip install valeryverkhoturov-wb-api-client==__VERSION__
           npm install @valeryverkhoturov/wb-api-client@__VERSION__
-          go get github.com/ValeryVerkhoturov/wb-api-client/clients/go@__TAG__
+          go get github.com/ValeryVerkhoturov/wb-api-client-go@__TAG__
           composer require valeryverkhoturov/wb-api-client:__VERSION__
           dotnet add package ValeryVerkhoturov.WbApiClient --version __VERSION__
           opm install wb-api-client@__VERSION__
@@ -355,7 +390,7 @@ jobs:
 
           - [PyPI](https://pypi.org/project/valeryverkhoturov-wb-api-client/__VERSION__/)
           - [npm](https://www.npmjs.com/package/@valeryverkhoturov/wb-api-client/v/__VERSION__)
-          - [Go / pkg.go.dev](https://pkg.go.dev/github.com/ValeryVerkhoturov/wb-api-client/clients/go@__TAG__)
+          - [Go / pkg.go.dev](https://pkg.go.dev/github.com/ValeryVerkhoturov/wb-api-client-go@__TAG__)
           - [Maven Central](https://central.sonatype.com/artifact/io.github.valeryverkhoturov/wb-api-client/__VERSION__)
           - [Packagist](https://packagist.org/packages/valeryverkhoturov/wb-api-client#__VERSION__)
           - [NuGet](https://www.nuget.org/packages/ValeryVerkhoturov.WbApiClient/__VERSION__)

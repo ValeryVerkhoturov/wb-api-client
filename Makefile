@@ -10,9 +10,9 @@
 #   make generate VERSION=2026.09.20
 VERSION ?= 0.0.0.dev0
 
-# Sibling repos mounted under clients/. Both are committed, tagged and
+# Sibling repos mounted under clients/. All are committed, tagged and
 # pushed alongside the main repo — see the git-* targets below.
-SUBMODULES := php onescript
+SUBMODULES := php onescript go
 
 # Sibling docs site. `make reference` writes the generated endpoint pages
 # into this checkout; daily-check.yml clones it instead. Overridable:
@@ -165,12 +165,13 @@ php-cs-fixer: ## Fail if any PHP file needs `php-cs-fixer` (PSR-12)
 	  >/dev/null 2>&1 && echo "  ✓ php-cs-fixer clean"
 
 # ── main + submodule git ops ──────────────────────────────────────────────
-# `clients/php` and `clients/onescript` are submodules pointing at
-# ValeryVerkhoturov/wb-api-client-php and .../wb-api-client-1c. These targets
-# act on the main repo AND both submodules so you don't have to remember to
-# `cd clients/<sub> && git …` after every regen.
+# `clients/php`, `clients/onescript` and `clients/go` are submodules pointing
+# at ValeryVerkhoturov/wb-api-client-php, .../wb-api-client-1c and
+# .../wb-api-client-go. These targets act on the main repo AND all
+# submodules so you don't have to remember to `cd clients/<sub> && git …`
+# after every regen.
 
-git-status: ## Show `git status` in main repo AND both submodules
+git-status: ## Show `git status` in main repo AND all submodules
 	@echo "── main repo ──"
 	@git status --short
 	@for sub in $(SUBMODULES); do \
@@ -178,7 +179,7 @@ git-status: ## Show `git status` in main repo AND both submodules
 	  (cd clients/$$sub && git status --short); \
 	done
 
-git-commit: ## Commit main + both submodules with the same message (MSG=…)
+git-commit: ## Commit main + all submodules with the same message (MSG=…)
 	@if [ -z "$(MSG)" ]; then \
 	  echo "usage: make git-commit MSG=\"your message\""; exit 2; \
 	fi
@@ -196,7 +197,7 @@ git-commit: ## Commit main + both submodules with the same message (MSG=…)
 	  if ! git diff --cached --quiet; then git commit -m "$(MSG)"; \
 	  else echo "  (no main-repo changes)"; fi
 
-git-push: ## Push main AND both submodules (needs push rights on all three)
+git-push: ## Push main AND all submodules (needs push rights on all four)
 	@# Push to the URL recorded in .gitmodules, NOT to `origin`. Local iteration
 	@# overrides origin to a file:// path (see CLAUDE.md), so `git push origin`
 	@# targets that local clone: it either reports "Everything up-to-date" while
@@ -232,7 +233,7 @@ check-submodules: ## Fail if a recorded submodule pointer is missing from its re
 	 done; \
 	 exit $$rc
 
-git-pull: ## Pull main AND fast-forward both submodules
+git-pull: ## Pull main AND fast-forward all submodules
 	@echo "── main ──"
 	@git pull --ff-only
 	@for sub in $(SUBMODULES); do \
@@ -247,6 +248,10 @@ clean: ## Remove generated clients/, processed swaggers, local scratch
 	@# submodule mount, silently turning it into a plain directory — after
 	@# which regeneration writes into the main repo instead of the sibling
 	@# repo. Same invariant generate.sh protects.
-	rm -rf clients/python clients/typescript clients/go clients/java clients/csharp clients/.tmp
+	rm -rf clients/python clients/typescript clients/java clients/csharp clients/.tmp
 	@for sub in $(SUBMODULES); do rm -rf clients/$$sub/src; done
+	@# Go has no src/: its generated content is the slug package dirs and
+	@# go.sum (go.mod is overwritten from templates/, README.md by
+	@# gen-readmes.py). The mount's .git gitfile and LICENSE survive.
+	rm -rf clients/go/*/ clients/go/go.sum
 	rm -rf swaggers/processed/ .venv/ .cache/

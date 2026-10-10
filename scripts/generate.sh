@@ -109,32 +109,41 @@ gen() {
     >/dev/null
 }
 
-# Reset the non-submodule client trees. Leave clients/php and
-# clients/onescript alone — both are git submodules (pointing at
-# wb-api-client-php and wb-api-client-1c), and `rm -rf` would blow away
-# their .git gitfile, silently converting the mount into a plain
-# directory. Subsequent writes would then land in an orphaned dir under
-# the main repo instead of the sibling repo's working tree.
-rm -rf "${CLIENTS_DIR}"/{python,typescript,go,java,csharp}
+# Reset the non-submodule client trees. Leave clients/php,
+# clients/onescript and clients/go alone — all three are git submodules
+# (pointing at wb-api-client-php, wb-api-client-1c and wb-api-client-go),
+# and `rm -rf` would blow away their .git gitfile, silently converting the
+# mount into a plain directory. Subsequent writes would then land in an
+# orphaned dir under the main repo instead of the sibling repo's working
+# tree.
+rm -rf "${CLIENTS_DIR}"/{python,typescript,java,csharp}
 
 # Guard: each submodule dir MUST be a proper mount before we write into
 # it, otherwise the manifests + src/ we produce would sit as untracked
 # bytes in the main repo, invisible to consumers — Packagist crawls the
-# PHP sibling repo, and the OneScript package is published from the 1c one.
+# PHP sibling repo, the OneScript package is published from the 1c one,
+# and `go get` resolves the Go module from the go one's tags.
 #
-# Clear only <mount>/src/ (regen recreates those from scratch). Preserve
-# everything else in the mount: composer.json / packagedef, README.md,
-# LICENSE, .gitignore, and — critically — the .git gitfile that makes the
-# mount work.
-for submodule in php onescript; do
+# Clear only the generated payloads (regen recreates them from scratch).
+# Preserve everything else in the mount: composer.json / packagedef /
+# go.mod, README.md, LICENSE, .gitignore, and — critically — the .git
+# gitfile that makes the mount work.
+for submodule in php onescript go; do
   if [[ -e "${CLIENTS_DIR}/${submodule}/.git" ]]; then
-    rm -rf "${CLIENTS_DIR}/${submodule}/src"
+    case "${submodule}" in
+      php|onescript) rm -rf "${CLIENTS_DIR}/${submodule}/src" ;;
+      # Go has no src/: generated payload is the slug package dirs and
+      # go.sum (go.mod is overwritten from templates/ later, README.md by
+      # gen-readmes.py).
+      go) rm -rf "${CLIENTS_DIR}"/go/*/ "${CLIENTS_DIR}/go/go.sum" ;;
+    esac
     continue
   fi
 
   case "${submodule}" in
     php)       sibling="wb-api-client-php" ;;
     onescript) sibling="wb-api-client-1c" ;;
+    go)        sibling="wb-api-client-go" ;;
   esac
 
   cat >&2 <<EOF

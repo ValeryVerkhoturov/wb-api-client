@@ -187,7 +187,7 @@ def _gosnippet(snake: str, apis: list[str]) -> str:
     # output, so we point users at the client itself rather than a
     # standalone constructor.
     return (
-        f"import wb{snake} \"github.com/ValeryVerkhoturov/wb-api-client/clients/go/{snake}\"\n\n"
+        f"import wb{snake} \"github.com/ValeryVerkhoturov/wb-api-client-go/{snake}\"\n\n"
         f"cfg := wb{snake}.NewConfiguration()\n"
         f"cfg.SetAccessToken(\"<your WB JWT>\")\n"
         f"client := wb{snake}.NewAPIClient(cfg)"
@@ -357,18 +357,18 @@ def main() -> int:
         go_root / "README.md",
         header_ctx={
             "lang_display": "Go",
-            "install": "go get github.com/ValeryVerkhoturov/wb-api-client/clients/go@latest",
+            "install": "go get github.com/ValeryVerkhoturov/wb-api-client-go@latest",
             "wrapper_note": "[`secrecy.SecretString`](https://github.com/negrel/secrecy)",
             "log_call": "fmt.Printf",
             "expose_call": ".ExposeSecret()",
             "lang_code": "go",
             "auth_snippet": (
-                "import wbitems \"github.com/ValeryVerkhoturov/wb-api-client/clients/go/items\"\n\n"
+                "import wbitems \"github.com/ValeryVerkhoturov/wb-api-client-go/items\"\n\n"
                 "cfg := wbitems.NewConfiguration()\n"
                 "cfg.SetAccessToken(\"<your WB JWT>\")\n"
                 "client := wbitems.NewAPIClient(cfg)"
             ),
-            "import_prefix": "github.com/ValeryVerkhoturov/wb-api-client/clients/go/",
+            "import_prefix": "github.com/ValeryVerkhoturov/wb-api-client-go/",
         },
         specs=specs,
         apis_fn=lambda s: go_apis(go_root, s["snake"]),

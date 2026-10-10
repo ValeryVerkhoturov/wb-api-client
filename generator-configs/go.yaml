@@ -1,8 +1,8 @@
 # The Go template emits one package per output directory. Per-slug
-# packageName is injected by generate.sh (e.g. `wbapi_items`), and the
-# publish workflow tags each slug as `clients/go/<slug>/vX.Y.Z` so
-# `go get github.com/ValeryVerkhoturov/wb-api-client/clients/go/<slug>`
-# resolves that version. go.mod inside each dir is rewritten there too.
+# packageName is injected by generate.sh (e.g. `wbapi_items`). The client
+# lives in the sibling wb-api-client-go repo (mounted at clients/go) with
+# go.mod at its root, so daily-check's plain `vX.Y.Z` tags there make
+# `go get github.com/ValeryVerkhoturov/wb-api-client-go@vX.Y.Z` resolve.
 generatorName: go
 generateInterfaces: true
 withGoMod: true

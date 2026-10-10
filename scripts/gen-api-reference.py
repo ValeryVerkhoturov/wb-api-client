@@ -628,7 +628,7 @@ def snippet_go(op: Operation, b: Binding, locale: str, setters: list[str]) -> st
         f"import (\n"
         f'\t"context"\n'
         f'\t"fmt"\n\n'
-        f'\t{alias} "github.com/ValeryVerkhoturov/wb-api-client/clients/go/{snake_slug(op.module)}"\n'
+        f'\t{alias} "github.com/ValeryVerkhoturov/wb-api-client-go/{snake_slug(op.module)}"\n'
         f")\n\n"
         f"cfg := {alias}.NewConfiguration()\n"
         f'cfg.SetAccessToken("{TOKEN[locale]}")\n'

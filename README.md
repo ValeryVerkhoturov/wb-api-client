@@ -58,10 +58,10 @@ const api = new ItemsApi(cfg);
 
 **Go:**
 ```bash
-go get github.com/ValeryVerkhoturov/wb-api-client/clients/go@latest
+go get github.com/ValeryVerkhoturov/wb-api-client-go@latest
 ```
 ```go
-import wbitems "github.com/ValeryVerkhoturov/wb-api-client/clients/go/items"
+import wbitems "github.com/ValeryVerkhoturov/wb-api-client-go/items"
 
 cfg := wbitems.NewConfiguration()
 cfg.SetAccessToken("<your WB JWT>")                 // stored as *secrecy.SecretString
@@ -135,11 +135,11 @@ so you can clone it at a tag instead of going through the hub.
 
 ### Per-language module reference
 
-Each generated client has its own README with an install snippet, the auth block, and a per-module import + instantiate example for all 13 API categories. The six READMEs are regenerated on every release, so they never drift from the code:
+Each generated client has its own README with an install snippet, the auth block, and a per-module import + instantiate example for all 13 API categories. The seven READMEs are regenerated on every release, so they never drift from the code:
 
 - **Python** — [`clients/python/README.md`](clients/python/README.md)
 - **TypeScript** — [`clients/typescript/README.md`](clients/typescript/README.md)
-- **Go** — [`clients/go/README.md`](clients/go/README.md)
+- **Go** — [`ValeryVerkhoturov/wb-api-client-go`](https://github.com/ValeryVerkhoturov/wb-api-client-go#readme) (separate repo, mounted here as the `clients/go` submodule)
 - **Java** — [`clients/java/README.md`](clients/java/README.md)
 - **PHP** — [`ValeryVerkhoturov/wb-api-client-php`](https://github.com/ValeryVerkhoturov/wb-api-client-php#readme) (separate repo, mounted here as the `clients/php` submodule)
 - **C#** — [`clients/csharp/README.md`](clients/csharp/README.md)

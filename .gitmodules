@@ -6,3 +6,7 @@
 	path = clients/onescript
 	url = https://github.com/ValeryVerkhoturov/wb-api-client-1c.git
 	branch = main
+[submodule "clients/go"]
+	path = clients/go
+	url = https://github.com/ValeryVerkhoturov/wb-api-client-go.git
+	branch = main

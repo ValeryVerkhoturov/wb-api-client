@@ -87,15 +87,15 @@ jobs:
   publish-go:
     if: inputs.lang == 'go'
     runs-on: ubuntu-latest
-    # No-op job: Go modules resolve versions directly from the repo's
-    # tags — the tag was already pushed in daily-check.yml, so
-    # `go get github.com/ValeryVerkhoturov/wb-api-client/clients/go@vX.Y.Z`
+    # No-op job: Go modules resolve versions directly from the sibling
+    # repo's tags — daily-check.yml already tagged wb-api-client-go, so
+    # `go get github.com/ValeryVerkhoturov/wb-api-client-go@vX.Y.Z`
     # already works. This job exists so the matrix stays symmetric and
     # anyone reading the workflow can see Go is intentionally handled.
     steps:
       - name: Confirm tag reachable
         run: |
-          echo "Go module release: github.com/ValeryVerkhoturov/wb-api-client/clients/go@${{ inputs.ref }}"
+          echo "Go module release: github.com/ValeryVerkhoturov/wb-api-client-go@${{ inputs.ref }}"
           echo "No registry publish needed — proxy.golang.org fetches from the tag."
 
   publish-php:

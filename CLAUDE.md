@@ -54,16 +54,17 @@ Coverage is printed per language on every run. All clients expose all 307
 operations — `post-process.py`'s `rename_tags_to_module` gives every module a
 single ASCII tag, so no operations are dropped to tag-name collisions.
 
-`swaggers/`, `clients/python/`, `clients/typescript/`, `clients/go/`, `clients/java/`, `clients/csharp/` are committed here at each release tag. Two languages live in **sibling repos mounted as git submodules**:
+`swaggers/`, `clients/python/`, `clients/typescript/`, `clients/java/`, `clients/csharp/` are committed here at each release tag. Three languages live in **sibling repos mounted as git submodules**:
 
 | Mount | Sibling repo | Why it can't live under `clients/` |
 |---|---|---|
 | `clients/php` | [`wb-api-client-php`](https://github.com/ValeryVerkhoturov/wb-api-client-php) | Packagist requires `composer.json` at the ROOT of the crawled repo |
 | `clients/onescript` | [`wb-api-client-1c`](https://github.com/ValeryVerkhoturov/wb-api-client-1c) | so 1C/OneScript users can clone just the client and `opm install` straight from a tag, without the rest of the pipeline |
+| `clients/go` | [`wb-api-client-go`](https://github.com/ValeryVerkhoturov/wb-api-client-go) | Go modules resolve versions from git tags; a dedicated repo keeps `go get github.com/ValeryVerkhoturov/wb-api-client-go@vX.Y.Z` short and lets Go users watch/fork just the client |
 
-daily-check.yml regenerates everything, commits and tags BOTH sibling repos FIRST, then commits + tags the main repo (which now includes the bumped submodule pointers), then dispatches publish per language. `publish.yml` is a pure publish step — it does not regenerate; it checks out the tag and pushes to the registry. Rationale: consumers can browse and pin exact source; Go modules resolve directly from the tag; Packagist crawls the sibling repo's tag; audits diff cleanly between releases.
+daily-check.yml regenerates everything, commits and tags ALL THREE sibling repos FIRST, then commits + tags the main repo (which now includes the bumped submodule pointers), then dispatches publish per language. `publish.yml` is a pure publish step — it does not regenerate; it checks out the tag and pushes to the registry. Rationale: consumers can browse and pin exact source; Go modules resolve directly from the sibling repo's tag (go.mod sits at its root, so plain `vX.Y.Z` tags work); Packagist crawls the sibling repo's tag; audits diff cleanly between releases.
 
-**Submodule mechanics for local dev**: `git clone --recurse-submodules` clones all three repos. If you already cloned without: `git submodule update --init --recursive`. The tracked URLs in `.gitmodules` are the GitHub HTTPS ones; local iteration can override either to a `file://` path:
+**Submodule mechanics for local dev**: `git clone --recurse-submodules` clones all four repos. If you already cloned without: `git submodule update --init --recursive`. The tracked URLs in `.gitmodules` are the GitHub HTTPS ones; local iteration can override any of them to a `file://` path:
 
 ```bash
 git config -f .git/config submodule.clients/onescript.url file:///path/to/wb-api-client-1c
@@ -72,7 +73,7 @@ git submodule sync clients/onescript
 git -c protocol.file.allow=always submodule update --init clients/onescript
 ```
 
-`scripts/generate.sh` writes to `clients/php/…` and `clients/onescript/…` unchanged — the mounts transparently redirect into the submodule working trees. `make git-status` / `git-commit` / `git-push` / `git-pull` act on the main repo and both submodules (the `SUBMODULES` variable at the top of the Makefile is the list).
+`scripts/generate.sh` writes to `clients/php/…`, `clients/onescript/…` and `clients/go/…` unchanged — the mounts transparently redirect into the submodule working trees. `make git-status` / `git-commit` / `git-push` / `git-pull` act on the main repo and all submodules (the `SUBMODULES` variable at the top of the Makefile is the list).
 
 `pr-check.yml` enforces the invariant on pull requests: it regenerates from scratch using the version currently baked into `clients/python/pyproject.toml`, then fails the PR if `git diff` against `swaggers/` or `clients/` is non-empty. For that check to be meaningful, generation must be deterministic — every generator config sets `hideGenerationTimestamp: true`, and the openapi-generator Docker image tag is pinned in `generate.sh`. Each formatter version is pinned too (black in `scripts/requirements.txt`; prettier in `templates/typescript/package.json`; google-java-format via spotless in `templates/java/pom.xml`; php-cs-fixer image tag in `generate.sh`; gofmt bundled with pinned `golang:1.22-alpine`). If a change makes generation non-deterministic (e.g. re-adds a timestamp), PRs will flap; fix at the source rather than skipping the check.
 
@@ -115,7 +116,7 @@ Computed in `daily-check.yml`: `n=$(git tag --list "v1.$(date -u +%Y%m%d).*" | w
 ```
 clients/python/wb_api_client/<slug>/…           (packageName=wb_api_client.<slug>)
 clients/typescript/src/<slug>/… + subpath exports in package.json
-clients/go/<slug>/…                             (single go.mod at clients/go)
+clients/go/<slug>/…                             (single go.mod at the wb-api-client-go repo root)
 clients/java/src/main/java/io/github/valeryverkhoturov/wbapi/<slug>/…
 clients/php/src/<Slug>/…                        (PSR-4 ValeryVerkhoturov\WbApiClient\<Slug>)
 clients/onescript/src/{Классы,Модели}/<Slug>/…   (no namespaces — see below)
@@ -129,7 +130,7 @@ Package names on each registry (some diverge from the natural `wb-api-client` be
 | PyPI | `valeryverkhoturov-wb-api-client` (bare `wb-api-client` was already claimed) |
 | npm | `@valeryverkhoturov/wb-api-client` (scoped) |
 | Maven Central | `io.github.valeryverkhoturov:wb-api-client` |
-| Go (git tag) | `github.com/ValeryVerkhoturov/wb-api-client/clients/go` |
+| Go (git tag) | `github.com/ValeryVerkhoturov/wb-api-client-go` |
 | Packagist | `valeryverkhoturov/wb-api-client` |
 | hub.oscript.io | `wb-api-client` |
 | NuGet | `ValeryVerkhoturov.WbApiClient` |
@@ -273,7 +274,7 @@ PyPI + npm trusted publishing: **the "Workflow filename" on pypi.org and npmjs.c
 
 ## PHP-specific quirks
 
-- **Lives in a separate git repo** (`ValeryVerkhoturov/wb-api-client-php`), mounted here as the `clients/php` submodule — Packagist requires `composer.json` at the crawled repo root, which rules out a subdirectory layout. See the pipeline section for how daily-check.yml coordinates commits + tags across both repos.
+- **Lives in a separate git repo** (`ValeryVerkhoturov/wb-api-client-php`), mounted here as the `clients/php` submodule — Packagist requires `composer.json` at the crawled repo root, which rules out a subdirectory layout. See the pipeline section for how daily-check.yml coordinates commits + tags across the sibling repos.
 - PSR-4 root namespace: `ValeryVerkhoturov\WbApiClient\`; each slug is a PascalCase sub-namespace (`Items`, `OrdersFbs`, `InStorePickup`, …)
 - `composer.json` keeps the `version` field even though Packagist prefers to derive it from git tags — the field is how the pipeline stamps a uniform version across every language manifest. `composer validate --strict` therefore fails; `make verify-php` runs plain `composer validate --no-check-publish`
 - openapi-generator's PHP template writes `src/{Api,Model,Configuration.php,ApiException.php,HeaderSelector.php,ObjectSerializer.php}` at a flat root with the invoker namespace declared inside the files. `generate.sh` splices the whole `src/` contents into `clients/php/src/<Slug>/` (which resolves through the submodule mount to `wb-api-client-php/src/<Slug>/`), so PSR-4 resolves `\ValeryVerkhoturov\WbApiClient\<Slug>\Configuration` to `src/<Slug>/Configuration.php`
