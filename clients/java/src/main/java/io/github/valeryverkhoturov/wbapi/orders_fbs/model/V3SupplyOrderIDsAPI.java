@@ -39,7 +39,7 @@ public class V3SupplyOrderIDsAPI {
 
   @SerializedName(SERIALIZED_NAME_ORDER_IDS)
   @jakarta.annotation.Nullable
-  private List<Integer> orderIds = new ArrayList<>();
+  private List<Integer> orderIds;
 
   public V3SupplyOrderIDsAPI() {}
 

@@ -2984,7 +2984,7 @@ export interface V3SupplyOrderIDsAPI {
    * @type {Array<number>}
    * @memberof V3SupplyOrderIDsAPI
    */
-  orderIds?: Array<number>;
+  orderIds?: Array<number> | null;
 }
 
 /**

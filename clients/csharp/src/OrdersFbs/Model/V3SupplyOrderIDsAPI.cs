@@ -47,7 +47,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /*
         <example>[132334,203984,403543,598349]</example>
         */
-        [DataMember(Name = "orderIds", EmitDefaultValue = false)]
+        [DataMember(Name = "orderIds", EmitDefaultValue = true)]
         public List<int> OrderIds { get; set; }
 
         /// <summary>
