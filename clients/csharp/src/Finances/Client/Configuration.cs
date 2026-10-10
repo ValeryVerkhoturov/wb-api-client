@@ -33,7 +33,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "1.20261010.0";
+        public const string Version = "1.20261010.1";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -134,7 +134,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Client
             OperationServers = new Dictionary<string, List<IReadOnlyDictionary<string, object>>>()
             {
                 {
-                    "DefaultApi.GetV1AccountBalance", new List<IReadOnlyDictionary<string, object>>
+                    "FinancesApi.GetV1AccountBalance", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -146,7 +146,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV1DocumentsCategories", new List<IReadOnlyDictionary<string, object>>
+                    "FinancesApi.GetV1DocumentsCategories", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -158,7 +158,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV1DocumentsDownload", new List<IReadOnlyDictionary<string, object>>
+                    "FinancesApi.GetV1DocumentsDownload", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -170,7 +170,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV1DocumentsList", new List<IReadOnlyDictionary<string, object>>
+                    "FinancesApi.GetV1DocumentsList", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -182,7 +182,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Client
                     }
                 },
                 {
-                    "DefaultApi.PostV1AcquiringDetailed", new List<IReadOnlyDictionary<string, object>>
+                    "FinancesApi.PostV1AcquiringDetailed", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -194,7 +194,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Client
                     }
                 },
                 {
-                    "DefaultApi.PostV1AcquiringDetailedReportId", new List<IReadOnlyDictionary<string, object>>
+                    "FinancesApi.PostV1AcquiringDetailedReportId", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -206,7 +206,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Client
                     }
                 },
                 {
-                    "DefaultApi.PostV1AcquiringList", new List<IReadOnlyDictionary<string, object>>
+                    "FinancesApi.PostV1AcquiringList", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -218,7 +218,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Client
                     }
                 },
                 {
-                    "DefaultApi.PostV1DocumentsDownloadAll", new List<IReadOnlyDictionary<string, object>>
+                    "FinancesApi.PostV1DocumentsDownloadAll", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -230,7 +230,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Client
                     }
                 },
                 {
-                    "DefaultApi.PostV1SalesReportsDetailed", new List<IReadOnlyDictionary<string, object>>
+                    "FinancesApi.PostV1SalesReportsDetailed", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -242,7 +242,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Client
                     }
                 },
                 {
-                    "DefaultApi.PostV1SalesReportsDetailedReportId", new List<IReadOnlyDictionary<string, object>>
+                    "FinancesApi.PostV1SalesReportsDetailedReportId", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -254,7 +254,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Client
                     }
                 },
                 {
-                    "DefaultApi.PostV1SalesReportsList", new List<IReadOnlyDictionary<string, object>>
+                    "FinancesApi.PostV1SalesReportsList", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -695,7 +695,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version + "\n";
             report += "    Version of the API: finances\n";
-            report += "    SDK Package Version: 1.20261010.0\n";
+            report += "    SDK Package Version: 1.20261010.1\n";
 
             return report;
         }

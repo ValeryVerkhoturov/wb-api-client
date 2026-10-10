@@ -25,19 +25,19 @@ Each row below is a sub-module you can import independently. Import path is `wb_
 
 | Slug | Category | APIs |
 |---|---|---|
-| [`general`](https://dev.wildberries.ru/openapi/api-information) | Общее | `APIApi`, `Api`, `WBAPIApi` |
-| [`items`](https://dev.wildberries.ru/openapi/item-management) | Работа с товарами | `Api`, `DefaultApi` |
-| [`orders-fbs`](https://dev.wildberries.ru/openapi/orders-fbs) | Заказы FBS | `Api`, `FBSApi` |
-| [`orders-dbw`](https://dev.wildberries.ru/openapi/orders-dbw) | Заказы DBW | `DBWApi` |
-| [`dbs`](https://dev.wildberries.ru/openapi/dbs) | DBS | `DBSApi` |
-| [`in-store-pickup`](https://dev.wildberries.ru/openapi/in-store-pickup) | Самовывоз | `Api` |
-| [`orders-fbw`](https://dev.wildberries.ru/openapi/orders-fbw) | Поставки FBW | `Api` |
-| [`promotion`](https://dev.wildberries.ru/openapi/promotion) | Маркетинг и продвижение | `Api`, `DefaultApi` |
-| [`communications`](https://dev.wildberries.ru/openapi/customer-communication) | Общение с покупателями | `Api`, `DefaultApi` |
-| [`rates`](https://dev.wildberries.ru/openapi/rates) | Тарифы | `Api`, `DefaultApi` |
-| [`analytics`](https://dev.wildberries.ru/openapi/analytics) | Аналитика и данные | `Api`, `CSVApi` |
-| [`reports`](https://dev.wildberries.ru/openapi/reports) | Отчёты | `Api`, `CApi` |
-| [`finances`](https://dev.wildberries.ru/openapi/documents-and-accounting) | Документы и бухгалтерия | `Api`, `DefaultApi` |
+| [`general`](https://dev.wildberries.ru/openapi/api-information) | Общее | `GeneralApi` |
+| [`items`](https://dev.wildberries.ru/openapi/item-management) | Работа с товарами | `ItemsApi` |
+| [`orders-fbs`](https://dev.wildberries.ru/openapi/orders-fbs) | Заказы FBS | `OrdersFbsApi` |
+| [`orders-dbw`](https://dev.wildberries.ru/openapi/orders-dbw) | Заказы DBW | `OrdersDbwApi` |
+| [`dbs`](https://dev.wildberries.ru/openapi/dbs) | DBS | `DbsApi` |
+| [`in-store-pickup`](https://dev.wildberries.ru/openapi/in-store-pickup) | Самовывоз | `InStorePickupApi` |
+| [`orders-fbw`](https://dev.wildberries.ru/openapi/orders-fbw) | Поставки FBW | `OrdersFbwApi` |
+| [`promotion`](https://dev.wildberries.ru/openapi/promotion) | Маркетинг и продвижение | `PromotionApi` |
+| [`communications`](https://dev.wildberries.ru/openapi/customer-communication) | Общение с покупателями | `CommunicationsApi` |
+| [`rates`](https://dev.wildberries.ru/openapi/rates) | Тарифы | `RatesApi` |
+| [`analytics`](https://dev.wildberries.ru/openapi/analytics) | Аналитика и данные | `AnalyticsApi` |
+| [`reports`](https://dev.wildberries.ru/openapi/reports) | Отчёты | `ReportsApi` |
+| [`finances`](https://dev.wildberries.ru/openapi/documents-and-accounting) | Документы и бухгалтерия | `FinancesApi` |
 
 ## Per-module usage
 
@@ -58,14 +58,14 @@ Each row below is a sub-module you can import independently. Import path is `wb_
 
 **Reference:** https://dev.wildberries.ru/openapi/api-information
 
-**APIs:** `APIApi`, `Api`, `WBAPIApi`
+**APIs:** `GeneralApi`
 
 ```python
 from wb_api_client.general import Configuration, ApiClient
-from wb_api_client.general.api import APIApi
+from wb_api_client.general.api import GeneralApi
 
 cfg = Configuration(access_token="<your WB JWT>")
-api = APIApi(ApiClient(cfg))
+api = GeneralApi(ApiClient(cfg))
 ```
 
 ### items — Работа с товарами
@@ -84,14 +84,14 @@ api = APIApi(ApiClient(cfg))
 
 **Reference:** https://dev.wildberries.ru/openapi/item-management
 
-**APIs:** `Api`, `DefaultApi`
+**APIs:** `ItemsApi`
 
 ```python
 from wb_api_client.items import Configuration, ApiClient
-from wb_api_client.items.api import Api
+from wb_api_client.items.api import ItemsApi
 
 cfg = Configuration(access_token="<your WB JWT>")
-api = Api(ApiClient(cfg))
+api = ItemsApi(ApiClient(cfg))
 ```
 
 ### orders-fbs — Заказы FBS
@@ -109,14 +109,14 @@ api = Api(ApiClient(cfg))
 
 **Reference:** https://dev.wildberries.ru/openapi/orders-fbs
 
-**APIs:** `Api`, `FBSApi`
+**APIs:** `OrdersFbsApi`
 
 ```python
 from wb_api_client.orders_fbs import Configuration, ApiClient
-from wb_api_client.orders_fbs.api import Api
+from wb_api_client.orders_fbs.api import OrdersFbsApi
 
 cfg = Configuration(access_token="<your WB JWT>")
-api = Api(ApiClient(cfg))
+api = OrdersFbsApi(ApiClient(cfg))
 ```
 
 ### orders-dbw — Заказы DBW
@@ -129,14 +129,14 @@ api = Api(ApiClient(cfg))
 
 **Reference:** https://dev.wildberries.ru/openapi/orders-dbw
 
-**APIs:** `DBWApi`
+**APIs:** `OrdersDbwApi`
 
 ```python
 from wb_api_client.orders_dbw import Configuration, ApiClient
-from wb_api_client.orders_dbw.api import DBWApi
+from wb_api_client.orders_dbw.api import OrdersDbwApi
 
 cfg = Configuration(access_token="<your WB JWT>")
-api = DBWApi(ApiClient(cfg))
+api = OrdersDbwApi(ApiClient(cfg))
 ```
 
 ### dbs — DBS
@@ -149,14 +149,14 @@ api = DBWApi(ApiClient(cfg))
 
 **Reference:** https://dev.wildberries.ru/openapi/dbs
 
-**APIs:** `DBSApi`
+**APIs:** `DbsApi`
 
 ```python
 from wb_api_client.dbs import Configuration, ApiClient
-from wb_api_client.dbs.api import DBSApi
+from wb_api_client.dbs.api import DbsApi
 
 cfg = Configuration(access_token="<your WB JWT>")
-api = DBSApi(ApiClient(cfg))
+api = DbsApi(ApiClient(cfg))
 ```
 
 ### in-store-pickup — Самовывоз
@@ -167,14 +167,14 @@ api = DBSApi(ApiClient(cfg))
 
 **Reference:** https://dev.wildberries.ru/openapi/in-store-pickup
 
-**APIs:** `Api`
+**APIs:** `InStorePickupApi`
 
 ```python
 from wb_api_client.in_store_pickup import Configuration, ApiClient
-from wb_api_client.in_store_pickup.api import Api
+from wb_api_client.in_store_pickup.api import InStorePickupApi
 
 cfg = Configuration(access_token="<your WB JWT>")
-api = Api(ApiClient(cfg))
+api = InStorePickupApi(ApiClient(cfg))
 ```
 
 ### orders-fbw — Поставки FBW
@@ -188,14 +188,14 @@ api = Api(ApiClient(cfg))
 
 **Reference:** https://dev.wildberries.ru/openapi/orders-fbw
 
-**APIs:** `Api`
+**APIs:** `OrdersFbwApi`
 
 ```python
 from wb_api_client.orders_fbw import Configuration, ApiClient
-from wb_api_client.orders_fbw.api import Api
+from wb_api_client.orders_fbw.api import OrdersFbwApi
 
 cfg = Configuration(access_token="<your WB JWT>")
-api = Api(ApiClient(cfg))
+api = OrdersFbwApi(ApiClient(cfg))
 ```
 
 ### promotion — Маркетинг и продвижение
@@ -214,14 +214,14 @@ api = Api(ApiClient(cfg))
 
 **Reference:** https://dev.wildberries.ru/openapi/promotion
 
-**APIs:** `Api`, `DefaultApi`
+**APIs:** `PromotionApi`
 
 ```python
 from wb_api_client.promotion import Configuration, ApiClient
-from wb_api_client.promotion.api import Api
+from wb_api_client.promotion.api import PromotionApi
 
 cfg = Configuration(access_token="<your WB JWT>")
-api = Api(ApiClient(cfg))
+api = PromotionApi(ApiClient(cfg))
 ```
 
 ### communications — Общение с покупателями
@@ -239,14 +239,14 @@ api = Api(ApiClient(cfg))
 
 **Reference:** https://dev.wildberries.ru/openapi/customer-communication
 
-**APIs:** `Api`, `DefaultApi`
+**APIs:** `CommunicationsApi`
 
 ```python
 from wb_api_client.communications import Configuration, ApiClient
-from wb_api_client.communications.api import Api
+from wb_api_client.communications.api import CommunicationsApi
 
 cfg = Configuration(access_token="<your WB JWT>")
-api = Api(ApiClient(cfg))
+api = CommunicationsApi(ApiClient(cfg))
 ```
 
 ### rates — Тарифы
@@ -261,14 +261,14 @@ api = Api(ApiClient(cfg))
 
 **Reference:** https://dev.wildberries.ru/openapi/rates
 
-**APIs:** `Api`, `DefaultApi`
+**APIs:** `RatesApi`
 
 ```python
 from wb_api_client.rates import Configuration, ApiClient
-from wb_api_client.rates.api import Api
+from wb_api_client.rates.api import RatesApi
 
 cfg = Configuration(access_token="<your WB JWT>")
-api = Api(ApiClient(cfg))
+api = RatesApi(ApiClient(cfg))
 ```
 
 ### analytics — Аналитика и данные
@@ -285,14 +285,14 @@ api = Api(ApiClient(cfg))
 
 **Reference:** https://dev.wildberries.ru/openapi/analytics
 
-**APIs:** `Api`, `CSVApi`
+**APIs:** `AnalyticsApi`
 
 ```python
 from wb_api_client.analytics import Configuration, ApiClient
-from wb_api_client.analytics.api import Api
+from wb_api_client.analytics.api import AnalyticsApi
 
 cfg = Configuration(access_token="<your WB JWT>")
-api = Api(ApiClient(cfg))
+api = AnalyticsApi(ApiClient(cfg))
 ```
 
 ### reports — Отчёты
@@ -312,14 +312,14 @@ api = Api(ApiClient(cfg))
 
 **Reference:** https://dev.wildberries.ru/openapi/reports
 
-**APIs:** `Api`, `CApi`
+**APIs:** `ReportsApi`
 
 ```python
 from wb_api_client.reports import Configuration, ApiClient
-from wb_api_client.reports.api import Api
+from wb_api_client.reports.api import ReportsApi
 
 cfg = Configuration(access_token="<your WB JWT>")
-api = Api(ApiClient(cfg))
+api = ReportsApi(ApiClient(cfg))
 ```
 
 ### finances — Документы и бухгалтерия
@@ -330,13 +330,13 @@ api = Api(ApiClient(cfg))
 
 **Reference:** https://dev.wildberries.ru/openapi/documents-and-accounting
 
-**APIs:** `Api`, `DefaultApi`
+**APIs:** `FinancesApi`
 
 ```python
 from wb_api_client.finances import Configuration, ApiClient
-from wb_api_client.finances.api import Api
+from wb_api_client.finances.api import FinancesApi
 
 cfg = Configuration(access_token="<your WB JWT>")
-api = Api(ApiClient(cfg))
+api = FinancesApi(ApiClient(cfg))
 ```
 

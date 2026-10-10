@@ -33,7 +33,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "1.20261010.0";
+        public const string Version = "1.20261010.1";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -134,7 +134,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Client
             OperationServers = new Dictionary<string, List<IReadOnlyDictionary<string, object>>>()
             {
                 {
-                    "DefaultApi.PostV1OrderFeed", new List<IReadOnlyDictionary<string, object>>
+                    "AnalyticsApi.GetV2NmReportDownloads", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -146,7 +146,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Client
                     }
                 },
                 {
-                    "DefaultApi.PostV1StocksReportSellerWarehouses", new List<IReadOnlyDictionary<string, object>>
+                    "AnalyticsApi.GetV2NmReportDownloadsFileDownloadId", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -158,7 +158,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Client
                     }
                 },
                 {
-                    "DefaultApi.PostV1StocksReportWbWarehouses", new List<IReadOnlyDictionary<string, object>>
+                    "AnalyticsApi.PostV1OrderFeed", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -170,7 +170,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Client
                     }
                 },
                 {
-                    "DefaultApi.PostV2ItemRating", new List<IReadOnlyDictionary<string, object>>
+                    "AnalyticsApi.PostV1StocksReportSellerWarehouses", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -182,7 +182,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Client
                     }
                 },
                 {
-                    "DefaultApi.PostV2SearchReportProductOrders", new List<IReadOnlyDictionary<string, object>>
+                    "AnalyticsApi.PostV1StocksReportWbWarehouses", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -194,7 +194,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Client
                     }
                 },
                 {
-                    "DefaultApi.PostV2SearchReportProductSearchTexts", new List<IReadOnlyDictionary<string, object>>
+                    "AnalyticsApi.PostV2ItemRating", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -206,7 +206,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Client
                     }
                 },
                 {
-                    "DefaultApi.PostV2SearchReportReport", new List<IReadOnlyDictionary<string, object>>
+                    "AnalyticsApi.PostV2NmReportDownloads", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -218,7 +218,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Client
                     }
                 },
                 {
-                    "DefaultApi.PostV2SearchReportTableDetails", new List<IReadOnlyDictionary<string, object>>
+                    "AnalyticsApi.PostV2NmReportDownloadsRetry", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -230,7 +230,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Client
                     }
                 },
                 {
-                    "DefaultApi.PostV2SearchReportTableGroups", new List<IReadOnlyDictionary<string, object>>
+                    "AnalyticsApi.PostV2SearchReportProductOrders", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -242,7 +242,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Client
                     }
                 },
                 {
-                    "DefaultApi.PostV2StocksReportOffices", new List<IReadOnlyDictionary<string, object>>
+                    "AnalyticsApi.PostV2SearchReportProductSearchTexts", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -254,7 +254,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Client
                     }
                 },
                 {
-                    "DefaultApi.PostV2StocksReportProductsGroups", new List<IReadOnlyDictionary<string, object>>
+                    "AnalyticsApi.PostV2SearchReportReport", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -266,7 +266,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Client
                     }
                 },
                 {
-                    "DefaultApi.PostV2StocksReportProductsProducts", new List<IReadOnlyDictionary<string, object>>
+                    "AnalyticsApi.PostV2SearchReportTableDetails", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -278,7 +278,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Client
                     }
                 },
                 {
-                    "DefaultApi.PostV2StocksReportProductsSizes", new List<IReadOnlyDictionary<string, object>>
+                    "AnalyticsApi.PostV2SearchReportTableGroups", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -290,7 +290,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Client
                     }
                 },
                 {
-                    "DefaultApi.PostV3SalesFunnelGroupedHistory", new List<IReadOnlyDictionary<string, object>>
+                    "AnalyticsApi.PostV2StocksReportOffices", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -302,7 +302,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Client
                     }
                 },
                 {
-                    "DefaultApi.PostV3SalesFunnelProducts", new List<IReadOnlyDictionary<string, object>>
+                    "AnalyticsApi.PostV2StocksReportProductsGroups", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -314,7 +314,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Client
                     }
                 },
                 {
-                    "DefaultApi.PostV3SalesFunnelProductsHistory", new List<IReadOnlyDictionary<string, object>>
+                    "AnalyticsApi.PostV2StocksReportProductsProducts", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -326,7 +326,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Client
                     }
                 },
                 {
-                    "CSVApi.GetV2NmReportDownloads", new List<IReadOnlyDictionary<string, object>>
+                    "AnalyticsApi.PostV2StocksReportProductsSizes", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -338,7 +338,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Client
                     }
                 },
                 {
-                    "CSVApi.GetV2NmReportDownloadsFileDownloadId", new List<IReadOnlyDictionary<string, object>>
+                    "AnalyticsApi.PostV3SalesFunnelGroupedHistory", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -350,7 +350,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Client
                     }
                 },
                 {
-                    "CSVApi.PostV2NmReportDownloads", new List<IReadOnlyDictionary<string, object>>
+                    "AnalyticsApi.PostV3SalesFunnelProducts", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -362,7 +362,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Client
                     }
                 },
                 {
-                    "CSVApi.PostV2NmReportDownloadsRetry", new List<IReadOnlyDictionary<string, object>>
+                    "AnalyticsApi.PostV3SalesFunnelProductsHistory", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -803,7 +803,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version + "\n";
             report += "    Version of the API: analytics\n";
-            report += "    SDK Package Version: 1.20261010.0\n";
+            report += "    SDK Package Version: 1.20261010.1\n";
 
             return report;
         }

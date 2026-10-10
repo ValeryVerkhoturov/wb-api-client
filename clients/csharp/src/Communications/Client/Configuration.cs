@@ -33,7 +33,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "1.20261010.0";
+        public const string Version = "1.20261010.1";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -134,7 +134,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Client
             OperationServers = new Dictionary<string, List<IReadOnlyDictionary<string, object>>>()
             {
                 {
-                    "DefaultApi.DeleteV1Pins", new List<IReadOnlyDictionary<string, object>>
+                    "CommunicationsApi.DeleteV1Pins", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -146,7 +146,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV1Claims", new List<IReadOnlyDictionary<string, object>>
+                    "CommunicationsApi.GetV1Claims", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -158,7 +158,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV1Feedback", new List<IReadOnlyDictionary<string, object>>
+                    "CommunicationsApi.GetV1Feedback", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -177,7 +177,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV1Feedbacks", new List<IReadOnlyDictionary<string, object>>
+                    "CommunicationsApi.GetV1Feedbacks", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -196,7 +196,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV1FeedbacksArchive", new List<IReadOnlyDictionary<string, object>>
+                    "CommunicationsApi.GetV1FeedbacksArchive", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -215,7 +215,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV1FeedbacksCount", new List<IReadOnlyDictionary<string, object>>
+                    "CommunicationsApi.GetV1FeedbacksCount", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -234,7 +234,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV1FeedbacksCountUnanswered", new List<IReadOnlyDictionary<string, object>>
+                    "CommunicationsApi.GetV1FeedbacksCountUnanswered", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -253,7 +253,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV1NewFeedbacksQuestions", new List<IReadOnlyDictionary<string, object>>
+                    "CommunicationsApi.GetV1NewFeedbacksQuestions", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -272,7 +272,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV1Pins", new List<IReadOnlyDictionary<string, object>>
+                    "CommunicationsApi.GetV1Pins", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -284,7 +284,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV1PinsCount", new List<IReadOnlyDictionary<string, object>>
+                    "CommunicationsApi.GetV1PinsCount", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -296,7 +296,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV1PinsLimits", new List<IReadOnlyDictionary<string, object>>
+                    "CommunicationsApi.GetV1PinsLimits", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -308,7 +308,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV1Question", new List<IReadOnlyDictionary<string, object>>
+                    "CommunicationsApi.GetV1Question", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -327,7 +327,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV1Questions", new List<IReadOnlyDictionary<string, object>>
+                    "CommunicationsApi.GetV1Questions", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -346,7 +346,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV1QuestionsCount", new List<IReadOnlyDictionary<string, object>>
+                    "CommunicationsApi.GetV1QuestionsCount", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -365,7 +365,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV1QuestionsCountUnanswered", new List<IReadOnlyDictionary<string, object>>
+                    "CommunicationsApi.GetV1QuestionsCountUnanswered", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -384,7 +384,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV1SellerChats", new List<IReadOnlyDictionary<string, object>>
+                    "CommunicationsApi.GetV1SellerChats", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -396,7 +396,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV1SellerDownloadId", new List<IReadOnlyDictionary<string, object>>
+                    "CommunicationsApi.GetV1SellerDownloadId", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -408,7 +408,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV1SellerEvents", new List<IReadOnlyDictionary<string, object>>
+                    "CommunicationsApi.GetV1SellerEvents", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -420,7 +420,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Client
                     }
                 },
                 {
-                    "DefaultApi.PatchV1Claim", new List<IReadOnlyDictionary<string, object>>
+                    "CommunicationsApi.PatchV1Claim", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -432,7 +432,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Client
                     }
                 },
                 {
-                    "DefaultApi.PatchV1FeedbacksAnswer", new List<IReadOnlyDictionary<string, object>>
+                    "CommunicationsApi.PatchV1FeedbacksAnswer", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -451,7 +451,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Client
                     }
                 },
                 {
-                    "DefaultApi.PatchV1Questions", new List<IReadOnlyDictionary<string, object>>
+                    "CommunicationsApi.PatchV1Questions", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -470,7 +470,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Client
                     }
                 },
                 {
-                    "DefaultApi.PostV1FeedbacksAnswer", new List<IReadOnlyDictionary<string, object>>
+                    "CommunicationsApi.PostV1FeedbacksAnswer", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -489,7 +489,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Client
                     }
                 },
                 {
-                    "DefaultApi.PostV1FeedbacksOrderReturn", new List<IReadOnlyDictionary<string, object>>
+                    "CommunicationsApi.PostV1FeedbacksOrderReturn", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -508,7 +508,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Client
                     }
                 },
                 {
-                    "DefaultApi.PostV1Pins", new List<IReadOnlyDictionary<string, object>>
+                    "CommunicationsApi.PostV1Pins", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -520,7 +520,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Client
                     }
                 },
                 {
-                    "DefaultApi.PostV1SellerMessage", new List<IReadOnlyDictionary<string, object>>
+                    "CommunicationsApi.PostV1SellerMessage", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -961,7 +961,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version + "\n";
             report += "    Version of the API: communication\n";
-            report += "    SDK Package Version: 1.20261010.0\n";
+            report += "    SDK Package Version: 1.20261010.1\n";
 
             return report;
         }

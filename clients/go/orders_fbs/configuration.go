@@ -99,37 +99,7 @@ func NewConfiguration() *Configuration {
 			},
 		},
 		OperationServers: map[string]ServerConfigurations{
-			"DefaultApiService.GetV3FbsSettingsAutoreturns": {
-				{
-					URL:         "https://marketplace-api.wildberries.ru",
-					Description: "**Prod** ",
-				},
-			},
-			"DefaultApiService.GetV3FbsSettingsAutoreturnsSubcategoriesRestricted": {
-				{
-					URL:         "https://marketplace-api.wildberries.ru",
-					Description: "**Prod** ",
-				},
-			},
-			"DefaultApiService.PatchV3FbsSettingsAutoreturns": {
-				{
-					URL:         "https://marketplace-api.wildberries.ru",
-					Description: "**Prod** ",
-				},
-			},
-			"DefaultApiService.PatchV3FbsSettingsAutoreturnsItems": {
-				{
-					URL:         "https://marketplace-api.wildberries.ru",
-					Description: "**Prod** ",
-				},
-			},
-			"DefaultApiService.PostV3FbsSettingsAutoreturnsItems": {
-				{
-					URL:         "https://marketplace-api.wildberries.ru",
-					Description: "**Prod** ",
-				},
-			},
-			"FBSAPIService.DeleteV3OrdersOrderIdMeta": {
+			"OrdersFbsAPIService.DeleteV3OrdersOrderIdMeta": {
 				{
 					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
@@ -139,7 +109,7 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"FBSAPIService.DeleteV3PassesPassId": {
+			"OrdersFbsAPIService.DeleteV3PassesPassId": {
 				{
 					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
@@ -149,7 +119,7 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"FBSAPIService.DeleteV3SuppliesSupplyId": {
+			"OrdersFbsAPIService.DeleteV3SuppliesSupplyId": {
 				{
 					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
@@ -159,7 +129,7 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"FBSAPIService.DeleteV3SuppliesSupplyIdTrbx": {
+			"OrdersFbsAPIService.DeleteV3SuppliesSupplyIdTrbx": {
 				{
 					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
@@ -169,31 +139,43 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"FBSAPIService.GetV3FbsDictionariesCountriesOksm": {
+			"OrdersFbsAPIService.GetV3FbsDictionariesCountriesOksm": {
 				{
 					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"FBSAPIService.GetV3FbsOrdersArchive": {
+			"OrdersFbsAPIService.GetV3FbsOrdersArchive": {
 				{
 					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"FBSAPIService.GetV3FbsShippingPoints": {
+			"OrdersFbsAPIService.GetV3FbsSettingsAutoreturns": {
+				{
+					URL:         "https://marketplace-api.wildberries.ru",
+					Description: "**Prod** ",
+				},
+			},
+			"OrdersFbsAPIService.GetV3FbsSettingsAutoreturnsSubcategoriesRestricted": {
+				{
+					URL:         "https://marketplace-api.wildberries.ru",
+					Description: "**Prod** ",
+				},
+			},
+			"OrdersFbsAPIService.GetV3FbsShippingPoints": {
 				{
 					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"FBSAPIService.GetV3FbsSuppliesSupplyIdStickersSpot": {
+			"OrdersFbsAPIService.GetV3FbsSuppliesSupplyIdStickersSpot": {
 				{
 					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"FBSAPIService.GetV3Orders": {
+			"OrdersFbsAPIService.GetV3Orders": {
 				{
 					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
@@ -203,7 +185,7 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"FBSAPIService.GetV3OrdersNew": {
+			"OrdersFbsAPIService.GetV3OrdersNew": {
 				{
 					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
@@ -213,7 +195,7 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"FBSAPIService.GetV3Passes": {
+			"OrdersFbsAPIService.GetV3Passes": {
 				{
 					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
@@ -223,7 +205,7 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"FBSAPIService.GetV3PassesOffices": {
+			"OrdersFbsAPIService.GetV3PassesOffices": {
 				{
 					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
@@ -233,7 +215,7 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"FBSAPIService.GetV3Supplies": {
+			"OrdersFbsAPIService.GetV3Supplies": {
 				{
 					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
@@ -243,7 +225,7 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"FBSAPIService.GetV3SuppliesOrdersReshipment": {
+			"OrdersFbsAPIService.GetV3SuppliesOrdersReshipment": {
 				{
 					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
@@ -253,7 +235,7 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"FBSAPIService.GetV3SuppliesSupplyId": {
+			"OrdersFbsAPIService.GetV3SuppliesSupplyId": {
 				{
 					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
@@ -263,7 +245,7 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"FBSAPIService.GetV3SuppliesSupplyIdBarcode": {
+			"OrdersFbsAPIService.GetV3SuppliesSupplyIdBarcode": {
 				{
 					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
@@ -273,7 +255,7 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"FBSAPIService.GetV3SuppliesSupplyIdOrderIds": {
+			"OrdersFbsAPIService.GetV3SuppliesSupplyIdOrderIds": {
 				{
 					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
@@ -283,7 +265,7 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"FBSAPIService.GetV3SuppliesSupplyIdTrbx": {
+			"OrdersFbsAPIService.GetV3SuppliesSupplyIdTrbx": {
 				{
 					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
@@ -293,13 +275,25 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"FBSAPIService.PatchV3FbsSuppliesShippingMethod": {
+			"OrdersFbsAPIService.PatchV3FbsSettingsAutoreturns": {
+				{
+					URL:         "https://marketplace-api.wildberries.ru",
+					Description: "**Prod** ",
+				},
+			},
+			"OrdersFbsAPIService.PatchV3FbsSettingsAutoreturnsItems": {
+				{
+					URL:         "https://marketplace-api.wildberries.ru",
+					Description: "**Prod** ",
+				},
+			},
+			"OrdersFbsAPIService.PatchV3FbsSuppliesShippingMethod": {
 				{
 					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"FBSAPIService.PatchV3OrdersOrderIdCancel": {
+			"OrdersFbsAPIService.PatchV3OrdersOrderIdCancel": {
 				{
 					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
@@ -309,7 +303,7 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"FBSAPIService.PatchV3SuppliesSupplyIdDeliver": {
+			"OrdersFbsAPIService.PatchV3SuppliesSupplyIdDeliver": {
 				{
 					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
@@ -319,7 +313,7 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"FBSAPIService.PatchV3SuppliesSupplyIdOrders": {
+			"OrdersFbsAPIService.PatchV3SuppliesSupplyIdOrders": {
 				{
 					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
@@ -329,13 +323,19 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"FBSAPIService.PostV3FbsSuppliesSpotList": {
+			"OrdersFbsAPIService.PostV3FbsSettingsAutoreturnsItems": {
+				{
+					URL:         "https://marketplace-api.wildberries.ru",
+					Description: "**Prod** ",
+				},
+			},
+			"OrdersFbsAPIService.PostV3FbsSuppliesSpotList": {
 				{
 					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"FBSAPIService.PostV3OrdersClient": {
+			"OrdersFbsAPIService.PostV3OrdersClient": {
 				{
 					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
@@ -345,7 +345,7 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"FBSAPIService.PostV3OrdersMeta": {
+			"OrdersFbsAPIService.PostV3OrdersMeta": {
 				{
 					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
@@ -355,7 +355,7 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"FBSAPIService.PostV3OrdersStatus": {
+			"OrdersFbsAPIService.PostV3OrdersStatus": {
 				{
 					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
@@ -365,7 +365,7 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"FBSAPIService.PostV3OrdersStatusHistory": {
+			"OrdersFbsAPIService.PostV3OrdersStatusHistory": {
 				{
 					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
@@ -375,7 +375,7 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"FBSAPIService.PostV3OrdersStickers": {
+			"OrdersFbsAPIService.PostV3OrdersStickers": {
 				{
 					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
@@ -385,13 +385,13 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"FBSAPIService.PostV3OrdersStickersCrossBorder": {
+			"OrdersFbsAPIService.PostV3OrdersStickersCrossBorder": {
 				{
 					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"FBSAPIService.PostV3Passes": {
+			"OrdersFbsAPIService.PostV3Passes": {
 				{
 					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
@@ -401,7 +401,7 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"FBSAPIService.PostV3Supplies": {
+			"OrdersFbsAPIService.PostV3Supplies": {
 				{
 					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
@@ -411,7 +411,7 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"FBSAPIService.PostV3SuppliesSupplyIdTrbx": {
+			"OrdersFbsAPIService.PostV3SuppliesSupplyIdTrbx": {
 				{
 					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
@@ -421,7 +421,7 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"FBSAPIService.PostV3SuppliesSupplyIdTrbxStickers": {
+			"OrdersFbsAPIService.PostV3SuppliesSupplyIdTrbxStickers": {
 				{
 					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
@@ -431,13 +431,13 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"FBSAPIService.PutV3FbsSuppliesSupplyIdSpot": {
+			"OrdersFbsAPIService.PutV3FbsSuppliesSupplyIdSpot": {
 				{
 					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"FBSAPIService.PutV3OrdersOrderIdMetaCustomsDeclaration": {
+			"OrdersFbsAPIService.PutV3OrdersOrderIdMetaCustomsDeclaration": {
 				{
 					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
@@ -447,7 +447,7 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"FBSAPIService.PutV3OrdersOrderIdMetaExpiration": {
+			"OrdersFbsAPIService.PutV3OrdersOrderIdMetaExpiration": {
 				{
 					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
@@ -457,7 +457,7 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"FBSAPIService.PutV3OrdersOrderIdMetaGtin": {
+			"OrdersFbsAPIService.PutV3OrdersOrderIdMetaGtin": {
 				{
 					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
@@ -467,7 +467,7 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"FBSAPIService.PutV3OrdersOrderIdMetaImei": {
+			"OrdersFbsAPIService.PutV3OrdersOrderIdMetaImei": {
 				{
 					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
@@ -477,7 +477,7 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"FBSAPIService.PutV3OrdersOrderIdMetaSgtin": {
+			"OrdersFbsAPIService.PutV3OrdersOrderIdMetaSgtin": {
 				{
 					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
@@ -487,7 +487,7 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"FBSAPIService.PutV3OrdersOrderIdMetaUin": {
+			"OrdersFbsAPIService.PutV3OrdersOrderIdMetaUin": {
 				{
 					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
@@ -497,7 +497,7 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"FBSAPIService.PutV3PassesPassId": {
+			"OrdersFbsAPIService.PutV3PassesPassId": {
 				{
 					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",

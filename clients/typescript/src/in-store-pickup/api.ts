@@ -1508,10 +1508,10 @@ export interface Response4XX {
 }
 
 /**
- * DefaultApi - axios parameter creator
+ * InStorePickupApi - axios parameter creator
  * @export
  */
-export const DefaultApiAxiosParamCreator = function (
+export const InStorePickupApiAxiosParamCreator = function (
   configuration?: Configuration,
 ) {
   return {
@@ -2529,11 +2529,12 @@ export const DefaultApiAxiosParamCreator = function (
 };
 
 /**
- * DefaultApi - functional programming interface
+ * InStorePickupApi - functional programming interface
  * @export
  */
-export const DefaultApiFp = function (configuration?: Configuration) {
-  const localVarAxiosParamCreator = DefaultApiAxiosParamCreator(configuration);
+export const InStorePickupApiFp = function (configuration?: Configuration) {
+  const localVarAxiosParamCreator =
+    InStorePickupApiAxiosParamCreator(configuration);
   return {
     /**
      * Метод возвращает информацию о завершённых сборочных заданиях после продажи или отмены заказа.  Можно получить данные за заданный период, максимум 30 календарных дней одним запросом.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий Самовывоз**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов.  ---  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
@@ -2564,7 +2565,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV3ClickCollectOrders"]?.[
+        operationServerMap["InStorePickupApi.getV3ClickCollectOrders"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -2590,7 +2591,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         await localVarAxiosParamCreator.getV3ClickCollectOrdersNew(options);
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV3ClickCollectOrdersNew"]?.[
+        operationServerMap["InStorePickupApi.getV3ClickCollectOrdersNew"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -2624,7 +2625,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.postV3ClickCollectOrdersClient"]?.[
+        operationServerMap["InStorePickupApi.postV3ClickCollectOrdersClient"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -2659,7 +2660,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
         operationServerMap[
-          "DefaultApi.postV3ClickCollectOrdersClientIdentity"
+          "InStorePickupApi.postV3ClickCollectOrdersClientIdentity"
         ]?.[localVarOperationServerIndex]?.url;
       return (axios, basePath) =>
         createRequestFunction(
@@ -2692,9 +2693,9 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.postV3ClickCollectOrdersFinalPrice"]?.[
-          localVarOperationServerIndex
-        ]?.url;
+        operationServerMap[
+          "InStorePickupApi.postV3ClickCollectOrdersFinalPrice"
+        ]?.[localVarOperationServerIndex]?.url;
       return (axios, basePath) =>
         createRequestFunction(
           localVarAxiosArgs,
@@ -2727,7 +2728,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
         operationServerMap[
-          "DefaultApi.postV3ClickCollectOrdersMetaCustomsDeclaration"
+          "InStorePickupApi.postV3ClickCollectOrdersMetaCustomsDeclaration"
         ]?.[localVarOperationServerIndex]?.url;
       return (axios, basePath) =>
         createRequestFunction(
@@ -2760,9 +2761,9 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.postV3ClickCollectOrdersMetaDelete"]?.[
-          localVarOperationServerIndex
-        ]?.url;
+        operationServerMap[
+          "InStorePickupApi.postV3ClickCollectOrdersMetaDelete"
+        ]?.[localVarOperationServerIndex]?.url;
       return (axios, basePath) =>
         createRequestFunction(
           localVarAxiosArgs,
@@ -2794,9 +2795,9 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.postV3ClickCollectOrdersMetaDetails"]?.[
-          localVarOperationServerIndex
-        ]?.url;
+        operationServerMap[
+          "InStorePickupApi.postV3ClickCollectOrdersMetaDetails"
+        ]?.[localVarOperationServerIndex]?.url;
       return (axios, basePath) =>
         createRequestFunction(
           localVarAxiosArgs,
@@ -2828,9 +2829,9 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.postV3ClickCollectOrdersMetaGtin"]?.[
-          localVarOperationServerIndex
-        ]?.url;
+        operationServerMap[
+          "InStorePickupApi.postV3ClickCollectOrdersMetaGtin"
+        ]?.[localVarOperationServerIndex]?.url;
       return (axios, basePath) =>
         createRequestFunction(
           localVarAxiosArgs,
@@ -2862,9 +2863,9 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.postV3ClickCollectOrdersMetaImei"]?.[
-          localVarOperationServerIndex
-        ]?.url;
+        operationServerMap[
+          "InStorePickupApi.postV3ClickCollectOrdersMetaImei"
+        ]?.[localVarOperationServerIndex]?.url;
       return (axios, basePath) =>
         createRequestFunction(
           localVarAxiosArgs,
@@ -2896,9 +2897,9 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.postV3ClickCollectOrdersMetaSgtin"]?.[
-          localVarOperationServerIndex
-        ]?.url;
+        operationServerMap[
+          "InStorePickupApi.postV3ClickCollectOrdersMetaSgtin"
+        ]?.[localVarOperationServerIndex]?.url;
       return (axios, basePath) =>
         createRequestFunction(
           localVarAxiosArgs,
@@ -2930,9 +2931,9 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.postV3ClickCollectOrdersMetaUin"]?.[
-          localVarOperationServerIndex
-        ]?.url;
+        operationServerMap[
+          "InStorePickupApi.postV3ClickCollectOrdersMetaUin"
+        ]?.[localVarOperationServerIndex]?.url;
       return (axios, basePath) =>
         createRequestFunction(
           localVarAxiosArgs,
@@ -2964,9 +2965,9 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.postV3ClickCollectOrdersStatusCancel"]?.[
-          localVarOperationServerIndex
-        ]?.url;
+        operationServerMap[
+          "InStorePickupApi.postV3ClickCollectOrdersStatusCancel"
+        ]?.[localVarOperationServerIndex]?.url;
       return (axios, basePath) =>
         createRequestFunction(
           localVarAxiosArgs,
@@ -2999,7 +3000,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
         operationServerMap[
-          "DefaultApi.postV3ClickCollectOrdersStatusConfirm"
+          "InStorePickupApi.postV3ClickCollectOrdersStatusConfirm"
         ]?.[localVarOperationServerIndex]?.url;
       return (axios, basePath) =>
         createRequestFunction(
@@ -3032,9 +3033,9 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.postV3ClickCollectOrdersStatusInfo"]?.[
-          localVarOperationServerIndex
-        ]?.url;
+        operationServerMap[
+          "InStorePickupApi.postV3ClickCollectOrdersStatusInfo"
+        ]?.[localVarOperationServerIndex]?.url;
       return (axios, basePath) =>
         createRequestFunction(
           localVarAxiosArgs,
@@ -3067,7 +3068,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
         operationServerMap[
-          "DefaultApi.postV3ClickCollectOrdersStatusPrepare"
+          "InStorePickupApi.postV3ClickCollectOrdersStatusPrepare"
         ]?.[localVarOperationServerIndex]?.url;
       return (axios, basePath) =>
         createRequestFunction(
@@ -3101,7 +3102,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
         operationServerMap[
-          "DefaultApi.postV3ClickCollectOrdersStatusReceive"
+          "InStorePickupApi.postV3ClickCollectOrdersStatusReceive"
         ]?.[localVarOperationServerIndex]?.url;
       return (axios, basePath) =>
         createRequestFunction(
@@ -3134,9 +3135,9 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.postV3ClickCollectOrdersStatusReject"]?.[
-          localVarOperationServerIndex
-        ]?.url;
+        operationServerMap[
+          "InStorePickupApi.postV3ClickCollectOrdersStatusReject"
+        ]?.[localVarOperationServerIndex]?.url;
       return (axios, basePath) =>
         createRequestFunction(
           localVarAxiosArgs,
@@ -3149,15 +3150,15 @@ export const DefaultApiFp = function (configuration?: Configuration) {
 };
 
 /**
- * DefaultApi - factory interface
+ * InStorePickupApi - factory interface
  * @export
  */
-export const DefaultApiFactory = function (
+export const InStorePickupApiFactory = function (
   configuration?: Configuration,
   basePath?: string,
   axios?: AxiosInstance,
 ) {
-  const localVarFp = DefaultApiFp(configuration);
+  const localVarFp = InStorePickupApiFp(configuration);
   return {
     /**
      * Метод возвращает информацию о завершённых сборочных заданиях после продажи или отмены заказа.  Можно получить данные за заданный период, максимум 30 календарных дней одним запросом.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий Самовывоз**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов.  ---  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
@@ -3443,11 +3444,11 @@ export const DefaultApiFactory = function (
 };
 
 /**
- * DefaultApi - interface
+ * InStorePickupApi - interface
  * @export
- * @interface DefaultApi
+ * @interface InStorePickupApi
  */
-export interface DefaultApiInterface {
+export interface InStorePickupApiInterface {
   /**
    * Метод возвращает информацию о завершённых сборочных заданиях после продажи или отмены заказа.  Можно получить данные за заданный период, максимум 30 календарных дней одним запросом.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий Самовывоз**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов.  ---  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
    * @summary Получить информацию о завершённых сборочных заданиях
@@ -3457,7 +3458,7 @@ export interface DefaultApiInterface {
    * @param {number} dateTo Дата конца периода в формате Unix timestamp
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof InStorePickupApiInterface
    */
   getV3ClickCollectOrders(
     limit: number,
@@ -3472,7 +3473,7 @@ export interface DefaultApiInterface {
    * @summary Получить список новых сборочных заданий
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof InStorePickupApiInterface
    */
   getV3ClickCollectOrdersNew(
     options?: RawAxiosRequestConfig,
@@ -3484,7 +3485,7 @@ export interface DefaultApiInterface {
    * @param {ApiOrdersRequest} apiOrdersRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof InStorePickupApiInterface
    */
   postV3ClickCollectOrdersClient(
     apiOrdersRequest: ApiOrdersRequest,
@@ -3497,7 +3498,7 @@ export interface DefaultApiInterface {
    * @param {ApiCheckIdentityRequest} apiCheckIdentityRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof InStorePickupApiInterface
    */
   postV3ClickCollectOrdersClientIdentity(
     apiCheckIdentityRequest: ApiCheckIdentityRequest,
@@ -3510,7 +3511,7 @@ export interface DefaultApiInterface {
    * @param {ApiOrdersRequest} [apiOrdersRequest]
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof InStorePickupApiInterface
    */
   postV3ClickCollectOrdersFinalPrice(
     apiOrdersRequest?: ApiOrdersRequest,
@@ -3523,7 +3524,7 @@ export interface DefaultApiInterface {
    * @param {PostV3ClickCollectOrdersMetaCustomsDeclarationRequest} postV3ClickCollectOrdersMetaCustomsDeclarationRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof InStorePickupApiInterface
    */
   postV3ClickCollectOrdersMetaCustomsDeclaration(
     postV3ClickCollectOrdersMetaCustomsDeclarationRequest: PostV3ClickCollectOrdersMetaCustomsDeclarationRequest,
@@ -3536,7 +3537,7 @@ export interface DefaultApiInterface {
    * @param {ApiOrdersMetaDeleteRequest} apiOrdersMetaDeleteRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof InStorePickupApiInterface
    */
   postV3ClickCollectOrdersMetaDelete(
     apiOrdersMetaDeleteRequest: ApiOrdersMetaDeleteRequest,
@@ -3549,7 +3550,7 @@ export interface DefaultApiInterface {
    * @param {ApiOrdersRequestV2} apiOrdersRequestV2
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof InStorePickupApiInterface
    */
   postV3ClickCollectOrdersMetaDetails(
     apiOrdersRequestV2: ApiOrdersRequestV2,
@@ -3562,7 +3563,7 @@ export interface DefaultApiInterface {
    * @param {ApiOrdersGTINSetRequest} apiOrdersGTINSetRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof InStorePickupApiInterface
    */
   postV3ClickCollectOrdersMetaGtin(
     apiOrdersGTINSetRequest: ApiOrdersGTINSetRequest,
@@ -3575,7 +3576,7 @@ export interface DefaultApiInterface {
    * @param {ApiOrdersIMEISetRequest} apiOrdersIMEISetRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof InStorePickupApiInterface
    */
   postV3ClickCollectOrdersMetaImei(
     apiOrdersIMEISetRequest: ApiOrdersIMEISetRequest,
@@ -3588,7 +3589,7 @@ export interface DefaultApiInterface {
    * @param {ApiOrdersSGTINsSetRequest} apiOrdersSGTINsSetRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof InStorePickupApiInterface
    */
   postV3ClickCollectOrdersMetaSgtin(
     apiOrdersSGTINsSetRequest: ApiOrdersSGTINsSetRequest,
@@ -3601,7 +3602,7 @@ export interface DefaultApiInterface {
    * @param {ApiOrdersUINSetRequest} apiOrdersUINSetRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof InStorePickupApiInterface
    */
   postV3ClickCollectOrdersMetaUin(
     apiOrdersUINSetRequest: ApiOrdersUINSetRequest,
@@ -3614,7 +3615,7 @@ export interface DefaultApiInterface {
    * @param {ApiOrdersRequestV2} [apiOrdersRequestV2]
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof InStorePickupApiInterface
    */
   postV3ClickCollectOrdersStatusCancel(
     apiOrdersRequestV2?: ApiOrdersRequestV2,
@@ -3627,7 +3628,7 @@ export interface DefaultApiInterface {
    * @param {ApiOrdersRequestV2} [apiOrdersRequestV2]
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof InStorePickupApiInterface
    */
   postV3ClickCollectOrdersStatusConfirm(
     apiOrdersRequestV2?: ApiOrdersRequestV2,
@@ -3640,7 +3641,7 @@ export interface DefaultApiInterface {
    * @param {ApiOrdersRequestV2} apiOrdersRequestV2
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof InStorePickupApiInterface
    */
   postV3ClickCollectOrdersStatusInfo(
     apiOrdersRequestV2: ApiOrdersRequestV2,
@@ -3653,7 +3654,7 @@ export interface DefaultApiInterface {
    * @param {ApiOrdersRequestV2} [apiOrdersRequestV2]
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof InStorePickupApiInterface
    */
   postV3ClickCollectOrdersStatusPrepare(
     apiOrdersRequestV2?: ApiOrdersRequestV2,
@@ -3666,7 +3667,7 @@ export interface DefaultApiInterface {
    * @param {ApiOrdersRequestV2} [apiOrdersRequestV2]
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof InStorePickupApiInterface
    */
   postV3ClickCollectOrdersStatusReceive(
     apiOrdersRequestV2?: ApiOrdersRequestV2,
@@ -3679,7 +3680,7 @@ export interface DefaultApiInterface {
    * @param {ApiOrdersRequestV2} [apiOrdersRequestV2]
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof InStorePickupApiInterface
    */
   postV3ClickCollectOrdersStatusReject(
     apiOrdersRequestV2?: ApiOrdersRequestV2,
@@ -3688,12 +3689,15 @@ export interface DefaultApiInterface {
 }
 
 /**
- * DefaultApi - object-oriented interface
+ * InStorePickupApi - object-oriented interface
  * @export
- * @class DefaultApi
+ * @class InStorePickupApi
  * @extends {BaseAPI}
  */
-export class DefaultApi extends BaseAPI implements DefaultApiInterface {
+export class InStorePickupApi
+  extends BaseAPI
+  implements InStorePickupApiInterface
+{
   /**
    * Метод возвращает информацию о завершённых сборочных заданиях после продажи или отмены заказа.  Можно получить данные за заданный период, максимум 30 календарных дней одним запросом.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий Самовывоз**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов.  ---  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
    * @summary Получить информацию о завершённых сборочных заданиях
@@ -3703,7 +3707,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {number} dateTo Дата конца периода в формате Unix timestamp
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof InStorePickupApi
    */
   public getV3ClickCollectOrders(
     limit: number,
@@ -3712,7 +3716,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
     dateTo: number,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return InStorePickupApiFp(this.configuration)
       .getV3ClickCollectOrders(limit, next, dateFrom, dateTo, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -3722,10 +3726,10 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @summary Получить список новых сборочных заданий
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof InStorePickupApi
    */
   public getV3ClickCollectOrdersNew(options?: RawAxiosRequestConfig) {
-    return DefaultApiFp(this.configuration)
+    return InStorePickupApiFp(this.configuration)
       .getV3ClickCollectOrdersNew(options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -3736,13 +3740,13 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {ApiOrdersRequest} apiOrdersRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof InStorePickupApi
    */
   public postV3ClickCollectOrdersClient(
     apiOrdersRequest: ApiOrdersRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return InStorePickupApiFp(this.configuration)
       .postV3ClickCollectOrdersClient(apiOrdersRequest, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -3753,13 +3757,13 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {ApiCheckIdentityRequest} apiCheckIdentityRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof InStorePickupApi
    */
   public postV3ClickCollectOrdersClientIdentity(
     apiCheckIdentityRequest: ApiCheckIdentityRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return InStorePickupApiFp(this.configuration)
       .postV3ClickCollectOrdersClientIdentity(apiCheckIdentityRequest, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -3770,13 +3774,13 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {ApiOrdersRequest} [apiOrdersRequest]
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof InStorePickupApi
    */
   public postV3ClickCollectOrdersFinalPrice(
     apiOrdersRequest?: ApiOrdersRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return InStorePickupApiFp(this.configuration)
       .postV3ClickCollectOrdersFinalPrice(apiOrdersRequest, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -3787,13 +3791,13 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {PostV3ClickCollectOrdersMetaCustomsDeclarationRequest} postV3ClickCollectOrdersMetaCustomsDeclarationRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof InStorePickupApi
    */
   public postV3ClickCollectOrdersMetaCustomsDeclaration(
     postV3ClickCollectOrdersMetaCustomsDeclarationRequest: PostV3ClickCollectOrdersMetaCustomsDeclarationRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return InStorePickupApiFp(this.configuration)
       .postV3ClickCollectOrdersMetaCustomsDeclaration(
         postV3ClickCollectOrdersMetaCustomsDeclarationRequest,
         options,
@@ -3807,13 +3811,13 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {ApiOrdersMetaDeleteRequest} apiOrdersMetaDeleteRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof InStorePickupApi
    */
   public postV3ClickCollectOrdersMetaDelete(
     apiOrdersMetaDeleteRequest: ApiOrdersMetaDeleteRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return InStorePickupApiFp(this.configuration)
       .postV3ClickCollectOrdersMetaDelete(apiOrdersMetaDeleteRequest, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -3824,13 +3828,13 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {ApiOrdersRequestV2} apiOrdersRequestV2
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof InStorePickupApi
    */
   public postV3ClickCollectOrdersMetaDetails(
     apiOrdersRequestV2: ApiOrdersRequestV2,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return InStorePickupApiFp(this.configuration)
       .postV3ClickCollectOrdersMetaDetails(apiOrdersRequestV2, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -3841,13 +3845,13 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {ApiOrdersGTINSetRequest} apiOrdersGTINSetRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof InStorePickupApi
    */
   public postV3ClickCollectOrdersMetaGtin(
     apiOrdersGTINSetRequest: ApiOrdersGTINSetRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return InStorePickupApiFp(this.configuration)
       .postV3ClickCollectOrdersMetaGtin(apiOrdersGTINSetRequest, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -3858,13 +3862,13 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {ApiOrdersIMEISetRequest} apiOrdersIMEISetRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof InStorePickupApi
    */
   public postV3ClickCollectOrdersMetaImei(
     apiOrdersIMEISetRequest: ApiOrdersIMEISetRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return InStorePickupApiFp(this.configuration)
       .postV3ClickCollectOrdersMetaImei(apiOrdersIMEISetRequest, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -3875,13 +3879,13 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {ApiOrdersSGTINsSetRequest} apiOrdersSGTINsSetRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof InStorePickupApi
    */
   public postV3ClickCollectOrdersMetaSgtin(
     apiOrdersSGTINsSetRequest: ApiOrdersSGTINsSetRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return InStorePickupApiFp(this.configuration)
       .postV3ClickCollectOrdersMetaSgtin(apiOrdersSGTINsSetRequest, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -3892,13 +3896,13 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {ApiOrdersUINSetRequest} apiOrdersUINSetRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof InStorePickupApi
    */
   public postV3ClickCollectOrdersMetaUin(
     apiOrdersUINSetRequest: ApiOrdersUINSetRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return InStorePickupApiFp(this.configuration)
       .postV3ClickCollectOrdersMetaUin(apiOrdersUINSetRequest, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -3909,13 +3913,13 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {ApiOrdersRequestV2} [apiOrdersRequestV2]
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof InStorePickupApi
    */
   public postV3ClickCollectOrdersStatusCancel(
     apiOrdersRequestV2?: ApiOrdersRequestV2,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return InStorePickupApiFp(this.configuration)
       .postV3ClickCollectOrdersStatusCancel(apiOrdersRequestV2, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -3926,13 +3930,13 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {ApiOrdersRequestV2} [apiOrdersRequestV2]
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof InStorePickupApi
    */
   public postV3ClickCollectOrdersStatusConfirm(
     apiOrdersRequestV2?: ApiOrdersRequestV2,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return InStorePickupApiFp(this.configuration)
       .postV3ClickCollectOrdersStatusConfirm(apiOrdersRequestV2, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -3943,13 +3947,13 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {ApiOrdersRequestV2} apiOrdersRequestV2
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof InStorePickupApi
    */
   public postV3ClickCollectOrdersStatusInfo(
     apiOrdersRequestV2: ApiOrdersRequestV2,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return InStorePickupApiFp(this.configuration)
       .postV3ClickCollectOrdersStatusInfo(apiOrdersRequestV2, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -3960,13 +3964,13 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {ApiOrdersRequestV2} [apiOrdersRequestV2]
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof InStorePickupApi
    */
   public postV3ClickCollectOrdersStatusPrepare(
     apiOrdersRequestV2?: ApiOrdersRequestV2,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return InStorePickupApiFp(this.configuration)
       .postV3ClickCollectOrdersStatusPrepare(apiOrdersRequestV2, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -3977,13 +3981,13 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {ApiOrdersRequestV2} [apiOrdersRequestV2]
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof InStorePickupApi
    */
   public postV3ClickCollectOrdersStatusReceive(
     apiOrdersRequestV2?: ApiOrdersRequestV2,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return InStorePickupApiFp(this.configuration)
       .postV3ClickCollectOrdersStatusReceive(apiOrdersRequestV2, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -3994,13 +3998,13 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {ApiOrdersRequestV2} [apiOrdersRequestV2]
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof InStorePickupApi
    */
   public postV3ClickCollectOrdersStatusReject(
     apiOrdersRequestV2?: ApiOrdersRequestV2,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return InStorePickupApiFp(this.configuration)
       .postV3ClickCollectOrdersStatusReject(apiOrdersRequestV2, options)
       .then((request) => request(this.axios, this.basePath));
   }

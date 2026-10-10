@@ -53,7 +53,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Пропуска FBS
+      - OrdersFbs
       summary: Получить список складов, для которых требуется пропуск
       description: |-
         Метод возвращает список складов для привязки к [пропуску продавца](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsPasses/operation/getV3Passes).
@@ -98,6 +98,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: fbsPasses
+      x-original-tags:
+      - Пропуска FBS
   /api/v3/passes:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -113,7 +115,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Пропуска FBS
+      - OrdersFbs
       summary: Получить список пропусков
       description: |-
         Метод возвращает список всех [созданных](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsPasses/operation/postV3Passes) пропусков продавца.
@@ -156,6 +158,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: fbsPasses
+      x-original-tags:
+      - Пропуска FBS
     post:
       operationId: postV3Passes
       x-readonly-method: false
@@ -163,7 +167,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Пропуска FBS
+      - OrdersFbs
       summary: Создать пропуск
       description: |-
         Метод создаёт [пропуск продавца](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsPasses/operation/getV3Passes) с привязкой к складу WB.
@@ -262,6 +266,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: fbsPasses
+      x-original-tags:
+      - Пропуска FBS
   /api/v3/passes/{passId}:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -277,7 +283,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Пропуска FBS
+      - OrdersFbs
       summary: Обновить пропуск
       description: |-
         Метод обновляет данные [пропуска продавца](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsPasses/operation/getV3Passes). В том числе, можно обновить данные привязанного склада WB.
@@ -378,6 +384,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: fbsPasses
+      x-original-tags:
+      - Пропуска FBS
     delete:
       operationId: deleteV3PassesPassId
       x-readonly-method: false
@@ -385,7 +393,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Пропуска FBS
+      - OrdersFbs
       summary: Удалить пропуск
       description: |-
         Метод удаляет пропуск продавца [из списка](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsPasses/operation/getV3Passes).
@@ -428,6 +436,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: fbsPasses
+      x-original-tags:
+      - Пропуска FBS
   /api/v3/orders/new:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -443,7 +453,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Сборочные задания FBS
+      - OrdersFbs
       summary: Получить список новых сборочных заданий
       description: |-
         Метод возвращает список всех новых [сборочных заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders), которые есть у продавца на момент запроса.
@@ -491,6 +501,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: fbsAssemblyOrders
+      x-original-tags:
+      - Сборочные задания FBS
   /api/v3/orders:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -506,7 +518,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Сборочные задания FBS
+      - OrdersFbs
       summary: Получить информацию о сборочных заданиях
       description: |-
         Метод возвращает информацию о сборочных заданиях, созданных не более 3 месяцев назад, без их актуального [статуса](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus).
@@ -576,6 +588,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: fbsAssemblyOrders
+      x-original-tags:
+      - Сборочные задания FBS
   /api/v3/orders/status:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -591,7 +605,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Сборочные задания FBS
+      - OrdersFbs
       summary: Получить статусы сборочных заданий
       description: |-
         Метод возвращает статусы [сборочных заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) по их ID.
@@ -689,6 +703,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: fbsAssemblyOrders
+      x-original-tags:
+      - Сборочные задания FBS
   /api/v3/supplies/orders/reshipment:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -704,7 +720,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Сборочные задания FBS
+      - OrdersFbs
       summary: Получить все сборочные задания для повторной отгрузки
       description: |-
         Метод возвращает все [сборочные задания](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders), требующие повторной отгрузки.
@@ -762,6 +778,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: fbsAssemblyOrders
+      x-original-tags:
+      - Сборочные задания FBS
   /api/v3/orders/{orderId}/cancel:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -777,7 +795,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Сборочные задания FBS
+      - OrdersFbs
       summary: Отменить сборочное задание
       description: |-
         Метод отменяет [сборочное задание](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) и переводит в [статус](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `cancel` — отменено продавцом.
@@ -843,6 +861,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: fbsAssemblyOrders
+      x-original-tags:
+      - Сборочные задания FBS
   /api/v3/orders/stickers:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -858,7 +878,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Сборочные задания FBS
+      - OrdersFbs
       summary: Получить стикеры сборочных заданий
       description: |-
         Метод возвращает список стикеров для [сборочных заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders) в [статусах](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `confirm` — на сборке и `complete` — в доставке.
@@ -980,6 +1000,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: fbsAssemblyOrders
+      x-original-tags:
+      - Сборочные задания FBS
   /api/v3/orders/stickers/cross-border:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -990,7 +1012,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Сборочные задания FBS
+      - OrdersFbs
       summary: Получить стикеры сборочных заданий трансграничных поставок
       description: |-
         Метод возвращает список стикеров [сборочных заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) трансграничных поставок в формате PDF.
@@ -1082,6 +1104,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: fbsAssemblyOrders
+      x-original-tags:
+      - Сборочные задания FBS
   /api/v3/orders/status/history:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -1097,7 +1121,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Сборочные задания FBS
+      - OrdersFbs
       summary: История статусов для сборочных заданий трансграничных поставок
       description: |-
         Метод возвращает историю [статусов](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) для [сборочных заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) трансграничных поставок.
@@ -1161,6 +1185,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: fbsAssemblyOrders
+      x-original-tags:
+      - Сборочные задания FBS
   /api/v3/orders/client:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -1177,7 +1203,7 @@ paths:
       - BearerAuth: []
       summary: Заказы с информацией по клиенту
       tags:
-      - Сборочные задания FBS
+      - OrdersFbs
       description: |-
         Метод позволяет получать информацию о покупателе по ID сборочного задания.
         Только для трансграничных поставок из \*\*Турции\*\*.
@@ -1237,13 +1263,15 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: fbsAssemblyOrders
+      x-original-tags:
+      - Сборочные задания FBS
   /api/marketplace/v3/fbs/orders/archive:
     servers:
     - url: https://marketplace-api.wildberries.ru
     get:
       operationId: getV3FbsOrdersArchive
       tags:
-      - Сборочные задания FBS
+      - OrdersFbs
       summary: Получить список архивных сборочных заданий
       x-readonly-method: true
       x-category: marketplace
@@ -1328,6 +1356,8 @@ paths:
         '429':
           $ref: '#/components/responses/429-2'
       x-tagKey: fbsAssemblyOrders
+      x-original-tags:
+      - Сборочные задания FBS
   /api/marketplace/v3/orders/meta:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -1343,7 +1373,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Идентификаторы маркировки FBS
+      - OrdersFbs
       summary: Получить идентификаторы маркировки сборочных заданий
       description: |-
         Метод возвращает идентификаторы маркировки [сборочных заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) и статусы их проверки.
@@ -1422,6 +1452,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: fbsLabelIdentifiers
+      x-original-tags:
+      - Идентификаторы маркировки FBS
   /api/v3/orders/{orderId}/meta:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -1437,7 +1469,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Идентификаторы маркировки FBS
+      - OrdersFbs
       summary: Удалить идентификаторы маркировки сборочного задания
       description: |-
         Метод удаляет значение [идентификаторов маркировки сборочного задания](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta) для переданного ключа.
@@ -1518,6 +1550,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: fbsLabelIdentifiers
+      x-original-tags:
+      - Идентификаторы маркировки FBS
   /api/v3/orders/{orderId}/meta/sgtin:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -1533,7 +1567,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Идентификаторы маркировки FBS
+      - OrdersFbs
       summary: Закрепить код маркировки Честного знака за сборочным заданием
       description: |-
         Метод обновляет код маркировки [Честного знака](https://честныйзнак.рф/) в идентификаторах маркировки [сборочного задания](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders).
@@ -1628,6 +1662,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: fbsLabelIdentifiers
+      x-original-tags:
+      - Идентификаторы маркировки FBS
   /api/v3/orders/{orderId}/meta/uin:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -1643,7 +1679,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Идентификаторы маркировки FBS
+      - OrdersFbs
       summary: Закрепить УИН за сборочным заданием
       description: |-
         Метод обновляет УИН, уникальный идентификационный номер, в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta).
@@ -1725,6 +1761,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: fbsLabelIdentifiers
+      x-original-tags:
+      - Идентификаторы маркировки FBS
   /api/v3/orders/{orderId}/meta/imei:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -1740,7 +1778,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Идентификаторы маркировки FBS
+      - OrdersFbs
       summary: Закрепить IMEI за сборочным заданием
       description: |-
         Метод обновляет IMEI в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta).
@@ -1822,6 +1860,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: fbsLabelIdentifiers
+      x-original-tags:
+      - Идентификаторы маркировки FBS
   /api/v3/orders/{orderId}/meta/gtin:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -1837,7 +1877,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Идентификаторы маркировки FBS
+      - OrdersFbs
       summary: Закрепить GTIN за сборочным заданием
       description: |-
         Метод обновляет GTIN, уникальный ID товара в Беларуси, в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta).
@@ -1919,6 +1959,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: fbsLabelIdentifiers
+      x-original-tags:
+      - Идентификаторы маркировки FBS
   /api/v3/orders/{orderId}/meta/expiration:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -1934,7 +1976,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Идентификаторы маркировки FBS
+      - OrdersFbs
       summary: Закрепить за сборочным заданием срок годности товара
       description: |-
         Метод закрепляет за [сборочным заданием](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) срок годности товара. Товар годен до указанной даты.
@@ -2021,6 +2063,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: fbsLabelIdentifiers
+      x-original-tags:
+      - Идентификаторы маркировки FBS
   /api/marketplace/v3/orders/{orderId}/meta/customs-declaration:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -2036,7 +2080,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Идентификаторы маркировки FBS
+      - OrdersFbs
       summary: Закрепить номер ДТ за сборочным заданием
       description: |-
         Метод обновляет номер ДТ — декларации на товары — в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta). У одного сборочного задания может быть только один номер ДТ.
@@ -2121,6 +2165,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: fbsLabelIdentifiers
+      x-original-tags:
+      - Идентификаторы маркировки FBS
   /api/v3/supplies:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -2136,7 +2182,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Поставки FBS
+      - OrdersFbs
       summary: Создать новую поставку
       description: |-
         Метод создаёт новую [поставку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyId).
@@ -2206,6 +2252,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: fbsSupplies
+      x-original-tags:
+      - Поставки FBS
     get:
       operationId: getV3Supplies
       x-readonly-method: true
@@ -2213,7 +2261,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Поставки FBS
+      - OrdersFbs
       summary: Получить список поставок
       description: |-
         Метод возвращает список [поставок](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyId).
@@ -2268,6 +2316,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: fbsSupplies
+      x-original-tags:
+      - Поставки FBS
   /api/marketplace/v3/supplies/{supplyId}/orders:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -2283,7 +2333,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Поставки FBS
+      - OrdersFbs
       summary: Добавить сборочные задания к поставке
       description: |-
         Метод добавляет до 100 [сборочных заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) к поставке и переводит их в [статус](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `confirm` — на сборке.
@@ -2376,6 +2426,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: fbsSupplies
+      x-original-tags:
+      - Поставки FBS
   /api/v3/supplies/{supplyId}:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -2391,7 +2443,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Поставки FBS
+      - OrdersFbs
       summary: Получить информацию о поставке
       description: |-
         Метод возвращает подробную информацию о поставке.
@@ -2447,6 +2499,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: fbsSupplies
+      x-original-tags:
+      - Поставки FBS
     delete:
       operationId: deleteV3SuppliesSupplyId
       x-readonly-method: false
@@ -2454,7 +2508,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Поставки FBS
+      - OrdersFbs
       summary: Удалить поставку
       description: |-
         Метод удаляет [поставку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyId), если она активна и за ней не закреплено ни одно [сборочное задание](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders).
@@ -2515,6 +2569,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: fbsSupplies
+      x-original-tags:
+      - Поставки FBS
   /api/marketplace/v3/supplies/{supplyId}/order-ids:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -2528,7 +2584,7 @@ paths:
       x-readonly-method: true
       x-category: marketplace
       tags:
-      - Поставки FBS
+      - OrdersFbs
       summary: Получить ID сборочных заданий поставки
       description: |-
         Метод возвращает список ID сборочных заданий, закреплённых за поставкой.
@@ -2589,6 +2645,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: fbsSupplies
+      x-original-tags:
+      - Поставки FBS
   /api/marketplace/v3/fbs/shipping-points:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -2599,7 +2657,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Поставки FBS
+      - OrdersFbs
       summary: Получить список пунктов отгрузки поставок
       description: |-
         Метод возвращает доступные пункты отгрузки поставок с фильтрами:
@@ -2660,6 +2718,8 @@ paths:
         '429':
           $ref: '#/components/responses/429-2'
       x-tagKey: fbsSupplies
+      x-original-tags:
+      - Поставки FBS
   /api/marketplace/v3/fbs/supplies/shipping-method:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -2670,7 +2730,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Поставки FBS
+      - OrdersFbs
       summary: Установить параметры отгрузки поставок
       description: |-
         Метод устанавливает способ доставки, дату и пункт отгрузки у поставок.
@@ -2742,6 +2802,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: fbsSupplies
+      x-original-tags:
+      - Поставки FBS
   /api/marketplace/v3/fbs/supplies/waybill:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -2763,7 +2825,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Поставки FBS
+      - OrdersFbs
       summary: Передать поставку в доставку
       description: |-
         Метод закрывает [поставку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyId) и переводит все [сборочные задания](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) в ней в [статус](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `complete` — в доставке. После закрытия поставки добавить новые сборочные задания к ней нельзя.
@@ -2839,6 +2901,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: fbsSupplies
+      x-original-tags:
+      - Поставки FBS
   /api/v3/supplies/{supplyId}/barcode:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -2854,7 +2918,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Поставки FBS
+      - OrdersFbs
       summary: Получить QR-код поставки
       description: |-
         Метод возвращает QR-код [поставки](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyId) в форматах:
@@ -2937,6 +3001,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: fbsSupplies
+      x-original-tags:
+      - Поставки FBS
   /api/v3/supplies/{supplyId}/trbx:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -2952,7 +3018,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Поставки FBS
+      - OrdersFbs
       summary: Получить список грузомест поставки
       description: |-
         Возвращает список грузомест поставки.
@@ -3008,6 +3074,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: fbsSupplies
+      x-original-tags:
+      - Поставки FBS
     post:
       operationId: postV3SuppliesSupplyIdTrbx
       x-readonly-method: false
@@ -3015,7 +3083,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Поставки FBS
+      - OrdersFbs
       summary: Добавить грузоместа к поставке
       description: |-
         Метод добавляет требуемое количество [грузомест](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyIdTrbx) в [поставку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyId).
@@ -3089,6 +3157,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: fbsSupplies
+      x-original-tags:
+      - Поставки FBS
     delete:
       operationId: deleteV3SuppliesSupplyIdTrbx
       x-readonly-method: false
@@ -3096,7 +3166,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Поставки FBS
+      - OrdersFbs
       summary: Удалить грузоместа из поставки
       description: |-
         Метод удаляет грузоместа из поставки.
@@ -3164,6 +3234,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: fbsSupplies
+      x-original-tags:
+      - Поставки FBS
   /api/v3/supplies/{supplyId}/trbx/stickers:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -3179,7 +3251,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Поставки FBS
+      - OrdersFbs
       summary: Получить стикеры грузомест поставки
       description: |-
         Метод возвращает QR-стикеры в форматах:
@@ -3266,6 +3338,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: fbsSupplies
+      x-original-tags:
+      - Поставки FBS
   /api/marketplace/v3/fbs/dictionaries/countries/oksm:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -3274,7 +3348,7 @@ paths:
       x-readonly-method: true
       x-category: marketplace
       tags:
-      - Поставки FBS
+      - OrdersFbs
       summary: Получить список стран ОКСМ
       description: |-
         Метод возвращает список стран ОКСМ — Общероссийского классификатора стран мира — с полными названиями и кодами.
@@ -3298,6 +3372,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: fbsSupplies
+      x-original-tags:
+      - Поставки FBS
   /api/marketplace/v3/fbs/supplies/{supplyId}/spot:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -3306,7 +3382,7 @@ paths:
       x-readonly-method: false
       x-category: marketplace
       tags:
-      - Поставки FBS
+      - OrdersFbs
       summary: Добавить данные СПОТ в поставку
       description: |-
         Метод добавляет данные СПОТ в поставку.
@@ -3405,6 +3481,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: fbsSupplies
+      x-original-tags:
+      - Поставки FBS
   /api/marketplace/v3/fbs/supplies/spot/list:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -3413,7 +3491,7 @@ paths:
       x-category: marketplace
       operationId: postV3FbsSuppliesSpotList
       tags:
-      - Поставки FBS
+      - OrdersFbs
       summary: Получить данные СПОТ для списка поставок
       description: |-
         Метод возвращает данные СПОТ для списка поставок.
@@ -3471,6 +3549,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: fbsSupplies
+      x-original-tags:
+      - Поставки FBS
   /api/marketplace/v3/fbs/supplies/{supplyId}/stickers/spot:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -3479,7 +3559,7 @@ paths:
       x-readonly-method: true
       x-category: marketplace
       tags:
-      - Поставки FBS
+      - OrdersFbs
       summary: Получить QR-код СПОТ
       description: |-
         Метод возвращает сформированный QR-код СПОТ для поставки в формате PNG, кодировка base64.
@@ -3530,6 +3610,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: fbsSupplies
+      x-original-tags:
+      - Поставки FBS
   /api/marketplace/v3/fbs/settings/autoreturns:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -3546,7 +3628,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Настройки автовозврата
+      - OrdersFbs
       summary: Получить настройки автовозврата продавца
       description: |-
         Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
@@ -3593,6 +3675,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: autoreturnSettings
+      x-original-tags:
+      - Настройки автовозврата
     patch:
       x-readonly-method: false
       x-token-types:
@@ -3604,7 +3688,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Настройки автовозврата
+      - OrdersFbs
       summary: Обновить настройки автовозврата продавца
       description: |-
         Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
@@ -3667,6 +3751,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: autoreturnSettings
+      x-original-tags:
+      - Настройки автовозврата
   /api/marketplace/v3/fbs/settings/autoreturns/items:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -3683,7 +3769,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Настройки автовозврата
+      - OrdersFbs
       summary: Получить настройки автовозврата товаров
       description: |-
         Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
@@ -3749,6 +3835,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: autoreturnSettings
+      x-original-tags:
+      - Настройки автовозврата
     patch:
       x-readonly-method: false
       x-token-types:
@@ -3760,7 +3848,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Настройки автовозврата
+      - OrdersFbs
       summary: Обновить настройки автовозврата товаров
       description: |-
         Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
@@ -3839,6 +3927,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: autoreturnSettings
+      x-original-tags:
+      - Настройки автовозврата
   /api/marketplace/v3/fbs/settings/autoreturns/subcategories/restricted:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -3855,7 +3945,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Настройки автовозврата
+      - OrdersFbs
       summary: Получить предметы, которые не хранятся на складах WB
       description: |-
         Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
@@ -3921,6 +4011,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: autoreturnSettings
+      x-original-tags:
+      - Настройки автовозврата
 components:
   securitySchemes:
     BearerAuth:

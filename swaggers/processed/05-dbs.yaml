@@ -36,7 +36,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Сборочные задания DBS
+      - Dbs
       summary: Получить список новых сборочных заданий
       description: |-
         Метод возвращает список всех новых [сборочных заданий](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders), которые есть у продавца на момент запроса.
@@ -79,6 +79,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: dbsAssemblyOrders
+      x-original-tags:
+      - Сборочные задания DBS
   /api/v3/dbs/orders:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -94,7 +96,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Сборочные задания DBS
+      - Dbs
       summary: Получить информацию о завершенных сборочных заданиях
       description: |-
         Метод возвращает информацию о завершенных [сборочных заданиях](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders) после продажи или отмены заказа.
@@ -164,6 +166,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: dbsAssemblyOrders
+      x-original-tags:
+      - Сборочные задания DBS
   /api/marketplace/v3/dbs/orders/final-price:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -172,7 +176,7 @@ paths:
       x-readonly-method: true
       x-category: marketplace
       tags:
-      - Сборочные задания DBS
+      - Dbs
       summary: Получить цены продавца и суммы к оплате
       description: |-
         Метод возвращает:
@@ -223,6 +227,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: dbsAssemblyOrders
+      x-original-tags:
+      - Сборочные задания DBS
   /api/v3/dbs/groups/info:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -248,7 +254,7 @@ paths:
 
         В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
       tags:
-      - Сборочные задания DBS
+      - Dbs
       summary: Получить информацию о платной доставке
       requestBody:
         required: true
@@ -294,6 +300,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: dbsAssemblyOrders
+      x-original-tags:
+      - Сборочные задания DBS
   /api/v3/dbs/orders/client:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -322,7 +330,7 @@ paths:
 
         В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
       tags:
-      - Сборочные задания DBS
+      - Dbs
       requestBody:
         required: true
         content:
@@ -373,6 +381,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: dbsAssemblyOrders
+      x-original-tags:
+      - Сборочные задания DBS
   /api/marketplace/v3/dbs/orders/b2b/info:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -383,7 +393,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Сборочные задания DBS
+      - Dbs
       summary: Информация о покупателе B2B
       description: |-
         Метод возвращает данные B2B-покупателей по ID сборочных заданий:
@@ -437,6 +447,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: dbsAssemblyOrders
+      x-original-tags:
+      - Сборочные задания DBS
   /api/v3/dbs/orders/delivery-date:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -465,7 +477,7 @@ paths:
 
         В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
       tags:
-      - Сборочные задания DBS
+      - Dbs
       requestBody:
         required: true
         content:
@@ -512,6 +524,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: dbsAssemblyOrders
+      x-original-tags:
+      - Сборочные задания DBS
   /api/marketplace/v3/dbs/orders/status/info:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -527,7 +541,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Сборочные задания DBS
+      - Dbs
       summary: Получить статусы сборочных заданий
       description: |-
         Метод возвращает статусы [сборочных заданий](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders) по их ID.
@@ -616,6 +630,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: dbsAssemblyOrders
+      x-original-tags:
+      - Сборочные задания DBS
   /api/marketplace/v3/dbs/orders/status/cancel:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -631,7 +647,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Сборочные задания DBS
+      - Dbs
       summary: Отменить сборочные задания
       description: |-
         Метод переводит [сборочные задания](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders) из [статусов](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `new` и `confirm` в статус `cancel` — отменено продавцом.
@@ -690,6 +706,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: dbsAssemblyOrders
+      x-original-tags:
+      - Сборочные задания DBS
   /api/marketplace/v3/dbs/orders/status/confirm:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -705,7 +723,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Сборочные задания DBS
+      - Dbs
       summary: Перевести сборочные задания на сборку
       description: |-
         Метод переводит [сборочные задания](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders) из [статуса](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `new` в статус `confirm` — на сборке.
@@ -763,6 +781,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: dbsAssemblyOrders
+      x-original-tags:
+      - Сборочные задания DBS
   /api/marketplace/v3/dbs/orders/stickers:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -777,7 +797,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Сборочные задания DBS
+      - Dbs
       summary: Получить стикеры для сборочных заданий с доставкой в ПВЗ
       description: |-
         Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
@@ -879,6 +899,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: dbsAssemblyOrders
+      x-original-tags:
+      - Сборочные задания DBS
   /api/marketplace/v3/dbs/orders/status/deliver:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -894,7 +916,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Сборочные задания DBS
+      - Dbs
       summary: Перевести сборочные задания в доставку
       description: |-
         Метод переводит [сборочные задания](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders) из [статуса](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `confirm` в статус `deliver` — в доставке.
@@ -952,6 +974,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: dbsAssemblyOrders
+      x-original-tags:
+      - Сборочные задания DBS
   /api/marketplace/v3/dbs/orders/status/receive:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -967,7 +991,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Сборочные задания DBS
+      - Dbs
       summary: Сообщить о получении заказов
       description: |-
         Метод переводит [сборочные задания](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders) из [статуса](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `deliver` в статус `receive` — получено покупателем.
@@ -1024,6 +1048,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: dbsAssemblyOrders
+      x-original-tags:
+      - Сборочные задания DBS
   /api/marketplace/v3/dbs/orders/status/reject:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -1039,7 +1065,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Сборочные задания DBS
+      - Dbs
       summary: Сообщить об отказе от заказов
       description: |-
         Метод переводит [сборочные задания](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders) из [статуса](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `deliver` в статус `reject` — отказ покупателя при получении.
@@ -1096,6 +1122,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: dbsAssemblyOrders
+      x-original-tags:
+      - Сборочные задания DBS
   /api/marketplace/v3/dbs/orders/meta/details:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -1106,7 +1134,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Идентификаторы маркировки DBS
+      - Dbs
       summary: Получить идентификаторы маркировки сборочных заданий
       description: |-
         Метод возвращает идентификаторы маркировки [сборочных заданий](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders) и статусы их проверки.
@@ -1169,6 +1197,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: dbsLabelIdentifiers
+      x-original-tags:
+      - Идентификаторы маркировки DBS
   /api/marketplace/v3/dbs/orders/meta/delete:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -1184,7 +1214,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Идентификаторы маркировки DBS
+      - Dbs
       summary: Удалить идентификаторы маркировки сборочных заданий
       description: |-
         Метод удаляет значение указанных [идентификаторов маркировки сборочных заданий](https://dev.wildberries.ru/openapi/dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails).
@@ -1255,6 +1285,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: dbsLabelIdentifiers
+      x-original-tags:
+      - Идентификаторы маркировки DBS
   /api/marketplace/v3/dbs/orders/meta/sgtin:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -1270,7 +1302,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Идентификаторы маркировки DBS
+      - Dbs
       summary: Закрепить коды маркировки Честного знака за сборочными заданиями
       description: |-
         Метод обновляет код маркировки [Честного знака](https://честныйзнак.рф/) в [идентификаторах маркировки сборочных заданий](https://dev.wildberries.ru/openapi/dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails).
@@ -1334,6 +1366,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: dbsLabelIdentifiers
+      x-original-tags:
+      - Идентификаторы маркировки DBS
   /api/marketplace/v3/dbs/orders/meta/uin:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -1349,7 +1383,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Идентификаторы маркировки DBS
+      - Dbs
       summary: Закрепить УИН за сборочными заданиями
       description: |-
         Метод обновляет УИН, уникальные идентификационные номера, в [идентификаторах маркировки сборочных заданий](https://dev.wildberries.ru/openapi/dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails).
@@ -1415,6 +1449,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: dbsLabelIdentifiers
+      x-original-tags:
+      - Идентификаторы маркировки DBS
   /api/marketplace/v3/dbs/orders/meta/imei:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -1430,7 +1466,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Идентификаторы маркировки DBS
+      - Dbs
       summary: Закрепить IMEI за сборочными заданиями
       description: |-
         Метод обновляет IMEI в [идентификаторах маркировки сборочных заданий](https://dev.wildberries.ru/openapi/dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails).
@@ -1496,6 +1532,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: dbsLabelIdentifiers
+      x-original-tags:
+      - Идентификаторы маркировки DBS
   /api/marketplace/v3/dbs/orders/meta/gtin:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -1511,7 +1549,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Идентификаторы маркировки DBS
+      - Dbs
       summary: Закрепить GTIN за сборочными заданиями
       description: |-
         Метод обновляет GTIN, уникальный ID товара в Беларуси, в [идентификаторах маркировки сборочных заданий](https://dev.wildberries.ru/openapi/dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails). У одного сборочного задания может быть только один GTIN.
@@ -1576,6 +1614,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: dbsLabelIdentifiers
+      x-original-tags:
+      - Идентификаторы маркировки DBS
   /api/marketplace/v3/dbs/orders/meta/customs-declaration:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -1591,7 +1631,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Идентификаторы маркировки DBS
+      - Dbs
       summary: Закрепить номера ДТ за сборочными заданиями
       description: |-
         Метод обновляет номера ДТ — деклараций на товары — и коды стран происхождения товаров в [идентификаторах маркировки сборочных заданий](https://dev.wildberries.ru/openapi/dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails). У одного сборочного задания может быть только один номер ДТ.
@@ -1694,6 +1734,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: dbsLabelIdentifiers
+      x-original-tags:
+      - Идентификаторы маркировки DBS
 components:
   securitySchemes:
     BearerAuth:

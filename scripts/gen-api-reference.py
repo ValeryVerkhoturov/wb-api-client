@@ -295,7 +295,7 @@ def load_modules(spec_dir: Path) -> list[Module]:
                         op_id=op["operationId"],
                         summary=(op.get("summary") or op["operationId"]).strip(),
                         description=absolutize((op.get("description") or "").strip()),
-                        tag=(op.get("tags") or [""])[0],
+                        tag=(op.get("x-original-tags") or op.get("tags") or [""])[0],
                         tag_key=op.get("x-tagKey", ""),
                         server=op_server,
                         page=page,

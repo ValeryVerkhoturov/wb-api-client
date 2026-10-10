@@ -89,61 +89,61 @@ interface ServerMap {
  * @export
  */
 export const operationServerMap: ServerMap = {
-  "DefaultApi.deleteV1DraftsDraftId": [
+  "OrdersFbwApi.deleteV1DraftsDraftId": [
     {
       url: "https://supplies-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.deleteV1DraftsDraftIdItems": [
+  "OrdersFbwApi.deleteV1DraftsDraftIdItems": [
     {
       url: "https://supplies-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.getV1Drafts": [
+  "OrdersFbwApi.getV1Drafts": [
     {
       url: "https://supplies-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.getV1DraftsDraftIdItems": [
+  "OrdersFbwApi.getV1DraftsDraftIdItems": [
     {
       url: "https://supplies-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.getV1SuppliesId": [
+  "OrdersFbwApi.getV1SuppliesId": [
     {
       url: "https://supplies-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.getV1SuppliesIdGoods": [
+  "OrdersFbwApi.getV1SuppliesIdGoods": [
     {
       url: "https://supplies-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.getV1SuppliesIdPackage": [
+  "OrdersFbwApi.getV1SuppliesIdPackage": [
     {
       url: "https://supplies-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.getV1SuppliesSupplyIdDiscrepanciesQuantity": [
+  "OrdersFbwApi.getV1SuppliesSupplyIdDiscrepanciesQuantity": [
     {
       url: "https://supplies-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.getV1TransitTariffs": [
+  "OrdersFbwApi.getV1TransitTariffs": [
     {
       url: "https://supplies-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.getV1Warehouses": [
+  "OrdersFbwApi.getV1Warehouses": [
     {
       url: "https://supplies-api.wildberries.ru",
       description: "**Prod** ",
@@ -153,7 +153,7 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DefaultApi.postV1AcceptanceOptions": [
+  "OrdersFbwApi.postV1AcceptanceOptions": [
     {
       url: "https://supplies-api.wildberries.ru",
       description: "**Prod** ",
@@ -163,19 +163,19 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DefaultApi.postV1Drafts": [
+  "OrdersFbwApi.postV1Drafts": [
     {
       url: "https://supplies-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.postV1DraftsDraftIdItems": [
+  "OrdersFbwApi.postV1DraftsDraftIdItems": [
     {
       url: "https://supplies-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.postV1Supplies": [
+  "OrdersFbwApi.postV1Supplies": [
     {
       url: "https://supplies-api.wildberries.ru",
       description: "No description provided",

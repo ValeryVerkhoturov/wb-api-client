@@ -33,7 +33,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersDbw.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "1.20261010.0";
+        public const string Version = "1.20261010.1";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -134,7 +134,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersDbw.Client
             OperationServers = new Dictionary<string, List<IReadOnlyDictionary<string, object>>>()
             {
                 {
-                    "DBWApi.GetV3DbwOrders", new List<IReadOnlyDictionary<string, object>>
+                    "OrdersDbwApi.GetV3DbwOrders", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -146,7 +146,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersDbw.Client
                     }
                 },
                 {
-                    "DBWApi.GetV3DbwOrdersNew", new List<IReadOnlyDictionary<string, object>>
+                    "OrdersDbwApi.GetV3DbwOrdersNew", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -158,7 +158,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersDbw.Client
                     }
                 },
                 {
-                    "DBWApi.PatchV3DbwOrdersOrderIdCancel", new List<IReadOnlyDictionary<string, object>>
+                    "OrdersDbwApi.PatchV3DbwOrdersOrderIdCancel", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -170,7 +170,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersDbw.Client
                     }
                 },
                 {
-                    "DBWApi.PatchV3DbwOrdersOrderIdConfirm", new List<IReadOnlyDictionary<string, object>>
+                    "OrdersDbwApi.PatchV3DbwOrdersOrderIdConfirm", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -182,7 +182,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersDbw.Client
                     }
                 },
                 {
-                    "DBWApi.PostV3DbwOrdersClient", new List<IReadOnlyDictionary<string, object>>
+                    "OrdersDbwApi.PostV3DbwOrdersClient", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -194,7 +194,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersDbw.Client
                     }
                 },
                 {
-                    "DBWApi.PostV3DbwOrdersCourier", new List<IReadOnlyDictionary<string, object>>
+                    "OrdersDbwApi.PostV3DbwOrdersCourier", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -206,7 +206,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersDbw.Client
                     }
                 },
                 {
-                    "DBWApi.PostV3DbwOrdersDeliveryDate", new List<IReadOnlyDictionary<string, object>>
+                    "OrdersDbwApi.PostV3DbwOrdersDeliveryDate", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -218,7 +218,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersDbw.Client
                     }
                 },
                 {
-                    "DBWApi.PostV3DbwOrdersMetaDelete", new List<IReadOnlyDictionary<string, object>>
+                    "OrdersDbwApi.PostV3DbwOrdersMetaDelete", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -230,7 +230,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersDbw.Client
                     }
                 },
                 {
-                    "DBWApi.PostV3DbwOrdersMetaDetails", new List<IReadOnlyDictionary<string, object>>
+                    "OrdersDbwApi.PostV3DbwOrdersMetaDetails", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -242,7 +242,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersDbw.Client
                     }
                 },
                 {
-                    "DBWApi.PostV3DbwOrdersMetaSgtin", new List<IReadOnlyDictionary<string, object>>
+                    "OrdersDbwApi.PostV3DbwOrdersMetaSgtin", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -254,7 +254,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersDbw.Client
                     }
                 },
                 {
-                    "DBWApi.PostV3DbwOrdersStatus", new List<IReadOnlyDictionary<string, object>>
+                    "OrdersDbwApi.PostV3DbwOrdersStatus", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -266,7 +266,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersDbw.Client
                     }
                 },
                 {
-                    "DBWApi.PostV3DbwOrdersStatusDeliver", new List<IReadOnlyDictionary<string, object>>
+                    "OrdersDbwApi.PostV3DbwOrdersStatusDeliver", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -278,7 +278,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersDbw.Client
                     }
                 },
                 {
-                    "DBWApi.PostV3DbwOrdersStickers", new List<IReadOnlyDictionary<string, object>>
+                    "OrdersDbwApi.PostV3DbwOrdersStickers", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -290,7 +290,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersDbw.Client
                     }
                 },
                 {
-                    "DBWApi.PutV3DbwOrdersOrderIdMetaGtin", new List<IReadOnlyDictionary<string, object>>
+                    "OrdersDbwApi.PutV3DbwOrdersOrderIdMetaGtin", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -302,7 +302,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersDbw.Client
                     }
                 },
                 {
-                    "DBWApi.PutV3DbwOrdersOrderIdMetaImei", new List<IReadOnlyDictionary<string, object>>
+                    "OrdersDbwApi.PutV3DbwOrdersOrderIdMetaImei", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -314,7 +314,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersDbw.Client
                     }
                 },
                 {
-                    "DBWApi.PutV3DbwOrdersOrderIdMetaUin", new List<IReadOnlyDictionary<string, object>>
+                    "OrdersDbwApi.PutV3DbwOrdersOrderIdMetaUin", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -755,7 +755,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersDbw.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version + "\n";
             report += "    Version of the API: ordersdbw\n";
-            report += "    SDK Package Version: 1.20261010.0\n";
+            report += "    SDK Package Version: 1.20261010.1\n";
 
             return report;
         }

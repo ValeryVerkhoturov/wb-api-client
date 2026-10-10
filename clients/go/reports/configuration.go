@@ -99,109 +99,109 @@ func NewConfiguration() *Configuration {
 			},
 		},
 		OperationServers: map[string]ServerConfigurations{
-			"DefaultApiService.GetV1AcceptanceReport": {
+			"ReportsAPIService.GetV1AcceptanceReport": {
 				{
 					URL:         "https://seller-analytics-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"DefaultApiService.GetV1AcceptanceReportTasksTaskIdDownload": {
+			"ReportsAPIService.GetV1AcceptanceReportTasksTaskIdDownload": {
 				{
 					URL:         "https://seller-analytics-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"DefaultApiService.GetV1AcceptanceReportTasksTaskIdStatus": {
+			"ReportsAPIService.GetV1AcceptanceReportTasksTaskIdStatus": {
 				{
 					URL:         "https://seller-analytics-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"DefaultApiService.GetV1AnalyticsAntifraudDetails": {
+			"ReportsAPIService.GetV1AnalyticsAntifraudDetails": {
 				{
 					URL:         "https://seller-analytics-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"DefaultApiService.GetV1AnalyticsBannedProducsBlocked": {
+			"ReportsAPIService.GetV1AnalyticsBannedProducsBlocked": {
 				{
 					URL:         "https://seller-analytics-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"DefaultApiService.GetV1AnalyticsBrandShare": {
+			"ReportsAPIService.GetV1AnalyticsBrandShare": {
 				{
 					URL:         "https://seller-analytics-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"DefaultApiService.GetV1AnalyticsBrandShareBrands": {
+			"ReportsAPIService.GetV1AnalyticsBrandShareBrands": {
 				{
 					URL:         "https://seller-analytics-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"DefaultApiService.GetV1AnalyticsBrandShareParentSubjects": {
+			"ReportsAPIService.GetV1AnalyticsBrandShareParentSubjects": {
 				{
 					URL:         "https://seller-analytics-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"DefaultApiService.GetV1AnalyticsGoodsLabeling": {
+			"ReportsAPIService.GetV1AnalyticsGoodsLabeling": {
 				{
 					URL:         "https://seller-analytics-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"DefaultApiService.GetV1AnalyticsGoodsReturn": {
+			"ReportsAPIService.GetV1AnalyticsGoodsReturn": {
 				{
 					URL:         "https://seller-analytics-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"DefaultApiService.GetV1AnalyticsRegionSale": {
+			"ReportsAPIService.GetV1AnalyticsRegionSale": {
 				{
 					URL:         "https://seller-analytics-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"DefaultApiService.GetV1Deductions": {
+			"ReportsAPIService.GetV1Deductions": {
 				{
 					URL:         "https://seller-analytics-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"DefaultApiService.GetV1GoodsReturn": {
+			"ReportsAPIService.GetV1GoodsReturn": {
 				{
 					URL:         "https://seller-analytics-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"DefaultApiService.GetV1MeasurementPenalties": {
+			"ReportsAPIService.GetV1MeasurementPenalties": {
 				{
 					URL:         "https://seller-analytics-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"DefaultApiService.GetV1PaidStorage": {
+			"ReportsAPIService.GetV1PaidStorage": {
 				{
 					URL:         "https://seller-analytics-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"DefaultApiService.GetV1PaidStorageTasksTaskIdDownload": {
+			"ReportsAPIService.GetV1PaidStorageTasksTaskIdDownload": {
 				{
 					URL:         "https://seller-analytics-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"DefaultApiService.GetV1PaidStorageTasksTaskIdStatus": {
+			"ReportsAPIService.GetV1PaidStorageTasksTaskIdStatus": {
 				{
 					URL:         "https://seller-analytics-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"DefaultApiService.GetV1SupplierOrders": {
+			"ReportsAPIService.GetV1SupplierOrders": {
 				{
 					URL:         "https://statistics-api.wildberries.ru",
 					Description: "**Prod** ",
@@ -211,7 +211,7 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"DefaultApiService.GetV1SupplierSales": {
+			"ReportsAPIService.GetV1SupplierSales": {
 				{
 					URL:         "https://statistics-api.wildberries.ru",
 					Description: "**Prod** ",
@@ -221,31 +221,31 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"DefaultApiService.GetV1WarehouseMeasurements": {
+			"ReportsAPIService.GetV1WarehouseMeasurements": {
 				{
 					URL:         "https://seller-analytics-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"DefaultApiService.GetV1WarehouseRemains": {
+			"ReportsAPIService.GetV1WarehouseRemains": {
 				{
 					URL:         "https://seller-analytics-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"DefaultApiService.GetV1WarehouseRemainsTasksTaskIdDownload": {
+			"ReportsAPIService.GetV1WarehouseRemainsTasksTaskIdDownload": {
 				{
 					URL:         "https://seller-analytics-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"DefaultApiService.GetV1WarehouseRemainsTasksTaskIdStatus": {
+			"ReportsAPIService.GetV1WarehouseRemainsTasksTaskIdStatus": {
 				{
 					URL:         "https://seller-analytics-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"CAPIService.PostV1AnalyticsExciseReport": {
+			"ReportsAPIService.PostV1AnalyticsExciseReport": {
 				{
 					URL:         "https://seller-analytics-api.wildberries.ru",
 					Description: "No description provided",

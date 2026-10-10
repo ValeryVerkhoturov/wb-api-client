@@ -64,7 +64,7 @@ paths:
         | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
       tags:
-      - Вопросы
+      - Communications
       responses:
         '200':
           description: Успешно
@@ -94,6 +94,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: questions
+      x-original-tags:
+      - Вопросы
   /api/v1/questions/count-unanswered:
     servers:
     - url: https://feedbacks-api.wildberries.ru
@@ -120,7 +122,7 @@ paths:
         | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
       tags:
-      - Вопросы
+      - Communications
       responses:
         '200':
           description: Успешно
@@ -150,6 +152,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: questions
+      x-original-tags:
+      - Вопросы
   /api/v1/questions/count:
     servers:
     - url: https://feedbacks-api.wildberries.ru
@@ -176,7 +180,7 @@ paths:
         | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
       tags:
-      - Вопросы
+      - Communications
       parameters:
       - name: dateFrom
         in: query
@@ -242,6 +246,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: questions
+      x-original-tags:
+      - Вопросы
   /api/v1/questions:
     servers:
     - url: https://feedbacks-api.wildberries.ru
@@ -273,7 +279,7 @@ paths:
         | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
       tags:
-      - Вопросы
+      - Communications
       parameters:
       - name: isAnswered
         in: query
@@ -383,6 +389,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: questions
+      x-original-tags:
+      - Вопросы
     patch:
       operationId: patchV1Questions
       x-readonly-method: false
@@ -408,7 +416,7 @@ paths:
         | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
       tags:
-      - Вопросы
+      - Communications
       requestBody:
         content:
           application/json:
@@ -533,6 +541,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: questions
+      x-original-tags:
+      - Вопросы
   /api/v1/question:
     servers:
     - url: https://feedbacks-api.wildberries.ru
@@ -559,7 +569,7 @@ paths:
         | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
       tags:
-      - Вопросы
+      - Communications
       parameters:
       - name: id
         in: query
@@ -628,6 +638,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: questions
+      x-original-tags:
+      - Вопросы
   /api/v1/feedbacks/count-unanswered:
     servers:
     - url: https://feedbacks-api.wildberries.ru
@@ -655,7 +667,7 @@ paths:
         | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
       tags:
-      - Отзывы
+      - Communications
       responses:
         '200':
           description: Успешно
@@ -685,6 +697,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: feedbacks
+      x-original-tags:
+      - Отзывы
   /api/v1/feedbacks/count:
     servers:
     - url: https://feedbacks-api.wildberries.ru
@@ -714,7 +728,7 @@ paths:
         | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
       tags:
-      - Отзывы
+      - Communications
       parameters:
       - name: dateFrom
         in: query
@@ -780,6 +794,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: feedbacks
+      x-original-tags:
+      - Отзывы
   /api/v1/feedbacks:
     servers:
     - url: https://feedbacks-api.wildberries.ru
@@ -812,7 +828,7 @@ paths:
         | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
       tags:
-      - Отзывы
+      - Communications
       parameters:
       - name: isAnswered
         in: query
@@ -959,6 +975,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: feedbacks
+      x-original-tags:
+      - Отзывы
   /api/v1/feedbacks/answer:
     servers:
     - url: https://feedbacks-api.wildberries.ru
@@ -972,7 +990,7 @@ paths:
       x-readonly-method: false
       x-category: questionsandfeedback
       tags:
-      - Отзывы
+      - Communications
       security:
       - BearerAuth: []
       summary: Ответить на отзыв
@@ -1034,12 +1052,14 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: feedbacks
+      x-original-tags:
+      - Отзывы
     patch:
       operationId: patchV1FeedbacksAnswer
       x-readonly-method: false
       x-category: questionsandfeedback
       tags:
-      - Отзывы
+      - Communications
       security:
       - BearerAuth: []
       summary: Отредактировать ответ на отзыв
@@ -1088,6 +1108,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: feedbacks
+      x-original-tags:
+      - Отзывы
   /api/v1/feedbacks/order/return:
     servers:
     - url: https://feedbacks-api.wildberries.ru
@@ -1116,7 +1138,7 @@ paths:
         | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
       tags:
-      - Отзывы
+      - Communications
       requestBody:
         required: true
         content:
@@ -1169,6 +1191,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: feedbacks
+      x-original-tags:
+      - Отзывы
   /api/v1/feedback:
     servers:
     - url: https://feedbacks-api.wildberries.ru
@@ -1195,7 +1219,7 @@ paths:
         | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
       tags:
-      - Отзывы
+      - Communications
       parameters:
       - name: id
         in: query
@@ -1283,6 +1307,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: feedbacks
+      x-original-tags:
+      - Отзывы
   /api/v1/feedbacks/archive:
     servers:
     - url: https://feedbacks-api.wildberries.ru
@@ -1314,7 +1340,7 @@ paths:
         | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
       tags:
-      - Отзывы
+      - Communications
       parameters:
       - name: nmId
         in: query
@@ -1446,6 +1472,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: feedbacks
+      x-original-tags:
+      - Отзывы
   /api/feedbacks/v1/pins:
     servers:
     - url: https://feedbacks-api.wildberries.ru
@@ -1469,7 +1497,7 @@ paths:
         | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
       tags:
-      - Закреплённые отзывы
+      - Communications
       parameters:
       - name: state
         in: query
@@ -1570,6 +1598,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: pinnedFeedbacks
+      x-original-tags:
+      - Закреплённые отзывы
     post:
       operationId: postV1Pins
       x-readonly-method: false
@@ -1591,7 +1621,7 @@ paths:
         | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
       tags:
-      - Закреплённые отзывы
+      - Communications
       requestBody:
         content:
           application/json:
@@ -1652,6 +1682,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: pinnedFeedbacks
+      x-original-tags:
+      - Закреплённые отзывы
     delete:
       operationId: deleteV1Pins
       x-readonly-method: false
@@ -1671,7 +1703,7 @@ paths:
         | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
       tags:
-      - Закреплённые отзывы
+      - Communications
       requestBody:
         description: Список `pinId` — ID операций закрепления отзывов
         content:
@@ -1714,6 +1746,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: pinnedFeedbacks
+      x-original-tags:
+      - Закреплённые отзывы
   /api/feedbacks/v1/pins/count:
     servers:
     - url: https://feedbacks-api.wildberries.ru
@@ -1735,7 +1769,7 @@ paths:
         | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
       tags:
-      - Закреплённые отзывы
+      - Communications
       parameters:
       - name: state
         in: query
@@ -1822,6 +1856,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: pinnedFeedbacks
+      x-original-tags:
+      - Закреплённые отзывы
   /api/feedbacks/v1/pins/limits:
     servers:
     - url: https://feedbacks-api.wildberries.ru
@@ -1843,7 +1879,7 @@ paths:
         | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
       tags:
-      - Закреплённые отзывы
+      - Communications
       responses:
         '200':
           description: Успешно
@@ -1860,6 +1896,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: pinnedFeedbacks
+      x-original-tags:
+      - Закреплённые отзывы
   /api/v1/seller/chats:
     get:
       operationId: getV1SellerChats
@@ -1881,7 +1919,7 @@ paths:
         | Базовый с секретом | 10 сек | 10 запросов | 1 сек | 10 запросов |
         | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
       tags:
-      - Чат с покупателями
+      - Communications
       responses:
         '200':
           description: Успешно
@@ -1898,6 +1936,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: buyersChat
+      x-original-tags:
+      - Чат с покупателями
   /api/v1/seller/events:
     get:
       operationId: getV1SellerEvents
@@ -1922,7 +1962,7 @@ paths:
         | Базовый с секретом | 10 сек | 10 запросов | 1 сек | 10 запросов |
         | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
       tags:
-      - Чат с покупателями
+      - Communications
       parameters:
       - name: next
         in: query
@@ -2035,6 +2075,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: buyersChat
+      x-original-tags:
+      - Чат с покупателями
   /api/v1/seller/message:
     post:
       operationId: postV1SellerMessage
@@ -2056,7 +2098,7 @@ paths:
         | Базовый с секретом | 10 сек | 10 запросов | 1 сек | 10 запросов |
         | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
       tags:
-      - Чат с покупателями
+      - Communications
       requestBody:
         content:
           multipart/form-data:
@@ -2146,6 +2188,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: buyersChat
+      x-original-tags:
+      - Чат с покупателями
   /api/v1/seller/download/{id}:
     get:
       operationId: getV1SellerDownloadId
@@ -2156,7 +2200,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Чат с покупателями
+      - Communications
       summary: Получить файл из сообщения
       description: |-
         Метод возвращает файл или изображение из сообщения по его ID.
@@ -2228,6 +2272,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/GetV1SellerDownloadIdResponse451'
       x-tagKey: buyersChat
+      x-original-tags:
+      - Чат с покупателями
   /api/v1/claims:
     servers:
     - url: https://returns-api.wildberries.ru
@@ -2238,7 +2284,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Возвраты покупателями
+      - Communications
       summary: Заявки покупателей на возврат
       description: |-
         Метод возвращает заявки покупателей на возврат товаров за последние 14 дней. Вы можете [отвечать на эти заявки](https://dev.wildberries.ru/openapi/customer-communication#tag/buyersReturns/operation/patchV1Claim).
@@ -2270,6 +2316,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: buyersReturns
+      x-original-tags:
+      - Возвраты покупателями
   /api/v1/claim:
     servers:
     - url: https://returns-api.wildberries.ru
@@ -2280,7 +2328,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Возвраты покупателями
+      - Communications
       summary: Ответ на заявку покупателя
       description: |-
         Метод отправляет ответ на [заявку](https://dev.wildberries.ru/openapi/customer-communication#tag/buyersReturns/operation/getV1Claims) покупателя на возврат товаров.
@@ -2308,6 +2356,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: buyersReturns
+      x-original-tags:
+      - Возвраты покупателями
 components:
   examples:
     contentTypeHeaderNotSpecified:

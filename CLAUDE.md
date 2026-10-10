@@ -17,7 +17,7 @@ Everything under `clients/` is generated output. Do not edit it — regenerate.
 
 ```
 download-swaggers.sh   →  swaggers/*.yaml         (raw upstream, checksummed)
-post-process.py        →  swaggers/processed/     (9 passes; see below)
+post-process.py        →  swaggers/processed/     (10 passes; see below)
 generate.sh <ver>      →  clients/<lang>/…        (openapi-generator-cli, 7 langs)
     ├── inject-secret.py           (SecretString wrapper per lang; OneScript ships its own)
     ├── {black|prettier|gofmt|spotless|php-cs-fixer}   (canonicalize formatting)
@@ -50,12 +50,9 @@ and pushes — which trips that repo's own Pages deploy. It needs a PAT with
 `repo` scope on the docs repo in `secrets.DOCS_REPO_TOKEN`; without one the
 step warns and the release proceeds.
 
-Coverage is printed per language on every run. Six clients expose all 305
-operations; **Python exposes 201** — tags that sanitize to the same class name
-collapse into one `Api`/`DefaultApi` and the later operations are dropped by
-openapi-generator. Those operations get no Python tab rather than an invented
-one. Fixing the Python client (distinct `apiNameSuffix` / explicit tag
-sanitization) would restore 104 pages' worth of Python examples.
+Coverage is printed per language on every run. All clients expose all 307
+operations — `post-process.py`'s `rename_tags_to_module` gives every module a
+single ASCII tag, so no operations are dropped to tag-name collisions.
 
 `swaggers/`, `clients/python/`, `clients/typescript/`, `clients/go/`, `clients/java/`, `clients/csharp/` are committed here at each release tag. Two languages live in **sibling repos mounted as git submodules**:
 
@@ -163,8 +160,9 @@ Every generated client sends `ValeryVerkhoturov/wb-api-client/<lang>` on every r
 8. `absolutize_description_links` — prefixes `[…](/openapi/…)` with `https://dev.wildberries.ru` so links in generated docstrings resolve
 9. `drop_date_formats` — strips `format: date` / `date-time` from string schemas (WB returns `""` for unset dates like `fixTariffDateFrom`/`utdUcdDate`, which crashes strict date parsers in every language; plain strings are the honest contract)
 10. `drop_response_required` — deletes `required` arrays from every schema reachable from a response definition, so missing response fields deserialize to defaults (`None` / null / zero value) instead of throwing. Request-body schemas keep their `required` lists — input validation is unaffected
+11. `rename_tags_to_module` — rewrites every operation's `tags` to the module name (`Finances`, `Reports`, …) so each module generates a single well-named API class (`FinancesApi`, …) instead of `Api`/`DefaultApi` (WB tags are Russian; generators sanitize non-ASCII tag names to an empty class-name stem). Original tags are stashed in `x-original-tags` for the docs generator
 
-(Counted as "10 passes" if you split HTML→MD and link-absolutize; the pipeline diagram calls it 9 for the sake of the "one big semantic step for descriptions" reading.)
+(Counted as "11 passes" if you split HTML→MD and link-absolutize; the pipeline diagram calls it 10 for the sake of the "one big semantic step for descriptions" reading.)
 
 ## Spec source — GitLab mirror
 

@@ -33,7 +33,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "1.20261010.0";
+        public const string Version = "1.20261010.1";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -134,7 +134,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Client
             OperationServers = new Dictionary<string, List<IReadOnlyDictionary<string, object>>>()
             {
                 {
-                    "DBSApi.GetV3DbsOrders", new List<IReadOnlyDictionary<string, object>>
+                    "DbsApi.GetV3DbsOrders", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -153,7 +153,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Client
                     }
                 },
                 {
-                    "DBSApi.GetV3DbsOrdersNew", new List<IReadOnlyDictionary<string, object>>
+                    "DbsApi.GetV3DbsOrdersNew", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -172,7 +172,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Client
                     }
                 },
                 {
-                    "DBSApi.PostV3DbsGroupsInfo", new List<IReadOnlyDictionary<string, object>>
+                    "DbsApi.PostV3DbsGroupsInfo", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -191,7 +191,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Client
                     }
                 },
                 {
-                    "DBSApi.PostV3DbsOrdersB2bInfo", new List<IReadOnlyDictionary<string, object>>
+                    "DbsApi.PostV3DbsOrdersB2bInfo", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -203,7 +203,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Client
                     }
                 },
                 {
-                    "DBSApi.PostV3DbsOrdersClient", new List<IReadOnlyDictionary<string, object>>
+                    "DbsApi.PostV3DbsOrdersClient", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -222,7 +222,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Client
                     }
                 },
                 {
-                    "DBSApi.PostV3DbsOrdersDeliveryDate", new List<IReadOnlyDictionary<string, object>>
+                    "DbsApi.PostV3DbsOrdersDeliveryDate", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -241,7 +241,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Client
                     }
                 },
                 {
-                    "DBSApi.PostV3DbsOrdersFinalPrice", new List<IReadOnlyDictionary<string, object>>
+                    "DbsApi.PostV3DbsOrdersFinalPrice", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -253,7 +253,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Client
                     }
                 },
                 {
-                    "DBSApi.PostV3DbsOrdersMetaCustomsDeclaration", new List<IReadOnlyDictionary<string, object>>
+                    "DbsApi.PostV3DbsOrdersMetaCustomsDeclaration", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -272,7 +272,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Client
                     }
                 },
                 {
-                    "DBSApi.PostV3DbsOrdersMetaDelete", new List<IReadOnlyDictionary<string, object>>
+                    "DbsApi.PostV3DbsOrdersMetaDelete", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -291,7 +291,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Client
                     }
                 },
                 {
-                    "DBSApi.PostV3DbsOrdersMetaDetails", new List<IReadOnlyDictionary<string, object>>
+                    "DbsApi.PostV3DbsOrdersMetaDetails", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -303,7 +303,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Client
                     }
                 },
                 {
-                    "DBSApi.PostV3DbsOrdersMetaGtin", new List<IReadOnlyDictionary<string, object>>
+                    "DbsApi.PostV3DbsOrdersMetaGtin", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -322,7 +322,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Client
                     }
                 },
                 {
-                    "DBSApi.PostV3DbsOrdersMetaImei", new List<IReadOnlyDictionary<string, object>>
+                    "DbsApi.PostV3DbsOrdersMetaImei", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -341,7 +341,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Client
                     }
                 },
                 {
-                    "DBSApi.PostV3DbsOrdersMetaSgtin", new List<IReadOnlyDictionary<string, object>>
+                    "DbsApi.PostV3DbsOrdersMetaSgtin", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -360,7 +360,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Client
                     }
                 },
                 {
-                    "DBSApi.PostV3DbsOrdersMetaUin", new List<IReadOnlyDictionary<string, object>>
+                    "DbsApi.PostV3DbsOrdersMetaUin", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -379,7 +379,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Client
                     }
                 },
                 {
-                    "DBSApi.PostV3DbsOrdersStatusCancel", new List<IReadOnlyDictionary<string, object>>
+                    "DbsApi.PostV3DbsOrdersStatusCancel", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -398,7 +398,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Client
                     }
                 },
                 {
-                    "DBSApi.PostV3DbsOrdersStatusConfirm", new List<IReadOnlyDictionary<string, object>>
+                    "DbsApi.PostV3DbsOrdersStatusConfirm", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -417,7 +417,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Client
                     }
                 },
                 {
-                    "DBSApi.PostV3DbsOrdersStatusDeliver", new List<IReadOnlyDictionary<string, object>>
+                    "DbsApi.PostV3DbsOrdersStatusDeliver", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -436,7 +436,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Client
                     }
                 },
                 {
-                    "DBSApi.PostV3DbsOrdersStatusInfo", new List<IReadOnlyDictionary<string, object>>
+                    "DbsApi.PostV3DbsOrdersStatusInfo", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -455,7 +455,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Client
                     }
                 },
                 {
-                    "DBSApi.PostV3DbsOrdersStatusReceive", new List<IReadOnlyDictionary<string, object>>
+                    "DbsApi.PostV3DbsOrdersStatusReceive", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -474,7 +474,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Client
                     }
                 },
                 {
-                    "DBSApi.PostV3DbsOrdersStatusReject", new List<IReadOnlyDictionary<string, object>>
+                    "DbsApi.PostV3DbsOrdersStatusReject", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -493,7 +493,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Client
                     }
                 },
                 {
-                    "DBSApi.PostV3DbsOrdersStickers", new List<IReadOnlyDictionary<string, object>>
+                    "DbsApi.PostV3DbsOrdersStickers", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -934,7 +934,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version + "\n";
             report += "    Version of the API: dbs\n";
-            report += "    SDK Package Version: 1.20261010.0\n";
+            report += "    SDK Package Version: 1.20261010.1\n";
 
             return report;
         }

@@ -99,31 +99,31 @@ func NewConfiguration() *Configuration {
 			},
 		},
 		OperationServers: map[string]ServerConfigurations{
-			"DefaultApiService.GetV1AcceptanceCoefficients": {
+			"RatesAPIService.GetV1AcceptanceCoefficients": {
 				{
 					URL:         "https://common-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"DefaultApiService.GetV1TariffsBox": {
+			"RatesAPIService.GetV1TariffsBox": {
 				{
 					URL:         "https://common-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"DefaultApiService.GetV1TariffsCommission": {
+			"RatesAPIService.GetV1TariffsCommission": {
 				{
 					URL:         "https://common-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"DefaultApiService.GetV1TariffsPallet": {
+			"RatesAPIService.GetV1TariffsPallet": {
 				{
 					URL:         "https://common-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"DefaultApiService.GetV1TariffsReturn": {
+			"RatesAPIService.GetV1TariffsReturn": {
 				{
 					URL:         "https://common-api.wildberries.ru",
 					Description: "No description provided",

@@ -33,7 +33,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "1.20261010.0";
+        public const string Version = "1.20261010.1";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -134,67 +134,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Client
             OperationServers = new Dictionary<string, List<IReadOnlyDictionary<string, object>>>()
             {
                 {
-                    "DefaultApi.GetV3FbsSettingsAutoreturns", new List<IReadOnlyDictionary<string, object>>
-                    {
-                        {
-                            new Dictionary<string, object>
-                            {
-                                {"url", "https://marketplace-api.wildberries.ru"},
-                                {"description", "**Prod** "}
-                            }
-                        },
-                    }
-                },
-                {
-                    "DefaultApi.GetV3FbsSettingsAutoreturnsSubcategoriesRestricted", new List<IReadOnlyDictionary<string, object>>
-                    {
-                        {
-                            new Dictionary<string, object>
-                            {
-                                {"url", "https://marketplace-api.wildberries.ru"},
-                                {"description", "**Prod** "}
-                            }
-                        },
-                    }
-                },
-                {
-                    "DefaultApi.PatchV3FbsSettingsAutoreturns", new List<IReadOnlyDictionary<string, object>>
-                    {
-                        {
-                            new Dictionary<string, object>
-                            {
-                                {"url", "https://marketplace-api.wildberries.ru"},
-                                {"description", "**Prod** "}
-                            }
-                        },
-                    }
-                },
-                {
-                    "DefaultApi.PatchV3FbsSettingsAutoreturnsItems", new List<IReadOnlyDictionary<string, object>>
-                    {
-                        {
-                            new Dictionary<string, object>
-                            {
-                                {"url", "https://marketplace-api.wildberries.ru"},
-                                {"description", "**Prod** "}
-                            }
-                        },
-                    }
-                },
-                {
-                    "DefaultApi.PostV3FbsSettingsAutoreturnsItems", new List<IReadOnlyDictionary<string, object>>
-                    {
-                        {
-                            new Dictionary<string, object>
-                            {
-                                {"url", "https://marketplace-api.wildberries.ru"},
-                                {"description", "**Prod** "}
-                            }
-                        },
-                    }
-                },
-                {
-                    "FBSApi.DeleteV3OrdersOrderIdMeta", new List<IReadOnlyDictionary<string, object>>
+                    "OrdersFbsApi.DeleteV3OrdersOrderIdMeta", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -213,7 +153,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Client
                     }
                 },
                 {
-                    "FBSApi.DeleteV3PassesPassId", new List<IReadOnlyDictionary<string, object>>
+                    "OrdersFbsApi.DeleteV3PassesPassId", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -232,7 +172,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Client
                     }
                 },
                 {
-                    "FBSApi.DeleteV3SuppliesSupplyId", new List<IReadOnlyDictionary<string, object>>
+                    "OrdersFbsApi.DeleteV3SuppliesSupplyId", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -251,7 +191,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Client
                     }
                 },
                 {
-                    "FBSApi.DeleteV3SuppliesSupplyIdTrbx", new List<IReadOnlyDictionary<string, object>>
+                    "OrdersFbsApi.DeleteV3SuppliesSupplyIdTrbx", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -270,7 +210,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Client
                     }
                 },
                 {
-                    "FBSApi.GetV3FbsDictionariesCountriesOksm", new List<IReadOnlyDictionary<string, object>>
+                    "OrdersFbsApi.GetV3FbsDictionariesCountriesOksm", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -282,7 +222,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Client
                     }
                 },
                 {
-                    "FBSApi.GetV3FbsOrdersArchive", new List<IReadOnlyDictionary<string, object>>
+                    "OrdersFbsApi.GetV3FbsOrdersArchive", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -294,7 +234,31 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Client
                     }
                 },
                 {
-                    "FBSApi.GetV3FbsShippingPoints", new List<IReadOnlyDictionary<string, object>>
+                    "OrdersFbsApi.GetV3FbsSettingsAutoreturns", new List<IReadOnlyDictionary<string, object>>
+                    {
+                        {
+                            new Dictionary<string, object>
+                            {
+                                {"url", "https://marketplace-api.wildberries.ru"},
+                                {"description", "**Prod** "}
+                            }
+                        },
+                    }
+                },
+                {
+                    "OrdersFbsApi.GetV3FbsSettingsAutoreturnsSubcategoriesRestricted", new List<IReadOnlyDictionary<string, object>>
+                    {
+                        {
+                            new Dictionary<string, object>
+                            {
+                                {"url", "https://marketplace-api.wildberries.ru"},
+                                {"description", "**Prod** "}
+                            }
+                        },
+                    }
+                },
+                {
+                    "OrdersFbsApi.GetV3FbsShippingPoints", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -306,7 +270,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Client
                     }
                 },
                 {
-                    "FBSApi.GetV3FbsSuppliesSupplyIdStickersSpot", new List<IReadOnlyDictionary<string, object>>
+                    "OrdersFbsApi.GetV3FbsSuppliesSupplyIdStickersSpot", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -318,7 +282,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Client
                     }
                 },
                 {
-                    "FBSApi.GetV3Orders", new List<IReadOnlyDictionary<string, object>>
+                    "OrdersFbsApi.GetV3Orders", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -337,7 +301,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Client
                     }
                 },
                 {
-                    "FBSApi.GetV3OrdersNew", new List<IReadOnlyDictionary<string, object>>
+                    "OrdersFbsApi.GetV3OrdersNew", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -356,7 +320,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Client
                     }
                 },
                 {
-                    "FBSApi.GetV3Passes", new List<IReadOnlyDictionary<string, object>>
+                    "OrdersFbsApi.GetV3Passes", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -375,7 +339,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Client
                     }
                 },
                 {
-                    "FBSApi.GetV3PassesOffices", new List<IReadOnlyDictionary<string, object>>
+                    "OrdersFbsApi.GetV3PassesOffices", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -394,7 +358,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Client
                     }
                 },
                 {
-                    "FBSApi.GetV3Supplies", new List<IReadOnlyDictionary<string, object>>
+                    "OrdersFbsApi.GetV3Supplies", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -413,7 +377,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Client
                     }
                 },
                 {
-                    "FBSApi.GetV3SuppliesOrdersReshipment", new List<IReadOnlyDictionary<string, object>>
+                    "OrdersFbsApi.GetV3SuppliesOrdersReshipment", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -432,7 +396,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Client
                     }
                 },
                 {
-                    "FBSApi.GetV3SuppliesSupplyId", new List<IReadOnlyDictionary<string, object>>
+                    "OrdersFbsApi.GetV3SuppliesSupplyId", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -451,7 +415,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Client
                     }
                 },
                 {
-                    "FBSApi.GetV3SuppliesSupplyIdBarcode", new List<IReadOnlyDictionary<string, object>>
+                    "OrdersFbsApi.GetV3SuppliesSupplyIdBarcode", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -470,7 +434,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Client
                     }
                 },
                 {
-                    "FBSApi.GetV3SuppliesSupplyIdOrderIds", new List<IReadOnlyDictionary<string, object>>
+                    "OrdersFbsApi.GetV3SuppliesSupplyIdOrderIds", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -489,7 +453,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Client
                     }
                 },
                 {
-                    "FBSApi.GetV3SuppliesSupplyIdTrbx", new List<IReadOnlyDictionary<string, object>>
+                    "OrdersFbsApi.GetV3SuppliesSupplyIdTrbx", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -508,7 +472,31 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Client
                     }
                 },
                 {
-                    "FBSApi.PatchV3FbsSuppliesShippingMethod", new List<IReadOnlyDictionary<string, object>>
+                    "OrdersFbsApi.PatchV3FbsSettingsAutoreturns", new List<IReadOnlyDictionary<string, object>>
+                    {
+                        {
+                            new Dictionary<string, object>
+                            {
+                                {"url", "https://marketplace-api.wildberries.ru"},
+                                {"description", "**Prod** "}
+                            }
+                        },
+                    }
+                },
+                {
+                    "OrdersFbsApi.PatchV3FbsSettingsAutoreturnsItems", new List<IReadOnlyDictionary<string, object>>
+                    {
+                        {
+                            new Dictionary<string, object>
+                            {
+                                {"url", "https://marketplace-api.wildberries.ru"},
+                                {"description", "**Prod** "}
+                            }
+                        },
+                    }
+                },
+                {
+                    "OrdersFbsApi.PatchV3FbsSuppliesShippingMethod", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -520,7 +508,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Client
                     }
                 },
                 {
-                    "FBSApi.PatchV3OrdersOrderIdCancel", new List<IReadOnlyDictionary<string, object>>
+                    "OrdersFbsApi.PatchV3OrdersOrderIdCancel", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -539,7 +527,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Client
                     }
                 },
                 {
-                    "FBSApi.PatchV3SuppliesSupplyIdDeliver", new List<IReadOnlyDictionary<string, object>>
+                    "OrdersFbsApi.PatchV3SuppliesSupplyIdDeliver", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -558,7 +546,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Client
                     }
                 },
                 {
-                    "FBSApi.PatchV3SuppliesSupplyIdOrders", new List<IReadOnlyDictionary<string, object>>
+                    "OrdersFbsApi.PatchV3SuppliesSupplyIdOrders", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -577,7 +565,19 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Client
                     }
                 },
                 {
-                    "FBSApi.PostV3FbsSuppliesSpotList", new List<IReadOnlyDictionary<string, object>>
+                    "OrdersFbsApi.PostV3FbsSettingsAutoreturnsItems", new List<IReadOnlyDictionary<string, object>>
+                    {
+                        {
+                            new Dictionary<string, object>
+                            {
+                                {"url", "https://marketplace-api.wildberries.ru"},
+                                {"description", "**Prod** "}
+                            }
+                        },
+                    }
+                },
+                {
+                    "OrdersFbsApi.PostV3FbsSuppliesSpotList", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -589,7 +589,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Client
                     }
                 },
                 {
-                    "FBSApi.PostV3OrdersClient", new List<IReadOnlyDictionary<string, object>>
+                    "OrdersFbsApi.PostV3OrdersClient", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -608,7 +608,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Client
                     }
                 },
                 {
-                    "FBSApi.PostV3OrdersMeta", new List<IReadOnlyDictionary<string, object>>
+                    "OrdersFbsApi.PostV3OrdersMeta", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -627,7 +627,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Client
                     }
                 },
                 {
-                    "FBSApi.PostV3OrdersStatus", new List<IReadOnlyDictionary<string, object>>
+                    "OrdersFbsApi.PostV3OrdersStatus", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -646,7 +646,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Client
                     }
                 },
                 {
-                    "FBSApi.PostV3OrdersStatusHistory", new List<IReadOnlyDictionary<string, object>>
+                    "OrdersFbsApi.PostV3OrdersStatusHistory", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -665,7 +665,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Client
                     }
                 },
                 {
-                    "FBSApi.PostV3OrdersStickers", new List<IReadOnlyDictionary<string, object>>
+                    "OrdersFbsApi.PostV3OrdersStickers", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -684,7 +684,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Client
                     }
                 },
                 {
-                    "FBSApi.PostV3OrdersStickersCrossBorder", new List<IReadOnlyDictionary<string, object>>
+                    "OrdersFbsApi.PostV3OrdersStickersCrossBorder", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -696,7 +696,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Client
                     }
                 },
                 {
-                    "FBSApi.PostV3Passes", new List<IReadOnlyDictionary<string, object>>
+                    "OrdersFbsApi.PostV3Passes", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -715,7 +715,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Client
                     }
                 },
                 {
-                    "FBSApi.PostV3Supplies", new List<IReadOnlyDictionary<string, object>>
+                    "OrdersFbsApi.PostV3Supplies", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -734,7 +734,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Client
                     }
                 },
                 {
-                    "FBSApi.PostV3SuppliesSupplyIdTrbx", new List<IReadOnlyDictionary<string, object>>
+                    "OrdersFbsApi.PostV3SuppliesSupplyIdTrbx", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -753,7 +753,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Client
                     }
                 },
                 {
-                    "FBSApi.PostV3SuppliesSupplyIdTrbxStickers", new List<IReadOnlyDictionary<string, object>>
+                    "OrdersFbsApi.PostV3SuppliesSupplyIdTrbxStickers", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -772,7 +772,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Client
                     }
                 },
                 {
-                    "FBSApi.PutV3FbsSuppliesSupplyIdSpot", new List<IReadOnlyDictionary<string, object>>
+                    "OrdersFbsApi.PutV3FbsSuppliesSupplyIdSpot", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -784,7 +784,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Client
                     }
                 },
                 {
-                    "FBSApi.PutV3OrdersOrderIdMetaCustomsDeclaration", new List<IReadOnlyDictionary<string, object>>
+                    "OrdersFbsApi.PutV3OrdersOrderIdMetaCustomsDeclaration", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -803,7 +803,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Client
                     }
                 },
                 {
-                    "FBSApi.PutV3OrdersOrderIdMetaExpiration", new List<IReadOnlyDictionary<string, object>>
+                    "OrdersFbsApi.PutV3OrdersOrderIdMetaExpiration", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -822,7 +822,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Client
                     }
                 },
                 {
-                    "FBSApi.PutV3OrdersOrderIdMetaGtin", new List<IReadOnlyDictionary<string, object>>
+                    "OrdersFbsApi.PutV3OrdersOrderIdMetaGtin", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -841,7 +841,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Client
                     }
                 },
                 {
-                    "FBSApi.PutV3OrdersOrderIdMetaImei", new List<IReadOnlyDictionary<string, object>>
+                    "OrdersFbsApi.PutV3OrdersOrderIdMetaImei", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -860,7 +860,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Client
                     }
                 },
                 {
-                    "FBSApi.PutV3OrdersOrderIdMetaSgtin", new List<IReadOnlyDictionary<string, object>>
+                    "OrdersFbsApi.PutV3OrdersOrderIdMetaSgtin", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -879,7 +879,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Client
                     }
                 },
                 {
-                    "FBSApi.PutV3OrdersOrderIdMetaUin", new List<IReadOnlyDictionary<string, object>>
+                    "OrdersFbsApi.PutV3OrdersOrderIdMetaUin", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -898,7 +898,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Client
                     }
                 },
                 {
-                    "FBSApi.PutV3PassesPassId", new List<IReadOnlyDictionary<string, object>>
+                    "OrdersFbsApi.PutV3PassesPassId", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -1346,7 +1346,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version + "\n";
             report += "    Version of the API: order\n";
-            report += "    SDK Package Version: 1.20261010.0\n";
+            report += "    SDK Package Version: 1.20261010.1\n";
 
             return report;
         }

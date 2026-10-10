@@ -99,7 +99,7 @@ func NewConfiguration() *Configuration {
 			},
 		},
 		OperationServers: map[string]ServerConfigurations{
-			"DefaultApiService.GetV3ClickCollectOrders": {
+			"InStorePickupAPIService.GetV3ClickCollectOrders": {
 				{
 					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
@@ -109,7 +109,7 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"DefaultApiService.GetV3ClickCollectOrdersNew": {
+			"InStorePickupAPIService.GetV3ClickCollectOrdersNew": {
 				{
 					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
@@ -119,7 +119,7 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"DefaultApiService.PostV3ClickCollectOrdersClient": {
+			"InStorePickupAPIService.PostV3ClickCollectOrdersClient": {
 				{
 					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
@@ -129,7 +129,7 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"DefaultApiService.PostV3ClickCollectOrdersClientIdentity": {
+			"InStorePickupAPIService.PostV3ClickCollectOrdersClientIdentity": {
 				{
 					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
@@ -139,19 +139,19 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"DefaultApiService.PostV3ClickCollectOrdersFinalPrice": {
+			"InStorePickupAPIService.PostV3ClickCollectOrdersFinalPrice": {
 				{
 					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"DefaultApiService.PostV3ClickCollectOrdersMetaCustomsDeclaration": {
+			"InStorePickupAPIService.PostV3ClickCollectOrdersMetaCustomsDeclaration": {
 				{
 					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"DefaultApiService.PostV3ClickCollectOrdersMetaDelete": {
+			"InStorePickupAPIService.PostV3ClickCollectOrdersMetaDelete": {
 				{
 					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
@@ -161,7 +161,7 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"DefaultApiService.PostV3ClickCollectOrdersMetaGtin": {
+			"InStorePickupAPIService.PostV3ClickCollectOrdersMetaGtin": {
 				{
 					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
@@ -171,7 +171,7 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"DefaultApiService.PostV3ClickCollectOrdersMetaImei": {
+			"InStorePickupAPIService.PostV3ClickCollectOrdersMetaImei": {
 				{
 					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
@@ -181,7 +181,7 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"DefaultApiService.PostV3ClickCollectOrdersMetaSgtin": {
+			"InStorePickupAPIService.PostV3ClickCollectOrdersMetaSgtin": {
 				{
 					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
@@ -191,7 +191,7 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"DefaultApiService.PostV3ClickCollectOrdersMetaUin": {
+			"InStorePickupAPIService.PostV3ClickCollectOrdersMetaUin": {
 				{
 					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
@@ -201,7 +201,7 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"DefaultApiService.PostV3ClickCollectOrdersStatusCancel": {
+			"InStorePickupAPIService.PostV3ClickCollectOrdersStatusCancel": {
 				{
 					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
@@ -211,7 +211,7 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"DefaultApiService.PostV3ClickCollectOrdersStatusConfirm": {
+			"InStorePickupAPIService.PostV3ClickCollectOrdersStatusConfirm": {
 				{
 					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
@@ -221,7 +221,7 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"DefaultApiService.PostV3ClickCollectOrdersStatusInfo": {
+			"InStorePickupAPIService.PostV3ClickCollectOrdersStatusInfo": {
 				{
 					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
@@ -231,7 +231,7 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"DefaultApiService.PostV3ClickCollectOrdersStatusPrepare": {
+			"InStorePickupAPIService.PostV3ClickCollectOrdersStatusPrepare": {
 				{
 					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
@@ -241,7 +241,7 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"DefaultApiService.PostV3ClickCollectOrdersStatusReceive": {
+			"InStorePickupAPIService.PostV3ClickCollectOrdersStatusReceive": {
 				{
 					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
@@ -251,7 +251,7 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"DefaultApiService.PostV3ClickCollectOrdersStatusReject": {
+			"InStorePickupAPIService.PostV3ClickCollectOrdersStatusReject": {
 				{
 					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",

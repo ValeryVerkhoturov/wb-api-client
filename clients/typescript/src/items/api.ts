@@ -5441,10 +5441,10 @@ export interface WholesaleDiscountThresholdRes {
 }
 
 /**
- * DefaultApi - axios parameter creator
+ * ItemsApi - axios parameter creator
  * @export
  */
-export const DefaultApiAxiosParamCreator = function (
+export const ItemsApiAxiosParamCreator = function (
   configuration?: Configuration,
 ) {
   return {
@@ -8583,11 +8583,11 @@ export const DefaultApiAxiosParamCreator = function (
 };
 
 /**
- * DefaultApi - functional programming interface
+ * ItemsApi - functional programming interface
  * @export
  */
-export const DefaultApiFp = function (configuration?: Configuration) {
-  const localVarAxiosParamCreator = DefaultApiAxiosParamCreator(configuration);
+export const ItemsApiFp = function (configuration?: Configuration) {
+  const localVarAxiosParamCreator = ItemsApiAxiosParamCreator(configuration);
   return {
     /**
      * Метод удаляет ярлык из [списка ярлыков](https://dev.wildberries.ru/openapi/item-management#tag/labels/operation/getV2Tags) продавца.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **Ярлыков**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  ---  В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
@@ -8611,7 +8611,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
       );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.deleteV2TagId"]?.[
+        operationServerMap["ItemsApi.deleteV2TagId"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -8645,7 +8645,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.deleteV3StocksWarehouseId"]?.[
+        operationServerMap["ItemsApi.deleteV3StocksWarehouseId"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -8676,7 +8676,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.deleteV3WarehousesWarehouseId"]?.[
+        operationServerMap["ItemsApi.deleteV3WarehousesWarehouseId"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -8709,7 +8709,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
       );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV1Brands"]?.[
+        operationServerMap["ItemsApi.getV1Brands"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -8749,7 +8749,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV2BufferGoodsTask"]?.[
+        operationServerMap["ItemsApi.getV2BufferGoodsTask"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -8780,7 +8780,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         await localVarAxiosParamCreator.getV2BufferTasks(uploadID, options);
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV2BufferTasks"]?.[
+        operationServerMap["ItemsApi.getV2BufferTasks"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -8809,7 +8809,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         await localVarAxiosParamCreator.getV2CardsLimits(options);
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV2CardsLimits"]?.[
+        operationServerMap["ItemsApi.getV2CardsLimits"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -8840,7 +8840,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         await localVarAxiosParamCreator.getV2DirectoryColors(locale, options);
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV2DirectoryColors"]?.[
+        operationServerMap["ItemsApi.getV2DirectoryColors"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -8874,7 +8874,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV2DirectoryCountries"]?.[
+        operationServerMap["ItemsApi.getV2DirectoryCountries"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -8905,7 +8905,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         await localVarAxiosParamCreator.getV2DirectoryKinds(locale, options);
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV2DirectoryKinds"]?.[
+        operationServerMap["ItemsApi.getV2DirectoryKinds"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -8945,7 +8945,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV2DirectoryOkpd"]?.[
+        operationServerMap["ItemsApi.getV2DirectoryOkpd"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -8982,7 +8982,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV2DirectoryOkpdAll"]?.[
+        operationServerMap["ItemsApi.getV2DirectoryOkpdAll"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -9013,7 +9013,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         await localVarAxiosParamCreator.getV2DirectorySeasons(locale, options);
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV2DirectorySeasons"]?.[
+        operationServerMap["ItemsApi.getV2DirectorySeasons"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -9053,7 +9053,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV2DirectoryTnved"]?.[
+        operationServerMap["ItemsApi.getV2DirectoryTnved"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -9090,7 +9090,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV2DirectoryTnvedAll"]?.[
+        operationServerMap["ItemsApi.getV2DirectoryTnvedAll"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -9121,7 +9121,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         await localVarAxiosParamCreator.getV2DirectoryVat(locale, options);
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV2DirectoryVat"]?.[
+        operationServerMap["ItemsApi.getV2DirectoryVat"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -9161,7 +9161,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV2HistoryGoodsTask"]?.[
+        operationServerMap["ItemsApi.getV2HistoryGoodsTask"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -9192,7 +9192,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         await localVarAxiosParamCreator.getV2HistoryTasks(uploadID, options);
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV2HistoryTasks"]?.[
+        operationServerMap["ItemsApi.getV2HistoryTasks"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -9232,7 +9232,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV2ListGoodsFilter"]?.[
+        operationServerMap["ItemsApi.getV2ListGoodsFilter"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -9272,7 +9272,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV2ListGoodsSizeNm"]?.[
+        operationServerMap["ItemsApi.getV2ListGoodsSizeNm"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -9317,7 +9317,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
       );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV2ObjectAll"]?.[
+        operationServerMap["ItemsApi.getV2ObjectAll"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -9354,7 +9354,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV2ObjectCharcsSubjectId"]?.[
+        operationServerMap["ItemsApi.getV2ObjectCharcsSubjectId"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -9385,7 +9385,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         await localVarAxiosParamCreator.getV2ObjectParentAll(locale, options);
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV2ObjectParentAll"]?.[
+        operationServerMap["ItemsApi.getV2ObjectParentAll"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -9422,7 +9422,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV2QuarantineGoods"]?.[
+        operationServerMap["ItemsApi.getV2QuarantineGoods"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -9451,9 +9451,8 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         await localVarAxiosParamCreator.getV2Tags(options);
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV2Tags"]?.[
-          localVarOperationServerIndex
-        ]?.url;
+        operationServerMap["ItemsApi.getV2Tags"]?.[localVarOperationServerIndex]
+          ?.url;
       return (axios, basePath) =>
         createRequestFunction(
           localVarAxiosArgs,
@@ -9485,9 +9484,9 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap[
-          "DefaultApi.getV3DbwWarehousesWarehouseIdContacts"
-        ]?.[localVarOperationServerIndex]?.url;
+        operationServerMap["ItemsApi.getV3DbwWarehousesWarehouseIdContacts"]?.[
+          localVarOperationServerIndex
+        ]?.url;
       return (axios, basePath) =>
         createRequestFunction(
           localVarAxiosArgs,
@@ -9511,7 +9510,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         await localVarAxiosParamCreator.getV3Offices(options);
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV3Offices"]?.[
+        operationServerMap["ItemsApi.getV3Offices"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -9540,7 +9539,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         await localVarAxiosParamCreator.getV3Warehouses(options);
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV3Warehouses"]?.[
+        operationServerMap["ItemsApi.getV3Warehouses"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -9576,7 +9575,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
       );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.patchV2TagId"]?.[
+        operationServerMap["ItemsApi.patchV2TagId"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -9607,7 +9606,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.postV1RecommendationsList"]?.[
+        operationServerMap["ItemsApi.postV1RecommendationsList"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -9638,7 +9637,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.postV1RecommendationsSet"]?.[
+        operationServerMap["ItemsApi.postV1RecommendationsSet"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -9672,7 +9671,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.postV1UploadTaskB2bWholesale"]?.[
+        operationServerMap["ItemsApi.postV1UploadTaskB2bWholesale"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -9705,7 +9704,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
       );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.postV2Barcodes"]?.[
+        operationServerMap["ItemsApi.postV2Barcodes"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -9739,7 +9738,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.postV2CardsDeleteTrash"]?.[
+        operationServerMap["ItemsApi.postV2CardsDeleteTrash"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -9776,7 +9775,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.postV2CardsErrorList"]?.[
+        operationServerMap["ItemsApi.postV2CardsErrorList"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -9810,7 +9809,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.postV2CardsMoveNm"]?.[
+        operationServerMap["ItemsApi.postV2CardsMoveNm"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -9844,7 +9843,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.postV2CardsRecover"]?.[
+        operationServerMap["ItemsApi.postV2CardsRecover"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -9878,7 +9877,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.postV2CardsUpdate"]?.[
+        operationServerMap["ItemsApi.postV2CardsUpdate"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -9912,7 +9911,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.postV2CardsUpload"]?.[
+        operationServerMap["ItemsApi.postV2CardsUpload"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -9946,7 +9945,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.postV2CardsUploadAdd"]?.[
+        operationServerMap["ItemsApi.postV2CardsUploadAdd"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -9983,7 +9982,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.postV2GetCardsList"]?.[
+        operationServerMap["ItemsApi.postV2GetCardsList"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -10020,7 +10019,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.postV2GetCardsTrash"]?.[
+        operationServerMap["ItemsApi.postV2GetCardsTrash"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -10054,7 +10053,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.postV2ListGoodsFilter"]?.[
+        operationServerMap["ItemsApi.postV2ListGoodsFilter"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -10087,9 +10086,8 @@ export const DefaultApiFp = function (configuration?: Configuration) {
       );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.postV2Tag"]?.[
-          localVarOperationServerIndex
-        ]?.url;
+        operationServerMap["ItemsApi.postV2Tag"]?.[localVarOperationServerIndex]
+          ?.url;
       return (axios, basePath) =>
         createRequestFunction(
           localVarAxiosArgs,
@@ -10121,7 +10119,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.postV2TagNomenclatureLink"]?.[
+        operationServerMap["ItemsApi.postV2TagNomenclatureLink"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -10152,7 +10150,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.postV2UploadTask"]?.[
+        operationServerMap["ItemsApi.postV2UploadTask"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -10183,7 +10181,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.postV2UploadTaskClubDiscount"]?.[
+        operationServerMap["ItemsApi.postV2UploadTaskClubDiscount"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -10214,7 +10212,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.postV2UploadTaskSize"]?.[
+        operationServerMap["ItemsApi.postV2UploadTaskSize"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -10253,7 +10251,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
       );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.postV3MediaFile"]?.[
+        operationServerMap["ItemsApi.postV3MediaFile"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -10286,7 +10284,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
       );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.postV3MediaSave"]?.[
+        operationServerMap["ItemsApi.postV3MediaSave"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -10323,7 +10321,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.postV3StocksWarehouseId"]?.[
+        operationServerMap["ItemsApi.postV3StocksWarehouseId"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -10357,7 +10355,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.postV3Warehouses"]?.[
+        operationServerMap["ItemsApi.postV3Warehouses"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -10391,9 +10389,9 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap[
-          "DefaultApi.putV3DbwWarehousesWarehouseIdContacts"
-        ]?.[localVarOperationServerIndex]?.url;
+        operationServerMap["ItemsApi.putV3DbwWarehousesWarehouseIdContacts"]?.[
+          localVarOperationServerIndex
+        ]?.url;
       return (axios, basePath) =>
         createRequestFunction(
           localVarAxiosArgs,
@@ -10425,7 +10423,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.putV3StocksWarehouseId"]?.[
+        operationServerMap["ItemsApi.putV3StocksWarehouseId"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -10459,7 +10457,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.putV3WarehousesWarehouseId"]?.[
+        operationServerMap["ItemsApi.putV3WarehousesWarehouseId"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -10474,15 +10472,15 @@ export const DefaultApiFp = function (configuration?: Configuration) {
 };
 
 /**
- * DefaultApi - factory interface
+ * ItemsApi - factory interface
  * @export
  */
-export const DefaultApiFactory = function (
+export const ItemsApiFactory = function (
   configuration?: Configuration,
   basePath?: string,
   axios?: AxiosInstance,
 ) {
-  const localVarFp = DefaultApiFp(configuration);
+  const localVarFp = ItemsApiFp(configuration);
   return {
     /**
      * Метод удаляет ярлык из [списка ярлыков](https://dev.wildberries.ru/openapi/item-management#tag/labels/operation/getV2Tags) продавца.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **Ярлыков**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  ---  В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
@@ -11397,18 +11395,18 @@ export const DefaultApiFactory = function (
 };
 
 /**
- * DefaultApi - interface
+ * ItemsApi - interface
  * @export
- * @interface DefaultApi
+ * @interface ItemsApi
  */
-export interface DefaultApiInterface {
+export interface ItemsApiInterface {
   /**
    * Метод удаляет ярлык из [списка ярлыков](https://dev.wildberries.ru/openapi/item-management#tag/labels/operation/getV2Tags) продавца.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **Ярлыков**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  ---  В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
    * @summary Удаление ярлыка
    * @param {number} id Числовой ID ярлыка
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof ItemsApiInterface
    */
   deleteV2TagId(
     id: number,
@@ -11422,7 +11420,7 @@ export interface DefaultApiInterface {
    * @param {DeleteV3StocksWarehouseIdRequest} deleteV3StocksWarehouseIdRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof ItemsApiInterface
    */
   deleteV3StocksWarehouseId(
     warehouseId: number,
@@ -11436,7 +11434,7 @@ export interface DefaultApiInterface {
    * @param {number} warehouseId ID склада продавца
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof ItemsApiInterface
    */
   deleteV3WarehousesWarehouseId(
     warehouseId: number,
@@ -11450,7 +11448,7 @@ export interface DefaultApiInterface {
    * @param {number} [next] Параметр пагинации. Используйте значение &#x60;next&#x60; из ответа, чтобы получить следующий пакет данных
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof ItemsApiInterface
    */
   getV1Brands(
     subjectId: number,
@@ -11466,7 +11464,7 @@ export interface DefaultApiInterface {
    * @param {number} [offset] Сколько элементов пропустить. Например, для значения &#x60;10&#x60; ответ начнется с 11 элемента
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof ItemsApiInterface
    */
   getV2BufferGoodsTask(
     limit: number,
@@ -11481,7 +11479,7 @@ export interface DefaultApiInterface {
    * @param {number} uploadID ID загрузки
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof ItemsApiInterface
    */
   getV2BufferTasks(
     uploadID: number,
@@ -11493,7 +11491,7 @@ export interface DefaultApiInterface {
    * @summary Лимиты карточек товаров
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof ItemsApiInterface
    */
   getV2CardsLimits(
     options?: RawAxiosRequestConfig,
@@ -11505,7 +11503,7 @@ export interface DefaultApiInterface {
    * @param {string} [locale] Язык полей ответа &#x60;subjectName&#x60; и &#x60;name&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof ItemsApiInterface
    */
   getV2DirectoryColors(
     locale?: string,
@@ -11518,7 +11516,7 @@ export interface DefaultApiInterface {
    * @param {string} [locale] Язык полей ответа &#x60;subjectName&#x60; и &#x60;name&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof ItemsApiInterface
    */
   getV2DirectoryCountries(
     locale?: string,
@@ -11531,7 +11529,7 @@ export interface DefaultApiInterface {
    * @param {string} [locale] Язык полей ответа &#x60;subjectName&#x60; и &#x60;name&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof ItemsApiInterface
    */
   getV2DirectoryKinds(
     locale?: string,
@@ -11546,7 +11544,7 @@ export interface DefaultApiInterface {
    * @param {GetV2DirectoryOkpdLocaleEnum} [locale] Язык полей ответа:   - &#x60;ru&#x60; — русский
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof ItemsApiInterface
    */
   getV2DirectoryOkpd(
     subjectId: number,
@@ -11562,7 +11560,7 @@ export interface DefaultApiInterface {
    * @param {GetV2DirectoryOkpdAllLocaleEnum} [locale] Язык полей ответа:   - &#x60;ru&#x60; — русский
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof ItemsApiInterface
    */
   getV2DirectoryOkpdAll(
     search?: number,
@@ -11576,7 +11574,7 @@ export interface DefaultApiInterface {
    * @param {string} [locale] Язык полей ответа &#x60;subjectName&#x60; и &#x60;name&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof ItemsApiInterface
    */
   getV2DirectorySeasons(
     locale?: string,
@@ -11591,7 +11589,7 @@ export interface DefaultApiInterface {
    * @param {string} [locale] Язык полей ответа:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof ItemsApiInterface
    */
   getV2DirectoryTnved(
     subjectID: number,
@@ -11607,7 +11605,7 @@ export interface DefaultApiInterface {
    * @param {GetV2DirectoryTnvedAllLocaleEnum} [locale] Язык полей ответа:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof ItemsApiInterface
    */
   getV2DirectoryTnvedAll(
     search?: number,
@@ -11621,7 +11619,7 @@ export interface DefaultApiInterface {
    * @param {string} [locale] Язык полей ответа &#x60;subjectName&#x60; и &#x60;name&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof ItemsApiInterface
    */
   getV2DirectoryVat(
     locale?: string,
@@ -11636,7 +11634,7 @@ export interface DefaultApiInterface {
    * @param {number} [offset] Сколько элементов пропустить. Например, для значения &#x60;10&#x60; ответ начнется с 11 элемента
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof ItemsApiInterface
    */
   getV2HistoryGoodsTask(
     limit: number,
@@ -11651,7 +11649,7 @@ export interface DefaultApiInterface {
    * @param {number} uploadID ID загрузки
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof ItemsApiInterface
    */
   getV2HistoryTasks(
     uploadID: number,
@@ -11666,7 +11664,7 @@ export interface DefaultApiInterface {
    * @param {number} [filterNmID] Артикул WB для поиска товара
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof ItemsApiInterface
    */
   getV2ListGoodsFilter(
     limit: number,
@@ -11683,7 +11681,7 @@ export interface DefaultApiInterface {
    * @param {number} [offset] Сколько элементов пропустить. Например, для значения &#x60;10&#x60; ответ начнется с 11 элемента
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof ItemsApiInterface
    */
   getV2ListGoodsSizeNm(
     limit: number,
@@ -11702,7 +11700,7 @@ export interface DefaultApiInterface {
    * @param {number} [parentID] ID родительской категории предмета
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof ItemsApiInterface
    */
   getV2ObjectAll(
     locale?: string,
@@ -11720,7 +11718,7 @@ export interface DefaultApiInterface {
    * @param {string} [locale] Язык полей ответа &#x60;subjectName&#x60; и &#x60;name&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof ItemsApiInterface
    */
   getV2ObjectCharcsSubjectId(
     subjectId: number,
@@ -11734,7 +11732,7 @@ export interface DefaultApiInterface {
    * @param {string} [locale] Язык поля ответа &#x60;name&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof ItemsApiInterface
    */
   getV2ObjectParentAll(
     locale?: string,
@@ -11748,7 +11746,7 @@ export interface DefaultApiInterface {
    * @param {number} [offset] Сколько элементов пропустить. Например, для значения &#x60;10&#x60; ответ начнется с 11 элемента
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof ItemsApiInterface
    */
   getV2QuarantineGoods(
     limit: number,
@@ -11761,7 +11759,7 @@ export interface DefaultApiInterface {
    * @summary Список ярлыков
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof ItemsApiInterface
    */
   getV2Tags(
     options?: RawAxiosRequestConfig,
@@ -11773,7 +11771,7 @@ export interface DefaultApiInterface {
    * @param {number} warehouseId ID склада продавца
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof ItemsApiInterface
    */
   getV3DbwWarehousesWarehouseIdContacts(
     warehouseId: number,
@@ -11785,7 +11783,7 @@ export interface DefaultApiInterface {
    * @summary Получить список складов WB
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof ItemsApiInterface
    */
   getV3Offices(options?: RawAxiosRequestConfig): AxiosPromise<Array<Office>>;
 
@@ -11794,7 +11792,7 @@ export interface DefaultApiInterface {
    * @summary Получить список складов продавца
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof ItemsApiInterface
    */
   getV3Warehouses(
     options?: RawAxiosRequestConfig,
@@ -11807,7 +11805,7 @@ export interface DefaultApiInterface {
    * @param {PatchV2TagIdRequest} patchV2TagIdRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof ItemsApiInterface
    */
   patchV2TagId(
     id: number,
@@ -11821,7 +11819,7 @@ export interface DefaultApiInterface {
    * @param {GetRecomReq} [getRecomReq]
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof ItemsApiInterface
    */
   postV1RecommendationsList(
     getRecomReq?: GetRecomReq,
@@ -11834,7 +11832,7 @@ export interface DefaultApiInterface {
    * @param {SetRecomReq} setRecomReq
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof ItemsApiInterface
    */
   postV1RecommendationsSet(
     setRecomReq: SetRecomReq,
@@ -11847,7 +11845,7 @@ export interface DefaultApiInterface {
    * @param {PostV1UploadTaskB2bWholesaleRequest} postV1UploadTaskB2bWholesaleRequest Установка оптовых скидок для B2B
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof ItemsApiInterface
    */
   postV1UploadTaskB2bWholesale(
     postV1UploadTaskB2bWholesaleRequest: PostV1UploadTaskB2bWholesaleRequest,
@@ -11860,7 +11858,7 @@ export interface DefaultApiInterface {
    * @param {PostV2BarcodesRequest} postV2BarcodesRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof ItemsApiInterface
    */
   postV2Barcodes(
     postV2BarcodesRequest: PostV2BarcodesRequest,
@@ -11873,7 +11871,7 @@ export interface DefaultApiInterface {
    * @param {PostV2CardsDeleteTrashRequest} postV2CardsDeleteTrashRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof ItemsApiInterface
    */
   postV2CardsDeleteTrash(
     postV2CardsDeleteTrashRequest: PostV2CardsDeleteTrashRequest,
@@ -11887,7 +11885,7 @@ export interface DefaultApiInterface {
    * @param {string} [locale] Язык названий предметов:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof ItemsApiInterface
    */
   postV2CardsErrorList(
     requestPublicViewerPublicErrorsTableListV2: RequestPublicViewerPublicErrorsTableListV2,
@@ -11901,7 +11899,7 @@ export interface DefaultApiInterface {
    * @param {PostV2CardsMoveNmRequest} [postV2CardsMoveNmRequest]
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof ItemsApiInterface
    */
   postV2CardsMoveNm(
     postV2CardsMoveNmRequest?: PostV2CardsMoveNmRequest,
@@ -11914,7 +11912,7 @@ export interface DefaultApiInterface {
    * @param {PostV2CardsDeleteTrashRequest} postV2CardsDeleteTrashRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof ItemsApiInterface
    */
   postV2CardsRecover(
     postV2CardsDeleteTrashRequest: PostV2CardsDeleteTrashRequest,
@@ -11927,7 +11925,7 @@ export interface DefaultApiInterface {
    * @param {Array<PostV2CardsUpdateRequestInner>} [postV2CardsUpdateRequestInner]
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof ItemsApiInterface
    */
   postV2CardsUpdate(
     postV2CardsUpdateRequestInner?: Array<PostV2CardsUpdateRequestInner>,
@@ -11940,7 +11938,7 @@ export interface DefaultApiInterface {
    * @param {Array<PostV2CardsUploadRequestInner>} [postV2CardsUploadRequestInner]
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof ItemsApiInterface
    */
   postV2CardsUpload(
     postV2CardsUploadRequestInner?: Array<PostV2CardsUploadRequestInner>,
@@ -11953,7 +11951,7 @@ export interface DefaultApiInterface {
    * @param {PostV2CardsUploadAddRequest} [postV2CardsUploadAddRequest]
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof ItemsApiInterface
    */
   postV2CardsUploadAdd(
     postV2CardsUploadAddRequest?: PostV2CardsUploadAddRequest,
@@ -11967,7 +11965,7 @@ export interface DefaultApiInterface {
    * @param {string} [locale] Язык полей ответа &#x60;name&#x60;, &#x60;value&#x60; и &#x60;object&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof ItemsApiInterface
    */
   postV2GetCardsList(
     postV2GetCardsListRequest: PostV2GetCardsListRequest,
@@ -11982,7 +11980,7 @@ export interface DefaultApiInterface {
    * @param {PostV2GetCardsTrashLocaleEnum} [locale] Язык полей ответа &#x60;name&#x60;, &#x60;value&#x60; и &#x60;object&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof ItemsApiInterface
    */
   postV2GetCardsTrash(
     postV2GetCardsTrashRequest: PostV2GetCardsTrashRequest,
@@ -11996,7 +11994,7 @@ export interface DefaultApiInterface {
    * @param {PostV2ListGoodsFilterRequest} postV2ListGoodsFilterRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof ItemsApiInterface
    */
   postV2ListGoodsFilter(
     postV2ListGoodsFilterRequest: PostV2ListGoodsFilterRequest,
@@ -12009,7 +12007,7 @@ export interface DefaultApiInterface {
    * @param {PostV2TagRequest} postV2TagRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof ItemsApiInterface
    */
   postV2Tag(
     postV2TagRequest: PostV2TagRequest,
@@ -12022,7 +12020,7 @@ export interface DefaultApiInterface {
    * @param {PostV2TagNomenclatureLinkRequest} postV2TagNomenclatureLinkRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof ItemsApiInterface
    */
   postV2TagNomenclatureLink(
     postV2TagNomenclatureLinkRequest: PostV2TagNomenclatureLinkRequest,
@@ -12035,7 +12033,7 @@ export interface DefaultApiInterface {
    * @param {PostV2UploadTaskRequest} postV2UploadTaskRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof ItemsApiInterface
    */
   postV2UploadTask(
     postV2UploadTaskRequest: PostV2UploadTaskRequest,
@@ -12048,7 +12046,7 @@ export interface DefaultApiInterface {
    * @param {PostV2UploadTaskClubDiscountRequest} postV2UploadTaskClubDiscountRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof ItemsApiInterface
    */
   postV2UploadTaskClubDiscount(
     postV2UploadTaskClubDiscountRequest: PostV2UploadTaskClubDiscountRequest,
@@ -12061,7 +12059,7 @@ export interface DefaultApiInterface {
    * @param {PostV2UploadTaskSizeRequest} postV2UploadTaskSizeRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof ItemsApiInterface
    */
   postV2UploadTaskSize(
     postV2UploadTaskSizeRequest: PostV2UploadTaskSizeRequest,
@@ -12076,7 +12074,7 @@ export interface DefaultApiInterface {
    * @param {File} [uploadfile]
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof ItemsApiInterface
    */
   postV3MediaFile(
     xNmId: string,
@@ -12091,7 +12089,7 @@ export interface DefaultApiInterface {
    * @param {PostV3MediaSaveRequest} postV3MediaSaveRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof ItemsApiInterface
    */
   postV3MediaSave(
     postV3MediaSaveRequest: PostV3MediaSaveRequest,
@@ -12105,7 +12103,7 @@ export interface DefaultApiInterface {
    * @param {PostV3StocksWarehouseIdRequest} postV3StocksWarehouseIdRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof ItemsApiInterface
    */
   postV3StocksWarehouseId(
     warehouseId: number,
@@ -12119,7 +12117,7 @@ export interface DefaultApiInterface {
    * @param {PostV3WarehousesRequest} postV3WarehousesRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof ItemsApiInterface
    */
   postV3Warehouses(
     postV3WarehousesRequest: PostV3WarehousesRequest,
@@ -12133,7 +12131,7 @@ export interface DefaultApiInterface {
    * @param {StoreContactRequestBody} storeContactRequestBody
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof ItemsApiInterface
    */
   putV3DbwWarehousesWarehouseIdContacts(
     warehouseId: number,
@@ -12148,7 +12146,7 @@ export interface DefaultApiInterface {
    * @param {PutV3StocksWarehouseIdRequest} [putV3StocksWarehouseIdRequest]
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof ItemsApiInterface
    */
   putV3StocksWarehouseId(
     warehouseId: number,
@@ -12163,7 +12161,7 @@ export interface DefaultApiInterface {
    * @param {PutV3WarehousesWarehouseIdRequest} putV3WarehousesWarehouseIdRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof ItemsApiInterface
    */
   putV3WarehousesWarehouseId(
     warehouseId: number,
@@ -12173,22 +12171,22 @@ export interface DefaultApiInterface {
 }
 
 /**
- * DefaultApi - object-oriented interface
+ * ItemsApi - object-oriented interface
  * @export
- * @class DefaultApi
+ * @class ItemsApi
  * @extends {BaseAPI}
  */
-export class DefaultApi extends BaseAPI implements DefaultApiInterface {
+export class ItemsApi extends BaseAPI implements ItemsApiInterface {
   /**
    * Метод удаляет ярлык из [списка ярлыков](https://dev.wildberries.ru/openapi/item-management#tag/labels/operation/getV2Tags) продавца.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **Ярлыков**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  ---  В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
    * @summary Удаление ярлыка
    * @param {number} id Числовой ID ярлыка
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof ItemsApi
    */
   public deleteV2TagId(id: number, options?: RawAxiosRequestConfig) {
-    return DefaultApiFp(this.configuration)
+    return ItemsApiFp(this.configuration)
       .deleteV2TagId(id, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -12200,14 +12198,14 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {DeleteV3StocksWarehouseIdRequest} deleteV3StocksWarehouseIdRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof ItemsApi
    */
   public deleteV3StocksWarehouseId(
     warehouseId: number,
     deleteV3StocksWarehouseIdRequest: DeleteV3StocksWarehouseIdRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return ItemsApiFp(this.configuration)
       .deleteV3StocksWarehouseId(
         warehouseId,
         deleteV3StocksWarehouseIdRequest,
@@ -12222,13 +12220,13 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {number} warehouseId ID склада продавца
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof ItemsApi
    */
   public deleteV3WarehousesWarehouseId(
     warehouseId: number,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return ItemsApiFp(this.configuration)
       .deleteV3WarehousesWarehouseId(warehouseId, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -12240,14 +12238,14 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {number} [next] Параметр пагинации. Используйте значение &#x60;next&#x60; из ответа, чтобы получить следующий пакет данных
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof ItemsApi
    */
   public getV1Brands(
     subjectId: number,
     next?: number,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return ItemsApiFp(this.configuration)
       .getV1Brands(subjectId, next, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -12260,7 +12258,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {number} [offset] Сколько элементов пропустить. Например, для значения &#x60;10&#x60; ответ начнется с 11 элемента
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof ItemsApi
    */
   public getV2BufferGoodsTask(
     limit: number,
@@ -12268,7 +12266,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
     offset?: number,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return ItemsApiFp(this.configuration)
       .getV2BufferGoodsTask(limit, uploadID, offset, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -12279,10 +12277,10 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {number} uploadID ID загрузки
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof ItemsApi
    */
   public getV2BufferTasks(uploadID: number, options?: RawAxiosRequestConfig) {
-    return DefaultApiFp(this.configuration)
+    return ItemsApiFp(this.configuration)
       .getV2BufferTasks(uploadID, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -12292,10 +12290,10 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @summary Лимиты карточек товаров
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof ItemsApi
    */
   public getV2CardsLimits(options?: RawAxiosRequestConfig) {
-    return DefaultApiFp(this.configuration)
+    return ItemsApiFp(this.configuration)
       .getV2CardsLimits(options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -12306,13 +12304,13 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {string} [locale] Язык полей ответа &#x60;subjectName&#x60; и &#x60;name&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof ItemsApi
    */
   public getV2DirectoryColors(
     locale?: string,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return ItemsApiFp(this.configuration)
       .getV2DirectoryColors(locale, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -12323,13 +12321,13 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {string} [locale] Язык полей ответа &#x60;subjectName&#x60; и &#x60;name&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof ItemsApi
    */
   public getV2DirectoryCountries(
     locale?: string,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return ItemsApiFp(this.configuration)
       .getV2DirectoryCountries(locale, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -12340,10 +12338,10 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {string} [locale] Язык полей ответа &#x60;subjectName&#x60; и &#x60;name&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof ItemsApi
    */
   public getV2DirectoryKinds(locale?: string, options?: RawAxiosRequestConfig) {
-    return DefaultApiFp(this.configuration)
+    return ItemsApiFp(this.configuration)
       .getV2DirectoryKinds(locale, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -12356,7 +12354,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {GetV2DirectoryOkpdLocaleEnum} [locale] Язык полей ответа:   - &#x60;ru&#x60; — русский
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof ItemsApi
    */
   public getV2DirectoryOkpd(
     subjectId: number,
@@ -12364,7 +12362,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
     locale?: GetV2DirectoryOkpdLocaleEnum,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return ItemsApiFp(this.configuration)
       .getV2DirectoryOkpd(subjectId, search, locale, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -12376,14 +12374,14 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {GetV2DirectoryOkpdAllLocaleEnum} [locale] Язык полей ответа:   - &#x60;ru&#x60; — русский
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof ItemsApi
    */
   public getV2DirectoryOkpdAll(
     search?: number,
     locale?: GetV2DirectoryOkpdAllLocaleEnum,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return ItemsApiFp(this.configuration)
       .getV2DirectoryOkpdAll(search, locale, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -12394,13 +12392,13 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {string} [locale] Язык полей ответа &#x60;subjectName&#x60; и &#x60;name&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof ItemsApi
    */
   public getV2DirectorySeasons(
     locale?: string,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return ItemsApiFp(this.configuration)
       .getV2DirectorySeasons(locale, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -12413,7 +12411,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {string} [locale] Язык полей ответа:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof ItemsApi
    */
   public getV2DirectoryTnved(
     subjectID: number,
@@ -12421,7 +12419,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
     locale?: string,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return ItemsApiFp(this.configuration)
       .getV2DirectoryTnved(subjectID, search, locale, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -12433,14 +12431,14 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {GetV2DirectoryTnvedAllLocaleEnum} [locale] Язык полей ответа:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof ItemsApi
    */
   public getV2DirectoryTnvedAll(
     search?: number,
     locale?: GetV2DirectoryTnvedAllLocaleEnum,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return ItemsApiFp(this.configuration)
       .getV2DirectoryTnvedAll(search, locale, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -12451,10 +12449,10 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {string} [locale] Язык полей ответа &#x60;subjectName&#x60; и &#x60;name&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof ItemsApi
    */
   public getV2DirectoryVat(locale?: string, options?: RawAxiosRequestConfig) {
-    return DefaultApiFp(this.configuration)
+    return ItemsApiFp(this.configuration)
       .getV2DirectoryVat(locale, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -12467,7 +12465,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {number} [offset] Сколько элементов пропустить. Например, для значения &#x60;10&#x60; ответ начнется с 11 элемента
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof ItemsApi
    */
   public getV2HistoryGoodsTask(
     limit: number,
@@ -12475,7 +12473,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
     offset?: number,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return ItemsApiFp(this.configuration)
       .getV2HistoryGoodsTask(limit, uploadID, offset, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -12486,10 +12484,10 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {number} uploadID ID загрузки
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof ItemsApi
    */
   public getV2HistoryTasks(uploadID: number, options?: RawAxiosRequestConfig) {
-    return DefaultApiFp(this.configuration)
+    return ItemsApiFp(this.configuration)
       .getV2HistoryTasks(uploadID, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -12502,7 +12500,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {number} [filterNmID] Артикул WB для поиска товара
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof ItemsApi
    */
   public getV2ListGoodsFilter(
     limit: number,
@@ -12510,7 +12508,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
     filterNmID?: number,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return ItemsApiFp(this.configuration)
       .getV2ListGoodsFilter(limit, offset, filterNmID, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -12523,7 +12521,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {number} [offset] Сколько элементов пропустить. Например, для значения &#x60;10&#x60; ответ начнется с 11 элемента
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof ItemsApi
    */
   public getV2ListGoodsSizeNm(
     limit: number,
@@ -12531,7 +12529,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
     offset?: number,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return ItemsApiFp(this.configuration)
       .getV2ListGoodsSizeNm(limit, nmID, offset, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -12546,7 +12544,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {number} [parentID] ID родительской категории предмета
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof ItemsApi
    */
   public getV2ObjectAll(
     locale?: string,
@@ -12556,7 +12554,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
     parentID?: number,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return ItemsApiFp(this.configuration)
       .getV2ObjectAll(locale, name, limit, offset, parentID, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -12568,14 +12566,14 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {string} [locale] Язык полей ответа &#x60;subjectName&#x60; и &#x60;name&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof ItemsApi
    */
   public getV2ObjectCharcsSubjectId(
     subjectId: number,
     locale?: string,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return ItemsApiFp(this.configuration)
       .getV2ObjectCharcsSubjectId(subjectId, locale, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -12586,13 +12584,13 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {string} [locale] Язык поля ответа &#x60;name&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof ItemsApi
    */
   public getV2ObjectParentAll(
     locale?: string,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return ItemsApiFp(this.configuration)
       .getV2ObjectParentAll(locale, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -12604,14 +12602,14 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {number} [offset] Сколько элементов пропустить. Например, для значения &#x60;10&#x60; ответ начнется с 11 элемента
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof ItemsApi
    */
   public getV2QuarantineGoods(
     limit: number,
     offset?: number,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return ItemsApiFp(this.configuration)
       .getV2QuarantineGoods(limit, offset, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -12621,10 +12619,10 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @summary Список ярлыков
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof ItemsApi
    */
   public getV2Tags(options?: RawAxiosRequestConfig) {
-    return DefaultApiFp(this.configuration)
+    return ItemsApiFp(this.configuration)
       .getV2Tags(options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -12635,13 +12633,13 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {number} warehouseId ID склада продавца
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof ItemsApi
    */
   public getV3DbwWarehousesWarehouseIdContacts(
     warehouseId: number,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return ItemsApiFp(this.configuration)
       .getV3DbwWarehousesWarehouseIdContacts(warehouseId, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -12651,10 +12649,10 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @summary Получить список складов WB
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof ItemsApi
    */
   public getV3Offices(options?: RawAxiosRequestConfig) {
-    return DefaultApiFp(this.configuration)
+    return ItemsApiFp(this.configuration)
       .getV3Offices(options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -12664,10 +12662,10 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @summary Получить список складов продавца
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof ItemsApi
    */
   public getV3Warehouses(options?: RawAxiosRequestConfig) {
-    return DefaultApiFp(this.configuration)
+    return ItemsApiFp(this.configuration)
       .getV3Warehouses(options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -12679,14 +12677,14 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {PatchV2TagIdRequest} patchV2TagIdRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof ItemsApi
    */
   public patchV2TagId(
     id: number,
     patchV2TagIdRequest: PatchV2TagIdRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return ItemsApiFp(this.configuration)
       .patchV2TagId(id, patchV2TagIdRequest, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -12697,13 +12695,13 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {GetRecomReq} [getRecomReq]
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof ItemsApi
    */
   public postV1RecommendationsList(
     getRecomReq?: GetRecomReq,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return ItemsApiFp(this.configuration)
       .postV1RecommendationsList(getRecomReq, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -12714,13 +12712,13 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {SetRecomReq} setRecomReq
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof ItemsApi
    */
   public postV1RecommendationsSet(
     setRecomReq: SetRecomReq,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return ItemsApiFp(this.configuration)
       .postV1RecommendationsSet(setRecomReq, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -12731,13 +12729,13 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {PostV1UploadTaskB2bWholesaleRequest} postV1UploadTaskB2bWholesaleRequest Установка оптовых скидок для B2B
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof ItemsApi
    */
   public postV1UploadTaskB2bWholesale(
     postV1UploadTaskB2bWholesaleRequest: PostV1UploadTaskB2bWholesaleRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return ItemsApiFp(this.configuration)
       .postV1UploadTaskB2bWholesale(
         postV1UploadTaskB2bWholesaleRequest,
         options,
@@ -12751,13 +12749,13 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {PostV2BarcodesRequest} postV2BarcodesRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof ItemsApi
    */
   public postV2Barcodes(
     postV2BarcodesRequest: PostV2BarcodesRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return ItemsApiFp(this.configuration)
       .postV2Barcodes(postV2BarcodesRequest, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -12768,13 +12766,13 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {PostV2CardsDeleteTrashRequest} postV2CardsDeleteTrashRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof ItemsApi
    */
   public postV2CardsDeleteTrash(
     postV2CardsDeleteTrashRequest: PostV2CardsDeleteTrashRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return ItemsApiFp(this.configuration)
       .postV2CardsDeleteTrash(postV2CardsDeleteTrashRequest, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -12786,14 +12784,14 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {string} [locale] Язык названий предметов:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof ItemsApi
    */
   public postV2CardsErrorList(
     requestPublicViewerPublicErrorsTableListV2: RequestPublicViewerPublicErrorsTableListV2,
     locale?: string,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return ItemsApiFp(this.configuration)
       .postV2CardsErrorList(
         requestPublicViewerPublicErrorsTableListV2,
         locale,
@@ -12808,13 +12806,13 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {PostV2CardsMoveNmRequest} [postV2CardsMoveNmRequest]
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof ItemsApi
    */
   public postV2CardsMoveNm(
     postV2CardsMoveNmRequest?: PostV2CardsMoveNmRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return ItemsApiFp(this.configuration)
       .postV2CardsMoveNm(postV2CardsMoveNmRequest, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -12825,13 +12823,13 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {PostV2CardsDeleteTrashRequest} postV2CardsDeleteTrashRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof ItemsApi
    */
   public postV2CardsRecover(
     postV2CardsDeleteTrashRequest: PostV2CardsDeleteTrashRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return ItemsApiFp(this.configuration)
       .postV2CardsRecover(postV2CardsDeleteTrashRequest, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -12842,13 +12840,13 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {Array<PostV2CardsUpdateRequestInner>} [postV2CardsUpdateRequestInner]
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof ItemsApi
    */
   public postV2CardsUpdate(
     postV2CardsUpdateRequestInner?: Array<PostV2CardsUpdateRequestInner>,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return ItemsApiFp(this.configuration)
       .postV2CardsUpdate(postV2CardsUpdateRequestInner, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -12859,13 +12857,13 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {Array<PostV2CardsUploadRequestInner>} [postV2CardsUploadRequestInner]
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof ItemsApi
    */
   public postV2CardsUpload(
     postV2CardsUploadRequestInner?: Array<PostV2CardsUploadRequestInner>,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return ItemsApiFp(this.configuration)
       .postV2CardsUpload(postV2CardsUploadRequestInner, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -12876,13 +12874,13 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {PostV2CardsUploadAddRequest} [postV2CardsUploadAddRequest]
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof ItemsApi
    */
   public postV2CardsUploadAdd(
     postV2CardsUploadAddRequest?: PostV2CardsUploadAddRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return ItemsApiFp(this.configuration)
       .postV2CardsUploadAdd(postV2CardsUploadAddRequest, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -12894,14 +12892,14 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {string} [locale] Язык полей ответа &#x60;name&#x60;, &#x60;value&#x60; и &#x60;object&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof ItemsApi
    */
   public postV2GetCardsList(
     postV2GetCardsListRequest: PostV2GetCardsListRequest,
     locale?: string,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return ItemsApiFp(this.configuration)
       .postV2GetCardsList(postV2GetCardsListRequest, locale, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -12913,14 +12911,14 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {PostV2GetCardsTrashLocaleEnum} [locale] Язык полей ответа &#x60;name&#x60;, &#x60;value&#x60; и &#x60;object&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof ItemsApi
    */
   public postV2GetCardsTrash(
     postV2GetCardsTrashRequest: PostV2GetCardsTrashRequest,
     locale?: PostV2GetCardsTrashLocaleEnum,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return ItemsApiFp(this.configuration)
       .postV2GetCardsTrash(postV2GetCardsTrashRequest, locale, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -12931,13 +12929,13 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {PostV2ListGoodsFilterRequest} postV2ListGoodsFilterRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof ItemsApi
    */
   public postV2ListGoodsFilter(
     postV2ListGoodsFilterRequest: PostV2ListGoodsFilterRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return ItemsApiFp(this.configuration)
       .postV2ListGoodsFilter(postV2ListGoodsFilterRequest, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -12948,13 +12946,13 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {PostV2TagRequest} postV2TagRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof ItemsApi
    */
   public postV2Tag(
     postV2TagRequest: PostV2TagRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return ItemsApiFp(this.configuration)
       .postV2Tag(postV2TagRequest, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -12965,13 +12963,13 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {PostV2TagNomenclatureLinkRequest} postV2TagNomenclatureLinkRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof ItemsApi
    */
   public postV2TagNomenclatureLink(
     postV2TagNomenclatureLinkRequest: PostV2TagNomenclatureLinkRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return ItemsApiFp(this.configuration)
       .postV2TagNomenclatureLink(postV2TagNomenclatureLinkRequest, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -12982,13 +12980,13 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {PostV2UploadTaskRequest} postV2UploadTaskRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof ItemsApi
    */
   public postV2UploadTask(
     postV2UploadTaskRequest: PostV2UploadTaskRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return ItemsApiFp(this.configuration)
       .postV2UploadTask(postV2UploadTaskRequest, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -12999,13 +12997,13 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {PostV2UploadTaskClubDiscountRequest} postV2UploadTaskClubDiscountRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof ItemsApi
    */
   public postV2UploadTaskClubDiscount(
     postV2UploadTaskClubDiscountRequest: PostV2UploadTaskClubDiscountRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return ItemsApiFp(this.configuration)
       .postV2UploadTaskClubDiscount(
         postV2UploadTaskClubDiscountRequest,
         options,
@@ -13019,13 +13017,13 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {PostV2UploadTaskSizeRequest} postV2UploadTaskSizeRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof ItemsApi
    */
   public postV2UploadTaskSize(
     postV2UploadTaskSizeRequest: PostV2UploadTaskSizeRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return ItemsApiFp(this.configuration)
       .postV2UploadTaskSize(postV2UploadTaskSizeRequest, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -13038,7 +13036,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {File} [uploadfile]
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof ItemsApi
    */
   public postV3MediaFile(
     xNmId: string,
@@ -13046,7 +13044,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
     uploadfile?: File,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return ItemsApiFp(this.configuration)
       .postV3MediaFile(xNmId, xPhotoNumber, uploadfile, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -13057,13 +13055,13 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {PostV3MediaSaveRequest} postV3MediaSaveRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof ItemsApi
    */
   public postV3MediaSave(
     postV3MediaSaveRequest: PostV3MediaSaveRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return ItemsApiFp(this.configuration)
       .postV3MediaSave(postV3MediaSaveRequest, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -13075,14 +13073,14 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {PostV3StocksWarehouseIdRequest} postV3StocksWarehouseIdRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof ItemsApi
    */
   public postV3StocksWarehouseId(
     warehouseId: number,
     postV3StocksWarehouseIdRequest: PostV3StocksWarehouseIdRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return ItemsApiFp(this.configuration)
       .postV3StocksWarehouseId(
         warehouseId,
         postV3StocksWarehouseIdRequest,
@@ -13097,13 +13095,13 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {PostV3WarehousesRequest} postV3WarehousesRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof ItemsApi
    */
   public postV3Warehouses(
     postV3WarehousesRequest: PostV3WarehousesRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return ItemsApiFp(this.configuration)
       .postV3Warehouses(postV3WarehousesRequest, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -13115,14 +13113,14 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {StoreContactRequestBody} storeContactRequestBody
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof ItemsApi
    */
   public putV3DbwWarehousesWarehouseIdContacts(
     warehouseId: number,
     storeContactRequestBody: StoreContactRequestBody,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return ItemsApiFp(this.configuration)
       .putV3DbwWarehousesWarehouseIdContacts(
         warehouseId,
         storeContactRequestBody,
@@ -13138,14 +13136,14 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {PutV3StocksWarehouseIdRequest} [putV3StocksWarehouseIdRequest]
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof ItemsApi
    */
   public putV3StocksWarehouseId(
     warehouseId: number,
     putV3StocksWarehouseIdRequest?: PutV3StocksWarehouseIdRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return ItemsApiFp(this.configuration)
       .putV3StocksWarehouseId(
         warehouseId,
         putV3StocksWarehouseIdRequest,
@@ -13161,14 +13159,14 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {PutV3WarehousesWarehouseIdRequest} putV3WarehousesWarehouseIdRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof ItemsApi
    */
   public putV3WarehousesWarehouseId(
     warehouseId: number,
     putV3WarehousesWarehouseIdRequest: PutV3WarehousesWarehouseIdRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return ItemsApiFp(this.configuration)
       .putV3WarehousesWarehouseId(
         warehouseId,
         putV3WarehousesWarehouseIdRequest,

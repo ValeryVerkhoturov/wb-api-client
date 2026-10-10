@@ -2988,736 +2988,10 @@ export interface V3SupplyOrderIDsAPI {
 }
 
 /**
- * DefaultApi - axios parameter creator
+ * OrdersFbsApi - axios parameter creator
  * @export
  */
-export const DefaultApiAxiosParamCreator = function (
-  configuration?: Configuration,
-) {
-  return {
-    /**
-     * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод возвращает информацию о настройках автовозврата, установленных продавцом.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
-     * @summary Получить настройки автовозврата продавца
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getV3FbsSettingsAutoreturns: async (
-      options: RawAxiosRequestConfig = {},
-    ): Promise<RequestArgs> => {
-      const localVarPath = `/api/marketplace/v3/fbs/settings/autoreturns`;
-      // use dummy base URL string because the URL constructor only accepts absolute URLs.
-      const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-      let baseOptions;
-      if (configuration) {
-        baseOptions = configuration.baseOptions;
-      }
-
-      const localVarRequestOptions = {
-        method: "GET",
-        ...baseOptions,
-        ...options,
-      };
-      const localVarHeaderParameter = {} as any;
-      const localVarQueryParameter = {} as any;
-
-      // authentication BearerAuth required
-      // http bearer authentication required
-      await setBearerAuthToObject(localVarHeaderParameter, configuration);
-
-      setSearchParams(localVarUrlObj, localVarQueryParameter);
-      let headersFromBaseOptions =
-        baseOptions && baseOptions.headers ? baseOptions.headers : {};
-      localVarRequestOptions.headers = {
-        ...localVarHeaderParameter,
-        ...headersFromBaseOptions,
-        ...options.headers,
-      };
-
-      return {
-        url: toPathString(localVarUrlObj),
-        options: localVarRequestOptions,
-      };
-    },
-    /**
-     * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод возвращает список ID предметов, товары которых не могут храниться на складах WB и будут возвращены в ПВЗ автоматически.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
-     * @summary Получить предметы, которые не хранятся на складах WB
-     * @param {number} next Параметр пагинации. Устанавливает значение, с которого надо получить следующий пакет данных. Для получения полного списка данных должен быть равен &#x60;0&#x60; в первом запросе. Для следующих запросов необходимо брать значения из одноимённого поля в ответе.
-     * @param {number} limit Количество предметов в ответе
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getV3FbsSettingsAutoreturnsSubcategoriesRestricted: async (
-      next: number,
-      limit: number,
-      options: RawAxiosRequestConfig = {},
-    ): Promise<RequestArgs> => {
-      // verify required parameter 'next' is not null or undefined
-      assertParamExists(
-        "getV3FbsSettingsAutoreturnsSubcategoriesRestricted",
-        "next",
-        next,
-      );
-      // verify required parameter 'limit' is not null or undefined
-      assertParamExists(
-        "getV3FbsSettingsAutoreturnsSubcategoriesRestricted",
-        "limit",
-        limit,
-      );
-      const localVarPath = `/api/marketplace/v3/fbs/settings/autoreturns/subcategories/restricted`;
-      // use dummy base URL string because the URL constructor only accepts absolute URLs.
-      const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-      let baseOptions;
-      if (configuration) {
-        baseOptions = configuration.baseOptions;
-      }
-
-      const localVarRequestOptions = {
-        method: "GET",
-        ...baseOptions,
-        ...options,
-      };
-      const localVarHeaderParameter = {} as any;
-      const localVarQueryParameter = {} as any;
-
-      // authentication BearerAuth required
-      // http bearer authentication required
-      await setBearerAuthToObject(localVarHeaderParameter, configuration);
-
-      if (next !== undefined) {
-        localVarQueryParameter["next"] = next;
-      }
-
-      if (limit !== undefined) {
-        localVarQueryParameter["limit"] = limit;
-      }
-
-      setSearchParams(localVarUrlObj, localVarQueryParameter);
-      let headersFromBaseOptions =
-        baseOptions && baseOptions.headers ? baseOptions.headers : {};
-      localVarRequestOptions.headers = {
-        ...localVarHeaderParameter,
-        ...headersFromBaseOptions,
-        ...options.headers,
-      };
-
-      return {
-        url: toPathString(localVarUrlObj),
-        options: localVarRequestOptions,
-      };
-    },
-    /**
-     * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод устанавливает настройки автовозврата продавца для малогабаритных товаров — `\"cargoType\":1`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
-     * @summary Обновить настройки автовозврата продавца
-     * @param {PatchV3FbsSettingsAutoreturnsRequest} [patchV3FbsSettingsAutoreturnsRequest]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    patchV3FbsSettingsAutoreturns: async (
-      patchV3FbsSettingsAutoreturnsRequest?: PatchV3FbsSettingsAutoreturnsRequest,
-      options: RawAxiosRequestConfig = {},
-    ): Promise<RequestArgs> => {
-      const localVarPath = `/api/marketplace/v3/fbs/settings/autoreturns`;
-      // use dummy base URL string because the URL constructor only accepts absolute URLs.
-      const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-      let baseOptions;
-      if (configuration) {
-        baseOptions = configuration.baseOptions;
-      }
-
-      const localVarRequestOptions = {
-        method: "PATCH",
-        ...baseOptions,
-        ...options,
-      };
-      const localVarHeaderParameter = {} as any;
-      const localVarQueryParameter = {} as any;
-
-      // authentication BearerAuth required
-      // http bearer authentication required
-      await setBearerAuthToObject(localVarHeaderParameter, configuration);
-
-      localVarHeaderParameter["Content-Type"] = "application/json";
-
-      setSearchParams(localVarUrlObj, localVarQueryParameter);
-      let headersFromBaseOptions =
-        baseOptions && baseOptions.headers ? baseOptions.headers : {};
-      localVarRequestOptions.headers = {
-        ...localVarHeaderParameter,
-        ...headersFromBaseOptions,
-        ...options.headers,
-      };
-      localVarRequestOptions.data = serializeDataIfNeeded(
-        patchV3FbsSettingsAutoreturnsRequest,
-        localVarRequestOptions,
-        configuration,
-      );
-
-      return {
-        url: toPathString(localVarUrlObj),
-        options: localVarRequestOptions,
-      };
-    },
-    /**
-     * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод устанавливает настройки автовозврата малогабаритных товаров — `\"cargoType\":1`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
-     * @summary Обновить настройки автовозврата товаров
-     * @param {PatchV3FbsSettingsAutoreturnsItemsRequest} [patchV3FbsSettingsAutoreturnsItemsRequest]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    patchV3FbsSettingsAutoreturnsItems: async (
-      patchV3FbsSettingsAutoreturnsItemsRequest?: PatchV3FbsSettingsAutoreturnsItemsRequest,
-      options: RawAxiosRequestConfig = {},
-    ): Promise<RequestArgs> => {
-      const localVarPath = `/api/marketplace/v3/fbs/settings/autoreturns/items`;
-      // use dummy base URL string because the URL constructor only accepts absolute URLs.
-      const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-      let baseOptions;
-      if (configuration) {
-        baseOptions = configuration.baseOptions;
-      }
-
-      const localVarRequestOptions = {
-        method: "PATCH",
-        ...baseOptions,
-        ...options,
-      };
-      const localVarHeaderParameter = {} as any;
-      const localVarQueryParameter = {} as any;
-
-      // authentication BearerAuth required
-      // http bearer authentication required
-      await setBearerAuthToObject(localVarHeaderParameter, configuration);
-
-      localVarHeaderParameter["Content-Type"] = "application/json";
-
-      setSearchParams(localVarUrlObj, localVarQueryParameter);
-      let headersFromBaseOptions =
-        baseOptions && baseOptions.headers ? baseOptions.headers : {};
-      localVarRequestOptions.headers = {
-        ...localVarHeaderParameter,
-        ...headersFromBaseOptions,
-        ...options.headers,
-      };
-      localVarRequestOptions.data = serializeDataIfNeeded(
-        patchV3FbsSettingsAutoreturnsItemsRequest,
-        localVarRequestOptions,
-        configuration,
-      );
-
-      return {
-        url: toPathString(localVarUrlObj),
-        options: localVarRequestOptions,
-      };
-    },
-    /**
-     * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод возвращает настройки автовозврата товаров.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
-     * @summary Получить настройки автовозврата товаров
-     * @param {PostV3FbsSettingsAutoreturnsItemsRequest} [postV3FbsSettingsAutoreturnsItemsRequest]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    postV3FbsSettingsAutoreturnsItems: async (
-      postV3FbsSettingsAutoreturnsItemsRequest?: PostV3FbsSettingsAutoreturnsItemsRequest,
-      options: RawAxiosRequestConfig = {},
-    ): Promise<RequestArgs> => {
-      const localVarPath = `/api/marketplace/v3/fbs/settings/autoreturns/items`;
-      // use dummy base URL string because the URL constructor only accepts absolute URLs.
-      const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-      let baseOptions;
-      if (configuration) {
-        baseOptions = configuration.baseOptions;
-      }
-
-      const localVarRequestOptions = {
-        method: "POST",
-        ...baseOptions,
-        ...options,
-      };
-      const localVarHeaderParameter = {} as any;
-      const localVarQueryParameter = {} as any;
-
-      // authentication BearerAuth required
-      // http bearer authentication required
-      await setBearerAuthToObject(localVarHeaderParameter, configuration);
-
-      localVarHeaderParameter["Content-Type"] = "application/json";
-
-      setSearchParams(localVarUrlObj, localVarQueryParameter);
-      let headersFromBaseOptions =
-        baseOptions && baseOptions.headers ? baseOptions.headers : {};
-      localVarRequestOptions.headers = {
-        ...localVarHeaderParameter,
-        ...headersFromBaseOptions,
-        ...options.headers,
-      };
-      localVarRequestOptions.data = serializeDataIfNeeded(
-        postV3FbsSettingsAutoreturnsItemsRequest,
-        localVarRequestOptions,
-        configuration,
-      );
-
-      return {
-        url: toPathString(localVarUrlObj),
-        options: localVarRequestOptions,
-      };
-    },
-  };
-};
-
-/**
- * DefaultApi - functional programming interface
- * @export
- */
-export const DefaultApiFp = function (configuration?: Configuration) {
-  const localVarAxiosParamCreator = DefaultApiAxiosParamCreator(configuration);
-  return {
-    /**
-     * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод возвращает информацию о настройках автовозврата, установленных продавцом.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
-     * @summary Получить настройки автовозврата продавца
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    async getV3FbsSettingsAutoreturns(
-      options?: RawAxiosRequestConfig,
-    ): Promise<
-      (
-        axios?: AxiosInstance,
-        basePath?: string,
-      ) => AxiosPromise<GetV3FbsSettingsAutoreturnsResponse200>
-    > {
-      const localVarAxiosArgs =
-        await localVarAxiosParamCreator.getV3FbsSettingsAutoreturns(options);
-      const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-      const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV3FbsSettingsAutoreturns"]?.[
-          localVarOperationServerIndex
-        ]?.url;
-      return (axios, basePath) =>
-        createRequestFunction(
-          localVarAxiosArgs,
-          globalAxios,
-          BASE_PATH,
-          configuration,
-        )(axios, localVarOperationServerBasePath || basePath);
-    },
-    /**
-     * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод возвращает список ID предметов, товары которых не могут храниться на складах WB и будут возвращены в ПВЗ автоматически.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
-     * @summary Получить предметы, которые не хранятся на складах WB
-     * @param {number} next Параметр пагинации. Устанавливает значение, с которого надо получить следующий пакет данных. Для получения полного списка данных должен быть равен &#x60;0&#x60; в первом запросе. Для следующих запросов необходимо брать значения из одноимённого поля в ответе.
-     * @param {number} limit Количество предметов в ответе
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    async getV3FbsSettingsAutoreturnsSubcategoriesRestricted(
-      next: number,
-      limit: number,
-      options?: RawAxiosRequestConfig,
-    ): Promise<
-      (
-        axios?: AxiosInstance,
-        basePath?: string,
-      ) => AxiosPromise<GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200>
-    > {
-      const localVarAxiosArgs =
-        await localVarAxiosParamCreator.getV3FbsSettingsAutoreturnsSubcategoriesRestricted(
-          next,
-          limit,
-          options,
-        );
-      const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-      const localVarOperationServerBasePath =
-        operationServerMap[
-          "DefaultApi.getV3FbsSettingsAutoreturnsSubcategoriesRestricted"
-        ]?.[localVarOperationServerIndex]?.url;
-      return (axios, basePath) =>
-        createRequestFunction(
-          localVarAxiosArgs,
-          globalAxios,
-          BASE_PATH,
-          configuration,
-        )(axios, localVarOperationServerBasePath || basePath);
-    },
-    /**
-     * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод устанавливает настройки автовозврата продавца для малогабаритных товаров — `\"cargoType\":1`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
-     * @summary Обновить настройки автовозврата продавца
-     * @param {PatchV3FbsSettingsAutoreturnsRequest} [patchV3FbsSettingsAutoreturnsRequest]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    async patchV3FbsSettingsAutoreturns(
-      patchV3FbsSettingsAutoreturnsRequest?: PatchV3FbsSettingsAutoreturnsRequest,
-      options?: RawAxiosRequestConfig,
-    ): Promise<
-      (axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>
-    > {
-      const localVarAxiosArgs =
-        await localVarAxiosParamCreator.patchV3FbsSettingsAutoreturns(
-          patchV3FbsSettingsAutoreturnsRequest,
-          options,
-        );
-      const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-      const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.patchV3FbsSettingsAutoreturns"]?.[
-          localVarOperationServerIndex
-        ]?.url;
-      return (axios, basePath) =>
-        createRequestFunction(
-          localVarAxiosArgs,
-          globalAxios,
-          BASE_PATH,
-          configuration,
-        )(axios, localVarOperationServerBasePath || basePath);
-    },
-    /**
-     * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод устанавливает настройки автовозврата малогабаритных товаров — `\"cargoType\":1`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
-     * @summary Обновить настройки автовозврата товаров
-     * @param {PatchV3FbsSettingsAutoreturnsItemsRequest} [patchV3FbsSettingsAutoreturnsItemsRequest]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    async patchV3FbsSettingsAutoreturnsItems(
-      patchV3FbsSettingsAutoreturnsItemsRequest?: PatchV3FbsSettingsAutoreturnsItemsRequest,
-      options?: RawAxiosRequestConfig,
-    ): Promise<
-      (
-        axios?: AxiosInstance,
-        basePath?: string,
-      ) => AxiosPromise<PatchV3FbsSettingsAutoreturnsItemsResponse200>
-    > {
-      const localVarAxiosArgs =
-        await localVarAxiosParamCreator.patchV3FbsSettingsAutoreturnsItems(
-          patchV3FbsSettingsAutoreturnsItemsRequest,
-          options,
-        );
-      const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-      const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.patchV3FbsSettingsAutoreturnsItems"]?.[
-          localVarOperationServerIndex
-        ]?.url;
-      return (axios, basePath) =>
-        createRequestFunction(
-          localVarAxiosArgs,
-          globalAxios,
-          BASE_PATH,
-          configuration,
-        )(axios, localVarOperationServerBasePath || basePath);
-    },
-    /**
-     * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод возвращает настройки автовозврата товаров.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
-     * @summary Получить настройки автовозврата товаров
-     * @param {PostV3FbsSettingsAutoreturnsItemsRequest} [postV3FbsSettingsAutoreturnsItemsRequest]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    async postV3FbsSettingsAutoreturnsItems(
-      postV3FbsSettingsAutoreturnsItemsRequest?: PostV3FbsSettingsAutoreturnsItemsRequest,
-      options?: RawAxiosRequestConfig,
-    ): Promise<
-      (
-        axios?: AxiosInstance,
-        basePath?: string,
-      ) => AxiosPromise<PostV3FbsSettingsAutoreturnsItemsResponse200>
-    > {
-      const localVarAxiosArgs =
-        await localVarAxiosParamCreator.postV3FbsSettingsAutoreturnsItems(
-          postV3FbsSettingsAutoreturnsItemsRequest,
-          options,
-        );
-      const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-      const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.postV3FbsSettingsAutoreturnsItems"]?.[
-          localVarOperationServerIndex
-        ]?.url;
-      return (axios, basePath) =>
-        createRequestFunction(
-          localVarAxiosArgs,
-          globalAxios,
-          BASE_PATH,
-          configuration,
-        )(axios, localVarOperationServerBasePath || basePath);
-    },
-  };
-};
-
-/**
- * DefaultApi - factory interface
- * @export
- */
-export const DefaultApiFactory = function (
-  configuration?: Configuration,
-  basePath?: string,
-  axios?: AxiosInstance,
-) {
-  const localVarFp = DefaultApiFp(configuration);
-  return {
-    /**
-     * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод возвращает информацию о настройках автовозврата, установленных продавцом.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
-     * @summary Получить настройки автовозврата продавца
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getV3FbsSettingsAutoreturns(
-      options?: RawAxiosRequestConfig,
-    ): AxiosPromise<GetV3FbsSettingsAutoreturnsResponse200> {
-      return localVarFp
-        .getV3FbsSettingsAutoreturns(options)
-        .then((request) => request(axios, basePath));
-    },
-    /**
-     * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод возвращает список ID предметов, товары которых не могут храниться на складах WB и будут возвращены в ПВЗ автоматически.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
-     * @summary Получить предметы, которые не хранятся на складах WB
-     * @param {number} next Параметр пагинации. Устанавливает значение, с которого надо получить следующий пакет данных. Для получения полного списка данных должен быть равен &#x60;0&#x60; в первом запросе. Для следующих запросов необходимо брать значения из одноимённого поля в ответе.
-     * @param {number} limit Количество предметов в ответе
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getV3FbsSettingsAutoreturnsSubcategoriesRestricted(
-      next: number,
-      limit: number,
-      options?: RawAxiosRequestConfig,
-    ): AxiosPromise<GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200> {
-      return localVarFp
-        .getV3FbsSettingsAutoreturnsSubcategoriesRestricted(
-          next,
-          limit,
-          options,
-        )
-        .then((request) => request(axios, basePath));
-    },
-    /**
-     * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод устанавливает настройки автовозврата продавца для малогабаритных товаров — `\"cargoType\":1`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
-     * @summary Обновить настройки автовозврата продавца
-     * @param {PatchV3FbsSettingsAutoreturnsRequest} [patchV3FbsSettingsAutoreturnsRequest]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    patchV3FbsSettingsAutoreturns(
-      patchV3FbsSettingsAutoreturnsRequest?: PatchV3FbsSettingsAutoreturnsRequest,
-      options?: RawAxiosRequestConfig,
-    ): AxiosPromise<void> {
-      return localVarFp
-        .patchV3FbsSettingsAutoreturns(
-          patchV3FbsSettingsAutoreturnsRequest,
-          options,
-        )
-        .then((request) => request(axios, basePath));
-    },
-    /**
-     * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод устанавливает настройки автовозврата малогабаритных товаров — `\"cargoType\":1`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
-     * @summary Обновить настройки автовозврата товаров
-     * @param {PatchV3FbsSettingsAutoreturnsItemsRequest} [patchV3FbsSettingsAutoreturnsItemsRequest]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    patchV3FbsSettingsAutoreturnsItems(
-      patchV3FbsSettingsAutoreturnsItemsRequest?: PatchV3FbsSettingsAutoreturnsItemsRequest,
-      options?: RawAxiosRequestConfig,
-    ): AxiosPromise<PatchV3FbsSettingsAutoreturnsItemsResponse200> {
-      return localVarFp
-        .patchV3FbsSettingsAutoreturnsItems(
-          patchV3FbsSettingsAutoreturnsItemsRequest,
-          options,
-        )
-        .then((request) => request(axios, basePath));
-    },
-    /**
-     * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод возвращает настройки автовозврата товаров.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
-     * @summary Получить настройки автовозврата товаров
-     * @param {PostV3FbsSettingsAutoreturnsItemsRequest} [postV3FbsSettingsAutoreturnsItemsRequest]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    postV3FbsSettingsAutoreturnsItems(
-      postV3FbsSettingsAutoreturnsItemsRequest?: PostV3FbsSettingsAutoreturnsItemsRequest,
-      options?: RawAxiosRequestConfig,
-    ): AxiosPromise<PostV3FbsSettingsAutoreturnsItemsResponse200> {
-      return localVarFp
-        .postV3FbsSettingsAutoreturnsItems(
-          postV3FbsSettingsAutoreturnsItemsRequest,
-          options,
-        )
-        .then((request) => request(axios, basePath));
-    },
-  };
-};
-
-/**
- * DefaultApi - interface
- * @export
- * @interface DefaultApi
- */
-export interface DefaultApiInterface {
-  /**
-   * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод возвращает информацию о настройках автовозврата, установленных продавцом.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
-   * @summary Получить настройки автовозврата продавца
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   * @memberof DefaultApiInterface
-   */
-  getV3FbsSettingsAutoreturns(
-    options?: RawAxiosRequestConfig,
-  ): AxiosPromise<GetV3FbsSettingsAutoreturnsResponse200>;
-
-  /**
-   * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод возвращает список ID предметов, товары которых не могут храниться на складах WB и будут возвращены в ПВЗ автоматически.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
-   * @summary Получить предметы, которые не хранятся на складах WB
-   * @param {number} next Параметр пагинации. Устанавливает значение, с которого надо получить следующий пакет данных. Для получения полного списка данных должен быть равен &#x60;0&#x60; в первом запросе. Для следующих запросов необходимо брать значения из одноимённого поля в ответе.
-   * @param {number} limit Количество предметов в ответе
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   * @memberof DefaultApiInterface
-   */
-  getV3FbsSettingsAutoreturnsSubcategoriesRestricted(
-    next: number,
-    limit: number,
-    options?: RawAxiosRequestConfig,
-  ): AxiosPromise<GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200>;
-
-  /**
-   * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод устанавливает настройки автовозврата продавца для малогабаритных товаров — `\"cargoType\":1`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
-   * @summary Обновить настройки автовозврата продавца
-   * @param {PatchV3FbsSettingsAutoreturnsRequest} [patchV3FbsSettingsAutoreturnsRequest]
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   * @memberof DefaultApiInterface
-   */
-  patchV3FbsSettingsAutoreturns(
-    patchV3FbsSettingsAutoreturnsRequest?: PatchV3FbsSettingsAutoreturnsRequest,
-    options?: RawAxiosRequestConfig,
-  ): AxiosPromise<void>;
-
-  /**
-   * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод устанавливает настройки автовозврата малогабаритных товаров — `\"cargoType\":1`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
-   * @summary Обновить настройки автовозврата товаров
-   * @param {PatchV3FbsSettingsAutoreturnsItemsRequest} [patchV3FbsSettingsAutoreturnsItemsRequest]
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   * @memberof DefaultApiInterface
-   */
-  patchV3FbsSettingsAutoreturnsItems(
-    patchV3FbsSettingsAutoreturnsItemsRequest?: PatchV3FbsSettingsAutoreturnsItemsRequest,
-    options?: RawAxiosRequestConfig,
-  ): AxiosPromise<PatchV3FbsSettingsAutoreturnsItemsResponse200>;
-
-  /**
-   * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод возвращает настройки автовозврата товаров.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
-   * @summary Получить настройки автовозврата товаров
-   * @param {PostV3FbsSettingsAutoreturnsItemsRequest} [postV3FbsSettingsAutoreturnsItemsRequest]
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   * @memberof DefaultApiInterface
-   */
-  postV3FbsSettingsAutoreturnsItems(
-    postV3FbsSettingsAutoreturnsItemsRequest?: PostV3FbsSettingsAutoreturnsItemsRequest,
-    options?: RawAxiosRequestConfig,
-  ): AxiosPromise<PostV3FbsSettingsAutoreturnsItemsResponse200>;
-}
-
-/**
- * DefaultApi - object-oriented interface
- * @export
- * @class DefaultApi
- * @extends {BaseAPI}
- */
-export class DefaultApi extends BaseAPI implements DefaultApiInterface {
-  /**
-   * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод возвращает информацию о настройках автовозврата, установленных продавцом.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
-   * @summary Получить настройки автовозврата продавца
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   * @memberof DefaultApi
-   */
-  public getV3FbsSettingsAutoreturns(options?: RawAxiosRequestConfig) {
-    return DefaultApiFp(this.configuration)
-      .getV3FbsSettingsAutoreturns(options)
-      .then((request) => request(this.axios, this.basePath));
-  }
-
-  /**
-   * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод возвращает список ID предметов, товары которых не могут храниться на складах WB и будут возвращены в ПВЗ автоматически.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
-   * @summary Получить предметы, которые не хранятся на складах WB
-   * @param {number} next Параметр пагинации. Устанавливает значение, с которого надо получить следующий пакет данных. Для получения полного списка данных должен быть равен &#x60;0&#x60; в первом запросе. Для следующих запросов необходимо брать значения из одноимённого поля в ответе.
-   * @param {number} limit Количество предметов в ответе
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   * @memberof DefaultApi
-   */
-  public getV3FbsSettingsAutoreturnsSubcategoriesRestricted(
-    next: number,
-    limit: number,
-    options?: RawAxiosRequestConfig,
-  ) {
-    return DefaultApiFp(this.configuration)
-      .getV3FbsSettingsAutoreturnsSubcategoriesRestricted(next, limit, options)
-      .then((request) => request(this.axios, this.basePath));
-  }
-
-  /**
-   * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод устанавливает настройки автовозврата продавца для малогабаритных товаров — `\"cargoType\":1`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
-   * @summary Обновить настройки автовозврата продавца
-   * @param {PatchV3FbsSettingsAutoreturnsRequest} [patchV3FbsSettingsAutoreturnsRequest]
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   * @memberof DefaultApi
-   */
-  public patchV3FbsSettingsAutoreturns(
-    patchV3FbsSettingsAutoreturnsRequest?: PatchV3FbsSettingsAutoreturnsRequest,
-    options?: RawAxiosRequestConfig,
-  ) {
-    return DefaultApiFp(this.configuration)
-      .patchV3FbsSettingsAutoreturns(
-        patchV3FbsSettingsAutoreturnsRequest,
-        options,
-      )
-      .then((request) => request(this.axios, this.basePath));
-  }
-
-  /**
-   * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод устанавливает настройки автовозврата малогабаритных товаров — `\"cargoType\":1`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
-   * @summary Обновить настройки автовозврата товаров
-   * @param {PatchV3FbsSettingsAutoreturnsItemsRequest} [patchV3FbsSettingsAutoreturnsItemsRequest]
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   * @memberof DefaultApi
-   */
-  public patchV3FbsSettingsAutoreturnsItems(
-    patchV3FbsSettingsAutoreturnsItemsRequest?: PatchV3FbsSettingsAutoreturnsItemsRequest,
-    options?: RawAxiosRequestConfig,
-  ) {
-    return DefaultApiFp(this.configuration)
-      .patchV3FbsSettingsAutoreturnsItems(
-        patchV3FbsSettingsAutoreturnsItemsRequest,
-        options,
-      )
-      .then((request) => request(this.axios, this.basePath));
-  }
-
-  /**
-   * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод возвращает настройки автовозврата товаров.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
-   * @summary Получить настройки автовозврата товаров
-   * @param {PostV3FbsSettingsAutoreturnsItemsRequest} [postV3FbsSettingsAutoreturnsItemsRequest]
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   * @memberof DefaultApi
-   */
-  public postV3FbsSettingsAutoreturnsItems(
-    postV3FbsSettingsAutoreturnsItemsRequest?: PostV3FbsSettingsAutoreturnsItemsRequest,
-    options?: RawAxiosRequestConfig,
-  ) {
-    return DefaultApiFp(this.configuration)
-      .postV3FbsSettingsAutoreturnsItems(
-        postV3FbsSettingsAutoreturnsItemsRequest,
-        options,
-      )
-      .then((request) => request(this.axios, this.basePath));
-  }
-}
-
-/**
- * FBSApi - axios parameter creator
- * @export
- */
-export const FBSApiAxiosParamCreator = function (
+export const OrdersFbsApiAxiosParamCreator = function (
   configuration?: Configuration,
 ) {
   return {
@@ -4033,6 +3307,116 @@ export const FBSApiAxiosParamCreator = function (
       if (month !== undefined) {
         localVarQueryParameter["month"] = month;
       }
+
+      if (next !== undefined) {
+        localVarQueryParameter["next"] = next;
+      }
+
+      if (limit !== undefined) {
+        localVarQueryParameter["limit"] = limit;
+      }
+
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
+      let headersFromBaseOptions =
+        baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = {
+        ...localVarHeaderParameter,
+        ...headersFromBaseOptions,
+        ...options.headers,
+      };
+
+      return {
+        url: toPathString(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод возвращает информацию о настройках автовозврата, установленных продавцом.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+     * @summary Получить настройки автовозврата продавца
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getV3FbsSettingsAutoreturns: async (
+      options: RawAxiosRequestConfig = {},
+    ): Promise<RequestArgs> => {
+      const localVarPath = `/api/marketplace/v3/fbs/settings/autoreturns`;
+      // use dummy base URL string because the URL constructor only accepts absolute URLs.
+      const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+
+      const localVarRequestOptions = {
+        method: "GET",
+        ...baseOptions,
+        ...options,
+      };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      // authentication BearerAuth required
+      // http bearer authentication required
+      await setBearerAuthToObject(localVarHeaderParameter, configuration);
+
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
+      let headersFromBaseOptions =
+        baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = {
+        ...localVarHeaderParameter,
+        ...headersFromBaseOptions,
+        ...options.headers,
+      };
+
+      return {
+        url: toPathString(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод возвращает список ID предметов, товары которых не могут храниться на складах WB и будут возвращены в ПВЗ автоматически.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+     * @summary Получить предметы, которые не хранятся на складах WB
+     * @param {number} next Параметр пагинации. Устанавливает значение, с которого надо получить следующий пакет данных. Для получения полного списка данных должен быть равен &#x60;0&#x60; в первом запросе. Для следующих запросов необходимо брать значения из одноимённого поля в ответе.
+     * @param {number} limit Количество предметов в ответе
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getV3FbsSettingsAutoreturnsSubcategoriesRestricted: async (
+      next: number,
+      limit: number,
+      options: RawAxiosRequestConfig = {},
+    ): Promise<RequestArgs> => {
+      // verify required parameter 'next' is not null or undefined
+      assertParamExists(
+        "getV3FbsSettingsAutoreturnsSubcategoriesRestricted",
+        "next",
+        next,
+      );
+      // verify required parameter 'limit' is not null or undefined
+      assertParamExists(
+        "getV3FbsSettingsAutoreturnsSubcategoriesRestricted",
+        "limit",
+        limit,
+      );
+      const localVarPath = `/api/marketplace/v3/fbs/settings/autoreturns/subcategories/restricted`;
+      // use dummy base URL string because the URL constructor only accepts absolute URLs.
+      const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+
+      const localVarRequestOptions = {
+        method: "GET",
+        ...baseOptions,
+        ...options,
+      };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      // authentication BearerAuth required
+      // http bearer authentication required
+      await setBearerAuthToObject(localVarHeaderParameter, configuration);
 
       if (next !== undefined) {
         localVarQueryParameter["next"] = next;
@@ -4682,6 +4066,110 @@ export const FBSApiAxiosParamCreator = function (
       };
     },
     /**
+     * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод устанавливает настройки автовозврата продавца для малогабаритных товаров — `\"cargoType\":1`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+     * @summary Обновить настройки автовозврата продавца
+     * @param {PatchV3FbsSettingsAutoreturnsRequest} [patchV3FbsSettingsAutoreturnsRequest]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    patchV3FbsSettingsAutoreturns: async (
+      patchV3FbsSettingsAutoreturnsRequest?: PatchV3FbsSettingsAutoreturnsRequest,
+      options: RawAxiosRequestConfig = {},
+    ): Promise<RequestArgs> => {
+      const localVarPath = `/api/marketplace/v3/fbs/settings/autoreturns`;
+      // use dummy base URL string because the URL constructor only accepts absolute URLs.
+      const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+
+      const localVarRequestOptions = {
+        method: "PATCH",
+        ...baseOptions,
+        ...options,
+      };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      // authentication BearerAuth required
+      // http bearer authentication required
+      await setBearerAuthToObject(localVarHeaderParameter, configuration);
+
+      localVarHeaderParameter["Content-Type"] = "application/json";
+
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
+      let headersFromBaseOptions =
+        baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = {
+        ...localVarHeaderParameter,
+        ...headersFromBaseOptions,
+        ...options.headers,
+      };
+      localVarRequestOptions.data = serializeDataIfNeeded(
+        patchV3FbsSettingsAutoreturnsRequest,
+        localVarRequestOptions,
+        configuration,
+      );
+
+      return {
+        url: toPathString(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод устанавливает настройки автовозврата малогабаритных товаров — `\"cargoType\":1`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+     * @summary Обновить настройки автовозврата товаров
+     * @param {PatchV3FbsSettingsAutoreturnsItemsRequest} [patchV3FbsSettingsAutoreturnsItemsRequest]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    patchV3FbsSettingsAutoreturnsItems: async (
+      patchV3FbsSettingsAutoreturnsItemsRequest?: PatchV3FbsSettingsAutoreturnsItemsRequest,
+      options: RawAxiosRequestConfig = {},
+    ): Promise<RequestArgs> => {
+      const localVarPath = `/api/marketplace/v3/fbs/settings/autoreturns/items`;
+      // use dummy base URL string because the URL constructor only accepts absolute URLs.
+      const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+
+      const localVarRequestOptions = {
+        method: "PATCH",
+        ...baseOptions,
+        ...options,
+      };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      // authentication BearerAuth required
+      // http bearer authentication required
+      await setBearerAuthToObject(localVarHeaderParameter, configuration);
+
+      localVarHeaderParameter["Content-Type"] = "application/json";
+
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
+      let headersFromBaseOptions =
+        baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = {
+        ...localVarHeaderParameter,
+        ...headersFromBaseOptions,
+        ...options.headers,
+      };
+      localVarRequestOptions.data = serializeDataIfNeeded(
+        patchV3FbsSettingsAutoreturnsItemsRequest,
+        localVarRequestOptions,
+        configuration,
+      );
+
+      return {
+        url: toPathString(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
      * Метод устанавливает способ доставки, дату и пункт отгрузки у поставок.  Параметры отгрузки нужно указать до передачи поставки в доставку. Вы можете обновлять параметры отгрузки до сканирования поставки и её коробов в пункте отгрузки. Когда поставка будет отсканирована, метод начнёт возвращать ошибку `409`.  В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.  Доступно только для продавцов из РФ.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
      * @summary Установить параметры отгрузки поставок
      * @param {PatchV3FbsSuppliesShippingMethodRequest} patchV3FbsSuppliesShippingMethodRequest
@@ -4896,6 +4384,58 @@ export const FBSApiAxiosParamCreator = function (
       };
       localVarRequestOptions.data = serializeDataIfNeeded(
         patchV3SuppliesSupplyIdOrdersRequest,
+        localVarRequestOptions,
+        configuration,
+      );
+
+      return {
+        url: toPathString(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод возвращает настройки автовозврата товаров.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+     * @summary Получить настройки автовозврата товаров
+     * @param {PostV3FbsSettingsAutoreturnsItemsRequest} [postV3FbsSettingsAutoreturnsItemsRequest]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    postV3FbsSettingsAutoreturnsItems: async (
+      postV3FbsSettingsAutoreturnsItemsRequest?: PostV3FbsSettingsAutoreturnsItemsRequest,
+      options: RawAxiosRequestConfig = {},
+    ): Promise<RequestArgs> => {
+      const localVarPath = `/api/marketplace/v3/fbs/settings/autoreturns/items`;
+      // use dummy base URL string because the URL constructor only accepts absolute URLs.
+      const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+
+      const localVarRequestOptions = {
+        method: "POST",
+        ...baseOptions,
+        ...options,
+      };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      // authentication BearerAuth required
+      // http bearer authentication required
+      await setBearerAuthToObject(localVarHeaderParameter, configuration);
+
+      localVarHeaderParameter["Content-Type"] = "application/json";
+
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
+      let headersFromBaseOptions =
+        baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = {
+        ...localVarHeaderParameter,
+        ...headersFromBaseOptions,
+        ...options.headers,
+      };
+      localVarRequestOptions.data = serializeDataIfNeeded(
+        postV3FbsSettingsAutoreturnsItemsRequest,
         localVarRequestOptions,
         configuration,
       );
@@ -6087,11 +5627,12 @@ export const FBSApiAxiosParamCreator = function (
 };
 
 /**
- * FBSApi - functional programming interface
+ * OrdersFbsApi - functional programming interface
  * @export
  */
-export const FBSApiFp = function (configuration?: Configuration) {
-  const localVarAxiosParamCreator = FBSApiAxiosParamCreator(configuration);
+export const OrdersFbsApiFp = function (configuration?: Configuration) {
+  const localVarAxiosParamCreator =
+    OrdersFbsApiAxiosParamCreator(configuration);
   return {
     /**
      * Метод удаляет значение [идентификаторов маркировки сборочного задания](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta) для переданного ключа.  Возможные идентификаторы маркировки: - `imei` — [IMEI](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaImei) - `uin` — [УИН](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaUin) - `gtin` — [GTIN](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaGtin) - `sgtin` — [код маркировки Честного знака](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaSgtin) - `customsDeclaration` — [номер ДТ](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaCustomsDeclaration) Можно передать только один ключ.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **получения и удаления идентификаторов маркировки FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов.  ---  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
@@ -6116,7 +5657,7 @@ export const FBSApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["FBSApi.deleteV3OrdersOrderIdMeta"]?.[
+        operationServerMap["OrdersFbsApi.deleteV3OrdersOrderIdMeta"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -6144,7 +5685,7 @@ export const FBSApiFp = function (configuration?: Configuration) {
         await localVarAxiosParamCreator.deleteV3PassesPassId(passId, options);
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["FBSApi.deleteV3PassesPassId"]?.[
+        operationServerMap["OrdersFbsApi.deleteV3PassesPassId"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -6175,7 +5716,7 @@ export const FBSApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["FBSApi.deleteV3SuppliesSupplyId"]?.[
+        operationServerMap["OrdersFbsApi.deleteV3SuppliesSupplyId"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -6209,7 +5750,7 @@ export const FBSApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["FBSApi.deleteV3SuppliesSupplyIdTrbx"]?.[
+        operationServerMap["OrdersFbsApi.deleteV3SuppliesSupplyIdTrbx"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -6240,7 +5781,7 @@ export const FBSApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["FBSApi.getV3FbsDictionariesCountriesOksm"]?.[
+        operationServerMap["OrdersFbsApi.getV3FbsDictionariesCountriesOksm"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -6283,9 +5824,75 @@ export const FBSApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["FBSApi.getV3FbsOrdersArchive"]?.[
+        operationServerMap["OrdersFbsApi.getV3FbsOrdersArchive"]?.[
           localVarOperationServerIndex
         ]?.url;
+      return (axios, basePath) =>
+        createRequestFunction(
+          localVarAxiosArgs,
+          globalAxios,
+          BASE_PATH,
+          configuration,
+        )(axios, localVarOperationServerBasePath || basePath);
+    },
+    /**
+     * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод возвращает информацию о настройках автовозврата, установленных продавцом.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+     * @summary Получить настройки автовозврата продавца
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async getV3FbsSettingsAutoreturns(
+      options?: RawAxiosRequestConfig,
+    ): Promise<
+      (
+        axios?: AxiosInstance,
+        basePath?: string,
+      ) => AxiosPromise<GetV3FbsSettingsAutoreturnsResponse200>
+    > {
+      const localVarAxiosArgs =
+        await localVarAxiosParamCreator.getV3FbsSettingsAutoreturns(options);
+      const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+      const localVarOperationServerBasePath =
+        operationServerMap["OrdersFbsApi.getV3FbsSettingsAutoreturns"]?.[
+          localVarOperationServerIndex
+        ]?.url;
+      return (axios, basePath) =>
+        createRequestFunction(
+          localVarAxiosArgs,
+          globalAxios,
+          BASE_PATH,
+          configuration,
+        )(axios, localVarOperationServerBasePath || basePath);
+    },
+    /**
+     * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод возвращает список ID предметов, товары которых не могут храниться на складах WB и будут возвращены в ПВЗ автоматически.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+     * @summary Получить предметы, которые не хранятся на складах WB
+     * @param {number} next Параметр пагинации. Устанавливает значение, с которого надо получить следующий пакет данных. Для получения полного списка данных должен быть равен &#x60;0&#x60; в первом запросе. Для следующих запросов необходимо брать значения из одноимённого поля в ответе.
+     * @param {number} limit Количество предметов в ответе
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async getV3FbsSettingsAutoreturnsSubcategoriesRestricted(
+      next: number,
+      limit: number,
+      options?: RawAxiosRequestConfig,
+    ): Promise<
+      (
+        axios?: AxiosInstance,
+        basePath?: string,
+      ) => AxiosPromise<GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200>
+    > {
+      const localVarAxiosArgs =
+        await localVarAxiosParamCreator.getV3FbsSettingsAutoreturnsSubcategoriesRestricted(
+          next,
+          limit,
+          options,
+        );
+      const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+      const localVarOperationServerBasePath =
+        operationServerMap[
+          "OrdersFbsApi.getV3FbsSettingsAutoreturnsSubcategoriesRestricted"
+        ]?.[localVarOperationServerIndex]?.url;
       return (axios, basePath) =>
         createRequestFunction(
           localVarAxiosArgs,
@@ -6320,7 +5927,7 @@ export const FBSApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["FBSApi.getV3FbsShippingPoints"]?.[
+        operationServerMap["OrdersFbsApi.getV3FbsShippingPoints"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -6354,9 +5961,9 @@ export const FBSApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["FBSApi.getV3FbsSuppliesSupplyIdStickersSpot"]?.[
-          localVarOperationServerIndex
-        ]?.url;
+        operationServerMap[
+          "OrdersFbsApi.getV3FbsSuppliesSupplyIdStickersSpot"
+        ]?.[localVarOperationServerIndex]?.url;
       return (axios, basePath) =>
         createRequestFunction(
           localVarAxiosArgs,
@@ -6396,8 +6003,9 @@ export const FBSApiFp = function (configuration?: Configuration) {
       );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["FBSApi.getV3Orders"]?.[localVarOperationServerIndex]
-          ?.url;
+        operationServerMap["OrdersFbsApi.getV3Orders"]?.[
+          localVarOperationServerIndex
+        ]?.url;
       return (axios, basePath) =>
         createRequestFunction(
           localVarAxiosArgs,
@@ -6424,7 +6032,7 @@ export const FBSApiFp = function (configuration?: Configuration) {
         await localVarAxiosParamCreator.getV3OrdersNew(options);
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["FBSApi.getV3OrdersNew"]?.[
+        operationServerMap["OrdersFbsApi.getV3OrdersNew"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -6450,8 +6058,9 @@ export const FBSApiFp = function (configuration?: Configuration) {
         await localVarAxiosParamCreator.getV3Passes(options);
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["FBSApi.getV3Passes"]?.[localVarOperationServerIndex]
-          ?.url;
+        operationServerMap["OrdersFbsApi.getV3Passes"]?.[
+          localVarOperationServerIndex
+        ]?.url;
       return (axios, basePath) =>
         createRequestFunction(
           localVarAxiosArgs,
@@ -6478,7 +6087,7 @@ export const FBSApiFp = function (configuration?: Configuration) {
         await localVarAxiosParamCreator.getV3PassesOffices(options);
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["FBSApi.getV3PassesOffices"]?.[
+        operationServerMap["OrdersFbsApi.getV3PassesOffices"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -6514,7 +6123,7 @@ export const FBSApiFp = function (configuration?: Configuration) {
       );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["FBSApi.getV3Supplies"]?.[
+        operationServerMap["OrdersFbsApi.getV3Supplies"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -6543,7 +6152,7 @@ export const FBSApiFp = function (configuration?: Configuration) {
         await localVarAxiosParamCreator.getV3SuppliesOrdersReshipment(options);
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["FBSApi.getV3SuppliesOrdersReshipment"]?.[
+        operationServerMap["OrdersFbsApi.getV3SuppliesOrdersReshipment"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -6574,7 +6183,7 @@ export const FBSApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["FBSApi.getV3SuppliesSupplyId"]?.[
+        operationServerMap["OrdersFbsApi.getV3SuppliesSupplyId"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -6611,7 +6220,7 @@ export const FBSApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["FBSApi.getV3SuppliesSupplyIdBarcode"]?.[
+        operationServerMap["OrdersFbsApi.getV3SuppliesSupplyIdBarcode"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -6645,7 +6254,7 @@ export const FBSApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["FBSApi.getV3SuppliesSupplyIdOrderIds"]?.[
+        operationServerMap["OrdersFbsApi.getV3SuppliesSupplyIdOrderIds"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -6679,7 +6288,72 @@ export const FBSApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["FBSApi.getV3SuppliesSupplyIdTrbx"]?.[
+        operationServerMap["OrdersFbsApi.getV3SuppliesSupplyIdTrbx"]?.[
+          localVarOperationServerIndex
+        ]?.url;
+      return (axios, basePath) =>
+        createRequestFunction(
+          localVarAxiosArgs,
+          globalAxios,
+          BASE_PATH,
+          configuration,
+        )(axios, localVarOperationServerBasePath || basePath);
+    },
+    /**
+     * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод устанавливает настройки автовозврата продавца для малогабаритных товаров — `\"cargoType\":1`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+     * @summary Обновить настройки автовозврата продавца
+     * @param {PatchV3FbsSettingsAutoreturnsRequest} [patchV3FbsSettingsAutoreturnsRequest]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async patchV3FbsSettingsAutoreturns(
+      patchV3FbsSettingsAutoreturnsRequest?: PatchV3FbsSettingsAutoreturnsRequest,
+      options?: RawAxiosRequestConfig,
+    ): Promise<
+      (axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>
+    > {
+      const localVarAxiosArgs =
+        await localVarAxiosParamCreator.patchV3FbsSettingsAutoreturns(
+          patchV3FbsSettingsAutoreturnsRequest,
+          options,
+        );
+      const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+      const localVarOperationServerBasePath =
+        operationServerMap["OrdersFbsApi.patchV3FbsSettingsAutoreturns"]?.[
+          localVarOperationServerIndex
+        ]?.url;
+      return (axios, basePath) =>
+        createRequestFunction(
+          localVarAxiosArgs,
+          globalAxios,
+          BASE_PATH,
+          configuration,
+        )(axios, localVarOperationServerBasePath || basePath);
+    },
+    /**
+     * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод устанавливает настройки автовозврата малогабаритных товаров — `\"cargoType\":1`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+     * @summary Обновить настройки автовозврата товаров
+     * @param {PatchV3FbsSettingsAutoreturnsItemsRequest} [patchV3FbsSettingsAutoreturnsItemsRequest]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async patchV3FbsSettingsAutoreturnsItems(
+      patchV3FbsSettingsAutoreturnsItemsRequest?: PatchV3FbsSettingsAutoreturnsItemsRequest,
+      options?: RawAxiosRequestConfig,
+    ): Promise<
+      (
+        axios?: AxiosInstance,
+        basePath?: string,
+      ) => AxiosPromise<PatchV3FbsSettingsAutoreturnsItemsResponse200>
+    > {
+      const localVarAxiosArgs =
+        await localVarAxiosParamCreator.patchV3FbsSettingsAutoreturnsItems(
+          patchV3FbsSettingsAutoreturnsItemsRequest,
+          options,
+        );
+      const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+      const localVarOperationServerBasePath =
+        operationServerMap["OrdersFbsApi.patchV3FbsSettingsAutoreturnsItems"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -6713,7 +6387,7 @@ export const FBSApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["FBSApi.patchV3FbsSuppliesShippingMethod"]?.[
+        operationServerMap["OrdersFbsApi.patchV3FbsSuppliesShippingMethod"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -6744,7 +6418,7 @@ export const FBSApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["FBSApi.patchV3OrdersOrderIdCancel"]?.[
+        operationServerMap["OrdersFbsApi.patchV3OrdersOrderIdCancel"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -6775,7 +6449,7 @@ export const FBSApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["FBSApi.patchV3SuppliesSupplyIdDeliver"]?.[
+        operationServerMap["OrdersFbsApi.patchV3SuppliesSupplyIdDeliver"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -6809,7 +6483,41 @@ export const FBSApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["FBSApi.patchV3SuppliesSupplyIdOrders"]?.[
+        operationServerMap["OrdersFbsApi.patchV3SuppliesSupplyIdOrders"]?.[
+          localVarOperationServerIndex
+        ]?.url;
+      return (axios, basePath) =>
+        createRequestFunction(
+          localVarAxiosArgs,
+          globalAxios,
+          BASE_PATH,
+          configuration,
+        )(axios, localVarOperationServerBasePath || basePath);
+    },
+    /**
+     * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод возвращает настройки автовозврата товаров.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+     * @summary Получить настройки автовозврата товаров
+     * @param {PostV3FbsSettingsAutoreturnsItemsRequest} [postV3FbsSettingsAutoreturnsItemsRequest]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async postV3FbsSettingsAutoreturnsItems(
+      postV3FbsSettingsAutoreturnsItemsRequest?: PostV3FbsSettingsAutoreturnsItemsRequest,
+      options?: RawAxiosRequestConfig,
+    ): Promise<
+      (
+        axios?: AxiosInstance,
+        basePath?: string,
+      ) => AxiosPromise<PostV3FbsSettingsAutoreturnsItemsResponse200>
+    > {
+      const localVarAxiosArgs =
+        await localVarAxiosParamCreator.postV3FbsSettingsAutoreturnsItems(
+          postV3FbsSettingsAutoreturnsItemsRequest,
+          options,
+        );
+      const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+      const localVarOperationServerBasePath =
+        operationServerMap["OrdersFbsApi.postV3FbsSettingsAutoreturnsItems"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -6843,7 +6551,7 @@ export const FBSApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["FBSApi.postV3FbsSuppliesSpotList"]?.[
+        operationServerMap["OrdersFbsApi.postV3FbsSuppliesSpotList"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -6877,7 +6585,7 @@ export const FBSApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["FBSApi.postV3OrdersClient"]?.[
+        operationServerMap["OrdersFbsApi.postV3OrdersClient"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -6911,7 +6619,7 @@ export const FBSApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["FBSApi.postV3OrdersMeta"]?.[
+        operationServerMap["OrdersFbsApi.postV3OrdersMeta"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -6945,7 +6653,7 @@ export const FBSApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["FBSApi.postV3OrdersStatus"]?.[
+        operationServerMap["OrdersFbsApi.postV3OrdersStatus"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -6979,7 +6687,7 @@ export const FBSApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["FBSApi.postV3OrdersStatusHistory"]?.[
+        operationServerMap["OrdersFbsApi.postV3OrdersStatusHistory"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -7022,7 +6730,7 @@ export const FBSApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["FBSApi.postV3OrdersStickers"]?.[
+        operationServerMap["OrdersFbsApi.postV3OrdersStickers"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -7056,7 +6764,7 @@ export const FBSApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["FBSApi.postV3OrdersStickersCrossBorder"]?.[
+        operationServerMap["OrdersFbsApi.postV3OrdersStickersCrossBorder"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -7089,7 +6797,7 @@ export const FBSApiFp = function (configuration?: Configuration) {
       );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["FBSApi.postV3Passes"]?.[
+        operationServerMap["OrdersFbsApi.postV3Passes"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -7122,7 +6830,7 @@ export const FBSApiFp = function (configuration?: Configuration) {
       );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["FBSApi.postV3Supplies"]?.[
+        operationServerMap["OrdersFbsApi.postV3Supplies"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -7159,7 +6867,7 @@ export const FBSApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["FBSApi.postV3SuppliesSupplyIdTrbx"]?.[
+        operationServerMap["OrdersFbsApi.postV3SuppliesSupplyIdTrbx"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -7199,7 +6907,7 @@ export const FBSApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["FBSApi.postV3SuppliesSupplyIdTrbxStickers"]?.[
+        operationServerMap["OrdersFbsApi.postV3SuppliesSupplyIdTrbxStickers"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -7233,7 +6941,7 @@ export const FBSApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["FBSApi.putV3FbsSuppliesSupplyIdSpot"]?.[
+        operationServerMap["OrdersFbsApi.putV3FbsSuppliesSupplyIdSpot"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -7267,9 +6975,9 @@ export const FBSApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["FBSApi.putV3OrdersOrderIdMetaCustomsDeclaration"]?.[
-          localVarOperationServerIndex
-        ]?.url;
+        operationServerMap[
+          "OrdersFbsApi.putV3OrdersOrderIdMetaCustomsDeclaration"
+        ]?.[localVarOperationServerIndex]?.url;
       return (axios, basePath) =>
         createRequestFunction(
           localVarAxiosArgs,
@@ -7301,7 +7009,7 @@ export const FBSApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["FBSApi.putV3OrdersOrderIdMetaExpiration"]?.[
+        operationServerMap["OrdersFbsApi.putV3OrdersOrderIdMetaExpiration"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -7335,7 +7043,7 @@ export const FBSApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["FBSApi.putV3OrdersOrderIdMetaGtin"]?.[
+        operationServerMap["OrdersFbsApi.putV3OrdersOrderIdMetaGtin"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -7369,7 +7077,7 @@ export const FBSApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["FBSApi.putV3OrdersOrderIdMetaImei"]?.[
+        operationServerMap["OrdersFbsApi.putV3OrdersOrderIdMetaImei"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -7403,7 +7111,7 @@ export const FBSApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["FBSApi.putV3OrdersOrderIdMetaSgtin"]?.[
+        operationServerMap["OrdersFbsApi.putV3OrdersOrderIdMetaSgtin"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -7437,7 +7145,7 @@ export const FBSApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["FBSApi.putV3OrdersOrderIdMetaUin"]?.[
+        operationServerMap["OrdersFbsApi.putV3OrdersOrderIdMetaUin"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -7471,7 +7179,7 @@ export const FBSApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["FBSApi.putV3PassesPassId"]?.[
+        operationServerMap["OrdersFbsApi.putV3PassesPassId"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -7486,15 +7194,15 @@ export const FBSApiFp = function (configuration?: Configuration) {
 };
 
 /**
- * FBSApi - factory interface
+ * OrdersFbsApi - factory interface
  * @export
  */
-export const FBSApiFactory = function (
+export const OrdersFbsApiFactory = function (
   configuration?: Configuration,
   basePath?: string,
   axios?: AxiosInstance,
 ) {
-  const localVarFp = FBSApiFp(configuration);
+  const localVarFp = OrdersFbsApiFp(configuration);
   return {
     /**
      * Метод удаляет значение [идентификаторов маркировки сборочного задания](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta) для переданного ключа.  Возможные идентификаторы маркировки: - `imei` — [IMEI](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaImei) - `uin` — [УИН](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaUin) - `gtin` — [GTIN](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaGtin) - `sgtin` — [код маркировки Честного знака](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaSgtin) - `customsDeclaration` — [номер ДТ](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaCustomsDeclaration) Можно передать только один ключ.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **получения и удаления идентификаторов маркировки FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов.  ---  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
@@ -7596,6 +7304,40 @@ export const FBSApiFactory = function (
     ): AxiosPromise<V3ArchiveOrders> {
       return localVarFp
         .getV3FbsOrdersArchive(year, month, next, limit, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод возвращает информацию о настройках автовозврата, установленных продавцом.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+     * @summary Получить настройки автовозврата продавца
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getV3FbsSettingsAutoreturns(
+      options?: RawAxiosRequestConfig,
+    ): AxiosPromise<GetV3FbsSettingsAutoreturnsResponse200> {
+      return localVarFp
+        .getV3FbsSettingsAutoreturns(options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод возвращает список ID предметов, товары которых не могут храниться на складах WB и будут возвращены в ПВЗ автоматически.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+     * @summary Получить предметы, которые не хранятся на складах WB
+     * @param {number} next Параметр пагинации. Устанавливает значение, с которого надо получить следующий пакет данных. Для получения полного списка данных должен быть равен &#x60;0&#x60; в первом запросе. Для следующих запросов необходимо брать значения из одноимённого поля в ответе.
+     * @param {number} limit Количество предметов в ответе
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getV3FbsSettingsAutoreturnsSubcategoriesRestricted(
+      next: number,
+      limit: number,
+      options?: RawAxiosRequestConfig,
+    ): AxiosPromise<GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200> {
+      return localVarFp
+        .getV3FbsSettingsAutoreturnsSubcategoriesRestricted(
+          next,
+          limit,
+          options,
+        )
         .then((request) => request(axios, basePath));
     },
     /**
@@ -7781,6 +7523,42 @@ export const FBSApiFactory = function (
         .then((request) => request(axios, basePath));
     },
     /**
+     * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод устанавливает настройки автовозврата продавца для малогабаритных товаров — `\"cargoType\":1`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+     * @summary Обновить настройки автовозврата продавца
+     * @param {PatchV3FbsSettingsAutoreturnsRequest} [patchV3FbsSettingsAutoreturnsRequest]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    patchV3FbsSettingsAutoreturns(
+      patchV3FbsSettingsAutoreturnsRequest?: PatchV3FbsSettingsAutoreturnsRequest,
+      options?: RawAxiosRequestConfig,
+    ): AxiosPromise<void> {
+      return localVarFp
+        .patchV3FbsSettingsAutoreturns(
+          patchV3FbsSettingsAutoreturnsRequest,
+          options,
+        )
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод устанавливает настройки автовозврата малогабаритных товаров — `\"cargoType\":1`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+     * @summary Обновить настройки автовозврата товаров
+     * @param {PatchV3FbsSettingsAutoreturnsItemsRequest} [patchV3FbsSettingsAutoreturnsItemsRequest]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    patchV3FbsSettingsAutoreturnsItems(
+      patchV3FbsSettingsAutoreturnsItemsRequest?: PatchV3FbsSettingsAutoreturnsItemsRequest,
+      options?: RawAxiosRequestConfig,
+    ): AxiosPromise<PatchV3FbsSettingsAutoreturnsItemsResponse200> {
+      return localVarFp
+        .patchV3FbsSettingsAutoreturnsItems(
+          patchV3FbsSettingsAutoreturnsItemsRequest,
+          options,
+        )
+        .then((request) => request(axios, basePath));
+    },
+    /**
      * Метод устанавливает способ доставки, дату и пункт отгрузки у поставок.  Параметры отгрузки нужно указать до передачи поставки в доставку. Вы можете обновлять параметры отгрузки до сканирования поставки и её коробов в пункте отгрузки. Когда поставка будет отсканирована, метод начнёт возвращать ошибку `409`.  В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.  Доступно только для продавцов из РФ.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
      * @summary Установить параметры отгрузки поставок
      * @param {PatchV3FbsSuppliesShippingMethodRequest} patchV3FbsSuppliesShippingMethodRequest
@@ -7845,6 +7623,24 @@ export const FBSApiFactory = function (
         .patchV3SuppliesSupplyIdOrders(
           supplyId,
           patchV3SuppliesSupplyIdOrdersRequest,
+          options,
+        )
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод возвращает настройки автовозврата товаров.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+     * @summary Получить настройки автовозврата товаров
+     * @param {PostV3FbsSettingsAutoreturnsItemsRequest} [postV3FbsSettingsAutoreturnsItemsRequest]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    postV3FbsSettingsAutoreturnsItems(
+      postV3FbsSettingsAutoreturnsItemsRequest?: PostV3FbsSettingsAutoreturnsItemsRequest,
+      options?: RawAxiosRequestConfig,
+    ): AxiosPromise<PostV3FbsSettingsAutoreturnsItemsResponse200> {
+      return localVarFp
+        .postV3FbsSettingsAutoreturnsItems(
+          postV3FbsSettingsAutoreturnsItemsRequest,
           options,
         )
         .then((request) => request(axios, basePath));
@@ -8212,11 +8008,11 @@ export const FBSApiFactory = function (
 };
 
 /**
- * FBSApi - interface
+ * OrdersFbsApi - interface
  * @export
- * @interface FBSApi
+ * @interface OrdersFbsApi
  */
-export interface FBSApiInterface {
+export interface OrdersFbsApiInterface {
   /**
    * Метод удаляет значение [идентификаторов маркировки сборочного задания](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta) для переданного ключа.  Возможные идентификаторы маркировки: - `imei` — [IMEI](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaImei) - `uin` — [УИН](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaUin) - `gtin` — [GTIN](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaGtin) - `sgtin` — [код маркировки Честного знака](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaSgtin) - `customsDeclaration` — [номер ДТ](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaCustomsDeclaration) Можно передать только один ключ.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **получения и удаления идентификаторов маркировки FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов.  ---  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
    * @summary Удалить идентификаторы маркировки сборочного задания
@@ -8224,7 +8020,7 @@ export interface FBSApiInterface {
    * @param {DeleteV3OrdersOrderIdMetaKeyEnum} key Название идентификаторов маркировки для удаления. Передаётся только одно значение.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof FBSApiInterface
+   * @memberof OrdersFbsApiInterface
    */
   deleteV3OrdersOrderIdMeta(
     orderId: number,
@@ -8238,7 +8034,7 @@ export interface FBSApiInterface {
    * @param {number} passId ID пропуска
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof FBSApiInterface
+   * @memberof OrdersFbsApiInterface
    */
   deleteV3PassesPassId(
     passId: number,
@@ -8251,7 +8047,7 @@ export interface FBSApiInterface {
    * @param {string} supplyId ID поставки
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof FBSApiInterface
+   * @memberof OrdersFbsApiInterface
    */
   deleteV3SuppliesSupplyId(
     supplyId: string,
@@ -8265,7 +8061,7 @@ export interface FBSApiInterface {
    * @param {DeleteV3SuppliesSupplyIdTrbxRequest} [deleteV3SuppliesSupplyIdTrbxRequest]
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof FBSApiInterface
+   * @memberof OrdersFbsApiInterface
    */
   deleteV3SuppliesSupplyIdTrbx(
     supplyId: string,
@@ -8278,7 +8074,7 @@ export interface FBSApiInterface {
    * @summary Получить список стран ОКСМ
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof FBSApiInterface
+   * @memberof OrdersFbsApiInterface
    */
   getV3FbsDictionariesCountriesOksm(
     options?: RawAxiosRequestConfig,
@@ -8293,7 +8089,7 @@ export interface FBSApiInterface {
    * @param {number} limit Количество сборочных заданий в ответе
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof FBSApiInterface
+   * @memberof OrdersFbsApiInterface
    */
   getV3FbsOrdersArchive(
     year: number,
@@ -8304,13 +8100,39 @@ export interface FBSApiInterface {
   ): AxiosPromise<V3ArchiveOrders>;
 
   /**
+   * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод возвращает информацию о настройках автовозврата, установленных продавцом.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+   * @summary Получить настройки автовозврата продавца
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof OrdersFbsApiInterface
+   */
+  getV3FbsSettingsAutoreturns(
+    options?: RawAxiosRequestConfig,
+  ): AxiosPromise<GetV3FbsSettingsAutoreturnsResponse200>;
+
+  /**
+   * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод возвращает список ID предметов, товары которых не могут храниться на складах WB и будут возвращены в ПВЗ автоматически.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+   * @summary Получить предметы, которые не хранятся на складах WB
+   * @param {number} next Параметр пагинации. Устанавливает значение, с которого надо получить следующий пакет данных. Для получения полного списка данных должен быть равен &#x60;0&#x60; в первом запросе. Для следующих запросов необходимо брать значения из одноимённого поля в ответе.
+   * @param {number} limit Количество предметов в ответе
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof OrdersFbsApiInterface
+   */
+  getV3FbsSettingsAutoreturnsSubcategoriesRestricted(
+    next: number,
+    limit: number,
+    options?: RawAxiosRequestConfig,
+  ): AxiosPromise<GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200>;
+
+  /**
    * Метод возвращает доступные пункты отгрузки поставок с фильтрами: - по населённым пунктам России - по типам товаров, которые принимает пункт отгрузки Используйте данные из этого метода, чтобы устанавливать [параметры отгрузки поставок](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod).  Доступно только для продавцов из РФ.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
    * @summary Получить список пунктов отгрузки поставок
    * @param {string} city Населённый пункт отгрузки поставки, кириллица
    * @param {GetV3FbsShippingPointsCargoTypeEnum} cargoType Тип товара, который принимает пункт отгрузки:   - &#x60;1&#x60; — малогабаритный товар (МГТ)   - &#x60;2&#x60; — сверхгабаритный товар (СГТ)   - &#x60;3&#x60; — крупногабаритный товар (КГТ+)
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof FBSApiInterface
+   * @memberof OrdersFbsApiInterface
    */
   getV3FbsShippingPoints(
     city: string,
@@ -8324,7 +8146,7 @@ export interface FBSApiInterface {
    * @param {string} supplyId ID поставки
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof FBSApiInterface
+   * @memberof OrdersFbsApiInterface
    */
   getV3FbsSuppliesSupplyIdStickersSpot(
     supplyId: string,
@@ -8340,7 +8162,7 @@ export interface FBSApiInterface {
    * @param {number} [dateTo] Дата конца периода в формате Unix timestamp. Часовой пояс — UTC
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof FBSApiInterface
+   * @memberof OrdersFbsApiInterface
    */
   getV3Orders(
     limit: number,
@@ -8355,7 +8177,7 @@ export interface FBSApiInterface {
    * @summary Получить список новых сборочных заданий
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof FBSApiInterface
+   * @memberof OrdersFbsApiInterface
    */
   getV3OrdersNew(
     options?: RawAxiosRequestConfig,
@@ -8366,7 +8188,7 @@ export interface FBSApiInterface {
    * @summary Получить список пропусков
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof FBSApiInterface
+   * @memberof OrdersFbsApiInterface
    */
   getV3Passes(options?: RawAxiosRequestConfig): AxiosPromise<Array<Pass>>;
 
@@ -8375,7 +8197,7 @@ export interface FBSApiInterface {
    * @summary Получить список складов, для которых требуется пропуск
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof FBSApiInterface
+   * @memberof OrdersFbsApiInterface
    */
   getV3PassesOffices(
     options?: RawAxiosRequestConfig,
@@ -8388,7 +8210,7 @@ export interface FBSApiInterface {
    * @param {number} next Параметр пагинации. Устанавливает значение, с которого надо получить следующий пакет данных. Для получения полного списка данных должен быть равен &#x60;0&#x60; в первом запросе. Для следующих запросов необходимо брать значения из одноимённого поля в ответе.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof FBSApiInterface
+   * @memberof OrdersFbsApiInterface
    */
   getV3Supplies(
     limit: number,
@@ -8401,7 +8223,7 @@ export interface FBSApiInterface {
    * @summary Получить все сборочные задания для повторной отгрузки
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof FBSApiInterface
+   * @memberof OrdersFbsApiInterface
    */
   getV3SuppliesOrdersReshipment(
     options?: RawAxiosRequestConfig,
@@ -8413,7 +8235,7 @@ export interface FBSApiInterface {
    * @param {string} supplyId ID поставки
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof FBSApiInterface
+   * @memberof OrdersFbsApiInterface
    */
   getV3SuppliesSupplyId(
     supplyId: string,
@@ -8427,7 +8249,7 @@ export interface FBSApiInterface {
    * @param {GetV3SuppliesSupplyIdBarcodeTypeEnum} type Тип стикера
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof FBSApiInterface
+   * @memberof OrdersFbsApiInterface
    */
   getV3SuppliesSupplyIdBarcode(
     supplyId: string,
@@ -8441,7 +8263,7 @@ export interface FBSApiInterface {
    * @param {string} supplyId ID поставки
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof FBSApiInterface
+   * @memberof OrdersFbsApiInterface
    */
   getV3SuppliesSupplyIdOrderIds(
     supplyId: string,
@@ -8454,7 +8276,7 @@ export interface FBSApiInterface {
    * @param {string} supplyId ID поставки
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof FBSApiInterface
+   * @memberof OrdersFbsApiInterface
    */
   getV3SuppliesSupplyIdTrbx(
     supplyId: string,
@@ -8462,12 +8284,38 @@ export interface FBSApiInterface {
   ): AxiosPromise<GetV3SuppliesSupplyIdTrbxResponse200>;
 
   /**
+   * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод устанавливает настройки автовозврата продавца для малогабаритных товаров — `\"cargoType\":1`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+   * @summary Обновить настройки автовозврата продавца
+   * @param {PatchV3FbsSettingsAutoreturnsRequest} [patchV3FbsSettingsAutoreturnsRequest]
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof OrdersFbsApiInterface
+   */
+  patchV3FbsSettingsAutoreturns(
+    patchV3FbsSettingsAutoreturnsRequest?: PatchV3FbsSettingsAutoreturnsRequest,
+    options?: RawAxiosRequestConfig,
+  ): AxiosPromise<void>;
+
+  /**
+   * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод устанавливает настройки автовозврата малогабаритных товаров — `\"cargoType\":1`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+   * @summary Обновить настройки автовозврата товаров
+   * @param {PatchV3FbsSettingsAutoreturnsItemsRequest} [patchV3FbsSettingsAutoreturnsItemsRequest]
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof OrdersFbsApiInterface
+   */
+  patchV3FbsSettingsAutoreturnsItems(
+    patchV3FbsSettingsAutoreturnsItemsRequest?: PatchV3FbsSettingsAutoreturnsItemsRequest,
+    options?: RawAxiosRequestConfig,
+  ): AxiosPromise<PatchV3FbsSettingsAutoreturnsItemsResponse200>;
+
+  /**
    * Метод устанавливает способ доставки, дату и пункт отгрузки у поставок.  Параметры отгрузки нужно указать до передачи поставки в доставку. Вы можете обновлять параметры отгрузки до сканирования поставки и её коробов в пункте отгрузки. Когда поставка будет отсканирована, метод начнёт возвращать ошибку `409`.  В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.  Доступно только для продавцов из РФ.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
    * @summary Установить параметры отгрузки поставок
    * @param {PatchV3FbsSuppliesShippingMethodRequest} patchV3FbsSuppliesShippingMethodRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof FBSApiInterface
+   * @memberof OrdersFbsApiInterface
    */
   patchV3FbsSuppliesShippingMethod(
     patchV3FbsSuppliesShippingMethodRequest: PatchV3FbsSuppliesShippingMethodRequest,
@@ -8480,7 +8328,7 @@ export interface FBSApiInterface {
    * @param {number} orderId ID сборочного задания
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof FBSApiInterface
+   * @memberof OrdersFbsApiInterface
    */
   patchV3OrdersOrderIdCancel(
     orderId: number,
@@ -8493,7 +8341,7 @@ export interface FBSApiInterface {
    * @param {string} supplyId ID поставки
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof FBSApiInterface
+   * @memberof OrdersFbsApiInterface
    */
   patchV3SuppliesSupplyIdDeliver(
     supplyId: string,
@@ -8507,7 +8355,7 @@ export interface FBSApiInterface {
    * @param {PatchV3SuppliesSupplyIdOrdersRequest} patchV3SuppliesSupplyIdOrdersRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof FBSApiInterface
+   * @memberof OrdersFbsApiInterface
    */
   patchV3SuppliesSupplyIdOrders(
     supplyId: string,
@@ -8516,12 +8364,25 @@ export interface FBSApiInterface {
   ): AxiosPromise<void>;
 
   /**
+   * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод возвращает настройки автовозврата товаров.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+   * @summary Получить настройки автовозврата товаров
+   * @param {PostV3FbsSettingsAutoreturnsItemsRequest} [postV3FbsSettingsAutoreturnsItemsRequest]
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof OrdersFbsApiInterface
+   */
+  postV3FbsSettingsAutoreturnsItems(
+    postV3FbsSettingsAutoreturnsItemsRequest?: PostV3FbsSettingsAutoreturnsItemsRequest,
+    options?: RawAxiosRequestConfig,
+  ): AxiosPromise<PostV3FbsSettingsAutoreturnsItemsResponse200>;
+
+  /**
    * Метод возвращает данные СПОТ для списка поставок.  Вы можете получить данные СПОТ, только если выполняются все условия: - поставка находится на этапе доставки - продавец зарегистрирован в любой стране ЕАЭС кроме РФ - склад назначения находится в РФ  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
    * @summary Получить данные СПОТ для списка поставок
    * @param {PostV3FbsSuppliesSpotListRequest} postV3FbsSuppliesSpotListRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof FBSApiInterface
+   * @memberof OrdersFbsApiInterface
    */
   postV3FbsSuppliesSpotList(
     postV3FbsSuppliesSpotListRequest: PostV3FbsSuppliesSpotListRequest,
@@ -8534,7 +8395,7 @@ export interface FBSApiInterface {
    * @param {OrdersRequestAPI} ordersRequestAPI
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof FBSApiInterface
+   * @memberof OrdersFbsApiInterface
    */
   postV3OrdersClient(
     ordersRequestAPI: OrdersRequestAPI,
@@ -8547,7 +8408,7 @@ export interface FBSApiInterface {
    * @param {V3GetMetaMultiRequest} v3GetMetaMultiRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof FBSApiInterface
+   * @memberof OrdersFbsApiInterface
    */
   postV3OrdersMeta(
     v3GetMetaMultiRequest: V3GetMetaMultiRequest,
@@ -8560,7 +8421,7 @@ export interface FBSApiInterface {
    * @param {PostV3OrdersStatusRequest} [postV3OrdersStatusRequest]
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof FBSApiInterface
+   * @memberof OrdersFbsApiInterface
    */
   postV3OrdersStatus(
     postV3OrdersStatusRequest?: PostV3OrdersStatusRequest,
@@ -8573,7 +8434,7 @@ export interface FBSApiInterface {
    * @param {PostV3OrdersStatusHistoryRequest} [postV3OrdersStatusHistoryRequest]
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof FBSApiInterface
+   * @memberof OrdersFbsApiInterface
    */
   postV3OrdersStatusHistory(
     postV3OrdersStatusHistoryRequest?: PostV3OrdersStatusHistoryRequest,
@@ -8589,7 +8450,7 @@ export interface FBSApiInterface {
    * @param {PostV3OrdersStickersRequest} [postV3OrdersStickersRequest]
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof FBSApiInterface
+   * @memberof OrdersFbsApiInterface
    */
   postV3OrdersStickers(
     type: PostV3OrdersStickersTypeEnum,
@@ -8605,7 +8466,7 @@ export interface FBSApiInterface {
    * @param {PostV3OrdersStickersCrossBorderRequest} [postV3OrdersStickersCrossBorderRequest]
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof FBSApiInterface
+   * @memberof OrdersFbsApiInterface
    */
   postV3OrdersStickersCrossBorder(
     postV3OrdersStickersCrossBorderRequest?: PostV3OrdersStickersCrossBorderRequest,
@@ -8618,7 +8479,7 @@ export interface FBSApiInterface {
    * @param {PostV3PassesRequest} postV3PassesRequest Общая длина ФИО ограничена от 6 до 100 символов. В номере машины могут быть только буквы и цифры
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof FBSApiInterface
+   * @memberof OrdersFbsApiInterface
    */
   postV3Passes(
     postV3PassesRequest: PostV3PassesRequest,
@@ -8631,7 +8492,7 @@ export interface FBSApiInterface {
    * @param {PostV3SuppliesRequest} postV3SuppliesRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof FBSApiInterface
+   * @memberof OrdersFbsApiInterface
    */
   postV3Supplies(
     postV3SuppliesRequest: PostV3SuppliesRequest,
@@ -8645,7 +8506,7 @@ export interface FBSApiInterface {
    * @param {PostV3SuppliesSupplyIdTrbxRequest} [postV3SuppliesSupplyIdTrbxRequest]
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof FBSApiInterface
+   * @memberof OrdersFbsApiInterface
    */
   postV3SuppliesSupplyIdTrbx(
     supplyId: string,
@@ -8661,7 +8522,7 @@ export interface FBSApiInterface {
    * @param {PostV3SuppliesSupplyIdTrbxStickersRequest} [postV3SuppliesSupplyIdTrbxStickersRequest]
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof FBSApiInterface
+   * @memberof OrdersFbsApiInterface
    */
   postV3SuppliesSupplyIdTrbxStickers(
     supplyId: string,
@@ -8677,7 +8538,7 @@ export interface FBSApiInterface {
    * @param {PutV3FbsSuppliesSupplyIdSpotRequest} putV3FbsSuppliesSupplyIdSpotRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof FBSApiInterface
+   * @memberof OrdersFbsApiInterface
    */
   putV3FbsSuppliesSupplyIdSpot(
     supplyId: string,
@@ -8692,7 +8553,7 @@ export interface FBSApiInterface {
    * @param {PutV3OrdersOrderIdMetaCustomsDeclarationRequest} putV3OrdersOrderIdMetaCustomsDeclarationRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof FBSApiInterface
+   * @memberof OrdersFbsApiInterface
    */
   putV3OrdersOrderIdMetaCustomsDeclaration(
     orderId: number,
@@ -8707,7 +8568,7 @@ export interface FBSApiInterface {
    * @param {PutV3OrdersOrderIdMetaExpirationRequest} putV3OrdersOrderIdMetaExpirationRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof FBSApiInterface
+   * @memberof OrdersFbsApiInterface
    */
   putV3OrdersOrderIdMetaExpiration(
     orderId: number,
@@ -8722,7 +8583,7 @@ export interface FBSApiInterface {
    * @param {PutV3OrdersOrderIdMetaGtinRequest} putV3OrdersOrderIdMetaGtinRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof FBSApiInterface
+   * @memberof OrdersFbsApiInterface
    */
   putV3OrdersOrderIdMetaGtin(
     orderId: number,
@@ -8737,7 +8598,7 @@ export interface FBSApiInterface {
    * @param {PutV3OrdersOrderIdMetaImeiRequest} putV3OrdersOrderIdMetaImeiRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof FBSApiInterface
+   * @memberof OrdersFbsApiInterface
    */
   putV3OrdersOrderIdMetaImei(
     orderId: number,
@@ -8752,7 +8613,7 @@ export interface FBSApiInterface {
    * @param {PutV3OrdersOrderIdMetaSgtinRequest} putV3OrdersOrderIdMetaSgtinRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof FBSApiInterface
+   * @memberof OrdersFbsApiInterface
    */
   putV3OrdersOrderIdMetaSgtin(
     orderId: number,
@@ -8767,7 +8628,7 @@ export interface FBSApiInterface {
    * @param {PutV3OrdersOrderIdMetaUinRequest} putV3OrdersOrderIdMetaUinRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof FBSApiInterface
+   * @memberof OrdersFbsApiInterface
    */
   putV3OrdersOrderIdMetaUin(
     orderId: number,
@@ -8782,7 +8643,7 @@ export interface FBSApiInterface {
    * @param {PutV3PassesPassIdRequest} putV3PassesPassIdRequest Общая длина ФИО ограничена от 6 до 100 символов. В номере машины могут быть только буквы и цифры.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof FBSApiInterface
+   * @memberof OrdersFbsApiInterface
    */
   putV3PassesPassId(
     passId: number,
@@ -8792,12 +8653,12 @@ export interface FBSApiInterface {
 }
 
 /**
- * FBSApi - object-oriented interface
+ * OrdersFbsApi - object-oriented interface
  * @export
- * @class FBSApi
+ * @class OrdersFbsApi
  * @extends {BaseAPI}
  */
-export class FBSApi extends BaseAPI implements FBSApiInterface {
+export class OrdersFbsApi extends BaseAPI implements OrdersFbsApiInterface {
   /**
    * Метод удаляет значение [идентификаторов маркировки сборочного задания](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta) для переданного ключа.  Возможные идентификаторы маркировки: - `imei` — [IMEI](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaImei) - `uin` — [УИН](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaUin) - `gtin` — [GTIN](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaGtin) - `sgtin` — [код маркировки Честного знака](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaSgtin) - `customsDeclaration` — [номер ДТ](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaCustomsDeclaration) Можно передать только один ключ.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **получения и удаления идентификаторов маркировки FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов.  ---  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
    * @summary Удалить идентификаторы маркировки сборочного задания
@@ -8805,14 +8666,14 @@ export class FBSApi extends BaseAPI implements FBSApiInterface {
    * @param {DeleteV3OrdersOrderIdMetaKeyEnum} key Название идентификаторов маркировки для удаления. Передаётся только одно значение.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof FBSApi
+   * @memberof OrdersFbsApi
    */
   public deleteV3OrdersOrderIdMeta(
     orderId: number,
     key: DeleteV3OrdersOrderIdMetaKeyEnum,
     options?: RawAxiosRequestConfig,
   ) {
-    return FBSApiFp(this.configuration)
+    return OrdersFbsApiFp(this.configuration)
       .deleteV3OrdersOrderIdMeta(orderId, key, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -8823,10 +8684,10 @@ export class FBSApi extends BaseAPI implements FBSApiInterface {
    * @param {number} passId ID пропуска
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof FBSApi
+   * @memberof OrdersFbsApi
    */
   public deleteV3PassesPassId(passId: number, options?: RawAxiosRequestConfig) {
-    return FBSApiFp(this.configuration)
+    return OrdersFbsApiFp(this.configuration)
       .deleteV3PassesPassId(passId, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -8837,13 +8698,13 @@ export class FBSApi extends BaseAPI implements FBSApiInterface {
    * @param {string} supplyId ID поставки
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof FBSApi
+   * @memberof OrdersFbsApi
    */
   public deleteV3SuppliesSupplyId(
     supplyId: string,
     options?: RawAxiosRequestConfig,
   ) {
-    return FBSApiFp(this.configuration)
+    return OrdersFbsApiFp(this.configuration)
       .deleteV3SuppliesSupplyId(supplyId, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -8855,14 +8716,14 @@ export class FBSApi extends BaseAPI implements FBSApiInterface {
    * @param {DeleteV3SuppliesSupplyIdTrbxRequest} [deleteV3SuppliesSupplyIdTrbxRequest]
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof FBSApi
+   * @memberof OrdersFbsApi
    */
   public deleteV3SuppliesSupplyIdTrbx(
     supplyId: string,
     deleteV3SuppliesSupplyIdTrbxRequest?: DeleteV3SuppliesSupplyIdTrbxRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return FBSApiFp(this.configuration)
+    return OrdersFbsApiFp(this.configuration)
       .deleteV3SuppliesSupplyIdTrbx(
         supplyId,
         deleteV3SuppliesSupplyIdTrbxRequest,
@@ -8876,10 +8737,10 @@ export class FBSApi extends BaseAPI implements FBSApiInterface {
    * @summary Получить список стран ОКСМ
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof FBSApi
+   * @memberof OrdersFbsApi
    */
   public getV3FbsDictionariesCountriesOksm(options?: RawAxiosRequestConfig) {
-    return FBSApiFp(this.configuration)
+    return OrdersFbsApiFp(this.configuration)
       .getV3FbsDictionariesCountriesOksm(options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -8893,7 +8754,7 @@ export class FBSApi extends BaseAPI implements FBSApiInterface {
    * @param {number} limit Количество сборочных заданий в ответе
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof FBSApi
+   * @memberof OrdersFbsApi
    */
   public getV3FbsOrdersArchive(
     year: number,
@@ -8902,8 +8763,40 @@ export class FBSApi extends BaseAPI implements FBSApiInterface {
     limit: number,
     options?: RawAxiosRequestConfig,
   ) {
-    return FBSApiFp(this.configuration)
+    return OrdersFbsApiFp(this.configuration)
       .getV3FbsOrdersArchive(year, month, next, limit, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
+
+  /**
+   * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод возвращает информацию о настройках автовозврата, установленных продавцом.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+   * @summary Получить настройки автовозврата продавца
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof OrdersFbsApi
+   */
+  public getV3FbsSettingsAutoreturns(options?: RawAxiosRequestConfig) {
+    return OrdersFbsApiFp(this.configuration)
+      .getV3FbsSettingsAutoreturns(options)
+      .then((request) => request(this.axios, this.basePath));
+  }
+
+  /**
+   * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод возвращает список ID предметов, товары которых не могут храниться на складах WB и будут возвращены в ПВЗ автоматически.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+   * @summary Получить предметы, которые не хранятся на складах WB
+   * @param {number} next Параметр пагинации. Устанавливает значение, с которого надо получить следующий пакет данных. Для получения полного списка данных должен быть равен &#x60;0&#x60; в первом запросе. Для следующих запросов необходимо брать значения из одноимённого поля в ответе.
+   * @param {number} limit Количество предметов в ответе
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof OrdersFbsApi
+   */
+  public getV3FbsSettingsAutoreturnsSubcategoriesRestricted(
+    next: number,
+    limit: number,
+    options?: RawAxiosRequestConfig,
+  ) {
+    return OrdersFbsApiFp(this.configuration)
+      .getV3FbsSettingsAutoreturnsSubcategoriesRestricted(next, limit, options)
       .then((request) => request(this.axios, this.basePath));
   }
 
@@ -8914,14 +8807,14 @@ export class FBSApi extends BaseAPI implements FBSApiInterface {
    * @param {GetV3FbsShippingPointsCargoTypeEnum} cargoType Тип товара, который принимает пункт отгрузки:   - &#x60;1&#x60; — малогабаритный товар (МГТ)   - &#x60;2&#x60; — сверхгабаритный товар (СГТ)   - &#x60;3&#x60; — крупногабаритный товар (КГТ+)
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof FBSApi
+   * @memberof OrdersFbsApi
    */
   public getV3FbsShippingPoints(
     city: string,
     cargoType: GetV3FbsShippingPointsCargoTypeEnum,
     options?: RawAxiosRequestConfig,
   ) {
-    return FBSApiFp(this.configuration)
+    return OrdersFbsApiFp(this.configuration)
       .getV3FbsShippingPoints(city, cargoType, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -8932,13 +8825,13 @@ export class FBSApi extends BaseAPI implements FBSApiInterface {
    * @param {string} supplyId ID поставки
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof FBSApi
+   * @memberof OrdersFbsApi
    */
   public getV3FbsSuppliesSupplyIdStickersSpot(
     supplyId: string,
     options?: RawAxiosRequestConfig,
   ) {
-    return FBSApiFp(this.configuration)
+    return OrdersFbsApiFp(this.configuration)
       .getV3FbsSuppliesSupplyIdStickersSpot(supplyId, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -8952,7 +8845,7 @@ export class FBSApi extends BaseAPI implements FBSApiInterface {
    * @param {number} [dateTo] Дата конца периода в формате Unix timestamp. Часовой пояс — UTC
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof FBSApi
+   * @memberof OrdersFbsApi
    */
   public getV3Orders(
     limit: number,
@@ -8961,7 +8854,7 @@ export class FBSApi extends BaseAPI implements FBSApiInterface {
     dateTo?: number,
     options?: RawAxiosRequestConfig,
   ) {
-    return FBSApiFp(this.configuration)
+    return OrdersFbsApiFp(this.configuration)
       .getV3Orders(limit, next, dateFrom, dateTo, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -8971,10 +8864,10 @@ export class FBSApi extends BaseAPI implements FBSApiInterface {
    * @summary Получить список новых сборочных заданий
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof FBSApi
+   * @memberof OrdersFbsApi
    */
   public getV3OrdersNew(options?: RawAxiosRequestConfig) {
-    return FBSApiFp(this.configuration)
+    return OrdersFbsApiFp(this.configuration)
       .getV3OrdersNew(options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -8984,10 +8877,10 @@ export class FBSApi extends BaseAPI implements FBSApiInterface {
    * @summary Получить список пропусков
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof FBSApi
+   * @memberof OrdersFbsApi
    */
   public getV3Passes(options?: RawAxiosRequestConfig) {
-    return FBSApiFp(this.configuration)
+    return OrdersFbsApiFp(this.configuration)
       .getV3Passes(options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -8997,10 +8890,10 @@ export class FBSApi extends BaseAPI implements FBSApiInterface {
    * @summary Получить список складов, для которых требуется пропуск
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof FBSApi
+   * @memberof OrdersFbsApi
    */
   public getV3PassesOffices(options?: RawAxiosRequestConfig) {
-    return FBSApiFp(this.configuration)
+    return OrdersFbsApiFp(this.configuration)
       .getV3PassesOffices(options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -9012,14 +8905,14 @@ export class FBSApi extends BaseAPI implements FBSApiInterface {
    * @param {number} next Параметр пагинации. Устанавливает значение, с которого надо получить следующий пакет данных. Для получения полного списка данных должен быть равен &#x60;0&#x60; в первом запросе. Для следующих запросов необходимо брать значения из одноимённого поля в ответе.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof FBSApi
+   * @memberof OrdersFbsApi
    */
   public getV3Supplies(
     limit: number,
     next: number,
     options?: RawAxiosRequestConfig,
   ) {
-    return FBSApiFp(this.configuration)
+    return OrdersFbsApiFp(this.configuration)
       .getV3Supplies(limit, next, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -9029,10 +8922,10 @@ export class FBSApi extends BaseAPI implements FBSApiInterface {
    * @summary Получить все сборочные задания для повторной отгрузки
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof FBSApi
+   * @memberof OrdersFbsApi
    */
   public getV3SuppliesOrdersReshipment(options?: RawAxiosRequestConfig) {
-    return FBSApiFp(this.configuration)
+    return OrdersFbsApiFp(this.configuration)
       .getV3SuppliesOrdersReshipment(options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -9043,13 +8936,13 @@ export class FBSApi extends BaseAPI implements FBSApiInterface {
    * @param {string} supplyId ID поставки
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof FBSApi
+   * @memberof OrdersFbsApi
    */
   public getV3SuppliesSupplyId(
     supplyId: string,
     options?: RawAxiosRequestConfig,
   ) {
-    return FBSApiFp(this.configuration)
+    return OrdersFbsApiFp(this.configuration)
       .getV3SuppliesSupplyId(supplyId, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -9061,14 +8954,14 @@ export class FBSApi extends BaseAPI implements FBSApiInterface {
    * @param {GetV3SuppliesSupplyIdBarcodeTypeEnum} type Тип стикера
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof FBSApi
+   * @memberof OrdersFbsApi
    */
   public getV3SuppliesSupplyIdBarcode(
     supplyId: string,
     type: GetV3SuppliesSupplyIdBarcodeTypeEnum,
     options?: RawAxiosRequestConfig,
   ) {
-    return FBSApiFp(this.configuration)
+    return OrdersFbsApiFp(this.configuration)
       .getV3SuppliesSupplyIdBarcode(supplyId, type, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -9079,13 +8972,13 @@ export class FBSApi extends BaseAPI implements FBSApiInterface {
    * @param {string} supplyId ID поставки
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof FBSApi
+   * @memberof OrdersFbsApi
    */
   public getV3SuppliesSupplyIdOrderIds(
     supplyId: string,
     options?: RawAxiosRequestConfig,
   ) {
-    return FBSApiFp(this.configuration)
+    return OrdersFbsApiFp(this.configuration)
       .getV3SuppliesSupplyIdOrderIds(supplyId, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -9096,14 +8989,54 @@ export class FBSApi extends BaseAPI implements FBSApiInterface {
    * @param {string} supplyId ID поставки
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof FBSApi
+   * @memberof OrdersFbsApi
    */
   public getV3SuppliesSupplyIdTrbx(
     supplyId: string,
     options?: RawAxiosRequestConfig,
   ) {
-    return FBSApiFp(this.configuration)
+    return OrdersFbsApiFp(this.configuration)
       .getV3SuppliesSupplyIdTrbx(supplyId, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
+
+  /**
+   * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод устанавливает настройки автовозврата продавца для малогабаритных товаров — `\"cargoType\":1`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+   * @summary Обновить настройки автовозврата продавца
+   * @param {PatchV3FbsSettingsAutoreturnsRequest} [patchV3FbsSettingsAutoreturnsRequest]
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof OrdersFbsApi
+   */
+  public patchV3FbsSettingsAutoreturns(
+    patchV3FbsSettingsAutoreturnsRequest?: PatchV3FbsSettingsAutoreturnsRequest,
+    options?: RawAxiosRequestConfig,
+  ) {
+    return OrdersFbsApiFp(this.configuration)
+      .patchV3FbsSettingsAutoreturns(
+        patchV3FbsSettingsAutoreturnsRequest,
+        options,
+      )
+      .then((request) => request(this.axios, this.basePath));
+  }
+
+  /**
+   * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод устанавливает настройки автовозврата малогабаритных товаров — `\"cargoType\":1`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+   * @summary Обновить настройки автовозврата товаров
+   * @param {PatchV3FbsSettingsAutoreturnsItemsRequest} [patchV3FbsSettingsAutoreturnsItemsRequest]
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof OrdersFbsApi
+   */
+  public patchV3FbsSettingsAutoreturnsItems(
+    patchV3FbsSettingsAutoreturnsItemsRequest?: PatchV3FbsSettingsAutoreturnsItemsRequest,
+    options?: RawAxiosRequestConfig,
+  ) {
+    return OrdersFbsApiFp(this.configuration)
+      .patchV3FbsSettingsAutoreturnsItems(
+        patchV3FbsSettingsAutoreturnsItemsRequest,
+        options,
+      )
       .then((request) => request(this.axios, this.basePath));
   }
 
@@ -9113,13 +9046,13 @@ export class FBSApi extends BaseAPI implements FBSApiInterface {
    * @param {PatchV3FbsSuppliesShippingMethodRequest} patchV3FbsSuppliesShippingMethodRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof FBSApi
+   * @memberof OrdersFbsApi
    */
   public patchV3FbsSuppliesShippingMethod(
     patchV3FbsSuppliesShippingMethodRequest: PatchV3FbsSuppliesShippingMethodRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return FBSApiFp(this.configuration)
+    return OrdersFbsApiFp(this.configuration)
       .patchV3FbsSuppliesShippingMethod(
         patchV3FbsSuppliesShippingMethodRequest,
         options,
@@ -9133,13 +9066,13 @@ export class FBSApi extends BaseAPI implements FBSApiInterface {
    * @param {number} orderId ID сборочного задания
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof FBSApi
+   * @memberof OrdersFbsApi
    */
   public patchV3OrdersOrderIdCancel(
     orderId: number,
     options?: RawAxiosRequestConfig,
   ) {
-    return FBSApiFp(this.configuration)
+    return OrdersFbsApiFp(this.configuration)
       .patchV3OrdersOrderIdCancel(orderId, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -9150,13 +9083,13 @@ export class FBSApi extends BaseAPI implements FBSApiInterface {
    * @param {string} supplyId ID поставки
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof FBSApi
+   * @memberof OrdersFbsApi
    */
   public patchV3SuppliesSupplyIdDeliver(
     supplyId: string,
     options?: RawAxiosRequestConfig,
   ) {
-    return FBSApiFp(this.configuration)
+    return OrdersFbsApiFp(this.configuration)
       .patchV3SuppliesSupplyIdDeliver(supplyId, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -9168,17 +9101,37 @@ export class FBSApi extends BaseAPI implements FBSApiInterface {
    * @param {PatchV3SuppliesSupplyIdOrdersRequest} patchV3SuppliesSupplyIdOrdersRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof FBSApi
+   * @memberof OrdersFbsApi
    */
   public patchV3SuppliesSupplyIdOrders(
     supplyId: string,
     patchV3SuppliesSupplyIdOrdersRequest: PatchV3SuppliesSupplyIdOrdersRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return FBSApiFp(this.configuration)
+    return OrdersFbsApiFp(this.configuration)
       .patchV3SuppliesSupplyIdOrders(
         supplyId,
         patchV3SuppliesSupplyIdOrdersRequest,
+        options,
+      )
+      .then((request) => request(this.axios, this.basePath));
+  }
+
+  /**
+   * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод возвращает настройки автовозврата товаров.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+   * @summary Получить настройки автовозврата товаров
+   * @param {PostV3FbsSettingsAutoreturnsItemsRequest} [postV3FbsSettingsAutoreturnsItemsRequest]
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof OrdersFbsApi
+   */
+  public postV3FbsSettingsAutoreturnsItems(
+    postV3FbsSettingsAutoreturnsItemsRequest?: PostV3FbsSettingsAutoreturnsItemsRequest,
+    options?: RawAxiosRequestConfig,
+  ) {
+    return OrdersFbsApiFp(this.configuration)
+      .postV3FbsSettingsAutoreturnsItems(
+        postV3FbsSettingsAutoreturnsItemsRequest,
         options,
       )
       .then((request) => request(this.axios, this.basePath));
@@ -9190,13 +9143,13 @@ export class FBSApi extends BaseAPI implements FBSApiInterface {
    * @param {PostV3FbsSuppliesSpotListRequest} postV3FbsSuppliesSpotListRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof FBSApi
+   * @memberof OrdersFbsApi
    */
   public postV3FbsSuppliesSpotList(
     postV3FbsSuppliesSpotListRequest: PostV3FbsSuppliesSpotListRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return FBSApiFp(this.configuration)
+    return OrdersFbsApiFp(this.configuration)
       .postV3FbsSuppliesSpotList(postV3FbsSuppliesSpotListRequest, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -9207,13 +9160,13 @@ export class FBSApi extends BaseAPI implements FBSApiInterface {
    * @param {OrdersRequestAPI} ordersRequestAPI
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof FBSApi
+   * @memberof OrdersFbsApi
    */
   public postV3OrdersClient(
     ordersRequestAPI: OrdersRequestAPI,
     options?: RawAxiosRequestConfig,
   ) {
-    return FBSApiFp(this.configuration)
+    return OrdersFbsApiFp(this.configuration)
       .postV3OrdersClient(ordersRequestAPI, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -9224,13 +9177,13 @@ export class FBSApi extends BaseAPI implements FBSApiInterface {
    * @param {V3GetMetaMultiRequest} v3GetMetaMultiRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof FBSApi
+   * @memberof OrdersFbsApi
    */
   public postV3OrdersMeta(
     v3GetMetaMultiRequest: V3GetMetaMultiRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return FBSApiFp(this.configuration)
+    return OrdersFbsApiFp(this.configuration)
       .postV3OrdersMeta(v3GetMetaMultiRequest, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -9241,13 +9194,13 @@ export class FBSApi extends BaseAPI implements FBSApiInterface {
    * @param {PostV3OrdersStatusRequest} [postV3OrdersStatusRequest]
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof FBSApi
+   * @memberof OrdersFbsApi
    */
   public postV3OrdersStatus(
     postV3OrdersStatusRequest?: PostV3OrdersStatusRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return FBSApiFp(this.configuration)
+    return OrdersFbsApiFp(this.configuration)
       .postV3OrdersStatus(postV3OrdersStatusRequest, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -9258,13 +9211,13 @@ export class FBSApi extends BaseAPI implements FBSApiInterface {
    * @param {PostV3OrdersStatusHistoryRequest} [postV3OrdersStatusHistoryRequest]
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof FBSApi
+   * @memberof OrdersFbsApi
    */
   public postV3OrdersStatusHistory(
     postV3OrdersStatusHistoryRequest?: PostV3OrdersStatusHistoryRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return FBSApiFp(this.configuration)
+    return OrdersFbsApiFp(this.configuration)
       .postV3OrdersStatusHistory(postV3OrdersStatusHistoryRequest, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -9278,7 +9231,7 @@ export class FBSApi extends BaseAPI implements FBSApiInterface {
    * @param {PostV3OrdersStickersRequest} [postV3OrdersStickersRequest]
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof FBSApi
+   * @memberof OrdersFbsApi
    */
   public postV3OrdersStickers(
     type: PostV3OrdersStickersTypeEnum,
@@ -9287,7 +9240,7 @@ export class FBSApi extends BaseAPI implements FBSApiInterface {
     postV3OrdersStickersRequest?: PostV3OrdersStickersRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return FBSApiFp(this.configuration)
+    return OrdersFbsApiFp(this.configuration)
       .postV3OrdersStickers(
         type,
         width,
@@ -9304,13 +9257,13 @@ export class FBSApi extends BaseAPI implements FBSApiInterface {
    * @param {PostV3OrdersStickersCrossBorderRequest} [postV3OrdersStickersCrossBorderRequest]
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof FBSApi
+   * @memberof OrdersFbsApi
    */
   public postV3OrdersStickersCrossBorder(
     postV3OrdersStickersCrossBorderRequest?: PostV3OrdersStickersCrossBorderRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return FBSApiFp(this.configuration)
+    return OrdersFbsApiFp(this.configuration)
       .postV3OrdersStickersCrossBorder(
         postV3OrdersStickersCrossBorderRequest,
         options,
@@ -9324,13 +9277,13 @@ export class FBSApi extends BaseAPI implements FBSApiInterface {
    * @param {PostV3PassesRequest} postV3PassesRequest Общая длина ФИО ограничена от 6 до 100 символов. В номере машины могут быть только буквы и цифры
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof FBSApi
+   * @memberof OrdersFbsApi
    */
   public postV3Passes(
     postV3PassesRequest: PostV3PassesRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return FBSApiFp(this.configuration)
+    return OrdersFbsApiFp(this.configuration)
       .postV3Passes(postV3PassesRequest, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -9341,13 +9294,13 @@ export class FBSApi extends BaseAPI implements FBSApiInterface {
    * @param {PostV3SuppliesRequest} postV3SuppliesRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof FBSApi
+   * @memberof OrdersFbsApi
    */
   public postV3Supplies(
     postV3SuppliesRequest: PostV3SuppliesRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return FBSApiFp(this.configuration)
+    return OrdersFbsApiFp(this.configuration)
       .postV3Supplies(postV3SuppliesRequest, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -9359,14 +9312,14 @@ export class FBSApi extends BaseAPI implements FBSApiInterface {
    * @param {PostV3SuppliesSupplyIdTrbxRequest} [postV3SuppliesSupplyIdTrbxRequest]
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof FBSApi
+   * @memberof OrdersFbsApi
    */
   public postV3SuppliesSupplyIdTrbx(
     supplyId: string,
     postV3SuppliesSupplyIdTrbxRequest?: PostV3SuppliesSupplyIdTrbxRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return FBSApiFp(this.configuration)
+    return OrdersFbsApiFp(this.configuration)
       .postV3SuppliesSupplyIdTrbx(
         supplyId,
         postV3SuppliesSupplyIdTrbxRequest,
@@ -9383,7 +9336,7 @@ export class FBSApi extends BaseAPI implements FBSApiInterface {
    * @param {PostV3SuppliesSupplyIdTrbxStickersRequest} [postV3SuppliesSupplyIdTrbxStickersRequest]
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof FBSApi
+   * @memberof OrdersFbsApi
    */
   public postV3SuppliesSupplyIdTrbxStickers(
     supplyId: string,
@@ -9391,7 +9344,7 @@ export class FBSApi extends BaseAPI implements FBSApiInterface {
     postV3SuppliesSupplyIdTrbxStickersRequest?: PostV3SuppliesSupplyIdTrbxStickersRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return FBSApiFp(this.configuration)
+    return OrdersFbsApiFp(this.configuration)
       .postV3SuppliesSupplyIdTrbxStickers(
         supplyId,
         type,
@@ -9408,14 +9361,14 @@ export class FBSApi extends BaseAPI implements FBSApiInterface {
    * @param {PutV3FbsSuppliesSupplyIdSpotRequest} putV3FbsSuppliesSupplyIdSpotRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof FBSApi
+   * @memberof OrdersFbsApi
    */
   public putV3FbsSuppliesSupplyIdSpot(
     supplyId: string,
     putV3FbsSuppliesSupplyIdSpotRequest: PutV3FbsSuppliesSupplyIdSpotRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return FBSApiFp(this.configuration)
+    return OrdersFbsApiFp(this.configuration)
       .putV3FbsSuppliesSupplyIdSpot(
         supplyId,
         putV3FbsSuppliesSupplyIdSpotRequest,
@@ -9431,14 +9384,14 @@ export class FBSApi extends BaseAPI implements FBSApiInterface {
    * @param {PutV3OrdersOrderIdMetaCustomsDeclarationRequest} putV3OrdersOrderIdMetaCustomsDeclarationRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof FBSApi
+   * @memberof OrdersFbsApi
    */
   public putV3OrdersOrderIdMetaCustomsDeclaration(
     orderId: number,
     putV3OrdersOrderIdMetaCustomsDeclarationRequest: PutV3OrdersOrderIdMetaCustomsDeclarationRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return FBSApiFp(this.configuration)
+    return OrdersFbsApiFp(this.configuration)
       .putV3OrdersOrderIdMetaCustomsDeclaration(
         orderId,
         putV3OrdersOrderIdMetaCustomsDeclarationRequest,
@@ -9454,14 +9407,14 @@ export class FBSApi extends BaseAPI implements FBSApiInterface {
    * @param {PutV3OrdersOrderIdMetaExpirationRequest} putV3OrdersOrderIdMetaExpirationRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof FBSApi
+   * @memberof OrdersFbsApi
    */
   public putV3OrdersOrderIdMetaExpiration(
     orderId: number,
     putV3OrdersOrderIdMetaExpirationRequest: PutV3OrdersOrderIdMetaExpirationRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return FBSApiFp(this.configuration)
+    return OrdersFbsApiFp(this.configuration)
       .putV3OrdersOrderIdMetaExpiration(
         orderId,
         putV3OrdersOrderIdMetaExpirationRequest,
@@ -9477,14 +9430,14 @@ export class FBSApi extends BaseAPI implements FBSApiInterface {
    * @param {PutV3OrdersOrderIdMetaGtinRequest} putV3OrdersOrderIdMetaGtinRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof FBSApi
+   * @memberof OrdersFbsApi
    */
   public putV3OrdersOrderIdMetaGtin(
     orderId: number,
     putV3OrdersOrderIdMetaGtinRequest: PutV3OrdersOrderIdMetaGtinRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return FBSApiFp(this.configuration)
+    return OrdersFbsApiFp(this.configuration)
       .putV3OrdersOrderIdMetaGtin(
         orderId,
         putV3OrdersOrderIdMetaGtinRequest,
@@ -9500,14 +9453,14 @@ export class FBSApi extends BaseAPI implements FBSApiInterface {
    * @param {PutV3OrdersOrderIdMetaImeiRequest} putV3OrdersOrderIdMetaImeiRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof FBSApi
+   * @memberof OrdersFbsApi
    */
   public putV3OrdersOrderIdMetaImei(
     orderId: number,
     putV3OrdersOrderIdMetaImeiRequest: PutV3OrdersOrderIdMetaImeiRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return FBSApiFp(this.configuration)
+    return OrdersFbsApiFp(this.configuration)
       .putV3OrdersOrderIdMetaImei(
         orderId,
         putV3OrdersOrderIdMetaImeiRequest,
@@ -9523,14 +9476,14 @@ export class FBSApi extends BaseAPI implements FBSApiInterface {
    * @param {PutV3OrdersOrderIdMetaSgtinRequest} putV3OrdersOrderIdMetaSgtinRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof FBSApi
+   * @memberof OrdersFbsApi
    */
   public putV3OrdersOrderIdMetaSgtin(
     orderId: number,
     putV3OrdersOrderIdMetaSgtinRequest: PutV3OrdersOrderIdMetaSgtinRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return FBSApiFp(this.configuration)
+    return OrdersFbsApiFp(this.configuration)
       .putV3OrdersOrderIdMetaSgtin(
         orderId,
         putV3OrdersOrderIdMetaSgtinRequest,
@@ -9546,14 +9499,14 @@ export class FBSApi extends BaseAPI implements FBSApiInterface {
    * @param {PutV3OrdersOrderIdMetaUinRequest} putV3OrdersOrderIdMetaUinRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof FBSApi
+   * @memberof OrdersFbsApi
    */
   public putV3OrdersOrderIdMetaUin(
     orderId: number,
     putV3OrdersOrderIdMetaUinRequest: PutV3OrdersOrderIdMetaUinRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return FBSApiFp(this.configuration)
+    return OrdersFbsApiFp(this.configuration)
       .putV3OrdersOrderIdMetaUin(
         orderId,
         putV3OrdersOrderIdMetaUinRequest,
@@ -9569,14 +9522,14 @@ export class FBSApi extends BaseAPI implements FBSApiInterface {
    * @param {PutV3PassesPassIdRequest} putV3PassesPassIdRequest Общая длина ФИО ограничена от 6 до 100 символов. В номере машины могут быть только буквы и цифры.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof FBSApi
+   * @memberof OrdersFbsApi
    */
   public putV3PassesPassId(
     passId: number,
     putV3PassesPassIdRequest: PutV3PassesPassIdRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return FBSApiFp(this.configuration)
+    return OrdersFbsApiFp(this.configuration)
       .putV3PassesPassId(passId, putV3PassesPassIdRequest, options)
       .then((request) => request(this.axios, this.basePath));
   }

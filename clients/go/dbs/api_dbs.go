@@ -18,7 +18,7 @@ import (
 	"net/url"
 )
 
-type DBSAPI interface {
+type DbsAPI interface {
 
 	/*
 			GetV3DbsOrders Получить информацию о завершенных сборочных заданиях
@@ -581,12 +581,12 @@ type DBSAPI interface {
 	PostV3DbsOrdersStickersExecute(r ApiPostV3DbsOrdersStickersRequest) (*PostV3DbsOrdersStickersResponse200, *http.Response, error)
 }
 
-// DBSAPIService DBSAPI service
-type DBSAPIService service
+// DbsAPIService DbsAPI service
+type DbsAPIService service
 
 type ApiGetV3DbsOrdersRequest struct {
 	ctx        context.Context
-	ApiService DBSAPI
+	ApiService DbsAPI
 	limit      *int32
 	next       *int64
 	dateFrom   *int32
@@ -641,7 +641,7 @@ GetV3DbsOrders Получить информацию о завершенных �
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV3DbsOrdersRequest
 */
-func (a *DBSAPIService) GetV3DbsOrders(ctx context.Context) ApiGetV3DbsOrdersRequest {
+func (a *DbsAPIService) GetV3DbsOrders(ctx context.Context) ApiGetV3DbsOrdersRequest {
 	return ApiGetV3DbsOrdersRequest{
 		ApiService: a,
 		ctx:        ctx,
@@ -651,7 +651,7 @@ func (a *DBSAPIService) GetV3DbsOrders(ctx context.Context) ApiGetV3DbsOrdersReq
 // Execute executes the request
 //
 //	@return GetV3DbsOrdersResponse200
-func (a *DBSAPIService) GetV3DbsOrdersExecute(r ApiGetV3DbsOrdersRequest) (*GetV3DbsOrdersResponse200, *http.Response, error) {
+func (a *DbsAPIService) GetV3DbsOrdersExecute(r ApiGetV3DbsOrdersRequest) (*GetV3DbsOrdersResponse200, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -659,7 +659,7 @@ func (a *DBSAPIService) GetV3DbsOrdersExecute(r ApiGetV3DbsOrdersRequest) (*GetV
 		localVarReturnValue *GetV3DbsOrdersResponse200
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DBSAPIService.GetV3DbsOrders")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DbsAPIService.GetV3DbsOrders")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -802,7 +802,7 @@ func (a *DBSAPIService) GetV3DbsOrdersExecute(r ApiGetV3DbsOrdersRequest) (*GetV
 
 type ApiGetV3DbsOrdersNewRequest struct {
 	ctx        context.Context
-	ApiService DBSAPI
+	ApiService DbsAPI
 }
 
 func (r ApiGetV3DbsOrdersNewRequest) Execute() (*GetV3DbsOrdersNewResponse200, *http.Response, error) {
@@ -827,7 +827,7 @@ GetV3DbsOrdersNew Получить список новых сборочных з
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV3DbsOrdersNewRequest
 */
-func (a *DBSAPIService) GetV3DbsOrdersNew(ctx context.Context) ApiGetV3DbsOrdersNewRequest {
+func (a *DbsAPIService) GetV3DbsOrdersNew(ctx context.Context) ApiGetV3DbsOrdersNewRequest {
 	return ApiGetV3DbsOrdersNewRequest{
 		ApiService: a,
 		ctx:        ctx,
@@ -837,7 +837,7 @@ func (a *DBSAPIService) GetV3DbsOrdersNew(ctx context.Context) ApiGetV3DbsOrders
 // Execute executes the request
 //
 //	@return GetV3DbsOrdersNewResponse200
-func (a *DBSAPIService) GetV3DbsOrdersNewExecute(r ApiGetV3DbsOrdersNewRequest) (*GetV3DbsOrdersNewResponse200, *http.Response, error) {
+func (a *DbsAPIService) GetV3DbsOrdersNewExecute(r ApiGetV3DbsOrdersNewRequest) (*GetV3DbsOrdersNewResponse200, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -845,7 +845,7 @@ func (a *DBSAPIService) GetV3DbsOrdersNewExecute(r ApiGetV3DbsOrdersNewRequest) 
 		localVarReturnValue *GetV3DbsOrdersNewResponse200
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DBSAPIService.GetV3DbsOrdersNew")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DbsAPIService.GetV3DbsOrdersNew")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -955,7 +955,7 @@ func (a *DBSAPIService) GetV3DbsOrdersNewExecute(r ApiGetV3DbsOrdersNewRequest) 
 
 type ApiPostV3DbsGroupsInfoRequest struct {
 	ctx                   context.Context
-	ApiService            DBSAPI
+	ApiService            DbsAPI
 	apiOrderGroupsRequest *ApiOrderGroupsRequest
 }
 
@@ -986,7 +986,7 @@ PostV3DbsGroupsInfo Получить информацию о платной до
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV3DbsGroupsInfoRequest
 */
-func (a *DBSAPIService) PostV3DbsGroupsInfo(ctx context.Context) ApiPostV3DbsGroupsInfoRequest {
+func (a *DbsAPIService) PostV3DbsGroupsInfo(ctx context.Context) ApiPostV3DbsGroupsInfoRequest {
 	return ApiPostV3DbsGroupsInfoRequest{
 		ApiService: a,
 		ctx:        ctx,
@@ -996,7 +996,7 @@ func (a *DBSAPIService) PostV3DbsGroupsInfo(ctx context.Context) ApiPostV3DbsGro
 // Execute executes the request
 //
 //	@return []PostV3DbsGroupsInfoResponse200Inner
-func (a *DBSAPIService) PostV3DbsGroupsInfoExecute(r ApiPostV3DbsGroupsInfoRequest) ([]PostV3DbsGroupsInfoResponse200Inner, *http.Response, error) {
+func (a *DbsAPIService) PostV3DbsGroupsInfoExecute(r ApiPostV3DbsGroupsInfoRequest) ([]PostV3DbsGroupsInfoResponse200Inner, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -1004,7 +1004,7 @@ func (a *DBSAPIService) PostV3DbsGroupsInfoExecute(r ApiPostV3DbsGroupsInfoReque
 		localVarReturnValue []PostV3DbsGroupsInfoResponse200Inner
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DBSAPIService.PostV3DbsGroupsInfo")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DbsAPIService.PostV3DbsGroupsInfo")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1130,7 +1130,7 @@ func (a *DBSAPIService) PostV3DbsGroupsInfoExecute(r ApiPostV3DbsGroupsInfoReque
 
 type ApiPostV3DbsOrdersB2bInfoRequest struct {
 	ctx                context.Context
-	ApiService         DBSAPI
+	ApiService         DbsAPI
 	apiOrdersRequestV2 *ApiOrdersRequestV2
 }
 
@@ -1160,7 +1160,7 @@ PostV3DbsOrdersB2bInfo Информация о покупателе B2B
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV3DbsOrdersB2bInfoRequest
 */
-func (a *DBSAPIService) PostV3DbsOrdersB2bInfo(ctx context.Context) ApiPostV3DbsOrdersB2bInfoRequest {
+func (a *DbsAPIService) PostV3DbsOrdersB2bInfo(ctx context.Context) ApiPostV3DbsOrdersB2bInfoRequest {
 	return ApiPostV3DbsOrdersB2bInfoRequest{
 		ApiService: a,
 		ctx:        ctx,
@@ -1170,7 +1170,7 @@ func (a *DBSAPIService) PostV3DbsOrdersB2bInfo(ctx context.Context) ApiPostV3Dbs
 // Execute executes the request
 //
 //	@return ApiB2bClientInfoResponses
-func (a *DBSAPIService) PostV3DbsOrdersB2bInfoExecute(r ApiPostV3DbsOrdersB2bInfoRequest) (*ApiB2bClientInfoResponses, *http.Response, error) {
+func (a *DbsAPIService) PostV3DbsOrdersB2bInfoExecute(r ApiPostV3DbsOrdersB2bInfoRequest) (*ApiB2bClientInfoResponses, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -1178,7 +1178,7 @@ func (a *DBSAPIService) PostV3DbsOrdersB2bInfoExecute(r ApiPostV3DbsOrdersB2bInf
 		localVarReturnValue *ApiB2bClientInfoResponses
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DBSAPIService.PostV3DbsOrdersB2bInfo")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DbsAPIService.PostV3DbsOrdersB2bInfo")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1304,7 +1304,7 @@ func (a *DBSAPIService) PostV3DbsOrdersB2bInfoExecute(r ApiPostV3DbsOrdersB2bInf
 
 type ApiPostV3DbsOrdersClientRequest struct {
 	ctx              context.Context
-	ApiService       DBSAPI
+	ApiService       DbsAPI
 	ordersRequestAPI *OrdersRequestAPI
 }
 
@@ -1335,7 +1335,7 @@ PostV3DbsOrdersClient Информация о покупателе
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV3DbsOrdersClientRequest
 */
-func (a *DBSAPIService) PostV3DbsOrdersClient(ctx context.Context) ApiPostV3DbsOrdersClientRequest {
+func (a *DbsAPIService) PostV3DbsOrdersClient(ctx context.Context) ApiPostV3DbsOrdersClientRequest {
 	return ApiPostV3DbsOrdersClientRequest{
 		ApiService: a,
 		ctx:        ctx,
@@ -1345,7 +1345,7 @@ func (a *DBSAPIService) PostV3DbsOrdersClient(ctx context.Context) ApiPostV3DbsO
 // Execute executes the request
 //
 //	@return DbsOnlyClientInfoResp
-func (a *DBSAPIService) PostV3DbsOrdersClientExecute(r ApiPostV3DbsOrdersClientRequest) (*DbsOnlyClientInfoResp, *http.Response, error) {
+func (a *DbsAPIService) PostV3DbsOrdersClientExecute(r ApiPostV3DbsOrdersClientRequest) (*DbsOnlyClientInfoResp, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -1353,7 +1353,7 @@ func (a *DBSAPIService) PostV3DbsOrdersClientExecute(r ApiPostV3DbsOrdersClientR
 		localVarReturnValue *DbsOnlyClientInfoResp
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DBSAPIService.PostV3DbsOrdersClient")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DbsAPIService.PostV3DbsOrdersClient")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1490,7 +1490,7 @@ func (a *DBSAPIService) PostV3DbsOrdersClientExecute(r ApiPostV3DbsOrdersClientR
 
 type ApiPostV3DbsOrdersDeliveryDateRequest struct {
 	ctx                  context.Context
-	ApiService           DBSAPI
+	ApiService           DbsAPI
 	deliveryDatesRequest *DeliveryDatesRequest
 }
 
@@ -1521,7 +1521,7 @@ PostV3DbsOrdersDeliveryDate Получить дату и время достав
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV3DbsOrdersDeliveryDateRequest
 */
-func (a *DBSAPIService) PostV3DbsOrdersDeliveryDate(ctx context.Context) ApiPostV3DbsOrdersDeliveryDateRequest {
+func (a *DbsAPIService) PostV3DbsOrdersDeliveryDate(ctx context.Context) ApiPostV3DbsOrdersDeliveryDateRequest {
 	return ApiPostV3DbsOrdersDeliveryDateRequest{
 		ApiService: a,
 		ctx:        ctx,
@@ -1531,7 +1531,7 @@ func (a *DBSAPIService) PostV3DbsOrdersDeliveryDate(ctx context.Context) ApiPost
 // Execute executes the request
 //
 //	@return DeliveryDatesInfoResp
-func (a *DBSAPIService) PostV3DbsOrdersDeliveryDateExecute(r ApiPostV3DbsOrdersDeliveryDateRequest) (*DeliveryDatesInfoResp, *http.Response, error) {
+func (a *DbsAPIService) PostV3DbsOrdersDeliveryDateExecute(r ApiPostV3DbsOrdersDeliveryDateRequest) (*DeliveryDatesInfoResp, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -1539,7 +1539,7 @@ func (a *DBSAPIService) PostV3DbsOrdersDeliveryDateExecute(r ApiPostV3DbsOrdersD
 		localVarReturnValue *DeliveryDatesInfoResp
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DBSAPIService.PostV3DbsOrdersDeliveryDate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DbsAPIService.PostV3DbsOrdersDeliveryDate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1665,7 +1665,7 @@ func (a *DBSAPIService) PostV3DbsOrdersDeliveryDateExecute(r ApiPostV3DbsOrdersD
 
 type ApiPostV3DbsOrdersFinalPriceRequest struct {
 	ctx              context.Context
-	ApiService       DBSAPI
+	ApiService       DbsAPI
 	ordersRequestAPI *OrdersRequestAPI
 }
 
@@ -1694,7 +1694,7 @@ PostV3DbsOrdersFinalPrice Получить цены продавца и сумм
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV3DbsOrdersFinalPriceRequest
 */
-func (a *DBSAPIService) PostV3DbsOrdersFinalPrice(ctx context.Context) ApiPostV3DbsOrdersFinalPriceRequest {
+func (a *DbsAPIService) PostV3DbsOrdersFinalPrice(ctx context.Context) ApiPostV3DbsOrdersFinalPriceRequest {
 	return ApiPostV3DbsOrdersFinalPriceRequest{
 		ApiService: a,
 		ctx:        ctx,
@@ -1704,7 +1704,7 @@ func (a *DBSAPIService) PostV3DbsOrdersFinalPrice(ctx context.Context) ApiPostV3
 // Execute executes the request
 //
 //	@return ApiOrdersFinalPriceResponse
-func (a *DBSAPIService) PostV3DbsOrdersFinalPriceExecute(r ApiPostV3DbsOrdersFinalPriceRequest) (*ApiOrdersFinalPriceResponse, *http.Response, error) {
+func (a *DbsAPIService) PostV3DbsOrdersFinalPriceExecute(r ApiPostV3DbsOrdersFinalPriceRequest) (*ApiOrdersFinalPriceResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -1712,7 +1712,7 @@ func (a *DBSAPIService) PostV3DbsOrdersFinalPriceExecute(r ApiPostV3DbsOrdersFin
 		localVarReturnValue *ApiOrdersFinalPriceResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DBSAPIService.PostV3DbsOrdersFinalPrice")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DbsAPIService.PostV3DbsOrdersFinalPrice")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1824,7 +1824,7 @@ func (a *DBSAPIService) PostV3DbsOrdersFinalPriceExecute(r ApiPostV3DbsOrdersFin
 
 type ApiPostV3DbsOrdersMetaCustomsDeclarationRequest struct {
 	ctx                                          context.Context
-	ApiService                                   DBSAPI
+	ApiService                                   DbsAPI
 	postV3DbsOrdersMetaCustomsDeclarationRequest *PostV3DbsOrdersMetaCustomsDeclarationRequest
 }
 
@@ -1859,7 +1859,7 @@ PostV3DbsOrdersMetaCustomsDeclaration Закрепить номера ДТ за 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV3DbsOrdersMetaCustomsDeclarationRequest
 */
-func (a *DBSAPIService) PostV3DbsOrdersMetaCustomsDeclaration(ctx context.Context) ApiPostV3DbsOrdersMetaCustomsDeclarationRequest {
+func (a *DbsAPIService) PostV3DbsOrdersMetaCustomsDeclaration(ctx context.Context) ApiPostV3DbsOrdersMetaCustomsDeclarationRequest {
 	return ApiPostV3DbsOrdersMetaCustomsDeclarationRequest{
 		ApiService: a,
 		ctx:        ctx,
@@ -1869,7 +1869,7 @@ func (a *DBSAPIService) PostV3DbsOrdersMetaCustomsDeclaration(ctx context.Contex
 // Execute executes the request
 //
 //	@return ApiStatusSetResponses
-func (a *DBSAPIService) PostV3DbsOrdersMetaCustomsDeclarationExecute(r ApiPostV3DbsOrdersMetaCustomsDeclarationRequest) (*ApiStatusSetResponses, *http.Response, error) {
+func (a *DbsAPIService) PostV3DbsOrdersMetaCustomsDeclarationExecute(r ApiPostV3DbsOrdersMetaCustomsDeclarationRequest) (*ApiStatusSetResponses, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -1877,7 +1877,7 @@ func (a *DBSAPIService) PostV3DbsOrdersMetaCustomsDeclarationExecute(r ApiPostV3
 		localVarReturnValue *ApiStatusSetResponses
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DBSAPIService.PostV3DbsOrdersMetaCustomsDeclaration")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DbsAPIService.PostV3DbsOrdersMetaCustomsDeclaration")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -2025,7 +2025,7 @@ func (a *DBSAPIService) PostV3DbsOrdersMetaCustomsDeclarationExecute(r ApiPostV3
 
 type ApiPostV3DbsOrdersMetaDeleteRequest struct {
 	ctx                        context.Context
-	ApiService                 DBSAPI
+	ApiService                 DbsAPI
 	apiOrdersMetaDeleteRequest *ApiOrdersMetaDeleteRequest
 }
 
@@ -2063,7 +2063,7 @@ PostV3DbsOrdersMetaDelete Удалить идентификаторы марки
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV3DbsOrdersMetaDeleteRequest
 */
-func (a *DBSAPIService) PostV3DbsOrdersMetaDelete(ctx context.Context) ApiPostV3DbsOrdersMetaDeleteRequest {
+func (a *DbsAPIService) PostV3DbsOrdersMetaDelete(ctx context.Context) ApiPostV3DbsOrdersMetaDeleteRequest {
 	return ApiPostV3DbsOrdersMetaDeleteRequest{
 		ApiService: a,
 		ctx:        ctx,
@@ -2073,7 +2073,7 @@ func (a *DBSAPIService) PostV3DbsOrdersMetaDelete(ctx context.Context) ApiPostV3
 // Execute executes the request
 //
 //	@return ApiStatusSetResponses
-func (a *DBSAPIService) PostV3DbsOrdersMetaDeleteExecute(r ApiPostV3DbsOrdersMetaDeleteRequest) (*ApiStatusSetResponses, *http.Response, error) {
+func (a *DbsAPIService) PostV3DbsOrdersMetaDeleteExecute(r ApiPostV3DbsOrdersMetaDeleteRequest) (*ApiStatusSetResponses, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -2081,7 +2081,7 @@ func (a *DBSAPIService) PostV3DbsOrdersMetaDeleteExecute(r ApiPostV3DbsOrdersMet
 		localVarReturnValue *ApiStatusSetResponses
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DBSAPIService.PostV3DbsOrdersMetaDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DbsAPIService.PostV3DbsOrdersMetaDelete")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -2218,7 +2218,7 @@ func (a *DBSAPIService) PostV3DbsOrdersMetaDeleteExecute(r ApiPostV3DbsOrdersMet
 
 type ApiPostV3DbsOrdersMetaDetailsRequest struct {
 	ctx                context.Context
-	ApiService         DBSAPI
+	ApiService         DbsAPI
 	apiOrdersRequestV2 *ApiOrdersRequestV2
 }
 
@@ -2254,7 +2254,7 @@ PostV3DbsOrdersMetaDetails Получить идентификаторы мар�
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV3DbsOrdersMetaDetailsRequest
 */
-func (a *DBSAPIService) PostV3DbsOrdersMetaDetails(ctx context.Context) ApiPostV3DbsOrdersMetaDetailsRequest {
+func (a *DbsAPIService) PostV3DbsOrdersMetaDetails(ctx context.Context) ApiPostV3DbsOrdersMetaDetailsRequest {
 	return ApiPostV3DbsOrdersMetaDetailsRequest{
 		ApiService: a,
 		ctx:        ctx,
@@ -2264,7 +2264,7 @@ func (a *DBSAPIService) PostV3DbsOrdersMetaDetails(ctx context.Context) ApiPostV
 // Execute executes the request
 //
 //	@return ApiOrdersMetaDetailsResponse
-func (a *DBSAPIService) PostV3DbsOrdersMetaDetailsExecute(r ApiPostV3DbsOrdersMetaDetailsRequest) (*ApiOrdersMetaDetailsResponse, *http.Response, error) {
+func (a *DbsAPIService) PostV3DbsOrdersMetaDetailsExecute(r ApiPostV3DbsOrdersMetaDetailsRequest) (*ApiOrdersMetaDetailsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -2272,7 +2272,7 @@ func (a *DBSAPIService) PostV3DbsOrdersMetaDetailsExecute(r ApiPostV3DbsOrdersMe
 		localVarReturnValue *ApiOrdersMetaDetailsResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DBSAPIService.PostV3DbsOrdersMetaDetails")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DbsAPIService.PostV3DbsOrdersMetaDetails")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -2398,7 +2398,7 @@ func (a *DBSAPIService) PostV3DbsOrdersMetaDetailsExecute(r ApiPostV3DbsOrdersMe
 
 type ApiPostV3DbsOrdersMetaGtinRequest struct {
 	ctx                     context.Context
-	ApiService              DBSAPI
+	ApiService              DbsAPI
 	apiOrdersGTINSetRequest *ApiOrdersGTINSetRequest
 }
 
@@ -2430,7 +2430,7 @@ PostV3DbsOrdersMetaGtin Закрепить GTIN за сборочными зад
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV3DbsOrdersMetaGtinRequest
 */
-func (a *DBSAPIService) PostV3DbsOrdersMetaGtin(ctx context.Context) ApiPostV3DbsOrdersMetaGtinRequest {
+func (a *DbsAPIService) PostV3DbsOrdersMetaGtin(ctx context.Context) ApiPostV3DbsOrdersMetaGtinRequest {
 	return ApiPostV3DbsOrdersMetaGtinRequest{
 		ApiService: a,
 		ctx:        ctx,
@@ -2440,7 +2440,7 @@ func (a *DBSAPIService) PostV3DbsOrdersMetaGtin(ctx context.Context) ApiPostV3Db
 // Execute executes the request
 //
 //	@return ApiStatusSetResponses
-func (a *DBSAPIService) PostV3DbsOrdersMetaGtinExecute(r ApiPostV3DbsOrdersMetaGtinRequest) (*ApiStatusSetResponses, *http.Response, error) {
+func (a *DbsAPIService) PostV3DbsOrdersMetaGtinExecute(r ApiPostV3DbsOrdersMetaGtinRequest) (*ApiStatusSetResponses, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -2448,7 +2448,7 @@ func (a *DBSAPIService) PostV3DbsOrdersMetaGtinExecute(r ApiPostV3DbsOrdersMetaG
 		localVarReturnValue *ApiStatusSetResponses
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DBSAPIService.PostV3DbsOrdersMetaGtin")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DbsAPIService.PostV3DbsOrdersMetaGtin")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -2585,7 +2585,7 @@ func (a *DBSAPIService) PostV3DbsOrdersMetaGtinExecute(r ApiPostV3DbsOrdersMetaG
 
 type ApiPostV3DbsOrdersMetaImeiRequest struct {
 	ctx                     context.Context
-	ApiService              DBSAPI
+	ApiService              DbsAPI
 	apiOrdersIMEISetRequest *ApiOrdersIMEISetRequest
 }
 
@@ -2618,7 +2618,7 @@ PostV3DbsOrdersMetaImei Закрепить IMEI за сборочными зад
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV3DbsOrdersMetaImeiRequest
 */
-func (a *DBSAPIService) PostV3DbsOrdersMetaImei(ctx context.Context) ApiPostV3DbsOrdersMetaImeiRequest {
+func (a *DbsAPIService) PostV3DbsOrdersMetaImei(ctx context.Context) ApiPostV3DbsOrdersMetaImeiRequest {
 	return ApiPostV3DbsOrdersMetaImeiRequest{
 		ApiService: a,
 		ctx:        ctx,
@@ -2628,7 +2628,7 @@ func (a *DBSAPIService) PostV3DbsOrdersMetaImei(ctx context.Context) ApiPostV3Db
 // Execute executes the request
 //
 //	@return ApiStatusSetResponses
-func (a *DBSAPIService) PostV3DbsOrdersMetaImeiExecute(r ApiPostV3DbsOrdersMetaImeiRequest) (*ApiStatusSetResponses, *http.Response, error) {
+func (a *DbsAPIService) PostV3DbsOrdersMetaImeiExecute(r ApiPostV3DbsOrdersMetaImeiRequest) (*ApiStatusSetResponses, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -2636,7 +2636,7 @@ func (a *DBSAPIService) PostV3DbsOrdersMetaImeiExecute(r ApiPostV3DbsOrdersMetaI
 		localVarReturnValue *ApiStatusSetResponses
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DBSAPIService.PostV3DbsOrdersMetaImei")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DbsAPIService.PostV3DbsOrdersMetaImei")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -2773,7 +2773,7 @@ func (a *DBSAPIService) PostV3DbsOrdersMetaImeiExecute(r ApiPostV3DbsOrdersMetaI
 
 type ApiPostV3DbsOrdersMetaSgtinRequest struct {
 	ctx                       context.Context
-	ApiService                DBSAPI
+	ApiService                DbsAPI
 	apiOrdersSGTINsSetRequest *ApiOrdersSGTINsSetRequest
 }
 
@@ -2810,7 +2810,7 @@ PostV3DbsOrdersMetaSgtin Закрепить коды маркировки Чес
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV3DbsOrdersMetaSgtinRequest
 */
-func (a *DBSAPIService) PostV3DbsOrdersMetaSgtin(ctx context.Context) ApiPostV3DbsOrdersMetaSgtinRequest {
+func (a *DbsAPIService) PostV3DbsOrdersMetaSgtin(ctx context.Context) ApiPostV3DbsOrdersMetaSgtinRequest {
 	return ApiPostV3DbsOrdersMetaSgtinRequest{
 		ApiService: a,
 		ctx:        ctx,
@@ -2820,7 +2820,7 @@ func (a *DBSAPIService) PostV3DbsOrdersMetaSgtin(ctx context.Context) ApiPostV3D
 // Execute executes the request
 //
 //	@return ApiStatusSetResponses
-func (a *DBSAPIService) PostV3DbsOrdersMetaSgtinExecute(r ApiPostV3DbsOrdersMetaSgtinRequest) (*ApiStatusSetResponses, *http.Response, error) {
+func (a *DbsAPIService) PostV3DbsOrdersMetaSgtinExecute(r ApiPostV3DbsOrdersMetaSgtinRequest) (*ApiStatusSetResponses, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -2828,7 +2828,7 @@ func (a *DBSAPIService) PostV3DbsOrdersMetaSgtinExecute(r ApiPostV3DbsOrdersMeta
 		localVarReturnValue *ApiStatusSetResponses
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DBSAPIService.PostV3DbsOrdersMetaSgtin")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DbsAPIService.PostV3DbsOrdersMetaSgtin")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -2954,7 +2954,7 @@ func (a *DBSAPIService) PostV3DbsOrdersMetaSgtinExecute(r ApiPostV3DbsOrdersMeta
 
 type ApiPostV3DbsOrdersMetaUinRequest struct {
 	ctx                    context.Context
-	ApiService             DBSAPI
+	ApiService             DbsAPI
 	apiOrdersUINSetRequest *ApiOrdersUINSetRequest
 }
 
@@ -2987,7 +2987,7 @@ PostV3DbsOrdersMetaUin Закрепить УИН за сборочными за�
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV3DbsOrdersMetaUinRequest
 */
-func (a *DBSAPIService) PostV3DbsOrdersMetaUin(ctx context.Context) ApiPostV3DbsOrdersMetaUinRequest {
+func (a *DbsAPIService) PostV3DbsOrdersMetaUin(ctx context.Context) ApiPostV3DbsOrdersMetaUinRequest {
 	return ApiPostV3DbsOrdersMetaUinRequest{
 		ApiService: a,
 		ctx:        ctx,
@@ -2997,7 +2997,7 @@ func (a *DBSAPIService) PostV3DbsOrdersMetaUin(ctx context.Context) ApiPostV3Dbs
 // Execute executes the request
 //
 //	@return ApiStatusSetResponses
-func (a *DBSAPIService) PostV3DbsOrdersMetaUinExecute(r ApiPostV3DbsOrdersMetaUinRequest) (*ApiStatusSetResponses, *http.Response, error) {
+func (a *DbsAPIService) PostV3DbsOrdersMetaUinExecute(r ApiPostV3DbsOrdersMetaUinRequest) (*ApiStatusSetResponses, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -3005,7 +3005,7 @@ func (a *DBSAPIService) PostV3DbsOrdersMetaUinExecute(r ApiPostV3DbsOrdersMetaUi
 		localVarReturnValue *ApiStatusSetResponses
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DBSAPIService.PostV3DbsOrdersMetaUin")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DbsAPIService.PostV3DbsOrdersMetaUin")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -3142,7 +3142,7 @@ func (a *DBSAPIService) PostV3DbsOrdersMetaUinExecute(r ApiPostV3DbsOrdersMetaUi
 
 type ApiPostV3DbsOrdersStatusCancelRequest struct {
 	ctx                context.Context
-	ApiService         DBSAPI
+	ApiService         DbsAPI
 	apiOrdersRequestV2 *ApiOrdersRequestV2
 }
 
@@ -3174,7 +3174,7 @@ PostV3DbsOrdersStatusCancel Отменить сборочные задания
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV3DbsOrdersStatusCancelRequest
 */
-func (a *DBSAPIService) PostV3DbsOrdersStatusCancel(ctx context.Context) ApiPostV3DbsOrdersStatusCancelRequest {
+func (a *DbsAPIService) PostV3DbsOrdersStatusCancel(ctx context.Context) ApiPostV3DbsOrdersStatusCancelRequest {
 	return ApiPostV3DbsOrdersStatusCancelRequest{
 		ApiService: a,
 		ctx:        ctx,
@@ -3184,7 +3184,7 @@ func (a *DBSAPIService) PostV3DbsOrdersStatusCancel(ctx context.Context) ApiPost
 // Execute executes the request
 //
 //	@return ApiStatusSetResponses
-func (a *DBSAPIService) PostV3DbsOrdersStatusCancelExecute(r ApiPostV3DbsOrdersStatusCancelRequest) (*ApiStatusSetResponses, *http.Response, error) {
+func (a *DbsAPIService) PostV3DbsOrdersStatusCancelExecute(r ApiPostV3DbsOrdersStatusCancelRequest) (*ApiStatusSetResponses, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -3192,7 +3192,7 @@ func (a *DBSAPIService) PostV3DbsOrdersStatusCancelExecute(r ApiPostV3DbsOrdersS
 		localVarReturnValue *ApiStatusSetResponses
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DBSAPIService.PostV3DbsOrdersStatusCancel")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DbsAPIService.PostV3DbsOrdersStatusCancel")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -3318,7 +3318,7 @@ func (a *DBSAPIService) PostV3DbsOrdersStatusCancelExecute(r ApiPostV3DbsOrdersS
 
 type ApiPostV3DbsOrdersStatusConfirmRequest struct {
 	ctx                context.Context
-	ApiService         DBSAPI
+	ApiService         DbsAPI
 	apiOrdersRequestV2 *ApiOrdersRequestV2
 }
 
@@ -3349,7 +3349,7 @@ PostV3DbsOrdersStatusConfirm Перевести сборочные задани�
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV3DbsOrdersStatusConfirmRequest
 */
-func (a *DBSAPIService) PostV3DbsOrdersStatusConfirm(ctx context.Context) ApiPostV3DbsOrdersStatusConfirmRequest {
+func (a *DbsAPIService) PostV3DbsOrdersStatusConfirm(ctx context.Context) ApiPostV3DbsOrdersStatusConfirmRequest {
 	return ApiPostV3DbsOrdersStatusConfirmRequest{
 		ApiService: a,
 		ctx:        ctx,
@@ -3359,7 +3359,7 @@ func (a *DBSAPIService) PostV3DbsOrdersStatusConfirm(ctx context.Context) ApiPos
 // Execute executes the request
 //
 //	@return ApiStatusSetResponses
-func (a *DBSAPIService) PostV3DbsOrdersStatusConfirmExecute(r ApiPostV3DbsOrdersStatusConfirmRequest) (*ApiStatusSetResponses, *http.Response, error) {
+func (a *DbsAPIService) PostV3DbsOrdersStatusConfirmExecute(r ApiPostV3DbsOrdersStatusConfirmRequest) (*ApiStatusSetResponses, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -3367,7 +3367,7 @@ func (a *DBSAPIService) PostV3DbsOrdersStatusConfirmExecute(r ApiPostV3DbsOrders
 		localVarReturnValue *ApiStatusSetResponses
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DBSAPIService.PostV3DbsOrdersStatusConfirm")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DbsAPIService.PostV3DbsOrdersStatusConfirm")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -3493,7 +3493,7 @@ func (a *DBSAPIService) PostV3DbsOrdersStatusConfirmExecute(r ApiPostV3DbsOrders
 
 type ApiPostV3DbsOrdersStatusDeliverRequest struct {
 	ctx                context.Context
-	ApiService         DBSAPI
+	ApiService         DbsAPI
 	apiOrdersRequestV2 *ApiOrdersRequestV2
 }
 
@@ -3524,7 +3524,7 @@ PostV3DbsOrdersStatusDeliver Перевести сборочные задани�
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV3DbsOrdersStatusDeliverRequest
 */
-func (a *DBSAPIService) PostV3DbsOrdersStatusDeliver(ctx context.Context) ApiPostV3DbsOrdersStatusDeliverRequest {
+func (a *DbsAPIService) PostV3DbsOrdersStatusDeliver(ctx context.Context) ApiPostV3DbsOrdersStatusDeliverRequest {
 	return ApiPostV3DbsOrdersStatusDeliverRequest{
 		ApiService: a,
 		ctx:        ctx,
@@ -3534,7 +3534,7 @@ func (a *DBSAPIService) PostV3DbsOrdersStatusDeliver(ctx context.Context) ApiPos
 // Execute executes the request
 //
 //	@return ApiStatusSetDeliverResponses
-func (a *DBSAPIService) PostV3DbsOrdersStatusDeliverExecute(r ApiPostV3DbsOrdersStatusDeliverRequest) (*ApiStatusSetDeliverResponses, *http.Response, error) {
+func (a *DbsAPIService) PostV3DbsOrdersStatusDeliverExecute(r ApiPostV3DbsOrdersStatusDeliverRequest) (*ApiStatusSetDeliverResponses, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -3542,7 +3542,7 @@ func (a *DBSAPIService) PostV3DbsOrdersStatusDeliverExecute(r ApiPostV3DbsOrders
 		localVarReturnValue *ApiStatusSetDeliverResponses
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DBSAPIService.PostV3DbsOrdersStatusDeliver")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DbsAPIService.PostV3DbsOrdersStatusDeliver")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -3668,7 +3668,7 @@ func (a *DBSAPIService) PostV3DbsOrdersStatusDeliverExecute(r ApiPostV3DbsOrders
 
 type ApiPostV3DbsOrdersStatusInfoRequest struct {
 	ctx                context.Context
-	ApiService         DBSAPI
+	ApiService         DbsAPI
 	apiOrdersRequestV2 *ApiOrdersRequestV2
 }
 
@@ -3725,7 +3725,7 @@ PostV3DbsOrdersStatusInfo Получить статусы сборочных з�
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV3DbsOrdersStatusInfoRequest
 */
-func (a *DBSAPIService) PostV3DbsOrdersStatusInfo(ctx context.Context) ApiPostV3DbsOrdersStatusInfoRequest {
+func (a *DbsAPIService) PostV3DbsOrdersStatusInfo(ctx context.Context) ApiPostV3DbsOrdersStatusInfoRequest {
 	return ApiPostV3DbsOrdersStatusInfoRequest{
 		ApiService: a,
 		ctx:        ctx,
@@ -3735,7 +3735,7 @@ func (a *DBSAPIService) PostV3DbsOrdersStatusInfo(ctx context.Context) ApiPostV3
 // Execute executes the request
 //
 //	@return ApiOrderStatusesV2
-func (a *DBSAPIService) PostV3DbsOrdersStatusInfoExecute(r ApiPostV3DbsOrdersStatusInfoRequest) (*ApiOrderStatusesV2, *http.Response, error) {
+func (a *DbsAPIService) PostV3DbsOrdersStatusInfoExecute(r ApiPostV3DbsOrdersStatusInfoRequest) (*ApiOrderStatusesV2, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -3743,7 +3743,7 @@ func (a *DBSAPIService) PostV3DbsOrdersStatusInfoExecute(r ApiPostV3DbsOrdersSta
 		localVarReturnValue *ApiOrderStatusesV2
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DBSAPIService.PostV3DbsOrdersStatusInfo")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DbsAPIService.PostV3DbsOrdersStatusInfo")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -3880,7 +3880,7 @@ func (a *DBSAPIService) PostV3DbsOrdersStatusInfoExecute(r ApiPostV3DbsOrdersSta
 
 type ApiPostV3DbsOrdersStatusReceiveRequest struct {
 	ctx                  context.Context
-	ApiService           DBSAPI
+	ApiService           DbsAPI
 	apiOrdersCodeRequest *ApiOrdersCodeRequest
 }
 
@@ -3911,7 +3911,7 @@ PostV3DbsOrdersStatusReceive Сообщить о получении заказо
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV3DbsOrdersStatusReceiveRequest
 */
-func (a *DBSAPIService) PostV3DbsOrdersStatusReceive(ctx context.Context) ApiPostV3DbsOrdersStatusReceiveRequest {
+func (a *DbsAPIService) PostV3DbsOrdersStatusReceive(ctx context.Context) ApiPostV3DbsOrdersStatusReceiveRequest {
 	return ApiPostV3DbsOrdersStatusReceiveRequest{
 		ApiService: a,
 		ctx:        ctx,
@@ -3921,7 +3921,7 @@ func (a *DBSAPIService) PostV3DbsOrdersStatusReceive(ctx context.Context) ApiPos
 // Execute executes the request
 //
 //	@return PostV3DbsOrdersStatusReceiveResponse200
-func (a *DBSAPIService) PostV3DbsOrdersStatusReceiveExecute(r ApiPostV3DbsOrdersStatusReceiveRequest) (*PostV3DbsOrdersStatusReceiveResponse200, *http.Response, error) {
+func (a *DbsAPIService) PostV3DbsOrdersStatusReceiveExecute(r ApiPostV3DbsOrdersStatusReceiveRequest) (*PostV3DbsOrdersStatusReceiveResponse200, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -3929,7 +3929,7 @@ func (a *DBSAPIService) PostV3DbsOrdersStatusReceiveExecute(r ApiPostV3DbsOrders
 		localVarReturnValue *PostV3DbsOrdersStatusReceiveResponse200
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DBSAPIService.PostV3DbsOrdersStatusReceive")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DbsAPIService.PostV3DbsOrdersStatusReceive")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -4052,7 +4052,7 @@ func (a *DBSAPIService) PostV3DbsOrdersStatusReceiveExecute(r ApiPostV3DbsOrders
 
 type ApiPostV3DbsOrdersStatusRejectRequest struct {
 	ctx                  context.Context
-	ApiService           DBSAPI
+	ApiService           DbsAPI
 	apiOrdersCodeRequest *ApiOrdersCodeRequest
 }
 
@@ -4083,7 +4083,7 @@ PostV3DbsOrdersStatusReject Сообщить об отказе от заказо
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV3DbsOrdersStatusRejectRequest
 */
-func (a *DBSAPIService) PostV3DbsOrdersStatusReject(ctx context.Context) ApiPostV3DbsOrdersStatusRejectRequest {
+func (a *DbsAPIService) PostV3DbsOrdersStatusReject(ctx context.Context) ApiPostV3DbsOrdersStatusRejectRequest {
 	return ApiPostV3DbsOrdersStatusRejectRequest{
 		ApiService: a,
 		ctx:        ctx,
@@ -4093,7 +4093,7 @@ func (a *DBSAPIService) PostV3DbsOrdersStatusReject(ctx context.Context) ApiPost
 // Execute executes the request
 //
 //	@return ApiStatusSetResponses
-func (a *DBSAPIService) PostV3DbsOrdersStatusRejectExecute(r ApiPostV3DbsOrdersStatusRejectRequest) (*ApiStatusSetResponses, *http.Response, error) {
+func (a *DbsAPIService) PostV3DbsOrdersStatusRejectExecute(r ApiPostV3DbsOrdersStatusRejectRequest) (*ApiStatusSetResponses, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -4101,7 +4101,7 @@ func (a *DBSAPIService) PostV3DbsOrdersStatusRejectExecute(r ApiPostV3DbsOrdersS
 		localVarReturnValue *ApiStatusSetResponses
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DBSAPIService.PostV3DbsOrdersStatusReject")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DbsAPIService.PostV3DbsOrdersStatusReject")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -4224,7 +4224,7 @@ func (a *DBSAPIService) PostV3DbsOrdersStatusRejectExecute(r ApiPostV3DbsOrdersS
 
 type ApiPostV3DbsOrdersStickersRequest struct {
 	ctx                            context.Context
-	ApiService                     DBSAPI
+	ApiService                     DbsAPI
 	type_                          *string
 	width                          *int32
 	height                         *int32
@@ -4280,7 +4280,7 @@ PostV3DbsOrdersStickers Получить стикеры для сборочны�
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV3DbsOrdersStickersRequest
 */
-func (a *DBSAPIService) PostV3DbsOrdersStickers(ctx context.Context) ApiPostV3DbsOrdersStickersRequest {
+func (a *DbsAPIService) PostV3DbsOrdersStickers(ctx context.Context) ApiPostV3DbsOrdersStickersRequest {
 	return ApiPostV3DbsOrdersStickersRequest{
 		ApiService: a,
 		ctx:        ctx,
@@ -4290,7 +4290,7 @@ func (a *DBSAPIService) PostV3DbsOrdersStickers(ctx context.Context) ApiPostV3Db
 // Execute executes the request
 //
 //	@return PostV3DbsOrdersStickersResponse200
-func (a *DBSAPIService) PostV3DbsOrdersStickersExecute(r ApiPostV3DbsOrdersStickersRequest) (*PostV3DbsOrdersStickersResponse200, *http.Response, error) {
+func (a *DbsAPIService) PostV3DbsOrdersStickersExecute(r ApiPostV3DbsOrdersStickersRequest) (*PostV3DbsOrdersStickersResponse200, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -4298,7 +4298,7 @@ func (a *DBSAPIService) PostV3DbsOrdersStickersExecute(r ApiPostV3DbsOrdersStick
 		localVarReturnValue *PostV3DbsOrdersStickersResponse200
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DBSAPIService.PostV3DbsOrdersStickers")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DbsAPIService.PostV3DbsOrdersStickers")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

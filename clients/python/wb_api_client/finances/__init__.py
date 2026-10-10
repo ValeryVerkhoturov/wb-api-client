@@ -14,11 +14,10 @@
 """  # noqa: E501
 
 
-__version__ = "1.20261010.0"
+__version__ = "1.20261010.1"
 
 # import apis into sdk package
-from wb_api_client.finances.api.default_api import DefaultApi
-from wb_api_client.finances.api.api import Api
+from wb_api_client.finances.api.finances_api import FinancesApi
 
 # import ApiClient
 from wb_api_client.finances.api_response import ApiResponse

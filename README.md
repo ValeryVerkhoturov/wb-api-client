@@ -38,10 +38,10 @@ pip install valeryverkhoturov-wb-api-client
 ```
 ```python
 from wb_api_client.items import Configuration, ApiClient
-from wb_api_client.items.api import DefaultApi
+from wb_api_client.items.api import ItemsApi
 
 cfg = Configuration(access_token="<your WB JWT>")  # auto-wrapped in pydantic.SecretStr
-api = DefaultApi(ApiClient(cfg))
+api = ItemsApi(ApiClient(cfg))
 ```
 
 **TypeScript (npm):**
@@ -49,11 +49,11 @@ api = DefaultApi(ApiClient(cfg))
 npm install @valeryverkhoturov/wb-api-client
 ```
 ```ts
-import { Configuration, DefaultApi } from "@valeryverkhoturov/wb-api-client/items";
+import { Configuration, ItemsApi } from "@valeryverkhoturov/wb-api-client/items";
 
 const cfg = new Configuration({});
 cfg.setAccessToken("<your WB JWT>");                // wraps in SecretString internally
-const api = new DefaultApi(cfg);
+const api = new ItemsApi(cfg);
 ```
 
 **Go:**
@@ -79,11 +79,11 @@ client := wbitems.NewAPIClient(cfg)
 ```java
 import io.github.valeryverkhoturov.wbapi.items.ApiClient;
 import io.github.valeryverkhoturov.wbapi.items.SecretString;
-import io.github.valeryverkhoturov.wbapi.items.api.DefaultApi;
+import io.github.valeryverkhoturov.wbapi.items.api.ItemsApi;
 
 ApiClient client = new ApiClient();
 client.setBearerToken(new SecretString("<your WB JWT>"));
-DefaultApi api = new DefaultApi(client);
+ItemsApi api = new ItemsApi(client);
 ```
 
 **PHP (Packagist):**
@@ -93,12 +93,12 @@ composer require valeryverkhoturov/wb-api-client
 ```php
 use ValeryVerkhoturov\WbApiClient\Items\Configuration;
 use ValeryVerkhoturov\WbApiClient\Items\SecretString;
-use ValeryVerkhoturov\WbApiClient\Items\Api\DefaultApi;
+use ValeryVerkhoturov\WbApiClient\Items\Api\ItemsApi;
 use GuzzleHttp\Client;
 
 $config = (new Configuration())
     ->setAccessTokenSecret(new SecretString('<your WB JWT>'));
-$api = new DefaultApi(new Client(), $config);
+$api = new ItemsApi(new Client(), $config);
 ```
 
 **C# ([NuGet](https://www.nuget.org/packages/ValeryVerkhoturov.WbApiClient)):**
@@ -111,7 +111,7 @@ using ValeryVerkhoturov.WbApiClient.Items.Client;
 
 var config = new Configuration();
 config.AccessTokenSecret = new SecretString("<your WB JWT>");
-var api = new DefaultApi(config);
+var api = new ItemsApi(config);
 ```
 
 **OneScript ([hub.oscript.io](https://hub.oscript.io)):**
@@ -123,12 +123,12 @@ opm install wb-api-client
 
 Настройки = Новый Конфигурация();
 Настройки.УстановитьТокен("<your WB JWT>");
-Клиент = Новый КарточкиТоваровApi(Настройки);
+Клиент = Новый ItemsApi(Настройки);
 ```
 
 The client is built on [1connector](https://github.com/vbondarevsky/1connector),
 its only dependency — `opm` pulls it in automatically. OneScript has no
-namespaces, so categories are separated by class name rather than import path: API classes keep the spec's tag (`КарточкиТоваровApi`), and
+namespaces, so categories are separated by class name rather than import path: each category has a single API class named after the module (`ItemsApi`), and
 model classes carry the category as a prefix (`ItemsResponse4XX`). The package
 also lives in its own repo, [`wb-api-client-1c`](https://github.com/ValeryVerkhoturov/wb-api-client-1c),
 so you can clone it at a tag instead of going through the hub.

@@ -2210,10 +2210,10 @@ export interface WHMDataReportsInner {
 }
 
 /**
- * DefaultApi - axios parameter creator
+ * ReportsApi - axios parameter creator
  * @export
  */
-export const DefaultApiAxiosParamCreator = function (
+export const ReportsApiAxiosParamCreator = function (
   configuration?: Configuration,
 ) {
   return {
@@ -3664,15 +3664,83 @@ export const DefaultApiAxiosParamCreator = function (
         options: localVarRequestOptions,
       };
     },
+    /**
+     * Метод возвращает отчёт с [операциями по товарам с обязательной маркировкой](https://seller.wildberries.ru/analytics-reports/excise-report).  Данный отчёт можно сохранить в [формате таблиц](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-650c-7b04-9596-ba441936f9d3).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 5 ч | 10 запросов | 30 мин | 10 запросов | | Сервисный | 5 ч | 10 запросов | 30 мин | 10 запросов | | Базовый с секретом | 5 ч | 10 запросов | 30 мин | 10 запросов | | Базовый | 24 ч | 2 запроса | 12 ч | 1 запрос |
+     * @summary Получить отчёт
+     * @param {string} dateFrom Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;
+     * @param {string} dateTo Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;
+     * @param {ExciseReportRequest} [exciseReportRequest]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    postV1AnalyticsExciseReport: async (
+      dateFrom: string,
+      dateTo: string,
+      exciseReportRequest?: ExciseReportRequest,
+      options: RawAxiosRequestConfig = {},
+    ): Promise<RequestArgs> => {
+      // verify required parameter 'dateFrom' is not null or undefined
+      assertParamExists("postV1AnalyticsExciseReport", "dateFrom", dateFrom);
+      // verify required parameter 'dateTo' is not null or undefined
+      assertParamExists("postV1AnalyticsExciseReport", "dateTo", dateTo);
+      const localVarPath = `/api/v1/analytics/excise-report`;
+      // use dummy base URL string because the URL constructor only accepts absolute URLs.
+      const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+
+      const localVarRequestOptions = {
+        method: "POST",
+        ...baseOptions,
+        ...options,
+      };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      // authentication BearerAuth required
+      // http bearer authentication required
+      await setBearerAuthToObject(localVarHeaderParameter, configuration);
+
+      if (dateFrom !== undefined) {
+        localVarQueryParameter["dateFrom"] = dateFrom;
+      }
+
+      if (dateTo !== undefined) {
+        localVarQueryParameter["dateTo"] = dateTo;
+      }
+
+      localVarHeaderParameter["Content-Type"] = "application/json";
+
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
+      let headersFromBaseOptions =
+        baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = {
+        ...localVarHeaderParameter,
+        ...headersFromBaseOptions,
+        ...options.headers,
+      };
+      localVarRequestOptions.data = serializeDataIfNeeded(
+        exciseReportRequest,
+        localVarRequestOptions,
+        configuration,
+      );
+
+      return {
+        url: toPathString(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
   };
 };
 
 /**
- * DefaultApi - functional programming interface
+ * ReportsApi - functional programming interface
  * @export
  */
-export const DefaultApiFp = function (configuration?: Configuration) {
-  const localVarAxiosParamCreator = DefaultApiAxiosParamCreator(configuration);
+export const ReportsApiFp = function (configuration?: Configuration) {
+  const localVarAxiosParamCreator = ReportsApiAxiosParamCreator(configuration);
   return {
     /**
      * Метод создаёт [задание на генерацию](https://dev.wildberries.ru/openapi/reports#tag/acceptanceExpenses/operation/getV1AcceptanceReportTasksTaskIdStatus) отчёта об [операциях при приёмке](https://dev.wildberries.ru/openapi/reports#tag/acceptanceExpenses/operation/getV1AcceptanceReportTasksTaskIdDownload).  Можно получить отчёт максимум за 31 день.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 3 ч | 1 запрос | 3 ч | 1 запрос |
@@ -3700,7 +3768,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV1AcceptanceReport"]?.[
+        operationServerMap["ReportsApi.getV1AcceptanceReport"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -3737,7 +3805,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
         operationServerMap[
-          "DefaultApi.getV1AcceptanceReportTasksTaskIdDownload"
+          "ReportsApi.getV1AcceptanceReportTasksTaskIdDownload"
         ]?.[localVarOperationServerIndex]?.url;
       return (axios, basePath) =>
         createRequestFunction(
@@ -3771,7 +3839,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
         operationServerMap[
-          "DefaultApi.getV1AcceptanceReportTasksTaskIdStatus"
+          "ReportsApi.getV1AcceptanceReportTasksTaskIdStatus"
         ]?.[localVarOperationServerIndex]?.url;
       return (axios, basePath) =>
         createRequestFunction(
@@ -3804,7 +3872,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV1AnalyticsAntifraudDetails"]?.[
+        operationServerMap["ReportsApi.getV1AnalyticsAntifraudDetails"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -3841,7 +3909,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV1AnalyticsBannedProducsBlocked"]?.[
+        operationServerMap["ReportsApi.getV1AnalyticsBannedProducsBlocked"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -3884,7 +3952,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV1AnalyticsBrandShare"]?.[
+        operationServerMap["ReportsApi.getV1AnalyticsBrandShare"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -3913,7 +3981,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         await localVarAxiosParamCreator.getV1AnalyticsBrandShareBrands(options);
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV1AnalyticsBrandShareBrands"]?.[
+        operationServerMap["ReportsApi.getV1AnalyticsBrandShareBrands"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -3957,7 +4025,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
         operationServerMap[
-          "DefaultApi.getV1AnalyticsBrandShareParentSubjects"
+          "ReportsApi.getV1AnalyticsBrandShareParentSubjects"
         ]?.[localVarOperationServerIndex]?.url;
       return (axios, basePath) =>
         createRequestFunction(
@@ -3993,7 +4061,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV1AnalyticsGoodsLabeling"]?.[
+        operationServerMap["ReportsApi.getV1AnalyticsGoodsLabeling"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -4031,7 +4099,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV1AnalyticsGoodsReturn"]?.[
+        operationServerMap["ReportsApi.getV1AnalyticsGoodsReturn"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -4069,7 +4137,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV1AnalyticsRegionSale"]?.[
+        operationServerMap["ReportsApi.getV1AnalyticsRegionSale"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -4117,7 +4185,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
       );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV1Deductions"]?.[
+        operationServerMap["ReportsApi.getV1Deductions"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -4163,7 +4231,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV1GoodsReturn"]?.[
+        operationServerMap["ReportsApi.getV1GoodsReturn"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -4206,7 +4274,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV1MeasurementPenalties"]?.[
+        operationServerMap["ReportsApi.getV1MeasurementPenalties"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -4243,7 +4311,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV1PaidStorage"]?.[
+        operationServerMap["ReportsApi.getV1PaidStorage"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -4279,7 +4347,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV1PaidStorageTasksTaskIdDownload"]?.[
+        operationServerMap["ReportsApi.getV1PaidStorageTasksTaskIdDownload"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -4313,7 +4381,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV1PaidStorageTasksTaskIdStatus"]?.[
+        operationServerMap["ReportsApi.getV1PaidStorageTasksTaskIdStatus"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -4350,7 +4418,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV1SupplierOrders"]?.[
+        operationServerMap["ReportsApi.getV1SupplierOrders"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -4387,7 +4455,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV1SupplierSales"]?.[
+        operationServerMap["ReportsApi.getV1SupplierSales"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -4427,7 +4495,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV1WarehouseMeasurements"]?.[
+        operationServerMap["ReportsApi.getV1WarehouseMeasurements"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -4485,7 +4553,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV1WarehouseRemains"]?.[
+        operationServerMap["ReportsApi.getV1WarehouseRemains"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -4522,7 +4590,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
         operationServerMap[
-          "DefaultApi.getV1WarehouseRemainsTasksTaskIdDownload"
+          "ReportsApi.getV1WarehouseRemainsTasksTaskIdDownload"
         ]?.[localVarOperationServerIndex]?.url;
       return (axios, basePath) =>
         createRequestFunction(
@@ -4556,8 +4624,48 @@ export const DefaultApiFp = function (configuration?: Configuration) {
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
         operationServerMap[
-          "DefaultApi.getV1WarehouseRemainsTasksTaskIdStatus"
+          "ReportsApi.getV1WarehouseRemainsTasksTaskIdStatus"
         ]?.[localVarOperationServerIndex]?.url;
+      return (axios, basePath) =>
+        createRequestFunction(
+          localVarAxiosArgs,
+          globalAxios,
+          BASE_PATH,
+          configuration,
+        )(axios, localVarOperationServerBasePath || basePath);
+    },
+    /**
+     * Метод возвращает отчёт с [операциями по товарам с обязательной маркировкой](https://seller.wildberries.ru/analytics-reports/excise-report).  Данный отчёт можно сохранить в [формате таблиц](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-650c-7b04-9596-ba441936f9d3).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 5 ч | 10 запросов | 30 мин | 10 запросов | | Сервисный | 5 ч | 10 запросов | 30 мин | 10 запросов | | Базовый с секретом | 5 ч | 10 запросов | 30 мин | 10 запросов | | Базовый | 24 ч | 2 запроса | 12 ч | 1 запрос |
+     * @summary Получить отчёт
+     * @param {string} dateFrom Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;
+     * @param {string} dateTo Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;
+     * @param {ExciseReportRequest} [exciseReportRequest]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async postV1AnalyticsExciseReport(
+      dateFrom: string,
+      dateTo: string,
+      exciseReportRequest?: ExciseReportRequest,
+      options?: RawAxiosRequestConfig,
+    ): Promise<
+      (
+        axios?: AxiosInstance,
+        basePath?: string,
+      ) => AxiosPromise<ExciseReportResponse>
+    > {
+      const localVarAxiosArgs =
+        await localVarAxiosParamCreator.postV1AnalyticsExciseReport(
+          dateFrom,
+          dateTo,
+          exciseReportRequest,
+          options,
+        );
+      const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+      const localVarOperationServerBasePath =
+        operationServerMap["ReportsApi.postV1AnalyticsExciseReport"]?.[
+          localVarOperationServerIndex
+        ]?.url;
       return (axios, basePath) =>
         createRequestFunction(
           localVarAxiosArgs,
@@ -4570,15 +4678,15 @@ export const DefaultApiFp = function (configuration?: Configuration) {
 };
 
 /**
- * DefaultApi - factory interface
+ * ReportsApi - factory interface
  * @export
  */
-export const DefaultApiFactory = function (
+export const ReportsApiFactory = function (
   configuration?: Configuration,
   basePath?: string,
   axios?: AxiosInstance,
 ) {
-  const localVarFp = DefaultApiFp(configuration);
+  const localVarFp = ReportsApiFp(configuration);
   return {
     /**
      * Метод создаёт [задание на генерацию](https://dev.wildberries.ru/openapi/reports#tag/acceptanceExpenses/operation/getV1AcceptanceReportTasksTaskIdStatus) отчёта об [операциях при приёмке](https://dev.wildberries.ru/openapi/reports#tag/acceptanceExpenses/operation/getV1AcceptanceReportTasksTaskIdDownload).  Можно получить отчёт максимум за 31 день.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 3 ч | 1 запрос | 3 ч | 1 запрос |
@@ -5022,15 +5130,39 @@ export const DefaultApiFactory = function (
         .getV1WarehouseRemainsTasksTaskIdStatus(taskId, options)
         .then((request) => request(axios, basePath));
     },
+    /**
+     * Метод возвращает отчёт с [операциями по товарам с обязательной маркировкой](https://seller.wildberries.ru/analytics-reports/excise-report).  Данный отчёт можно сохранить в [формате таблиц](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-650c-7b04-9596-ba441936f9d3).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 5 ч | 10 запросов | 30 мин | 10 запросов | | Сервисный | 5 ч | 10 запросов | 30 мин | 10 запросов | | Базовый с секретом | 5 ч | 10 запросов | 30 мин | 10 запросов | | Базовый | 24 ч | 2 запроса | 12 ч | 1 запрос |
+     * @summary Получить отчёт
+     * @param {string} dateFrom Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;
+     * @param {string} dateTo Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;
+     * @param {ExciseReportRequest} [exciseReportRequest]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    postV1AnalyticsExciseReport(
+      dateFrom: string,
+      dateTo: string,
+      exciseReportRequest?: ExciseReportRequest,
+      options?: RawAxiosRequestConfig,
+    ): AxiosPromise<ExciseReportResponse> {
+      return localVarFp
+        .postV1AnalyticsExciseReport(
+          dateFrom,
+          dateTo,
+          exciseReportRequest,
+          options,
+        )
+        .then((request) => request(axios, basePath));
+    },
   };
 };
 
 /**
- * DefaultApi - interface
+ * ReportsApi - interface
  * @export
- * @interface DefaultApi
+ * @interface ReportsApi
  */
-export interface DefaultApiInterface {
+export interface ReportsApiInterface {
   /**
    * Метод создаёт [задание на генерацию](https://dev.wildberries.ru/openapi/reports#tag/acceptanceExpenses/operation/getV1AcceptanceReportTasksTaskIdStatus) отчёта об [операциях при приёмке](https://dev.wildberries.ru/openapi/reports#tag/acceptanceExpenses/operation/getV1AcceptanceReportTasksTaskIdDownload).  Можно получить отчёт максимум за 31 день.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 3 ч | 1 запрос | 3 ч | 1 запрос |
    * @summary Создать отчёт
@@ -5038,7 +5170,7 @@ export interface DefaultApiInterface {
    * @param {string} dateTo Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof ReportsApiInterface
    */
   getV1AcceptanceReport(
     dateFrom: string,
@@ -5052,7 +5184,7 @@ export interface DefaultApiInterface {
    * @param {string} taskId ID задания на генерацию
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof ReportsApiInterface
    */
   getV1AcceptanceReportTasksTaskIdDownload(
     taskId: string,
@@ -5067,7 +5199,7 @@ export interface DefaultApiInterface {
    * @param {string} taskId ID задания на генерацию
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof ReportsApiInterface
    */
   getV1AcceptanceReportTasksTaskIdStatus(
     taskId: string,
@@ -5080,7 +5212,7 @@ export interface DefaultApiInterface {
    * @param {string} [date] Дата, которая входит в отчётный период, &#x60;ГГГГ-ММ-ДД&#x60;.  Чтобы получить данные за всё время с августа 2023, не указывайте этот параметр
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof ReportsApiInterface
    */
   getV1AnalyticsAntifraudDetails(
     date?: string,
@@ -5094,7 +5226,7 @@ export interface DefaultApiInterface {
    * @param {GetV1AnalyticsBannedProducsBlockedOrderEnum} order Порядок выдачи - &#x60;desc&#x60; — от наибольшего числового значения к наименьшему, от последнего по алфавиту значения к первому - &#x60;asc&#x60; — от наименьшего числового значения к наибольшему, от первого по алфавиту значения к последнему
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof ReportsApiInterface
    */
   getV1AnalyticsBannedProducsBlocked(
     sort: GetV1AnalyticsBannedProducsBlockedSortEnum,
@@ -5111,7 +5243,7 @@ export interface DefaultApiInterface {
    * @param {string} dateTo Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof ReportsApiInterface
    */
   getV1AnalyticsBrandShare(
     parentId: number,
@@ -5126,7 +5258,7 @@ export interface DefaultApiInterface {
    * @summary Бренды продавца
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof ReportsApiInterface
    */
   getV1AnalyticsBrandShareBrands(
     options?: RawAxiosRequestConfig,
@@ -5141,7 +5273,7 @@ export interface DefaultApiInterface {
    * @param {string} [locale] Язык поля ответа &#x60;parentName&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof ReportsApiInterface
    */
   getV1AnalyticsBrandShareParentSubjects(
     brand: string,
@@ -5158,7 +5290,7 @@ export interface DefaultApiInterface {
    * @param {string} dateTo Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof ReportsApiInterface
    */
   getV1AnalyticsGoodsLabeling(
     dateFrom: string,
@@ -5174,7 +5306,7 @@ export interface DefaultApiInterface {
    * @param {*} [options] Override http request option.
    * @deprecated
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof ReportsApiInterface
    */
   getV1AnalyticsGoodsReturn(
     dateFrom: string,
@@ -5190,7 +5322,7 @@ export interface DefaultApiInterface {
    * @param {*} [options] Override http request option.
    * @deprecated
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof ReportsApiInterface
    */
   getV1AnalyticsRegionSale(
     dateFrom: string,
@@ -5209,7 +5341,7 @@ export interface DefaultApiInterface {
    * @param {number} [offset] Сколько элементов пропустить. Например, для значения &#x60;10&#x60; ответ начнётся с 11 элемента
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof ReportsApiInterface
    */
   getV1Deductions(
     dateTo: string,
@@ -5231,7 +5363,7 @@ export interface DefaultApiInterface {
    * @param {number} [offset] Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof ReportsApiInterface
    */
   getV1GoodsReturn(
     dateFrom: string,
@@ -5251,7 +5383,7 @@ export interface DefaultApiInterface {
    * @param {number} [offset] Сколько элементов пропустить. Например, для значения &#x60;10&#x60; ответ начнётся с 11 элемента
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof ReportsApiInterface
    */
   getV1MeasurementPenalties(
     dateTo: string,
@@ -5268,7 +5400,7 @@ export interface DefaultApiInterface {
    * @param {string} dateTo Конец отчётного периода в формате RFC3339. Можно передать дату или дату со временем. Примеры:    * &#x60;2019-06-20&#x60;   * &#x60;2019-06-20T23:59:59&#x60;   * &#x60;2019-06-20T00:00:00.12345&#x60;   * &#x60;2017-03-25T00:00:00&#x60;
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof ReportsApiInterface
    */
   getV1PaidStorage(
     dateFrom: string,
@@ -5282,7 +5414,7 @@ export interface DefaultApiInterface {
    * @param {string} taskId ID задания на генерацию
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof ReportsApiInterface
    */
   getV1PaidStorageTasksTaskIdDownload(
     taskId: string,
@@ -5295,7 +5427,7 @@ export interface DefaultApiInterface {
    * @param {string} taskId ID задания на генерацию
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof ReportsApiInterface
    */
   getV1PaidStorageTasksTaskIdStatus(
     taskId: string,
@@ -5309,7 +5441,7 @@ export interface DefaultApiInterface {
    * @param {number} [flag] Если параметр &#x60;flag&#x3D;0&#x60; (или не указан в строке запроса), при вызове API возвращаются данные, у которых значение поля &#x60;lastChangeDate&#x60; (дата время обновления информации в сервисе) больше или равно переданному значению параметра &#x60;dateFrom&#x60;. При этом количество возвращенных строк данных варьируется в интервале от 0 до примерно 80000.  Если параметр &#x60;flag&#x3D;1&#x60;, то будет выгружена информация обо всех заказах или продажах с датой, равной переданному параметру &#x60;dateFrom&#x60; (в данном случае время в дате значения не имеет). При этом количество возвращенных строк данных будет равно количеству всех заказов или продаж, сделанных в указанную дату, переданную в параметре &#x60;dateFrom&#x60;.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof ReportsApiInterface
    */
   getV1SupplierOrders(
     dateFrom: string,
@@ -5324,7 +5456,7 @@ export interface DefaultApiInterface {
    * @param {number} [flag] Если параметр &#x60;flag&#x3D;0&#x60; (или не указан в строке запроса), при вызове API возвращаются данные, у которых значение поля &#x60;lastChangeDate&#x60; (дата время обновления информации в сервисе) больше или равно переданному значению параметра &#x60;dateFrom&#x60;. При этом количество возвращенных строк данных варьируется в интервале от 0 до примерно 80000.  Если параметр &#x60;flag&#x3D;1&#x60;, то будет выгружена информация обо всех заказах или продажах с датой, равной переданному параметру &#x60;dateFrom&#x60; (в данном случае время в дате значения не имеет). При этом количество возвращенных строк данных будет равно количеству всех заказов или продаж, сделанных в указанную дату, переданную в параметре &#x60;dateFrom&#x60;.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof ReportsApiInterface
    */
   getV1SupplierSales(
     dateFrom: string,
@@ -5341,7 +5473,7 @@ export interface DefaultApiInterface {
    * @param {number} [offset] Сколько элементов пропустить. Например, для значения &#x60;10&#x60; ответ начнётся с 11 элемента
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof ReportsApiInterface
    */
   getV1WarehouseMeasurements(
     dateTo: string,
@@ -5365,7 +5497,7 @@ export interface DefaultApiInterface {
    * @param {number} [filterVolume] Фильтр по объёму:   - &#x60;-1&#x60; — без габаритов   - &#x60;0&#x60; — не применять фильтр   - &#x60;3&#x60; — свыше трёх литров
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof ReportsApiInterface
    */
   getV1WarehouseRemains(
     locale?: string,
@@ -5386,7 +5518,7 @@ export interface DefaultApiInterface {
    * @param {string} taskId ID задания на генерацию
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof ReportsApiInterface
    */
   getV1WarehouseRemainsTasksTaskIdDownload(
     taskId: string,
@@ -5401,21 +5533,38 @@ export interface DefaultApiInterface {
    * @param {string} taskId ID задания на генерацию
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof ReportsApiInterface
    */
   getV1WarehouseRemainsTasksTaskIdStatus(
     taskId: string,
     options?: RawAxiosRequestConfig,
   ): AxiosPromise<GetTasksResponse>;
+
+  /**
+   * Метод возвращает отчёт с [операциями по товарам с обязательной маркировкой](https://seller.wildberries.ru/analytics-reports/excise-report).  Данный отчёт можно сохранить в [формате таблиц](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-650c-7b04-9596-ba441936f9d3).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 5 ч | 10 запросов | 30 мин | 10 запросов | | Сервисный | 5 ч | 10 запросов | 30 мин | 10 запросов | | Базовый с секретом | 5 ч | 10 запросов | 30 мин | 10 запросов | | Базовый | 24 ч | 2 запроса | 12 ч | 1 запрос |
+   * @summary Получить отчёт
+   * @param {string} dateFrom Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;
+   * @param {string} dateTo Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;
+   * @param {ExciseReportRequest} [exciseReportRequest]
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof ReportsApiInterface
+   */
+  postV1AnalyticsExciseReport(
+    dateFrom: string,
+    dateTo: string,
+    exciseReportRequest?: ExciseReportRequest,
+    options?: RawAxiosRequestConfig,
+  ): AxiosPromise<ExciseReportResponse>;
 }
 
 /**
- * DefaultApi - object-oriented interface
+ * ReportsApi - object-oriented interface
  * @export
- * @class DefaultApi
+ * @class ReportsApi
  * @extends {BaseAPI}
  */
-export class DefaultApi extends BaseAPI implements DefaultApiInterface {
+export class ReportsApi extends BaseAPI implements ReportsApiInterface {
   /**
    * Метод создаёт [задание на генерацию](https://dev.wildberries.ru/openapi/reports#tag/acceptanceExpenses/operation/getV1AcceptanceReportTasksTaskIdStatus) отчёта об [операциях при приёмке](https://dev.wildberries.ru/openapi/reports#tag/acceptanceExpenses/operation/getV1AcceptanceReportTasksTaskIdDownload).  Можно получить отчёт максимум за 31 день.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 3 ч | 1 запрос | 3 ч | 1 запрос |
    * @summary Создать отчёт
@@ -5423,14 +5572,14 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {string} dateTo Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof ReportsApi
    */
   public getV1AcceptanceReport(
     dateFrom: string,
     dateTo: string,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return ReportsApiFp(this.configuration)
       .getV1AcceptanceReport(dateFrom, dateTo, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -5441,13 +5590,13 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {string} taskId ID задания на генерацию
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof ReportsApi
    */
   public getV1AcceptanceReportTasksTaskIdDownload(
     taskId: string,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return ReportsApiFp(this.configuration)
       .getV1AcceptanceReportTasksTaskIdDownload(taskId, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -5458,13 +5607,13 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {string} taskId ID задания на генерацию
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof ReportsApi
    */
   public getV1AcceptanceReportTasksTaskIdStatus(
     taskId: string,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return ReportsApiFp(this.configuration)
       .getV1AcceptanceReportTasksTaskIdStatus(taskId, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -5475,13 +5624,13 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {string} [date] Дата, которая входит в отчётный период, &#x60;ГГГГ-ММ-ДД&#x60;.  Чтобы получить данные за всё время с августа 2023, не указывайте этот параметр
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof ReportsApi
    */
   public getV1AnalyticsAntifraudDetails(
     date?: string,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return ReportsApiFp(this.configuration)
       .getV1AnalyticsAntifraudDetails(date, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -5493,14 +5642,14 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {GetV1AnalyticsBannedProducsBlockedOrderEnum} order Порядок выдачи - &#x60;desc&#x60; — от наибольшего числового значения к наименьшему, от последнего по алфавиту значения к первому - &#x60;asc&#x60; — от наименьшего числового значения к наибольшему, от первого по алфавиту значения к последнему
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof ReportsApi
    */
   public getV1AnalyticsBannedProducsBlocked(
     sort: GetV1AnalyticsBannedProducsBlockedSortEnum,
     order: GetV1AnalyticsBannedProducsBlockedOrderEnum,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return ReportsApiFp(this.configuration)
       .getV1AnalyticsBannedProducsBlocked(sort, order, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -5514,7 +5663,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {string} dateTo Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof ReportsApi
    */
   public getV1AnalyticsBrandShare(
     parentId: number,
@@ -5523,7 +5672,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
     dateTo: string,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return ReportsApiFp(this.configuration)
       .getV1AnalyticsBrandShare(parentId, brand, dateFrom, dateTo, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -5533,10 +5682,10 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @summary Бренды продавца
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof ReportsApi
    */
   public getV1AnalyticsBrandShareBrands(options?: RawAxiosRequestConfig) {
-    return DefaultApiFp(this.configuration)
+    return ReportsApiFp(this.configuration)
       .getV1AnalyticsBrandShareBrands(options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -5550,7 +5699,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {string} [locale] Язык поля ответа &#x60;parentName&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof ReportsApi
    */
   public getV1AnalyticsBrandShareParentSubjects(
     brand: string,
@@ -5559,7 +5708,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
     locale?: string,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return ReportsApiFp(this.configuration)
       .getV1AnalyticsBrandShareParentSubjects(
         brand,
         dateFrom,
@@ -5577,14 +5726,14 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {string} dateTo Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof ReportsApi
    */
   public getV1AnalyticsGoodsLabeling(
     dateFrom: string,
     dateTo: string,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return ReportsApiFp(this.configuration)
       .getV1AnalyticsGoodsLabeling(dateFrom, dateTo, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -5597,14 +5746,14 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {*} [options] Override http request option.
    * @deprecated
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof ReportsApi
    */
   public getV1AnalyticsGoodsReturn(
     dateFrom: string,
     dateTo: string,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return ReportsApiFp(this.configuration)
       .getV1AnalyticsGoodsReturn(dateFrom, dateTo, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -5617,14 +5766,14 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {*} [options] Override http request option.
    * @deprecated
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof ReportsApi
    */
   public getV1AnalyticsRegionSale(
     dateFrom: string,
     dateTo: string,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return ReportsApiFp(this.configuration)
       .getV1AnalyticsRegionSale(dateFrom, dateTo, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -5640,7 +5789,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {number} [offset] Сколько элементов пропустить. Например, для значения &#x60;10&#x60; ответ начнётся с 11 элемента
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof ReportsApi
    */
   public getV1Deductions(
     dateTo: string,
@@ -5651,7 +5800,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
     offset?: number,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return ReportsApiFp(this.configuration)
       .getV1Deductions(dateTo, limit, dateFrom, sort, order, offset, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -5666,7 +5815,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {number} [offset] Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof ReportsApi
    */
   public getV1GoodsReturn(
     dateFrom: string,
@@ -5676,7 +5825,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
     offset?: number,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return ReportsApiFp(this.configuration)
       .getV1GoodsReturn(dateFrom, dateTo, status, limit, offset, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -5690,7 +5839,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {number} [offset] Сколько элементов пропустить. Например, для значения &#x60;10&#x60; ответ начнётся с 11 элемента
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof ReportsApi
    */
   public getV1MeasurementPenalties(
     dateTo: string,
@@ -5699,7 +5848,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
     offset?: number,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return ReportsApiFp(this.configuration)
       .getV1MeasurementPenalties(dateTo, limit, dateFrom, offset, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -5711,14 +5860,14 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {string} dateTo Конец отчётного периода в формате RFC3339. Можно передать дату или дату со временем. Примеры:    * &#x60;2019-06-20&#x60;   * &#x60;2019-06-20T23:59:59&#x60;   * &#x60;2019-06-20T00:00:00.12345&#x60;   * &#x60;2017-03-25T00:00:00&#x60;
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof ReportsApi
    */
   public getV1PaidStorage(
     dateFrom: string,
     dateTo: string,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return ReportsApiFp(this.configuration)
       .getV1PaidStorage(dateFrom, dateTo, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -5729,13 +5878,13 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {string} taskId ID задания на генерацию
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof ReportsApi
    */
   public getV1PaidStorageTasksTaskIdDownload(
     taskId: string,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return ReportsApiFp(this.configuration)
       .getV1PaidStorageTasksTaskIdDownload(taskId, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -5746,13 +5895,13 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {string} taskId ID задания на генерацию
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof ReportsApi
    */
   public getV1PaidStorageTasksTaskIdStatus(
     taskId: string,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return ReportsApiFp(this.configuration)
       .getV1PaidStorageTasksTaskIdStatus(taskId, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -5764,14 +5913,14 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {number} [flag] Если параметр &#x60;flag&#x3D;0&#x60; (или не указан в строке запроса), при вызове API возвращаются данные, у которых значение поля &#x60;lastChangeDate&#x60; (дата время обновления информации в сервисе) больше или равно переданному значению параметра &#x60;dateFrom&#x60;. При этом количество возвращенных строк данных варьируется в интервале от 0 до примерно 80000.  Если параметр &#x60;flag&#x3D;1&#x60;, то будет выгружена информация обо всех заказах или продажах с датой, равной переданному параметру &#x60;dateFrom&#x60; (в данном случае время в дате значения не имеет). При этом количество возвращенных строк данных будет равно количеству всех заказов или продаж, сделанных в указанную дату, переданную в параметре &#x60;dateFrom&#x60;.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof ReportsApi
    */
   public getV1SupplierOrders(
     dateFrom: string,
     flag?: number,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return ReportsApiFp(this.configuration)
       .getV1SupplierOrders(dateFrom, flag, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -5783,14 +5932,14 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {number} [flag] Если параметр &#x60;flag&#x3D;0&#x60; (или не указан в строке запроса), при вызове API возвращаются данные, у которых значение поля &#x60;lastChangeDate&#x60; (дата время обновления информации в сервисе) больше или равно переданному значению параметра &#x60;dateFrom&#x60;. При этом количество возвращенных строк данных варьируется в интервале от 0 до примерно 80000.  Если параметр &#x60;flag&#x3D;1&#x60;, то будет выгружена информация обо всех заказах или продажах с датой, равной переданному параметру &#x60;dateFrom&#x60; (в данном случае время в дате значения не имеет). При этом количество возвращенных строк данных будет равно количеству всех заказов или продаж, сделанных в указанную дату, переданную в параметре &#x60;dateFrom&#x60;.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof ReportsApi
    */
   public getV1SupplierSales(
     dateFrom: string,
     flag?: number,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return ReportsApiFp(this.configuration)
       .getV1SupplierSales(dateFrom, flag, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -5804,7 +5953,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {number} [offset] Сколько элементов пропустить. Например, для значения &#x60;10&#x60; ответ начнётся с 11 элемента
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof ReportsApi
    */
   public getV1WarehouseMeasurements(
     dateTo: string,
@@ -5813,7 +5962,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
     offset?: number,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return ReportsApiFp(this.configuration)
       .getV1WarehouseMeasurements(dateTo, limit, dateFrom, offset, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -5832,7 +5981,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {number} [filterVolume] Фильтр по объёму:   - &#x60;-1&#x60; — без габаритов   - &#x60;0&#x60; — не применять фильтр   - &#x60;3&#x60; — свыше трёх литров
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof ReportsApi
    */
   public getV1WarehouseRemains(
     locale?: string,
@@ -5846,7 +5995,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
     filterVolume?: number,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return ReportsApiFp(this.configuration)
       .getV1WarehouseRemains(
         locale,
         groupByBrand,
@@ -5868,13 +6017,13 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {string} taskId ID задания на генерацию
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof ReportsApi
    */
   public getV1WarehouseRemainsTasksTaskIdDownload(
     taskId: string,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return ReportsApiFp(this.configuration)
       .getV1WarehouseRemainsTasksTaskIdDownload(taskId, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -5885,14 +6034,40 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {string} taskId ID задания на генерацию
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof ReportsApi
    */
   public getV1WarehouseRemainsTasksTaskIdStatus(
     taskId: string,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return ReportsApiFp(this.configuration)
       .getV1WarehouseRemainsTasksTaskIdStatus(taskId, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
+
+  /**
+   * Метод возвращает отчёт с [операциями по товарам с обязательной маркировкой](https://seller.wildberries.ru/analytics-reports/excise-report).  Данный отчёт можно сохранить в [формате таблиц](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-650c-7b04-9596-ba441936f9d3).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 5 ч | 10 запросов | 30 мин | 10 запросов | | Сервисный | 5 ч | 10 запросов | 30 мин | 10 запросов | | Базовый с секретом | 5 ч | 10 запросов | 30 мин | 10 запросов | | Базовый | 24 ч | 2 запроса | 12 ч | 1 запрос |
+   * @summary Получить отчёт
+   * @param {string} dateFrom Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;
+   * @param {string} dateTo Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;
+   * @param {ExciseReportRequest} [exciseReportRequest]
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof ReportsApi
+   */
+  public postV1AnalyticsExciseReport(
+    dateFrom: string,
+    dateTo: string,
+    exciseReportRequest?: ExciseReportRequest,
+    options?: RawAxiosRequestConfig,
+  ) {
+    return ReportsApiFp(this.configuration)
+      .postV1AnalyticsExciseReport(
+        dateFrom,
+        dateTo,
+        exciseReportRequest,
+        options,
+      )
       .then((request) => request(this.axios, this.basePath));
   }
 }
@@ -5946,226 +6121,3 @@ export const GetV1GoodsReturnStatusEnum = {
 } as const;
 export type GetV1GoodsReturnStatusEnum =
   (typeof GetV1GoodsReturnStatusEnum)[keyof typeof GetV1GoodsReturnStatusEnum];
-
-/**
- * CApi - axios parameter creator
- * @export
- */
-export const CApiAxiosParamCreator = function (configuration?: Configuration) {
-  return {
-    /**
-     * Метод возвращает отчёт с [операциями по товарам с обязательной маркировкой](https://seller.wildberries.ru/analytics-reports/excise-report).  Данный отчёт можно сохранить в [формате таблиц](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-650c-7b04-9596-ba441936f9d3).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 5 ч | 10 запросов | 30 мин | 10 запросов | | Сервисный | 5 ч | 10 запросов | 30 мин | 10 запросов | | Базовый с секретом | 5 ч | 10 запросов | 30 мин | 10 запросов | | Базовый | 24 ч | 2 запроса | 12 ч | 1 запрос |
-     * @summary Получить отчёт
-     * @param {string} dateFrom Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;
-     * @param {string} dateTo Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;
-     * @param {ExciseReportRequest} [exciseReportRequest]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    postV1AnalyticsExciseReport: async (
-      dateFrom: string,
-      dateTo: string,
-      exciseReportRequest?: ExciseReportRequest,
-      options: RawAxiosRequestConfig = {},
-    ): Promise<RequestArgs> => {
-      // verify required parameter 'dateFrom' is not null or undefined
-      assertParamExists("postV1AnalyticsExciseReport", "dateFrom", dateFrom);
-      // verify required parameter 'dateTo' is not null or undefined
-      assertParamExists("postV1AnalyticsExciseReport", "dateTo", dateTo);
-      const localVarPath = `/api/v1/analytics/excise-report`;
-      // use dummy base URL string because the URL constructor only accepts absolute URLs.
-      const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-      let baseOptions;
-      if (configuration) {
-        baseOptions = configuration.baseOptions;
-      }
-
-      const localVarRequestOptions = {
-        method: "POST",
-        ...baseOptions,
-        ...options,
-      };
-      const localVarHeaderParameter = {} as any;
-      const localVarQueryParameter = {} as any;
-
-      // authentication BearerAuth required
-      // http bearer authentication required
-      await setBearerAuthToObject(localVarHeaderParameter, configuration);
-
-      if (dateFrom !== undefined) {
-        localVarQueryParameter["dateFrom"] = dateFrom;
-      }
-
-      if (dateTo !== undefined) {
-        localVarQueryParameter["dateTo"] = dateTo;
-      }
-
-      localVarHeaderParameter["Content-Type"] = "application/json";
-
-      setSearchParams(localVarUrlObj, localVarQueryParameter);
-      let headersFromBaseOptions =
-        baseOptions && baseOptions.headers ? baseOptions.headers : {};
-      localVarRequestOptions.headers = {
-        ...localVarHeaderParameter,
-        ...headersFromBaseOptions,
-        ...options.headers,
-      };
-      localVarRequestOptions.data = serializeDataIfNeeded(
-        exciseReportRequest,
-        localVarRequestOptions,
-        configuration,
-      );
-
-      return {
-        url: toPathString(localVarUrlObj),
-        options: localVarRequestOptions,
-      };
-    },
-  };
-};
-
-/**
- * CApi - functional programming interface
- * @export
- */
-export const CApiFp = function (configuration?: Configuration) {
-  const localVarAxiosParamCreator = CApiAxiosParamCreator(configuration);
-  return {
-    /**
-     * Метод возвращает отчёт с [операциями по товарам с обязательной маркировкой](https://seller.wildberries.ru/analytics-reports/excise-report).  Данный отчёт можно сохранить в [формате таблиц](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-650c-7b04-9596-ba441936f9d3).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 5 ч | 10 запросов | 30 мин | 10 запросов | | Сервисный | 5 ч | 10 запросов | 30 мин | 10 запросов | | Базовый с секретом | 5 ч | 10 запросов | 30 мин | 10 запросов | | Базовый | 24 ч | 2 запроса | 12 ч | 1 запрос |
-     * @summary Получить отчёт
-     * @param {string} dateFrom Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;
-     * @param {string} dateTo Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;
-     * @param {ExciseReportRequest} [exciseReportRequest]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    async postV1AnalyticsExciseReport(
-      dateFrom: string,
-      dateTo: string,
-      exciseReportRequest?: ExciseReportRequest,
-      options?: RawAxiosRequestConfig,
-    ): Promise<
-      (
-        axios?: AxiosInstance,
-        basePath?: string,
-      ) => AxiosPromise<ExciseReportResponse>
-    > {
-      const localVarAxiosArgs =
-        await localVarAxiosParamCreator.postV1AnalyticsExciseReport(
-          dateFrom,
-          dateTo,
-          exciseReportRequest,
-          options,
-        );
-      const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-      const localVarOperationServerBasePath =
-        operationServerMap["CApi.postV1AnalyticsExciseReport"]?.[
-          localVarOperationServerIndex
-        ]?.url;
-      return (axios, basePath) =>
-        createRequestFunction(
-          localVarAxiosArgs,
-          globalAxios,
-          BASE_PATH,
-          configuration,
-        )(axios, localVarOperationServerBasePath || basePath);
-    },
-  };
-};
-
-/**
- * CApi - factory interface
- * @export
- */
-export const CApiFactory = function (
-  configuration?: Configuration,
-  basePath?: string,
-  axios?: AxiosInstance,
-) {
-  const localVarFp = CApiFp(configuration);
-  return {
-    /**
-     * Метод возвращает отчёт с [операциями по товарам с обязательной маркировкой](https://seller.wildberries.ru/analytics-reports/excise-report).  Данный отчёт можно сохранить в [формате таблиц](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-650c-7b04-9596-ba441936f9d3).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 5 ч | 10 запросов | 30 мин | 10 запросов | | Сервисный | 5 ч | 10 запросов | 30 мин | 10 запросов | | Базовый с секретом | 5 ч | 10 запросов | 30 мин | 10 запросов | | Базовый | 24 ч | 2 запроса | 12 ч | 1 запрос |
-     * @summary Получить отчёт
-     * @param {string} dateFrom Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;
-     * @param {string} dateTo Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;
-     * @param {ExciseReportRequest} [exciseReportRequest]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    postV1AnalyticsExciseReport(
-      dateFrom: string,
-      dateTo: string,
-      exciseReportRequest?: ExciseReportRequest,
-      options?: RawAxiosRequestConfig,
-    ): AxiosPromise<ExciseReportResponse> {
-      return localVarFp
-        .postV1AnalyticsExciseReport(
-          dateFrom,
-          dateTo,
-          exciseReportRequest,
-          options,
-        )
-        .then((request) => request(axios, basePath));
-    },
-  };
-};
-
-/**
- * CApi - interface
- * @export
- * @interface CApi
- */
-export interface CApiInterface {
-  /**
-   * Метод возвращает отчёт с [операциями по товарам с обязательной маркировкой](https://seller.wildberries.ru/analytics-reports/excise-report).  Данный отчёт можно сохранить в [формате таблиц](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-650c-7b04-9596-ba441936f9d3).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 5 ч | 10 запросов | 30 мин | 10 запросов | | Сервисный | 5 ч | 10 запросов | 30 мин | 10 запросов | | Базовый с секретом | 5 ч | 10 запросов | 30 мин | 10 запросов | | Базовый | 24 ч | 2 запроса | 12 ч | 1 запрос |
-   * @summary Получить отчёт
-   * @param {string} dateFrom Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;
-   * @param {string} dateTo Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;
-   * @param {ExciseReportRequest} [exciseReportRequest]
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   * @memberof CApiInterface
-   */
-  postV1AnalyticsExciseReport(
-    dateFrom: string,
-    dateTo: string,
-    exciseReportRequest?: ExciseReportRequest,
-    options?: RawAxiosRequestConfig,
-  ): AxiosPromise<ExciseReportResponse>;
-}
-
-/**
- * CApi - object-oriented interface
- * @export
- * @class CApi
- * @extends {BaseAPI}
- */
-export class CApi extends BaseAPI implements CApiInterface {
-  /**
-   * Метод возвращает отчёт с [операциями по товарам с обязательной маркировкой](https://seller.wildberries.ru/analytics-reports/excise-report).  Данный отчёт можно сохранить в [формате таблиц](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-650c-7b04-9596-ba441936f9d3).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 5 ч | 10 запросов | 30 мин | 10 запросов | | Сервисный | 5 ч | 10 запросов | 30 мин | 10 запросов | | Базовый с секретом | 5 ч | 10 запросов | 30 мин | 10 запросов | | Базовый | 24 ч | 2 запроса | 12 ч | 1 запрос |
-   * @summary Получить отчёт
-   * @param {string} dateFrom Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;
-   * @param {string} dateTo Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;
-   * @param {ExciseReportRequest} [exciseReportRequest]
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   * @memberof CApi
-   */
-  public postV1AnalyticsExciseReport(
-    dateFrom: string,
-    dateTo: string,
-    exciseReportRequest?: ExciseReportRequest,
-    options?: RawAxiosRequestConfig,
-  ) {
-    return CApiFp(this.configuration)
-      .postV1AnalyticsExciseReport(
-        dateFrom,
-        dateTo,
-        exciseReportRequest,
-        options,
-      )
-      .then((request) => request(this.axios, this.basePath));
-  }
-}

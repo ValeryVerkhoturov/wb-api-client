@@ -25,19 +25,19 @@ Each row below is a sub-module you can import independently. Import path is `Val
 
 | Slug | Category | APIs |
 |---|---|---|
-| [`general`](https://dev.wildberries.ru/openapi/api-information) | Общее | `APIApi`, `DefaultApi`, `WBAPIApi` |
-| [`items`](https://dev.wildberries.ru/openapi/item-management) | Работа с товарами | `DefaultApi` |
-| [`orders-fbs`](https://dev.wildberries.ru/openapi/orders-fbs) | Заказы FBS | `DefaultApi`, `FBSApi` |
-| [`orders-dbw`](https://dev.wildberries.ru/openapi/orders-dbw) | Заказы DBW | `DBWApi` |
-| [`dbs`](https://dev.wildberries.ru/openapi/dbs) | DBS | `DBSApi` |
-| [`in-store-pickup`](https://dev.wildberries.ru/openapi/in-store-pickup) | Самовывоз | `DefaultApi` |
-| [`orders-fbw`](https://dev.wildberries.ru/openapi/orders-fbw) | Поставки FBW | `DefaultApi` |
-| [`promotion`](https://dev.wildberries.ru/openapi/promotion) | Маркетинг и продвижение | `DefaultApi` |
-| [`communications`](https://dev.wildberries.ru/openapi/customer-communication) | Общение с покупателями | `DefaultApi` |
-| [`rates`](https://dev.wildberries.ru/openapi/rates) | Тарифы | `DefaultApi` |
-| [`analytics`](https://dev.wildberries.ru/openapi/analytics) | Аналитика и данные | `CSVApi`, `DefaultApi` |
-| [`reports`](https://dev.wildberries.ru/openapi/reports) | Отчёты | `CApi`, `DefaultApi` |
-| [`finances`](https://dev.wildberries.ru/openapi/documents-and-accounting) | Документы и бухгалтерия | `DefaultApi` |
+| [`general`](https://dev.wildberries.ru/openapi/api-information) | Общее | `GeneralApi` |
+| [`items`](https://dev.wildberries.ru/openapi/item-management) | Работа с товарами | `ItemsApi` |
+| [`orders-fbs`](https://dev.wildberries.ru/openapi/orders-fbs) | Заказы FBS | `OrdersFbsApi` |
+| [`orders-dbw`](https://dev.wildberries.ru/openapi/orders-dbw) | Заказы DBW | `OrdersDbwApi` |
+| [`dbs`](https://dev.wildberries.ru/openapi/dbs) | DBS | `DbsApi` |
+| [`in-store-pickup`](https://dev.wildberries.ru/openapi/in-store-pickup) | Самовывоз | `InStorePickupApi` |
+| [`orders-fbw`](https://dev.wildberries.ru/openapi/orders-fbw) | Поставки FBW | `OrdersFbwApi` |
+| [`promotion`](https://dev.wildberries.ru/openapi/promotion) | Маркетинг и продвижение | `PromotionApi` |
+| [`communications`](https://dev.wildberries.ru/openapi/customer-communication) | Общение с покупателями | `CommunicationsApi` |
+| [`rates`](https://dev.wildberries.ru/openapi/rates) | Тарифы | `RatesApi` |
+| [`analytics`](https://dev.wildberries.ru/openapi/analytics) | Аналитика и данные | `AnalyticsApi` |
+| [`reports`](https://dev.wildberries.ru/openapi/reports) | Отчёты | `ReportsApi` |
+| [`finances`](https://dev.wildberries.ru/openapi/documents-and-accounting) | Документы и бухгалтерия | `FinancesApi` |
 
 ## Per-module usage
 
@@ -58,7 +58,7 @@ Each row below is a sub-module you can import independently. Import path is `Val
 
 **Reference:** https://dev.wildberries.ru/openapi/api-information
 
-**APIs:** `APIApi`, `DefaultApi`, `WBAPIApi`
+**APIs:** `GeneralApi`
 
 ```csharp
 using ValeryVerkhoturov.WbApiClient.General.Api;
@@ -66,7 +66,7 @@ using ValeryVerkhoturov.WbApiClient.General.Client;
 
 var config = new Configuration();
 config.AccessTokenSecret = new SecretString("<your WB JWT>");
-var api = new APIApi(config);
+var api = new GeneralApi(config);
 ```
 
 ### items — Работа с товарами
@@ -85,7 +85,7 @@ var api = new APIApi(config);
 
 **Reference:** https://dev.wildberries.ru/openapi/item-management
 
-**APIs:** `DefaultApi`
+**APIs:** `ItemsApi`
 
 ```csharp
 using ValeryVerkhoturov.WbApiClient.Items.Api;
@@ -93,7 +93,7 @@ using ValeryVerkhoturov.WbApiClient.Items.Client;
 
 var config = new Configuration();
 config.AccessTokenSecret = new SecretString("<your WB JWT>");
-var api = new DefaultApi(config);
+var api = new ItemsApi(config);
 ```
 
 ### orders-fbs — Заказы FBS
@@ -111,7 +111,7 @@ var api = new DefaultApi(config);
 
 **Reference:** https://dev.wildberries.ru/openapi/orders-fbs
 
-**APIs:** `DefaultApi`, `FBSApi`
+**APIs:** `OrdersFbsApi`
 
 ```csharp
 using ValeryVerkhoturov.WbApiClient.OrdersFbs.Api;
@@ -119,7 +119,7 @@ using ValeryVerkhoturov.WbApiClient.OrdersFbs.Client;
 
 var config = new Configuration();
 config.AccessTokenSecret = new SecretString("<your WB JWT>");
-var api = new DefaultApi(config);
+var api = new OrdersFbsApi(config);
 ```
 
 ### orders-dbw — Заказы DBW
@@ -132,7 +132,7 @@ var api = new DefaultApi(config);
 
 **Reference:** https://dev.wildberries.ru/openapi/orders-dbw
 
-**APIs:** `DBWApi`
+**APIs:** `OrdersDbwApi`
 
 ```csharp
 using ValeryVerkhoturov.WbApiClient.OrdersDbw.Api;
@@ -140,7 +140,7 @@ using ValeryVerkhoturov.WbApiClient.OrdersDbw.Client;
 
 var config = new Configuration();
 config.AccessTokenSecret = new SecretString("<your WB JWT>");
-var api = new DBWApi(config);
+var api = new OrdersDbwApi(config);
 ```
 
 ### dbs — DBS
@@ -153,7 +153,7 @@ var api = new DBWApi(config);
 
 **Reference:** https://dev.wildberries.ru/openapi/dbs
 
-**APIs:** `DBSApi`
+**APIs:** `DbsApi`
 
 ```csharp
 using ValeryVerkhoturov.WbApiClient.Dbs.Api;
@@ -161,7 +161,7 @@ using ValeryVerkhoturov.WbApiClient.Dbs.Client;
 
 var config = new Configuration();
 config.AccessTokenSecret = new SecretString("<your WB JWT>");
-var api = new DBSApi(config);
+var api = new DbsApi(config);
 ```
 
 ### in-store-pickup — Самовывоз
@@ -172,7 +172,7 @@ var api = new DBSApi(config);
 
 **Reference:** https://dev.wildberries.ru/openapi/in-store-pickup
 
-**APIs:** `DefaultApi`
+**APIs:** `InStorePickupApi`
 
 ```csharp
 using ValeryVerkhoturov.WbApiClient.InStorePickup.Api;
@@ -180,7 +180,7 @@ using ValeryVerkhoturov.WbApiClient.InStorePickup.Client;
 
 var config = new Configuration();
 config.AccessTokenSecret = new SecretString("<your WB JWT>");
-var api = new DefaultApi(config);
+var api = new InStorePickupApi(config);
 ```
 
 ### orders-fbw — Поставки FBW
@@ -194,7 +194,7 @@ var api = new DefaultApi(config);
 
 **Reference:** https://dev.wildberries.ru/openapi/orders-fbw
 
-**APIs:** `DefaultApi`
+**APIs:** `OrdersFbwApi`
 
 ```csharp
 using ValeryVerkhoturov.WbApiClient.OrdersFbw.Api;
@@ -202,7 +202,7 @@ using ValeryVerkhoturov.WbApiClient.OrdersFbw.Client;
 
 var config = new Configuration();
 config.AccessTokenSecret = new SecretString("<your WB JWT>");
-var api = new DefaultApi(config);
+var api = new OrdersFbwApi(config);
 ```
 
 ### promotion — Маркетинг и продвижение
@@ -221,7 +221,7 @@ var api = new DefaultApi(config);
 
 **Reference:** https://dev.wildberries.ru/openapi/promotion
 
-**APIs:** `DefaultApi`
+**APIs:** `PromotionApi`
 
 ```csharp
 using ValeryVerkhoturov.WbApiClient.Promotion.Api;
@@ -229,7 +229,7 @@ using ValeryVerkhoturov.WbApiClient.Promotion.Client;
 
 var config = new Configuration();
 config.AccessTokenSecret = new SecretString("<your WB JWT>");
-var api = new DefaultApi(config);
+var api = new PromotionApi(config);
 ```
 
 ### communications — Общение с покупателями
@@ -247,7 +247,7 @@ var api = new DefaultApi(config);
 
 **Reference:** https://dev.wildberries.ru/openapi/customer-communication
 
-**APIs:** `DefaultApi`
+**APIs:** `CommunicationsApi`
 
 ```csharp
 using ValeryVerkhoturov.WbApiClient.Communications.Api;
@@ -255,7 +255,7 @@ using ValeryVerkhoturov.WbApiClient.Communications.Client;
 
 var config = new Configuration();
 config.AccessTokenSecret = new SecretString("<your WB JWT>");
-var api = new DefaultApi(config);
+var api = new CommunicationsApi(config);
 ```
 
 ### rates — Тарифы
@@ -270,7 +270,7 @@ var api = new DefaultApi(config);
 
 **Reference:** https://dev.wildberries.ru/openapi/rates
 
-**APIs:** `DefaultApi`
+**APIs:** `RatesApi`
 
 ```csharp
 using ValeryVerkhoturov.WbApiClient.Rates.Api;
@@ -278,7 +278,7 @@ using ValeryVerkhoturov.WbApiClient.Rates.Client;
 
 var config = new Configuration();
 config.AccessTokenSecret = new SecretString("<your WB JWT>");
-var api = new DefaultApi(config);
+var api = new RatesApi(config);
 ```
 
 ### analytics — Аналитика и данные
@@ -295,7 +295,7 @@ var api = new DefaultApi(config);
 
 **Reference:** https://dev.wildberries.ru/openapi/analytics
 
-**APIs:** `CSVApi`, `DefaultApi`
+**APIs:** `AnalyticsApi`
 
 ```csharp
 using ValeryVerkhoturov.WbApiClient.Analytics.Api;
@@ -303,7 +303,7 @@ using ValeryVerkhoturov.WbApiClient.Analytics.Client;
 
 var config = new Configuration();
 config.AccessTokenSecret = new SecretString("<your WB JWT>");
-var api = new CSVApi(config);
+var api = new AnalyticsApi(config);
 ```
 
 ### reports — Отчёты
@@ -323,7 +323,7 @@ var api = new CSVApi(config);
 
 **Reference:** https://dev.wildberries.ru/openapi/reports
 
-**APIs:** `CApi`, `DefaultApi`
+**APIs:** `ReportsApi`
 
 ```csharp
 using ValeryVerkhoturov.WbApiClient.Reports.Api;
@@ -331,7 +331,7 @@ using ValeryVerkhoturov.WbApiClient.Reports.Client;
 
 var config = new Configuration();
 config.AccessTokenSecret = new SecretString("<your WB JWT>");
-var api = new CApi(config);
+var api = new ReportsApi(config);
 ```
 
 ### finances — Документы и бухгалтерия
@@ -342,7 +342,7 @@ var api = new CApi(config);
 
 **Reference:** https://dev.wildberries.ru/openapi/documents-and-accounting
 
-**APIs:** `DefaultApi`
+**APIs:** `FinancesApi`
 
 ```csharp
 using ValeryVerkhoturov.WbApiClient.Finances.Api;
@@ -350,6 +350,6 @@ using ValeryVerkhoturov.WbApiClient.Finances.Client;
 
 var config = new Configuration();
 config.AccessTokenSecret = new SecretString("<your WB JWT>");
-var api = new DefaultApi(config);
+var api = new FinancesApi(config);
 ```
 

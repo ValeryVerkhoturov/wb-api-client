@@ -59,6 +59,13 @@ Passes applied to every spec:
    definition so missing fields deserialize to defaults (`None` / null /
    zero value). Request-body schemas keep their `required` lists, so
    input validation is unaffected.
+
+10. `rename_tags_to_module` — WB tags are Russian (`Финансовые отчёты`),
+    which openapi-generator sanitizes to an empty class-name stem, so every
+    language falls back to `Api`/`DefaultApi` classes. We rewrite every
+    operation's `tags` to the module name (`Finances`, `Reports`, …), so
+    each module gets a single well-named API class (`FinancesApi`, …), and
+    stash the original tags in `x-original-tags` for the docs generator.
 """
 from __future__ import annotations
 
@@ -559,6 +566,37 @@ def drop_response_required(spec: dict) -> int:
     return dropped
 
 
+def rename_tags_to_module(spec: dict, module: str) -> int:
+    """Rewrite every operation's `tags` to the module name so each module
+    generates a single well-named API class (`FinancesApi`, `ReportsApi`, …)
+    instead of `Api`/`DefaultApi` — WB tags are Russian, and the generators
+    sanitize non-ASCII tag names to an empty class-name stem. The original
+    tags are preserved in `x-original-tags` for the docs generator
+    (gen-api-reference.py groups operation pages by them).
+    """
+    renamed = 0
+    for path_item in (spec.get("paths") or {}).values():
+        if not isinstance(path_item, dict):
+            continue
+        for method, op in path_item.items():
+            if method not in {"get", "post", "put", "patch", "delete", "head", "options"}:
+                continue
+            if not isinstance(op, dict):
+                continue
+            tags = op.get("tags")
+            if isinstance(tags, list) and tags:
+                op["x-original-tags"] = tags
+            op["tags"] = [module]
+            renamed += 1
+    return renamed
+
+
+def _module_class_name(stem: str) -> str:
+    """`01-general` → `General`, `06-in-store-pickup` → `InStorePickup`."""
+    slug = re.sub(r"^\d+-", "", stem)
+    return "".join(part.capitalize() for part in slug.split("-"))
+
+
 def process_file(src: Path, dst: Path) -> dict:
     with src.open("r", encoding="utf-8") as f:
         spec = yaml.load(f)
@@ -573,6 +611,7 @@ def process_file(src: Path, dst: Path) -> dict:
         "hoisted_responses": name_inline_response_schemas(spec),
         "required_dropped": drop_response_required(spec),
         "enums": sanitize_non_ascii_enums(spec),
+        "tags_renamed": rename_tags_to_module(spec, _module_class_name(src.stem)),
         "date_formats_dropped": drop_date_formats(spec),
         "descriptions_md": htmlize_descriptions_to_markdown(spec),
         "links_absolutized": absolutize_description_links(spec),
@@ -596,8 +635,8 @@ def main() -> int:
 
     totals = {"arrays": 0, "inlined_arrays": 0, "renamed_schemas": 0,
               "hoisted_responses": 0, "required_dropped": 0, "enums": 0,
-              "date_formats_dropped": 0, "descriptions_md": 0,
-              "links_absolutized": 0}
+              "tags_renamed": 0, "date_formats_dropped": 0,
+              "descriptions_md": 0, "links_absolutized": 0}
     for spec_path in specs:
         target = dst_dir / spec_path.name
         stats = process_file(spec_path, target)
@@ -611,6 +650,7 @@ def main() -> int:
             f"hoisted-responses={stats['hoisted_responses']:>3} "
             f"required-dropped={stats['required_dropped']:>2} "
             f"enums={stats['enums']:>2} "
+            f"tags-renamed={stats['tags_renamed']:>3} "
             f"date-formats={stats['date_formats_dropped']:>2} "
             f"desc-md={stats['descriptions_md']:>4} "
             f"abs-links={stats['links_absolutized']:>4}"

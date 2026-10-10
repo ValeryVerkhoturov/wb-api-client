@@ -89,97 +89,97 @@ interface ServerMap {
  * @export
  */
 export const operationServerMap: ServerMap = {
-  "DBWApi.getV3DbwOrders": [
+  "OrdersDbwApi.getV3DbwOrders": [
     {
       url: "https://marketplace-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DBWApi.getV3DbwOrdersNew": [
+  "OrdersDbwApi.getV3DbwOrdersNew": [
     {
       url: "https://marketplace-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DBWApi.patchV3DbwOrdersOrderIdCancel": [
+  "OrdersDbwApi.patchV3DbwOrdersOrderIdCancel": [
     {
       url: "https://marketplace-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DBWApi.patchV3DbwOrdersOrderIdConfirm": [
+  "OrdersDbwApi.patchV3DbwOrdersOrderIdConfirm": [
     {
       url: "https://marketplace-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DBWApi.postV3DbwOrdersClient": [
+  "OrdersDbwApi.postV3DbwOrdersClient": [
     {
       url: "https://marketplace-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DBWApi.postV3DbwOrdersCourier": [
+  "OrdersDbwApi.postV3DbwOrdersCourier": [
     {
       url: "https://marketplace-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DBWApi.postV3DbwOrdersDeliveryDate": [
+  "OrdersDbwApi.postV3DbwOrdersDeliveryDate": [
     {
       url: "https://marketplace-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DBWApi.postV3DbwOrdersMetaDelete": [
+  "OrdersDbwApi.postV3DbwOrdersMetaDelete": [
     {
       url: "https://marketplace-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DBWApi.postV3DbwOrdersMetaDetails": [
+  "OrdersDbwApi.postV3DbwOrdersMetaDetails": [
     {
       url: "https://marketplace-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DBWApi.postV3DbwOrdersMetaSgtin": [
+  "OrdersDbwApi.postV3DbwOrdersMetaSgtin": [
     {
       url: "https://marketplace-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DBWApi.postV3DbwOrdersStatus": [
+  "OrdersDbwApi.postV3DbwOrdersStatus": [
     {
       url: "https://marketplace-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DBWApi.postV3DbwOrdersStatusDeliver": [
+  "OrdersDbwApi.postV3DbwOrdersStatusDeliver": [
     {
       url: "https://marketplace-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DBWApi.postV3DbwOrdersStickers": [
+  "OrdersDbwApi.postV3DbwOrdersStickers": [
     {
       url: "https://marketplace-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DBWApi.putV3DbwOrdersOrderIdMetaGtin": [
+  "OrdersDbwApi.putV3DbwOrdersOrderIdMetaGtin": [
     {
       url: "https://marketplace-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DBWApi.putV3DbwOrdersOrderIdMetaImei": [
+  "OrdersDbwApi.putV3DbwOrdersOrderIdMetaImei": [
     {
       url: "https://marketplace-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DBWApi.putV3DbwOrdersOrderIdMetaUin": [
+  "OrdersDbwApi.putV3DbwOrdersOrderIdMetaUin": [
     {
       url: "https://marketplace-api.wildberries.ru",
       description: "No description provided",

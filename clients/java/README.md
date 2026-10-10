@@ -30,19 +30,19 @@ Each row below is a sub-module you can import independently. Import path is `io.
 
 | Slug | Category | APIs |
 |---|---|---|
-| [`general`](https://dev.wildberries.ru/openapi/api-information) | Общее | `ApiApi`, `DefaultApi`, `WbApiApi` |
-| [`items`](https://dev.wildberries.ru/openapi/item-management) | Работа с товарами | `DefaultApi` |
-| [`orders-fbs`](https://dev.wildberries.ru/openapi/orders-fbs) | Заказы FBS | `DefaultApi`, `FbsApi` |
-| [`orders-dbw`](https://dev.wildberries.ru/openapi/orders-dbw) | Заказы DBW | `DbwApi` |
+| [`general`](https://dev.wildberries.ru/openapi/api-information) | Общее | `GeneralApi` |
+| [`items`](https://dev.wildberries.ru/openapi/item-management) | Работа с товарами | `ItemsApi` |
+| [`orders-fbs`](https://dev.wildberries.ru/openapi/orders-fbs) | Заказы FBS | `OrdersFbsApi` |
+| [`orders-dbw`](https://dev.wildberries.ru/openapi/orders-dbw) | Заказы DBW | `OrdersDbwApi` |
 | [`dbs`](https://dev.wildberries.ru/openapi/dbs) | DBS | `DbsApi` |
-| [`in-store-pickup`](https://dev.wildberries.ru/openapi/in-store-pickup) | Самовывоз | `DefaultApi` |
-| [`orders-fbw`](https://dev.wildberries.ru/openapi/orders-fbw) | Поставки FBW | `DefaultApi` |
-| [`promotion`](https://dev.wildberries.ru/openapi/promotion) | Маркетинг и продвижение | `DefaultApi` |
-| [`communications`](https://dev.wildberries.ru/openapi/customer-communication) | Общение с покупателями | `DefaultApi` |
-| [`rates`](https://dev.wildberries.ru/openapi/rates) | Тарифы | `DefaultApi` |
-| [`analytics`](https://dev.wildberries.ru/openapi/analytics) | Аналитика и данные | `CsvApi`, `DefaultApi` |
-| [`reports`](https://dev.wildberries.ru/openapi/reports) | Отчёты | `CApi`, `DefaultApi` |
-| [`finances`](https://dev.wildberries.ru/openapi/documents-and-accounting) | Документы и бухгалтерия | `DefaultApi` |
+| [`in-store-pickup`](https://dev.wildberries.ru/openapi/in-store-pickup) | Самовывоз | `InStorePickupApi` |
+| [`orders-fbw`](https://dev.wildberries.ru/openapi/orders-fbw) | Поставки FBW | `OrdersFbwApi` |
+| [`promotion`](https://dev.wildberries.ru/openapi/promotion) | Маркетинг и продвижение | `PromotionApi` |
+| [`communications`](https://dev.wildberries.ru/openapi/customer-communication) | Общение с покупателями | `CommunicationsApi` |
+| [`rates`](https://dev.wildberries.ru/openapi/rates) | Тарифы | `RatesApi` |
+| [`analytics`](https://dev.wildberries.ru/openapi/analytics) | Аналитика и данные | `AnalyticsApi` |
+| [`reports`](https://dev.wildberries.ru/openapi/reports) | Отчёты | `ReportsApi` |
+| [`finances`](https://dev.wildberries.ru/openapi/documents-and-accounting) | Документы и бухгалтерия | `FinancesApi` |
 
 ## Per-module usage
 
@@ -63,16 +63,16 @@ Each row below is a sub-module you can import independently. Import path is `io.
 
 **Reference:** https://dev.wildberries.ru/openapi/api-information
 
-**APIs:** `ApiApi`, `DefaultApi`, `WbApiApi`
+**APIs:** `GeneralApi`
 
 ```java
 import io.github.valeryverkhoturov.wbapi.general.ApiClient;
 import io.github.valeryverkhoturov.wbapi.general.SecretString;
-import io.github.valeryverkhoturov.wbapi.general.api.ApiApi;
+import io.github.valeryverkhoturov.wbapi.general.api.GeneralApi;
 
 ApiClient client = new ApiClient();
 client.setBearerToken(new SecretString("<your WB JWT>"));
-ApiApi api = new ApiApi(client);
+GeneralApi api = new GeneralApi(client);
 ```
 
 ### items — Работа с товарами
@@ -91,16 +91,16 @@ ApiApi api = new ApiApi(client);
 
 **Reference:** https://dev.wildberries.ru/openapi/item-management
 
-**APIs:** `DefaultApi`
+**APIs:** `ItemsApi`
 
 ```java
 import io.github.valeryverkhoturov.wbapi.items.ApiClient;
 import io.github.valeryverkhoturov.wbapi.items.SecretString;
-import io.github.valeryverkhoturov.wbapi.items.api.DefaultApi;
+import io.github.valeryverkhoturov.wbapi.items.api.ItemsApi;
 
 ApiClient client = new ApiClient();
 client.setBearerToken(new SecretString("<your WB JWT>"));
-DefaultApi api = new DefaultApi(client);
+ItemsApi api = new ItemsApi(client);
 ```
 
 ### orders-fbs — Заказы FBS
@@ -118,16 +118,16 @@ DefaultApi api = new DefaultApi(client);
 
 **Reference:** https://dev.wildberries.ru/openapi/orders-fbs
 
-**APIs:** `DefaultApi`, `FbsApi`
+**APIs:** `OrdersFbsApi`
 
 ```java
 import io.github.valeryverkhoturov.wbapi.orders_fbs.ApiClient;
 import io.github.valeryverkhoturov.wbapi.orders_fbs.SecretString;
-import io.github.valeryverkhoturov.wbapi.orders_fbs.api.DefaultApi;
+import io.github.valeryverkhoturov.wbapi.orders_fbs.api.OrdersFbsApi;
 
 ApiClient client = new ApiClient();
 client.setBearerToken(new SecretString("<your WB JWT>"));
-DefaultApi api = new DefaultApi(client);
+OrdersFbsApi api = new OrdersFbsApi(client);
 ```
 
 ### orders-dbw — Заказы DBW
@@ -140,16 +140,16 @@ DefaultApi api = new DefaultApi(client);
 
 **Reference:** https://dev.wildberries.ru/openapi/orders-dbw
 
-**APIs:** `DbwApi`
+**APIs:** `OrdersDbwApi`
 
 ```java
 import io.github.valeryverkhoturov.wbapi.orders_dbw.ApiClient;
 import io.github.valeryverkhoturov.wbapi.orders_dbw.SecretString;
-import io.github.valeryverkhoturov.wbapi.orders_dbw.api.DbwApi;
+import io.github.valeryverkhoturov.wbapi.orders_dbw.api.OrdersDbwApi;
 
 ApiClient client = new ApiClient();
 client.setBearerToken(new SecretString("<your WB JWT>"));
-DbwApi api = new DbwApi(client);
+OrdersDbwApi api = new OrdersDbwApi(client);
 ```
 
 ### dbs — DBS
@@ -182,16 +182,16 @@ DbsApi api = new DbsApi(client);
 
 **Reference:** https://dev.wildberries.ru/openapi/in-store-pickup
 
-**APIs:** `DefaultApi`
+**APIs:** `InStorePickupApi`
 
 ```java
 import io.github.valeryverkhoturov.wbapi.in_store_pickup.ApiClient;
 import io.github.valeryverkhoturov.wbapi.in_store_pickup.SecretString;
-import io.github.valeryverkhoturov.wbapi.in_store_pickup.api.DefaultApi;
+import io.github.valeryverkhoturov.wbapi.in_store_pickup.api.InStorePickupApi;
 
 ApiClient client = new ApiClient();
 client.setBearerToken(new SecretString("<your WB JWT>"));
-DefaultApi api = new DefaultApi(client);
+InStorePickupApi api = new InStorePickupApi(client);
 ```
 
 ### orders-fbw — Поставки FBW
@@ -205,16 +205,16 @@ DefaultApi api = new DefaultApi(client);
 
 **Reference:** https://dev.wildberries.ru/openapi/orders-fbw
 
-**APIs:** `DefaultApi`
+**APIs:** `OrdersFbwApi`
 
 ```java
 import io.github.valeryverkhoturov.wbapi.orders_fbw.ApiClient;
 import io.github.valeryverkhoturov.wbapi.orders_fbw.SecretString;
-import io.github.valeryverkhoturov.wbapi.orders_fbw.api.DefaultApi;
+import io.github.valeryverkhoturov.wbapi.orders_fbw.api.OrdersFbwApi;
 
 ApiClient client = new ApiClient();
 client.setBearerToken(new SecretString("<your WB JWT>"));
-DefaultApi api = new DefaultApi(client);
+OrdersFbwApi api = new OrdersFbwApi(client);
 ```
 
 ### promotion — Маркетинг и продвижение
@@ -233,16 +233,16 @@ DefaultApi api = new DefaultApi(client);
 
 **Reference:** https://dev.wildberries.ru/openapi/promotion
 
-**APIs:** `DefaultApi`
+**APIs:** `PromotionApi`
 
 ```java
 import io.github.valeryverkhoturov.wbapi.promotion.ApiClient;
 import io.github.valeryverkhoturov.wbapi.promotion.SecretString;
-import io.github.valeryverkhoturov.wbapi.promotion.api.DefaultApi;
+import io.github.valeryverkhoturov.wbapi.promotion.api.PromotionApi;
 
 ApiClient client = new ApiClient();
 client.setBearerToken(new SecretString("<your WB JWT>"));
-DefaultApi api = new DefaultApi(client);
+PromotionApi api = new PromotionApi(client);
 ```
 
 ### communications — Общение с покупателями
@@ -260,16 +260,16 @@ DefaultApi api = new DefaultApi(client);
 
 **Reference:** https://dev.wildberries.ru/openapi/customer-communication
 
-**APIs:** `DefaultApi`
+**APIs:** `CommunicationsApi`
 
 ```java
 import io.github.valeryverkhoturov.wbapi.communications.ApiClient;
 import io.github.valeryverkhoturov.wbapi.communications.SecretString;
-import io.github.valeryverkhoturov.wbapi.communications.api.DefaultApi;
+import io.github.valeryverkhoturov.wbapi.communications.api.CommunicationsApi;
 
 ApiClient client = new ApiClient();
 client.setBearerToken(new SecretString("<your WB JWT>"));
-DefaultApi api = new DefaultApi(client);
+CommunicationsApi api = new CommunicationsApi(client);
 ```
 
 ### rates — Тарифы
@@ -284,16 +284,16 @@ DefaultApi api = new DefaultApi(client);
 
 **Reference:** https://dev.wildberries.ru/openapi/rates
 
-**APIs:** `DefaultApi`
+**APIs:** `RatesApi`
 
 ```java
 import io.github.valeryverkhoturov.wbapi.rates.ApiClient;
 import io.github.valeryverkhoturov.wbapi.rates.SecretString;
-import io.github.valeryverkhoturov.wbapi.rates.api.DefaultApi;
+import io.github.valeryverkhoturov.wbapi.rates.api.RatesApi;
 
 ApiClient client = new ApiClient();
 client.setBearerToken(new SecretString("<your WB JWT>"));
-DefaultApi api = new DefaultApi(client);
+RatesApi api = new RatesApi(client);
 ```
 
 ### analytics — Аналитика и данные
@@ -310,16 +310,16 @@ DefaultApi api = new DefaultApi(client);
 
 **Reference:** https://dev.wildberries.ru/openapi/analytics
 
-**APIs:** `CsvApi`, `DefaultApi`
+**APIs:** `AnalyticsApi`
 
 ```java
 import io.github.valeryverkhoturov.wbapi.analytics.ApiClient;
 import io.github.valeryverkhoturov.wbapi.analytics.SecretString;
-import io.github.valeryverkhoturov.wbapi.analytics.api.CsvApi;
+import io.github.valeryverkhoturov.wbapi.analytics.api.AnalyticsApi;
 
 ApiClient client = new ApiClient();
 client.setBearerToken(new SecretString("<your WB JWT>"));
-CsvApi api = new CsvApi(client);
+AnalyticsApi api = new AnalyticsApi(client);
 ```
 
 ### reports — Отчёты
@@ -339,16 +339,16 @@ CsvApi api = new CsvApi(client);
 
 **Reference:** https://dev.wildberries.ru/openapi/reports
 
-**APIs:** `CApi`, `DefaultApi`
+**APIs:** `ReportsApi`
 
 ```java
 import io.github.valeryverkhoturov.wbapi.reports.ApiClient;
 import io.github.valeryverkhoturov.wbapi.reports.SecretString;
-import io.github.valeryverkhoturov.wbapi.reports.api.CApi;
+import io.github.valeryverkhoturov.wbapi.reports.api.ReportsApi;
 
 ApiClient client = new ApiClient();
 client.setBearerToken(new SecretString("<your WB JWT>"));
-CApi api = new CApi(client);
+ReportsApi api = new ReportsApi(client);
 ```
 
 ### finances — Документы и бухгалтерия
@@ -359,15 +359,15 @@ CApi api = new CApi(client);
 
 **Reference:** https://dev.wildberries.ru/openapi/documents-and-accounting
 
-**APIs:** `DefaultApi`
+**APIs:** `FinancesApi`
 
 ```java
 import io.github.valeryverkhoturov.wbapi.finances.ApiClient;
 import io.github.valeryverkhoturov.wbapi.finances.SecretString;
-import io.github.valeryverkhoturov.wbapi.finances.api.DefaultApi;
+import io.github.valeryverkhoturov.wbapi.finances.api.FinancesApi;
 
 ApiClient client = new ApiClient();
 client.setBearerToken(new SecretString("<your WB JWT>"));
-DefaultApi api = new DefaultApi(client);
+FinancesApi api = new FinancesApi(client);
 ```
 

@@ -99,61 +99,61 @@ func NewConfiguration() *Configuration {
 			},
 		},
 		OperationServers: map[string]ServerConfigurations{
-			"DefaultApiService.DeleteV1DraftsDraftId": {
+			"OrdersFbwAPIService.DeleteV1DraftsDraftId": {
 				{
 					URL:         "https://supplies-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"DefaultApiService.DeleteV1DraftsDraftIdItems": {
+			"OrdersFbwAPIService.DeleteV1DraftsDraftIdItems": {
 				{
 					URL:         "https://supplies-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"DefaultApiService.GetV1Drafts": {
+			"OrdersFbwAPIService.GetV1Drafts": {
 				{
 					URL:         "https://supplies-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"DefaultApiService.GetV1DraftsDraftIdItems": {
+			"OrdersFbwAPIService.GetV1DraftsDraftIdItems": {
 				{
 					URL:         "https://supplies-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"DefaultApiService.GetV1SuppliesId": {
+			"OrdersFbwAPIService.GetV1SuppliesId": {
 				{
 					URL:         "https://supplies-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"DefaultApiService.GetV1SuppliesIdGoods": {
+			"OrdersFbwAPIService.GetV1SuppliesIdGoods": {
 				{
 					URL:         "https://supplies-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"DefaultApiService.GetV1SuppliesIdPackage": {
+			"OrdersFbwAPIService.GetV1SuppliesIdPackage": {
 				{
 					URL:         "https://supplies-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"DefaultApiService.GetV1SuppliesSupplyIdDiscrepanciesQuantity": {
+			"OrdersFbwAPIService.GetV1SuppliesSupplyIdDiscrepanciesQuantity": {
 				{
 					URL:         "https://supplies-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"DefaultApiService.GetV1TransitTariffs": {
+			"OrdersFbwAPIService.GetV1TransitTariffs": {
 				{
 					URL:         "https://supplies-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"DefaultApiService.GetV1Warehouses": {
+			"OrdersFbwAPIService.GetV1Warehouses": {
 				{
 					URL:         "https://supplies-api.wildberries.ru",
 					Description: "**Prod** ",
@@ -163,7 +163,7 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"DefaultApiService.PostV1AcceptanceOptions": {
+			"OrdersFbwAPIService.PostV1AcceptanceOptions": {
 				{
 					URL:         "https://supplies-api.wildberries.ru",
 					Description: "**Prod** ",
@@ -173,19 +173,19 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"DefaultApiService.PostV1Drafts": {
+			"OrdersFbwAPIService.PostV1Drafts": {
 				{
 					URL:         "https://supplies-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"DefaultApiService.PostV1DraftsDraftIdItems": {
+			"OrdersFbwAPIService.PostV1DraftsDraftIdItems": {
 				{
 					URL:         "https://supplies-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"DefaultApiService.PostV1Supplies": {
+			"OrdersFbwAPIService.PostV1Supplies": {
 				{
 					URL:         "https://supplies-api.wildberries.ru",
 					Description: "No description provided",

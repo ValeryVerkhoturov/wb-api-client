@@ -89,35 +89,25 @@ interface ServerMap {
  * @export
  */
 export const operationServerMap: ServerMap = {
-  "DefaultApi.deleteV0NormqueryBids": [
+  "PromotionApi.deleteV0NormqueryBids": [
     {
       url: "https://advert-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.getV0BidsRecommendations": [
+  "PromotionApi.getV0BidsRecommendations": [
     {
       url: "https://advert-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.getV0DailyLimits": [
+  "PromotionApi.getV0DailyLimits": [
     {
       url: "https://advert-api.wildberries.ru",
       description: "**Prod** ",
     },
   ],
-  "DefaultApi.getV0Delete": [
-    {
-      url: "https://advert-api.wildberries.ru",
-      description: "**Prod** ",
-    },
-    {
-      url: "https://advert-api-sandbox.wildberries.ru",
-      description: "**Sandbox** ",
-    },
-  ],
-  "DefaultApi.getV0Pause": [
+  "PromotionApi.getV0Delete": [
     {
       url: "https://advert-api.wildberries.ru",
       description: "**Prod** ",
@@ -127,7 +117,7 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DefaultApi.getV0Start": [
+  "PromotionApi.getV0Pause": [
     {
       url: "https://advert-api.wildberries.ru",
       description: "**Prod** ",
@@ -137,7 +127,7 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DefaultApi.getV0Stop": [
+  "PromotionApi.getV0Start": [
     {
       url: "https://advert-api.wildberries.ru",
       description: "**Prod** ",
@@ -147,19 +137,29 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DefaultApi.getV1Advert": [
+  "PromotionApi.getV0Stop": [
+    {
+      url: "https://advert-api.wildberries.ru",
+      description: "**Prod** ",
+    },
+    {
+      url: "https://advert-api-sandbox.wildberries.ru",
+      description: "**Sandbox** ",
+    },
+  ],
+  "PromotionApi.getV1Advert": [
     {
       url: "https://advert-media-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.getV1Adverts": [
+  "PromotionApi.getV1Adverts": [
     {
       url: "https://advert-media-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.getV1Balance": [
+  "PromotionApi.getV1Balance": [
     {
       url: "https://advert-api.wildberries.ru",
       description: "**Prod** ",
@@ -169,7 +169,7 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DefaultApi.getV1Budget": [
+  "PromotionApi.getV1Budget": [
     {
       url: "https://advert-api.wildberries.ru",
       description: "**Prod** ",
@@ -179,37 +179,37 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DefaultApi.getV1CalendarPromotions": [
+  "PromotionApi.getV1CalendarPromotions": [
     {
       url: "https://dp-calendar-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.getV1CalendarPromotionsDetails": [
+  "PromotionApi.getV1CalendarPromotionsDetails": [
     {
       url: "https://dp-calendar-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.getV1CalendarPromotionsNomenclatures": [
+  "PromotionApi.getV1CalendarPromotionsNomenclatures": [
     {
       url: "https://dp-calendar-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.getV1Config": [
+  "PromotionApi.getV1Config": [
     {
       url: "https://advert-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.getV1Count": [
+  "PromotionApi.getV1Count": [
     {
       url: "https://advert-media-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.getV1Payments": [
+  "PromotionApi.getV1Payments": [
     {
       url: "https://advert-api.wildberries.ru",
       description: "**Prod** ",
@@ -219,7 +219,7 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DefaultApi.getV1PromotionCount": [
+  "PromotionApi.getV1PromotionCount": [
     {
       url: "https://advert-api.wildberries.ru",
       description: "**Prod** ",
@@ -229,7 +229,7 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DefaultApi.getV1SupplierSubjects": [
+  "PromotionApi.getV1SupplierSubjects": [
     {
       url: "https://advert-api.wildberries.ru",
       description: "**Prod** ",
@@ -239,7 +239,7 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DefaultApi.getV1Upd": [
+  "PromotionApi.getV1Upd": [
     {
       url: "https://advert-api.wildberries.ru",
       description: "**Prod** ",
@@ -249,67 +249,67 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DefaultApi.getV2Adverts": [
+  "PromotionApi.getV2Adverts": [
     {
       url: "https://advert-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.getV3Fullstats": [
+  "PromotionApi.getV3Fullstats": [
     {
       url: "https://advert-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.patchV0AuctionNms": [
+  "PromotionApi.patchV0AuctionNms": [
     {
       url: "https://advert-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.patchV1Bids": [
+  "PromotionApi.patchV1Bids": [
     {
       url: "https://advert-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.postV0NormqueryBids": [
+  "PromotionApi.postV0NormqueryBids": [
     {
       url: "https://advert-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.postV0NormqueryGetBids": [
+  "PromotionApi.postV0NormqueryGetBids": [
     {
       url: "https://advert-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.postV0NormqueryGetMinus": [
+  "PromotionApi.postV0NormqueryGetMinus": [
     {
       url: "https://advert-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.postV0NormqueryList": [
+  "PromotionApi.postV0NormqueryList": [
     {
       url: "https://advert-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.postV0NormquerySetMinus": [
+  "PromotionApi.postV0NormquerySetMinus": [
     {
       url: "https://advert-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.postV0NormqueryStats": [
+  "PromotionApi.postV0NormqueryStats": [
     {
       url: "https://advert-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.postV0Rename": [
+  "PromotionApi.postV0Rename": [
     {
       url: "https://advert-api.wildberries.ru",
       description: "**Prod** ",
@@ -319,13 +319,13 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DefaultApi.postV1BidsMin": [
+  "PromotionApi.postV1BidsMin": [
     {
       url: "https://advert-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.postV1BudgetDeposit": [
+  "PromotionApi.postV1BudgetDeposit": [
     {
       url: "https://advert-api.wildberries.ru",
       description: "**Prod** ",
@@ -335,47 +335,37 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DefaultApi.postV1CalendarPromotionsUpload": [
+  "PromotionApi.postV1CalendarPromotionsUpload": [
     {
       url: "https://dp-calendar-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.postV1NormqueryBids": [
+  "PromotionApi.postV1NormqueryBids": [
     {
       url: "https://advert-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.postV1NormqueryStats": [
+  "PromotionApi.postV1NormqueryStats": [
     {
       url: "https://advert-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.postV1Stats": [
+  "PromotionApi.postV1Stats": [
     {
       url: "https://advert-media-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.postV2Budget": [
+  "PromotionApi.postV2Budget": [
     {
       url: "https://advert-api.wildberries.ru",
       description: "**Prod** ",
     },
   ],
-  "DefaultApi.postV2SeacatSaveAd": [
-    {
-      url: "https://advert-api.wildberries.ru",
-      description: "**Prod** ",
-    },
-    {
-      url: "https://advert-api-sandbox.wildberries.ru",
-      description: "**Sandbox** ",
-    },
-  ],
-  "DefaultApi.postV2SupplierNms": [
+  "PromotionApi.postV2SeacatSaveAd": [
     {
       url: "https://advert-api.wildberries.ru",
       description: "**Prod** ",
@@ -385,13 +375,23 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DefaultApi.putV0AuctionPlacements": [
+  "PromotionApi.postV2SupplierNms": [
+    {
+      url: "https://advert-api.wildberries.ru",
+      description: "**Prod** ",
+    },
+    {
+      url: "https://advert-api-sandbox.wildberries.ru",
+      description: "**Sandbox** ",
+    },
+  ],
+  "PromotionApi.putV0AuctionPlacements": [
     {
       url: "https://advert-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.putV0DailyLimits": [
+  "PromotionApi.putV0DailyLimits": [
     {
       url: "https://advert-api.wildberries.ru",
       description: "**Prod** ",

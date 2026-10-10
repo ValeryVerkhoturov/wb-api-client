@@ -77,7 +77,7 @@ paths:
         | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов |
         | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |
       tags:
-      - Кампании
+      - Promotion
       responses:
         '200':
           description: Успешно
@@ -105,6 +105,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: campaigns
+      x-original-tags:
+      - Кампании
   /api/advert/v2/adverts:
     servers:
     - url: https://advert-api.wildberries.ru
@@ -126,7 +128,7 @@ paths:
         | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов |
         | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
       tags:
-      - Кампании
+      - Promotion
       parameters:
       - name: ids
         in: query
@@ -243,6 +245,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: campaigns
+      x-original-tags:
+      - Кампании
   /api/advert/v1/bids/min:
     servers:
     - url: https://advert-api.wildberries.ru
@@ -251,7 +255,7 @@ paths:
       x-readonly-method: true
       x-category: advert
       tags:
-      - Создание кампаний
+      - Promotion
       summary: Минимальные ставки для карточек товаров
       description: |-
         Метод возвращает минимальные ставки для карточек товаров в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) — по типу оплаты и местам размещения.
@@ -363,6 +367,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: creatingCampaigns
+      x-original-tags:
+      - Создание кампаний
   /adv/v2/seacat/save-ad:
     servers:
     - url: https://advert-api.wildberries.ru
@@ -391,7 +397,7 @@ paths:
         | Базовый с секретом | 1 мин | 5 запросов | 12 сек | 5 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
       tags:
-      - Создание кампаний
+      - Promotion
       requestBody:
         content:
           application/json:
@@ -477,6 +483,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: creatingCampaigns
+      x-original-tags:
+      - Создание кампаний
   /adv/v1/supplier/subjects:
     servers:
     - url: https://advert-api.wildberries.ru
@@ -514,7 +522,7 @@ paths:
           default: cpm
         required: false
       tags:
-      - Создание кампаний
+      - Promotion
       responses:
         '200':
           description: Успешно
@@ -539,6 +547,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: creatingCampaigns
+      x-original-tags:
+      - Создание кампаний
   /adv/v2/supplier/nms:
     servers:
     - url: https://advert-api.wildberries.ru
@@ -565,7 +575,7 @@ paths:
         | Базовый с секретом | 1 мин | 5 запросов | 12 сек | 5 запросов |
         | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
       tags:
-      - Создание кампаний
+      - Promotion
       requestBody:
         description: ID предметов, для которых нужно получить карточки товаров
         content:
@@ -600,6 +610,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: creatingCampaigns
+      x-original-tags:
+      - Создание кампаний
   /adv/v0/delete:
     servers:
     - url: https://advert-api.wildberries.ru
@@ -628,7 +640,7 @@ paths:
         | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
       tags:
-      - Управление кампаниями
+      - Promotion
       parameters:
       - name: id
         in: query
@@ -655,6 +667,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: campaignManagement
+      x-original-tags:
+      - Управление кампаниями
   /adv/v0/rename:
     servers:
     - url: https://advert-api.wildberries.ru
@@ -681,7 +695,7 @@ paths:
         | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов |
         | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
       tags:
-      - Управление кампаниями
+      - Promotion
       requestBody:
         content:
           application/json:
@@ -734,6 +748,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: campaignManagement
+      x-original-tags:
+      - Управление кампаниями
   /adv/v0/start:
     servers:
     - url: https://advert-api.wildberries.ru
@@ -761,7 +777,7 @@ paths:
         | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
       tags:
-      - Управление кампаниями
+      - Promotion
       parameters:
       - name: id
         in: query
@@ -802,6 +818,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: campaignManagement
+      x-original-tags:
+      - Управление кампаниями
   /adv/v0/pause:
     servers:
     - url: https://advert-api.wildberries.ru
@@ -828,7 +846,7 @@ paths:
         | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
       tags:
-      - Управление кампаниями
+      - Promotion
       parameters:
       - name: id
         in: query
@@ -867,6 +885,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: campaignManagement
+      x-original-tags:
+      - Управление кампаниями
   /adv/v0/stop:
     servers:
     - url: https://advert-api.wildberries.ru
@@ -895,7 +915,7 @@ paths:
         | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
       tags:
-      - Управление кампаниями
+      - Promotion
       parameters:
       - name: id
         in: query
@@ -934,6 +954,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: campaignManagement
+      x-original-tags:
+      - Управление кампаниями
   /adv/v0/auction/placements:
     servers:
     - url: https://advert-api.wildberries.ru
@@ -957,7 +979,7 @@ paths:
         | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 1 запрос |
         | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
       tags:
-      - Управление кампаниями
+      - Promotion
       requestBody:
         required: true
         content:
@@ -1037,6 +1059,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: campaignManagement
+      x-original-tags:
+      - Управление кампаниями
   /api/advert/v1/bids:
     servers:
     - url: https://advert-api.wildberries.ru
@@ -1066,7 +1090,7 @@ paths:
         | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов |
         | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
       tags:
-      - Управление кампаниями
+      - Promotion
       requestBody:
         required: true
         content:
@@ -1161,6 +1185,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: campaignManagement
+      x-original-tags:
+      - Управление кампаниями
   /adv/v1/balance:
     servers:
     - url: https://advert-api.wildberries.ru
@@ -1191,7 +1217,7 @@ paths:
         | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 5 запросов |
         | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
       tags:
-      - Финансы
+      - Promotion
       responses:
         '200':
           description: Успешно
@@ -1224,6 +1250,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: finances
+      x-original-tags:
+      - Финансы
   /api/advert/v2/budget:
     servers:
     - url: https://advert-api.wildberries.ru
@@ -1251,7 +1279,7 @@ paths:
         | Базовый с секретом | 1 мин | 20 запросов | 3 сек | 4 запроса |
         | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |
       tags:
-      - Финансы
+      - Promotion
       requestBody:
         required: true
         content:
@@ -1284,6 +1312,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: finances
+      x-original-tags:
+      - Финансы
   /adv/v1/budget:
     servers:
     - url: https://advert-api.wildberries.ru
@@ -1311,7 +1341,7 @@ paths:
         | Базовый с секретом | 1 сек | 4 запроса | 250 мс | 4 запроса |
         | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |
       tags:
-      - Финансы
+      - Promotion
       parameters:
       - name: id
         in: query
@@ -1348,6 +1378,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: finances
+      x-original-tags:
+      - Финансы
   /adv/v1/budget/deposit:
     servers:
     - url: https://advert-api.wildberries.ru
@@ -1375,7 +1407,7 @@ paths:
         | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 5 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
       tags:
-      - Финансы
+      - Promotion
       parameters:
       - name: id
         in: query
@@ -1459,6 +1491,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: finances
+      x-original-tags:
+      - Финансы
   /adv/v1/upd:
     servers:
     - url: https://advert-api.wildberries.ru
@@ -1485,7 +1519,7 @@ paths:
         | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 5 запросов |
         | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
       tags:
-      - Финансы
+      - Promotion
       parameters:
       - name: from
         in: query
@@ -1543,6 +1577,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: finances
+      x-original-tags:
+      - Финансы
   /adv/v1/payments:
     servers:
     - url: https://advert-api.wildberries.ru
@@ -1569,7 +1605,7 @@ paths:
         | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 5 запросов |
         | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
       tags:
-      - Финансы
+      - Promotion
       parameters:
       - name: from
         in: query
@@ -1625,6 +1661,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: finances
+      x-original-tags:
+      - Финансы
   /adv/v0/auction/nms:
     servers:
     - url: https://advert-api.wildberries.ru
@@ -1650,7 +1688,7 @@ paths:
         | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 1 запрос |
         | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
       tags:
-      - Управление кампаниями
+      - Promotion
       requestBody:
         required: true
         content:
@@ -1731,6 +1769,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: campaignManagement
+      x-original-tags:
+      - Управление кампаниями
   /api/advert/v0/bids/recommendations:
     servers:
     - url: https://advert-api.wildberries.ru
@@ -1739,7 +1779,7 @@ paths:
       x-readonly-method: true
       x-category: advert
       tags:
-      - Управление кампаниями
+      - Promotion
       summary: Рекомендуемые ставки для карточек товаров и поисковых кластеров
       description: |-
         Метод возвращает рекомендуемые ставки для карточек товаров и поисковых кластеров кампании.
@@ -1803,6 +1843,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: campaignManagement
+      x-original-tags:
+      - Управление кампаниями
   /adv/v0/normquery/stats:
     post:
       operationId: postV0NormqueryStats
@@ -1811,7 +1853,7 @@ paths:
       - url: https://advert-api.wildberries.ru
       x-category: advert
       tags:
-      - Статистика
+      - Promotion
       summary: Статистика поисковых кластеров
       description: |-
         Метод формирует статистику по поисковым кластерам за указанный период.
@@ -2089,6 +2131,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: statistics
+      x-original-tags:
+      - Статистика
   /adv/v0/normquery/get-bids:
     post:
       operationId: postV0NormqueryGetBids
@@ -2097,7 +2141,7 @@ paths:
       servers:
       - url: https://advert-api.wildberries.ru
       tags:
-      - Поисковые кластеры
+      - Promotion
       summary: Список ставок поисковых кластеров
       description: |-
         Метод возвращает список поисковых кластеров со ставками по:
@@ -2180,6 +2224,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: searchClusters
+      x-original-tags:
+      - Поисковые кластеры
   /api/advert/v1/config:
     servers:
     - url: https://advert-api.wildberries.ru
@@ -2191,7 +2237,7 @@ paths:
       - service
       operationId: getV1Config
       tags:
-      - Управление кампаниями
+      - Promotion
       summary: Конфигурационные значения продвижения
       description: |-
         Метод возвращает валюту, код валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) и допустимые шаги ставок для метода [POST /api/advert/v1/normquery/bids](https://dev.wildberries.ru/openapi/promotion#tag/searchClusters/operation/postV1NormqueryBids)
@@ -2234,6 +2280,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: campaignManagement
+      x-original-tags:
+      - Управление кампаниями
   /api/advert/v1/normquery/bids:
     servers:
     - url: https://advert-api.wildberries.ru
@@ -2245,7 +2293,7 @@ paths:
       - service
       operationId: postV1NormqueryBids
       tags:
-      - Поисковые кластеры
+      - Promotion
       summary: Установить ставки для поисковых кластеров в валюте аккаунта продавца
       description: |-
         Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
@@ -2301,6 +2349,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: searchClusters
+      x-original-tags:
+      - Поисковые кластеры
   /adv/v0/normquery/bids:
     post:
       operationId: postV0NormqueryBids
@@ -2309,7 +2359,7 @@ paths:
       servers:
       - url: https://advert-api.wildberries.ru
       tags:
-      - Поисковые кластеры
+      - Promotion
       summary: Установить ставки для поисковых кластеров
       description: |-
         Метод устанавливает ставки в рублях на поисковые кластеры.
@@ -2371,6 +2421,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: searchClusters
+      x-original-tags:
+      - Поисковые кластеры
     delete:
       operationId: deleteV0NormqueryBids
       x-readonly-method: false
@@ -2378,7 +2430,7 @@ paths:
       servers:
       - url: https://advert-api.wildberries.ru
       tags:
-      - Поисковые кластеры
+      - Promotion
       summary: Удалить ставки поисковых кластеров
       description: |-
         Метод удаляет ставки с поисковых кластеров.
@@ -2439,6 +2491,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: searchClusters
+      x-original-tags:
+      - Поисковые кластеры
   /adv/v0/normquery/get-minus:
     post:
       operationId: postV0NormqueryGetMinus
@@ -2447,7 +2501,7 @@ paths:
       servers:
       - url: https://advert-api.wildberries.ru
       tags:
-      - Поисковые кластеры
+      - Promotion
       summary: Список минус-фраз кампаний
       description: |-
         Метод возвращает список минус-фраз по:
@@ -2516,6 +2570,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: searchClusters
+      x-original-tags:
+      - Поисковые кластеры
   /adv/v0/normquery/set-minus:
     post:
       operationId: postV0NormquerySetMinus
@@ -2524,7 +2580,7 @@ paths:
       servers:
       - url: https://advert-api.wildberries.ru
       tags:
-      - Поисковые кластеры
+      - Promotion
       summary: Установка и удаление минус-фраз
       description: |-
         Метод устанавливает и удаляет минус-фразы в кампаниях c единой и ручной ставкой.
@@ -2584,6 +2640,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: searchClusters
+      x-original-tags:
+      - Поисковые кластеры
   /adv/v1/count:
     servers:
     - url: https://advert-media-api.wildberries.ru
@@ -2605,7 +2663,7 @@ paths:
         | Базовый с секретом | 1 сек | 10 запросов | 100 мс | 10 запросов |
         | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
       tags:
-      - Медиа
+      - Promotion
       responses:
         '200':
           description: Успешно
@@ -2626,6 +2684,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: media
+      x-original-tags:
+      - Медиа
   /adv/v1/adverts:
     servers:
     - url: https://advert-media-api.wildberries.ru
@@ -2647,7 +2707,7 @@ paths:
         | Базовый с секретом | 1 сек | 10 запросов | 100 мс | 10 запросов |
         | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
       tags:
-      - Медиа
+      - Promotion
       parameters:
       - name: status
         in: query
@@ -2736,6 +2796,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: media
+      x-original-tags:
+      - Медиа
   /adv/v1/advert:
     servers:
     - url: https://advert-media-api.wildberries.ru
@@ -2757,7 +2819,7 @@ paths:
         | Базовый с секретом | 1 сек | 10 запросов | 100 мс | 10 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
       tags:
-      - Медиа
+      - Promotion
       parameters:
       - name: id
         in: query
@@ -2795,6 +2857,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: media
+      x-original-tags:
+      - Медиа
   /adv/v3/fullstats:
     servers:
     - url: https://advert-api.wildberries.ru
@@ -2822,7 +2886,7 @@ paths:
         | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 1 запрос |
         | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
       tags:
-      - Статистика
+      - Promotion
       parameters:
       - name: ids
         in: query
@@ -3218,6 +3282,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: statistics
+      x-original-tags:
+      - Статистика
   /adv/v1/stats:
     servers:
     - url: https://advert-media-api.wildberries.ru
@@ -3239,7 +3305,7 @@ paths:
         | Базовый с секретом | 1 сек | 10 запросов | 100 мс | 10 запросов |
         | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
       tags:
-      - Статистика
+      - Promotion
       requestBody:
         required: true
         content:
@@ -3296,6 +3362,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: statistics
+      x-original-tags:
+      - Статистика
   /api/v1/calendar/promotions:
     servers:
     - url: https://dp-calendar-api.wildberries.ru
@@ -3304,7 +3372,7 @@ paths:
       x-readonly-method: true
       x-category: discountsandprices
       tags:
-      - Календарь акций
+      - Promotion
       security:
       - BearerAuth: []
       summary: Список акций
@@ -3338,6 +3406,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: promoCalendar
+      x-original-tags:
+      - Календарь акций
   /api/v1/calendar/promotions/details:
     servers:
     - url: https://dp-calendar-api.wildberries.ru
@@ -3346,7 +3416,7 @@ paths:
       x-readonly-method: true
       x-category: discountsandprices
       tags:
-      - Календарь акций
+      - Promotion
       security:
       - BearerAuth: []
       summary: Детальная информация об акциях
@@ -3376,6 +3446,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: promoCalendar
+      x-original-tags:
+      - Календарь акций
   /api/v1/calendar/promotions/nomenclatures:
     servers:
     - url: https://dp-calendar-api.wildberries.ru
@@ -3384,7 +3456,7 @@ paths:
       x-readonly-method: true
       x-category: discountsandprices
       tags:
-      - Календарь акций
+      - Promotion
       security:
       - BearerAuth: []
       summary: Список товаров для участия в акции
@@ -3418,6 +3490,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: promoCalendar
+      x-original-tags:
+      - Календарь акций
   /api/v1/calendar/promotions/upload:
     servers:
     - url: https://dp-calendar-api.wildberries.ru
@@ -3426,7 +3500,7 @@ paths:
       x-readonly-method: false
       x-category: discountsandprices
       tags:
-      - Календарь акций
+      - Promotion
       security:
       - BearerAuth: []
       summary: Добавить товар в акцию
@@ -3461,6 +3535,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: promoCalendar
+      x-original-tags:
+      - Календарь акций
   /adv/v0/normquery/list:
     servers:
     - url: https://advert-api.wildberries.ru
@@ -3469,7 +3545,7 @@ paths:
       x-readonly-method: true
       x-category: advert
       tags:
-      - Поисковые кластеры
+      - Promotion
       summary: Списки активных и неактивных поисковых кластеров
       description: |-
         Метод возвращает списки активных и неактивных поисковых кластеров, по которым было не меньше 100 показов.
@@ -3536,6 +3612,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: searchClusters
+      x-original-tags:
+      - Поисковые кластеры
   /adv/v1/normquery/stats:
     servers:
     - url: https://advert-api.wildberries.ru
@@ -3544,7 +3622,7 @@ paths:
       x-readonly-method: true
       x-category: advert
       tags:
-      - Статистика
+      - Promotion
       summary: Статистика по поисковым кластерам с детализацией по дням
       description: |-
         Метод формирует статистику по поисковым кластерам за указанный период с детализацией по дням.
@@ -3639,6 +3717,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: statistics
+      x-original-tags:
+      - Статистика
   /api/advert/v0/daily-limits:
     servers:
     - url: https://advert-api.wildberries.ru
@@ -3653,7 +3733,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Управление кампаниями
+      - Promotion
       summary: Получить настройки дневных лимитов кампаний
       description: |-
         Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
@@ -3696,6 +3776,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: campaignManagement
+      x-original-tags:
+      - Управление кампаниями
     put:
       x-readonly-method: false
       x-category: advert
@@ -3705,7 +3787,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Управление кампаниями
+      - Promotion
       summary: Настройка дневных лимитов кампаний
       description: |-
         Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
@@ -3766,6 +3848,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: campaignManagement
+      x-original-tags:
+      - Управление кампаниями
 components:
   schemas:
     V0GetDailyLimitsResponse:

@@ -89,67 +89,67 @@ interface ServerMap {
  * @export
  */
 export const operationServerMap: ServerMap = {
-  "DefaultApi.getV1AccountBalance": [
+  "FinancesApi.getV1AccountBalance": [
     {
       url: "https://finance-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.getV1DocumentsCategories": [
+  "FinancesApi.getV1DocumentsCategories": [
     {
       url: "https://documents-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.getV1DocumentsDownload": [
+  "FinancesApi.getV1DocumentsDownload": [
     {
       url: "https://documents-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.getV1DocumentsList": [
+  "FinancesApi.getV1DocumentsList": [
     {
       url: "https://documents-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.postV1AcquiringDetailed": [
+  "FinancesApi.postV1AcquiringDetailed": [
     {
       url: "https://finance-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.postV1AcquiringDetailedReportId": [
+  "FinancesApi.postV1AcquiringDetailedReportId": [
     {
       url: "https://finance-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.postV1AcquiringList": [
+  "FinancesApi.postV1AcquiringList": [
     {
       url: "https://finance-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.postV1DocumentsDownloadAll": [
+  "FinancesApi.postV1DocumentsDownloadAll": [
     {
       url: "https://documents-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.postV1SalesReportsDetailed": [
+  "FinancesApi.postV1SalesReportsDetailed": [
     {
       url: "https://finance-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.postV1SalesReportsDetailedReportId": [
+  "FinancesApi.postV1SalesReportsDetailedReportId": [
     {
       url: "https://finance-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.postV1SalesReportsList": [
+  "FinancesApi.postV1SalesReportsList": [
     {
       url: "https://finance-api.wildberries.ru",
       description: "No description provided",

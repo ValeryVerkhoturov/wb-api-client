@@ -1379,10 +1379,10 @@ export interface Response4XX {
 }
 
 /**
- * DBWApi - axios parameter creator
+ * OrdersDbwApi - axios parameter creator
  * @export
  */
-export const DBWApiAxiosParamCreator = function (
+export const OrdersDbwApiAxiosParamCreator = function (
   configuration?: Configuration,
 ) {
   return {
@@ -2337,11 +2337,12 @@ export const DBWApiAxiosParamCreator = function (
 };
 
 /**
- * DBWApi - functional programming interface
+ * OrdersDbwApi - functional programming interface
  * @export
  */
-export const DBWApiFp = function (configuration?: Configuration) {
-  const localVarAxiosParamCreator = DBWApiAxiosParamCreator(configuration);
+export const OrdersDbwApiFp = function (configuration?: Configuration) {
+  const localVarAxiosParamCreator =
+    OrdersDbwApiAxiosParamCreator(configuration);
   return {
     /**
      * Метод возвращает информацию о завершенных [сборочных заданиях](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwAssemblyOrders).  Можно получить данные за заданный период, максимум 30 календарных дней одним запросом.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для следующих методов DBW:  * получение и обновление списка контактов * получение и удаление идентификаторов маркировки * методы сборочных заданий  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
@@ -2374,7 +2375,7 @@ export const DBWApiFp = function (configuration?: Configuration) {
       );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DBWApi.getV3DbwOrders"]?.[
+        operationServerMap["OrdersDbwApi.getV3DbwOrders"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -2403,7 +2404,7 @@ export const DBWApiFp = function (configuration?: Configuration) {
         await localVarAxiosParamCreator.getV3DbwOrdersNew(options);
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DBWApi.getV3DbwOrdersNew"]?.[
+        operationServerMap["OrdersDbwApi.getV3DbwOrdersNew"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -2434,7 +2435,7 @@ export const DBWApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DBWApi.patchV3DbwOrdersOrderIdCancel"]?.[
+        operationServerMap["OrdersDbwApi.patchV3DbwOrdersOrderIdCancel"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -2465,7 +2466,7 @@ export const DBWApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DBWApi.patchV3DbwOrdersOrderIdConfirm"]?.[
+        operationServerMap["OrdersDbwApi.patchV3DbwOrdersOrderIdConfirm"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -2496,7 +2497,7 @@ export const DBWApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DBWApi.postV3DbwOrdersClient"]?.[
+        operationServerMap["OrdersDbwApi.postV3DbwOrdersClient"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -2530,7 +2531,7 @@ export const DBWApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DBWApi.postV3DbwOrdersCourier"]?.[
+        operationServerMap["OrdersDbwApi.postV3DbwOrdersCourier"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -2564,7 +2565,7 @@ export const DBWApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DBWApi.postV3DbwOrdersDeliveryDate"]?.[
+        operationServerMap["OrdersDbwApi.postV3DbwOrdersDeliveryDate"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -2598,7 +2599,7 @@ export const DBWApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DBWApi.postV3DbwOrdersMetaDelete"]?.[
+        operationServerMap["OrdersDbwApi.postV3DbwOrdersMetaDelete"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -2632,7 +2633,7 @@ export const DBWApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DBWApi.postV3DbwOrdersMetaDetails"]?.[
+        operationServerMap["OrdersDbwApi.postV3DbwOrdersMetaDetails"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -2666,7 +2667,7 @@ export const DBWApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DBWApi.postV3DbwOrdersMetaSgtin"]?.[
+        operationServerMap["OrdersDbwApi.postV3DbwOrdersMetaSgtin"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -2700,7 +2701,7 @@ export const DBWApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DBWApi.postV3DbwOrdersStatus"]?.[
+        operationServerMap["OrdersDbwApi.postV3DbwOrdersStatus"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -2734,7 +2735,7 @@ export const DBWApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DBWApi.postV3DbwOrdersStatusDeliver"]?.[
+        operationServerMap["OrdersDbwApi.postV3DbwOrdersStatusDeliver"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -2777,7 +2778,7 @@ export const DBWApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DBWApi.postV3DbwOrdersStickers"]?.[
+        operationServerMap["OrdersDbwApi.postV3DbwOrdersStickers"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -2811,7 +2812,7 @@ export const DBWApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DBWApi.putV3DbwOrdersOrderIdMetaGtin"]?.[
+        operationServerMap["OrdersDbwApi.putV3DbwOrdersOrderIdMetaGtin"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -2845,7 +2846,7 @@ export const DBWApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DBWApi.putV3DbwOrdersOrderIdMetaImei"]?.[
+        operationServerMap["OrdersDbwApi.putV3DbwOrdersOrderIdMetaImei"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -2879,7 +2880,7 @@ export const DBWApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DBWApi.putV3DbwOrdersOrderIdMetaUin"]?.[
+        operationServerMap["OrdersDbwApi.putV3DbwOrdersOrderIdMetaUin"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -2894,15 +2895,15 @@ export const DBWApiFp = function (configuration?: Configuration) {
 };
 
 /**
- * DBWApi - factory interface
+ * OrdersDbwApi - factory interface
  * @export
  */
-export const DBWApiFactory = function (
+export const OrdersDbwApiFactory = function (
   configuration?: Configuration,
   basePath?: string,
   axios?: AxiosInstance,
 ) {
-  const localVarFp = DBWApiFp(configuration);
+  const localVarFp = OrdersDbwApiFp(configuration);
   return {
     /**
      * Метод возвращает информацию о завершенных [сборочных заданиях](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwAssemblyOrders).  Можно получить данные за заданный период, максимум 30 календарных дней одним запросом.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для следующих методов DBW:  * получение и обновление списка контактов * получение и удаление идентификаторов маркировки * методы сборочных заданий  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
@@ -3182,11 +3183,11 @@ export const DBWApiFactory = function (
 };
 
 /**
- * DBWApi - interface
+ * OrdersDbwApi - interface
  * @export
- * @interface DBWApi
+ * @interface OrdersDbwApi
  */
-export interface DBWApiInterface {
+export interface OrdersDbwApiInterface {
   /**
    * Метод возвращает информацию о завершенных [сборочных заданиях](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwAssemblyOrders).  Можно получить данные за заданный период, максимум 30 календарных дней одним запросом.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для следующих методов DBW:  * получение и обновление списка контактов * получение и удаление идентификаторов маркировки * методы сборочных заданий  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
    * @summary Получить информацию о завершенных сборочных заданиях
@@ -3196,7 +3197,7 @@ export interface DBWApiInterface {
    * @param {number} dateTo Дата конца периода в формате Unix timestamp
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DBWApiInterface
+   * @memberof OrdersDbwApiInterface
    */
   getV3DbwOrders(
     limit: number,
@@ -3211,7 +3212,7 @@ export interface DBWApiInterface {
    * @summary Получить список новых сборочных заданий
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DBWApiInterface
+   * @memberof OrdersDbwApiInterface
    */
   getV3DbwOrdersNew(
     options?: RawAxiosRequestConfig,
@@ -3223,7 +3224,7 @@ export interface DBWApiInterface {
    * @param {number} orderId ID сборочного задания
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DBWApiInterface
+   * @memberof OrdersDbwApiInterface
    */
   patchV3DbwOrdersOrderIdCancel(
     orderId: number,
@@ -3236,7 +3237,7 @@ export interface DBWApiInterface {
    * @param {number} orderId ID сборочного задания
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DBWApiInterface
+   * @memberof OrdersDbwApiInterface
    */
   patchV3DbwOrdersOrderIdConfirm(
     orderId: number,
@@ -3249,7 +3250,7 @@ export interface DBWApiInterface {
    * @param {OrdersRequestAPI} ordersRequestAPI
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DBWApiInterface
+   * @memberof OrdersDbwApiInterface
    */
   postV3DbwOrdersClient(
     ordersRequestAPI: OrdersRequestAPI,
@@ -3262,7 +3263,7 @@ export interface DBWApiInterface {
    * @param {OrdersRequestAPI} ordersRequestAPI
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DBWApiInterface
+   * @memberof OrdersDbwApiInterface
    */
   postV3DbwOrdersCourier(
     ordersRequestAPI: OrdersRequestAPI,
@@ -3275,7 +3276,7 @@ export interface DBWApiInterface {
    * @param {DeliveryDatesRequest} deliveryDatesRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DBWApiInterface
+   * @memberof OrdersDbwApiInterface
    */
   postV3DbwOrdersDeliveryDate(
     deliveryDatesRequest: DeliveryDatesRequest,
@@ -3288,7 +3289,7 @@ export interface DBWApiInterface {
    * @param {ApiOrdersMetaDleteRequestV2} apiOrdersMetaDleteRequestV2
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DBWApiInterface
+   * @memberof OrdersDbwApiInterface
    */
   postV3DbwOrdersMetaDelete(
     apiOrdersMetaDleteRequestV2: ApiOrdersMetaDleteRequestV2,
@@ -3301,7 +3302,7 @@ export interface DBWApiInterface {
    * @param {ApiOrdersRequestV2} apiOrdersRequestV2
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DBWApiInterface
+   * @memberof OrdersDbwApiInterface
    */
   postV3DbwOrdersMetaDetails(
     apiOrdersRequestV2: ApiOrdersRequestV2,
@@ -3314,7 +3315,7 @@ export interface DBWApiInterface {
    * @param {ApiOrdersSGTINsSetRequest} apiOrdersSGTINsSetRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DBWApiInterface
+   * @memberof OrdersDbwApiInterface
    */
   postV3DbwOrdersMetaSgtin(
     apiOrdersSGTINsSetRequest: ApiOrdersSGTINsSetRequest,
@@ -3327,7 +3328,7 @@ export interface DBWApiInterface {
    * @param {PostV3DbwOrdersStatusRequest} [postV3DbwOrdersStatusRequest]
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DBWApiInterface
+   * @memberof OrdersDbwApiInterface
    */
   postV3DbwOrdersStatus(
     postV3DbwOrdersStatusRequest?: PostV3DbwOrdersStatusRequest,
@@ -3340,7 +3341,7 @@ export interface DBWApiInterface {
    * @param {ApiOrdersRequestV2} apiOrdersRequestV2
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DBWApiInterface
+   * @memberof OrdersDbwApiInterface
    */
   postV3DbwOrdersStatusDeliver(
     apiOrdersRequestV2: ApiOrdersRequestV2,
@@ -3356,7 +3357,7 @@ export interface DBWApiInterface {
    * @param {PostV3DbwOrdersStickersRequest} [postV3DbwOrdersStickersRequest]
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DBWApiInterface
+   * @memberof OrdersDbwApiInterface
    */
   postV3DbwOrdersStickers(
     type: PostV3DbwOrdersStickersTypeEnum,
@@ -3373,7 +3374,7 @@ export interface DBWApiInterface {
    * @param {PutV3DbwOrdersOrderIdMetaGtinRequest} putV3DbwOrdersOrderIdMetaGtinRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DBWApiInterface
+   * @memberof OrdersDbwApiInterface
    */
   putV3DbwOrdersOrderIdMetaGtin(
     orderId: number,
@@ -3388,7 +3389,7 @@ export interface DBWApiInterface {
    * @param {PutV3DbwOrdersOrderIdMetaImeiRequest} putV3DbwOrdersOrderIdMetaImeiRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DBWApiInterface
+   * @memberof OrdersDbwApiInterface
    */
   putV3DbwOrdersOrderIdMetaImei(
     orderId: number,
@@ -3403,7 +3404,7 @@ export interface DBWApiInterface {
    * @param {PutV3DbwOrdersOrderIdMetaUinRequest} putV3DbwOrdersOrderIdMetaUinRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DBWApiInterface
+   * @memberof OrdersDbwApiInterface
    */
   putV3DbwOrdersOrderIdMetaUin(
     orderId: number,
@@ -3413,12 +3414,12 @@ export interface DBWApiInterface {
 }
 
 /**
- * DBWApi - object-oriented interface
+ * OrdersDbwApi - object-oriented interface
  * @export
- * @class DBWApi
+ * @class OrdersDbwApi
  * @extends {BaseAPI}
  */
-export class DBWApi extends BaseAPI implements DBWApiInterface {
+export class OrdersDbwApi extends BaseAPI implements OrdersDbwApiInterface {
   /**
    * Метод возвращает информацию о завершенных [сборочных заданиях](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwAssemblyOrders).  Можно получить данные за заданный период, максимум 30 календарных дней одним запросом.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для следующих методов DBW:  * получение и обновление списка контактов * получение и удаление идентификаторов маркировки * методы сборочных заданий  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
    * @summary Получить информацию о завершенных сборочных заданиях
@@ -3428,7 +3429,7 @@ export class DBWApi extends BaseAPI implements DBWApiInterface {
    * @param {number} dateTo Дата конца периода в формате Unix timestamp
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DBWApi
+   * @memberof OrdersDbwApi
    */
   public getV3DbwOrders(
     limit: number,
@@ -3437,7 +3438,7 @@ export class DBWApi extends BaseAPI implements DBWApiInterface {
     dateTo: number,
     options?: RawAxiosRequestConfig,
   ) {
-    return DBWApiFp(this.configuration)
+    return OrdersDbwApiFp(this.configuration)
       .getV3DbwOrders(limit, next, dateFrom, dateTo, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -3447,10 +3448,10 @@ export class DBWApi extends BaseAPI implements DBWApiInterface {
    * @summary Получить список новых сборочных заданий
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DBWApi
+   * @memberof OrdersDbwApi
    */
   public getV3DbwOrdersNew(options?: RawAxiosRequestConfig) {
-    return DBWApiFp(this.configuration)
+    return OrdersDbwApiFp(this.configuration)
       .getV3DbwOrdersNew(options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -3461,13 +3462,13 @@ export class DBWApi extends BaseAPI implements DBWApiInterface {
    * @param {number} orderId ID сборочного задания
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DBWApi
+   * @memberof OrdersDbwApi
    */
   public patchV3DbwOrdersOrderIdCancel(
     orderId: number,
     options?: RawAxiosRequestConfig,
   ) {
-    return DBWApiFp(this.configuration)
+    return OrdersDbwApiFp(this.configuration)
       .patchV3DbwOrdersOrderIdCancel(orderId, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -3478,13 +3479,13 @@ export class DBWApi extends BaseAPI implements DBWApiInterface {
    * @param {number} orderId ID сборочного задания
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DBWApi
+   * @memberof OrdersDbwApi
    */
   public patchV3DbwOrdersOrderIdConfirm(
     orderId: number,
     options?: RawAxiosRequestConfig,
   ) {
-    return DBWApiFp(this.configuration)
+    return OrdersDbwApiFp(this.configuration)
       .patchV3DbwOrdersOrderIdConfirm(orderId, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -3495,13 +3496,13 @@ export class DBWApi extends BaseAPI implements DBWApiInterface {
    * @param {OrdersRequestAPI} ordersRequestAPI
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DBWApi
+   * @memberof OrdersDbwApi
    */
   public postV3DbwOrdersClient(
     ordersRequestAPI: OrdersRequestAPI,
     options?: RawAxiosRequestConfig,
   ) {
-    return DBWApiFp(this.configuration)
+    return OrdersDbwApiFp(this.configuration)
       .postV3DbwOrdersClient(ordersRequestAPI, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -3512,13 +3513,13 @@ export class DBWApi extends BaseAPI implements DBWApiInterface {
    * @param {OrdersRequestAPI} ordersRequestAPI
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DBWApi
+   * @memberof OrdersDbwApi
    */
   public postV3DbwOrdersCourier(
     ordersRequestAPI: OrdersRequestAPI,
     options?: RawAxiosRequestConfig,
   ) {
-    return DBWApiFp(this.configuration)
+    return OrdersDbwApiFp(this.configuration)
       .postV3DbwOrdersCourier(ordersRequestAPI, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -3529,13 +3530,13 @@ export class DBWApi extends BaseAPI implements DBWApiInterface {
    * @param {DeliveryDatesRequest} deliveryDatesRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DBWApi
+   * @memberof OrdersDbwApi
    */
   public postV3DbwOrdersDeliveryDate(
     deliveryDatesRequest: DeliveryDatesRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return DBWApiFp(this.configuration)
+    return OrdersDbwApiFp(this.configuration)
       .postV3DbwOrdersDeliveryDate(deliveryDatesRequest, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -3546,13 +3547,13 @@ export class DBWApi extends BaseAPI implements DBWApiInterface {
    * @param {ApiOrdersMetaDleteRequestV2} apiOrdersMetaDleteRequestV2
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DBWApi
+   * @memberof OrdersDbwApi
    */
   public postV3DbwOrdersMetaDelete(
     apiOrdersMetaDleteRequestV2: ApiOrdersMetaDleteRequestV2,
     options?: RawAxiosRequestConfig,
   ) {
-    return DBWApiFp(this.configuration)
+    return OrdersDbwApiFp(this.configuration)
       .postV3DbwOrdersMetaDelete(apiOrdersMetaDleteRequestV2, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -3563,13 +3564,13 @@ export class DBWApi extends BaseAPI implements DBWApiInterface {
    * @param {ApiOrdersRequestV2} apiOrdersRequestV2
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DBWApi
+   * @memberof OrdersDbwApi
    */
   public postV3DbwOrdersMetaDetails(
     apiOrdersRequestV2: ApiOrdersRequestV2,
     options?: RawAxiosRequestConfig,
   ) {
-    return DBWApiFp(this.configuration)
+    return OrdersDbwApiFp(this.configuration)
       .postV3DbwOrdersMetaDetails(apiOrdersRequestV2, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -3580,13 +3581,13 @@ export class DBWApi extends BaseAPI implements DBWApiInterface {
    * @param {ApiOrdersSGTINsSetRequest} apiOrdersSGTINsSetRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DBWApi
+   * @memberof OrdersDbwApi
    */
   public postV3DbwOrdersMetaSgtin(
     apiOrdersSGTINsSetRequest: ApiOrdersSGTINsSetRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return DBWApiFp(this.configuration)
+    return OrdersDbwApiFp(this.configuration)
       .postV3DbwOrdersMetaSgtin(apiOrdersSGTINsSetRequest, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -3597,13 +3598,13 @@ export class DBWApi extends BaseAPI implements DBWApiInterface {
    * @param {PostV3DbwOrdersStatusRequest} [postV3DbwOrdersStatusRequest]
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DBWApi
+   * @memberof OrdersDbwApi
    */
   public postV3DbwOrdersStatus(
     postV3DbwOrdersStatusRequest?: PostV3DbwOrdersStatusRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return DBWApiFp(this.configuration)
+    return OrdersDbwApiFp(this.configuration)
       .postV3DbwOrdersStatus(postV3DbwOrdersStatusRequest, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -3614,13 +3615,13 @@ export class DBWApi extends BaseAPI implements DBWApiInterface {
    * @param {ApiOrdersRequestV2} apiOrdersRequestV2
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DBWApi
+   * @memberof OrdersDbwApi
    */
   public postV3DbwOrdersStatusDeliver(
     apiOrdersRequestV2: ApiOrdersRequestV2,
     options?: RawAxiosRequestConfig,
   ) {
-    return DBWApiFp(this.configuration)
+    return OrdersDbwApiFp(this.configuration)
       .postV3DbwOrdersStatusDeliver(apiOrdersRequestV2, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -3634,7 +3635,7 @@ export class DBWApi extends BaseAPI implements DBWApiInterface {
    * @param {PostV3DbwOrdersStickersRequest} [postV3DbwOrdersStickersRequest]
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DBWApi
+   * @memberof OrdersDbwApi
    */
   public postV3DbwOrdersStickers(
     type: PostV3DbwOrdersStickersTypeEnum,
@@ -3643,7 +3644,7 @@ export class DBWApi extends BaseAPI implements DBWApiInterface {
     postV3DbwOrdersStickersRequest?: PostV3DbwOrdersStickersRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return DBWApiFp(this.configuration)
+    return OrdersDbwApiFp(this.configuration)
       .postV3DbwOrdersStickers(
         type,
         width,
@@ -3661,14 +3662,14 @@ export class DBWApi extends BaseAPI implements DBWApiInterface {
    * @param {PutV3DbwOrdersOrderIdMetaGtinRequest} putV3DbwOrdersOrderIdMetaGtinRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DBWApi
+   * @memberof OrdersDbwApi
    */
   public putV3DbwOrdersOrderIdMetaGtin(
     orderId: number,
     putV3DbwOrdersOrderIdMetaGtinRequest: PutV3DbwOrdersOrderIdMetaGtinRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return DBWApiFp(this.configuration)
+    return OrdersDbwApiFp(this.configuration)
       .putV3DbwOrdersOrderIdMetaGtin(
         orderId,
         putV3DbwOrdersOrderIdMetaGtinRequest,
@@ -3684,14 +3685,14 @@ export class DBWApi extends BaseAPI implements DBWApiInterface {
    * @param {PutV3DbwOrdersOrderIdMetaImeiRequest} putV3DbwOrdersOrderIdMetaImeiRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DBWApi
+   * @memberof OrdersDbwApi
    */
   public putV3DbwOrdersOrderIdMetaImei(
     orderId: number,
     putV3DbwOrdersOrderIdMetaImeiRequest: PutV3DbwOrdersOrderIdMetaImeiRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return DBWApiFp(this.configuration)
+    return OrdersDbwApiFp(this.configuration)
       .putV3DbwOrdersOrderIdMetaImei(
         orderId,
         putV3DbwOrdersOrderIdMetaImeiRequest,
@@ -3707,14 +3708,14 @@ export class DBWApi extends BaseAPI implements DBWApiInterface {
    * @param {PutV3DbwOrdersOrderIdMetaUinRequest} putV3DbwOrdersOrderIdMetaUinRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DBWApi
+   * @memberof OrdersDbwApi
    */
   public putV3DbwOrdersOrderIdMetaUin(
     orderId: number,
     putV3DbwOrdersOrderIdMetaUinRequest: PutV3DbwOrdersOrderIdMetaUinRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return DBWApiFp(this.configuration)
+    return OrdersDbwApiFp(this.configuration)
       .putV3DbwOrdersOrderIdMetaUin(
         orderId,
         putV3DbwOrdersOrderIdMetaUinRequest,

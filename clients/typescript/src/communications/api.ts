@@ -3122,10 +3122,10 @@ export interface StandardizedFQError {
 }
 
 /**
- * DefaultApi - axios parameter creator
+ * CommunicationsApi - axios parameter creator
  * @export
  */
-export const DefaultApiAxiosParamCreator = function (
+export const CommunicationsApiAxiosParamCreator = function (
   configuration?: Configuration,
 ) {
   return {
@@ -4637,11 +4637,12 @@ export const DefaultApiAxiosParamCreator = function (
 };
 
 /**
- * DefaultApi - functional programming interface
+ * CommunicationsApi - functional programming interface
  * @export
  */
-export const DefaultApiFp = function (configuration?: Configuration) {
-  const localVarAxiosParamCreator = DefaultApiAxiosParamCreator(configuration);
+export const CommunicationsApiFp = function (configuration?: Configuration) {
+  const localVarAxiosParamCreator =
+    CommunicationsApiAxiosParamCreator(configuration);
   return {
     /**
      * Метод позволяет открепить отзывы в карточке товара или в группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. Чтобы получить `pinId` — ID операций закрепления, используйте метод [Список закреплённых и откреплённых отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks/operation/getV1Pins).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
@@ -4665,7 +4666,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
       );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.deleteV1Pins"]?.[
+        operationServerMap["CommunicationsApi.deleteV1Pins"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -4710,7 +4711,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
       );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV1Claims"]?.[
+        operationServerMap["CommunicationsApi.getV1Claims"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -4743,7 +4744,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
       );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV1Feedback"]?.[
+        operationServerMap["CommunicationsApi.getV1Feedback"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -4794,7 +4795,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
       );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV1Feedbacks"]?.[
+        operationServerMap["CommunicationsApi.getV1Feedbacks"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -4837,7 +4838,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV1FeedbacksArchive"]?.[
+        operationServerMap["CommunicationsApi.getV1FeedbacksArchive"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -4877,7 +4878,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV1FeedbacksCount"]?.[
+        operationServerMap["CommunicationsApi.getV1FeedbacksCount"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -4906,7 +4907,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         await localVarAxiosParamCreator.getV1FeedbacksCountUnanswered(options);
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV1FeedbacksCountUnanswered"]?.[
+        operationServerMap["CommunicationsApi.getV1FeedbacksCountUnanswered"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -4935,7 +4936,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         await localVarAxiosParamCreator.getV1NewFeedbacksQuestions(options);
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV1NewFeedbacksQuestions"]?.[
+        operationServerMap["CommunicationsApi.getV1NewFeedbacksQuestions"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -4992,7 +4993,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
       );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV1Pins"]?.[
+        operationServerMap["CommunicationsApi.getV1Pins"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -5043,7 +5044,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
       );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV1PinsCount"]?.[
+        operationServerMap["CommunicationsApi.getV1PinsCount"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -5072,7 +5073,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         await localVarAxiosParamCreator.getV1PinsLimits(options);
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV1PinsLimits"]?.[
+        operationServerMap["CommunicationsApi.getV1PinsLimits"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -5105,7 +5106,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
       );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV1Question"]?.[
+        operationServerMap["CommunicationsApi.getV1Question"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -5156,7 +5157,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
       );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV1Questions"]?.[
+        operationServerMap["CommunicationsApi.getV1Questions"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -5196,7 +5197,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV1QuestionsCount"]?.[
+        operationServerMap["CommunicationsApi.getV1QuestionsCount"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -5225,7 +5226,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         await localVarAxiosParamCreator.getV1QuestionsCountUnanswered(options);
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV1QuestionsCountUnanswered"]?.[
+        operationServerMap["CommunicationsApi.getV1QuestionsCountUnanswered"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -5251,7 +5252,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         await localVarAxiosParamCreator.getV1SellerChats(options);
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV1SellerChats"]?.[
+        operationServerMap["CommunicationsApi.getV1SellerChats"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -5279,7 +5280,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         await localVarAxiosParamCreator.getV1SellerDownloadId(id, options);
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV1SellerDownloadId"]?.[
+        operationServerMap["CommunicationsApi.getV1SellerDownloadId"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -5307,7 +5308,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         await localVarAxiosParamCreator.getV1SellerEvents(next, options);
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV1SellerEvents"]?.[
+        operationServerMap["CommunicationsApi.getV1SellerEvents"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -5337,7 +5338,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
       );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.patchV1Claim"]?.[
+        operationServerMap["CommunicationsApi.patchV1Claim"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -5368,7 +5369,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.patchV1FeedbacksAnswer"]?.[
+        operationServerMap["CommunicationsApi.patchV1FeedbacksAnswer"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -5402,7 +5403,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.patchV1Questions"]?.[
+        operationServerMap["CommunicationsApi.patchV1Questions"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -5433,7 +5434,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.postV1FeedbacksAnswer"]?.[
+        operationServerMap["CommunicationsApi.postV1FeedbacksAnswer"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -5467,7 +5468,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.postV1FeedbacksOrderReturn"]?.[
+        operationServerMap["CommunicationsApi.postV1FeedbacksOrderReturn"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -5500,7 +5501,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
       );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.postV1Pins"]?.[
+        operationServerMap["CommunicationsApi.postV1Pins"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -5540,7 +5541,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.postV1SellerMessage"]?.[
+        operationServerMap["CommunicationsApi.postV1SellerMessage"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -5555,15 +5556,15 @@ export const DefaultApiFp = function (configuration?: Configuration) {
 };
 
 /**
- * DefaultApi - factory interface
+ * CommunicationsApi - factory interface
  * @export
  */
-export const DefaultApiFactory = function (
+export const CommunicationsApiFactory = function (
   configuration?: Configuration,
   basePath?: string,
   axios?: AxiosInstance,
 ) {
-  const localVarFp = DefaultApiFp(configuration);
+  const localVarFp = CommunicationsApiFp(configuration);
   return {
     /**
      * Метод позволяет открепить отзывы в карточке товара или в группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. Чтобы получить `pinId` — ID операций закрепления, используйте метод [Список закреплённых и откреплённых отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks/operation/getV1Pins).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
@@ -6050,18 +6051,18 @@ export const DefaultApiFactory = function (
 };
 
 /**
- * DefaultApi - interface
+ * CommunicationsApi - interface
  * @export
- * @interface DefaultApi
+ * @interface CommunicationsApi
  */
-export interface DefaultApiInterface {
+export interface CommunicationsApiInterface {
   /**
    * Метод позволяет открепить отзывы в карточке товара или в группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. Чтобы получить `pinId` — ID операций закрепления, используйте метод [Список закреплённых и откреплённых отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks/operation/getV1Pins).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
    * @summary Открепить отзывы
    * @param {Array<number>} requestBody Список &#x60;pinId&#x60; — ID операций закрепления отзывов
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof CommunicationsApiInterface
    */
   deleteV1Pins(
     requestBody: Array<number>,
@@ -6078,7 +6079,7 @@ export interface DefaultApiInterface {
    * @param {number} [nmId] Артикул WB
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof CommunicationsApiInterface
    */
   getV1Claims(
     isArchive: boolean,
@@ -6095,7 +6096,7 @@ export interface DefaultApiInterface {
    * @param {string} id ID отзыва
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof CommunicationsApiInterface
    */
   getV1Feedback(
     id: string,
@@ -6114,7 +6115,7 @@ export interface DefaultApiInterface {
    * @param {number} [dateTo] Дата конца периода в формате Unix timestamp
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof CommunicationsApiInterface
    */
   getV1Feedbacks(
     isAnswered: boolean,
@@ -6136,7 +6137,7 @@ export interface DefaultApiInterface {
    * @param {GetV1FeedbacksArchiveOrderEnum} [order] Сортировка отзывов по дате (dateAsc/dateDesc)
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof CommunicationsApiInterface
    */
   getV1FeedbacksArchive(
     take: number,
@@ -6154,7 +6155,7 @@ export interface DefaultApiInterface {
    * @param {number} [dateTo] Дата конца периода в формате Unix timestamp
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof CommunicationsApiInterface
    */
   getV1FeedbacksCount(
     isAnswered: boolean,
@@ -6168,7 +6169,7 @@ export interface DefaultApiInterface {
    * @summary Необработанные отзывы
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof CommunicationsApiInterface
    */
   getV1FeedbacksCountUnanswered(
     options?: RawAxiosRequestConfig,
@@ -6179,7 +6180,7 @@ export interface DefaultApiInterface {
    * @summary Непросмотренные отзывы и вопросы
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof CommunicationsApiInterface
    */
   getV1NewFeedbacksQuestions(
     options?: RawAxiosRequestConfig,
@@ -6199,7 +6200,7 @@ export interface DefaultApiInterface {
    * @param {number} [limit] Количество отзывов на одной странице (пагинация)
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof CommunicationsApiInterface
    */
   getV1Pins(
     state?: GetV1PinsStateEnum,
@@ -6226,7 +6227,7 @@ export interface DefaultApiInterface {
    * @param {string} [dateTo] Дата закрепления последнего отзыва в списке
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof CommunicationsApiInterface
    */
   getV1PinsCount(
     state?: GetV1PinsCountStateEnum,
@@ -6244,7 +6245,7 @@ export interface DefaultApiInterface {
    * @summary Лимиты закреплённых отзывов
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof CommunicationsApiInterface
    */
   getV1PinsLimits(
     options?: RawAxiosRequestConfig,
@@ -6256,7 +6257,7 @@ export interface DefaultApiInterface {
    * @param {string} id ID вопроса
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof CommunicationsApiInterface
    */
   getV1Question(
     id: string,
@@ -6275,7 +6276,7 @@ export interface DefaultApiInterface {
    * @param {number} [dateTo] Дата конца периода в формате Unix timestamp
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof CommunicationsApiInterface
    */
   getV1Questions(
     isAnswered: boolean,
@@ -6296,7 +6297,7 @@ export interface DefaultApiInterface {
    * @param {boolean} [isAnswered] Есть ли ответ на вопрос:   - &#x60;true&#x60; — да   - &#x60;false&#x60; — нет
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof CommunicationsApiInterface
    */
   getV1QuestionsCount(
     dateFrom?: number,
@@ -6310,7 +6311,7 @@ export interface DefaultApiInterface {
    * @summary Неотвеченные вопросы
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof CommunicationsApiInterface
    */
   getV1QuestionsCountUnanswered(
     options?: RawAxiosRequestConfig,
@@ -6321,7 +6322,7 @@ export interface DefaultApiInterface {
    * @summary Список чатов
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof CommunicationsApiInterface
    */
   getV1SellerChats(
     options?: RawAxiosRequestConfig,
@@ -6333,7 +6334,7 @@ export interface DefaultApiInterface {
    * @param {string} id ID файла, см. значение поля &#x60;downloadID&#x60; в методе [События чатов](./customer-communication#tag/buyersChat/operation/getV1SellerEvents)
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof CommunicationsApiInterface
    */
   getV1SellerDownloadId(
     id: string,
@@ -6346,7 +6347,7 @@ export interface DefaultApiInterface {
    * @param {number} [next] Пагинатор. С какого момента получить следующий пакет данных. Формат Unix timestamp \\*\\*с миллисекундами\\*\\*
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof CommunicationsApiInterface
    */
   getV1SellerEvents(
     next?: number,
@@ -6359,7 +6360,7 @@ export interface DefaultApiInterface {
    * @param {PatchV1ClaimRequest} patchV1ClaimRequest Ответ на заявку
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof CommunicationsApiInterface
    */
   patchV1Claim(
     patchV1ClaimRequest: PatchV1ClaimRequest,
@@ -6372,7 +6373,7 @@ export interface DefaultApiInterface {
    * @param {PatchV1FeedbacksAnswerRequest} [patchV1FeedbacksAnswerRequest]
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof CommunicationsApiInterface
    */
   patchV1FeedbacksAnswer(
     patchV1FeedbacksAnswerRequest?: PatchV1FeedbacksAnswerRequest,
@@ -6385,7 +6386,7 @@ export interface DefaultApiInterface {
    * @param {PatchV1QuestionsRequest} [patchV1QuestionsRequest]
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof CommunicationsApiInterface
    */
   patchV1Questions(
     patchV1QuestionsRequest?: PatchV1QuestionsRequest,
@@ -6398,7 +6399,7 @@ export interface DefaultApiInterface {
    * @param {PostV1FeedbacksAnswerRequest} [postV1FeedbacksAnswerRequest]
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof CommunicationsApiInterface
    */
   postV1FeedbacksAnswer(
     postV1FeedbacksAnswerRequest?: PostV1FeedbacksAnswerRequest,
@@ -6411,7 +6412,7 @@ export interface DefaultApiInterface {
    * @param {PostV1FeedbacksOrderReturnRequest} postV1FeedbacksOrderReturnRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof CommunicationsApiInterface
    */
   postV1FeedbacksOrderReturn(
     postV1FeedbacksOrderReturnRequest: PostV1FeedbacksOrderReturnRequest,
@@ -6424,7 +6425,7 @@ export interface DefaultApiInterface {
    * @param {Array<OpenapiPinReviewItem>} openapiPinReviewItem
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof CommunicationsApiInterface
    */
   postV1Pins(
     openapiPinReviewItem: Array<OpenapiPinReviewItem>,
@@ -6439,7 +6440,7 @@ export interface DefaultApiInterface {
    * @param {Array<File>} [file] Файлы, формат JPEG, PDF или PNG, максимальный размер — 5 Мб каждый. Максимальный суммарный размер файлов — 30 Мб.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof CommunicationsApiInterface
    */
   postV1SellerMessage(
     replySign: string,
@@ -6450,25 +6451,28 @@ export interface DefaultApiInterface {
 }
 
 /**
- * DefaultApi - object-oriented interface
+ * CommunicationsApi - object-oriented interface
  * @export
- * @class DefaultApi
+ * @class CommunicationsApi
  * @extends {BaseAPI}
  */
-export class DefaultApi extends BaseAPI implements DefaultApiInterface {
+export class CommunicationsApi
+  extends BaseAPI
+  implements CommunicationsApiInterface
+{
   /**
    * Метод позволяет открепить отзывы в карточке товара или в группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. Чтобы получить `pinId` — ID операций закрепления, используйте метод [Список закреплённых и откреплённых отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks/operation/getV1Pins).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
    * @summary Открепить отзывы
    * @param {Array<number>} requestBody Список &#x60;pinId&#x60; — ID операций закрепления отзывов
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof CommunicationsApi
    */
   public deleteV1Pins(
     requestBody: Array<number>,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return CommunicationsApiFp(this.configuration)
       .deleteV1Pins(requestBody, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -6483,7 +6487,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {number} [nmId] Артикул WB
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof CommunicationsApi
    */
   public getV1Claims(
     isArchive: boolean,
@@ -6493,7 +6497,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
     nmId?: number,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return CommunicationsApiFp(this.configuration)
       .getV1Claims(isArchive, id, limit, offset, nmId, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -6504,10 +6508,10 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {string} id ID отзыва
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof CommunicationsApi
    */
   public getV1Feedback(id: string, options?: RawAxiosRequestConfig) {
-    return DefaultApiFp(this.configuration)
+    return CommunicationsApiFp(this.configuration)
       .getV1Feedback(id, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -6524,7 +6528,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {number} [dateTo] Дата конца периода в формате Unix timestamp
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof CommunicationsApi
    */
   public getV1Feedbacks(
     isAnswered: boolean,
@@ -6536,7 +6540,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
     dateTo?: number,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return CommunicationsApiFp(this.configuration)
       .getV1Feedbacks(
         isAnswered,
         take,
@@ -6559,7 +6563,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {GetV1FeedbacksArchiveOrderEnum} [order] Сортировка отзывов по дате (dateAsc/dateDesc)
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof CommunicationsApi
    */
   public getV1FeedbacksArchive(
     take: number,
@@ -6568,7 +6572,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
     order?: GetV1FeedbacksArchiveOrderEnum,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return CommunicationsApiFp(this.configuration)
       .getV1FeedbacksArchive(take, skip, nmId, order, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -6581,7 +6585,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {number} [dateTo] Дата конца периода в формате Unix timestamp
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof CommunicationsApi
    */
   public getV1FeedbacksCount(
     isAnswered: boolean,
@@ -6589,7 +6593,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
     dateTo?: number,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return CommunicationsApiFp(this.configuration)
       .getV1FeedbacksCount(isAnswered, dateFrom, dateTo, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -6599,10 +6603,10 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @summary Необработанные отзывы
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof CommunicationsApi
    */
   public getV1FeedbacksCountUnanswered(options?: RawAxiosRequestConfig) {
-    return DefaultApiFp(this.configuration)
+    return CommunicationsApiFp(this.configuration)
       .getV1FeedbacksCountUnanswered(options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -6612,10 +6616,10 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @summary Непросмотренные отзывы и вопросы
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof CommunicationsApi
    */
   public getV1NewFeedbacksQuestions(options?: RawAxiosRequestConfig) {
-    return DefaultApiFp(this.configuration)
+    return CommunicationsApiFp(this.configuration)
       .getV1NewFeedbacksQuestions(options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -6634,7 +6638,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {number} [limit] Количество отзывов на одной странице (пагинация)
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof CommunicationsApi
    */
   public getV1Pins(
     state?: GetV1PinsStateEnum,
@@ -6648,7 +6652,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
     limit?: number,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return CommunicationsApiFp(this.configuration)
       .getV1Pins(
         state,
         pinOn,
@@ -6676,7 +6680,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {string} [dateTo] Дата закрепления последнего отзыва в списке
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof CommunicationsApi
    */
   public getV1PinsCount(
     state?: GetV1PinsCountStateEnum,
@@ -6688,7 +6692,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
     dateTo?: string,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return CommunicationsApiFp(this.configuration)
       .getV1PinsCount(
         state,
         pinOn,
@@ -6707,10 +6711,10 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @summary Лимиты закреплённых отзывов
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof CommunicationsApi
    */
   public getV1PinsLimits(options?: RawAxiosRequestConfig) {
-    return DefaultApiFp(this.configuration)
+    return CommunicationsApiFp(this.configuration)
       .getV1PinsLimits(options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -6721,10 +6725,10 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {string} id ID вопроса
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof CommunicationsApi
    */
   public getV1Question(id: string, options?: RawAxiosRequestConfig) {
-    return DefaultApiFp(this.configuration)
+    return CommunicationsApiFp(this.configuration)
       .getV1Question(id, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -6741,7 +6745,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {number} [dateTo] Дата конца периода в формате Unix timestamp
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof CommunicationsApi
    */
   public getV1Questions(
     isAnswered: boolean,
@@ -6753,7 +6757,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
     dateTo?: number,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return CommunicationsApiFp(this.configuration)
       .getV1Questions(
         isAnswered,
         take,
@@ -6775,7 +6779,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {boolean} [isAnswered] Есть ли ответ на вопрос:   - &#x60;true&#x60; — да   - &#x60;false&#x60; — нет
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof CommunicationsApi
    */
   public getV1QuestionsCount(
     dateFrom?: number,
@@ -6783,7 +6787,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
     isAnswered?: boolean,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return CommunicationsApiFp(this.configuration)
       .getV1QuestionsCount(dateFrom, dateTo, isAnswered, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -6793,10 +6797,10 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @summary Неотвеченные вопросы
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof CommunicationsApi
    */
   public getV1QuestionsCountUnanswered(options?: RawAxiosRequestConfig) {
-    return DefaultApiFp(this.configuration)
+    return CommunicationsApiFp(this.configuration)
       .getV1QuestionsCountUnanswered(options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -6806,10 +6810,10 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @summary Список чатов
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof CommunicationsApi
    */
   public getV1SellerChats(options?: RawAxiosRequestConfig) {
-    return DefaultApiFp(this.configuration)
+    return CommunicationsApiFp(this.configuration)
       .getV1SellerChats(options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -6820,10 +6824,10 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {string} id ID файла, см. значение поля &#x60;downloadID&#x60; в методе [События чатов](./customer-communication#tag/buyersChat/operation/getV1SellerEvents)
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof CommunicationsApi
    */
   public getV1SellerDownloadId(id: string, options?: RawAxiosRequestConfig) {
-    return DefaultApiFp(this.configuration)
+    return CommunicationsApiFp(this.configuration)
       .getV1SellerDownloadId(id, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -6834,10 +6838,10 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {number} [next] Пагинатор. С какого момента получить следующий пакет данных. Формат Unix timestamp \\*\\*с миллисекундами\\*\\*
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof CommunicationsApi
    */
   public getV1SellerEvents(next?: number, options?: RawAxiosRequestConfig) {
-    return DefaultApiFp(this.configuration)
+    return CommunicationsApiFp(this.configuration)
       .getV1SellerEvents(next, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -6848,13 +6852,13 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {PatchV1ClaimRequest} patchV1ClaimRequest Ответ на заявку
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof CommunicationsApi
    */
   public patchV1Claim(
     patchV1ClaimRequest: PatchV1ClaimRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return CommunicationsApiFp(this.configuration)
       .patchV1Claim(patchV1ClaimRequest, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -6865,13 +6869,13 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {PatchV1FeedbacksAnswerRequest} [patchV1FeedbacksAnswerRequest]
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof CommunicationsApi
    */
   public patchV1FeedbacksAnswer(
     patchV1FeedbacksAnswerRequest?: PatchV1FeedbacksAnswerRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return CommunicationsApiFp(this.configuration)
       .patchV1FeedbacksAnswer(patchV1FeedbacksAnswerRequest, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -6882,13 +6886,13 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {PatchV1QuestionsRequest} [patchV1QuestionsRequest]
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof CommunicationsApi
    */
   public patchV1Questions(
     patchV1QuestionsRequest?: PatchV1QuestionsRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return CommunicationsApiFp(this.configuration)
       .patchV1Questions(patchV1QuestionsRequest, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -6899,13 +6903,13 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {PostV1FeedbacksAnswerRequest} [postV1FeedbacksAnswerRequest]
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof CommunicationsApi
    */
   public postV1FeedbacksAnswer(
     postV1FeedbacksAnswerRequest?: PostV1FeedbacksAnswerRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return CommunicationsApiFp(this.configuration)
       .postV1FeedbacksAnswer(postV1FeedbacksAnswerRequest, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -6916,13 +6920,13 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {PostV1FeedbacksOrderReturnRequest} postV1FeedbacksOrderReturnRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof CommunicationsApi
    */
   public postV1FeedbacksOrderReturn(
     postV1FeedbacksOrderReturnRequest: PostV1FeedbacksOrderReturnRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return CommunicationsApiFp(this.configuration)
       .postV1FeedbacksOrderReturn(postV1FeedbacksOrderReturnRequest, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -6933,13 +6937,13 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {Array<OpenapiPinReviewItem>} openapiPinReviewItem
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof CommunicationsApi
    */
   public postV1Pins(
     openapiPinReviewItem: Array<OpenapiPinReviewItem>,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return CommunicationsApiFp(this.configuration)
       .postV1Pins(openapiPinReviewItem, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -6952,7 +6956,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {Array<File>} [file] Файлы, формат JPEG, PDF или PNG, максимальный размер — 5 Мб каждый. Максимальный суммарный размер файлов — 30 Мб.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof CommunicationsApi
    */
   public postV1SellerMessage(
     replySign: string,
@@ -6960,7 +6964,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
     file?: Array<File>,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return CommunicationsApiFp(this.configuration)
       .postV1SellerMessage(replySign, message, file, options)
       .then((request) => request(this.axios, this.basePath));
   }

@@ -23,7 +23,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IDBSApiSync : IApiAccessor
+    public interface IDbsApiSync : IApiAccessor
     {
         #region Synchronous Operations
         /// <summary>
@@ -525,7 +525,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IDBSApiAsync : IApiAccessor
+    public interface IDbsApiAsync : IApiAccessor
     {
         #region Asynchronous Operations
         /// <summary>
@@ -1069,7 +1069,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IDBSApi : IDBSApiSync, IDBSApiAsync
+    public interface IDbsApi : IDbsApiSync, IDbsApiAsync
     {
 
     }
@@ -1077,23 +1077,23 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public partial class DBSApi : IDBSApi
+    public partial class DbsApi : IDbsApi
     {
         private ValeryVerkhoturov.WbApiClient.Dbs.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="DBSApi"/> class.
+        /// Initializes a new instance of the <see cref="DbsApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public DBSApi() : this((string)null)
+        public DbsApi() : this((string)null)
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="DBSApi"/> class.
+        /// Initializes a new instance of the <see cref="DbsApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public DBSApi(string basePath)
+        public DbsApi(string basePath)
         {
             this.Configuration = ValeryVerkhoturov.WbApiClient.Dbs.Client.Configuration.MergeConfigurations(
                 ValeryVerkhoturov.WbApiClient.Dbs.Client.GlobalConfiguration.Instance,
@@ -1105,12 +1105,12 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="DBSApi"/> class
+        /// Initializes a new instance of the <see cref="DbsApi"/> class
         /// using Configuration object
         /// </summary>
         /// <param name="configuration">An instance of Configuration</param>
         /// <returns></returns>
-        public DBSApi(ValeryVerkhoturov.WbApiClient.Dbs.Client.Configuration configuration)
+        public DbsApi(ValeryVerkhoturov.WbApiClient.Dbs.Client.Configuration configuration)
         {
             if (configuration == null) throw new ArgumentNullException("configuration");
 
@@ -1124,13 +1124,13 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="DBSApi"/> class
+        /// Initializes a new instance of the <see cref="DbsApi"/> class
         /// using a Configuration object and client instance.
         /// </summary>
         /// <param name="client">The client interface for synchronous API access.</param>
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
-        public DBSApi(ValeryVerkhoturov.WbApiClient.Dbs.Client.ISynchronousClient client, ValeryVerkhoturov.WbApiClient.Dbs.Client.IAsynchronousClient asyncClient, ValeryVerkhoturov.WbApiClient.Dbs.Client.IReadableConfiguration configuration)
+        public DbsApi(ValeryVerkhoturov.WbApiClient.Dbs.Client.ISynchronousClient client, ValeryVerkhoturov.WbApiClient.Dbs.Client.IAsynchronousClient asyncClient, ValeryVerkhoturov.WbApiClient.Dbs.Client.IReadableConfiguration configuration)
         {
             if (client == null) throw new ArgumentNullException("client");
             if (asyncClient == null) throw new ArgumentNullException("asyncClient");
@@ -1239,7 +1239,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
             localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Dbs.Client.ClientUtils.ParameterToMultiMap("", "dateFrom", dateFrom));
             localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Dbs.Client.ClientUtils.ParameterToMultiMap("", "dateTo", dateTo));
 
-            localVarRequestOptions.Operation = "DBSApi.GetV3DbsOrders";
+            localVarRequestOptions.Operation = "DbsApi.GetV3DbsOrders";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (BearerAuth) required
@@ -1322,7 +1322,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
             localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Dbs.Client.ClientUtils.ParameterToMultiMap("", "dateFrom", dateFrom));
             localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Dbs.Client.ClientUtils.ParameterToMultiMap("", "dateTo", dateTo));
 
-            localVarRequestOptions.Operation = "DBSApi.GetV3DbsOrders";
+            localVarRequestOptions.Operation = "DbsApi.GetV3DbsOrders";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (BearerAuth) required
@@ -1391,7 +1391,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
             }
 
 
-            localVarRequestOptions.Operation = "DBSApi.GetV3DbsOrdersNew";
+            localVarRequestOptions.Operation = "DbsApi.GetV3DbsOrdersNew";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (BearerAuth) required
@@ -1462,7 +1462,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
             }
 
 
-            localVarRequestOptions.Operation = "DBSApi.GetV3DbsOrdersNew";
+            localVarRequestOptions.Operation = "DbsApi.GetV3DbsOrdersNew";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (BearerAuth) required
@@ -1512,7 +1512,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
             // verify the required parameter 'apiOrderGroupsRequest' is set
             if (apiOrderGroupsRequest == null)
             {
-                throw new ValeryVerkhoturov.WbApiClient.Dbs.Client.ApiException(400, "Missing required parameter 'apiOrderGroupsRequest' when calling DBSApi->PostV3DbsGroupsInfo");
+                throw new ValeryVerkhoturov.WbApiClient.Dbs.Client.ApiException(400, "Missing required parameter 'apiOrderGroupsRequest' when calling DbsApi->PostV3DbsGroupsInfo");
             }
 
             ValeryVerkhoturov.WbApiClient.Dbs.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Dbs.Client.RequestOptions();
@@ -1541,7 +1541,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
 
             localVarRequestOptions.Data = apiOrderGroupsRequest;
 
-            localVarRequestOptions.Operation = "DBSApi.PostV3DbsGroupsInfo";
+            localVarRequestOptions.Operation = "DbsApi.PostV3DbsGroupsInfo";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (BearerAuth) required
@@ -1592,7 +1592,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
             // verify the required parameter 'apiOrderGroupsRequest' is set
             if (apiOrderGroupsRequest == null)
             {
-                throw new ValeryVerkhoturov.WbApiClient.Dbs.Client.ApiException(400, "Missing required parameter 'apiOrderGroupsRequest' when calling DBSApi->PostV3DbsGroupsInfo");
+                throw new ValeryVerkhoturov.WbApiClient.Dbs.Client.ApiException(400, "Missing required parameter 'apiOrderGroupsRequest' when calling DbsApi->PostV3DbsGroupsInfo");
             }
 
 
@@ -1622,7 +1622,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
 
             localVarRequestOptions.Data = apiOrderGroupsRequest;
 
-            localVarRequestOptions.Operation = "DBSApi.PostV3DbsGroupsInfo";
+            localVarRequestOptions.Operation = "DbsApi.PostV3DbsGroupsInfo";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (BearerAuth) required
@@ -1672,7 +1672,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
             // verify the required parameter 'apiOrdersRequestV2' is set
             if (apiOrdersRequestV2 == null)
             {
-                throw new ValeryVerkhoturov.WbApiClient.Dbs.Client.ApiException(400, "Missing required parameter 'apiOrdersRequestV2' when calling DBSApi->PostV3DbsOrdersB2bInfo");
+                throw new ValeryVerkhoturov.WbApiClient.Dbs.Client.ApiException(400, "Missing required parameter 'apiOrdersRequestV2' when calling DbsApi->PostV3DbsOrdersB2bInfo");
             }
 
             ValeryVerkhoturov.WbApiClient.Dbs.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Dbs.Client.RequestOptions();
@@ -1701,7 +1701,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
 
             localVarRequestOptions.Data = apiOrdersRequestV2;
 
-            localVarRequestOptions.Operation = "DBSApi.PostV3DbsOrdersB2bInfo";
+            localVarRequestOptions.Operation = "DbsApi.PostV3DbsOrdersB2bInfo";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (BearerAuth) required
@@ -1752,7 +1752,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
             // verify the required parameter 'apiOrdersRequestV2' is set
             if (apiOrdersRequestV2 == null)
             {
-                throw new ValeryVerkhoturov.WbApiClient.Dbs.Client.ApiException(400, "Missing required parameter 'apiOrdersRequestV2' when calling DBSApi->PostV3DbsOrdersB2bInfo");
+                throw new ValeryVerkhoturov.WbApiClient.Dbs.Client.ApiException(400, "Missing required parameter 'apiOrdersRequestV2' when calling DbsApi->PostV3DbsOrdersB2bInfo");
             }
 
 
@@ -1782,7 +1782,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
 
             localVarRequestOptions.Data = apiOrdersRequestV2;
 
-            localVarRequestOptions.Operation = "DBSApi.PostV3DbsOrdersB2bInfo";
+            localVarRequestOptions.Operation = "DbsApi.PostV3DbsOrdersB2bInfo";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (BearerAuth) required
@@ -1832,7 +1832,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
             // verify the required parameter 'ordersRequestAPI' is set
             if (ordersRequestAPI == null)
             {
-                throw new ValeryVerkhoturov.WbApiClient.Dbs.Client.ApiException(400, "Missing required parameter 'ordersRequestAPI' when calling DBSApi->PostV3DbsOrdersClient");
+                throw new ValeryVerkhoturov.WbApiClient.Dbs.Client.ApiException(400, "Missing required parameter 'ordersRequestAPI' when calling DbsApi->PostV3DbsOrdersClient");
             }
 
             ValeryVerkhoturov.WbApiClient.Dbs.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Dbs.Client.RequestOptions();
@@ -1861,7 +1861,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
 
             localVarRequestOptions.Data = ordersRequestAPI;
 
-            localVarRequestOptions.Operation = "DBSApi.PostV3DbsOrdersClient";
+            localVarRequestOptions.Operation = "DbsApi.PostV3DbsOrdersClient";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (BearerAuth) required
@@ -1912,7 +1912,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
             // verify the required parameter 'ordersRequestAPI' is set
             if (ordersRequestAPI == null)
             {
-                throw new ValeryVerkhoturov.WbApiClient.Dbs.Client.ApiException(400, "Missing required parameter 'ordersRequestAPI' when calling DBSApi->PostV3DbsOrdersClient");
+                throw new ValeryVerkhoturov.WbApiClient.Dbs.Client.ApiException(400, "Missing required parameter 'ordersRequestAPI' when calling DbsApi->PostV3DbsOrdersClient");
             }
 
 
@@ -1942,7 +1942,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
 
             localVarRequestOptions.Data = ordersRequestAPI;
 
-            localVarRequestOptions.Operation = "DBSApi.PostV3DbsOrdersClient";
+            localVarRequestOptions.Operation = "DbsApi.PostV3DbsOrdersClient";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (BearerAuth) required
@@ -1992,7 +1992,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
             // verify the required parameter 'deliveryDatesRequest' is set
             if (deliveryDatesRequest == null)
             {
-                throw new ValeryVerkhoturov.WbApiClient.Dbs.Client.ApiException(400, "Missing required parameter 'deliveryDatesRequest' when calling DBSApi->PostV3DbsOrdersDeliveryDate");
+                throw new ValeryVerkhoturov.WbApiClient.Dbs.Client.ApiException(400, "Missing required parameter 'deliveryDatesRequest' when calling DbsApi->PostV3DbsOrdersDeliveryDate");
             }
 
             ValeryVerkhoturov.WbApiClient.Dbs.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Dbs.Client.RequestOptions();
@@ -2021,7 +2021,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
 
             localVarRequestOptions.Data = deliveryDatesRequest;
 
-            localVarRequestOptions.Operation = "DBSApi.PostV3DbsOrdersDeliveryDate";
+            localVarRequestOptions.Operation = "DbsApi.PostV3DbsOrdersDeliveryDate";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (BearerAuth) required
@@ -2072,7 +2072,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
             // verify the required parameter 'deliveryDatesRequest' is set
             if (deliveryDatesRequest == null)
             {
-                throw new ValeryVerkhoturov.WbApiClient.Dbs.Client.ApiException(400, "Missing required parameter 'deliveryDatesRequest' when calling DBSApi->PostV3DbsOrdersDeliveryDate");
+                throw new ValeryVerkhoturov.WbApiClient.Dbs.Client.ApiException(400, "Missing required parameter 'deliveryDatesRequest' when calling DbsApi->PostV3DbsOrdersDeliveryDate");
             }
 
 
@@ -2102,7 +2102,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
 
             localVarRequestOptions.Data = deliveryDatesRequest;
 
-            localVarRequestOptions.Operation = "DBSApi.PostV3DbsOrdersDeliveryDate";
+            localVarRequestOptions.Operation = "DbsApi.PostV3DbsOrdersDeliveryDate";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (BearerAuth) required
@@ -2175,7 +2175,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
 
             localVarRequestOptions.Data = ordersRequestAPI;
 
-            localVarRequestOptions.Operation = "DBSApi.PostV3DbsOrdersFinalPrice";
+            localVarRequestOptions.Operation = "DbsApi.PostV3DbsOrdersFinalPrice";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (BearerAuth) required
@@ -2250,7 +2250,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
 
             localVarRequestOptions.Data = ordersRequestAPI;
 
-            localVarRequestOptions.Operation = "DBSApi.PostV3DbsOrdersFinalPrice";
+            localVarRequestOptions.Operation = "DbsApi.PostV3DbsOrdersFinalPrice";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (BearerAuth) required
@@ -2300,7 +2300,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
             // verify the required parameter 'postV3DbsOrdersMetaCustomsDeclarationRequest' is set
             if (postV3DbsOrdersMetaCustomsDeclarationRequest == null)
             {
-                throw new ValeryVerkhoturov.WbApiClient.Dbs.Client.ApiException(400, "Missing required parameter 'postV3DbsOrdersMetaCustomsDeclarationRequest' when calling DBSApi->PostV3DbsOrdersMetaCustomsDeclaration");
+                throw new ValeryVerkhoturov.WbApiClient.Dbs.Client.ApiException(400, "Missing required parameter 'postV3DbsOrdersMetaCustomsDeclarationRequest' when calling DbsApi->PostV3DbsOrdersMetaCustomsDeclaration");
             }
 
             ValeryVerkhoturov.WbApiClient.Dbs.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Dbs.Client.RequestOptions();
@@ -2329,7 +2329,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
 
             localVarRequestOptions.Data = postV3DbsOrdersMetaCustomsDeclarationRequest;
 
-            localVarRequestOptions.Operation = "DBSApi.PostV3DbsOrdersMetaCustomsDeclaration";
+            localVarRequestOptions.Operation = "DbsApi.PostV3DbsOrdersMetaCustomsDeclaration";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (BearerAuth) required
@@ -2380,7 +2380,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
             // verify the required parameter 'postV3DbsOrdersMetaCustomsDeclarationRequest' is set
             if (postV3DbsOrdersMetaCustomsDeclarationRequest == null)
             {
-                throw new ValeryVerkhoturov.WbApiClient.Dbs.Client.ApiException(400, "Missing required parameter 'postV3DbsOrdersMetaCustomsDeclarationRequest' when calling DBSApi->PostV3DbsOrdersMetaCustomsDeclaration");
+                throw new ValeryVerkhoturov.WbApiClient.Dbs.Client.ApiException(400, "Missing required parameter 'postV3DbsOrdersMetaCustomsDeclarationRequest' when calling DbsApi->PostV3DbsOrdersMetaCustomsDeclaration");
             }
 
 
@@ -2410,7 +2410,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
 
             localVarRequestOptions.Data = postV3DbsOrdersMetaCustomsDeclarationRequest;
 
-            localVarRequestOptions.Operation = "DBSApi.PostV3DbsOrdersMetaCustomsDeclaration";
+            localVarRequestOptions.Operation = "DbsApi.PostV3DbsOrdersMetaCustomsDeclaration";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (BearerAuth) required
@@ -2460,7 +2460,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
             // verify the required parameter 'apiOrdersMetaDeleteRequest' is set
             if (apiOrdersMetaDeleteRequest == null)
             {
-                throw new ValeryVerkhoturov.WbApiClient.Dbs.Client.ApiException(400, "Missing required parameter 'apiOrdersMetaDeleteRequest' when calling DBSApi->PostV3DbsOrdersMetaDelete");
+                throw new ValeryVerkhoturov.WbApiClient.Dbs.Client.ApiException(400, "Missing required parameter 'apiOrdersMetaDeleteRequest' when calling DbsApi->PostV3DbsOrdersMetaDelete");
             }
 
             ValeryVerkhoturov.WbApiClient.Dbs.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Dbs.Client.RequestOptions();
@@ -2489,7 +2489,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
 
             localVarRequestOptions.Data = apiOrdersMetaDeleteRequest;
 
-            localVarRequestOptions.Operation = "DBSApi.PostV3DbsOrdersMetaDelete";
+            localVarRequestOptions.Operation = "DbsApi.PostV3DbsOrdersMetaDelete";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (BearerAuth) required
@@ -2540,7 +2540,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
             // verify the required parameter 'apiOrdersMetaDeleteRequest' is set
             if (apiOrdersMetaDeleteRequest == null)
             {
-                throw new ValeryVerkhoturov.WbApiClient.Dbs.Client.ApiException(400, "Missing required parameter 'apiOrdersMetaDeleteRequest' when calling DBSApi->PostV3DbsOrdersMetaDelete");
+                throw new ValeryVerkhoturov.WbApiClient.Dbs.Client.ApiException(400, "Missing required parameter 'apiOrdersMetaDeleteRequest' when calling DbsApi->PostV3DbsOrdersMetaDelete");
             }
 
 
@@ -2570,7 +2570,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
 
             localVarRequestOptions.Data = apiOrdersMetaDeleteRequest;
 
-            localVarRequestOptions.Operation = "DBSApi.PostV3DbsOrdersMetaDelete";
+            localVarRequestOptions.Operation = "DbsApi.PostV3DbsOrdersMetaDelete";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (BearerAuth) required
@@ -2620,7 +2620,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
             // verify the required parameter 'apiOrdersRequestV2' is set
             if (apiOrdersRequestV2 == null)
             {
-                throw new ValeryVerkhoturov.WbApiClient.Dbs.Client.ApiException(400, "Missing required parameter 'apiOrdersRequestV2' when calling DBSApi->PostV3DbsOrdersMetaDetails");
+                throw new ValeryVerkhoturov.WbApiClient.Dbs.Client.ApiException(400, "Missing required parameter 'apiOrdersRequestV2' when calling DbsApi->PostV3DbsOrdersMetaDetails");
             }
 
             ValeryVerkhoturov.WbApiClient.Dbs.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Dbs.Client.RequestOptions();
@@ -2649,7 +2649,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
 
             localVarRequestOptions.Data = apiOrdersRequestV2;
 
-            localVarRequestOptions.Operation = "DBSApi.PostV3DbsOrdersMetaDetails";
+            localVarRequestOptions.Operation = "DbsApi.PostV3DbsOrdersMetaDetails";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (BearerAuth) required
@@ -2700,7 +2700,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
             // verify the required parameter 'apiOrdersRequestV2' is set
             if (apiOrdersRequestV2 == null)
             {
-                throw new ValeryVerkhoturov.WbApiClient.Dbs.Client.ApiException(400, "Missing required parameter 'apiOrdersRequestV2' when calling DBSApi->PostV3DbsOrdersMetaDetails");
+                throw new ValeryVerkhoturov.WbApiClient.Dbs.Client.ApiException(400, "Missing required parameter 'apiOrdersRequestV2' when calling DbsApi->PostV3DbsOrdersMetaDetails");
             }
 
 
@@ -2730,7 +2730,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
 
             localVarRequestOptions.Data = apiOrdersRequestV2;
 
-            localVarRequestOptions.Operation = "DBSApi.PostV3DbsOrdersMetaDetails";
+            localVarRequestOptions.Operation = "DbsApi.PostV3DbsOrdersMetaDetails";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (BearerAuth) required
@@ -2780,7 +2780,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
             // verify the required parameter 'apiOrdersGTINSetRequest' is set
             if (apiOrdersGTINSetRequest == null)
             {
-                throw new ValeryVerkhoturov.WbApiClient.Dbs.Client.ApiException(400, "Missing required parameter 'apiOrdersGTINSetRequest' when calling DBSApi->PostV3DbsOrdersMetaGtin");
+                throw new ValeryVerkhoturov.WbApiClient.Dbs.Client.ApiException(400, "Missing required parameter 'apiOrdersGTINSetRequest' when calling DbsApi->PostV3DbsOrdersMetaGtin");
             }
 
             ValeryVerkhoturov.WbApiClient.Dbs.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Dbs.Client.RequestOptions();
@@ -2809,7 +2809,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
 
             localVarRequestOptions.Data = apiOrdersGTINSetRequest;
 
-            localVarRequestOptions.Operation = "DBSApi.PostV3DbsOrdersMetaGtin";
+            localVarRequestOptions.Operation = "DbsApi.PostV3DbsOrdersMetaGtin";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (BearerAuth) required
@@ -2860,7 +2860,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
             // verify the required parameter 'apiOrdersGTINSetRequest' is set
             if (apiOrdersGTINSetRequest == null)
             {
-                throw new ValeryVerkhoturov.WbApiClient.Dbs.Client.ApiException(400, "Missing required parameter 'apiOrdersGTINSetRequest' when calling DBSApi->PostV3DbsOrdersMetaGtin");
+                throw new ValeryVerkhoturov.WbApiClient.Dbs.Client.ApiException(400, "Missing required parameter 'apiOrdersGTINSetRequest' when calling DbsApi->PostV3DbsOrdersMetaGtin");
             }
 
 
@@ -2890,7 +2890,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
 
             localVarRequestOptions.Data = apiOrdersGTINSetRequest;
 
-            localVarRequestOptions.Operation = "DBSApi.PostV3DbsOrdersMetaGtin";
+            localVarRequestOptions.Operation = "DbsApi.PostV3DbsOrdersMetaGtin";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (BearerAuth) required
@@ -2940,7 +2940,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
             // verify the required parameter 'apiOrdersIMEISetRequest' is set
             if (apiOrdersIMEISetRequest == null)
             {
-                throw new ValeryVerkhoturov.WbApiClient.Dbs.Client.ApiException(400, "Missing required parameter 'apiOrdersIMEISetRequest' when calling DBSApi->PostV3DbsOrdersMetaImei");
+                throw new ValeryVerkhoturov.WbApiClient.Dbs.Client.ApiException(400, "Missing required parameter 'apiOrdersIMEISetRequest' when calling DbsApi->PostV3DbsOrdersMetaImei");
             }
 
             ValeryVerkhoturov.WbApiClient.Dbs.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Dbs.Client.RequestOptions();
@@ -2969,7 +2969,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
 
             localVarRequestOptions.Data = apiOrdersIMEISetRequest;
 
-            localVarRequestOptions.Operation = "DBSApi.PostV3DbsOrdersMetaImei";
+            localVarRequestOptions.Operation = "DbsApi.PostV3DbsOrdersMetaImei";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (BearerAuth) required
@@ -3020,7 +3020,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
             // verify the required parameter 'apiOrdersIMEISetRequest' is set
             if (apiOrdersIMEISetRequest == null)
             {
-                throw new ValeryVerkhoturov.WbApiClient.Dbs.Client.ApiException(400, "Missing required parameter 'apiOrdersIMEISetRequest' when calling DBSApi->PostV3DbsOrdersMetaImei");
+                throw new ValeryVerkhoturov.WbApiClient.Dbs.Client.ApiException(400, "Missing required parameter 'apiOrdersIMEISetRequest' when calling DbsApi->PostV3DbsOrdersMetaImei");
             }
 
 
@@ -3050,7 +3050,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
 
             localVarRequestOptions.Data = apiOrdersIMEISetRequest;
 
-            localVarRequestOptions.Operation = "DBSApi.PostV3DbsOrdersMetaImei";
+            localVarRequestOptions.Operation = "DbsApi.PostV3DbsOrdersMetaImei";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (BearerAuth) required
@@ -3100,7 +3100,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
             // verify the required parameter 'apiOrdersSGTINsSetRequest' is set
             if (apiOrdersSGTINsSetRequest == null)
             {
-                throw new ValeryVerkhoturov.WbApiClient.Dbs.Client.ApiException(400, "Missing required parameter 'apiOrdersSGTINsSetRequest' when calling DBSApi->PostV3DbsOrdersMetaSgtin");
+                throw new ValeryVerkhoturov.WbApiClient.Dbs.Client.ApiException(400, "Missing required parameter 'apiOrdersSGTINsSetRequest' when calling DbsApi->PostV3DbsOrdersMetaSgtin");
             }
 
             ValeryVerkhoturov.WbApiClient.Dbs.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Dbs.Client.RequestOptions();
@@ -3129,7 +3129,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
 
             localVarRequestOptions.Data = apiOrdersSGTINsSetRequest;
 
-            localVarRequestOptions.Operation = "DBSApi.PostV3DbsOrdersMetaSgtin";
+            localVarRequestOptions.Operation = "DbsApi.PostV3DbsOrdersMetaSgtin";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (BearerAuth) required
@@ -3180,7 +3180,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
             // verify the required parameter 'apiOrdersSGTINsSetRequest' is set
             if (apiOrdersSGTINsSetRequest == null)
             {
-                throw new ValeryVerkhoturov.WbApiClient.Dbs.Client.ApiException(400, "Missing required parameter 'apiOrdersSGTINsSetRequest' when calling DBSApi->PostV3DbsOrdersMetaSgtin");
+                throw new ValeryVerkhoturov.WbApiClient.Dbs.Client.ApiException(400, "Missing required parameter 'apiOrdersSGTINsSetRequest' when calling DbsApi->PostV3DbsOrdersMetaSgtin");
             }
 
 
@@ -3210,7 +3210,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
 
             localVarRequestOptions.Data = apiOrdersSGTINsSetRequest;
 
-            localVarRequestOptions.Operation = "DBSApi.PostV3DbsOrdersMetaSgtin";
+            localVarRequestOptions.Operation = "DbsApi.PostV3DbsOrdersMetaSgtin";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (BearerAuth) required
@@ -3260,7 +3260,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
             // verify the required parameter 'apiOrdersUINSetRequest' is set
             if (apiOrdersUINSetRequest == null)
             {
-                throw new ValeryVerkhoturov.WbApiClient.Dbs.Client.ApiException(400, "Missing required parameter 'apiOrdersUINSetRequest' when calling DBSApi->PostV3DbsOrdersMetaUin");
+                throw new ValeryVerkhoturov.WbApiClient.Dbs.Client.ApiException(400, "Missing required parameter 'apiOrdersUINSetRequest' when calling DbsApi->PostV3DbsOrdersMetaUin");
             }
 
             ValeryVerkhoturov.WbApiClient.Dbs.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Dbs.Client.RequestOptions();
@@ -3289,7 +3289,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
 
             localVarRequestOptions.Data = apiOrdersUINSetRequest;
 
-            localVarRequestOptions.Operation = "DBSApi.PostV3DbsOrdersMetaUin";
+            localVarRequestOptions.Operation = "DbsApi.PostV3DbsOrdersMetaUin";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (BearerAuth) required
@@ -3340,7 +3340,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
             // verify the required parameter 'apiOrdersUINSetRequest' is set
             if (apiOrdersUINSetRequest == null)
             {
-                throw new ValeryVerkhoturov.WbApiClient.Dbs.Client.ApiException(400, "Missing required parameter 'apiOrdersUINSetRequest' when calling DBSApi->PostV3DbsOrdersMetaUin");
+                throw new ValeryVerkhoturov.WbApiClient.Dbs.Client.ApiException(400, "Missing required parameter 'apiOrdersUINSetRequest' when calling DbsApi->PostV3DbsOrdersMetaUin");
             }
 
 
@@ -3370,7 +3370,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
 
             localVarRequestOptions.Data = apiOrdersUINSetRequest;
 
-            localVarRequestOptions.Operation = "DBSApi.PostV3DbsOrdersMetaUin";
+            localVarRequestOptions.Operation = "DbsApi.PostV3DbsOrdersMetaUin";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (BearerAuth) required
@@ -3420,7 +3420,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
             // verify the required parameter 'apiOrdersRequestV2' is set
             if (apiOrdersRequestV2 == null)
             {
-                throw new ValeryVerkhoturov.WbApiClient.Dbs.Client.ApiException(400, "Missing required parameter 'apiOrdersRequestV2' when calling DBSApi->PostV3DbsOrdersStatusCancel");
+                throw new ValeryVerkhoturov.WbApiClient.Dbs.Client.ApiException(400, "Missing required parameter 'apiOrdersRequestV2' when calling DbsApi->PostV3DbsOrdersStatusCancel");
             }
 
             ValeryVerkhoturov.WbApiClient.Dbs.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Dbs.Client.RequestOptions();
@@ -3449,7 +3449,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
 
             localVarRequestOptions.Data = apiOrdersRequestV2;
 
-            localVarRequestOptions.Operation = "DBSApi.PostV3DbsOrdersStatusCancel";
+            localVarRequestOptions.Operation = "DbsApi.PostV3DbsOrdersStatusCancel";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (BearerAuth) required
@@ -3500,7 +3500,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
             // verify the required parameter 'apiOrdersRequestV2' is set
             if (apiOrdersRequestV2 == null)
             {
-                throw new ValeryVerkhoturov.WbApiClient.Dbs.Client.ApiException(400, "Missing required parameter 'apiOrdersRequestV2' when calling DBSApi->PostV3DbsOrdersStatusCancel");
+                throw new ValeryVerkhoturov.WbApiClient.Dbs.Client.ApiException(400, "Missing required parameter 'apiOrdersRequestV2' when calling DbsApi->PostV3DbsOrdersStatusCancel");
             }
 
 
@@ -3530,7 +3530,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
 
             localVarRequestOptions.Data = apiOrdersRequestV2;
 
-            localVarRequestOptions.Operation = "DBSApi.PostV3DbsOrdersStatusCancel";
+            localVarRequestOptions.Operation = "DbsApi.PostV3DbsOrdersStatusCancel";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (BearerAuth) required
@@ -3580,7 +3580,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
             // verify the required parameter 'apiOrdersRequestV2' is set
             if (apiOrdersRequestV2 == null)
             {
-                throw new ValeryVerkhoturov.WbApiClient.Dbs.Client.ApiException(400, "Missing required parameter 'apiOrdersRequestV2' when calling DBSApi->PostV3DbsOrdersStatusConfirm");
+                throw new ValeryVerkhoturov.WbApiClient.Dbs.Client.ApiException(400, "Missing required parameter 'apiOrdersRequestV2' when calling DbsApi->PostV3DbsOrdersStatusConfirm");
             }
 
             ValeryVerkhoturov.WbApiClient.Dbs.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Dbs.Client.RequestOptions();
@@ -3609,7 +3609,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
 
             localVarRequestOptions.Data = apiOrdersRequestV2;
 
-            localVarRequestOptions.Operation = "DBSApi.PostV3DbsOrdersStatusConfirm";
+            localVarRequestOptions.Operation = "DbsApi.PostV3DbsOrdersStatusConfirm";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (BearerAuth) required
@@ -3660,7 +3660,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
             // verify the required parameter 'apiOrdersRequestV2' is set
             if (apiOrdersRequestV2 == null)
             {
-                throw new ValeryVerkhoturov.WbApiClient.Dbs.Client.ApiException(400, "Missing required parameter 'apiOrdersRequestV2' when calling DBSApi->PostV3DbsOrdersStatusConfirm");
+                throw new ValeryVerkhoturov.WbApiClient.Dbs.Client.ApiException(400, "Missing required parameter 'apiOrdersRequestV2' when calling DbsApi->PostV3DbsOrdersStatusConfirm");
             }
 
 
@@ -3690,7 +3690,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
 
             localVarRequestOptions.Data = apiOrdersRequestV2;
 
-            localVarRequestOptions.Operation = "DBSApi.PostV3DbsOrdersStatusConfirm";
+            localVarRequestOptions.Operation = "DbsApi.PostV3DbsOrdersStatusConfirm";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (BearerAuth) required
@@ -3740,7 +3740,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
             // verify the required parameter 'apiOrdersRequestV2' is set
             if (apiOrdersRequestV2 == null)
             {
-                throw new ValeryVerkhoturov.WbApiClient.Dbs.Client.ApiException(400, "Missing required parameter 'apiOrdersRequestV2' when calling DBSApi->PostV3DbsOrdersStatusDeliver");
+                throw new ValeryVerkhoturov.WbApiClient.Dbs.Client.ApiException(400, "Missing required parameter 'apiOrdersRequestV2' when calling DbsApi->PostV3DbsOrdersStatusDeliver");
             }
 
             ValeryVerkhoturov.WbApiClient.Dbs.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Dbs.Client.RequestOptions();
@@ -3769,7 +3769,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
 
             localVarRequestOptions.Data = apiOrdersRequestV2;
 
-            localVarRequestOptions.Operation = "DBSApi.PostV3DbsOrdersStatusDeliver";
+            localVarRequestOptions.Operation = "DbsApi.PostV3DbsOrdersStatusDeliver";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (BearerAuth) required
@@ -3820,7 +3820,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
             // verify the required parameter 'apiOrdersRequestV2' is set
             if (apiOrdersRequestV2 == null)
             {
-                throw new ValeryVerkhoturov.WbApiClient.Dbs.Client.ApiException(400, "Missing required parameter 'apiOrdersRequestV2' when calling DBSApi->PostV3DbsOrdersStatusDeliver");
+                throw new ValeryVerkhoturov.WbApiClient.Dbs.Client.ApiException(400, "Missing required parameter 'apiOrdersRequestV2' when calling DbsApi->PostV3DbsOrdersStatusDeliver");
             }
 
 
@@ -3850,7 +3850,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
 
             localVarRequestOptions.Data = apiOrdersRequestV2;
 
-            localVarRequestOptions.Operation = "DBSApi.PostV3DbsOrdersStatusDeliver";
+            localVarRequestOptions.Operation = "DbsApi.PostV3DbsOrdersStatusDeliver";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (BearerAuth) required
@@ -3900,7 +3900,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
             // verify the required parameter 'apiOrdersRequestV2' is set
             if (apiOrdersRequestV2 == null)
             {
-                throw new ValeryVerkhoturov.WbApiClient.Dbs.Client.ApiException(400, "Missing required parameter 'apiOrdersRequestV2' when calling DBSApi->PostV3DbsOrdersStatusInfo");
+                throw new ValeryVerkhoturov.WbApiClient.Dbs.Client.ApiException(400, "Missing required parameter 'apiOrdersRequestV2' when calling DbsApi->PostV3DbsOrdersStatusInfo");
             }
 
             ValeryVerkhoturov.WbApiClient.Dbs.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Dbs.Client.RequestOptions();
@@ -3929,7 +3929,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
 
             localVarRequestOptions.Data = apiOrdersRequestV2;
 
-            localVarRequestOptions.Operation = "DBSApi.PostV3DbsOrdersStatusInfo";
+            localVarRequestOptions.Operation = "DbsApi.PostV3DbsOrdersStatusInfo";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (BearerAuth) required
@@ -3980,7 +3980,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
             // verify the required parameter 'apiOrdersRequestV2' is set
             if (apiOrdersRequestV2 == null)
             {
-                throw new ValeryVerkhoturov.WbApiClient.Dbs.Client.ApiException(400, "Missing required parameter 'apiOrdersRequestV2' when calling DBSApi->PostV3DbsOrdersStatusInfo");
+                throw new ValeryVerkhoturov.WbApiClient.Dbs.Client.ApiException(400, "Missing required parameter 'apiOrdersRequestV2' when calling DbsApi->PostV3DbsOrdersStatusInfo");
             }
 
 
@@ -4010,7 +4010,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
 
             localVarRequestOptions.Data = apiOrdersRequestV2;
 
-            localVarRequestOptions.Operation = "DBSApi.PostV3DbsOrdersStatusInfo";
+            localVarRequestOptions.Operation = "DbsApi.PostV3DbsOrdersStatusInfo";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (BearerAuth) required
@@ -4083,7 +4083,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
 
             localVarRequestOptions.Data = apiOrdersCodeRequest;
 
-            localVarRequestOptions.Operation = "DBSApi.PostV3DbsOrdersStatusReceive";
+            localVarRequestOptions.Operation = "DbsApi.PostV3DbsOrdersStatusReceive";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (BearerAuth) required
@@ -4158,7 +4158,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
 
             localVarRequestOptions.Data = apiOrdersCodeRequest;
 
-            localVarRequestOptions.Operation = "DBSApi.PostV3DbsOrdersStatusReceive";
+            localVarRequestOptions.Operation = "DbsApi.PostV3DbsOrdersStatusReceive";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (BearerAuth) required
@@ -4231,7 +4231,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
 
             localVarRequestOptions.Data = apiOrdersCodeRequest;
 
-            localVarRequestOptions.Operation = "DBSApi.PostV3DbsOrdersStatusReject";
+            localVarRequestOptions.Operation = "DbsApi.PostV3DbsOrdersStatusReject";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (BearerAuth) required
@@ -4306,7 +4306,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
 
             localVarRequestOptions.Data = apiOrdersCodeRequest;
 
-            localVarRequestOptions.Operation = "DBSApi.PostV3DbsOrdersStatusReject";
+            localVarRequestOptions.Operation = "DbsApi.PostV3DbsOrdersStatusReject";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (BearerAuth) required
@@ -4362,7 +4362,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
             // verify the required parameter 'type' is set
             if (type == null)
             {
-                throw new ValeryVerkhoturov.WbApiClient.Dbs.Client.ApiException(400, "Missing required parameter 'type' when calling DBSApi->PostV3DbsOrdersStickers");
+                throw new ValeryVerkhoturov.WbApiClient.Dbs.Client.ApiException(400, "Missing required parameter 'type' when calling DbsApi->PostV3DbsOrdersStickers");
             }
 
             ValeryVerkhoturov.WbApiClient.Dbs.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Dbs.Client.RequestOptions();
@@ -4394,7 +4394,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
             localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Dbs.Client.ClientUtils.ParameterToMultiMap("", "height", height));
             localVarRequestOptions.Data = postV3DbsOrdersStickersRequest;
 
-            localVarRequestOptions.Operation = "DBSApi.PostV3DbsOrdersStickers";
+            localVarRequestOptions.Operation = "DbsApi.PostV3DbsOrdersStickers";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (BearerAuth) required
@@ -4451,7 +4451,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
             // verify the required parameter 'type' is set
             if (type == null)
             {
-                throw new ValeryVerkhoturov.WbApiClient.Dbs.Client.ApiException(400, "Missing required parameter 'type' when calling DBSApi->PostV3DbsOrdersStickers");
+                throw new ValeryVerkhoturov.WbApiClient.Dbs.Client.ApiException(400, "Missing required parameter 'type' when calling DbsApi->PostV3DbsOrdersStickers");
             }
 
 
@@ -4484,7 +4484,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
             localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Dbs.Client.ClientUtils.ParameterToMultiMap("", "height", height));
             localVarRequestOptions.Data = postV3DbsOrdersStickersRequest;
 
-            localVarRequestOptions.Operation = "DBSApi.PostV3DbsOrdersStickers";
+            localVarRequestOptions.Operation = "DbsApi.PostV3DbsOrdersStickers";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (BearerAuth) required

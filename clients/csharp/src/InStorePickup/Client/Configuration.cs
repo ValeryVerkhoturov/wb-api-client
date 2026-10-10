@@ -33,7 +33,7 @@ namespace ValeryVerkhoturov.WbApiClient.InStorePickup.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "1.20261010.0";
+        public const string Version = "1.20261010.1";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -134,7 +134,7 @@ namespace ValeryVerkhoturov.WbApiClient.InStorePickup.Client
             OperationServers = new Dictionary<string, List<IReadOnlyDictionary<string, object>>>()
             {
                 {
-                    "DefaultApi.GetV3ClickCollectOrders", new List<IReadOnlyDictionary<string, object>>
+                    "InStorePickupApi.GetV3ClickCollectOrders", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -153,7 +153,7 @@ namespace ValeryVerkhoturov.WbApiClient.InStorePickup.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV3ClickCollectOrdersNew", new List<IReadOnlyDictionary<string, object>>
+                    "InStorePickupApi.GetV3ClickCollectOrdersNew", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -172,7 +172,7 @@ namespace ValeryVerkhoturov.WbApiClient.InStorePickup.Client
                     }
                 },
                 {
-                    "DefaultApi.PostV3ClickCollectOrdersClient", new List<IReadOnlyDictionary<string, object>>
+                    "InStorePickupApi.PostV3ClickCollectOrdersClient", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -191,7 +191,7 @@ namespace ValeryVerkhoturov.WbApiClient.InStorePickup.Client
                     }
                 },
                 {
-                    "DefaultApi.PostV3ClickCollectOrdersClientIdentity", new List<IReadOnlyDictionary<string, object>>
+                    "InStorePickupApi.PostV3ClickCollectOrdersClientIdentity", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -210,7 +210,7 @@ namespace ValeryVerkhoturov.WbApiClient.InStorePickup.Client
                     }
                 },
                 {
-                    "DefaultApi.PostV3ClickCollectOrdersFinalPrice", new List<IReadOnlyDictionary<string, object>>
+                    "InStorePickupApi.PostV3ClickCollectOrdersFinalPrice", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -222,7 +222,7 @@ namespace ValeryVerkhoturov.WbApiClient.InStorePickup.Client
                     }
                 },
                 {
-                    "DefaultApi.PostV3ClickCollectOrdersMetaCustomsDeclaration", new List<IReadOnlyDictionary<string, object>>
+                    "InStorePickupApi.PostV3ClickCollectOrdersMetaCustomsDeclaration", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -234,7 +234,7 @@ namespace ValeryVerkhoturov.WbApiClient.InStorePickup.Client
                     }
                 },
                 {
-                    "DefaultApi.PostV3ClickCollectOrdersMetaDelete", new List<IReadOnlyDictionary<string, object>>
+                    "InStorePickupApi.PostV3ClickCollectOrdersMetaDelete", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -253,7 +253,7 @@ namespace ValeryVerkhoturov.WbApiClient.InStorePickup.Client
                     }
                 },
                 {
-                    "DefaultApi.PostV3ClickCollectOrdersMetaGtin", new List<IReadOnlyDictionary<string, object>>
+                    "InStorePickupApi.PostV3ClickCollectOrdersMetaGtin", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -272,7 +272,7 @@ namespace ValeryVerkhoturov.WbApiClient.InStorePickup.Client
                     }
                 },
                 {
-                    "DefaultApi.PostV3ClickCollectOrdersMetaImei", new List<IReadOnlyDictionary<string, object>>
+                    "InStorePickupApi.PostV3ClickCollectOrdersMetaImei", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -291,7 +291,7 @@ namespace ValeryVerkhoturov.WbApiClient.InStorePickup.Client
                     }
                 },
                 {
-                    "DefaultApi.PostV3ClickCollectOrdersMetaSgtin", new List<IReadOnlyDictionary<string, object>>
+                    "InStorePickupApi.PostV3ClickCollectOrdersMetaSgtin", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -310,7 +310,7 @@ namespace ValeryVerkhoturov.WbApiClient.InStorePickup.Client
                     }
                 },
                 {
-                    "DefaultApi.PostV3ClickCollectOrdersMetaUin", new List<IReadOnlyDictionary<string, object>>
+                    "InStorePickupApi.PostV3ClickCollectOrdersMetaUin", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -329,7 +329,7 @@ namespace ValeryVerkhoturov.WbApiClient.InStorePickup.Client
                     }
                 },
                 {
-                    "DefaultApi.PostV3ClickCollectOrdersStatusCancel", new List<IReadOnlyDictionary<string, object>>
+                    "InStorePickupApi.PostV3ClickCollectOrdersStatusCancel", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -348,7 +348,7 @@ namespace ValeryVerkhoturov.WbApiClient.InStorePickup.Client
                     }
                 },
                 {
-                    "DefaultApi.PostV3ClickCollectOrdersStatusConfirm", new List<IReadOnlyDictionary<string, object>>
+                    "InStorePickupApi.PostV3ClickCollectOrdersStatusConfirm", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -367,7 +367,7 @@ namespace ValeryVerkhoturov.WbApiClient.InStorePickup.Client
                     }
                 },
                 {
-                    "DefaultApi.PostV3ClickCollectOrdersStatusInfo", new List<IReadOnlyDictionary<string, object>>
+                    "InStorePickupApi.PostV3ClickCollectOrdersStatusInfo", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -386,7 +386,7 @@ namespace ValeryVerkhoturov.WbApiClient.InStorePickup.Client
                     }
                 },
                 {
-                    "DefaultApi.PostV3ClickCollectOrdersStatusPrepare", new List<IReadOnlyDictionary<string, object>>
+                    "InStorePickupApi.PostV3ClickCollectOrdersStatusPrepare", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -405,7 +405,7 @@ namespace ValeryVerkhoturov.WbApiClient.InStorePickup.Client
                     }
                 },
                 {
-                    "DefaultApi.PostV3ClickCollectOrdersStatusReceive", new List<IReadOnlyDictionary<string, object>>
+                    "InStorePickupApi.PostV3ClickCollectOrdersStatusReceive", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -424,7 +424,7 @@ namespace ValeryVerkhoturov.WbApiClient.InStorePickup.Client
                     }
                 },
                 {
-                    "DefaultApi.PostV3ClickCollectOrdersStatusReject", new List<IReadOnlyDictionary<string, object>>
+                    "InStorePickupApi.PostV3ClickCollectOrdersStatusReject", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -872,7 +872,7 @@ namespace ValeryVerkhoturov.WbApiClient.InStorePickup.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version + "\n";
             report += "    Version of the API: instorepickup\n";
-            report += "    SDK Package Version: 1.20261010.0\n";
+            report += "    SDK Package Version: 1.20261010.1\n";
 
             return report;
         }

@@ -1793,10 +1793,10 @@ export interface Response4XX {
 }
 
 /**
- * DBSApi - axios parameter creator
+ * DbsApi - axios parameter creator
  * @export
  */
-export const DBSApiAxiosParamCreator = function (
+export const DbsApiAxiosParamCreator = function (
   configuration?: Configuration,
 ) {
   return {
@@ -3024,11 +3024,11 @@ export const DBSApiAxiosParamCreator = function (
 };
 
 /**
- * DBSApi - functional programming interface
+ * DbsApi - functional programming interface
  * @export
  */
-export const DBSApiFp = function (configuration?: Configuration) {
-  const localVarAxiosParamCreator = DBSApiAxiosParamCreator(configuration);
+export const DbsApiFp = function (configuration?: Configuration) {
+  const localVarAxiosParamCreator = DbsApiAxiosParamCreator(configuration);
   return {
     /**
      * Метод возвращает информацию о завершенных [сборочных заданиях](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders) после продажи или отмены заказа.  Можно получить данные за заданный период, максимум 30 календарных дней одним запросом.  [Лимит запросов](https://dev.wildberries.ru/docs/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий DBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов.  ---  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
@@ -3061,7 +3061,7 @@ export const DBSApiFp = function (configuration?: Configuration) {
       );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DBSApi.getV3DbsOrders"]?.[
+        operationServerMap["DbsApi.getV3DbsOrders"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -3090,7 +3090,7 @@ export const DBSApiFp = function (configuration?: Configuration) {
         await localVarAxiosParamCreator.getV3DbsOrdersNew(options);
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DBSApi.getV3DbsOrdersNew"]?.[
+        operationServerMap["DbsApi.getV3DbsOrdersNew"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -3124,7 +3124,7 @@ export const DBSApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DBSApi.postV3DbsGroupsInfo"]?.[
+        operationServerMap["DbsApi.postV3DbsGroupsInfo"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -3158,7 +3158,7 @@ export const DBSApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DBSApi.postV3DbsOrdersB2bInfo"]?.[
+        operationServerMap["DbsApi.postV3DbsOrdersB2bInfo"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -3192,7 +3192,7 @@ export const DBSApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DBSApi.postV3DbsOrdersClient"]?.[
+        operationServerMap["DbsApi.postV3DbsOrdersClient"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -3226,7 +3226,7 @@ export const DBSApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DBSApi.postV3DbsOrdersDeliveryDate"]?.[
+        operationServerMap["DbsApi.postV3DbsOrdersDeliveryDate"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -3260,7 +3260,7 @@ export const DBSApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DBSApi.postV3DbsOrdersFinalPrice"]?.[
+        operationServerMap["DbsApi.postV3DbsOrdersFinalPrice"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -3294,7 +3294,7 @@ export const DBSApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DBSApi.postV3DbsOrdersMetaCustomsDeclaration"]?.[
+        operationServerMap["DbsApi.postV3DbsOrdersMetaCustomsDeclaration"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -3328,7 +3328,7 @@ export const DBSApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DBSApi.postV3DbsOrdersMetaDelete"]?.[
+        operationServerMap["DbsApi.postV3DbsOrdersMetaDelete"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -3362,7 +3362,7 @@ export const DBSApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DBSApi.postV3DbsOrdersMetaDetails"]?.[
+        operationServerMap["DbsApi.postV3DbsOrdersMetaDetails"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -3396,7 +3396,7 @@ export const DBSApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DBSApi.postV3DbsOrdersMetaGtin"]?.[
+        operationServerMap["DbsApi.postV3DbsOrdersMetaGtin"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -3430,7 +3430,7 @@ export const DBSApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DBSApi.postV3DbsOrdersMetaImei"]?.[
+        operationServerMap["DbsApi.postV3DbsOrdersMetaImei"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -3464,7 +3464,7 @@ export const DBSApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DBSApi.postV3DbsOrdersMetaSgtin"]?.[
+        operationServerMap["DbsApi.postV3DbsOrdersMetaSgtin"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -3498,7 +3498,7 @@ export const DBSApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DBSApi.postV3DbsOrdersMetaUin"]?.[
+        operationServerMap["DbsApi.postV3DbsOrdersMetaUin"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -3532,7 +3532,7 @@ export const DBSApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DBSApi.postV3DbsOrdersStatusCancel"]?.[
+        operationServerMap["DbsApi.postV3DbsOrdersStatusCancel"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -3566,7 +3566,7 @@ export const DBSApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DBSApi.postV3DbsOrdersStatusConfirm"]?.[
+        operationServerMap["DbsApi.postV3DbsOrdersStatusConfirm"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -3600,7 +3600,7 @@ export const DBSApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DBSApi.postV3DbsOrdersStatusDeliver"]?.[
+        operationServerMap["DbsApi.postV3DbsOrdersStatusDeliver"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -3634,7 +3634,7 @@ export const DBSApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DBSApi.postV3DbsOrdersStatusInfo"]?.[
+        operationServerMap["DbsApi.postV3DbsOrdersStatusInfo"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -3668,7 +3668,7 @@ export const DBSApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DBSApi.postV3DbsOrdersStatusReceive"]?.[
+        operationServerMap["DbsApi.postV3DbsOrdersStatusReceive"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -3702,7 +3702,7 @@ export const DBSApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DBSApi.postV3DbsOrdersStatusReject"]?.[
+        operationServerMap["DbsApi.postV3DbsOrdersStatusReject"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -3745,7 +3745,7 @@ export const DBSApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DBSApi.postV3DbsOrdersStickers"]?.[
+        operationServerMap["DbsApi.postV3DbsOrdersStickers"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -3760,15 +3760,15 @@ export const DBSApiFp = function (configuration?: Configuration) {
 };
 
 /**
- * DBSApi - factory interface
+ * DbsApi - factory interface
  * @export
  */
-export const DBSApiFactory = function (
+export const DbsApiFactory = function (
   configuration?: Configuration,
   basePath?: string,
   axios?: AxiosInstance,
 ) {
-  const localVarFp = DBSApiFp(configuration);
+  const localVarFp = DbsApiFp(configuration);
   return {
     /**
      * Метод возвращает информацию о завершенных [сборочных заданиях](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders) после продажи или отмены заказа.  Можно получить данные за заданный период, максимум 30 календарных дней одним запросом.  [Лимит запросов](https://dev.wildberries.ru/docs/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий DBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов.  ---  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
@@ -4108,11 +4108,11 @@ export const DBSApiFactory = function (
 };
 
 /**
- * DBSApi - interface
+ * DbsApi - interface
  * @export
- * @interface DBSApi
+ * @interface DbsApi
  */
-export interface DBSApiInterface {
+export interface DbsApiInterface {
   /**
    * Метод возвращает информацию о завершенных [сборочных заданиях](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders) после продажи или отмены заказа.  Можно получить данные за заданный период, максимум 30 календарных дней одним запросом.  [Лимит запросов](https://dev.wildberries.ru/docs/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий DBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов.  ---  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
    * @summary Получить информацию о завершенных сборочных заданиях
@@ -4122,7 +4122,7 @@ export interface DBSApiInterface {
    * @param {number} dateTo Дата конца периода в формате Unix timestamp
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DBSApiInterface
+   * @memberof DbsApiInterface
    */
   getV3DbsOrders(
     limit: number,
@@ -4137,7 +4137,7 @@ export interface DBSApiInterface {
    * @summary Получить список новых сборочных заданий
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DBSApiInterface
+   * @memberof DbsApiInterface
    */
   getV3DbsOrdersNew(
     options?: RawAxiosRequestConfig,
@@ -4149,7 +4149,7 @@ export interface DBSApiInterface {
    * @param {ApiOrderGroupsRequest} apiOrderGroupsRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DBSApiInterface
+   * @memberof DbsApiInterface
    */
   postV3DbsGroupsInfo(
     apiOrderGroupsRequest: ApiOrderGroupsRequest,
@@ -4162,7 +4162,7 @@ export interface DBSApiInterface {
    * @param {ApiOrdersRequestV2} apiOrdersRequestV2
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DBSApiInterface
+   * @memberof DbsApiInterface
    */
   postV3DbsOrdersB2bInfo(
     apiOrdersRequestV2: ApiOrdersRequestV2,
@@ -4175,7 +4175,7 @@ export interface DBSApiInterface {
    * @param {OrdersRequestAPI} ordersRequestAPI
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DBSApiInterface
+   * @memberof DbsApiInterface
    */
   postV3DbsOrdersClient(
     ordersRequestAPI: OrdersRequestAPI,
@@ -4188,7 +4188,7 @@ export interface DBSApiInterface {
    * @param {DeliveryDatesRequest} deliveryDatesRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DBSApiInterface
+   * @memberof DbsApiInterface
    */
   postV3DbsOrdersDeliveryDate(
     deliveryDatesRequest: DeliveryDatesRequest,
@@ -4201,7 +4201,7 @@ export interface DBSApiInterface {
    * @param {OrdersRequestAPI} [ordersRequestAPI]
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DBSApiInterface
+   * @memberof DbsApiInterface
    */
   postV3DbsOrdersFinalPrice(
     ordersRequestAPI?: OrdersRequestAPI,
@@ -4214,7 +4214,7 @@ export interface DBSApiInterface {
    * @param {PostV3DbsOrdersMetaCustomsDeclarationRequest} postV3DbsOrdersMetaCustomsDeclarationRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DBSApiInterface
+   * @memberof DbsApiInterface
    */
   postV3DbsOrdersMetaCustomsDeclaration(
     postV3DbsOrdersMetaCustomsDeclarationRequest: PostV3DbsOrdersMetaCustomsDeclarationRequest,
@@ -4227,7 +4227,7 @@ export interface DBSApiInterface {
    * @param {ApiOrdersMetaDeleteRequest} apiOrdersMetaDeleteRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DBSApiInterface
+   * @memberof DbsApiInterface
    */
   postV3DbsOrdersMetaDelete(
     apiOrdersMetaDeleteRequest: ApiOrdersMetaDeleteRequest,
@@ -4240,7 +4240,7 @@ export interface DBSApiInterface {
    * @param {ApiOrdersRequestV2} apiOrdersRequestV2
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DBSApiInterface
+   * @memberof DbsApiInterface
    */
   postV3DbsOrdersMetaDetails(
     apiOrdersRequestV2: ApiOrdersRequestV2,
@@ -4253,7 +4253,7 @@ export interface DBSApiInterface {
    * @param {ApiOrdersGTINSetRequest} apiOrdersGTINSetRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DBSApiInterface
+   * @memberof DbsApiInterface
    */
   postV3DbsOrdersMetaGtin(
     apiOrdersGTINSetRequest: ApiOrdersGTINSetRequest,
@@ -4266,7 +4266,7 @@ export interface DBSApiInterface {
    * @param {ApiOrdersIMEISetRequest} apiOrdersIMEISetRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DBSApiInterface
+   * @memberof DbsApiInterface
    */
   postV3DbsOrdersMetaImei(
     apiOrdersIMEISetRequest: ApiOrdersIMEISetRequest,
@@ -4279,7 +4279,7 @@ export interface DBSApiInterface {
    * @param {ApiOrdersSGTINsSetRequest} apiOrdersSGTINsSetRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DBSApiInterface
+   * @memberof DbsApiInterface
    */
   postV3DbsOrdersMetaSgtin(
     apiOrdersSGTINsSetRequest: ApiOrdersSGTINsSetRequest,
@@ -4292,7 +4292,7 @@ export interface DBSApiInterface {
    * @param {ApiOrdersUINSetRequest} apiOrdersUINSetRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DBSApiInterface
+   * @memberof DbsApiInterface
    */
   postV3DbsOrdersMetaUin(
     apiOrdersUINSetRequest: ApiOrdersUINSetRequest,
@@ -4305,7 +4305,7 @@ export interface DBSApiInterface {
    * @param {ApiOrdersRequestV2} apiOrdersRequestV2
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DBSApiInterface
+   * @memberof DbsApiInterface
    */
   postV3DbsOrdersStatusCancel(
     apiOrdersRequestV2: ApiOrdersRequestV2,
@@ -4318,7 +4318,7 @@ export interface DBSApiInterface {
    * @param {ApiOrdersRequestV2} apiOrdersRequestV2
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DBSApiInterface
+   * @memberof DbsApiInterface
    */
   postV3DbsOrdersStatusConfirm(
     apiOrdersRequestV2: ApiOrdersRequestV2,
@@ -4331,7 +4331,7 @@ export interface DBSApiInterface {
    * @param {ApiOrdersRequestV2} apiOrdersRequestV2
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DBSApiInterface
+   * @memberof DbsApiInterface
    */
   postV3DbsOrdersStatusDeliver(
     apiOrdersRequestV2: ApiOrdersRequestV2,
@@ -4344,7 +4344,7 @@ export interface DBSApiInterface {
    * @param {ApiOrdersRequestV2} apiOrdersRequestV2
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DBSApiInterface
+   * @memberof DbsApiInterface
    */
   postV3DbsOrdersStatusInfo(
     apiOrdersRequestV2: ApiOrdersRequestV2,
@@ -4357,7 +4357,7 @@ export interface DBSApiInterface {
    * @param {ApiOrdersCodeRequest} [apiOrdersCodeRequest]
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DBSApiInterface
+   * @memberof DbsApiInterface
    */
   postV3DbsOrdersStatusReceive(
     apiOrdersCodeRequest?: ApiOrdersCodeRequest,
@@ -4370,7 +4370,7 @@ export interface DBSApiInterface {
    * @param {ApiOrdersCodeRequest} [apiOrdersCodeRequest]
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DBSApiInterface
+   * @memberof DbsApiInterface
    */
   postV3DbsOrdersStatusReject(
     apiOrdersCodeRequest?: ApiOrdersCodeRequest,
@@ -4386,7 +4386,7 @@ export interface DBSApiInterface {
    * @param {PostV3DbsOrdersStickersRequest} [postV3DbsOrdersStickersRequest]
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DBSApiInterface
+   * @memberof DbsApiInterface
    */
   postV3DbsOrdersStickers(
     type: PostV3DbsOrdersStickersTypeEnum,
@@ -4398,12 +4398,12 @@ export interface DBSApiInterface {
 }
 
 /**
- * DBSApi - object-oriented interface
+ * DbsApi - object-oriented interface
  * @export
- * @class DBSApi
+ * @class DbsApi
  * @extends {BaseAPI}
  */
-export class DBSApi extends BaseAPI implements DBSApiInterface {
+export class DbsApi extends BaseAPI implements DbsApiInterface {
   /**
    * Метод возвращает информацию о завершенных [сборочных заданиях](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders) после продажи или отмены заказа.  Можно получить данные за заданный период, максимум 30 календарных дней одним запросом.  [Лимит запросов](https://dev.wildberries.ru/docs/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий DBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов.  ---  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
    * @summary Получить информацию о завершенных сборочных заданиях
@@ -4413,7 +4413,7 @@ export class DBSApi extends BaseAPI implements DBSApiInterface {
    * @param {number} dateTo Дата конца периода в формате Unix timestamp
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DBSApi
+   * @memberof DbsApi
    */
   public getV3DbsOrders(
     limit: number,
@@ -4422,7 +4422,7 @@ export class DBSApi extends BaseAPI implements DBSApiInterface {
     dateTo: number,
     options?: RawAxiosRequestConfig,
   ) {
-    return DBSApiFp(this.configuration)
+    return DbsApiFp(this.configuration)
       .getV3DbsOrders(limit, next, dateFrom, dateTo, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -4432,10 +4432,10 @@ export class DBSApi extends BaseAPI implements DBSApiInterface {
    * @summary Получить список новых сборочных заданий
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DBSApi
+   * @memberof DbsApi
    */
   public getV3DbsOrdersNew(options?: RawAxiosRequestConfig) {
-    return DBSApiFp(this.configuration)
+    return DbsApiFp(this.configuration)
       .getV3DbsOrdersNew(options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -4446,13 +4446,13 @@ export class DBSApi extends BaseAPI implements DBSApiInterface {
    * @param {ApiOrderGroupsRequest} apiOrderGroupsRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DBSApi
+   * @memberof DbsApi
    */
   public postV3DbsGroupsInfo(
     apiOrderGroupsRequest: ApiOrderGroupsRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return DBSApiFp(this.configuration)
+    return DbsApiFp(this.configuration)
       .postV3DbsGroupsInfo(apiOrderGroupsRequest, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -4463,13 +4463,13 @@ export class DBSApi extends BaseAPI implements DBSApiInterface {
    * @param {ApiOrdersRequestV2} apiOrdersRequestV2
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DBSApi
+   * @memberof DbsApi
    */
   public postV3DbsOrdersB2bInfo(
     apiOrdersRequestV2: ApiOrdersRequestV2,
     options?: RawAxiosRequestConfig,
   ) {
-    return DBSApiFp(this.configuration)
+    return DbsApiFp(this.configuration)
       .postV3DbsOrdersB2bInfo(apiOrdersRequestV2, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -4480,13 +4480,13 @@ export class DBSApi extends BaseAPI implements DBSApiInterface {
    * @param {OrdersRequestAPI} ordersRequestAPI
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DBSApi
+   * @memberof DbsApi
    */
   public postV3DbsOrdersClient(
     ordersRequestAPI: OrdersRequestAPI,
     options?: RawAxiosRequestConfig,
   ) {
-    return DBSApiFp(this.configuration)
+    return DbsApiFp(this.configuration)
       .postV3DbsOrdersClient(ordersRequestAPI, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -4497,13 +4497,13 @@ export class DBSApi extends BaseAPI implements DBSApiInterface {
    * @param {DeliveryDatesRequest} deliveryDatesRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DBSApi
+   * @memberof DbsApi
    */
   public postV3DbsOrdersDeliveryDate(
     deliveryDatesRequest: DeliveryDatesRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return DBSApiFp(this.configuration)
+    return DbsApiFp(this.configuration)
       .postV3DbsOrdersDeliveryDate(deliveryDatesRequest, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -4514,13 +4514,13 @@ export class DBSApi extends BaseAPI implements DBSApiInterface {
    * @param {OrdersRequestAPI} [ordersRequestAPI]
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DBSApi
+   * @memberof DbsApi
    */
   public postV3DbsOrdersFinalPrice(
     ordersRequestAPI?: OrdersRequestAPI,
     options?: RawAxiosRequestConfig,
   ) {
-    return DBSApiFp(this.configuration)
+    return DbsApiFp(this.configuration)
       .postV3DbsOrdersFinalPrice(ordersRequestAPI, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -4531,13 +4531,13 @@ export class DBSApi extends BaseAPI implements DBSApiInterface {
    * @param {PostV3DbsOrdersMetaCustomsDeclarationRequest} postV3DbsOrdersMetaCustomsDeclarationRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DBSApi
+   * @memberof DbsApi
    */
   public postV3DbsOrdersMetaCustomsDeclaration(
     postV3DbsOrdersMetaCustomsDeclarationRequest: PostV3DbsOrdersMetaCustomsDeclarationRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return DBSApiFp(this.configuration)
+    return DbsApiFp(this.configuration)
       .postV3DbsOrdersMetaCustomsDeclaration(
         postV3DbsOrdersMetaCustomsDeclarationRequest,
         options,
@@ -4551,13 +4551,13 @@ export class DBSApi extends BaseAPI implements DBSApiInterface {
    * @param {ApiOrdersMetaDeleteRequest} apiOrdersMetaDeleteRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DBSApi
+   * @memberof DbsApi
    */
   public postV3DbsOrdersMetaDelete(
     apiOrdersMetaDeleteRequest: ApiOrdersMetaDeleteRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return DBSApiFp(this.configuration)
+    return DbsApiFp(this.configuration)
       .postV3DbsOrdersMetaDelete(apiOrdersMetaDeleteRequest, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -4568,13 +4568,13 @@ export class DBSApi extends BaseAPI implements DBSApiInterface {
    * @param {ApiOrdersRequestV2} apiOrdersRequestV2
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DBSApi
+   * @memberof DbsApi
    */
   public postV3DbsOrdersMetaDetails(
     apiOrdersRequestV2: ApiOrdersRequestV2,
     options?: RawAxiosRequestConfig,
   ) {
-    return DBSApiFp(this.configuration)
+    return DbsApiFp(this.configuration)
       .postV3DbsOrdersMetaDetails(apiOrdersRequestV2, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -4585,13 +4585,13 @@ export class DBSApi extends BaseAPI implements DBSApiInterface {
    * @param {ApiOrdersGTINSetRequest} apiOrdersGTINSetRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DBSApi
+   * @memberof DbsApi
    */
   public postV3DbsOrdersMetaGtin(
     apiOrdersGTINSetRequest: ApiOrdersGTINSetRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return DBSApiFp(this.configuration)
+    return DbsApiFp(this.configuration)
       .postV3DbsOrdersMetaGtin(apiOrdersGTINSetRequest, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -4602,13 +4602,13 @@ export class DBSApi extends BaseAPI implements DBSApiInterface {
    * @param {ApiOrdersIMEISetRequest} apiOrdersIMEISetRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DBSApi
+   * @memberof DbsApi
    */
   public postV3DbsOrdersMetaImei(
     apiOrdersIMEISetRequest: ApiOrdersIMEISetRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return DBSApiFp(this.configuration)
+    return DbsApiFp(this.configuration)
       .postV3DbsOrdersMetaImei(apiOrdersIMEISetRequest, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -4619,13 +4619,13 @@ export class DBSApi extends BaseAPI implements DBSApiInterface {
    * @param {ApiOrdersSGTINsSetRequest} apiOrdersSGTINsSetRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DBSApi
+   * @memberof DbsApi
    */
   public postV3DbsOrdersMetaSgtin(
     apiOrdersSGTINsSetRequest: ApiOrdersSGTINsSetRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return DBSApiFp(this.configuration)
+    return DbsApiFp(this.configuration)
       .postV3DbsOrdersMetaSgtin(apiOrdersSGTINsSetRequest, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -4636,13 +4636,13 @@ export class DBSApi extends BaseAPI implements DBSApiInterface {
    * @param {ApiOrdersUINSetRequest} apiOrdersUINSetRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DBSApi
+   * @memberof DbsApi
    */
   public postV3DbsOrdersMetaUin(
     apiOrdersUINSetRequest: ApiOrdersUINSetRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return DBSApiFp(this.configuration)
+    return DbsApiFp(this.configuration)
       .postV3DbsOrdersMetaUin(apiOrdersUINSetRequest, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -4653,13 +4653,13 @@ export class DBSApi extends BaseAPI implements DBSApiInterface {
    * @param {ApiOrdersRequestV2} apiOrdersRequestV2
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DBSApi
+   * @memberof DbsApi
    */
   public postV3DbsOrdersStatusCancel(
     apiOrdersRequestV2: ApiOrdersRequestV2,
     options?: RawAxiosRequestConfig,
   ) {
-    return DBSApiFp(this.configuration)
+    return DbsApiFp(this.configuration)
       .postV3DbsOrdersStatusCancel(apiOrdersRequestV2, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -4670,13 +4670,13 @@ export class DBSApi extends BaseAPI implements DBSApiInterface {
    * @param {ApiOrdersRequestV2} apiOrdersRequestV2
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DBSApi
+   * @memberof DbsApi
    */
   public postV3DbsOrdersStatusConfirm(
     apiOrdersRequestV2: ApiOrdersRequestV2,
     options?: RawAxiosRequestConfig,
   ) {
-    return DBSApiFp(this.configuration)
+    return DbsApiFp(this.configuration)
       .postV3DbsOrdersStatusConfirm(apiOrdersRequestV2, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -4687,13 +4687,13 @@ export class DBSApi extends BaseAPI implements DBSApiInterface {
    * @param {ApiOrdersRequestV2} apiOrdersRequestV2
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DBSApi
+   * @memberof DbsApi
    */
   public postV3DbsOrdersStatusDeliver(
     apiOrdersRequestV2: ApiOrdersRequestV2,
     options?: RawAxiosRequestConfig,
   ) {
-    return DBSApiFp(this.configuration)
+    return DbsApiFp(this.configuration)
       .postV3DbsOrdersStatusDeliver(apiOrdersRequestV2, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -4704,13 +4704,13 @@ export class DBSApi extends BaseAPI implements DBSApiInterface {
    * @param {ApiOrdersRequestV2} apiOrdersRequestV2
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DBSApi
+   * @memberof DbsApi
    */
   public postV3DbsOrdersStatusInfo(
     apiOrdersRequestV2: ApiOrdersRequestV2,
     options?: RawAxiosRequestConfig,
   ) {
-    return DBSApiFp(this.configuration)
+    return DbsApiFp(this.configuration)
       .postV3DbsOrdersStatusInfo(apiOrdersRequestV2, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -4721,13 +4721,13 @@ export class DBSApi extends BaseAPI implements DBSApiInterface {
    * @param {ApiOrdersCodeRequest} [apiOrdersCodeRequest]
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DBSApi
+   * @memberof DbsApi
    */
   public postV3DbsOrdersStatusReceive(
     apiOrdersCodeRequest?: ApiOrdersCodeRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return DBSApiFp(this.configuration)
+    return DbsApiFp(this.configuration)
       .postV3DbsOrdersStatusReceive(apiOrdersCodeRequest, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -4738,13 +4738,13 @@ export class DBSApi extends BaseAPI implements DBSApiInterface {
    * @param {ApiOrdersCodeRequest} [apiOrdersCodeRequest]
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DBSApi
+   * @memberof DbsApi
    */
   public postV3DbsOrdersStatusReject(
     apiOrdersCodeRequest?: ApiOrdersCodeRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return DBSApiFp(this.configuration)
+    return DbsApiFp(this.configuration)
       .postV3DbsOrdersStatusReject(apiOrdersCodeRequest, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -4758,7 +4758,7 @@ export class DBSApi extends BaseAPI implements DBSApiInterface {
    * @param {PostV3DbsOrdersStickersRequest} [postV3DbsOrdersStickersRequest]
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DBSApi
+   * @memberof DbsApi
    */
   public postV3DbsOrdersStickers(
     type: PostV3DbsOrdersStickersTypeEnum,
@@ -4767,7 +4767,7 @@ export class DBSApi extends BaseAPI implements DBSApiInterface {
     postV3DbsOrdersStickersRequest?: PostV3DbsOrdersStickersRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return DBSApiFp(this.configuration)
+    return DbsApiFp(this.configuration)
       .postV3DbsOrdersStickers(
         type,
         width,

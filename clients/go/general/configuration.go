@@ -99,63 +99,63 @@ func NewConfiguration() *Configuration {
 			},
 		},
 		OperationServers: map[string]ServerConfigurations{
-			"DefaultApiService.DeleteV1User": {
+			"GeneralAPIService.DeleteV1User": {
 				{
 					URL:         "https://user-management-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"DefaultApiService.GetV1Rating": {
+			"GeneralAPIService.GetPing": {
+				{
+					URL:         "https://common-api.wildberries.ru",
+					Description: "No description provided",
+				},
+			},
+			"GeneralAPIService.GetV1Rating": {
 				{
 					URL:         "https://feedbacks-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"DefaultApiService.GetV1SellerInfo": {
+			"GeneralAPIService.GetV1SellerInfo": {
 				{
 					URL:         "https://common-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"DefaultApiService.GetV1Subscriptions": {
+			"GeneralAPIService.GetV1Subscriptions": {
 				{
 					URL:         "https://common-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"DefaultApiService.GetV1TariffConstructorOptions": {
+			"GeneralAPIService.GetV1TariffConstructorOptions": {
 				{
 					URL:         "https://common-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"DefaultApiService.GetV1Users": {
+			"GeneralAPIService.GetV1Users": {
 				{
 					URL:         "https://user-management-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"DefaultApiService.PostV1Invite": {
-				{
-					URL:         "https://user-management-api.wildberries.ru",
-					Description: "No description provided",
-				},
-			},
-			"DefaultApiService.PutV1UsersAccess": {
-				{
-					URL:         "https://user-management-api.wildberries.ru",
-					Description: "No description provided",
-				},
-			},
-			"APIAPIService.GetV2News": {
+			"GeneralAPIService.GetV2News": {
 				{
 					URL:         "https://common-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"WBAPIAPIService.GetPing": {
+			"GeneralAPIService.PostV1Invite": {
 				{
-					URL:         "https://common-api.wildberries.ru",
+					URL:         "https://user-management-api.wildberries.ru",
+					Description: "No description provided",
+				},
+			},
+			"GeneralAPIService.PutV1UsersAccess": {
+				{
+					URL:         "https://user-management-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},

@@ -31,7 +31,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Сборочные задания DBW
+      - OrdersDbw
       summary: Получить список новых сборочных заданий
       description: |-
         Метод возвращает список всех новых [сборочных заданий](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwAssemblyOrders), которые есть у продавца на момент запроса.
@@ -75,6 +75,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: dbwAssemblyOrders
+      x-original-tags:
+      - Сборочные задания DBW
   /api/v3/dbw/orders:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -85,7 +87,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Сборочные задания DBW
+      - OrdersDbw
       summary: Получить информацию о завершенных сборочных заданиях
       description: |-
         Метод возвращает информацию о завершенных [сборочных заданиях](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwAssemblyOrders).
@@ -156,6 +158,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: dbwAssemblyOrders
+      x-original-tags:
+      - Сборочные задания DBW
   /api/v3/dbw/orders/delivery-date:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -167,7 +171,7 @@ paths:
       - BearerAuth: []
       summary: Получить дату и время доставки
       tags:
-      - Сборочные задания DBW
+      - OrdersDbw
       description: |-
         Метод возвращает информацию о выбранных покупателем дате и времени доставки сборочных заданий.
 
@@ -227,6 +231,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: dbwAssemblyOrders
+      x-original-tags:
+      - Сборочные задания DBW
   /api/marketplace/v3/dbw/orders/client:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -238,7 +244,7 @@ paths:
       - BearerAuth: []
       summary: Информация о покупателе
       tags:
-      - Сборочные задания DBW
+      - OrdersDbw
       description: |-
         Метод возвращает информацию о покупателях по ID сборочных заданий.
 
@@ -300,6 +306,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: dbwAssemblyOrders
+      x-original-tags:
+      - Сборочные задания DBW
   /api/v3/dbw/orders/status:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -310,7 +318,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Сборочные задания DBW
+      - OrdersDbw
       summary: Получить статусы сборочных заданий
       description: |-
         Метод возвращает статусы сборочных заданий по их ID.
@@ -411,6 +419,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: dbwAssemblyOrders
+      x-original-tags:
+      - Сборочные задания DBW
   /api/v3/dbw/orders/{orderId}/confirm:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -421,7 +431,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Сборочные задания DBW
+      - OrdersDbw
       summary: Перевести на сборку
       description: |-
         Метод переводит [сборочное задание](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwAssemblyOrders) в [статус](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/postV3DbwOrdersStatus) `confirm` — на сборке.
@@ -483,6 +493,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: dbwAssemblyOrders
+      x-original-tags:
+      - Сборочные задания DBW
   /api/v3/dbw/orders/stickers:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -493,7 +505,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Сборочные задания DBW
+      - OrdersDbw
       summary: Получить стикеры сборочных заданий
       description: |-
         Метод возвращает список стикеров для [сборочных заданий](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/getV3DbwOrdersNew) в [статусах](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/postV3DbwOrdersStatus):
@@ -606,6 +618,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: dbwAssemblyOrders
+      x-original-tags:
+      - Сборочные задания DBW
   /api/marketplace/v3/dbw/orders/status/deliver:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -614,7 +628,7 @@ paths:
       x-readonly-method: false
       x-category: marketplace
       tags:
-      - Сборочные задания DBW
+      - OrdersDbw
       summary: Перевести сборочные задания в доставку
       description: |-
         Метод переводит [сборочные задания](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/getV3DbwOrders) из [статуса](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/postV3DbwOrdersStatus) `confirm` в статус `complete` — в доставке.
@@ -693,6 +707,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: dbwAssemblyOrders
+      x-original-tags:
+      - Сборочные задания DBW
   /api/v3/dbw/orders/courier:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -701,7 +717,7 @@ paths:
       x-readonly-method: true
       x-category: marketplace
       tags:
-      - Сборочные задания DBW
+      - OrdersDbw
       summary: Информация о курьере
       description: |-
         Метод возвращает контактные данные и номер автомобиля курьера по ID сборочного задания.
@@ -765,6 +781,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: dbwAssemblyOrders
+      x-original-tags:
+      - Сборочные задания DBW
   /api/v3/dbw/orders/{orderId}/cancel:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -775,7 +793,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Сборочные задания DBW
+      - OrdersDbw
       summary: Отменить сборочное задание
       description: |-
         Метод отменяет [сборочное задание](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwAssemblyOrders) и переводит в [статус](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/postV3DbwOrdersStatus) `cancel` — отменено продавцом.
@@ -840,6 +858,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: dbwAssemblyOrders
+      x-original-tags:
+      - Сборочные задания DBW
   /api/marketplace/v3/dbw/orders/meta/details:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -850,7 +870,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Идентификаторы маркировки DBW
+      - OrdersDbw
       summary: Получить идентификаторы маркировки сборочных заданий
       description: |-
         Метод возвращает идентификаторы маркировки [сборочных заданий](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/getV3DbwOrders) и статусы их проверки.
@@ -920,6 +940,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: dbwLabelIdentifiers
+      x-original-tags:
+      - Идентификаторы маркировки DBW
   /api/marketplace/v3/dbw/orders/meta/delete:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -928,7 +950,7 @@ paths:
       x-readonly-method: false
       x-category: marketplace
       tags:
-      - Идентификаторы маркировки DBW
+      - OrdersDbw
       summary: Удалить идентификаторы маркировки сборочных заданий
       description: |-
         Метод удаляет значение указанных [идентификаторов маркировки сборочного задания](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaDetails) для переданного ключа.
@@ -998,6 +1020,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: dbwLabelIdentifiers
+      x-original-tags:
+      - Идентификаторы маркировки DBW
   /api/marketplace/v3/dbw/orders/meta/sgtin:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -1006,7 +1030,7 @@ paths:
       x-readonly-method: false
       x-category: marketplace
       tags:
-      - Идентификаторы маркировки DBW
+      - OrdersDbw
       summary: Закрепить коды маркировки Честного знака за сборочными заданиями
       description: |-
         Метод обновляет код маркировки [Честного знака](https://честныйзнак.рф/) в [идентификаторах маркировки сборочных заданий](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaDetails).
@@ -1082,6 +1106,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: dbwLabelIdentifiers
+      x-original-tags:
+      - Идентификаторы маркировки DBW
   /api/v3/dbw/orders/{orderId}/meta/uin:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -1092,7 +1118,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Идентификаторы маркировки DBW
+      - OrdersDbw
       summary: Закрепить УИН за сборочным заданием
       description: |-
         Метод обновляет УИН, уникальный идентификационный номер, в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaDetails). У одного сборочного задания может быть только один УИН.
@@ -1169,6 +1195,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: dbwLabelIdentifiers
+      x-original-tags:
+      - Идентификаторы маркировки DBW
   /api/v3/dbw/orders/{orderId}/meta/imei:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -1179,7 +1207,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Идентификаторы маркировки DBW
+      - OrdersDbw
       summary: Закрепить IMEI за сборочным заданием
       description: |-
         Метод обновляет IMEI в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaDetails).
@@ -1257,6 +1285,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: dbwLabelIdentifiers
+      x-original-tags:
+      - Идентификаторы маркировки DBW
   /api/v3/dbw/orders/{orderId}/meta/gtin:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -1267,7 +1297,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Идентификаторы маркировки DBW
+      - OrdersDbw
       summary: Закрепить GTIN за сборочным заданием
       description: |-
         Метод обновляет GTIN, уникальный ID товара в Беларуси, в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaDetails). У одного сборочного задания может быть только один GTIN.
@@ -1344,6 +1374,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: dbwLabelIdentifiers
+      x-original-tags:
+      - Идентификаторы маркировки DBW
 components:
   securitySchemes:
     BearerAuth:

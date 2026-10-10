@@ -33,7 +33,7 @@ namespace ValeryVerkhoturov.WbApiClient.General.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "1.20261010.0";
+        public const string Version = "1.20261010.1";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -134,7 +134,7 @@ namespace ValeryVerkhoturov.WbApiClient.General.Client
             OperationServers = new Dictionary<string, List<IReadOnlyDictionary<string, object>>>()
             {
                 {
-                    "DefaultApi.DeleteV1User", new List<IReadOnlyDictionary<string, object>>
+                    "GeneralApi.DeleteV1User", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -146,7 +146,19 @@ namespace ValeryVerkhoturov.WbApiClient.General.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV1Rating", new List<IReadOnlyDictionary<string, object>>
+                    "GeneralApi.GetPing", new List<IReadOnlyDictionary<string, object>>
+                    {
+                        {
+                            new Dictionary<string, object>
+                            {
+                                {"url", "https://common-api.wildberries.ru"},
+                                {"description", "No description provided"}
+                            }
+                        },
+                    }
+                },
+                {
+                    "GeneralApi.GetV1Rating", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -158,7 +170,7 @@ namespace ValeryVerkhoturov.WbApiClient.General.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV1SellerInfo", new List<IReadOnlyDictionary<string, object>>
+                    "GeneralApi.GetV1SellerInfo", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -170,7 +182,7 @@ namespace ValeryVerkhoturov.WbApiClient.General.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV1Subscriptions", new List<IReadOnlyDictionary<string, object>>
+                    "GeneralApi.GetV1Subscriptions", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -182,7 +194,7 @@ namespace ValeryVerkhoturov.WbApiClient.General.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV1TariffConstructorOptions", new List<IReadOnlyDictionary<string, object>>
+                    "GeneralApi.GetV1TariffConstructorOptions", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -194,7 +206,7 @@ namespace ValeryVerkhoturov.WbApiClient.General.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV1Users", new List<IReadOnlyDictionary<string, object>>
+                    "GeneralApi.GetV1Users", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -206,31 +218,7 @@ namespace ValeryVerkhoturov.WbApiClient.General.Client
                     }
                 },
                 {
-                    "DefaultApi.PostV1Invite", new List<IReadOnlyDictionary<string, object>>
-                    {
-                        {
-                            new Dictionary<string, object>
-                            {
-                                {"url", "https://user-management-api.wildberries.ru"},
-                                {"description", "No description provided"}
-                            }
-                        },
-                    }
-                },
-                {
-                    "DefaultApi.PutV1UsersAccess", new List<IReadOnlyDictionary<string, object>>
-                    {
-                        {
-                            new Dictionary<string, object>
-                            {
-                                {"url", "https://user-management-api.wildberries.ru"},
-                                {"description", "No description provided"}
-                            }
-                        },
-                    }
-                },
-                {
-                    "APIApi.GetV2News", new List<IReadOnlyDictionary<string, object>>
+                    "GeneralApi.GetV2News", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -242,12 +230,24 @@ namespace ValeryVerkhoturov.WbApiClient.General.Client
                     }
                 },
                 {
-                    "WBAPIApi.GetPing", new List<IReadOnlyDictionary<string, object>>
+                    "GeneralApi.PostV1Invite", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
                             {
-                                {"url", "https://common-api.wildberries.ru"},
+                                {"url", "https://user-management-api.wildberries.ru"},
+                                {"description", "No description provided"}
+                            }
+                        },
+                    }
+                },
+                {
+                    "GeneralApi.PutV1UsersAccess", new List<IReadOnlyDictionary<string, object>>
+                    {
+                        {
+                            new Dictionary<string, object>
+                            {
+                                {"url", "https://user-management-api.wildberries.ru"},
                                 {"description", "No description provided"}
                             }
                         },
@@ -683,7 +683,7 @@ namespace ValeryVerkhoturov.WbApiClient.General.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version + "\n";
             report += "    Version of the API: general\n";
-            report += "    SDK Package Version: 1.20261010.0\n";
+            report += "    SDK Package Version: 1.20261010.1\n";
 
             return report;
         }

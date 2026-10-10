@@ -102,7 +102,7 @@ paths:
         | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов |
         | Базовый | 3 ч | 1 запрос | 3 ч | 1 запрос |
       tags:
-      - Основные отчёты
+      - Reports
       parameters:
       - name: dateFrom
         in: query
@@ -178,6 +178,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: mainReports
+      x-original-tags:
+      - Основные отчёты
   /api/v1/supplier/sales:
     servers:
     - url: https://statistics-api.wildberries.ru
@@ -223,7 +225,7 @@ paths:
         | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос |
         | Базовый | 2 ч | 1 запрос | 2 ч | 1 запрос |
       tags:
-      - Основные отчёты
+      - Reports
       parameters:
       - name: dateFrom
         in: query
@@ -300,6 +302,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: mainReports
+      x-original-tags:
+      - Основные отчёты
   /api/v1/analytics/excise-report:
     servers:
     - url: https://seller-analytics-api.wildberries.ru
@@ -308,7 +312,7 @@ paths:
       x-readonly-method: true
       x-category: contentanalytics
       tags:
-      - Отчёт о товарах c обязательной маркировкой
+      - Reports
       summary: Получить отчёт
       description: |-
         Метод возвращает отчёт с [операциями по товарам с обязательной маркировкой](https://seller.wildberries.ru/analytics-reports/excise-report).
@@ -358,6 +362,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: reportOnItemsWithMandatoryLabeling
+      x-original-tags:
+      - Отчёт о товарах c обязательной маркировкой
   /api/v1/warehouse_remains:
     servers:
     - url: https://seller-analytics-api.wildberries.ru
@@ -368,7 +374,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Отчёт об остатках на складах
+      - Reports
       summary: Создать отчёт
       description: |-
         Метод создаёт [задание на генерацию](https://dev.wildberries.ru/openapi/reports#tag/warehousesInventoryReport/operation/getV1WarehouseRemainsTasksTaskIdStatus) отчёта об [остатках на складах WB](https://dev.wildberries.ru/openapi/reports#tag/warehousesInventoryReport/operation/getV1WarehouseRemainsTasksTaskIdDownload).
@@ -488,6 +494,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: warehousesInventoryReport
+      x-original-tags:
+      - Отчёт об остатках на складах
   /api/v1/warehouse_remains/tasks/{task_id}/status:
     servers:
     - url: https://seller-analytics-api.wildberries.ru
@@ -498,7 +506,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Отчёт об остатках на складах
+      - Reports
       summary: Проверить статус
       description: |-
         Метод возвращает статус [задания на генерацию](https://dev.wildberries.ru/openapi/reports#tag/warehousesInventoryReport/operation/getV1WarehouseRemains) отчёта об [остатках на складах WB](https://dev.wildberries.ru/openapi/reports#tag/warehousesInventoryReport/operation/getV1WarehouseRemainsTasksTaskIdDownload).
@@ -558,6 +566,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: warehousesInventoryReport
+      x-original-tags:
+      - Отчёт об остатках на складах
   /api/v1/warehouse_remains/tasks/{task_id}/download:
     servers:
     - url: https://seller-analytics-api.wildberries.ru
@@ -568,7 +578,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Отчёт об остатках на складах
+      - Reports
       summary: Получить отчёт
       description: |-
         Метод возвращает отчёт об [остатках на складах WB](https://seller.wildberries.ru/analytics-reports/warehouse-remains) по ID [задания на генерацию](https://dev.wildberries.ru/openapi/reports#tag/warehousesInventoryReport/operation/getV1WarehouseRemains).
@@ -650,6 +660,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: warehousesInventoryReport
+      x-original-tags:
+      - Отчёт об остатках на складах
   /api/analytics/v1/measurement-penalties:
     servers:
     - url: https://seller-analytics-api.wildberries.ru
@@ -659,7 +671,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Отчёты об удержаниях
+      - Reports
       summary: Удержания за занижение габаритов упаковки
       operationId: getV1MeasurementPenalties
       description: |-
@@ -736,6 +748,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: retentionReports
+      x-original-tags:
+      - Отчёты об удержаниях
   /api/analytics/v1/warehouse-measurements:
     servers:
     - url: https://seller-analytics-api.wildberries.ru
@@ -745,7 +759,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Отчёты об удержаниях
+      - Reports
       summary: Замеры склада
       operationId: getV1WarehouseMeasurements
       description: |-
@@ -822,6 +836,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: retentionReports
+      x-original-tags:
+      - Отчёты об удержаниях
   /api/analytics/v1/deductions:
     servers:
     - url: https://seller-analytics-api.wildberries.ru
@@ -831,7 +847,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Отчёты об удержаниях
+      - Reports
       summary: Подмены и неверные вложения
       operationId: getV1Deductions
       description: |-
@@ -929,6 +945,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: retentionReports
+      x-original-tags:
+      - Отчёты об удержаниях
   /api/v1/analytics/antifraud-details:
     servers:
     - url: https://seller-analytics-api.wildberries.ru
@@ -939,7 +957,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Отчёты об удержаниях
+      - Reports
       summary: Самовыкупы
       description: |-
         Метод возвращает отчёт об удержаниях за самовыкупы. Отчёт формируется каждую неделю по средам, до 7:00 по московскому времени, и содержит данные за одну неделю.
@@ -979,6 +997,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: retentionReports
+      x-original-tags:
+      - Отчёты об удержаниях
   /api/v1/analytics/goods-labeling:
     servers:
     - url: https://seller-analytics-api.wildberries.ru
@@ -989,7 +1009,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Отчёты об удержаниях
+      - Reports
       summary: Маркировка товара
       description: |-
         Метод возвращает отчёт о штрафах за отсутствие обязательной маркировки товаров.
@@ -1038,6 +1058,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: retentionReports
+      x-original-tags:
+      - Отчёты об удержаниях
   /api/v1/acceptance_report:
     servers:
     - url: https://seller-analytics-api.wildberries.ru
@@ -1048,7 +1070,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Операции при приёмке
+      - Reports
       summary: Создать отчёт
       description: |-
         Метод создаёт [задание на генерацию](https://dev.wildberries.ru/openapi/reports#tag/acceptanceExpenses/operation/getV1AcceptanceReportTasksTaskIdStatus) отчёта об [операциях при приёмке](https://dev.wildberries.ru/openapi/reports#tag/acceptanceExpenses/operation/getV1AcceptanceReportTasksTaskIdDownload).
@@ -1103,6 +1125,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: acceptanceExpenses
+      x-original-tags:
+      - Операции при приёмке
   /api/v1/acceptance_report/tasks/{task_id}/status:
     servers:
     - url: https://seller-analytics-api.wildberries.ru
@@ -1113,7 +1137,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Операции при приёмке
+      - Reports
       summary: Проверить статус
       description: |-
         Метод возвращает статус [задания на генерацию](https://dev.wildberries.ru/openapi/reports#tag/acceptanceExpenses/operation/getV1AcceptanceReport) отчёта об [операциях при приёмке](https://dev.wildberries.ru/openapi/reports#tag/acceptanceExpenses/operation/getV1AcceptanceReportTasksTaskIdDownload).
@@ -1173,6 +1197,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: acceptanceExpenses
+      x-original-tags:
+      - Операции при приёмке
   /api/v1/acceptance_report/tasks/{task_id}/download:
     servers:
     - url: https://seller-analytics-api.wildberries.ru
@@ -1183,7 +1209,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Операции при приёмке
+      - Reports
       summary: Получить отчёт
       description: |-
         Метод возвращает отчёт об [операциях при приёмке](https://seller.wildberries.ru/analytics-reports/acceptance-report) по ID [задания на генерацию](https://dev.wildberries.ru/openapi/reports#tag/acceptanceExpenses/operation/getV1AcceptanceReport).
@@ -1244,6 +1270,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: acceptanceExpenses
+      x-original-tags:
+      - Операции при приёмке
   /api/v1/paid_storage:
     servers:
     - url: https://seller-analytics-api.wildberries.ru
@@ -1254,7 +1282,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Платное хранение
+      - Reports
       summary: Создать отчёт
       description: |-
         Метод создаёт [задание на генерацию](https://dev.wildberries.ru/openapi/reports#tag/paidStorage/operation/getV1PaidStorageTasksTaskIdStatus) отчёта о [платном хранении](https://dev.wildberries.ru/openapi/reports#tag/paidStorage/operation/getV1PaidStorageTasksTaskIdDownload).
@@ -1333,6 +1361,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: paidStorage
+      x-original-tags:
+      - Платное хранение
   /api/v1/paid_storage/tasks/{task_id}/status:
     servers:
     - url: https://seller-analytics-api.wildberries.ru
@@ -1343,7 +1373,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Платное хранение
+      - Reports
       summary: Проверить статус
       description: |-
         Метод возвращает статус [задания на генерацию](https://dev.wildberries.ru/openapi/reports#tag/paidStorage/operation/getV1PaidStorage) отчёта о [платном хранении](https://dev.wildberries.ru/openapi/reports#tag/paidStorage/operation/getV1PaidStorageTasksTaskIdDownload).
@@ -1403,6 +1433,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: paidStorage
+      x-original-tags:
+      - Платное хранение
   /api/v1/paid_storage/tasks/{task_id}/download:
     servers:
     - url: https://seller-analytics-api.wildberries.ru
@@ -1413,7 +1445,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Платное хранение
+      - Reports
       summary: Получить отчёт
       description: |-
         Метод возвращает отчёт о [платном хранении](https://seller.wildberries.ru/analytics-reports/paid-storage/storage) по ID [задания на генерацию](https://dev.wildberries.ru/openapi/reports#tag/paidStorage/operation/getV1PaidStorage).
@@ -1498,6 +1530,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: paidStorage
+      x-original-tags:
+      - Платное хранение
   /api/v1/analytics/region-sale:
     servers:
     - url: https://seller-analytics-api.wildberries.ru
@@ -1509,7 +1543,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Продажи по регионам
+      - Reports
       summary: Получить отчёт
       description: |-
         Метод будет отключен [3 ноября](https://dev.wildberries.ru/release-notes?id=590).
@@ -1555,6 +1589,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: salesByRegions
+      x-original-tags:
+      - Продажи по регионам
   /api/v1/analytics/brand-share/brands:
     servers:
     - url: https://seller-analytics-api.wildberries.ru
@@ -1565,7 +1601,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Доля бренда в продажах
+      - Reports
       summary: Бренды продавца
       description: |-
         Метод возвращает список брендов продавца для отчёта о [доле бренда в продажах](https://seller.wildberries.ru/analytics-reports/brand-share).
@@ -1593,6 +1629,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: shareOfBrandInSales
+      x-original-tags:
+      - Доля бренда в продажах
   /api/v1/analytics/brand-share/parent-subjects:
     servers:
     - url: https://seller-analytics-api.wildberries.ru
@@ -1603,7 +1641,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Доля бренда в продажах
+      - Reports
       summary: Родительские категории бренда
       description: |-
         Метод возвращает родительские категории бренда продавца для отчёта о [доле бренда в продажах](https://seller.wildberries.ru/analytics-reports/brand-share).
@@ -1675,6 +1713,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: shareOfBrandInSales
+      x-original-tags:
+      - Доля бренда в продажах
   /api/v1/analytics/brand-share:
     servers:
     - url: https://seller-analytics-api.wildberries.ru
@@ -1685,7 +1725,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Доля бренда в продажах
+      - Reports
       summary: Получить отчёт
       description: |-
         Метод возвращает отчёт о [доле бренда продавца в продажах](https://seller.wildberries.ru/analytics-reports/brand-share).
@@ -1753,6 +1793,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: shareOfBrandInSales
+      x-original-tags:
+      - Доля бренда в продажах
   /api/v1/analytics/banned-products/blocked:
     servers:
     - url: https://seller-analytics-api.wildberries.ru
@@ -1763,7 +1805,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Заблокированные карточки
+      - Reports
       summary: Получить отчёт
       description: |-
         Метод возвращает список [заблокированных карточек товаров продавца](https://seller.wildberries.ru/analytics-reports/banned-products) с причинами блокировки.
@@ -1836,6 +1878,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: blockedItems
+      x-original-tags:
+      - Заблокированные карточки
   /api/v1/analytics/goods-return:
     servers:
     - url: https://seller-analytics-api.wildberries.ru
@@ -1847,7 +1891,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Отчёт о возвратах и перемещении товаров
+      - Reports
       summary: Получить отчёт
       description: |
         Метод будет отключен [26 октября](https://dev.wildberries.ru/release-notes?id=577).
@@ -1901,6 +1945,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: returnsAndItemMovementReport
+      x-original-tags:
+      - Отчёт о возвратах и перемещении товаров
   /api/analytics/v1/item-returns:
     servers:
     - url: https://seller-analytics-api.wildberries.ru
@@ -1911,7 +1957,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Отчёт о возвратах и перемещении товаров
+      - Reports
       summary: Получить отчёт
       description: |
         Метод возвращает отчёт о [возвратах товаров продавцу](https://seller.wildberries.ru/return-transfer-reports).
@@ -1994,6 +2040,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: returnsAndItemMovementReport
+      x-original-tags:
+      - Отчёт о возвратах и перемещении товаров
 components:
   schemas:
     GoodsReturn200Response:

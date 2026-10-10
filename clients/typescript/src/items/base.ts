@@ -89,7 +89,7 @@ interface ServerMap {
  * @export
  */
 export const operationServerMap: ServerMap = {
-  "DefaultApi.deleteV2TagId": [
+  "ItemsApi.deleteV2TagId": [
     {
       url: "https://content-api.wildberries.ru",
       description: "**Prod** ",
@@ -99,7 +99,7 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DefaultApi.deleteV3StocksWarehouseId": [
+  "ItemsApi.deleteV3StocksWarehouseId": [
     {
       url: "https://marketplace-api.wildberries.ru",
       description: "**Prod** ",
@@ -109,7 +109,7 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DefaultApi.deleteV3WarehousesWarehouseId": [
+  "ItemsApi.deleteV3WarehousesWarehouseId": [
     {
       url: "https://marketplace-api.wildberries.ru",
       description: "**Prod** ",
@@ -119,13 +119,13 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DefaultApi.getV1Brands": [
+  "ItemsApi.getV1Brands": [
     {
       url: "https://content-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.getV2BufferGoodsTask": [
+  "ItemsApi.getV2BufferGoodsTask": [
     {
       url: "https://discounts-prices-api.wildberries.ru",
       description: "**Prod** ",
@@ -135,7 +135,7 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DefaultApi.getV2BufferTasks": [
+  "ItemsApi.getV2BufferTasks": [
     {
       url: "https://discounts-prices-api.wildberries.ru",
       description: "**Prod** ",
@@ -145,7 +145,7 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DefaultApi.getV2CardsLimits": [
+  "ItemsApi.getV2CardsLimits": [
     {
       url: "https://content-api.wildberries.ru",
       description: "**Prod** ",
@@ -155,7 +155,7 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DefaultApi.getV2DirectoryColors": [
+  "ItemsApi.getV2DirectoryColors": [
     {
       url: "https://content-api.wildberries.ru",
       description: "**Prod** ",
@@ -165,7 +165,7 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DefaultApi.getV2DirectoryCountries": [
+  "ItemsApi.getV2DirectoryCountries": [
     {
       url: "https://content-api.wildberries.ru",
       description: "**Prod** ",
@@ -175,7 +175,7 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DefaultApi.getV2DirectoryKinds": [
+  "ItemsApi.getV2DirectoryKinds": [
     {
       url: "https://content-api.wildberries.ru",
       description: "**Prod** ",
@@ -185,29 +185,19 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DefaultApi.getV2DirectoryOkpd": [
+  "ItemsApi.getV2DirectoryOkpd": [
     {
       url: "https://content-api.wildberries.ru",
       description: "**Prod** ",
     },
   ],
-  "DefaultApi.getV2DirectoryOkpdAll": [
+  "ItemsApi.getV2DirectoryOkpdAll": [
     {
       url: "https://content-api.wildberries.ru",
       description: "**Prod** ",
     },
   ],
-  "DefaultApi.getV2DirectorySeasons": [
-    {
-      url: "https://content-api.wildberries.ru",
-      description: "**Prod** ",
-    },
-    {
-      url: "https://content-api-sandbox.wildberries.ru",
-      description: "**Sandbox** ",
-    },
-  ],
-  "DefaultApi.getV2DirectoryTnved": [
+  "ItemsApi.getV2DirectorySeasons": [
     {
       url: "https://content-api.wildberries.ru",
       description: "**Prod** ",
@@ -217,13 +207,7 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DefaultApi.getV2DirectoryTnvedAll": [
-    {
-      url: "https://content-api.wildberries.ru",
-      description: "**Prod** ",
-    },
-  ],
-  "DefaultApi.getV2DirectoryVat": [
+  "ItemsApi.getV2DirectoryTnved": [
     {
       url: "https://content-api.wildberries.ru",
       description: "**Prod** ",
@@ -233,7 +217,23 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DefaultApi.getV2HistoryGoodsTask": [
+  "ItemsApi.getV2DirectoryTnvedAll": [
+    {
+      url: "https://content-api.wildberries.ru",
+      description: "**Prod** ",
+    },
+  ],
+  "ItemsApi.getV2DirectoryVat": [
+    {
+      url: "https://content-api.wildberries.ru",
+      description: "**Prod** ",
+    },
+    {
+      url: "https://content-api-sandbox.wildberries.ru",
+      description: "**Sandbox** ",
+    },
+  ],
+  "ItemsApi.getV2HistoryGoodsTask": [
     {
       url: "https://discounts-prices-api.wildberries.ru",
       description: "**Prod** ",
@@ -243,7 +243,7 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DefaultApi.getV2HistoryTasks": [
+  "ItemsApi.getV2HistoryTasks": [
     {
       url: "https://discounts-prices-api.wildberries.ru",
       description: "**Prod** ",
@@ -253,7 +253,7 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DefaultApi.getV2ListGoodsFilter": [
+  "ItemsApi.getV2ListGoodsFilter": [
     {
       url: "https://discounts-prices-api.wildberries.ru",
       description: "**Prod** ",
@@ -263,7 +263,7 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DefaultApi.getV2ListGoodsSizeNm": [
+  "ItemsApi.getV2ListGoodsSizeNm": [
     {
       url: "https://discounts-prices-api.wildberries.ru",
       description: "**Prod** ",
@@ -273,7 +273,7 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DefaultApi.getV2ObjectAll": [
+  "ItemsApi.getV2ObjectAll": [
     {
       url: "https://content-api.wildberries.ru",
       description: "**Prod** ",
@@ -283,7 +283,7 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DefaultApi.getV2ObjectCharcsSubjectId": [
+  "ItemsApi.getV2ObjectCharcsSubjectId": [
     {
       url: "https://content-api.wildberries.ru",
       description: "**Prod** ",
@@ -293,7 +293,7 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DefaultApi.getV2ObjectParentAll": [
+  "ItemsApi.getV2ObjectParentAll": [
     {
       url: "https://content-api.wildberries.ru",
       description: "**Prod** ",
@@ -303,7 +303,7 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DefaultApi.getV2QuarantineGoods": [
+  "ItemsApi.getV2QuarantineGoods": [
     {
       url: "https://discounts-prices-api.wildberries.ru",
       description: "**Prod** ",
@@ -313,7 +313,7 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DefaultApi.getV2Tags": [
+  "ItemsApi.getV2Tags": [
     {
       url: "https://content-api.wildberries.ru",
       description: "**Prod** ",
@@ -323,13 +323,13 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DefaultApi.getV3DbwWarehousesWarehouseIdContacts": [
+  "ItemsApi.getV3DbwWarehousesWarehouseIdContacts": [
     {
       url: "https://marketplace-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.getV3Offices": [
+  "ItemsApi.getV3Offices": [
     {
       url: "https://marketplace-api.wildberries.ru",
       description: "**Prod** ",
@@ -339,7 +339,7 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DefaultApi.getV3Warehouses": [
+  "ItemsApi.getV3Warehouses": [
     {
       url: "https://marketplace-api.wildberries.ru",
       description: "**Prod** ",
@@ -349,7 +349,7 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DefaultApi.patchV2TagId": [
+  "ItemsApi.patchV2TagId": [
     {
       url: "https://content-api.wildberries.ru",
       description: "**Prod** ",
@@ -359,25 +359,25 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DefaultApi.postV1RecommendationsList": [
+  "ItemsApi.postV1RecommendationsList": [
     {
       url: "https://content-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.postV1RecommendationsSet": [
+  "ItemsApi.postV1RecommendationsSet": [
     {
       url: "https://content-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.postV1UploadTaskB2bWholesale": [
+  "ItemsApi.postV1UploadTaskB2bWholesale": [
     {
       url: "https://discounts-prices-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.postV2Barcodes": [
+  "ItemsApi.postV2Barcodes": [
     {
       url: "https://content-api.wildberries.ru",
       description: "**Prod** ",
@@ -387,7 +387,7 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DefaultApi.postV2CardsDeleteTrash": [
+  "ItemsApi.postV2CardsDeleteTrash": [
     {
       url: "https://content-api.wildberries.ru",
       description: "**Prod** ",
@@ -397,7 +397,7 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DefaultApi.postV2CardsErrorList": [
+  "ItemsApi.postV2CardsErrorList": [
     {
       url: "https://content-api.wildberries.ru",
       description: "**Prod** ",
@@ -407,7 +407,7 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DefaultApi.postV2CardsMoveNm": [
+  "ItemsApi.postV2CardsMoveNm": [
     {
       url: "https://content-api.wildberries.ru",
       description: "**Prod** ",
@@ -417,7 +417,7 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DefaultApi.postV2CardsRecover": [
+  "ItemsApi.postV2CardsRecover": [
     {
       url: "https://content-api.wildberries.ru",
       description: "**Prod** ",
@@ -427,7 +427,7 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DefaultApi.postV2CardsUpdate": [
+  "ItemsApi.postV2CardsUpdate": [
     {
       url: "https://content-api.wildberries.ru",
       description: "**Prod** ",
@@ -437,7 +437,7 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DefaultApi.postV2CardsUpload": [
+  "ItemsApi.postV2CardsUpload": [
     {
       url: "https://content-api.wildberries.ru",
       description: "**Prod** ",
@@ -447,7 +447,7 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DefaultApi.postV2CardsUploadAdd": [
+  "ItemsApi.postV2CardsUploadAdd": [
     {
       url: "https://content-api.wildberries.ru",
       description: "**Prod** ",
@@ -457,7 +457,7 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DefaultApi.postV2GetCardsList": [
+  "ItemsApi.postV2GetCardsList": [
     {
       url: "https://content-api.wildberries.ru",
       description: "**Prod** ",
@@ -467,7 +467,7 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DefaultApi.postV2GetCardsTrash": [
+  "ItemsApi.postV2GetCardsTrash": [
     {
       url: "https://content-api.wildberries.ru",
       description: "**Prod** ",
@@ -477,7 +477,7 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DefaultApi.postV2ListGoodsFilter": [
+  "ItemsApi.postV2ListGoodsFilter": [
     {
       url: "https://discounts-prices-api.wildberries.ru",
       description: "**Prod** ",
@@ -487,7 +487,7 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DefaultApi.postV2Tag": [
+  "ItemsApi.postV2Tag": [
     {
       url: "https://content-api.wildberries.ru",
       description: "**Prod** ",
@@ -497,7 +497,7 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DefaultApi.postV2TagNomenclatureLink": [
+  "ItemsApi.postV2TagNomenclatureLink": [
     {
       url: "https://content-api.wildberries.ru",
       description: "**Prod** ",
@@ -507,7 +507,7 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DefaultApi.postV2UploadTask": [
+  "ItemsApi.postV2UploadTask": [
     {
       url: "https://discounts-prices-api.wildberries.ru",
       description: "**Prod** ",
@@ -517,7 +517,7 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DefaultApi.postV2UploadTaskClubDiscount": [
+  "ItemsApi.postV2UploadTaskClubDiscount": [
     {
       url: "https://discounts-prices-api.wildberries.ru",
       description: "**Prod** ",
@@ -527,7 +527,7 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DefaultApi.postV2UploadTaskSize": [
+  "ItemsApi.postV2UploadTaskSize": [
     {
       url: "https://discounts-prices-api.wildberries.ru",
       description: "**Prod** ",
@@ -537,7 +537,7 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DefaultApi.postV3MediaFile": [
+  "ItemsApi.postV3MediaFile": [
     {
       url: "https://content-api.wildberries.ru",
       description: "**Prod** ",
@@ -547,7 +547,7 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DefaultApi.postV3MediaSave": [
+  "ItemsApi.postV3MediaSave": [
     {
       url: "https://content-api.wildberries.ru",
       description: "**Prod** ",
@@ -557,7 +557,7 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DefaultApi.postV3StocksWarehouseId": [
+  "ItemsApi.postV3StocksWarehouseId": [
     {
       url: "https://marketplace-api.wildberries.ru",
       description: "**Prod** ",
@@ -567,7 +567,7 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DefaultApi.postV3Warehouses": [
+  "ItemsApi.postV3Warehouses": [
     {
       url: "https://marketplace-api.wildberries.ru",
       description: "**Prod** ",
@@ -577,13 +577,13 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DefaultApi.putV3DbwWarehousesWarehouseIdContacts": [
+  "ItemsApi.putV3DbwWarehousesWarehouseIdContacts": [
     {
       url: "https://marketplace-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.putV3StocksWarehouseId": [
+  "ItemsApi.putV3StocksWarehouseId": [
     {
       url: "https://marketplace-api.wildberries.ru",
       description: "**Prod** ",
@@ -593,7 +593,7 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DefaultApi.putV3WarehousesWarehouseId": [
+  "ItemsApi.putV3WarehousesWarehouseId": [
     {
       url: "https://marketplace-api.wildberries.ru",
       description: "**Prod** ",

@@ -48,7 +48,7 @@ type APIClient struct {
 
 	// API Services
 
-	DBSAPI DBSAPI
+	DbsAPI DbsAPI
 }
 
 type service struct {
@@ -67,7 +67,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.common.client = c
 
 	// API Services
-	c.DBSAPI = (*DBSAPIService)(&c.common)
+	c.DbsAPI = (*DbsAPIService)(&c.common)
 
 	return c
 }

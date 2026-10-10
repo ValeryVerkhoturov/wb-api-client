@@ -26,19 +26,19 @@ Each row below is a sub-module you can import independently. Import path is `git
 
 | Slug | Category | APIs |
 |---|---|---|
-| [`general`](https://dev.wildberries.ru/openapi/api-information) | Общее | `APIAPI`, `DefaultApi`, `WBAPIAPI` |
-| [`items`](https://dev.wildberries.ru/openapi/item-management) | Работа с товарами | `DefaultApi` |
-| [`orders-fbs`](https://dev.wildberries.ru/openapi/orders-fbs) | Заказы FBS | `DefaultApi`, `FBSAPI` |
-| [`orders-dbw`](https://dev.wildberries.ru/openapi/orders-dbw) | Заказы DBW | `DBWAPI` |
-| [`dbs`](https://dev.wildberries.ru/openapi/dbs) | DBS | `DBSAPI` |
-| [`in-store-pickup`](https://dev.wildberries.ru/openapi/in-store-pickup) | Самовывоз | `DefaultApi` |
-| [`orders-fbw`](https://dev.wildberries.ru/openapi/orders-fbw) | Поставки FBW | `DefaultApi` |
-| [`promotion`](https://dev.wildberries.ru/openapi/promotion) | Маркетинг и продвижение | `DefaultApi` |
-| [`communications`](https://dev.wildberries.ru/openapi/customer-communication) | Общение с покупателями | `DefaultApi` |
-| [`rates`](https://dev.wildberries.ru/openapi/rates) | Тарифы | `DefaultApi` |
-| [`analytics`](https://dev.wildberries.ru/openapi/analytics) | Аналитика и данные | `CSVAPI`, `DefaultApi` |
-| [`reports`](https://dev.wildberries.ru/openapi/reports) | Отчёты | `CAPI`, `DefaultApi` |
-| [`finances`](https://dev.wildberries.ru/openapi/documents-and-accounting) | Документы и бухгалтерия | `DefaultApi` |
+| [`general`](https://dev.wildberries.ru/openapi/api-information) | Общее | `GeneralAPI` |
+| [`items`](https://dev.wildberries.ru/openapi/item-management) | Работа с товарами | `ItemsAPI` |
+| [`orders-fbs`](https://dev.wildberries.ru/openapi/orders-fbs) | Заказы FBS | `OrdersFbsAPI` |
+| [`orders-dbw`](https://dev.wildberries.ru/openapi/orders-dbw) | Заказы DBW | `OrdersDbwAPI` |
+| [`dbs`](https://dev.wildberries.ru/openapi/dbs) | DBS | `DbsAPI` |
+| [`in-store-pickup`](https://dev.wildberries.ru/openapi/in-store-pickup) | Самовывоз | `InStorePickupAPI` |
+| [`orders-fbw`](https://dev.wildberries.ru/openapi/orders-fbw) | Поставки FBW | `OrdersFbwAPI` |
+| [`promotion`](https://dev.wildberries.ru/openapi/promotion) | Маркетинг и продвижение | `PromotionAPI` |
+| [`communications`](https://dev.wildberries.ru/openapi/customer-communication) | Общение с покупателями | `CommunicationsAPI` |
+| [`rates`](https://dev.wildberries.ru/openapi/rates) | Тарифы | `RatesAPI` |
+| [`analytics`](https://dev.wildberries.ru/openapi/analytics) | Аналитика и данные | `AnalyticsAPI` |
+| [`reports`](https://dev.wildberries.ru/openapi/reports) | Отчёты | `ReportsAPI` |
+| [`finances`](https://dev.wildberries.ru/openapi/documents-and-accounting) | Документы и бухгалтерия | `FinancesAPI` |
 
 ## Per-module usage
 
@@ -59,7 +59,7 @@ Each row below is a sub-module you can import independently. Import path is `git
 
 **Reference:** https://dev.wildberries.ru/openapi/api-information
 
-**APIs:** `APIAPI`, `DefaultApi`, `WBAPIAPI`
+**APIs:** `GeneralAPI`
 
 ```go
 import wbgeneral "github.com/ValeryVerkhoturov/wb-api-client/clients/go/general"
@@ -85,7 +85,7 @@ client := wbgeneral.NewAPIClient(cfg)
 
 **Reference:** https://dev.wildberries.ru/openapi/item-management
 
-**APIs:** `DefaultApi`
+**APIs:** `ItemsAPI`
 
 ```go
 import wbitems "github.com/ValeryVerkhoturov/wb-api-client/clients/go/items"
@@ -110,7 +110,7 @@ client := wbitems.NewAPIClient(cfg)
 
 **Reference:** https://dev.wildberries.ru/openapi/orders-fbs
 
-**APIs:** `DefaultApi`, `FBSAPI`
+**APIs:** `OrdersFbsAPI`
 
 ```go
 import wborders_fbs "github.com/ValeryVerkhoturov/wb-api-client/clients/go/orders_fbs"
@@ -130,7 +130,7 @@ client := wborders_fbs.NewAPIClient(cfg)
 
 **Reference:** https://dev.wildberries.ru/openapi/orders-dbw
 
-**APIs:** `DBWAPI`
+**APIs:** `OrdersDbwAPI`
 
 ```go
 import wborders_dbw "github.com/ValeryVerkhoturov/wb-api-client/clients/go/orders_dbw"
@@ -150,7 +150,7 @@ client := wborders_dbw.NewAPIClient(cfg)
 
 **Reference:** https://dev.wildberries.ru/openapi/dbs
 
-**APIs:** `DBSAPI`
+**APIs:** `DbsAPI`
 
 ```go
 import wbdbs "github.com/ValeryVerkhoturov/wb-api-client/clients/go/dbs"
@@ -168,7 +168,7 @@ client := wbdbs.NewAPIClient(cfg)
 
 **Reference:** https://dev.wildberries.ru/openapi/in-store-pickup
 
-**APIs:** `DefaultApi`
+**APIs:** `InStorePickupAPI`
 
 ```go
 import wbin_store_pickup "github.com/ValeryVerkhoturov/wb-api-client/clients/go/in_store_pickup"
@@ -189,7 +189,7 @@ client := wbin_store_pickup.NewAPIClient(cfg)
 
 **Reference:** https://dev.wildberries.ru/openapi/orders-fbw
 
-**APIs:** `DefaultApi`
+**APIs:** `OrdersFbwAPI`
 
 ```go
 import wborders_fbw "github.com/ValeryVerkhoturov/wb-api-client/clients/go/orders_fbw"
@@ -215,7 +215,7 @@ client := wborders_fbw.NewAPIClient(cfg)
 
 **Reference:** https://dev.wildberries.ru/openapi/promotion
 
-**APIs:** `DefaultApi`
+**APIs:** `PromotionAPI`
 
 ```go
 import wbpromotion "github.com/ValeryVerkhoturov/wb-api-client/clients/go/promotion"
@@ -240,7 +240,7 @@ client := wbpromotion.NewAPIClient(cfg)
 
 **Reference:** https://dev.wildberries.ru/openapi/customer-communication
 
-**APIs:** `DefaultApi`
+**APIs:** `CommunicationsAPI`
 
 ```go
 import wbcommunications "github.com/ValeryVerkhoturov/wb-api-client/clients/go/communications"
@@ -262,7 +262,7 @@ client := wbcommunications.NewAPIClient(cfg)
 
 **Reference:** https://dev.wildberries.ru/openapi/rates
 
-**APIs:** `DefaultApi`
+**APIs:** `RatesAPI`
 
 ```go
 import wbrates "github.com/ValeryVerkhoturov/wb-api-client/clients/go/rates"
@@ -286,7 +286,7 @@ client := wbrates.NewAPIClient(cfg)
 
 **Reference:** https://dev.wildberries.ru/openapi/analytics
 
-**APIs:** `CSVAPI`, `DefaultApi`
+**APIs:** `AnalyticsAPI`
 
 ```go
 import wbanalytics "github.com/ValeryVerkhoturov/wb-api-client/clients/go/analytics"
@@ -313,7 +313,7 @@ client := wbanalytics.NewAPIClient(cfg)
 
 **Reference:** https://dev.wildberries.ru/openapi/reports
 
-**APIs:** `CAPI`, `DefaultApi`
+**APIs:** `ReportsAPI`
 
 ```go
 import wbreports "github.com/ValeryVerkhoturov/wb-api-client/clients/go/reports"
@@ -331,7 +331,7 @@ client := wbreports.NewAPIClient(cfg)
 
 **Reference:** https://dev.wildberries.ru/openapi/documents-and-accounting
 
-**APIs:** `DefaultApi`
+**APIs:** `FinancesAPI`
 
 ```go
 import wbfinances "github.com/ValeryVerkhoturov/wb-api-client/clients/go/finances"

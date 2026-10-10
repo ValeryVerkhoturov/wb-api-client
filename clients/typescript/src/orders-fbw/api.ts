@@ -1443,10 +1443,10 @@ export interface Response4XX {
 }
 
 /**
- * DefaultApi - axios parameter creator
+ * OrdersFbwApi - axios parameter creator
  * @export
  */
-export const DefaultApiAxiosParamCreator = function (
+export const OrdersFbwApiAxiosParamCreator = function (
   configuration?: Configuration,
 ) {
   return {
@@ -2238,11 +2238,12 @@ export const DefaultApiAxiosParamCreator = function (
 };
 
 /**
- * DefaultApi - functional programming interface
+ * OrdersFbwApi - functional programming interface
  * @export
  */
-export const DefaultApiFp = function (configuration?: Configuration) {
-  const localVarAxiosParamCreator = DefaultApiAxiosParamCreator(configuration);
+export const OrdersFbwApiFp = function (configuration?: Configuration) {
+  const localVarAxiosParamCreator =
+    OrdersFbwApiAxiosParamCreator(configuration);
   return {
     /**
      * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод удаляет черновик поставки по его ID.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |
@@ -2261,7 +2262,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         await localVarAxiosParamCreator.deleteV1DraftsDraftId(draftId, options);
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.deleteV1DraftsDraftId"]?.[
+        operationServerMap["OrdersFbwApi.deleteV1DraftsDraftId"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -2298,7 +2299,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.deleteV1DraftsDraftIdItems"]?.[
+        operationServerMap["OrdersFbwApi.deleteV1DraftsDraftIdItems"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -2340,7 +2341,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
       );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV1Drafts"]?.[
+        operationServerMap["OrdersFbwApi.getV1Drafts"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -2374,7 +2375,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV1DraftsDraftIdItems"]?.[
+        operationServerMap["OrdersFbwApi.getV1DraftsDraftIdItems"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -2410,7 +2411,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
       );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV1SuppliesId"]?.[
+        operationServerMap["OrdersFbwApi.getV1SuppliesId"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -2453,7 +2454,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV1SuppliesIdGoods"]?.[
+        operationServerMap["OrdersFbwApi.getV1SuppliesIdGoods"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -2484,7 +2485,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         await localVarAxiosParamCreator.getV1SuppliesIdPackage(iD, options);
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV1SuppliesIdPackage"]?.[
+        operationServerMap["OrdersFbwApi.getV1SuppliesIdPackage"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -2519,7 +2520,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
         operationServerMap[
-          "DefaultApi.getV1SuppliesSupplyIdDiscrepanciesQuantity"
+          "OrdersFbwApi.getV1SuppliesSupplyIdDiscrepanciesQuantity"
         ]?.[localVarOperationServerIndex]?.url;
       return (axios, basePath) =>
         createRequestFunction(
@@ -2547,7 +2548,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         await localVarAxiosParamCreator.getV1TransitTariffs(options);
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV1TransitTariffs"]?.[
+        operationServerMap["OrdersFbwApi.getV1TransitTariffs"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -2576,7 +2577,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         await localVarAxiosParamCreator.getV1Warehouses(options);
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV1Warehouses"]?.[
+        operationServerMap["OrdersFbwApi.getV1Warehouses"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -2613,7 +2614,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.postV1AcceptanceOptions"]?.[
+        operationServerMap["OrdersFbwApi.postV1AcceptanceOptions"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -2642,7 +2643,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         await localVarAxiosParamCreator.postV1Drafts(options);
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.postV1Drafts"]?.[
+        operationServerMap["OrdersFbwApi.postV1Drafts"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -2679,7 +2680,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.postV1DraftsDraftIdItems"]?.[
+        operationServerMap["OrdersFbwApi.postV1DraftsDraftIdItems"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -2718,7 +2719,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
       );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.postV1Supplies"]?.[
+        operationServerMap["OrdersFbwApi.postV1Supplies"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -2733,15 +2734,15 @@ export const DefaultApiFp = function (configuration?: Configuration) {
 };
 
 /**
- * DefaultApi - factory interface
+ * OrdersFbwApi - factory interface
  * @export
  */
-export const DefaultApiFactory = function (
+export const OrdersFbwApiFactory = function (
   configuration?: Configuration,
   basePath?: string,
   axios?: AxiosInstance,
 ) {
-  const localVarFp = DefaultApiFp(configuration);
+  const localVarFp = OrdersFbwApiFp(configuration);
   return {
     /**
      * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод удаляет черновик поставки по его ID.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |
@@ -2979,18 +2980,18 @@ export const DefaultApiFactory = function (
 };
 
 /**
- * DefaultApi - interface
+ * OrdersFbwApi - interface
  * @export
- * @interface DefaultApi
+ * @interface OrdersFbwApi
  */
-export interface DefaultApiInterface {
+export interface OrdersFbwApiInterface {
   /**
    * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод удаляет черновик поставки по его ID.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |
    * @summary Удалить черновик
    * @param {string} draftId ID черновика
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof OrdersFbwApiInterface
    */
   deleteV1DraftsDraftId(
     draftId: string,
@@ -3004,7 +3005,7 @@ export interface DefaultApiInterface {
    * @param {ModelsDraftDeleteitemsRequest} modelsDraftDeleteitemsRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof OrdersFbwApiInterface
    */
   deleteV1DraftsDraftIdItems(
     draftId: string,
@@ -3021,7 +3022,7 @@ export interface DefaultApiInterface {
    * @param {GetV1DraftsOrderEnum} [order] Порядок выдачи:   - &#x60;desc&#x60; — по убыванию   - &#x60;asc&#x60; — по возрастанию
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof OrdersFbwApiInterface
    */
   getV1Drafts(
     limit?: number,
@@ -3037,7 +3038,7 @@ export interface DefaultApiInterface {
    * @param {string} draftId ID черновика
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof OrdersFbwApiInterface
    */
   getV1DraftsDraftIdItems(
     draftId: string,
@@ -3051,7 +3052,7 @@ export interface DefaultApiInterface {
    * @param {boolean} [isPreorderID] Поиск по:   - &#x60;true&#x60; — ID заказа, если в &#x60;ID&#x60; передаёте ID заказа   - &#x60;false&#x60; — ID поставки, если в &#x60;ID&#x60; передаёте ID поставки
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof OrdersFbwApiInterface
    */
   getV1SuppliesId(
     iD: number,
@@ -3068,7 +3069,7 @@ export interface DefaultApiInterface {
    * @param {boolean} [isPreorderID] Поиск по:   - &#x60;true&#x60; — ID заказа, если в &#x60;ID&#x60; передаёте ID заказа   - &#x60;false&#x60; — ID поставки, если в &#x60;ID&#x60; передаёте ID поставки
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof OrdersFbwApiInterface
    */
   getV1SuppliesIdGoods(
     iD: number,
@@ -3084,7 +3085,7 @@ export interface DefaultApiInterface {
    * @param {number} iD ID поставки
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof OrdersFbwApiInterface
    */
   getV1SuppliesIdPackage(
     iD: number,
@@ -3097,7 +3098,7 @@ export interface DefaultApiInterface {
    * @param {number} supplyId ID поставки
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof OrdersFbwApiInterface
    */
   getV1SuppliesSupplyIdDiscrepanciesQuantity(
     supplyId: number,
@@ -3109,7 +3110,7 @@ export interface DefaultApiInterface {
    * @summary Транзитные направления
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof OrdersFbwApiInterface
    */
   getV1TransitTariffs(
     options?: RawAxiosRequestConfig,
@@ -3120,7 +3121,7 @@ export interface DefaultApiInterface {
    * @summary Список складов
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof OrdersFbwApiInterface
    */
   getV1Warehouses(
     options?: RawAxiosRequestConfig,
@@ -3133,7 +3134,7 @@ export interface DefaultApiInterface {
    * @param {number} [warehouseID] ID склада.  Если параметр не указан, возвращаются данные по всем складам.  \\*\\*Максимум одно значение\\*\\*
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof OrdersFbwApiInterface
    */
   postV1AcceptanceOptions(
     modelsGood: Array<ModelsGood>,
@@ -3146,7 +3147,7 @@ export interface DefaultApiInterface {
    * @summary Создать черновик
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof OrdersFbwApiInterface
    */
   postV1Drafts(
     options?: RawAxiosRequestConfig,
@@ -3159,7 +3160,7 @@ export interface DefaultApiInterface {
    * @param {ModelsDraftAdditemsRequest} modelsDraftAdditemsRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof OrdersFbwApiInterface
    */
   postV1DraftsDraftIdItems(
     draftId: string,
@@ -3175,7 +3176,7 @@ export interface DefaultApiInterface {
    * @param {number} [offset] После какого элемента выдавать данные
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof OrdersFbwApiInterface
    */
   postV1Supplies(
     modelsSuppliesFiltersRequest: ModelsSuppliesFiltersRequest,
@@ -3186,25 +3187,25 @@ export interface DefaultApiInterface {
 }
 
 /**
- * DefaultApi - object-oriented interface
+ * OrdersFbwApi - object-oriented interface
  * @export
- * @class DefaultApi
+ * @class OrdersFbwApi
  * @extends {BaseAPI}
  */
-export class DefaultApi extends BaseAPI implements DefaultApiInterface {
+export class OrdersFbwApi extends BaseAPI implements OrdersFbwApiInterface {
   /**
    * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод удаляет черновик поставки по его ID.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |
    * @summary Удалить черновик
    * @param {string} draftId ID черновика
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof OrdersFbwApi
    */
   public deleteV1DraftsDraftId(
     draftId: string,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return OrdersFbwApiFp(this.configuration)
       .deleteV1DraftsDraftId(draftId, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -3216,14 +3217,14 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {ModelsDraftDeleteitemsRequest} modelsDraftDeleteitemsRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof OrdersFbwApi
    */
   public deleteV1DraftsDraftIdItems(
     draftId: string,
     modelsDraftDeleteitemsRequest: ModelsDraftDeleteitemsRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return OrdersFbwApiFp(this.configuration)
       .deleteV1DraftsDraftIdItems(
         draftId,
         modelsDraftDeleteitemsRequest,
@@ -3241,7 +3242,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {GetV1DraftsOrderEnum} [order] Порядок выдачи:   - &#x60;desc&#x60; — по убыванию   - &#x60;asc&#x60; — по возрастанию
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof OrdersFbwApi
    */
   public getV1Drafts(
     limit?: number,
@@ -3250,7 +3251,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
     order?: GetV1DraftsOrderEnum,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return OrdersFbwApiFp(this.configuration)
       .getV1Drafts(limit, offset, sort, order, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -3261,13 +3262,13 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {string} draftId ID черновика
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof OrdersFbwApi
    */
   public getV1DraftsDraftIdItems(
     draftId: string,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return OrdersFbwApiFp(this.configuration)
       .getV1DraftsDraftIdItems(draftId, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -3279,14 +3280,14 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {boolean} [isPreorderID] Поиск по:   - &#x60;true&#x60; — ID заказа, если в &#x60;ID&#x60; передаёте ID заказа   - &#x60;false&#x60; — ID поставки, если в &#x60;ID&#x60; передаёте ID поставки
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof OrdersFbwApi
    */
   public getV1SuppliesId(
     iD: number,
     isPreorderID?: boolean,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return OrdersFbwApiFp(this.configuration)
       .getV1SuppliesId(iD, isPreorderID, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -3300,7 +3301,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {boolean} [isPreorderID] Поиск по:   - &#x60;true&#x60; — ID заказа, если в &#x60;ID&#x60; передаёте ID заказа   - &#x60;false&#x60; — ID поставки, если в &#x60;ID&#x60; передаёте ID поставки
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof OrdersFbwApi
    */
   public getV1SuppliesIdGoods(
     iD: number,
@@ -3309,7 +3310,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
     isPreorderID?: boolean,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return OrdersFbwApiFp(this.configuration)
       .getV1SuppliesIdGoods(iD, limit, offset, isPreorderID, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -3320,10 +3321,10 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {number} iD ID поставки
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof OrdersFbwApi
    */
   public getV1SuppliesIdPackage(iD: number, options?: RawAxiosRequestConfig) {
-    return DefaultApiFp(this.configuration)
+    return OrdersFbwApiFp(this.configuration)
       .getV1SuppliesIdPackage(iD, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -3334,13 +3335,13 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {number} supplyId ID поставки
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof OrdersFbwApi
    */
   public getV1SuppliesSupplyIdDiscrepanciesQuantity(
     supplyId: number,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return OrdersFbwApiFp(this.configuration)
       .getV1SuppliesSupplyIdDiscrepanciesQuantity(supplyId, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -3350,10 +3351,10 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @summary Транзитные направления
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof OrdersFbwApi
    */
   public getV1TransitTariffs(options?: RawAxiosRequestConfig) {
-    return DefaultApiFp(this.configuration)
+    return OrdersFbwApiFp(this.configuration)
       .getV1TransitTariffs(options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -3363,10 +3364,10 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @summary Список складов
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof OrdersFbwApi
    */
   public getV1Warehouses(options?: RawAxiosRequestConfig) {
-    return DefaultApiFp(this.configuration)
+    return OrdersFbwApiFp(this.configuration)
       .getV1Warehouses(options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -3378,14 +3379,14 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {number} [warehouseID] ID склада.  Если параметр не указан, возвращаются данные по всем складам.  \\*\\*Максимум одно значение\\*\\*
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof OrdersFbwApi
    */
   public postV1AcceptanceOptions(
     modelsGood: Array<ModelsGood>,
     warehouseID?: number,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return OrdersFbwApiFp(this.configuration)
       .postV1AcceptanceOptions(modelsGood, warehouseID, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -3395,10 +3396,10 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @summary Создать черновик
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof OrdersFbwApi
    */
   public postV1Drafts(options?: RawAxiosRequestConfig) {
-    return DefaultApiFp(this.configuration)
+    return OrdersFbwApiFp(this.configuration)
       .postV1Drafts(options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -3410,14 +3411,14 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {ModelsDraftAdditemsRequest} modelsDraftAdditemsRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof OrdersFbwApi
    */
   public postV1DraftsDraftIdItems(
     draftId: string,
     modelsDraftAdditemsRequest: ModelsDraftAdditemsRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return OrdersFbwApiFp(this.configuration)
       .postV1DraftsDraftIdItems(draftId, modelsDraftAdditemsRequest, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -3430,7 +3431,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {number} [offset] После какого элемента выдавать данные
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof OrdersFbwApi
    */
   public postV1Supplies(
     modelsSuppliesFiltersRequest: ModelsSuppliesFiltersRequest,
@@ -3438,7 +3439,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
     offset?: number,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return OrdersFbwApiFp(this.configuration)
       .postV1Supplies(modelsSuppliesFiltersRequest, limit, offset, options)
       .then((request) => request(this.axios, this.basePath));
   }

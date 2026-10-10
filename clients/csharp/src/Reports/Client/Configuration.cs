@@ -33,7 +33,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "1.20261010.0";
+        public const string Version = "1.20261010.1";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -134,7 +134,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Client
             OperationServers = new Dictionary<string, List<IReadOnlyDictionary<string, object>>>()
             {
                 {
-                    "DefaultApi.GetV1AcceptanceReport", new List<IReadOnlyDictionary<string, object>>
+                    "ReportsApi.GetV1AcceptanceReport", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -146,7 +146,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV1AcceptanceReportTasksTaskIdDownload", new List<IReadOnlyDictionary<string, object>>
+                    "ReportsApi.GetV1AcceptanceReportTasksTaskIdDownload", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -158,7 +158,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV1AcceptanceReportTasksTaskIdStatus", new List<IReadOnlyDictionary<string, object>>
+                    "ReportsApi.GetV1AcceptanceReportTasksTaskIdStatus", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -170,7 +170,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV1AnalyticsAntifraudDetails", new List<IReadOnlyDictionary<string, object>>
+                    "ReportsApi.GetV1AnalyticsAntifraudDetails", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -182,7 +182,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV1AnalyticsBannedProducsBlocked", new List<IReadOnlyDictionary<string, object>>
+                    "ReportsApi.GetV1AnalyticsBannedProducsBlocked", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -194,7 +194,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV1AnalyticsBrandShare", new List<IReadOnlyDictionary<string, object>>
+                    "ReportsApi.GetV1AnalyticsBrandShare", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -206,7 +206,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV1AnalyticsBrandShareBrands", new List<IReadOnlyDictionary<string, object>>
+                    "ReportsApi.GetV1AnalyticsBrandShareBrands", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -218,7 +218,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV1AnalyticsBrandShareParentSubjects", new List<IReadOnlyDictionary<string, object>>
+                    "ReportsApi.GetV1AnalyticsBrandShareParentSubjects", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -230,7 +230,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV1AnalyticsGoodsLabeling", new List<IReadOnlyDictionary<string, object>>
+                    "ReportsApi.GetV1AnalyticsGoodsLabeling", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -242,7 +242,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV1AnalyticsGoodsReturn", new List<IReadOnlyDictionary<string, object>>
+                    "ReportsApi.GetV1AnalyticsGoodsReturn", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -254,7 +254,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV1AnalyticsRegionSale", new List<IReadOnlyDictionary<string, object>>
+                    "ReportsApi.GetV1AnalyticsRegionSale", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -266,7 +266,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV1Deductions", new List<IReadOnlyDictionary<string, object>>
+                    "ReportsApi.GetV1Deductions", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -278,7 +278,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV1GoodsReturn", new List<IReadOnlyDictionary<string, object>>
+                    "ReportsApi.GetV1GoodsReturn", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -290,7 +290,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV1MeasurementPenalties", new List<IReadOnlyDictionary<string, object>>
+                    "ReportsApi.GetV1MeasurementPenalties", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -302,7 +302,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV1PaidStorage", new List<IReadOnlyDictionary<string, object>>
+                    "ReportsApi.GetV1PaidStorage", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -314,7 +314,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV1PaidStorageTasksTaskIdDownload", new List<IReadOnlyDictionary<string, object>>
+                    "ReportsApi.GetV1PaidStorageTasksTaskIdDownload", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -326,7 +326,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV1PaidStorageTasksTaskIdStatus", new List<IReadOnlyDictionary<string, object>>
+                    "ReportsApi.GetV1PaidStorageTasksTaskIdStatus", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -338,7 +338,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV1SupplierOrders", new List<IReadOnlyDictionary<string, object>>
+                    "ReportsApi.GetV1SupplierOrders", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -357,7 +357,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV1SupplierSales", new List<IReadOnlyDictionary<string, object>>
+                    "ReportsApi.GetV1SupplierSales", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -376,7 +376,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV1WarehouseMeasurements", new List<IReadOnlyDictionary<string, object>>
+                    "ReportsApi.GetV1WarehouseMeasurements", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -388,7 +388,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV1WarehouseRemains", new List<IReadOnlyDictionary<string, object>>
+                    "ReportsApi.GetV1WarehouseRemains", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -400,7 +400,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV1WarehouseRemainsTasksTaskIdDownload", new List<IReadOnlyDictionary<string, object>>
+                    "ReportsApi.GetV1WarehouseRemainsTasksTaskIdDownload", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -412,7 +412,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV1WarehouseRemainsTasksTaskIdStatus", new List<IReadOnlyDictionary<string, object>>
+                    "ReportsApi.GetV1WarehouseRemainsTasksTaskIdStatus", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -424,7 +424,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Client
                     }
                 },
                 {
-                    "CApi.PostV1AnalyticsExciseReport", new List<IReadOnlyDictionary<string, object>>
+                    "ReportsApi.PostV1AnalyticsExciseReport", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -865,7 +865,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version + "\n";
             report += "    Version of the API: reports\n";
-            report += "    SDK Package Version: 1.20261010.0\n";
+            report += "    SDK Package Version: 1.20261010.1\n";
 
             return report;
         }

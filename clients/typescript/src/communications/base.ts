@@ -89,19 +89,19 @@ interface ServerMap {
  * @export
  */
 export const operationServerMap: ServerMap = {
-  "DefaultApi.deleteV1Pins": [
+  "CommunicationsApi.deleteV1Pins": [
     {
       url: "https://feedbacks-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.getV1Claims": [
+  "CommunicationsApi.getV1Claims": [
     {
       url: "https://returns-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.getV1Feedback": [
+  "CommunicationsApi.getV1Feedback": [
     {
       url: "https://feedbacks-api.wildberries.ru",
       description: "**Prod** ",
@@ -111,7 +111,7 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DefaultApi.getV1Feedbacks": [
+  "CommunicationsApi.getV1Feedbacks": [
     {
       url: "https://feedbacks-api.wildberries.ru",
       description: "**Prod** ",
@@ -121,7 +121,7 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DefaultApi.getV1FeedbacksArchive": [
+  "CommunicationsApi.getV1FeedbacksArchive": [
     {
       url: "https://feedbacks-api.wildberries.ru",
       description: "**Prod** ",
@@ -131,7 +131,7 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DefaultApi.getV1FeedbacksCount": [
+  "CommunicationsApi.getV1FeedbacksCount": [
     {
       url: "https://feedbacks-api.wildberries.ru",
       description: "**Prod** ",
@@ -141,7 +141,7 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DefaultApi.getV1FeedbacksCountUnanswered": [
+  "CommunicationsApi.getV1FeedbacksCountUnanswered": [
     {
       url: "https://feedbacks-api.wildberries.ru",
       description: "**Prod** ",
@@ -151,7 +151,7 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DefaultApi.getV1NewFeedbacksQuestions": [
+  "CommunicationsApi.getV1NewFeedbacksQuestions": [
     {
       url: "https://feedbacks-api.wildberries.ru",
       description: "**Prod** ",
@@ -161,25 +161,25 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DefaultApi.getV1Pins": [
+  "CommunicationsApi.getV1Pins": [
     {
       url: "https://feedbacks-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.getV1PinsCount": [
+  "CommunicationsApi.getV1PinsCount": [
     {
       url: "https://feedbacks-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.getV1PinsLimits": [
+  "CommunicationsApi.getV1PinsLimits": [
     {
       url: "https://feedbacks-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.getV1Question": [
+  "CommunicationsApi.getV1Question": [
     {
       url: "https://feedbacks-api.wildberries.ru",
       description: "**Prod** ",
@@ -189,7 +189,7 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DefaultApi.getV1Questions": [
+  "CommunicationsApi.getV1Questions": [
     {
       url: "https://feedbacks-api.wildberries.ru",
       description: "**Prod** ",
@@ -199,7 +199,7 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DefaultApi.getV1QuestionsCount": [
+  "CommunicationsApi.getV1QuestionsCount": [
     {
       url: "https://feedbacks-api.wildberries.ru",
       description: "**Prod** ",
@@ -209,7 +209,7 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DefaultApi.getV1QuestionsCountUnanswered": [
+  "CommunicationsApi.getV1QuestionsCountUnanswered": [
     {
       url: "https://feedbacks-api.wildberries.ru",
       description: "**Prod** ",
@@ -219,31 +219,31 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DefaultApi.getV1SellerChats": [
+  "CommunicationsApi.getV1SellerChats": [
     {
       url: "https://buyer-chat-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.getV1SellerDownloadId": [
+  "CommunicationsApi.getV1SellerDownloadId": [
     {
       url: "https://buyer-chat-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.getV1SellerEvents": [
+  "CommunicationsApi.getV1SellerEvents": [
     {
       url: "https://buyer-chat-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.patchV1Claim": [
+  "CommunicationsApi.patchV1Claim": [
     {
       url: "https://returns-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.patchV1FeedbacksAnswer": [
+  "CommunicationsApi.patchV1FeedbacksAnswer": [
     {
       url: "https://feedbacks-api.wildberries.ru",
       description: "**Prod** ",
@@ -253,7 +253,7 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DefaultApi.patchV1Questions": [
+  "CommunicationsApi.patchV1Questions": [
     {
       url: "https://feedbacks-api.wildberries.ru",
       description: "**Prod** ",
@@ -263,7 +263,7 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DefaultApi.postV1FeedbacksAnswer": [
+  "CommunicationsApi.postV1FeedbacksAnswer": [
     {
       url: "https://feedbacks-api.wildberries.ru",
       description: "**Prod** ",
@@ -273,7 +273,7 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DefaultApi.postV1FeedbacksOrderReturn": [
+  "CommunicationsApi.postV1FeedbacksOrderReturn": [
     {
       url: "https://feedbacks-api.wildberries.ru",
       description: "**Prod** ",
@@ -283,13 +283,13 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DefaultApi.postV1Pins": [
+  "CommunicationsApi.postV1Pins": [
     {
       url: "https://feedbacks-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.postV1SellerMessage": [
+  "CommunicationsApi.postV1SellerMessage": [
     {
       url: "https://buyer-chat-api.wildberries.ru",
       description: "No description provided",

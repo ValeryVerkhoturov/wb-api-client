@@ -48,7 +48,7 @@ paths:
       x-readonly-method: true
       x-category: contentanalytics
       tags:
-      - Воронка продаж
+      - Analytics
       summary: Статистика карточек товаров за период
       operationId: postV3SalesFunnelProducts
       description: |-
@@ -120,6 +120,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: salesFunnel
+      x-original-tags:
+      - Воронка продаж
   /api/analytics/v3/sales-funnel/products/history:
     servers:
     - url: https://seller-analytics-api.wildberries.ru
@@ -127,7 +129,7 @@ paths:
       x-readonly-method: true
       x-category: contentanalytics
       tags:
-      - Воронка продаж
+      - Analytics
       summary: Статистика карточек товаров по дням
       operationId: postV3SalesFunnelProductsHistory
       description: |-
@@ -191,6 +193,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: salesFunnel
+      x-original-tags:
+      - Воронка продаж
   /api/analytics/v3/sales-funnel/grouped/history:
     servers:
     - url: https://seller-analytics-api.wildberries.ru
@@ -198,7 +202,7 @@ paths:
       x-readonly-method: true
       x-category: contentanalytics
       tags:
-      - Воронка продаж
+      - Analytics
       summary: Статистика групп карточек товаров по дням
       operationId: postV3SalesFunnelGroupedHistory
       description: |-
@@ -267,6 +271,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: salesFunnel
+      x-original-tags:
+      - Воронка продаж
   /api/v2/nm-report/downloads:
     servers:
     - url: https://seller-analytics-api.wildberries.ru
@@ -275,7 +281,7 @@ paths:
       x-readonly-method: true
       x-category: contentanalytics
       tags:
-      - Аналитика продавца CSV
+      - Analytics
       security:
       - BearerAuth: []
       summary: Создать отчёт
@@ -563,12 +569,14 @@ paths:
                 - $ref: '#/components/schemas/response429Download'
                 - $ref: '#/components/schemas/response429DownloadDaily'
       x-tagKey: sellerAnalyticsCsv
+      x-original-tags:
+      - Аналитика продавца CSV
     get:
       operationId: getV2NmReportDownloads
       x-readonly-method: true
       x-category: contentanalytics
       tags:
-      - Аналитика продавца CSV
+      - Analytics
       security:
       - BearerAuth: []
       summary: Получить список отчётов
@@ -631,6 +639,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: sellerAnalyticsCsv
+      x-original-tags:
+      - Аналитика продавца CSV
   /api/v2/nm-report/downloads/retry:
     servers:
     - url: https://seller-analytics-api.wildberries.ru
@@ -639,7 +649,7 @@ paths:
       x-readonly-method: true
       x-category: contentanalytics
       tags:
-      - Аналитика продавца CSV
+      - Analytics
       security:
       - BearerAuth: []
       summary: Сгенерировать отчёт повторно
@@ -699,6 +709,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: sellerAnalyticsCsv
+      x-original-tags:
+      - Аналитика продавца CSV
   /api/v2/nm-report/downloads/file/{downloadId}:
     servers:
     - url: https://seller-analytics-api.wildberries.ru
@@ -707,7 +719,7 @@ paths:
       x-readonly-method: true
       x-category: contentanalytics
       tags:
-      - Аналитика продавца CSV
+      - Analytics
       security:
       - BearerAuth: []
       summary: Получить отчёт
@@ -794,6 +806,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: sellerAnalyticsCsv
+      x-original-tags:
+      - Аналитика продавца CSV
   /api/v2/search-report/report:
     servers:
     - url: https://seller-analytics-api.wildberries.ru
@@ -802,7 +816,7 @@ paths:
       x-readonly-method: true
       x-category: contentanalytics
       tags:
-      - Поисковые запросы по вашим товарам
+      - Analytics
       summary: Основная страница
       description: |-
         Метод формирует набор данных для основной страницы отчёта по поисковым запросам с:
@@ -864,6 +878,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: searchQueriesForYourItems
+      x-original-tags:
+      - Поисковые запросы по вашим товарам
   /api/v2/search-report/table/groups:
     servers:
     - url: https://seller-analytics-api.wildberries.ru
@@ -872,7 +888,7 @@ paths:
       x-readonly-method: true
       x-category: contentanalytics
       tags:
-      - Поисковые запросы по вашим товарам
+      - Analytics
       summary: Пагинация по группам
       description: |-
         Метод формирует дополнительные данные к [основному отчёту](https://dev.wildberries.ru/openapi/analytics#tag/searchQueriesForYourItems/operation/postV2SearchReportReport) с пагинацией по группам. Пагинация возможна только при наличии фильтра по бренду, предмету или ярлыку.
@@ -928,6 +944,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: searchQueriesForYourItems
+      x-original-tags:
+      - Поисковые запросы по вашим товарам
   /api/v2/search-report/table/details:
     servers:
     - url: https://seller-analytics-api.wildberries.ru
@@ -936,7 +954,7 @@ paths:
       x-readonly-method: true
       x-category: contentanalytics
       tags:
-      - Поисковые запросы по вашим товарам
+      - Analytics
       summary: Пагинация по товарам в группе
       description: |-
         Метод формирует дополнительные данные к [основному отчёту](https://dev.wildberries.ru/openapi/analytics#tag/searchQueriesForYourItems/operation/postV2SearchReportReport) с пагинацией по товарам в группе. Пагинация возможна вне зависимости от наличия фильтров.
@@ -995,6 +1013,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: searchQueriesForYourItems
+      x-original-tags:
+      - Поисковые запросы по вашим товарам
   /api/v2/search-report/product/search-texts:
     servers:
     - url: https://seller-analytics-api.wildberries.ru
@@ -1003,7 +1023,7 @@ paths:
       x-readonly-method: true
       x-category: contentanalytics
       tags:
-      - Поисковые запросы по вашим товарам
+      - Analytics
       summary: Поисковые запросы по товару
       description: |-
         Метод формирует топ поисковых запросов по товару.
@@ -1059,6 +1079,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: searchQueriesForYourItems
+      x-original-tags:
+      - Поисковые запросы по вашим товарам
   /api/v2/search-report/product/orders:
     servers:
     - url: https://seller-analytics-api.wildberries.ru
@@ -1067,7 +1089,7 @@ paths:
       x-readonly-method: true
       x-category: contentanalytics
       tags:
-      - Поисковые запросы по вашим товарам
+      - Analytics
       summary: Заказы и позиции по поисковым запросам товара
       description: |-
         Метод формирует данные для таблицы:
@@ -1124,6 +1146,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: searchQueriesForYourItems
+      x-original-tags:
+      - Поисковые запросы по вашим товарам
   /api/analytics/v1/stocks-report/wb-warehouses:
     servers:
     - url: https://seller-analytics-api.wildberries.ru
@@ -1135,7 +1159,7 @@ paths:
       - service
       - base-with-secret
       tags:
-      - История остатков
+      - Analytics
       summary: Остатки на складах WB
       operationId: postV1StocksReportWbWarehouses
       description: |-
@@ -1196,6 +1220,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: stocksReport
+      x-original-tags:
+      - История остатков
   /api/analytics/v1/stocks-report/seller-warehouses:
     servers:
     - url: https://seller-analytics-api.wildberries.ru
@@ -1206,7 +1232,7 @@ paths:
       - personal
       - service
       tags:
-      - История остатков
+      - Analytics
       summary: Остатки на складах продавца
       operationId: postV1StocksReportSellerWarehouses
       description: |-
@@ -1264,6 +1290,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: stocksReport
+      x-original-tags:
+      - История остатков
   /api/v2/stocks-report/products/groups:
     servers:
     - url: https://seller-analytics-api.wildberries.ru
@@ -1272,7 +1300,7 @@ paths:
       x-readonly-method: true
       x-category: contentanalytics
       tags:
-      - История остатков
+      - Analytics
       summary: Данные по группам
       description: |-
         Метод формирует набор данных об остатках по группам товаров.
@@ -1326,6 +1354,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: stocksReport
+      x-original-tags:
+      - История остатков
   /api/v2/stocks-report/products/products:
     servers:
     - url: https://seller-analytics-api.wildberries.ru
@@ -1334,7 +1364,7 @@ paths:
       x-readonly-method: true
       x-category: contentanalytics
       tags:
-      - История остатков
+      - Analytics
       summary: Данные по товарам
       description: |-
         Метод формирует набор данных об остатках по товарам.
@@ -1388,6 +1418,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: stocksReport
+      x-original-tags:
+      - История остатков
   /api/v2/stocks-report/products/sizes:
     servers:
     - url: https://seller-analytics-api.wildberries.ru
@@ -1396,7 +1428,7 @@ paths:
       x-readonly-method: true
       x-category: contentanalytics
       tags:
-      - История остатков
+      - Analytics
       summary: Данные по размерам
       description: |-
         Метод формирует набор данных об остатках по размерам товара.
@@ -1456,6 +1488,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: stocksReport
+      x-original-tags:
+      - История остатков
   /api/v2/stocks-report/offices:
     servers:
     - url: https://seller-analytics-api.wildberries.ru
@@ -1464,7 +1498,7 @@ paths:
       x-readonly-method: true
       x-category: contentanalytics
       tags:
-      - История остатков
+      - Analytics
       summary: Данные по складам
       description: |-
         Метод формирует набор данных об остатках по складам.
@@ -1518,6 +1552,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: stocksReport
+      x-original-tags:
+      - История остатков
   /api/analytics/v2/item-rating:
     servers:
     - url: https://seller-analytics-api.wildberries.ru
@@ -1528,7 +1564,7 @@ paths:
       - personal
       - service
       tags:
-      - Оценка товара
+      - Analytics
       summary: Получить отчёт
       operationId: postV2ItemRating
       description: |-
@@ -1582,6 +1618,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: itemRating
+      x-original-tags:
+      - Оценка товара
   /api/analytics/v1/order-feed:
     servers:
     - url: https://seller-analytics-api.wildberries.ru
@@ -1589,7 +1627,7 @@ paths:
       x-readonly-method: true
       x-category: contentanalytics
       tags:
-      - Лента заказов
+      - Analytics
       summary: Получить отчёт
       operationId: postV1OrderFeed
       description: |-
@@ -1649,6 +1687,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: orderFeed
+      x-original-tags:
+      - Лента заказов
 components:
   schemas:
     MainRequest:

@@ -1745,10 +1745,10 @@ export type SalesReportsDetailedResReportTypeEnum =
   (typeof SalesReportsDetailedResReportTypeEnum)[keyof typeof SalesReportsDetailedResReportTypeEnum];
 
 /**
- * DefaultApi - axios parameter creator
+ * FinancesApi - axios parameter creator
  * @export
  */
-export const DefaultApiAxiosParamCreator = function (
+export const FinancesApiAxiosParamCreator = function (
   configuration?: Configuration,
 ) {
   return {
@@ -2428,11 +2428,11 @@ export const DefaultApiAxiosParamCreator = function (
 };
 
 /**
- * DefaultApi - functional programming interface
+ * FinancesApi - functional programming interface
  * @export
  */
-export const DefaultApiFp = function (configuration?: Configuration) {
-  const localVarAxiosParamCreator = DefaultApiAxiosParamCreator(configuration);
+export const FinancesApiFp = function (configuration?: Configuration) {
+  const localVarAxiosParamCreator = FinancesApiAxiosParamCreator(configuration);
   return {
     /**
      * Метод возвращает данные виджета баланса на [главной странице](https://seller.wildberries.ru) портала продавцов.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос |
@@ -2452,7 +2452,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         await localVarAxiosParamCreator.getV1AccountBalance(options);
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV1AccountBalance"]?.[
+        operationServerMap["FinancesApi.getV1AccountBalance"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -2483,7 +2483,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV1DocumentsCategories"]?.[
+        operationServerMap["FinancesApi.getV1DocumentsCategories"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -2517,7 +2517,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV1DocumentsDownload"]?.[
+        operationServerMap["FinancesApi.getV1DocumentsDownload"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -2572,7 +2572,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV1DocumentsList"]?.[
+        operationServerMap["FinancesApi.getV1DocumentsList"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -2606,7 +2606,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.postV1AcquiringDetailed"]?.[
+        operationServerMap["FinancesApi.postV1AcquiringDetailed"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -2643,7 +2643,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.postV1AcquiringDetailedReportId"]?.[
+        operationServerMap["FinancesApi.postV1AcquiringDetailedReportId"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -2677,7 +2677,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.postV1AcquiringList"]?.[
+        operationServerMap["FinancesApi.postV1AcquiringList"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -2708,7 +2708,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.postV1DocumentsDownloadAll"]?.[
+        operationServerMap["FinancesApi.postV1DocumentsDownloadAll"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -2742,7 +2742,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.postV1SalesReportsDetailed"]?.[
+        operationServerMap["FinancesApi.postV1SalesReportsDetailed"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -2779,7 +2779,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.postV1SalesReportsDetailedReportId"]?.[
+        operationServerMap["FinancesApi.postV1SalesReportsDetailedReportId"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -2813,7 +2813,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.postV1SalesReportsList"]?.[
+        operationServerMap["FinancesApi.postV1SalesReportsList"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -2828,15 +2828,15 @@ export const DefaultApiFp = function (configuration?: Configuration) {
 };
 
 /**
- * DefaultApi - factory interface
+ * FinancesApi - factory interface
  * @export
  */
-export const DefaultApiFactory = function (
+export const FinancesApiFactory = function (
   configuration?: Configuration,
   basePath?: string,
   axios?: AxiosInstance,
 ) {
-  const localVarFp = DefaultApiFp(configuration);
+  const localVarFp = FinancesApiFp(configuration);
   return {
     /**
      * Метод возвращает данные виджета баланса на [главной странице](https://seller.wildberries.ru) портала продавцов.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос |
@@ -3046,17 +3046,17 @@ export const DefaultApiFactory = function (
 };
 
 /**
- * DefaultApi - interface
+ * FinancesApi - interface
  * @export
- * @interface DefaultApi
+ * @interface FinancesApi
  */
-export interface DefaultApiInterface {
+export interface FinancesApiInterface {
   /**
    * Метод возвращает данные виджета баланса на [главной странице](https://seller.wildberries.ru) портала продавцов.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос |
    * @summary Получить баланс продавца
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof FinancesApiInterface
    */
   getV1AccountBalance(
     options?: RawAxiosRequestConfig,
@@ -3068,7 +3068,7 @@ export interface DefaultApiInterface {
    * @param {string} [locale] Язык поля &#x60;title&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof FinancesApiInterface
    */
   getV1DocumentsCategories(
     locale?: string,
@@ -3082,7 +3082,7 @@ export interface DefaultApiInterface {
    * @param {string} extension Формат документа
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof FinancesApiInterface
    */
   getV1DocumentsDownload(
     serviceName: string,
@@ -3104,7 +3104,7 @@ export interface DefaultApiInterface {
    * @param {number} [offset] После какой строки выдавать данные
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof FinancesApiInterface
    */
   getV1DocumentsList(
     locale?: string,
@@ -3125,7 +3125,7 @@ export interface DefaultApiInterface {
    * @param {AcquiringReportsDetailedReq} acquiringReportsDetailedReq
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof FinancesApiInterface
    */
   postV1AcquiringDetailed(
     acquiringReportsDetailedReq: AcquiringReportsDetailedReq,
@@ -3139,7 +3139,7 @@ export interface DefaultApiInterface {
    * @param {FinancialReportsDetailedReportIdReq} financialReportsDetailedReportIdReq
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof FinancesApiInterface
    */
   postV1AcquiringDetailedReportId(
     reportId: number,
@@ -3153,7 +3153,7 @@ export interface DefaultApiInterface {
    * @param {AcquiringReportListReq} acquiringReportListReq
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof FinancesApiInterface
    */
   postV1AcquiringList(
     acquiringReportListReq: AcquiringReportListReq,
@@ -3166,7 +3166,7 @@ export interface DefaultApiInterface {
    * @param {RequestDownload} [requestDownload]
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof FinancesApiInterface
    */
   postV1DocumentsDownloadAll(
     requestDownload?: RequestDownload,
@@ -3179,7 +3179,7 @@ export interface DefaultApiInterface {
    * @param {SalesReportsDetailedReq} salesReportsDetailedReq
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof FinancesApiInterface
    */
   postV1SalesReportsDetailed(
     salesReportsDetailedReq: SalesReportsDetailedReq,
@@ -3193,7 +3193,7 @@ export interface DefaultApiInterface {
    * @param {FinancialReportsDetailedReportIdReq} financialReportsDetailedReportIdReq
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof FinancesApiInterface
    */
   postV1SalesReportsDetailedReportId(
     reportId: number,
@@ -3207,7 +3207,7 @@ export interface DefaultApiInterface {
    * @param {SalesReportListReq} salesReportListReq
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof FinancesApiInterface
    */
   postV1SalesReportsList(
     salesReportListReq: SalesReportListReq,
@@ -3216,21 +3216,21 @@ export interface DefaultApiInterface {
 }
 
 /**
- * DefaultApi - object-oriented interface
+ * FinancesApi - object-oriented interface
  * @export
- * @class DefaultApi
+ * @class FinancesApi
  * @extends {BaseAPI}
  */
-export class DefaultApi extends BaseAPI implements DefaultApiInterface {
+export class FinancesApi extends BaseAPI implements FinancesApiInterface {
   /**
    * Метод возвращает данные виджета баланса на [главной странице](https://seller.wildberries.ru) портала продавцов.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос |
    * @summary Получить баланс продавца
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof FinancesApi
    */
   public getV1AccountBalance(options?: RawAxiosRequestConfig) {
-    return DefaultApiFp(this.configuration)
+    return FinancesApiFp(this.configuration)
       .getV1AccountBalance(options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -3241,13 +3241,13 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {string} [locale] Язык поля &#x60;title&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof FinancesApi
    */
   public getV1DocumentsCategories(
     locale?: string,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return FinancesApiFp(this.configuration)
       .getV1DocumentsCategories(locale, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -3259,14 +3259,14 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {string} extension Формат документа
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof FinancesApi
    */
   public getV1DocumentsDownload(
     serviceName: string,
     extension: string,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return FinancesApiFp(this.configuration)
       .getV1DocumentsDownload(serviceName, extension, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -3285,7 +3285,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {number} [offset] После какой строки выдавать данные
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof FinancesApi
    */
   public getV1DocumentsList(
     locale?: string,
@@ -3299,7 +3299,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
     offset?: number,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return FinancesApiFp(this.configuration)
       .getV1DocumentsList(
         locale,
         beginTime,
@@ -3321,13 +3321,13 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {AcquiringReportsDetailedReq} acquiringReportsDetailedReq
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof FinancesApi
    */
   public postV1AcquiringDetailed(
     acquiringReportsDetailedReq: AcquiringReportsDetailedReq,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return FinancesApiFp(this.configuration)
       .postV1AcquiringDetailed(acquiringReportsDetailedReq, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -3339,14 +3339,14 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {FinancialReportsDetailedReportIdReq} financialReportsDetailedReportIdReq
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof FinancesApi
    */
   public postV1AcquiringDetailedReportId(
     reportId: number,
     financialReportsDetailedReportIdReq: FinancialReportsDetailedReportIdReq,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return FinancesApiFp(this.configuration)
       .postV1AcquiringDetailedReportId(
         reportId,
         financialReportsDetailedReportIdReq,
@@ -3361,13 +3361,13 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {AcquiringReportListReq} acquiringReportListReq
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof FinancesApi
    */
   public postV1AcquiringList(
     acquiringReportListReq: AcquiringReportListReq,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return FinancesApiFp(this.configuration)
       .postV1AcquiringList(acquiringReportListReq, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -3378,13 +3378,13 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {RequestDownload} [requestDownload]
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof FinancesApi
    */
   public postV1DocumentsDownloadAll(
     requestDownload?: RequestDownload,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return FinancesApiFp(this.configuration)
       .postV1DocumentsDownloadAll(requestDownload, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -3395,13 +3395,13 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {SalesReportsDetailedReq} salesReportsDetailedReq
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof FinancesApi
    */
   public postV1SalesReportsDetailed(
     salesReportsDetailedReq: SalesReportsDetailedReq,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return FinancesApiFp(this.configuration)
       .postV1SalesReportsDetailed(salesReportsDetailedReq, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -3413,14 +3413,14 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {FinancialReportsDetailedReportIdReq} financialReportsDetailedReportIdReq
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof FinancesApi
    */
   public postV1SalesReportsDetailedReportId(
     reportId: number,
     financialReportsDetailedReportIdReq: FinancialReportsDetailedReportIdReq,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return FinancesApiFp(this.configuration)
       .postV1SalesReportsDetailedReportId(
         reportId,
         financialReportsDetailedReportIdReq,
@@ -3435,13 +3435,13 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {SalesReportListReq} salesReportListReq
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof FinancesApi
    */
   public postV1SalesReportsList(
     salesReportListReq: SalesReportListReq,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return FinancesApiFp(this.configuration)
       .postV1SalesReportsList(salesReportListReq, options)
       .then((request) => request(this.axios, this.basePath));
   }

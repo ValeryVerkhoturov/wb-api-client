@@ -25,19 +25,19 @@ Each row below is a sub-module you can import independently. Import path is `@va
 
 | Slug | Category | APIs |
 |---|---|---|
-| [`general`](https://dev.wildberries.ru/openapi/api-information) | Общее | `APIApi`, `DefaultApi`, `WBAPIApi` |
-| [`items`](https://dev.wildberries.ru/openapi/item-management) | Работа с товарами | `DefaultApi` |
-| [`orders-fbs`](https://dev.wildberries.ru/openapi/orders-fbs) | Заказы FBS | `DefaultApi`, `FBSApi` |
-| [`orders-dbw`](https://dev.wildberries.ru/openapi/orders-dbw) | Заказы DBW | `DBWApi` |
-| [`dbs`](https://dev.wildberries.ru/openapi/dbs) | DBS | `DBSApi` |
-| [`in-store-pickup`](https://dev.wildberries.ru/openapi/in-store-pickup) | Самовывоз | `DefaultApi` |
-| [`orders-fbw`](https://dev.wildberries.ru/openapi/orders-fbw) | Поставки FBW | `DefaultApi` |
-| [`promotion`](https://dev.wildberries.ru/openapi/promotion) | Маркетинг и продвижение | `DefaultApi` |
-| [`communications`](https://dev.wildberries.ru/openapi/customer-communication) | Общение с покупателями | `DefaultApi` |
-| [`rates`](https://dev.wildberries.ru/openapi/rates) | Тарифы | `DefaultApi` |
-| [`analytics`](https://dev.wildberries.ru/openapi/analytics) | Аналитика и данные | `CSVApi`, `DefaultApi` |
-| [`reports`](https://dev.wildberries.ru/openapi/reports) | Отчёты | `CApi`, `DefaultApi` |
-| [`finances`](https://dev.wildberries.ru/openapi/documents-and-accounting) | Документы и бухгалтерия | `DefaultApi` |
+| [`general`](https://dev.wildberries.ru/openapi/api-information) | Общее | `GeneralApi` |
+| [`items`](https://dev.wildberries.ru/openapi/item-management) | Работа с товарами | `ItemsApi` |
+| [`orders-fbs`](https://dev.wildberries.ru/openapi/orders-fbs) | Заказы FBS | `OrdersFbsApi` |
+| [`orders-dbw`](https://dev.wildberries.ru/openapi/orders-dbw) | Заказы DBW | `OrdersDbwApi` |
+| [`dbs`](https://dev.wildberries.ru/openapi/dbs) | DBS | `DbsApi` |
+| [`in-store-pickup`](https://dev.wildberries.ru/openapi/in-store-pickup) | Самовывоз | `InStorePickupApi` |
+| [`orders-fbw`](https://dev.wildberries.ru/openapi/orders-fbw) | Поставки FBW | `OrdersFbwApi` |
+| [`promotion`](https://dev.wildberries.ru/openapi/promotion) | Маркетинг и продвижение | `PromotionApi` |
+| [`communications`](https://dev.wildberries.ru/openapi/customer-communication) | Общение с покупателями | `CommunicationsApi` |
+| [`rates`](https://dev.wildberries.ru/openapi/rates) | Тарифы | `RatesApi` |
+| [`analytics`](https://dev.wildberries.ru/openapi/analytics) | Аналитика и данные | `AnalyticsApi` |
+| [`reports`](https://dev.wildberries.ru/openapi/reports) | Отчёты | `ReportsApi` |
+| [`finances`](https://dev.wildberries.ru/openapi/documents-and-accounting) | Документы и бухгалтерия | `FinancesApi` |
 
 ## Per-module usage
 
@@ -58,14 +58,14 @@ Each row below is a sub-module you can import independently. Import path is `@va
 
 **Reference:** https://dev.wildberries.ru/openapi/api-information
 
-**APIs:** `APIApi`, `DefaultApi`, `WBAPIApi`
+**APIs:** `GeneralApi`
 
 ```ts
-import { Configuration, APIApi } from "@valeryverkhoturov/wb-api-client/general";
+import { Configuration, GeneralApi } from "@valeryverkhoturov/wb-api-client/general";
 
 const cfg = new Configuration({});
 cfg.setAccessToken("<your WB JWT>");
-const api = new APIApi(cfg);
+const api = new GeneralApi(cfg);
 ```
 
 ### items — Работа с товарами
@@ -84,14 +84,14 @@ const api = new APIApi(cfg);
 
 **Reference:** https://dev.wildberries.ru/openapi/item-management
 
-**APIs:** `DefaultApi`
+**APIs:** `ItemsApi`
 
 ```ts
-import { Configuration, DefaultApi } from "@valeryverkhoturov/wb-api-client/items";
+import { Configuration, ItemsApi } from "@valeryverkhoturov/wb-api-client/items";
 
 const cfg = new Configuration({});
 cfg.setAccessToken("<your WB JWT>");
-const api = new DefaultApi(cfg);
+const api = new ItemsApi(cfg);
 ```
 
 ### orders-fbs — Заказы FBS
@@ -109,14 +109,14 @@ const api = new DefaultApi(cfg);
 
 **Reference:** https://dev.wildberries.ru/openapi/orders-fbs
 
-**APIs:** `DefaultApi`, `FBSApi`
+**APIs:** `OrdersFbsApi`
 
 ```ts
-import { Configuration, DefaultApi } from "@valeryverkhoturov/wb-api-client/orders-fbs";
+import { Configuration, OrdersFbsApi } from "@valeryverkhoturov/wb-api-client/orders-fbs";
 
 const cfg = new Configuration({});
 cfg.setAccessToken("<your WB JWT>");
-const api = new DefaultApi(cfg);
+const api = new OrdersFbsApi(cfg);
 ```
 
 ### orders-dbw — Заказы DBW
@@ -129,14 +129,14 @@ const api = new DefaultApi(cfg);
 
 **Reference:** https://dev.wildberries.ru/openapi/orders-dbw
 
-**APIs:** `DBWApi`
+**APIs:** `OrdersDbwApi`
 
 ```ts
-import { Configuration, DBWApi } from "@valeryverkhoturov/wb-api-client/orders-dbw";
+import { Configuration, OrdersDbwApi } from "@valeryverkhoturov/wb-api-client/orders-dbw";
 
 const cfg = new Configuration({});
 cfg.setAccessToken("<your WB JWT>");
-const api = new DBWApi(cfg);
+const api = new OrdersDbwApi(cfg);
 ```
 
 ### dbs — DBS
@@ -149,14 +149,14 @@ const api = new DBWApi(cfg);
 
 **Reference:** https://dev.wildberries.ru/openapi/dbs
 
-**APIs:** `DBSApi`
+**APIs:** `DbsApi`
 
 ```ts
-import { Configuration, DBSApi } from "@valeryverkhoturov/wb-api-client/dbs";
+import { Configuration, DbsApi } from "@valeryverkhoturov/wb-api-client/dbs";
 
 const cfg = new Configuration({});
 cfg.setAccessToken("<your WB JWT>");
-const api = new DBSApi(cfg);
+const api = new DbsApi(cfg);
 ```
 
 ### in-store-pickup — Самовывоз
@@ -167,14 +167,14 @@ const api = new DBSApi(cfg);
 
 **Reference:** https://dev.wildberries.ru/openapi/in-store-pickup
 
-**APIs:** `DefaultApi`
+**APIs:** `InStorePickupApi`
 
 ```ts
-import { Configuration, DefaultApi } from "@valeryverkhoturov/wb-api-client/in-store-pickup";
+import { Configuration, InStorePickupApi } from "@valeryverkhoturov/wb-api-client/in-store-pickup";
 
 const cfg = new Configuration({});
 cfg.setAccessToken("<your WB JWT>");
-const api = new DefaultApi(cfg);
+const api = new InStorePickupApi(cfg);
 ```
 
 ### orders-fbw — Поставки FBW
@@ -188,14 +188,14 @@ const api = new DefaultApi(cfg);
 
 **Reference:** https://dev.wildberries.ru/openapi/orders-fbw
 
-**APIs:** `DefaultApi`
+**APIs:** `OrdersFbwApi`
 
 ```ts
-import { Configuration, DefaultApi } from "@valeryverkhoturov/wb-api-client/orders-fbw";
+import { Configuration, OrdersFbwApi } from "@valeryverkhoturov/wb-api-client/orders-fbw";
 
 const cfg = new Configuration({});
 cfg.setAccessToken("<your WB JWT>");
-const api = new DefaultApi(cfg);
+const api = new OrdersFbwApi(cfg);
 ```
 
 ### promotion — Маркетинг и продвижение
@@ -214,14 +214,14 @@ const api = new DefaultApi(cfg);
 
 **Reference:** https://dev.wildberries.ru/openapi/promotion
 
-**APIs:** `DefaultApi`
+**APIs:** `PromotionApi`
 
 ```ts
-import { Configuration, DefaultApi } from "@valeryverkhoturov/wb-api-client/promotion";
+import { Configuration, PromotionApi } from "@valeryverkhoturov/wb-api-client/promotion";
 
 const cfg = new Configuration({});
 cfg.setAccessToken("<your WB JWT>");
-const api = new DefaultApi(cfg);
+const api = new PromotionApi(cfg);
 ```
 
 ### communications — Общение с покупателями
@@ -239,14 +239,14 @@ const api = new DefaultApi(cfg);
 
 **Reference:** https://dev.wildberries.ru/openapi/customer-communication
 
-**APIs:** `DefaultApi`
+**APIs:** `CommunicationsApi`
 
 ```ts
-import { Configuration, DefaultApi } from "@valeryverkhoturov/wb-api-client/communications";
+import { Configuration, CommunicationsApi } from "@valeryverkhoturov/wb-api-client/communications";
 
 const cfg = new Configuration({});
 cfg.setAccessToken("<your WB JWT>");
-const api = new DefaultApi(cfg);
+const api = new CommunicationsApi(cfg);
 ```
 
 ### rates — Тарифы
@@ -261,14 +261,14 @@ const api = new DefaultApi(cfg);
 
 **Reference:** https://dev.wildberries.ru/openapi/rates
 
-**APIs:** `DefaultApi`
+**APIs:** `RatesApi`
 
 ```ts
-import { Configuration, DefaultApi } from "@valeryverkhoturov/wb-api-client/rates";
+import { Configuration, RatesApi } from "@valeryverkhoturov/wb-api-client/rates";
 
 const cfg = new Configuration({});
 cfg.setAccessToken("<your WB JWT>");
-const api = new DefaultApi(cfg);
+const api = new RatesApi(cfg);
 ```
 
 ### analytics — Аналитика и данные
@@ -285,14 +285,14 @@ const api = new DefaultApi(cfg);
 
 **Reference:** https://dev.wildberries.ru/openapi/analytics
 
-**APIs:** `CSVApi`, `DefaultApi`
+**APIs:** `AnalyticsApi`
 
 ```ts
-import { Configuration, CSVApi } from "@valeryverkhoturov/wb-api-client/analytics";
+import { Configuration, AnalyticsApi } from "@valeryverkhoturov/wb-api-client/analytics";
 
 const cfg = new Configuration({});
 cfg.setAccessToken("<your WB JWT>");
-const api = new CSVApi(cfg);
+const api = new AnalyticsApi(cfg);
 ```
 
 ### reports — Отчёты
@@ -312,14 +312,14 @@ const api = new CSVApi(cfg);
 
 **Reference:** https://dev.wildberries.ru/openapi/reports
 
-**APIs:** `CApi`, `DefaultApi`
+**APIs:** `ReportsApi`
 
 ```ts
-import { Configuration, CApi } from "@valeryverkhoturov/wb-api-client/reports";
+import { Configuration, ReportsApi } from "@valeryverkhoturov/wb-api-client/reports";
 
 const cfg = new Configuration({});
 cfg.setAccessToken("<your WB JWT>");
-const api = new CApi(cfg);
+const api = new ReportsApi(cfg);
 ```
 
 ### finances — Документы и бухгалтерия
@@ -330,13 +330,13 @@ const api = new CApi(cfg);
 
 **Reference:** https://dev.wildberries.ru/openapi/documents-and-accounting
 
-**APIs:** `DefaultApi`
+**APIs:** `FinancesApi`
 
 ```ts
-import { Configuration, DefaultApi } from "@valeryverkhoturov/wb-api-client/finances";
+import { Configuration, FinancesApi } from "@valeryverkhoturov/wb-api-client/finances";
 
 const cfg = new Configuration({});
 cfg.setAccessToken("<your WB JWT>");
-const api = new DefaultApi(cfg);
+const api = new FinancesApi(cfg);
 ```
 

@@ -33,7 +33,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "1.20261010.0";
+        public const string Version = "1.20261010.1";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -134,7 +134,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Client
             OperationServers = new Dictionary<string, List<IReadOnlyDictionary<string, object>>>()
             {
                 {
-                    "DefaultApi.DeleteV2TagId", new List<IReadOnlyDictionary<string, object>>
+                    "ItemsApi.DeleteV2TagId", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -153,7 +153,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Client
                     }
                 },
                 {
-                    "DefaultApi.DeleteV3StocksWarehouseId", new List<IReadOnlyDictionary<string, object>>
+                    "ItemsApi.DeleteV3StocksWarehouseId", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -172,7 +172,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Client
                     }
                 },
                 {
-                    "DefaultApi.DeleteV3WarehousesWarehouseId", new List<IReadOnlyDictionary<string, object>>
+                    "ItemsApi.DeleteV3WarehousesWarehouseId", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -191,7 +191,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV1Brands", new List<IReadOnlyDictionary<string, object>>
+                    "ItemsApi.GetV1Brands", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -203,7 +203,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV2BufferGoodsTask", new List<IReadOnlyDictionary<string, object>>
+                    "ItemsApi.GetV2BufferGoodsTask", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -222,7 +222,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV2BufferTasks", new List<IReadOnlyDictionary<string, object>>
+                    "ItemsApi.GetV2BufferTasks", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -241,7 +241,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV2CardsLimits", new List<IReadOnlyDictionary<string, object>>
+                    "ItemsApi.GetV2CardsLimits", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -260,7 +260,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV2DirectoryColors", new List<IReadOnlyDictionary<string, object>>
+                    "ItemsApi.GetV2DirectoryColors", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -279,7 +279,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV2DirectoryCountries", new List<IReadOnlyDictionary<string, object>>
+                    "ItemsApi.GetV2DirectoryCountries", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -298,7 +298,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV2DirectoryKinds", new List<IReadOnlyDictionary<string, object>>
+                    "ItemsApi.GetV2DirectoryKinds", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -317,7 +317,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV2DirectoryOkpd", new List<IReadOnlyDictionary<string, object>>
+                    "ItemsApi.GetV2DirectoryOkpd", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -329,7 +329,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV2DirectoryOkpdAll", new List<IReadOnlyDictionary<string, object>>
+                    "ItemsApi.GetV2DirectoryOkpdAll", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -341,26 +341,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV2DirectorySeasons", new List<IReadOnlyDictionary<string, object>>
-                    {
-                        {
-                            new Dictionary<string, object>
-                            {
-                                {"url", "https://content-api.wildberries.ru"},
-                                {"description", "**Prod** "}
-                            }
-                        },
-                        {
-                            new Dictionary<string, object>
-                            {
-                                {"url", "https://content-api-sandbox.wildberries.ru"},
-                                {"description", "**Sandbox** "}
-                            }
-                        },
-                    }
-                },
-                {
-                    "DefaultApi.GetV2DirectoryTnved", new List<IReadOnlyDictionary<string, object>>
+                    "ItemsApi.GetV2DirectorySeasons", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -379,19 +360,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV2DirectoryTnvedAll", new List<IReadOnlyDictionary<string, object>>
-                    {
-                        {
-                            new Dictionary<string, object>
-                            {
-                                {"url", "https://content-api.wildberries.ru"},
-                                {"description", "**Prod** "}
-                            }
-                        },
-                    }
-                },
-                {
-                    "DefaultApi.GetV2DirectoryVat", new List<IReadOnlyDictionary<string, object>>
+                    "ItemsApi.GetV2DirectoryTnved", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -410,7 +379,38 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV2HistoryGoodsTask", new List<IReadOnlyDictionary<string, object>>
+                    "ItemsApi.GetV2DirectoryTnvedAll", new List<IReadOnlyDictionary<string, object>>
+                    {
+                        {
+                            new Dictionary<string, object>
+                            {
+                                {"url", "https://content-api.wildberries.ru"},
+                                {"description", "**Prod** "}
+                            }
+                        },
+                    }
+                },
+                {
+                    "ItemsApi.GetV2DirectoryVat", new List<IReadOnlyDictionary<string, object>>
+                    {
+                        {
+                            new Dictionary<string, object>
+                            {
+                                {"url", "https://content-api.wildberries.ru"},
+                                {"description", "**Prod** "}
+                            }
+                        },
+                        {
+                            new Dictionary<string, object>
+                            {
+                                {"url", "https://content-api-sandbox.wildberries.ru"},
+                                {"description", "**Sandbox** "}
+                            }
+                        },
+                    }
+                },
+                {
+                    "ItemsApi.GetV2HistoryGoodsTask", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -429,7 +429,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV2HistoryTasks", new List<IReadOnlyDictionary<string, object>>
+                    "ItemsApi.GetV2HistoryTasks", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -448,7 +448,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV2ListGoodsFilter", new List<IReadOnlyDictionary<string, object>>
+                    "ItemsApi.GetV2ListGoodsFilter", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -467,7 +467,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV2ListGoodsSizeNm", new List<IReadOnlyDictionary<string, object>>
+                    "ItemsApi.GetV2ListGoodsSizeNm", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -486,7 +486,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV2ObjectAll", new List<IReadOnlyDictionary<string, object>>
+                    "ItemsApi.GetV2ObjectAll", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -505,7 +505,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV2ObjectCharcsSubjectId", new List<IReadOnlyDictionary<string, object>>
+                    "ItemsApi.GetV2ObjectCharcsSubjectId", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -524,7 +524,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV2ObjectParentAll", new List<IReadOnlyDictionary<string, object>>
+                    "ItemsApi.GetV2ObjectParentAll", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -543,7 +543,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV2QuarantineGoods", new List<IReadOnlyDictionary<string, object>>
+                    "ItemsApi.GetV2QuarantineGoods", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -562,7 +562,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV2Tags", new List<IReadOnlyDictionary<string, object>>
+                    "ItemsApi.GetV2Tags", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -581,7 +581,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV3DbwWarehousesWarehouseIdContacts", new List<IReadOnlyDictionary<string, object>>
+                    "ItemsApi.GetV3DbwWarehousesWarehouseIdContacts", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -593,7 +593,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV3Offices", new List<IReadOnlyDictionary<string, object>>
+                    "ItemsApi.GetV3Offices", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -612,7 +612,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV3Warehouses", new List<IReadOnlyDictionary<string, object>>
+                    "ItemsApi.GetV3Warehouses", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -631,7 +631,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Client
                     }
                 },
                 {
-                    "DefaultApi.PatchV2TagId", new List<IReadOnlyDictionary<string, object>>
+                    "ItemsApi.PatchV2TagId", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -650,7 +650,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Client
                     }
                 },
                 {
-                    "DefaultApi.PostV1RecommendationsList", new List<IReadOnlyDictionary<string, object>>
+                    "ItemsApi.PostV1RecommendationsList", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -662,7 +662,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Client
                     }
                 },
                 {
-                    "DefaultApi.PostV1RecommendationsSet", new List<IReadOnlyDictionary<string, object>>
+                    "ItemsApi.PostV1RecommendationsSet", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -674,7 +674,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Client
                     }
                 },
                 {
-                    "DefaultApi.PostV1UploadTaskB2bWholesale", new List<IReadOnlyDictionary<string, object>>
+                    "ItemsApi.PostV1UploadTaskB2bWholesale", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -686,7 +686,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Client
                     }
                 },
                 {
-                    "DefaultApi.PostV2Barcodes", new List<IReadOnlyDictionary<string, object>>
+                    "ItemsApi.PostV2Barcodes", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -705,7 +705,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Client
                     }
                 },
                 {
-                    "DefaultApi.PostV2CardsDeleteTrash", new List<IReadOnlyDictionary<string, object>>
+                    "ItemsApi.PostV2CardsDeleteTrash", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -724,7 +724,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Client
                     }
                 },
                 {
-                    "DefaultApi.PostV2CardsErrorList", new List<IReadOnlyDictionary<string, object>>
+                    "ItemsApi.PostV2CardsErrorList", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -743,7 +743,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Client
                     }
                 },
                 {
-                    "DefaultApi.PostV2CardsMoveNm", new List<IReadOnlyDictionary<string, object>>
+                    "ItemsApi.PostV2CardsMoveNm", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -762,7 +762,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Client
                     }
                 },
                 {
-                    "DefaultApi.PostV2CardsRecover", new List<IReadOnlyDictionary<string, object>>
+                    "ItemsApi.PostV2CardsRecover", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -781,7 +781,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Client
                     }
                 },
                 {
-                    "DefaultApi.PostV2CardsUpdate", new List<IReadOnlyDictionary<string, object>>
+                    "ItemsApi.PostV2CardsUpdate", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -800,7 +800,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Client
                     }
                 },
                 {
-                    "DefaultApi.PostV2CardsUpload", new List<IReadOnlyDictionary<string, object>>
+                    "ItemsApi.PostV2CardsUpload", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -819,7 +819,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Client
                     }
                 },
                 {
-                    "DefaultApi.PostV2CardsUploadAdd", new List<IReadOnlyDictionary<string, object>>
+                    "ItemsApi.PostV2CardsUploadAdd", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -838,7 +838,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Client
                     }
                 },
                 {
-                    "DefaultApi.PostV2GetCardsList", new List<IReadOnlyDictionary<string, object>>
+                    "ItemsApi.PostV2GetCardsList", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -857,7 +857,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Client
                     }
                 },
                 {
-                    "DefaultApi.PostV2GetCardsTrash", new List<IReadOnlyDictionary<string, object>>
+                    "ItemsApi.PostV2GetCardsTrash", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -876,7 +876,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Client
                     }
                 },
                 {
-                    "DefaultApi.PostV2ListGoodsFilter", new List<IReadOnlyDictionary<string, object>>
+                    "ItemsApi.PostV2ListGoodsFilter", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -895,7 +895,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Client
                     }
                 },
                 {
-                    "DefaultApi.PostV2Tag", new List<IReadOnlyDictionary<string, object>>
+                    "ItemsApi.PostV2Tag", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -914,7 +914,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Client
                     }
                 },
                 {
-                    "DefaultApi.PostV2TagNomenclatureLink", new List<IReadOnlyDictionary<string, object>>
+                    "ItemsApi.PostV2TagNomenclatureLink", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -933,7 +933,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Client
                     }
                 },
                 {
-                    "DefaultApi.PostV2UploadTask", new List<IReadOnlyDictionary<string, object>>
+                    "ItemsApi.PostV2UploadTask", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -952,7 +952,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Client
                     }
                 },
                 {
-                    "DefaultApi.PostV2UploadTaskClubDiscount", new List<IReadOnlyDictionary<string, object>>
+                    "ItemsApi.PostV2UploadTaskClubDiscount", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -971,7 +971,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Client
                     }
                 },
                 {
-                    "DefaultApi.PostV2UploadTaskSize", new List<IReadOnlyDictionary<string, object>>
+                    "ItemsApi.PostV2UploadTaskSize", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -990,7 +990,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Client
                     }
                 },
                 {
-                    "DefaultApi.PostV3MediaFile", new List<IReadOnlyDictionary<string, object>>
+                    "ItemsApi.PostV3MediaFile", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -1009,7 +1009,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Client
                     }
                 },
                 {
-                    "DefaultApi.PostV3MediaSave", new List<IReadOnlyDictionary<string, object>>
+                    "ItemsApi.PostV3MediaSave", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -1028,7 +1028,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Client
                     }
                 },
                 {
-                    "DefaultApi.PostV3StocksWarehouseId", new List<IReadOnlyDictionary<string, object>>
+                    "ItemsApi.PostV3StocksWarehouseId", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -1047,7 +1047,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Client
                     }
                 },
                 {
-                    "DefaultApi.PostV3Warehouses", new List<IReadOnlyDictionary<string, object>>
+                    "ItemsApi.PostV3Warehouses", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -1066,7 +1066,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Client
                     }
                 },
                 {
-                    "DefaultApi.PutV3DbwWarehousesWarehouseIdContacts", new List<IReadOnlyDictionary<string, object>>
+                    "ItemsApi.PutV3DbwWarehousesWarehouseIdContacts", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -1078,7 +1078,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Client
                     }
                 },
                 {
-                    "DefaultApi.PutV3StocksWarehouseId", new List<IReadOnlyDictionary<string, object>>
+                    "ItemsApi.PutV3StocksWarehouseId", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -1097,7 +1097,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Client
                     }
                 },
                 {
-                    "DefaultApi.PutV3WarehousesWarehouseId", new List<IReadOnlyDictionary<string, object>>
+                    "ItemsApi.PutV3WarehousesWarehouseId", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -1545,7 +1545,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version + "\n";
             report += "    Version of the API: items\n";
-            report += "    SDK Package Version: 1.20261010.0\n";
+            report += "    SDK Package Version: 1.20261010.1\n";
 
             return report;
         }

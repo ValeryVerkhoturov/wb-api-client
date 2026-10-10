@@ -7173,13 +7173,117 @@ export interface WbClubMetricsDynamic {
 }
 
 /**
- * DefaultApi - axios parameter creator
+ * AnalyticsApi - axios parameter creator
  * @export
  */
-export const DefaultApiAxiosParamCreator = function (
+export const AnalyticsApiAxiosParamCreator = function (
   configuration?: Configuration,
 ) {
   return {
+    /**
+     * Метод возвращает список отчётов с расширенной аналитикой продавца. Ответ содержит ID [созданных отчётов](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv/operation/postV2NmReportDownloads) и статусы генерации.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+     * @summary Получить список отчётов
+     * @param {Array<string>} [filterDownloadIds] ID отчёта
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getV2NmReportDownloads: async (
+      filterDownloadIds?: Array<string>,
+      options: RawAxiosRequestConfig = {},
+    ): Promise<RequestArgs> => {
+      const localVarPath = `/api/v2/nm-report/downloads`;
+      // use dummy base URL string because the URL constructor only accepts absolute URLs.
+      const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+
+      const localVarRequestOptions = {
+        method: "GET",
+        ...baseOptions,
+        ...options,
+      };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      // authentication BearerAuth required
+      // http bearer authentication required
+      await setBearerAuthToObject(localVarHeaderParameter, configuration);
+
+      if (filterDownloadIds) {
+        localVarQueryParameter["filter[downloadIds]"] = filterDownloadIds;
+      }
+
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
+      let headersFromBaseOptions =
+        baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = {
+        ...localVarHeaderParameter,
+        ...headersFromBaseOptions,
+        ...options.headers,
+      };
+
+      return {
+        url: toPathString(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     * Метод возвращает отчёт с расширенной аналитикой продавца по ID [задания на генерацию](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv/operation/postV2NmReportDownloads).  Можно получить отчёт, который сгенерирован за последние 48 часов. Отчёт будет загружен внутри архива ZIP в формате CSV.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+     * @summary Получить отчёт
+     * @param {string} downloadId ID отчёта
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getV2NmReportDownloadsFileDownloadId: async (
+      downloadId: string,
+      options: RawAxiosRequestConfig = {},
+    ): Promise<RequestArgs> => {
+      // verify required parameter 'downloadId' is not null or undefined
+      assertParamExists(
+        "getV2NmReportDownloadsFileDownloadId",
+        "downloadId",
+        downloadId,
+      );
+      const localVarPath =
+        `/api/v2/nm-report/downloads/file/{downloadId}`.replace(
+          `{${"downloadId"}}`,
+          encodeURIComponent(String(downloadId)),
+        );
+      // use dummy base URL string because the URL constructor only accepts absolute URLs.
+      const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+
+      const localVarRequestOptions = {
+        method: "GET",
+        ...baseOptions,
+        ...options,
+      };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      // authentication BearerAuth required
+      // http bearer authentication required
+      await setBearerAuthToObject(localVarHeaderParameter, configuration);
+
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
+      let headersFromBaseOptions =
+        baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = {
+        ...localVarHeaderParameter,
+        ...headersFromBaseOptions,
+        ...options.headers,
+      };
+
+      return {
+        url: toPathString(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
     /**
      * Метод формирует набор данных о заказах и продажах.  Данные отчёта обновляются в режиме реального времени.  > 1 заказ = 1 сборочное задание = 1 единица товара Параметры `brandNames`,`subjectIds`, `tagIds`, `nmIds` могут быть пустыми `[]`, тогда в ответе возвращаются все заказы продавца. Если вы указали несколько параметров, в ответе будут заказы, в которых есть одновременно все эти параметры. Если заказы не подходят по параметрам запроса, вернётся пустой массив `[]`.  Можно получить отчёт максимум за последние 31 день.  Заказы отдаются по времени текущего статуса, от самого нового к самому раннему.  Можно использовать пагинацию.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 3 ч | 1 запрос | 3 ч | 1 запрос |
      * @summary Получить отчёт
@@ -7397,6 +7501,116 @@ export const DefaultApiAxiosParamCreator = function (
       };
       localVarRequestOptions.data = serializeDataIfNeeded(
         itemRatingRequest,
+        localVarRequestOptions,
+        configuration,
+      );
+
+      return {
+        url: toPathString(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     * Метод создаёт задание на генерацию отчёта с расширенной аналитикой продавца.  Вы можете создать CSV-версии отчётов по [воронке продаж](https://dev.wildberries.ru/openapi/analytics#tag/salesFunnel) или [параметрам поиска](https://dev.wildberries.ru/openapi/analytics#tag/searchQueriesForYourItems) с группировкой по: \\* артикулам WB \\* предметам, брендам и ярлыкам В отчётах по воронке продаж можно группировать данные по дням, неделям или месяцам.  Также можете создать CSV-версии отчётов по [текстам поисковых запросов](https://dev.wildberries.ru/openapi/analytics#tag/searchQueriesForYourItems/operation/postV2SearchReportProductSearchTexts) и [остаткам](https://dev.wildberries.ru/openapi/analytics#tag/stocksReport).  Каждый новый отчёт должен иметь уникальный ID.  Не используйте одинаковые ID для разных отчётов — это может привести к ошибкам при генерации  Набор параметров запроса в объекте `params` зависит от типа отчёта. Чтобы получить описание параметров, выберите тип отчёта в раскрывающемся списке в описании параметра `reportType`.  Параметры `includeSubstitutedSKUs` и `includeSearchTexts` не могут одновременно иметь значение `false`.  Если не удалось [получить отчёт](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv/operation/getV2NmReportDownloadsFileDownloadId), можно создать [повторное задание на генерацию](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv/operation/postV2NmReportDownloadsRetry). Также можно [получить список и проверить статусы](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv/operation/getV2NmReportDownloads) отчётов.  Данные отчётов обновляются 1 раз в 2 часа.  Отчёты по [остаткам](https://seller.wildberries.ru/content-analytics/history-remains) — типы `STOCK_HISTORY_REPORT_CSV` и `STOCK_HISTORY_DAILY_CSV` — можно создать без подписки [Джем](https://seller.wildberries.ru/monetization/jam)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+     * @summary Создать отчёт
+     * @param {PostV2NmReportDownloadsRequest} [postV2NmReportDownloadsRequest]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    postV2NmReportDownloads: async (
+      postV2NmReportDownloadsRequest?: PostV2NmReportDownloadsRequest,
+      options: RawAxiosRequestConfig = {},
+    ): Promise<RequestArgs> => {
+      const localVarPath = `/api/v2/nm-report/downloads`;
+      // use dummy base URL string because the URL constructor only accepts absolute URLs.
+      const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+
+      const localVarRequestOptions = {
+        method: "POST",
+        ...baseOptions,
+        ...options,
+      };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      // authentication BearerAuth required
+      // http bearer authentication required
+      await setBearerAuthToObject(localVarHeaderParameter, configuration);
+
+      localVarHeaderParameter["Content-Type"] = "application/json";
+
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
+      let headersFromBaseOptions =
+        baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = {
+        ...localVarHeaderParameter,
+        ...headersFromBaseOptions,
+        ...options.headers,
+      };
+      localVarRequestOptions.data = serializeDataIfNeeded(
+        postV2NmReportDownloadsRequest,
+        localVarRequestOptions,
+        configuration,
+      );
+
+      return {
+        url: toPathString(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     * Метод создает повторное [задание на генерацию](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv/operation/postV2NmReportDownloads) отчёта с расширенной аналитикой продавца. Необходимо, если при генерации отчёта вы [получили статус](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv/operation/getV2NmReportDownloads) `FAILED`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+     * @summary Сгенерировать отчёт повторно
+     * @param {NmReportRetryReportRequest} nmReportRetryReportRequest
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    postV2NmReportDownloadsRetry: async (
+      nmReportRetryReportRequest: NmReportRetryReportRequest,
+      options: RawAxiosRequestConfig = {},
+    ): Promise<RequestArgs> => {
+      // verify required parameter 'nmReportRetryReportRequest' is not null or undefined
+      assertParamExists(
+        "postV2NmReportDownloadsRetry",
+        "nmReportRetryReportRequest",
+        nmReportRetryReportRequest,
+      );
+      const localVarPath = `/api/v2/nm-report/downloads/retry`;
+      // use dummy base URL string because the URL constructor only accepts absolute URLs.
+      const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+
+      const localVarRequestOptions = {
+        method: "POST",
+        ...baseOptions,
+        ...options,
+      };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      // authentication BearerAuth required
+      // http bearer authentication required
+      await setBearerAuthToObject(localVarHeaderParameter, configuration);
+
+      localVarHeaderParameter["Content-Type"] = "application/json";
+
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
+      let headersFromBaseOptions =
+        baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = {
+        ...localVarHeaderParameter,
+        ...headersFromBaseOptions,
+        ...options.headers,
+      };
+      localVarRequestOptions.data = serializeDataIfNeeded(
+        nmReportRetryReportRequest,
         localVarRequestOptions,
         configuration,
       );
@@ -8102,12 +8316,78 @@ export const DefaultApiAxiosParamCreator = function (
 };
 
 /**
- * DefaultApi - functional programming interface
+ * AnalyticsApi - functional programming interface
  * @export
  */
-export const DefaultApiFp = function (configuration?: Configuration) {
-  const localVarAxiosParamCreator = DefaultApiAxiosParamCreator(configuration);
+export const AnalyticsApiFp = function (configuration?: Configuration) {
+  const localVarAxiosParamCreator =
+    AnalyticsApiAxiosParamCreator(configuration);
   return {
+    /**
+     * Метод возвращает список отчётов с расширенной аналитикой продавца. Ответ содержит ID [созданных отчётов](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv/operation/postV2NmReportDownloads) и статусы генерации.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+     * @summary Получить список отчётов
+     * @param {Array<string>} [filterDownloadIds] ID отчёта
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async getV2NmReportDownloads(
+      filterDownloadIds?: Array<string>,
+      options?: RawAxiosRequestConfig,
+    ): Promise<
+      (
+        axios?: AxiosInstance,
+        basePath?: string,
+      ) => AxiosPromise<NmReportGetReportsResponse>
+    > {
+      const localVarAxiosArgs =
+        await localVarAxiosParamCreator.getV2NmReportDownloads(
+          filterDownloadIds,
+          options,
+        );
+      const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+      const localVarOperationServerBasePath =
+        operationServerMap["AnalyticsApi.getV2NmReportDownloads"]?.[
+          localVarOperationServerIndex
+        ]?.url;
+      return (axios, basePath) =>
+        createRequestFunction(
+          localVarAxiosArgs,
+          globalAxios,
+          BASE_PATH,
+          configuration,
+        )(axios, localVarOperationServerBasePath || basePath);
+    },
+    /**
+     * Метод возвращает отчёт с расширенной аналитикой продавца по ID [задания на генерацию](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv/operation/postV2NmReportDownloads).  Можно получить отчёт, который сгенерирован за последние 48 часов. Отчёт будет загружен внутри архива ZIP в формате CSV.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+     * @summary Получить отчёт
+     * @param {string} downloadId ID отчёта
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async getV2NmReportDownloadsFileDownloadId(
+      downloadId: string,
+      options?: RawAxiosRequestConfig,
+    ): Promise<
+      (axios?: AxiosInstance, basePath?: string) => AxiosPromise<File>
+    > {
+      const localVarAxiosArgs =
+        await localVarAxiosParamCreator.getV2NmReportDownloadsFileDownloadId(
+          downloadId,
+          options,
+        );
+      const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+      const localVarOperationServerBasePath =
+        operationServerMap[
+          "AnalyticsApi.getV2NmReportDownloadsFileDownloadId"
+        ]?.[localVarOperationServerIndex]?.url;
+      return (axios, basePath) =>
+        createRequestFunction(
+          localVarAxiosArgs,
+          globalAxios,
+          BASE_PATH,
+          configuration,
+        )(axios, localVarOperationServerBasePath || basePath);
+    },
     /**
      * Метод формирует набор данных о заказах и продажах.  Данные отчёта обновляются в режиме реального времени.  > 1 заказ = 1 сборочное задание = 1 единица товара Параметры `brandNames`,`subjectIds`, `tagIds`, `nmIds` могут быть пустыми `[]`, тогда в ответе возвращаются все заказы продавца. Если вы указали несколько параметров, в ответе будут заказы, в которых есть одновременно все эти параметры. Если заказы не подходят по параметрам запроса, вернётся пустой массив `[]`.  Можно получить отчёт максимум за последние 31 день.  Заказы отдаются по времени текущего статуса, от самого нового к самому раннему.  Можно использовать пагинацию.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 3 ч | 1 запрос | 3 ч | 1 запрос |
      * @summary Получить отчёт
@@ -8130,7 +8410,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
       );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.postV1OrderFeed"]?.[
+        operationServerMap["AnalyticsApi.postV1OrderFeed"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -8164,7 +8444,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.postV1StocksReportSellerWarehouses"]?.[
+        operationServerMap["AnalyticsApi.postV1StocksReportSellerWarehouses"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -8198,7 +8478,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.postV1StocksReportWbWarehouses"]?.[
+        operationServerMap["AnalyticsApi.postV1StocksReportWbWarehouses"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -8232,7 +8512,75 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.postV2ItemRating"]?.[
+        operationServerMap["AnalyticsApi.postV2ItemRating"]?.[
+          localVarOperationServerIndex
+        ]?.url;
+      return (axios, basePath) =>
+        createRequestFunction(
+          localVarAxiosArgs,
+          globalAxios,
+          BASE_PATH,
+          configuration,
+        )(axios, localVarOperationServerBasePath || basePath);
+    },
+    /**
+     * Метод создаёт задание на генерацию отчёта с расширенной аналитикой продавца.  Вы можете создать CSV-версии отчётов по [воронке продаж](https://dev.wildberries.ru/openapi/analytics#tag/salesFunnel) или [параметрам поиска](https://dev.wildberries.ru/openapi/analytics#tag/searchQueriesForYourItems) с группировкой по: \\* артикулам WB \\* предметам, брендам и ярлыкам В отчётах по воронке продаж можно группировать данные по дням, неделям или месяцам.  Также можете создать CSV-версии отчётов по [текстам поисковых запросов](https://dev.wildberries.ru/openapi/analytics#tag/searchQueriesForYourItems/operation/postV2SearchReportProductSearchTexts) и [остаткам](https://dev.wildberries.ru/openapi/analytics#tag/stocksReport).  Каждый новый отчёт должен иметь уникальный ID.  Не используйте одинаковые ID для разных отчётов — это может привести к ошибкам при генерации  Набор параметров запроса в объекте `params` зависит от типа отчёта. Чтобы получить описание параметров, выберите тип отчёта в раскрывающемся списке в описании параметра `reportType`.  Параметры `includeSubstitutedSKUs` и `includeSearchTexts` не могут одновременно иметь значение `false`.  Если не удалось [получить отчёт](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv/operation/getV2NmReportDownloadsFileDownloadId), можно создать [повторное задание на генерацию](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv/operation/postV2NmReportDownloadsRetry). Также можно [получить список и проверить статусы](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv/operation/getV2NmReportDownloads) отчётов.  Данные отчётов обновляются 1 раз в 2 часа.  Отчёты по [остаткам](https://seller.wildberries.ru/content-analytics/history-remains) — типы `STOCK_HISTORY_REPORT_CSV` и `STOCK_HISTORY_DAILY_CSV` — можно создать без подписки [Джем](https://seller.wildberries.ru/monetization/jam)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+     * @summary Создать отчёт
+     * @param {PostV2NmReportDownloadsRequest} [postV2NmReportDownloadsRequest]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async postV2NmReportDownloads(
+      postV2NmReportDownloadsRequest?: PostV2NmReportDownloadsRequest,
+      options?: RawAxiosRequestConfig,
+    ): Promise<
+      (
+        axios?: AxiosInstance,
+        basePath?: string,
+      ) => AxiosPromise<NmReportCreateReportResponse>
+    > {
+      const localVarAxiosArgs =
+        await localVarAxiosParamCreator.postV2NmReportDownloads(
+          postV2NmReportDownloadsRequest,
+          options,
+        );
+      const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+      const localVarOperationServerBasePath =
+        operationServerMap["AnalyticsApi.postV2NmReportDownloads"]?.[
+          localVarOperationServerIndex
+        ]?.url;
+      return (axios, basePath) =>
+        createRequestFunction(
+          localVarAxiosArgs,
+          globalAxios,
+          BASE_PATH,
+          configuration,
+        )(axios, localVarOperationServerBasePath || basePath);
+    },
+    /**
+     * Метод создает повторное [задание на генерацию](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv/operation/postV2NmReportDownloads) отчёта с расширенной аналитикой продавца. Необходимо, если при генерации отчёта вы [получили статус](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv/operation/getV2NmReportDownloads) `FAILED`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+     * @summary Сгенерировать отчёт повторно
+     * @param {NmReportRetryReportRequest} nmReportRetryReportRequest
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async postV2NmReportDownloadsRetry(
+      nmReportRetryReportRequest: NmReportRetryReportRequest,
+      options?: RawAxiosRequestConfig,
+    ): Promise<
+      (
+        axios?: AxiosInstance,
+        basePath?: string,
+      ) => AxiosPromise<NmReportRetryReportResponse>
+    > {
+      const localVarAxiosArgs =
+        await localVarAxiosParamCreator.postV2NmReportDownloadsRetry(
+          nmReportRetryReportRequest,
+          options,
+        );
+      const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+      const localVarOperationServerBasePath =
+        operationServerMap["AnalyticsApi.postV2NmReportDownloadsRetry"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -8266,7 +8614,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.postV2SearchReportProductOrders"]?.[
+        operationServerMap["AnalyticsApi.postV2SearchReportProductOrders"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -8300,9 +8648,9 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.postV2SearchReportProductSearchTexts"]?.[
-          localVarOperationServerIndex
-        ]?.url;
+        operationServerMap[
+          "AnalyticsApi.postV2SearchReportProductSearchTexts"
+        ]?.[localVarOperationServerIndex]?.url;
       return (axios, basePath) =>
         createRequestFunction(
           localVarAxiosArgs,
@@ -8334,7 +8682,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.postV2SearchReportReport"]?.[
+        operationServerMap["AnalyticsApi.postV2SearchReportReport"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -8368,7 +8716,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.postV2SearchReportTableDetails"]?.[
+        operationServerMap["AnalyticsApi.postV2SearchReportTableDetails"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -8402,7 +8750,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.postV2SearchReportTableGroups"]?.[
+        operationServerMap["AnalyticsApi.postV2SearchReportTableGroups"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -8436,7 +8784,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.postV2StocksReportOffices"]?.[
+        operationServerMap["AnalyticsApi.postV2StocksReportOffices"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -8470,7 +8818,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.postV2StocksReportProductsGroups"]?.[
+        operationServerMap["AnalyticsApi.postV2StocksReportProductsGroups"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -8504,7 +8852,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.postV2StocksReportProductsProducts"]?.[
+        operationServerMap["AnalyticsApi.postV2StocksReportProductsProducts"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -8538,7 +8886,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.postV2StocksReportProductsSizes"]?.[
+        operationServerMap["AnalyticsApi.postV2StocksReportProductsSizes"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -8572,7 +8920,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.postV3SalesFunnelGroupedHistory"]?.[
+        operationServerMap["AnalyticsApi.postV3SalesFunnelGroupedHistory"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -8606,7 +8954,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.postV3SalesFunnelProducts"]?.[
+        operationServerMap["AnalyticsApi.postV3SalesFunnelProducts"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -8640,7 +8988,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.postV3SalesFunnelProductsHistory"]?.[
+        operationServerMap["AnalyticsApi.postV3SalesFunnelProductsHistory"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -8655,16 +9003,46 @@ export const DefaultApiFp = function (configuration?: Configuration) {
 };
 
 /**
- * DefaultApi - factory interface
+ * AnalyticsApi - factory interface
  * @export
  */
-export const DefaultApiFactory = function (
+export const AnalyticsApiFactory = function (
   configuration?: Configuration,
   basePath?: string,
   axios?: AxiosInstance,
 ) {
-  const localVarFp = DefaultApiFp(configuration);
+  const localVarFp = AnalyticsApiFp(configuration);
   return {
+    /**
+     * Метод возвращает список отчётов с расширенной аналитикой продавца. Ответ содержит ID [созданных отчётов](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv/operation/postV2NmReportDownloads) и статусы генерации.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+     * @summary Получить список отчётов
+     * @param {Array<string>} [filterDownloadIds] ID отчёта
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getV2NmReportDownloads(
+      filterDownloadIds?: Array<string>,
+      options?: RawAxiosRequestConfig,
+    ): AxiosPromise<NmReportGetReportsResponse> {
+      return localVarFp
+        .getV2NmReportDownloads(filterDownloadIds, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     * Метод возвращает отчёт с расширенной аналитикой продавца по ID [задания на генерацию](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv/operation/postV2NmReportDownloads).  Можно получить отчёт, который сгенерирован за последние 48 часов. Отчёт будет загружен внутри архива ZIP в формате CSV.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+     * @summary Получить отчёт
+     * @param {string} downloadId ID отчёта
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getV2NmReportDownloadsFileDownloadId(
+      downloadId: string,
+      options?: RawAxiosRequestConfig,
+    ): AxiosPromise<File> {
+      return localVarFp
+        .getV2NmReportDownloadsFileDownloadId(downloadId, options)
+        .then((request) => request(axios, basePath));
+    },
     /**
      * Метод формирует набор данных о заказах и продажах.  Данные отчёта обновляются в режиме реального времени.  > 1 заказ = 1 сборочное задание = 1 единица товара Параметры `brandNames`,`subjectIds`, `tagIds`, `nmIds` могут быть пустыми `[]`, тогда в ответе возвращаются все заказы продавца. Если вы указали несколько параметров, в ответе будут заказы, в которых есть одновременно все эти параметры. Если заказы не подходят по параметрам запроса, вернётся пустой массив `[]`.  Можно получить отчёт максимум за последние 31 день.  Заказы отдаются по времени текущего статуса, от самого нового к самому раннему.  Можно использовать пагинацию.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 3 ч | 1 запрос | 3 ч | 1 запрос |
      * @summary Получить отчёт
@@ -8723,6 +9101,36 @@ export const DefaultApiFactory = function (
     ): AxiosPromise<PostV2ItemRatingResponse200> {
       return localVarFp
         .postV2ItemRating(itemRatingRequest, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     * Метод создаёт задание на генерацию отчёта с расширенной аналитикой продавца.  Вы можете создать CSV-версии отчётов по [воронке продаж](https://dev.wildberries.ru/openapi/analytics#tag/salesFunnel) или [параметрам поиска](https://dev.wildberries.ru/openapi/analytics#tag/searchQueriesForYourItems) с группировкой по: \\* артикулам WB \\* предметам, брендам и ярлыкам В отчётах по воронке продаж можно группировать данные по дням, неделям или месяцам.  Также можете создать CSV-версии отчётов по [текстам поисковых запросов](https://dev.wildberries.ru/openapi/analytics#tag/searchQueriesForYourItems/operation/postV2SearchReportProductSearchTexts) и [остаткам](https://dev.wildberries.ru/openapi/analytics#tag/stocksReport).  Каждый новый отчёт должен иметь уникальный ID.  Не используйте одинаковые ID для разных отчётов — это может привести к ошибкам при генерации  Набор параметров запроса в объекте `params` зависит от типа отчёта. Чтобы получить описание параметров, выберите тип отчёта в раскрывающемся списке в описании параметра `reportType`.  Параметры `includeSubstitutedSKUs` и `includeSearchTexts` не могут одновременно иметь значение `false`.  Если не удалось [получить отчёт](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv/operation/getV2NmReportDownloadsFileDownloadId), можно создать [повторное задание на генерацию](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv/operation/postV2NmReportDownloadsRetry). Также можно [получить список и проверить статусы](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv/operation/getV2NmReportDownloads) отчётов.  Данные отчётов обновляются 1 раз в 2 часа.  Отчёты по [остаткам](https://seller.wildberries.ru/content-analytics/history-remains) — типы `STOCK_HISTORY_REPORT_CSV` и `STOCK_HISTORY_DAILY_CSV` — можно создать без подписки [Джем](https://seller.wildberries.ru/monetization/jam)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+     * @summary Создать отчёт
+     * @param {PostV2NmReportDownloadsRequest} [postV2NmReportDownloadsRequest]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    postV2NmReportDownloads(
+      postV2NmReportDownloadsRequest?: PostV2NmReportDownloadsRequest,
+      options?: RawAxiosRequestConfig,
+    ): AxiosPromise<NmReportCreateReportResponse> {
+      return localVarFp
+        .postV2NmReportDownloads(postV2NmReportDownloadsRequest, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     * Метод создает повторное [задание на генерацию](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv/operation/postV2NmReportDownloads) отчёта с расширенной аналитикой продавца. Необходимо, если при генерации отчёта вы [получили статус](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv/operation/getV2NmReportDownloads) `FAILED`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+     * @summary Сгенерировать отчёт повторно
+     * @param {NmReportRetryReportRequest} nmReportRetryReportRequest
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    postV2NmReportDownloadsRetry(
+      nmReportRetryReportRequest: NmReportRetryReportRequest,
+      options?: RawAxiosRequestConfig,
+    ): AxiosPromise<NmReportRetryReportResponse> {
+      return localVarFp
+        .postV2NmReportDownloadsRetry(nmReportRetryReportRequest, options)
         .then((request) => request(axios, basePath));
     },
     /**
@@ -8909,955 +9317,18 @@ export const DefaultApiFactory = function (
 };
 
 /**
- * DefaultApi - interface
+ * AnalyticsApi - interface
  * @export
- * @interface DefaultApi
+ * @interface AnalyticsApi
  */
-export interface DefaultApiInterface {
-  /**
-   * Метод формирует набор данных о заказах и продажах.  Данные отчёта обновляются в режиме реального времени.  > 1 заказ = 1 сборочное задание = 1 единица товара Параметры `brandNames`,`subjectIds`, `tagIds`, `nmIds` могут быть пустыми `[]`, тогда в ответе возвращаются все заказы продавца. Если вы указали несколько параметров, в ответе будут заказы, в которых есть одновременно все эти параметры. Если заказы не подходят по параметрам запроса, вернётся пустой массив `[]`.  Можно получить отчёт максимум за последние 31 день.  Заказы отдаются по времени текущего статуса, от самого нового к самому раннему.  Можно использовать пагинацию.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 3 ч | 1 запрос | 3 ч | 1 запрос |
-   * @summary Получить отчёт
-   * @param {OrderFeedRequest} [orderFeedRequest]
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   * @memberof DefaultApiInterface
-   */
-  postV1OrderFeed(
-    orderFeedRequest?: OrderFeedRequest,
-    options?: RawAxiosRequestConfig,
-  ): AxiosPromise<PostV1OrderFeedResponse200>;
-
-  /**
-   * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод возвращает текущие остатки товаров на складах продавца.  Данные обновляются 1 раз в 30 минут.  1 строка ответа — данные об 1 размере товара на 1 складе продавца.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 3 запроса | 20 сек | 1 запрос |
-   * @summary Остатки на складах продавца
-   * @param {InventoryRequest} inventoryRequest
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   * @memberof DefaultApiInterface
-   */
-  postV1StocksReportSellerWarehouses(
-    inventoryRequest: InventoryRequest,
-    options?: RawAxiosRequestConfig,
-  ): AxiosPromise<PostV1StocksReportSellerWarehousesResponse200>;
-
-  /**
-   * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод возвращает текущие остатки товаров на складах WB.  Данные обновляются 1 раз в 30 минут.  1 строка ответа — данные об 1 размере товара на 1 складе WB.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 3 запроса | 20 сек | 1 запрос |
-   * @summary Остатки на складах WB
-   * @param {InventoryRequest} inventoryRequest
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   * @memberof DefaultApiInterface
-   */
-  postV1StocksReportWbWarehouses(
-    inventoryRequest: InventoryRequest,
-    options?: RawAxiosRequestConfig,
-  ): AxiosPromise<PostV1StocksReportWbWarehousesResponse200>;
-
-  /**
-   * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод формирует набор данных об оценках товаров.  Данные отчёта обновляются 1 раз в час.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 3 запроса | 20 сек | 3 запроса |
-   * @summary Получить отчёт
-   * @param {ItemRatingRequest} itemRatingRequest
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   * @memberof DefaultApiInterface
-   */
-  postV2ItemRating(
-    itemRatingRequest: ItemRatingRequest,
-    options?: RawAxiosRequestConfig,
-  ): AxiosPromise<PostV2ItemRatingResponse200>;
-
-  /**
-   * Метод формирует данные для таблицы: - о заказах по каждому поисковому запросу для конкретного товара - о позициях товара в результатах поиска по каждому запросу Данные указаны в рамках периода для [запрошенного товара](https://dev.wildberries.ru/openapi/analytics#tag/searchQueriesForYourItems/operation/postV2SearchReportProductSearchTexts) и сгруппированы по дням. Максимальный период — 7 дней.  Данные отчёта обновляются 1 раз в 2 часа.  Можно получить отчёт максимум за последние 365 дней с момента выполнения запроса  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
-   * @summary Заказы и позиции по поисковым запросам товара
-   * @param {ItemOrdersRequest} itemOrdersRequest
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   * @memberof DefaultApiInterface
-   */
-  postV2SearchReportProductOrders(
-    itemOrdersRequest: ItemOrdersRequest,
-    options?: RawAxiosRequestConfig,
-  ): AxiosPromise<PostV2SearchReportProductOrdersResponse200>;
-
-  /**
-   * Метод формирует топ поисковых запросов по товару. Параметры выбора поисковых запросов: - `limit` — количество запросов, максимум 30. Для тарифов [Джема](https://seller.wildberries.ru/monetization/tariffs) \\*\\*Продвинутый\\*\\* и \\*\\*Премиальный\\*\\* максимум — 100. - `topOrderBy` — способ выбора топа запросов Параметры `includeSubstitutedSKUs` и `includeSearchTexts` не могут одновременно иметь значение `false`.  Данные отчёта обновляются 1 раз в 2 часа.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
-   * @summary Поисковые запросы по товару
-   * @param {ItemSearchTextsRequest} itemSearchTextsRequest
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   * @memberof DefaultApiInterface
-   */
-  postV2SearchReportProductSearchTexts(
-    itemSearchTextsRequest: ItemSearchTextsRequest,
-    options?: RawAxiosRequestConfig,
-  ): AxiosPromise<PostV2SearchReportProductSearchTextsResponse200>;
-
-  /**
-   * Метод формирует набор данных для основной страницы отчёта по поисковым запросам с: - общей информацией - позициями товаров - данными по видимости и переходам в карточку - данными для таблицы по группам Для получения дополнительных данных в таблице используйте отдельный запрос для: - [пагинации по группам](https://dev.wildberries.ru/openapi/analytics#tag/searchQueriesForYourItems/operation/postV2SearchReportTableGroups) - [получения по товарам в группе](https://dev.wildberries.ru/openapi/analytics#tag/searchQueriesForYourItems/operation/postV2SearchReportTableDetails) Дополнительный параметр выбора списка товаров в таблице: - `positionCluster` — средняя позиция в поиске Параметры `includeSubstitutedSKUs` и `includeSearchTexts` не могут одновременно иметь значение `false`.  Данные отчёта обновляются 1 раз в 2 часа.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
-   * @summary Основная страница
-   * @param {MainRequest} mainRequest
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   * @memberof DefaultApiInterface
-   */
-  postV2SearchReportReport(
-    mainRequest: MainRequest,
-    options?: RawAxiosRequestConfig,
-  ): AxiosPromise<PostV2SearchReportReportResponse200>;
-
-  /**
-   * Метод формирует дополнительные данные к [основному отчёту](https://dev.wildberries.ru/openapi/analytics#tag/searchQueriesForYourItems/operation/postV2SearchReportReport) с пагинацией по товарам в группе. Пагинация возможна вне зависимости от наличия фильтров.  Фильтры для пагинации по товарам в группе или без фильтров: - кортеж `subjectId`,`brandName`,`tagId` — фильтр для группы - `nmIds` — фильтр по карточке товара Дополнительный параметр выбора списка товаров: - `positionCluster` — средняя позиция в поиске Параметры `includeSubstitutedSKUs` и `includeSearchTexts` не могут одновременно иметь значение `false`.  Данные отчёта обновляются 1 раз в 2 часа.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
-   * @summary Пагинация по товарам в группе
-   * @param {TableDetailsRequest} tableDetailsRequest
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   * @memberof DefaultApiInterface
-   */
-  postV2SearchReportTableDetails(
-    tableDetailsRequest: TableDetailsRequest,
-    options?: RawAxiosRequestConfig,
-  ): AxiosPromise<PostV2SearchReportTableDetailsResponse200>;
-
-  /**
-   * Метод формирует дополнительные данные к [основному отчёту](https://dev.wildberries.ru/openapi/analytics#tag/searchQueriesForYourItems/operation/postV2SearchReportReport) с пагинацией по группам. Пагинация возможна только при наличии фильтра по бренду, предмету или ярлыку.  Дополнительный параметр выбора списка товаров в таблице: - `positionCluster` — средняя позиция в поиске Параметры `includeSubstitutedSKUs` и `includeSearchTexts` не могут одновременно иметь значение `false`.  Данные отчёта обновляются 1 раз в 2 часа.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
-   * @summary Пагинация по группам
-   * @param {TableGroupRequest} tableGroupRequest
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   * @memberof DefaultApiInterface
-   */
-  postV2SearchReportTableGroups(
-    tableGroupRequest: TableGroupRequest,
-    options?: RawAxiosRequestConfig,
-  ): AxiosPromise<PostV2SearchReportTableGroupsResponse200>;
-
-  /**
-   * Метод формирует набор данных об остатках по складам.  Данные по складам продавца приходят в агрегированном виде — по всем сразу, без детализации по конкретным складам — эти записи будут с `\"regionName\":\"Свой склад\"` и `\"offices\":[]`.  Данные отчёта обновляются 1 раз в 2 часа.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
-   * @summary Данные по складам
-   * @param {TableShippingOfficeRequest} tableShippingOfficeRequest
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   * @memberof DefaultApiInterface
-   */
-  postV2StocksReportOffices(
-    tableShippingOfficeRequest: TableShippingOfficeRequest,
-    options?: RawAxiosRequestConfig,
-  ): AxiosPromise<PostV2StocksReportOfficesResponse200>;
-
-  /**
-   * Метод формирует набор данных об остатках по группам товаров.  Группа товаров описывается кортежем `subjectID, brandName, tagID`.  Данные отчёта обновляются 1 раз в 2 часа.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
-   * @summary Данные по группам
-   * @param {TableGroupRequestSt} tableGroupRequestSt
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   * @memberof DefaultApiInterface
-   */
-  postV2StocksReportProductsGroups(
-    tableGroupRequestSt: TableGroupRequestSt,
-    options?: RawAxiosRequestConfig,
-  ): AxiosPromise<PostV2StocksReportProductsGroupsResponse200>;
-
-  /**
-   * Метод формирует набор данных об остатках по товарам.  Можно получить данные как по отдельным товарам, так и в рамках всего отчёта — если в запросе отсутствуют фильтры: `nmIDs`, `subjectID`, `brandName`, `tagID`.  Данные отчёта обновляются 1 раз в 2 часа.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
-   * @summary Данные по товарам
-   * @param {TableItemRequest} tableItemRequest
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   * @memberof DefaultApiInterface
-   */
-  postV2StocksReportProductsProducts(
-    tableItemRequest: TableItemRequest,
-    options?: RawAxiosRequestConfig,
-  ): AxiosPromise<PostV2StocksReportProductsProductsResponse200>;
-
-  /**
-   * Метод формирует набор данных об остатках по размерам товара.  Возможны случаи: 1. Товар имеет размеры и `\"includeOffice\":true`, тогда в ответе будут данные об остатках по каждому из размеров с вложенной детализацией по складам. 2. Товар имеет размеры и `\"includeOffice\":false`, тогда в ответе будут данные об остатках по каждому из размеров без вложенной детализации по складам. 3. Товар не имеет размера и `\"includeOffice\":true`, тогда в ответе будет детализация по складам. Без данных об остатках по каждому из размеров. 4. Товар не имеет размера и `\"includeOffice\":false`, тогда тело ответа будет пустым. Товар не имеет размера, если у него единственный размер с `\"techSize\":\"0\"`. В ответах метода получения данных по [товарам](https://dev.wildberries.ru/openapi/analytics#tag/stocksReport/operation/postV2StocksReportProductsProducts) у таких товаров `\"hasSizes\":false`. Данные по складам продавца приходят в агрегированном виде — по всем сразу, без детализации по конкретным складам — эти записи будут с `\"regionName\":\"Свой склад\"` и `\"officeName\":\"\"`.  Данные отчёта обновляются 1 раз в 2 часа.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
-   * @summary Данные по размерам
-   * @param {TableSizeRequest} tableSizeRequest
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   * @memberof DefaultApiInterface
-   */
-  postV2StocksReportProductsSizes(
-    tableSizeRequest: TableSizeRequest,
-    options?: RawAxiosRequestConfig,
-  ): AxiosPromise<PostV2StocksReportProductsSizesResponse200>;
-
-  /**
-   * Метод возвращает статистику карточек товаров по дням или неделям. Карточки товаров сгруппированы по предметам, брендам и ярлыкам. Можно получить данные максимум за последнюю неделю.  Данные отчёта обновляются 1 раз в 2 часа.  В течение часа после события появляется большая часть данных: - о заказах - о переходах в карточку товара - о добавлениях товаров в корзину Малая часть этих данных может появляться в течение нескольких дней.  Выкупы, отмены и возвраты отображаются в отчёте за тот день, когда товар был заказан. Например, если заказ был сделан 1 января, а покупатель вернул товар 10 января, данные об этом возврате появятся в отчёте за 1 января. Окончательные итоги продаж вы можете отслеживать с помощью [детализаций к отчётам реализации](https://dev.wildberries.ru/openapi/documents-and-accounting#tag/financialReports).  Параметры `brandNames`, `subjectIds`, `tagIds` могут быть пустыми `[]`, тогда группировка происходит по всем карточкам продавца.  Произведение количества предметов, брендов, ярлыков в запросе может быть не больше 16. Например, 4 бренда и 4 предмета или 2 предмета, 2 ярлыка и 4 бренда.  Чтобы получать отчёты за период до года, используйте методы [Аналитика продавца CSV](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv) — тип `GROUPED_HISTORY_REPORT`. Отчёты этого типа доступны только с подпиской [Джем](https://seller.wildberries.ru/monetization/jam)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
-   * @summary Статистика групп карточек товаров по дням
-   * @param {GroupedHistoryRequest} groupedHistoryRequest
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   * @memberof DefaultApiInterface
-   */
-  postV3SalesFunnelGroupedHistory(
-    groupedHistoryRequest: GroupedHistoryRequest,
-    options?: RawAxiosRequestConfig,
-  ): AxiosPromise<PostV3SalesFunnelGroupedHistoryResponse200>;
-
-  /**
-   * Метод формирует отчёт о товарах, сравнивая ключевые показатели за текущий период с аналогичным прошлым.  Данные отчёта обновляются 1 раз в 2 часа.  В течение часа после события появляется большая часть данных: - о заказах - о переходах в карточку товара - о добавлениях товаров в корзину Малая часть этих данных может появляться в течение нескольких дней.  Выкупы, отмены и возвраты отображаются в отчёте за тот день, когда товар был заказан. Например, если заказ был сделан 1 января, а покупатель вернул товар 10 января, данные об этом возврате появятся в отчёте за 1 января. Окончательные итоги продаж вы можете отслеживать с помощью [детализаций к отчётам реализации](https://dev.wildberries.ru/openapi/documents-and-accounting#tag/financialReports).  Параметры `brandNames`,`subjectIds`, `tagIds`, `nmIds` могут быть пустыми `[]`, тогда в ответе возвращаются все карточки продавца.  Если вы указали несколько параметров, в ответе будут карточки, в которых есть одновременно все эти параметры. Если карточки не подходят по параметрам запроса, вернётся пустой ответ `[]`.  Можно получить отчёт максимум за последние 365 дней.  В данных предыдущего периода: \\* Данные в `pastPeriod` указаны за такой же период, что и в `selectedPeriod` \\* Если дата начала `pastPeriod` раньше, чем год назад от текущей даты, она будет приведена к виду: `pastPeriod.start = текущая дата — 365 дней` Можно использовать пагинацию.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
-   * @summary Статистика карточек товаров за период
-   * @param {ItemsRequest} itemsRequest
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   * @memberof DefaultApiInterface
-   */
-  postV3SalesFunnelProducts(
-    itemsRequest: ItemsRequest,
-    options?: RawAxiosRequestConfig,
-  ): AxiosPromise<PostV3SalesFunnelProductsResponse200>;
-
-  /**
-   * Метод возвращает статистику карточек товаров по дням или неделям. Можно получить данные максимум за последнюю неделю.  Данные отчёта обновляются 1 раз в 2 часа.  В течение часа после события появляется большая часть данных: - о заказах - о переходах в карточку товара - о добавлениях товаров в корзину Малая часть этих данных может появляться в течение нескольких дней.  Выкупы, отмены и возвраты отображаются в отчёте за тот день, когда товар был заказан. Например, если заказ был сделан 1 января, а покупатель вернул товар 10 января, данные об этом возврате появятся в отчёте за 1 января. Окончательные итоги продаж вы можете отслеживать с помощью [детализаций к отчётам реализации](https://dev.wildberries.ru/openapi/documents-and-accounting#tag/financialReports).  Чтобы получать отчёты за период до года, используйте методы [Аналитика продавца CSV](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv) — тип `DETAIL_HISTORY_REPORT`. Отчёты этого типа доступны только с подпиской [Джем](https://seller.wildberries.ru/monetization/jam)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
-   * @summary Статистика карточек товаров по дням
-   * @param {ItemHistoryRequest} itemHistoryRequest
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   * @memberof DefaultApiInterface
-   */
-  postV3SalesFunnelProductsHistory(
-    itemHistoryRequest: ItemHistoryRequest,
-    options?: RawAxiosRequestConfig,
-  ): AxiosPromise<Array<PostV3SalesFunnelProductsHistoryResponse200Inner>>;
-}
-
-/**
- * DefaultApi - object-oriented interface
- * @export
- * @class DefaultApi
- * @extends {BaseAPI}
- */
-export class DefaultApi extends BaseAPI implements DefaultApiInterface {
-  /**
-   * Метод формирует набор данных о заказах и продажах.  Данные отчёта обновляются в режиме реального времени.  > 1 заказ = 1 сборочное задание = 1 единица товара Параметры `brandNames`,`subjectIds`, `tagIds`, `nmIds` могут быть пустыми `[]`, тогда в ответе возвращаются все заказы продавца. Если вы указали несколько параметров, в ответе будут заказы, в которых есть одновременно все эти параметры. Если заказы не подходят по параметрам запроса, вернётся пустой массив `[]`.  Можно получить отчёт максимум за последние 31 день.  Заказы отдаются по времени текущего статуса, от самого нового к самому раннему.  Можно использовать пагинацию.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 3 ч | 1 запрос | 3 ч | 1 запрос |
-   * @summary Получить отчёт
-   * @param {OrderFeedRequest} [orderFeedRequest]
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   * @memberof DefaultApi
-   */
-  public postV1OrderFeed(
-    orderFeedRequest?: OrderFeedRequest,
-    options?: RawAxiosRequestConfig,
-  ) {
-    return DefaultApiFp(this.configuration)
-      .postV1OrderFeed(orderFeedRequest, options)
-      .then((request) => request(this.axios, this.basePath));
-  }
-
-  /**
-   * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод возвращает текущие остатки товаров на складах продавца.  Данные обновляются 1 раз в 30 минут.  1 строка ответа — данные об 1 размере товара на 1 складе продавца.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 3 запроса | 20 сек | 1 запрос |
-   * @summary Остатки на складах продавца
-   * @param {InventoryRequest} inventoryRequest
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   * @memberof DefaultApi
-   */
-  public postV1StocksReportSellerWarehouses(
-    inventoryRequest: InventoryRequest,
-    options?: RawAxiosRequestConfig,
-  ) {
-    return DefaultApiFp(this.configuration)
-      .postV1StocksReportSellerWarehouses(inventoryRequest, options)
-      .then((request) => request(this.axios, this.basePath));
-  }
-
-  /**
-   * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод возвращает текущие остатки товаров на складах WB.  Данные обновляются 1 раз в 30 минут.  1 строка ответа — данные об 1 размере товара на 1 складе WB.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 3 запроса | 20 сек | 1 запрос |
-   * @summary Остатки на складах WB
-   * @param {InventoryRequest} inventoryRequest
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   * @memberof DefaultApi
-   */
-  public postV1StocksReportWbWarehouses(
-    inventoryRequest: InventoryRequest,
-    options?: RawAxiosRequestConfig,
-  ) {
-    return DefaultApiFp(this.configuration)
-      .postV1StocksReportWbWarehouses(inventoryRequest, options)
-      .then((request) => request(this.axios, this.basePath));
-  }
-
-  /**
-   * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод формирует набор данных об оценках товаров.  Данные отчёта обновляются 1 раз в час.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 3 запроса | 20 сек | 3 запроса |
-   * @summary Получить отчёт
-   * @param {ItemRatingRequest} itemRatingRequest
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   * @memberof DefaultApi
-   */
-  public postV2ItemRating(
-    itemRatingRequest: ItemRatingRequest,
-    options?: RawAxiosRequestConfig,
-  ) {
-    return DefaultApiFp(this.configuration)
-      .postV2ItemRating(itemRatingRequest, options)
-      .then((request) => request(this.axios, this.basePath));
-  }
-
-  /**
-   * Метод формирует данные для таблицы: - о заказах по каждому поисковому запросу для конкретного товара - о позициях товара в результатах поиска по каждому запросу Данные указаны в рамках периода для [запрошенного товара](https://dev.wildberries.ru/openapi/analytics#tag/searchQueriesForYourItems/operation/postV2SearchReportProductSearchTexts) и сгруппированы по дням. Максимальный период — 7 дней.  Данные отчёта обновляются 1 раз в 2 часа.  Можно получить отчёт максимум за последние 365 дней с момента выполнения запроса  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
-   * @summary Заказы и позиции по поисковым запросам товара
-   * @param {ItemOrdersRequest} itemOrdersRequest
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   * @memberof DefaultApi
-   */
-  public postV2SearchReportProductOrders(
-    itemOrdersRequest: ItemOrdersRequest,
-    options?: RawAxiosRequestConfig,
-  ) {
-    return DefaultApiFp(this.configuration)
-      .postV2SearchReportProductOrders(itemOrdersRequest, options)
-      .then((request) => request(this.axios, this.basePath));
-  }
-
-  /**
-   * Метод формирует топ поисковых запросов по товару. Параметры выбора поисковых запросов: - `limit` — количество запросов, максимум 30. Для тарифов [Джема](https://seller.wildberries.ru/monetization/tariffs) \\*\\*Продвинутый\\*\\* и \\*\\*Премиальный\\*\\* максимум — 100. - `topOrderBy` — способ выбора топа запросов Параметры `includeSubstitutedSKUs` и `includeSearchTexts` не могут одновременно иметь значение `false`.  Данные отчёта обновляются 1 раз в 2 часа.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
-   * @summary Поисковые запросы по товару
-   * @param {ItemSearchTextsRequest} itemSearchTextsRequest
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   * @memberof DefaultApi
-   */
-  public postV2SearchReportProductSearchTexts(
-    itemSearchTextsRequest: ItemSearchTextsRequest,
-    options?: RawAxiosRequestConfig,
-  ) {
-    return DefaultApiFp(this.configuration)
-      .postV2SearchReportProductSearchTexts(itemSearchTextsRequest, options)
-      .then((request) => request(this.axios, this.basePath));
-  }
-
-  /**
-   * Метод формирует набор данных для основной страницы отчёта по поисковым запросам с: - общей информацией - позициями товаров - данными по видимости и переходам в карточку - данными для таблицы по группам Для получения дополнительных данных в таблице используйте отдельный запрос для: - [пагинации по группам](https://dev.wildberries.ru/openapi/analytics#tag/searchQueriesForYourItems/operation/postV2SearchReportTableGroups) - [получения по товарам в группе](https://dev.wildberries.ru/openapi/analytics#tag/searchQueriesForYourItems/operation/postV2SearchReportTableDetails) Дополнительный параметр выбора списка товаров в таблице: - `positionCluster` — средняя позиция в поиске Параметры `includeSubstitutedSKUs` и `includeSearchTexts` не могут одновременно иметь значение `false`.  Данные отчёта обновляются 1 раз в 2 часа.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
-   * @summary Основная страница
-   * @param {MainRequest} mainRequest
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   * @memberof DefaultApi
-   */
-  public postV2SearchReportReport(
-    mainRequest: MainRequest,
-    options?: RawAxiosRequestConfig,
-  ) {
-    return DefaultApiFp(this.configuration)
-      .postV2SearchReportReport(mainRequest, options)
-      .then((request) => request(this.axios, this.basePath));
-  }
-
-  /**
-   * Метод формирует дополнительные данные к [основному отчёту](https://dev.wildberries.ru/openapi/analytics#tag/searchQueriesForYourItems/operation/postV2SearchReportReport) с пагинацией по товарам в группе. Пагинация возможна вне зависимости от наличия фильтров.  Фильтры для пагинации по товарам в группе или без фильтров: - кортеж `subjectId`,`brandName`,`tagId` — фильтр для группы - `nmIds` — фильтр по карточке товара Дополнительный параметр выбора списка товаров: - `positionCluster` — средняя позиция в поиске Параметры `includeSubstitutedSKUs` и `includeSearchTexts` не могут одновременно иметь значение `false`.  Данные отчёта обновляются 1 раз в 2 часа.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
-   * @summary Пагинация по товарам в группе
-   * @param {TableDetailsRequest} tableDetailsRequest
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   * @memberof DefaultApi
-   */
-  public postV2SearchReportTableDetails(
-    tableDetailsRequest: TableDetailsRequest,
-    options?: RawAxiosRequestConfig,
-  ) {
-    return DefaultApiFp(this.configuration)
-      .postV2SearchReportTableDetails(tableDetailsRequest, options)
-      .then((request) => request(this.axios, this.basePath));
-  }
-
-  /**
-   * Метод формирует дополнительные данные к [основному отчёту](https://dev.wildberries.ru/openapi/analytics#tag/searchQueriesForYourItems/operation/postV2SearchReportReport) с пагинацией по группам. Пагинация возможна только при наличии фильтра по бренду, предмету или ярлыку.  Дополнительный параметр выбора списка товаров в таблице: - `positionCluster` — средняя позиция в поиске Параметры `includeSubstitutedSKUs` и `includeSearchTexts` не могут одновременно иметь значение `false`.  Данные отчёта обновляются 1 раз в 2 часа.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
-   * @summary Пагинация по группам
-   * @param {TableGroupRequest} tableGroupRequest
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   * @memberof DefaultApi
-   */
-  public postV2SearchReportTableGroups(
-    tableGroupRequest: TableGroupRequest,
-    options?: RawAxiosRequestConfig,
-  ) {
-    return DefaultApiFp(this.configuration)
-      .postV2SearchReportTableGroups(tableGroupRequest, options)
-      .then((request) => request(this.axios, this.basePath));
-  }
-
-  /**
-   * Метод формирует набор данных об остатках по складам.  Данные по складам продавца приходят в агрегированном виде — по всем сразу, без детализации по конкретным складам — эти записи будут с `\"regionName\":\"Свой склад\"` и `\"offices\":[]`.  Данные отчёта обновляются 1 раз в 2 часа.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
-   * @summary Данные по складам
-   * @param {TableShippingOfficeRequest} tableShippingOfficeRequest
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   * @memberof DefaultApi
-   */
-  public postV2StocksReportOffices(
-    tableShippingOfficeRequest: TableShippingOfficeRequest,
-    options?: RawAxiosRequestConfig,
-  ) {
-    return DefaultApiFp(this.configuration)
-      .postV2StocksReportOffices(tableShippingOfficeRequest, options)
-      .then((request) => request(this.axios, this.basePath));
-  }
-
-  /**
-   * Метод формирует набор данных об остатках по группам товаров.  Группа товаров описывается кортежем `subjectID, brandName, tagID`.  Данные отчёта обновляются 1 раз в 2 часа.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
-   * @summary Данные по группам
-   * @param {TableGroupRequestSt} tableGroupRequestSt
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   * @memberof DefaultApi
-   */
-  public postV2StocksReportProductsGroups(
-    tableGroupRequestSt: TableGroupRequestSt,
-    options?: RawAxiosRequestConfig,
-  ) {
-    return DefaultApiFp(this.configuration)
-      .postV2StocksReportProductsGroups(tableGroupRequestSt, options)
-      .then((request) => request(this.axios, this.basePath));
-  }
-
-  /**
-   * Метод формирует набор данных об остатках по товарам.  Можно получить данные как по отдельным товарам, так и в рамках всего отчёта — если в запросе отсутствуют фильтры: `nmIDs`, `subjectID`, `brandName`, `tagID`.  Данные отчёта обновляются 1 раз в 2 часа.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
-   * @summary Данные по товарам
-   * @param {TableItemRequest} tableItemRequest
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   * @memberof DefaultApi
-   */
-  public postV2StocksReportProductsProducts(
-    tableItemRequest: TableItemRequest,
-    options?: RawAxiosRequestConfig,
-  ) {
-    return DefaultApiFp(this.configuration)
-      .postV2StocksReportProductsProducts(tableItemRequest, options)
-      .then((request) => request(this.axios, this.basePath));
-  }
-
-  /**
-   * Метод формирует набор данных об остатках по размерам товара.  Возможны случаи: 1. Товар имеет размеры и `\"includeOffice\":true`, тогда в ответе будут данные об остатках по каждому из размеров с вложенной детализацией по складам. 2. Товар имеет размеры и `\"includeOffice\":false`, тогда в ответе будут данные об остатках по каждому из размеров без вложенной детализации по складам. 3. Товар не имеет размера и `\"includeOffice\":true`, тогда в ответе будет детализация по складам. Без данных об остатках по каждому из размеров. 4. Товар не имеет размера и `\"includeOffice\":false`, тогда тело ответа будет пустым. Товар не имеет размера, если у него единственный размер с `\"techSize\":\"0\"`. В ответах метода получения данных по [товарам](https://dev.wildberries.ru/openapi/analytics#tag/stocksReport/operation/postV2StocksReportProductsProducts) у таких товаров `\"hasSizes\":false`. Данные по складам продавца приходят в агрегированном виде — по всем сразу, без детализации по конкретным складам — эти записи будут с `\"regionName\":\"Свой склад\"` и `\"officeName\":\"\"`.  Данные отчёта обновляются 1 раз в 2 часа.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
-   * @summary Данные по размерам
-   * @param {TableSizeRequest} tableSizeRequest
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   * @memberof DefaultApi
-   */
-  public postV2StocksReportProductsSizes(
-    tableSizeRequest: TableSizeRequest,
-    options?: RawAxiosRequestConfig,
-  ) {
-    return DefaultApiFp(this.configuration)
-      .postV2StocksReportProductsSizes(tableSizeRequest, options)
-      .then((request) => request(this.axios, this.basePath));
-  }
-
-  /**
-   * Метод возвращает статистику карточек товаров по дням или неделям. Карточки товаров сгруппированы по предметам, брендам и ярлыкам. Можно получить данные максимум за последнюю неделю.  Данные отчёта обновляются 1 раз в 2 часа.  В течение часа после события появляется большая часть данных: - о заказах - о переходах в карточку товара - о добавлениях товаров в корзину Малая часть этих данных может появляться в течение нескольких дней.  Выкупы, отмены и возвраты отображаются в отчёте за тот день, когда товар был заказан. Например, если заказ был сделан 1 января, а покупатель вернул товар 10 января, данные об этом возврате появятся в отчёте за 1 января. Окончательные итоги продаж вы можете отслеживать с помощью [детализаций к отчётам реализации](https://dev.wildberries.ru/openapi/documents-and-accounting#tag/financialReports).  Параметры `brandNames`, `subjectIds`, `tagIds` могут быть пустыми `[]`, тогда группировка происходит по всем карточкам продавца.  Произведение количества предметов, брендов, ярлыков в запросе может быть не больше 16. Например, 4 бренда и 4 предмета или 2 предмета, 2 ярлыка и 4 бренда.  Чтобы получать отчёты за период до года, используйте методы [Аналитика продавца CSV](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv) — тип `GROUPED_HISTORY_REPORT`. Отчёты этого типа доступны только с подпиской [Джем](https://seller.wildberries.ru/monetization/jam)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
-   * @summary Статистика групп карточек товаров по дням
-   * @param {GroupedHistoryRequest} groupedHistoryRequest
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   * @memberof DefaultApi
-   */
-  public postV3SalesFunnelGroupedHistory(
-    groupedHistoryRequest: GroupedHistoryRequest,
-    options?: RawAxiosRequestConfig,
-  ) {
-    return DefaultApiFp(this.configuration)
-      .postV3SalesFunnelGroupedHistory(groupedHistoryRequest, options)
-      .then((request) => request(this.axios, this.basePath));
-  }
-
-  /**
-   * Метод формирует отчёт о товарах, сравнивая ключевые показатели за текущий период с аналогичным прошлым.  Данные отчёта обновляются 1 раз в 2 часа.  В течение часа после события появляется большая часть данных: - о заказах - о переходах в карточку товара - о добавлениях товаров в корзину Малая часть этих данных может появляться в течение нескольких дней.  Выкупы, отмены и возвраты отображаются в отчёте за тот день, когда товар был заказан. Например, если заказ был сделан 1 января, а покупатель вернул товар 10 января, данные об этом возврате появятся в отчёте за 1 января. Окончательные итоги продаж вы можете отслеживать с помощью [детализаций к отчётам реализации](https://dev.wildberries.ru/openapi/documents-and-accounting#tag/financialReports).  Параметры `brandNames`,`subjectIds`, `tagIds`, `nmIds` могут быть пустыми `[]`, тогда в ответе возвращаются все карточки продавца.  Если вы указали несколько параметров, в ответе будут карточки, в которых есть одновременно все эти параметры. Если карточки не подходят по параметрам запроса, вернётся пустой ответ `[]`.  Можно получить отчёт максимум за последние 365 дней.  В данных предыдущего периода: \\* Данные в `pastPeriod` указаны за такой же период, что и в `selectedPeriod` \\* Если дата начала `pastPeriod` раньше, чем год назад от текущей даты, она будет приведена к виду: `pastPeriod.start = текущая дата — 365 дней` Можно использовать пагинацию.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
-   * @summary Статистика карточек товаров за период
-   * @param {ItemsRequest} itemsRequest
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   * @memberof DefaultApi
-   */
-  public postV3SalesFunnelProducts(
-    itemsRequest: ItemsRequest,
-    options?: RawAxiosRequestConfig,
-  ) {
-    return DefaultApiFp(this.configuration)
-      .postV3SalesFunnelProducts(itemsRequest, options)
-      .then((request) => request(this.axios, this.basePath));
-  }
-
-  /**
-   * Метод возвращает статистику карточек товаров по дням или неделям. Можно получить данные максимум за последнюю неделю.  Данные отчёта обновляются 1 раз в 2 часа.  В течение часа после события появляется большая часть данных: - о заказах - о переходах в карточку товара - о добавлениях товаров в корзину Малая часть этих данных может появляться в течение нескольких дней.  Выкупы, отмены и возвраты отображаются в отчёте за тот день, когда товар был заказан. Например, если заказ был сделан 1 января, а покупатель вернул товар 10 января, данные об этом возврате появятся в отчёте за 1 января. Окончательные итоги продаж вы можете отслеживать с помощью [детализаций к отчётам реализации](https://dev.wildberries.ru/openapi/documents-and-accounting#tag/financialReports).  Чтобы получать отчёты за период до года, используйте методы [Аналитика продавца CSV](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv) — тип `DETAIL_HISTORY_REPORT`. Отчёты этого типа доступны только с подпиской [Джем](https://seller.wildberries.ru/monetization/jam)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
-   * @summary Статистика карточек товаров по дням
-   * @param {ItemHistoryRequest} itemHistoryRequest
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   * @memberof DefaultApi
-   */
-  public postV3SalesFunnelProductsHistory(
-    itemHistoryRequest: ItemHistoryRequest,
-    options?: RawAxiosRequestConfig,
-  ) {
-    return DefaultApiFp(this.configuration)
-      .postV3SalesFunnelProductsHistory(itemHistoryRequest, options)
-      .then((request) => request(this.axios, this.basePath));
-  }
-}
-
-/**
- * CSVApi - axios parameter creator
- * @export
- */
-export const CSVApiAxiosParamCreator = function (
-  configuration?: Configuration,
-) {
-  return {
-    /**
-     * Метод возвращает список отчётов с расширенной аналитикой продавца. Ответ содержит ID [созданных отчётов](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv/operation/postV2NmReportDownloads) и статусы генерации.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
-     * @summary Получить список отчётов
-     * @param {Array<string>} [filterDownloadIds] ID отчёта
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getV2NmReportDownloads: async (
-      filterDownloadIds?: Array<string>,
-      options: RawAxiosRequestConfig = {},
-    ): Promise<RequestArgs> => {
-      const localVarPath = `/api/v2/nm-report/downloads`;
-      // use dummy base URL string because the URL constructor only accepts absolute URLs.
-      const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-      let baseOptions;
-      if (configuration) {
-        baseOptions = configuration.baseOptions;
-      }
-
-      const localVarRequestOptions = {
-        method: "GET",
-        ...baseOptions,
-        ...options,
-      };
-      const localVarHeaderParameter = {} as any;
-      const localVarQueryParameter = {} as any;
-
-      // authentication BearerAuth required
-      // http bearer authentication required
-      await setBearerAuthToObject(localVarHeaderParameter, configuration);
-
-      if (filterDownloadIds) {
-        localVarQueryParameter["filter[downloadIds]"] = filterDownloadIds;
-      }
-
-      setSearchParams(localVarUrlObj, localVarQueryParameter);
-      let headersFromBaseOptions =
-        baseOptions && baseOptions.headers ? baseOptions.headers : {};
-      localVarRequestOptions.headers = {
-        ...localVarHeaderParameter,
-        ...headersFromBaseOptions,
-        ...options.headers,
-      };
-
-      return {
-        url: toPathString(localVarUrlObj),
-        options: localVarRequestOptions,
-      };
-    },
-    /**
-     * Метод возвращает отчёт с расширенной аналитикой продавца по ID [задания на генерацию](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv/operation/postV2NmReportDownloads).  Можно получить отчёт, который сгенерирован за последние 48 часов. Отчёт будет загружен внутри архива ZIP в формате CSV.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
-     * @summary Получить отчёт
-     * @param {string} downloadId ID отчёта
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getV2NmReportDownloadsFileDownloadId: async (
-      downloadId: string,
-      options: RawAxiosRequestConfig = {},
-    ): Promise<RequestArgs> => {
-      // verify required parameter 'downloadId' is not null or undefined
-      assertParamExists(
-        "getV2NmReportDownloadsFileDownloadId",
-        "downloadId",
-        downloadId,
-      );
-      const localVarPath =
-        `/api/v2/nm-report/downloads/file/{downloadId}`.replace(
-          `{${"downloadId"}}`,
-          encodeURIComponent(String(downloadId)),
-        );
-      // use dummy base URL string because the URL constructor only accepts absolute URLs.
-      const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-      let baseOptions;
-      if (configuration) {
-        baseOptions = configuration.baseOptions;
-      }
-
-      const localVarRequestOptions = {
-        method: "GET",
-        ...baseOptions,
-        ...options,
-      };
-      const localVarHeaderParameter = {} as any;
-      const localVarQueryParameter = {} as any;
-
-      // authentication BearerAuth required
-      // http bearer authentication required
-      await setBearerAuthToObject(localVarHeaderParameter, configuration);
-
-      setSearchParams(localVarUrlObj, localVarQueryParameter);
-      let headersFromBaseOptions =
-        baseOptions && baseOptions.headers ? baseOptions.headers : {};
-      localVarRequestOptions.headers = {
-        ...localVarHeaderParameter,
-        ...headersFromBaseOptions,
-        ...options.headers,
-      };
-
-      return {
-        url: toPathString(localVarUrlObj),
-        options: localVarRequestOptions,
-      };
-    },
-    /**
-     * Метод создаёт задание на генерацию отчёта с расширенной аналитикой продавца.  Вы можете создать CSV-версии отчётов по [воронке продаж](https://dev.wildberries.ru/openapi/analytics#tag/salesFunnel) или [параметрам поиска](https://dev.wildberries.ru/openapi/analytics#tag/searchQueriesForYourItems) с группировкой по: \\* артикулам WB \\* предметам, брендам и ярлыкам В отчётах по воронке продаж можно группировать данные по дням, неделям или месяцам.  Также можете создать CSV-версии отчётов по [текстам поисковых запросов](https://dev.wildberries.ru/openapi/analytics#tag/searchQueriesForYourItems/operation/postV2SearchReportProductSearchTexts) и [остаткам](https://dev.wildberries.ru/openapi/analytics#tag/stocksReport).  Каждый новый отчёт должен иметь уникальный ID.  Не используйте одинаковые ID для разных отчётов — это может привести к ошибкам при генерации  Набор параметров запроса в объекте `params` зависит от типа отчёта. Чтобы получить описание параметров, выберите тип отчёта в раскрывающемся списке в описании параметра `reportType`.  Параметры `includeSubstitutedSKUs` и `includeSearchTexts` не могут одновременно иметь значение `false`.  Если не удалось [получить отчёт](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv/operation/getV2NmReportDownloadsFileDownloadId), можно создать [повторное задание на генерацию](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv/operation/postV2NmReportDownloadsRetry). Также можно [получить список и проверить статусы](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv/operation/getV2NmReportDownloads) отчётов.  Данные отчётов обновляются 1 раз в 2 часа.  Отчёты по [остаткам](https://seller.wildberries.ru/content-analytics/history-remains) — типы `STOCK_HISTORY_REPORT_CSV` и `STOCK_HISTORY_DAILY_CSV` — можно создать без подписки [Джем](https://seller.wildberries.ru/monetization/jam)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
-     * @summary Создать отчёт
-     * @param {PostV2NmReportDownloadsRequest} [postV2NmReportDownloadsRequest]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    postV2NmReportDownloads: async (
-      postV2NmReportDownloadsRequest?: PostV2NmReportDownloadsRequest,
-      options: RawAxiosRequestConfig = {},
-    ): Promise<RequestArgs> => {
-      const localVarPath = `/api/v2/nm-report/downloads`;
-      // use dummy base URL string because the URL constructor only accepts absolute URLs.
-      const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-      let baseOptions;
-      if (configuration) {
-        baseOptions = configuration.baseOptions;
-      }
-
-      const localVarRequestOptions = {
-        method: "POST",
-        ...baseOptions,
-        ...options,
-      };
-      const localVarHeaderParameter = {} as any;
-      const localVarQueryParameter = {} as any;
-
-      // authentication BearerAuth required
-      // http bearer authentication required
-      await setBearerAuthToObject(localVarHeaderParameter, configuration);
-
-      localVarHeaderParameter["Content-Type"] = "application/json";
-
-      setSearchParams(localVarUrlObj, localVarQueryParameter);
-      let headersFromBaseOptions =
-        baseOptions && baseOptions.headers ? baseOptions.headers : {};
-      localVarRequestOptions.headers = {
-        ...localVarHeaderParameter,
-        ...headersFromBaseOptions,
-        ...options.headers,
-      };
-      localVarRequestOptions.data = serializeDataIfNeeded(
-        postV2NmReportDownloadsRequest,
-        localVarRequestOptions,
-        configuration,
-      );
-
-      return {
-        url: toPathString(localVarUrlObj),
-        options: localVarRequestOptions,
-      };
-    },
-    /**
-     * Метод создает повторное [задание на генерацию](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv/operation/postV2NmReportDownloads) отчёта с расширенной аналитикой продавца. Необходимо, если при генерации отчёта вы [получили статус](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv/operation/getV2NmReportDownloads) `FAILED`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
-     * @summary Сгенерировать отчёт повторно
-     * @param {NmReportRetryReportRequest} nmReportRetryReportRequest
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    postV2NmReportDownloadsRetry: async (
-      nmReportRetryReportRequest: NmReportRetryReportRequest,
-      options: RawAxiosRequestConfig = {},
-    ): Promise<RequestArgs> => {
-      // verify required parameter 'nmReportRetryReportRequest' is not null or undefined
-      assertParamExists(
-        "postV2NmReportDownloadsRetry",
-        "nmReportRetryReportRequest",
-        nmReportRetryReportRequest,
-      );
-      const localVarPath = `/api/v2/nm-report/downloads/retry`;
-      // use dummy base URL string because the URL constructor only accepts absolute URLs.
-      const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-      let baseOptions;
-      if (configuration) {
-        baseOptions = configuration.baseOptions;
-      }
-
-      const localVarRequestOptions = {
-        method: "POST",
-        ...baseOptions,
-        ...options,
-      };
-      const localVarHeaderParameter = {} as any;
-      const localVarQueryParameter = {} as any;
-
-      // authentication BearerAuth required
-      // http bearer authentication required
-      await setBearerAuthToObject(localVarHeaderParameter, configuration);
-
-      localVarHeaderParameter["Content-Type"] = "application/json";
-
-      setSearchParams(localVarUrlObj, localVarQueryParameter);
-      let headersFromBaseOptions =
-        baseOptions && baseOptions.headers ? baseOptions.headers : {};
-      localVarRequestOptions.headers = {
-        ...localVarHeaderParameter,
-        ...headersFromBaseOptions,
-        ...options.headers,
-      };
-      localVarRequestOptions.data = serializeDataIfNeeded(
-        nmReportRetryReportRequest,
-        localVarRequestOptions,
-        configuration,
-      );
-
-      return {
-        url: toPathString(localVarUrlObj),
-        options: localVarRequestOptions,
-      };
-    },
-  };
-};
-
-/**
- * CSVApi - functional programming interface
- * @export
- */
-export const CSVApiFp = function (configuration?: Configuration) {
-  const localVarAxiosParamCreator = CSVApiAxiosParamCreator(configuration);
-  return {
-    /**
-     * Метод возвращает список отчётов с расширенной аналитикой продавца. Ответ содержит ID [созданных отчётов](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv/operation/postV2NmReportDownloads) и статусы генерации.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
-     * @summary Получить список отчётов
-     * @param {Array<string>} [filterDownloadIds] ID отчёта
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    async getV2NmReportDownloads(
-      filterDownloadIds?: Array<string>,
-      options?: RawAxiosRequestConfig,
-    ): Promise<
-      (
-        axios?: AxiosInstance,
-        basePath?: string,
-      ) => AxiosPromise<NmReportGetReportsResponse>
-    > {
-      const localVarAxiosArgs =
-        await localVarAxiosParamCreator.getV2NmReportDownloads(
-          filterDownloadIds,
-          options,
-        );
-      const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-      const localVarOperationServerBasePath =
-        operationServerMap["CSVApi.getV2NmReportDownloads"]?.[
-          localVarOperationServerIndex
-        ]?.url;
-      return (axios, basePath) =>
-        createRequestFunction(
-          localVarAxiosArgs,
-          globalAxios,
-          BASE_PATH,
-          configuration,
-        )(axios, localVarOperationServerBasePath || basePath);
-    },
-    /**
-     * Метод возвращает отчёт с расширенной аналитикой продавца по ID [задания на генерацию](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv/operation/postV2NmReportDownloads).  Можно получить отчёт, который сгенерирован за последние 48 часов. Отчёт будет загружен внутри архива ZIP в формате CSV.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
-     * @summary Получить отчёт
-     * @param {string} downloadId ID отчёта
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    async getV2NmReportDownloadsFileDownloadId(
-      downloadId: string,
-      options?: RawAxiosRequestConfig,
-    ): Promise<
-      (axios?: AxiosInstance, basePath?: string) => AxiosPromise<File>
-    > {
-      const localVarAxiosArgs =
-        await localVarAxiosParamCreator.getV2NmReportDownloadsFileDownloadId(
-          downloadId,
-          options,
-        );
-      const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-      const localVarOperationServerBasePath =
-        operationServerMap["CSVApi.getV2NmReportDownloadsFileDownloadId"]?.[
-          localVarOperationServerIndex
-        ]?.url;
-      return (axios, basePath) =>
-        createRequestFunction(
-          localVarAxiosArgs,
-          globalAxios,
-          BASE_PATH,
-          configuration,
-        )(axios, localVarOperationServerBasePath || basePath);
-    },
-    /**
-     * Метод создаёт задание на генерацию отчёта с расширенной аналитикой продавца.  Вы можете создать CSV-версии отчётов по [воронке продаж](https://dev.wildberries.ru/openapi/analytics#tag/salesFunnel) или [параметрам поиска](https://dev.wildberries.ru/openapi/analytics#tag/searchQueriesForYourItems) с группировкой по: \\* артикулам WB \\* предметам, брендам и ярлыкам В отчётах по воронке продаж можно группировать данные по дням, неделям или месяцам.  Также можете создать CSV-версии отчётов по [текстам поисковых запросов](https://dev.wildberries.ru/openapi/analytics#tag/searchQueriesForYourItems/operation/postV2SearchReportProductSearchTexts) и [остаткам](https://dev.wildberries.ru/openapi/analytics#tag/stocksReport).  Каждый новый отчёт должен иметь уникальный ID.  Не используйте одинаковые ID для разных отчётов — это может привести к ошибкам при генерации  Набор параметров запроса в объекте `params` зависит от типа отчёта. Чтобы получить описание параметров, выберите тип отчёта в раскрывающемся списке в описании параметра `reportType`.  Параметры `includeSubstitutedSKUs` и `includeSearchTexts` не могут одновременно иметь значение `false`.  Если не удалось [получить отчёт](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv/operation/getV2NmReportDownloadsFileDownloadId), можно создать [повторное задание на генерацию](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv/operation/postV2NmReportDownloadsRetry). Также можно [получить список и проверить статусы](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv/operation/getV2NmReportDownloads) отчётов.  Данные отчётов обновляются 1 раз в 2 часа.  Отчёты по [остаткам](https://seller.wildberries.ru/content-analytics/history-remains) — типы `STOCK_HISTORY_REPORT_CSV` и `STOCK_HISTORY_DAILY_CSV` — можно создать без подписки [Джем](https://seller.wildberries.ru/monetization/jam)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
-     * @summary Создать отчёт
-     * @param {PostV2NmReportDownloadsRequest} [postV2NmReportDownloadsRequest]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    async postV2NmReportDownloads(
-      postV2NmReportDownloadsRequest?: PostV2NmReportDownloadsRequest,
-      options?: RawAxiosRequestConfig,
-    ): Promise<
-      (
-        axios?: AxiosInstance,
-        basePath?: string,
-      ) => AxiosPromise<NmReportCreateReportResponse>
-    > {
-      const localVarAxiosArgs =
-        await localVarAxiosParamCreator.postV2NmReportDownloads(
-          postV2NmReportDownloadsRequest,
-          options,
-        );
-      const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-      const localVarOperationServerBasePath =
-        operationServerMap["CSVApi.postV2NmReportDownloads"]?.[
-          localVarOperationServerIndex
-        ]?.url;
-      return (axios, basePath) =>
-        createRequestFunction(
-          localVarAxiosArgs,
-          globalAxios,
-          BASE_PATH,
-          configuration,
-        )(axios, localVarOperationServerBasePath || basePath);
-    },
-    /**
-     * Метод создает повторное [задание на генерацию](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv/operation/postV2NmReportDownloads) отчёта с расширенной аналитикой продавца. Необходимо, если при генерации отчёта вы [получили статус](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv/operation/getV2NmReportDownloads) `FAILED`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
-     * @summary Сгенерировать отчёт повторно
-     * @param {NmReportRetryReportRequest} nmReportRetryReportRequest
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    async postV2NmReportDownloadsRetry(
-      nmReportRetryReportRequest: NmReportRetryReportRequest,
-      options?: RawAxiosRequestConfig,
-    ): Promise<
-      (
-        axios?: AxiosInstance,
-        basePath?: string,
-      ) => AxiosPromise<NmReportRetryReportResponse>
-    > {
-      const localVarAxiosArgs =
-        await localVarAxiosParamCreator.postV2NmReportDownloadsRetry(
-          nmReportRetryReportRequest,
-          options,
-        );
-      const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-      const localVarOperationServerBasePath =
-        operationServerMap["CSVApi.postV2NmReportDownloadsRetry"]?.[
-          localVarOperationServerIndex
-        ]?.url;
-      return (axios, basePath) =>
-        createRequestFunction(
-          localVarAxiosArgs,
-          globalAxios,
-          BASE_PATH,
-          configuration,
-        )(axios, localVarOperationServerBasePath || basePath);
-    },
-  };
-};
-
-/**
- * CSVApi - factory interface
- * @export
- */
-export const CSVApiFactory = function (
-  configuration?: Configuration,
-  basePath?: string,
-  axios?: AxiosInstance,
-) {
-  const localVarFp = CSVApiFp(configuration);
-  return {
-    /**
-     * Метод возвращает список отчётов с расширенной аналитикой продавца. Ответ содержит ID [созданных отчётов](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv/operation/postV2NmReportDownloads) и статусы генерации.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
-     * @summary Получить список отчётов
-     * @param {Array<string>} [filterDownloadIds] ID отчёта
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getV2NmReportDownloads(
-      filterDownloadIds?: Array<string>,
-      options?: RawAxiosRequestConfig,
-    ): AxiosPromise<NmReportGetReportsResponse> {
-      return localVarFp
-        .getV2NmReportDownloads(filterDownloadIds, options)
-        .then((request) => request(axios, basePath));
-    },
-    /**
-     * Метод возвращает отчёт с расширенной аналитикой продавца по ID [задания на генерацию](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv/operation/postV2NmReportDownloads).  Можно получить отчёт, который сгенерирован за последние 48 часов. Отчёт будет загружен внутри архива ZIP в формате CSV.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
-     * @summary Получить отчёт
-     * @param {string} downloadId ID отчёта
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getV2NmReportDownloadsFileDownloadId(
-      downloadId: string,
-      options?: RawAxiosRequestConfig,
-    ): AxiosPromise<File> {
-      return localVarFp
-        .getV2NmReportDownloadsFileDownloadId(downloadId, options)
-        .then((request) => request(axios, basePath));
-    },
-    /**
-     * Метод создаёт задание на генерацию отчёта с расширенной аналитикой продавца.  Вы можете создать CSV-версии отчётов по [воронке продаж](https://dev.wildberries.ru/openapi/analytics#tag/salesFunnel) или [параметрам поиска](https://dev.wildberries.ru/openapi/analytics#tag/searchQueriesForYourItems) с группировкой по: \\* артикулам WB \\* предметам, брендам и ярлыкам В отчётах по воронке продаж можно группировать данные по дням, неделям или месяцам.  Также можете создать CSV-версии отчётов по [текстам поисковых запросов](https://dev.wildberries.ru/openapi/analytics#tag/searchQueriesForYourItems/operation/postV2SearchReportProductSearchTexts) и [остаткам](https://dev.wildberries.ru/openapi/analytics#tag/stocksReport).  Каждый новый отчёт должен иметь уникальный ID.  Не используйте одинаковые ID для разных отчётов — это может привести к ошибкам при генерации  Набор параметров запроса в объекте `params` зависит от типа отчёта. Чтобы получить описание параметров, выберите тип отчёта в раскрывающемся списке в описании параметра `reportType`.  Параметры `includeSubstitutedSKUs` и `includeSearchTexts` не могут одновременно иметь значение `false`.  Если не удалось [получить отчёт](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv/operation/getV2NmReportDownloadsFileDownloadId), можно создать [повторное задание на генерацию](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv/operation/postV2NmReportDownloadsRetry). Также можно [получить список и проверить статусы](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv/operation/getV2NmReportDownloads) отчётов.  Данные отчётов обновляются 1 раз в 2 часа.  Отчёты по [остаткам](https://seller.wildberries.ru/content-analytics/history-remains) — типы `STOCK_HISTORY_REPORT_CSV` и `STOCK_HISTORY_DAILY_CSV` — можно создать без подписки [Джем](https://seller.wildberries.ru/monetization/jam)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
-     * @summary Создать отчёт
-     * @param {PostV2NmReportDownloadsRequest} [postV2NmReportDownloadsRequest]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    postV2NmReportDownloads(
-      postV2NmReportDownloadsRequest?: PostV2NmReportDownloadsRequest,
-      options?: RawAxiosRequestConfig,
-    ): AxiosPromise<NmReportCreateReportResponse> {
-      return localVarFp
-        .postV2NmReportDownloads(postV2NmReportDownloadsRequest, options)
-        .then((request) => request(axios, basePath));
-    },
-    /**
-     * Метод создает повторное [задание на генерацию](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv/operation/postV2NmReportDownloads) отчёта с расширенной аналитикой продавца. Необходимо, если при генерации отчёта вы [получили статус](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv/operation/getV2NmReportDownloads) `FAILED`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
-     * @summary Сгенерировать отчёт повторно
-     * @param {NmReportRetryReportRequest} nmReportRetryReportRequest
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    postV2NmReportDownloadsRetry(
-      nmReportRetryReportRequest: NmReportRetryReportRequest,
-      options?: RawAxiosRequestConfig,
-    ): AxiosPromise<NmReportRetryReportResponse> {
-      return localVarFp
-        .postV2NmReportDownloadsRetry(nmReportRetryReportRequest, options)
-        .then((request) => request(axios, basePath));
-    },
-  };
-};
-
-/**
- * CSVApi - interface
- * @export
- * @interface CSVApi
- */
-export interface CSVApiInterface {
+export interface AnalyticsApiInterface {
   /**
    * Метод возвращает список отчётов с расширенной аналитикой продавца. Ответ содержит ID [созданных отчётов](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv/operation/postV2NmReportDownloads) и статусы генерации.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
    * @summary Получить список отчётов
    * @param {Array<string>} [filterDownloadIds] ID отчёта
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof CSVApiInterface
+   * @memberof AnalyticsApiInterface
    */
   getV2NmReportDownloads(
     filterDownloadIds?: Array<string>,
@@ -9870,7 +9341,7 @@ export interface CSVApiInterface {
    * @param {string} downloadId ID отчёта
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof CSVApiInterface
+   * @memberof AnalyticsApiInterface
    */
   getV2NmReportDownloadsFileDownloadId(
     downloadId: string,
@@ -9878,12 +9349,64 @@ export interface CSVApiInterface {
   ): AxiosPromise<File>;
 
   /**
+   * Метод формирует набор данных о заказах и продажах.  Данные отчёта обновляются в режиме реального времени.  > 1 заказ = 1 сборочное задание = 1 единица товара Параметры `brandNames`,`subjectIds`, `tagIds`, `nmIds` могут быть пустыми `[]`, тогда в ответе возвращаются все заказы продавца. Если вы указали несколько параметров, в ответе будут заказы, в которых есть одновременно все эти параметры. Если заказы не подходят по параметрам запроса, вернётся пустой массив `[]`.  Можно получить отчёт максимум за последние 31 день.  Заказы отдаются по времени текущего статуса, от самого нового к самому раннему.  Можно использовать пагинацию.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 3 ч | 1 запрос | 3 ч | 1 запрос |
+   * @summary Получить отчёт
+   * @param {OrderFeedRequest} [orderFeedRequest]
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AnalyticsApiInterface
+   */
+  postV1OrderFeed(
+    orderFeedRequest?: OrderFeedRequest,
+    options?: RawAxiosRequestConfig,
+  ): AxiosPromise<PostV1OrderFeedResponse200>;
+
+  /**
+   * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод возвращает текущие остатки товаров на складах продавца.  Данные обновляются 1 раз в 30 минут.  1 строка ответа — данные об 1 размере товара на 1 складе продавца.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 3 запроса | 20 сек | 1 запрос |
+   * @summary Остатки на складах продавца
+   * @param {InventoryRequest} inventoryRequest
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AnalyticsApiInterface
+   */
+  postV1StocksReportSellerWarehouses(
+    inventoryRequest: InventoryRequest,
+    options?: RawAxiosRequestConfig,
+  ): AxiosPromise<PostV1StocksReportSellerWarehousesResponse200>;
+
+  /**
+   * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод возвращает текущие остатки товаров на складах WB.  Данные обновляются 1 раз в 30 минут.  1 строка ответа — данные об 1 размере товара на 1 складе WB.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 3 запроса | 20 сек | 1 запрос |
+   * @summary Остатки на складах WB
+   * @param {InventoryRequest} inventoryRequest
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AnalyticsApiInterface
+   */
+  postV1StocksReportWbWarehouses(
+    inventoryRequest: InventoryRequest,
+    options?: RawAxiosRequestConfig,
+  ): AxiosPromise<PostV1StocksReportWbWarehousesResponse200>;
+
+  /**
+   * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод формирует набор данных об оценках товаров.  Данные отчёта обновляются 1 раз в час.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 3 запроса | 20 сек | 3 запроса |
+   * @summary Получить отчёт
+   * @param {ItemRatingRequest} itemRatingRequest
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AnalyticsApiInterface
+   */
+  postV2ItemRating(
+    itemRatingRequest: ItemRatingRequest,
+    options?: RawAxiosRequestConfig,
+  ): AxiosPromise<PostV2ItemRatingResponse200>;
+
+  /**
    * Метод создаёт задание на генерацию отчёта с расширенной аналитикой продавца.  Вы можете создать CSV-версии отчётов по [воронке продаж](https://dev.wildberries.ru/openapi/analytics#tag/salesFunnel) или [параметрам поиска](https://dev.wildberries.ru/openapi/analytics#tag/searchQueriesForYourItems) с группировкой по: \\* артикулам WB \\* предметам, брендам и ярлыкам В отчётах по воронке продаж можно группировать данные по дням, неделям или месяцам.  Также можете создать CSV-версии отчётов по [текстам поисковых запросов](https://dev.wildberries.ru/openapi/analytics#tag/searchQueriesForYourItems/operation/postV2SearchReportProductSearchTexts) и [остаткам](https://dev.wildberries.ru/openapi/analytics#tag/stocksReport).  Каждый новый отчёт должен иметь уникальный ID.  Не используйте одинаковые ID для разных отчётов — это может привести к ошибкам при генерации  Набор параметров запроса в объекте `params` зависит от типа отчёта. Чтобы получить описание параметров, выберите тип отчёта в раскрывающемся списке в описании параметра `reportType`.  Параметры `includeSubstitutedSKUs` и `includeSearchTexts` не могут одновременно иметь значение `false`.  Если не удалось [получить отчёт](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv/operation/getV2NmReportDownloadsFileDownloadId), можно создать [повторное задание на генерацию](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv/operation/postV2NmReportDownloadsRetry). Также можно [получить список и проверить статусы](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv/operation/getV2NmReportDownloads) отчётов.  Данные отчётов обновляются 1 раз в 2 часа.  Отчёты по [остаткам](https://seller.wildberries.ru/content-analytics/history-remains) — типы `STOCK_HISTORY_REPORT_CSV` и `STOCK_HISTORY_DAILY_CSV` — можно создать без подписки [Джем](https://seller.wildberries.ru/monetization/jam)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
    * @summary Создать отчёт
    * @param {PostV2NmReportDownloadsRequest} [postV2NmReportDownloadsRequest]
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof CSVApiInterface
+   * @memberof AnalyticsApiInterface
    */
   postV2NmReportDownloads(
     postV2NmReportDownloadsRequest?: PostV2NmReportDownloadsRequest,
@@ -9896,34 +9419,190 @@ export interface CSVApiInterface {
    * @param {NmReportRetryReportRequest} nmReportRetryReportRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof CSVApiInterface
+   * @memberof AnalyticsApiInterface
    */
   postV2NmReportDownloadsRetry(
     nmReportRetryReportRequest: NmReportRetryReportRequest,
     options?: RawAxiosRequestConfig,
   ): AxiosPromise<NmReportRetryReportResponse>;
+
+  /**
+   * Метод формирует данные для таблицы: - о заказах по каждому поисковому запросу для конкретного товара - о позициях товара в результатах поиска по каждому запросу Данные указаны в рамках периода для [запрошенного товара](https://dev.wildberries.ru/openapi/analytics#tag/searchQueriesForYourItems/operation/postV2SearchReportProductSearchTexts) и сгруппированы по дням. Максимальный период — 7 дней.  Данные отчёта обновляются 1 раз в 2 часа.  Можно получить отчёт максимум за последние 365 дней с момента выполнения запроса  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * @summary Заказы и позиции по поисковым запросам товара
+   * @param {ItemOrdersRequest} itemOrdersRequest
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AnalyticsApiInterface
+   */
+  postV2SearchReportProductOrders(
+    itemOrdersRequest: ItemOrdersRequest,
+    options?: RawAxiosRequestConfig,
+  ): AxiosPromise<PostV2SearchReportProductOrdersResponse200>;
+
+  /**
+   * Метод формирует топ поисковых запросов по товару. Параметры выбора поисковых запросов: - `limit` — количество запросов, максимум 30. Для тарифов [Джема](https://seller.wildberries.ru/monetization/tariffs) \\*\\*Продвинутый\\*\\* и \\*\\*Премиальный\\*\\* максимум — 100. - `topOrderBy` — способ выбора топа запросов Параметры `includeSubstitutedSKUs` и `includeSearchTexts` не могут одновременно иметь значение `false`.  Данные отчёта обновляются 1 раз в 2 часа.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * @summary Поисковые запросы по товару
+   * @param {ItemSearchTextsRequest} itemSearchTextsRequest
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AnalyticsApiInterface
+   */
+  postV2SearchReportProductSearchTexts(
+    itemSearchTextsRequest: ItemSearchTextsRequest,
+    options?: RawAxiosRequestConfig,
+  ): AxiosPromise<PostV2SearchReportProductSearchTextsResponse200>;
+
+  /**
+   * Метод формирует набор данных для основной страницы отчёта по поисковым запросам с: - общей информацией - позициями товаров - данными по видимости и переходам в карточку - данными для таблицы по группам Для получения дополнительных данных в таблице используйте отдельный запрос для: - [пагинации по группам](https://dev.wildberries.ru/openapi/analytics#tag/searchQueriesForYourItems/operation/postV2SearchReportTableGroups) - [получения по товарам в группе](https://dev.wildberries.ru/openapi/analytics#tag/searchQueriesForYourItems/operation/postV2SearchReportTableDetails) Дополнительный параметр выбора списка товаров в таблице: - `positionCluster` — средняя позиция в поиске Параметры `includeSubstitutedSKUs` и `includeSearchTexts` не могут одновременно иметь значение `false`.  Данные отчёта обновляются 1 раз в 2 часа.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * @summary Основная страница
+   * @param {MainRequest} mainRequest
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AnalyticsApiInterface
+   */
+  postV2SearchReportReport(
+    mainRequest: MainRequest,
+    options?: RawAxiosRequestConfig,
+  ): AxiosPromise<PostV2SearchReportReportResponse200>;
+
+  /**
+   * Метод формирует дополнительные данные к [основному отчёту](https://dev.wildberries.ru/openapi/analytics#tag/searchQueriesForYourItems/operation/postV2SearchReportReport) с пагинацией по товарам в группе. Пагинация возможна вне зависимости от наличия фильтров.  Фильтры для пагинации по товарам в группе или без фильтров: - кортеж `subjectId`,`brandName`,`tagId` — фильтр для группы - `nmIds` — фильтр по карточке товара Дополнительный параметр выбора списка товаров: - `positionCluster` — средняя позиция в поиске Параметры `includeSubstitutedSKUs` и `includeSearchTexts` не могут одновременно иметь значение `false`.  Данные отчёта обновляются 1 раз в 2 часа.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * @summary Пагинация по товарам в группе
+   * @param {TableDetailsRequest} tableDetailsRequest
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AnalyticsApiInterface
+   */
+  postV2SearchReportTableDetails(
+    tableDetailsRequest: TableDetailsRequest,
+    options?: RawAxiosRequestConfig,
+  ): AxiosPromise<PostV2SearchReportTableDetailsResponse200>;
+
+  /**
+   * Метод формирует дополнительные данные к [основному отчёту](https://dev.wildberries.ru/openapi/analytics#tag/searchQueriesForYourItems/operation/postV2SearchReportReport) с пагинацией по группам. Пагинация возможна только при наличии фильтра по бренду, предмету или ярлыку.  Дополнительный параметр выбора списка товаров в таблице: - `positionCluster` — средняя позиция в поиске Параметры `includeSubstitutedSKUs` и `includeSearchTexts` не могут одновременно иметь значение `false`.  Данные отчёта обновляются 1 раз в 2 часа.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * @summary Пагинация по группам
+   * @param {TableGroupRequest} tableGroupRequest
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AnalyticsApiInterface
+   */
+  postV2SearchReportTableGroups(
+    tableGroupRequest: TableGroupRequest,
+    options?: RawAxiosRequestConfig,
+  ): AxiosPromise<PostV2SearchReportTableGroupsResponse200>;
+
+  /**
+   * Метод формирует набор данных об остатках по складам.  Данные по складам продавца приходят в агрегированном виде — по всем сразу, без детализации по конкретным складам — эти записи будут с `\"regionName\":\"Свой склад\"` и `\"offices\":[]`.  Данные отчёта обновляются 1 раз в 2 часа.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+   * @summary Данные по складам
+   * @param {TableShippingOfficeRequest} tableShippingOfficeRequest
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AnalyticsApiInterface
+   */
+  postV2StocksReportOffices(
+    tableShippingOfficeRequest: TableShippingOfficeRequest,
+    options?: RawAxiosRequestConfig,
+  ): AxiosPromise<PostV2StocksReportOfficesResponse200>;
+
+  /**
+   * Метод формирует набор данных об остатках по группам товаров.  Группа товаров описывается кортежем `subjectID, brandName, tagID`.  Данные отчёта обновляются 1 раз в 2 часа.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+   * @summary Данные по группам
+   * @param {TableGroupRequestSt} tableGroupRequestSt
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AnalyticsApiInterface
+   */
+  postV2StocksReportProductsGroups(
+    tableGroupRequestSt: TableGroupRequestSt,
+    options?: RawAxiosRequestConfig,
+  ): AxiosPromise<PostV2StocksReportProductsGroupsResponse200>;
+
+  /**
+   * Метод формирует набор данных об остатках по товарам.  Можно получить данные как по отдельным товарам, так и в рамках всего отчёта — если в запросе отсутствуют фильтры: `nmIDs`, `subjectID`, `brandName`, `tagID`.  Данные отчёта обновляются 1 раз в 2 часа.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+   * @summary Данные по товарам
+   * @param {TableItemRequest} tableItemRequest
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AnalyticsApiInterface
+   */
+  postV2StocksReportProductsProducts(
+    tableItemRequest: TableItemRequest,
+    options?: RawAxiosRequestConfig,
+  ): AxiosPromise<PostV2StocksReportProductsProductsResponse200>;
+
+  /**
+   * Метод формирует набор данных об остатках по размерам товара.  Возможны случаи: 1. Товар имеет размеры и `\"includeOffice\":true`, тогда в ответе будут данные об остатках по каждому из размеров с вложенной детализацией по складам. 2. Товар имеет размеры и `\"includeOffice\":false`, тогда в ответе будут данные об остатках по каждому из размеров без вложенной детализации по складам. 3. Товар не имеет размера и `\"includeOffice\":true`, тогда в ответе будет детализация по складам. Без данных об остатках по каждому из размеров. 4. Товар не имеет размера и `\"includeOffice\":false`, тогда тело ответа будет пустым. Товар не имеет размера, если у него единственный размер с `\"techSize\":\"0\"`. В ответах метода получения данных по [товарам](https://dev.wildberries.ru/openapi/analytics#tag/stocksReport/operation/postV2StocksReportProductsProducts) у таких товаров `\"hasSizes\":false`. Данные по складам продавца приходят в агрегированном виде — по всем сразу, без детализации по конкретным складам — эти записи будут с `\"regionName\":\"Свой склад\"` и `\"officeName\":\"\"`.  Данные отчёта обновляются 1 раз в 2 часа.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+   * @summary Данные по размерам
+   * @param {TableSizeRequest} tableSizeRequest
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AnalyticsApiInterface
+   */
+  postV2StocksReportProductsSizes(
+    tableSizeRequest: TableSizeRequest,
+    options?: RawAxiosRequestConfig,
+  ): AxiosPromise<PostV2StocksReportProductsSizesResponse200>;
+
+  /**
+   * Метод возвращает статистику карточек товаров по дням или неделям. Карточки товаров сгруппированы по предметам, брендам и ярлыкам. Можно получить данные максимум за последнюю неделю.  Данные отчёта обновляются 1 раз в 2 часа.  В течение часа после события появляется большая часть данных: - о заказах - о переходах в карточку товара - о добавлениях товаров в корзину Малая часть этих данных может появляться в течение нескольких дней.  Выкупы, отмены и возвраты отображаются в отчёте за тот день, когда товар был заказан. Например, если заказ был сделан 1 января, а покупатель вернул товар 10 января, данные об этом возврате появятся в отчёте за 1 января. Окончательные итоги продаж вы можете отслеживать с помощью [детализаций к отчётам реализации](https://dev.wildberries.ru/openapi/documents-and-accounting#tag/financialReports).  Параметры `brandNames`, `subjectIds`, `tagIds` могут быть пустыми `[]`, тогда группировка происходит по всем карточкам продавца.  Произведение количества предметов, брендов, ярлыков в запросе может быть не больше 16. Например, 4 бренда и 4 предмета или 2 предмета, 2 ярлыка и 4 бренда.  Чтобы получать отчёты за период до года, используйте методы [Аналитика продавца CSV](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv) — тип `GROUPED_HISTORY_REPORT`. Отчёты этого типа доступны только с подпиской [Джем](https://seller.wildberries.ru/monetization/jam)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+   * @summary Статистика групп карточек товаров по дням
+   * @param {GroupedHistoryRequest} groupedHistoryRequest
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AnalyticsApiInterface
+   */
+  postV3SalesFunnelGroupedHistory(
+    groupedHistoryRequest: GroupedHistoryRequest,
+    options?: RawAxiosRequestConfig,
+  ): AxiosPromise<PostV3SalesFunnelGroupedHistoryResponse200>;
+
+  /**
+   * Метод формирует отчёт о товарах, сравнивая ключевые показатели за текущий период с аналогичным прошлым.  Данные отчёта обновляются 1 раз в 2 часа.  В течение часа после события появляется большая часть данных: - о заказах - о переходах в карточку товара - о добавлениях товаров в корзину Малая часть этих данных может появляться в течение нескольких дней.  Выкупы, отмены и возвраты отображаются в отчёте за тот день, когда товар был заказан. Например, если заказ был сделан 1 января, а покупатель вернул товар 10 января, данные об этом возврате появятся в отчёте за 1 января. Окончательные итоги продаж вы можете отслеживать с помощью [детализаций к отчётам реализации](https://dev.wildberries.ru/openapi/documents-and-accounting#tag/financialReports).  Параметры `brandNames`,`subjectIds`, `tagIds`, `nmIds` могут быть пустыми `[]`, тогда в ответе возвращаются все карточки продавца.  Если вы указали несколько параметров, в ответе будут карточки, в которых есть одновременно все эти параметры. Если карточки не подходят по параметрам запроса, вернётся пустой ответ `[]`.  Можно получить отчёт максимум за последние 365 дней.  В данных предыдущего периода: \\* Данные в `pastPeriod` указаны за такой же период, что и в `selectedPeriod` \\* Если дата начала `pastPeriod` раньше, чем год назад от текущей даты, она будет приведена к виду: `pastPeriod.start = текущая дата — 365 дней` Можно использовать пагинацию.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+   * @summary Статистика карточек товаров за период
+   * @param {ItemsRequest} itemsRequest
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AnalyticsApiInterface
+   */
+  postV3SalesFunnelProducts(
+    itemsRequest: ItemsRequest,
+    options?: RawAxiosRequestConfig,
+  ): AxiosPromise<PostV3SalesFunnelProductsResponse200>;
+
+  /**
+   * Метод возвращает статистику карточек товаров по дням или неделям. Можно получить данные максимум за последнюю неделю.  Данные отчёта обновляются 1 раз в 2 часа.  В течение часа после события появляется большая часть данных: - о заказах - о переходах в карточку товара - о добавлениях товаров в корзину Малая часть этих данных может появляться в течение нескольких дней.  Выкупы, отмены и возвраты отображаются в отчёте за тот день, когда товар был заказан. Например, если заказ был сделан 1 января, а покупатель вернул товар 10 января, данные об этом возврате появятся в отчёте за 1 января. Окончательные итоги продаж вы можете отслеживать с помощью [детализаций к отчётам реализации](https://dev.wildberries.ru/openapi/documents-and-accounting#tag/financialReports).  Чтобы получать отчёты за период до года, используйте методы [Аналитика продавца CSV](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv) — тип `DETAIL_HISTORY_REPORT`. Отчёты этого типа доступны только с подпиской [Джем](https://seller.wildberries.ru/monetization/jam)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+   * @summary Статистика карточек товаров по дням
+   * @param {ItemHistoryRequest} itemHistoryRequest
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AnalyticsApiInterface
+   */
+  postV3SalesFunnelProductsHistory(
+    itemHistoryRequest: ItemHistoryRequest,
+    options?: RawAxiosRequestConfig,
+  ): AxiosPromise<Array<PostV3SalesFunnelProductsHistoryResponse200Inner>>;
 }
 
 /**
- * CSVApi - object-oriented interface
+ * AnalyticsApi - object-oriented interface
  * @export
- * @class CSVApi
+ * @class AnalyticsApi
  * @extends {BaseAPI}
  */
-export class CSVApi extends BaseAPI implements CSVApiInterface {
+export class AnalyticsApi extends BaseAPI implements AnalyticsApiInterface {
   /**
    * Метод возвращает список отчётов с расширенной аналитикой продавца. Ответ содержит ID [созданных отчётов](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv/operation/postV2NmReportDownloads) и статусы генерации.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
    * @summary Получить список отчётов
    * @param {Array<string>} [filterDownloadIds] ID отчёта
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof CSVApi
+   * @memberof AnalyticsApi
    */
   public getV2NmReportDownloads(
     filterDownloadIds?: Array<string>,
     options?: RawAxiosRequestConfig,
   ) {
-    return CSVApiFp(this.configuration)
+    return AnalyticsApiFp(this.configuration)
       .getV2NmReportDownloads(filterDownloadIds, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -9934,14 +9613,82 @@ export class CSVApi extends BaseAPI implements CSVApiInterface {
    * @param {string} downloadId ID отчёта
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof CSVApi
+   * @memberof AnalyticsApi
    */
   public getV2NmReportDownloadsFileDownloadId(
     downloadId: string,
     options?: RawAxiosRequestConfig,
   ) {
-    return CSVApiFp(this.configuration)
+    return AnalyticsApiFp(this.configuration)
       .getV2NmReportDownloadsFileDownloadId(downloadId, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
+
+  /**
+   * Метод формирует набор данных о заказах и продажах.  Данные отчёта обновляются в режиме реального времени.  > 1 заказ = 1 сборочное задание = 1 единица товара Параметры `brandNames`,`subjectIds`, `tagIds`, `nmIds` могут быть пустыми `[]`, тогда в ответе возвращаются все заказы продавца. Если вы указали несколько параметров, в ответе будут заказы, в которых есть одновременно все эти параметры. Если заказы не подходят по параметрам запроса, вернётся пустой массив `[]`.  Можно получить отчёт максимум за последние 31 день.  Заказы отдаются по времени текущего статуса, от самого нового к самому раннему.  Можно использовать пагинацию.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 3 ч | 1 запрос | 3 ч | 1 запрос |
+   * @summary Получить отчёт
+   * @param {OrderFeedRequest} [orderFeedRequest]
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AnalyticsApi
+   */
+  public postV1OrderFeed(
+    orderFeedRequest?: OrderFeedRequest,
+    options?: RawAxiosRequestConfig,
+  ) {
+    return AnalyticsApiFp(this.configuration)
+      .postV1OrderFeed(orderFeedRequest, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
+
+  /**
+   * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод возвращает текущие остатки товаров на складах продавца.  Данные обновляются 1 раз в 30 минут.  1 строка ответа — данные об 1 размере товара на 1 складе продавца.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 3 запроса | 20 сек | 1 запрос |
+   * @summary Остатки на складах продавца
+   * @param {InventoryRequest} inventoryRequest
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AnalyticsApi
+   */
+  public postV1StocksReportSellerWarehouses(
+    inventoryRequest: InventoryRequest,
+    options?: RawAxiosRequestConfig,
+  ) {
+    return AnalyticsApiFp(this.configuration)
+      .postV1StocksReportSellerWarehouses(inventoryRequest, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
+
+  /**
+   * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод возвращает текущие остатки товаров на складах WB.  Данные обновляются 1 раз в 30 минут.  1 строка ответа — данные об 1 размере товара на 1 складе WB.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 3 запроса | 20 сек | 1 запрос |
+   * @summary Остатки на складах WB
+   * @param {InventoryRequest} inventoryRequest
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AnalyticsApi
+   */
+  public postV1StocksReportWbWarehouses(
+    inventoryRequest: InventoryRequest,
+    options?: RawAxiosRequestConfig,
+  ) {
+    return AnalyticsApiFp(this.configuration)
+      .postV1StocksReportWbWarehouses(inventoryRequest, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
+
+  /**
+   * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод формирует набор данных об оценках товаров.  Данные отчёта обновляются 1 раз в час.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 3 запроса | 20 сек | 3 запроса |
+   * @summary Получить отчёт
+   * @param {ItemRatingRequest} itemRatingRequest
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AnalyticsApi
+   */
+  public postV2ItemRating(
+    itemRatingRequest: ItemRatingRequest,
+    options?: RawAxiosRequestConfig,
+  ) {
+    return AnalyticsApiFp(this.configuration)
+      .postV2ItemRating(itemRatingRequest, options)
       .then((request) => request(this.axios, this.basePath));
   }
 
@@ -9951,13 +9698,13 @@ export class CSVApi extends BaseAPI implements CSVApiInterface {
    * @param {PostV2NmReportDownloadsRequest} [postV2NmReportDownloadsRequest]
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof CSVApi
+   * @memberof AnalyticsApi
    */
   public postV2NmReportDownloads(
     postV2NmReportDownloadsRequest?: PostV2NmReportDownloadsRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return CSVApiFp(this.configuration)
+    return AnalyticsApiFp(this.configuration)
       .postV2NmReportDownloads(postV2NmReportDownloadsRequest, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -9968,14 +9715,218 @@ export class CSVApi extends BaseAPI implements CSVApiInterface {
    * @param {NmReportRetryReportRequest} nmReportRetryReportRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof CSVApi
+   * @memberof AnalyticsApi
    */
   public postV2NmReportDownloadsRetry(
     nmReportRetryReportRequest: NmReportRetryReportRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return CSVApiFp(this.configuration)
+    return AnalyticsApiFp(this.configuration)
       .postV2NmReportDownloadsRetry(nmReportRetryReportRequest, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
+
+  /**
+   * Метод формирует данные для таблицы: - о заказах по каждому поисковому запросу для конкретного товара - о позициях товара в результатах поиска по каждому запросу Данные указаны в рамках периода для [запрошенного товара](https://dev.wildberries.ru/openapi/analytics#tag/searchQueriesForYourItems/operation/postV2SearchReportProductSearchTexts) и сгруппированы по дням. Максимальный период — 7 дней.  Данные отчёта обновляются 1 раз в 2 часа.  Можно получить отчёт максимум за последние 365 дней с момента выполнения запроса  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * @summary Заказы и позиции по поисковым запросам товара
+   * @param {ItemOrdersRequest} itemOrdersRequest
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AnalyticsApi
+   */
+  public postV2SearchReportProductOrders(
+    itemOrdersRequest: ItemOrdersRequest,
+    options?: RawAxiosRequestConfig,
+  ) {
+    return AnalyticsApiFp(this.configuration)
+      .postV2SearchReportProductOrders(itemOrdersRequest, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
+
+  /**
+   * Метод формирует топ поисковых запросов по товару. Параметры выбора поисковых запросов: - `limit` — количество запросов, максимум 30. Для тарифов [Джема](https://seller.wildberries.ru/monetization/tariffs) \\*\\*Продвинутый\\*\\* и \\*\\*Премиальный\\*\\* максимум — 100. - `topOrderBy` — способ выбора топа запросов Параметры `includeSubstitutedSKUs` и `includeSearchTexts` не могут одновременно иметь значение `false`.  Данные отчёта обновляются 1 раз в 2 часа.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * @summary Поисковые запросы по товару
+   * @param {ItemSearchTextsRequest} itemSearchTextsRequest
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AnalyticsApi
+   */
+  public postV2SearchReportProductSearchTexts(
+    itemSearchTextsRequest: ItemSearchTextsRequest,
+    options?: RawAxiosRequestConfig,
+  ) {
+    return AnalyticsApiFp(this.configuration)
+      .postV2SearchReportProductSearchTexts(itemSearchTextsRequest, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
+
+  /**
+   * Метод формирует набор данных для основной страницы отчёта по поисковым запросам с: - общей информацией - позициями товаров - данными по видимости и переходам в карточку - данными для таблицы по группам Для получения дополнительных данных в таблице используйте отдельный запрос для: - [пагинации по группам](https://dev.wildberries.ru/openapi/analytics#tag/searchQueriesForYourItems/operation/postV2SearchReportTableGroups) - [получения по товарам в группе](https://dev.wildberries.ru/openapi/analytics#tag/searchQueriesForYourItems/operation/postV2SearchReportTableDetails) Дополнительный параметр выбора списка товаров в таблице: - `positionCluster` — средняя позиция в поиске Параметры `includeSubstitutedSKUs` и `includeSearchTexts` не могут одновременно иметь значение `false`.  Данные отчёта обновляются 1 раз в 2 часа.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * @summary Основная страница
+   * @param {MainRequest} mainRequest
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AnalyticsApi
+   */
+  public postV2SearchReportReport(
+    mainRequest: MainRequest,
+    options?: RawAxiosRequestConfig,
+  ) {
+    return AnalyticsApiFp(this.configuration)
+      .postV2SearchReportReport(mainRequest, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
+
+  /**
+   * Метод формирует дополнительные данные к [основному отчёту](https://dev.wildberries.ru/openapi/analytics#tag/searchQueriesForYourItems/operation/postV2SearchReportReport) с пагинацией по товарам в группе. Пагинация возможна вне зависимости от наличия фильтров.  Фильтры для пагинации по товарам в группе или без фильтров: - кортеж `subjectId`,`brandName`,`tagId` — фильтр для группы - `nmIds` — фильтр по карточке товара Дополнительный параметр выбора списка товаров: - `positionCluster` — средняя позиция в поиске Параметры `includeSubstitutedSKUs` и `includeSearchTexts` не могут одновременно иметь значение `false`.  Данные отчёта обновляются 1 раз в 2 часа.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * @summary Пагинация по товарам в группе
+   * @param {TableDetailsRequest} tableDetailsRequest
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AnalyticsApi
+   */
+  public postV2SearchReportTableDetails(
+    tableDetailsRequest: TableDetailsRequest,
+    options?: RawAxiosRequestConfig,
+  ) {
+    return AnalyticsApiFp(this.configuration)
+      .postV2SearchReportTableDetails(tableDetailsRequest, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
+
+  /**
+   * Метод формирует дополнительные данные к [основному отчёту](https://dev.wildberries.ru/openapi/analytics#tag/searchQueriesForYourItems/operation/postV2SearchReportReport) с пагинацией по группам. Пагинация возможна только при наличии фильтра по бренду, предмету или ярлыку.  Дополнительный параметр выбора списка товаров в таблице: - `positionCluster` — средняя позиция в поиске Параметры `includeSubstitutedSKUs` и `includeSearchTexts` не могут одновременно иметь значение `false`.  Данные отчёта обновляются 1 раз в 2 часа.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * @summary Пагинация по группам
+   * @param {TableGroupRequest} tableGroupRequest
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AnalyticsApi
+   */
+  public postV2SearchReportTableGroups(
+    tableGroupRequest: TableGroupRequest,
+    options?: RawAxiosRequestConfig,
+  ) {
+    return AnalyticsApiFp(this.configuration)
+      .postV2SearchReportTableGroups(tableGroupRequest, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
+
+  /**
+   * Метод формирует набор данных об остатках по складам.  Данные по складам продавца приходят в агрегированном виде — по всем сразу, без детализации по конкретным складам — эти записи будут с `\"regionName\":\"Свой склад\"` и `\"offices\":[]`.  Данные отчёта обновляются 1 раз в 2 часа.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+   * @summary Данные по складам
+   * @param {TableShippingOfficeRequest} tableShippingOfficeRequest
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AnalyticsApi
+   */
+  public postV2StocksReportOffices(
+    tableShippingOfficeRequest: TableShippingOfficeRequest,
+    options?: RawAxiosRequestConfig,
+  ) {
+    return AnalyticsApiFp(this.configuration)
+      .postV2StocksReportOffices(tableShippingOfficeRequest, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
+
+  /**
+   * Метод формирует набор данных об остатках по группам товаров.  Группа товаров описывается кортежем `subjectID, brandName, tagID`.  Данные отчёта обновляются 1 раз в 2 часа.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+   * @summary Данные по группам
+   * @param {TableGroupRequestSt} tableGroupRequestSt
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AnalyticsApi
+   */
+  public postV2StocksReportProductsGroups(
+    tableGroupRequestSt: TableGroupRequestSt,
+    options?: RawAxiosRequestConfig,
+  ) {
+    return AnalyticsApiFp(this.configuration)
+      .postV2StocksReportProductsGroups(tableGroupRequestSt, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
+
+  /**
+   * Метод формирует набор данных об остатках по товарам.  Можно получить данные как по отдельным товарам, так и в рамках всего отчёта — если в запросе отсутствуют фильтры: `nmIDs`, `subjectID`, `brandName`, `tagID`.  Данные отчёта обновляются 1 раз в 2 часа.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+   * @summary Данные по товарам
+   * @param {TableItemRequest} tableItemRequest
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AnalyticsApi
+   */
+  public postV2StocksReportProductsProducts(
+    tableItemRequest: TableItemRequest,
+    options?: RawAxiosRequestConfig,
+  ) {
+    return AnalyticsApiFp(this.configuration)
+      .postV2StocksReportProductsProducts(tableItemRequest, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
+
+  /**
+   * Метод формирует набор данных об остатках по размерам товара.  Возможны случаи: 1. Товар имеет размеры и `\"includeOffice\":true`, тогда в ответе будут данные об остатках по каждому из размеров с вложенной детализацией по складам. 2. Товар имеет размеры и `\"includeOffice\":false`, тогда в ответе будут данные об остатках по каждому из размеров без вложенной детализации по складам. 3. Товар не имеет размера и `\"includeOffice\":true`, тогда в ответе будет детализация по складам. Без данных об остатках по каждому из размеров. 4. Товар не имеет размера и `\"includeOffice\":false`, тогда тело ответа будет пустым. Товар не имеет размера, если у него единственный размер с `\"techSize\":\"0\"`. В ответах метода получения данных по [товарам](https://dev.wildberries.ru/openapi/analytics#tag/stocksReport/operation/postV2StocksReportProductsProducts) у таких товаров `\"hasSizes\":false`. Данные по складам продавца приходят в агрегированном виде — по всем сразу, без детализации по конкретным складам — эти записи будут с `\"regionName\":\"Свой склад\"` и `\"officeName\":\"\"`.  Данные отчёта обновляются 1 раз в 2 часа.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+   * @summary Данные по размерам
+   * @param {TableSizeRequest} tableSizeRequest
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AnalyticsApi
+   */
+  public postV2StocksReportProductsSizes(
+    tableSizeRequest: TableSizeRequest,
+    options?: RawAxiosRequestConfig,
+  ) {
+    return AnalyticsApiFp(this.configuration)
+      .postV2StocksReportProductsSizes(tableSizeRequest, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
+
+  /**
+   * Метод возвращает статистику карточек товаров по дням или неделям. Карточки товаров сгруппированы по предметам, брендам и ярлыкам. Можно получить данные максимум за последнюю неделю.  Данные отчёта обновляются 1 раз в 2 часа.  В течение часа после события появляется большая часть данных: - о заказах - о переходах в карточку товара - о добавлениях товаров в корзину Малая часть этих данных может появляться в течение нескольких дней.  Выкупы, отмены и возвраты отображаются в отчёте за тот день, когда товар был заказан. Например, если заказ был сделан 1 января, а покупатель вернул товар 10 января, данные об этом возврате появятся в отчёте за 1 января. Окончательные итоги продаж вы можете отслеживать с помощью [детализаций к отчётам реализации](https://dev.wildberries.ru/openapi/documents-and-accounting#tag/financialReports).  Параметры `brandNames`, `subjectIds`, `tagIds` могут быть пустыми `[]`, тогда группировка происходит по всем карточкам продавца.  Произведение количества предметов, брендов, ярлыков в запросе может быть не больше 16. Например, 4 бренда и 4 предмета или 2 предмета, 2 ярлыка и 4 бренда.  Чтобы получать отчёты за период до года, используйте методы [Аналитика продавца CSV](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv) — тип `GROUPED_HISTORY_REPORT`. Отчёты этого типа доступны только с подпиской [Джем](https://seller.wildberries.ru/monetization/jam)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+   * @summary Статистика групп карточек товаров по дням
+   * @param {GroupedHistoryRequest} groupedHistoryRequest
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AnalyticsApi
+   */
+  public postV3SalesFunnelGroupedHistory(
+    groupedHistoryRequest: GroupedHistoryRequest,
+    options?: RawAxiosRequestConfig,
+  ) {
+    return AnalyticsApiFp(this.configuration)
+      .postV3SalesFunnelGroupedHistory(groupedHistoryRequest, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
+
+  /**
+   * Метод формирует отчёт о товарах, сравнивая ключевые показатели за текущий период с аналогичным прошлым.  Данные отчёта обновляются 1 раз в 2 часа.  В течение часа после события появляется большая часть данных: - о заказах - о переходах в карточку товара - о добавлениях товаров в корзину Малая часть этих данных может появляться в течение нескольких дней.  Выкупы, отмены и возвраты отображаются в отчёте за тот день, когда товар был заказан. Например, если заказ был сделан 1 января, а покупатель вернул товар 10 января, данные об этом возврате появятся в отчёте за 1 января. Окончательные итоги продаж вы можете отслеживать с помощью [детализаций к отчётам реализации](https://dev.wildberries.ru/openapi/documents-and-accounting#tag/financialReports).  Параметры `brandNames`,`subjectIds`, `tagIds`, `nmIds` могут быть пустыми `[]`, тогда в ответе возвращаются все карточки продавца.  Если вы указали несколько параметров, в ответе будут карточки, в которых есть одновременно все эти параметры. Если карточки не подходят по параметрам запроса, вернётся пустой ответ `[]`.  Можно получить отчёт максимум за последние 365 дней.  В данных предыдущего периода: \\* Данные в `pastPeriod` указаны за такой же период, что и в `selectedPeriod` \\* Если дата начала `pastPeriod` раньше, чем год назад от текущей даты, она будет приведена к виду: `pastPeriod.start = текущая дата — 365 дней` Можно использовать пагинацию.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+   * @summary Статистика карточек товаров за период
+   * @param {ItemsRequest} itemsRequest
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AnalyticsApi
+   */
+  public postV3SalesFunnelProducts(
+    itemsRequest: ItemsRequest,
+    options?: RawAxiosRequestConfig,
+  ) {
+    return AnalyticsApiFp(this.configuration)
+      .postV3SalesFunnelProducts(itemsRequest, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
+
+  /**
+   * Метод возвращает статистику карточек товаров по дням или неделям. Можно получить данные максимум за последнюю неделю.  Данные отчёта обновляются 1 раз в 2 часа.  В течение часа после события появляется большая часть данных: - о заказах - о переходах в карточку товара - о добавлениях товаров в корзину Малая часть этих данных может появляться в течение нескольких дней.  Выкупы, отмены и возвраты отображаются в отчёте за тот день, когда товар был заказан. Например, если заказ был сделан 1 января, а покупатель вернул товар 10 января, данные об этом возврате появятся в отчёте за 1 января. Окончательные итоги продаж вы можете отслеживать с помощью [детализаций к отчётам реализации](https://dev.wildberries.ru/openapi/documents-and-accounting#tag/financialReports).  Чтобы получать отчёты за период до года, используйте методы [Аналитика продавца CSV](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv) — тип `DETAIL_HISTORY_REPORT`. Отчёты этого типа доступны только с подпиской [Джем](https://seller.wildberries.ru/monetization/jam)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+   * @summary Статистика карточек товаров по дням
+   * @param {ItemHistoryRequest} itemHistoryRequest
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AnalyticsApi
+   */
+  public postV3SalesFunnelProductsHistory(
+    itemHistoryRequest: ItemHistoryRequest,
+    options?: RawAxiosRequestConfig,
+  ) {
+    return AnalyticsApiFp(this.configuration)
+      .postV3SalesFunnelProductsHistory(itemHistoryRequest, options)
       .then((request) => request(this.axios, this.basePath));
   }
 }

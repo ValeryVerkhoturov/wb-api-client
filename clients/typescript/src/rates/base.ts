@@ -89,31 +89,31 @@ interface ServerMap {
  * @export
  */
 export const operationServerMap: ServerMap = {
-  "DefaultApi.getV1AcceptanceCoefficients": [
+  "RatesApi.getV1AcceptanceCoefficients": [
     {
       url: "https://common-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.getV1TariffsBox": [
+  "RatesApi.getV1TariffsBox": [
     {
       url: "https://common-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.getV1TariffsCommission": [
+  "RatesApi.getV1TariffsCommission": [
     {
       url: "https://common-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.getV1TariffsPallet": [
+  "RatesApi.getV1TariffsPallet": [
     {
       url: "https://common-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.getV1TariffsReturn": [
+  "RatesApi.getV1TariffsReturn": [
     {
       url: "https://common-api.wildberries.ru",
       description: "No description provided",

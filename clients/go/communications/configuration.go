@@ -99,19 +99,19 @@ func NewConfiguration() *Configuration {
 			},
 		},
 		OperationServers: map[string]ServerConfigurations{
-			"DefaultApiService.DeleteV1Pins": {
+			"CommunicationsAPIService.DeleteV1Pins": {
 				{
 					URL:         "https://feedbacks-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"DefaultApiService.GetV1Claims": {
+			"CommunicationsAPIService.GetV1Claims": {
 				{
 					URL:         "https://returns-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"DefaultApiService.GetV1Feedback": {
+			"CommunicationsAPIService.GetV1Feedback": {
 				{
 					URL:         "https://feedbacks-api.wildberries.ru",
 					Description: "**Prod** ",
@@ -121,7 +121,7 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"DefaultApiService.GetV1Feedbacks": {
+			"CommunicationsAPIService.GetV1Feedbacks": {
 				{
 					URL:         "https://feedbacks-api.wildberries.ru",
 					Description: "**Prod** ",
@@ -131,7 +131,7 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"DefaultApiService.GetV1FeedbacksArchive": {
+			"CommunicationsAPIService.GetV1FeedbacksArchive": {
 				{
 					URL:         "https://feedbacks-api.wildberries.ru",
 					Description: "**Prod** ",
@@ -141,7 +141,7 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"DefaultApiService.GetV1FeedbacksCount": {
+			"CommunicationsAPIService.GetV1FeedbacksCount": {
 				{
 					URL:         "https://feedbacks-api.wildberries.ru",
 					Description: "**Prod** ",
@@ -151,7 +151,7 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"DefaultApiService.GetV1FeedbacksCountUnanswered": {
+			"CommunicationsAPIService.GetV1FeedbacksCountUnanswered": {
 				{
 					URL:         "https://feedbacks-api.wildberries.ru",
 					Description: "**Prod** ",
@@ -161,7 +161,7 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"DefaultApiService.GetV1NewFeedbacksQuestions": {
+			"CommunicationsAPIService.GetV1NewFeedbacksQuestions": {
 				{
 					URL:         "https://feedbacks-api.wildberries.ru",
 					Description: "**Prod** ",
@@ -171,25 +171,25 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"DefaultApiService.GetV1Pins": {
+			"CommunicationsAPIService.GetV1Pins": {
 				{
 					URL:         "https://feedbacks-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"DefaultApiService.GetV1PinsCount": {
+			"CommunicationsAPIService.GetV1PinsCount": {
 				{
 					URL:         "https://feedbacks-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"DefaultApiService.GetV1PinsLimits": {
+			"CommunicationsAPIService.GetV1PinsLimits": {
 				{
 					URL:         "https://feedbacks-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"DefaultApiService.GetV1Question": {
+			"CommunicationsAPIService.GetV1Question": {
 				{
 					URL:         "https://feedbacks-api.wildberries.ru",
 					Description: "**Prod** ",
@@ -199,7 +199,7 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"DefaultApiService.GetV1Questions": {
+			"CommunicationsAPIService.GetV1Questions": {
 				{
 					URL:         "https://feedbacks-api.wildberries.ru",
 					Description: "**Prod** ",
@@ -209,7 +209,7 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"DefaultApiService.GetV1QuestionsCount": {
+			"CommunicationsAPIService.GetV1QuestionsCount": {
 				{
 					URL:         "https://feedbacks-api.wildberries.ru",
 					Description: "**Prod** ",
@@ -219,7 +219,7 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"DefaultApiService.GetV1QuestionsCountUnanswered": {
+			"CommunicationsAPIService.GetV1QuestionsCountUnanswered": {
 				{
 					URL:         "https://feedbacks-api.wildberries.ru",
 					Description: "**Prod** ",
@@ -229,31 +229,31 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"DefaultApiService.GetV1SellerChats": {
+			"CommunicationsAPIService.GetV1SellerChats": {
 				{
 					URL:         "https://buyer-chat-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"DefaultApiService.GetV1SellerDownloadId": {
+			"CommunicationsAPIService.GetV1SellerDownloadId": {
 				{
 					URL:         "https://buyer-chat-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"DefaultApiService.GetV1SellerEvents": {
+			"CommunicationsAPIService.GetV1SellerEvents": {
 				{
 					URL:         "https://buyer-chat-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"DefaultApiService.PatchV1Claim": {
+			"CommunicationsAPIService.PatchV1Claim": {
 				{
 					URL:         "https://returns-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"DefaultApiService.PatchV1FeedbacksAnswer": {
+			"CommunicationsAPIService.PatchV1FeedbacksAnswer": {
 				{
 					URL:         "https://feedbacks-api.wildberries.ru",
 					Description: "**Prod** ",
@@ -263,7 +263,7 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"DefaultApiService.PatchV1Questions": {
+			"CommunicationsAPIService.PatchV1Questions": {
 				{
 					URL:         "https://feedbacks-api.wildberries.ru",
 					Description: "**Prod** ",
@@ -273,7 +273,7 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"DefaultApiService.PostV1FeedbacksAnswer": {
+			"CommunicationsAPIService.PostV1FeedbacksAnswer": {
 				{
 					URL:         "https://feedbacks-api.wildberries.ru",
 					Description: "**Prod** ",
@@ -283,7 +283,7 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"DefaultApiService.PostV1FeedbacksOrderReturn": {
+			"CommunicationsAPIService.PostV1FeedbacksOrderReturn": {
 				{
 					URL:         "https://feedbacks-api.wildberries.ru",
 					Description: "**Prod** ",
@@ -293,13 +293,13 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"DefaultApiService.PostV1Pins": {
+			"CommunicationsAPIService.PostV1Pins": {
 				{
 					URL:         "https://feedbacks-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"DefaultApiService.PostV1SellerMessage": {
+			"CommunicationsAPIService.PostV1SellerMessage": {
 				{
 					URL:         "https://buyer-chat-api.wildberries.ru",
 					Description: "No description provided",

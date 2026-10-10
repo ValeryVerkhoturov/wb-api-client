@@ -89,7 +89,7 @@ interface ServerMap {
  * @export
  */
 export const operationServerMap: ServerMap = {
-  "DBSApi.getV3DbsOrders": [
+  "DbsApi.getV3DbsOrders": [
     {
       url: "https://marketplace-api.wildberries.ru",
       description: "**Prod** ",
@@ -99,7 +99,7 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DBSApi.getV3DbsOrdersNew": [
+  "DbsApi.getV3DbsOrdersNew": [
     {
       url: "https://marketplace-api.wildberries.ru",
       description: "**Prod** ",
@@ -109,7 +109,7 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DBSApi.postV3DbsGroupsInfo": [
+  "DbsApi.postV3DbsGroupsInfo": [
     {
       url: "https://marketplace-api.wildberries.ru",
       description: "**Prod** ",
@@ -119,13 +119,13 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DBSApi.postV3DbsOrdersB2bInfo": [
+  "DbsApi.postV3DbsOrdersB2bInfo": [
     {
       url: "https://marketplace-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DBSApi.postV3DbsOrdersClient": [
+  "DbsApi.postV3DbsOrdersClient": [
     {
       url: "https://marketplace-api.wildberries.ru",
       description: "**Prod** ",
@@ -135,7 +135,7 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DBSApi.postV3DbsOrdersDeliveryDate": [
+  "DbsApi.postV3DbsOrdersDeliveryDate": [
     {
       url: "https://marketplace-api.wildberries.ru",
       description: "**Prod** ",
@@ -145,13 +145,13 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DBSApi.postV3DbsOrdersFinalPrice": [
+  "DbsApi.postV3DbsOrdersFinalPrice": [
     {
       url: "https://marketplace-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DBSApi.postV3DbsOrdersMetaCustomsDeclaration": [
+  "DbsApi.postV3DbsOrdersMetaCustomsDeclaration": [
     {
       url: "https://marketplace-api.wildberries.ru",
       description: "**Prod** ",
@@ -161,7 +161,7 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DBSApi.postV3DbsOrdersMetaDelete": [
+  "DbsApi.postV3DbsOrdersMetaDelete": [
     {
       url: "https://marketplace-api.wildberries.ru",
       description: "**Prod** ",
@@ -171,13 +171,13 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DBSApi.postV3DbsOrdersMetaDetails": [
+  "DbsApi.postV3DbsOrdersMetaDetails": [
     {
       url: "https://marketplace-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DBSApi.postV3DbsOrdersMetaGtin": [
+  "DbsApi.postV3DbsOrdersMetaGtin": [
     {
       url: "https://marketplace-api.wildberries.ru",
       description: "**Prod** ",
@@ -187,7 +187,7 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DBSApi.postV3DbsOrdersMetaImei": [
+  "DbsApi.postV3DbsOrdersMetaImei": [
     {
       url: "https://marketplace-api.wildberries.ru",
       description: "**Prod** ",
@@ -197,7 +197,7 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DBSApi.postV3DbsOrdersMetaSgtin": [
+  "DbsApi.postV3DbsOrdersMetaSgtin": [
     {
       url: "https://marketplace-api.wildberries.ru",
       description: "**Prod** ",
@@ -207,7 +207,7 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DBSApi.postV3DbsOrdersMetaUin": [
+  "DbsApi.postV3DbsOrdersMetaUin": [
     {
       url: "https://marketplace-api.wildberries.ru",
       description: "**Prod** ",
@@ -217,7 +217,7 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DBSApi.postV3DbsOrdersStatusCancel": [
+  "DbsApi.postV3DbsOrdersStatusCancel": [
     {
       url: "https://marketplace-api.wildberries.ru",
       description: "**Prod** ",
@@ -227,7 +227,7 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DBSApi.postV3DbsOrdersStatusConfirm": [
+  "DbsApi.postV3DbsOrdersStatusConfirm": [
     {
       url: "https://marketplace-api.wildberries.ru",
       description: "**Prod** ",
@@ -237,7 +237,7 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DBSApi.postV3DbsOrdersStatusDeliver": [
+  "DbsApi.postV3DbsOrdersStatusDeliver": [
     {
       url: "https://marketplace-api.wildberries.ru",
       description: "**Prod** ",
@@ -247,7 +247,7 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DBSApi.postV3DbsOrdersStatusInfo": [
+  "DbsApi.postV3DbsOrdersStatusInfo": [
     {
       url: "https://marketplace-api.wildberries.ru",
       description: "**Prod** ",
@@ -257,7 +257,7 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DBSApi.postV3DbsOrdersStatusReceive": [
+  "DbsApi.postV3DbsOrdersStatusReceive": [
     {
       url: "https://marketplace-api.wildberries.ru",
       description: "**Prod** ",
@@ -267,7 +267,7 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DBSApi.postV3DbsOrdersStatusReject": [
+  "DbsApi.postV3DbsOrdersStatusReject": [
     {
       url: "https://marketplace-api.wildberries.ru",
       description: "**Prod** ",
@@ -277,7 +277,7 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DBSApi.postV3DbsOrdersStickers": [
+  "DbsApi.postV3DbsOrdersStickers": [
     {
       url: "https://marketplace-api.wildberries.ru",
       description: "No description provided",

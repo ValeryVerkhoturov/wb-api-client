@@ -1109,10 +1109,10 @@ export interface UserAccess {
 }
 
 /**
- * DefaultApi - axios parameter creator
+ * GeneralApi - axios parameter creator
  * @export
  */
-export const DefaultApiAxiosParamCreator = function (
+export const GeneralApiAxiosParamCreator = function (
   configuration?: Configuration,
 ) {
   return {
@@ -1152,6 +1152,49 @@ export const DefaultApiAxiosParamCreator = function (
       if (deletedUserID !== undefined) {
         localVarQueryParameter["deletedUserID"] = deletedUserID;
       }
+
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
+      let headersFromBaseOptions =
+        baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = {
+        ...localVarHeaderParameter,
+        ...headersFromBaseOptions,
+        ...options.headers,
+      };
+
+      return {
+        url: toPathString(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     * Метод проверяет: 1. Успешно ли запрос доходит до WB API 2. Валидность токена авторизации и URL запроса 3. Совпадают ли категория токена и сервис  Метод не предназначен для проверки доступности сервисов WB  У каждого сервиса есть свой вариант метода в зависимости от домена: | Категория | URL запроса | |---------------|-----------------------| | Контент | `https://content-api.wildberries.ru/ping` `https://content-api-sandbox.wildberries.ru/ping` | | Аналитика | `https://seller-analytics-api.wildberries.ru/ping` | | Цены и скидки | `https://discounts-prices-api.wildberries.ru/ping` `https://discounts-prices-api-sandbox.wildberries.ru/ping` | | Маркетплейс | `https://marketplace-api.wildberries.ru/ping` | | Статистика | `https://statistics-api.wildberries.ru/ping` `https://statistics-api-sandbox.wildberries.ru/ping` | | Продвижение | `https://advert-api.wildberries.ru/ping` `https://advert-api-sandbox.wildberries.ru/ping` | | Вопросы и отзывы | `https://feedbacks-api.wildberries.ru/ping` `https://feedbacks-api-sandbox.wildberries.ru/ping` | | Чат с покупателями | `https://buyer-chat-api.wildberries.ru/ping` | | Поставки | `https://supplies-api.wildberries.ru/ping` | | Возвраты покупателями | `https://returns-api.wildberries.ru/ping` | | Документы | `https://documents-api.wildberries.ru/ping` | | Финансы | `https://finance-api.wildberries.ru/ping` | | Тарифы, Новости, Получить информацию о продавце | `https://common-api.wildberries.ru/ping` | | Управление пользователями продавца | `https://user-management-api.wildberries.ru/ping` |  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 30 сек | 3 запроса | 10 сек | 99 запросов |  Лимит действует отдельно для каждого варианта метода в зависимости от домена
+     * @summary Проверка подключения
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getPing: async (
+      options: RawAxiosRequestConfig = {},
+    ): Promise<RequestArgs> => {
+      const localVarPath = `/ping`;
+      // use dummy base URL string because the URL constructor only accepts absolute URLs.
+      const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+
+      const localVarRequestOptions = {
+        method: "GET",
+        ...baseOptions,
+        ...options,
+      };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      // authentication BearerAuth required
+      // http bearer authentication required
+      await setBearerAuthToObject(localVarHeaderParameter, configuration);
 
       setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions =
@@ -1407,6 +1450,61 @@ export const DefaultApiAxiosParamCreator = function (
       };
     },
     /**
+     * Метод позволяет получать новости портала продавцов.  Для получения успешного ответа необходимо указать один из параметров `from` или `fromID`.  За один запрос можно получить не более 100 новостей.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+     * @summary Получение новостей портала продавцов
+     * @param {string} [from] Дата, от которой необходимо выдать новости
+     * @param {number} [fromID] ID новости, начиная с которой — включая её — нужно получить список новостей
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getV2News: async (
+      from?: string,
+      fromID?: number,
+      options: RawAxiosRequestConfig = {},
+    ): Promise<RequestArgs> => {
+      const localVarPath = `/api/communications/v2/news`;
+      // use dummy base URL string because the URL constructor only accepts absolute URLs.
+      const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+
+      const localVarRequestOptions = {
+        method: "GET",
+        ...baseOptions,
+        ...options,
+      };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      // authentication BearerAuth required
+      // http bearer authentication required
+      await setBearerAuthToObject(localVarHeaderParameter, configuration);
+
+      if (from !== undefined) {
+        localVarQueryParameter["from"] = from;
+      }
+
+      if (fromID !== undefined) {
+        localVarQueryParameter["fromID"] = fromID;
+      }
+
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
+      let headersFromBaseOptions =
+        baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = {
+        ...localVarHeaderParameter,
+        ...headersFromBaseOptions,
+        ...options.headers,
+      };
+
+      return {
+        url: toPathString(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
      * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод создаёт приглашение для нового пользователя с настройкой доступов к разделам профиля продавца. Как выдаются права доступа: - Если `access` пустой (`[]`) или не указан — по умолчанию выдаются все доступы, кроме доступов к витрине (`showcase`) и \\*\\*Джем\\*\\* (`changeJam`) - Если в `access` указана часть разделов профиля, то кроме тех доступов, что указаны в запросе, также выдаются все доступы по умолчанию - Если в `access` перечислены все возможные разделы, доступы будут выданы согласно запросу, без доступов по умолчанию - Если в `access` дважды указан один и тот же раздел (`code`): - при разных значениях `disabled` (`true` и `false`) доступ не будет выдан - при одинаковых значениях `\"disabled\": true` доступ не будет выдан - при одинаковых значениях `\"disabled\": false` доступ будет выдан  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 сек | 1 запрос | 1 сек | 5 запросов |
      * @summary Создать приглашение для нового пользователя
      * @param {CreateInviteRequest} createInviteRequest
@@ -1526,11 +1624,11 @@ export const DefaultApiAxiosParamCreator = function (
 };
 
 /**
- * DefaultApi - functional programming interface
+ * GeneralApi - functional programming interface
  * @export
  */
-export const DefaultApiFp = function (configuration?: Configuration) {
-  const localVarAxiosParamCreator = DefaultApiAxiosParamCreator(configuration);
+export const GeneralApiFp = function (configuration?: Configuration) {
+  const localVarAxiosParamCreator = GeneralApiAxiosParamCreator(configuration);
   return {
     /**
      * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод удаляет пользователя из [списка сотрудников продавца](https://dev.wildberries.ru/openapi/api-information#tag/sellerUserManagement/operation/getV1Users). Этому пользователю будет закрыт доступ в профиль продавца.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 сек | 1 запрос | 1 сек | 10 запросов |
@@ -1551,9 +1649,37 @@ export const DefaultApiFp = function (configuration?: Configuration) {
       );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.deleteV1User"]?.[
+        operationServerMap["GeneralApi.deleteV1User"]?.[
           localVarOperationServerIndex
         ]?.url;
+      return (axios, basePath) =>
+        createRequestFunction(
+          localVarAxiosArgs,
+          globalAxios,
+          BASE_PATH,
+          configuration,
+        )(axios, localVarOperationServerBasePath || basePath);
+    },
+    /**
+     * Метод проверяет: 1. Успешно ли запрос доходит до WB API 2. Валидность токена авторизации и URL запроса 3. Совпадают ли категория токена и сервис  Метод не предназначен для проверки доступности сервисов WB  У каждого сервиса есть свой вариант метода в зависимости от домена: | Категория | URL запроса | |---------------|-----------------------| | Контент | `https://content-api.wildberries.ru/ping` `https://content-api-sandbox.wildberries.ru/ping` | | Аналитика | `https://seller-analytics-api.wildberries.ru/ping` | | Цены и скидки | `https://discounts-prices-api.wildberries.ru/ping` `https://discounts-prices-api-sandbox.wildberries.ru/ping` | | Маркетплейс | `https://marketplace-api.wildberries.ru/ping` | | Статистика | `https://statistics-api.wildberries.ru/ping` `https://statistics-api-sandbox.wildberries.ru/ping` | | Продвижение | `https://advert-api.wildberries.ru/ping` `https://advert-api-sandbox.wildberries.ru/ping` | | Вопросы и отзывы | `https://feedbacks-api.wildberries.ru/ping` `https://feedbacks-api-sandbox.wildberries.ru/ping` | | Чат с покупателями | `https://buyer-chat-api.wildberries.ru/ping` | | Поставки | `https://supplies-api.wildberries.ru/ping` | | Возвраты покупателями | `https://returns-api.wildberries.ru/ping` | | Документы | `https://documents-api.wildberries.ru/ping` | | Финансы | `https://finance-api.wildberries.ru/ping` | | Тарифы, Новости, Получить информацию о продавце | `https://common-api.wildberries.ru/ping` | | Управление пользователями продавца | `https://user-management-api.wildberries.ru/ping` |  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 30 сек | 3 запроса | 10 сек | 99 запросов |  Лимит действует отдельно для каждого варианта метода в зависимости от домена
+     * @summary Проверка подключения
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async getPing(
+      options?: RawAxiosRequestConfig,
+    ): Promise<
+      (
+        axios?: AxiosInstance,
+        basePath?: string,
+      ) => AxiosPromise<GetPingResponse200>
+    > {
+      const localVarAxiosArgs =
+        await localVarAxiosParamCreator.getPing(options);
+      const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+      const localVarOperationServerBasePath =
+        operationServerMap["GeneralApi.getPing"]?.[localVarOperationServerIndex]
+          ?.url;
       return (axios, basePath) =>
         createRequestFunction(
           localVarAxiosArgs,
@@ -1580,7 +1706,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         await localVarAxiosParamCreator.getV1Rating(options);
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV1Rating"]?.[
+        operationServerMap["GeneralApi.getV1Rating"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -1609,7 +1735,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         await localVarAxiosParamCreator.getV1SellerInfo(options);
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV1SellerInfo"]?.[
+        operationServerMap["GeneralApi.getV1SellerInfo"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -1638,7 +1764,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         await localVarAxiosParamCreator.getV1Subscriptions(options);
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV1Subscriptions"]?.[
+        operationServerMap["GeneralApi.getV1Subscriptions"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -1672,7 +1798,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV1TariffConstructorOptions"]?.[
+        operationServerMap["GeneralApi.getV1TariffConstructorOptions"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -1711,7 +1837,43 @@ export const DefaultApiFp = function (configuration?: Configuration) {
       );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV1Users"]?.[
+        operationServerMap["GeneralApi.getV1Users"]?.[
+          localVarOperationServerIndex
+        ]?.url;
+      return (axios, basePath) =>
+        createRequestFunction(
+          localVarAxiosArgs,
+          globalAxios,
+          BASE_PATH,
+          configuration,
+        )(axios, localVarOperationServerBasePath || basePath);
+    },
+    /**
+     * Метод позволяет получать новости портала продавцов.  Для получения успешного ответа необходимо указать один из параметров `from` или `fromID`.  За один запрос можно получить не более 100 новостей.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+     * @summary Получение новостей портала продавцов
+     * @param {string} [from] Дата, от которой необходимо выдать новости
+     * @param {number} [fromID] ID новости, начиная с которой — включая её — нужно получить список новостей
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async getV2News(
+      from?: string,
+      fromID?: number,
+      options?: RawAxiosRequestConfig,
+    ): Promise<
+      (
+        axios?: AxiosInstance,
+        basePath?: string,
+      ) => AxiosPromise<GetV2NewsResponse200>
+    > {
+      const localVarAxiosArgs = await localVarAxiosParamCreator.getV2News(
+        from,
+        fromID,
+        options,
+      );
+      const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+      const localVarOperationServerBasePath =
+        operationServerMap["GeneralApi.getV2News"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -1744,7 +1906,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
       );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.postV1Invite"]?.[
+        operationServerMap["GeneralApi.postV1Invite"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -1775,7 +1937,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.putV1UsersAccess"]?.[
+        operationServerMap["GeneralApi.putV1UsersAccess"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -1790,15 +1952,15 @@ export const DefaultApiFp = function (configuration?: Configuration) {
 };
 
 /**
- * DefaultApi - factory interface
+ * GeneralApi - factory interface
  * @export
  */
-export const DefaultApiFactory = function (
+export const GeneralApiFactory = function (
   configuration?: Configuration,
   basePath?: string,
   axios?: AxiosInstance,
 ) {
-  const localVarFp = DefaultApiFp(configuration);
+  const localVarFp = GeneralApiFp(configuration);
   return {
     /**
      * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод удаляет пользователя из [списка сотрудников продавца](https://dev.wildberries.ru/openapi/api-information#tag/sellerUserManagement/operation/getV1Users). Этому пользователю будет закрыт доступ в профиль продавца.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 сек | 1 запрос | 1 сек | 10 запросов |
@@ -1813,6 +1975,17 @@ export const DefaultApiFactory = function (
     ): AxiosPromise<void> {
       return localVarFp
         .deleteV1User(deletedUserID, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     * Метод проверяет: 1. Успешно ли запрос доходит до WB API 2. Валидность токена авторизации и URL запроса 3. Совпадают ли категория токена и сервис  Метод не предназначен для проверки доступности сервисов WB  У каждого сервиса есть свой вариант метода в зависимости от домена: | Категория | URL запроса | |---------------|-----------------------| | Контент | `https://content-api.wildberries.ru/ping` `https://content-api-sandbox.wildberries.ru/ping` | | Аналитика | `https://seller-analytics-api.wildberries.ru/ping` | | Цены и скидки | `https://discounts-prices-api.wildberries.ru/ping` `https://discounts-prices-api-sandbox.wildberries.ru/ping` | | Маркетплейс | `https://marketplace-api.wildberries.ru/ping` | | Статистика | `https://statistics-api.wildberries.ru/ping` `https://statistics-api-sandbox.wildberries.ru/ping` | | Продвижение | `https://advert-api.wildberries.ru/ping` `https://advert-api-sandbox.wildberries.ru/ping` | | Вопросы и отзывы | `https://feedbacks-api.wildberries.ru/ping` `https://feedbacks-api-sandbox.wildberries.ru/ping` | | Чат с покупателями | `https://buyer-chat-api.wildberries.ru/ping` | | Поставки | `https://supplies-api.wildberries.ru/ping` | | Возвраты покупателями | `https://returns-api.wildberries.ru/ping` | | Документы | `https://documents-api.wildberries.ru/ping` | | Финансы | `https://finance-api.wildberries.ru/ping` | | Тарифы, Новости, Получить информацию о продавце | `https://common-api.wildberries.ru/ping` | | Управление пользователями продавца | `https://user-management-api.wildberries.ru/ping` |  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 30 сек | 3 запроса | 10 сек | 99 запросов |  Лимит действует отдельно для каждого варианта метода в зависимости от домена
+     * @summary Проверка подключения
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getPing(options?: RawAxiosRequestConfig): AxiosPromise<GetPingResponse200> {
+      return localVarFp
+        .getPing(options)
         .then((request) => request(axios, basePath));
     },
     /**
@@ -1889,6 +2062,23 @@ export const DefaultApiFactory = function (
         .then((request) => request(axios, basePath));
     },
     /**
+     * Метод позволяет получать новости портала продавцов.  Для получения успешного ответа необходимо указать один из параметров `from` или `fromID`.  За один запрос можно получить не более 100 новостей.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+     * @summary Получение новостей портала продавцов
+     * @param {string} [from] Дата, от которой необходимо выдать новости
+     * @param {number} [fromID] ID новости, начиная с которой — включая её — нужно получить список новостей
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getV2News(
+      from?: string,
+      fromID?: number,
+      options?: RawAxiosRequestConfig,
+    ): AxiosPromise<GetV2NewsResponse200> {
+      return localVarFp
+        .getV2News(from, fromID, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
      * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод создаёт приглашение для нового пользователя с настройкой доступов к разделам профиля продавца. Как выдаются права доступа: - Если `access` пустой (`[]`) или не указан — по умолчанию выдаются все доступы, кроме доступов к витрине (`showcase`) и \\*\\*Джем\\*\\* (`changeJam`) - Если в `access` указана часть разделов профиля, то кроме тех доступов, что указаны в запросе, также выдаются все доступы по умолчанию - Если в `access` перечислены все возможные разделы, доступы будут выданы согласно запросу, без доступов по умолчанию - Если в `access` дважды указан один и тот же раздел (`code`): - при разных значениях `disabled` (`true` и `false`) доступ не будет выдан - при одинаковых значениях `\"disabled\": true` доступ не будет выдан - при одинаковых значениях `\"disabled\": false` доступ будет выдан  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 сек | 1 запрос | 1 сек | 5 запросов |
      * @summary Создать приглашение для нового пользователя
      * @param {CreateInviteRequest} createInviteRequest
@@ -1922,18 +2112,18 @@ export const DefaultApiFactory = function (
 };
 
 /**
- * DefaultApi - interface
+ * GeneralApi - interface
  * @export
- * @interface DefaultApi
+ * @interface GeneralApi
  */
-export interface DefaultApiInterface {
+export interface GeneralApiInterface {
   /**
    * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод удаляет пользователя из [списка сотрудников продавца](https://dev.wildberries.ru/openapi/api-information#tag/sellerUserManagement/operation/getV1Users). Этому пользователю будет закрыт доступ в профиль продавца.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 сек | 1 запрос | 1 сек | 10 запросов |
    * @summary Удалить пользователя
    * @param {number} deletedUserID ID пользователя, которому будет закрыт доступ
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof GeneralApiInterface
    */
   deleteV1User(
     deletedUserID: number,
@@ -1941,11 +2131,20 @@ export interface DefaultApiInterface {
   ): AxiosPromise<void>;
 
   /**
+   * Метод проверяет: 1. Успешно ли запрос доходит до WB API 2. Валидность токена авторизации и URL запроса 3. Совпадают ли категория токена и сервис  Метод не предназначен для проверки доступности сервисов WB  У каждого сервиса есть свой вариант метода в зависимости от домена: | Категория | URL запроса | |---------------|-----------------------| | Контент | `https://content-api.wildberries.ru/ping` `https://content-api-sandbox.wildberries.ru/ping` | | Аналитика | `https://seller-analytics-api.wildberries.ru/ping` | | Цены и скидки | `https://discounts-prices-api.wildberries.ru/ping` `https://discounts-prices-api-sandbox.wildberries.ru/ping` | | Маркетплейс | `https://marketplace-api.wildberries.ru/ping` | | Статистика | `https://statistics-api.wildberries.ru/ping` `https://statistics-api-sandbox.wildberries.ru/ping` | | Продвижение | `https://advert-api.wildberries.ru/ping` `https://advert-api-sandbox.wildberries.ru/ping` | | Вопросы и отзывы | `https://feedbacks-api.wildberries.ru/ping` `https://feedbacks-api-sandbox.wildberries.ru/ping` | | Чат с покупателями | `https://buyer-chat-api.wildberries.ru/ping` | | Поставки | `https://supplies-api.wildberries.ru/ping` | | Возвраты покупателями | `https://returns-api.wildberries.ru/ping` | | Документы | `https://documents-api.wildberries.ru/ping` | | Финансы | `https://finance-api.wildberries.ru/ping` | | Тарифы, Новости, Получить информацию о продавце | `https://common-api.wildberries.ru/ping` | | Управление пользователями продавца | `https://user-management-api.wildberries.ru/ping` |  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 30 сек | 3 запроса | 10 сек | 99 запросов |  Лимит действует отдельно для каждого варианта метода в зависимости от домена
+   * @summary Проверка подключения
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof GeneralApiInterface
+   */
+  getPing(options?: RawAxiosRequestConfig): AxiosPromise<GetPingResponse200>;
+
+  /**
    * Для доступа к методу используйте [токен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token) для категории **Вопросы и отзывы**  Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Сервисному** токену  Метод возвращает пользовательский рейтинг продавца и количество отзывов.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос |
    * @summary Получить рейтинг продавца
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof GeneralApiInterface
    */
   getV1Rating(
     options?: RawAxiosRequestConfig,
@@ -1956,7 +2155,7 @@ export interface DefaultApiInterface {
    * @summary Получить информацию о продавце
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof GeneralApiInterface
    */
   getV1SellerInfo(
     options?: RawAxiosRequestConfig,
@@ -1967,7 +2166,7 @@ export interface DefaultApiInterface {
    * @summary Получить информацию о подписке Джем
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof GeneralApiInterface
    */
   getV1Subscriptions(
     options?: RawAxiosRequestConfig,
@@ -1979,7 +2178,7 @@ export interface DefaultApiInterface {
    * @param {GetV1TariffConstructorOptionsLocaleEnum} [locale] Язык полей ответа:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof GeneralApiInterface
    */
   getV1TariffConstructorOptions(
     locale?: GetV1TariffConstructorOptionsLocaleEnum,
@@ -1994,7 +2193,7 @@ export interface DefaultApiInterface {
    * @param {boolean} [isInviteOnly] - &#x60;true&#x60; — список приглашённых пользователей, которые ещё не активировали доступ - &#x60;false&#x60; или не указан — список активных пользователей профиля продавца
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof GeneralApiInterface
    */
   getV1Users(
     limit?: number,
@@ -2004,12 +2203,27 @@ export interface DefaultApiInterface {
   ): AxiosPromise<GetUsersResponse>;
 
   /**
+   * Метод позволяет получать новости портала продавцов.  Для получения успешного ответа необходимо указать один из параметров `from` или `fromID`.  За один запрос можно получить не более 100 новостей.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * @summary Получение новостей портала продавцов
+   * @param {string} [from] Дата, от которой необходимо выдать новости
+   * @param {number} [fromID] ID новости, начиная с которой — включая её — нужно получить список новостей
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof GeneralApiInterface
+   */
+  getV2News(
+    from?: string,
+    fromID?: number,
+    options?: RawAxiosRequestConfig,
+  ): AxiosPromise<GetV2NewsResponse200>;
+
+  /**
    * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод создаёт приглашение для нового пользователя с настройкой доступов к разделам профиля продавца. Как выдаются права доступа: - Если `access` пустой (`[]`) или не указан — по умолчанию выдаются все доступы, кроме доступов к витрине (`showcase`) и \\*\\*Джем\\*\\* (`changeJam`) - Если в `access` указана часть разделов профиля, то кроме тех доступов, что указаны в запросе, также выдаются все доступы по умолчанию - Если в `access` перечислены все возможные разделы, доступы будут выданы согласно запросу, без доступов по умолчанию - Если в `access` дважды указан один и тот же раздел (`code`): - при разных значениях `disabled` (`true` и `false`) доступ не будет выдан - при одинаковых значениях `\"disabled\": true` доступ не будет выдан - при одинаковых значениях `\"disabled\": false` доступ будет выдан  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 сек | 1 запрос | 1 сек | 5 запросов |
    * @summary Создать приглашение для нового пользователя
    * @param {CreateInviteRequest} createInviteRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof GeneralApiInterface
    */
   postV1Invite(
     createInviteRequest: CreateInviteRequest,
@@ -2022,7 +2236,7 @@ export interface DefaultApiInterface {
    * @param {UpdateUserAccessRequest} updateUserAccessRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof GeneralApiInterface
    */
   putV1UsersAccess(
     updateUserAccessRequest: UpdateUserAccessRequest,
@@ -2031,23 +2245,36 @@ export interface DefaultApiInterface {
 }
 
 /**
- * DefaultApi - object-oriented interface
+ * GeneralApi - object-oriented interface
  * @export
- * @class DefaultApi
+ * @class GeneralApi
  * @extends {BaseAPI}
  */
-export class DefaultApi extends BaseAPI implements DefaultApiInterface {
+export class GeneralApi extends BaseAPI implements GeneralApiInterface {
   /**
    * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод удаляет пользователя из [списка сотрудников продавца](https://dev.wildberries.ru/openapi/api-information#tag/sellerUserManagement/operation/getV1Users). Этому пользователю будет закрыт доступ в профиль продавца.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 сек | 1 запрос | 1 сек | 10 запросов |
    * @summary Удалить пользователя
    * @param {number} deletedUserID ID пользователя, которому будет закрыт доступ
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof GeneralApi
    */
   public deleteV1User(deletedUserID: number, options?: RawAxiosRequestConfig) {
-    return DefaultApiFp(this.configuration)
+    return GeneralApiFp(this.configuration)
       .deleteV1User(deletedUserID, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
+
+  /**
+   * Метод проверяет: 1. Успешно ли запрос доходит до WB API 2. Валидность токена авторизации и URL запроса 3. Совпадают ли категория токена и сервис  Метод не предназначен для проверки доступности сервисов WB  У каждого сервиса есть свой вариант метода в зависимости от домена: | Категория | URL запроса | |---------------|-----------------------| | Контент | `https://content-api.wildberries.ru/ping` `https://content-api-sandbox.wildberries.ru/ping` | | Аналитика | `https://seller-analytics-api.wildberries.ru/ping` | | Цены и скидки | `https://discounts-prices-api.wildberries.ru/ping` `https://discounts-prices-api-sandbox.wildberries.ru/ping` | | Маркетплейс | `https://marketplace-api.wildberries.ru/ping` | | Статистика | `https://statistics-api.wildberries.ru/ping` `https://statistics-api-sandbox.wildberries.ru/ping` | | Продвижение | `https://advert-api.wildberries.ru/ping` `https://advert-api-sandbox.wildberries.ru/ping` | | Вопросы и отзывы | `https://feedbacks-api.wildberries.ru/ping` `https://feedbacks-api-sandbox.wildberries.ru/ping` | | Чат с покупателями | `https://buyer-chat-api.wildberries.ru/ping` | | Поставки | `https://supplies-api.wildberries.ru/ping` | | Возвраты покупателями | `https://returns-api.wildberries.ru/ping` | | Документы | `https://documents-api.wildberries.ru/ping` | | Финансы | `https://finance-api.wildberries.ru/ping` | | Тарифы, Новости, Получить информацию о продавце | `https://common-api.wildberries.ru/ping` | | Управление пользователями продавца | `https://user-management-api.wildberries.ru/ping` |  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 30 сек | 3 запроса | 10 сек | 99 запросов |  Лимит действует отдельно для каждого варианта метода в зависимости от домена
+   * @summary Проверка подключения
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof GeneralApi
+   */
+  public getPing(options?: RawAxiosRequestConfig) {
+    return GeneralApiFp(this.configuration)
+      .getPing(options)
       .then((request) => request(this.axios, this.basePath));
   }
 
@@ -2056,10 +2283,10 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @summary Получить рейтинг продавца
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof GeneralApi
    */
   public getV1Rating(options?: RawAxiosRequestConfig) {
-    return DefaultApiFp(this.configuration)
+    return GeneralApiFp(this.configuration)
       .getV1Rating(options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -2069,10 +2296,10 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @summary Получить информацию о продавце
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof GeneralApi
    */
   public getV1SellerInfo(options?: RawAxiosRequestConfig) {
-    return DefaultApiFp(this.configuration)
+    return GeneralApiFp(this.configuration)
       .getV1SellerInfo(options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -2082,10 +2309,10 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @summary Получить информацию о подписке Джем
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof GeneralApi
    */
   public getV1Subscriptions(options?: RawAxiosRequestConfig) {
-    return DefaultApiFp(this.configuration)
+    return GeneralApiFp(this.configuration)
       .getV1Subscriptions(options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -2096,13 +2323,13 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {GetV1TariffConstructorOptionsLocaleEnum} [locale] Язык полей ответа:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof GeneralApi
    */
   public getV1TariffConstructorOptions(
     locale?: GetV1TariffConstructorOptionsLocaleEnum,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return GeneralApiFp(this.configuration)
       .getV1TariffConstructorOptions(locale, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -2115,7 +2342,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {boolean} [isInviteOnly] - &#x60;true&#x60; — список приглашённых пользователей, которые ещё не активировали доступ - &#x60;false&#x60; или не указан — список активных пользователей профиля продавца
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof GeneralApi
    */
   public getV1Users(
     limit?: number,
@@ -2123,8 +2350,27 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
     isInviteOnly?: boolean,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return GeneralApiFp(this.configuration)
       .getV1Users(limit, offset, isInviteOnly, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
+
+  /**
+   * Метод позволяет получать новости портала продавцов.  Для получения успешного ответа необходимо указать один из параметров `from` или `fromID`.  За один запрос можно получить не более 100 новостей.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * @summary Получение новостей портала продавцов
+   * @param {string} [from] Дата, от которой необходимо выдать новости
+   * @param {number} [fromID] ID новости, начиная с которой — включая её — нужно получить список новостей
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof GeneralApi
+   */
+  public getV2News(
+    from?: string,
+    fromID?: number,
+    options?: RawAxiosRequestConfig,
+  ) {
+    return GeneralApiFp(this.configuration)
+      .getV2News(from, fromID, options)
       .then((request) => request(this.axios, this.basePath));
   }
 
@@ -2134,13 +2380,13 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {CreateInviteRequest} createInviteRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof GeneralApi
    */
   public postV1Invite(
     createInviteRequest: CreateInviteRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return GeneralApiFp(this.configuration)
       .postV1Invite(createInviteRequest, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -2151,13 +2397,13 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {UpdateUserAccessRequest} updateUserAccessRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof GeneralApi
    */
   public putV1UsersAccess(
     updateUserAccessRequest: UpdateUserAccessRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return GeneralApiFp(this.configuration)
       .putV1UsersAccess(updateUserAccessRequest, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -2172,348 +2418,3 @@ export const GetV1TariffConstructorOptionsLocaleEnum = {
 } as const;
 export type GetV1TariffConstructorOptionsLocaleEnum =
   (typeof GetV1TariffConstructorOptionsLocaleEnum)[keyof typeof GetV1TariffConstructorOptionsLocaleEnum];
-
-/**
- * APIApi - axios parameter creator
- * @export
- */
-export const APIApiAxiosParamCreator = function (
-  configuration?: Configuration,
-) {
-  return {
-    /**
-     * Метод позволяет получать новости портала продавцов.  Для получения успешного ответа необходимо указать один из параметров `from` или `fromID`.  За один запрос можно получить не более 100 новостей.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
-     * @summary Получение новостей портала продавцов
-     * @param {string} [from] Дата, от которой необходимо выдать новости
-     * @param {number} [fromID] ID новости, начиная с которой — включая её — нужно получить список новостей
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getV2News: async (
-      from?: string,
-      fromID?: number,
-      options: RawAxiosRequestConfig = {},
-    ): Promise<RequestArgs> => {
-      const localVarPath = `/api/communications/v2/news`;
-      // use dummy base URL string because the URL constructor only accepts absolute URLs.
-      const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-      let baseOptions;
-      if (configuration) {
-        baseOptions = configuration.baseOptions;
-      }
-
-      const localVarRequestOptions = {
-        method: "GET",
-        ...baseOptions,
-        ...options,
-      };
-      const localVarHeaderParameter = {} as any;
-      const localVarQueryParameter = {} as any;
-
-      // authentication BearerAuth required
-      // http bearer authentication required
-      await setBearerAuthToObject(localVarHeaderParameter, configuration);
-
-      if (from !== undefined) {
-        localVarQueryParameter["from"] = from;
-      }
-
-      if (fromID !== undefined) {
-        localVarQueryParameter["fromID"] = fromID;
-      }
-
-      setSearchParams(localVarUrlObj, localVarQueryParameter);
-      let headersFromBaseOptions =
-        baseOptions && baseOptions.headers ? baseOptions.headers : {};
-      localVarRequestOptions.headers = {
-        ...localVarHeaderParameter,
-        ...headersFromBaseOptions,
-        ...options.headers,
-      };
-
-      return {
-        url: toPathString(localVarUrlObj),
-        options: localVarRequestOptions,
-      };
-    },
-  };
-};
-
-/**
- * APIApi - functional programming interface
- * @export
- */
-export const APIApiFp = function (configuration?: Configuration) {
-  const localVarAxiosParamCreator = APIApiAxiosParamCreator(configuration);
-  return {
-    /**
-     * Метод позволяет получать новости портала продавцов.  Для получения успешного ответа необходимо указать один из параметров `from` или `fromID`.  За один запрос можно получить не более 100 новостей.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
-     * @summary Получение новостей портала продавцов
-     * @param {string} [from] Дата, от которой необходимо выдать новости
-     * @param {number} [fromID] ID новости, начиная с которой — включая её — нужно получить список новостей
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    async getV2News(
-      from?: string,
-      fromID?: number,
-      options?: RawAxiosRequestConfig,
-    ): Promise<
-      (
-        axios?: AxiosInstance,
-        basePath?: string,
-      ) => AxiosPromise<GetV2NewsResponse200>
-    > {
-      const localVarAxiosArgs = await localVarAxiosParamCreator.getV2News(
-        from,
-        fromID,
-        options,
-      );
-      const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-      const localVarOperationServerBasePath =
-        operationServerMap["APIApi.getV2News"]?.[localVarOperationServerIndex]
-          ?.url;
-      return (axios, basePath) =>
-        createRequestFunction(
-          localVarAxiosArgs,
-          globalAxios,
-          BASE_PATH,
-          configuration,
-        )(axios, localVarOperationServerBasePath || basePath);
-    },
-  };
-};
-
-/**
- * APIApi - factory interface
- * @export
- */
-export const APIApiFactory = function (
-  configuration?: Configuration,
-  basePath?: string,
-  axios?: AxiosInstance,
-) {
-  const localVarFp = APIApiFp(configuration);
-  return {
-    /**
-     * Метод позволяет получать новости портала продавцов.  Для получения успешного ответа необходимо указать один из параметров `from` или `fromID`.  За один запрос можно получить не более 100 новостей.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
-     * @summary Получение новостей портала продавцов
-     * @param {string} [from] Дата, от которой необходимо выдать новости
-     * @param {number} [fromID] ID новости, начиная с которой — включая её — нужно получить список новостей
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getV2News(
-      from?: string,
-      fromID?: number,
-      options?: RawAxiosRequestConfig,
-    ): AxiosPromise<GetV2NewsResponse200> {
-      return localVarFp
-        .getV2News(from, fromID, options)
-        .then((request) => request(axios, basePath));
-    },
-  };
-};
-
-/**
- * APIApi - interface
- * @export
- * @interface APIApi
- */
-export interface APIApiInterface {
-  /**
-   * Метод позволяет получать новости портала продавцов.  Для получения успешного ответа необходимо указать один из параметров `from` или `fromID`.  За один запрос можно получить не более 100 новостей.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
-   * @summary Получение новостей портала продавцов
-   * @param {string} [from] Дата, от которой необходимо выдать новости
-   * @param {number} [fromID] ID новости, начиная с которой — включая её — нужно получить список новостей
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   * @memberof APIApiInterface
-   */
-  getV2News(
-    from?: string,
-    fromID?: number,
-    options?: RawAxiosRequestConfig,
-  ): AxiosPromise<GetV2NewsResponse200>;
-}
-
-/**
- * APIApi - object-oriented interface
- * @export
- * @class APIApi
- * @extends {BaseAPI}
- */
-export class APIApi extends BaseAPI implements APIApiInterface {
-  /**
-   * Метод позволяет получать новости портала продавцов.  Для получения успешного ответа необходимо указать один из параметров `from` или `fromID`.  За один запрос можно получить не более 100 новостей.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
-   * @summary Получение новостей портала продавцов
-   * @param {string} [from] Дата, от которой необходимо выдать новости
-   * @param {number} [fromID] ID новости, начиная с которой — включая её — нужно получить список новостей
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   * @memberof APIApi
-   */
-  public getV2News(
-    from?: string,
-    fromID?: number,
-    options?: RawAxiosRequestConfig,
-  ) {
-    return APIApiFp(this.configuration)
-      .getV2News(from, fromID, options)
-      .then((request) => request(this.axios, this.basePath));
-  }
-}
-
-/**
- * WBAPIApi - axios parameter creator
- * @export
- */
-export const WBAPIApiAxiosParamCreator = function (
-  configuration?: Configuration,
-) {
-  return {
-    /**
-     * Метод проверяет: 1. Успешно ли запрос доходит до WB API 2. Валидность токена авторизации и URL запроса 3. Совпадают ли категория токена и сервис  Метод не предназначен для проверки доступности сервисов WB  У каждого сервиса есть свой вариант метода в зависимости от домена: | Категория | URL запроса | |---------------|-----------------------| | Контент | `https://content-api.wildberries.ru/ping` `https://content-api-sandbox.wildberries.ru/ping` | | Аналитика | `https://seller-analytics-api.wildberries.ru/ping` | | Цены и скидки | `https://discounts-prices-api.wildberries.ru/ping` `https://discounts-prices-api-sandbox.wildberries.ru/ping` | | Маркетплейс | `https://marketplace-api.wildberries.ru/ping` | | Статистика | `https://statistics-api.wildberries.ru/ping` `https://statistics-api-sandbox.wildberries.ru/ping` | | Продвижение | `https://advert-api.wildberries.ru/ping` `https://advert-api-sandbox.wildberries.ru/ping` | | Вопросы и отзывы | `https://feedbacks-api.wildberries.ru/ping` `https://feedbacks-api-sandbox.wildberries.ru/ping` | | Чат с покупателями | `https://buyer-chat-api.wildberries.ru/ping` | | Поставки | `https://supplies-api.wildberries.ru/ping` | | Возвраты покупателями | `https://returns-api.wildberries.ru/ping` | | Документы | `https://documents-api.wildberries.ru/ping` | | Финансы | `https://finance-api.wildberries.ru/ping` | | Тарифы, Новости, Получить информацию о продавце | `https://common-api.wildberries.ru/ping` | | Управление пользователями продавца | `https://user-management-api.wildberries.ru/ping` |  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 30 сек | 3 запроса | 10 сек | 99 запросов |  Лимит действует отдельно для каждого варианта метода в зависимости от домена
-     * @summary Проверка подключения
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getPing: async (
-      options: RawAxiosRequestConfig = {},
-    ): Promise<RequestArgs> => {
-      const localVarPath = `/ping`;
-      // use dummy base URL string because the URL constructor only accepts absolute URLs.
-      const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-      let baseOptions;
-      if (configuration) {
-        baseOptions = configuration.baseOptions;
-      }
-
-      const localVarRequestOptions = {
-        method: "GET",
-        ...baseOptions,
-        ...options,
-      };
-      const localVarHeaderParameter = {} as any;
-      const localVarQueryParameter = {} as any;
-
-      // authentication BearerAuth required
-      // http bearer authentication required
-      await setBearerAuthToObject(localVarHeaderParameter, configuration);
-
-      setSearchParams(localVarUrlObj, localVarQueryParameter);
-      let headersFromBaseOptions =
-        baseOptions && baseOptions.headers ? baseOptions.headers : {};
-      localVarRequestOptions.headers = {
-        ...localVarHeaderParameter,
-        ...headersFromBaseOptions,
-        ...options.headers,
-      };
-
-      return {
-        url: toPathString(localVarUrlObj),
-        options: localVarRequestOptions,
-      };
-    },
-  };
-};
-
-/**
- * WBAPIApi - functional programming interface
- * @export
- */
-export const WBAPIApiFp = function (configuration?: Configuration) {
-  const localVarAxiosParamCreator = WBAPIApiAxiosParamCreator(configuration);
-  return {
-    /**
-     * Метод проверяет: 1. Успешно ли запрос доходит до WB API 2. Валидность токена авторизации и URL запроса 3. Совпадают ли категория токена и сервис  Метод не предназначен для проверки доступности сервисов WB  У каждого сервиса есть свой вариант метода в зависимости от домена: | Категория | URL запроса | |---------------|-----------------------| | Контент | `https://content-api.wildberries.ru/ping` `https://content-api-sandbox.wildberries.ru/ping` | | Аналитика | `https://seller-analytics-api.wildberries.ru/ping` | | Цены и скидки | `https://discounts-prices-api.wildberries.ru/ping` `https://discounts-prices-api-sandbox.wildberries.ru/ping` | | Маркетплейс | `https://marketplace-api.wildberries.ru/ping` | | Статистика | `https://statistics-api.wildberries.ru/ping` `https://statistics-api-sandbox.wildberries.ru/ping` | | Продвижение | `https://advert-api.wildberries.ru/ping` `https://advert-api-sandbox.wildberries.ru/ping` | | Вопросы и отзывы | `https://feedbacks-api.wildberries.ru/ping` `https://feedbacks-api-sandbox.wildberries.ru/ping` | | Чат с покупателями | `https://buyer-chat-api.wildberries.ru/ping` | | Поставки | `https://supplies-api.wildberries.ru/ping` | | Возвраты покупателями | `https://returns-api.wildberries.ru/ping` | | Документы | `https://documents-api.wildberries.ru/ping` | | Финансы | `https://finance-api.wildberries.ru/ping` | | Тарифы, Новости, Получить информацию о продавце | `https://common-api.wildberries.ru/ping` | | Управление пользователями продавца | `https://user-management-api.wildberries.ru/ping` |  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 30 сек | 3 запроса | 10 сек | 99 запросов |  Лимит действует отдельно для каждого варианта метода в зависимости от домена
-     * @summary Проверка подключения
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    async getPing(
-      options?: RawAxiosRequestConfig,
-    ): Promise<
-      (
-        axios?: AxiosInstance,
-        basePath?: string,
-      ) => AxiosPromise<GetPingResponse200>
-    > {
-      const localVarAxiosArgs =
-        await localVarAxiosParamCreator.getPing(options);
-      const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-      const localVarOperationServerBasePath =
-        operationServerMap["WBAPIApi.getPing"]?.[localVarOperationServerIndex]
-          ?.url;
-      return (axios, basePath) =>
-        createRequestFunction(
-          localVarAxiosArgs,
-          globalAxios,
-          BASE_PATH,
-          configuration,
-        )(axios, localVarOperationServerBasePath || basePath);
-    },
-  };
-};
-
-/**
- * WBAPIApi - factory interface
- * @export
- */
-export const WBAPIApiFactory = function (
-  configuration?: Configuration,
-  basePath?: string,
-  axios?: AxiosInstance,
-) {
-  const localVarFp = WBAPIApiFp(configuration);
-  return {
-    /**
-     * Метод проверяет: 1. Успешно ли запрос доходит до WB API 2. Валидность токена авторизации и URL запроса 3. Совпадают ли категория токена и сервис  Метод не предназначен для проверки доступности сервисов WB  У каждого сервиса есть свой вариант метода в зависимости от домена: | Категория | URL запроса | |---------------|-----------------------| | Контент | `https://content-api.wildberries.ru/ping` `https://content-api-sandbox.wildberries.ru/ping` | | Аналитика | `https://seller-analytics-api.wildberries.ru/ping` | | Цены и скидки | `https://discounts-prices-api.wildberries.ru/ping` `https://discounts-prices-api-sandbox.wildberries.ru/ping` | | Маркетплейс | `https://marketplace-api.wildberries.ru/ping` | | Статистика | `https://statistics-api.wildberries.ru/ping` `https://statistics-api-sandbox.wildberries.ru/ping` | | Продвижение | `https://advert-api.wildberries.ru/ping` `https://advert-api-sandbox.wildberries.ru/ping` | | Вопросы и отзывы | `https://feedbacks-api.wildberries.ru/ping` `https://feedbacks-api-sandbox.wildberries.ru/ping` | | Чат с покупателями | `https://buyer-chat-api.wildberries.ru/ping` | | Поставки | `https://supplies-api.wildberries.ru/ping` | | Возвраты покупателями | `https://returns-api.wildberries.ru/ping` | | Документы | `https://documents-api.wildberries.ru/ping` | | Финансы | `https://finance-api.wildberries.ru/ping` | | Тарифы, Новости, Получить информацию о продавце | `https://common-api.wildberries.ru/ping` | | Управление пользователями продавца | `https://user-management-api.wildberries.ru/ping` |  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 30 сек | 3 запроса | 10 сек | 99 запросов |  Лимит действует отдельно для каждого варианта метода в зависимости от домена
-     * @summary Проверка подключения
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getPing(options?: RawAxiosRequestConfig): AxiosPromise<GetPingResponse200> {
-      return localVarFp
-        .getPing(options)
-        .then((request) => request(axios, basePath));
-    },
-  };
-};
-
-/**
- * WBAPIApi - interface
- * @export
- * @interface WBAPIApi
- */
-export interface WBAPIApiInterface {
-  /**
-   * Метод проверяет: 1. Успешно ли запрос доходит до WB API 2. Валидность токена авторизации и URL запроса 3. Совпадают ли категория токена и сервис  Метод не предназначен для проверки доступности сервисов WB  У каждого сервиса есть свой вариант метода в зависимости от домена: | Категория | URL запроса | |---------------|-----------------------| | Контент | `https://content-api.wildberries.ru/ping` `https://content-api-sandbox.wildberries.ru/ping` | | Аналитика | `https://seller-analytics-api.wildberries.ru/ping` | | Цены и скидки | `https://discounts-prices-api.wildberries.ru/ping` `https://discounts-prices-api-sandbox.wildberries.ru/ping` | | Маркетплейс | `https://marketplace-api.wildberries.ru/ping` | | Статистика | `https://statistics-api.wildberries.ru/ping` `https://statistics-api-sandbox.wildberries.ru/ping` | | Продвижение | `https://advert-api.wildberries.ru/ping` `https://advert-api-sandbox.wildberries.ru/ping` | | Вопросы и отзывы | `https://feedbacks-api.wildberries.ru/ping` `https://feedbacks-api-sandbox.wildberries.ru/ping` | | Чат с покупателями | `https://buyer-chat-api.wildberries.ru/ping` | | Поставки | `https://supplies-api.wildberries.ru/ping` | | Возвраты покупателями | `https://returns-api.wildberries.ru/ping` | | Документы | `https://documents-api.wildberries.ru/ping` | | Финансы | `https://finance-api.wildberries.ru/ping` | | Тарифы, Новости, Получить информацию о продавце | `https://common-api.wildberries.ru/ping` | | Управление пользователями продавца | `https://user-management-api.wildberries.ru/ping` |  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 30 сек | 3 запроса | 10 сек | 99 запросов |  Лимит действует отдельно для каждого варианта метода в зависимости от домена
-   * @summary Проверка подключения
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   * @memberof WBAPIApiInterface
-   */
-  getPing(options?: RawAxiosRequestConfig): AxiosPromise<GetPingResponse200>;
-}
-
-/**
- * WBAPIApi - object-oriented interface
- * @export
- * @class WBAPIApi
- * @extends {BaseAPI}
- */
-export class WBAPIApi extends BaseAPI implements WBAPIApiInterface {
-  /**
-   * Метод проверяет: 1. Успешно ли запрос доходит до WB API 2. Валидность токена авторизации и URL запроса 3. Совпадают ли категория токена и сервис  Метод не предназначен для проверки доступности сервисов WB  У каждого сервиса есть свой вариант метода в зависимости от домена: | Категория | URL запроса | |---------------|-----------------------| | Контент | `https://content-api.wildberries.ru/ping` `https://content-api-sandbox.wildberries.ru/ping` | | Аналитика | `https://seller-analytics-api.wildberries.ru/ping` | | Цены и скидки | `https://discounts-prices-api.wildberries.ru/ping` `https://discounts-prices-api-sandbox.wildberries.ru/ping` | | Маркетплейс | `https://marketplace-api.wildberries.ru/ping` | | Статистика | `https://statistics-api.wildberries.ru/ping` `https://statistics-api-sandbox.wildberries.ru/ping` | | Продвижение | `https://advert-api.wildberries.ru/ping` `https://advert-api-sandbox.wildberries.ru/ping` | | Вопросы и отзывы | `https://feedbacks-api.wildberries.ru/ping` `https://feedbacks-api-sandbox.wildberries.ru/ping` | | Чат с покупателями | `https://buyer-chat-api.wildberries.ru/ping` | | Поставки | `https://supplies-api.wildberries.ru/ping` | | Возвраты покупателями | `https://returns-api.wildberries.ru/ping` | | Документы | `https://documents-api.wildberries.ru/ping` | | Финансы | `https://finance-api.wildberries.ru/ping` | | Тарифы, Новости, Получить информацию о продавце | `https://common-api.wildberries.ru/ping` | | Управление пользователями продавца | `https://user-management-api.wildberries.ru/ping` |  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 30 сек | 3 запроса | 10 сек | 99 запросов |  Лимит действует отдельно для каждого варианта метода в зависимости от домена
-   * @summary Проверка подключения
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   * @memberof WBAPIApi
-   */
-  public getPing(options?: RawAxiosRequestConfig) {
-    return WBAPIApiFp(this.configuration)
-      .getPing(options)
-      .then((request) => request(this.axios, this.basePath));
-  }
-}

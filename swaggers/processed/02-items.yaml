@@ -90,7 +90,7 @@ paths:
 
         В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
       tags:
-      - Категории, предметы и характеристики
+      - Items
       parameters:
       - name: locale
         in: query
@@ -134,6 +134,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: categoriesSubcategoriesAndCharacteristics
+      x-original-tags:
+      - Категории, предметы и характеристики
   /content/v2/object/all:
     servers:
     - url: https://content-api.wildberries.ru
@@ -169,7 +171,7 @@ paths:
 
         В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
       tags:
-      - Категории, предметы и характеристики
+      - Items
       parameters:
       - name: locale
         in: query
@@ -236,6 +238,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: categoriesSubcategoriesAndCharacteristics
+      x-original-tags:
+      - Категории, предметы и характеристики
   /content/v2/object/charcs/{subjectId}:
     servers:
     - url: https://content-api.wildberries.ru
@@ -273,7 +277,7 @@ paths:
 
         В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
       tags:
-      - Категории, предметы и характеристики
+      - Items
       parameters:
       - name: subjectId
         in: path
@@ -324,6 +328,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: categoriesSubcategoriesAndCharacteristics
+      x-original-tags:
+      - Категории, предметы и характеристики
   /content/v2/directory/colors:
     servers:
     - url: https://content-api.wildberries.ru
@@ -354,7 +360,7 @@ paths:
 
         В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
       tags:
-      - Категории, предметы и характеристики
+      - Items
       parameters:
       - name: locale
         in: query
@@ -398,6 +404,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: categoriesSubcategoriesAndCharacteristics
+      x-original-tags:
+      - Категории, предметы и характеристики
   /content/v2/directory/kinds:
     servers:
     - url: https://content-api.wildberries.ru
@@ -428,7 +436,7 @@ paths:
 
         В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
       tags:
-      - Категории, предметы и характеристики
+      - Items
       parameters:
       - name: locale
         in: query
@@ -472,6 +480,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: categoriesSubcategoriesAndCharacteristics
+      x-original-tags:
+      - Категории, предметы и характеристики
   /content/v2/directory/countries:
     servers:
     - url: https://content-api.wildberries.ru
@@ -507,7 +517,7 @@ paths:
 
         В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
       tags:
-      - Категории, предметы и характеристики
+      - Items
       parameters:
       - name: locale
         in: query
@@ -551,6 +561,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: categoriesSubcategoriesAndCharacteristics
+      x-original-tags:
+      - Категории, предметы и характеристики
   /content/v2/directory/seasons:
     servers:
     - url: https://content-api.wildberries.ru
@@ -581,7 +593,7 @@ paths:
 
         В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
       tags:
-      - Категории, предметы и характеристики
+      - Items
       parameters:
       - name: locale
         in: query
@@ -625,6 +637,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: categoriesSubcategoriesAndCharacteristics
+      x-original-tags:
+      - Категории, предметы и характеристики
   /content/v2/directory/vat:
     servers:
     - url: https://content-api.wildberries.ru
@@ -655,7 +669,7 @@ paths:
 
         В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
       tags:
-      - Категории, предметы и характеристики
+      - Items
       parameters:
       - name: locale
         in: query
@@ -709,6 +723,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: categoriesSubcategoriesAndCharacteristics
+      x-original-tags:
+      - Категории, предметы и характеристики
   /content/v2/directory/tnved:
     servers:
     - url: https://content-api.wildberries.ru
@@ -744,7 +760,7 @@ paths:
 
         В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
       tags:
-      - Категории, предметы и характеристики
+      - Items
       parameters:
       - name: subjectID
         in: query
@@ -808,6 +824,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: categoriesSubcategoriesAndCharacteristics
+      x-original-tags:
+      - Категории, предметы и характеристики
   /api/content/v2/directory/tnved/all:
     servers:
     - url: https://content-api.wildberries.ru
@@ -815,7 +833,7 @@ paths:
         **Prod**
     get:
       tags:
-      - Категории, предметы и характеристики
+      - Items
       x-readonly-method: true
       x-category: content
       operationId: getV2DirectoryTnvedAll
@@ -896,6 +914,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: categoriesSubcategoriesAndCharacteristics
+      x-original-tags:
+      - Категории, предметы и характеристики
   /api/content/v2/directory/okpd:
     servers:
     - url: https://content-api.wildberries.ru
@@ -903,7 +923,7 @@ paths:
         **Prod**
     get:
       tags:
-      - Категории, предметы и характеристики
+      - Items
       x-readonly-method: true
       x-category: content
       operationId: getV2DirectoryOkpd
@@ -980,6 +1000,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: categoriesSubcategoriesAndCharacteristics
+      x-original-tags:
+      - Категории, предметы и характеристики
   /api/content/v2/directory/okpd/all:
     servers:
     - url: https://content-api.wildberries.ru
@@ -987,7 +1009,7 @@ paths:
         **Prod**
     get:
       tags:
-      - Категории, предметы и характеристики
+      - Items
       x-readonly-method: true
       x-category: content
       operationId: getV2DirectoryOkpdAll
@@ -1062,6 +1084,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: categoriesSubcategoriesAndCharacteristics
+      x-original-tags:
+      - Категории, предметы и характеристики
   /api/content/v1/brands:
     servers:
     - url: https://content-api.wildberries.ru
@@ -1083,7 +1107,7 @@ paths:
         | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 5 запросов |
         | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
       tags:
-      - Категории, предметы и характеристики
+      - Items
       parameters:
       - name: subjectId
         in: query
@@ -1132,6 +1156,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: categoriesSubcategoriesAndCharacteristics
+      x-original-tags:
+      - Категории, предметы и характеристики
   /content/v2/tags:
     servers:
     - url: https://content-api.wildberries.ru
@@ -1162,7 +1188,7 @@ paths:
 
         В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
       tags:
-      - Ярлыки
+      - Items
       responses:
         '200':
           description: Успешно
@@ -1197,6 +1223,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: labels
+      x-original-tags:
+      - Ярлыки
   /content/v2/tag:
     servers:
     - url: https://content-api.wildberries.ru
@@ -1229,7 +1257,7 @@ paths:
 
         В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
       tags:
-      - Ярлыки
+      - Items
       requestBody:
         required: true
         content:
@@ -1295,6 +1323,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: labels
+      x-original-tags:
+      - Ярлыки
   /content/v2/tag/{id}:
     servers:
     - url: https://content-api.wildberries.ru
@@ -1327,7 +1357,7 @@ paths:
 
         В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
       tags:
-      - Ярлыки
+      - Items
       parameters:
       - name: id
         in: path
@@ -1391,6 +1421,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: labels
+      x-original-tags:
+      - Ярлыки
     delete:
       operationId: deleteV2TagId
       x-readonly-method: false
@@ -1413,7 +1445,7 @@ paths:
 
         В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
       tags:
-      - Ярлыки
+      - Items
       parameters:
       - name: id
         in: path
@@ -1462,6 +1494,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: labels
+      x-original-tags:
+      - Ярлыки
   /content/v2/tag/nomenclature/link:
     servers:
     - url: https://content-api.wildberries.ru
@@ -1493,7 +1527,7 @@ paths:
 
         В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
       tags:
-      - Ярлыки
+      - Items
       requestBody:
         required: true
         content:
@@ -1552,6 +1586,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: labels
+      x-original-tags:
+      - Ярлыки
   /content/v2/get/cards/list:
     servers:
     - url: https://content-api.wildberries.ru
@@ -1567,7 +1603,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Карточки товаров
+      - Items
       summary: Список карточек товаров
       description: |-
         Метод возвращает список созданных карточек товаров.
@@ -1834,6 +1870,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: listings
+      x-original-tags:
+      - Карточки товаров
   /content/v2/cards/error/list:
     servers:
     - url: https://content-api.wildberries.ru
@@ -1889,7 +1927,7 @@ paths:
 
         В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
       tags:
-      - Карточки товаров
+      - Items
       parameters:
       - name: locale
         in: query
@@ -2005,6 +2043,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: listings
+      x-original-tags:
+      - Карточки товаров
   /content/v2/cards/update:
     servers:
     - url: https://content-api.wildberries.ru
@@ -2018,7 +2058,7 @@ paths:
       x-readonly-method: false
       x-category: content
       tags:
-      - Карточки товаров
+      - Items
       summary: Редактирование карточек товаров
       description: |-
         Метод обновляет данные карточек товаров. Также используйте его, чтобы добавлять новые размеры и документы.
@@ -2264,6 +2304,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: listings
+      x-original-tags:
+      - Карточки товаров
   /content/v2/cards/moveNm:
     servers:
     - url: https://content-api.wildberries.ru
@@ -2277,7 +2319,7 @@ paths:
       x-readonly-method: false
       x-category: content
       tags:
-      - Карточки товаров
+      - Items
       summary: Объединение и разъединение карточек товаров
       description: |-
         Метод [объединяет и разъединяет](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточки товаров. Карточки товаров являются объединёнными, если у них одинаковый `imtID`.
@@ -2384,6 +2426,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: listings
+      x-original-tags:
+      - Карточки товаров
   /content/v2/cards/delete/trash:
     servers:
     - url: https://content-api.wildberries.ru
@@ -2417,7 +2461,7 @@ paths:
         | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов |
         | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
       tags:
-      - Карточки товаров
+      - Items
       requestBody:
         required: true
         content:
@@ -2473,6 +2517,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: listings
+      x-original-tags:
+      - Карточки товаров
   /content/v2/cards/recover:
     servers:
     - url: https://content-api.wildberries.ru
@@ -2501,7 +2547,7 @@ paths:
         | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 5 запросов |
         | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
       tags:
-      - Карточки товаров
+      - Items
       requestBody:
         required: true
         content:
@@ -2557,6 +2603,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: listings
+      x-original-tags:
+      - Карточки товаров
   /content/v2/get/cards/trash:
     servers:
     - url: https://content-api.wildberries.ru
@@ -2617,7 +2665,7 @@ paths:
 
         В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
       tags:
-      - Карточки товаров
+      - Items
       parameters:
       - name: locale
         in: query
@@ -2756,6 +2804,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: listings
+      x-original-tags:
+      - Карточки товаров
   /content/v2/cards/limits:
     servers:
     - url: https://content-api.wildberries.ru
@@ -2794,7 +2844,7 @@ paths:
 
         В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
       tags:
-      - Создание карточек товаров
+      - Items
       responses:
         '200':
           description: Успешно
@@ -2826,6 +2876,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: listingItems
+      x-original-tags:
+      - Создание карточек товаров
   /content/v2/barcodes:
     servers:
     - url: https://content-api.wildberries.ru
@@ -2861,7 +2913,7 @@ paths:
 
         В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
       tags:
-      - Создание карточек товаров
+      - Items
       requestBody:
         required: true
         content:
@@ -2899,6 +2951,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: listingItems
+      x-original-tags:
+      - Создание карточек товаров
   /content/v2/cards/upload:
     servers:
     - url: https://content-api.wildberries.ru
@@ -2912,7 +2966,7 @@ paths:
       x-readonly-method: false
       x-category: content
       tags:
-      - Создание карточек товаров
+      - Items
       summary: Создание карточек товаров
       description: "Метод создаёт карточки товаров c указанием описаний и характеристик товаров.\n\nЕсть две формы запроса: для создания отдельных и объединённых карточек товаров\n\nГабариты товаров можно указать только в `сантиметрах`, вес товара с упаковкой — в `килограммах`.\n\nСоздание карточки товара происходит асинхронно. Синхронизация новой карточки с сервисами может занимать до 30 минут. В течение этого времени невозможно добавить остатки на склады и настроить цены.\n В песочнице карточка товара создаётся сразу, без ожидания.\n\nОдним запросом можно создать максимум 100 отдельных карточек товаров или 100 групп [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров по 30 карточек в каждой. Максимальный размер запроса 10 Мб.\nЕсли ответ `Успешно` (`200`), но какие-то карточки не создались, проверьте [список несозданных карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsErrorList).\n\nЧтобы прикрепить документы к карточке товара, передайте данные документов в объекте запроса `documents`.\nЧтобы подтвердить, что для товара не требуются документы, передайте `true` в параметре `excludeDocuments`.\n\nПроверка документов выполняется асинхронно и может занимать до 3 дней. При изменении карточки или документа проверка запускается повторно.\nРезультаты проверки отображаются в [списке карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2GetCardsList), объект `documents`:\n- результат по каждому документу в полях `verdict` объекта `items`. Если `verdict` не возвращается в ответе — проверка документа ещё не завершена\n- итоговый общий результат по карточке в поле `overallVerdict`. При общей проверке карточки учитываются не только результаты проверки документов, но и другие данные. Например, наличие обязательной маркировки и сведения из внешних реестров. Если `overallVerdict` не возвращается в ответе — проверка карточки ещё не завершена\n\nТипы документов, которые вы можете добавить для товара, указаны в [характеристиках предмета](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId).\n\nПри этом не все документы, которые вы можете добавить, обязательны и проходят проверку — вы самостоятельно определяете, какие разрешительные документы требуются для товара в соответствии с законодательством.\n\n[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:\n| Период | Лимит | Интервал | Всплеск |\n| --- | --- | --- | --- |\n| 1 мин | 10 запросов | 6 сек | 5 запросов |"
       requestBody:
@@ -3136,6 +3190,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: listingItems
+      x-original-tags:
+      - Создание карточек товаров
   /content/v2/cards/upload/add:
     servers:
     - url: https://content-api.wildberries.ru
@@ -3149,7 +3205,7 @@ paths:
       x-readonly-method: false
       x-category: content
       tags:
-      - Создание карточек товаров
+      - Items
       summary: Создание карточек товаров с присоединением
       description: |-
         Метод создаёт карточки товаров, присоединяя их к существующим отдельным карточкам и группам [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. В одной группе объединённых карточек товаров может быть не более 30 карточек, соответственно, создать с присоединением можно не более 29 карточек товаров за один запрос.
@@ -3452,6 +3508,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: listingItems
+      x-original-tags:
+      - Создание карточек товаров
   /content/v3/media/file:
     servers:
     - url: https://content-api.wildberries.ru
@@ -3469,7 +3527,7 @@ paths:
       summary: Загрузить медиафайл
       description: "Метод загружает и добавляет один медиафайл к карточке товара.\nТребования к изображениям:\n\\* максимум изображений для одной карточки товара — 30\n\\* минимальное разрешение — 700x900 px\n\\* максимальный размер — 32 Мб\n\\* минимальное качество — 65%\n\\* форматы — JPG, PNG, BMP, GIF (статичные), WebP\nТребования к видео:\n\\* максимум одно видео для одной карточки товара\n\\* максимальный размер — 50 Мб\n\\* форматы — MOV, MP4\n\n[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **Медиафайлов**:\n| Тип | Период | Лимит | Интервал | Всплеск |\n| --- | --- | --- | --- | --- |\n| Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов |\n| Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов |\n| Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов |\n| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |\n\n---\n\nВ песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**."
       tags:
-      - Медиафайлы
+      - Items
       parameters:
       - name: X-Nm-Id
         in: header
@@ -3534,6 +3592,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: mediaFiles
+      x-original-tags:
+      - Медиафайлы
   /content/v3/media/save:
     servers:
     - url: https://content-api.wildberries.ru
@@ -3551,7 +3611,7 @@ paths:
       summary: Загрузить медиафайлы по ссылкам
       description: "Метод загружает набор медиафайлов в карточку товара через указание ссылок в запросе.\n\nНовые медиафайлы полностью заменяют старые. Чтобы добавить новые медиафайлы, укажите в запросе ссылки одновременно на новые и старые медиафайлы.\n\nТребования к ссылкам:\n\\* для доступа к файлу по ссылке не нужна авторизация\n\\* ссылка ведёт прямо на файл. Убедитесь, что ссылка не ведёт на страницу предпросмотра или авторизации. Ссылка должна заканчиваться на имя файла с расширением — например, `/file\\_name.jpg`. Если по ссылке открывается текстовая страница TXT или HTML, ссылка считается некорректной.\nПомните, что некоторые хранилища не формируют прямые ссылки и поэтому не подходят для использования. К таким хранилищам относится, например, \\*\\*Google Drive\\*\\*, который формирует ссылки только на предпросмотр файла либо на служебные страницы.\nТребования к изображениям:\n\\* максимум изображений для одной карточки товара — 30\n\\* минимальное разрешение — 700×900 px\n\\* максимальный размер — 32 Мб\n\\* минимальное качество — 65%\n\\* форматы — JPG, PNG, BMP, GIF (статичные), WebP\nТребования к видео:\n\\* максимум одно видео для одной карточки товара\n\\* максимальный размер — 50 Мб\n\\* форматы — MOV, MP4\nЕсли видео или хотя бы одно изображение в запросе не соответствует требованиям, то даже при успешном ответе (`200`) ни одно изображение/видео не загрузится.\n\n[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **Медиафайлов**:\n| Тип | Период | Лимит | Интервал | Всплеск |\n| --- | --- | --- | --- | --- |\n| Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов |\n| Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов |\n| Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов |\n| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |\n\n---\n\nВ песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**."
       tags:
-      - Медиафайлы
+      - Items
       requestBody:
         required: true
         content:
@@ -3621,6 +3681,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: mediaFiles
+      x-original-tags:
+      - Медиафайлы
   /api/content/v1/recommendations/list:
     servers:
     - url: https://content-api.wildberries.ru
@@ -3631,7 +3693,7 @@ paths:
       - personal
       - service
       tags:
-      - Рекомендации
+      - Items
       summary: Список рекомендаций в карточках товаров
       operationId: postV1RecommendationsList
       description: |-
@@ -3679,6 +3741,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: recommendations
+      x-original-tags:
+      - Рекомендации
   /api/content/v1/recommendations/set:
     servers:
     - url: https://content-api.wildberries.ru
@@ -3688,7 +3752,7 @@ paths:
       - personal
       - service
       tags:
-      - Рекомендации
+      - Items
       summary: Установить рекомендации для товаров
       operationId: postV1RecommendationsSet
       description: |-
@@ -3743,6 +3807,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: recommendations
+      x-original-tags:
+      - Рекомендации
   /api/v2/upload/task:
     servers:
     - url: https://discounts-prices-api.wildberries.ru
@@ -3758,7 +3824,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Цены и скидки
+      - Items
       summary: Установить цены и скидки
       description: |-
         Метод устанавливает цены и скидки для товаров.
@@ -3854,6 +3920,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: pricesAndDiscounts
+      x-original-tags:
+      - Цены и скидки
   /api/v2/upload/task/size:
     servers:
     - url: https://discounts-prices-api.wildberries.ru
@@ -3869,7 +3937,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Цены и скидки
+      - Items
       summary: Установить цены для размеров
       description: |-
         Метод устанавливает цены отдельно для размеров товаров.
@@ -3967,6 +4035,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: pricesAndDiscounts
+      x-original-tags:
+      - Цены и скидки
   /api/v2/upload/task/club-discount:
     servers:
     - url: https://discounts-prices-api.wildberries.ru
@@ -3982,7 +4052,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Цены и скидки
+      - Items
       summary: Установить скидки WB Клуба
       description: |-
         Устанавливает скидки для товаров в рамках подписки [WB Клуб](https://seller.wildberries.ru/help-center/article/A-337).
@@ -4062,6 +4132,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: pricesAndDiscounts
+      x-original-tags:
+      - Цены и скидки
   /api/discounts-prices/v1/upload/task/b2b/wholesale:
     servers:
     - url: https://discounts-prices-api.wildberries.ru
@@ -4074,7 +4146,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Цены и скидки
+      - Items
       summary: Установить оптовые скидки для B2B-продаж
       operationId: postV1UploadTaskB2bWholesale
       description: |-
@@ -4128,6 +4200,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: pricesAndDiscounts
+      x-original-tags:
+      - Цены и скидки
   /api/v2/history/tasks:
     servers:
     - url: https://discounts-prices-api.wildberries.ru
@@ -4143,7 +4217,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Цены и скидки
+      - Items
       summary: Состояние обработанной загрузки
       description: |-
         Метод возвращает информацию об обработанной загрузке цен и скидок.
@@ -4195,6 +4269,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: pricesAndDiscounts
+      x-original-tags:
+      - Цены и скидки
   /api/v2/history/goods/task:
     servers:
     - url: https://discounts-prices-api.wildberries.ru
@@ -4210,7 +4286,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Цены и скидки
+      - Items
       summary: Детализация обработанной загрузки
       description: |-
         Метод возвращает информацию о товарах и об ошибках в товарах в обработанной загрузке.
@@ -4264,6 +4340,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: pricesAndDiscounts
+      x-original-tags:
+      - Цены и скидки
   /api/v2/buffer/tasks:
     servers:
     - url: https://discounts-prices-api.wildberries.ru
@@ -4279,7 +4357,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Цены и скидки
+      - Items
       summary: Состояние необработанной загрузки
       description: |-
         Метод возвращает информацию про загрузку скидок в обработке.
@@ -4331,6 +4409,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: pricesAndDiscounts
+      x-original-tags:
+      - Цены и скидки
   /api/v2/buffer/goods/task:
     servers:
     - url: https://discounts-prices-api.wildberries.ru
@@ -4346,7 +4426,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Цены и скидки
+      - Items
       summary: Детализация необработанной загрузки
       description: |-
         Метод возвращает информацию о товарах и ошибках в товарах из загрузки в обработке.
@@ -4400,6 +4480,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: pricesAndDiscounts
+      x-original-tags:
+      - Цены и скидки
   /api/v2/list/goods/filter:
     servers:
     - url: https://discounts-prices-api.wildberries.ru
@@ -4415,7 +4497,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Цены и скидки
+      - Items
       summary: Получить товары с ценами
       description: |-
         Метод возвращает информацию о товарах: цены, валюту, общие скидки, [скидки WB Клуба](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskClubDiscount) и [оптовые скидки для B2B-продаж](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/postV1UploadTaskB2bWholesale).
@@ -4479,6 +4561,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: pricesAndDiscounts
+      x-original-tags:
+      - Цены и скидки
     post:
       operationId: postV2ListGoodsFilter
       x-readonly-method: true
@@ -4486,7 +4570,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Цены и скидки
+      - Items
       summary: Получить товары с ценами по артикулам
       description: |-
         Метод возвращает информацию о товарах по их артикулам: цены, валюту, общие скидки, [скидки WB Клуба](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskClubDiscount) и [оптовые скидки для B2B-продаж](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/postV1UploadTaskB2bWholesale).
@@ -4544,6 +4628,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: pricesAndDiscounts
+      x-original-tags:
+      - Цены и скидки
   /api/v2/list/goods/size/nm:
     servers:
     - url: https://discounts-prices-api.wildberries.ru
@@ -4559,7 +4645,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Цены и скидки
+      - Items
       summary: Получить размеры товара с ценами
       description: |-
         Метод возвращает информацию обо всех размерах одного товара: цены, валюту, общие скидки и скидки для [WB Клуба](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskClubDiscount).
@@ -4617,6 +4703,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: pricesAndDiscounts
+      x-original-tags:
+      - Цены и скидки
   /api/v2/quarantine/goods:
     servers:
     - url: https://discounts-prices-api.wildberries.ru
@@ -4632,7 +4720,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Цены и скидки
+      - Items
       summary: Получить товары в карантине
       description: "Метод возвращает информацию о товарах в карантине.\n\nЕсли новая цена товара со скидкой будет меньше [порогового значения](https://seller.wildberries.ru/instructions/ru/ru/material/price-quarantine#2ef3641a-5165-41db-9ac7-e4374c9fc3f1), товар попадёт в [карантин](https://seller.wildberries.ru/instructions/ru/ru/material/price-quarantine) и будет продаваться по старой цене. Ошибка об этом будет в [детализации загрузки](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryGoodsTask).\n\nВы можете изменить цену или скидку с помощью API либо вывести товар из карантина в [личном кабинете](https://seller.wildberries.ru/discount-and-prices/quarantine).\n\nДля товаров с [поразмерной установкой цен](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskSize) карантин не применяется.\n\nВ [песочнице](https://dev.wildberries.ru/sandbox) товары автоматически удаляются из карантина через 3 дня.\n\n[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Цены и скидки**:\n| Тип | Период | Лимит | Интервал | Всплеск |\n| --- | --- | --- | --- | --- |\n| Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов |\n| Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов |\n| Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов |\n| Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |\n\n---\n\nВ песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**."
       parameters:
@@ -4681,6 +4769,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: pricesAndDiscounts
+      x-original-tags:
+      - Цены и скидки
   /api/v3/stocks/{warehouseId}:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -4696,7 +4786,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Остатки на складах продавца
+      - Items
       summary: Обновить остатки товаров
       description: |-
         Метод обновляет количество остатков товаров продавца [в списке](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehousesInventory/operation/postV3StocksWarehouseId).
@@ -4818,6 +4908,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: sellerWarehousesInventory
+      x-original-tags:
+      - Остатки на складах продавца
     delete:
       operationId: deleteV3StocksWarehouseId
       x-readonly-method: false
@@ -4825,7 +4917,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Остатки на складах продавца
+      - Items
       summary: Удалить остатки товаров
       description: |-
         Метод удаляет запись об остатках товаров продавца из [списка остатков](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehousesInventory/operation/postV3StocksWarehouseId).
@@ -4924,6 +5016,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: sellerWarehousesInventory
+      x-original-tags:
+      - Остатки на складах продавца
     post:
       operationId: postV3StocksWarehouseId
       x-readonly-method: true
@@ -4931,7 +5025,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Остатки на складах продавца
+      - Items
       summary: Получить остатки товаров
       description: |-
         Метод возвращает данные об остатках товаров на [складах продавца](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehouses).
@@ -5011,6 +5105,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: sellerWarehousesInventory
+      x-original-tags:
+      - Остатки на складах продавца
   /api/v3/offices:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -5026,7 +5122,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Склады продавца
+      - Items
       summary: Получить список складов WB
       description: |-
         Метод возвращает список складов WB для привязки к складу продавца при его [создании](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehouses/operation/postV3Warehouses) или [редактировании](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehouses/operation/putV3WarehousesWarehouseId).
@@ -5067,6 +5163,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: sellerWarehouses
+      x-original-tags:
+      - Склады продавца
   /api/v3/warehouses:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -5082,7 +5180,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Склады продавца
+      - Items
       summary: Получить список складов продавца
       description: |-
         Метод возвращает список всех складов продавца. Может использоваться для работы с [остатками товаров](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehousesInventory).
@@ -5123,6 +5221,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: sellerWarehouses
+      x-original-tags:
+      - Склады продавца
     post:
       operationId: postV3Warehouses
       x-readonly-method: false
@@ -5130,7 +5230,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Склады продавца
+      - Items
       summary: Создать склад продавца
       description: |-
         Метод создаёт склад продавца для работы с [остатками товаров](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehousesInventory), кроме сверхгабаритных (СГТ), по модели [FBS](https://dev.wildberries.ru/openapi/orders-fbs) (Fulfillment by Seller).
@@ -5215,6 +5315,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: sellerWarehouses
+      x-original-tags:
+      - Склады продавца
   /api/v3/warehouses/{warehouseId}:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -5230,7 +5332,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Склады продавца
+      - Items
       summary: Обновить склад продавца
       description: |-
         Метод обновляет данные [склада продавца](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehouses/operation/getV3Warehouses), кроме складов для сверхгабаритных товаров (СГТ, `"cargoType":2`).
@@ -5313,6 +5415,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: sellerWarehouses
+      x-original-tags:
+      - Склады продавца
     delete:
       operationId: deleteV3WarehousesWarehouseId
       x-readonly-method: false
@@ -5320,7 +5424,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Склады продавца
+      - Items
       summary: Удалить склад продавца
       description: |-
         Метод удаляет [склад продавца](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehouses/operation/getV3Warehouses).
@@ -5363,6 +5467,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: sellerWarehouses
+      x-original-tags:
+      - Склады продавца
   /api/v3/dbw/warehouses/{warehouseId}/contacts:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -5373,7 +5479,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Склады продавца
+      - Items
       summary: Список контактов
       description: |-
         Метод возвращает список контактов, привязанных к [складу продавца](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehouses/operation/getV3Warehouses).
@@ -5430,6 +5536,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: sellerWarehouses
+      x-original-tags:
+      - Склады продавца
     put:
       operationId: putV3DbwWarehousesWarehouseIdContacts
       x-readonly-method: false
@@ -5437,7 +5545,7 @@ paths:
       security:
       - BearerAuth: []
       tags:
-      - Склады продавца
+      - Items
       summary: Обновить список контактов
       parameters:
       - $ref: '#/components/parameters/Warehouse'
@@ -5506,6 +5614,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: sellerWarehouses
+      x-original-tags:
+      - Склады продавца
 components:
   schemas:
     BrandsResponse:

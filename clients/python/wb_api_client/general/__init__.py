@@ -14,12 +14,10 @@
 """  # noqa: E501
 
 
-__version__ = "1.20261010.0"
+__version__ = "1.20261010.1"
 
 # import apis into sdk package
-from wb_api_client.general.api.api_api import APIApi
-from wb_api_client.general.api.api import Api
-from wb_api_client.general.api.wbapi_api import WBAPIApi
+from wb_api_client.general.api.general_api import GeneralApi
 
 # import ApiClient
 from wb_api_client.general.api_response import ApiResponse

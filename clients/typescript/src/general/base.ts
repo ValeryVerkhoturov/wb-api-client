@@ -89,63 +89,63 @@ interface ServerMap {
  * @export
  */
 export const operationServerMap: ServerMap = {
-  "DefaultApi.deleteV1User": [
+  "GeneralApi.deleteV1User": [
     {
       url: "https://user-management-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.getV1Rating": [
+  "GeneralApi.getPing": [
+    {
+      url: "https://common-api.wildberries.ru",
+      description: "No description provided",
+    },
+  ],
+  "GeneralApi.getV1Rating": [
     {
       url: "https://feedbacks-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.getV1SellerInfo": [
+  "GeneralApi.getV1SellerInfo": [
     {
       url: "https://common-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.getV1Subscriptions": [
+  "GeneralApi.getV1Subscriptions": [
     {
       url: "https://common-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.getV1TariffConstructorOptions": [
+  "GeneralApi.getV1TariffConstructorOptions": [
     {
       url: "https://common-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.getV1Users": [
+  "GeneralApi.getV1Users": [
     {
       url: "https://user-management-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.postV1Invite": [
-    {
-      url: "https://user-management-api.wildberries.ru",
-      description: "No description provided",
-    },
-  ],
-  "DefaultApi.putV1UsersAccess": [
-    {
-      url: "https://user-management-api.wildberries.ru",
-      description: "No description provided",
-    },
-  ],
-  "APIApi.getV2News": [
+  "GeneralApi.getV2News": [
     {
       url: "https://common-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "WBAPIApi.getPing": [
+  "GeneralApi.postV1Invite": [
     {
-      url: "https://common-api.wildberries.ru",
+      url: "https://user-management-api.wildberries.ru",
+      description: "No description provided",
+    },
+  ],
+  "GeneralApi.putV1UsersAccess": [
+    {
+      url: "https://user-management-api.wildberries.ru",
       description: "No description provided",
     },
   ],

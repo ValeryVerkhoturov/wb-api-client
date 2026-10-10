@@ -937,10 +937,10 @@ export interface ReturnRatesResponse {
 }
 
 /**
- * DefaultApi - axios parameter creator
+ * RatesApi - axios parameter creator
  * @export
  */
-export const DefaultApiAxiosParamCreator = function (
+export const RatesApiAxiosParamCreator = function (
   configuration?: Configuration,
 ) {
   return {
@@ -1199,11 +1199,11 @@ export const DefaultApiAxiosParamCreator = function (
 };
 
 /**
- * DefaultApi - functional programming interface
+ * RatesApi - functional programming interface
  * @export
  */
-export const DefaultApiFp = function (configuration?: Configuration) {
-  const localVarAxiosParamCreator = DefaultApiAxiosParamCreator(configuration);
+export const RatesApiFp = function (configuration?: Configuration) {
+  const localVarAxiosParamCreator = RatesApiAxiosParamCreator(configuration);
   return {
     /**
      * Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
@@ -1228,7 +1228,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV1AcceptanceCoefficients"]?.[
+        operationServerMap["RatesApi.getV1AcceptanceCoefficients"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -1261,7 +1261,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
       );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV1TariffsBox"]?.[
+        operationServerMap["RatesApi.getV1TariffsBox"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -1292,7 +1292,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         await localVarAxiosParamCreator.getV1TariffsCommission(locale, options);
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV1TariffsCommission"]?.[
+        operationServerMap["RatesApi.getV1TariffsCommission"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -1323,7 +1323,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         await localVarAxiosParamCreator.getV1TariffsPallet(date, options);
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV1TariffsPallet"]?.[
+        operationServerMap["RatesApi.getV1TariffsPallet"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -1354,7 +1354,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         await localVarAxiosParamCreator.getV1TariffsReturn(date, options);
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV1TariffsReturn"]?.[
+        operationServerMap["RatesApi.getV1TariffsReturn"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -1369,15 +1369,15 @@ export const DefaultApiFp = function (configuration?: Configuration) {
 };
 
 /**
- * DefaultApi - factory interface
+ * RatesApi - factory interface
  * @export
  */
-export const DefaultApiFactory = function (
+export const RatesApiFactory = function (
   configuration?: Configuration,
   basePath?: string,
   axios?: AxiosInstance,
 ) {
-  const localVarFp = DefaultApiFp(configuration);
+  const localVarFp = RatesApiFp(configuration);
   return {
     /**
      * Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
@@ -1458,18 +1458,18 @@ export const DefaultApiFactory = function (
 };
 
 /**
- * DefaultApi - interface
+ * RatesApi - interface
  * @export
- * @interface DefaultApi
+ * @interface RatesApi
  */
-export interface DefaultApiInterface {
+export interface RatesApiInterface {
   /**
    * Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
    * @summary Тарифы на поставку
    * @param {string} [warehouseIDs] ID складов. По умолчанию возвращаются данные по всем складам
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof RatesApiInterface
    */
   getV1AcceptanceCoefficients(
     warehouseIDs?: string,
@@ -1482,7 +1482,7 @@ export interface DefaultApiInterface {
    * @param {string} date Дата в формате ГГГГ-ММ-ДД
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof RatesApiInterface
    */
   getV1TariffsBox(
     date: string,
@@ -1495,7 +1495,7 @@ export interface DefaultApiInterface {
    * @param {string} [locale] Язык полей ответа &#x60;parentName&#x60; и &#x60;subjectName&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof RatesApiInterface
    */
   getV1TariffsCommission(
     locale?: string,
@@ -1508,7 +1508,7 @@ export interface DefaultApiInterface {
    * @param {string} date Дата в формате ГГГГ-ММ-ДД
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof RatesApiInterface
    */
   getV1TariffsPallet(
     date: string,
@@ -1521,7 +1521,7 @@ export interface DefaultApiInterface {
    * @param {string} date Дата в формате ГГГГ-ММ-ДД
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof RatesApiInterface
    */
   getV1TariffsReturn(
     date: string,
@@ -1530,25 +1530,25 @@ export interface DefaultApiInterface {
 }
 
 /**
- * DefaultApi - object-oriented interface
+ * RatesApi - object-oriented interface
  * @export
- * @class DefaultApi
+ * @class RatesApi
  * @extends {BaseAPI}
  */
-export class DefaultApi extends BaseAPI implements DefaultApiInterface {
+export class RatesApi extends BaseAPI implements RatesApiInterface {
   /**
    * Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
    * @summary Тарифы на поставку
    * @param {string} [warehouseIDs] ID складов. По умолчанию возвращаются данные по всем складам
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof RatesApi
    */
   public getV1AcceptanceCoefficients(
     warehouseIDs?: string,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return RatesApiFp(this.configuration)
       .getV1AcceptanceCoefficients(warehouseIDs, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -1559,10 +1559,10 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {string} date Дата в формате ГГГГ-ММ-ДД
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof RatesApi
    */
   public getV1TariffsBox(date: string, options?: RawAxiosRequestConfig) {
-    return DefaultApiFp(this.configuration)
+    return RatesApiFp(this.configuration)
       .getV1TariffsBox(date, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -1573,13 +1573,13 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {string} [locale] Язык полей ответа &#x60;parentName&#x60; и &#x60;subjectName&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof RatesApi
    */
   public getV1TariffsCommission(
     locale?: string,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return RatesApiFp(this.configuration)
       .getV1TariffsCommission(locale, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -1590,10 +1590,10 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {string} date Дата в формате ГГГГ-ММ-ДД
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof RatesApi
    */
   public getV1TariffsPallet(date: string, options?: RawAxiosRequestConfig) {
-    return DefaultApiFp(this.configuration)
+    return RatesApiFp(this.configuration)
       .getV1TariffsPallet(date, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -1604,10 +1604,10 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {string} date Дата в формате ГГГГ-ММ-ДД
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof RatesApi
    */
   public getV1TariffsReturn(date: string, options?: RawAxiosRequestConfig) {
-    return DefaultApiFp(this.configuration)
+    return RatesApiFp(this.configuration)
       .getV1TariffsReturn(date, options)
       .then((request) => request(this.axios, this.basePath));
   }

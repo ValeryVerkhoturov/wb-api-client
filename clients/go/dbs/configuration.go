@@ -99,7 +99,7 @@ func NewConfiguration() *Configuration {
 			},
 		},
 		OperationServers: map[string]ServerConfigurations{
-			"DBSAPIService.GetV3DbsOrders": {
+			"DbsAPIService.GetV3DbsOrders": {
 				{
 					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
@@ -109,7 +109,7 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"DBSAPIService.GetV3DbsOrdersNew": {
+			"DbsAPIService.GetV3DbsOrdersNew": {
 				{
 					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
@@ -119,7 +119,7 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"DBSAPIService.PostV3DbsGroupsInfo": {
+			"DbsAPIService.PostV3DbsGroupsInfo": {
 				{
 					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
@@ -129,13 +129,13 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"DBSAPIService.PostV3DbsOrdersB2bInfo": {
+			"DbsAPIService.PostV3DbsOrdersB2bInfo": {
 				{
 					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"DBSAPIService.PostV3DbsOrdersClient": {
+			"DbsAPIService.PostV3DbsOrdersClient": {
 				{
 					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
@@ -145,7 +145,7 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"DBSAPIService.PostV3DbsOrdersDeliveryDate": {
+			"DbsAPIService.PostV3DbsOrdersDeliveryDate": {
 				{
 					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
@@ -155,13 +155,13 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"DBSAPIService.PostV3DbsOrdersFinalPrice": {
+			"DbsAPIService.PostV3DbsOrdersFinalPrice": {
 				{
 					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"DBSAPIService.PostV3DbsOrdersMetaCustomsDeclaration": {
+			"DbsAPIService.PostV3DbsOrdersMetaCustomsDeclaration": {
 				{
 					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
@@ -171,7 +171,7 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"DBSAPIService.PostV3DbsOrdersMetaDelete": {
+			"DbsAPIService.PostV3DbsOrdersMetaDelete": {
 				{
 					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
@@ -181,13 +181,13 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"DBSAPIService.PostV3DbsOrdersMetaDetails": {
+			"DbsAPIService.PostV3DbsOrdersMetaDetails": {
 				{
 					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"DBSAPIService.PostV3DbsOrdersMetaGtin": {
+			"DbsAPIService.PostV3DbsOrdersMetaGtin": {
 				{
 					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
@@ -197,7 +197,7 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"DBSAPIService.PostV3DbsOrdersMetaImei": {
+			"DbsAPIService.PostV3DbsOrdersMetaImei": {
 				{
 					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
@@ -207,7 +207,7 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"DBSAPIService.PostV3DbsOrdersMetaSgtin": {
+			"DbsAPIService.PostV3DbsOrdersMetaSgtin": {
 				{
 					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
@@ -217,7 +217,7 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"DBSAPIService.PostV3DbsOrdersMetaUin": {
+			"DbsAPIService.PostV3DbsOrdersMetaUin": {
 				{
 					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
@@ -227,7 +227,7 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"DBSAPIService.PostV3DbsOrdersStatusCancel": {
+			"DbsAPIService.PostV3DbsOrdersStatusCancel": {
 				{
 					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
@@ -237,7 +237,7 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"DBSAPIService.PostV3DbsOrdersStatusConfirm": {
+			"DbsAPIService.PostV3DbsOrdersStatusConfirm": {
 				{
 					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
@@ -247,7 +247,7 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"DBSAPIService.PostV3DbsOrdersStatusDeliver": {
+			"DbsAPIService.PostV3DbsOrdersStatusDeliver": {
 				{
 					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
@@ -257,7 +257,7 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"DBSAPIService.PostV3DbsOrdersStatusInfo": {
+			"DbsAPIService.PostV3DbsOrdersStatusInfo": {
 				{
 					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
@@ -267,7 +267,7 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"DBSAPIService.PostV3DbsOrdersStatusReceive": {
+			"DbsAPIService.PostV3DbsOrdersStatusReceive": {
 				{
 					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
@@ -277,7 +277,7 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"DBSAPIService.PostV3DbsOrdersStatusReject": {
+			"DbsAPIService.PostV3DbsOrdersStatusReject": {
 				{
 					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
@@ -287,7 +287,7 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"DBSAPIService.PostV3DbsOrdersStickers": {
+			"DbsAPIService.PostV3DbsOrdersStickers": {
 				{
 					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "No description provided",

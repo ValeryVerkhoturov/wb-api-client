@@ -68,9 +68,9 @@ def python_apis(root: Path, snake: str) -> list[str]:
         return []
     names: set[str] = set()
     for f in api_dir.glob("*.py"):
-        # `\w*Api` intentionally matches `Api` alone as well as `XxxApi`;
-        # some specs emit a plain `class Api` when no operation carries a
-        # tag prefix.
+        # post-process renames every operation's tag to the module name, so
+        # each module emits exactly one `<Module>Api` class; `\w*Api` still
+        # tolerates a bare `Api` if a future spec slips through untagged.
         for m in re.finditer(r"^class (\w*Api)\b", f.read_text(), re.M):
             names.add(m.group(1))
     return sorted(names)

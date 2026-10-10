@@ -33,7 +33,7 @@ namespace ValeryVerkhoturov.WbApiClient.Rates.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "1.20261010.0";
+        public const string Version = "1.20261010.1";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -134,7 +134,7 @@ namespace ValeryVerkhoturov.WbApiClient.Rates.Client
             OperationServers = new Dictionary<string, List<IReadOnlyDictionary<string, object>>>()
             {
                 {
-                    "DefaultApi.GetV1AcceptanceCoefficients", new List<IReadOnlyDictionary<string, object>>
+                    "RatesApi.GetV1AcceptanceCoefficients", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -146,7 +146,7 @@ namespace ValeryVerkhoturov.WbApiClient.Rates.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV1TariffsBox", new List<IReadOnlyDictionary<string, object>>
+                    "RatesApi.GetV1TariffsBox", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -158,7 +158,7 @@ namespace ValeryVerkhoturov.WbApiClient.Rates.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV1TariffsCommission", new List<IReadOnlyDictionary<string, object>>
+                    "RatesApi.GetV1TariffsCommission", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -170,7 +170,7 @@ namespace ValeryVerkhoturov.WbApiClient.Rates.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV1TariffsPallet", new List<IReadOnlyDictionary<string, object>>
+                    "RatesApi.GetV1TariffsPallet", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -182,7 +182,7 @@ namespace ValeryVerkhoturov.WbApiClient.Rates.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV1TariffsReturn", new List<IReadOnlyDictionary<string, object>>
+                    "RatesApi.GetV1TariffsReturn", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -623,7 +623,7 @@ namespace ValeryVerkhoturov.WbApiClient.Rates.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version + "\n";
             report += "    Version of the API: rates\n";
-            report += "    SDK Package Version: 1.20261010.0\n";
+            report += "    SDK Package Version: 1.20261010.1\n";
 
             return report;
         }

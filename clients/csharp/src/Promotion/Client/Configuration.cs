@@ -33,7 +33,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "1.20261010.0";
+        public const string Version = "1.20261010.1";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -134,7 +134,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Client
             OperationServers = new Dictionary<string, List<IReadOnlyDictionary<string, object>>>()
             {
                 {
-                    "DefaultApi.DeleteV0NormqueryBids", new List<IReadOnlyDictionary<string, object>>
+                    "PromotionApi.DeleteV0NormqueryBids", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -146,7 +146,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV0BidsRecommendations", new List<IReadOnlyDictionary<string, object>>
+                    "PromotionApi.GetV0BidsRecommendations", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -158,7 +158,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV0DailyLimits", new List<IReadOnlyDictionary<string, object>>
+                    "PromotionApi.GetV0DailyLimits", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -170,26 +170,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV0Delete", new List<IReadOnlyDictionary<string, object>>
-                    {
-                        {
-                            new Dictionary<string, object>
-                            {
-                                {"url", "https://advert-api.wildberries.ru"},
-                                {"description", "**Prod** "}
-                            }
-                        },
-                        {
-                            new Dictionary<string, object>
-                            {
-                                {"url", "https://advert-api-sandbox.wildberries.ru"},
-                                {"description", "**Sandbox** "}
-                            }
-                        },
-                    }
-                },
-                {
-                    "DefaultApi.GetV0Pause", new List<IReadOnlyDictionary<string, object>>
+                    "PromotionApi.GetV0Delete", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -208,7 +189,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV0Start", new List<IReadOnlyDictionary<string, object>>
+                    "PromotionApi.GetV0Pause", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -227,7 +208,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV0Stop", new List<IReadOnlyDictionary<string, object>>
+                    "PromotionApi.GetV0Start", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -246,7 +227,26 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV1Advert", new List<IReadOnlyDictionary<string, object>>
+                    "PromotionApi.GetV0Stop", new List<IReadOnlyDictionary<string, object>>
+                    {
+                        {
+                            new Dictionary<string, object>
+                            {
+                                {"url", "https://advert-api.wildberries.ru"},
+                                {"description", "**Prod** "}
+                            }
+                        },
+                        {
+                            new Dictionary<string, object>
+                            {
+                                {"url", "https://advert-api-sandbox.wildberries.ru"},
+                                {"description", "**Sandbox** "}
+                            }
+                        },
+                    }
+                },
+                {
+                    "PromotionApi.GetV1Advert", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -258,7 +258,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV1Adverts", new List<IReadOnlyDictionary<string, object>>
+                    "PromotionApi.GetV1Adverts", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -270,7 +270,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV1Balance", new List<IReadOnlyDictionary<string, object>>
+                    "PromotionApi.GetV1Balance", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -289,7 +289,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV1Budget", new List<IReadOnlyDictionary<string, object>>
+                    "PromotionApi.GetV1Budget", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -308,7 +308,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV1CalendarPromotions", new List<IReadOnlyDictionary<string, object>>
+                    "PromotionApi.GetV1CalendarPromotions", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -320,7 +320,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV1CalendarPromotionsDetails", new List<IReadOnlyDictionary<string, object>>
+                    "PromotionApi.GetV1CalendarPromotionsDetails", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -332,7 +332,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV1CalendarPromotionsNomenclatures", new List<IReadOnlyDictionary<string, object>>
+                    "PromotionApi.GetV1CalendarPromotionsNomenclatures", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -344,7 +344,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV1Config", new List<IReadOnlyDictionary<string, object>>
+                    "PromotionApi.GetV1Config", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -356,7 +356,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV1Count", new List<IReadOnlyDictionary<string, object>>
+                    "PromotionApi.GetV1Count", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -368,7 +368,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV1Payments", new List<IReadOnlyDictionary<string, object>>
+                    "PromotionApi.GetV1Payments", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -387,7 +387,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV1PromotionCount", new List<IReadOnlyDictionary<string, object>>
+                    "PromotionApi.GetV1PromotionCount", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -406,7 +406,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV1SupplierSubjects", new List<IReadOnlyDictionary<string, object>>
+                    "PromotionApi.GetV1SupplierSubjects", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -425,7 +425,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV1Upd", new List<IReadOnlyDictionary<string, object>>
+                    "PromotionApi.GetV1Upd", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -444,7 +444,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV2Adverts", new List<IReadOnlyDictionary<string, object>>
+                    "PromotionApi.GetV2Adverts", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -456,7 +456,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV3Fullstats", new List<IReadOnlyDictionary<string, object>>
+                    "PromotionApi.GetV3Fullstats", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -468,7 +468,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Client
                     }
                 },
                 {
-                    "DefaultApi.PatchV0AuctionNms", new List<IReadOnlyDictionary<string, object>>
+                    "PromotionApi.PatchV0AuctionNms", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -480,7 +480,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Client
                     }
                 },
                 {
-                    "DefaultApi.PatchV1Bids", new List<IReadOnlyDictionary<string, object>>
+                    "PromotionApi.PatchV1Bids", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -492,7 +492,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Client
                     }
                 },
                 {
-                    "DefaultApi.PostV0NormqueryBids", new List<IReadOnlyDictionary<string, object>>
+                    "PromotionApi.PostV0NormqueryBids", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -504,7 +504,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Client
                     }
                 },
                 {
-                    "DefaultApi.PostV0NormqueryGetBids", new List<IReadOnlyDictionary<string, object>>
+                    "PromotionApi.PostV0NormqueryGetBids", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -516,7 +516,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Client
                     }
                 },
                 {
-                    "DefaultApi.PostV0NormqueryGetMinus", new List<IReadOnlyDictionary<string, object>>
+                    "PromotionApi.PostV0NormqueryGetMinus", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -528,7 +528,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Client
                     }
                 },
                 {
-                    "DefaultApi.PostV0NormqueryList", new List<IReadOnlyDictionary<string, object>>
+                    "PromotionApi.PostV0NormqueryList", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -540,7 +540,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Client
                     }
                 },
                 {
-                    "DefaultApi.PostV0NormquerySetMinus", new List<IReadOnlyDictionary<string, object>>
+                    "PromotionApi.PostV0NormquerySetMinus", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -552,7 +552,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Client
                     }
                 },
                 {
-                    "DefaultApi.PostV0NormqueryStats", new List<IReadOnlyDictionary<string, object>>
+                    "PromotionApi.PostV0NormqueryStats", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -564,7 +564,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Client
                     }
                 },
                 {
-                    "DefaultApi.PostV0Rename", new List<IReadOnlyDictionary<string, object>>
+                    "PromotionApi.PostV0Rename", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -583,7 +583,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Client
                     }
                 },
                 {
-                    "DefaultApi.PostV1BidsMin", new List<IReadOnlyDictionary<string, object>>
+                    "PromotionApi.PostV1BidsMin", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -595,7 +595,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Client
                     }
                 },
                 {
-                    "DefaultApi.PostV1BudgetDeposit", new List<IReadOnlyDictionary<string, object>>
+                    "PromotionApi.PostV1BudgetDeposit", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -614,7 +614,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Client
                     }
                 },
                 {
-                    "DefaultApi.PostV1CalendarPromotionsUpload", new List<IReadOnlyDictionary<string, object>>
+                    "PromotionApi.PostV1CalendarPromotionsUpload", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -626,7 +626,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Client
                     }
                 },
                 {
-                    "DefaultApi.PostV1NormqueryBids", new List<IReadOnlyDictionary<string, object>>
+                    "PromotionApi.PostV1NormqueryBids", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -638,7 +638,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Client
                     }
                 },
                 {
-                    "DefaultApi.PostV1NormqueryStats", new List<IReadOnlyDictionary<string, object>>
+                    "PromotionApi.PostV1NormqueryStats", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -650,7 +650,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Client
                     }
                 },
                 {
-                    "DefaultApi.PostV1Stats", new List<IReadOnlyDictionary<string, object>>
+                    "PromotionApi.PostV1Stats", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -662,7 +662,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Client
                     }
                 },
                 {
-                    "DefaultApi.PostV2Budget", new List<IReadOnlyDictionary<string, object>>
+                    "PromotionApi.PostV2Budget", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -674,26 +674,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Client
                     }
                 },
                 {
-                    "DefaultApi.PostV2SeacatSaveAd", new List<IReadOnlyDictionary<string, object>>
-                    {
-                        {
-                            new Dictionary<string, object>
-                            {
-                                {"url", "https://advert-api.wildberries.ru"},
-                                {"description", "**Prod** "}
-                            }
-                        },
-                        {
-                            new Dictionary<string, object>
-                            {
-                                {"url", "https://advert-api-sandbox.wildberries.ru"},
-                                {"description", "**Sandbox** "}
-                            }
-                        },
-                    }
-                },
-                {
-                    "DefaultApi.PostV2SupplierNms", new List<IReadOnlyDictionary<string, object>>
+                    "PromotionApi.PostV2SeacatSaveAd", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -712,7 +693,26 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Client
                     }
                 },
                 {
-                    "DefaultApi.PutV0AuctionPlacements", new List<IReadOnlyDictionary<string, object>>
+                    "PromotionApi.PostV2SupplierNms", new List<IReadOnlyDictionary<string, object>>
+                    {
+                        {
+                            new Dictionary<string, object>
+                            {
+                                {"url", "https://advert-api.wildberries.ru"},
+                                {"description", "**Prod** "}
+                            }
+                        },
+                        {
+                            new Dictionary<string, object>
+                            {
+                                {"url", "https://advert-api-sandbox.wildberries.ru"},
+                                {"description", "**Sandbox** "}
+                            }
+                        },
+                    }
+                },
+                {
+                    "PromotionApi.PutV0AuctionPlacements", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -724,7 +724,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Client
                     }
                 },
                 {
-                    "DefaultApi.PutV0DailyLimits", new List<IReadOnlyDictionary<string, object>>
+                    "PromotionApi.PutV0DailyLimits", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -1165,7 +1165,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version + "\n";
             report += "    Version of the API: promotion\n";
-            report += "    SDK Package Version: 1.20261010.0\n";
+            report += "    SDK Package Version: 1.20261010.1\n";
 
             return report;
         }

@@ -33,7 +33,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "1.20261010.0";
+        public const string Version = "1.20261010.1";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -134,7 +134,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Client
             OperationServers = new Dictionary<string, List<IReadOnlyDictionary<string, object>>>()
             {
                 {
-                    "DefaultApi.DeleteV1DraftsDraftId", new List<IReadOnlyDictionary<string, object>>
+                    "OrdersFbwApi.DeleteV1DraftsDraftId", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -146,7 +146,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Client
                     }
                 },
                 {
-                    "DefaultApi.DeleteV1DraftsDraftIdItems", new List<IReadOnlyDictionary<string, object>>
+                    "OrdersFbwApi.DeleteV1DraftsDraftIdItems", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -158,7 +158,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV1Drafts", new List<IReadOnlyDictionary<string, object>>
+                    "OrdersFbwApi.GetV1Drafts", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -170,7 +170,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV1DraftsDraftIdItems", new List<IReadOnlyDictionary<string, object>>
+                    "OrdersFbwApi.GetV1DraftsDraftIdItems", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -182,7 +182,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV1SuppliesId", new List<IReadOnlyDictionary<string, object>>
+                    "OrdersFbwApi.GetV1SuppliesId", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -194,7 +194,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV1SuppliesIdGoods", new List<IReadOnlyDictionary<string, object>>
+                    "OrdersFbwApi.GetV1SuppliesIdGoods", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -206,7 +206,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV1SuppliesIdPackage", new List<IReadOnlyDictionary<string, object>>
+                    "OrdersFbwApi.GetV1SuppliesIdPackage", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -218,7 +218,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV1SuppliesSupplyIdDiscrepanciesQuantity", new List<IReadOnlyDictionary<string, object>>
+                    "OrdersFbwApi.GetV1SuppliesSupplyIdDiscrepanciesQuantity", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -230,7 +230,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV1TransitTariffs", new List<IReadOnlyDictionary<string, object>>
+                    "OrdersFbwApi.GetV1TransitTariffs", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -242,7 +242,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Client
                     }
                 },
                 {
-                    "DefaultApi.GetV1Warehouses", new List<IReadOnlyDictionary<string, object>>
+                    "OrdersFbwApi.GetV1Warehouses", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -261,7 +261,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Client
                     }
                 },
                 {
-                    "DefaultApi.PostV1AcceptanceOptions", new List<IReadOnlyDictionary<string, object>>
+                    "OrdersFbwApi.PostV1AcceptanceOptions", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -280,7 +280,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Client
                     }
                 },
                 {
-                    "DefaultApi.PostV1Drafts", new List<IReadOnlyDictionary<string, object>>
+                    "OrdersFbwApi.PostV1Drafts", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -292,7 +292,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Client
                     }
                 },
                 {
-                    "DefaultApi.PostV1DraftsDraftIdItems", new List<IReadOnlyDictionary<string, object>>
+                    "OrdersFbwApi.PostV1DraftsDraftIdItems", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -304,7 +304,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Client
                     }
                 },
                 {
-                    "DefaultApi.PostV1Supplies", new List<IReadOnlyDictionary<string, object>>
+                    "OrdersFbwApi.PostV1Supplies", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -745,7 +745,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version + "\n";
             report += "    Version of the API: ordersfbw\n";
-            report += "    SDK Package Version: 1.20261010.0\n";
+            report += "    SDK Package Version: 1.20261010.1\n";
 
             return report;
         }

@@ -92,7 +92,7 @@ interface ServerMap {
  * @export
  */
 export const operationServerMap: ServerMap = {
-  "DefaultApi.getV3ClickCollectOrders": [
+  "InStorePickupApi.getV3ClickCollectOrders": [
     {
       url: "https://marketplace-api.wildberries.ru",
       description: "**Prod** ",
@@ -102,7 +102,7 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DefaultApi.getV3ClickCollectOrdersNew": [
+  "InStorePickupApi.getV3ClickCollectOrdersNew": [
     {
       url: "https://marketplace-api.wildberries.ru",
       description: "**Prod** ",
@@ -112,7 +112,7 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DefaultApi.postV3ClickCollectOrdersClient": [
+  "InStorePickupApi.postV3ClickCollectOrdersClient": [
     {
       url: "https://marketplace-api.wildberries.ru",
       description: "**Prod** ",
@@ -122,7 +122,7 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DefaultApi.postV3ClickCollectOrdersClientIdentity": [
+  "InStorePickupApi.postV3ClickCollectOrdersClientIdentity": [
     {
       url: "https://marketplace-api.wildberries.ru",
       description: "**Prod** ",
@@ -132,19 +132,19 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DefaultApi.postV3ClickCollectOrdersFinalPrice": [
+  "InStorePickupApi.postV3ClickCollectOrdersFinalPrice": [
     {
       url: "https://marketplace-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.postV3ClickCollectOrdersMetaCustomsDeclaration": [
+  "InStorePickupApi.postV3ClickCollectOrdersMetaCustomsDeclaration": [
     {
       url: "https://marketplace-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.postV3ClickCollectOrdersMetaDelete": [
+  "InStorePickupApi.postV3ClickCollectOrdersMetaDelete": [
     {
       url: "https://marketplace-api.wildberries.ru",
       description: "**Prod** ",
@@ -154,7 +154,7 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DefaultApi.postV3ClickCollectOrdersMetaGtin": [
+  "InStorePickupApi.postV3ClickCollectOrdersMetaGtin": [
     {
       url: "https://marketplace-api.wildberries.ru",
       description: "**Prod** ",
@@ -164,7 +164,7 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DefaultApi.postV3ClickCollectOrdersMetaImei": [
+  "InStorePickupApi.postV3ClickCollectOrdersMetaImei": [
     {
       url: "https://marketplace-api.wildberries.ru",
       description: "**Prod** ",
@@ -174,7 +174,7 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DefaultApi.postV3ClickCollectOrdersMetaSgtin": [
+  "InStorePickupApi.postV3ClickCollectOrdersMetaSgtin": [
     {
       url: "https://marketplace-api.wildberries.ru",
       description: "**Prod** ",
@@ -184,7 +184,7 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DefaultApi.postV3ClickCollectOrdersMetaUin": [
+  "InStorePickupApi.postV3ClickCollectOrdersMetaUin": [
     {
       url: "https://marketplace-api.wildberries.ru",
       description: "**Prod** ",
@@ -194,7 +194,7 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DefaultApi.postV3ClickCollectOrdersStatusCancel": [
+  "InStorePickupApi.postV3ClickCollectOrdersStatusCancel": [
     {
       url: "https://marketplace-api.wildberries.ru",
       description: "**Prod** ",
@@ -204,7 +204,7 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DefaultApi.postV3ClickCollectOrdersStatusConfirm": [
+  "InStorePickupApi.postV3ClickCollectOrdersStatusConfirm": [
     {
       url: "https://marketplace-api.wildberries.ru",
       description: "**Prod** ",
@@ -214,7 +214,7 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DefaultApi.postV3ClickCollectOrdersStatusInfo": [
+  "InStorePickupApi.postV3ClickCollectOrdersStatusInfo": [
     {
       url: "https://marketplace-api.wildberries.ru",
       description: "**Prod** ",
@@ -224,7 +224,7 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DefaultApi.postV3ClickCollectOrdersStatusPrepare": [
+  "InStorePickupApi.postV3ClickCollectOrdersStatusPrepare": [
     {
       url: "https://marketplace-api.wildberries.ru",
       description: "**Prod** ",
@@ -234,7 +234,7 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DefaultApi.postV3ClickCollectOrdersStatusReceive": [
+  "InStorePickupApi.postV3ClickCollectOrdersStatusReceive": [
     {
       url: "https://marketplace-api.wildberries.ru",
       description: "**Prod** ",
@@ -244,7 +244,7 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DefaultApi.postV3ClickCollectOrdersStatusReject": [
+  "InStorePickupApi.postV3ClickCollectOrdersStatusReject": [
     {
       url: "https://marketplace-api.wildberries.ru",
       description: "**Prod** ",

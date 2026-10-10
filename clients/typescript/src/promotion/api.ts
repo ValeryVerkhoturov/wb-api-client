@@ -4612,10 +4612,10 @@ export interface V2GetConfigResponse {
 }
 
 /**
- * DefaultApi - axios parameter creator
+ * PromotionApi - axios parameter creator
  * @export
  */
-export const DefaultApiAxiosParamCreator = function (
+export const PromotionApiAxiosParamCreator = function (
   configuration?: Configuration,
 ) {
   return {
@@ -7003,11 +7003,12 @@ export const DefaultApiAxiosParamCreator = function (
 };
 
 /**
- * DefaultApi - functional programming interface
+ * PromotionApi - functional programming interface
  * @export
  */
-export const DefaultApiFp = function (configuration?: Configuration) {
-  const localVarAxiosParamCreator = DefaultApiAxiosParamCreator(configuration);
+export const PromotionApiFp = function (configuration?: Configuration) {
+  const localVarAxiosParamCreator =
+    PromotionApiAxiosParamCreator(configuration);
   return {
     /**
      * Метод удаляет ставки с поисковых кластеров. Можно использовать только для кампаний с: - ручной ставкой - моделью оплаты `cpm` — за показы  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
@@ -7029,7 +7030,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.deleteV0NormqueryBids"]?.[
+        operationServerMap["PromotionApi.deleteV0NormqueryBids"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -7066,7 +7067,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV0BidsRecommendations"]?.[
+        operationServerMap["PromotionApi.getV0BidsRecommendations"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -7097,7 +7098,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         await localVarAxiosParamCreator.getV0DailyLimits(advertIds, options);
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV0DailyLimits"]?.[
+        operationServerMap["PromotionApi.getV0DailyLimits"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -7127,7 +7128,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
       );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV0Delete"]?.[
+        operationServerMap["PromotionApi.getV0Delete"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -7157,7 +7158,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
       );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV0Pause"]?.[
+        operationServerMap["PromotionApi.getV0Pause"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -7187,7 +7188,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
       );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV0Start"]?.[
+        operationServerMap["PromotionApi.getV0Start"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -7217,7 +7218,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
       );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV0Stop"]?.[
+        operationServerMap["PromotionApi.getV0Stop"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -7250,7 +7251,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
       );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV1Advert"]?.[
+        operationServerMap["PromotionApi.getV1Advert"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -7298,7 +7299,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
       );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV1Adverts"]?.[
+        operationServerMap["PromotionApi.getV1Adverts"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -7327,7 +7328,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         await localVarAxiosParamCreator.getV1Balance(options);
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV1Balance"]?.[
+        operationServerMap["PromotionApi.getV1Balance"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -7361,7 +7362,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
       );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV1Budget"]?.[
+        operationServerMap["PromotionApi.getV1Budget"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -7407,7 +7408,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV1CalendarPromotions"]?.[
+        operationServerMap["PromotionApi.getV1CalendarPromotions"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -7441,7 +7442,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV1CalendarPromotionsDetails"]?.[
+        operationServerMap["PromotionApi.getV1CalendarPromotionsDetails"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -7484,9 +7485,9 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV1CalendarPromotionsNomenclatures"]?.[
-          localVarOperationServerIndex
-        ]?.url;
+        operationServerMap[
+          "PromotionApi.getV1CalendarPromotionsNomenclatures"
+        ]?.[localVarOperationServerIndex]?.url;
       return (axios, basePath) =>
         createRequestFunction(
           localVarAxiosArgs,
@@ -7513,7 +7514,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         await localVarAxiosParamCreator.getV1Config(options);
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV1Config"]?.[
+        operationServerMap["PromotionApi.getV1Config"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -7542,7 +7543,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         await localVarAxiosParamCreator.getV1Count(options);
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV1Count"]?.[
+        operationServerMap["PromotionApi.getV1Count"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -7578,7 +7579,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
       );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV1Payments"]?.[
+        operationServerMap["PromotionApi.getV1Payments"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -7607,7 +7608,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         await localVarAxiosParamCreator.getV1PromotionCount(options);
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV1PromotionCount"]?.[
+        operationServerMap["PromotionApi.getV1PromotionCount"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -7641,7 +7642,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV1SupplierSubjects"]?.[
+        operationServerMap["PromotionApi.getV1SupplierSubjects"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -7677,7 +7678,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
       );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV1Upd"]?.[
+        operationServerMap["PromotionApi.getV1Upd"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -7713,7 +7714,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
       );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV2Adverts"]?.[
+        operationServerMap["PromotionApi.getV2Adverts"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -7752,7 +7753,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
       );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getV3Fullstats"]?.[
+        operationServerMap["PromotionApi.getV3Fullstats"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -7786,7 +7787,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.patchV0AuctionNms"]?.[
+        operationServerMap["PromotionApi.patchV0AuctionNms"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -7819,7 +7820,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
       );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.patchV1Bids"]?.[
+        operationServerMap["PromotionApi.patchV1Bids"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -7850,7 +7851,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.postV0NormqueryBids"]?.[
+        operationServerMap["PromotionApi.postV0NormqueryBids"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -7884,7 +7885,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.postV0NormqueryGetBids"]?.[
+        operationServerMap["PromotionApi.postV0NormqueryGetBids"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -7918,7 +7919,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.postV0NormqueryGetMinus"]?.[
+        operationServerMap["PromotionApi.postV0NormqueryGetMinus"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -7952,7 +7953,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.postV0NormqueryList"]?.[
+        operationServerMap["PromotionApi.postV0NormqueryList"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -7983,7 +7984,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.postV0NormquerySetMinus"]?.[
+        operationServerMap["PromotionApi.postV0NormquerySetMinus"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -8017,7 +8018,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.postV0NormqueryStats"]?.[
+        operationServerMap["PromotionApi.postV0NormqueryStats"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -8047,7 +8048,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
       );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.postV0Rename"]?.[
+        operationServerMap["PromotionApi.postV0Rename"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -8080,7 +8081,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
       );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.postV1BidsMin"]?.[
+        operationServerMap["PromotionApi.postV1BidsMin"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -8117,7 +8118,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.postV1BudgetDeposit"]?.[
+        operationServerMap["PromotionApi.postV1BudgetDeposit"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -8151,7 +8152,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.postV1CalendarPromotionsUpload"]?.[
+        operationServerMap["PromotionApi.postV1CalendarPromotionsUpload"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -8185,7 +8186,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.postV1NormqueryBids"]?.[
+        operationServerMap["PromotionApi.postV1NormqueryBids"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -8219,7 +8220,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.postV1NormqueryStats"]?.[
+        operationServerMap["PromotionApi.postV1NormqueryStats"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -8252,7 +8253,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
       );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.postV1Stats"]?.[
+        operationServerMap["PromotionApi.postV1Stats"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -8285,7 +8286,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
       );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.postV2Budget"]?.[
+        operationServerMap["PromotionApi.postV2Budget"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -8316,7 +8317,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.postV2SeacatSaveAd"]?.[
+        operationServerMap["PromotionApi.postV2SeacatSaveAd"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -8347,7 +8348,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         await localVarAxiosParamCreator.postV2SupplierNms(requestBody, options);
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.postV2SupplierNms"]?.[
+        operationServerMap["PromotionApi.postV2SupplierNms"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -8378,7 +8379,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.putV0AuctionPlacements"]?.[
+        operationServerMap["PromotionApi.putV0AuctionPlacements"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -8412,7 +8413,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.putV0DailyLimits"]?.[
+        operationServerMap["PromotionApi.putV0DailyLimits"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -8427,15 +8428,15 @@ export const DefaultApiFp = function (configuration?: Configuration) {
 };
 
 /**
- * DefaultApi - factory interface
+ * PromotionApi - factory interface
  * @export
  */
-export const DefaultApiFactory = function (
+export const PromotionApiFactory = function (
   configuration?: Configuration,
   basePath?: string,
   axios?: AxiosInstance,
 ) {
-  const localVarFp = DefaultApiFp(configuration);
+  const localVarFp = PromotionApiFp(configuration);
   return {
     /**
      * Метод удаляет ставки с поисковых кластеров. Можно использовать только для кампаний с: - ручной ставкой - моделью оплаты `cpm` — за показы  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
@@ -9117,18 +9118,18 @@ export const DefaultApiFactory = function (
 };
 
 /**
- * DefaultApi - interface
+ * PromotionApi - interface
  * @export
- * @interface DefaultApi
+ * @interface PromotionApi
  */
-export interface DefaultApiInterface {
+export interface PromotionApiInterface {
   /**
    * Метод удаляет ставки с поисковых кластеров. Можно использовать только для кампаний с: - ручной ставкой - моделью оплаты `cpm` — за показы  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
    * @summary Удалить ставки поисковых кластеров
    * @param {V0DeleteNormQueryBidsRequest} v0DeleteNormQueryBidsRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof PromotionApiInterface
    */
   deleteV0NormqueryBids(
     v0DeleteNormQueryBidsRequest: V0DeleteNormQueryBidsRequest,
@@ -9142,7 +9143,7 @@ export interface DefaultApiInterface {
    * @param {number} advertId ID кампании
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof PromotionApiInterface
    */
   getV0BidsRecommendations(
     nmId: number,
@@ -9156,7 +9157,7 @@ export interface DefaultApiInterface {
    * @param {string} advertIds ID кампаний, максимум 100. Укажите значения через запятую
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof PromotionApiInterface
    */
   getV0DailyLimits(
     advertIds: string,
@@ -9169,7 +9170,7 @@ export interface DefaultApiInterface {
    * @param {number} id ID кампании
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof PromotionApiInterface
    */
   getV0Delete(id: number, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
@@ -9179,7 +9180,7 @@ export interface DefaultApiInterface {
    * @param {number} id ID кампании
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof PromotionApiInterface
    */
   getV0Pause(id: number, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
@@ -9189,7 +9190,7 @@ export interface DefaultApiInterface {
    * @param {number} id ID кампании
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof PromotionApiInterface
    */
   getV0Start(id: number, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
@@ -9199,7 +9200,7 @@ export interface DefaultApiInterface {
    * @param {number} id ID кампании
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof PromotionApiInterface
    */
   getV0Stop(id: number, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
@@ -9209,7 +9210,7 @@ export interface DefaultApiInterface {
    * @param {number} id ID медиакампании
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof PromotionApiInterface
    */
   getV1Advert(
     id: number,
@@ -9227,7 +9228,7 @@ export interface DefaultApiInterface {
    * @param {string} [direction] Порядок сортировки: - &#x60;desc&#x60; — от большего к меньшему - &#x60;asc&#x60; — от меньшего к большему
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof PromotionApiInterface
    */
   getV1Adverts(
     status?: string,
@@ -9244,7 +9245,7 @@ export interface DefaultApiInterface {
    * @summary Баланс
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof PromotionApiInterface
    */
   getV1Balance(
     options?: RawAxiosRequestConfig,
@@ -9257,7 +9258,7 @@ export interface DefaultApiInterface {
    * @param {*} [options] Override http request option.
    * @deprecated
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof PromotionApiInterface
    */
   getV1Budget(
     id: number,
@@ -9274,7 +9275,7 @@ export interface DefaultApiInterface {
    * @param {number} [offset] После какого элемента выдавать данные
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof PromotionApiInterface
    */
   getV1CalendarPromotions(
     startDateTime: string,
@@ -9291,7 +9292,7 @@ export interface DefaultApiInterface {
    * @param {Set<number>} promotionIDs ID акций, по которым нужно вернуть информацию
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof PromotionApiInterface
    */
   getV1CalendarPromotionsDetails(
     promotionIDs: Set<number>,
@@ -9307,7 +9308,7 @@ export interface DefaultApiInterface {
    * @param {number} [offset] После какого элемента выдавать данные
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof PromotionApiInterface
    */
   getV1CalendarPromotionsNomenclatures(
     promotionID: number,
@@ -9322,7 +9323,7 @@ export interface DefaultApiInterface {
    * @summary Конфигурационные значения продвижения
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof PromotionApiInterface
    */
   getV1Config(
     options?: RawAxiosRequestConfig,
@@ -9333,7 +9334,7 @@ export interface DefaultApiInterface {
    * @summary Количество медиакампаний
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof PromotionApiInterface
    */
   getV1Count(
     options?: RawAxiosRequestConfig,
@@ -9346,7 +9347,7 @@ export interface DefaultApiInterface {
    * @param {string} [to] Конец интервала. (Минимальный интервал 1 день, максимальный 31)
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof PromotionApiInterface
    */
   getV1Payments(
     from?: string,
@@ -9359,7 +9360,7 @@ export interface DefaultApiInterface {
    * @summary Списки кампаний
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof PromotionApiInterface
    */
   getV1PromotionCount(
     options?: RawAxiosRequestConfig,
@@ -9371,7 +9372,7 @@ export interface DefaultApiInterface {
    * @param {string} [paymentType] Тип оплаты: - &#x60;cpm&#x60; — за показы - &#x60;cpc&#x60; — за клик
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof PromotionApiInterface
    */
   getV1SupplierSubjects(
     paymentType?: string,
@@ -9385,7 +9386,7 @@ export interface DefaultApiInterface {
    * @param {string} to Конец интервала. (Минимальный интервал 1 день, максимальный 31)
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof PromotionApiInterface
    */
   getV1Upd(
     from: string,
@@ -9401,7 +9402,7 @@ export interface DefaultApiInterface {
    * @param {GetV2AdvertsPaymentTypeEnum} [paymentType] Тип оплаты: - &#x60;cpm&#x60; — за показы - &#x60;cpc&#x60; — за клик
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof PromotionApiInterface
    */
   getV2Adverts(
     ids?: string,
@@ -9418,7 +9419,7 @@ export interface DefaultApiInterface {
    * @param {string} endDate Дата окончания интервала
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof PromotionApiInterface
    */
   getV3Fullstats(
     ids: string,
@@ -9433,7 +9434,7 @@ export interface DefaultApiInterface {
    * @param {PatchV0AuctionNmsRequest} patchV0AuctionNmsRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof PromotionApiInterface
    */
   patchV0AuctionNms(
     patchV0AuctionNmsRequest: PatchV0AuctionNmsRequest,
@@ -9446,7 +9447,7 @@ export interface DefaultApiInterface {
    * @param {PatchV1BidsRequest} patchV1BidsRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof PromotionApiInterface
    */
   patchV1Bids(
     patchV1BidsRequest: PatchV1BidsRequest,
@@ -9459,7 +9460,7 @@ export interface DefaultApiInterface {
    * @param {V0SetNormQueryBidsRequest} v0SetNormQueryBidsRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof PromotionApiInterface
    */
   postV0NormqueryBids(
     v0SetNormQueryBidsRequest: V0SetNormQueryBidsRequest,
@@ -9472,7 +9473,7 @@ export interface DefaultApiInterface {
    * @param {V0GetNormQueryBidsRequest} v0GetNormQueryBidsRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof PromotionApiInterface
    */
   postV0NormqueryGetBids(
     v0GetNormQueryBidsRequest: V0GetNormQueryBidsRequest,
@@ -9485,7 +9486,7 @@ export interface DefaultApiInterface {
    * @param {V0GetNormQueryMinusRequest} v0GetNormQueryMinusRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof PromotionApiInterface
    */
   postV0NormqueryGetMinus(
     v0GetNormQueryMinusRequest: V0GetNormQueryMinusRequest,
@@ -9498,7 +9499,7 @@ export interface DefaultApiInterface {
    * @param {V0GetNormQueryListRequest} v0GetNormQueryListRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof PromotionApiInterface
    */
   postV0NormqueryList(
     v0GetNormQueryListRequest: V0GetNormQueryListRequest,
@@ -9511,7 +9512,7 @@ export interface DefaultApiInterface {
    * @param {V0SetMinusNormQueryRequest} v0SetMinusNormQueryRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof PromotionApiInterface
    */
   postV0NormquerySetMinus(
     v0SetMinusNormQueryRequest: V0SetMinusNormQueryRequest,
@@ -9524,7 +9525,7 @@ export interface DefaultApiInterface {
    * @param {V0GetNormQueryStatsRequest} v0GetNormQueryStatsRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof PromotionApiInterface
    */
   postV0NormqueryStats(
     v0GetNormQueryStatsRequest: V0GetNormQueryStatsRequest,
@@ -9537,7 +9538,7 @@ export interface DefaultApiInterface {
    * @param {PostV0RenameRequest} [postV0RenameRequest]
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof PromotionApiInterface
    */
   postV0Rename(
     postV0RenameRequest?: PostV0RenameRequest,
@@ -9550,7 +9551,7 @@ export interface DefaultApiInterface {
    * @param {PostV1BidsMinRequest} postV1BidsMinRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof PromotionApiInterface
    */
   postV1BidsMin(
     postV1BidsMinRequest: PostV1BidsMinRequest,
@@ -9564,7 +9565,7 @@ export interface DefaultApiInterface {
    * @param {PostV1BudgetDepositRequest} postV1BudgetDepositRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof PromotionApiInterface
    */
   postV1BudgetDeposit(
     id: number,
@@ -9578,7 +9579,7 @@ export interface DefaultApiInterface {
    * @param {PostV1CalendarPromotionsUploadRequest} postV1CalendarPromotionsUploadRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof PromotionApiInterface
    */
   postV1CalendarPromotionsUpload(
     postV1CalendarPromotionsUploadRequest: PostV1CalendarPromotionsUploadRequest,
@@ -9591,7 +9592,7 @@ export interface DefaultApiInterface {
    * @param {V1SetNormQueryBidsRequest} v1SetNormQueryBidsRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof PromotionApiInterface
    */
   postV1NormqueryBids(
     v1SetNormQueryBidsRequest: V1SetNormQueryBidsRequest,
@@ -9604,7 +9605,7 @@ export interface DefaultApiInterface {
    * @param {V1GetNormQueryStatsRequest} v1GetNormQueryStatsRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof PromotionApiInterface
    */
   postV1NormqueryStats(
     v1GetNormQueryStatsRequest: V1GetNormQueryStatsRequest,
@@ -9617,7 +9618,7 @@ export interface DefaultApiInterface {
    * @param {Array<PostV1StatsRequestInner>} postV1StatsRequestInner
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof PromotionApiInterface
    */
   postV1Stats(
     postV1StatsRequestInner: Array<PostV1StatsRequestInner>,
@@ -9630,7 +9631,7 @@ export interface DefaultApiInterface {
    * @param {V2BudgetRequest} v2BudgetRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof PromotionApiInterface
    */
   postV2Budget(
     v2BudgetRequest: V2BudgetRequest,
@@ -9643,7 +9644,7 @@ export interface DefaultApiInterface {
    * @param {PostV2SeacatSaveAdRequest} [postV2SeacatSaveAdRequest]
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof PromotionApiInterface
    */
   postV2SeacatSaveAd(
     postV2SeacatSaveAdRequest?: PostV2SeacatSaveAdRequest,
@@ -9656,7 +9657,7 @@ export interface DefaultApiInterface {
    * @param {Array<number>} [requestBody] ID предметов, для которых нужно получить карточки товаров
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof PromotionApiInterface
    */
   postV2SupplierNms(
     requestBody?: Array<number>,
@@ -9669,7 +9670,7 @@ export interface DefaultApiInterface {
    * @param {PutV0AuctionPlacementsRequest} putV0AuctionPlacementsRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof PromotionApiInterface
    */
   putV0AuctionPlacements(
     putV0AuctionPlacementsRequest: PutV0AuctionPlacementsRequest,
@@ -9682,7 +9683,7 @@ export interface DefaultApiInterface {
    * @param {V0PutDailyLimitsRequest} v0PutDailyLimitsRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApiInterface
+   * @memberof PromotionApiInterface
    */
   putV0DailyLimits(
     v0PutDailyLimitsRequest: V0PutDailyLimitsRequest,
@@ -9691,25 +9692,25 @@ export interface DefaultApiInterface {
 }
 
 /**
- * DefaultApi - object-oriented interface
+ * PromotionApi - object-oriented interface
  * @export
- * @class DefaultApi
+ * @class PromotionApi
  * @extends {BaseAPI}
  */
-export class DefaultApi extends BaseAPI implements DefaultApiInterface {
+export class PromotionApi extends BaseAPI implements PromotionApiInterface {
   /**
    * Метод удаляет ставки с поисковых кластеров. Можно использовать только для кампаний с: - ручной ставкой - моделью оплаты `cpm` — за показы  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
    * @summary Удалить ставки поисковых кластеров
    * @param {V0DeleteNormQueryBidsRequest} v0DeleteNormQueryBidsRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof PromotionApi
    */
   public deleteV0NormqueryBids(
     v0DeleteNormQueryBidsRequest: V0DeleteNormQueryBidsRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return PromotionApiFp(this.configuration)
       .deleteV0NormqueryBids(v0DeleteNormQueryBidsRequest, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -9721,14 +9722,14 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {number} advertId ID кампании
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof PromotionApi
    */
   public getV0BidsRecommendations(
     nmId: number,
     advertId: number,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return PromotionApiFp(this.configuration)
       .getV0BidsRecommendations(nmId, advertId, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -9739,10 +9740,10 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {string} advertIds ID кампаний, максимум 100. Укажите значения через запятую
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof PromotionApi
    */
   public getV0DailyLimits(advertIds: string, options?: RawAxiosRequestConfig) {
-    return DefaultApiFp(this.configuration)
+    return PromotionApiFp(this.configuration)
       .getV0DailyLimits(advertIds, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -9753,10 +9754,10 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {number} id ID кампании
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof PromotionApi
    */
   public getV0Delete(id: number, options?: RawAxiosRequestConfig) {
-    return DefaultApiFp(this.configuration)
+    return PromotionApiFp(this.configuration)
       .getV0Delete(id, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -9767,10 +9768,10 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {number} id ID кампании
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof PromotionApi
    */
   public getV0Pause(id: number, options?: RawAxiosRequestConfig) {
-    return DefaultApiFp(this.configuration)
+    return PromotionApiFp(this.configuration)
       .getV0Pause(id, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -9781,10 +9782,10 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {number} id ID кампании
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof PromotionApi
    */
   public getV0Start(id: number, options?: RawAxiosRequestConfig) {
-    return DefaultApiFp(this.configuration)
+    return PromotionApiFp(this.configuration)
       .getV0Start(id, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -9795,10 +9796,10 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {number} id ID кампании
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof PromotionApi
    */
   public getV0Stop(id: number, options?: RawAxiosRequestConfig) {
-    return DefaultApiFp(this.configuration)
+    return PromotionApiFp(this.configuration)
       .getV0Stop(id, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -9809,10 +9810,10 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {number} id ID медиакампании
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof PromotionApi
    */
   public getV1Advert(id: number, options?: RawAxiosRequestConfig) {
-    return DefaultApiFp(this.configuration)
+    return PromotionApiFp(this.configuration)
       .getV1Advert(id, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -9828,7 +9829,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {string} [direction] Порядок сортировки: - &#x60;desc&#x60; — от большего к меньшему - &#x60;asc&#x60; — от меньшего к большему
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof PromotionApi
    */
   public getV1Adverts(
     status?: string,
@@ -9839,7 +9840,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
     direction?: string,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return PromotionApiFp(this.configuration)
       .getV1Adverts(status, type, limit, offset, order, direction, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -9849,10 +9850,10 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @summary Баланс
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof PromotionApi
    */
   public getV1Balance(options?: RawAxiosRequestConfig) {
-    return DefaultApiFp(this.configuration)
+    return PromotionApiFp(this.configuration)
       .getV1Balance(options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -9864,10 +9865,10 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {*} [options] Override http request option.
    * @deprecated
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof PromotionApi
    */
   public getV1Budget(id: number, options?: RawAxiosRequestConfig) {
-    return DefaultApiFp(this.configuration)
+    return PromotionApiFp(this.configuration)
       .getV1Budget(id, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -9882,7 +9883,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {number} [offset] После какого элемента выдавать данные
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof PromotionApi
    */
   public getV1CalendarPromotions(
     startDateTime: string,
@@ -9892,7 +9893,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
     offset?: number,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return PromotionApiFp(this.configuration)
       .getV1CalendarPromotions(
         startDateTime,
         endDateTime,
@@ -9910,13 +9911,13 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {Set<number>} promotionIDs ID акций, по которым нужно вернуть информацию
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof PromotionApi
    */
   public getV1CalendarPromotionsDetails(
     promotionIDs: Set<number>,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return PromotionApiFp(this.configuration)
       .getV1CalendarPromotionsDetails(promotionIDs, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -9930,7 +9931,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {number} [offset] После какого элемента выдавать данные
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof PromotionApi
    */
   public getV1CalendarPromotionsNomenclatures(
     promotionID: number,
@@ -9939,7 +9940,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
     offset?: number,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return PromotionApiFp(this.configuration)
       .getV1CalendarPromotionsNomenclatures(
         promotionID,
         inAction,
@@ -9955,10 +9956,10 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @summary Конфигурационные значения продвижения
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof PromotionApi
    */
   public getV1Config(options?: RawAxiosRequestConfig) {
-    return DefaultApiFp(this.configuration)
+    return PromotionApiFp(this.configuration)
       .getV1Config(options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -9968,10 +9969,10 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @summary Количество медиакампаний
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof PromotionApi
    */
   public getV1Count(options?: RawAxiosRequestConfig) {
-    return DefaultApiFp(this.configuration)
+    return PromotionApiFp(this.configuration)
       .getV1Count(options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -9983,14 +9984,14 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {string} [to] Конец интервала. (Минимальный интервал 1 день, максимальный 31)
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof PromotionApi
    */
   public getV1Payments(
     from?: string,
     to?: string,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return PromotionApiFp(this.configuration)
       .getV1Payments(from, to, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -10000,10 +10001,10 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @summary Списки кампаний
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof PromotionApi
    */
   public getV1PromotionCount(options?: RawAxiosRequestConfig) {
-    return DefaultApiFp(this.configuration)
+    return PromotionApiFp(this.configuration)
       .getV1PromotionCount(options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -10014,13 +10015,13 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {string} [paymentType] Тип оплаты: - &#x60;cpm&#x60; — за показы - &#x60;cpc&#x60; — за клик
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof PromotionApi
    */
   public getV1SupplierSubjects(
     paymentType?: string,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return PromotionApiFp(this.configuration)
       .getV1SupplierSubjects(paymentType, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -10032,10 +10033,10 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {string} to Конец интервала. (Минимальный интервал 1 день, максимальный 31)
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof PromotionApi
    */
   public getV1Upd(from: string, to: string, options?: RawAxiosRequestConfig) {
-    return DefaultApiFp(this.configuration)
+    return PromotionApiFp(this.configuration)
       .getV1Upd(from, to, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -10048,7 +10049,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {GetV2AdvertsPaymentTypeEnum} [paymentType] Тип оплаты: - &#x60;cpm&#x60; — за показы - &#x60;cpc&#x60; — за клик
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof PromotionApi
    */
   public getV2Adverts(
     ids?: string,
@@ -10056,7 +10057,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
     paymentType?: GetV2AdvertsPaymentTypeEnum,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return PromotionApiFp(this.configuration)
       .getV2Adverts(ids, statuses, paymentType, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -10069,7 +10070,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {string} endDate Дата окончания интервала
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof PromotionApi
    */
   public getV3Fullstats(
     ids: string,
@@ -10077,7 +10078,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
     endDate: string,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return PromotionApiFp(this.configuration)
       .getV3Fullstats(ids, beginDate, endDate, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -10088,13 +10089,13 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {PatchV0AuctionNmsRequest} patchV0AuctionNmsRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof PromotionApi
    */
   public patchV0AuctionNms(
     patchV0AuctionNmsRequest: PatchV0AuctionNmsRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return PromotionApiFp(this.configuration)
       .patchV0AuctionNms(patchV0AuctionNmsRequest, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -10105,13 +10106,13 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {PatchV1BidsRequest} patchV1BidsRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof PromotionApi
    */
   public patchV1Bids(
     patchV1BidsRequest: PatchV1BidsRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return PromotionApiFp(this.configuration)
       .patchV1Bids(patchV1BidsRequest, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -10122,13 +10123,13 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {V0SetNormQueryBidsRequest} v0SetNormQueryBidsRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof PromotionApi
    */
   public postV0NormqueryBids(
     v0SetNormQueryBidsRequest: V0SetNormQueryBidsRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return PromotionApiFp(this.configuration)
       .postV0NormqueryBids(v0SetNormQueryBidsRequest, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -10139,13 +10140,13 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {V0GetNormQueryBidsRequest} v0GetNormQueryBidsRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof PromotionApi
    */
   public postV0NormqueryGetBids(
     v0GetNormQueryBidsRequest: V0GetNormQueryBidsRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return PromotionApiFp(this.configuration)
       .postV0NormqueryGetBids(v0GetNormQueryBidsRequest, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -10156,13 +10157,13 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {V0GetNormQueryMinusRequest} v0GetNormQueryMinusRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof PromotionApi
    */
   public postV0NormqueryGetMinus(
     v0GetNormQueryMinusRequest: V0GetNormQueryMinusRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return PromotionApiFp(this.configuration)
       .postV0NormqueryGetMinus(v0GetNormQueryMinusRequest, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -10173,13 +10174,13 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {V0GetNormQueryListRequest} v0GetNormQueryListRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof PromotionApi
    */
   public postV0NormqueryList(
     v0GetNormQueryListRequest: V0GetNormQueryListRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return PromotionApiFp(this.configuration)
       .postV0NormqueryList(v0GetNormQueryListRequest, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -10190,13 +10191,13 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {V0SetMinusNormQueryRequest} v0SetMinusNormQueryRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof PromotionApi
    */
   public postV0NormquerySetMinus(
     v0SetMinusNormQueryRequest: V0SetMinusNormQueryRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return PromotionApiFp(this.configuration)
       .postV0NormquerySetMinus(v0SetMinusNormQueryRequest, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -10207,13 +10208,13 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {V0GetNormQueryStatsRequest} v0GetNormQueryStatsRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof PromotionApi
    */
   public postV0NormqueryStats(
     v0GetNormQueryStatsRequest: V0GetNormQueryStatsRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return PromotionApiFp(this.configuration)
       .postV0NormqueryStats(v0GetNormQueryStatsRequest, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -10224,13 +10225,13 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {PostV0RenameRequest} [postV0RenameRequest]
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof PromotionApi
    */
   public postV0Rename(
     postV0RenameRequest?: PostV0RenameRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return PromotionApiFp(this.configuration)
       .postV0Rename(postV0RenameRequest, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -10241,13 +10242,13 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {PostV1BidsMinRequest} postV1BidsMinRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof PromotionApi
    */
   public postV1BidsMin(
     postV1BidsMinRequest: PostV1BidsMinRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return PromotionApiFp(this.configuration)
       .postV1BidsMin(postV1BidsMinRequest, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -10259,14 +10260,14 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {PostV1BudgetDepositRequest} postV1BudgetDepositRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof PromotionApi
    */
   public postV1BudgetDeposit(
     id: number,
     postV1BudgetDepositRequest: PostV1BudgetDepositRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return PromotionApiFp(this.configuration)
       .postV1BudgetDeposit(id, postV1BudgetDepositRequest, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -10277,13 +10278,13 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {PostV1CalendarPromotionsUploadRequest} postV1CalendarPromotionsUploadRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof PromotionApi
    */
   public postV1CalendarPromotionsUpload(
     postV1CalendarPromotionsUploadRequest: PostV1CalendarPromotionsUploadRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return PromotionApiFp(this.configuration)
       .postV1CalendarPromotionsUpload(
         postV1CalendarPromotionsUploadRequest,
         options,
@@ -10297,13 +10298,13 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {V1SetNormQueryBidsRequest} v1SetNormQueryBidsRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof PromotionApi
    */
   public postV1NormqueryBids(
     v1SetNormQueryBidsRequest: V1SetNormQueryBidsRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return PromotionApiFp(this.configuration)
       .postV1NormqueryBids(v1SetNormQueryBidsRequest, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -10314,13 +10315,13 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {V1GetNormQueryStatsRequest} v1GetNormQueryStatsRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof PromotionApi
    */
   public postV1NormqueryStats(
     v1GetNormQueryStatsRequest: V1GetNormQueryStatsRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return PromotionApiFp(this.configuration)
       .postV1NormqueryStats(v1GetNormQueryStatsRequest, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -10331,13 +10332,13 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {Array<PostV1StatsRequestInner>} postV1StatsRequestInner
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof PromotionApi
    */
   public postV1Stats(
     postV1StatsRequestInner: Array<PostV1StatsRequestInner>,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return PromotionApiFp(this.configuration)
       .postV1Stats(postV1StatsRequestInner, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -10348,13 +10349,13 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {V2BudgetRequest} v2BudgetRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof PromotionApi
    */
   public postV2Budget(
     v2BudgetRequest: V2BudgetRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return PromotionApiFp(this.configuration)
       .postV2Budget(v2BudgetRequest, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -10365,13 +10366,13 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {PostV2SeacatSaveAdRequest} [postV2SeacatSaveAdRequest]
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof PromotionApi
    */
   public postV2SeacatSaveAd(
     postV2SeacatSaveAdRequest?: PostV2SeacatSaveAdRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return PromotionApiFp(this.configuration)
       .postV2SeacatSaveAd(postV2SeacatSaveAdRequest, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -10382,13 +10383,13 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {Array<number>} [requestBody] ID предметов, для которых нужно получить карточки товаров
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof PromotionApi
    */
   public postV2SupplierNms(
     requestBody?: Array<number>,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return PromotionApiFp(this.configuration)
       .postV2SupplierNms(requestBody, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -10399,13 +10400,13 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {PutV0AuctionPlacementsRequest} putV0AuctionPlacementsRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof PromotionApi
    */
   public putV0AuctionPlacements(
     putV0AuctionPlacementsRequest: PutV0AuctionPlacementsRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return PromotionApiFp(this.configuration)
       .putV0AuctionPlacements(putV0AuctionPlacementsRequest, options)
       .then((request) => request(this.axios, this.basePath));
   }
@@ -10416,13 +10417,13 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @param {V0PutDailyLimitsRequest} v0PutDailyLimitsRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof DefaultApi
+   * @memberof PromotionApi
    */
   public putV0DailyLimits(
     v0PutDailyLimitsRequest: V0PutDailyLimitsRequest,
     options?: RawAxiosRequestConfig,
   ) {
-    return DefaultApiFp(this.configuration)
+    return PromotionApiFp(this.configuration)
       .putV0DailyLimits(v0PutDailyLimitsRequest, options)
       .then((request) => request(this.axios, this.basePath));
   }

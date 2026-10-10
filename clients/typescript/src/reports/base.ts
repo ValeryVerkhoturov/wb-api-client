@@ -89,109 +89,109 @@ interface ServerMap {
  * @export
  */
 export const operationServerMap: ServerMap = {
-  "DefaultApi.getV1AcceptanceReport": [
+  "ReportsApi.getV1AcceptanceReport": [
     {
       url: "https://seller-analytics-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.getV1AcceptanceReportTasksTaskIdDownload": [
+  "ReportsApi.getV1AcceptanceReportTasksTaskIdDownload": [
     {
       url: "https://seller-analytics-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.getV1AcceptanceReportTasksTaskIdStatus": [
+  "ReportsApi.getV1AcceptanceReportTasksTaskIdStatus": [
     {
       url: "https://seller-analytics-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.getV1AnalyticsAntifraudDetails": [
+  "ReportsApi.getV1AnalyticsAntifraudDetails": [
     {
       url: "https://seller-analytics-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.getV1AnalyticsBannedProducsBlocked": [
+  "ReportsApi.getV1AnalyticsBannedProducsBlocked": [
     {
       url: "https://seller-analytics-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.getV1AnalyticsBrandShare": [
+  "ReportsApi.getV1AnalyticsBrandShare": [
     {
       url: "https://seller-analytics-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.getV1AnalyticsBrandShareBrands": [
+  "ReportsApi.getV1AnalyticsBrandShareBrands": [
     {
       url: "https://seller-analytics-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.getV1AnalyticsBrandShareParentSubjects": [
+  "ReportsApi.getV1AnalyticsBrandShareParentSubjects": [
     {
       url: "https://seller-analytics-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.getV1AnalyticsGoodsLabeling": [
+  "ReportsApi.getV1AnalyticsGoodsLabeling": [
     {
       url: "https://seller-analytics-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.getV1AnalyticsGoodsReturn": [
+  "ReportsApi.getV1AnalyticsGoodsReturn": [
     {
       url: "https://seller-analytics-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.getV1AnalyticsRegionSale": [
+  "ReportsApi.getV1AnalyticsRegionSale": [
     {
       url: "https://seller-analytics-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.getV1Deductions": [
+  "ReportsApi.getV1Deductions": [
     {
       url: "https://seller-analytics-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.getV1GoodsReturn": [
+  "ReportsApi.getV1GoodsReturn": [
     {
       url: "https://seller-analytics-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.getV1MeasurementPenalties": [
+  "ReportsApi.getV1MeasurementPenalties": [
     {
       url: "https://seller-analytics-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.getV1PaidStorage": [
+  "ReportsApi.getV1PaidStorage": [
     {
       url: "https://seller-analytics-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.getV1PaidStorageTasksTaskIdDownload": [
+  "ReportsApi.getV1PaidStorageTasksTaskIdDownload": [
     {
       url: "https://seller-analytics-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.getV1PaidStorageTasksTaskIdStatus": [
+  "ReportsApi.getV1PaidStorageTasksTaskIdStatus": [
     {
       url: "https://seller-analytics-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.getV1SupplierOrders": [
+  "ReportsApi.getV1SupplierOrders": [
     {
       url: "https://statistics-api.wildberries.ru",
       description: "**Prod** ",
@@ -201,7 +201,7 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DefaultApi.getV1SupplierSales": [
+  "ReportsApi.getV1SupplierSales": [
     {
       url: "https://statistics-api.wildberries.ru",
       description: "**Prod** ",
@@ -211,31 +211,31 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DefaultApi.getV1WarehouseMeasurements": [
+  "ReportsApi.getV1WarehouseMeasurements": [
     {
       url: "https://seller-analytics-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.getV1WarehouseRemains": [
+  "ReportsApi.getV1WarehouseRemains": [
     {
       url: "https://seller-analytics-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.getV1WarehouseRemainsTasksTaskIdDownload": [
+  "ReportsApi.getV1WarehouseRemainsTasksTaskIdDownload": [
     {
       url: "https://seller-analytics-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.getV1WarehouseRemainsTasksTaskIdStatus": [
+  "ReportsApi.getV1WarehouseRemainsTasksTaskIdStatus": [
     {
       url: "https://seller-analytics-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "CApi.postV1AnalyticsExciseReport": [
+  "ReportsApi.postV1AnalyticsExciseReport": [
     {
       url: "https://seller-analytics-api.wildberries.ru",
       description: "No description provided",

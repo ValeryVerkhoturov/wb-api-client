@@ -89,121 +89,121 @@ interface ServerMap {
  * @export
  */
 export const operationServerMap: ServerMap = {
-  "DefaultApi.postV1OrderFeed": [
+  "AnalyticsApi.getV2NmReportDownloads": [
     {
       url: "https://seller-analytics-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.postV1StocksReportSellerWarehouses": [
+  "AnalyticsApi.getV2NmReportDownloadsFileDownloadId": [
     {
       url: "https://seller-analytics-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.postV1StocksReportWbWarehouses": [
+  "AnalyticsApi.postV1OrderFeed": [
     {
       url: "https://seller-analytics-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.postV2ItemRating": [
+  "AnalyticsApi.postV1StocksReportSellerWarehouses": [
     {
       url: "https://seller-analytics-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.postV2SearchReportProductOrders": [
+  "AnalyticsApi.postV1StocksReportWbWarehouses": [
     {
       url: "https://seller-analytics-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.postV2SearchReportProductSearchTexts": [
+  "AnalyticsApi.postV2ItemRating": [
     {
       url: "https://seller-analytics-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.postV2SearchReportReport": [
+  "AnalyticsApi.postV2NmReportDownloads": [
     {
       url: "https://seller-analytics-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.postV2SearchReportTableDetails": [
+  "AnalyticsApi.postV2NmReportDownloadsRetry": [
     {
       url: "https://seller-analytics-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.postV2SearchReportTableGroups": [
+  "AnalyticsApi.postV2SearchReportProductOrders": [
     {
       url: "https://seller-analytics-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.postV2StocksReportOffices": [
+  "AnalyticsApi.postV2SearchReportProductSearchTexts": [
     {
       url: "https://seller-analytics-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.postV2StocksReportProductsGroups": [
+  "AnalyticsApi.postV2SearchReportReport": [
     {
       url: "https://seller-analytics-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.postV2StocksReportProductsProducts": [
+  "AnalyticsApi.postV2SearchReportTableDetails": [
     {
       url: "https://seller-analytics-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.postV2StocksReportProductsSizes": [
+  "AnalyticsApi.postV2SearchReportTableGroups": [
     {
       url: "https://seller-analytics-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.postV3SalesFunnelGroupedHistory": [
+  "AnalyticsApi.postV2StocksReportOffices": [
     {
       url: "https://seller-analytics-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.postV3SalesFunnelProducts": [
+  "AnalyticsApi.postV2StocksReportProductsGroups": [
     {
       url: "https://seller-analytics-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "DefaultApi.postV3SalesFunnelProductsHistory": [
+  "AnalyticsApi.postV2StocksReportProductsProducts": [
     {
       url: "https://seller-analytics-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "CSVApi.getV2NmReportDownloads": [
+  "AnalyticsApi.postV2StocksReportProductsSizes": [
     {
       url: "https://seller-analytics-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "CSVApi.getV2NmReportDownloadsFileDownloadId": [
+  "AnalyticsApi.postV3SalesFunnelGroupedHistory": [
     {
       url: "https://seller-analytics-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "CSVApi.postV2NmReportDownloads": [
+  "AnalyticsApi.postV3SalesFunnelProducts": [
     {
       url: "https://seller-analytics-api.wildberries.ru",
       description: "No description provided",
     },
   ],
-  "CSVApi.postV2NmReportDownloadsRetry": [
+  "AnalyticsApi.postV3SalesFunnelProductsHistory": [
     {
       url: "https://seller-analytics-api.wildberries.ru",
       description: "No description provided",

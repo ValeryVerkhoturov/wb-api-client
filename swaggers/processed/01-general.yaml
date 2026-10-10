@@ -52,7 +52,7 @@ paths:
       x-readonly-method: true
       x-category: commonapi
       tags:
-      - Проверка подключения к WB API
+      - General
       security:
       - BearerAuth: []
       summary: Проверка подключения
@@ -110,6 +110,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: connectionCheck
+      x-original-tags:
+      - Проверка подключения к WB API
   /api/communications/v2/news:
     servers:
     - url: https://common-api.wildberries.ru
@@ -118,7 +120,7 @@ paths:
       x-readonly-method: true
       x-category: commonapi
       tags:
-      - API новостей
+      - General
       security:
       - BearerAuth: []
       summary: Получение новостей портала продавцов
@@ -201,6 +203,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: newsApi
+      x-original-tags:
+      - API новостей
   /api/v1/seller-info:
     servers:
     - url: https://common-api.wildberries.ru
@@ -209,7 +213,7 @@ paths:
       x-readonly-method: true
       x-category: commonapi
       tags:
-      - Информация о продавце
+      - General
       security:
       - BearerAuth: []
       summary: Получить информацию о продавце
@@ -244,6 +248,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: sellerInformation
+      x-original-tags:
+      - Информация о продавце
   /api/common/v1/rating:
     servers:
     - url: https://feedbacks-api.wildberries.ru
@@ -254,7 +260,7 @@ paths:
       x-token-types:
       - service
       tags:
-      - Информация о продавце
+      - General
       security:
       - BearerAuth: []
       summary: Получить рейтинг продавца
@@ -295,6 +301,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: sellerInformation
+      x-original-tags:
+      - Информация о продавце
   /api/common/v1/subscriptions:
     servers:
     - url: https://common-api.wildberries.ru
@@ -305,7 +313,7 @@ paths:
       x-token-types:
       - service
       tags:
-      - Информация о продавце
+      - General
       security:
       - BearerAuth: []
       summary: Получить информацию о подписке Джем
@@ -356,6 +364,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: sellerInformation
+      x-original-tags:
+      - Информация о продавце
   /api/common/v1/tariff-constructor/options:
     servers:
     - url: https://common-api.wildberries.ru
@@ -366,7 +376,7 @@ paths:
       x-token-types:
       - service
       tags:
-      - Информация о продавце
+      - General
       security:
       - BearerAuth: []
       summary: Получить информацию об опциях Конструктора тарифов
@@ -442,6 +452,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: sellerInformation
+      x-original-tags:
+      - Информация о продавце
   /api/v1/invite:
     servers:
     - url: https://user-management-api.wildberries.ru
@@ -452,7 +464,7 @@ paths:
       x-token-types:
       - personal
       tags:
-      - Управление пользователями продавца
+      - General
       security:
       - BearerAuth: []
       summary: Создать приглашение для нового пользователя
@@ -509,6 +521,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: sellerUserManagement
+      x-original-tags:
+      - Управление пользователями продавца
   /api/v1/users:
     servers:
     - url: https://user-management-api.wildberries.ru
@@ -519,7 +533,7 @@ paths:
       x-token-types:
       - personal
       tags:
-      - Управление пользователями продавца
+      - General
       security:
       - BearerAuth: []
       summary: Получить список активных или приглашённых пользователей продавца
@@ -838,6 +852,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: sellerUserManagement
+      x-original-tags:
+      - Управление пользователями продавца
   /api/v1/users/access:
     servers:
     - url: https://user-management-api.wildberries.ru
@@ -848,7 +864,7 @@ paths:
       x-token-types:
       - personal
       tags:
-      - Управление пользователями продавца
+      - General
       security:
       - BearerAuth: []
       summary: Изменить права доступа пользователей
@@ -895,6 +911,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: sellerUserManagement
+      x-original-tags:
+      - Управление пользователями продавца
   /api/v1/user:
     servers:
     - url: https://user-management-api.wildberries.ru
@@ -905,7 +923,7 @@ paths:
       x-token-types:
       - personal
       tags:
-      - Управление пользователями продавца
+      - General
       security:
       - BearerAuth: []
       summary: Удалить пользователя
@@ -952,6 +970,8 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: sellerUserManagement
+      x-original-tags:
+      - Управление пользователями продавца
 components:
   securitySchemes:
     BearerAuth:

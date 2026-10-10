@@ -48,11 +48,7 @@ type APIClient struct {
 
 	// API Services
 
-	DefaultApi DefaultApi
-
-	APIAPI APIAPI
-
-	WBAPIAPI WBAPIAPI
+	GeneralAPI GeneralAPI
 }
 
 type service struct {
@@ -71,9 +67,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.common.client = c
 
 	// API Services
-	c.DefaultApi = (*DefaultApiService)(&c.common)
-	c.APIAPI = (*APIAPIService)(&c.common)
-	c.WBAPIAPI = (*WBAPIAPIService)(&c.common)
+	c.GeneralAPI = (*GeneralAPIService)(&c.common)
 
 	return c
 }
