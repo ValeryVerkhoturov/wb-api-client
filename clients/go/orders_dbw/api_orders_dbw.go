@@ -39,6 +39,8 @@ type OrdersDbwAPI interface {
 		| 1 мин | 300 запросов | 200 мс | 20 запросов |
 		Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/get-api-v3-dbw-orders
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV3DbwOrdersRequest
 	*/
@@ -63,6 +65,8 @@ type OrdersDbwAPI interface {
 		| --- | --- | --- | --- |
 		| 1 мин | 300 запросов | 200 мс | 20 запросов |
 		Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/get-api-v3-dbw-orders-new
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV3DbwOrdersNewRequest
@@ -92,6 +96,8 @@ type OrdersDbwAPI interface {
 		| Базовый | 1 ч | 10 запросов | 6 мин | 1 запрос |
 		Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/patch-api-v3-dbw-orders-orderid-cancel
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@param orderId ID сборочного задания
 			@return ApiPatchV3DbwOrdersOrderIdCancelRequest
@@ -117,6 +123,8 @@ type OrdersDbwAPI interface {
 		| 1 мин | 300 запросов | 200 мс | 20 запросов |
 		Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/patch-api-v3-dbw-orders-orderid-confirm
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@param orderId ID сборочного задания
 			@return ApiPatchV3DbwOrdersOrderIdConfirmRequest
@@ -141,6 +149,8 @@ type OrdersDbwAPI interface {
 		| --- | --- | --- | --- |
 		| 1 мин | 300 запросов | 200 мс | 20 запросов |
 		Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/post-api-marketplace-v3-dbw-orders-client
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV3DbwOrdersClientRequest
@@ -168,6 +178,8 @@ type OrdersDbwAPI interface {
 		| 1 мин | 300 запросов | 200 мс | 20 запросов |
 		Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/post-api-v3-dbw-orders-courier
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV3DbwOrdersCourierRequest
 	*/
@@ -192,6 +204,8 @@ type OrdersDbwAPI interface {
 		| --- | --- | --- | --- |
 		| 1 мин | 300 запросов | 200 мс | 20 запросов |
 		Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/post-api-v3-dbw-orders-delivery-date
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV3DbwOrdersDeliveryDateRequest
@@ -225,6 +239,8 @@ type OrdersDbwAPI interface {
 		| 1 мин | 300 запросов | 200 мс | 20 запросов |
 		Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/post-api-marketplace-v3-dbw-orders-meta-delete
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV3DbwOrdersMetaDeleteRequest
 	*/
@@ -257,6 +273,8 @@ type OrdersDbwAPI interface {
 		| 1 мин | 300 запросов | 200 мс | 20 запросов |
 		Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/post-api-marketplace-v3-dbw-orders-meta-details
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV3DbwOrdersMetaDetailsRequest
 	*/
@@ -284,6 +302,8 @@ type OrdersDbwAPI interface {
 		| --- | --- | --- | --- |
 		| 1 мин | 300 запросов | 200 мс | 20 запросов |
 		Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/post-api-marketplace-v3-dbw-orders-meta-sgtin
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV3DbwOrdersMetaSgtinRequest
@@ -337,6 +357,8 @@ type OrdersDbwAPI interface {
 		| 1 мин | 300 запросов | 200 мс | 20 запросов |
 		Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/post-api-v3-dbw-orders-status
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV3DbwOrdersStatusRequest
 	*/
@@ -363,6 +385,8 @@ type OrdersDbwAPI interface {
 		| --- | --- | --- | --- |
 		| 1 мин | 300 запросов | 200 мс | 20 запросов |
 		Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/post-api-marketplace-v3-dbw-orders-status-deliver
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV3DbwOrdersStatusDeliverRequest
@@ -400,6 +424,8 @@ type OrdersDbwAPI interface {
 		| 1 мин | 300 запросов | 200 мс | 20 запросов |
 		Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/post-api-v3-dbw-orders-stickers
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV3DbwOrdersStickersRequest
 	*/
@@ -420,6 +446,8 @@ type OrdersDbwAPI interface {
 		| --- | --- | --- | --- |
 		| 1 мин | 1000 запросов | 60 мс | 20 запросов |
 		Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/put-api-v3-dbw-orders-orderid-meta-gtin
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@param orderId ID сборочного задания
@@ -443,6 +471,8 @@ type OrdersDbwAPI interface {
 		| 1 мин | 1000 запросов | 60 мс | 20 запросов |
 		Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/put-api-v3-dbw-orders-orderid-meta-imei
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@param orderId ID сборочного задания
 			@return ApiPutV3DbwOrdersOrderIdMetaImeiRequest
@@ -463,6 +493,8 @@ type OrdersDbwAPI interface {
 		| --- | --- | --- | --- |
 		| 1 мин | 1000 запросов | 60 мс | 20 запросов |
 		Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/put-api-v3-dbw-orders-orderid-meta-uin
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@param orderId ID сборочного задания
@@ -531,6 +563,8 @@ GetV3DbwOrders Получить информацию о завершенных �
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
 Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/get-api-v3-dbw-orders
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV3DbwOrdersRequest
@@ -719,6 +753,8 @@ GetV3DbwOrdersNew Получить список новых сборочных з
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
 Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/get-api-v3-dbw-orders-new
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV3DbwOrdersNewRequest
 */
@@ -876,6 +912,8 @@ PatchV3DbwOrdersOrderIdCancel Отменить сборочное задание
 | Базовый с секретом | 1 мин | 300 запросов | 200 мс | 20 запросов |
 | Базовый | 1 ч | 10 запросов | 6 мин | 1 запрос |
 Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/patch-api-v3-dbw-orders-orderid-cancel
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param orderId ID сборочного задания
@@ -1055,6 +1093,8 @@ PatchV3DbwOrdersOrderIdConfirm Перевести на сборку
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
 Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/patch-api-v3-dbw-orders-orderid-confirm
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param orderId ID сборочного задания
@@ -1240,6 +1280,8 @@ PostV3DbwOrdersClient Информация о покупателе
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
 Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/post-api-marketplace-v3-dbw-orders-client
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV3DbwOrdersClientRequest
 */
@@ -1418,6 +1460,8 @@ PostV3DbwOrdersCourier Информация о курьере
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
 Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/post-api-v3-dbw-orders-courier
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV3DbwOrdersCourierRequest
 */
@@ -1593,6 +1637,8 @@ PostV3DbwOrdersDeliveryDate Получить дату и время достав
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
 Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/post-api-v3-dbw-orders-delivery-date
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV3DbwOrdersDeliveryDateRequest
@@ -1777,6 +1823,8 @@ PostV3DbwOrdersMetaDelete Удалить идентификаторы марки
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
 Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/post-api-marketplace-v3-dbw-orders-meta-delete
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV3DbwOrdersMetaDeleteRequest
 */
@@ -1960,6 +2008,8 @@ PostV3DbwOrdersMetaDetails Получить идентификаторы мар�
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
 Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/post-api-marketplace-v3-dbw-orders-meta-details
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV3DbwOrdersMetaDetailsRequest
 */
@@ -2138,6 +2188,8 @@ PostV3DbwOrdersMetaSgtin Закрепить коды маркировки Чес
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
 Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/post-api-marketplace-v3-dbw-orders-meta-sgtin
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV3DbwOrdersMetaSgtinRequest
@@ -2343,6 +2395,8 @@ PostV3DbwOrdersStatus Получить статусы сборочных зад�
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
 Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/post-api-v3-dbw-orders-status
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV3DbwOrdersStatusRequest
 */
@@ -2517,6 +2571,8 @@ PostV3DbwOrdersStatusDeliver Перевести сборочные задани�
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
 Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/post-api-marketplace-v3-dbw-orders-status-deliver
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV3DbwOrdersStatusDeliverRequest
@@ -2726,6 +2782,8 @@ PostV3DbwOrdersStickers Получить стикеры сборочных за�
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
 Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/post-api-v3-dbw-orders-stickers
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV3DbwOrdersStickersRequest
 */
@@ -2907,6 +2965,8 @@ PutV3DbwOrdersOrderIdMetaGtin Закрепить GTIN за сборочным з
 | --- | --- | --- | --- |
 | 1 мин | 1000 запросов | 60 мс | 20 запросов |
 Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/put-api-v3-dbw-orders-orderid-meta-gtin
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param orderId ID сборочного задания
@@ -3095,6 +3155,8 @@ PutV3DbwOrdersOrderIdMetaImei Закрепить IMEI за сборочным з
 | 1 мин | 1000 запросов | 60 мс | 20 запросов |
 Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/put-api-v3-dbw-orders-orderid-meta-imei
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param orderId ID сборочного задания
 	@return ApiPutV3DbwOrdersOrderIdMetaImeiRequest
@@ -3280,6 +3342,8 @@ PutV3DbwOrdersOrderIdMetaUin Закрепить УИН за сборочным �
 | --- | --- | --- | --- |
 | 1 мин | 1000 запросов | 60 мс | 20 запросов |
 Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/put-api-v3-dbw-orders-orderid-meta-uin
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param orderId ID сборочного задания

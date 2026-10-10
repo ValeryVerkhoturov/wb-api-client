@@ -37,6 +37,8 @@ type DbsAPI interface {
 
 		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/get-api-v3-dbs-orders
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV3DbsOrdersRequest
 	*/
@@ -60,6 +62,8 @@ type DbsAPI interface {
 		---
 
 		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/get-api-v3-dbs-orders-new
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV3DbsOrdersNewRequest
@@ -85,6 +89,8 @@ type DbsAPI interface {
 
 		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-v3-dbs-groups-info
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV3DbsGroupsInfoRequest
 	*/
@@ -107,6 +113,8 @@ type DbsAPI interface {
 		| --- | --- | --- | --- |
 		| 1 мин | 300 запросов | 200 мс | 20 запросов |
 		Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-marketplace-v3-dbs-orders-b2b-info
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV3DbsOrdersB2bInfoRequest
@@ -132,6 +140,8 @@ type DbsAPI interface {
 
 		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-v3-dbs-orders-client
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV3DbsOrdersClientRequest
 	*/
@@ -156,6 +166,8 @@ type DbsAPI interface {
 
 		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-v3-dbs-orders-delivery-date
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV3DbsOrdersDeliveryDateRequest
 	*/
@@ -177,6 +189,8 @@ type DbsAPI interface {
 		| --- | --- | --- | --- |
 		| 1 мин | 150 запросов | 400 мс | 20 запросов |
 		Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-marketplace-v3-dbs-orders-final-price
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV3DbsOrdersFinalPriceRequest
@@ -205,6 +219,8 @@ type DbsAPI interface {
 		---
 
 		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-marketplace-v3-dbs-orders-meta-customs-declaration
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV3DbsOrdersMetaCustomsDeclarationRequest
@@ -237,6 +253,8 @@ type DbsAPI interface {
 
 		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-marketplace-v3-dbs-orders-meta-delete
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV3DbsOrdersMetaDeleteRequest
 	*/
@@ -266,6 +284,8 @@ type DbsAPI interface {
 		| 1 мин | 300 запросов | 200 мс | 20 запросов |
 		Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-marketplace-v3-dbs-orders-meta-details
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV3DbsOrdersMetaDetailsRequest
 	*/
@@ -290,6 +310,8 @@ type DbsAPI interface {
 		---
 
 		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-marketplace-v3-dbs-orders-meta-gtin
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV3DbsOrdersMetaGtinRequest
@@ -316,6 +338,8 @@ type DbsAPI interface {
 		---
 
 		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-marketplace-v3-dbs-orders-meta-imei
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV3DbsOrdersMetaImeiRequest
@@ -347,6 +371,8 @@ type DbsAPI interface {
 
 		В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-marketplace-v3-dbs-orders-meta-sgtin
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV3DbsOrdersMetaSgtinRequest
 	*/
@@ -373,6 +399,8 @@ type DbsAPI interface {
 
 		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-marketplace-v3-dbs-orders-meta-uin
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV3DbsOrdersMetaUinRequest
 	*/
@@ -398,6 +426,8 @@ type DbsAPI interface {
 
 		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-marketplace-v3-dbs-orders-status-cancel
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV3DbsOrdersStatusCancelRequest
 	*/
@@ -422,6 +452,8 @@ type DbsAPI interface {
 
 		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-marketplace-v3-dbs-orders-status-confirm
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV3DbsOrdersStatusConfirmRequest
 	*/
@@ -445,6 +477,8 @@ type DbsAPI interface {
 		---
 
 		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-marketplace-v3-dbs-orders-status-deliver
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV3DbsOrdersStatusDeliverRequest
@@ -495,6 +529,8 @@ type DbsAPI interface {
 
 		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-marketplace-v3-dbs-orders-status-info
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV3DbsOrdersStatusInfoRequest
 	*/
@@ -519,6 +555,8 @@ type DbsAPI interface {
 
 		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-marketplace-v3-dbs-orders-status-receive
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV3DbsOrdersStatusReceiveRequest
 	*/
@@ -542,6 +580,8 @@ type DbsAPI interface {
 		---
 
 		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-marketplace-v3-dbs-orders-status-reject
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV3DbsOrdersStatusRejectRequest
@@ -570,6 +610,8 @@ type DbsAPI interface {
 		| --- | --- | --- | --- |
 		| 1 мин | 300 запросов | 200 мс | 20 запросов |
 		Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-marketplace-v3-dbs-orders-stickers
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV3DbsOrdersStickersRequest
@@ -637,6 +679,8 @@ GetV3DbsOrders Получить информацию о завершенных �
 ---
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/get-api-v3-dbs-orders
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV3DbsOrdersRequest
@@ -824,6 +868,8 @@ GetV3DbsOrdersNew Получить список новых сборочных з
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/get-api-v3-dbs-orders-new
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV3DbsOrdersNewRequest
 */
@@ -982,6 +1028,8 @@ PostV3DbsGroupsInfo Получить информацию о платной до
 ---
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-v3-dbs-groups-info
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV3DbsGroupsInfoRequest
@@ -1157,6 +1205,8 @@ PostV3DbsOrdersB2bInfo Информация о покупателе B2B
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
 Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-marketplace-v3-dbs-orders-b2b-info
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV3DbsOrdersB2bInfoRequest
 */
@@ -1331,6 +1381,8 @@ PostV3DbsOrdersClient Информация о покупателе
 ---
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-v3-dbs-orders-client
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV3DbsOrdersClientRequest
@@ -1518,6 +1570,8 @@ PostV3DbsOrdersDeliveryDate Получить дату и время достав
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-v3-dbs-orders-delivery-date
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV3DbsOrdersDeliveryDateRequest
 */
@@ -1691,6 +1745,8 @@ PostV3DbsOrdersFinalPrice Получить цены продавца и сумм
 | 1 мин | 150 запросов | 400 мс | 20 запросов |
 Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-marketplace-v3-dbs-orders-final-price
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV3DbsOrdersFinalPriceRequest
 */
@@ -1855,6 +1911,8 @@ PostV3DbsOrdersMetaCustomsDeclaration Закрепить номера ДТ за 
 ---
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-marketplace-v3-dbs-orders-meta-customs-declaration
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV3DbsOrdersMetaCustomsDeclarationRequest
@@ -2060,6 +2118,8 @@ PostV3DbsOrdersMetaDelete Удалить идентификаторы марки
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-marketplace-v3-dbs-orders-meta-delete
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV3DbsOrdersMetaDeleteRequest
 */
@@ -2251,6 +2311,8 @@ PostV3DbsOrdersMetaDetails Получить идентификаторы мар�
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
 Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-marketplace-v3-dbs-orders-meta-details
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV3DbsOrdersMetaDetailsRequest
 */
@@ -2426,6 +2488,8 @@ PostV3DbsOrdersMetaGtin Закрепить GTIN за сборочными зад
 ---
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-marketplace-v3-dbs-orders-meta-gtin
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV3DbsOrdersMetaGtinRequest
@@ -2614,6 +2678,8 @@ PostV3DbsOrdersMetaImei Закрепить IMEI за сборочными зад
 ---
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-marketplace-v3-dbs-orders-meta-imei
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV3DbsOrdersMetaImeiRequest
@@ -2807,6 +2873,8 @@ PostV3DbsOrdersMetaSgtin Закрепить коды маркировки Чес
 
 В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-marketplace-v3-dbs-orders-meta-sgtin
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV3DbsOrdersMetaSgtinRequest
 */
@@ -2983,6 +3051,8 @@ PostV3DbsOrdersMetaUin Закрепить УИН за сборочными за�
 ---
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-marketplace-v3-dbs-orders-meta-uin
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV3DbsOrdersMetaUinRequest
@@ -3171,6 +3241,8 @@ PostV3DbsOrdersStatusCancel Отменить сборочные задания
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-marketplace-v3-dbs-orders-status-cancel
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV3DbsOrdersStatusCancelRequest
 */
@@ -3346,6 +3418,8 @@ PostV3DbsOrdersStatusConfirm Перевести сборочные задани�
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-marketplace-v3-dbs-orders-status-confirm
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV3DbsOrdersStatusConfirmRequest
 */
@@ -3520,6 +3594,8 @@ PostV3DbsOrdersStatusDeliver Перевести сборочные задани�
 ---
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-marketplace-v3-dbs-orders-status-deliver
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV3DbsOrdersStatusDeliverRequest
@@ -3722,6 +3798,8 @@ PostV3DbsOrdersStatusInfo Получить статусы сборочных з�
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-marketplace-v3-dbs-orders-status-info
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV3DbsOrdersStatusInfoRequest
 */
@@ -3908,6 +3986,8 @@ PostV3DbsOrdersStatusReceive Сообщить о получении заказо
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-marketplace-v3-dbs-orders-status-receive
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV3DbsOrdersStatusReceiveRequest
 */
@@ -4079,6 +4159,8 @@ PostV3DbsOrdersStatusReject Сообщить об отказе от заказо
 ---
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-marketplace-v3-dbs-orders-status-reject
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV3DbsOrdersStatusRejectRequest
@@ -4276,6 +4358,8 @@ PostV3DbsOrdersStickers Получить стикеры для сборочны�
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
 Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-marketplace-v3-dbs-orders-stickers
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV3DbsOrdersStickersRequest

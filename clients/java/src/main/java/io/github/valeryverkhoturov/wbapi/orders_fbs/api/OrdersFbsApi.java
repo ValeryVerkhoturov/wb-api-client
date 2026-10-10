@@ -240,7 +240,8 @@ public class OrdersFbsApi {
    * FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов
    * | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10
    * запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду
-   * суммарно для всех методов **Маркетплейса**.
+   * суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/delete-api-v3-orders-orderid-meta
    *
    * @param orderId ID сборочного задания (required)
    * @param key Название идентификаторов маркировки для удаления. Передаётся только одно значение.
@@ -284,7 +285,8 @@ public class OrdersFbsApi {
    * FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов
    * | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10
    * запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду
-   * суммарно для всех методов **Маркетплейса**.
+   * суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/delete-api-v3-orders-orderid-meta
    *
    * @param orderId ID сборочного задания (required)
    * @param key Название идентификаторов маркировки для удаления. Передаётся только одно значение.
@@ -331,7 +333,8 @@ public class OrdersFbsApi {
    * FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов
    * | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10
    * запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду
-   * суммарно для всех методов **Маркетплейса**.
+   * суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/delete-api-v3-orders-orderid-meta
    *
    * @param orderId ID сборочного задания (required)
    * @param key Название идентификаторов маркировки для удаления. Передаётся только одно значение.
@@ -460,7 +463,8 @@ public class OrdersFbsApi {
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/delete-api-v3-passes-passid
    *
    * @param passId ID пропуска (required)
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
@@ -490,7 +494,8 @@ public class OrdersFbsApi {
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/delete-api-v3-passes-passid
    *
    * @param passId ID пропуска (required)
    * @return ApiResponse&lt;Void&gt;
@@ -522,7 +527,8 @@ public class OrdersFbsApi {
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/delete-api-v3-passes-passid
    *
    * @param passId ID пропуска (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -651,7 +657,8 @@ public class OrdersFbsApi {
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/delete-api-v3-supplies-supplyid
    *
    * @param supplyId ID поставки (required)
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
@@ -685,7 +692,8 @@ public class OrdersFbsApi {
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/delete-api-v3-supplies-supplyid
    *
    * @param supplyId ID поставки (required)
    * @return ApiResponse&lt;Void&gt;
@@ -722,7 +730,8 @@ public class OrdersFbsApi {
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/delete-api-v3-supplies-supplyid
    *
    * @param supplyId ID поставки (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -857,7 +866,8 @@ public class OrdersFbsApi {
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/delete-api-v3-supplies-supplyid-trbx
    *
    * @param supplyId ID поставки (required)
    * @param deleteV3SuppliesSupplyIdTrbxRequest (optional)
@@ -890,7 +900,8 @@ public class OrdersFbsApi {
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/delete-api-v3-supplies-supplyid-trbx
    *
    * @param supplyId ID поставки (required)
    * @param deleteV3SuppliesSupplyIdTrbxRequest (optional)
@@ -927,7 +938,8 @@ public class OrdersFbsApi {
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/delete-api-v3-supplies-supplyid-trbx
    *
    * @param supplyId ID поставки (required)
    * @param deleteV3SuppliesSupplyIdTrbxRequest (optional)
@@ -1043,7 +1055,8 @@ public class OrdersFbsApi {
    * на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
-   * как 10 запросов
+   * как 10 запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-dictionaries-countries-oksm
    *
    * @return CountriesOKSMList
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
@@ -1070,7 +1083,8 @@ public class OrdersFbsApi {
    * на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
-   * как 10 запросов
+   * как 10 запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-dictionaries-countries-oksm
    *
    * @return ApiResponse&lt;CountriesOKSMList&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
@@ -1099,7 +1113,8 @@ public class OrdersFbsApi {
    * на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
-   * как 10 запросов
+   * как 10 запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-dictionaries-countries-oksm
    *
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
@@ -1260,7 +1275,8 @@ public class OrdersFbsApi {
    * на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
-   * как 10 запросов
+   * как 10 запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-orders-archive
    *
    * @param year Год создания заказа (required)
    * @param month Месяц создания заказа (required)
@@ -1301,7 +1317,8 @@ public class OrdersFbsApi {
    * на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
-   * как 10 запросов
+   * как 10 запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-orders-archive
    *
    * @param year Год создания заказа (required)
    * @param month Месяц создания заказа (required)
@@ -1343,7 +1360,8 @@ public class OrdersFbsApi {
    * на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
-   * как 10 запросов
+   * как 10 запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-orders-archive
    *
    * @param year Год создания заказа (required)
    * @param month Месяц создания заказа (required)
@@ -1468,7 +1486,8 @@ public class OrdersFbsApi {
    * на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
-   * как 10 запросов
+   * как 10 запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-settings-autoreturns
    *
    * @return GetV3FbsSettingsAutoreturnsResponse200
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
@@ -1499,7 +1518,8 @@ public class OrdersFbsApi {
    * на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
-   * как 10 запросов
+   * как 10 запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-settings-autoreturns
    *
    * @return ApiResponse&lt;GetV3FbsSettingsAutoreturnsResponse200&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
@@ -1531,7 +1551,8 @@ public class OrdersFbsApi {
    * на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
-   * как 10 запросов
+   * как 10 запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-settings-autoreturns
    *
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
@@ -1668,7 +1689,8 @@ public class OrdersFbsApi {
    * на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
-   * как 10 запросов
+   * как 10 запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-settings-autoreturns-subcategories-restricted
    *
    * @param next Параметр пагинации. Устанавливает значение, с которого надо получить следующий
    *     пакет данных. Для получения полного списка данных должен быть равен &#x60;0&#x60; в первом
@@ -1707,7 +1729,8 @@ public class OrdersFbsApi {
    * на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
-   * как 10 запросов
+   * как 10 запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-settings-autoreturns-subcategories-restricted
    *
    * @param next Параметр пагинации. Устанавливает значение, с которого надо получить следующий
    *     пакет данных. Для получения полного списка данных должен быть равен &#x60;0&#x60; в первом
@@ -1748,7 +1771,8 @@ public class OrdersFbsApi {
    * на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
-   * как 10 запросов
+   * как 10 запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-settings-autoreturns-subcategories-restricted
    *
    * @param next Параметр пагинации. Устанавливает значение, с которого надо получить следующий
    *     пакет данных. Для получения полного списка данных должен быть равен &#x60;0&#x60; в первом
@@ -1895,7 +1919,8 @@ public class OrdersFbsApi {
    * на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
-   * как 10 запросов
+   * как 10 запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-shipping-points
    *
    * @param city Населённый пункт отгрузки поставки, кириллица (required)
    * @param cargoType Тип товара, который принимает пункт отгрузки: - &#x60;1&#x60; — малогабаритный
@@ -1932,7 +1957,8 @@ public class OrdersFbsApi {
    * на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
-   * как 10 запросов
+   * как 10 запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-shipping-points
    *
    * @param city Населённый пункт отгрузки поставки, кириллица (required)
    * @param cargoType Тип товара, который принимает пункт отгрузки: - &#x60;1&#x60; — малогабаритный
@@ -1970,7 +1996,8 @@ public class OrdersFbsApi {
    * на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
-   * как 10 запросов
+   * как 10 запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-shipping-points
    *
    * @param city Населённый пункт отгрузки поставки, кириллица (required)
    * @param cargoType Тип товара, который принимает пункт отгрузки: - &#x60;1&#x60; — малогабаритный
@@ -2097,7 +2124,8 @@ public class OrdersFbsApi {
    * на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
-   * как 10 запросов
+   * как 10 запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-supplies-supplyid-stickers-spot
    *
    * @param supplyId ID поставки (required)
    * @return SupplySpotQRCode
@@ -2131,7 +2159,8 @@ public class OrdersFbsApi {
    * на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
-   * как 10 запросов
+   * как 10 запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-supplies-supplyid-stickers-spot
    *
    * @param supplyId ID поставки (required)
    * @return ApiResponse&lt;SupplySpotQRCode&gt;
@@ -2166,7 +2195,8 @@ public class OrdersFbsApi {
    * на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
-   * как 10 запросов
+   * как 10 запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-supplies-supplyid-stickers-spot
    *
    * @param supplyId ID поставки (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -2329,7 +2359,8 @@ public class OrdersFbsApi {
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-v3-orders
    *
    * @param limit Параметр пагинации. Устанавливает предельное количество возвращаемых данных.
    *     (required)
@@ -2377,7 +2408,8 @@ public class OrdersFbsApi {
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-v3-orders
    *
    * @param limit Параметр пагинации. Устанавливает предельное количество возвращаемых данных.
    *     (required)
@@ -2425,7 +2457,8 @@ public class OrdersFbsApi {
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-v3-orders
    *
    * @param limit Параметр пагинации. Устанавливает предельное количество возвращаемых данных.
    *     (required)
@@ -2562,7 +2595,8 @@ public class OrdersFbsApi {
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-v3-orders-new
    *
    * @return GetV3OrdersNewResponse200
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
@@ -2600,7 +2634,8 @@ public class OrdersFbsApi {
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-v3-orders-new
    *
    * @return ApiResponse&lt;GetV3OrdersNewResponse200&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
@@ -2640,7 +2675,8 @@ public class OrdersFbsApi {
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-v3-orders-new
    *
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
@@ -2753,7 +2789,8 @@ public class OrdersFbsApi {
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-v3-passes
    *
    * @return List&lt;Pass&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
@@ -2783,7 +2820,8 @@ public class OrdersFbsApi {
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-v3-passes
    *
    * @return ApiResponse&lt;List&lt;Pass&gt;&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
@@ -2814,7 +2852,8 @@ public class OrdersFbsApi {
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-v3-passes
    *
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
@@ -2929,7 +2968,8 @@ public class OrdersFbsApi {
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-v3-passes-offices
    *
    * @return List&lt;PassOffice&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
@@ -2961,7 +3001,8 @@ public class OrdersFbsApi {
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-v3-passes-offices
    *
    * @return ApiResponse&lt;List&lt;PassOffice&gt;&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
@@ -2994,7 +3035,8 @@ public class OrdersFbsApi {
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-v3-passes-offices
    *
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
@@ -3135,7 +3177,8 @@ public class OrdersFbsApi {
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-v3-supplies
    *
    * @param limit Параметр пагинации. Устанавливает предельное количество возвращаемых данных.
    *     (required)
@@ -3172,7 +3215,8 @@ public class OrdersFbsApi {
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-v3-supplies
    *
    * @param limit Параметр пагинации. Устанавливает предельное количество возвращаемых данных.
    *     (required)
@@ -3211,7 +3255,8 @@ public class OrdersFbsApi {
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-v3-supplies
    *
    * @param limit Параметр пагинации. Устанавливает предельное количество возвращаемых данных.
    *     (required)
@@ -3339,7 +3384,8 @@ public class OrdersFbsApi {
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-v3-supplies-orders-reshipment
    *
    * @return GetV3SuppliesOrdersReshipmentResponse200
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
@@ -3377,7 +3423,8 @@ public class OrdersFbsApi {
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-v3-supplies-orders-reshipment
    *
    * @return ApiResponse&lt;GetV3SuppliesOrdersReshipmentResponse200&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
@@ -3417,7 +3464,8 @@ public class OrdersFbsApi {
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-v3-supplies-orders-reshipment
    *
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
@@ -3542,7 +3590,8 @@ public class OrdersFbsApi {
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-v3-supplies-supplyid
    *
    * @param supplyId ID поставки (required)
    * @return Supply
@@ -3573,7 +3622,8 @@ public class OrdersFbsApi {
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-v3-supplies-supplyid
    *
    * @param supplyId ID поставки (required)
    * @return ApiResponse&lt;Supply&gt;
@@ -3607,7 +3657,8 @@ public class OrdersFbsApi {
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-v3-supplies-supplyid
    *
    * @param supplyId ID поставки (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -3750,7 +3801,8 @@ public class OrdersFbsApi {
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-v3-supplies-supplyid-barcode
    *
    * @param supplyId ID поставки (required)
    * @param type Тип стикера (required)
@@ -3790,7 +3842,8 @@ public class OrdersFbsApi {
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-v3-supplies-supplyid-barcode
    *
    * @param supplyId ID поставки (required)
    * @param type Тип стикера (required)
@@ -3831,7 +3884,8 @@ public class OrdersFbsApi {
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-v3-supplies-supplyid-barcode
    *
    * @param supplyId ID поставки (required)
    * @param type Тип стикера (required)
@@ -3964,7 +4018,8 @@ public class OrdersFbsApi {
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-supplies-supplyid-order-ids
    *
    * @param supplyId ID поставки (required)
    * @return V3SupplyOrderIDsAPI
@@ -3997,7 +4052,8 @@ public class OrdersFbsApi {
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-supplies-supplyid-order-ids
    *
    * @param supplyId ID поставки (required)
    * @return ApiResponse&lt;V3SupplyOrderIDsAPI&gt;
@@ -4031,7 +4087,8 @@ public class OrdersFbsApi {
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-supplies-supplyid-order-ids
    *
    * @param supplyId ID поставки (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -4158,7 +4215,8 @@ public class OrdersFbsApi {
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-v3-supplies-supplyid-trbx
    *
    * @param supplyId ID поставки (required)
    * @return GetV3SuppliesSupplyIdTrbxResponse200
@@ -4191,7 +4249,8 @@ public class OrdersFbsApi {
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-v3-supplies-supplyid-trbx
    *
    * @param supplyId ID поставки (required)
    * @return ApiResponse&lt;GetV3SuppliesSupplyIdTrbxResponse200&gt;
@@ -4225,7 +4284,8 @@ public class OrdersFbsApi {
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-v3-supplies-supplyid-trbx
    *
    * @param supplyId ID поставки (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -4346,7 +4406,8 @@ public class OrdersFbsApi {
    * на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
-   * как 10 запросов
+   * как 10 запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/patch-api-marketplace-v3-fbs-settings-autoreturns
    *
    * @param patchV3FbsSettingsAutoreturnsRequest (optional)
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
@@ -4378,7 +4439,8 @@ public class OrdersFbsApi {
    * на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
-   * как 10 запросов
+   * как 10 запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/patch-api-marketplace-v3-fbs-settings-autoreturns
    *
    * @param patchV3FbsSettingsAutoreturnsRequest (optional)
    * @return ApiResponse&lt;Void&gt;
@@ -4413,7 +4475,8 @@ public class OrdersFbsApi {
    * на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
-   * как 10 запросов
+   * как 10 запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/patch-api-marketplace-v3-fbs-settings-autoreturns
    *
    * @param patchV3FbsSettingsAutoreturnsRequest (optional)
    * @param _callback The callback to be executed when the API call finishes
@@ -4535,7 +4598,8 @@ public class OrdersFbsApi {
    * на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
-   * как 10 запросов
+   * как 10 запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/patch-api-marketplace-v3-fbs-settings-autoreturns-items
    *
    * @param patchV3FbsSettingsAutoreturnsItemsRequest (optional)
    * @return PatchV3FbsSettingsAutoreturnsItemsResponse200
@@ -4570,7 +4634,8 @@ public class OrdersFbsApi {
    * на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
-   * как 10 запросов
+   * как 10 запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/patch-api-marketplace-v3-fbs-settings-autoreturns-items
    *
    * @param patchV3FbsSettingsAutoreturnsItemsRequest (optional)
    * @return ApiResponse&lt;PatchV3FbsSettingsAutoreturnsItemsResponse200&gt;
@@ -4609,7 +4674,8 @@ public class OrdersFbsApi {
    * на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
-   * как 10 запросов
+   * как 10 запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/patch-api-marketplace-v3-fbs-settings-autoreturns-items
    *
    * @param patchV3FbsSettingsAutoreturnsItemsRequest (optional)
    * @param _callback The callback to be executed when the API call finishes
@@ -4740,7 +4806,8 @@ public class OrdersFbsApi {
    * на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
-   * как 10 запросов
+   * как 10 запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/patch-api-marketplace-v3-fbs-supplies-shipping-method
    *
    * @param patchV3FbsSuppliesShippingMethodRequest (required)
    * @return UpdateSuppliesShippingMethodResponse
@@ -4777,7 +4844,8 @@ public class OrdersFbsApi {
    * на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
-   * как 10 запросов
+   * как 10 запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/patch-api-marketplace-v3-fbs-supplies-shipping-method
    *
    * @param patchV3FbsSuppliesShippingMethodRequest (required)
    * @return ApiResponse&lt;UpdateSuppliesShippingMethodResponse&gt;
@@ -4817,7 +4885,8 @@ public class OrdersFbsApi {
    * на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
-   * как 10 запросов
+   * как 10 запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/patch-api-marketplace-v3-fbs-supplies-shipping-method
    *
    * @param patchV3FbsSuppliesShippingMethodRequest (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -4953,7 +5022,8 @@ public class OrdersFbsApi {
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
    * мин | 100 запросов | 600 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60;
    * учитывается как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1
-   * запрос в секунду суммарно для всех методов **Маркетплейса**.
+   * запрос в секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/patch-api-v3-orders-orderid-cancel
    *
    * @param orderId ID сборочного задания (required)
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
@@ -4989,7 +5059,8 @@ public class OrdersFbsApi {
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
    * мин | 100 запросов | 600 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60;
    * учитывается как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1
-   * запрос в секунду суммарно для всех методов **Маркетплейса**.
+   * запрос в секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/patch-api-v3-orders-orderid-cancel
    *
    * @param orderId ID сборочного задания (required)
    * @return ApiResponse&lt;Void&gt;
@@ -5028,7 +5099,8 @@ public class OrdersFbsApi {
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
    * мин | 100 запросов | 600 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60;
    * учитывается как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1
-   * запрос в секунду суммарно для всех методов **Маркетплейса**.
+   * запрос в секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/patch-api-v3-orders-orderid-cancel
    *
    * @param orderId ID сборочного задания (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -5171,7 +5243,8 @@ public class OrdersFbsApi {
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/patch-api-v3-supplies-supplyid-deliver
    *
    * @param supplyId ID поставки (required)
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
@@ -5217,7 +5290,8 @@ public class OrdersFbsApi {
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/patch-api-v3-supplies-supplyid-deliver
    *
    * @param supplyId ID поставки (required)
    * @return ApiResponse&lt;Void&gt;
@@ -5266,7 +5340,8 @@ public class OrdersFbsApi {
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/patch-api-v3-supplies-supplyid-deliver
    *
    * @param supplyId ID поставки (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -5423,7 +5498,8 @@ public class OrdersFbsApi {
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/patch-api-marketplace-v3-supplies-supplyid-orders
    *
    * @param supplyId ID поставки (required)
    * @param patchV3SuppliesSupplyIdOrdersRequest (required)
@@ -5471,7 +5547,8 @@ public class OrdersFbsApi {
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/patch-api-marketplace-v3-supplies-supplyid-orders
    *
    * @param supplyId ID поставки (required)
    * @param patchV3SuppliesSupplyIdOrdersRequest (required)
@@ -5523,7 +5600,8 @@ public class OrdersFbsApi {
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/patch-api-marketplace-v3-supplies-supplyid-orders
    *
    * @param supplyId ID поставки (required)
    * @param patchV3SuppliesSupplyIdOrdersRequest (required)
@@ -5649,7 +5727,8 @@ public class OrdersFbsApi {
    * на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
-   * как 10 запросов
+   * как 10 запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-marketplace-v3-fbs-settings-autoreturns-items
    *
    * @param postV3FbsSettingsAutoreturnsItemsRequest (optional)
    * @return PostV3FbsSettingsAutoreturnsItemsResponse200
@@ -5683,7 +5762,8 @@ public class OrdersFbsApi {
    * на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
-   * как 10 запросов
+   * как 10 запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-marketplace-v3-fbs-settings-autoreturns-items
    *
    * @param postV3FbsSettingsAutoreturnsItemsRequest (optional)
    * @return ApiResponse&lt;PostV3FbsSettingsAutoreturnsItemsResponse200&gt;
@@ -5721,7 +5801,8 @@ public class OrdersFbsApi {
    * на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
-   * как 10 запросов
+   * как 10 запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-marketplace-v3-fbs-settings-autoreturns-items
    *
    * @param postV3FbsSettingsAutoreturnsItemsRequest (optional)
    * @param _callback The callback to be executed when the API call finishes
@@ -5849,7 +5930,8 @@ public class OrdersFbsApi {
    * на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
-   * как 10 запросов
+   * как 10 запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-marketplace-v3-fbs-supplies-spot-list
    *
    * @param postV3FbsSuppliesSpotListRequest (required)
    * @return SupplySpotDataResponse
@@ -5882,7 +5964,8 @@ public class OrdersFbsApi {
    * на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
-   * как 10 запросов
+   * как 10 запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-marketplace-v3-fbs-supplies-spot-list
    *
    * @param postV3FbsSuppliesSpotListRequest (required)
    * @return ApiResponse&lt;SupplySpotDataResponse&gt;
@@ -5916,7 +5999,8 @@ public class OrdersFbsApi {
    * на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
-   * как 10 запросов
+   * как 10 запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-marketplace-v3-fbs-supplies-spot-list
    *
    * @param postV3FbsSuppliesSpotListRequest (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -6042,7 +6126,8 @@ public class OrdersFbsApi {
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-v3-orders-client
    *
    * @param ordersRequestAPI (required)
    * @return CrossborderTurkeyClientInfoResp
@@ -6076,7 +6161,8 @@ public class OrdersFbsApi {
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-v3-orders-client
    *
    * @param ordersRequestAPI (required)
    * @return ApiResponse&lt;CrossborderTurkeyClientInfoResp&gt;
@@ -6111,7 +6197,8 @@ public class OrdersFbsApi {
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-v3-orders-client
    *
    * @param ordersRequestAPI (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -6260,7 +6347,8 @@ public class OrdersFbsApi {
    * FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов
    * | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10
    * запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду
-   * суммарно для всех методов **Маркетплейса**.
+   * суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-marketplace-v3-orders-meta
    *
    * @param v3GetMetaMultiRequest (required)
    * @return V3OrdersMetaAPI
@@ -6313,7 +6401,8 @@ public class OrdersFbsApi {
    * FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов
    * | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10
    * запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду
-   * суммарно для всех методов **Маркетплейса**.
+   * суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-marketplace-v3-orders-meta
    *
    * @param v3GetMetaMultiRequest (required)
    * @return ApiResponse&lt;V3OrdersMetaAPI&gt;
@@ -6367,7 +6456,8 @@ public class OrdersFbsApi {
    * FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов
    * | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10
    * запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду
-   * суммарно для всех методов **Маркетплейса**.
+   * суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-marketplace-v3-orders-meta
    *
    * @param v3GetMetaMultiRequest (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -6513,7 +6603,8 @@ public class OrdersFbsApi {
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-v3-orders-status
    *
    * @param postV3OrdersStatusRequest (optional)
    * @return PostV3OrdersStatusResponse200
@@ -6570,7 +6661,8 @@ public class OrdersFbsApi {
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-v3-orders-status
    *
    * @param postV3OrdersStatusRequest (optional)
    * @return ApiResponse&lt;PostV3OrdersStatusResponse200&gt;
@@ -6628,7 +6720,8 @@ public class OrdersFbsApi {
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-v3-orders-status
    *
    * @param postV3OrdersStatusRequest (optional)
    * @param _callback The callback to be executed when the API call finishes
@@ -6756,7 +6849,8 @@ public class OrdersFbsApi {
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-v3-orders-status-history
    *
    * @param postV3OrdersStatusHistoryRequest (optional)
    * @return PostV3OrdersStatusHistoryResponse200
@@ -6793,7 +6887,8 @@ public class OrdersFbsApi {
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-v3-orders-status-history
    *
    * @param postV3OrdersStatusHistoryRequest (optional)
    * @return ApiResponse&lt;PostV3OrdersStatusHistoryResponse200&gt;
@@ -6832,7 +6927,8 @@ public class OrdersFbsApi {
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-v3-orders-status-history
    *
    * @param postV3OrdersStatusHistoryRequest (optional)
    * @param _callback The callback to be executed when the API call finishes
@@ -7006,7 +7102,8 @@ public class OrdersFbsApi {
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-v3-orders-stickers
    *
    * @param type Тип стикера (required)
    * @param width Ширина стикера (required)
@@ -7056,7 +7153,8 @@ public class OrdersFbsApi {
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-v3-orders-stickers
    *
    * @param type Тип стикера (required)
    * @param width Ширина стикера (required)
@@ -7108,7 +7206,8 @@ public class OrdersFbsApi {
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-v3-orders-stickers
    *
    * @param type Тип стикера (required)
    * @param width Ширина стикера (required)
@@ -7246,7 +7345,8 @@ public class OrdersFbsApi {
    * на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
-   * как 10 запросов
+   * как 10 запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-v3-orders-stickers-cross-border
    *
    * @param postV3OrdersStickersCrossBorderRequest (optional)
    * @return PostV3OrdersStickersCrossBorderResponse200
@@ -7289,7 +7389,8 @@ public class OrdersFbsApi {
    * на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
-   * как 10 запросов
+   * как 10 запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-v3-orders-stickers-cross-border
    *
    * @param postV3OrdersStickersCrossBorderRequest (optional)
    * @return ApiResponse&lt;PostV3OrdersStickersCrossBorderResponse200&gt;
@@ -7336,7 +7437,8 @@ public class OrdersFbsApi {
    * на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
-   * как 10 запросов
+   * как 10 запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-v3-orders-stickers-cross-border
    *
    * @param postV3OrdersStickersCrossBorderRequest (optional)
    * @param _callback The callback to be executed when the API call finishes
@@ -7465,7 +7567,8 @@ public class OrdersFbsApi {
    * [минут](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на
    * один аккаунт продавца. Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10
    * запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду
-   * суммарно для всех методов **Маркетплейса**.
+   * суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-v3-passes
    *
    * @param postV3PassesRequest Общая длина ФИО ограничена от 6 до 100 символов. В номере машины
    *     могут быть только буквы и цифры (required)
@@ -7499,7 +7602,8 @@ public class OrdersFbsApi {
    * [минут](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на
    * один аккаунт продавца. Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10
    * запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду
-   * суммарно для всех методов **Маркетплейса**.
+   * суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-v3-passes
    *
    * @param postV3PassesRequest Общая длина ФИО ограничена от 6 до 100 символов. В номере машины
    *     могут быть только буквы и цифры (required)
@@ -7533,7 +7637,8 @@ public class OrdersFbsApi {
    * [минут](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на
    * один аккаунт продавца. Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10
    * запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду
-   * суммарно для всех методов **Маркетплейса**.
+   * суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-v3-passes
    *
    * @param postV3PassesRequest Общая длина ФИО ограничена от 6 до 100 символов. В номере машины
    *     могут быть только буквы и цифры (required)
@@ -7671,7 +7776,8 @@ public class OrdersFbsApi {
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-v3-supplies
    *
    * @param postV3SuppliesRequest (required)
    * @return PostV3SuppliesResponse201
@@ -7714,7 +7820,8 @@ public class OrdersFbsApi {
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-v3-supplies
    *
    * @param postV3SuppliesRequest (required)
    * @return ApiResponse&lt;PostV3SuppliesResponse201&gt;
@@ -7757,7 +7864,8 @@ public class OrdersFbsApi {
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-v3-supplies
    *
    * @param postV3SuppliesRequest (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -7898,7 +8006,8 @@ public class OrdersFbsApi {
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-v3-supplies-supplyid-trbx
    *
    * @param supplyId ID поставки (required)
    * @param postV3SuppliesSupplyIdTrbxRequest (optional)
@@ -7940,7 +8049,8 @@ public class OrdersFbsApi {
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-v3-supplies-supplyid-trbx
    *
    * @param supplyId ID поставки (required)
    * @param postV3SuppliesSupplyIdTrbxRequest (optional)
@@ -7984,7 +8094,8 @@ public class OrdersFbsApi {
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-v3-supplies-supplyid-trbx
    *
    * @param supplyId ID поставки (required)
    * @param postV3SuppliesSupplyIdTrbxRequest (optional)
@@ -8138,7 +8249,8 @@ public class OrdersFbsApi {
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-v3-supplies-supplyid-trbx-stickers
    *
    * @param supplyId ID поставки (required)
    * @param type Тип стикера (required)
@@ -8178,7 +8290,8 @@ public class OrdersFbsApi {
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-v3-supplies-supplyid-trbx-stickers
    *
    * @param supplyId ID поставки (required)
    * @param type Тип стикера (required)
@@ -8221,7 +8334,8 @@ public class OrdersFbsApi {
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-v3-supplies-supplyid-trbx-stickers
    *
    * @param supplyId ID поставки (required)
    * @param type Тип стикера (required)
@@ -8369,7 +8483,8 @@ public class OrdersFbsApi {
    * на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
-   * как 10 запросов
+   * как 10 запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/put-api-marketplace-v3-fbs-supplies-supplyid-spot
    *
    * @param supplyId ID поставки (required)
    * @param putV3FbsSuppliesSupplyIdSpotRequest (required)
@@ -8403,7 +8518,8 @@ public class OrdersFbsApi {
    * на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
-   * как 10 запросов
+   * как 10 запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/put-api-marketplace-v3-fbs-supplies-supplyid-spot
    *
    * @param supplyId ID поставки (required)
    * @param putV3FbsSuppliesSupplyIdSpotRequest (required)
@@ -8441,7 +8557,8 @@ public class OrdersFbsApi {
    * на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
-   * как 10 запросов
+   * как 10 запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/put-api-marketplace-v3-fbs-supplies-supplyid-spot
    *
    * @param supplyId ID поставки (required)
    * @param putV3FbsSuppliesSupplyIdSpotRequest (required)
@@ -8599,7 +8716,8 @@ public class OrdersFbsApi {
    * Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1000 запросов | 60 мс
    * | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов. --- В
    * [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех
-   * методов **Маркетплейса**.
+   * методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/put-api-marketplace-v3-orders-orderid-meta-customs-declaration
    *
    * @param orderId ID сборочного задания (required)
    * @param putV3OrdersOrderIdMetaCustomsDeclarationRequest (required)
@@ -8645,7 +8763,8 @@ public class OrdersFbsApi {
    * Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1000 запросов | 60 мс
    * | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов. --- В
    * [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех
-   * методов **Маркетплейса**.
+   * методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/put-api-marketplace-v3-orders-orderid-meta-customs-declaration
    *
    * @param orderId ID сборочного задания (required)
    * @param putV3OrdersOrderIdMetaCustomsDeclarationRequest (required)
@@ -8694,7 +8813,8 @@ public class OrdersFbsApi {
    * Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1000 запросов | 60 мс
    * | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов. --- В
    * [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех
-   * методов **Маркетплейса**.
+   * методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/put-api-marketplace-v3-orders-orderid-meta-customs-declaration
    *
    * @param orderId ID сборочного задания (required)
    * @param putV3OrdersOrderIdMetaCustomsDeclarationRequest (required)
@@ -8853,7 +8973,8 @@ public class OrdersFbsApi {
    * Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1000 запросов | 60 мс
    * | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов. --- В
    * [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех
-   * методов **Маркетплейса**.
+   * методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/put-api-v3-orders-orderid-meta-expiration
    *
    * @param orderId ID сборочного задания (required)
    * @param putV3OrdersOrderIdMetaExpirationRequest (required)
@@ -8897,7 +9018,8 @@ public class OrdersFbsApi {
    * Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1000 запросов | 60 мс
    * | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов. --- В
    * [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех
-   * методов **Маркетплейса**.
+   * методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/put-api-v3-orders-orderid-meta-expiration
    *
    * @param orderId ID сборочного задания (required)
    * @param putV3OrdersOrderIdMetaExpirationRequest (required)
@@ -8946,7 +9068,8 @@ public class OrdersFbsApi {
    * Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1000 запросов | 60 мс
    * | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов. --- В
    * [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех
-   * методов **Маркетплейса**.
+   * методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/put-api-v3-orders-orderid-meta-expiration
    *
    * @param orderId ID сборочного задания (required)
    * @param putV3OrdersOrderIdMetaExpirationRequest (required)
@@ -9099,7 +9222,8 @@ public class OrdersFbsApi {
    * Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1000 запросов | 60 мс
    * | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов. --- В
    * [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех
-   * методов **Маркетплейса**.
+   * методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/put-api-v3-orders-orderid-meta-gtin
    *
    * @param orderId ID сборочного задания (required)
    * @param putV3OrdersOrderIdMetaGtinRequest (required)
@@ -9139,7 +9263,8 @@ public class OrdersFbsApi {
    * Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1000 запросов | 60 мс
    * | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов. --- В
    * [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех
-   * методов **Маркетплейса**.
+   * методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/put-api-v3-orders-orderid-meta-gtin
    *
    * @param orderId ID сборочного задания (required)
    * @param putV3OrdersOrderIdMetaGtinRequest (required)
@@ -9183,7 +9308,8 @@ public class OrdersFbsApi {
    * Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1000 запросов | 60 мс
    * | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов. --- В
    * [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех
-   * методов **Маркетплейса**.
+   * методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/put-api-v3-orders-orderid-meta-gtin
    *
    * @param orderId ID сборочного задания (required)
    * @param putV3OrdersOrderIdMetaGtinRequest (required)
@@ -9337,7 +9463,8 @@ public class OrdersFbsApi {
    * Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1000 запросов | 60 мс
    * | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов. --- В
    * [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех
-   * методов **Маркетплейса**.
+   * методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/put-api-v3-orders-orderid-meta-imei
    *
    * @param orderId ID сборочного задания (required)
    * @param putV3OrdersOrderIdMetaImeiRequest (required)
@@ -9379,7 +9506,8 @@ public class OrdersFbsApi {
    * Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1000 запросов | 60 мс
    * | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов. --- В
    * [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех
-   * методов **Маркетплейса**.
+   * методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/put-api-v3-orders-orderid-meta-imei
    *
    * @param orderId ID сборочного задания (required)
    * @param putV3OrdersOrderIdMetaImeiRequest (required)
@@ -9425,7 +9553,8 @@ public class OrdersFbsApi {
    * Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1000 запросов | 60 мс
    * | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов. --- В
    * [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех
-   * методов **Маркетплейса**.
+   * методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/put-api-v3-orders-orderid-meta-imei
    *
    * @param orderId ID сборочного задания (required)
    * @param putV3OrdersOrderIdMetaImeiRequest (required)
@@ -9580,7 +9709,8 @@ public class OrdersFbsApi {
    * Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1000 запросов | 60 мс
    * | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов. --- В
    * [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех
-   * методов **Маркетплейса**.
+   * методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/put-api-v3-orders-orderid-meta-sgtin
    *
    * @param orderId ID сборочного задания (required)
    * @param putV3OrdersOrderIdMetaSgtinRequest (required)
@@ -9623,7 +9753,8 @@ public class OrdersFbsApi {
    * Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1000 запросов | 60 мс
    * | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов. --- В
    * [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех
-   * методов **Маркетплейса**.
+   * методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/put-api-v3-orders-orderid-meta-sgtin
    *
    * @param orderId ID сборочного задания (required)
    * @param putV3OrdersOrderIdMetaSgtinRequest (required)
@@ -9671,7 +9802,8 @@ public class OrdersFbsApi {
    * Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1000 запросов | 60 мс
    * | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов. --- В
    * [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех
-   * методов **Маркетплейса**.
+   * методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/put-api-v3-orders-orderid-meta-sgtin
    *
    * @param orderId ID сборочного задания (required)
    * @param putV3OrdersOrderIdMetaSgtinRequest (required)
@@ -9824,7 +9956,8 @@ public class OrdersFbsApi {
    * Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1000 запросов | 60 мс
    * | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов. --- В
    * [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех
-   * методов **Маркетплейса**.
+   * методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/put-api-v3-orders-orderid-meta-uin
    *
    * @param orderId ID сборочного задания (required)
    * @param putV3OrdersOrderIdMetaUinRequest (required)
@@ -9864,7 +9997,8 @@ public class OrdersFbsApi {
    * Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1000 запросов | 60 мс
    * | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов. --- В
    * [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех
-   * методов **Маркетплейса**.
+   * методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/put-api-v3-orders-orderid-meta-uin
    *
    * @param orderId ID сборочного задания (required)
    * @param putV3OrdersOrderIdMetaUinRequest (required)
@@ -9908,7 +10042,8 @@ public class OrdersFbsApi {
    * Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1000 запросов | 60 мс
    * | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов. --- В
    * [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех
-   * методов **Маркетплейса**.
+   * методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/put-api-v3-orders-orderid-meta-uin
    *
    * @param orderId ID сборочного задания (required)
    * @param putV3OrdersOrderIdMetaUinRequest (required)
@@ -10051,7 +10186,8 @@ public class OrdersFbsApi {
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/put-api-v3-passes-passid
    *
    * @param passId ID пропуска (required)
    * @param putV3PassesPassIdRequest Общая длина ФИО ограничена от 6 до 100 символов. В номере
@@ -10085,7 +10221,8 @@ public class OrdersFbsApi {
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/put-api-v3-passes-passid
    *
    * @param passId ID пропуска (required)
    * @param putV3PassesPassIdRequest Общая длина ФИО ограничена от 6 до 100 символов. В номере
@@ -10122,7 +10259,8 @@ public class OrdersFbsApi {
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/put-api-v3-passes-passid
    *
    * @param passId ID пропуска (required)
    * @param putV3PassesPassIdRequest Общая длина ФИО ограничена от 6 до 100 символов. В номере

@@ -160,7 +160,8 @@ public class FinancesApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос |
    * 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 24
-   * ч | 1 запрос | 24 ч | 1 запрос |
+   * ч | 1 запрос | 24 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/get-api-v1-account-balance
    *
    * @return GetV1AccountBalanceResponse200
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
@@ -188,7 +189,8 @@ public class FinancesApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос |
    * 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 24
-   * ч | 1 запрос | 24 ч | 1 запрос |
+   * ч | 1 запрос | 24 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/get-api-v1-account-balance
    *
    * @return ApiResponse&lt;GetV1AccountBalanceResponse200&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
@@ -218,7 +220,8 @@ public class FinancesApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос |
    * 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 24
-   * ч | 1 запрос | 24 ч | 1 запрос |
+   * ч | 1 запрос | 24 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/get-api-v1-account-balance
    *
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
@@ -334,7 +337,8 @@ public class FinancesApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1
    * запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов |
-   * | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос |
+   * | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/get-api-v1-documents-categories
    *
    * @param locale Язык поля &#x60;title&#x60;: - &#x60;ru&#x60; — русский - &#x60;en&#x60; —
    *     английский - &#x60;zh&#x60; — китайский (optional, default to en)
@@ -365,7 +369,8 @@ public class FinancesApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1
    * запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов |
-   * | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос |
+   * | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/get-api-v1-documents-categories
    *
    * @param locale Язык поля &#x60;title&#x60;: - &#x60;ru&#x60; — русский - &#x60;en&#x60; —
    *     английский - &#x60;zh&#x60; — китайский (optional, default to en)
@@ -399,7 +404,8 @@ public class FinancesApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1
    * запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов |
-   * | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос |
+   * | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/get-api-v1-documents-categories
    *
    * @param locale Язык поля &#x60;title&#x60;: - &#x60;ru&#x60; — русский - &#x60;en&#x60; —
    *     английский - &#x60;zh&#x60; — китайский (optional, default to en)
@@ -534,7 +540,8 @@ public class FinancesApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1
    * запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов |
-   * | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос |
+   * | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/get-api-v1-documents-download
    *
    * @param serviceName Уникальный ID документа (required)
    * @param extension Формат документа (required)
@@ -566,7 +573,8 @@ public class FinancesApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1
    * запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов |
-   * | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос |
+   * | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/get-api-v1-documents-download
    *
    * @param serviceName Уникальный ID документа (required)
    * @param extension Формат документа (required)
@@ -601,7 +609,8 @@ public class FinancesApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1
    * запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов |
-   * | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос |
+   * | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/get-api-v1-documents-download
    *
    * @param serviceName Уникальный ID документа (required)
    * @param extension Формат документа (required)
@@ -791,7 +800,8 @@ public class FinancesApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1
    * запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов |
-   * | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос |
+   * | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/get-api-v1-documents-list
    *
    * @param locale Язык поля &#x60;category&#x60;: - &#x60;ru&#x60; — русский - &#x60;en&#x60; —
    *     английский - &#x60;zh&#x60; — китайский (optional, default to en)
@@ -850,7 +860,8 @@ public class FinancesApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1
    * запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов |
-   * | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос |
+   * | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/get-api-v1-documents-list
    *
    * @param locale Язык поля &#x60;category&#x60;: - &#x60;ru&#x60; — русский - &#x60;en&#x60; —
    *     английский - &#x60;zh&#x60; — китайский (optional, default to en)
@@ -911,7 +922,8 @@ public class FinancesApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1
    * запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов |
-   * | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос |
+   * | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/get-api-v1-documents-list
    *
    * @param locale Язык поля &#x60;category&#x60;: - &#x60;ru&#x60; — русский - &#x60;en&#x60; —
    *     английский - &#x60;zh&#x60; — китайский (optional, default to en)
@@ -1070,7 +1082,8 @@ public class FinancesApi {
    * за указанный период. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
-   * мин | 1 запрос | 1 мин | 1 запрос |
+   * мин | 1 запрос | 1 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/post-api-finance-v1-acquiring-detailed
    *
    * @param acquiringReportsDetailedReq (required)
    * @return List&lt;AcquiringReportsDetailedRes&gt;
@@ -1105,7 +1118,8 @@ public class FinancesApi {
    * за указанный период. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
-   * мин | 1 запрос | 1 мин | 1 запрос |
+   * мин | 1 запрос | 1 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/post-api-finance-v1-acquiring-detailed
    *
    * @param acquiringReportsDetailedReq (required)
    * @return ApiResponse&lt;List&lt;AcquiringReportsDetailedRes&gt;&gt;
@@ -1141,7 +1155,8 @@ public class FinancesApi {
    * за указанный период. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
-   * мин | 1 запрос | 1 мин | 1 запрос |
+   * мин | 1 запрос | 1 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/post-api-finance-v1-acquiring-detailed
    *
    * @param acquiringReportsDetailedReq (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -1284,7 +1299,8 @@ public class FinancesApi {
    * по ID отчётов. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
-   * мин | 1 запрос | 1 мин | 1 запрос |
+   * мин | 1 запрос | 1 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/post-api-finance-v1-acquiring-detailed-reportid
    *
    * @param reportId ID отчёта (required)
    * @param financialReportsDetailedReportIdReq (required)
@@ -1322,7 +1338,8 @@ public class FinancesApi {
    * по ID отчётов. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
-   * мин | 1 запрос | 1 мин | 1 запрос |
+   * мин | 1 запрос | 1 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/post-api-finance-v1-acquiring-detailed-reportid
    *
    * @param reportId ID отчёта (required)
    * @param financialReportsDetailedReportIdReq (required)
@@ -1362,7 +1379,8 @@ public class FinancesApi {
    * по ID отчётов. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
-   * мин | 1 запрос | 1 мин | 1 запрос |
+   * мин | 1 запрос | 1 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/post-api-finance-v1-acquiring-detailed-reportid
    *
    * @param reportId ID отчёта (required)
    * @param financialReportsDetailedReportIdReq (required)
@@ -1493,7 +1511,8 @@ public class FinancesApi {
    * [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
-   * мин | 1 запрос | 1 мин | 1 запрос |
+   * мин | 1 запрос | 1 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/post-api-finance-v1-acquiring-list
    *
    * @param acquiringReportListReq (required)
    * @return List&lt;AcquiringReportListRes&gt;
@@ -1527,7 +1546,8 @@ public class FinancesApi {
    * [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
-   * мин | 1 запрос | 1 мин | 1 запрос |
+   * мин | 1 запрос | 1 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/post-api-finance-v1-acquiring-list
    *
    * @param acquiringReportListReq (required)
    * @return ApiResponse&lt;List&lt;AcquiringReportListRes&gt;&gt;
@@ -1561,7 +1581,8 @@ public class FinancesApi {
    * [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
-   * мин | 1 запрос | 1 мин | 1 запрос |
+   * мин | 1 запрос | 1 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/post-api-finance-v1-acquiring-list
    *
    * @param acquiringReportListReq (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -1678,7 +1699,8 @@ public class FinancesApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 5 мин | 1 запрос | 5 мин | 5 запросов | | Сервисный | 5 мин | 1 запрос
    * | 5 мин | 5 запросов | | Базовый с секретом | 5 мин | 1 запрос | 5 мин | 5 запросов | | Базовый
-   * | 24 ч | 1 запрос | 24 ч | 1 запрос |
+   * | 24 ч | 1 запрос | 24 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/post-api-v1-documents-download-all
    *
    * @param requestDownload (optional)
    * @return GetDocs
@@ -1709,7 +1731,8 @@ public class FinancesApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 5 мин | 1 запрос | 5 мин | 5 запросов | | Сервисный | 5 мин | 1 запрос
    * | 5 мин | 5 запросов | | Базовый с секретом | 5 мин | 1 запрос | 5 мин | 5 запросов | | Базовый
-   * | 24 ч | 1 запрос | 24 ч | 1 запрос |
+   * | 24 ч | 1 запрос | 24 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/post-api-v1-documents-download-all
    *
    * @param requestDownload (optional)
    * @return ApiResponse&lt;GetDocs&gt;
@@ -1742,7 +1765,8 @@ public class FinancesApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 5 мин | 1 запрос | 5 мин | 5 запросов | | Сервисный | 5 мин | 1 запрос
    * | 5 мин | 5 запросов | | Базовый с секретом | 5 мин | 1 запрос | 5 мин | 5 запросов | | Базовый
-   * | 24 ч | 1 запрос | 24 ч | 1 запрос |
+   * | 24 ч | 1 запрос | 24 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/post-api-v1-documents-download-all
    *
    * @param requestDownload (optional)
    * @param _callback The callback to be executed when the API call finishes
@@ -1868,7 +1892,8 @@ public class FinancesApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос |
    * 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 24
-   * ч | 2 запроса | 12 ч | 1 запрос |
+   * ч | 2 запроса | 12 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/post-api-finance-v1-sales-reports-detailed
    *
    * @param salesReportsDetailedReq (required)
    * @return List&lt;SalesReportsDetailedRes&gt;
@@ -1904,7 +1929,8 @@ public class FinancesApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос |
    * 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 24
-   * ч | 2 запроса | 12 ч | 1 запрос |
+   * ч | 2 запроса | 12 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/post-api-finance-v1-sales-reports-detailed
    *
    * @param salesReportsDetailedReq (required)
    * @return ApiResponse&lt;List&lt;SalesReportsDetailedRes&gt;&gt;
@@ -1941,7 +1967,8 @@ public class FinancesApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос |
    * 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 24
-   * ч | 2 запроса | 12 ч | 1 запрос |
+   * ч | 2 запроса | 12 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/post-api-finance-v1-sales-reports-detailed
    *
    * @param salesReportsDetailedReq (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -2085,7 +2112,8 @@ public class FinancesApi {
    * доступны с 29 января 2024 года. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
-   * мин | 1 запрос | 1 мин | 1 запрос |
+   * мин | 1 запрос | 1 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/post-api-finance-v1-sales-reports-detailed-reportid
    *
    * @param reportId ID отчёта. Для ежедневных отчётов вместо стандартной десериализации рекомендуем
    *     использовать нестандартные библиотеки с поддержкой
@@ -2125,7 +2153,8 @@ public class FinancesApi {
    * доступны с 29 января 2024 года. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
-   * мин | 1 запрос | 1 мин | 1 запрос |
+   * мин | 1 запрос | 1 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/post-api-finance-v1-sales-reports-detailed-reportid
    *
    * @param reportId ID отчёта. Для ежедневных отчётов вместо стандартной десериализации рекомендуем
    *     использовать нестандартные библиотеки с поддержкой
@@ -2166,7 +2195,8 @@ public class FinancesApi {
    * доступны с 29 января 2024 года. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
-   * мин | 1 запрос | 1 мин | 1 запрос |
+   * мин | 1 запрос | 1 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/post-api-finance-v1-sales-reports-detailed-reportid
    *
    * @param reportId ID отчёта. Для ежедневных отчётов вместо стандартной десериализации рекомендуем
    *     использовать нестандартные библиотеки с поддержкой
@@ -2296,7 +2326,8 @@ public class FinancesApi {
    * доступны с 29 января 2024 года. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
-   * мин | 1 запрос | 1 мин | 1 запрос |
+   * мин | 1 запрос | 1 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/post-api-finance-v1-sales-reports-list
    *
    * @param salesReportListReq (required)
    * @return List&lt;SalesReportListRes&gt;
@@ -2329,7 +2360,8 @@ public class FinancesApi {
    * доступны с 29 января 2024 года. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
-   * мин | 1 запрос | 1 мин | 1 запрос |
+   * мин | 1 запрос | 1 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/post-api-finance-v1-sales-reports-list
    *
    * @param salesReportListReq (required)
    * @return ApiResponse&lt;List&lt;SalesReportListRes&gt;&gt;
@@ -2362,7 +2394,8 @@ public class FinancesApi {
    * доступны с 29 января 2024 года. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
-   * мин | 1 запрос | 1 мин | 1 запрос |
+   * мин | 1 запрос | 1 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/post-api-finance-v1-sales-reports-list
    *
    * @param salesReportListReq (required)
    * @param _callback The callback to be executed when the API call finishes

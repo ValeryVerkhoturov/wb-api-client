@@ -37,6 +37,8 @@ type PromotionAPI interface {
 		| Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов |
 		| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/delete-adv-v0-normquery-bids
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiDeleteV0NormqueryBidsRequest
 	*/
@@ -58,6 +60,8 @@ type PromotionAPI interface {
 		| Сервисный | 1 мин | 5 запросов | 12 сек | 5 запросов |
 		| Базовый с секретом | 1 мин | 5 запросов | 12 сек | 5 запросов |
 		| Базовый | 1 ч | 20 запросов | 3 мин | 1 запрос |
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v0-bids-recommendations
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV0BidsRecommendationsRequest
@@ -83,6 +87,8 @@ type PromotionAPI interface {
 		| Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов |
 		| Сервисный | 1 мин | 5 запросов | 12 сек | 5 запросов |
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v0-daily-limits
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV0DailyLimitsRequest
 	*/
@@ -107,6 +113,8 @@ type PromotionAPI interface {
 		| Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов |
 		| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-delete
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV0DeleteRequest
 	*/
@@ -127,6 +135,8 @@ type PromotionAPI interface {
 		| Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов |
 		| Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов |
 		| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-pause
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV0PauseRequest
@@ -149,6 +159,8 @@ type PromotionAPI interface {
 		| Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов |
 		| Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов |
 		| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-start
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV0StartRequest
@@ -173,6 +185,8 @@ type PromotionAPI interface {
 		| Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов |
 		| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-stop
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV0StopRequest
 	*/
@@ -193,6 +207,8 @@ type PromotionAPI interface {
 		| Сервисный | 1 сек | 10 запросов | 100 мс | 10 запросов |
 		| Базовый с секретом | 1 сек | 10 запросов | 100 мс | 10 запросов |
 		| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-advert
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV1AdvertRequest
@@ -215,6 +231,8 @@ type PromotionAPI interface {
 		| Сервисный | 1 сек | 10 запросов | 100 мс | 10 запросов |
 		| Базовый с секретом | 1 сек | 10 запросов | 100 мс | 10 запросов |
 		| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-adverts
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV1AdvertsRequest
@@ -242,6 +260,8 @@ type PromotionAPI interface {
 		| Базовый с секретом | 1 сек | 1 запрос | 1 сек | 5 запросов |
 		| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-balance
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV1BalanceRequest
 	*/
@@ -263,6 +283,8 @@ type PromotionAPI interface {
 		| Сервисный | 1 сек | 4 запроса | 250 мс | 4 запроса |
 		| Базовый с секретом | 1 сек | 4 запроса | 250 мс | 4 запроса |
 		| Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-budget
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV1BudgetRequest
@@ -289,6 +311,8 @@ type PromotionAPI interface {
 		| Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов |
 		| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-v1-calendar-promotions
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV1CalendarPromotionsRequest
 	*/
@@ -311,6 +335,8 @@ type PromotionAPI interface {
 		| Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов |
 		| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-v1-calendar-promotions-details
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV1CalendarPromotionsDetailsRequest
 	*/
@@ -331,6 +357,8 @@ type PromotionAPI interface {
 		| Период | Лимит | Интервал | Всплеск |
 		| --- | --- | --- | --- |
 		| 6 сек | 10 запросов | 600 мс | 5 запросов |
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-v1-calendar-promotions-nomenclatures
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV1CalendarPromotionsNomenclaturesRequest
@@ -355,6 +383,8 @@ type PromotionAPI interface {
 		| --- | --- | --- | --- |
 		| 1 мин | 1 запрос | 1 мин | 10 запросов |
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v1-config
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV1ConfigRequest
 	*/
@@ -376,6 +406,8 @@ type PromotionAPI interface {
 		| Сервисный | 1 сек | 10 запросов | 100 мс | 10 запросов |
 		| Базовый с секретом | 1 сек | 10 запросов | 100 мс | 10 запросов |
 		| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-count
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV1CountRequest
@@ -399,6 +431,8 @@ type PromotionAPI interface {
 		| Базовый с секретом | 1 сек | 1 запрос | 1 сек | 5 запросов |
 		| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-payments
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV1PaymentsRequest
 	*/
@@ -420,6 +454,8 @@ type PromotionAPI interface {
 		| Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов |
 		| Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов |
 		| Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-promotion-count
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV1PromotionCountRequest
@@ -443,6 +479,8 @@ type PromotionAPI interface {
 		| Базовый с секретом | 12 сек | 1 запрос | 12 сек | 5 запросов |
 		| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-supplier-subjects
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV1SupplierSubjectsRequest
 	*/
@@ -465,6 +503,8 @@ type PromotionAPI interface {
 		| Базовый с секретом | 1 сек | 1 запрос | 1 сек | 5 запросов |
 		| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-upd
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV1UpdRequest
 	*/
@@ -486,6 +526,8 @@ type PromotionAPI interface {
 		| Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов |
 		| Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов |
 		| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v2-adverts
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV2AdvertsRequest
@@ -515,6 +557,8 @@ type PromotionAPI interface {
 		| Базовый с секретом | 1 мин | 3 запроса | 20 сек | 1 запрос |
 		| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v3-fullstats
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV3FullstatsRequest
 	*/
@@ -540,6 +584,8 @@ type PromotionAPI interface {
 		| Сервисный | 1 сек | 1 запрос | 1 сек | 1 запрос |
 		| Базовый с секретом | 1 сек | 1 запрос | 1 сек | 1 запрос |
 		| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/patch-adv-v0-auction-nms
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPatchV0AuctionNmsRequest
@@ -571,6 +617,8 @@ type PromotionAPI interface {
 		| Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов |
 		| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/patch-api-advert-v1-bids
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPatchV1BidsRequest
 	*/
@@ -596,6 +644,8 @@ type PromotionAPI interface {
 		| Базовый с секретом | 1 сек | 2 запроса | 500 мс | 4 запроса |
 		| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v0-normquery-bids
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV0NormqueryBidsRequest
 	*/
@@ -618,6 +668,8 @@ type PromotionAPI interface {
 		| Сервисный | 1 сек | 5 запросов | 200 мс | 10 запросов |
 		| Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов |
 		| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v0-normquery-get-bids
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV0NormqueryGetBidsRequest
@@ -643,6 +695,8 @@ type PromotionAPI interface {
 		| Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов |
 		| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v0-normquery-get-minus
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV0NormqueryGetMinusRequest
 	*/
@@ -664,6 +718,8 @@ type PromotionAPI interface {
 		| Сервисный | 1 сек | 5 запросов | 200 мс | 10 запросов |
 		| Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов |
 		| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v0-normquery-list
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV0NormqueryListRequest
@@ -689,6 +745,8 @@ type PromotionAPI interface {
 		| Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов |
 		| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v0-normquery-set-minus
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV0NormquerySetMinusRequest
 	*/
@@ -710,6 +768,8 @@ type PromotionAPI interface {
 		| Сервисный | 1 мин | 10 запросов | 6 сек | 20 запросов |
 		| Базовый с секретом | 1 мин | 10 запросов | 6 сек | 20 запросов |
 		| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v0-normquery-stats
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV0NormqueryStatsRequest
@@ -733,6 +793,8 @@ type PromotionAPI interface {
 		| Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов |
 		| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v0-rename
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV0RenameRequest
 	*/
@@ -753,6 +815,8 @@ type PromotionAPI interface {
 		| Сервисный | 1 мин | 20 запросов | 3 сек | 5 запросов |
 		| Базовый с секретом | 1 мин | 20 запросов | 3 сек | 5 запросов |
 		| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-api-advert-v1-bids-min
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV1BidsMinRequest
@@ -776,6 +840,8 @@ type PromotionAPI interface {
 		| Сервисный | 1 сек | 1 запрос | 1 сек | 5 запросов |
 		| Базовый с секретом | 1 сек | 1 запрос | 1 сек | 5 запросов |
 		| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v1-budget-deposit
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV1BudgetDepositRequest
@@ -802,6 +868,8 @@ type PromotionAPI interface {
 		| Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов |
 		| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-api-v1-calendar-promotions-upload
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV1CalendarPromotionsUploadRequest
 	*/
@@ -827,6 +895,8 @@ type PromotionAPI interface {
 		| Персональный | 1 сек | 2 запроса | 500 мс | 4 запроса |
 		| Сервисный | 1 сек | 2 запроса | 500 мс | 4 запроса |
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-api-advert-v1-normquery-bids
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV1NormqueryBidsRequest
 	*/
@@ -850,6 +920,8 @@ type PromotionAPI interface {
 		| Базовый с секретом | 1 мин | 10 запросов | 6 сек | 20 запросов |
 		| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v1-normquery-stats
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV1NormqueryStatsRequest
 	*/
@@ -871,6 +943,8 @@ type PromotionAPI interface {
 		| Сервисный | 1 сек | 10 запросов | 100 мс | 10 запросов |
 		| Базовый с секретом | 1 сек | 10 запросов | 100 мс | 10 запросов |
 		| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v1-stats
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV1StatsRequest
@@ -898,6 +972,8 @@ type PromotionAPI interface {
 		| Базовый с секретом | 1 мин | 20 запросов | 3 сек | 4 запроса |
 		| Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-api-advert-v2-budget
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV2BudgetRequest
 	*/
@@ -922,6 +998,8 @@ type PromotionAPI interface {
 		| Базовый с секретом | 1 мин | 5 запросов | 12 сек | 5 запросов |
 		| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v2-seacat-save-ad
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV2SeacatSaveAdRequest
 	*/
@@ -943,6 +1021,8 @@ type PromotionAPI interface {
 		| Сервисный | 1 мин | 5 запросов | 12 сек | 5 запросов |
 		| Базовый с секретом | 1 мин | 5 запросов | 12 сек | 5 запросов |
 		| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v2-supplier-nms
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV2SupplierNmsRequest
@@ -968,6 +1048,8 @@ type PromotionAPI interface {
 		| Базовый с секретом | 1 сек | 1 запрос | 1 сек | 1 запрос |
 		| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/put-adv-v0-auction-placements
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPutV0AuctionPlacementsRequest
 	*/
@@ -990,6 +1072,8 @@ type PromotionAPI interface {
 		| --- | --- | --- | --- | --- |
 		| Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов |
 		| Сервисный | 1 мин | 5 запросов | 12 сек | 5 запросов |
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/put-api-advert-v0-daily-limits
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPutV0DailyLimitsRequest
@@ -1034,6 +1118,8 @@ DeleteV0NormqueryBids Удалить ставки поисковых класт�
 | Сервисный | 1 сек | 5 запросов | 200 мс | 10 запросов |
 | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов |
 | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/delete-adv-v0-normquery-bids
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiDeleteV0NormqueryBidsRequest
@@ -1193,6 +1279,8 @@ GetV0BidsRecommendations Рекомендуемые ставки для карт
 | Сервисный | 1 мин | 5 запросов | 12 сек | 5 запросов |
 | Базовый с секретом | 1 мин | 5 запросов | 12 сек | 5 запросов |
 | Базовый | 1 ч | 20 запросов | 3 мин | 1 запрос |
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v0-bids-recommendations
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV0BidsRecommendationsRequest
@@ -1362,6 +1450,8 @@ GetV0DailyLimits Получить настройки дневных лимито
 | Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов |
 | Сервисный | 1 мин | 5 запросов | 12 сек | 5 запросов |
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v0-daily-limits
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV0DailyLimitsRequest
 */
@@ -1526,6 +1616,8 @@ GetV0Delete Удаление кампании
 | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов |
 | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-delete
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV0DeleteRequest
 */
@@ -1675,6 +1767,8 @@ GetV0Pause Пауза кампании
 | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов |
 | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов |
 | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-pause
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV0PauseRequest
@@ -1837,6 +1931,8 @@ GetV0Start Запуск кампании
 | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов |
 | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов |
 | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-start
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV0StartRequest
@@ -2001,6 +2097,8 @@ GetV0Stop Завершение кампании
 | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов |
 | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-stop
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV0StopRequest
 */
@@ -2161,6 +2259,8 @@ GetV1Advert Информация о медиакампании
 | Сервисный | 1 сек | 10 запросов | 100 мс | 10 запросов |
 | Базовый с секретом | 1 сек | 10 запросов | 100 мс | 10 запросов |
 | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-advert
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV1AdvertRequest
@@ -2359,6 +2459,8 @@ GetV1Adverts Список медиакампаний
 | Базовый с секретом | 1 сек | 10 запросов | 100 мс | 10 запросов |
 | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-adverts
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV1AdvertsRequest
 */
@@ -2521,6 +2623,8 @@ GetV1Balance Баланс
 | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 5 запросов |
 | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-balance
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV1BalanceRequest
 */
@@ -2678,6 +2782,8 @@ GetV1Budget Бюджет кампании
 | Сервисный | 1 сек | 4 запроса | 250 мс | 4 запроса |
 | Базовый с секретом | 1 сек | 4 запроса | 250 мс | 4 запроса |
 | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-budget
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV1BudgetRequest
@@ -2873,6 +2979,8 @@ GetV1CalendarPromotions Список акций
 | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов |
 | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-v1-calendar-promotions
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV1CalendarPromotionsRequest
 */
@@ -3059,6 +3167,8 @@ GetV1CalendarPromotionsDetails Детальная информация об ак
 | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов |
 | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов |
 | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-v1-calendar-promotions-details
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV1CalendarPromotionsDetailsRequest
@@ -3269,6 +3379,8 @@ GetV1CalendarPromotionsNomenclatures Список товаров для учас
 | --- | --- | --- | --- |
 | 6 сек | 10 запросов | 600 мс | 5 запросов |
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-v1-calendar-promotions-nomenclatures
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV1CalendarPromotionsNomenclaturesRequest
 */
@@ -3457,6 +3569,8 @@ GetV1Config Конфигурационные значения продвижен
 | --- | --- | --- | --- |
 | 1 мин | 1 запрос | 1 мин | 10 запросов |
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v1-config
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV1ConfigRequest
 */
@@ -3596,6 +3710,8 @@ GetV1Count Количество медиакампаний
 | Сервисный | 1 сек | 10 запросов | 100 мс | 10 запросов |
 | Базовый с секретом | 1 сек | 10 запросов | 100 мс | 10 запросов |
 | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-count
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV1CountRequest
@@ -3750,6 +3866,8 @@ GetV1Payments Получение истории пополнений счёта
 | Сервисный | 1 сек | 1 запрос | 1 сек | 5 запросов |
 | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 5 запросов |
 | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-payments
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV1PaymentsRequest
@@ -3908,6 +4026,8 @@ GetV1PromotionCount Списки кампаний
 | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов |
 | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-promotion-count
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV1PromotionCountRequest
 */
@@ -4054,6 +4174,8 @@ GetV1SupplierSubjects Предметы для кампаний
 | Сервисный | 12 сек | 1 запрос | 12 сек | 5 запросов |
 | Базовый с секретом | 12 сек | 1 запрос | 12 сек | 5 запросов |
 | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-supplier-subjects
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV1SupplierSubjectsRequest
@@ -4214,6 +4336,8 @@ GetV1Upd Получение истории затрат
 | Сервисный | 1 сек | 1 запрос | 1 сек | 5 запросов |
 | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 5 запросов |
 | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-upd
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV1UpdRequest
@@ -4394,6 +4518,8 @@ GetV2Adverts Информация о кампаниях
 | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов |
 | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов |
 | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v2-adverts
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV2AdvertsRequest
@@ -4582,6 +4708,8 @@ GetV3Fullstats Статистика кампаний
 | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 1 запрос |
 | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v3-fullstats
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV3FullstatsRequest
 */
@@ -4755,6 +4883,8 @@ PatchV0AuctionNms Изменение списка карточек товаро�
 | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 1 запрос |
 | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/patch-adv-v0-auction-nms
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPatchV0AuctionNmsRequest
 */
@@ -4925,6 +5055,8 @@ PatchV1Bids Изменение ставок в кампаниях
 | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов |
 | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/patch-api-advert-v1-bids
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPatchV1BidsRequest
 */
@@ -5090,6 +5222,8 @@ PostV0NormqueryBids Установить ставки для поисковых 
 | Базовый с секретом | 1 сек | 2 запроса | 500 мс | 4 запроса |
 | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v0-normquery-bids
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV0NormqueryBidsRequest
 */
@@ -5241,6 +5375,8 @@ PostV0NormqueryGetBids Список ставок поисковых класте
 | Сервисный | 1 сек | 5 запросов | 200 мс | 10 запросов |
 | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов |
 | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v0-normquery-get-bids
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV0NormqueryGetBidsRequest
@@ -5406,6 +5542,8 @@ PostV0NormqueryGetMinus Список минус-фраз кампаний
 | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов |
 | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v0-normquery-get-minus
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV0NormqueryGetMinusRequest
 */
@@ -5567,6 +5705,8 @@ PostV0NormqueryList Списки активных и неактивных пои
 | Сервисный | 1 сек | 5 запросов | 200 мс | 10 запросов |
 | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов |
 | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v0-normquery-list
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV0NormqueryListRequest
@@ -5732,6 +5872,8 @@ PostV0NormquerySetMinus Установка и удаление минус-фра
 | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов |
 | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v0-normquery-set-minus
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV0NormquerySetMinusRequest
 */
@@ -5882,6 +6024,8 @@ PostV0NormqueryStats Статистика поисковых кластеров
 | Сервисный | 1 мин | 10 запросов | 6 сек | 20 запросов |
 | Базовый с секретом | 1 мин | 10 запросов | 6 сек | 20 запросов |
 | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v0-normquery-stats
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV0NormqueryStatsRequest
@@ -6045,6 +6189,8 @@ PostV0Rename Переименование кампании
 | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов |
 | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v0-rename
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV0RenameRequest
 */
@@ -6202,6 +6348,8 @@ PostV1BidsMin Минимальные ставки для карточек тов
 | Сервисный | 1 мин | 20 запросов | 3 сек | 5 запросов |
 | Базовый с секретом | 1 мин | 20 запросов | 3 сек | 5 запросов |
 | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-api-advert-v1-bids-min
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV1BidsMinRequest
@@ -6373,6 +6521,8 @@ PostV1BudgetDeposit Пополнение бюджета кампании
 | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 5 запросов |
 | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v1-budget-deposit
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV1BudgetDepositRequest
 */
@@ -6541,6 +6691,8 @@ PostV1CalendarPromotionsUpload Добавить товар в акцию
 | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов |
 | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов |
 | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-api-v1-calendar-promotions-upload
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV1CalendarPromotionsUploadRequest
@@ -6729,6 +6881,8 @@ PostV1NormqueryBids Установить ставки для поисковых 
 | Персональный | 1 сек | 2 запроса | 500 мс | 4 запроса |
 | Сервисный | 1 сек | 2 запроса | 500 мс | 4 запроса |
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-api-advert-v1-normquery-bids
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV1NormqueryBidsRequest
 */
@@ -6892,6 +7046,8 @@ PostV1NormqueryStats Статистика по поисковым кластер
 | Базовый с секретом | 1 мин | 10 запросов | 6 сек | 20 запросов |
 | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v1-normquery-stats
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV1NormqueryStatsRequest
 */
@@ -7053,6 +7209,8 @@ PostV1Stats Статистика медиакампаний
 | Сервисный | 1 сек | 10 запросов | 100 мс | 10 запросов |
 | Базовый с секретом | 1 сек | 10 запросов | 100 мс | 10 запросов |
 | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v1-stats
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV1StatsRequest
@@ -7226,6 +7384,8 @@ PostV2Budget Остатки бюджетов кампаний
 | Базовый с секретом | 1 мин | 20 запросов | 3 сек | 4 запроса |
 | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-api-advert-v2-budget
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV2BudgetRequest
 */
@@ -7390,6 +7550,8 @@ PostV2SeacatSaveAd Создать кампанию
 | Базовый с секретом | 1 мин | 5 запросов | 12 сек | 5 запросов |
 | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v2-seacat-save-ad
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV2SeacatSaveAdRequest
 */
@@ -7549,6 +7711,8 @@ PostV2SupplierNms Карточки товаров для кампаний
 | Сервисный | 1 мин | 5 запросов | 12 сек | 5 запросов |
 | Базовый с секретом | 1 мин | 5 запросов | 12 сек | 5 запросов |
 | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v2-supplier-nms
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV2SupplierNmsRequest
@@ -7711,6 +7875,8 @@ PutV0AuctionPlacements Изменение мест размещения в ка�
 | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 1 запрос |
 | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/put-adv-v0-auction-placements
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPutV0AuctionPlacementsRequest
 */
@@ -7862,6 +8028,8 @@ PutV0DailyLimits Настройка дневных лимитов кампани
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов |
 | Сервисный | 1 мин | 5 запросов | 12 сек | 5 запросов |
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/put-api-advert-v0-daily-limits
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPutV0DailyLimitsRequest

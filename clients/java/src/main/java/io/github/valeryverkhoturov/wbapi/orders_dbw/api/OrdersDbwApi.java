@@ -218,7 +218,8 @@ public class OrdersDbwApi {
    * на один аккаунт продавца для следующих методов DBW: * получение и обновление списка контактов *
    * получение и удаление идентификаторов маркировки * методы сборочных заданий | Период | Лимит |
    * Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |
-   * Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+   * Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/get-api-v3-dbw-orders
    *
    * @param limit Параметр пагинации. Устанавливает предельное количество возвращаемых данных
    *     (required)
@@ -258,7 +259,8 @@ public class OrdersDbwApi {
    * на один аккаунт продавца для следующих методов DBW: * получение и обновление списка контактов *
    * получение и удаление идентификаторов маркировки * методы сборочных заданий | Период | Лимит |
    * Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |
-   * Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+   * Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/get-api-v3-dbw-orders
    *
    * @param limit Параметр пагинации. Устанавливает предельное количество возвращаемых данных
    *     (required)
@@ -300,7 +302,8 @@ public class OrdersDbwApi {
    * на один аккаунт продавца для следующих методов DBW: * получение и обновление списка контактов *
    * получение и удаление идентификаторов маркировки * методы сборочных заданий | Период | Лимит |
    * Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |
-   * Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+   * Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/get-api-v3-dbw-orders
    *
    * @param limit Параметр пагинации. Устанавливает предельное количество возвращаемых данных
    *     (required)
@@ -424,7 +427,8 @@ public class OrdersDbwApi {
    * на один аккаунт продавца для следующих методов DBW: * получение и обновление списка контактов *
    * получение и удаление идентификаторов маркировки * методы сборочных заданий | Период | Лимит |
    * Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |
-   * Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+   * Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/get-api-v3-dbw-orders-new
    *
    * @return GetV3DbwOrdersNewResponse200
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
@@ -453,7 +457,8 @@ public class OrdersDbwApi {
    * на один аккаунт продавца для следующих методов DBW: * получение и обновление списка контактов *
    * получение и удаление идентификаторов маркировки * методы сборочных заданий | Период | Лимит |
    * Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |
-   * Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+   * Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/get-api-v3-dbw-orders-new
    *
    * @return ApiResponse&lt;GetV3DbwOrdersNewResponse200&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
@@ -484,7 +489,8 @@ public class OrdersDbwApi {
    * на один аккаунт продавца для следующих методов DBW: * получение и обновление списка контактов *
    * получение и удаление идентификаторов маркировки * методы сборочных заданий | Период | Лимит |
    * Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |
-   * Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+   * Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/get-api-v3-dbw-orders-new
    *
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
@@ -609,7 +615,9 @@ public class OrdersDbwApi {
    * | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 300 запросов |
    * 200 мс | 20 запросов | | Сервисный | 1 мин | 300 запросов | 200 мс | 20 запросов | | Базовый с
    * секретом | 1 мин | 300 запросов | 200 мс | 20 запросов | | Базовый | 1 ч | 10 запросов | 6 мин
-   * | 1 запрос | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+   * | 1 запрос | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов Library
+   * doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/patch-api-v3-dbw-orders-orderid-cancel
    *
    * @param orderId ID сборочного задания (required)
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
@@ -643,7 +651,9 @@ public class OrdersDbwApi {
    * | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 300 запросов |
    * 200 мс | 20 запросов | | Сервисный | 1 мин | 300 запросов | 200 мс | 20 запросов | | Базовый с
    * секретом | 1 мин | 300 запросов | 200 мс | 20 запросов | | Базовый | 1 ч | 10 запросов | 6 мин
-   * | 1 запрос | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+   * | 1 запрос | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов Library
+   * doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/patch-api-v3-dbw-orders-orderid-cancel
    *
    * @param orderId ID сборочного задания (required)
    * @return ApiResponse&lt;Void&gt;
@@ -680,7 +690,9 @@ public class OrdersDbwApi {
    * | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 300 запросов |
    * 200 мс | 20 запросов | | Сервисный | 1 мин | 300 запросов | 200 мс | 20 запросов | | Базовый с
    * секретом | 1 мин | 300 запросов | 200 мс | 20 запросов | | Базовый | 1 ч | 10 запросов | 6 мин
-   * | 1 запрос | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+   * | 1 запрос | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов Library
+   * doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/patch-api-v3-dbw-orders-orderid-cancel
    *
    * @param orderId ID сборочного задания (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -806,7 +818,8 @@ public class OrdersDbwApi {
    * на один аккаунт продавца для следующих методов DBW: * получение и обновление списка контактов *
    * получение и удаление идентификаторов маркировки * методы сборочных заданий | Период | Лимит |
    * Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |
-   * Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+   * Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/patch-api-v3-dbw-orders-orderid-confirm
    *
    * @param orderId ID сборочного задания (required)
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
@@ -838,7 +851,8 @@ public class OrdersDbwApi {
    * на один аккаунт продавца для следующих методов DBW: * получение и обновление списка контактов *
    * получение и удаление идентификаторов маркировки * методы сборочных заданий | Период | Лимит |
    * Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |
-   * Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+   * Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/patch-api-v3-dbw-orders-orderid-confirm
    *
    * @param orderId ID сборочного задания (required)
    * @return ApiResponse&lt;Void&gt;
@@ -873,7 +887,8 @@ public class OrdersDbwApi {
    * на один аккаунт продавца для следующих методов DBW: * получение и обновление списка контактов *
    * получение и удаление идентификаторов маркировки * методы сборочных заданий | Период | Лимит |
    * Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |
-   * Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+   * Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/patch-api-v3-dbw-orders-orderid-confirm
    *
    * @param orderId ID сборочного задания (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -994,7 +1009,8 @@ public class OrdersDbwApi {
    * на один аккаунт продавца для следующих методов DBW: * получение и обновление списка контактов *
    * получение и удаление идентификаторов маркировки * методы сборочных заданий | Период | Лимит |
    * Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |
-   * Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+   * Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/post-api-marketplace-v3-dbw-orders-client
    *
    * @param ordersRequestAPI (required)
    * @return ClientInfoResp
@@ -1025,7 +1041,8 @@ public class OrdersDbwApi {
    * на один аккаунт продавца для следующих методов DBW: * получение и обновление списка контактов *
    * получение и удаление идентификаторов маркировки * методы сборочных заданий | Период | Лимит |
    * Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |
-   * Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+   * Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/post-api-marketplace-v3-dbw-orders-client
    *
    * @param ordersRequestAPI (required)
    * @return ApiResponse&lt;ClientInfoResp&gt;
@@ -1057,7 +1074,8 @@ public class OrdersDbwApi {
    * на один аккаунт продавца для следующих методов DBW: * получение и обновление списка контактов *
    * получение и удаление идентификаторов маркировки * методы сборочных заданий | Период | Лимит |
    * Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |
-   * Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+   * Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/post-api-marketplace-v3-dbw-orders-client
    *
    * @param ordersRequestAPI (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -1179,7 +1197,8 @@ public class OrdersDbwApi {
    * на один аккаунт продавца для следующих методов DBW: * получение и обновление списка контактов *
    * получение и удаление идентификаторов маркировки * методы сборочных заданий | Период | Лимит |
    * Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |
-   * Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+   * Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/post-api-v3-dbw-orders-courier
    *
    * @param ordersRequestAPI (required)
    * @return OrderCourierInfoResp
@@ -1212,7 +1231,8 @@ public class OrdersDbwApi {
    * на один аккаунт продавца для следующих методов DBW: * получение и обновление списка контактов *
    * получение и удаление идентификаторов маркировки * методы сборочных заданий | Период | Лимит |
    * Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |
-   * Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+   * Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/post-api-v3-dbw-orders-courier
    *
    * @param ordersRequestAPI (required)
    * @return ApiResponse&lt;OrderCourierInfoResp&gt;
@@ -1245,7 +1265,8 @@ public class OrdersDbwApi {
    * на один аккаунт продавца для следующих методов DBW: * получение и обновление списка контактов *
    * получение и удаление идентификаторов маркировки * методы сборочных заданий | Период | Лимит |
    * Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |
-   * Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+   * Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/post-api-v3-dbw-orders-courier
    *
    * @param ordersRequestAPI (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -1366,7 +1387,8 @@ public class OrdersDbwApi {
    * на один аккаунт продавца для следующих методов DBW: * получение и обновление списка контактов *
    * получение и удаление идентификаторов маркировки * методы сборочных заданий | Период | Лимит |
    * Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |
-   * Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+   * Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/post-api-v3-dbw-orders-delivery-date
    *
    * @param deliveryDatesRequest (required)
    * @return DeliveryDatesInfoResp
@@ -1398,7 +1420,8 @@ public class OrdersDbwApi {
    * на один аккаунт продавца для следующих методов DBW: * получение и обновление списка контактов *
    * получение и удаление идентификаторов маркировки * методы сборочных заданий | Период | Лимит |
    * Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |
-   * Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+   * Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/post-api-v3-dbw-orders-delivery-date
    *
    * @param deliveryDatesRequest (required)
    * @return ApiResponse&lt;DeliveryDatesInfoResp&gt;
@@ -1431,7 +1454,8 @@ public class OrdersDbwApi {
    * на один аккаунт продавца для следующих методов DBW: * получение и обновление списка контактов *
    * получение и удаление идентификаторов маркировки * методы сборочных заданий | Период | Лимит |
    * Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |
-   * Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+   * Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/post-api-v3-dbw-orders-delivery-date
    *
    * @param deliveryDatesRequest (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -1565,7 +1589,8 @@ public class OrdersDbwApi {
    * на один аккаунт продавца для следующих методов DBW: * получение и обновление списка контактов *
    * получение и удаление идентификаторов маркировки * методы сборочных заданий | Период | Лимит |
    * Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |
-   * Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+   * Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/post-api-marketplace-v3-dbw-orders-meta-delete
    *
    * @param apiOrdersMetaDleteRequestV2 (required)
    * @return PostV3DbwOrdersMetaDeleteResponse200
@@ -1608,7 +1633,8 @@ public class OrdersDbwApi {
    * на один аккаунт продавца для следующих методов DBW: * получение и обновление списка контактов *
    * получение и удаление идентификаторов маркировки * методы сборочных заданий | Период | Лимит |
    * Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |
-   * Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+   * Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/post-api-marketplace-v3-dbw-orders-meta-delete
    *
    * @param apiOrdersMetaDleteRequestV2 (required)
    * @return ApiResponse&lt;PostV3DbwOrdersMetaDeleteResponse200&gt;
@@ -1652,7 +1678,8 @@ public class OrdersDbwApi {
    * на один аккаунт продавца для следующих методов DBW: * получение и обновление списка контактов *
    * получение и удаление идентификаторов маркировки * методы сборочных заданий | Период | Лимит |
    * Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |
-   * Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+   * Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/post-api-marketplace-v3-dbw-orders-meta-delete
    *
    * @param apiOrdersMetaDleteRequestV2 (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -1789,7 +1816,8 @@ public class OrdersDbwApi {
    * на один аккаунт продавца для следующих методов DBW: * получение и обновление списка контактов *
    * получение и удаление идентификаторов маркировки * методы сборочных заданий | Период | Лимит |
    * Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |
-   * Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+   * Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/post-api-marketplace-v3-dbw-orders-meta-details
    *
    * @param apiOrdersRequestV2 (required)
    * @return ApiOrdersMetaDetailsResponse
@@ -1836,7 +1864,8 @@ public class OrdersDbwApi {
    * на один аккаунт продавца для следующих методов DBW: * получение и обновление списка контактов *
    * получение и удаление идентификаторов маркировки * методы сборочных заданий | Период | Лимит |
    * Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |
-   * Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+   * Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/post-api-marketplace-v3-dbw-orders-meta-details
    *
    * @param apiOrdersRequestV2 (required)
    * @return ApiResponse&lt;ApiOrdersMetaDetailsResponse&gt;
@@ -1884,7 +1913,8 @@ public class OrdersDbwApi {
    * на один аккаунт продавца для следующих методов DBW: * получение и обновление списка контактов *
    * получение и удаление идентификаторов маркировки * методы сборочных заданий | Период | Лимит |
    * Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |
-   * Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+   * Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/post-api-marketplace-v3-dbw-orders-meta-details
    *
    * @param apiOrdersRequestV2 (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -2017,7 +2047,8 @@ public class OrdersDbwApi {
    * на один аккаунт продавца для следующих методов DBW: * получение и обновление списка контактов *
    * получение и удаление идентификаторов маркировки * методы сборочных заданий | Период | Лимит |
    * Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |
-   * Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+   * Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/post-api-marketplace-v3-dbw-orders-meta-sgtin
    *
    * @param apiOrdersSGTINsSetRequest (required)
    * @return ApiStatusSetResponses
@@ -2058,7 +2089,8 @@ public class OrdersDbwApi {
    * на один аккаунт продавца для следующих методов DBW: * получение и обновление списка контактов *
    * получение и удаление идентификаторов маркировки * методы сборочных заданий | Период | Лимит |
    * Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |
-   * Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+   * Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/post-api-marketplace-v3-dbw-orders-meta-sgtin
    *
    * @param apiOrdersSGTINsSetRequest (required)
    * @return ApiResponse&lt;ApiStatusSetResponses&gt;
@@ -2101,7 +2133,8 @@ public class OrdersDbwApi {
    * на один аккаунт продавца для следующих методов DBW: * получение и обновление списка контактов *
    * получение и удаление идентификаторов маркировки * методы сборочных заданий | Период | Лимит |
    * Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |
-   * Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+   * Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/post-api-marketplace-v3-dbw-orders-meta-sgtin
    *
    * @param apiOrdersSGTINsSetRequest (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -2240,7 +2273,8 @@ public class OrdersDbwApi {
    * на один аккаунт продавца для следующих методов DBW: * получение и обновление списка контактов *
    * получение и удаление идентификаторов маркировки * методы сборочных заданий | Период | Лимит |
    * Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |
-   * Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+   * Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/post-api-v3-dbw-orders-status
    *
    * @param postV3DbwOrdersStatusRequest (optional)
    * @return PostV3DbwOrdersStatusResponse200
@@ -2293,7 +2327,8 @@ public class OrdersDbwApi {
    * на один аккаунт продавца для следующих методов DBW: * получение и обновление списка контактов *
    * получение и удаление идентификаторов маркировки * методы сборочных заданий | Период | Лимит |
    * Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |
-   * Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+   * Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/post-api-v3-dbw-orders-status
    *
    * @param postV3DbwOrdersStatusRequest (optional)
    * @return ApiResponse&lt;PostV3DbwOrdersStatusResponse200&gt;
@@ -2347,7 +2382,8 @@ public class OrdersDbwApi {
    * на один аккаунт продавца для следующих методов DBW: * получение и обновление списка контактов *
    * получение и удаление идентификаторов маркировки * методы сборочных заданий | Период | Лимит |
    * Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |
-   * Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+   * Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/post-api-v3-dbw-orders-status
    *
    * @param postV3DbwOrdersStatusRequest (optional)
    * @param _callback The callback to be executed when the API call finishes
@@ -2475,7 +2511,8 @@ public class OrdersDbwApi {
    * на один аккаунт продавца для следующих методов DBW: * получение и обновление списка контактов *
    * получение и удаление идентификаторов маркировки * методы сборочных заданий | Период | Лимит |
    * Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |
-   * Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+   * Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/post-api-marketplace-v3-dbw-orders-status-deliver
    *
    * @param apiOrdersRequestV2 (required)
    * @return ApiStatusSetResponses
@@ -2513,7 +2550,8 @@ public class OrdersDbwApi {
    * на один аккаунт продавца для следующих методов DBW: * получение и обновление списка контактов *
    * получение и удаление идентификаторов маркировки * методы сборочных заданий | Период | Лимит |
    * Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |
-   * Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+   * Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/post-api-marketplace-v3-dbw-orders-status-deliver
    *
    * @param apiOrdersRequestV2 (required)
    * @return ApiResponse&lt;ApiStatusSetResponses&gt;
@@ -2552,7 +2590,8 @@ public class OrdersDbwApi {
    * на один аккаунт продавца для следующих методов DBW: * получение и обновление списка контактов *
    * получение и удаление идентификаторов маркировки * методы сборочных заданий | Период | Лимит |
    * Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |
-   * Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+   * Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/post-api-marketplace-v3-dbw-orders-status-deliver
    *
    * @param apiOrdersRequestV2 (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -2718,7 +2757,8 @@ public class OrdersDbwApi {
    * на один аккаунт продавца для следующих методов DBW: * получение и обновление списка контактов *
    * получение и удаление идентификаторов маркировки * методы сборочных заданий | Период | Лимит |
    * Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |
-   * Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+   * Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/post-api-v3-dbw-orders-stickers
    *
    * @param type Тип стикера (required)
    * @param width Ширина стикера (required)
@@ -2764,7 +2804,8 @@ public class OrdersDbwApi {
    * на один аккаунт продавца для следующих методов DBW: * получение и обновление списка контактов *
    * получение и удаление идентификаторов маркировки * методы сборочных заданий | Период | Лимит |
    * Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |
-   * Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+   * Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/post-api-v3-dbw-orders-stickers
    *
    * @param type Тип стикера (required)
    * @param width Ширина стикера (required)
@@ -2813,7 +2854,8 @@ public class OrdersDbwApi {
    * на один аккаунт продавца для следующих методов DBW: * получение и обновление списка контактов *
    * получение и удаление идентификаторов маркировки * методы сборочных заданий | Период | Лимит |
    * Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |
-   * Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+   * Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/post-api-v3-dbw-orders-stickers
    *
    * @param type Тип стикера (required)
    * @param width Ширина стикера (required)
@@ -2967,6 +3009,8 @@ public class OrdersDbwApi {
    * на один аккаунт продавца для всех методов **закрепления идентификаторов маркировки DBW**: |
    * Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1000 запросов | 60 мс
    * | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+   * Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/put-api-v3-dbw-orders-orderid-meta-gtin
    *
    * @param orderId ID сборочного задания (required)
    * @param putV3DbwOrdersOrderIdMetaGtinRequest (required)
@@ -3006,6 +3050,8 @@ public class OrdersDbwApi {
    * на один аккаунт продавца для всех методов **закрепления идентификаторов маркировки DBW**: |
    * Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1000 запросов | 60 мс
    * | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+   * Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/put-api-v3-dbw-orders-orderid-meta-gtin
    *
    * @param orderId ID сборочного задания (required)
    * @param putV3DbwOrdersOrderIdMetaGtinRequest (required)
@@ -3049,6 +3095,8 @@ public class OrdersDbwApi {
    * на один аккаунт продавца для всех методов **закрепления идентификаторов маркировки DBW**: |
    * Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1000 запросов | 60 мс
    * | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+   * Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/put-api-v3-dbw-orders-orderid-meta-gtin
    *
    * @param orderId ID сборочного задания (required)
    * @param putV3DbwOrdersOrderIdMetaGtinRequest (required)
@@ -3201,6 +3249,8 @@ public class OrdersDbwApi {
    * на один аккаунт продавца для всех методов **закрепления идентификаторов маркировки DBW**: |
    * Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1000 запросов | 60 мс
    * | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+   * Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/put-api-v3-dbw-orders-orderid-meta-imei
    *
    * @param orderId ID сборочного задания (required)
    * @param putV3DbwOrdersOrderIdMetaImeiRequest (required)
@@ -3242,6 +3292,8 @@ public class OrdersDbwApi {
    * на один аккаунт продавца для всех методов **закрепления идентификаторов маркировки DBW**: |
    * Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1000 запросов | 60 мс
    * | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+   * Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/put-api-v3-dbw-orders-orderid-meta-imei
    *
    * @param orderId ID сборочного задания (required)
    * @param putV3DbwOrdersOrderIdMetaImeiRequest (required)
@@ -3287,6 +3339,8 @@ public class OrdersDbwApi {
    * на один аккаунт продавца для всех методов **закрепления идентификаторов маркировки DBW**: |
    * Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1000 запросов | 60 мс
    * | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+   * Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/put-api-v3-dbw-orders-orderid-meta-imei
    *
    * @param orderId ID сборочного задания (required)
    * @param putV3DbwOrdersOrderIdMetaImeiRequest (required)
@@ -3437,6 +3491,8 @@ public class OrdersDbwApi {
    * на один аккаунт продавца для всех методов **закрепления идентификаторов маркировки DBW**: |
    * Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1000 запросов | 60 мс
    * | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+   * Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/put-api-v3-dbw-orders-orderid-meta-uin
    *
    * @param orderId ID сборочного задания (required)
    * @param putV3DbwOrdersOrderIdMetaUinRequest (required)
@@ -3476,6 +3532,8 @@ public class OrdersDbwApi {
    * на один аккаунт продавца для всех методов **закрепления идентификаторов маркировки DBW**: |
    * Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1000 запросов | 60 мс
    * | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+   * Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/put-api-v3-dbw-orders-orderid-meta-uin
    *
    * @param orderId ID сборочного задания (required)
    * @param putV3DbwOrdersOrderIdMetaUinRequest (required)
@@ -3519,6 +3577,8 @@ public class OrdersDbwApi {
    * на один аккаунт продавца для всех методов **закрепления идентификаторов маркировки DBW**: |
    * Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1000 запросов | 60 мс
    * | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+   * Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/put-api-v3-dbw-orders-orderid-meta-uin
    *
    * @param orderId ID сборочного задания (required)
    * @param putV3DbwOrdersOrderIdMetaUinRequest (required)

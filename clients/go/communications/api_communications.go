@@ -36,6 +36,8 @@ type CommunicationsAPI interface {
 		| Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
 		| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/delete-api-feedbacks-v1-pins
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiDeleteV1PinsRequest
 	*/
@@ -58,6 +60,8 @@ type CommunicationsAPI interface {
 		| Базовый с секретом | 1 мин | 20 запросов | 3 сек | 10 запросов |
 		| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-claims
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV1ClaimsRequest
 	*/
@@ -79,6 +83,8 @@ type CommunicationsAPI interface {
 		| Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
 		| Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
 		| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-feedback
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV1FeedbackRequest
@@ -108,6 +114,8 @@ type CommunicationsAPI interface {
 		| Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
 		| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-feedbacks
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV1FeedbacksRequest
 	*/
@@ -135,6 +143,8 @@ type CommunicationsAPI interface {
 		| Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
 		| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-feedbacks-archive
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV1FeedbacksArchiveRequest
 	*/
@@ -160,6 +170,8 @@ type CommunicationsAPI interface {
 		| Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
 		| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-feedbacks-count
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV1FeedbacksCountRequest
 	*/
@@ -183,6 +195,8 @@ type CommunicationsAPI interface {
 		| Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
 		| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-feedbacks-count-unanswered
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV1FeedbacksCountUnansweredRequest
 	*/
@@ -204,6 +218,8 @@ type CommunicationsAPI interface {
 		| Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
 		| Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
 		| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-new-feedbacks-questions
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV1NewFeedbacksQuestionsRequest
@@ -229,6 +245,8 @@ type CommunicationsAPI interface {
 		| Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
 		| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-feedbacks-v1-pins
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV1PinsRequest
 	*/
@@ -250,6 +268,8 @@ type CommunicationsAPI interface {
 		| Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
 		| Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
 		| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-feedbacks-v1-pins-count
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV1PinsCountRequest
@@ -273,6 +293,8 @@ type CommunicationsAPI interface {
 		| Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
 		| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-feedbacks-v1-pins-limits
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV1PinsLimitsRequest
 	*/
@@ -294,6 +316,8 @@ type CommunicationsAPI interface {
 		| Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
 		| Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
 		| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-question
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV1QuestionRequest
@@ -322,6 +346,8 @@ type CommunicationsAPI interface {
 		| Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
 		| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-questions
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV1QuestionsRequest
 	*/
@@ -343,6 +369,8 @@ type CommunicationsAPI interface {
 		| Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
 		| Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
 		| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-questions-count
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV1QuestionsCountRequest
@@ -366,6 +394,8 @@ type CommunicationsAPI interface {
 		| Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
 		| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-questions-count-unanswered
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV1QuestionsCountUnansweredRequest
 	*/
@@ -388,6 +418,8 @@ type CommunicationsAPI interface {
 		| Базовый с секретом | 10 сек | 10 запросов | 1 сек | 10 запросов |
 		| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-seller-chats
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV1SellerChatsRequest
 	*/
@@ -409,6 +441,8 @@ type CommunicationsAPI interface {
 		| Сервисный | 10 сек | 10 запросов | 1 сек | 10 запросов |
 		| Базовый с секретом | 10 сек | 10 запросов | 1 сек | 10 запросов |
 		| Базовый | 1 ч | 10 запросов | 6 мин | 1 запрос |
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-seller-download-id
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@param id ID файла, см. значение поля `downloadID` в методе [События чатов](./customer-communication#tag/buyersChat/operation/getV1SellerEvents)
@@ -436,6 +470,8 @@ type CommunicationsAPI interface {
 		| Базовый с секретом | 10 сек | 10 запросов | 1 сек | 10 запросов |
 		| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-seller-events
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV1SellerEventsRequest
 	*/
@@ -457,6 +493,8 @@ type CommunicationsAPI interface {
 		| Сервисный | 1 мин | 20 запросов | 3 сек | 10 запросов |
 		| Базовый с секретом | 1 мин | 20 запросов | 3 сек | 10 запросов |
 		| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/patch-api-v1-claim
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPatchV1ClaimRequest
@@ -482,6 +520,8 @@ type CommunicationsAPI interface {
 		| Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
 		| Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
 		| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/patch-api-v1-feedbacks-answer
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPatchV1FeedbacksAnswerRequest
@@ -511,6 +551,8 @@ type CommunicationsAPI interface {
 		| Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
 		| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/patch-api-v1-questions
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPatchV1QuestionsRequest
 	*/
@@ -535,6 +577,8 @@ type CommunicationsAPI interface {
 		| Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
 		| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/post-api-v1-feedbacks-answer
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV1FeedbacksAnswerRequest
 	*/
@@ -557,6 +601,8 @@ type CommunicationsAPI interface {
 		| Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
 		| Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
 		| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/post-api-v1-feedbacks-order-return
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV1FeedbacksOrderReturnRequest
@@ -583,6 +629,8 @@ type CommunicationsAPI interface {
 		| Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
 		| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/post-api-feedbacks-v1-pins
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV1PinsRequest
 	*/
@@ -604,6 +652,8 @@ type CommunicationsAPI interface {
 		| Сервисный | 10 сек | 10 запросов | 1 сек | 10 запросов |
 		| Базовый с секретом | 10 сек | 10 запросов | 1 сек | 10 запросов |
 		| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/post-api-v1-seller-message
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV1SellerMessageRequest
@@ -647,6 +697,8 @@ DeleteV1Pins Открепить отзывы
 | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
 | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
 | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/delete-api-feedbacks-v1-pins
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiDeleteV1PinsRequest
@@ -853,6 +905,8 @@ GetV1Claims Заявки покупателей на возврат
 | Базовый с секретом | 1 мин | 20 запросов | 3 сек | 10 запросов |
 | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-claims
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV1ClaimsRequest
 */
@@ -1043,6 +1097,8 @@ GetV1Feedback Получить отзыв по ID
 | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
 | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
 | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-feedback
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV1FeedbackRequest
@@ -1265,6 +1321,8 @@ GetV1Feedbacks Список отзывов
 | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
 | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-feedbacks
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV1FeedbacksRequest
 */
@@ -1484,6 +1542,8 @@ GetV1FeedbacksArchive Список архивных отзывов
 | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
 | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-feedbacks-archive
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV1FeedbacksArchiveRequest
 */
@@ -1695,6 +1755,8 @@ GetV1FeedbacksCount Количество отзывов
 | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
 | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-feedbacks-count
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV1FeedbacksCountRequest
 */
@@ -1868,6 +1930,8 @@ GetV1FeedbacksCountUnanswered Необработанные отзывы
 | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
 | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-feedbacks-count-unanswered
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV1FeedbacksCountUnansweredRequest
 */
@@ -2018,6 +2082,8 @@ GetV1NewFeedbacksQuestions Непросмотренные отзывы и воп
 | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
 | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
 | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-new-feedbacks-questions
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV1NewFeedbacksQuestionsRequest
@@ -2234,6 +2300,8 @@ GetV1Pins Список закреплённых и откреплённых от
 | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
 | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
 | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-feedbacks-v1-pins
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV1PinsRequest
@@ -2476,6 +2544,8 @@ GetV1PinsCount Количество закреплённых и откреплё
 | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
 | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-feedbacks-v1-pins-count
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV1PinsCountRequest
 */
@@ -2659,6 +2729,8 @@ GetV1PinsLimits Лимиты закреплённых отзывов
 | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
 | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-feedbacks-v1-pins-limits
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV1PinsLimitsRequest
 */
@@ -2816,6 +2888,8 @@ GetV1Question Получить вопрос по ID
 | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
 | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
 | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-question
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV1QuestionRequest
@@ -3037,6 +3111,8 @@ GetV1Questions Список вопросов
 | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
 | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-questions
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV1QuestionsRequest
 */
@@ -3244,6 +3320,8 @@ GetV1QuestionsCount Количество вопросов
 | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
 | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-questions-count
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV1QuestionsCountRequest
 */
@@ -3418,6 +3496,8 @@ GetV1QuestionsCountUnanswered Неотвеченные вопросы
 | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
 | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-questions-count-unanswered
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV1QuestionsCountUnansweredRequest
 */
@@ -3568,6 +3648,8 @@ GetV1SellerChats Список чатов
 | Сервисный | 10 сек | 10 запросов | 1 сек | 10 запросов |
 | Базовый с секретом | 10 сек | 10 запросов | 1 сек | 10 запросов |
 | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-seller-chats
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV1SellerChatsRequest
@@ -3720,6 +3802,8 @@ GetV1SellerDownloadId Получить файл из сообщения
 | Сервисный | 10 сек | 10 запросов | 1 сек | 10 запросов |
 | Базовый с секретом | 10 сек | 10 запросов | 1 сек | 10 запросов |
 | Базовый | 1 ч | 10 запросов | 6 мин | 1 запрос |
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-seller-download-id
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param id ID файла, см. значение поля `downloadID` в методе [События чатов](./customer-communication#tag/buyersChat/operation/getV1SellerEvents)
@@ -3907,6 +3991,8 @@ GetV1SellerEvents События чатов
 | Базовый с секретом | 10 сек | 10 запросов | 1 сек | 10 запросов |
 | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-seller-events
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV1SellerEventsRequest
 */
@@ -4079,6 +4165,8 @@ PatchV1Claim Ответ на заявку покупателя
 | Базовый с секретом | 1 мин | 20 запросов | 3 сек | 10 запросов |
 | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/patch-api-v1-claim
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPatchV1ClaimRequest
 */
@@ -4244,6 +4332,8 @@ ID отзыва не валидируется. Если в запросе вы �
 | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
 | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/patch-api-v1-feedbacks-answer
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPatchV1FeedbacksAnswerRequest
 */
@@ -4397,6 +4487,8 @@ PatchV1Questions Работа с вопросами
 | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
 | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
 | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/patch-api-v1-questions
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPatchV1QuestionsRequest
@@ -4592,6 +4684,8 @@ ID отзыва не валидируется. Если в запросе вы �
 | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
 | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/post-api-v1-feedbacks-answer
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV1FeedbacksAnswerRequest
 */
@@ -4751,6 +4845,8 @@ PostV1FeedbacksOrderReturn Возврат товара по ID отзыва
 | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
 | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
 | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/post-api-v1-feedbacks-order-return
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV1FeedbacksOrderReturnRequest
@@ -4938,6 +5034,8 @@ PostV1Pins Закрепить отзывы
 | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
 | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
 | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/post-api-feedbacks-v1-pins
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV1PinsRequest
@@ -5129,6 +5227,8 @@ PostV1SellerMessage Отправить сообщение
 | Сервисный | 10 сек | 10 запросов | 1 сек | 10 запросов |
 | Базовый с секретом | 10 сек | 10 запросов | 1 сек | 10 запросов |
 | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/post-api-v1-seller-message
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV1SellerMessageRequest

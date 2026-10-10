@@ -37,6 +37,8 @@ type InStorePickupAPI interface {
 
 		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/get-api-v3-click-collect-orders
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV3ClickCollectOrdersRequest
 	*/
@@ -60,6 +62,8 @@ type InStorePickupAPI interface {
 		---
 
 		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/get-api-v3-click-collect-orders-new
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV3ClickCollectOrdersNewRequest
@@ -89,6 +93,8 @@ type InStorePickupAPI interface {
 
 		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-v3-click-collect-orders-client
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV3ClickCollectOrdersClientRequest
 	*/
@@ -115,6 +121,8 @@ type InStorePickupAPI interface {
 
 		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-v3-click-collect-orders-client-identity
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV3ClickCollectOrdersClientIdentityRequest
 	*/
@@ -140,6 +148,8 @@ type InStorePickupAPI interface {
 		---
 
 		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-final-price
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV3ClickCollectOrdersFinalPriceRequest
@@ -168,6 +178,8 @@ type InStorePickupAPI interface {
 		---
 
 		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-meta-customs-declaration
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV3ClickCollectOrdersMetaCustomsDeclarationRequest
@@ -200,6 +212,8 @@ type InStorePickupAPI interface {
 
 		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-meta-delete
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV3ClickCollectOrdersMetaDeleteRequest
 	*/
@@ -229,6 +243,8 @@ type InStorePickupAPI interface {
 		| 1 мин | 150 запросов | 400 мс | 20 запросов |
 		Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-meta-details
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV3ClickCollectOrdersMetaDetailsRequest
 	*/
@@ -253,6 +269,8 @@ type InStorePickupAPI interface {
 		---
 
 		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-meta-gtin
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV3ClickCollectOrdersMetaGtinRequest
@@ -279,6 +297,8 @@ type InStorePickupAPI interface {
 		---
 
 		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-meta-imei
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV3ClickCollectOrdersMetaImeiRequest
@@ -307,6 +327,8 @@ type InStorePickupAPI interface {
 
 		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-meta-sgtin
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV3ClickCollectOrdersMetaSgtinRequest
 	*/
@@ -332,6 +354,8 @@ type InStorePickupAPI interface {
 
 		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-meta-uin
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV3ClickCollectOrdersMetaUinRequest
 	*/
@@ -356,6 +380,8 @@ type InStorePickupAPI interface {
 
 		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-status-cancel
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV3ClickCollectOrdersStatusCancelRequest
 	*/
@@ -379,6 +405,8 @@ type InStorePickupAPI interface {
 		---
 
 		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-status-confirm
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV3ClickCollectOrdersStatusConfirmRequest
@@ -428,6 +456,8 @@ type InStorePickupAPI interface {
 
 		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-status-info
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV3ClickCollectOrdersStatusInfoRequest
 	*/
@@ -451,6 +481,8 @@ type InStorePickupAPI interface {
 		---
 
 		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-status-prepare
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV3ClickCollectOrdersStatusPrepareRequest
@@ -476,6 +508,8 @@ type InStorePickupAPI interface {
 
 		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-status-receive
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV3ClickCollectOrdersStatusReceiveRequest
 	*/
@@ -499,6 +533,8 @@ type InStorePickupAPI interface {
 		---
 
 		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-status-reject
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV3ClickCollectOrdersStatusRejectRequest
@@ -566,6 +602,8 @@ GetV3ClickCollectOrders Получить информацию о завершё�
 ---
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/get-api-v3-click-collect-orders
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV3ClickCollectOrdersRequest
@@ -753,6 +791,8 @@ GetV3ClickCollectOrdersNew Получить список новых сбороч
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/get-api-v3-click-collect-orders-new
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV3ClickCollectOrdersNewRequest
 */
@@ -915,6 +955,8 @@ PostV3ClickCollectOrdersClient Информация о покупателе
 ---
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-v3-click-collect-orders-client
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV3ClickCollectOrdersClientRequest
@@ -1092,6 +1134,8 @@ PostV3ClickCollectOrdersClientIdentity Проверить, что заказ п�
 ---
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-v3-click-collect-orders-client-identity
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV3ClickCollectOrdersClientIdentityRequest
@@ -1292,6 +1336,8 @@ PostV3ClickCollectOrdersFinalPrice Получить цены продавца и
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-final-price
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV3ClickCollectOrdersFinalPriceRequest
 */
@@ -1456,6 +1502,8 @@ PostV3ClickCollectOrdersMetaCustomsDeclaration Закрепить номера �
 ---
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-meta-customs-declaration
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV3ClickCollectOrdersMetaCustomsDeclarationRequest
@@ -1627,6 +1675,8 @@ PostV3ClickCollectOrdersMetaDelete Удалить идентификаторы �
 ---
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-meta-delete
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV3ClickCollectOrdersMetaDeleteRequest
@@ -1808,6 +1858,8 @@ PostV3ClickCollectOrdersMetaDetails Получить идентификатор�
 | 1 мин | 150 запросов | 400 мс | 20 запросов |
 Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-meta-details
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV3ClickCollectOrdersMetaDetailsRequest
 */
@@ -1972,6 +2024,8 @@ PostV3ClickCollectOrdersMetaGtin Закрепить GTIN за сборочным
 ---
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-meta-gtin
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV3ClickCollectOrdersMetaGtinRequest
@@ -2149,6 +2203,8 @@ PostV3ClickCollectOrdersMetaImei Закрепить IMEI за сборочным
 ---
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-meta-imei
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV3ClickCollectOrdersMetaImeiRequest
@@ -2328,6 +2384,8 @@ PostV3ClickCollectOrdersMetaSgtin Закрепить коды маркировк
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-meta-sgtin
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV3ClickCollectOrdersMetaSgtinRequest
 */
@@ -2504,6 +2562,8 @@ PostV3ClickCollectOrdersMetaUin Закрепить УИН за сборочны�
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-meta-uin
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV3ClickCollectOrdersMetaUinRequest
 */
@@ -2679,6 +2739,8 @@ PostV3ClickCollectOrdersStatusCancel Отменить сборочные зад�
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-status-cancel
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV3ClickCollectOrdersStatusCancelRequest
 */
@@ -2850,6 +2912,8 @@ PostV3ClickCollectOrdersStatusConfirm Перевести сборочные за
 ---
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-status-confirm
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV3ClickCollectOrdersStatusConfirmRequest
@@ -3048,6 +3112,8 @@ PostV3ClickCollectOrdersStatusInfo Получить статусы сбороч�
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-status-info
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV3ClickCollectOrdersStatusInfoRequest
 */
@@ -3223,6 +3289,8 @@ PostV3ClickCollectOrdersStatusPrepare Сообщить, что сборочны�
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-status-prepare
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV3ClickCollectOrdersStatusPrepareRequest
 */
@@ -3395,6 +3463,8 @@ PostV3ClickCollectOrdersStatusReceive Сообщить, что заказы пр
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-status-receive
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV3ClickCollectOrdersStatusReceiveRequest
 */
@@ -3566,6 +3636,8 @@ PostV3ClickCollectOrdersStatusReject Сообщить об отказе от з�
 ---
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-status-reject
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV3ClickCollectOrdersStatusRejectRequest

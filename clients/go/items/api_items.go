@@ -39,6 +39,8 @@ type ItemsAPI interface {
 
 		В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/delete-content-v2-tag-id
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@param id Числовой ID ярлыка
 			@return ApiDeleteV2TagIdRequest
@@ -66,6 +68,8 @@ type ItemsAPI interface {
 
 		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/delete-api-v3-stocks-warehouseid
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@param warehouseId ID склада продавца
 			@return ApiDeleteV3StocksWarehouseIdRequest
@@ -90,6 +94,8 @@ type ItemsAPI interface {
 
 		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/delete-api-v3-warehouses-warehouseid
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@param warehouseId ID склада продавца
 			@return ApiDeleteV3WarehousesWarehouseIdRequest
@@ -111,6 +117,8 @@ type ItemsAPI interface {
 		| Сервисный | 1 сек | 1 запрос | 1 сек | 5 запросов |
 		| Базовый с секретом | 1 сек | 1 запрос | 1 сек | 5 запросов |
 		| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-content-v1-brands
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV1BrandsRequest
@@ -140,6 +148,8 @@ type ItemsAPI interface {
 
 		В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-v2-buffer-goods-task
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV2BufferGoodsTaskRequest
 	*/
@@ -167,6 +177,8 @@ type ItemsAPI interface {
 		---
 
 		В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-v2-buffer-tasks
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV2BufferTasksRequest
@@ -202,6 +214,8 @@ type ItemsAPI interface {
 
 		В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-content-v2-cards-limits
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV2CardsLimitsRequest
 	*/
@@ -227,6 +241,8 @@ type ItemsAPI interface {
 		---
 
 		В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-content-v2-directory-colors
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV2DirectoryColorsRequest
@@ -259,6 +275,8 @@ type ItemsAPI interface {
 
 		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-content-v2-directory-countries
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV2DirectoryCountriesRequest
 	*/
@@ -284,6 +302,8 @@ type ItemsAPI interface {
 		---
 
 		В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-content-v2-directory-kinds
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV2DirectoryKindsRequest
@@ -312,6 +332,8 @@ type ItemsAPI interface {
 		* [получения списка рекомендаций в карточках товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList)
 		* [установки рекомендаций для товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-content-v2-directory-okpd
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV2DirectoryOkpdRequest
 	*/
@@ -339,6 +361,8 @@ type ItemsAPI interface {
 		* [получения списка рекомендаций в карточках товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList)
 		* [установки рекомендаций для товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-content-v2-directory-okpd-all
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV2DirectoryOkpdAllRequest
 	*/
@@ -364,6 +388,8 @@ type ItemsAPI interface {
 		---
 
 		В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-content-v2-directory-seasons
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV2DirectorySeasonsRequest
@@ -396,6 +422,8 @@ type ItemsAPI interface {
 
 		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-content-v2-directory-tnved
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV2DirectoryTnvedRequest
 	*/
@@ -427,6 +455,8 @@ type ItemsAPI interface {
 
 		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-content-v2-directory-tnved-all
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV2DirectoryTnvedAllRequest
 	*/
@@ -452,6 +482,8 @@ type ItemsAPI interface {
 		---
 
 		В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-content-v2-directory-vat
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV2DirectoryVatRequest
@@ -481,6 +513,8 @@ type ItemsAPI interface {
 
 		В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-v2-history-goods-task
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV2HistoryGoodsTaskRequest
 	*/
@@ -508,6 +542,8 @@ type ItemsAPI interface {
 		---
 
 		В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-v2-history-tasks
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV2HistoryTasksRequest
@@ -543,6 +579,8 @@ type ItemsAPI interface {
 
 		В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-v2-list-goods-filter
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV2ListGoodsFilterRequest
 	*/
@@ -572,6 +610,8 @@ type ItemsAPI interface {
 		---
 
 		В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-v2-list-goods-size-nm
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV2ListGoodsSizeNmRequest
@@ -603,6 +643,8 @@ type ItemsAPI interface {
 		---
 
 		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-content-v2-object-all
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV2ObjectAllRequest
@@ -637,6 +679,8 @@ type ItemsAPI interface {
 
 		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-content-v2-object-charcs-subjectid
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@param subjectId ID предмета
 			@return ApiGetV2ObjectCharcsSubjectIdRequest
@@ -668,6 +712,8 @@ type ItemsAPI interface {
 		---
 
 		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-content-v2-object-parent-all
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV2ObjectParentAllRequest
@@ -703,6 +749,8 @@ type ItemsAPI interface {
 
 		В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-v2-quarantine-goods
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV2QuarantineGoodsRequest
 	*/
@@ -728,6 +776,8 @@ type ItemsAPI interface {
 		---
 
 		В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-content-v2-tags
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV2TagsRequest
@@ -756,6 +806,8 @@ type ItemsAPI interface {
 		| 1 мин | 300 запросов | 200 мс | 20 запросов |
 		Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-v3-dbw-warehouses-warehouseid-contacts
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@param warehouseId ID склада продавца
 			@return ApiGetV3DbwWarehousesWarehouseIdContactsRequest
@@ -781,6 +833,8 @@ type ItemsAPI interface {
 
 		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-v3-offices
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV3OfficesRequest
 	*/
@@ -804,6 +858,8 @@ type ItemsAPI interface {
 		---
 
 		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-v3-warehouses
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV3WarehousesRequest
@@ -833,6 +889,8 @@ type ItemsAPI interface {
 
 		В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/patch-content-v2-tag-id
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@param id Числовой ID ярлыка
 			@return ApiPatchV2TagIdRequest
@@ -857,6 +915,8 @@ type ItemsAPI interface {
 		| --- | --- | --- | --- |
 		| 1 мин | 100 запросов | 600 мс | 5 запросов |
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-api-content-v1-recommendations-list
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV1RecommendationsListRequest
 	*/
@@ -879,6 +939,8 @@ type ItemsAPI interface {
 		| Период | Лимит | Интервал | Всплеск |
 		| --- | --- | --- | --- |
 		| 1 мин | 100 запросов | 600 мс | 5 запросов |
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-api-content-v1-recommendations-set
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV1RecommendationsSetRequest
@@ -905,6 +967,8 @@ type ItemsAPI interface {
 		| --- | --- | --- | --- | --- |
 		| Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов |
 		| Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов |
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-api-discounts-prices-v1-upload-task-b2b-wholesale
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV1UploadTaskB2bWholesaleRequest
@@ -937,6 +1001,8 @@ type ItemsAPI interface {
 
 		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-barcodes
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV2BarcodesRequest
 	*/
@@ -965,6 +1031,8 @@ type ItemsAPI interface {
 		| Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов |
 		| Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов |
 		| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-cards-delete-trash
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV2CardsDeleteTrashRequest
@@ -1017,6 +1085,8 @@ type ItemsAPI interface {
 
 		В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-cards-error-list
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV2CardsErrorListRequest
 	*/
@@ -1058,6 +1128,8 @@ type ItemsAPI interface {
 
 		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-cards-movenm
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV2CardsMoveNmRequest
 	*/
@@ -1081,6 +1153,8 @@ type ItemsAPI interface {
 		| Сервисный | 1 мин | 3 запроса | 20 сек | 5 запросов |
 		| Базовый с секретом | 1 мин | 3 запроса | 20 сек | 5 запросов |
 		| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-cards-recover
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV2CardsRecoverRequest
@@ -1134,6 +1208,8 @@ type ItemsAPI interface {
 		| --- | --- | --- | --- |
 		| 1 мин | 10 запросов | 6 сек | 5 запросов |
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-cards-update
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV2CardsUpdateRequest
 	*/
@@ -1175,6 +1251,8 @@ type ItemsAPI interface {
 		| --- | --- | --- | --- |
 		| 1 мин | 10 запросов | 6 сек | 5 запросов |
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-cards-upload
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV2CardsUploadRequest
 	*/
@@ -1212,6 +1290,8 @@ type ItemsAPI interface {
 		| Сервисный | 1 мин | 10 запросов | 6 сек | 5 запросов |
 		| Базовый с секретом | 1 мин | 10 запросов | 6 сек | 5 запросов |
 		| Базовый | 2 ч | 1 запрос | 2 ч | 1 запрос |
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-cards-upload-add
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV2CardsUploadAddRequest
@@ -1271,6 +1351,8 @@ type ItemsAPI interface {
 		| --- | --- | --- | --- |
 		| 1 мин | 100 запросов | 600 мс | 5 запросов |
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-get-cards-list
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV2GetCardsListRequest
 	*/
@@ -1327,6 +1409,8 @@ type ItemsAPI interface {
 
 		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-get-cards-trash
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV2GetCardsTrashRequest
 	*/
@@ -1359,6 +1443,8 @@ type ItemsAPI interface {
 
 		В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-api-v2-list-goods-filter
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV2ListGoodsFilterRequest
 	*/
@@ -1387,6 +1473,8 @@ type ItemsAPI interface {
 
 		В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-tag
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV2TagRequest
 	*/
@@ -1413,6 +1501,8 @@ type ItemsAPI interface {
 		---
 
 		В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-tag-nomenclature-link
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV2TagNomenclatureLinkRequest
@@ -1444,6 +1534,8 @@ type ItemsAPI interface {
 
 		В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-api-v2-upload-task
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV2UploadTaskRequest
 	*/
@@ -1471,6 +1563,8 @@ type ItemsAPI interface {
 		---
 
 		В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-api-v2-upload-task-club-discount
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV2UploadTaskClubDiscountRequest
@@ -1501,6 +1595,8 @@ type ItemsAPI interface {
 		---
 
 		В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-api-v2-upload-task-size
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV2UploadTaskSizeRequest
@@ -1537,6 +1633,8 @@ type ItemsAPI interface {
 		---
 
 		В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v3-media-file
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV3MediaFileRequest
@@ -1582,6 +1680,8 @@ type ItemsAPI interface {
 
 		В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v3-media-save
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV3MediaSaveRequest
 	*/
@@ -1605,6 +1705,8 @@ type ItemsAPI interface {
 		---
 
 		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-api-v3-stocks-warehouseid
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@param warehouseId ID склада продавца
@@ -1630,6 +1732,8 @@ type ItemsAPI interface {
 		---
 
 		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-api-v3-warehouses
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV3WarehousesRequest
@@ -1662,6 +1766,8 @@ type ItemsAPI interface {
 		| 1 мин | 300 запросов | 200 мс | 20 запросов |
 		Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/put-api-v3-dbw-warehouses-warehouseid-contacts
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@param warehouseId ID склада продавца
 			@return ApiPutV3DbwWarehousesWarehouseIdContactsRequest
@@ -1688,6 +1794,8 @@ type ItemsAPI interface {
 
 		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/put-api-v3-stocks-warehouseid
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@param warehouseId ID склада продавца
 			@return ApiPutV3StocksWarehouseIdRequest
@@ -1711,6 +1819,8 @@ type ItemsAPI interface {
 		---
 
 		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/put-api-v3-warehouses-warehouseid
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@param warehouseId ID склада продавца
@@ -1751,6 +1861,8 @@ DeleteV2TagId Удаление ярлыка
 ---
 
 В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/delete-content-v2-tag-id
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param id Числовой ID ярлыка
@@ -1927,6 +2039,8 @@ DeleteV3StocksWarehouseId Удалить остатки товаров
 ---
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/delete-api-v3-stocks-warehouseid
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param warehouseId ID склада продавца
@@ -2111,6 +2225,8 @@ DeleteV3WarehousesWarehouseId Удалить склад продавца
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/delete-api-v3-warehouses-warehouseid
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param warehouseId ID склада продавца
 	@return ApiDeleteV3WarehousesWarehouseIdRequest
@@ -2277,6 +2393,8 @@ GetV1Brands Бренды
 | Сервисный | 1 сек | 1 запрос | 1 сек | 5 запросов |
 | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 5 запросов |
 | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-content-v1-brands
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV1BrandsRequest
@@ -2474,6 +2592,8 @@ GetV2BufferGoodsTask Детализация необработанной заг�
 
 В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-v2-buffer-goods-task
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV2BufferGoodsTaskRequest
 */
@@ -2652,6 +2772,8 @@ GetV2BufferTasks Состояние необработанной загрузк�
 
 В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-v2-buffer-tasks
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV2BufferTasksRequest
 */
@@ -2819,6 +2941,8 @@ GetV2CardsLimits Лимиты карточек товаров
 
 В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-content-v2-cards-limits
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV2CardsLimitsRequest
 */
@@ -2969,6 +3093,8 @@ GetV2DirectoryColors Цвет
 ---
 
 В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-content-v2-directory-colors
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV2DirectoryColorsRequest
@@ -3140,6 +3266,8 @@ GetV2DirectoryCountries Страна производства
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-content-v2-directory-countries
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV2DirectoryCountriesRequest
 */
@@ -3304,6 +3432,8 @@ GetV2DirectoryKinds Пол
 ---
 
 В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-content-v2-directory-kinds
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV2DirectoryKindsRequest
@@ -3484,6 +3614,8 @@ GetV2DirectoryOkpd Код ОКПД2 предмета
 * [восстановления карточек товаров из корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover)
 * [получения списка рекомендаций в карточках товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList)
 * [установки рекомендаций для товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-content-v2-directory-okpd
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV2DirectoryOkpdRequest
@@ -3668,6 +3800,8 @@ GetV2DirectoryOkpdAll Список кодов ОКПД2
 * [получения списка рекомендаций в карточках товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList)
 * [установки рекомендаций для товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-content-v2-directory-okpd-all
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV2DirectoryOkpdAllRequest
 */
@@ -3838,6 +3972,8 @@ GetV2DirectorySeasons Сезон
 ---
 
 В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-content-v2-directory-seasons
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV2DirectorySeasonsRequest
@@ -4023,6 +4159,8 @@ GetV2DirectoryTnved Код ТН ВЭД предмета
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-content-v2-directory-tnved
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV2DirectoryTnvedRequest
 */
@@ -4207,6 +4345,8 @@ GetV2DirectoryTnvedAll Список кодов ТН ВЭД
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-content-v2-directory-tnved-all
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV2DirectoryTnvedAllRequest
 */
@@ -4377,6 +4517,8 @@ GetV2DirectoryVat Ставка НДС
 ---
 
 В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-content-v2-directory-vat
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV2DirectoryVatRequest
@@ -4559,6 +4701,8 @@ GetV2HistoryGoodsTask Детализация обработанной загру
 
 В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-v2-history-goods-task
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV2HistoryGoodsTaskRequest
 */
@@ -4736,6 +4880,8 @@ GetV2HistoryTasks Состояние обработанной загрузки
 ---
 
 В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-v2-history-tasks
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV2HistoryTasksRequest
@@ -4924,6 +5070,8 @@ GetV2ListGoodsFilter Получить товары с ценами
 ---
 
 В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-v2-list-goods-filter
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV2ListGoodsFilterRequest
@@ -5128,6 +5276,8 @@ GetV2ListGoodsSizeNm Получить размеры товара с ценам�
 ---
 
 В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-v2-list-goods-size-nm
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV2ListGoodsSizeNmRequest
@@ -5349,6 +5499,8 @@ GetV2ObjectAll Список предметов
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-content-v2-object-all
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV2ObjectAllRequest
 */
@@ -5529,6 +5681,8 @@ GetV2ObjectCharcsSubjectId Характеристики предмета
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-content-v2-object-charcs-subjectid
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param subjectId ID предмета
 	@return ApiGetV2ObjectCharcsSubjectIdRequest
@@ -5701,6 +5855,8 @@ GetV2ObjectParentAll Родительские категории товаров
 ---
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-content-v2-object-parent-all
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV2ObjectParentAllRequest
@@ -5881,6 +6037,8 @@ GetV2QuarantineGoods Получить товары в карантине
 ---
 
 В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-v2-quarantine-goods
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV2QuarantineGoodsRequest
@@ -6069,6 +6227,8 @@ GetV2Tags Список ярлыков
 
 В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-content-v2-tags
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV2TagsRequest
 */
@@ -6225,6 +6385,8 @@ GetV3DbwWarehousesWarehouseIdContacts Список контактов
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
 Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-v3-dbw-warehouses-warehouseid-contacts
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param warehouseId ID склада продавца
@@ -6393,6 +6555,8 @@ GetV3Offices Получить список складов WB
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-v3-offices
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV3OfficesRequest
 */
@@ -6534,6 +6698,8 @@ GetV3Warehouses Получить список складов продавца
 ---
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-v3-warehouses
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV3WarehousesRequest
@@ -6687,6 +6853,8 @@ PatchV2TagId Изменение ярлыка
 ---
 
 В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/patch-content-v2-tag-id
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param id Числовой ID ярлыка
@@ -6865,6 +7033,8 @@ PostV1RecommendationsList Список рекомендаций в карточ�
 | --- | --- | --- | --- |
 | 1 мин | 100 запросов | 600 мс | 5 запросов |
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-api-content-v1-recommendations-list
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV1RecommendationsListRequest
 */
@@ -7024,6 +7194,8 @@ PostV1RecommendationsSet Установить рекомендации для т
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 100 запросов | 600 мс | 5 запросов |
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-api-content-v1-recommendations-set
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV1RecommendationsSetRequest
@@ -7191,6 +7363,8 @@ PostV1UploadTaskB2bWholesale Установить оптовые скидки д
 | --- | --- | --- | --- | --- |
 | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов |
 | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов |
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-api-discounts-prices-v1-upload-task-b2b-wholesale
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV1UploadTaskB2bWholesaleRequest
@@ -7363,6 +7537,8 @@ PostV2Barcodes Генерация баркодов
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-barcodes
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV2BarcodesRequest
 */
@@ -7531,6 +7707,8 @@ PostV2CardsDeleteTrash Перенос карточек товаров в кор�
 | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов |
 | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов |
 | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-cards-delete-trash
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV2CardsDeleteTrashRequest
@@ -7743,6 +7921,8 @@ PostV2CardsErrorList Список несозданных карточек тов
 
 В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-cards-error-list
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV2CardsErrorListRequest
 */
@@ -7927,6 +8107,8 @@ PostV2CardsMoveNm Объединение и разъединение карто�
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-cards-movenm
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV2CardsMoveNmRequest
 */
@@ -8109,6 +8291,8 @@ PostV2CardsRecover Восстановление карточек товаров 
 | Сервисный | 1 мин | 3 запроса | 20 сек | 5 запросов |
 | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 5 запросов |
 | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-cards-recover
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV2CardsRecoverRequest
@@ -8313,6 +8497,8 @@ PostV2CardsUpdate Редактирование карточек товаров
 | --- | --- | --- | --- |
 | 1 мин | 10 запросов | 6 сек | 5 запросов |
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-cards-update
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV2CardsUpdateRequest
 */
@@ -8514,6 +8700,8 @@ PostV2CardsUpload Создание карточек товаров
 | --- | --- | --- | --- |
 | 1 мин | 10 запросов | 6 сек | 5 запросов |
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-cards-upload
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV2CardsUploadRequest
 */
@@ -8710,6 +8898,8 @@ PostV2CardsUploadAdd Создание карточек товаров с при�
 | Сервисный | 1 мин | 10 запросов | 6 сек | 5 запросов |
 | Базовый с секретом | 1 мин | 10 запросов | 6 сек | 5 запросов |
 | Базовый | 2 ч | 1 запрос | 2 ч | 1 запрос |
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-cards-upload-add
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV2CardsUploadAddRequest
@@ -8937,6 +9127,8 @@ PostV2GetCardsList Список карточек товаров
 | --- | --- | --- | --- |
 | 1 мин | 100 запросов | 600 мс | 5 запросов |
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-get-cards-list
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV2GetCardsListRequest
 */
@@ -9156,6 +9348,8 @@ PostV2GetCardsTrash Список карточек товаров в корзин
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-get-cards-trash
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV2GetCardsTrashRequest
 */
@@ -9342,6 +9536,8 @@ PostV2ListGoodsFilter Получить товары с ценами по арт�
 
 В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-api-v2-list-goods-filter
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV2ListGoodsFilterRequest
 */
@@ -9521,6 +9717,8 @@ PostV2Tag Создание ярлыка
 
 В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-tag
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV2TagRequest
 */
@@ -9698,6 +9896,8 @@ PostV2TagNomenclatureLink Управление ярлыками в карточ�
 ---
 
 В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-tag-nomenclature-link
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV2TagNomenclatureLinkRequest
@@ -9879,6 +10079,8 @@ PostV2UploadTask Установить цены и скидки
 ---
 
 В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-api-v2-upload-task
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV2UploadTaskRequest
@@ -10080,6 +10282,8 @@ PostV2UploadTaskClubDiscount Установить скидки WB Клуба
 ---
 
 В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-api-v2-upload-task-club-discount
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV2UploadTaskClubDiscountRequest
@@ -10283,6 +10487,8 @@ PostV2UploadTaskSize Установить цены для размеров
 ---
 
 В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-api-v2-upload-task-size
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV2UploadTaskSizeRequest
@@ -10507,6 +10713,8 @@ PostV3MediaFile Загрузить медиафайл
 
 В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v3-media-file
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV3MediaFileRequest
 */
@@ -10720,6 +10928,8 @@ PostV3MediaSave Загрузить медиафайлы по ссылкам
 
 В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v3-media-save
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV3MediaSaveRequest
 */
@@ -10918,6 +11128,8 @@ PostV3StocksWarehouseId Получить остатки товаров
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-api-v3-stocks-warehouseid
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param warehouseId ID склада продавца
 	@return ApiPostV3StocksWarehouseIdRequest
@@ -11106,6 +11318,8 @@ PostV3Warehouses Создать склад продавца
 ---
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-api-v3-warehouses
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV3WarehousesRequest
@@ -11312,6 +11526,8 @@ PutV3DbwWarehousesWarehouseIdContacts Обновить список контак
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
 Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/put-api-v3-dbw-warehouses-warehouseid-contacts
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param warehouseId ID склада продавца
 	@return ApiPutV3DbwWarehousesWarehouseIdContactsRequest
@@ -11480,6 +11696,8 @@ PutV3StocksWarehouseId Обновить остатки товаров
 ---
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/put-api-v3-stocks-warehouseid
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param warehouseId ID склада продавца
@@ -11677,6 +11895,8 @@ PutV3WarehousesWarehouseId Обновить склад продавца
 ---
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/put-api-v3-warehouses-warehouseid
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param warehouseId ID склада продавца

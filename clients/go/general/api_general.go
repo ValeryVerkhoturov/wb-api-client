@@ -33,6 +33,8 @@ type GeneralAPI interface {
 		| --- | --- | --- | --- |
 		| 1 сек | 1 запрос | 1 сек | 10 запросов |
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/general/delete-api-v1-user
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiDeleteV1UserRequest
 	*/
@@ -81,6 +83,8 @@ type GeneralAPI interface {
 
 		Лимит действует отдельно для каждого варианта метода в зависимости от домена
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/general/get-ping
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetPingRequest
 	*/
@@ -105,6 +109,8 @@ type GeneralAPI interface {
 		| --- | --- | --- | --- |
 		| 1 мин | 1 запрос | 1 мин | 1 запрос |
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/general/get-api-common-v1-rating
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV1RatingRequest
 	*/
@@ -128,6 +134,8 @@ type GeneralAPI interface {
 		| Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов |
 		| Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов |
 		| Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос |
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/general/get-api-v1-seller-info
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV1SellerInfoRequest
@@ -163,6 +171,8 @@ type GeneralAPI interface {
 		| --- | --- | --- | --- |
 		| 1 мин | 1 запрос | 1 мин | 10 запросов |
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/general/get-api-common-v1-subscriptions
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV1SubscriptionsRequest
 	*/
@@ -188,6 +198,8 @@ type GeneralAPI interface {
 		| Период | Лимит | Интервал | Всплеск |
 		| --- | --- | --- | --- |
 		| 1 мин | 1 запрос | 1 мин | 10 запросов |
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/general/get-api-common-v1-tariff-constructor-options
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV1TariffConstructorOptionsRequest
@@ -220,6 +232,8 @@ type GeneralAPI interface {
 		| --- | --- | --- | --- |
 		| 1 сек | 1 запрос | 1 сек | 5 запросов |
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/general/get-api-v1-users
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV1UsersRequest
 	*/
@@ -244,6 +258,8 @@ type GeneralAPI interface {
 		| Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов |
 		| Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов |
 		| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/general/get-api-communications-v2-news
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV2NewsRequest
@@ -275,6 +291,8 @@ type GeneralAPI interface {
 		| --- | --- | --- | --- |
 		| 1 сек | 1 запрос | 1 сек | 5 запросов |
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/general/post-api-v1-invite
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV1InviteRequest
 	*/
@@ -298,6 +316,8 @@ type GeneralAPI interface {
 		| Период | Лимит | Интервал | Всплеск |
 		| --- | --- | --- | --- |
 		| 1 сек | 1 запрос | 1 сек | 5 запросов |
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/general/put-api-v1-users-access
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPutV1UsersAccessRequest
@@ -339,6 +359,8 @@ DeleteV1User Удалить пользователя
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 сек | 1 запрос | 1 сек | 10 запросов |
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/general/delete-api-v1-user
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiDeleteV1UserRequest
@@ -508,7 +530,9 @@ GetPing Проверка подключения
 | --- | --- | --- | --- |
 | 30 сек | 3 запроса | 10 сек | 99 запросов |
 
-Лимит действует отдельно для каждого варианта метода в зависимости от домена
+# Лимит действует отдельно для каждого варианта метода в зависимости от домена
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/general/get-ping
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetPingRequest
@@ -651,6 +675,8 @@ GetV1Rating Получить рейтинг продавца
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 1 запрос | 1 мин | 1 запрос |
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/general/get-api-common-v1-rating
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV1RatingRequest
@@ -805,6 +831,8 @@ GetV1SellerInfo Получить информацию о продавце
 | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов |
 | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос |
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/general/get-api-v1-seller-info
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV1SellerInfoRequest
 */
@@ -956,6 +984,8 @@ GetV1Subscriptions Получить информацию о подписке Д�
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 1 запрос | 1 мин | 10 запросов |
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/general/get-api-common-v1-subscriptions
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV1SubscriptionsRequest
@@ -1118,6 +1148,8 @@ GetV1TariffConstructorOptions Получить информацию об опц�
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 1 запрос | 1 мин | 10 запросов |
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/general/get-api-common-v1-tariff-constructor-options
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV1TariffConstructorOptionsRequest
@@ -1317,6 +1349,8 @@ GetV1Users Получить список активных или приглаш�
 | --- | --- | --- | --- |
 | 1 сек | 1 запрос | 1 сек | 5 запросов |
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/general/get-api-v1-users
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV1UsersRequest
 */
@@ -1506,6 +1540,8 @@ GetV2News Получение новостей портала продавцов
 | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов |
 | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/general/get-api-communications-v2-news
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV2NewsRequest
 */
@@ -1654,6 +1690,8 @@ PostV1Invite Создать приглашение для нового поль�
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 сек | 1 запрос | 1 сек | 5 запросов |
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/general/post-api-v1-invite
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV1InviteRequest
@@ -1818,6 +1856,8 @@ PutV1UsersAccess Изменить права доступа пользовате
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 сек | 1 запрос | 1 сек | 5 запросов |
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/general/put-api-v1-users-access
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPutV1UsersAccessRequest

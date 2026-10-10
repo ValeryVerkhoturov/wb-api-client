@@ -43,6 +43,8 @@ paths:
         | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос |
         | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос |
         | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос |
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/get-api-v1-account-balance
       tags:
       - Finances
       responses:
@@ -91,6 +93,8 @@ paths:
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
         | 1 мин | 1 запрос | 1 мин | 1 запрос |
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/post-api-finance-v1-sales-reports-list
       requestBody:
         required: true
         content:
@@ -154,6 +158,8 @@ paths:
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
         | 1 мин | 1 запрос | 1 мин | 1 запрос |
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/post-api-finance-v1-sales-reports-detailed-reportid
       parameters:
       - name: reportId
         in: path
@@ -227,6 +233,8 @@ paths:
         | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос |
         | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос |
         | Базовый | 24 ч | 2 запроса | 12 ч | 1 запрос |
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/post-api-finance-v1-sales-reports-detailed
       requestBody:
         required: true
         content:
@@ -281,6 +289,8 @@ paths:
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
         | 1 мин | 1 запрос | 1 мин | 1 запрос |
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/post-api-finance-v1-acquiring-list
       requestBody:
         required: true
         content:
@@ -342,6 +352,8 @@ paths:
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
         | 1 мин | 1 запрос | 1 мин | 1 запрос |
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/post-api-finance-v1-acquiring-detailed-reportid
       parameters:
       - name: reportId
         in: path
@@ -415,6 +427,8 @@ paths:
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
         | 1 мин | 1 запрос | 1 мин | 1 запрос |
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/post-api-finance-v1-acquiring-detailed
       requestBody:
         required: true
         content:
@@ -474,6 +488,8 @@ paths:
         | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов |
         | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов |
         | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос |
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/get-api-v1-documents-categories
       parameters:
       - $ref: '#/components/parameters/LocaleCat'
       responses:
@@ -516,6 +532,8 @@ paths:
         | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов |
         | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов |
         | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос |
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/get-api-v1-documents-list
       parameters:
       - $ref: '#/components/parameters/LocaleList'
       - in: query
@@ -629,6 +647,8 @@ paths:
         | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов |
         | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов |
         | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос |
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/get-api-v1-documents-download
       parameters:
       - in: query
         required: true
@@ -686,6 +706,8 @@ paths:
         | Сервисный | 5 мин | 1 запрос | 5 мин | 5 запросов |
         | Базовый с секретом | 5 мин | 1 запрос | 5 мин | 5 запросов |
         | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос |
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/post-api-v1-documents-download-all
       requestBody:
         content:
           application/json:

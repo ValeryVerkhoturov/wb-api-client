@@ -83,6 +83,8 @@ paths:
         | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса |
         | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
         | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-analytics-v3-sales-funnel-products
       requestBody:
         required: true
         content:
@@ -156,6 +158,8 @@ paths:
         | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса |
         | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
         | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-analytics-v3-sales-funnel-products-history
       requestBody:
         required: true
         content:
@@ -234,6 +238,8 @@ paths:
         | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса |
         | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
         | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-analytics-v3-sales-funnel-grouped-history
       requestBody:
         required: true
         content:
@@ -316,6 +322,8 @@ paths:
         | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса |
         | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
         | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-nm-report-downloads
       requestBody:
         content:
           application/json:
@@ -590,6 +598,8 @@ paths:
         | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса |
         | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
         | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/get-api-v2-nm-report-downloads
       parameters:
       - in: query
         name: filter[downloadIds]
@@ -663,6 +673,8 @@ paths:
         | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса |
         | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
         | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-nm-report-downloads-retry
       requestBody:
         content:
           application/json:
@@ -736,6 +748,8 @@ paths:
         | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса |
         | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
         | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/get-api-v2-nm-report-downloads-file-downloadid
       parameters:
       - in: path
         name: downloadId
@@ -840,6 +854,8 @@ paths:
         | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса |
         | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
         | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-search-report-report
       requestBody:
         required: true
         content:
@@ -906,6 +922,8 @@ paths:
         | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса |
         | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
         | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-search-report-table-groups
       requestBody:
         required: true
         content:
@@ -975,6 +993,8 @@ paths:
         | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса |
         | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
         | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-search-report-table-details
       requestBody:
         required: true
         content:
@@ -1041,6 +1061,8 @@ paths:
         | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса |
         | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
         | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-search-report-product-search-texts
       requestBody:
         required: true
         content:
@@ -1108,6 +1130,8 @@ paths:
         | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса |
         | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
         | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-search-report-product-orders
       requestBody:
         required: true
         content:
@@ -1178,6 +1202,8 @@ paths:
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
         | 1 мин | 3 запроса | 20 сек | 1 запрос |
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-analytics-v1-stocks-report-wb-warehouses
       requestBody:
         required: true
         content:
@@ -1250,6 +1276,8 @@ paths:
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
         | 1 мин | 3 запроса | 20 сек | 1 запрос |
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-analytics-v1-stocks-report-seller-warehouses
       requestBody:
         required: true
         content:
@@ -1316,6 +1344,8 @@ paths:
         | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса |
         | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
         | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-stocks-report-products-groups
       requestBody:
         required: true
         content:
@@ -1380,6 +1410,8 @@ paths:
         | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса |
         | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
         | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-stocks-report-products-products
       requestBody:
         required: true
         content:
@@ -1450,6 +1482,8 @@ paths:
         | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса |
         | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
         | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-stocks-report-products-sizes
       requestBody:
         required: true
         content:
@@ -1514,6 +1548,8 @@ paths:
         | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса |
         | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
         | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-stocks-report-offices
       requestBody:
         required: true
         content:
@@ -1580,6 +1616,8 @@ paths:
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
         | 1 мин | 3 запроса | 20 сек | 3 запроса |
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-analytics-v2-item-rating
       requestBody:
         required: true
         content:
@@ -1652,6 +1690,8 @@ paths:
         | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос |
         | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос |
         | Базовый | 3 ч | 1 запрос | 3 ч | 1 запрос |
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-analytics-v1-order-feed
       requestBody:
         content:
           application/json:

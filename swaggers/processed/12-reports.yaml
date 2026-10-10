@@ -101,6 +101,8 @@ paths:
         | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов |
         | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов |
         | Базовый | 3 ч | 1 запрос | 3 ч | 1 запрос |
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-supplier-orders
       tags:
       - Reports
       parameters:
@@ -224,6 +226,8 @@ paths:
         | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос |
         | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос |
         | Базовый | 2 ч | 1 запрос | 2 ч | 1 запрос |
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-supplier-sales
       tags:
       - Reports
       parameters:
@@ -326,6 +330,8 @@ paths:
         | Сервисный | 5 ч | 10 запросов | 30 мин | 10 запросов |
         | Базовый с секретом | 5 ч | 10 запросов | 30 мин | 10 запросов |
         | Базовый | 24 ч | 2 запроса | 12 ч | 1 запрос |
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/post-api-v1-analytics-excise-report
       parameters:
       - $ref: '#/components/parameters/DateFrom'
       - $ref: '#/components/parameters/DateTo'
@@ -388,6 +394,8 @@ paths:
         | Сервисный | 1 мин | 1 запрос | 1 мин | 5 запросов |
         | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 5 запросов |
         | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-warehouse-remains
       parameters:
       - in: query
         name: locale
@@ -518,6 +526,8 @@ paths:
         | Сервисный | 5 сек | 1 запрос | 5 сек | 5 запросов |
         | Базовый с секретом | 5 сек | 1 запрос | 5 сек | 5 запросов |
         | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-warehouse-remains-tasks-task-id-status
       parameters:
       - name: task_id
         in: path
@@ -590,6 +600,8 @@ paths:
         | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос |
         | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос |
         | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-warehouse-remains-tasks-task-id-download
       parameters:
       - name: task_id
         in: path
@@ -684,6 +696,8 @@ paths:
         | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос |
         | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос |
         | Базовый | 6 ч | 1 запрос | 6 ч | 1 запрос |
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-analytics-v1-measurement-penalties
       parameters:
       - in: query
         name: dateFrom
@@ -772,6 +786,8 @@ paths:
         | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос |
         | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос |
         | Базовый | 6 ч | 1 запрос | 6 ч | 1 запрос |
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-analytics-v1-warehouse-measurements
       parameters:
       - in: query
         name: dateFrom
@@ -860,6 +876,8 @@ paths:
         | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос |
         | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос |
         | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-analytics-v1-deductions
       parameters:
       - name: dateFrom
         in: query
@@ -974,6 +992,8 @@ paths:
         | Сервисный | 10 мин | 1 запрос | 10 мин | 10 запросов |
         | Базовый с секретом | 10 мин | 1 запрос | 10 мин | 10 запросов |
         | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-antifraud-details
       parameters:
       - $ref: '#/components/parameters/Date'
       responses:
@@ -1024,6 +1044,8 @@ paths:
         | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов |
         | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов |
         | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-goods-labeling
       parameters:
       - $ref: '#/components/parameters/DateFromGoodsLabeling'
       - $ref: '#/components/parameters/DateToGoodsLabeling'
@@ -1084,6 +1106,8 @@ paths:
         | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос |
         | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос |
         | Базовый | 3 ч | 1 запрос | 3 ч | 1 запрос |
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-acceptance-report
       parameters:
       - $ref: '#/components/parameters/DateFrom'
       - $ref: '#/components/parameters/DateTo'
@@ -1149,6 +1173,8 @@ paths:
         | Сервисный | 5 сек | 1 запрос | 5 сек | 1 запрос |
         | Базовый с секретом | 5 сек | 1 запрос | 5 сек | 1 запрос |
         | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-acceptance-report-tasks-task-id-status
       parameters:
       - name: task_id
         in: path
@@ -1221,6 +1247,8 @@ paths:
         | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос |
         | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос |
         | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-acceptance-report-tasks-task-id-download
       parameters:
       - name: task_id
         in: path
@@ -1296,6 +1324,8 @@ paths:
         | Сервисный | 1 мин | 1 запрос | 1 мин | 5 запросов |
         | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 5 запросов |
         | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-paid-storage
       parameters:
       - name: dateFrom
         in: query
@@ -1385,6 +1415,8 @@ paths:
         | Сервисный | 5 сек | 1 запрос | 5 сек | 5 запросов |
         | Базовый с секретом | 5 сек | 1 запрос | 5 сек | 5 запросов |
         | Базовый | 1 ч | 2 запроса | 30 мин | 2 запроса |
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-paid-storage-tasks-task-id-status
       parameters:
       - name: task_id
         in: path
@@ -1457,6 +1489,8 @@ paths:
         | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос |
         | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос |
         | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-paid-storage-tasks-task-id-download
       parameters:
       - name: task_id
         in: path
@@ -1555,6 +1589,8 @@ paths:
         | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов |
         | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов |
         | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-region-sale
       parameters:
       - $ref: '#/components/parameters/DateFrom'
       - $ref: '#/components/parameters/DateTo'
@@ -1617,6 +1653,8 @@ paths:
         | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов |
         | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов |
         | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-brand-share-brands
       responses:
         '200':
           $ref: '#/components/responses/SuccessBrandsResponse'
@@ -1655,6 +1693,8 @@ paths:
         | Сервисный | 5 сек | 1 запрос | 5 сек | 20 запросов |
         | Базовый с секретом | 5 сек | 1 запрос | 5 сек | 20 запросов |
         | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-brand-share-parent-subjects
       parameters:
       - in: query
         name: locale
@@ -1739,6 +1779,8 @@ paths:
         | Сервисный | 5 сек | 1 запрос | 5 сек | 20 запросов |
         | Базовый с секретом | 5 сек | 1 запрос | 5 сек | 20 запросов |
         | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-brand-share
       parameters:
       - in: query
         name: parentId
@@ -1817,6 +1859,8 @@ paths:
         | Сервисный | 10 сек | 1 запрос | 10 сек | 6 запросов |
         | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 6 запросов |
         | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-banned-products-blocked
       parameters:
       - in: query
         name: sort
@@ -1893,8 +1937,10 @@ paths:
       tags:
       - Reports
       summary: Получить отчёт
-      description: |
+      description: |-
         Метод будет отключен [26 октября](https://dev.wildberries.ru/release-notes?id=577).
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-goods-return
       parameters:
       - name: dateFrom
         in: query
@@ -1959,8 +2005,10 @@ paths:
       tags:
       - Reports
       summary: Получить отчёт
-      description: |
+      description: |-
         Метод возвращает отчёт о [возвратах товаров продавцу](https://seller.wildberries.ru/return-transfer-reports).
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-analytics-v1-item-returns
       parameters:
       - name: dateFrom
         in: query

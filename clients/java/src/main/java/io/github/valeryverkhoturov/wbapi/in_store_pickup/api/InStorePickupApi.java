@@ -221,7 +221,8 @@ public class InStorePickupApi {
    * Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |
    * Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов. --- В
    * [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех
-   * методов **Маркетплейса**.
+   * методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/get-api-v3-click-collect-orders
    *
    * @param limit Количество элементов в ответе (required)
    * @param next Параметр пагинации. Чтобы получить полный список данных, укажите &#x60;0&#x60; в
@@ -260,7 +261,8 @@ public class InStorePickupApi {
    * Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |
    * Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов. --- В
    * [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех
-   * методов **Маркетплейса**.
+   * методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/get-api-v3-click-collect-orders
    *
    * @param limit Количество элементов в ответе (required)
    * @param next Параметр пагинации. Чтобы получить полный список данных, укажите &#x60;0&#x60; в
@@ -300,7 +302,8 @@ public class InStorePickupApi {
    * Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |
    * Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов. --- В
    * [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех
-   * методов **Маркетплейса**.
+   * методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/get-api-v3-click-collect-orders
    *
    * @param limit Количество элементов в ответе (required)
    * @param next Параметр пагинации. Чтобы получить полный список данных, укажите &#x60;0&#x60; в
@@ -427,7 +430,8 @@ public class InStorePickupApi {
    * Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |
    * Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов. --- В
    * [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех
-   * методов **Маркетплейса**.
+   * методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/get-api-v3-click-collect-orders-new
    *
    * @return ApiNewOrders
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
@@ -457,7 +461,8 @@ public class InStorePickupApi {
    * Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |
    * Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов. --- В
    * [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех
-   * методов **Маркетплейса**.
+   * методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/get-api-v3-click-collect-orders-new
    *
    * @return ApiResponse&lt;ApiNewOrders&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
@@ -489,7 +494,8 @@ public class InStorePickupApi {
    * Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |
    * Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов. --- В
    * [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех
-   * методов **Маркетплейса**.
+   * методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/get-api-v3-click-collect-orders-new
    *
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
@@ -611,7 +617,8 @@ public class InStorePickupApi {
    * Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |
    * Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов. --- В
    * [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех
-   * методов **Маркетплейса**.
+   * методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-v3-click-collect-orders-client
    *
    * @param apiOrdersRequest (required)
    * @return ApiOrderClientInfoResp
@@ -645,7 +652,8 @@ public class InStorePickupApi {
    * Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |
    * Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов. --- В
    * [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех
-   * методов **Маркетплейса**.
+   * методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-v3-click-collect-orders-client
    *
    * @param apiOrdersRequest (required)
    * @return ApiResponse&lt;ApiOrderClientInfoResp&gt;
@@ -680,7 +688,8 @@ public class InStorePickupApi {
    * Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |
    * Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов. --- В
    * [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех
-   * методов **Маркетплейса**.
+   * методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-v3-click-collect-orders-client
    *
    * @param apiOrdersRequest (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -809,7 +818,8 @@ public class InStorePickupApi {
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
    * мин | 30 запросов | 2 сек | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60;
    * учитывается как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1
-   * запрос в секунду суммарно для всех методов **Маркетплейса**.
+   * запрос в секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-v3-click-collect-orders-client-identity
    *
    * @param apiCheckIdentityRequest (required)
    * @return ApiCheckedIdentity
@@ -844,7 +854,8 @@ public class InStorePickupApi {
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
    * мин | 30 запросов | 2 сек | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60;
    * учитывается как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1
-   * запрос в секунду суммарно для всех методов **Маркетплейса**.
+   * запрос в секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-v3-click-collect-orders-client-identity
    *
    * @param apiCheckIdentityRequest (required)
    * @return ApiResponse&lt;ApiCheckedIdentity&gt;
@@ -880,7 +891,8 @@ public class InStorePickupApi {
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
    * мин | 30 запросов | 2 сек | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60;
    * учитывается как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1
-   * запрос в секунду суммарно для всех методов **Маркетплейса**.
+   * запрос в секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-v3-click-collect-orders-client-identity
    *
    * @param apiCheckIdentityRequest (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -999,7 +1011,8 @@ public class InStorePickupApi {
    * Самовывоз**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 150
    * запросов | 400 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как
    * 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-final-price
    *
    * @param apiOrdersRequest (optional)
    * @return ApiOrdersFinalPriceResponse
@@ -1031,7 +1044,8 @@ public class InStorePickupApi {
    * Самовывоз**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 150
    * запросов | 400 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как
    * 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-final-price
    *
    * @param apiOrdersRequest (optional)
    * @return ApiResponse&lt;ApiOrdersFinalPriceResponse&gt;
@@ -1064,7 +1078,8 @@ public class InStorePickupApi {
    * Самовывоз**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 150
    * запросов | 400 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как
    * 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-final-price
    *
    * @param apiOrdersRequest (optional)
    * @param _callback The callback to be executed when the API call finishes
@@ -1202,7 +1217,8 @@ public class InStorePickupApi {
    * | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 20 запросов | 3 сек
    * | 500 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов. ---
    * В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для
-   * всех методов **Маркетплейса**.
+   * всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-meta-customs-declaration
    *
    * @param postV3ClickCollectOrdersMetaCustomsDeclarationRequest (required)
    * @return ApiCustomsDeclarationSetResponse
@@ -1248,7 +1264,8 @@ public class InStorePickupApi {
    * | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 20 запросов | 3 сек
    * | 500 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов. ---
    * В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для
-   * всех методов **Маркетплейса**.
+   * всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-meta-customs-declaration
    *
    * @param postV3ClickCollectOrdersMetaCustomsDeclarationRequest (required)
    * @return ApiResponse&lt;ApiCustomsDeclarationSetResponse&gt;
@@ -1297,7 +1314,8 @@ public class InStorePickupApi {
    * | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 20 запросов | 3 сек
    * | 500 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов. ---
    * В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для
-   * всех методов **Маркетплейса**.
+   * всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-meta-customs-declaration
    *
    * @param postV3ClickCollectOrdersMetaCustomsDeclarationRequest (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -1440,7 +1458,8 @@ public class InStorePickupApi {
    * Самовывоз**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 150
    * запросов | 400 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как
    * 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-meta-delete
    *
    * @param apiOrdersMetaDeleteRequest (required)
    * @return ApiOrdersResponses
@@ -1487,7 +1506,8 @@ public class InStorePickupApi {
    * Самовывоз**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 150
    * запросов | 400 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как
    * 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-meta-delete
    *
    * @param apiOrdersMetaDeleteRequest (required)
    * @return ApiResponse&lt;ApiOrdersResponses&gt;
@@ -1535,7 +1555,8 @@ public class InStorePickupApi {
    * Самовывоз**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 150
    * запросов | 400 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как
    * 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-meta-delete
    *
    * @param apiOrdersMetaDeleteRequest (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -1676,7 +1697,8 @@ public class InStorePickupApi {
    * на один аккаунт продавца для всех методов **получения и удаления идентификаторов маркировки
    * Самовывоз**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 150
    * запросов | 400 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как
-   * 10 запросов
+   * 10 запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-meta-details
    *
    * @param apiOrdersRequestV2 (required)
    * @return ApiOrdersMetaDetailsResponse
@@ -1727,7 +1749,8 @@ public class InStorePickupApi {
    * на один аккаунт продавца для всех методов **получения и удаления идентификаторов маркировки
    * Самовывоз**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 150
    * запросов | 400 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как
-   * 10 запросов
+   * 10 запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-meta-details
    *
    * @param apiOrdersRequestV2 (required)
    * @return ApiResponse&lt;ApiOrdersMetaDetailsResponse&gt;
@@ -1779,7 +1802,8 @@ public class InStorePickupApi {
    * на один аккаунт продавца для всех методов **получения и удаления идентификаторов маркировки
    * Самовывоз**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 150
    * запросов | 400 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как
-   * 10 запросов
+   * 10 запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-meta-details
    *
    * @param apiOrdersRequestV2 (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -1913,7 +1937,8 @@ public class InStorePickupApi {
    * | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 20 запросов | 3 сек
    * | 500 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов. ---
    * В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для
-   * всех методов **Маркетплейса**.
+   * всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-meta-gtin
    *
    * @param apiOrdersGTINSetRequest (required)
    * @return ApiMetaSetResponses
@@ -1953,7 +1978,8 @@ public class InStorePickupApi {
    * | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 20 запросов | 3 сек
    * | 500 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов. ---
    * В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для
-   * всех методов **Маркетплейса**.
+   * всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-meta-gtin
    *
    * @param apiOrdersGTINSetRequest (required)
    * @return ApiResponse&lt;ApiMetaSetResponses&gt;
@@ -1994,7 +2020,8 @@ public class InStorePickupApi {
    * | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 20 запросов | 3 сек
    * | 500 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов. ---
    * В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для
-   * всех методов **Маркетплейса**.
+   * всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-meta-gtin
    *
    * @param apiOrdersGTINSetRequest (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -2131,7 +2158,8 @@ public class InStorePickupApi {
    * | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 20 запросов | 3 сек
    * | 500 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов. ---
    * В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для
-   * всех методов **Маркетплейса**.
+   * всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-meta-imei
    *
    * @param apiOrdersIMEISetRequest (required)
    * @return ApiMetaSetResponses
@@ -2173,7 +2201,8 @@ public class InStorePickupApi {
    * | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 20 запросов | 3 сек
    * | 500 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов. ---
    * В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для
-   * всех методов **Маркетплейса**.
+   * всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-meta-imei
    *
    * @param apiOrdersIMEISetRequest (required)
    * @return ApiResponse&lt;ApiMetaSetResponses&gt;
@@ -2216,7 +2245,8 @@ public class InStorePickupApi {
    * | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 20 запросов | 3 сек
    * | 500 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов. ---
    * В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для
-   * всех методов **Маркетплейса**.
+   * всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-meta-imei
    *
    * @param apiOrdersIMEISetRequest (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -2353,7 +2383,8 @@ public class InStorePickupApi {
    * | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 20 запросов | 3 сек
    * | 500 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов. ---
    * В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для
-   * всех методов **Маркетплейса**.
+   * всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-meta-sgtin
    *
    * @param apiOrdersSGTINsSetRequest (required)
    * @return ApiMetaSetResponses
@@ -2395,7 +2426,8 @@ public class InStorePickupApi {
    * | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 20 запросов | 3 сек
    * | 500 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов. ---
    * В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для
-   * всех методов **Маркетплейса**.
+   * всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-meta-sgtin
    *
    * @param apiOrdersSGTINsSetRequest (required)
    * @return ApiResponse&lt;ApiMetaSetResponses&gt;
@@ -2439,7 +2471,8 @@ public class InStorePickupApi {
    * | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 20 запросов | 3 сек
    * | 500 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов. ---
    * В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для
-   * всех методов **Маркетплейса**.
+   * всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-meta-sgtin
    *
    * @param apiOrdersSGTINsSetRequest (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -2574,7 +2607,8 @@ public class InStorePickupApi {
    * | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 20 запросов | 3 сек
    * | 500 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов. ---
    * В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для
-   * всех методов **Маркетплейса**.
+   * всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-meta-uin
    *
    * @param apiOrdersUINSetRequest (required)
    * @return ApiMetaSetResponses
@@ -2614,7 +2648,8 @@ public class InStorePickupApi {
    * | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 20 запросов | 3 сек
    * | 500 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов. ---
    * В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для
-   * всех методов **Маркетплейса**.
+   * всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-meta-uin
    *
    * @param apiOrdersUINSetRequest (required)
    * @return ApiResponse&lt;ApiMetaSetResponses&gt;
@@ -2655,7 +2690,8 @@ public class InStorePickupApi {
    * | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 20 запросов | 3 сек
    * | 500 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов. ---
    * В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для
-   * всех методов **Маркетплейса**.
+   * всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-meta-uin
    *
    * @param apiOrdersUINSetRequest (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -2777,7 +2813,8 @@ public class InStorePickupApi {
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
    * сек | 1 запрос | 1 сек | 10 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-status-cancel
    *
    * @param apiOrdersRequestV2 (optional)
    * @return ApiStatusSetResponses
@@ -2812,7 +2849,8 @@ public class InStorePickupApi {
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
    * сек | 1 запрос | 1 сек | 10 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-status-cancel
    *
    * @param apiOrdersRequestV2 (optional)
    * @return ApiResponse&lt;ApiStatusSetResponses&gt;
@@ -2848,7 +2886,8 @@ public class InStorePickupApi {
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
    * сек | 1 запрос | 1 сек | 10 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-status-cancel
    *
    * @param apiOrdersRequestV2 (optional)
    * @param _callback The callback to be executed when the API call finishes
@@ -2968,7 +3007,8 @@ public class InStorePickupApi {
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
    * сек | 1 запрос | 1 сек | 10 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-status-confirm
    *
    * @param apiOrdersRequestV2 (optional)
    * @return ApiStatusSetResponses
@@ -3002,7 +3042,8 @@ public class InStorePickupApi {
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
    * сек | 1 запрос | 1 сек | 10 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-status-confirm
    *
    * @param apiOrdersRequestV2 (optional)
    * @return ApiResponse&lt;ApiStatusSetResponses&gt;
@@ -3037,7 +3078,8 @@ public class InStorePickupApi {
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
    * сек | 1 запрос | 1 сек | 10 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-status-confirm
    *
    * @param apiOrdersRequestV2 (optional)
    * @param _callback The callback to be executed when the API call finishes
@@ -3185,7 +3227,8 @@ public class InStorePickupApi {
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
    * сек | 1 запрос | 1 сек | 10 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-status-info
    *
    * @param apiOrdersRequestV2 (required)
    * @return ApiOrderStatusesV2
@@ -3241,7 +3284,8 @@ public class InStorePickupApi {
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
    * сек | 1 запрос | 1 сек | 10 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-status-info
    *
    * @param apiOrdersRequestV2 (required)
    * @return ApiResponse&lt;ApiOrderStatusesV2&gt;
@@ -3298,7 +3342,8 @@ public class InStorePickupApi {
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
    * сек | 1 запрос | 1 сек | 10 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-status-info
    *
    * @param apiOrdersRequestV2 (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -3418,7 +3463,8 @@ public class InStorePickupApi {
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
    * сек | 1 запрос | 1 сек | 10 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-status-prepare
    *
    * @param apiOrdersRequestV2 (optional)
    * @return ApiMetaDetailsResponse
@@ -3452,7 +3498,8 @@ public class InStorePickupApi {
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
    * сек | 1 запрос | 1 сек | 10 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-status-prepare
    *
    * @param apiOrdersRequestV2 (optional)
    * @return ApiResponse&lt;ApiMetaDetailsResponse&gt;
@@ -3487,7 +3534,8 @@ public class InStorePickupApi {
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
    * сек | 1 запрос | 1 сек | 10 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-status-prepare
    *
    * @param apiOrdersRequestV2 (optional)
    * @param _callback The callback to be executed when the API call finishes
@@ -3608,7 +3656,8 @@ public class InStorePickupApi {
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
    * сек | 1 запрос | 1 сек | 10 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-status-receive
    *
    * @param apiOrdersRequestV2 (optional)
    * @return ApiStatusSetResponses
@@ -3643,7 +3692,8 @@ public class InStorePickupApi {
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
    * сек | 1 запрос | 1 сек | 10 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-status-receive
    *
    * @param apiOrdersRequestV2 (optional)
    * @return ApiResponse&lt;ApiStatusSetResponses&gt;
@@ -3679,7 +3729,8 @@ public class InStorePickupApi {
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
    * сек | 1 запрос | 1 сек | 10 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-status-receive
    *
    * @param apiOrdersRequestV2 (optional)
    * @param _callback The callback to be executed when the API call finishes
@@ -3800,7 +3851,8 @@ public class InStorePickupApi {
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
    * сек | 1 запрос | 1 сек | 10 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-status-reject
    *
    * @param apiOrdersRequestV2 (optional)
    * @return ApiStatusSetResponses
@@ -3835,7 +3887,8 @@ public class InStorePickupApi {
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
    * сек | 1 запрос | 1 сек | 10 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-status-reject
    *
    * @param apiOrdersRequestV2 (optional)
    * @return ApiResponse&lt;ApiStatusSetResponses&gt;
@@ -3871,7 +3924,8 @@ public class InStorePickupApi {
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
    * сек | 1 запрос | 1 сек | 10 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-status-reject
    *
    * @param apiOrdersRequestV2 (optional)
    * @param _callback The callback to be executed when the API call finishes

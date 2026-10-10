@@ -209,7 +209,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Сервисный | 1 сек | 5
    * запросов | 200 мс | 10 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10
-   * запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+   * запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/delete-adv-v0-normquery-bids
    *
    * @param v0DeleteNormQueryBidsRequest (required)
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
@@ -238,7 +239,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Сервисный | 1 сек | 5
    * запросов | 200 мс | 10 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10
-   * запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+   * запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/delete-adv-v0-normquery-bids
    *
    * @param v0DeleteNormQueryBidsRequest (required)
    * @return ApiResponse&lt;Void&gt;
@@ -270,7 +272,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Сервисный | 1 сек | 5
    * запросов | 200 мс | 10 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10
-   * запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+   * запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/delete-adv-v0-normquery-bids
    *
    * @param v0DeleteNormQueryBidsRequest (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -404,7 +407,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Сервисный | 1 мин | 5
    * запросов | 12 сек | 5 запросов | | Базовый с секретом | 1 мин | 5 запросов | 12 сек | 5
-   * запросов | | Базовый | 1 ч | 20 запросов | 3 мин | 1 запрос |
+   * запросов | | Базовый | 1 ч | 20 запросов | 3 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v0-bids-recommendations
    *
    * @param nmId Артикул WB (required)
    * @param advertId ID кампании (required)
@@ -437,7 +441,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Сервисный | 1 мин | 5
    * запросов | 12 сек | 5 запросов | | Базовый с секретом | 1 мин | 5 запросов | 12 сек | 5
-   * запросов | | Базовый | 1 ч | 20 запросов | 3 мин | 1 запрос |
+   * запросов | | Базовый | 1 ч | 20 запросов | 3 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v0-bids-recommendations
    *
    * @param nmId Артикул WB (required)
    * @param advertId ID кампании (required)
@@ -471,7 +476,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Сервисный | 1 мин | 5
    * запросов | 12 сек | 5 запросов | | Базовый с секретом | 1 мин | 5 запросов | 12 сек | 5
-   * запросов | | Базовый | 1 ч | 20 запросов | 3 мин | 1 запрос |
+   * запросов | | Базовый | 1 ч | 20 запросов | 3 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v0-bids-recommendations
    *
    * @param nmId Артикул WB (required)
    * @param advertId ID кампании (required)
@@ -598,7 +604,8 @@ public class PromotionApi {
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Сервисный | 1 мин | 5
-   * запросов | 12 сек | 5 запросов |
+   * запросов | 12 сек | 5 запросов | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v0-daily-limits
    *
    * @param advertIds ID кампаний, максимум 100. Укажите значения через запятую (required)
    * @return V0GetDailyLimitsResponse
@@ -630,7 +637,8 @@ public class PromotionApi {
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Сервисный | 1 мин | 5
-   * запросов | 12 сек | 5 запросов |
+   * запросов | 12 сек | 5 запросов | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v0-daily-limits
    *
    * @param advertIds ID кампаний, максимум 100. Укажите значения через запятую (required)
    * @return ApiResponse&lt;V0GetDailyLimitsResponse&gt;
@@ -664,7 +672,8 @@ public class PromotionApi {
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Сервисный | 1 мин | 5
-   * запросов | 12 сек | 5 запросов |
+   * запросов | 12 сек | 5 запросов | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v0-daily-limits
    *
    * @param advertIds ID кампаний, максимум 100. Укажите значения через запятую (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -789,7 +798,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5
    * запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5
-   * запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+   * запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-delete
    *
    * @param id ID кампании (required)
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
@@ -819,7 +829,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5
    * запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5
-   * запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+   * запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-delete
    *
    * @param id ID кампании (required)
    * @return ApiResponse&lt;Void&gt;
@@ -851,7 +862,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5
    * запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5
-   * запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+   * запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-delete
    *
    * @param id ID кампании (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -974,7 +986,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5
    * запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5
-   * запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+   * запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-pause
    *
    * @param id ID кампании (required)
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
@@ -1003,7 +1016,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5
    * запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5
-   * запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+   * запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-pause
    *
    * @param id ID кампании (required)
    * @return ApiResponse&lt;Void&gt;
@@ -1034,7 +1048,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5
    * запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5
-   * запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+   * запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-pause
    *
    * @param id ID кампании (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -1161,7 +1176,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5
    * запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5
-   * запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+   * запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-start
    *
    * @param id ID кампании (required)
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
@@ -1193,7 +1209,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5
    * запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5
-   * запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+   * запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-start
    *
    * @param id ID кампании (required)
    * @return ApiResponse&lt;Void&gt;
@@ -1227,7 +1244,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5
    * запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5
-   * запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+   * запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-start
    *
    * @param id ID кампании (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -1351,7 +1369,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5
    * запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5
-   * запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+   * запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-stop
    *
    * @param id ID кампании (required)
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
@@ -1380,7 +1399,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5
    * запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5
-   * запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+   * запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-stop
    *
    * @param id ID кампании (required)
    * @return ApiResponse&lt;Void&gt;
@@ -1411,7 +1431,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5
    * запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5
-   * запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+   * запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-stop
    *
    * @param id ID кампании (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -1532,7 +1553,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 сек | 10 запросов | 100 мс | 10 запросов | | Сервисный | 1 сек | 10
    * запросов | 100 мс | 10 запросов | | Базовый с секретом | 1 сек | 10 запросов | 100 мс | 10
-   * запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+   * запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-advert
    *
    * @param id ID медиакампании (required)
    * @return GetV1AdvertResponse200
@@ -1563,7 +1585,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 сек | 10 запросов | 100 мс | 10 запросов | | Сервисный | 1 сек | 10
    * запросов | 100 мс | 10 запросов | | Базовый с секретом | 1 сек | 10 запросов | 100 мс | 10
-   * запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+   * запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-advert
    *
    * @param id ID медиакампании (required)
    * @return ApiResponse&lt;GetV1AdvertResponse200&gt;
@@ -1596,7 +1619,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 сек | 10 запросов | 100 мс | 10 запросов | | Сервисный | 1 сек | 10
    * запросов | 100 мс | 10 запросов | | Базовый с секретом | 1 сек | 10 запросов | 100 мс | 10
-   * запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+   * запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-advert
    *
    * @param id ID медиакампании (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -1759,7 +1783,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 сек | 10 запросов | 100 мс | 10 запросов | | Сервисный | 1 сек | 10
    * запросов | 100 мс | 10 запросов | | Базовый с секретом | 1 сек | 10 запросов | 100 мс | 10
-   * запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-adverts
    *
    * @param status Статус медиакампании: - &#x60;1&#x60; — черновик - &#x60;2&#x60; — модерация -
    *     &#x60;3&#x60; — отклонена (с возможностью вернуть на модерацию) - &#x60;4&#x60; — готова к
@@ -1804,7 +1829,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 сек | 10 запросов | 100 мс | 10 запросов | | Сервисный | 1 сек | 10
    * запросов | 100 мс | 10 запросов | | Базовый с секретом | 1 сек | 10 запросов | 100 мс | 10
-   * запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-adverts
    *
    * @param status Статус медиакампании: - &#x60;1&#x60; — черновик - &#x60;2&#x60; — модерация -
    *     &#x60;3&#x60; — отклонена (с возможностью вернуть на модерацию) - &#x60;4&#x60; — готова к
@@ -1850,7 +1876,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 сек | 10 запросов | 100 мс | 10 запросов | | Сервисный | 1 сек | 10
    * запросов | 100 мс | 10 запросов | | Базовый с секретом | 1 сек | 10 запросов | 100 мс | 10
-   * запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-adverts
    *
    * @param status Статус медиакампании: - &#x60;1&#x60; — черновик - &#x60;2&#x60; — модерация -
    *     &#x60;3&#x60; — отклонена (с возможностью вернуть на модерацию) - &#x60;4&#x60; — готова к
@@ -1987,7 +2014,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Сервисный | 1 сек | 1 запрос
    * | 1 сек | 5 запросов | | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый
-   * | 1 ч | 2 запроса | 30 мин | 1 запрос |
+   * | 1 ч | 2 запроса | 30 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-balance
    *
    * @return GetV1BalanceResponse200
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
@@ -2020,7 +2048,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Сервисный | 1 сек | 1 запрос
    * | 1 сек | 5 запросов | | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый
-   * | 1 ч | 2 запроса | 30 мин | 1 запрос |
+   * | 1 ч | 2 запроса | 30 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-balance
    *
    * @return ApiResponse&lt;GetV1BalanceResponse200&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
@@ -2054,7 +2083,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Сервисный | 1 сек | 1 запрос
    * | 1 сек | 5 запросов | | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый
-   * | 1 ч | 2 запроса | 30 мин | 1 запрос |
+   * | 1 ч | 2 запроса | 30 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-balance
    *
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
@@ -2179,7 +2209,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 сек | 4 запроса | 250 мс | 4 запроса | | Сервисный | 1 сек | 4
    * запроса | 250 мс | 4 запроса | | Базовый с секретом | 1 сек | 4 запроса | 250 мс | 4 запроса |
-   * | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |
+   * | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-budget
    *
    * @param id ID кампании (required)
    * @return GetV1BudgetResponse200
@@ -2211,7 +2242,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 сек | 4 запроса | 250 мс | 4 запроса | | Сервисный | 1 сек | 4
    * запроса | 250 мс | 4 запроса | | Базовый с секретом | 1 сек | 4 запроса | 250 мс | 4 запроса |
-   * | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |
+   * | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-budget
    *
    * @param id ID кампании (required)
    * @return ApiResponse&lt;GetV1BudgetResponse200&gt;
@@ -2245,7 +2277,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 сек | 4 запроса | 250 мс | 4 запроса | | Сервисный | 1 сек | 4
    * запроса | 250 мс | 4 запроса | | Базовый с секретом | 1 сек | 4 запроса | 250 мс | 4 запроса |
-   * | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |
+   * | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-budget
    *
    * @param id ID кампании (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -2418,7 +2451,8 @@ public class PromotionApi {
    * | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов |
    * 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с
    * секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1
-   * запрос |
+   * запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-v1-calendar-promotions
    *
    * @param startDateTime Начало периода, формат &#x60;YYYY-MM-DDTHH:MM:SSZ&#x60; (required)
    * @param endDateTime Конец периода, формат &#x60;YYYY-MM-DDTHH:MM:SSZ&#x60; (required)
@@ -2458,7 +2492,8 @@ public class PromotionApi {
    * | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов |
    * 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с
    * секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1
-   * запрос |
+   * запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-v1-calendar-promotions
    *
    * @param startDateTime Начало периода, формат &#x60;YYYY-MM-DDTHH:MM:SSZ&#x60; (required)
    * @param endDateTime Конец периода, формат &#x60;YYYY-MM-DDTHH:MM:SSZ&#x60; (required)
@@ -2500,7 +2535,8 @@ public class PromotionApi {
    * | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов |
    * 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с
    * секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1
-   * запрос |
+   * запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-v1-calendar-promotions
    *
    * @param startDateTime Начало периода, формат &#x60;YYYY-MM-DDTHH:MM:SSZ&#x60; (required)
    * @param endDateTime Конец периода, формат &#x60;YYYY-MM-DDTHH:MM:SSZ&#x60; (required)
@@ -2639,7 +2675,8 @@ public class PromotionApi {
    * | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов |
    * 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с
    * секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1
-   * запрос |
+   * запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-v1-calendar-promotions-details
    *
    * @param promotionIDs ID акций, по которым нужно вернуть информацию (required)
    * @return GetV1CalendarPromotionsDetails200Response
@@ -2673,7 +2710,8 @@ public class PromotionApi {
    * | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов |
    * 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с
    * секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1
-   * запрос |
+   * запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-v1-calendar-promotions-details
    *
    * @param promotionIDs ID акций, по которым нужно вернуть информацию (required)
    * @return ApiResponse&lt;GetV1CalendarPromotionsDetails200Response&gt;
@@ -2709,7 +2747,8 @@ public class PromotionApi {
    * | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов |
    * 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с
    * секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1
-   * запрос |
+   * запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-v1-calendar-promotions-details
    *
    * @param promotionIDs ID акций, по которым нужно вернуть информацию (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -2871,6 +2910,8 @@ public class PromotionApi {
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца для всех методов категории **Календарь акций**: | Период | Лимит |
    * Интервал | Всплеск | | --- | --- | --- | --- | | 6 сек | 10 запросов | 600 мс | 5 запросов |
+   * Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-v1-calendar-promotions-nomenclatures
    *
    * @param promotionID ID акции (required)
    * @param inAction Участвует в акции: - &#x60;true&#x60; — да - &#x60;false&#x60; — нет (required)
@@ -2908,6 +2949,8 @@ public class PromotionApi {
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца для всех методов категории **Календарь акций**: | Период | Лимит |
    * Интервал | Всплеск | | --- | --- | --- | --- | | 6 сек | 10 запросов | 600 мс | 5 запросов |
+   * Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-v1-calendar-promotions-nomenclatures
    *
    * @param promotionID ID акции (required)
    * @param inAction Участвует в акции: - &#x60;true&#x60; — да - &#x60;false&#x60; — нет (required)
@@ -2951,6 +2994,8 @@ public class PromotionApi {
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца для всех методов категории **Календарь акций**: | Период | Лимит |
    * Интервал | Всплеск | | --- | --- | --- | --- | | 6 сек | 10 запросов | 600 мс | 5 запросов |
+   * Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-v1-calendar-promotions-nomenclatures
    *
    * @param promotionID ID акции (required)
    * @param inAction Участвует в акции: - &#x60;true&#x60; — да - &#x60;false&#x60; — нет (required)
@@ -3074,7 +3119,8 @@ public class PromotionApi {
    * по **Персональному** токену, **Сервисному** токену [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
-   * мин | 1 запрос | 1 мин | 10 запросов |
+   * мин | 1 запрос | 1 мин | 10 запросов | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v1-config
    *
    * @return V2GetConfigResponse
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
@@ -3104,7 +3150,8 @@ public class PromotionApi {
    * по **Персональному** токену, **Сервисному** токену [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
-   * мин | 1 запрос | 1 мин | 10 запросов |
+   * мин | 1 запрос | 1 мин | 10 запросов | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v1-config
    *
    * @return ApiResponse&lt;V2GetConfigResponse&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
@@ -3135,7 +3182,8 @@ public class PromotionApi {
    * по **Персональному** токену, **Сервисному** токену [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
-   * мин | 1 запрос | 1 мин | 10 запросов |
+   * мин | 1 запрос | 1 мин | 10 запросов | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v1-config
    *
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
@@ -3242,7 +3290,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 сек | 10 запросов | 100 мс | 10 запросов | | Сервисный | 1 сек | 10
    * запросов | 100 мс | 10 запросов | | Базовый с секретом | 1 сек | 10 запросов | 100 мс | 10
-   * запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-count
    *
    * @return GetV1CountResponse200
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
@@ -3270,7 +3319,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 сек | 10 запросов | 100 мс | 10 запросов | | Сервисный | 1 сек | 10
    * запросов | 100 мс | 10 запросов | | Базовый с секретом | 1 сек | 10 запросов | 100 мс | 10
-   * запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-count
    *
    * @return ApiResponse&lt;GetV1CountResponse200&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
@@ -3299,7 +3349,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 сек | 10 запросов | 100 мс | 10 запросов | | Сервисный | 1 сек | 10
    * запросов | 100 мс | 10 запросов | | Базовый с секретом | 1 сек | 10 запросов | 100 мс | 10
-   * запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-count
    *
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
@@ -3421,7 +3472,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Сервисный | 1 сек | 1 запрос
    * | 1 сек | 5 запросов | | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый
-   * | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-payments
    *
    * @param from Начало интервала (optional)
    * @param to Конец интервала. (Минимальный интервал 1 день, максимальный 31) (optional)
@@ -3454,7 +3506,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Сервисный | 1 сек | 1 запрос
    * | 1 сек | 5 запросов | | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый
-   * | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-payments
    *
    * @param from Начало интервала (optional)
    * @param to Конец интервала. (Минимальный интервал 1 день, максимальный 31) (optional)
@@ -3487,7 +3540,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Сервисный | 1 сек | 1 запрос
    * | 1 сек | 5 запросов | | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый
-   * | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-payments
    *
    * @param from Начало интервала (optional)
    * @param to Конец интервала. (Минимальный интервал 1 день, максимальный 31) (optional)
@@ -3603,7 +3657,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5
    * запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5
-   * запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |
+   * запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-promotion-count
    *
    * @return GetV1PromotionCountResponse200
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
@@ -3632,7 +3687,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5
    * запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5
-   * запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |
+   * запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-promotion-count
    *
    * @return ApiResponse&lt;GetV1PromotionCountResponse200&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
@@ -3663,7 +3719,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5
    * запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5
-   * запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |
+   * запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-promotion-count
    *
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
@@ -3783,7 +3840,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 12 сек | 1 запрос | 12 сек | 5 запросов | | Сервисный | 12 сек | 1
    * запрос | 12 сек | 5 запросов | | Базовый с секретом | 12 сек | 1 запрос | 12 сек | 5 запросов |
-   * | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+   * | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-supplier-subjects
    *
    * @param paymentType Тип оплаты: - &#x60;cpm&#x60; — за показы - &#x60;cpc&#x60; — за клик
    *     (optional, default to cpm)
@@ -3818,7 +3876,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 12 сек | 1 запрос | 12 сек | 5 запросов | | Сервисный | 12 сек | 1
    * запрос | 12 сек | 5 запросов | | Базовый с секретом | 12 сек | 1 запрос | 12 сек | 5 запросов |
-   * | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+   * | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-supplier-subjects
    *
    * @param paymentType Тип оплаты: - &#x60;cpm&#x60; — за показы - &#x60;cpc&#x60; — за клик
    *     (optional, default to cpm)
@@ -3854,7 +3913,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 12 сек | 1 запрос | 12 сек | 5 запросов | | Сервисный | 12 сек | 1
    * запрос | 12 сек | 5 запросов | | Базовый с секретом | 12 сек | 1 запрос | 12 сек | 5 запросов |
-   * | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+   * | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-supplier-subjects
    *
    * @param paymentType Тип оплаты: - &#x60;cpm&#x60; — за показы - &#x60;cpc&#x60; — за клик
    *     (optional, default to cpm)
@@ -3990,7 +4050,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Сервисный | 1 сек | 1 запрос
    * | 1 сек | 5 запросов | | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый
-   * | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-upd
    *
    * @param from Начало интервала (required)
    * @param to Конец интервала. (Минимальный интервал 1 день, максимальный 31) (required)
@@ -4020,7 +4081,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Сервисный | 1 сек | 1 запрос
    * | 1 сек | 5 запросов | | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый
-   * | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-upd
    *
    * @param from Начало интервала (required)
    * @param to Конец интервала. (Минимальный интервал 1 день, максимальный 31) (required)
@@ -4052,7 +4114,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Сервисный | 1 сек | 1 запрос
    * | 1 сек | 5 запросов | | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый
-   * | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-upd
    *
    * @param from Начало интервала (required)
    * @param to Конец интервала. (Минимальный интервал 1 день, максимальный 31) (required)
@@ -4184,7 +4247,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5
    * запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5
-   * запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v2-adverts
    *
    * @param ids ID кампаний, максимум 50 (optional)
    * @param statuses Статусы кампаний: - &#x60;-1&#x60; — удалена, процесс удаления будет завершён в
@@ -4219,7 +4283,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5
    * запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5
-   * запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v2-adverts
    *
    * @param ids ID кампаний, максимум 50 (optional)
    * @param statuses Статусы кампаний: - &#x60;-1&#x60; — удалена, процесс удаления будет завершён в
@@ -4255,7 +4320,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5
    * запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5
-   * запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v2-adverts
    *
    * @param ids ID кампаний, максимум 50 (optional)
    * @param statuses Статусы кампаний: - &#x60;-1&#x60; — удалена, процесс удаления будет завершён в
@@ -4409,7 +4475,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 1 запрос | | Сервисный | 1 мин | 3
    * запроса | 20 сек | 1 запрос | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 1 запрос | |
-   * Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v3-fullstats
    *
    * @param ids ID кампаний, максимум 50 значений (required)
    * @param beginDate Дата начала интервала (required)
@@ -4444,7 +4511,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 1 запрос | | Сервисный | 1 мин | 3
    * запроса | 20 сек | 1 запрос | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 1 запрос | |
-   * Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v3-fullstats
    *
    * @param ids ID кампаний, максимум 50 значений (required)
    * @param beginDate Дата начала интервала (required)
@@ -4480,7 +4548,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 1 запрос | | Сервисный | 1 мин | 3
    * запроса | 20 сек | 1 запрос | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 1 запрос | |
-   * Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v3-fullstats
    *
    * @param ids ID кампаний, максимум 50 значений (required)
    * @param beginDate Дата начала интервала (required)
@@ -4607,7 +4676,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 сек | 1 запрос | 1 сек | 1 запрос | | Сервисный | 1 сек | 1 запрос |
    * 1 сек | 1 запрос | | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 1 запрос | | Базовый | 1 ч
-   * | 2 запроса | 30 мин | 1 запрос |
+   * | 2 запроса | 30 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/patch-adv-v0-auction-nms
    *
    * @param patchV0AuctionNmsRequest (required)
    * @return PatchV0AuctionNmsResponse200
@@ -4639,7 +4709,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 сек | 1 запрос | 1 сек | 1 запрос | | Сервисный | 1 сек | 1 запрос |
    * 1 сек | 1 запрос | | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 1 запрос | | Базовый | 1 ч
-   * | 2 запроса | 30 мин | 1 запрос |
+   * | 2 запроса | 30 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/patch-adv-v0-auction-nms
    *
    * @param patchV0AuctionNmsRequest (required)
    * @return ApiResponse&lt;PatchV0AuctionNmsResponse200&gt;
@@ -4671,7 +4742,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 сек | 1 запрос | 1 сек | 1 запрос | | Сервисный | 1 сек | 1 запрос |
    * 1 сек | 1 запрос | | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 1 запрос | | Базовый | 1 ч
-   * | 2 запроса | 30 мин | 1 запрос |
+   * | 2 запроса | 30 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/patch-adv-v0-auction-nms
    *
    * @param patchV0AuctionNmsRequest (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -4795,7 +4867,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5
    * запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5
-   * запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+   * запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/patch-api-advert-v1-bids
    *
    * @param patchV1BidsRequest (required)
    * @return PatchV1BidsResponse200
@@ -4829,7 +4902,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5
    * запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5
-   * запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+   * запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/patch-api-advert-v1-bids
    *
    * @param patchV1BidsRequest (required)
    * @return ApiResponse&lt;PatchV1BidsResponse200&gt;
@@ -4864,7 +4938,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5
    * запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5
-   * запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+   * запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/patch-api-advert-v1-bids
    *
    * @param patchV1BidsRequest (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -4985,7 +5060,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 сек | 2 запроса | 500 мс | 4 запроса | | Сервисный | 1 сек | 2
    * запроса | 500 мс | 4 запроса | | Базовый с секретом | 1 сек | 2 запроса | 500 мс | 4 запроса |
-   * | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+   * | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v0-normquery-bids
    *
    * @param v0SetNormQueryBidsRequest (required)
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
@@ -5014,7 +5090,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 сек | 2 запроса | 500 мс | 4 запроса | | Сервисный | 1 сек | 2
    * запроса | 500 мс | 4 запроса | | Базовый с секретом | 1 сек | 2 запроса | 500 мс | 4 запроса |
-   * | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+   * | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v0-normquery-bids
    *
    * @param v0SetNormQueryBidsRequest (required)
    * @return ApiResponse&lt;Void&gt;
@@ -5046,7 +5123,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 сек | 2 запроса | 500 мс | 4 запроса | | Сервисный | 1 сек | 2
    * запроса | 500 мс | 4 запроса | | Базовый с секретом | 1 сек | 2 запроса | 500 мс | 4 запроса |
-   * | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+   * | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v0-normquery-bids
    *
    * @param v0SetNormQueryBidsRequest (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -5166,7 +5244,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Сервисный | 1 сек | 5
    * запросов | 200 мс | 10 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10
-   * запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+   * запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v0-normquery-get-bids
    *
    * @param v0GetNormQueryBidsRequest (required)
    * @return V0GetNormQueryBidsResponse
@@ -5197,7 +5276,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Сервисный | 1 сек | 5
    * запросов | 200 мс | 10 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10
-   * запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+   * запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v0-normquery-get-bids
    *
    * @param v0GetNormQueryBidsRequest (required)
    * @return ApiResponse&lt;V0GetNormQueryBidsResponse&gt;
@@ -5229,7 +5309,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Сервисный | 1 сек | 5
    * запросов | 200 мс | 10 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10
-   * запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+   * запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v0-normquery-get-bids
    *
    * @param v0GetNormQueryBidsRequest (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -5351,7 +5432,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Сервисный | 1 сек | 5
    * запросов | 200 мс | 10 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10
-   * запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+   * запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v0-normquery-get-minus
    *
    * @param v0GetNormQueryMinusRequest (required)
    * @return V0GetNormQueryMinusResponse
@@ -5382,7 +5464,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Сервисный | 1 сек | 5
    * запросов | 200 мс | 10 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10
-   * запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+   * запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v0-normquery-get-minus
    *
    * @param v0GetNormQueryMinusRequest (required)
    * @return ApiResponse&lt;V0GetNormQueryMinusResponse&gt;
@@ -5414,7 +5497,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Сервисный | 1 сек | 5
    * запросов | 200 мс | 10 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10
-   * запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+   * запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v0-normquery-get-minus
    *
    * @param v0GetNormQueryMinusRequest (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -5536,7 +5620,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Сервисный | 1 сек | 5
    * запросов | 200 мс | 10 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10
-   * запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+   * запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v0-normquery-list
    *
    * @param v0GetNormQueryListRequest (required)
    * @return V0GetNormQueryListResponse
@@ -5567,7 +5652,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Сервисный | 1 сек | 5
    * запросов | 200 мс | 10 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10
-   * запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+   * запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v0-normquery-list
    *
    * @param v0GetNormQueryListRequest (required)
    * @return ApiResponse&lt;V0GetNormQueryListResponse&gt;
@@ -5599,7 +5685,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Сервисный | 1 сек | 5
    * запросов | 200 мс | 10 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10
-   * запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+   * запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v0-normquery-list
    *
    * @param v0GetNormQueryListRequest (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -5721,7 +5808,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Сервисный | 1 сек | 5
    * запросов | 200 мс | 10 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10
-   * запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+   * запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v0-normquery-set-minus
    *
    * @param v0SetMinusNormQueryRequest (required)
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
@@ -5749,7 +5837,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Сервисный | 1 сек | 5
    * запросов | 200 мс | 10 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10
-   * запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+   * запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v0-normquery-set-minus
    *
    * @param v0SetMinusNormQueryRequest (required)
    * @return ApiResponse&lt;Void&gt;
@@ -5780,7 +5869,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Сервисный | 1 сек | 5
    * запросов | 200 мс | 10 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10
-   * запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+   * запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v0-normquery-set-minus
    *
    * @param v0SetMinusNormQueryRequest (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -5901,7 +5991,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 10 запросов | 6 сек | 20 запросов | | Сервисный | 1 мин | 10
    * запросов | 6 сек | 20 запросов | | Базовый с секретом | 1 мин | 10 запросов | 6 сек | 20
-   * запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+   * запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v0-normquery-stats
    *
    * @param v0GetNormQueryStatsRequest (required)
    * @return V0GetNormQueryStatsResponse
@@ -5933,7 +6024,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 10 запросов | 6 сек | 20 запросов | | Сервисный | 1 мин | 10
    * запросов | 6 сек | 20 запросов | | Базовый с секретом | 1 мин | 10 запросов | 6 сек | 20
-   * запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+   * запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v0-normquery-stats
    *
    * @param v0GetNormQueryStatsRequest (required)
    * @return ApiResponse&lt;V0GetNormQueryStatsResponse&gt;
@@ -5966,7 +6058,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 10 запросов | 6 сек | 20 запросов | | Сервисный | 1 мин | 10
    * запросов | 6 сек | 20 запросов | | Базовый с секретом | 1 мин | 10 запросов | 6 сек | 20
-   * запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+   * запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v0-normquery-stats
    *
    * @param v0GetNormQueryStatsRequest (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -6085,7 +6178,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5
    * запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5
-   * запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+   * запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v0-rename
    *
    * @param postV0RenameRequest (optional)
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
@@ -6114,7 +6208,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5
    * запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5
-   * запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+   * запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v0-rename
    *
    * @param postV0RenameRequest (optional)
    * @return ApiResponse&lt;Void&gt;
@@ -6146,7 +6241,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5
    * запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5
-   * запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+   * запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v0-rename
    *
    * @param postV0RenameRequest (optional)
    * @param _callback The callback to be executed when the API call finishes
@@ -6266,7 +6362,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 20 запросов | 3 сек | 5 запросов | | Сервисный | 1 мин | 20
    * запросов | 3 сек | 5 запросов | | Базовый с секретом | 1 мин | 20 запросов | 3 сек | 5 запросов
-   * | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+   * | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-api-advert-v1-bids-min
    *
    * @param postV1BidsMinRequest (required)
    * @return PostV1BidsMinResponse200
@@ -6299,7 +6396,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 20 запросов | 3 сек | 5 запросов | | Сервисный | 1 мин | 20
    * запросов | 3 сек | 5 запросов | | Базовый с секретом | 1 мин | 20 запросов | 3 сек | 5 запросов
-   * | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+   * | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-api-advert-v1-bids-min
    *
    * @param postV1BidsMinRequest (required)
    * @return ApiResponse&lt;PostV1BidsMinResponse200&gt;
@@ -6332,7 +6430,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 20 запросов | 3 сек | 5 запросов | | Сервисный | 1 мин | 20
    * запросов | 3 сек | 5 запросов | | Базовый с секретом | 1 мин | 20 запросов | 3 сек | 5 запросов
-   * | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+   * | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-api-advert-v1-bids-min
    *
    * @param postV1BidsMinRequest (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -6474,7 +6573,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Сервисный | 1 сек | 1 запрос
    * | 1 сек | 5 запросов | | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый
-   * | 1 ч | 5 запросов | 12 мин | 1 запрос |
+   * | 1 ч | 5 запросов | 12 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v1-budget-deposit
    *
    * @param id ID кампании (required)
    * @param postV1BudgetDepositRequest (required)
@@ -6509,7 +6609,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Сервисный | 1 сек | 1 запрос
    * | 1 сек | 5 запросов | | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый
-   * | 1 ч | 5 запросов | 12 мин | 1 запрос |
+   * | 1 ч | 5 запросов | 12 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v1-budget-deposit
    *
    * @param id ID кампании (required)
    * @param postV1BudgetDepositRequest (required)
@@ -6545,7 +6646,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Сервисный | 1 сек | 1 запрос
    * | 1 сек | 5 запросов | | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый
-   * | 1 ч | 5 запросов | 12 мин | 1 запрос |
+   * | 1 ч | 5 запросов | 12 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v1-budget-deposit
    *
    * @param id ID кампании (required)
    * @param postV1BudgetDepositRequest (required)
@@ -6677,7 +6779,8 @@ public class PromotionApi {
    * | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов |
    * 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с
    * секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1
-   * запрос |
+   * запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-api-v1-calendar-promotions-upload
    *
    * @param postV1CalendarPromotionsUploadRequest (required)
    * @return PostV1CalendarPromotionsUpload200Response
@@ -6715,7 +6818,8 @@ public class PromotionApi {
    * | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов |
    * 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с
    * секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1
-   * запрос |
+   * запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-api-v1-calendar-promotions-upload
    *
    * @param postV1CalendarPromotionsUploadRequest (required)
    * @return ApiResponse&lt;PostV1CalendarPromotionsUpload200Response&gt;
@@ -6757,7 +6861,8 @@ public class PromotionApi {
    * | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов |
    * 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с
    * секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1
-   * запрос |
+   * запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-api-v1-calendar-promotions-upload
    *
    * @param postV1CalendarPromotionsUploadRequest (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -6886,7 +6991,8 @@ public class PromotionApi {
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 сек | 2 запроса | 500 мс | 4 запроса | | Сервисный | 1 сек | 2
-   * запроса | 500 мс | 4 запроса |
+   * запроса | 500 мс | 4 запроса | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-api-advert-v1-normquery-bids
    *
    * @param v1SetNormQueryBidsRequest (required)
    * @return V1SetNormQueryBidsResponse
@@ -6920,7 +7026,8 @@ public class PromotionApi {
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 сек | 2 запроса | 500 мс | 4 запроса | | Сервисный | 1 сек | 2
-   * запроса | 500 мс | 4 запроса |
+   * запроса | 500 мс | 4 запроса | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-api-advert-v1-normquery-bids
    *
    * @param v1SetNormQueryBidsRequest (required)
    * @return ApiResponse&lt;V1SetNormQueryBidsResponse&gt;
@@ -6955,7 +7062,8 @@ public class PromotionApi {
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 сек | 2 запроса | 500 мс | 4 запроса | | Сервисный | 1 сек | 2
-   * запроса | 500 мс | 4 запроса |
+   * запроса | 500 мс | 4 запроса | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-api-advert-v1-normquery-bids
    *
    * @param v1SetNormQueryBidsRequest (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -7078,7 +7186,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 10 запросов | 6 сек | 20 запросов | | Сервисный | 1 мин | 10
    * запросов | 6 сек | 20 запросов | | Базовый с секретом | 1 мин | 10 запросов | 6 сек | 20
-   * запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+   * запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v1-normquery-stats
    *
    * @param v1GetNormQueryStatsRequest (required)
    * @return V1GetNormQueryStatsResponse
@@ -7110,7 +7219,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 10 запросов | 6 сек | 20 запросов | | Сервисный | 1 мин | 10
    * запросов | 6 сек | 20 запросов | | Базовый с секретом | 1 мин | 10 запросов | 6 сек | 20
-   * запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+   * запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v1-normquery-stats
    *
    * @param v1GetNormQueryStatsRequest (required)
    * @return ApiResponse&lt;V1GetNormQueryStatsResponse&gt;
@@ -7144,7 +7254,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 10 запросов | 6 сек | 20 запросов | | Сервисный | 1 мин | 10
    * запросов | 6 сек | 20 запросов | | Базовый с секретом | 1 мин | 10 запросов | 6 сек | 20
-   * запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+   * запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v1-normquery-stats
    *
    * @param v1GetNormQueryStatsRequest (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -7267,7 +7378,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 сек | 10 запросов | 100 мс | 10 запросов | | Сервисный | 1 сек | 10
    * запросов | 100 мс | 10 запросов | | Базовый с секретом | 1 сек | 10 запросов | 100 мс | 10
-   * запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v1-stats
    *
    * @param postV1StatsRequestInner (required)
    * @return List&lt;PostV1StatsResponse200Inner&gt;
@@ -7299,7 +7411,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 сек | 10 запросов | 100 мс | 10 запросов | | Сервисный | 1 сек | 10
    * запросов | 100 мс | 10 запросов | | Базовый с секретом | 1 сек | 10 запросов | 100 мс | 10
-   * запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v1-stats
    *
    * @param postV1StatsRequestInner (required)
    * @return ApiResponse&lt;List&lt;PostV1StatsResponse200Inner&gt;&gt;
@@ -7331,7 +7444,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 сек | 10 запросов | 100 мс | 10 запросов | | Сервисный | 1 сек | 10
    * запросов | 100 мс | 10 запросов | | Базовый с секретом | 1 сек | 10 запросов | 100 мс | 10
-   * запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v1-stats
    *
    * @param postV1StatsRequestInner (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -7453,7 +7567,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 20 запросов | 3 сек | 4 запроса | | Сервисный | 1 мин | 20
    * запросов | 3 сек | 4 запроса | | Базовый с секретом | 1 мин | 20 запросов | 3 сек | 4 запроса |
-   * | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |
+   * | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-api-advert-v2-budget
    *
    * @param v2BudgetRequest (required)
    * @return V2BudgetResponse
@@ -7485,7 +7600,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 20 запросов | 3 сек | 4 запроса | | Сервисный | 1 мин | 20
    * запросов | 3 сек | 4 запроса | | Базовый с секретом | 1 мин | 20 запросов | 3 сек | 4 запроса |
-   * | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |
+   * | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-api-advert-v2-budget
    *
    * @param v2BudgetRequest (required)
    * @return ApiResponse&lt;V2BudgetResponse&gt;
@@ -7519,7 +7635,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 20 запросов | 3 сек | 4 запроса | | Сервисный | 1 мин | 20
    * запросов | 3 сек | 4 запроса | | Базовый с секретом | 1 мин | 20 запросов | 3 сек | 4 запроса |
-   * | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |
+   * | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-api-advert-v2-budget
    *
    * @param v2BudgetRequest (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -7637,7 +7754,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Сервисный | 1 мин | 5
    * запросов | 12 сек | 5 запросов | | Базовый с секретом | 1 мин | 5 запросов | 12 сек | 5
-   * запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+   * запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v2-seacat-save-ad
    *
    * @param postV2SeacatSaveAdRequest (optional)
    * @return Integer
@@ -7668,7 +7786,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Сервисный | 1 мин | 5
    * запросов | 12 сек | 5 запросов | | Базовый с секретом | 1 мин | 5 запросов | 12 сек | 5
-   * запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+   * запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v2-seacat-save-ad
    *
    * @param postV2SeacatSaveAdRequest (optional)
    * @return ApiResponse&lt;Integer&gt;
@@ -7701,7 +7820,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Сервисный | 1 мин | 5
    * запросов | 12 сек | 5 запросов | | Базовый с секретом | 1 мин | 5 запросов | 12 сек | 5
-   * запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+   * запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v2-seacat-save-ad
    *
    * @param postV2SeacatSaveAdRequest (optional)
    * @param _callback The callback to be executed when the API call finishes
@@ -7822,7 +7942,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Сервисный | 1 мин | 5
    * запросов | 12 сек | 5 запросов | | Базовый с секретом | 1 мин | 5 запросов | 12 сек | 5
-   * запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+   * запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v2-supplier-nms
    *
    * @param requestBody ID предметов, для которых нужно получить карточки товаров (optional)
    * @return List&lt;PostV2SupplierNmsResponse200Inner&gt;
@@ -7858,7 +7979,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Сервисный | 1 мин | 5
    * запросов | 12 сек | 5 запросов | | Базовый с секретом | 1 мин | 5 запросов | 12 сек | 5
-   * запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+   * запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v2-supplier-nms
    *
    * @param requestBody ID предметов, для которых нужно получить карточки товаров (optional)
    * @return ApiResponse&lt;List&lt;PostV2SupplierNmsResponse200Inner&gt;&gt;
@@ -7894,7 +8016,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Сервисный | 1 мин | 5
    * запросов | 12 сек | 5 запросов | | Базовый с секретом | 1 мин | 5 запросов | 12 сек | 5
-   * запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+   * запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v2-supplier-nms
    *
    * @param requestBody ID предметов, для которых нужно получить карточки товаров (optional)
    * @param _callback The callback to be executed when the API call finishes
@@ -8016,7 +8139,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 сек | 1 запрос | 1 сек | 1 запрос | | Сервисный | 1 сек | 1 запрос |
    * 1 сек | 1 запрос | | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 1 запрос | | Базовый | 1 ч
-   * | 2 запроса | 30 мин | 1 запрос |
+   * | 2 запроса | 30 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/put-adv-v0-auction-placements
    *
    * @param putV0AuctionPlacementsRequest (required)
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
@@ -8045,7 +8169,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 сек | 1 запрос | 1 сек | 1 запрос | | Сервисный | 1 сек | 1 запрос |
    * 1 сек | 1 запрос | | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 1 запрос | | Базовый | 1 ч
-   * | 2 запроса | 30 мин | 1 запрос |
+   * | 2 запроса | 30 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/put-adv-v0-auction-placements
    *
    * @param putV0AuctionPlacementsRequest (required)
    * @return ApiResponse&lt;Void&gt;
@@ -8077,7 +8202,8 @@ public class PromotionApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 сек | 1 запрос | 1 сек | 1 запрос | | Сервисный | 1 сек | 1 запрос |
    * 1 сек | 1 запрос | | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 1 запрос | | Базовый | 1 ч
-   * | 2 запроса | 30 мин | 1 запрос |
+   * | 2 запроса | 30 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/put-adv-v0-auction-placements
    *
    * @param putV0AuctionPlacementsRequest (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -8199,7 +8325,8 @@ public class PromotionApi {
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Сервисный | 1 мин | 5
-   * запросов | 12 сек | 5 запросов |
+   * запросов | 12 сек | 5 запросов | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/put-api-advert-v0-daily-limits
    *
    * @param v0PutDailyLimitsRequest (required)
    * @return V0PutDailyLimitsResponse
@@ -8231,7 +8358,8 @@ public class PromotionApi {
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Сервисный | 1 мин | 5
-   * запросов | 12 сек | 5 запросов |
+   * запросов | 12 сек | 5 запросов | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/put-api-advert-v0-daily-limits
    *
    * @param v0PutDailyLimitsRequest (required)
    * @return ApiResponse&lt;V0PutDailyLimitsResponse&gt;
@@ -8263,7 +8391,8 @@ public class PromotionApi {
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Сервисный | 1 мин | 5
-   * запросов | 12 сек | 5 запросов |
+   * запросов | 12 сек | 5 запросов | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/put-api-advert-v0-daily-limits
    *
    * @param v0PutDailyLimitsRequest (required)
    * @param _callback The callback to be executed when the API call finishes

@@ -33,6 +33,8 @@ type RatesAPI interface {
 		| Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов |
 		| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/rates/get-api-tariffs-v1-acceptance-coefficients
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV1AcceptanceCoefficientsRequest
 	*/
@@ -60,6 +62,8 @@ type RatesAPI interface {
 		| Базовый с секретом | 1 мин | 60 запросов | 1 сек | 5 запросов |
 		| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/rates/get-api-v1-tariffs-box
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV1TariffsBoxRequest
 	*/
@@ -81,6 +85,8 @@ type RatesAPI interface {
 		| Сервисный | 1 мин | 1 запрос | 1 мин | 2 запроса |
 		| Базовый с секретом | 1 мин | 1 запрос | 1 мин | 2 запроса |
 		| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/rates/get-api-v1-tariffs-commission
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV1TariffsCommissionRequest
@@ -109,6 +115,8 @@ type RatesAPI interface {
 		| Базовый с секретом | 1 мин | 60 запросов | 1 сек | 5 запросов |
 		| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/rates/get-api-v1-tariffs-pallet
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV1TariffsPalletRequest
 	*/
@@ -132,6 +140,8 @@ type RatesAPI interface {
 		| Сервисный | 1 мин | 60 запросов | 1 сек | 5 запросов |
 		| Базовый с секретом | 1 мин | 60 запросов | 1 сек | 5 запросов |
 		| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/rates/get-api-v1-tariffs-return
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV1TariffsReturnRequest
@@ -174,6 +184,8 @@ GetV1AcceptanceCoefficients Тарифы на поставку
 | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов |
 | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов |
 | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/rates/get-api-tariffs-v1-acceptance-coefficients
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV1AcceptanceCoefficientsRequest
@@ -341,6 +353,8 @@ GetV1TariffsBox Тарифы для коробов
 | Базовый с секретом | 1 мин | 60 запросов | 1 сек | 5 запросов |
 | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/rates/get-api-v1-tariffs-box
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV1TariffsBoxRequest
 */
@@ -502,6 +516,8 @@ GetV1TariffsCommission Комиссия по категориям товаров
 | Сервисный | 1 мин | 1 запрос | 1 мин | 2 запроса |
 | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 2 запроса |
 | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/rates/get-api-v1-tariffs-commission
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV1TariffsCommissionRequest
@@ -669,6 +685,8 @@ GetV1TariffsPallet Тарифы для монопаллет
 | Базовый с секретом | 1 мин | 60 запросов | 1 сек | 5 запросов |
 | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/rates/get-api-v1-tariffs-pallet
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV1TariffsPalletRequest
 */
@@ -832,6 +850,8 @@ GetV1TariffsReturn Тарифы на возврат
 | Сервисный | 1 мин | 60 запросов | 1 сек | 5 запросов |
 | Базовый с секретом | 1 мин | 60 запросов | 1 сек | 5 запросов |
 | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/rates/get-api-v1-tariffs-return
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV1TariffsReturnRequest

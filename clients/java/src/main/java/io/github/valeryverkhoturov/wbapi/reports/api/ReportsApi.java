@@ -193,7 +193,8 @@ public class ReportsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос |
    * 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 3 ч
-   * | 1 запрос | 3 ч | 1 запрос |
+   * | 1 запрос | 3 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-acceptance-report
    *
    * @param dateFrom Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; (required)
    * @param dateTo Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; (required)
@@ -229,7 +230,8 @@ public class ReportsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос |
    * 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 3 ч
-   * | 1 запрос | 3 ч | 1 запрос |
+   * | 1 запрос | 3 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-acceptance-report
    *
    * @param dateFrom Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; (required)
    * @param dateTo Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; (required)
@@ -265,7 +267,8 @@ public class ReportsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос |
    * 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 3 ч
-   * | 1 запрос | 3 ч | 1 запрос |
+   * | 1 запрос | 3 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-acceptance-report
    *
    * @param dateFrom Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; (required)
    * @param dateTo Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; (required)
@@ -393,7 +396,8 @@ public class ReportsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос |
    * 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 1 ч
-   * | 2 запроса | 30 мин | 1 запрос |
+   * | 2 запроса | 30 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-acceptance-report-tasks-task-id-download
    *
    * @param taskId ID задания на генерацию (required)
    * @return List&lt;GetV1AcceptanceReportTasksTaskIdDownloadResponse200Inner&gt;
@@ -429,7 +433,8 @@ public class ReportsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос |
    * 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 1 ч
-   * | 2 запроса | 30 мин | 1 запрос |
+   * | 2 запроса | 30 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-acceptance-report-tasks-task-id-download
    *
    * @param taskId ID задания на генерацию (required)
    * @return ApiResponse&lt;List&lt;GetV1AcceptanceReportTasksTaskIdDownloadResponse200Inner&gt;&gt;
@@ -468,7 +473,8 @@ public class ReportsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос |
    * 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 1 ч
-   * | 2 запроса | 30 мин | 1 запрос |
+   * | 2 запроса | 30 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-acceptance-report-tasks-task-id-download
    *
    * @param taskId ID задания на генерацию (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -599,7 +605,8 @@ public class ReportsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 5 сек | 1 запрос | 5 сек | 1 запрос | | Сервисный | 5 сек | 1 запрос |
    * 5 сек | 1 запрос | | Базовый с секретом | 5 сек | 1 запрос | 5 сек | 1 запрос | | Базовый | 1 ч
-   * | 2 запроса | 30 мин | 1 запрос |
+   * | 2 запроса | 30 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-acceptance-report-tasks-task-id-status
    *
    * @param taskId ID задания на генерацию (required)
    * @return GetTasksResponse
@@ -634,7 +641,8 @@ public class ReportsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 5 сек | 1 запрос | 5 сек | 1 запрос | | Сервисный | 5 сек | 1 запрос |
    * 5 сек | 1 запрос | | Базовый с секретом | 5 сек | 1 запрос | 5 сек | 1 запрос | | Базовый | 1 ч
-   * | 2 запроса | 30 мин | 1 запрос |
+   * | 2 запроса | 30 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-acceptance-report-tasks-task-id-status
    *
    * @param taskId ID задания на генерацию (required)
    * @return ApiResponse&lt;GetTasksResponse&gt;
@@ -670,7 +678,8 @@ public class ReportsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 5 сек | 1 запрос | 5 сек | 1 запрос | | Сервисный | 5 сек | 1 запрос |
    * 5 сек | 1 запрос | | Базовый с секретом | 5 сек | 1 запрос | 5 сек | 1 запрос | | Базовый | 1 ч
-   * | 2 запроса | 30 мин | 1 запрос |
+   * | 2 запроса | 30 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-acceptance-report-tasks-task-id-status
    *
    * @param taskId ID задания на генерацию (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -792,7 +801,8 @@ public class ReportsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 10 мин | 1 запрос | 10 мин | 10 запросов | | Сервисный | 10 мин | 1
    * запрос | 10 мин | 10 запросов | | Базовый с секретом | 10 мин | 1 запрос | 10 мин | 10 запросов
-   * | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-antifraud-details
    *
    * @param date Дата, которая входит в отчётный период, &#x60;ГГГГ-ММ-ДД&#x60;. Чтобы получить
    *     данные за всё время с августа 2023, не указывайте этот параметр (optional)
@@ -828,7 +838,8 @@ public class ReportsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 10 мин | 1 запрос | 10 мин | 10 запросов | | Сервисный | 10 мин | 1
    * запрос | 10 мин | 10 запросов | | Базовый с секретом | 10 мин | 1 запрос | 10 мин | 10 запросов
-   * | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-antifraud-details
    *
    * @param date Дата, которая входит в отчётный период, &#x60;ГГГГ-ММ-ДД&#x60;. Чтобы получить
    *     данные за всё время с августа 2023, не указывайте этот параметр (optional)
@@ -865,7 +876,8 @@ public class ReportsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 10 мин | 1 запрос | 10 мин | 10 запросов | | Сервисный | 10 мин | 1
    * запрос | 10 мин | 10 запросов | | Базовый с секретом | 10 мин | 1 запрос | 10 мин | 10 запросов
-   * | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-antifraud-details
    *
    * @param date Дата, которая входит в отчётный период, &#x60;ГГГГ-ММ-ДД&#x60;. Чтобы получить
    *     данные за всё время с августа 2023, не указывайте этот параметр (optional)
@@ -1008,7 +1020,8 @@ public class ReportsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 6 запросов | | Сервисный | 10 сек | 1
    * запрос | 10 сек | 6 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 6 запросов |
-   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-banned-products-blocked
    *
    * @param sort Сортировка - &#x60;brand&#x60; — по бренду - &#x60;nmId&#x60; — по артикулу WB -
    *     &#x60;title&#x60; — по наименованию товара - &#x60;vendorCode&#x60; — по артикулу продавца
@@ -1047,7 +1060,8 @@ public class ReportsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 6 запросов | | Сервисный | 10 сек | 1
    * запрос | 10 сек | 6 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 6 запросов |
-   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-banned-products-blocked
    *
    * @param sort Сортировка - &#x60;brand&#x60; — по бренду - &#x60;nmId&#x60; — по артикулу WB -
    *     &#x60;title&#x60; — по наименованию товара - &#x60;vendorCode&#x60; — по артикулу продавца
@@ -1089,7 +1103,8 @@ public class ReportsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 6 запросов | | Сервисный | 10 сек | 1
    * запрос | 10 сек | 6 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 6 запросов |
-   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-banned-products-blocked
    *
    * @param sort Сортировка - &#x60;brand&#x60; — по бренду - &#x60;nmId&#x60; — по артикулу WB -
    *     &#x60;title&#x60; — по наименованию товара - &#x60;vendorCode&#x60; — по артикулу продавца
@@ -1259,7 +1274,8 @@ public class ReportsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 5 сек | 1 запрос | 5 сек | 20 запросов | | Сервисный | 5 сек | 1
    * запрос | 5 сек | 20 запросов | | Базовый с секретом | 5 сек | 1 запрос | 5 сек | 20 запросов |
-   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-brand-share
    *
    * @param parentId ID родительской категории (required)
    * @param brand Бренд (required)
@@ -1295,7 +1311,8 @@ public class ReportsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 5 сек | 1 запрос | 5 сек | 20 запросов | | Сервисный | 5 сек | 1
    * запрос | 5 сек | 20 запросов | | Базовый с секретом | 5 сек | 1 запрос | 5 сек | 20 запросов |
-   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-brand-share
    *
    * @param parentId ID родительской категории (required)
    * @param brand Бренд (required)
@@ -1332,7 +1349,8 @@ public class ReportsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 5 сек | 1 запрос | 5 сек | 20 запросов | | Сервисный | 5 сек | 1
    * запрос | 5 сек | 20 запросов | | Базовый с секретом | 5 сек | 1 запрос | 5 сек | 20 запросов |
-   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-brand-share
    *
    * @param parentId ID родительской категории (required)
    * @param brand Бренд (required)
@@ -1454,7 +1472,8 @@ public class ReportsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1
    * запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов |
-   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-brand-share-brands
    *
    * @return GetV1AnalyticsBrandShareBrands200Response
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
@@ -1486,7 +1505,8 @@ public class ReportsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1
    * запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов |
-   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-brand-share-brands
    *
    * @return ApiResponse&lt;GetV1AnalyticsBrandShareBrands200Response&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
@@ -1519,7 +1539,8 @@ public class ReportsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1
    * запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов |
-   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-brand-share-brands
    *
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
@@ -1672,7 +1693,8 @@ public class ReportsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 5 сек | 1 запрос | 5 сек | 20 запросов | | Сервисный | 5 сек | 1
    * запрос | 5 сек | 20 запросов | | Базовый с секретом | 5 сек | 1 запрос | 5 сек | 20 запросов |
-   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-brand-share-parent-subjects
    *
    * @param brand Бренд (required)
    * @param dateFrom Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; (required)
@@ -1709,7 +1731,8 @@ public class ReportsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 5 сек | 1 запрос | 5 сек | 20 запросов | | Сервисный | 5 сек | 1
    * запрос | 5 сек | 20 запросов | | Базовый с секретом | 5 сек | 1 запрос | 5 сек | 20 запросов |
-   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-brand-share-parent-subjects
    *
    * @param brand Бренд (required)
    * @param dateFrom Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; (required)
@@ -1751,7 +1774,8 @@ public class ReportsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 5 сек | 1 запрос | 5 сек | 20 запросов | | Сервисный | 5 сек | 1
    * запрос | 5 сек | 20 запросов | | Базовый с секретом | 5 сек | 1 запрос | 5 сек | 20 запросов |
-   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-brand-share-parent-subjects
    *
    * @param brand Бренд (required)
    * @param dateFrom Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; (required)
@@ -1898,7 +1922,8 @@ public class ReportsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1
    * запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов |
-   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-goods-labeling
    *
    * @param dateFrom Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; (required)
    * @param dateTo Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; (required)
@@ -1932,7 +1957,8 @@ public class ReportsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1
    * запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов |
-   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-goods-labeling
    *
    * @param dateFrom Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; (required)
    * @param dateTo Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; (required)
@@ -1968,7 +1994,8 @@ public class ReportsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1
    * запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов |
-   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-goods-labeling
    *
    * @param dateFrom Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; (required)
    * @param dateTo Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; (required)
@@ -2106,7 +2133,8 @@ public class ReportsApi {
 
   /**
    * Получить отчёт Метод будет отключен [26
-   * октября](https://dev.wildberries.ru/release-notes?id&#x3D;577).
+   * октября](https://dev.wildberries.ru/release-notes?id&#x3D;577). Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-goods-return
    *
    * @param dateFrom Дата начала отчётного периода (required)
    * @param dateTo Дата окончания отчётного периода (required)
@@ -2137,7 +2165,8 @@ public class ReportsApi {
 
   /**
    * Получить отчёт Метод будет отключен [26
-   * октября](https://dev.wildberries.ru/release-notes?id&#x3D;577).
+   * октября](https://dev.wildberries.ru/release-notes?id&#x3D;577). Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-goods-return
    *
    * @param dateFrom Дата начала отчётного периода (required)
    * @param dateTo Дата окончания отчётного периода (required)
@@ -2168,7 +2197,8 @@ public class ReportsApi {
 
   /**
    * Получить отчёт (asynchronously) Метод будет отключен [26
-   * октября](https://dev.wildberries.ru/release-notes?id&#x3D;577).
+   * октября](https://dev.wildberries.ru/release-notes?id&#x3D;577). Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-goods-return
    *
    * @param dateFrom Дата начала отчётного периода (required)
    * @param dateTo Дата окончания отчётного периода (required)
@@ -2314,7 +2344,8 @@ public class ReportsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1
    * запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов |
-   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-region-sale
    *
    * @param dateFrom Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; (required)
    * @param dateTo Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; (required)
@@ -2350,7 +2381,8 @@ public class ReportsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1
    * запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов |
-   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-region-sale
    *
    * @param dateFrom Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; (required)
    * @param dateTo Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; (required)
@@ -2386,7 +2418,8 @@ public class ReportsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1
    * запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов |
-   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-region-sale
    *
    * @param dateFrom Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; (required)
    * @param dateTo Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; (required)
@@ -2568,7 +2601,8 @@ public class ReportsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос |
    * 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 1 ч
-   * | 4 запроса | 15 мин | 1 запрос |
+   * | 4 запроса | 15 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-analytics-v1-deductions
    *
    * @param dateTo Конец отчётного периода (required)
    * @param limit Количество удержаний в ответе (required)
@@ -2612,7 +2646,8 @@ public class ReportsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос |
    * 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 1 ч
-   * | 4 запроса | 15 мин | 1 запрос |
+   * | 4 запроса | 15 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-analytics-v1-deductions
    *
    * @param dateTo Конец отчётного периода (required)
    * @param limit Количество удержаний в ответе (required)
@@ -2658,7 +2693,8 @@ public class ReportsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос |
    * 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 1 ч
-   * | 4 запроса | 15 мин | 1 запрос |
+   * | 4 запроса | 15 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-analytics-v1-deductions
    *
    * @param dateTo Конец отчётного периода (required)
    * @param limit Количество удержаний в ответе (required)
@@ -2833,7 +2869,8 @@ public class ReportsApi {
 
   /**
    * Получить отчёт Метод возвращает отчёт о [возвратах товаров
-   * продавцу](https://seller.wildberries.ru/return-transfer-reports).
+   * продавцу](https://seller.wildberries.ru/return-transfer-reports). Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-analytics-v1-item-returns
    *
    * @param dateFrom Дата начала отчётного периода (required)
    * @param dateTo Дата окончания отчётного периода (required)
@@ -2866,7 +2903,8 @@ public class ReportsApi {
 
   /**
    * Получить отчёт Метод возвращает отчёт о [возвратах товаров
-   * продавцу](https://seller.wildberries.ru/return-transfer-reports).
+   * продавцу](https://seller.wildberries.ru/return-transfer-reports). Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-analytics-v1-item-returns
    *
    * @param dateFrom Дата начала отчётного периода (required)
    * @param dateTo Дата окончания отчётного периода (required)
@@ -2900,7 +2938,8 @@ public class ReportsApi {
 
   /**
    * Получить отчёт (asynchronously) Метод возвращает отчёт о [возвратах товаров
-   * продавцу](https://seller.wildberries.ru/return-transfer-reports).
+   * продавцу](https://seller.wildberries.ru/return-transfer-reports). Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-analytics-v1-item-returns
    *
    * @param dateFrom Дата начала отчётного периода (required)
    * @param dateTo Дата окончания отчётного периода (required)
@@ -3061,7 +3100,8 @@ public class ReportsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос |
    * 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 6 ч
-   * | 1 запрос | 6 ч | 1 запрос |
+   * | 1 запрос | 6 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-analytics-v1-measurement-penalties
    *
    * @param dateTo Конец отчётного периода (required)
    * @param limit Количество удержаний в ответе (required)
@@ -3099,7 +3139,8 @@ public class ReportsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос |
    * 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 6 ч
-   * | 1 запрос | 6 ч | 1 запрос |
+   * | 1 запрос | 6 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-analytics-v1-measurement-penalties
    *
    * @param dateTo Конец отчётного периода (required)
    * @param limit Количество удержаний в ответе (required)
@@ -3138,7 +3179,8 @@ public class ReportsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос |
    * 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 6 ч
-   * | 1 запрос | 6 ч | 1 запрос |
+   * | 1 запрос | 6 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-analytics-v1-measurement-penalties
    *
    * @param dateTo Конец отчётного периода (required)
    * @param limit Количество удержаний в ответе (required)
@@ -3290,7 +3332,8 @@ public class ReportsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 5 запросов | | Сервисный | 1 мин | 1 запрос
    * | 1 мин | 5 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 5 запросов | | Базовый
-   * | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-paid-storage
    *
    * @param dateFrom Начало отчётного периода в формате RFC3339. Можно передать дату или дату со
    *     временем. Примеры: * &#x60;2019-06-20&#x60; * &#x60;2019-06-20T23:59:59&#x60; *
@@ -3328,7 +3371,8 @@ public class ReportsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 5 запросов | | Сервисный | 1 мин | 1 запрос
    * | 1 мин | 5 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 5 запросов | | Базовый
-   * | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-paid-storage
    *
    * @param dateFrom Начало отчётного периода в формате RFC3339. Можно передать дату или дату со
    *     временем. Примеры: * &#x60;2019-06-20&#x60; * &#x60;2019-06-20T23:59:59&#x60; *
@@ -3368,7 +3412,8 @@ public class ReportsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 5 запросов | | Сервисный | 1 мин | 1 запрос
    * | 1 мин | 5 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 5 запросов | | Базовый
-   * | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-paid-storage
    *
    * @param dateFrom Начало отчётного периода в формате RFC3339. Можно передать дату или дату со
    *     временем. Примеры: * &#x60;2019-06-20&#x60; * &#x60;2019-06-20T23:59:59&#x60; *
@@ -3500,7 +3545,8 @@ public class ReportsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос |
    * 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 1 ч
-   * | 2 запроса | 30 мин | 1 запрос |
+   * | 2 запроса | 30 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-paid-storage-tasks-task-id-download
    *
    * @param taskId ID задания на генерацию (required)
    * @return List&lt;GetV1PaidStorageTasksTaskIdDownloadResponse200Inner&gt;
@@ -3537,7 +3583,8 @@ public class ReportsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос |
    * 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 1 ч
-   * | 2 запроса | 30 мин | 1 запрос |
+   * | 2 запроса | 30 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-paid-storage-tasks-task-id-download
    *
    * @param taskId ID задания на генерацию (required)
    * @return ApiResponse&lt;List&lt;GetV1PaidStorageTasksTaskIdDownloadResponse200Inner&gt;&gt;
@@ -3575,7 +3622,8 @@ public class ReportsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос |
    * 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 1 ч
-   * | 2 запроса | 30 мин | 1 запрос |
+   * | 2 запроса | 30 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-paid-storage-tasks-task-id-download
    *
    * @param taskId ID задания на генерацию (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -3705,7 +3753,8 @@ public class ReportsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 5 сек | 1 запрос | 5 сек | 5 запросов | | Сервисный | 5 сек | 1 запрос
    * | 5 сек | 5 запросов | | Базовый с секретом | 5 сек | 1 запрос | 5 сек | 5 запросов | | Базовый
-   * | 1 ч | 2 запроса | 30 мин | 2 запроса |
+   * | 1 ч | 2 запроса | 30 мин | 2 запроса | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-paid-storage-tasks-task-id-status
    *
    * @param taskId ID задания на генерацию (required)
    * @return GetTasksResponse
@@ -3739,7 +3788,8 @@ public class ReportsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 5 сек | 1 запрос | 5 сек | 5 запросов | | Сервисный | 5 сек | 1 запрос
    * | 5 сек | 5 запросов | | Базовый с секретом | 5 сек | 1 запрос | 5 сек | 5 запросов | | Базовый
-   * | 1 ч | 2 запроса | 30 мин | 2 запроса |
+   * | 1 ч | 2 запроса | 30 мин | 2 запроса | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-paid-storage-tasks-task-id-status
    *
    * @param taskId ID задания на генерацию (required)
    * @return ApiResponse&lt;GetTasksResponse&gt;
@@ -3774,7 +3824,8 @@ public class ReportsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 5 сек | 1 запрос | 5 сек | 5 запросов | | Сервисный | 5 сек | 1 запрос
    * | 5 сек | 5 запросов | | Базовый с секретом | 5 сек | 1 запрос | 5 сек | 5 запросов | | Базовый
-   * | 1 ч | 2 запроса | 30 мин | 2 запроса |
+   * | 1 ч | 2 запроса | 30 мин | 2 запроса | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-paid-storage-tasks-task-id-status
    *
    * @param taskId ID задания на генерацию (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -3934,7 +3985,8 @@ public class ReportsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1
    * запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов |
-   * | Базовый | 3 ч | 1 запрос | 3 ч | 1 запрос |
+   * | Базовый | 3 ч | 1 запрос | 3 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-supplier-orders
    *
    * @param dateFrom Дата и время последнего изменения по заказу. Дата в формате RFC3339. Можно
    *     передать дату или дату со временем. Время можно указывать с точностью до
@@ -3993,7 +4045,8 @@ public class ReportsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1
    * запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов |
-   * | Базовый | 3 ч | 1 запрос | 3 ч | 1 запрос |
+   * | Базовый | 3 ч | 1 запрос | 3 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-supplier-orders
    *
    * @param dateFrom Дата и время последнего изменения по заказу. Дата в формате RFC3339. Можно
    *     передать дату или дату со временем. Время можно указывать с точностью до
@@ -4054,7 +4107,8 @@ public class ReportsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1
    * запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов |
-   * | Базовый | 3 ч | 1 запрос | 3 ч | 1 запрос |
+   * | Базовый | 3 ч | 1 запрос | 3 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-supplier-orders
    *
    * @param dateFrom Дата и время последнего изменения по заказу. Дата в формате RFC3339. Можно
    *     передать дату или дату со временем. Время можно указывать с точностью до
@@ -4233,7 +4287,8 @@ public class ReportsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос |
    * 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 2 ч
-   * | 1 запрос | 2 ч | 1 запрос |
+   * | 1 запрос | 2 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-supplier-sales
    *
    * @param dateFrom Дата и время последнего изменения по продаже/возврату. Дата в формате RFC3339.
    *     Можно передать дату или дату со временем. Время можно указывать с точностью до
@@ -4297,7 +4352,8 @@ public class ReportsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос |
    * 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 2 ч
-   * | 1 запрос | 2 ч | 1 запрос |
+   * | 1 запрос | 2 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-supplier-sales
    *
    * @param dateFrom Дата и время последнего изменения по продаже/возврату. Дата в формате RFC3339.
    *     Можно передать дату или дату со временем. Время можно указывать с точностью до
@@ -4363,7 +4419,8 @@ public class ReportsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос |
    * 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 2 ч
-   * | 1 запрос | 2 ч | 1 запрос |
+   * | 1 запрос | 2 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-supplier-sales
    *
    * @param dateFrom Дата и время последнего изменения по продаже/возврату. Дата в формате RFC3339.
    *     Можно передать дату или дату со временем. Время можно указывать с точностью до
@@ -4527,7 +4584,8 @@ public class ReportsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос |
    * 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 6 ч
-   * | 1 запрос | 6 ч | 1 запрос |
+   * | 1 запрос | 6 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-analytics-v1-warehouse-measurements
    *
    * @param dateTo Конец отчётного периода (required)
    * @param limit Количество замеров в ответе (required)
@@ -4565,7 +4623,8 @@ public class ReportsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос |
    * 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 6 ч
-   * | 1 запрос | 6 ч | 1 запрос |
+   * | 1 запрос | 6 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-analytics-v1-warehouse-measurements
    *
    * @param dateTo Конец отчётного периода (required)
    * @param limit Количество замеров в ответе (required)
@@ -4604,7 +4663,8 @@ public class ReportsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос |
    * 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 6 ч
-   * | 1 запрос | 6 ч | 1 запрос |
+   * | 1 запрос | 6 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-analytics-v1-warehouse-measurements
    *
    * @param dateTo Конец отчётного периода (required)
    * @param limit Количество замеров в ответе (required)
@@ -4815,7 +4875,8 @@ public class ReportsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 5 запросов | | Сервисный | 1 мин | 1 запрос
    * | 1 мин | 5 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 5 запросов | | Базовый
-   * | 1 ч | 4 запроса | 15 мин | 1 запрос |
+   * | 1 ч | 4 запроса | 15 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-warehouse-remains
    *
    * @param locale Язык полей ответа &#x60;subjectName&#x60; и &#x60;warehouseName&#x60;: -
    *     &#x60;ru&#x60; — русский - &#x60;en&#x60; — английский - &#x60;zh&#x60; — китайский.
@@ -4884,7 +4945,8 @@ public class ReportsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 5 запросов | | Сервисный | 1 мин | 1 запрос
    * | 1 мин | 5 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 5 запросов | | Базовый
-   * | 1 ч | 4 запроса | 15 мин | 1 запрос |
+   * | 1 ч | 4 запроса | 15 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-warehouse-remains
    *
    * @param locale Язык полей ответа &#x60;subjectName&#x60; и &#x60;warehouseName&#x60;: -
    *     &#x60;ru&#x60; — русский - &#x60;en&#x60; — английский - &#x60;zh&#x60; — китайский.
@@ -4955,7 +5017,8 @@ public class ReportsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 5 запросов | | Сервисный | 1 мин | 1 запрос
    * | 1 мин | 5 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 5 запросов | | Базовый
-   * | 1 ч | 4 запроса | 15 мин | 1 запрос |
+   * | 1 ч | 4 запроса | 15 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-warehouse-remains
    *
    * @param locale Язык полей ответа &#x60;subjectName&#x60; и &#x60;warehouseName&#x60;: -
    *     &#x60;ru&#x60; — русский - &#x60;en&#x60; — английский - &#x60;zh&#x60; — китайский.
@@ -5114,7 +5177,8 @@ public class ReportsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос |
    * 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 1 ч
-   * | 4 запроса | 15 мин | 1 запрос |
+   * | 4 запроса | 15 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-warehouse-remains-tasks-task-id-download
    *
    * @param taskId ID задания на генерацию (required)
    * @return List&lt;GetV1WarehouseRemainsTasksTaskIdDownloadResponse200Inner&gt;
@@ -5150,7 +5214,8 @@ public class ReportsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос |
    * 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 1 ч
-   * | 4 запроса | 15 мин | 1 запрос |
+   * | 4 запроса | 15 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-warehouse-remains-tasks-task-id-download
    *
    * @param taskId ID задания на генерацию (required)
    * @return ApiResponse&lt;List&lt;GetV1WarehouseRemainsTasksTaskIdDownloadResponse200Inner&gt;&gt;
@@ -5189,7 +5254,8 @@ public class ReportsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос |
    * 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 1 ч
-   * | 4 запроса | 15 мин | 1 запрос |
+   * | 4 запроса | 15 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-warehouse-remains-tasks-task-id-download
    *
    * @param taskId ID задания на генерацию (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -5320,7 +5386,8 @@ public class ReportsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 5 сек | 1 запрос | 5 сек | 5 запросов | | Сервисный | 5 сек | 1 запрос
    * | 5 сек | 5 запросов | | Базовый с секретом | 5 сек | 1 запрос | 5 сек | 5 запросов | | Базовый
-   * | 1 ч | 4 запроса | 15 мин | 1 запрос |
+   * | 1 ч | 4 запроса | 15 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-warehouse-remains-tasks-task-id-status
    *
    * @param taskId ID задания на генерацию (required)
    * @return GetTasksResponse
@@ -5355,7 +5422,8 @@ public class ReportsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 5 сек | 1 запрос | 5 сек | 5 запросов | | Сервисный | 5 сек | 1 запрос
    * | 5 сек | 5 запросов | | Базовый с секретом | 5 сек | 1 запрос | 5 сек | 5 запросов | | Базовый
-   * | 1 ч | 4 запроса | 15 мин | 1 запрос |
+   * | 1 ч | 4 запроса | 15 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-warehouse-remains-tasks-task-id-status
    *
    * @param taskId ID задания на генерацию (required)
    * @return ApiResponse&lt;GetTasksResponse&gt;
@@ -5391,7 +5459,8 @@ public class ReportsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 5 сек | 1 запрос | 5 сек | 5 запросов | | Сервисный | 5 сек | 1 запрос
    * | 5 сек | 5 запросов | | Базовый с секретом | 5 сек | 1 запрос | 5 сек | 5 запросов | | Базовый
-   * | 1 ч | 4 запроса | 15 мин | 1 запрос |
+   * | 1 ч | 4 запроса | 15 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-warehouse-remains-tasks-task-id-status
    *
    * @param taskId ID задания на генерацию (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -5538,7 +5607,8 @@ public class ReportsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 5 ч | 10 запросов | 30 мин | 10 запросов | | Сервисный | 5 ч | 10
    * запросов | 30 мин | 10 запросов | | Базовый с секретом | 5 ч | 10 запросов | 30 мин | 10
-   * запросов | | Базовый | 24 ч | 2 запроса | 12 ч | 1 запрос |
+   * запросов | | Базовый | 24 ч | 2 запроса | 12 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/post-api-v1-analytics-excise-report
    *
    * @param dateFrom Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; (required)
    * @param dateTo Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; (required)
@@ -5575,7 +5645,8 @@ public class ReportsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 5 ч | 10 запросов | 30 мин | 10 запросов | | Сервисный | 5 ч | 10
    * запросов | 30 мин | 10 запросов | | Базовый с секретом | 5 ч | 10 запросов | 30 мин | 10
-   * запросов | | Базовый | 24 ч | 2 запроса | 12 ч | 1 запрос |
+   * запросов | | Базовый | 24 ч | 2 запроса | 12 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/post-api-v1-analytics-excise-report
    *
    * @param dateFrom Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; (required)
    * @param dateTo Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; (required)
@@ -5613,7 +5684,8 @@ public class ReportsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 5 ч | 10 запросов | 30 мин | 10 запросов | | Сервисный | 5 ч | 10
    * запросов | 30 мин | 10 запросов | | Базовый с секретом | 5 ч | 10 запросов | 30 мин | 10
-   * запросов | | Базовый | 24 ч | 2 запроса | 12 ч | 1 запрос |
+   * запросов | | Базовый | 24 ч | 2 запроса | 12 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/post-api-v1-analytics-excise-report
    *
    * @param dateFrom Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; (required)
    * @param dateTo Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; (required)

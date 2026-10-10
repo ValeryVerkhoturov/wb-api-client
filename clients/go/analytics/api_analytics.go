@@ -36,6 +36,8 @@ type AnalyticsAPI interface {
 		| Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
 		| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/get-api-v2-nm-report-downloads
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV2NmReportDownloadsRequest
 	*/
@@ -60,6 +62,8 @@ type AnalyticsAPI interface {
 		| Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса |
 		| Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
 		| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/get-api-v2-nm-report-downloads-file-downloadid
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@param downloadId ID отчёта
@@ -96,6 +100,8 @@ type AnalyticsAPI interface {
 		| Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос |
 		| Базовый | 3 ч | 1 запрос | 3 ч | 1 запрос |
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-analytics-v1-order-feed
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV1OrderFeedRequest
 	*/
@@ -122,6 +128,8 @@ type AnalyticsAPI interface {
 		| Период | Лимит | Интервал | Всплеск |
 		| --- | --- | --- | --- |
 		| 1 мин | 3 запроса | 20 сек | 1 запрос |
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-analytics-v1-stocks-report-seller-warehouses
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV1StocksReportSellerWarehousesRequest
@@ -151,6 +159,8 @@ type AnalyticsAPI interface {
 		| --- | --- | --- | --- |
 		| 1 мин | 3 запроса | 20 сек | 1 запрос |
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-analytics-v1-stocks-report-wb-warehouses
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV1StocksReportWbWarehousesRequest
 	*/
@@ -175,6 +185,8 @@ type AnalyticsAPI interface {
 		| Период | Лимит | Интервал | Всплеск |
 		| --- | --- | --- | --- |
 		| 1 мин | 3 запроса | 20 сек | 3 запроса |
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-analytics-v2-item-rating
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV2ItemRatingRequest
@@ -219,6 +231,8 @@ type AnalyticsAPI interface {
 		| Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
 		| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-nm-report-downloads
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV2NmReportDownloadsRequest
 	*/
@@ -240,6 +254,8 @@ type AnalyticsAPI interface {
 		| Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса |
 		| Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
 		| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-nm-report-downloads-retry
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV2NmReportDownloadsRetryRequest
@@ -270,6 +286,8 @@ type AnalyticsAPI interface {
 		| Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
 		| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-search-report-product-orders
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV2SearchReportProductOrdersRequest
 	*/
@@ -297,6 +315,8 @@ type AnalyticsAPI interface {
 		| Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса |
 		| Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
 		| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-search-report-product-search-texts
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV2SearchReportProductSearchTextsRequest
@@ -332,6 +352,8 @@ type AnalyticsAPI interface {
 		| Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
 		| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-search-report-report
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV2SearchReportReportRequest
 	*/
@@ -363,6 +385,8 @@ type AnalyticsAPI interface {
 		| Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
 		| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-search-report-table-details
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV2SearchReportTableDetailsRequest
 	*/
@@ -391,6 +415,8 @@ type AnalyticsAPI interface {
 		| Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
 		| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-search-report-table-groups
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV2SearchReportTableGroupsRequest
 	*/
@@ -416,6 +442,8 @@ type AnalyticsAPI interface {
 		| Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса |
 		| Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
 		| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-stocks-report-offices
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV2StocksReportOfficesRequest
@@ -443,6 +471,8 @@ type AnalyticsAPI interface {
 		| Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
 		| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-stocks-report-products-groups
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV2StocksReportProductsGroupsRequest
 	*/
@@ -468,6 +498,8 @@ type AnalyticsAPI interface {
 		| Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса |
 		| Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
 		| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-stocks-report-products-products
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV2StocksReportProductsProductsRequest
@@ -500,6 +532,8 @@ type AnalyticsAPI interface {
 		| Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса |
 		| Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
 		| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-stocks-report-products-sizes
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV2StocksReportProductsSizesRequest
@@ -541,6 +575,8 @@ type AnalyticsAPI interface {
 		| Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса |
 		| Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
 		| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-analytics-v3-sales-funnel-grouped-history
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV3SalesFunnelGroupedHistoryRequest
@@ -586,6 +622,8 @@ type AnalyticsAPI interface {
 		| Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
 		| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-analytics-v3-sales-funnel-products
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV3SalesFunnelProductsRequest
 	*/
@@ -621,6 +659,8 @@ type AnalyticsAPI interface {
 		| Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса |
 		| Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
 		| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-analytics-v3-sales-funnel-products-history
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV3SalesFunnelProductsHistoryRequest
@@ -663,6 +703,8 @@ GetV2NmReportDownloads Получить список отчётов
 | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса |
 | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
 | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/get-api-v2-nm-report-downloads
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV2NmReportDownloadsRequest
@@ -829,6 +871,8 @@ GetV2NmReportDownloadsFileDownloadId Получить отчёт
 | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса |
 | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
 | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/get-api-v2-nm-report-downloads-file-downloadid
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param downloadId ID отчёта
@@ -1013,6 +1057,8 @@ PostV1OrderFeed Получить отчёт
 | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос |
 | Базовый | 3 ч | 1 запрос | 3 ч | 1 запрос |
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-analytics-v1-order-feed
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV1OrderFeedRequest
 */
@@ -1176,6 +1222,8 @@ PostV1StocksReportSellerWarehouses Остатки на складах прода
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 3 запроса | 20 сек | 1 запрос |
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-analytics-v1-stocks-report-seller-warehouses
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV1StocksReportSellerWarehousesRequest
@@ -1344,6 +1392,8 @@ PostV1StocksReportWbWarehouses Остатки на складах WB
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 3 запроса | 20 сек | 1 запрос |
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-analytics-v1-stocks-report-wb-warehouses
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV1StocksReportWbWarehousesRequest
@@ -1520,6 +1570,8 @@ PostV2ItemRating Получить отчёт
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 3 запроса | 20 сек | 3 запроса |
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-analytics-v2-item-rating
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV2ItemRatingRequest
@@ -1704,6 +1756,8 @@ PostV2NmReportDownloads Создать отчёт
 | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
 | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-nm-report-downloads
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV2NmReportDownloadsRequest
 */
@@ -1874,6 +1928,8 @@ PostV2NmReportDownloadsRetry Сгенерировать отчёт повтор�
 | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
 | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-nm-report-downloads-retry
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV2NmReportDownloadsRetryRequest
 */
@@ -2042,6 +2098,8 @@ PostV2SearchReportProductOrders Заказы и позиции по поиско
 | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса |
 | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
 | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-search-report-product-orders
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV2SearchReportProductOrdersRequest
@@ -2221,6 +2279,8 @@ PostV2SearchReportProductSearchTexts Поисковые запросы по то
 | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса |
 | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
 | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-search-report-product-search-texts
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV2SearchReportProductSearchTextsRequest
@@ -2407,6 +2467,8 @@ PostV2SearchReportReport Основная страница
 | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
 | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-search-report-report
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV2SearchReportReportRequest
 */
@@ -2589,6 +2651,8 @@ PostV2SearchReportTableDetails Пагинация по товарам в гру�
 | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
 | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-search-report-table-details
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV2SearchReportTableDetailsRequest
 */
@@ -2768,6 +2832,8 @@ PostV2SearchReportTableGroups Пагинация по группам
 | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
 | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-search-report-table-groups
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV2SearchReportTableGroupsRequest
 */
@@ -2944,6 +3010,8 @@ PostV2StocksReportOffices Данные по складам
 | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса |
 | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
 | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-stocks-report-offices
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV2StocksReportOfficesRequest
@@ -3122,6 +3190,8 @@ PostV2StocksReportProductsGroups Данные по группам
 | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
 | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-stocks-report-products-groups
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV2StocksReportProductsGroupsRequest
 */
@@ -3298,6 +3368,8 @@ PostV2StocksReportProductsProducts Данные по товарам
 | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса |
 | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
 | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-stocks-report-products-products
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV2StocksReportProductsProductsRequest
@@ -3481,6 +3553,8 @@ PostV2StocksReportProductsSizes Данные по размерам
 | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса |
 | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
 | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-stocks-report-products-sizes
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV2StocksReportProductsSizesRequest
@@ -3673,6 +3747,8 @@ PostV3SalesFunnelGroupedHistory Статистика групп карточек
 | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса |
 | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
 | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-analytics-v3-sales-funnel-grouped-history
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV3SalesFunnelGroupedHistoryRequest
@@ -3869,6 +3945,8 @@ PostV3SalesFunnelProducts Статистика карточек товаров �
 | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
 | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-analytics-v3-sales-funnel-products
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV3SalesFunnelProductsRequest
 */
@@ -4055,6 +4133,8 @@ PostV3SalesFunnelProductsHistory Статистика карточек това�
 | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса |
 | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
 | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-analytics-v3-sales-funnel-products-history
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV3SalesFunnelProductsHistoryRequest

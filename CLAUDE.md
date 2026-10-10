@@ -8,7 +8,7 @@ A code-generation pipeline, not a hand-written library. The only human-authored 
 
 - `scripts/` — download, post-process, generate, inject-secret, gen-readmes, gen-api-reference
 - `generator-configs/` — one YAML per target language, passed to `openapi-generator-cli`
-- `templates/` — top-level manifests (`pyproject.toml`, `package.json`, `go.mod`, `pom.xml`, `composer.json`) with `__VERSION__` placeholders
+- `templates/` — top-level manifests (`pyproject.toml`, `package.json`, `go.mod`, `pom.xml`, `composer.json`) with `__VERSION__` placeholders, plus the one mustache override (`php/libraries/guzzle/api.mustache`)
 - `.github/workflows/` — daily upstream check + PR-drift check + reusable per-language publish
 
 Everything under `clients/` is generated output. Do not edit it — regenerate.
@@ -17,7 +17,7 @@ Everything under `clients/` is generated output. Do not edit it — regenerate.
 
 ```
 download-swaggers.sh   →  swaggers/*.yaml         (raw upstream, checksummed)
-post-process.py        →  swaggers/processed/     (10 passes; see below)
+post-process.py        →  swaggers/processed/     (11 passes; see below)
 generate.sh <ver>      →  clients/<lang>/…        (openapi-generator-cli, 7 langs)
     ├── inject-secret.py           (SecretString wrapper per lang; OneScript ships its own)
     ├── {black|prettier|gofmt|spotless|php-cs-fixer}   (canonicalize formatting)
@@ -136,6 +136,8 @@ Package names on each registry (some diverge from the natural `wb-api-client` be
 
 Top-level manifests come from `templates/{python,typescript,go,java,php,onescript,csharp}/`. `__VERSION__` (and `__EXPORTS__` for TS) is substituted at generate time — do not hand-edit `clients/*/package.json` etc., they're regenerated on every run.
 
+`templates/php/libraries/guzzle/api.mustache` is the single mustache override (passed via `--template-dir` for PHP only): it renders the operation description (`notes`) into method docblocks, which the stock template skips — its `{{#description}}` placeholder binds to an empty field in the php generator. When bumping `OPENAPI_GENERATOR_VERSION`, re-diff the override against `author template -g php --library guzzle`.
+
 Slugs come from the spec filename (`02-items.yaml` → `items`, snake_cased where needed, PascalCased for PHP). Keep spec filenames stable — they become part of every import path.
 
 ## User-Agent
@@ -161,8 +163,9 @@ Every generated client sends `ValeryVerkhoturov/wb-api-client/<lang>` on every r
 9. `drop_date_formats` — strips `format: date` / `date-time` from string schemas (WB returns `""` for unset dates like `fixTariffDateFrom`/`utdUcdDate`, which crashes strict date parsers in every language; plain strings are the honest contract)
 10. `drop_response_required` — deletes `required` arrays from every schema reachable from a response definition, so missing response fields deserialize to defaults (`None` / null / zero value) instead of throwing. Request-body schemas keep their `required` lists — input validation is unaffected
 11. `rename_tags_to_module` — rewrites every operation's `tags` to the module name (`Finances`, `Reports`, …) so each module generates a single well-named API class (`FinancesApi`, …) instead of `Api`/`DefaultApi` (WB tags are Russian; generators sanitize non-ASCII tag names to an empty class-name stem). Original tags are stashed in `x-original-tags` for the docs generator
+12. `add_docs_links` — appends `Library doc: <url>` to every operation description, pointing at the operation's page on the docs site; stock generator templates copy `description` into docstrings/doc-comments in all 7 languages. gen-api-reference.py strips the marker line back out, so the docs markdown is unaffected. Runs last so the HTML→MD and link-absolutizing passes never rewrite it
 
-(Counted as "11 passes" if you split HTML→MD and link-absolutize; the pipeline diagram calls it 10 for the sake of the "one big semantic step for descriptions" reading.)
+(Counted as "12 passes" if you split HTML→MD and link-absolutize; the pipeline diagram calls it 11 for the sake of the "one big semantic step for descriptions" reading.)
 
 ## Spec source — GitLab mirror
 

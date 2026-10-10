@@ -228,7 +228,8 @@ public class DbsApi {
    * Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос
    * с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов. --- В
    * [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех
-   * методов **Маркетплейса**.
+   * методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/get-api-v3-dbs-orders
    *
    * @param limit Параметр пагинации. Устанавливает предельное количество возвращаемых данных.
    *     (required)
@@ -270,7 +271,8 @@ public class DbsApi {
    * Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос
    * с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов. --- В
    * [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех
-   * методов **Маркетплейса**.
+   * методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/get-api-v3-dbs-orders
    *
    * @param limit Параметр пагинации. Устанавливает предельное количество возвращаемых данных.
    *     (required)
@@ -314,7 +316,8 @@ public class DbsApi {
    * Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос
    * с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов. --- В
    * [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех
-   * методов **Маркетплейса**.
+   * методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/get-api-v3-dbs-orders
    *
    * @param limit Параметр пагинации. Устанавливает предельное количество возвращаемых данных.
    *     (required)
@@ -442,7 +445,8 @@ public class DbsApi {
    * Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос
    * с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов. --- В
    * [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех
-   * методов **Маркетплейса**.
+   * методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/get-api-v3-dbs-orders-new
    *
    * @return GetV3DbsOrdersNewResponse200
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
@@ -472,7 +476,8 @@ public class DbsApi {
    * Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос
    * с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов. --- В
    * [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех
-   * методов **Маркетплейса**.
+   * методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/get-api-v3-dbs-orders-new
    *
    * @return ApiResponse&lt;GetV3DbsOrdersNewResponse200&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
@@ -504,7 +509,8 @@ public class DbsApi {
    * Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос
    * с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов. --- В
    * [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех
-   * методов **Маркетплейса**.
+   * методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/get-api-v3-dbs-orders-new
    *
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
@@ -628,7 +634,8 @@ public class DbsApi {
    * Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос
    * с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов. --- В
    * [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех
-   * методов **Маркетплейса**.
+   * методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-v3-dbs-groups-info
    *
    * @param apiOrderGroupsRequest (required)
    * @return List&lt;PostV3DbsGroupsInfoResponse200Inner&gt;
@@ -662,7 +669,8 @@ public class DbsApi {
    * Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос
    * с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов. --- В
    * [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех
-   * методов **Маркетплейса**.
+   * методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-v3-dbs-groups-info
    *
    * @param apiOrderGroupsRequest (required)
    * @return ApiResponse&lt;List&lt;PostV3DbsGroupsInfoResponse200Inner&gt;&gt;
@@ -697,7 +705,8 @@ public class DbsApi {
    * Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос
    * с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов. --- В
    * [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех
-   * методов **Маркетплейса**.
+   * методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-v3-dbs-groups-info
    *
    * @param apiOrderGroupsRequest (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -819,7 +828,8 @@ public class DbsApi {
    * запросов](https://dev.wildberries.ru/docs/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца для методов **сборочных заданий DBS**: | Период | Лимит | Интервал |
    * Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос
-   * с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+   * с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-marketplace-v3-dbs-orders-b2b-info
    *
    * @param apiOrdersRequestV2 (required)
    * @return ApiB2bClientInfoResponses
@@ -850,7 +860,8 @@ public class DbsApi {
    * запросов](https://dev.wildberries.ru/docs/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца для методов **сборочных заданий DBS**: | Период | Лимит | Интервал |
    * Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос
-   * с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+   * с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-marketplace-v3-dbs-orders-b2b-info
    *
    * @param apiOrdersRequestV2 (required)
    * @return ApiResponse&lt;ApiB2bClientInfoResponses&gt;
@@ -881,7 +892,8 @@ public class DbsApi {
    * запросов](https://dev.wildberries.ru/docs/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца для методов **сборочных заданий DBS**: | Период | Лимит | Интервал |
    * Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос
-   * с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+   * с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-marketplace-v3-dbs-orders-b2b-info
    *
    * @param apiOrdersRequestV2 (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -1007,7 +1019,8 @@ public class DbsApi {
    * Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос
    * с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов. --- В
    * [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех
-   * методов **Маркетплейса**.
+   * методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-v3-dbs-orders-client
    *
    * @param ordersRequestAPI (required)
    * @return DbsOnlyClientInfoResp
@@ -1041,7 +1054,8 @@ public class DbsApi {
    * Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос
    * с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов. --- В
    * [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех
-   * методов **Маркетплейса**.
+   * методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-v3-dbs-orders-client
    *
    * @param ordersRequestAPI (required)
    * @return ApiResponse&lt;DbsOnlyClientInfoResp&gt;
@@ -1075,7 +1089,8 @@ public class DbsApi {
    * Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос
    * с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов. --- В
    * [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех
-   * методов **Маркетплейса**.
+   * методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-v3-dbs-orders-client
    *
    * @param ordersRequestAPI (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -1201,7 +1216,8 @@ public class DbsApi {
    * Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос
    * с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов. --- В
    * [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех
-   * методов **Маркетплейса**.
+   * методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-v3-dbs-orders-delivery-date
    *
    * @param deliveryDatesRequest (required)
    * @return DeliveryDatesInfoResp
@@ -1234,7 +1250,8 @@ public class DbsApi {
    * Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос
    * с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов. --- В
    * [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех
-   * методов **Маркетплейса**.
+   * методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-v3-dbs-orders-delivery-date
    *
    * @param deliveryDatesRequest (required)
    * @return ApiResponse&lt;DeliveryDatesInfoResp&gt;
@@ -1268,7 +1285,8 @@ public class DbsApi {
    * Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос
    * с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов. --- В
    * [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех
-   * методов **Маркетплейса**.
+   * методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-v3-dbs-orders-delivery-date
    *
    * @param deliveryDatesRequest (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -1382,7 +1400,8 @@ public class DbsApi {
    * на один аккаунт продавца для всех методов **получения и удаления идентификаторов маркировки
    * DBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 150 запросов
    * | 400 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10
-   * запросов
+   * запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-marketplace-v3-dbs-orders-final-price
    *
    * @param ordersRequestAPI (optional)
    * @return ApiOrdersFinalPriceResponse
@@ -1413,7 +1432,8 @@ public class DbsApi {
    * на один аккаунт продавца для всех методов **получения и удаления идентификаторов маркировки
    * DBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 150 запросов
    * | 400 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10
-   * запросов
+   * запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-marketplace-v3-dbs-orders-final-price
    *
    * @param ordersRequestAPI (optional)
    * @return ApiResponse&lt;ApiOrdersFinalPriceResponse&gt;
@@ -1444,7 +1464,8 @@ public class DbsApi {
    * на один аккаунт продавца для всех методов **получения и удаления идентификаторов маркировки
    * DBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 150 запросов
    * | 400 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10
-   * запросов
+   * запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-marketplace-v3-dbs-orders-final-price
    *
    * @param ordersRequestAPI (optional)
    * @param _callback The callback to be executed when the API call finishes
@@ -1586,7 +1607,8 @@ public class DbsApi {
    * Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 500 запросов | 120 мс
    * | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов. --- В
    * [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех
-   * методов **Маркетплейса**.
+   * методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-marketplace-v3-dbs-orders-meta-customs-declaration
    *
    * @param postV3DbsOrdersMetaCustomsDeclarationRequest (required)
    * @return ApiStatusSetResponses
@@ -1634,7 +1656,8 @@ public class DbsApi {
    * Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 500 запросов | 120 мс
    * | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов. --- В
    * [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех
-   * методов **Маркетплейса**.
+   * методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-marketplace-v3-dbs-orders-meta-customs-declaration
    *
    * @param postV3DbsOrdersMetaCustomsDeclarationRequest (required)
    * @return ApiResponse&lt;ApiStatusSetResponses&gt;
@@ -1684,7 +1707,8 @@ public class DbsApi {
    * Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 500 запросов | 120 мс
    * | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов. --- В
    * [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех
-   * методов **Маркетплейса**.
+   * методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-marketplace-v3-dbs-orders-meta-customs-declaration
    *
    * @param postV3DbsOrdersMetaCustomsDeclarationRequest (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -1830,7 +1854,8 @@ public class DbsApi {
    * DBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 150 запросов
    * | 400 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10
    * запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду
-   * суммарно для всех методов **Маркетплейса**.
+   * суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-marketplace-v3-dbs-orders-meta-delete
    *
    * @param apiOrdersMetaDeleteRequest (required)
    * @return ApiStatusSetResponses
@@ -1878,7 +1903,8 @@ public class DbsApi {
    * DBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 150 запросов
    * | 400 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10
    * запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду
-   * суммарно для всех методов **Маркетплейса**.
+   * суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-marketplace-v3-dbs-orders-meta-delete
    *
    * @param apiOrdersMetaDeleteRequest (required)
    * @return ApiResponse&lt;ApiStatusSetResponses&gt;
@@ -1927,7 +1953,8 @@ public class DbsApi {
    * DBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 150 запросов
    * | 400 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10
    * запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду
-   * суммарно для всех методов **Маркетплейса**.
+   * суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-marketplace-v3-dbs-orders-meta-delete
    *
    * @param apiOrdersMetaDeleteRequest (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -2069,7 +2096,8 @@ public class DbsApi {
    * на один аккаунт продавца для всех методов **получения и удаления идентификаторов маркировки
    * DBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов
    * | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10
-   * запросов
+   * запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-marketplace-v3-dbs-orders-meta-details
    *
    * @param apiOrdersRequestV2 (required)
    * @return ApiOrdersMetaDetailsResponse
@@ -2120,7 +2148,8 @@ public class DbsApi {
    * на один аккаунт продавца для всех методов **получения и удаления идентификаторов маркировки
    * DBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов
    * | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10
-   * запросов
+   * запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-marketplace-v3-dbs-orders-meta-details
    *
    * @param apiOrdersRequestV2 (required)
    * @return ApiResponse&lt;ApiOrdersMetaDetailsResponse&gt;
@@ -2173,7 +2202,8 @@ public class DbsApi {
    * на один аккаунт продавца для всех методов **получения и удаления идентификаторов маркировки
    * DBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов
    * | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10
-   * запросов
+   * запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-marketplace-v3-dbs-orders-meta-details
    *
    * @param apiOrdersRequestV2 (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -2309,7 +2339,8 @@ public class DbsApi {
    * Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 500 запросов | 120 мс
    * | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов. --- В
    * [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех
-   * методов **Маркетплейса**.
+   * методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-marketplace-v3-dbs-orders-meta-gtin
    *
    * @param apiOrdersGTINSetRequest (required)
    * @return ApiStatusSetResponses
@@ -2350,7 +2381,8 @@ public class DbsApi {
    * Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 500 запросов | 120 мс
    * | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов. --- В
    * [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех
-   * методов **Маркетплейса**.
+   * методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-marketplace-v3-dbs-orders-meta-gtin
    *
    * @param apiOrdersGTINSetRequest (required)
    * @return ApiResponse&lt;ApiStatusSetResponses&gt;
@@ -2392,7 +2424,8 @@ public class DbsApi {
    * Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 500 запросов | 120 мс
    * | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов. --- В
    * [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех
-   * методов **Маркетплейса**.
+   * методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-marketplace-v3-dbs-orders-meta-gtin
    *
    * @param apiOrdersGTINSetRequest (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -2531,7 +2564,8 @@ public class DbsApi {
    * Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 500 запросов | 120 мс
    * | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов. --- В
    * [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех
-   * методов **Маркетплейса**.
+   * методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-marketplace-v3-dbs-orders-meta-imei
    *
    * @param apiOrdersIMEISetRequest (required)
    * @return ApiStatusSetResponses
@@ -2574,7 +2608,8 @@ public class DbsApi {
    * Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 500 запросов | 120 мс
    * | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов. --- В
    * [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех
-   * методов **Маркетплейса**.
+   * методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-marketplace-v3-dbs-orders-meta-imei
    *
    * @param apiOrdersIMEISetRequest (required)
    * @return ApiResponse&lt;ApiStatusSetResponses&gt;
@@ -2618,7 +2653,8 @@ public class DbsApi {
    * Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 500 запросов | 120 мс
    * | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов. --- В
    * [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех
-   * методов **Маркетплейса**.
+   * методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-marketplace-v3-dbs-orders-meta-imei
    *
    * @param apiOrdersIMEISetRequest (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -2758,7 +2794,8 @@ public class DbsApi {
    * запросов | | Базовый с секретом | 1 мин | 500 запросов | 120 мс | 20 запросов | | Базовый | 1 ч
    * | 10 запросов | 6 мин | 1 запрос | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как
    * 10 запросов. --- В песочнице — максимум 1 запрос в секунду суммарно для всех методов
-   * **Маркетплейса**.
+   * **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-marketplace-v3-dbs-orders-meta-sgtin
    *
    * @param apiOrdersSGTINsSetRequest (required)
    * @return ApiStatusSetResponses
@@ -2802,7 +2839,8 @@ public class DbsApi {
    * запросов | | Базовый с секретом | 1 мин | 500 запросов | 120 мс | 20 запросов | | Базовый | 1 ч
    * | 10 запросов | 6 мин | 1 запрос | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как
    * 10 запросов. --- В песочнице — максимум 1 запрос в секунду суммарно для всех методов
-   * **Маркетплейса**.
+   * **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-marketplace-v3-dbs-orders-meta-sgtin
    *
    * @param apiOrdersSGTINsSetRequest (required)
    * @return ApiResponse&lt;ApiStatusSetResponses&gt;
@@ -2848,7 +2886,8 @@ public class DbsApi {
    * запросов | | Базовый с секретом | 1 мин | 500 запросов | 120 мс | 20 запросов | | Базовый | 1 ч
    * | 10 запросов | 6 мин | 1 запрос | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как
    * 10 запросов. --- В песочнице — максимум 1 запрос в секунду суммарно для всех методов
-   * **Маркетплейса**.
+   * **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-marketplace-v3-dbs-orders-meta-sgtin
    *
    * @param apiOrdersSGTINsSetRequest (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -2984,7 +3023,8 @@ public class DbsApi {
    * Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 500 запросов | 120 мс
    * | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов. --- В
    * [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех
-   * методов **Маркетплейса**.
+   * методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-marketplace-v3-dbs-orders-meta-uin
    *
    * @param apiOrdersUINSetRequest (required)
    * @return ApiStatusSetResponses
@@ -3025,7 +3065,8 @@ public class DbsApi {
    * Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 500 запросов | 120 мс
    * | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов. --- В
    * [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех
-   * методов **Маркетплейса**.
+   * методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-marketplace-v3-dbs-orders-meta-uin
    *
    * @param apiOrdersUINSetRequest (required)
    * @return ApiResponse&lt;ApiStatusSetResponses&gt;
@@ -3067,7 +3108,8 @@ public class DbsApi {
    * Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 500 запросов | 120 мс
    * | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов. --- В
    * [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех
-   * методов **Маркетплейса**.
+   * методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-marketplace-v3-dbs-orders-meta-uin
    *
    * @param apiOrdersUINSetRequest (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -3196,7 +3238,8 @@ public class DbsApi {
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
    * сек | 1 запрос | 1 сек | 10 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-marketplace-v3-dbs-orders-status-cancel
    *
    * @param apiOrdersRequestV2 (required)
    * @return ApiStatusSetResponses
@@ -3231,7 +3274,8 @@ public class DbsApi {
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
    * сек | 1 запрос | 1 сек | 10 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-marketplace-v3-dbs-orders-status-cancel
    *
    * @param apiOrdersRequestV2 (required)
    * @return ApiResponse&lt;ApiStatusSetResponses&gt;
@@ -3267,7 +3311,8 @@ public class DbsApi {
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
    * сек | 1 запрос | 1 сек | 10 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-marketplace-v3-dbs-orders-status-cancel
    *
    * @param apiOrdersRequestV2 (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -3393,7 +3438,8 @@ public class DbsApi {
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
    * сек | 1 запрос | 1 сек | 10 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-marketplace-v3-dbs-orders-status-confirm
    *
    * @param apiOrdersRequestV2 (required)
    * @return ApiStatusSetResponses
@@ -3427,7 +3473,8 @@ public class DbsApi {
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
    * сек | 1 запрос | 1 сек | 10 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-marketplace-v3-dbs-orders-status-confirm
    *
    * @param apiOrdersRequestV2 (required)
    * @return ApiResponse&lt;ApiStatusSetResponses&gt;
@@ -3462,7 +3509,8 @@ public class DbsApi {
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
    * сек | 1 запрос | 1 сек | 10 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-marketplace-v3-dbs-orders-status-confirm
    *
    * @param apiOrdersRequestV2 (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -3588,7 +3636,8 @@ public class DbsApi {
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
    * сек | 1 запрос | 1 сек | 10 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-marketplace-v3-dbs-orders-status-deliver
    *
    * @param apiOrdersRequestV2 (required)
    * @return ApiStatusSetDeliverResponses
@@ -3622,7 +3671,8 @@ public class DbsApi {
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
    * сек | 1 запрос | 1 сек | 10 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-marketplace-v3-dbs-orders-status-deliver
    *
    * @param apiOrdersRequestV2 (required)
    * @return ApiResponse&lt;ApiStatusSetDeliverResponses&gt;
@@ -3657,7 +3707,8 @@ public class DbsApi {
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
    * сек | 1 запрос | 1 сек | 10 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-marketplace-v3-dbs-orders-status-deliver
    *
    * @param apiOrdersRequestV2 (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -3808,7 +3859,8 @@ public class DbsApi {
    * Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос
    * с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов. --- В
    * [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех
-   * методов **Маркетплейса**.
+   * методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-marketplace-v3-dbs-orders-status-info
    *
    * @param apiOrdersRequestV2 (required)
    * @return ApiOrderStatusesV2
@@ -3866,7 +3918,8 @@ public class DbsApi {
    * Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос
    * с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов. --- В
    * [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех
-   * методов **Маркетплейса**.
+   * методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-marketplace-v3-dbs-orders-status-info
    *
    * @param apiOrdersRequestV2 (required)
    * @return ApiResponse&lt;ApiOrderStatusesV2&gt;
@@ -3925,7 +3978,8 @@ public class DbsApi {
    * Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос
    * с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов. --- В
    * [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех
-   * методов **Маркетплейса**.
+   * методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-marketplace-v3-dbs-orders-status-info
    *
    * @param apiOrdersRequestV2 (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -4046,7 +4100,8 @@ public class DbsApi {
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
    * сек | 1 запрос | 1 сек | 10 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-marketplace-v3-dbs-orders-status-receive
    *
    * @param apiOrdersCodeRequest (optional)
    * @return PostV3DbsOrdersStatusReceiveResponse200
@@ -4080,7 +4135,8 @@ public class DbsApi {
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
    * сек | 1 запрос | 1 сек | 10 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-marketplace-v3-dbs-orders-status-receive
    *
    * @param apiOrdersCodeRequest (optional)
    * @return ApiResponse&lt;PostV3DbsOrdersStatusReceiveResponse200&gt;
@@ -4116,7 +4172,8 @@ public class DbsApi {
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
    * сек | 1 запрос | 1 сек | 10 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-marketplace-v3-dbs-orders-status-receive
    *
    * @param apiOrdersCodeRequest (optional)
    * @param _callback The callback to be executed when the API call finishes
@@ -4237,7 +4294,8 @@ public class DbsApi {
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
    * сек | 1 запрос | 1 сек | 10 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-marketplace-v3-dbs-orders-status-reject
    *
    * @param apiOrdersCodeRequest (optional)
    * @return ApiStatusSetResponses
@@ -4271,7 +4329,8 @@ public class DbsApi {
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
    * сек | 1 запрос | 1 сек | 10 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-marketplace-v3-dbs-orders-status-reject
    *
    * @param apiOrdersCodeRequest (optional)
    * @return ApiResponse&lt;ApiStatusSetResponses&gt;
@@ -4306,7 +4365,8 @@ public class DbsApi {
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
    * сек | 1 запрос | 1 сек | 10 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
-   * секунду суммарно для всех методов **Маркетплейса**.
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-marketplace-v3-dbs-orders-status-reject
    *
    * @param apiOrdersCodeRequest (optional)
    * @param _callback The callback to be executed when the API call finishes
@@ -4469,7 +4529,8 @@ public class DbsApi {
    * запросов](https://dev.wildberries.ru/docs/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца для методов **сборочных заданий DBS**: | Период | Лимит | Интервал |
    * Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос
-   * с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+   * с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-marketplace-v3-dbs-orders-stickers
    *
    * @param type Формат стикера (required)
    * @param width Ширина стикера (required)
@@ -4512,7 +4573,8 @@ public class DbsApi {
    * запросов](https://dev.wildberries.ru/docs/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца для методов **сборочных заданий DBS**: | Период | Лимит | Интервал |
    * Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос
-   * с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+   * с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-marketplace-v3-dbs-orders-stickers
    *
    * @param type Формат стикера (required)
    * @param width Ширина стикера (required)
@@ -4557,7 +4619,8 @@ public class DbsApi {
    * запросов](https://dev.wildberries.ru/docs/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца для методов **сборочных заданий DBS**: | Период | Лимит | Интервал |
    * Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос
-   * с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+   * с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-marketplace-v3-dbs-orders-stickers
    *
    * @param type Формат стикера (required)
    * @param width Ширина стикера (required)

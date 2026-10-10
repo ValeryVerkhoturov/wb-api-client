@@ -188,7 +188,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос |
+   * запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/delete-api-feedbacks-v1-pins
    *
    * @param requestBody Список &#x60;pinId&#x60; — ID операций закрепления отзывов (required)
    * @return DeleteV1PinsResponse200
@@ -223,7 +224,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос |
+   * запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/delete-api-feedbacks-v1-pins
    *
    * @param requestBody Список &#x60;pinId&#x60; — ID операций закрепления отзывов (required)
    * @return ApiResponse&lt;DeleteV1PinsResponse200&gt;
@@ -261,7 +263,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос |
+   * запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/delete-api-feedbacks-v1-pins
    *
    * @param requestBody Список &#x60;pinId&#x60; — ID операций закрепления отзывов (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -420,7 +423,8 @@ public class CommunicationsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 20 запросов | 3 сек | 10 запросов | | Сервисный | 1 мин | 20
    * запросов | 3 сек | 10 запросов | | Базовый с секретом | 1 мин | 20 запросов | 3 сек | 10
-   * запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-claims
    *
    * @param isArchive Состояние заявки: * &#x60;false&#x60; — на рассмотрении * &#x60;true&#x60; — в
    *     архиве (required)
@@ -459,7 +463,8 @@ public class CommunicationsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 20 запросов | 3 сек | 10 запросов | | Сервисный | 1 мин | 20
    * запросов | 3 сек | 10 запросов | | Базовый с секретом | 1 мин | 20 запросов | 3 сек | 10
-   * запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-claims
    *
    * @param isArchive Состояние заявки: * &#x60;false&#x60; — на рассмотрении * &#x60;true&#x60; — в
    *     архиве (required)
@@ -499,7 +504,8 @@ public class CommunicationsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 20 запросов | 3 сек | 10 запросов | | Сервисный | 1 мин | 20
    * запросов | 3 сек | 10 запросов | | Базовый с секретом | 1 мин | 20 запросов | 3 сек | 10
-   * запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-claims
    *
    * @param isArchive Состояние заявки: * &#x60;false&#x60; — на рассмотрении * &#x60;true&#x60; — в
    *     архиве (required)
@@ -639,7 +645,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос |
+   * запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-feedback
    *
    * @param id ID отзыва (required)
    * @return GetV1FeedbackResponse200
@@ -671,7 +678,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос |
+   * запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-feedback
    *
    * @param id ID отзыва (required)
    * @return ApiResponse&lt;GetV1FeedbackResponse200&gt;
@@ -705,7 +713,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос |
+   * запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-feedback
    *
    * @param id ID отзыва (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -893,7 +902,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос |
+   * запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-feedbacks
    *
    * @param isAnswered Вернуть только обработанные отзывы: - &#x60;true&#x60; — да -
    *     &#x60;false&#x60; — нет (required)
@@ -942,7 +952,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос |
+   * запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-feedbacks
    *
    * @param isAnswered Вернуть только обработанные отзывы: - &#x60;true&#x60; — да -
    *     &#x60;false&#x60; — нет (required)
@@ -994,7 +1005,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос |
+   * запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-feedbacks
    *
    * @param isAnswered Вернуть только обработанные отзывы: - &#x60;true&#x60; — да -
    *     &#x60;false&#x60; — нет (required)
@@ -1164,7 +1176,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос |
+   * запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-feedbacks-archive
    *
    * @param take Количество отзывов (max. 5 000) (required)
    * @param skip Количество отзывов для пропуска (required)
@@ -1203,7 +1216,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос |
+   * запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-feedbacks-archive
    *
    * @param take Количество отзывов (max. 5 000) (required)
    * @param skip Количество отзывов для пропуска (required)
@@ -1243,7 +1257,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос |
+   * запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-feedbacks-archive
    *
    * @param take Количество отзывов (max. 5 000) (required)
    * @param skip Количество отзывов для пропуска (required)
@@ -1395,7 +1410,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос |
+   * запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-feedbacks-count
    *
    * @param isAnswered Вернуть только обработанные отзывы: - &#x60;true&#x60; — да -
    *     &#x60;false&#x60; — нет (required)
@@ -1433,7 +1449,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос |
+   * запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-feedbacks-count
    *
    * @param isAnswered Вернуть только обработанные отзывы: - &#x60;true&#x60; — да -
    *     &#x60;false&#x60; — нет (required)
@@ -1472,7 +1489,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос |
+   * запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-feedbacks-count
    *
    * @param isAnswered Вернуть только обработанные отзывы: - &#x60;true&#x60; — да -
    *     &#x60;false&#x60; — нет (required)
@@ -1596,7 +1614,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос |
+   * запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-feedbacks-count-unanswered
    *
    * @return GetV1FeedbacksCountUnansweredResponse200
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
@@ -1628,7 +1647,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос |
+   * запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-feedbacks-count-unanswered
    *
    * @return ApiResponse&lt;GetV1FeedbacksCountUnansweredResponse200&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
@@ -1661,7 +1681,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос |
+   * запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-feedbacks-count-unanswered
    *
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
@@ -1779,7 +1800,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос |
+   * запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-new-feedbacks-questions
    *
    * @return GetV1NewFeedbacksQuestionsResponse200
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
@@ -1813,7 +1835,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос |
+   * запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-new-feedbacks-questions
    *
    * @return ApiResponse&lt;GetV1NewFeedbacksQuestionsResponse200&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
@@ -1848,7 +1871,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос |
+   * запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-new-feedbacks-questions
    *
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
@@ -2034,7 +2058,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос |
+   * запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-feedbacks-v1-pins
    *
    * @param state Закреплён ли отзыв: - &#x60;pinned&#x60; — да - &#x60;unpinned&#x60; — нет
    *     (optional)
@@ -2093,7 +2118,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос |
+   * запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-feedbacks-v1-pins
    *
    * @param state Закреплён ли отзыв: - &#x60;pinned&#x60; — да - &#x60;unpinned&#x60; — нет
    *     (optional)
@@ -2155,7 +2181,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос |
+   * запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-feedbacks-v1-pins
    *
    * @param state Закреплён ли отзыв: - &#x60;pinned&#x60; — да - &#x60;unpinned&#x60; — нет
    *     (optional)
@@ -2355,7 +2382,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос |
+   * запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-feedbacks-v1-pins-count
    *
    * @param state Закреплён ли отзыв: - &#x60;pinned&#x60; — да - &#x60;unpinned&#x60; — нет
    *     (optional)
@@ -2409,7 +2437,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос |
+   * запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-feedbacks-v1-pins-count
    *
    * @param state Закреплён ли отзыв: - &#x60;pinned&#x60; — да - &#x60;unpinned&#x60; — нет
    *     (optional)
@@ -2465,7 +2494,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос |
+   * запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-feedbacks-v1-pins-count
    *
    * @param state Закреплён ли отзыв: - &#x60;pinned&#x60; — да - &#x60;unpinned&#x60; — нет
    *     (optional)
@@ -2600,7 +2630,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос |
+   * запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-feedbacks-v1-pins-limits
    *
    * @return GetV1PinsLimitsResponse200
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
@@ -2629,7 +2660,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос |
+   * запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-feedbacks-v1-pins-limits
    *
    * @return ApiResponse&lt;GetV1PinsLimitsResponse200&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
@@ -2659,7 +2691,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос |
+   * запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-feedbacks-v1-pins-limits
    *
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
@@ -2787,7 +2820,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос |
+   * запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-question
    *
    * @param id ID вопроса (required)
    * @return GetV1QuestionResponse200
@@ -2821,7 +2855,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос |
+   * запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-question
    *
    * @param id ID вопроса (required)
    * @return ApiResponse&lt;GetV1QuestionResponse200&gt;
@@ -2857,7 +2892,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос |
+   * запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-question
    *
    * @param id ID вопроса (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -3048,7 +3084,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос |
+   * запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-questions
    *
    * @param isAnswered Есть ли ответ на вопрос: - &#x60;true&#x60; — да - &#x60;false&#x60; — нет
    *     (required)
@@ -3100,7 +3137,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос |
+   * запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-questions
    *
    * @param isAnswered Есть ли ответ на вопрос: - &#x60;true&#x60; — да - &#x60;false&#x60; — нет
    *     (required)
@@ -3155,7 +3193,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос |
+   * запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-questions
    *
    * @param isAnswered Есть ли ответ на вопрос: - &#x60;true&#x60; — да - &#x60;false&#x60; — нет
    *     (required)
@@ -3311,7 +3350,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос |
+   * запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-questions-count
    *
    * @param dateFrom Дата начала периода в формате Unix timestamp (optional)
    * @param dateTo Дата конца периода в формате Unix timestamp (optional)
@@ -3348,7 +3388,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос |
+   * запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-questions-count
    *
    * @param dateFrom Дата начала периода в формате Unix timestamp (optional)
    * @param dateTo Дата конца периода в формате Unix timestamp (optional)
@@ -3386,7 +3427,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос |
+   * запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-questions-count
    *
    * @param dateFrom Дата начала периода в формате Unix timestamp (optional)
    * @param dateTo Дата конца периода в формате Unix timestamp (optional)
@@ -3510,7 +3552,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос |
+   * запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-questions-count-unanswered
    *
    * @return GetV1QuestionsCountUnansweredResponse200
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
@@ -3542,7 +3585,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос |
+   * запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-questions-count-unanswered
    *
    * @return ApiResponse&lt;GetV1QuestionsCountUnansweredResponse200&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
@@ -3575,7 +3619,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос |
+   * запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-questions-count-unanswered
    *
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
@@ -3688,7 +3733,8 @@ public class CommunicationsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Сервисный | 10 сек | 10
    * запросов | 1 сек | 10 запросов | | Базовый с секретом | 10 сек | 10 запросов | 1 сек | 10
-   * запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-seller-chats
    *
    * @return ChatsResponse
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
@@ -3720,7 +3766,8 @@ public class CommunicationsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Сервисный | 10 сек | 10
    * запросов | 1 сек | 10 запросов | | Базовый с секретом | 10 сек | 10 запросов | 1 сек | 10
-   * запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-seller-chats
    *
    * @return ApiResponse&lt;ChatsResponse&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
@@ -3753,7 +3800,8 @@ public class CommunicationsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Сервисный | 10 сек | 10
    * запросов | 1 сек | 10 запросов | | Базовый с секретом | 10 сек | 10 запросов | 1 сек | 10
-   * запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-seller-chats
    *
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
@@ -3876,7 +3924,8 @@ public class CommunicationsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Сервисный | 10 сек | 10
    * запросов | 1 сек | 10 запросов | | Базовый с секретом | 10 сек | 10 запросов | 1 сек | 10
-   * запросов | | Базовый | 1 ч | 10 запросов | 6 мин | 1 запрос |
+   * запросов | | Базовый | 1 ч | 10 запросов | 6 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-seller-download-id
    *
    * @param id ID файла, см. значение поля &#x60;downloadID&#x60; в методе [События
    *     чатов](./customer-communication#tag/buyersChat/operation/getV1SellerEvents) (required)
@@ -3908,7 +3957,8 @@ public class CommunicationsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Сервисный | 10 сек | 10
    * запросов | 1 сек | 10 запросов | | Базовый с секретом | 10 сек | 10 запросов | 1 сек | 10
-   * запросов | | Базовый | 1 ч | 10 запросов | 6 мин | 1 запрос |
+   * запросов | | Базовый | 1 ч | 10 запросов | 6 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-seller-download-id
    *
    * @param id ID файла, см. значение поля &#x60;downloadID&#x60; в методе [События
    *     чатов](./customer-communication#tag/buyersChat/operation/getV1SellerEvents) (required)
@@ -3942,7 +3992,8 @@ public class CommunicationsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Сервисный | 10 сек | 10
    * запросов | 1 сек | 10 запросов | | Базовый с секретом | 10 сек | 10 запросов | 1 сек | 10
-   * запросов | | Базовый | 1 ч | 10 запросов | 6 мин | 1 запрос |
+   * запросов | | Базовый | 1 ч | 10 запросов | 6 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-seller-download-id
    *
    * @param id ID файла, см. значение поля &#x60;downloadID&#x60; в методе [События
    *     чатов](./customer-communication#tag/buyersChat/operation/getV1SellerEvents) (required)
@@ -4067,7 +4118,8 @@ public class CommunicationsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Сервисный | 10 сек | 10
    * запросов | 1 сек | 10 запросов | | Базовый с секретом | 10 сек | 10 запросов | 1 сек | 10
-   * запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-seller-events
    *
    * @param next Пагинатор. С какого момента получить следующий пакет данных. Формат Unix timestamp
    *     \\*\\*с миллисекундами\\*\\* (optional)
@@ -4102,7 +4154,8 @@ public class CommunicationsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Сервисный | 10 сек | 10
    * запросов | 1 сек | 10 запросов | | Базовый с секретом | 10 сек | 10 запросов | 1 сек | 10
-   * запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-seller-events
    *
    * @param next Пагинатор. С какого момента получить следующий пакет данных. Формат Unix timestamp
    *     \\*\\*с миллисекундами\\*\\* (optional)
@@ -4139,7 +4192,8 @@ public class CommunicationsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Сервисный | 10 сек | 10
    * запросов | 1 сек | 10 запросов | | Базовый с секретом | 10 сек | 10 запросов | 1 сек | 10
-   * запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-seller-events
    *
    * @param next Пагинатор. С какого момента получить следующий пакет данных. Формат Unix timestamp
    *     \\*\\*с миллисекундами\\*\\* (optional)
@@ -4262,7 +4316,8 @@ public class CommunicationsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 20 запросов | 3 сек | 10 запросов | | Сервисный | 1 мин | 20
    * запросов | 3 сек | 10 запросов | | Базовый с секретом | 1 мин | 20 запросов | 3 сек | 10
-   * запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/patch-api-v1-claim
    *
    * @param patchV1ClaimRequest Ответ на заявку (required)
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
@@ -4291,7 +4346,8 @@ public class CommunicationsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 20 запросов | 3 сек | 10 запросов | | Сервисный | 1 мин | 20
    * запросов | 3 сек | 10 запросов | | Базовый с секретом | 1 мин | 20 запросов | 3 сек | 10
-   * запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/patch-api-v1-claim
    *
    * @param patchV1ClaimRequest Ответ на заявку (required)
    * @return ApiResponse&lt;Void&gt;
@@ -4323,7 +4379,8 @@ public class CommunicationsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 20 запросов | 3 сек | 10 запросов | | Сервисный | 1 мин | 20
    * запросов | 3 сек | 10 запросов | | Базовый с секретом | 1 мин | 20 запросов | 3 сек | 10
-   * запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/patch-api-v1-claim
    *
    * @param patchV1ClaimRequest Ответ на заявку (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -4444,7 +4501,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос |
+   * запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/patch-api-v1-feedbacks-answer
    *
    * @param patchV1FeedbacksAnswerRequest (optional)
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
@@ -4476,7 +4534,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос |
+   * запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/patch-api-v1-feedbacks-answer
    *
    * @param patchV1FeedbacksAnswerRequest (optional)
    * @return ApiResponse&lt;Void&gt;
@@ -4512,7 +4571,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос |
+   * запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/patch-api-v1-feedbacks-answer
    *
    * @param patchV1FeedbacksAnswerRequest (optional)
    * @param _callback The callback to be executed when the API call finishes
@@ -4637,7 +4697,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос |
+   * запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/patch-api-v1-questions
    *
    * @param patchV1QuestionsRequest (optional)
    * @return PatchV1QuestionsResponse200
@@ -4675,7 +4736,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос |
+   * запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/patch-api-v1-questions
    *
    * @param patchV1QuestionsRequest (optional)
    * @return ApiResponse&lt;PatchV1QuestionsResponse200&gt;
@@ -4713,7 +4775,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос |
+   * запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/patch-api-v1-questions
    *
    * @param patchV1QuestionsRequest (optional)
    * @param _callback The callback to be executed when the API call finishes
@@ -4839,7 +4902,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос |
+   * запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/post-api-v1-feedbacks-answer
    *
    * @param postV1FeedbacksAnswerRequest (optional)
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
@@ -4871,7 +4935,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос |
+   * запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/post-api-v1-feedbacks-answer
    *
    * @param postV1FeedbacksAnswerRequest (optional)
    * @return ApiResponse&lt;Void&gt;
@@ -4906,7 +4971,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос |
+   * запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/post-api-v1-feedbacks-answer
    *
    * @param postV1FeedbacksAnswerRequest (optional)
    * @param _callback The callback to be executed when the API call finishes
@@ -5037,7 +5103,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос |
+   * запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/post-api-v1-feedbacks-order-return
    *
    * @param postV1FeedbacksOrderReturnRequest (required)
    * @return PostV1FeedbacksOrderReturnResponse200
@@ -5073,7 +5140,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос |
+   * запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/post-api-v1-feedbacks-order-return
    *
    * @param postV1FeedbacksOrderReturnRequest (required)
    * @return ApiResponse&lt;PostV1FeedbacksOrderReturnResponse200&gt;
@@ -5111,7 +5179,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос |
+   * запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/post-api-v1-feedbacks-order-return
    *
    * @param postV1FeedbacksOrderReturnRequest (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -5242,7 +5311,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос |
+   * запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/post-api-feedbacks-v1-pins
    *
    * @param openapiPinReviewItem (required)
    * @return PostV1PinsResponse200
@@ -5279,7 +5349,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос |
+   * запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/post-api-feedbacks-v1-pins
    *
    * @param openapiPinReviewItem (required)
    * @return ApiResponse&lt;PostV1PinsResponse200&gt;
@@ -5318,7 +5389,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос |
+   * запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/post-api-feedbacks-v1-pins
    *
    * @param openapiPinReviewItem (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -5460,7 +5532,8 @@ public class CommunicationsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Сервисный | 10 сек | 10
    * запросов | 1 сек | 10 запросов | | Базовый с секретом | 10 сек | 10 запросов | 1 сек | 10
-   * запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/post-api-v1-seller-message
    *
    * @param replySign Подпись чата. Можно получить из [информации по
    *     чату](./customer-communication#tag/buyersChat/operation/getV1SellerChats) или [данных
@@ -5499,7 +5572,8 @@ public class CommunicationsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Сервисный | 10 сек | 10
    * запросов | 1 сек | 10 запросов | | Базовый с секретом | 10 сек | 10 запросов | 1 сек | 10
-   * запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/post-api-v1-seller-message
    *
    * @param replySign Подпись чата. Можно получить из [информации по
    *     чату](./customer-communication#tag/buyersChat/operation/getV1SellerChats) или [данных
@@ -5539,7 +5613,8 @@ public class CommunicationsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Сервисный | 10 сек | 10
    * запросов | 1 сек | 10 запросов | | Базовый с секретом | 10 сек | 10 запросов | 1 сек | 10
-   * запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/post-api-v1-seller-message
    *
    * @param replySign Подпись чата. Можно получить из [информации по
    *     чату](./customer-communication#tag/buyersChat/operation/getV1SellerChats) или [данных

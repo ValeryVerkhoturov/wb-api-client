@@ -192,7 +192,8 @@ public class AnalyticsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3
    * запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
-   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/get-api-v2-nm-report-downloads
    *
    * @param filterDownloadIds ID отчёта (optional)
    * @return NmReportGetReportsResponse
@@ -225,7 +226,8 @@ public class AnalyticsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3
    * запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
-   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/get-api-v2-nm-report-downloads
    *
    * @param filterDownloadIds ID отчёта (optional)
    * @return ApiResponse&lt;NmReportGetReportsResponse&gt;
@@ -258,7 +260,8 @@ public class AnalyticsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3
    * запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
-   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/get-api-v2-nm-report-downloads
    *
    * @param filterDownloadIds ID отчёта (optional)
    * @param _callback The callback to be executed when the API call finishes
@@ -385,7 +388,8 @@ public class AnalyticsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3
    * запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
-   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/get-api-v2-nm-report-downloads-file-downloadid
    *
    * @param downloadId ID отчёта (required)
    * @return File
@@ -417,7 +421,8 @@ public class AnalyticsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3
    * запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
-   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/get-api-v2-nm-report-downloads-file-downloadid
    *
    * @param downloadId ID отчёта (required)
    * @return ApiResponse&lt;File&gt;
@@ -453,7 +458,8 @@ public class AnalyticsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3
    * запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
-   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/get-api-v2-nm-report-downloads-file-downloadid
    *
    * @param downloadId ID отчёта (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -572,7 +578,8 @@ public class AnalyticsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос |
    * 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 3 ч
-   * | 1 запрос | 3 ч | 1 запрос |
+   * | 1 запрос | 3 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-analytics-v1-order-feed
    *
    * @param orderFeedRequest (optional)
    * @return PostV1OrderFeedResponse200
@@ -609,7 +616,8 @@ public class AnalyticsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос |
    * 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 3 ч
-   * | 1 запрос | 3 ч | 1 запрос |
+   * | 1 запрос | 3 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-analytics-v1-order-feed
    *
    * @param orderFeedRequest (optional)
    * @return ApiResponse&lt;PostV1OrderFeedResponse200&gt;
@@ -647,7 +655,8 @@ public class AnalyticsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос |
    * 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 3 ч
-   * | 1 запрос | 3 ч | 1 запрос |
+   * | 1 запрос | 3 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-analytics-v1-order-feed
    *
    * @param orderFeedRequest (optional)
    * @param _callback The callback to be executed when the API call finishes
@@ -767,7 +776,8 @@ public class AnalyticsApi {
    * товара на 1 складе продавца. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
-   * мин | 3 запроса | 20 сек | 1 запрос |
+   * мин | 3 запроса | 20 сек | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-analytics-v1-stocks-report-seller-warehouses
    *
    * @param inventoryRequest (required)
    * @return PostV1StocksReportSellerWarehousesResponse200
@@ -800,7 +810,8 @@ public class AnalyticsApi {
    * товара на 1 складе продавца. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
-   * мин | 3 запроса | 20 сек | 1 запрос |
+   * мин | 3 запроса | 20 сек | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-analytics-v1-stocks-report-seller-warehouses
    *
    * @param inventoryRequest (required)
    * @return ApiResponse&lt;PostV1StocksReportSellerWarehousesResponse200&gt;
@@ -836,7 +847,8 @@ public class AnalyticsApi {
    * товара на 1 складе продавца. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
-   * мин | 3 запроса | 20 сек | 1 запрос |
+   * мин | 3 запроса | 20 сек | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-analytics-v1-stocks-report-seller-warehouses
    *
    * @param inventoryRequest (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -961,7 +973,8 @@ public class AnalyticsApi {
    * ответа — данные об 1 размере товара на 1 складе WB. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
-   * мин | 3 запроса | 20 сек | 1 запрос |
+   * мин | 3 запроса | 20 сек | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-analytics-v1-stocks-report-wb-warehouses
    *
    * @param inventoryRequest (required)
    * @return PostV1StocksReportWbWarehousesResponse200
@@ -995,7 +1008,8 @@ public class AnalyticsApi {
    * ответа — данные об 1 размере товара на 1 складе WB. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
-   * мин | 3 запроса | 20 сек | 1 запрос |
+   * мин | 3 запроса | 20 сек | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-analytics-v1-stocks-report-wb-warehouses
    *
    * @param inventoryRequest (required)
    * @return ApiResponse&lt;PostV1StocksReportWbWarehousesResponse200&gt;
@@ -1032,7 +1046,8 @@ public class AnalyticsApi {
    * ответа — данные об 1 размере товара на 1 складе WB. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
-   * мин | 3 запроса | 20 сек | 1 запрос |
+   * мин | 3 запроса | 20 сек | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-analytics-v1-stocks-report-wb-warehouses
    *
    * @param inventoryRequest (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -1155,7 +1170,8 @@ public class AnalyticsApi {
    * товаров. Данные отчёта обновляются 1 раз в час. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
-   * мин | 3 запроса | 20 сек | 3 запроса |
+   * мин | 3 запроса | 20 сек | 3 запроса | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-analytics-v2-item-rating
    *
    * @param itemRatingRequest (required)
    * @return PostV2ItemRatingResponse200
@@ -1186,7 +1202,8 @@ public class AnalyticsApi {
    * товаров. Данные отчёта обновляются 1 раз в час. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
-   * мин | 3 запроса | 20 сек | 3 запроса |
+   * мин | 3 запроса | 20 сек | 3 запроса | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-analytics-v2-item-rating
    *
    * @param itemRatingRequest (required)
    * @return ApiResponse&lt;PostV2ItemRatingResponse200&gt;
@@ -1217,7 +1234,8 @@ public class AnalyticsApi {
    * товаров. Данные отчёта обновляются 1 раз в час. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
-   * мин | 3 запроса | 20 сек | 3 запроса |
+   * мин | 3 запроса | 20 сек | 3 запроса | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-analytics-v2-item-rating
    *
    * @param itemRatingRequest (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -1354,7 +1372,8 @@ public class AnalyticsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3
    * запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
-   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-nm-report-downloads
    *
    * @param postV2NmReportDownloadsRequest (optional)
    * @return NmReportCreateReportResponse
@@ -1408,7 +1427,8 @@ public class AnalyticsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3
    * запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
-   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-nm-report-downloads
    *
    * @param postV2NmReportDownloadsRequest (optional)
    * @return ApiResponse&lt;NmReportCreateReportResponse&gt;
@@ -1463,7 +1483,8 @@ public class AnalyticsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3
    * запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
-   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-nm-report-downloads
    *
    * @param postV2NmReportDownloadsRequest (optional)
    * @param _callback The callback to be executed when the API call finishes
@@ -1589,7 +1610,8 @@ public class AnalyticsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3
    * запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
-   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-nm-report-downloads-retry
    *
    * @param nmReportRetryReportRequest (required)
    * @return NmReportRetryReportResponse
@@ -1623,7 +1645,8 @@ public class AnalyticsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3
    * запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
-   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-nm-report-downloads-retry
    *
    * @param nmReportRetryReportRequest (required)
    * @return ApiResponse&lt;NmReportRetryReportResponse&gt;
@@ -1658,7 +1681,8 @@ public class AnalyticsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3
    * запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
-   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-nm-report-downloads-retry
    *
    * @param nmReportRetryReportRequest (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -1783,7 +1807,8 @@ public class AnalyticsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3
    * запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
-   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-search-report-product-orders
    *
    * @param itemOrdersRequest (required)
    * @return PostV2SearchReportProductOrdersResponse200
@@ -1819,7 +1844,8 @@ public class AnalyticsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3
    * запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
-   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-search-report-product-orders
    *
    * @param itemOrdersRequest (required)
    * @return ApiResponse&lt;PostV2SearchReportProductOrdersResponse200&gt;
@@ -1858,7 +1884,8 @@ public class AnalyticsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3
    * запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
-   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-search-report-product-orders
    *
    * @param itemOrdersRequest (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -1987,7 +2014,8 @@ public class AnalyticsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3
    * запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
-   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-search-report-product-search-texts
    *
    * @param itemSearchTextsRequest (required)
    * @return PostV2SearchReportProductSearchTextsResponse200
@@ -2023,7 +2051,8 @@ public class AnalyticsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3
    * запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
-   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-search-report-product-search-texts
    *
    * @param itemSearchTextsRequest (required)
    * @return ApiResponse&lt;PostV2SearchReportProductSearchTextsResponse200&gt;
@@ -2062,7 +2091,8 @@ public class AnalyticsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3
    * запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
-   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-search-report-product-search-texts
    *
    * @param itemSearchTextsRequest (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -2194,7 +2224,8 @@ public class AnalyticsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3
    * запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
-   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-search-report-report
    *
    * @param mainRequest (required)
    * @return PostV2SearchReportReportResponse200
@@ -2235,7 +2266,8 @@ public class AnalyticsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3
    * запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
-   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-search-report-report
    *
    * @param mainRequest (required)
    * @return ApiResponse&lt;PostV2SearchReportReportResponse200&gt;
@@ -2276,7 +2308,8 @@ public class AnalyticsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3
    * запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
-   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-search-report-report
    *
    * @param mainRequest (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -2403,7 +2436,8 @@ public class AnalyticsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3
    * запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
-   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-search-report-table-details
    *
    * @param tableDetailsRequest (required)
    * @return PostV2SearchReportTableDetailsResponse200
@@ -2442,7 +2476,8 @@ public class AnalyticsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3
    * запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
-   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-search-report-table-details
    *
    * @param tableDetailsRequest (required)
    * @return ApiResponse&lt;PostV2SearchReportTableDetailsResponse200&gt;
@@ -2485,7 +2520,8 @@ public class AnalyticsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3
    * запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
-   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-search-report-table-details
    *
    * @param tableDetailsRequest (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -2613,7 +2649,8 @@ public class AnalyticsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3
    * запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
-   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-search-report-table-groups
    *
    * @param tableGroupRequest (required)
    * @return PostV2SearchReportTableGroupsResponse200
@@ -2650,7 +2687,8 @@ public class AnalyticsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3
    * запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
-   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-search-report-table-groups
    *
    * @param tableGroupRequest (required)
    * @return ApiResponse&lt;PostV2SearchReportTableGroupsResponse200&gt;
@@ -2690,7 +2728,8 @@ public class AnalyticsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3
    * запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
-   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-search-report-table-groups
    *
    * @param tableGroupRequest (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -2817,7 +2856,8 @@ public class AnalyticsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3
    * запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
-   * | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+   * | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-stocks-report-offices
    *
    * @param tableShippingOfficeRequest (required)
    * @return PostV2StocksReportOfficesResponse200
@@ -2851,7 +2891,8 @@ public class AnalyticsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3
    * запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
-   * | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+   * | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-stocks-report-offices
    *
    * @param tableShippingOfficeRequest (required)
    * @return ApiResponse&lt;PostV2StocksReportOfficesResponse200&gt;
@@ -2887,7 +2928,8 @@ public class AnalyticsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3
    * запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
-   * | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+   * | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-stocks-report-offices
    *
    * @param tableShippingOfficeRequest (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -3010,7 +3052,8 @@ public class AnalyticsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3
    * запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
-   * | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+   * | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-stocks-report-products-groups
    *
    * @param tableGroupRequestSt (required)
    * @return PostV2StocksReportProductsGroupsResponse200
@@ -3043,7 +3086,8 @@ public class AnalyticsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3
    * запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
-   * | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+   * | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-stocks-report-products-groups
    *
    * @param tableGroupRequestSt (required)
    * @return ApiResponse&lt;PostV2StocksReportProductsGroupsResponse200&gt;
@@ -3079,7 +3123,8 @@ public class AnalyticsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3
    * запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
-   * | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+   * | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-stocks-report-products-groups
    *
    * @param tableGroupRequestSt (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -3204,7 +3249,8 @@ public class AnalyticsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3
    * запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
-   * | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+   * | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-stocks-report-products-products
    *
    * @param tableItemRequest (required)
    * @return PostV2StocksReportProductsProductsResponse200
@@ -3238,7 +3284,8 @@ public class AnalyticsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3
    * запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
-   * | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+   * | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-stocks-report-products-products
    *
    * @param tableItemRequest (required)
    * @return ApiResponse&lt;PostV2StocksReportProductsProductsResponse200&gt;
@@ -3275,7 +3322,8 @@ public class AnalyticsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3
    * запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
-   * | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+   * | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-stocks-report-products-products
    *
    * @param tableItemRequest (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -3412,7 +3460,8 @@ public class AnalyticsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3
    * запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
-   * | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+   * | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-stocks-report-products-sizes
    *
    * @param tableSizeRequest (required)
    * @return PostV2StocksReportProductsSizesResponse200
@@ -3458,7 +3507,8 @@ public class AnalyticsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3
    * запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
-   * | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+   * | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-stocks-report-products-sizes
    *
    * @param tableSizeRequest (required)
    * @return ApiResponse&lt;PostV2StocksReportProductsSizesResponse200&gt;
@@ -3507,7 +3557,8 @@ public class AnalyticsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3
    * запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
-   * | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+   * | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-stocks-report-products-sizes
    *
    * @param tableSizeRequest (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -3648,7 +3699,8 @@ public class AnalyticsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3
    * запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
-   * | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+   * | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-analytics-v3-sales-funnel-grouped-history
    *
    * @param groupedHistoryRequest (required)
    * @return PostV3SalesFunnelGroupedHistoryResponse200
@@ -3696,7 +3748,8 @@ public class AnalyticsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3
    * запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
-   * | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+   * | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-analytics-v3-sales-funnel-grouped-history
    *
    * @param groupedHistoryRequest (required)
    * @return ApiResponse&lt;PostV3SalesFunnelGroupedHistoryResponse200&gt;
@@ -3747,7 +3800,8 @@ public class AnalyticsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3
    * запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
-   * | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+   * | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-analytics-v3-sales-funnel-grouped-history
    *
    * @param groupedHistoryRequest (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -3886,7 +3940,8 @@ public class AnalyticsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3
    * запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
-   * | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+   * | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-analytics-v3-sales-funnel-products
    *
    * @param itemsRequest (required)
    * @return PostV3SalesFunnelProductsResponse200
@@ -3934,7 +3989,8 @@ public class AnalyticsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3
    * запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
-   * | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+   * | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-analytics-v3-sales-funnel-products
    *
    * @param itemsRequest (required)
    * @return ApiResponse&lt;PostV3SalesFunnelProductsResponse200&gt;
@@ -3982,7 +4038,8 @@ public class AnalyticsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3
    * запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
-   * | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+   * | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-analytics-v3-sales-funnel-products
    *
    * @param itemsRequest (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -4114,7 +4171,8 @@ public class AnalyticsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3
    * запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
-   * | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+   * | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-analytics-v3-sales-funnel-products-history
    *
    * @param itemHistoryRequest (required)
    * @return List&lt;PostV3SalesFunnelProductsHistoryResponse200Inner&gt;
@@ -4157,7 +4215,8 @@ public class AnalyticsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3
    * запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
-   * | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+   * | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-analytics-v3-sales-funnel-products-history
    *
    * @param itemHistoryRequest (required)
    * @return ApiResponse&lt;List&lt;PostV3SalesFunnelProductsHistoryResponse200Inner&gt;&gt;
@@ -4203,7 +4262,8 @@ public class AnalyticsApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3
    * запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
-   * | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+   * | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-analytics-v3-sales-funnel-products-history
    *
    * @param itemHistoryRequest (required)
    * @param _callback The callback to be executed when the API call finishes

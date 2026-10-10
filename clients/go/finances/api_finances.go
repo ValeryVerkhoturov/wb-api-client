@@ -34,6 +34,8 @@ type FinancesAPI interface {
 		| Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос |
 		| Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос |
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/get-api-v1-account-balance
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV1AccountBalanceRequest
 	*/
@@ -55,6 +57,8 @@ type FinancesAPI interface {
 		| Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов |
 		| Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов |
 		| Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос |
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/get-api-v1-documents-categories
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV1DocumentsCategoriesRequest
@@ -78,6 +82,8 @@ type FinancesAPI interface {
 		| Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов |
 		| Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос |
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/get-api-v1-documents-download
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV1DocumentsDownloadRequest
 	*/
@@ -99,6 +105,8 @@ type FinancesAPI interface {
 		| Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов |
 		| Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов |
 		| Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос |
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/get-api-v1-documents-list
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV1DocumentsListRequest
@@ -123,6 +131,8 @@ type FinancesAPI interface {
 		| --- | --- | --- | --- |
 		| 1 мин | 1 запрос | 1 мин | 1 запрос |
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/post-api-finance-v1-acquiring-detailed
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV1AcquiringDetailedRequest
 	*/
@@ -145,6 +155,8 @@ type FinancesAPI interface {
 		| Период | Лимит | Интервал | Всплеск |
 		| --- | --- | --- | --- |
 		| 1 мин | 1 запрос | 1 мин | 1 запрос |
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/post-api-finance-v1-acquiring-detailed-reportid
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@param reportId ID отчёта
@@ -170,6 +182,8 @@ type FinancesAPI interface {
 		| --- | --- | --- | --- |
 		| 1 мин | 1 запрос | 1 мин | 1 запрос |
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/post-api-finance-v1-acquiring-list
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV1AcquiringListRequest
 	*/
@@ -191,6 +205,8 @@ type FinancesAPI interface {
 		| Сервисный | 5 мин | 1 запрос | 5 мин | 5 запросов |
 		| Базовый с секретом | 5 мин | 1 запрос | 5 мин | 5 запросов |
 		| Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос |
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/post-api-v1-documents-download-all
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV1DocumentsDownloadAllRequest
@@ -218,6 +234,8 @@ type FinancesAPI interface {
 		| Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос |
 		| Базовый | 24 ч | 2 запроса | 12 ч | 1 запрос |
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/post-api-finance-v1-sales-reports-detailed
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV1SalesReportsDetailedRequest
 	*/
@@ -242,6 +260,8 @@ type FinancesAPI interface {
 		| Период | Лимит | Интервал | Всплеск |
 		| --- | --- | --- | --- |
 		| 1 мин | 1 запрос | 1 мин | 1 запрос |
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/post-api-finance-v1-sales-reports-detailed-reportid
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@param reportId ID отчёта. Для ежедневных отчётов вместо стандартной десериализации рекомендуем использовать нестандартные библиотеки с поддержкой [BigInt](https://www.npmjs.com/package/json-bigint)
@@ -268,6 +288,8 @@ type FinancesAPI interface {
 		| Период | Лимит | Интервал | Всплеск |
 		| --- | --- | --- | --- |
 		| 1 мин | 1 запрос | 1 мин | 1 запрос |
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/post-api-finance-v1-sales-reports-list
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV1SalesReportsListRequest
@@ -303,6 +325,8 @@ GetV1AccountBalance Получить баланс продавца
 | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос |
 | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос |
 | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос |
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/get-api-v1-account-balance
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV1AccountBalanceRequest
@@ -461,6 +485,8 @@ GetV1DocumentsCategories Категории документов
 | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов |
 | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов |
 | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос |
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/get-api-v1-documents-categories
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV1DocumentsCategoriesRequest
@@ -632,6 +658,8 @@ GetV1DocumentsDownload Получить документ
 | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов |
 | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов |
 | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос |
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/get-api-v1-documents-download
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV1DocumentsDownloadRequest
@@ -866,6 +894,8 @@ GetV1DocumentsList Список документов
 | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов |
 | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос |
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/get-api-v1-documents-list
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV1DocumentsListRequest
 */
@@ -1077,6 +1107,8 @@ PostV1AcquiringDetailed Детализации к отчётам об издер
 | --- | --- | --- | --- |
 | 1 мин | 1 запрос | 1 мин | 1 запрос |
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/post-api-finance-v1-acquiring-detailed
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV1AcquiringDetailedRequest
 */
@@ -1251,6 +1283,8 @@ PostV1AcquiringDetailedReportId Детализации к отчётам об и
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 1 запрос | 1 мин | 1 запрос |
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/post-api-finance-v1-acquiring-detailed-reportid
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param reportId ID отчёта
@@ -1440,6 +1474,8 @@ PostV1AcquiringList Список отчётов об издержках на п�
 | --- | --- | --- | --- |
 | 1 мин | 1 запрос | 1 мин | 1 запрос |
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/post-api-finance-v1-acquiring-list
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV1AcquiringListRequest
 */
@@ -1601,6 +1637,8 @@ PostV1DocumentsDownloadAll Получить документы
 | Сервисный | 5 мин | 1 запрос | 5 мин | 5 запросов |
 | Базовый с секретом | 5 мин | 1 запрос | 5 мин | 5 запросов |
 | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос |
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/post-api-v1-documents-download-all
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV1DocumentsDownloadAllRequest
@@ -1775,6 +1813,8 @@ PostV1SalesReportsDetailed Детализации к отчётам реализ
 | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос |
 | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос |
 | Базовый | 24 ч | 2 запроса | 12 ч | 1 запрос |
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/post-api-finance-v1-sales-reports-detailed
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV1SalesReportsDetailedRequest
@@ -1952,6 +1992,8 @@ PostV1SalesReportsDetailedReportId Детализации к отчётам ре
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 1 запрос | 1 мин | 1 запрос |
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/post-api-finance-v1-sales-reports-detailed-reportid
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param reportId ID отчёта. Для ежедневных отчётов вместо стандартной десериализации рекомендуем использовать нестандартные библиотеки с поддержкой [BigInt](https://www.npmjs.com/package/json-bigint)
@@ -2142,6 +2184,8 @@ PostV1SalesReportsList Список отчётов реализации
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 1 запрос | 1 мин | 1 запрос |
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/post-api-finance-v1-sales-reports-list
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV1SalesReportsListRequest

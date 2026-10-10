@@ -46,6 +46,8 @@ paths:
         | --- | --- | --- | --- |
         | 1 мин | 300 запросов | 200 мс | 20 запросов |
         Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/get-api-v3-dbw-orders-new
       responses:
         '200':
           description: Успешно
@@ -104,6 +106,8 @@ paths:
         | --- | --- | --- | --- |
         | 1 мин | 300 запросов | 200 мс | 20 запросов |
         Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/get-api-v3-dbw-orders
       parameters:
       - $ref: '#/components/parameters/Limit'
       - $ref: '#/components/parameters/Next'
@@ -185,6 +189,8 @@ paths:
         | --- | --- | --- | --- |
         | 1 мин | 300 запросов | 200 мс | 20 запросов |
         Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/post-api-v3-dbw-orders-delivery-date
       requestBody:
         required: true
         content:
@@ -258,6 +264,8 @@ paths:
         | --- | --- | --- | --- |
         | 1 мин | 300 запросов | 200 мс | 20 запросов |
         Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/post-api-marketplace-v3-dbw-orders-client
       requestBody:
         required: true
         content:
@@ -360,6 +368,8 @@ paths:
         | --- | --- | --- | --- |
         | 1 мин | 300 запросов | 200 мс | 20 запросов |
         Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/post-api-v3-dbw-orders-status
       requestBody:
         content:
           application/json:
@@ -446,6 +456,8 @@ paths:
         | --- | --- | --- | --- |
         | 1 мин | 300 запросов | 200 мс | 20 запросов |
         Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/patch-api-v3-dbw-orders-orderid-confirm
       parameters:
       - $ref: '#/components/parameters/Order'
       responses:
@@ -531,6 +543,8 @@ paths:
         | --- | --- | --- | --- |
         | 1 мин | 300 запросов | 200 мс | 20 запросов |
         Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/post-api-v3-dbw-orders-stickers
       parameters:
       - name: type
         in: query
@@ -645,6 +659,8 @@ paths:
         | --- | --- | --- | --- |
         | 1 мин | 300 запросов | 200 мс | 20 запросов |
         Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/post-api-marketplace-v3-dbw-orders-status-deliver
       requestBody:
         required: true
         content:
@@ -733,6 +749,8 @@ paths:
         | --- | --- | --- | --- |
         | 1 мин | 300 запросов | 200 мс | 20 запросов |
         Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/post-api-v3-dbw-orders-courier
       requestBody:
         content:
           application/json:
@@ -811,6 +829,8 @@ paths:
         | Базовый с секретом | 1 мин | 300 запросов | 200 мс | 20 запросов |
         | Базовый | 1 ч | 10 запросов | 6 мин | 1 запрос |
         Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/patch-api-v3-dbw-orders-orderid-cancel
       parameters:
       - $ref: '#/components/parameters/Order'
       responses:
@@ -892,6 +912,8 @@ paths:
         | --- | --- | --- | --- |
         | 1 мин | 300 запросов | 200 мс | 20 запросов |
         Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/post-api-marketplace-v3-dbw-orders-meta-details
       requestBody:
         required: true
         content:
@@ -972,6 +994,8 @@ paths:
         | --- | --- | --- | --- |
         | 1 мин | 300 запросов | 200 мс | 20 запросов |
         Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/post-api-marketplace-v3-dbw-orders-meta-delete
       requestBody:
         required: true
         content:
@@ -1048,6 +1072,8 @@ paths:
         | --- | --- | --- | --- |
         | 1 мин | 300 запросов | 200 мс | 20 запросов |
         Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/post-api-marketplace-v3-dbw-orders-meta-sgtin
       requestBody:
         required: true
         content:
@@ -1129,6 +1155,8 @@ paths:
         | --- | --- | --- | --- |
         | 1 мин | 1000 запросов | 60 мс | 20 запросов |
         Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/put-api-v3-dbw-orders-orderid-meta-uin
       parameters:
       - $ref: '#/components/parameters/Order'
       requestBody:
@@ -1219,6 +1247,8 @@ paths:
         | --- | --- | --- | --- |
         | 1 мин | 1000 запросов | 60 мс | 20 запросов |
         Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/put-api-v3-dbw-orders-orderid-meta-imei
       parameters:
       - $ref: '#/components/parameters/Order'
       requestBody:
@@ -1308,6 +1338,8 @@ paths:
         | --- | --- | --- | --- |
         | 1 мин | 1000 запросов | 60 мс | 20 запросов |
         Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/put-api-v3-dbw-orders-orderid-meta-gtin
       parameters:
       - $ref: '#/components/parameters/Order'
       requestBody:

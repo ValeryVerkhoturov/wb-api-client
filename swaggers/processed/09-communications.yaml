@@ -63,6 +63,8 @@ paths:
         | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-new-feedbacks-questions
       tags:
       - Communications
       responses:
@@ -121,6 +123,8 @@ paths:
         | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-questions-count-unanswered
       tags:
       - Communications
       responses:
@@ -179,6 +183,8 @@ paths:
         | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-questions-count
       tags:
       - Communications
       parameters:
@@ -278,6 +284,8 @@ paths:
         | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-questions
       tags:
       - Communications
       parameters:
@@ -415,6 +423,8 @@ paths:
         | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/patch-api-v1-questions
       tags:
       - Communications
       requestBody:
@@ -568,6 +578,8 @@ paths:
         | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-question
       tags:
       - Communications
       parameters:
@@ -666,6 +678,8 @@ paths:
         | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-feedbacks-count-unanswered
       tags:
       - Communications
       responses:
@@ -727,6 +741,8 @@ paths:
         | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-feedbacks-count
       tags:
       - Communications
       parameters:
@@ -827,6 +843,8 @@ paths:
         | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-feedbacks
       tags:
       - Communications
       parameters:
@@ -1006,6 +1024,8 @@ paths:
         | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/post-api-v1-feedbacks-answer
       requestBody:
         content:
           application/json:
@@ -1077,6 +1097,8 @@ paths:
         | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/patch-api-v1-feedbacks-answer
       requestBody:
         content:
           application/json:
@@ -1137,6 +1159,8 @@ paths:
         | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/post-api-v1-feedbacks-order-return
       tags:
       - Communications
       requestBody:
@@ -1218,6 +1242,8 @@ paths:
         | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-feedback
       tags:
       - Communications
       parameters:
@@ -1339,6 +1365,8 @@ paths:
         | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-feedbacks-archive
       tags:
       - Communications
       parameters:
@@ -1496,6 +1524,8 @@ paths:
         | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-feedbacks-v1-pins
       tags:
       - Communications
       parameters:
@@ -1620,6 +1650,8 @@ paths:
         | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/post-api-feedbacks-v1-pins
       tags:
       - Communications
       requestBody:
@@ -1702,6 +1734,8 @@ paths:
         | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/delete-api-feedbacks-v1-pins
       tags:
       - Communications
       requestBody:
@@ -1768,6 +1802,8 @@ paths:
         | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-feedbacks-v1-pins-count
       tags:
       - Communications
       parameters:
@@ -1878,6 +1914,8 @@ paths:
         | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-feedbacks-v1-pins-limits
       tags:
       - Communications
       responses:
@@ -1918,6 +1956,8 @@ paths:
         | Сервисный | 10 сек | 10 запросов | 1 сек | 10 запросов |
         | Базовый с секретом | 10 сек | 10 запросов | 1 сек | 10 запросов |
         | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-seller-chats
       tags:
       - Communications
       responses:
@@ -1961,6 +2001,8 @@ paths:
         | Сервисный | 10 сек | 10 запросов | 1 сек | 10 запросов |
         | Базовый с секретом | 10 сек | 10 запросов | 1 сек | 10 запросов |
         | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-seller-events
       tags:
       - Communications
       parameters:
@@ -2097,6 +2139,8 @@ paths:
         | Сервисный | 10 сек | 10 запросов | 1 сек | 10 запросов |
         | Базовый с секретом | 10 сек | 10 запросов | 1 сек | 10 запросов |
         | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/post-api-v1-seller-message
       tags:
       - Communications
       requestBody:
@@ -2212,6 +2256,8 @@ paths:
         | Сервисный | 10 сек | 10 запросов | 1 сек | 10 запросов |
         | Базовый с секретом | 10 сек | 10 запросов | 1 сек | 10 запросов |
         | Базовый | 1 ч | 10 запросов | 6 мин | 1 запрос |
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-seller-download-id
       parameters:
       - name: id
         in: path
@@ -2296,6 +2342,8 @@ paths:
         | Сервисный | 1 мин | 20 запросов | 3 сек | 10 запросов |
         | Базовый с секретом | 1 мин | 20 запросов | 3 сек | 10 запросов |
         | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-claims
       parameters:
       - $ref: '#/components/parameters/is_archive'
       - $ref: '#/components/parameters/id'
@@ -2340,6 +2388,8 @@ paths:
         | Сервисный | 1 мин | 20 запросов | 3 сек | 10 запросов |
         | Базовый с секретом | 1 мин | 20 запросов | 3 сек | 10 запросов |
         | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/patch-api-v1-claim
       requestBody:
         $ref: '#/components/requestBodies/PatchClaimReq'
       responses:

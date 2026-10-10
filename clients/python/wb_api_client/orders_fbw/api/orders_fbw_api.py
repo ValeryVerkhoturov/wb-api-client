@@ -94,7 +94,7 @@ class OrdersFbwApi:
     ) -> None:
         """Удалить черновик
 
-        Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод удаляет черновик поставки по его ID.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |
+        Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод удаляет черновик поставки по его ID.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/delete-api-supplies-v1-drafts-draftid
 
         :param draft_id: ID черновика (required)
         :type draft_id: str
@@ -163,7 +163,7 @@ class OrdersFbwApi:
     ) -> ApiResponse[None]:
         """Удалить черновик
 
-        Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод удаляет черновик поставки по его ID.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |
+        Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод удаляет черновик поставки по его ID.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/delete-api-supplies-v1-drafts-draftid
 
         :param draft_id: ID черновика (required)
         :type draft_id: str
@@ -232,7 +232,7 @@ class OrdersFbwApi:
     ) -> RESTResponseType:
         """Удалить черновик
 
-        Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод удаляет черновик поставки по его ID.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |
+        Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод удаляет черновик поставки по его ID.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/delete-api-supplies-v1-drafts-draftid
 
         :param draft_id: ID черновика (required)
         :type draft_id: str
@@ -353,7 +353,7 @@ class OrdersFbwApi:
     ) -> ModelsDraftDeleteItemsErrorResponse:
         """Удалить товары из черновика
 
-        Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод удаляет товары из черновика поставки по списку баркодов.  Баркоды не валидируются. Если в запросе вы передали некорректные баркоды, вы не получите ошибку. При этом корректные баркоды будут удалены из черновика.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |
+        Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод удаляет товары из черновика поставки по списку баркодов.  Баркоды не валидируются. Если в запросе вы передали некорректные баркоды, вы не получите ошибку. При этом корректные баркоды будут удалены из черновика.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/delete-api-supplies-v1-drafts-draftid-items
 
         :param draft_id: ID черновика (required)
         :type draft_id: str
@@ -426,7 +426,7 @@ class OrdersFbwApi:
     ) -> ApiResponse[ModelsDraftDeleteItemsErrorResponse]:
         """Удалить товары из черновика
 
-        Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод удаляет товары из черновика поставки по списку баркодов.  Баркоды не валидируются. Если в запросе вы передали некорректные баркоды, вы не получите ошибку. При этом корректные баркоды будут удалены из черновика.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |
+        Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод удаляет товары из черновика поставки по списку баркодов.  Баркоды не валидируются. Если в запросе вы передали некорректные баркоды, вы не получите ошибку. При этом корректные баркоды будут удалены из черновика.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/delete-api-supplies-v1-drafts-draftid-items
 
         :param draft_id: ID черновика (required)
         :type draft_id: str
@@ -499,7 +499,7 @@ class OrdersFbwApi:
     ) -> RESTResponseType:
         """Удалить товары из черновика
 
-        Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод удаляет товары из черновика поставки по списку баркодов.  Баркоды не валидируются. Если в запросе вы передали некорректные баркоды, вы не получите ошибку. При этом корректные баркоды будут удалены из черновика.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |
+        Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод удаляет товары из черновика поставки по списку баркодов.  Баркоды не валидируются. Если в запросе вы передали некорректные баркоды, вы не получите ошибку. При этом корректные баркоды будут удалены из черновика.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/delete-api-supplies-v1-drafts-draftid-items
 
         :param draft_id: ID черновика (required)
         :type draft_id: str
@@ -656,7 +656,7 @@ class OrdersFbwApi:
     ) -> ModelsListDraftsResponse:
         """Список черновиков
 
-        Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод возвращает список черновиков поставок.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |
+        Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод возвращает список черновиков поставок.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/get-api-supplies-v1-drafts
 
         :param limit: Количество черновиков в ответе
         :type limit: int
@@ -754,7 +754,7 @@ class OrdersFbwApi:
     ) -> ApiResponse[ModelsListDraftsResponse]:
         """Список черновиков
 
-        Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод возвращает список черновиков поставок.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |
+        Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод возвращает список черновиков поставок.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/get-api-supplies-v1-drafts
 
         :param limit: Количество черновиков в ответе
         :type limit: int
@@ -852,7 +852,7 @@ class OrdersFbwApi:
     ) -> RESTResponseType:
         """Список черновиков
 
-        Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод возвращает список черновиков поставок.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |
+        Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод возвращает список черновиков поставок.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/get-api-supplies-v1-drafts
 
         :param limit: Количество черновиков в ответе
         :type limit: int
@@ -997,7 +997,7 @@ class OrdersFbwApi:
     ) -> ModelsListDraftItemsResponse:
         """Список товаров в черновике
 
-        Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод возвращает список товаров черновика.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |
+        Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод возвращает список товаров черновика.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/get-api-supplies-v1-drafts-draftid-items
 
         :param draft_id: ID черновика (required)
         :type draft_id: str
@@ -1066,7 +1066,7 @@ class OrdersFbwApi:
     ) -> ApiResponse[ModelsListDraftItemsResponse]:
         """Список товаров в черновике
 
-        Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод возвращает список товаров черновика.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |
+        Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод возвращает список товаров черновика.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/get-api-supplies-v1-drafts-draftid-items
 
         :param draft_id: ID черновика (required)
         :type draft_id: str
@@ -1135,7 +1135,7 @@ class OrdersFbwApi:
     ) -> RESTResponseType:
         """Список товаров в черновике
 
-        Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод возвращает список товаров черновика.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |
+        Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод возвращает список товаров черновика.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/get-api-supplies-v1-drafts-draftid-items
 
         :param draft_id: ID черновика (required)
         :type draft_id: str
@@ -1261,7 +1261,7 @@ class OrdersFbwApi:
     ) -> ModelsSupplyDetails:
         """Детали поставки
 
-        Метод возвращает детали поставки по ID.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+        Метод возвращает детали поставки по ID.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/get-api-v1-supplies-id
 
         :param id: ID поставки или заказа (required)
         :type id: int
@@ -1340,7 +1340,7 @@ class OrdersFbwApi:
     ) -> ApiResponse[ModelsSupplyDetails]:
         """Детали поставки
 
-        Метод возвращает детали поставки по ID.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+        Метод возвращает детали поставки по ID.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/get-api-v1-supplies-id
 
         :param id: ID поставки или заказа (required)
         :type id: int
@@ -1419,7 +1419,7 @@ class OrdersFbwApi:
     ) -> RESTResponseType:
         """Детали поставки
 
-        Метод возвращает детали поставки по ID.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+        Метод возвращает детали поставки по ID.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/get-api-v1-supplies-id
 
         :param id: ID поставки или заказа (required)
         :type id: int
@@ -1562,7 +1562,7 @@ class OrdersFbwApi:
     ) -> List[ModelsGoodInSupply]:
         """Товары поставки
 
-        Метод возвращает информацию о товарах в поставке.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+        Метод возвращает информацию о товарах в поставке.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/get-api-v1-supplies-id-goods
 
         :param id: ID поставки или заказа (required)
         :type id: int
@@ -1654,7 +1654,7 @@ class OrdersFbwApi:
     ) -> ApiResponse[List[ModelsGoodInSupply]]:
         """Товары поставки
 
-        Метод возвращает информацию о товарах в поставке.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+        Метод возвращает информацию о товарах в поставке.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/get-api-v1-supplies-id-goods
 
         :param id: ID поставки или заказа (required)
         :type id: int
@@ -1746,7 +1746,7 @@ class OrdersFbwApi:
     ) -> RESTResponseType:
         """Товары поставки
 
-        Метод возвращает информацию о товарах в поставке.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+        Метод возвращает информацию о товарах в поставке.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/get-api-v1-supplies-id-goods
 
         :param id: ID поставки или заказа (required)
         :type id: int
@@ -1894,7 +1894,7 @@ class OrdersFbwApi:
     ) -> List[ModelsBox]:
         """Упаковка поставки
 
-        Метод возвращает информацию об упаковке поставки.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+        Метод возвращает информацию об упаковке поставки.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/get-api-v1-supplies-id-package
 
         :param id: ID поставки (required)
         :type id: int
@@ -1963,7 +1963,7 @@ class OrdersFbwApi:
     ) -> ApiResponse[List[ModelsBox]]:
         """Упаковка поставки
 
-        Метод возвращает информацию об упаковке поставки.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+        Метод возвращает информацию об упаковке поставки.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/get-api-v1-supplies-id-package
 
         :param id: ID поставки (required)
         :type id: int
@@ -2032,7 +2032,7 @@ class OrdersFbwApi:
     ) -> RESTResponseType:
         """Упаковка поставки
 
-        Метод возвращает информацию об упаковке поставки.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+        Метод возвращает информацию об упаковке поставки.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/get-api-v1-supplies-id-package
 
         :param id: ID поставки (required)
         :type id: int
@@ -2152,7 +2152,7 @@ class OrdersFbwApi:
     ) -> List[ModelsItemDiscrepancyResponse]:
         """Расхождения в поставке
 
-        Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод возвращает информацию о выявленных расхождениях между заявленным и фактическим количеством товара в поставке.  Для поставок принятых не позднее года назад.  \\*\\*Типы расхождений:\\*\\*  Расхождение в большую сторону:  1. Избыток товара с заявленным баркодом: - `\"discrepancyType\": \"surplus\"` - `\"discrepancyLabel\": \"surplus\"` 2. Избыток товара с несоответствующим заявленному баркодом: - `\"discrepancyType\": \"surplus\"` - `\"discrepancyLabel\": \"re-sorting\"` Расхождение в меньшую сторону:  1. Не хватает товара: - `\"discrepancyType\": \"shortage\"` - `\"discrepancyLabel\": \"shortage\"` 2. Некоторые баркоды не соответствуют заявленным: - `\"discrepancyType\": \"shortage\"` - `\"discrepancyLabel\": \"re-sorting\"`  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос |
+        Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод возвращает информацию о выявленных расхождениях между заявленным и фактическим количеством товара в поставке.  Для поставок принятых не позднее года назад.  \\*\\*Типы расхождений:\\*\\*  Расхождение в большую сторону:  1. Избыток товара с заявленным баркодом: - `\"discrepancyType\": \"surplus\"` - `\"discrepancyLabel\": \"surplus\"` 2. Избыток товара с несоответствующим заявленному баркодом: - `\"discrepancyType\": \"surplus\"` - `\"discrepancyLabel\": \"re-sorting\"` Расхождение в меньшую сторону:  1. Не хватает товара: - `\"discrepancyType\": \"shortage\"` - `\"discrepancyLabel\": \"shortage\"` 2. Некоторые баркоды не соответствуют заявленным: - `\"discrepancyType\": \"shortage\"` - `\"discrepancyLabel\": \"re-sorting\"`  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/get-api-supplies-v1-discrepancies-supplyid
 
         :param supply_id: ID поставки (required)
         :type supply_id: int
@@ -2221,7 +2221,7 @@ class OrdersFbwApi:
     ) -> ApiResponse[List[ModelsItemDiscrepancyResponse]]:
         """Расхождения в поставке
 
-        Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод возвращает информацию о выявленных расхождениях между заявленным и фактическим количеством товара в поставке.  Для поставок принятых не позднее года назад.  \\*\\*Типы расхождений:\\*\\*  Расхождение в большую сторону:  1. Избыток товара с заявленным баркодом: - `\"discrepancyType\": \"surplus\"` - `\"discrepancyLabel\": \"surplus\"` 2. Избыток товара с несоответствующим заявленному баркодом: - `\"discrepancyType\": \"surplus\"` - `\"discrepancyLabel\": \"re-sorting\"` Расхождение в меньшую сторону:  1. Не хватает товара: - `\"discrepancyType\": \"shortage\"` - `\"discrepancyLabel\": \"shortage\"` 2. Некоторые баркоды не соответствуют заявленным: - `\"discrepancyType\": \"shortage\"` - `\"discrepancyLabel\": \"re-sorting\"`  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос |
+        Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод возвращает информацию о выявленных расхождениях между заявленным и фактическим количеством товара в поставке.  Для поставок принятых не позднее года назад.  \\*\\*Типы расхождений:\\*\\*  Расхождение в большую сторону:  1. Избыток товара с заявленным баркодом: - `\"discrepancyType\": \"surplus\"` - `\"discrepancyLabel\": \"surplus\"` 2. Избыток товара с несоответствующим заявленному баркодом: - `\"discrepancyType\": \"surplus\"` - `\"discrepancyLabel\": \"re-sorting\"` Расхождение в меньшую сторону:  1. Не хватает товара: - `\"discrepancyType\": \"shortage\"` - `\"discrepancyLabel\": \"shortage\"` 2. Некоторые баркоды не соответствуют заявленным: - `\"discrepancyType\": \"shortage\"` - `\"discrepancyLabel\": \"re-sorting\"`  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/get-api-supplies-v1-discrepancies-supplyid
 
         :param supply_id: ID поставки (required)
         :type supply_id: int
@@ -2290,7 +2290,7 @@ class OrdersFbwApi:
     ) -> RESTResponseType:
         """Расхождения в поставке
 
-        Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод возвращает информацию о выявленных расхождениях между заявленным и фактическим количеством товара в поставке.  Для поставок принятых не позднее года назад.  \\*\\*Типы расхождений:\\*\\*  Расхождение в большую сторону:  1. Избыток товара с заявленным баркодом: - `\"discrepancyType\": \"surplus\"` - `\"discrepancyLabel\": \"surplus\"` 2. Избыток товара с несоответствующим заявленному баркодом: - `\"discrepancyType\": \"surplus\"` - `\"discrepancyLabel\": \"re-sorting\"` Расхождение в меньшую сторону:  1. Не хватает товара: - `\"discrepancyType\": \"shortage\"` - `\"discrepancyLabel\": \"shortage\"` 2. Некоторые баркоды не соответствуют заявленным: - `\"discrepancyType\": \"shortage\"` - `\"discrepancyLabel\": \"re-sorting\"`  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос |
+        Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод возвращает информацию о выявленных расхождениях между заявленным и фактическим количеством товара в поставке.  Для поставок принятых не позднее года назад.  \\*\\*Типы расхождений:\\*\\*  Расхождение в большую сторону:  1. Избыток товара с заявленным баркодом: - `\"discrepancyType\": \"surplus\"` - `\"discrepancyLabel\": \"surplus\"` 2. Избыток товара с несоответствующим заявленному баркодом: - `\"discrepancyType\": \"surplus\"` - `\"discrepancyLabel\": \"re-sorting\"` Расхождение в меньшую сторону:  1. Не хватает товара: - `\"discrepancyType\": \"shortage\"` - `\"discrepancyLabel\": \"shortage\"` 2. Некоторые баркоды не соответствуют заявленным: - `\"discrepancyType\": \"shortage\"` - `\"discrepancyLabel\": \"re-sorting\"`  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/get-api-supplies-v1-discrepancies-supplyid
 
         :param supply_id: ID поставки (required)
         :type supply_id: int
@@ -2409,7 +2409,7 @@ class OrdersFbwApi:
     ) -> List[ModelsTransitTariff]:
         """Транзитные направления
 
-        Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 10 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 10 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 10 запросов | | Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос |
+        Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 10 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 10 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 10 запросов | | Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/get-api-v1-transit-tariffs
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2472,7 +2472,7 @@ class OrdersFbwApi:
     ) -> ApiResponse[List[ModelsTransitTariff]]:
         """Транзитные направления
 
-        Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 10 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 10 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 10 запросов | | Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос |
+        Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 10 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 10 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 10 запросов | | Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/get-api-v1-transit-tariffs
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2535,7 +2535,7 @@ class OrdersFbwApi:
     ) -> RESTResponseType:
         """Транзитные направления
 
-        Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 10 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 10 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 10 запросов | | Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос |
+        Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 10 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 10 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 10 запросов | | Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/get-api-v1-transit-tariffs
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2646,7 +2646,7 @@ class OrdersFbwApi:
     ) -> List[ModelsWarehousesResultItems]:
         """Список складов
 
-        Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос |  ---  В песочнице — максимум 1 запрос в секунду суммарно для всех методов.
+        Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос |  ---  В песочнице — максимум 1 запрос в секунду суммарно для всех методов.  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/get-api-v1-warehouses
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2710,7 +2710,7 @@ class OrdersFbwApi:
     ) -> ApiResponse[List[ModelsWarehousesResultItems]]:
         """Список складов
 
-        Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос |  ---  В песочнице — максимум 1 запрос в секунду суммарно для всех методов.
+        Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос |  ---  В песочнице — максимум 1 запрос в секунду суммарно для всех методов.  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/get-api-v1-warehouses
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2774,7 +2774,7 @@ class OrdersFbwApi:
     ) -> RESTResponseType:
         """Список складов
 
-        Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос |  ---  В песочнице — максимум 1 запрос в секунду суммарно для всех методов.
+        Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос |  ---  В песочнице — максимум 1 запрос в секунду суммарно для всех методов.  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/get-api-v1-warehouses
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2896,7 +2896,7 @@ class OrdersFbwApi:
     ) -> ModelsOptionsResultModel:
         """Опции приёмки
 
-        Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  ---  В песочнице — максимум 1 запрос в секунду суммарно для всех методов.
+        Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  ---  В песочнице — максимум 1 запрос в секунду суммарно для всех методов.  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/post-api-v1-acceptance-options
 
         :param models_good: (required)
         :type models_good: List[ModelsGood]
@@ -2975,7 +2975,7 @@ class OrdersFbwApi:
     ) -> ApiResponse[ModelsOptionsResultModel]:
         """Опции приёмки
 
-        Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  ---  В песочнице — максимум 1 запрос в секунду суммарно для всех методов.
+        Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  ---  В песочнице — максимум 1 запрос в секунду суммарно для всех методов.  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/post-api-v1-acceptance-options
 
         :param models_good: (required)
         :type models_good: List[ModelsGood]
@@ -3054,7 +3054,7 @@ class OrdersFbwApi:
     ) -> RESTResponseType:
         """Опции приёмки
 
-        Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  ---  В песочнице — максимум 1 запрос в секунду суммарно для всех методов.
+        Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  ---  В песочнице — максимум 1 запрос в секунду суммарно для всех методов.  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/post-api-v1-acceptance-options
 
         :param models_good: (required)
         :type models_good: List[ModelsGood]
@@ -3197,7 +3197,7 @@ class OrdersFbwApi:
     ) -> ModelsDraftCreateResponse:
         """Создать черновик
 
-        Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод создаёт пустой черновик поставки.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |
+        Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод создаёт пустой черновик поставки.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/post-api-supplies-v1-drafts
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -3260,7 +3260,7 @@ class OrdersFbwApi:
     ) -> ApiResponse[ModelsDraftCreateResponse]:
         """Создать черновик
 
-        Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод создаёт пустой черновик поставки.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |
+        Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод создаёт пустой черновик поставки.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/post-api-supplies-v1-drafts
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -3323,7 +3323,7 @@ class OrdersFbwApi:
     ) -> RESTResponseType:
         """Создать черновик
 
-        Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод создаёт пустой черновик поставки.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |
+        Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод создаёт пустой черновик поставки.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/post-api-supplies-v1-drafts
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -3436,7 +3436,7 @@ class OrdersFbwApi:
     ) -> ModelsDraftAddItemsErrorResponse:
         """Добавить товары в черновик
 
-        Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод добавляет товары в черновик поставки.  Метод работает по принципу атомарности: - если все баркоды прошли валидацию успешно, то все товары добавятся в черновик. В ответе вернётся `{\"results\":[]}` - если хотя бы один баркод не прошел валидацию, ни один товар в черновик не добавится. В ответе вернётся список невалидных баркодов  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |
+        Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод добавляет товары в черновик поставки.  Метод работает по принципу атомарности: - если все баркоды прошли валидацию успешно, то все товары добавятся в черновик. В ответе вернётся `{\"results\":[]}` - если хотя бы один баркод не прошел валидацию, ни один товар в черновик не добавится. В ответе вернётся список невалидных баркодов  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/post-api-supplies-v1-drafts-draftid-items
 
         :param draft_id: ID черновика (required)
         :type draft_id: str
@@ -3509,7 +3509,7 @@ class OrdersFbwApi:
     ) -> ApiResponse[ModelsDraftAddItemsErrorResponse]:
         """Добавить товары в черновик
 
-        Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод добавляет товары в черновик поставки.  Метод работает по принципу атомарности: - если все баркоды прошли валидацию успешно, то все товары добавятся в черновик. В ответе вернётся `{\"results\":[]}` - если хотя бы один баркод не прошел валидацию, ни один товар в черновик не добавится. В ответе вернётся список невалидных баркодов  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |
+        Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод добавляет товары в черновик поставки.  Метод работает по принципу атомарности: - если все баркоды прошли валидацию успешно, то все товары добавятся в черновик. В ответе вернётся `{\"results\":[]}` - если хотя бы один баркод не прошел валидацию, ни один товар в черновик не добавится. В ответе вернётся список невалидных баркодов  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/post-api-supplies-v1-drafts-draftid-items
 
         :param draft_id: ID черновика (required)
         :type draft_id: str
@@ -3582,7 +3582,7 @@ class OrdersFbwApi:
     ) -> RESTResponseType:
         """Добавить товары в черновик
 
-        Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод добавляет товары в черновик поставки.  Метод работает по принципу атомарности: - если все баркоды прошли валидацию успешно, то все товары добавятся в черновик. В ответе вернётся `{\"results\":[]}` - если хотя бы один баркод не прошел валидацию, ни один товар в черновик не добавится. В ответе вернётся список невалидных баркодов  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |
+        Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод добавляет товары в черновик поставки.  Метод работает по принципу атомарности: - если все баркоды прошли валидацию успешно, то все товары добавятся в черновик. В ответе вернётся `{\"results\":[]}` - если хотя бы один баркод не прошел валидацию, ни один товар в черновик не добавится. В ответе вернётся список невалидных баркодов  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/post-api-supplies-v1-drafts-draftid-items
 
         :param draft_id: ID черновика (required)
         :type draft_id: str
@@ -3726,7 +3726,7 @@ class OrdersFbwApi:
     ) -> List[ModelsSupply]:
         """Список поставок
 
-        Метод возвращает список поставок, по умолчанию — последние 1000 поставок.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+        Метод возвращает список поставок, по умолчанию — последние 1000 поставок.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/post-api-v1-supplies
 
         :param models_supplies_filters_request: (required)
         :type models_supplies_filters_request: ModelsSuppliesFiltersRequest
@@ -3809,7 +3809,7 @@ class OrdersFbwApi:
     ) -> ApiResponse[List[ModelsSupply]]:
         """Список поставок
 
-        Метод возвращает список поставок, по умолчанию — последние 1000 поставок.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+        Метод возвращает список поставок, по умолчанию — последние 1000 поставок.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/post-api-v1-supplies
 
         :param models_supplies_filters_request: (required)
         :type models_supplies_filters_request: ModelsSuppliesFiltersRequest
@@ -3892,7 +3892,7 @@ class OrdersFbwApi:
     ) -> RESTResponseType:
         """Список поставок
 
-        Метод возвращает список поставок, по умолчанию — последние 1000 поставок.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+        Метод возвращает список поставок, по умолчанию — последние 1000 поставок.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/post-api-v1-supplies
 
         :param models_supplies_filters_request: (required)
         :type models_supplies_filters_request: ModelsSuppliesFiltersRequest

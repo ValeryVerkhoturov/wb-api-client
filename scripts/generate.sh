@@ -88,8 +88,14 @@ slug_from_spec() {
 }
 
 # openapi-generator run: writes to a scratch dir under clients/.tmp/.
+# Optional 6th arg: a template override directory (used by PHP — see the
+# PHP section below).
 gen() {
-  local lang="$1" spec="$2" scratch="$3" config="$4" extra="$5"
+  local lang="$1" spec="$2" scratch="$3" config="$4" extra="$5" template_dir="${6:-}"
+  local template_arg=()
+  if [[ -n "${template_dir}" ]]; then
+    template_arg=(--template-dir "$(in_container "${template_dir}")")
+  fi
   # shellcheck disable=SC2086
   ${GEN} generate \
     --input-spec "$(in_container "${spec}")" \
@@ -99,6 +105,7 @@ gen() {
     --additional-properties="packageVersion=${VERSION},artifactVersion=${VERSION},npmVersion=${VERSION},${extra}" \
     --global-property=skipFormModel=false \
     --skip-validate-spec \
+    ${template_arg[@]+"${template_arg[@]}"} \
     >/dev/null
 }
 
@@ -235,8 +242,13 @@ for spec in "${SPEC_DIR}"/*.yaml; do
   php_tmp="${SCRATCH}/php-${slug_snake}"
   slug_pascal="$(printf '%s' "${slug_snake}" | awk 'BEGIN{FS="_";OFS=""} {for(i=1;i<=NF;i++) $i=toupper(substr($i,1,1)) substr($i,2)} 1')"
   php_ns="ValeryVerkhoturov\\WbApiClient\\${slug_pascal}"
+  # The template override in templates/php adds the operation description
+  # (`notes`) to method docblocks — the stock template's `{{#description}}`
+  # placeholder binds to an empty field in this generator, so docblocks
+  # would otherwise carry only the summary.
   gen php "${spec}" "${php_tmp}" "${CONFIG_DIR}/php.yaml" \
-    "invokerPackage=${php_ns},packageName=WbApiClient${slug_pascal},composerPackageName=valeryverkhoturov/wb-api-client-${slug}"
+    "invokerPackage=${php_ns},packageName=WbApiClient${slug_pascal},composerPackageName=valeryverkhoturov/wb-api-client-${slug}" \
+    "${TEMPLATE_DIR}/php"
   php_dest="${CLIENTS_DIR}/php/src/${slug_pascal}"
   mkdir -p "${php_dest}"
   # Move Api/ Model/ dirs and top-level .php files into place.

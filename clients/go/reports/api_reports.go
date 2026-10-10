@@ -36,6 +36,8 @@ type ReportsAPI interface {
 		| Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос |
 		| Базовый | 3 ч | 1 запрос | 3 ч | 1 запрос |
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-acceptance-report
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV1AcceptanceReportRequest
 	*/
@@ -57,6 +59,8 @@ type ReportsAPI interface {
 		| Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос |
 		| Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос |
 		| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-acceptance-report-tasks-task-id-download
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@param taskId ID задания на генерацию
@@ -80,6 +84,8 @@ type ReportsAPI interface {
 		| Сервисный | 5 сек | 1 запрос | 5 сек | 1 запрос |
 		| Базовый с секретом | 5 сек | 1 запрос | 5 сек | 1 запрос |
 		| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-acceptance-report-tasks-task-id-status
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@param taskId ID задания на генерацию
@@ -109,6 +115,8 @@ type ReportsAPI interface {
 		| Базовый с секретом | 10 мин | 1 запрос | 10 мин | 10 запросов |
 		| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-antifraud-details
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV1AnalyticsAntifraudDetailsRequest
 	*/
@@ -130,6 +138,8 @@ type ReportsAPI interface {
 		| Сервисный | 10 сек | 1 запрос | 10 сек | 6 запросов |
 		| Базовый с секретом | 10 сек | 1 запрос | 10 сек | 6 запросов |
 		| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-banned-products-blocked
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV1AnalyticsBannedProducsBlockedRequest
@@ -154,6 +164,8 @@ type ReportsAPI interface {
 		| Сервисный | 5 сек | 1 запрос | 5 сек | 20 запросов |
 		| Базовый с секретом | 5 сек | 1 запрос | 5 сек | 20 запросов |
 		| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-brand-share
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV1AnalyticsBrandShareRequest
@@ -181,6 +193,8 @@ type ReportsAPI interface {
 		| Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов |
 		| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-brand-share-brands
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV1AnalyticsBrandShareBrandsRequest
 	*/
@@ -204,6 +218,8 @@ type ReportsAPI interface {
 		| Сервисный | 5 сек | 1 запрос | 5 сек | 20 запросов |
 		| Базовый с секретом | 5 сек | 1 запрос | 5 сек | 20 запросов |
 		| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-brand-share-parent-subjects
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV1AnalyticsBrandShareParentSubjectsRequest
@@ -230,6 +246,8 @@ type ReportsAPI interface {
 		| Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов |
 		| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-goods-labeling
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV1AnalyticsGoodsLabelingRequest
 	*/
@@ -240,15 +258,16 @@ type ReportsAPI interface {
 	GetV1AnalyticsGoodsLabelingExecute(r ApiGetV1AnalyticsGoodsLabelingRequest) (*GetV1AnalyticsGoodsLabeling200Response, *http.Response, error)
 
 	/*
-		GetV1AnalyticsGoodsReturn Получить отчёт
+			GetV1AnalyticsGoodsReturn Получить отчёт
 
-		Метод будет отключен [26 октября](https://dev.wildberries.ru/release-notes?id=577).
+			Метод будет отключен [26 октября](https://dev.wildberries.ru/release-notes?id=577).
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-goods-return
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiGetV1AnalyticsGoodsReturnRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiGetV1AnalyticsGoodsReturnRequest
 
-		Deprecated
+			Deprecated
 	*/
 	GetV1AnalyticsGoodsReturn(ctx context.Context) ApiGetV1AnalyticsGoodsReturnRequest
 
@@ -269,6 +288,8 @@ type ReportsAPI interface {
 		| Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов |
 		| Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов |
 		| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-region-sale
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV1AnalyticsRegionSaleRequest
@@ -295,6 +316,8 @@ type ReportsAPI interface {
 		| Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос |
 		| Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-analytics-v1-deductions
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV1DeductionsRequest
 	*/
@@ -305,13 +328,14 @@ type ReportsAPI interface {
 	GetV1DeductionsExecute(r ApiGetV1DeductionsRequest) (*GetV1Deductions200Response, *http.Response, error)
 
 	/*
-		GetV1GoodsReturn Получить отчёт
+			GetV1GoodsReturn Получить отчёт
 
-		Метод возвращает отчёт о [возвратах товаров продавцу](https://seller.wildberries.ru/return-transfer-reports).
+			Метод возвращает отчёт о [возвратах товаров продавцу](https://seller.wildberries.ru/return-transfer-reports).
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-analytics-v1-item-returns
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiGetV1GoodsReturnRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiGetV1GoodsReturnRequest
 	*/
 	GetV1GoodsReturn(ctx context.Context) ApiGetV1GoodsReturnRequest
 
@@ -331,6 +355,8 @@ type ReportsAPI interface {
 		| Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос |
 		| Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос |
 		| Базовый | 6 ч | 1 запрос | 6 ч | 1 запрос |
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-analytics-v1-measurement-penalties
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV1MeasurementPenaltiesRequest
@@ -356,6 +382,8 @@ type ReportsAPI interface {
 		| Базовый с секретом | 1 мин | 1 запрос | 1 мин | 5 запросов |
 		| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-paid-storage
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV1PaidStorageRequest
 	*/
@@ -377,6 +405,8 @@ type ReportsAPI interface {
 		| Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос |
 		| Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос |
 		| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-paid-storage-tasks-task-id-download
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@param taskId ID задания на генерацию
@@ -400,6 +430,8 @@ type ReportsAPI interface {
 		| Сервисный | 5 сек | 1 запрос | 5 сек | 5 запросов |
 		| Базовый с секретом | 5 сек | 1 запрос | 5 сек | 5 запросов |
 		| Базовый | 1 ч | 2 запроса | 30 мин | 2 запроса |
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-paid-storage-tasks-task-id-status
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@param taskId ID задания на генерацию
@@ -439,6 +471,8 @@ type ReportsAPI interface {
 		| Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов |
 		| Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов |
 		| Базовый | 3 ч | 1 запрос | 3 ч | 1 запрос |
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-supplier-orders
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV1SupplierOrdersRequest
@@ -481,6 +515,8 @@ type ReportsAPI interface {
 		| Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос |
 		| Базовый | 2 ч | 1 запрос | 2 ч | 1 запрос |
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-supplier-sales
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV1SupplierSalesRequest
 	*/
@@ -502,6 +538,8 @@ type ReportsAPI interface {
 		| Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос |
 		| Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос |
 		| Базовый | 6 ч | 1 запрос | 6 ч | 1 запрос |
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-analytics-v1-warehouse-measurements
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV1WarehouseMeasurementsRequest
@@ -527,6 +565,8 @@ type ReportsAPI interface {
 		| Базовый с секретом | 1 мин | 1 запрос | 1 мин | 5 запросов |
 		| Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-warehouse-remains
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV1WarehouseRemainsRequest
 	*/
@@ -548,6 +588,8 @@ type ReportsAPI interface {
 		| Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос |
 		| Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос |
 		| Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-warehouse-remains-tasks-task-id-download
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@param taskId ID задания на генерацию
@@ -571,6 +613,8 @@ type ReportsAPI interface {
 		| Сервисный | 5 сек | 1 запрос | 5 сек | 5 запросов |
 		| Базовый с секретом | 5 сек | 1 запрос | 5 сек | 5 запросов |
 		| Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-warehouse-remains-tasks-task-id-status
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@param taskId ID задания на генерацию
@@ -596,6 +640,8 @@ type ReportsAPI interface {
 		| Сервисный | 5 ч | 10 запросов | 30 мин | 10 запросов |
 		| Базовый с секретом | 5 ч | 10 запросов | 30 мин | 10 запросов |
 		| Базовый | 24 ч | 2 запроса | 12 ч | 1 запрос |
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/post-api-v1-analytics-excise-report
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV1AnalyticsExciseReportRequest
@@ -647,6 +693,8 @@ GetV1AcceptanceReport Создать отчёт
 | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос |
 | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос |
 | Базовый | 3 ч | 1 запрос | 3 ч | 1 запрос |
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-acceptance-report
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV1AcceptanceReportRequest
@@ -818,6 +866,8 @@ GetV1AcceptanceReportTasksTaskIdDownload Получить отчёт
 | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос |
 | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос |
 | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-acceptance-report-tasks-task-id-download
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param taskId ID задания на генерацию
@@ -996,6 +1046,8 @@ GetV1AcceptanceReportTasksTaskIdStatus Проверить статус
 | Базовый с секретом | 5 сек | 1 запрос | 5 сек | 1 запрос |
 | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-acceptance-report-tasks-task-id-status
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param taskId ID задания на генерацию
 	@return ApiGetV1AcceptanceReportTasksTaskIdStatusRequest
@@ -1172,6 +1224,8 @@ GetV1AnalyticsAntifraudDetails Самовыкупы
 | Сервисный | 10 мин | 1 запрос | 10 мин | 10 запросов |
 | Базовый с секретом | 10 мин | 1 запрос | 10 мин | 10 запросов |
 | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-antifraud-details
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV1AnalyticsAntifraudDetailsRequest
@@ -1351,6 +1405,8 @@ GetV1AnalyticsBannedProducsBlocked Получить отчёт
 | Сервисный | 10 сек | 1 запрос | 10 сек | 6 запросов |
 | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 6 запросов |
 | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-banned-products-blocked
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV1AnalyticsBannedProducsBlockedRequest
@@ -1552,6 +1608,8 @@ GetV1AnalyticsBrandShare Получить отчёт
 | Базовый с секретом | 5 сек | 1 запрос | 5 сек | 20 запросов |
 | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-brand-share
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV1AnalyticsBrandShareRequest
 */
@@ -1734,6 +1792,8 @@ GetV1AnalyticsBrandShareBrands Бренды продавца
 | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов |
 | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-brand-share-brands
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV1AnalyticsBrandShareBrandsRequest
 */
@@ -1914,6 +1974,8 @@ GetV1AnalyticsBrandShareParentSubjects Родительские категори
 | Сервисный | 5 сек | 1 запрос | 5 сек | 20 запросов |
 | Базовый с секретом | 5 сек | 1 запрос | 5 сек | 20 запросов |
 | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-brand-share-parent-subjects
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV1AnalyticsBrandShareParentSubjectsRequest
@@ -2112,6 +2174,8 @@ GetV1AnalyticsGoodsLabeling Маркировка товара
 | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов |
 | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-goods-labeling
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV1AnalyticsGoodsLabelingRequest
 */
@@ -2287,6 +2351,8 @@ func (r ApiGetV1AnalyticsGoodsReturnRequest) Execute() (*GetV1AnalyticsGoodsRetu
 GetV1AnalyticsGoodsReturn Получить отчёт
 
 Метод будет отключен [26 октября](https://dev.wildberries.ru/release-notes?id=577).
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-goods-return
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV1AnalyticsGoodsReturnRequest
@@ -2475,6 +2541,8 @@ GetV1AnalyticsRegionSale Получить отчёт
 | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов |
 | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов |
 | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-region-sale
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV1AnalyticsRegionSaleRequest
@@ -2691,6 +2759,8 @@ GetV1Deductions Подмены и неверные вложения
 | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос |
 | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос |
 | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-analytics-v1-deductions
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV1DeductionsRequest
@@ -2913,6 +2983,8 @@ GetV1GoodsReturn Получить отчёт
 
 Метод возвращает отчёт о [возвратах товаров продавцу](https://seller.wildberries.ru/return-transfer-reports).
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-analytics-v1-item-returns
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV1GoodsReturnRequest
 */
@@ -3097,6 +3169,8 @@ GetV1MeasurementPenalties Удержания за занижение габар�
 | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос |
 | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос |
 | Базовый | 6 ч | 1 запрос | 6 ч | 1 запрос |
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-analytics-v1-measurement-penalties
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV1MeasurementPenaltiesRequest
@@ -3296,6 +3370,8 @@ GetV1PaidStorage Создать отчёт
 | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 5 запросов |
 | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-paid-storage
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV1PaidStorageRequest
 */
@@ -3466,6 +3542,8 @@ GetV1PaidStorageTasksTaskIdDownload Получить отчёт
 | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос |
 | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос |
 | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-paid-storage-tasks-task-id-download
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param taskId ID задания на генерацию
@@ -3643,6 +3721,8 @@ GetV1PaidStorageTasksTaskIdStatus Проверить статус
 | Сервисный | 5 сек | 1 запрос | 5 сек | 5 запросов |
 | Базовый с секретом | 5 сек | 1 запрос | 5 сек | 5 запросов |
 | Базовый | 1 ч | 2 запроса | 30 мин | 2 запроса |
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-paid-storage-tasks-task-id-status
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param taskId ID задания на генерацию
@@ -3839,6 +3919,8 @@ GetV1SupplierOrders Заказы
 | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов |
 | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов |
 | Базовый | 3 ч | 1 запрос | 3 ч | 1 запрос |
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-supplier-orders
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV1SupplierOrdersRequest
@@ -4046,6 +4128,8 @@ GetV1SupplierSales Продажи
 | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос |
 | Базовый | 2 ч | 1 запрос | 2 ч | 1 запрос |
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-supplier-sales
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV1SupplierSalesRequest
 */
@@ -4245,6 +4329,8 @@ GetV1WarehouseMeasurements Замеры склада
 | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос |
 | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос |
 | Базовый | 6 ч | 1 запрос | 6 ч | 1 запрос |
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-analytics-v1-warehouse-measurements
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV1WarehouseMeasurementsRequest
@@ -4493,6 +4579,8 @@ GetV1WarehouseRemains Создать отчёт
 | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 5 запросов |
 | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-warehouse-remains
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV1WarehouseRemainsRequest
 */
@@ -4710,6 +4798,8 @@ GetV1WarehouseRemainsTasksTaskIdDownload Получить отчёт
 | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос |
 | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-warehouse-remains-tasks-task-id-download
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param taskId ID задания на генерацию
 	@return ApiGetV1WarehouseRemainsTasksTaskIdDownloadRequest
@@ -4886,6 +4976,8 @@ GetV1WarehouseRemainsTasksTaskIdStatus Проверить статус
 | Сервисный | 5 сек | 1 запрос | 5 сек | 5 запросов |
 | Базовый с секретом | 5 сек | 1 запрос | 5 сек | 5 запросов |
 | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-warehouse-remains-tasks-task-id-status
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param taskId ID задания на генерацию
@@ -5073,6 +5165,8 @@ PostV1AnalyticsExciseReport Получить отчёт
 | Сервисный | 5 ч | 10 запросов | 30 мин | 10 запросов |
 | Базовый с секретом | 5 ч | 10 запросов | 30 мин | 10 запросов |
 | Базовый | 24 ч | 2 запроса | 12 ч | 1 запрос |
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/post-api-v1-analytics-excise-report
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV1AnalyticsExciseReportRequest

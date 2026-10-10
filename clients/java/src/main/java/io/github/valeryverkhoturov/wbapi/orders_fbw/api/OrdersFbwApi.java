@@ -174,7 +174,8 @@ public class OrdersFbwApi {
    * [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
-   * мин | 30 запросов | 2 сек | 10 запросов |
+   * мин | 30 запросов | 2 сек | 10 запросов | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/delete-api-supplies-v1-drafts-draftid
    *
    * @param draftId ID черновика (required)
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
@@ -202,7 +203,8 @@ public class OrdersFbwApi {
    * [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
-   * мин | 30 запросов | 2 сек | 10 запросов |
+   * мин | 30 запросов | 2 сек | 10 запросов | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/delete-api-supplies-v1-drafts-draftid
    *
    * @param draftId ID черновика (required)
    * @return ApiResponse&lt;Void&gt;
@@ -232,7 +234,8 @@ public class OrdersFbwApi {
    * [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
-   * мин | 30 запросов | 2 сек | 10 запросов |
+   * мин | 30 запросов | 2 сек | 10 запросов | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/delete-api-supplies-v1-drafts-draftid
    *
    * @param draftId ID черновика (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -366,7 +369,8 @@ public class OrdersFbwApi {
    * вы не получите ошибку. При этом корректные баркоды будут удалены из черновика. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
-   * мин | 30 запросов | 2 сек | 10 запросов |
+   * мин | 30 запросов | 2 сек | 10 запросов | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/delete-api-supplies-v1-drafts-draftid-items
    *
    * @param draftId ID черновика (required)
    * @param modelsDraftDeleteitemsRequest (required)
@@ -401,7 +405,8 @@ public class OrdersFbwApi {
    * вы не получите ошибку. При этом корректные баркоды будут удалены из черновика. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
-   * мин | 30 запросов | 2 сек | 10 запросов |
+   * мин | 30 запросов | 2 сек | 10 запросов | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/delete-api-supplies-v1-drafts-draftid-items
    *
    * @param draftId ID черновика (required)
    * @param modelsDraftDeleteitemsRequest (required)
@@ -437,7 +442,8 @@ public class OrdersFbwApi {
    * вы не получите ошибку. При этом корректные баркоды будут удалены из черновика. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
-   * мин | 30 запросов | 2 сек | 10 запросов |
+   * мин | 30 запросов | 2 сек | 10 запросов | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/delete-api-supplies-v1-drafts-draftid-items
    *
    * @param draftId ID черновика (required)
    * @param modelsDraftDeleteitemsRequest (required)
@@ -579,7 +585,8 @@ public class OrdersFbwApi {
    * [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
-   * мин | 30 запросов | 2 сек | 10 запросов |
+   * мин | 30 запросов | 2 сек | 10 запросов | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/get-api-supplies-v1-drafts
    *
    * @param limit Количество черновиков в ответе (optional, default to 1000)
    * @param offset Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11
@@ -616,7 +623,8 @@ public class OrdersFbwApi {
    * [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
-   * мин | 30 запросов | 2 сек | 10 запросов |
+   * мин | 30 запросов | 2 сек | 10 запросов | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/get-api-supplies-v1-drafts
    *
    * @param limit Количество черновиков в ответе (optional, default to 1000)
    * @param offset Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11
@@ -653,7 +661,8 @@ public class OrdersFbwApi {
    * [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
-   * мин | 30 запросов | 2 сек | 10 запросов |
+   * мин | 30 запросов | 2 сек | 10 запросов | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/get-api-supplies-v1-drafts
    *
    * @param limit Количество черновиков в ответе (optional, default to 1000)
    * @param offset Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11
@@ -785,7 +794,8 @@ public class OrdersFbwApi {
    * [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
-   * мин | 30 запросов | 2 сек | 10 запросов |
+   * мин | 30 запросов | 2 сек | 10 запросов | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/get-api-supplies-v1-drafts-draftid-items
    *
    * @param draftId ID черновика (required)
    * @return ModelsListDraftItemsResponse
@@ -816,7 +826,8 @@ public class OrdersFbwApi {
    * [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
-   * мин | 30 запросов | 2 сек | 10 запросов |
+   * мин | 30 запросов | 2 сек | 10 запросов | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/get-api-supplies-v1-drafts-draftid-items
    *
    * @param draftId ID черновика (required)
    * @return ApiResponse&lt;ModelsListDraftItemsResponse&gt;
@@ -848,7 +859,8 @@ public class OrdersFbwApi {
    * [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
-   * мин | 30 запросов | 2 сек | 10 запросов |
+   * мин | 30 запросов | 2 сек | 10 запросов | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/get-api-supplies-v1-drafts-draftid-items
    *
    * @param draftId ID черновика (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -977,7 +989,8 @@ public class OrdersFbwApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30
    * запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10
-   * запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+   * запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/get-api-v1-supplies-id
    *
    * @param ID ID поставки или заказа (required)
    * @param isPreorderID Поиск по: - &#x60;true&#x60; — ID заказа, если в &#x60;ID&#x60; передаёте
@@ -1010,7 +1023,8 @@ public class OrdersFbwApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30
    * запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10
-   * запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+   * запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/get-api-v1-supplies-id
    *
    * @param ID ID поставки или заказа (required)
    * @param isPreorderID Поиск по: - &#x60;true&#x60; — ID заказа, если в &#x60;ID&#x60; передаёте
@@ -1045,7 +1059,8 @@ public class OrdersFbwApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30
    * запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10
-   * запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+   * запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/get-api-v1-supplies-id
    *
    * @param ID ID поставки или заказа (required)
    * @param isPreorderID Поиск по: - &#x60;true&#x60; — ID заказа, если в &#x60;ID&#x60; передаёте
@@ -1191,7 +1206,8 @@ public class OrdersFbwApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30
    * запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10
-   * запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+   * запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/get-api-v1-supplies-id-goods
    *
    * @param ID ID поставки или заказа (required)
    * @param limit Количество записей в ответе (optional, default to 100)
@@ -1227,7 +1243,8 @@ public class OrdersFbwApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30
    * запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10
-   * запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+   * запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/get-api-v1-supplies-id-goods
    *
    * @param ID ID поставки или заказа (required)
    * @param limit Количество записей в ответе (optional, default to 100)
@@ -1264,7 +1281,8 @@ public class OrdersFbwApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30
    * запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10
-   * запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+   * запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/get-api-v1-supplies-id-goods
    *
    * @param ID ID поставки или заказа (required)
    * @param limit Количество записей в ответе (optional, default to 100)
@@ -1395,7 +1413,8 @@ public class OrdersFbwApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30
    * запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10
-   * запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+   * запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/get-api-v1-supplies-id-package
    *
    * @param ID ID поставки (required)
    * @return List&lt;ModelsBox&gt;
@@ -1424,7 +1443,8 @@ public class OrdersFbwApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30
    * запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10
-   * запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+   * запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/get-api-v1-supplies-id-package
    *
    * @param ID ID поставки (required)
    * @return ApiResponse&lt;List&lt;ModelsBox&gt;&gt;
@@ -1455,7 +1475,8 @@ public class OrdersFbwApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30
    * запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10
-   * запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+   * запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/get-api-v1-supplies-id-package
    *
    * @param ID ID поставки (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -1587,7 +1608,8 @@ public class OrdersFbwApi {
    * &#x60;\&quot;discrepancyLabel\&quot;: \&quot;re-sorting\&quot;&#x60; [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
-   * мин | 1 запрос | 1 мин | 1 запрос |
+   * мин | 1 запрос | 1 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/get-api-supplies-v1-discrepancies-supplyid
    *
    * @param supplyId ID поставки (required)
    * @return List&lt;ModelsItemDiscrepancyResponse&gt;
@@ -1630,7 +1652,8 @@ public class OrdersFbwApi {
    * &#x60;\&quot;discrepancyLabel\&quot;: \&quot;re-sorting\&quot;&#x60; [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
-   * мин | 1 запрос | 1 мин | 1 запрос |
+   * мин | 1 запрос | 1 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/get-api-supplies-v1-discrepancies-supplyid
    *
    * @param supplyId ID поставки (required)
    * @return ApiResponse&lt;List&lt;ModelsItemDiscrepancyResponse&gt;&gt;
@@ -1674,7 +1697,8 @@ public class OrdersFbwApi {
    * &#x60;\&quot;discrepancyLabel\&quot;: \&quot;re-sorting\&quot;&#x60; [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
-   * мин | 1 запрос | 1 мин | 1 запрос |
+   * мин | 1 запрос | 1 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/get-api-supplies-v1-discrepancies-supplyid
    *
    * @param supplyId ID поставки (required)
    * @param _callback The callback to be executed when the API call finishes
@@ -1785,7 +1809,8 @@ public class OrdersFbwApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 10 запросов | | Сервисный | 1 мин | 6
    * запросов | 10 сек | 10 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 10
-   * запросов | | Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос |
+   * запросов | | Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/get-api-v1-transit-tariffs
    *
    * @return List&lt;ModelsTransitTariff&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
@@ -1812,7 +1837,8 @@ public class OrdersFbwApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 10 запросов | | Сервисный | 1 мин | 6
    * запросов | 10 сек | 10 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 10
-   * запросов | | Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос |
+   * запросов | | Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/get-api-v1-transit-tariffs
    *
    * @return ApiResponse&lt;List&lt;ModelsTransitTariff&gt;&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
@@ -1841,7 +1867,8 @@ public class OrdersFbwApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 10 запросов | | Сервисный | 1 мин | 6
    * запросов | 10 сек | 10 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 10
-   * запросов | | Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос |
+   * запросов | | Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/get-api-v1-transit-tariffs
    *
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
@@ -1952,7 +1979,8 @@ public class OrdersFbwApi {
    * | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6
    * запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6
    * запросов | | Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос | --- В песочнице — максимум 1 запрос
-   * в секунду суммарно для всех методов.
+   * в секунду суммарно для всех методов. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/get-api-v1-warehouses
    *
    * @return List&lt;ModelsWarehousesResultItems&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
@@ -1981,7 +2009,8 @@ public class OrdersFbwApi {
    * | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6
    * запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6
    * запросов | | Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос | --- В песочнице — максимум 1 запрос
-   * в секунду суммарно для всех методов.
+   * в секунду суммарно для всех методов. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/get-api-v1-warehouses
    *
    * @return ApiResponse&lt;List&lt;ModelsWarehousesResultItems&gt;&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
@@ -2012,7 +2041,8 @@ public class OrdersFbwApi {
    * | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6
    * запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6
    * запросов | | Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос | --- В песочнице — максимум 1 запрос
-   * в секунду суммарно для всех методов.
+   * в секунду суммарно для всех методов. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/get-api-v1-warehouses
    *
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
@@ -2142,7 +2172,8 @@ public class OrdersFbwApi {
    * | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6
    * запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6
    * запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | --- В песочнице — максимум 1
-   * запрос в секунду суммарно для всех методов.
+   * запрос в секунду суммарно для всех методов. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/post-api-v1-acceptance-options
    *
    * @param modelsGood (required)
    * @param warehouseID ID склада. Если параметр не указан, возвращаются данные по всем складам.
@@ -2178,7 +2209,8 @@ public class OrdersFbwApi {
    * | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6
    * запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6
    * запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | --- В песочнице — максимум 1
-   * запрос в секунду суммарно для всех методов.
+   * запрос в секунду суммарно для всех методов. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/post-api-v1-acceptance-options
    *
    * @param modelsGood (required)
    * @param warehouseID ID склада. Если параметр не указан, возвращаются данные по всем складам.
@@ -2215,7 +2247,8 @@ public class OrdersFbwApi {
    * | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6
    * запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6
    * запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | --- В песочнице — максимум 1
-   * запрос в секунду суммарно для всех методов.
+   * запрос в секунду суммарно для всех методов. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/post-api-v1-acceptance-options
    *
    * @param modelsGood (required)
    * @param warehouseID ID склада. Если параметр не указан, возвращаются данные по всем складам.
@@ -2331,7 +2364,8 @@ public class OrdersFbwApi {
    * [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
-   * мин | 30 запросов | 2 сек | 10 запросов |
+   * мин | 30 запросов | 2 сек | 10 запросов | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/post-api-supplies-v1-drafts
    *
    * @return ModelsDraftCreateResponse
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
@@ -2358,7 +2392,8 @@ public class OrdersFbwApi {
    * [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
-   * мин | 30 запросов | 2 сек | 10 запросов |
+   * мин | 30 запросов | 2 сек | 10 запросов | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/post-api-supplies-v1-drafts
    *
    * @return ApiResponse&lt;ModelsDraftCreateResponse&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
@@ -2386,7 +2421,8 @@ public class OrdersFbwApi {
    * [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
-   * мин | 30 запросов | 2 сек | 10 запросов |
+   * мин | 30 запросов | 2 сек | 10 запросов | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/post-api-supplies-v1-drafts
    *
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
@@ -2520,7 +2556,8 @@ public class OrdersFbwApi {
    * вернётся список невалидных баркодов [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
-   * мин | 30 запросов | 2 сек | 10 запросов |
+   * мин | 30 запросов | 2 сек | 10 запросов | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/post-api-supplies-v1-drafts-draftid-items
    *
    * @param draftId ID черновика (required)
    * @param modelsDraftAdditemsRequest (required)
@@ -2556,7 +2593,8 @@ public class OrdersFbwApi {
    * вернётся список невалидных баркодов [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
-   * мин | 30 запросов | 2 сек | 10 запросов |
+   * мин | 30 запросов | 2 сек | 10 запросов | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/post-api-supplies-v1-drafts-draftid-items
    *
    * @param draftId ID черновика (required)
    * @param modelsDraftAdditemsRequest (required)
@@ -2593,7 +2631,8 @@ public class OrdersFbwApi {
    * вернётся список невалидных баркодов [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
-   * мин | 30 запросов | 2 сек | 10 запросов |
+   * мин | 30 запросов | 2 сек | 10 запросов | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/post-api-supplies-v1-drafts-draftid-items
    *
    * @param draftId ID черновика (required)
    * @param modelsDraftAdditemsRequest (required)
@@ -2735,7 +2774,8 @@ public class OrdersFbwApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30
    * запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10
-   * запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+   * запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/post-api-v1-supplies
    *
    * @param modelsSuppliesFiltersRequest (required)
    * @param limit Количество записей в ответе (optional, default to 1000)
@@ -2770,7 +2810,8 @@ public class OrdersFbwApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30
    * запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10
-   * запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+   * запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/post-api-v1-supplies
    *
    * @param modelsSuppliesFiltersRequest (required)
    * @param limit Количество записей в ответе (optional, default to 1000)
@@ -2806,7 +2847,8 @@ public class OrdersFbwApi {
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30
    * запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10
-   * запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+   * запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/post-api-v1-supplies
    *
    * @param modelsSuppliesFiltersRequest (required)
    * @param limit Количество записей в ответе (optional, default to 1000)

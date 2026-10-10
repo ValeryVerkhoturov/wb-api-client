@@ -69,6 +69,8 @@ paths:
         ---
 
         В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-v3-passes-offices
       responses:
         '200':
           description: Успешно
@@ -129,6 +131,8 @@ paths:
         ---
 
         В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-v3-passes
       responses:
         '200':
           description: Успешно
@@ -179,6 +183,8 @@ paths:
         ---
 
         В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-v3-passes
       requestBody:
         required: true
         description: Общая длина ФИО ограничена от 6 до 100 символов. В номере машины могут быть только буквы и цифры
@@ -297,6 +303,8 @@ paths:
         ---
 
         В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/put-api-v3-passes-passid
       parameters:
       - $ref: '#/components/parameters/Pass'
       requestBody:
@@ -407,6 +415,8 @@ paths:
         ---
 
         В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/delete-api-v3-passes-passid
       parameters:
       - $ref: '#/components/parameters/Pass'
       responses:
@@ -472,6 +482,8 @@ paths:
         ---
 
         В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-v3-orders-new
       responses:
         '200':
           description: Успешно
@@ -536,6 +548,8 @@ paths:
         ---
 
         В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-v3-orders
       parameters:
       - $ref: '#/components/parameters/Limit'
       - $ref: '#/components/parameters/Next'
@@ -644,6 +658,8 @@ paths:
         ---
 
         В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-v3-orders-status
       requestBody:
         content:
           application/json:
@@ -736,6 +752,8 @@ paths:
         ---
 
         В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-v3-supplies-orders-reshipment
       responses:
         '200':
           description: Успешно
@@ -812,6 +830,8 @@ paths:
         ---
 
         В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/patch-api-v3-orders-orderid-cancel
       parameters:
       - $ref: '#/components/parameters/Order'
       responses:
@@ -904,6 +924,8 @@ paths:
         ---
 
         В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-v3-orders-stickers
       parameters:
       - name: type
         in: query
@@ -1033,6 +1055,8 @@ paths:
         | --- | --- | --- | --- |
         | 1 мин | 300 запросов | 200 мс | 20 запросов |
         Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-v3-orders-stickers-cross-border
       requestBody:
         content:
           application/json:
@@ -1136,6 +1160,8 @@ paths:
         ---
 
         В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-v3-orders-status-history
       requestBody:
         content:
           application/json:
@@ -1217,6 +1243,8 @@ paths:
         ---
 
         В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-v3-orders-client
       requestBody:
         required: true
         content:
@@ -1285,6 +1313,8 @@ paths:
         | --- | --- | --- | --- |
         | 1 мин | 300 запросов | 200 мс | 20 запросов |
         Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-orders-archive
       parameters:
       - name: year
         in: query
@@ -1396,6 +1426,8 @@ paths:
         ---
 
         В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-marketplace-v3-orders-meta
       requestBody:
         required: true
         content:
@@ -1491,6 +1523,8 @@ paths:
         ---
 
         В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/delete-api-v3-orders-orderid-meta
       parameters:
       - $ref: '#/components/parameters/Order'
       - name: key
@@ -1585,6 +1619,8 @@ paths:
         ---
 
         В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/put-api-v3-orders-orderid-meta-sgtin
       parameters:
       - $ref: '#/components/parameters/Order'
       requestBody:
@@ -1695,6 +1731,8 @@ paths:
         ---
 
         В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/put-api-v3-orders-orderid-meta-uin
       parameters:
       - $ref: '#/components/parameters/Order'
       requestBody:
@@ -1794,6 +1832,8 @@ paths:
         ---
 
         В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/put-api-v3-orders-orderid-meta-imei
       parameters:
       - $ref: '#/components/parameters/Order'
       requestBody:
@@ -1893,6 +1933,8 @@ paths:
         ---
 
         В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/put-api-v3-orders-orderid-meta-gtin
       parameters:
       - $ref: '#/components/parameters/Order'
       requestBody:
@@ -1994,6 +2036,8 @@ paths:
         ---
 
         В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/put-api-v3-orders-orderid-meta-expiration
       parameters:
       - $ref: '#/components/parameters/Order'
       requestBody:
@@ -2097,6 +2141,8 @@ paths:
         ---
 
         В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/put-api-marketplace-v3-orders-orderid-meta-customs-declaration
       parameters:
       - $ref: '#/components/parameters/Order'
       requestBody:
@@ -2201,6 +2247,8 @@ paths:
         ---
 
         В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-v3-supplies
       requestBody:
         required: true
         content:
@@ -2275,6 +2323,8 @@ paths:
         ---
 
         В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-v3-supplies
       parameters:
       - $ref: '#/components/parameters/Limit'
       - $ref: '#/components/parameters/Next'
@@ -2360,6 +2410,8 @@ paths:
         ---
 
         В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/patch-api-marketplace-v3-supplies-supplyid-orders
       parameters:
       - $ref: '#/components/parameters/Supply'
       requestBody:
@@ -2459,6 +2511,8 @@ paths:
         ---
 
         В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-v3-supplies-supplyid
       parameters:
       - $ref: '#/components/parameters/Supply'
       responses:
@@ -2524,6 +2578,8 @@ paths:
         ---
 
         В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/delete-api-v3-supplies-supplyid
       parameters:
       - $ref: '#/components/parameters/Supply'
       responses:
@@ -2602,6 +2658,8 @@ paths:
         ---
 
         В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-supplies-supplyid-order-ids
       parameters:
       - name: supplyId
         in: path
@@ -2676,6 +2734,8 @@ paths:
         | --- | --- | --- | --- |
         | 1 мин | 300 запросов | 200 мс | 20 запросов |
         Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-shipping-points
       parameters:
       - name: city
         in: query
@@ -2750,6 +2810,8 @@ paths:
         | --- | --- | --- | --- |
         | 1 мин | 300 запросов | 200 мс | 20 запросов |
         Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/patch-api-marketplace-v3-fbs-supplies-shipping-method
       requestBody:
         required: true
         content:
@@ -2852,6 +2914,8 @@ paths:
         ---
 
         В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/patch-api-v3-supplies-supplyid-deliver
       parameters:
       - $ref: '#/components/parameters/Supply'
       responses:
@@ -2943,6 +3007,8 @@ paths:
         ---
 
         В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-v3-supplies-supplyid-barcode
       parameters:
       - $ref: '#/components/parameters/Supply'
       - name: type
@@ -3036,6 +3102,8 @@ paths:
         ---
 
         В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-v3-supplies-supplyid-trbx
       parameters:
       - $ref: '#/components/parameters/Supply'
       responses:
@@ -3105,6 +3173,8 @@ paths:
         ---
 
         В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-v3-supplies-supplyid-trbx
       parameters:
       - $ref: '#/components/parameters/Supply'
       requestBody:
@@ -3186,6 +3256,8 @@ paths:
         ---
 
         В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/delete-api-v3-supplies-supplyid-trbx
       parameters:
       - $ref: '#/components/parameters/Supply'
       requestBody:
@@ -3275,6 +3347,8 @@ paths:
         ---
 
         В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-v3-supplies-supplyid-trbx-stickers
       parameters:
       - $ref: '#/components/parameters/Supply'
       - name: type
@@ -3362,6 +3436,8 @@ paths:
         | --- | --- | --- | --- |
         | 1 мин | 300 запросов | 200 мс | 20 запросов |
         Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-dictionaries-countries-oksm
       responses:
         '200':
           description: Успешно
@@ -3398,6 +3474,8 @@ paths:
         | --- | --- | --- | --- |
         | 1 мин | 300 запросов | 200 мс | 20 запросов |
         Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/put-api-marketplace-v3-fbs-supplies-supplyid-spot
       parameters:
       - description: ID поставки
         in: path
@@ -3510,6 +3588,8 @@ paths:
         | --- | --- | --- | --- |
         | 1 мин | 300 запросов | 200 мс | 20 запросов |
         Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-marketplace-v3-fbs-supplies-spot-list
       requestBody:
         required: true
         content:
@@ -3574,6 +3654,8 @@ paths:
         | --- | --- | --- | --- |
         | 1 мин | 300 запросов | 200 мс | 20 запросов |
         Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-supplies-supplyid-stickers-spot
       parameters:
       - description: ID поставки
         in: path
@@ -3647,6 +3729,8 @@ paths:
         | --- | --- | --- | --- |
         | 1 мин | 300 запросов | 200 мс | 20 запросов |
         Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-settings-autoreturns
       responses:
         '200':
           description: Успешно
@@ -3707,6 +3791,8 @@ paths:
         | --- | --- | --- | --- |
         | 1 мин | 300 запросов | 200 мс | 20 запросов |
         Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/patch-api-marketplace-v3-fbs-settings-autoreturns
       requestBody:
         content:
           application/json:
@@ -3788,6 +3874,8 @@ paths:
         | --- | --- | --- | --- |
         | 1 мин | 300 запросов | 200 мс | 20 запросов |
         Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-marketplace-v3-fbs-settings-autoreturns-items
       requestBody:
         content:
           application/json:
@@ -3867,6 +3955,8 @@ paths:
         | --- | --- | --- | --- |
         | 1 мин | 300 запросов | 200 мс | 20 запросов |
         Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/patch-api-marketplace-v3-fbs-settings-autoreturns-items
       requestBody:
         content:
           application/json:
@@ -3964,6 +4054,8 @@ paths:
         | --- | --- | --- | --- |
         | 1 мин | 300 запросов | 200 мс | 20 запросов |
         Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-settings-autoreturns-subcategories-restricted
       parameters:
       - name: next
         in: query

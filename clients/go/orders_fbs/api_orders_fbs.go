@@ -44,6 +44,8 @@ type OrdersFbsAPI interface {
 
 		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/delete-api-v3-orders-orderid-meta
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@param orderId ID сборочного задания
 			@return ApiDeleteV3OrdersOrderIdMetaRequest
@@ -68,6 +70,8 @@ type OrdersFbsAPI interface {
 
 		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/delete-api-v3-passes-passid
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@param passId ID пропуска
 			@return ApiDeleteV3PassesPassIdRequest
@@ -91,6 +95,8 @@ type OrdersFbsAPI interface {
 		---
 
 		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/delete-api-v3-supplies-supplyid
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@param supplyId ID поставки
@@ -118,6 +124,8 @@ type OrdersFbsAPI interface {
 
 		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/delete-api-v3-supplies-supplyid-trbx
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@param supplyId ID поставки
 			@return ApiDeleteV3SuppliesSupplyIdTrbxRequest
@@ -137,6 +145,8 @@ type OrdersFbsAPI interface {
 		| --- | --- | --- | --- |
 		| 1 мин | 300 запросов | 200 мс | 20 запросов |
 		Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-dictionaries-countries-oksm
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV3FbsDictionariesCountriesOksmRequest
@@ -159,6 +169,8 @@ type OrdersFbsAPI interface {
 		| --- | --- | --- | --- |
 		| 1 мин | 300 запросов | 200 мс | 20 запросов |
 		Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-orders-archive
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV3FbsOrdersArchiveRequest
@@ -185,6 +197,8 @@ type OrdersFbsAPI interface {
 		| 1 мин | 300 запросов | 200 мс | 20 запросов |
 		Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-settings-autoreturns
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV3FbsSettingsAutoreturnsRequest
 	*/
@@ -209,6 +223,8 @@ type OrdersFbsAPI interface {
 		| --- | --- | --- | --- |
 		| 1 мин | 300 запросов | 200 мс | 20 запросов |
 		Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-settings-autoreturns-subcategories-restricted
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV3FbsSettingsAutoreturnsSubcategoriesRestrictedRequest
@@ -235,6 +251,8 @@ type OrdersFbsAPI interface {
 		| 1 мин | 300 запросов | 200 мс | 20 запросов |
 		Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-shipping-points
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV3FbsShippingPointsRequest
 	*/
@@ -255,6 +273,8 @@ type OrdersFbsAPI interface {
 		| --- | --- | --- | --- |
 		| 1 мин | 300 запросов | 200 мс | 20 запросов |
 		Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-supplies-supplyid-stickers-spot
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@param supplyId ID поставки
@@ -285,6 +305,8 @@ type OrdersFbsAPI interface {
 
 		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-v3-orders
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV3OrdersRequest
 	*/
@@ -314,6 +336,8 @@ type OrdersFbsAPI interface {
 
 		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-v3-orders-new
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV3OrdersNewRequest
 	*/
@@ -337,6 +361,8 @@ type OrdersFbsAPI interface {
 		---
 
 		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-v3-passes
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV3PassesRequest
@@ -364,6 +390,8 @@ type OrdersFbsAPI interface {
 
 		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-v3-passes-offices
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV3PassesOfficesRequest
 	*/
@@ -387,6 +415,8 @@ type OrdersFbsAPI interface {
 		---
 
 		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-v3-supplies
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV3SuppliesRequest
@@ -414,6 +444,8 @@ type OrdersFbsAPI interface {
 
 		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-v3-supplies-orders-reshipment
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV3SuppliesOrdersReshipmentRequest
 	*/
@@ -437,6 +469,8 @@ type OrdersFbsAPI interface {
 		---
 
 		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-v3-supplies-supplyid
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@param supplyId ID поставки
@@ -470,6 +504,8 @@ type OrdersFbsAPI interface {
 
 		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-v3-supplies-supplyid-barcode
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@param supplyId ID поставки
 			@return ApiGetV3SuppliesSupplyIdBarcodeRequest
@@ -495,6 +531,8 @@ type OrdersFbsAPI interface {
 
 		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-supplies-supplyid-order-ids
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@param supplyId ID поставки
 			@return ApiGetV3SuppliesSupplyIdOrderIdsRequest
@@ -519,6 +557,8 @@ type OrdersFbsAPI interface {
 		---
 
 		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-v3-supplies-supplyid-trbx
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@param supplyId ID поставки
@@ -546,6 +586,8 @@ type OrdersFbsAPI interface {
 		| 1 мин | 300 запросов | 200 мс | 20 запросов |
 		Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/patch-api-marketplace-v3-fbs-settings-autoreturns
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPatchV3FbsSettingsAutoreturnsRequest
 	*/
@@ -569,6 +611,8 @@ type OrdersFbsAPI interface {
 		| --- | --- | --- | --- |
 		| 1 мин | 300 запросов | 200 мс | 20 запросов |
 		Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/patch-api-marketplace-v3-fbs-settings-autoreturns-items
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPatchV3FbsSettingsAutoreturnsItemsRequest
@@ -596,6 +640,8 @@ type OrdersFbsAPI interface {
 		| 1 мин | 300 запросов | 200 мс | 20 запросов |
 		Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/patch-api-marketplace-v3-fbs-supplies-shipping-method
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPatchV3FbsSuppliesShippingMethodRequest
 	*/
@@ -622,6 +668,8 @@ type OrdersFbsAPI interface {
 		---
 
 		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/patch-api-v3-orders-orderid-cancel
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@param orderId ID сборочного задания
@@ -655,6 +703,8 @@ type OrdersFbsAPI interface {
 		---
 
 		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/patch-api-v3-supplies-supplyid-deliver
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@param supplyId ID поставки
@@ -693,6 +743,8 @@ type OrdersFbsAPI interface {
 
 		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/patch-api-marketplace-v3-supplies-supplyid-orders
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@param supplyId ID поставки
 			@return ApiPatchV3SuppliesSupplyIdOrdersRequest
@@ -717,6 +769,8 @@ type OrdersFbsAPI interface {
 		| --- | --- | --- | --- |
 		| 1 мин | 300 запросов | 200 мс | 20 запросов |
 		Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-marketplace-v3-fbs-settings-autoreturns-items
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV3FbsSettingsAutoreturnsItemsRequest
@@ -743,6 +797,8 @@ type OrdersFbsAPI interface {
 		| 1 мин | 300 запросов | 200 мс | 20 запросов |
 		Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-marketplace-v3-fbs-supplies-spot-list
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV3FbsSuppliesSpotListRequest
 	*/
@@ -767,6 +823,8 @@ type OrdersFbsAPI interface {
 		---
 
 		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-v3-orders-client
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV3OrdersClientRequest
@@ -800,6 +858,8 @@ type OrdersFbsAPI interface {
 		---
 
 		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-marketplace-v3-orders-meta
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV3OrdersMetaRequest
@@ -850,6 +910,8 @@ type OrdersFbsAPI interface {
 
 		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-v3-orders-status
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV3OrdersStatusRequest
 	*/
@@ -874,6 +936,8 @@ type OrdersFbsAPI interface {
 		---
 
 		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-v3-orders-status-history
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV3OrdersStatusHistoryRequest
@@ -911,6 +975,8 @@ type OrdersFbsAPI interface {
 
 		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-v3-orders-stickers
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV3OrdersStickersRequest
 	*/
@@ -942,6 +1008,8 @@ type OrdersFbsAPI interface {
 		| 1 мин | 300 запросов | 200 мс | 20 запросов |
 		Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-v3-orders-stickers-cross-border
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV3OrdersStickersCrossBorderRequest
 	*/
@@ -963,6 +1031,8 @@ type OrdersFbsAPI interface {
 		---
 
 		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-v3-passes
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV3PassesRequest
@@ -993,6 +1063,8 @@ type OrdersFbsAPI interface {
 
 		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-v3-supplies
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV3SuppliesRequest
 	*/
@@ -1020,6 +1092,8 @@ type OrdersFbsAPI interface {
 		---
 
 		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-v3-supplies-supplyid-trbx
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@param supplyId ID поставки
@@ -1052,6 +1126,8 @@ type OrdersFbsAPI interface {
 
 		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-v3-supplies-supplyid-trbx-stickers
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@param supplyId ID поставки
 			@return ApiPostV3SuppliesSupplyIdTrbxStickersRequest
@@ -1074,6 +1150,8 @@ type OrdersFbsAPI interface {
 		| --- | --- | --- | --- |
 		| 1 мин | 300 запросов | 200 мс | 20 запросов |
 		Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/put-api-marketplace-v3-fbs-supplies-supplyid-spot
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@param supplyId ID поставки
@@ -1101,6 +1179,8 @@ type OrdersFbsAPI interface {
 		---
 
 		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/put-api-marketplace-v3-orders-orderid-meta-customs-declaration
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@param orderId ID сборочного задания
@@ -1130,6 +1210,8 @@ type OrdersFbsAPI interface {
 
 		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/put-api-v3-orders-orderid-meta-expiration
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@param orderId ID сборочного задания
 			@return ApiPutV3OrdersOrderIdMetaExpirationRequest
@@ -1156,6 +1238,8 @@ type OrdersFbsAPI interface {
 
 		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/put-api-v3-orders-orderid-meta-gtin
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@param orderId ID сборочного задания
 			@return ApiPutV3OrdersOrderIdMetaGtinRequest
@@ -1181,6 +1265,8 @@ type OrdersFbsAPI interface {
 		---
 
 		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/put-api-v3-orders-orderid-meta-imei
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@param orderId ID сборочного задания
@@ -1210,6 +1296,8 @@ type OrdersFbsAPI interface {
 
 		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/put-api-v3-orders-orderid-meta-sgtin
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@param orderId ID сборочного задания
 			@return ApiPutV3OrdersOrderIdMetaSgtinRequest
@@ -1236,6 +1324,8 @@ type OrdersFbsAPI interface {
 
 		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/put-api-v3-orders-orderid-meta-uin
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@param orderId ID сборочного задания
 			@return ApiPutV3OrdersOrderIdMetaUinRequest
@@ -1259,6 +1349,8 @@ type OrdersFbsAPI interface {
 		---
 
 		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/put-api-v3-passes-passid
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@param passId ID пропуска
@@ -1312,6 +1404,8 @@ DeleteV3OrdersOrderIdMeta Удалить идентификаторы марки
 ---
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/delete-api-v3-orders-orderid-meta
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param orderId ID сборочного задания
@@ -1484,6 +1578,8 @@ DeleteV3PassesPassId Удалить пропуск
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/delete-api-v3-passes-passid
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param passId ID пропуска
 	@return ApiDeleteV3PassesPassIdRequest
@@ -1639,6 +1735,8 @@ DeleteV3SuppliesSupplyId Удалить поставку
 ---
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/delete-api-v3-supplies-supplyid
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param supplyId ID поставки
@@ -1826,6 +1924,8 @@ DeleteV3SuppliesSupplyIdTrbx Удалить грузоместа из поста
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/delete-api-v3-supplies-supplyid-trbx
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param supplyId ID поставки
 	@return ApiDeleteV3SuppliesSupplyIdTrbxRequest
@@ -1989,6 +2089,8 @@ GetV3FbsDictionariesCountriesOksm Получить список стран ОК�
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
 Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-dictionaries-countries-oksm
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV3FbsDictionariesCountriesOksmRequest
@@ -2157,6 +2259,8 @@ GetV3FbsOrdersArchive Получить список архивных сборо�
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
 Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-orders-archive
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV3FbsOrdersArchiveRequest
@@ -2351,6 +2455,8 @@ GetV3FbsSettingsAutoreturns Получить настройки автовозв
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
 Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-settings-autoreturns
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV3FbsSettingsAutoreturnsRequest
 */
@@ -2518,6 +2624,8 @@ GetV3FbsSettingsAutoreturnsSubcategoriesRestricted Получить предме
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
 Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-settings-autoreturns-subcategories-restricted
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV3FbsSettingsAutoreturnsSubcategoriesRestrictedRequest
@@ -2701,6 +2809,8 @@ GetV3FbsShippingPoints Получить список пунктов отгруз
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
 Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-shipping-points
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV3FbsShippingPointsRequest
 */
@@ -2859,6 +2969,8 @@ GetV3FbsSuppliesSupplyIdStickersSpot Получить QR-код СПОТ
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
 Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-supplies-supplyid-stickers-spot
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param supplyId ID поставки
@@ -3059,6 +3171,8 @@ GetV3Orders Получить информацию о сборочных зада
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-v3-orders
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV3OrdersRequest
 */
@@ -3248,6 +3362,8 @@ GetV3OrdersNew Получить список новых сборочных за�
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-v3-orders-new
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV3OrdersNewRequest
 */
@@ -3400,6 +3516,8 @@ GetV3Passes Получить список пропусков
 ---
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-v3-passes
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV3PassesRequest
@@ -3555,6 +3673,8 @@ GetV3PassesOffices Получить список складов, для кото
 ---
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-v3-passes-offices
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV3PassesOfficesRequest
@@ -3722,6 +3842,8 @@ GetV3Supplies Получить список поставок
 ---
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-v3-supplies
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV3SuppliesRequest
@@ -3903,6 +4025,8 @@ GetV3SuppliesOrdersReshipment Получить все сборочные зад�
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-v3-supplies-orders-reshipment
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV3SuppliesOrdersReshipmentRequest
 */
@@ -4067,6 +4191,8 @@ GetV3SuppliesSupplyId Получить информацию о поставке
 ---
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-v3-supplies-supplyid
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param supplyId ID поставки
@@ -4260,6 +4386,8 @@ QR-код поставки можно получить, только если п
 ---
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-v3-supplies-supplyid-barcode
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param supplyId ID поставки
@@ -4455,6 +4583,8 @@ GetV3SuppliesSupplyIdOrderIds Получить ID сборочных задан�
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-supplies-supplyid-order-ids
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param supplyId ID поставки
 	@return ApiGetV3SuppliesSupplyIdOrderIdsRequest
@@ -4633,6 +4763,8 @@ GetV3SuppliesSupplyIdTrbx Получить список грузомест по�
 ---
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-v3-supplies-supplyid-trbx
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param supplyId ID поставки
@@ -4819,6 +4951,8 @@ PatchV3FbsSettingsAutoreturns Обновить настройки автовоз
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
 Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/patch-api-marketplace-v3-fbs-settings-autoreturns
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPatchV3FbsSettingsAutoreturnsRequest
 */
@@ -4968,6 +5102,8 @@ PatchV3FbsSettingsAutoreturnsItems Обновить настройки авто�
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
 Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/patch-api-marketplace-v3-fbs-settings-autoreturns-items
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPatchV3FbsSettingsAutoreturnsItemsRequest
@@ -5131,6 +5267,8 @@ PatchV3FbsSuppliesShippingMethod Установить параметры отг�
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
 Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/patch-api-marketplace-v3-fbs-supplies-shipping-method
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPatchV3FbsSuppliesShippingMethodRequest
@@ -5304,6 +5442,8 @@ PatchV3OrdersOrderIdCancel Отменить сборочное задание
 ---
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/patch-api-v3-orders-orderid-cancel
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param orderId ID сборочного задания
@@ -5491,6 +5631,8 @@ PatchV3SuppliesSupplyIdDeliver Передать поставку в достав
 ---
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/patch-api-v3-supplies-supplyid-deliver
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param supplyId ID поставки
@@ -5689,6 +5831,8 @@ PatchV3SuppliesSupplyIdOrders Добавить сборочные задания
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/patch-api-marketplace-v3-supplies-supplyid-orders
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param supplyId ID поставки
 	@return ApiPatchV3SuppliesSupplyIdOrdersRequest
@@ -5878,6 +6022,8 @@ PostV3FbsSettingsAutoreturnsItems Получить настройки автов
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
 Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-marketplace-v3-fbs-settings-autoreturns-items
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV3FbsSettingsAutoreturnsItemsRequest
 */
@@ -6039,6 +6185,8 @@ PostV3FbsSuppliesSpotList Получить данные СПОТ для спис
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
 Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-marketplace-v3-fbs-supplies-spot-list
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV3FbsSuppliesSpotListRequest
@@ -6204,6 +6352,8 @@ PostV3OrdersClient Заказы с информацией по клиенту
 ---
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-v3-orders-client
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV3OrdersClientRequest
@@ -6399,6 +6549,8 @@ PostV3OrdersMeta Получить идентификаторы маркиров�
 ---
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-marketplace-v3-orders-meta
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV3OrdersMetaRequest
@@ -6611,6 +6763,8 @@ PostV3OrdersStatus Получить статусы сборочных задан
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-v3-orders-status
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV3OrdersStatusRequest
 */
@@ -6783,6 +6937,8 @@ PostV3OrdersStatusHistory История статусов для сборочн�
 ---
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-v3-orders-status-history
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV3OrdersStatusHistoryRequest
@@ -6989,6 +7145,8 @@ PostV3OrdersStickers Получить стикеры сборочных зада
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-v3-orders-stickers
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV3OrdersStickersRequest
 */
@@ -7191,6 +7349,8 @@ PostV3OrdersStickersCrossBorder Получить стикеры сборочны
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
 Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-v3-orders-stickers-cross-border
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV3OrdersStickersCrossBorderRequest
 */
@@ -7361,6 +7521,8 @@ PostV3Passes Создать пропуск
 ---
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-v3-passes
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV3PassesRequest
@@ -7553,6 +7715,8 @@ PostV3Supplies Создать новую поставку
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-v3-supplies
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV3SuppliesRequest
 */
@@ -7732,6 +7896,8 @@ PostV3SuppliesSupplyIdTrbx Добавить грузоместа к постав
 ---
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-v3-supplies-supplyid-trbx
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param supplyId ID поставки
@@ -7933,6 +8099,8 @@ PostV3SuppliesSupplyIdTrbxStickers Получить стикеры грузом�
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-v3-supplies-supplyid-trbx-stickers
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param supplyId ID поставки
 	@return ApiPostV3SuppliesSupplyIdTrbxStickersRequest
@@ -8122,6 +8290,8 @@ PutV3FbsSuppliesSupplyIdSpot Добавить данные СПОТ в пост�
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
 Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/put-api-marketplace-v3-fbs-supplies-supplyid-spot
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param supplyId ID поставки
 	@return ApiPutV3FbsSuppliesSupplyIdSpotRequest
@@ -8302,6 +8472,8 @@ PutV3OrdersOrderIdMetaCustomsDeclaration Закрепить номер ДТ за
 ---
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/put-api-marketplace-v3-orders-orderid-meta-customs-declaration
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param orderId ID сборочного задания
@@ -8496,6 +8668,8 @@ PutV3OrdersOrderIdMetaExpiration Закрепить за сборочным за
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/put-api-v3-orders-orderid-meta-expiration
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param orderId ID сборочного задания
 	@return ApiPutV3OrdersOrderIdMetaExpirationRequest
@@ -8687,6 +8861,8 @@ PutV3OrdersOrderIdMetaGtin Закрепить GTIN за сборочным за�
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/put-api-v3-orders-orderid-meta-gtin
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param orderId ID сборочного задания
 	@return ApiPutV3OrdersOrderIdMetaGtinRequest
@@ -8866,6 +9042,8 @@ PutV3OrdersOrderIdMetaImei Закрепить IMEI за сборочным за�
 ---
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/put-api-v3-orders-orderid-meta-imei
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param orderId ID сборочного задания
@@ -9048,6 +9226,8 @@ PutV3OrdersOrderIdMetaSgtin Закрепить код маркировки Че�
 ---
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/put-api-v3-orders-orderid-meta-sgtin
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param orderId ID сборочного задания
@@ -9240,6 +9420,8 @@ PutV3OrdersOrderIdMetaUin Закрепить УИН за сборочным за
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/put-api-v3-orders-orderid-meta-uin
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param orderId ID сборочного задания
 	@return ApiPutV3OrdersOrderIdMetaUinRequest
@@ -9418,6 +9600,8 @@ PutV3PassesPassId Обновить пропуск
 ---
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/put-api-v3-passes-passid
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param passId ID пропуска

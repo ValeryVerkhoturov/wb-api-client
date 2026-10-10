@@ -63,6 +63,14 @@ LANG_LABELS = {
 
 JAVA_PKG = "io.github.valeryverkhoturov.wbapi"
 
+# Canonical docs-site origin. Pages link to themselves with it ("Library
+# doc") so the reference stays navigable from the Markdown mirrors and
+# llms.txt, where site-relative links do not resolve.
+SITE = "https://valeryverkhoturov.github.io/wb-api-client-docs"
+
+# WB moved its portal from /openapi/<module> to /en/docs/openapi/<module>.
+WB_DOCS = "https://dev.wildberries.ru/en/docs/openapi"
+
 # The placeholder the rest of the docs uses for the bearer token, per
 # locale. Kept identical to guides/quickstart.md so a reader moving
 # between the two sees the same string.
@@ -161,6 +169,17 @@ class Module:
 
 
 _PORTAL_RE = re.compile(r"https://dev\.wildberries\.ru/openapi/([a-z0-9-]+)")
+
+# `Library doc: <url>` — the line post-process.py appends to every
+# operation description so generated client docstrings link here. The docs
+# site links to itself from the meta line instead, so strip the marker.
+_DOCS_LINK_RE = re.compile(
+    r"\s*Library doc: https://valeryverkhoturov\.github\.io/wb-api-client-docs/\S+\s*$"
+)
+
+
+def strip_docs_link(text: str) -> str:
+    return _DOCS_LINK_RE.sub("", text)
 
 # `](./orders-fbs#tag/…)` in a WB description — portal-relative, not ours.
 _PORTAL_REL_LINK = re.compile(r"\]\(\.{1,2}/([^)]+)\)")
@@ -294,7 +313,9 @@ def load_modules(spec_dir: Path) -> list[Module]:
                         path=path,
                         op_id=op["operationId"],
                         summary=(op.get("summary") or op["operationId"]).strip(),
-                        description=absolutize((op.get("description") or "").strip()),
+                        description=absolutize(
+                            strip_docs_link((op.get("description") or "").strip())
+                        ),
                         tag=(op.get("x-original-tags") or op.get("tags") or [""])[0],
                         tag_key=op.get("x-tagKey", ""),
                         server=op_server,
@@ -761,7 +782,8 @@ STRINGS = {
             "вызывайте её напрямую по HTTP."
         ),
         "base": "База",
-        "wb_docs": "Документация WB",
+        "lib_docs": "Документация библиотеки",
+        "spec_docs": "Документация спецификации",
         "back": "Все модули",
         "yes": "да",
         "no": "нет",
@@ -809,7 +831,8 @@ STRINGS = {
             "This operation is not exposed by any generated client — call it over plain HTTP."
         ),
         "base": "Base URL",
-        "wb_docs": "WB documentation",
+        "lib_docs": "Library doc",
+        "spec_docs": "Specification doc",
         "back": "All modules",
         "yes": "yes",
         "no": "no",
@@ -927,10 +950,12 @@ def render_operation(
     meta.append(f"**{s['module']}:** [`{module.slug}`]({base_path(locale)}/{module.slug}/)")
     if op.tag:
         meta.append(f"**{s['section_col']}:** {op.tag}")
-    wb = f"https://dev.wildberries.ru/openapi/{module.portal}"
+    lib = f"{SITE}{base_path(locale)}/{module.slug}/{op.page}"
+    meta.append(f"[{s['lib_docs']} ↗]({lib})")
+    wb = f"{WB_DOCS}/{module.portal}"
     if op.tag_key:
         wb += f"#tag/{op.tag_key}/operation/{op.op_id}"
-    meta.append(f"[{s['wb_docs']} ↗]({wb})")
+    meta.append(f"[{s['spec_docs']} ↗]({wb})")
     out.append(" · ".join(meta))
     out.append("")
 
@@ -1008,7 +1033,8 @@ def render_module_index(module: Module, locale: str) -> str:
     out.append(s["op_count"].format(slug=module.slug, n=len(module.operations)))
     out.append("")
     out.append(
-        f"[{s['wb_docs']} ↗](https://dev.wildberries.ru/openapi/{module.portal}) · "
+        f"[{s['lib_docs']} ↗]({SITE}{base_path(locale)}/{module.slug}/) · "
+        f"[{s['spec_docs']} ↗]({WB_DOCS}/{module.portal}) · "
         f"[{s['back']}]({base_path(locale)}/)"
     )
     out.append("")

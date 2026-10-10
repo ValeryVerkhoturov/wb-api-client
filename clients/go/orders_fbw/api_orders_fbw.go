@@ -35,6 +35,8 @@ type OrdersFbwAPI interface {
 		| --- | --- | --- | --- |
 		| 1 мин | 30 запросов | 2 сек | 10 запросов |
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/delete-api-supplies-v1-drafts-draftid
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@param draftId ID черновика
 			@return ApiDeleteV1DraftsDraftIdRequest
@@ -60,6 +62,8 @@ type OrdersFbwAPI interface {
 		| --- | --- | --- | --- |
 		| 1 мин | 30 запросов | 2 сек | 10 запросов |
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/delete-api-supplies-v1-drafts-draftid-items
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@param draftId ID черновика
 			@return ApiDeleteV1DraftsDraftIdItemsRequest
@@ -84,6 +88,8 @@ type OrdersFbwAPI interface {
 		| --- | --- | --- | --- |
 		| 1 мин | 30 запросов | 2 сек | 10 запросов |
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/get-api-supplies-v1-drafts
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV1DraftsRequest
 	*/
@@ -106,6 +112,8 @@ type OrdersFbwAPI interface {
 		| Период | Лимит | Интервал | Всплеск |
 		| --- | --- | --- | --- |
 		| 1 мин | 30 запросов | 2 сек | 10 запросов |
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/get-api-supplies-v1-drafts-draftid-items
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@param draftId ID черновика
@@ -130,6 +138,8 @@ type OrdersFbwAPI interface {
 		| Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов |
 		| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/get-api-v1-supplies-id
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@param iD ID поставки или заказа
 			@return ApiGetV1SuppliesIdRequest
@@ -153,6 +163,8 @@ type OrdersFbwAPI interface {
 		| Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов |
 		| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/get-api-v1-supplies-id-goods
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@param iD ID поставки или заказа
 			@return ApiGetV1SuppliesIdGoodsRequest
@@ -175,6 +187,8 @@ type OrdersFbwAPI interface {
 		| Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов |
 		| Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов |
 		| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/get-api-v1-supplies-id-package
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@param iD ID поставки
@@ -221,6 +235,8 @@ type OrdersFbwAPI interface {
 		| --- | --- | --- | --- |
 		| 1 мин | 1 запрос | 1 мин | 1 запрос |
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/get-api-supplies-v1-discrepancies-supplyid
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@param supplyId ID поставки
 			@return ApiGetV1SuppliesSupplyIdDiscrepanciesQuantityRequest
@@ -243,6 +259,8 @@ type OrdersFbwAPI interface {
 		| Сервисный | 1 мин | 6 запросов | 10 сек | 10 запросов |
 		| Базовый с секретом | 1 мин | 6 запросов | 10 сек | 10 запросов |
 		| Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос |
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/get-api-v1-transit-tariffs
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV1TransitTariffsRequest
@@ -270,6 +288,8 @@ type OrdersFbwAPI interface {
 
 		В песочнице — максимум 1 запрос в секунду суммарно для всех методов.
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/get-api-v1-warehouses
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV1WarehousesRequest
 	*/
@@ -296,6 +316,8 @@ type OrdersFbwAPI interface {
 
 		В песочнице — максимум 1 запрос в секунду суммарно для всех методов.
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/post-api-v1-acceptance-options
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV1AcceptanceOptionsRequest
 	*/
@@ -318,6 +340,8 @@ type OrdersFbwAPI interface {
 		| Период | Лимит | Интервал | Всплеск |
 		| --- | --- | --- | --- |
 		| 1 мин | 30 запросов | 2 сек | 10 запросов |
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/post-api-supplies-v1-drafts
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV1DraftsRequest
@@ -346,6 +370,8 @@ type OrdersFbwAPI interface {
 		| --- | --- | --- | --- |
 		| 1 мин | 30 запросов | 2 сек | 10 запросов |
 
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/post-api-supplies-v1-drafts-draftid-items
+
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@param draftId ID черновика
 			@return ApiPostV1DraftsDraftIdItemsRequest
@@ -368,6 +394,8 @@ type OrdersFbwAPI interface {
 		| Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов |
 		| Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов |
 		| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/post-api-v1-supplies
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV1SuppliesRequest
@@ -405,6 +433,8 @@ DeleteV1DraftsDraftId Удалить черновик
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 30 запросов | 2 сек | 10 запросов |
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/delete-api-supplies-v1-drafts-draftid
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param draftId ID черновика
@@ -568,6 +598,8 @@ DeleteV1DraftsDraftIdItems Удалить товары из черновика
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 30 запросов | 2 сек | 10 запросов |
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/delete-api-supplies-v1-drafts-draftid-items
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param draftId ID черновика
@@ -768,6 +800,8 @@ GetV1Drafts Список черновиков
 | --- | --- | --- | --- |
 | 1 мин | 30 запросов | 2 сек | 10 запросов |
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/get-api-supplies-v1-drafts
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV1DraftsRequest
 */
@@ -945,6 +979,8 @@ GetV1DraftsDraftIdItems Список товаров в черновике
 | --- | --- | --- | --- |
 | 1 мин | 30 запросов | 2 сек | 10 запросов |
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/get-api-supplies-v1-drafts-draftid-items
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param draftId ID черновика
 	@return ApiGetV1DraftsDraftIdItemsRequest
@@ -1117,6 +1153,8 @@ GetV1SuppliesId Детали поставки
 | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов |
 | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов |
 | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/get-api-v1-supplies-id
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param iD ID поставки или заказа
@@ -1322,6 +1360,8 @@ GetV1SuppliesIdGoods Товары поставки
 | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов |
 | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/get-api-v1-supplies-id-goods
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param iD ID поставки или заказа
 	@return ApiGetV1SuppliesIdGoodsRequest
@@ -1505,6 +1545,8 @@ GetV1SuppliesIdPackage Упаковка поставки
 | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов |
 | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов |
 | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/get-api-v1-supplies-id-package
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param iD ID поставки
@@ -1694,6 +1736,8 @@ GetV1SuppliesSupplyIdDiscrepanciesQuantity Расхождения в поста�
 | --- | --- | --- | --- |
 | 1 мин | 1 запрос | 1 мин | 1 запрос |
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/get-api-supplies-v1-discrepancies-supplyid
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param supplyId ID поставки
 	@return ApiGetV1SuppliesSupplyIdDiscrepanciesQuantityRequest
@@ -1859,6 +1903,8 @@ GetV1TransitTariffs Транзитные направления
 | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 10 запросов |
 | Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос |
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/get-api-v1-transit-tariffs
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV1TransitTariffsRequest
 */
@@ -2002,6 +2048,8 @@ GetV1Warehouses Список складов
 ---
 
 В песочнице — максимум 1 запрос в секунду суммарно для всех методов.
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/get-api-v1-warehouses
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV1WarehousesRequest
@@ -2159,6 +2207,8 @@ PostV1AcceptanceOptions Опции приёмки
 ---
 
 В песочнице — максимум 1 запрос в секунду суммарно для всех методов.
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/post-api-v1-acceptance-options
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV1AcceptanceOptionsRequest
@@ -2334,6 +2384,8 @@ PostV1Drafts Создать черновик
 | --- | --- | --- | --- |
 | 1 мин | 30 запросов | 2 сек | 10 запросов |
 
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/post-api-supplies-v1-drafts
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV1DraftsRequest
 */
@@ -2485,6 +2537,8 @@ PostV1DraftsDraftIdItems Добавить товары в черновик
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 30 запросов | 2 сек | 10 запросов |
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/post-api-supplies-v1-drafts-draftid-items
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param draftId ID черновика
@@ -2675,6 +2729,8 @@ PostV1Supplies Список поставок
 | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов |
 | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов |
 | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/post-api-v1-supplies
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV1SuppliesRequest

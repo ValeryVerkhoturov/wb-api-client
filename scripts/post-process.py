@@ -66,6 +66,15 @@ Passes applied to every spec:
     operation's `tags` to the module name (`Finances`, `Reports`, …), so
     each module gets a single well-named API class (`FinancesApi`, …), and
     stash the original tags in `x-original-tags` for the docs generator.
+
+11. `add_docs_links` — appends a `Library doc: <url>` line to every
+    operation's `description`, pointing at the operation's page on
+    https://valeryverkhoturov.github.io/wb-api-client-docs. Generators copy
+    `description` into docstrings/Javadoc/doc-comments, so every client
+    method links to its rendered docs. gen-api-reference.py strips this
+    line back out, so the docs site itself is unaffected. Runs last, after
+    the HTML→Markdown and link-absolutizing passes, so the appended line is
+    never rewritten.
 """
 from __future__ import annotations
 
@@ -591,10 +600,78 @@ def rename_tags_to_module(spec: dict, module: str) -> int:
     return renamed
 
 
+DOCS_SITE = "https://valeryverkhoturov.github.io/wb-api-client-docs"
+
+# Marker line appended to operation descriptions. gen-api-reference.py
+# strips exactly this pattern when rendering the docs site, so keep the
+# two in sync.
+DOCS_LINK_LABEL = "Library doc"
+
+
+def _page_slug(method: str, path: str) -> str:
+    """`PATCH /content/v2/tag/{id}` → `patch-content-v2-tag-id`.
+
+    Mirrors `page_slug` in gen-api-reference.py, including the collision
+    disambiguation below — the docs URL must match the generated page.
+    """
+    cleaned = re.sub(r"[{}]", "", path)
+    parts = [p for p in re.split(r"[^A-Za-z0-9]+", cleaned) if p]
+    return "-".join([method.lower(), *parts]).lower()
+
+
+def _snake_case(op_id: str) -> str:
+    s = re.sub(r"(.)([A-Z][a-z]+)", r"\1_\2", op_id)
+    s = re.sub(r"([a-z0-9])([A-Z])", r"\1_\2", s)
+    return s.lower()
+
+
+def add_docs_links(spec: dict, slug: str) -> int:
+    """Append a `Library doc: <url>` line to every operation description.
+
+    Stock openapi-generator templates copy the operation `description` into
+    docstrings (Python), doc comments (Go, TypeScript), Javadoc (Java),
+    PHPDoc, XML doc (C#) and OneScript comments, so this single spec-side
+    change surfaces a docs-site link in every generated client method.
+
+    The page path mirrors gen-api-reference.py's `page_slug` plus its
+    `seen_pages` disambiguation; gen-api-reference.py strips the marker
+    line back out so the docs pages themselves stay unchanged. For PHP the
+    link arrives through the same description — the stock template override
+    in templates/php renders `notes` into docblocks (the stock template's
+    `{{#description}}` binds to an empty field in the php generator).
+    """
+    linked = 0
+    seen_pages: set = set()
+    for path, path_item in (spec.get("paths") or {}).items():
+        if not isinstance(path_item, dict):
+            continue
+        for method, op in path_item.items():
+            if method not in {"get", "post", "put", "patch", "delete", "head", "options"}:
+                continue
+            if not isinstance(op, dict):
+                continue
+            page = _page_slug(method, path)
+            if page in seen_pages:
+                page = f"{page}-{_snake_case(op.get('operationId', '')).replace('_', '-')}"
+            seen_pages.add(page)
+            url = f"{DOCS_SITE}/reference/api/{slug}/{page}"
+            desc = (op.get("description") or "").rstrip()
+            op["description"] = (
+                f"{desc}\n\n{DOCS_LINK_LABEL}: {url}" if desc else f"{DOCS_LINK_LABEL}: {url}"
+            )
+            linked += 1
+    return linked
+
+
 def _module_class_name(stem: str) -> str:
     """`01-general` → `General`, `06-in-store-pickup` → `InStorePickup`."""
     slug = re.sub(r"^\d+-", "", stem)
     return "".join(part.capitalize() for part in slug.split("-"))
+
+
+def _module_slug(stem: str) -> str:
+    """`01-general` → `general`, `06-in-store-pickup` → `in-store-pickup`."""
+    return re.sub(r"^\d+-", "", stem)
 
 
 def process_file(src: Path, dst: Path) -> dict:
@@ -615,6 +692,7 @@ def process_file(src: Path, dst: Path) -> dict:
         "date_formats_dropped": drop_date_formats(spec),
         "descriptions_md": htmlize_descriptions_to_markdown(spec),
         "links_absolutized": absolutize_description_links(spec),
+        "docs_links": add_docs_links(spec, _module_slug(src.stem)),
     }
 
     dst.parent.mkdir(parents=True, exist_ok=True)
@@ -636,7 +714,7 @@ def main() -> int:
     totals = {"arrays": 0, "inlined_arrays": 0, "renamed_schemas": 0,
               "hoisted_responses": 0, "required_dropped": 0, "enums": 0,
               "tags_renamed": 0, "date_formats_dropped": 0,
-              "descriptions_md": 0, "links_absolutized": 0}
+              "descriptions_md": 0, "links_absolutized": 0, "docs_links": 0}
     for spec_path in specs:
         target = dst_dir / spec_path.name
         stats = process_file(spec_path, target)
@@ -653,7 +731,8 @@ def main() -> int:
             f"tags-renamed={stats['tags_renamed']:>3} "
             f"date-formats={stats['date_formats_dropped']:>2} "
             f"desc-md={stats['descriptions_md']:>4} "
-            f"abs-links={stats['links_absolutized']:>4}"
+            f"abs-links={stats['links_absolutized']:>4} "
+            f"docs-links={stats['docs_links']:>3}"
         )
 
     print(
