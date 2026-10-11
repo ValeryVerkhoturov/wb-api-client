@@ -140,6 +140,15 @@ jobs:
           server-password: MAVEN_PASSWORD
           gpg-private-key: ${{ secrets.MAVEN_GPG_PRIVATE_KEY }}
           gpg-passphrase: MAVEN_GPG_PASSPHRASE
+      # Pin Maven 3.9.x: ubuntu-latest now ships Maven 3.10, whose Resolver
+      # writes maven-metadata-local.xml into central-publishing-maven-plugin's
+      # staging dir. The plugin (any version up to 0.11.0) only strips
+      # maven-metadata-central-staging.xml, so the stray file lands in the
+      # bundle and Central rejects it: "Bundle has content that does NOT have
+      # a .pom file". https://github.com/mavenplugins/central-publishing-maven-plugin/issues/79
+      - uses: stCarolas/setup-maven@v4.5
+        with:
+          maven-version: "3.9.16"
       - name: Deploy to Maven Central
         working-directory: clients/java
         env:
