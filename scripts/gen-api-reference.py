@@ -63,11 +63,6 @@ LANG_LABELS = {
 
 JAVA_PKG = "io.github.valeryverkhoturov.wbapi"
 
-# Canonical docs-site origin. Pages link to themselves with it ("Library
-# doc") so the reference stays navigable from the Markdown mirrors and
-# llms.txt, where site-relative links do not resolve.
-SITE = "https://valeryverkhoturov.github.io/wb-api-client-docs"
-
 # WB moved its portal from /openapi/<module> to /en/docs/openapi/<module>.
 WB_DOCS = "https://dev.wildberries.ru/en/docs/openapi"
 
@@ -782,7 +777,6 @@ STRINGS = {
             "вызывайте её напрямую по HTTP."
         ),
         "base": "База",
-        "lib_docs": "Документация библиотеки",
         "spec_docs": "Документация спецификации",
         "back": "Все модули",
         "yes": "да",
@@ -831,7 +825,6 @@ STRINGS = {
             "This operation is not exposed by any generated client — call it over plain HTTP."
         ),
         "base": "Base URL",
-        "lib_docs": "Library doc",
         "spec_docs": "Specification doc",
         "back": "All modules",
         "yes": "yes",
@@ -950,8 +943,6 @@ def render_operation(
     meta.append(f"**{s['module']}:** [`{module.slug}`]({base_path(locale)}/{module.slug}/)")
     if op.tag:
         meta.append(f"**{s['section_col']}:** {op.tag}")
-    lib = f"{SITE}{base_path(locale)}/{module.slug}/{op.page}"
-    meta.append(f"[{s['lib_docs']} ↗]({lib})")
     wb = f"{WB_DOCS}/{module.portal}"
     if op.tag_key:
         wb += f"#tag/{op.tag_key}/operation/{op.op_id}"
@@ -1033,7 +1024,6 @@ def render_module_index(module: Module, locale: str) -> str:
     out.append(s["op_count"].format(slug=module.slug, n=len(module.operations)))
     out.append("")
     out.append(
-        f"[{s['lib_docs']} ↗]({SITE}{base_path(locale)}/{module.slug}/) · "
         f"[{s['spec_docs']} ↗]({WB_DOCS}/{module.portal}) · "
         f"[{s['back']}]({base_path(locale)}/)"
     )
