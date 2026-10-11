@@ -10,17 +10,18 @@ Auto-generated client libraries for the [Wildberries Seller API](https://dev.wil
 
 ## Repositories
 
-The project spans three repositories. This one holds the pipeline and four of the
-six generated clients; PHP and OneScript live in their own repos, mounted here as
-git submodules under `clients/`.
+The project spans four repositories. This one holds the pipeline and four of the
+seven generated clients; PHP, OneScript, and Go live in their own repos, mounted
+here as git submodules under `clients/`.
 
 | Repository | Holds | Why separate |
 |---|---|---|
-| [`wb-api-client`](https://github.com/ValeryVerkhoturov/wb-api-client) | the pipeline, specs, and the Python / TypeScript / Go / Java clients | — |
+| [`wb-api-client`](https://github.com/ValeryVerkhoturov/wb-api-client) | the pipeline, specs, and the Python / TypeScript / Java / C# clients | — |
 | [`wb-api-client-php`](https://github.com/ValeryVerkhoturov/wb-api-client-php) | the PHP client → `clients/php` | Packagist crawls a repo root, so `composer.json` cannot sit in a subdirectory |
 | [`wb-api-client-1c`](https://github.com/ValeryVerkhoturov/wb-api-client-1c) | the OneScript client → `clients/onescript` | lets 1C/OneScript users clone just the client, or `opm install` straight from a tag |
+| [`wb-api-client-go`](https://github.com/ValeryVerkhoturov/wb-api-client-go) | the Go client → `clients/go` | Go versions modules with repo tags, so the module must sit at a repo root — a subdirectory module would need `clients/go/`-prefixed tags |
 
-All three carry the **same `v<version>` tag** for a given release. Code is generated
+All four carry the **same `v<version>` tag** for a given release. Code is generated
 here and committed into the siblings, so never edit a sibling repo directly — the
 next regeneration overwrites it.
 
@@ -164,16 +165,16 @@ Passing the token through the wrapper is the only supported path.
 ## Local development
 
 ```bash
-git submodule update --init --recursive # clients/php + clients/onescript must be mounted
+git submodule update --init --recursive # clients/php + clients/onescript + clients/go must be mounted
 ./scripts/download-swaggers.sh          # pull YAMLs from the wb-api-client-specs mirror
 pip install -r scripts/requirements.txt
 python  scripts/post-process.py         # inject Bearer auth security scheme
 ./scripts/generate.sh 0.0.0-local       # emit clients/{python,typescript,go,java,php,onescript,csharp}
 ```
 
-`generate.sh` refuses to run if either submodule is missing: without the mount its
+`generate.sh` refuses to run if any submodule is missing: without the mount its
 output would land in an orphaned directory in this repo instead of the sibling.
-`make git-status` / `git-commit` / `git-push` / `git-pull` act on all three repos at
+`make git-status` / `git-commit` / `git-push` / `git-pull` act on all four repos at
 once, submodules first so the recorded pointers are the new commits.
 
 ## How the daily release works
@@ -184,7 +185,7 @@ once, submodules first so the recorded pointers are the new commits.
 2. Diffs `swaggers/checksums.txt` against the freshly generated one.
 3. If any file changed (or `workflow_dispatch` was called with `force: true`), it commits the new specs, computes a CalVer version, tags the repo, and dispatches `publish.yml` once per language.
 
-Both sibling repos are committed, tagged and pushed **before** this one, so the
+All three sibling repos are committed, tagged and pushed **before** this one, so the
 submodule pointers recorded in the release commit already exist on their remotes —
 otherwise a fresh `git clone --recurse-submodules` fails on a ref the sibling has
 never seen.
