@@ -1,5 +1,9 @@
 # wb-api-client
 
+<p align="center">
+  <img src="pics/blueberry-ascii.svg" width="320" alt="wb-api-client logo">
+</p>
+
 Auto-generated client libraries for the [Wildberries Seller API](https://dev.wildberries.ru/) in **Python**, **TypeScript**, **Go**, **Java**, **PHP**, **OneScript**, and **C#**. Specs are pulled daily from the [wb-api-client-specs](https://gitlab.com/ValeryVerkhoturov/wb-api-client-specs) mirror; when they change, new packages are cut and pushed to each language's package manager.
 
 ## What's in the box
@@ -74,7 +78,7 @@ client := wbitems.NewAPIClient(cfg)
 <dependency>
   <groupId>io.github.valeryverkhoturov</groupId>
   <artifactId>wb-api-client</artifactId>
-  <version>1.20260928.0</version>
+  <version>LATEST</version>
 </dependency>
 ```
 ```java

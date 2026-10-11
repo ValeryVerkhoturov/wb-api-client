@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 360" width="440" height="360" role="img" aria-labelledby="t">
+<title id="t">wb-api-client: ASCII logo</title>
+<g shape-rendering="crispEdges">
+    <rect x="232" y="40" width="72" height="20" fill="#7CCB86"/>
+    <rect x="208" y="60" width="48" height="20" fill="#7CCB86"/>
+    <rect x="136" y="80" width="72" height="20" fill="#3B409B"/>
+    <rect x="208" y="80" width="24" height="20" fill="#12143A"/>
+    <rect x="232" y="80" width="72" height="20" fill="#3B409B"/>
+    <rect x="88" y="100" width="264" height="20" fill="#3B409B"/>
+    <rect x="64" y="120" width="312" height="20" fill="#3B409B"/>
+    <rect x="40" y="140" width="96" height="20" fill="#3B409B"/>
+    <rect x="136" y="140" width="24" height="20" fill="#12143A"/>
+    <rect x="160" y="140" width="120" height="20" fill="#3B409B"/>
+    <rect x="280" y="140" width="24" height="20" fill="#12143A"/>
+    <rect x="304" y="140" width="96" height="20" fill="#3B409B"/>
+    <rect x="40" y="160" width="96" height="20" fill="#3B409B"/>
+    <rect x="136" y="160" width="24" height="20" fill="#12143A"/>
+    <rect x="160" y="160" width="120" height="20" fill="#3B409B"/>
+    <rect x="280" y="160" width="24" height="20" fill="#12143A"/>
+    <rect x="304" y="160" width="96" height="20" fill="#3B409B"/>
+    <rect x="40" y="180" width="360" height="20" fill="#3B409B"/>
+    <rect x="40" y="200" width="120" height="20" fill="#3B409B"/>
+    <rect x="160" y="200" width="24" height="20" fill="#12143A"/>
+    <rect x="184" y="200" width="72" height="20" fill="#3B409B"/>
+    <rect x="256" y="200" width="24" height="20" fill="#12143A"/>
+    <rect x="280" y="200" width="120" height="20" fill="#3B409B"/>
+    <rect x="40" y="220" width="144" height="20" fill="#3B409B"/>
+    <rect x="184" y="220" width="72" height="20" fill="#12143A"/>
+    <rect x="256" y="220" width="144" height="20" fill="#3B409B"/>
+    <rect x="64" y="240" width="312" height="20" fill="#3B409B"/>
+    <rect x="88" y="260" width="264" height="20" fill="#3B409B"/>
+    <rect x="136" y="280" width="168" height="20" fill="#3B409B"/>
+    <rect x="112" y="300" width="72" height="20" fill="#3B409B"/>
+    <rect x="256" y="300" width="72" height="20" fill="#3B409B"/>
+</g>
+</svg>
