@@ -273,7 +273,29 @@ public class GeneralApi {
   public okhttp3.Call getPingCall(final ApiCallback _callback) throws ApiException {
     String basePath = null;
     // Operation Servers
-    String[] localBasePaths = new String[] {"https://common-api.wildberries.ru"};
+    String[] localBasePaths =
+        new String[] {
+          "https://common-api.wildberries.ru",
+          "https://content-api.wildberries.ru",
+          "https://content-api-sandbox.wildberries.ru",
+          "https://seller-analytics-api.wildberries.ru",
+          "https://discounts-prices-api.wildberries.ru",
+          "https://discounts-prices-api-sandbox.wildberries.ru",
+          "https://marketplace-api.wildberries.ru",
+          "https://marketplace-api-sandbox.wildberries.ru",
+          "https://statistics-api.wildberries.ru",
+          "https://statistics-api-sandbox.wildberries.ru",
+          "https://advert-api.wildberries.ru",
+          "https://advert-api-sandbox.wildberries.ru",
+          "https://feedbacks-api.wildberries.ru",
+          "https://feedbacks-api-sandbox.wildberries.ru",
+          "https://buyer-chat-api.wildberries.ru",
+          "https://supplies-api.wildberries.ru",
+          "https://returns-api.wildberries.ru",
+          "https://documents-api.wildberries.ru",
+          "https://finance-api.wildberries.ru",
+          "https://user-management-api.wildberries.ru"
+        };
 
     // Determine Base Path to Use
     if (localCustomBaseUrl != null) {
@@ -332,26 +354,7 @@ public class GeneralApi {
    * Проверка подключения Метод проверяет: 1. Успешно ли запрос доходит до WB API 2. Валидность
    * токена авторизации и URL запроса 3. Совпадают ли категория токена и сервис Метод не
    * предназначен для проверки доступности сервисов WB У каждого сервиса есть свой вариант метода в
-   * зависимости от домена: | Категория | URL запроса | |---------------|-----------------------| |
-   * Контент | &#x60;https://content-api.wildberries.ru/ping&#x60;
-   * &#x60;https://content-api-sandbox.wildberries.ru/ping&#x60; | | Аналитика |
-   * &#x60;https://seller-analytics-api.wildberries.ru/ping&#x60; | | Цены и скидки |
-   * &#x60;https://discounts-prices-api.wildberries.ru/ping&#x60;
-   * &#x60;https://discounts-prices-api-sandbox.wildberries.ru/ping&#x60; | | Маркетплейс |
-   * &#x60;https://marketplace-api.wildberries.ru/ping&#x60; | | Статистика |
-   * &#x60;https://statistics-api.wildberries.ru/ping&#x60;
-   * &#x60;https://statistics-api-sandbox.wildberries.ru/ping&#x60; | | Продвижение |
-   * &#x60;https://advert-api.wildberries.ru/ping&#x60;
-   * &#x60;https://advert-api-sandbox.wildberries.ru/ping&#x60; | | Вопросы и отзывы |
-   * &#x60;https://feedbacks-api.wildberries.ru/ping&#x60;
-   * &#x60;https://feedbacks-api-sandbox.wildberries.ru/ping&#x60; | | Чат с покупателями |
-   * &#x60;https://buyer-chat-api.wildberries.ru/ping&#x60; | | Поставки |
-   * &#x60;https://supplies-api.wildberries.ru/ping&#x60; | | Возвраты покупателями |
-   * &#x60;https://returns-api.wildberries.ru/ping&#x60; | | Документы |
-   * &#x60;https://documents-api.wildberries.ru/ping&#x60; | | Финансы |
-   * &#x60;https://finance-api.wildberries.ru/ping&#x60; | | Тарифы, Новости, Получить информацию о
-   * продавце | &#x60;https://common-api.wildberries.ru/ping&#x60; | | Управление пользователями
-   * продавца | &#x60;https://user-management-api.wildberries.ru/ping&#x60; | [Лимит
+   * зависимости от домена. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | |
    * 30 сек | 3 запроса | 10 сек | 99 запросов | Лимит действует отдельно для каждого варианта
@@ -380,26 +383,7 @@ public class GeneralApi {
    * Проверка подключения Метод проверяет: 1. Успешно ли запрос доходит до WB API 2. Валидность
    * токена авторизации и URL запроса 3. Совпадают ли категория токена и сервис Метод не
    * предназначен для проверки доступности сервисов WB У каждого сервиса есть свой вариант метода в
-   * зависимости от домена: | Категория | URL запроса | |---------------|-----------------------| |
-   * Контент | &#x60;https://content-api.wildberries.ru/ping&#x60;
-   * &#x60;https://content-api-sandbox.wildberries.ru/ping&#x60; | | Аналитика |
-   * &#x60;https://seller-analytics-api.wildberries.ru/ping&#x60; | | Цены и скидки |
-   * &#x60;https://discounts-prices-api.wildberries.ru/ping&#x60;
-   * &#x60;https://discounts-prices-api-sandbox.wildberries.ru/ping&#x60; | | Маркетплейс |
-   * &#x60;https://marketplace-api.wildberries.ru/ping&#x60; | | Статистика |
-   * &#x60;https://statistics-api.wildberries.ru/ping&#x60;
-   * &#x60;https://statistics-api-sandbox.wildberries.ru/ping&#x60; | | Продвижение |
-   * &#x60;https://advert-api.wildberries.ru/ping&#x60;
-   * &#x60;https://advert-api-sandbox.wildberries.ru/ping&#x60; | | Вопросы и отзывы |
-   * &#x60;https://feedbacks-api.wildberries.ru/ping&#x60;
-   * &#x60;https://feedbacks-api-sandbox.wildberries.ru/ping&#x60; | | Чат с покупателями |
-   * &#x60;https://buyer-chat-api.wildberries.ru/ping&#x60; | | Поставки |
-   * &#x60;https://supplies-api.wildberries.ru/ping&#x60; | | Возвраты покупателями |
-   * &#x60;https://returns-api.wildberries.ru/ping&#x60; | | Документы |
-   * &#x60;https://documents-api.wildberries.ru/ping&#x60; | | Финансы |
-   * &#x60;https://finance-api.wildberries.ru/ping&#x60; | | Тарифы, Новости, Получить информацию о
-   * продавце | &#x60;https://common-api.wildberries.ru/ping&#x60; | | Управление пользователями
-   * продавца | &#x60;https://user-management-api.wildberries.ru/ping&#x60; | [Лимит
+   * зависимости от домена. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | |
    * 30 сек | 3 запроса | 10 сек | 99 запросов | Лимит действует отдельно для каждого варианта
@@ -429,26 +413,7 @@ public class GeneralApi {
    * Проверка подключения (asynchronously) Метод проверяет: 1. Успешно ли запрос доходит до WB API
    * 2. Валидность токена авторизации и URL запроса 3. Совпадают ли категория токена и сервис Метод
    * не предназначен для проверки доступности сервисов WB У каждого сервиса есть свой вариант метода
-   * в зависимости от домена: | Категория | URL запроса | |---------------|-----------------------|
-   * | Контент | &#x60;https://content-api.wildberries.ru/ping&#x60;
-   * &#x60;https://content-api-sandbox.wildberries.ru/ping&#x60; | | Аналитика |
-   * &#x60;https://seller-analytics-api.wildberries.ru/ping&#x60; | | Цены и скидки |
-   * &#x60;https://discounts-prices-api.wildberries.ru/ping&#x60;
-   * &#x60;https://discounts-prices-api-sandbox.wildberries.ru/ping&#x60; | | Маркетплейс |
-   * &#x60;https://marketplace-api.wildberries.ru/ping&#x60; | | Статистика |
-   * &#x60;https://statistics-api.wildberries.ru/ping&#x60;
-   * &#x60;https://statistics-api-sandbox.wildberries.ru/ping&#x60; | | Продвижение |
-   * &#x60;https://advert-api.wildberries.ru/ping&#x60;
-   * &#x60;https://advert-api-sandbox.wildberries.ru/ping&#x60; | | Вопросы и отзывы |
-   * &#x60;https://feedbacks-api.wildberries.ru/ping&#x60;
-   * &#x60;https://feedbacks-api-sandbox.wildberries.ru/ping&#x60; | | Чат с покупателями |
-   * &#x60;https://buyer-chat-api.wildberries.ru/ping&#x60; | | Поставки |
-   * &#x60;https://supplies-api.wildberries.ru/ping&#x60; | | Возвраты покупателями |
-   * &#x60;https://returns-api.wildberries.ru/ping&#x60; | | Документы |
-   * &#x60;https://documents-api.wildberries.ru/ping&#x60; | | Финансы |
-   * &#x60;https://finance-api.wildberries.ru/ping&#x60; | | Тарифы, Новости, Получить информацию о
-   * продавце | &#x60;https://common-api.wildberries.ru/ping&#x60; | | Управление пользователями
-   * продавца | &#x60;https://user-management-api.wildberries.ru/ping&#x60; | [Лимит
+   * в зависимости от домена. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | |
    * 30 сек | 3 запроса | 10 сек | 99 запросов | Лимит действует отдельно для каждого варианта

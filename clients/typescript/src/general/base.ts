@@ -98,7 +98,83 @@ export const operationServerMap: ServerMap = {
   "GeneralApi.getPing": [
     {
       url: "https://common-api.wildberries.ru",
-      description: "No description provided",
+      description: "**Тарифы, Новости, Информация о продавце** ",
+    },
+    {
+      url: "https://content-api.wildberries.ru",
+      description: "**Контент** ",
+    },
+    {
+      url: "https://content-api-sandbox.wildberries.ru",
+      description: "**Песочница Контент** ",
+    },
+    {
+      url: "https://seller-analytics-api.wildberries.ru",
+      description: "**Аналитика** ",
+    },
+    {
+      url: "https://discounts-prices-api.wildberries.ru",
+      description: "**Цены и скидки** ",
+    },
+    {
+      url: "https://discounts-prices-api-sandbox.wildberries.ru",
+      description: "**Песочница Цены и скидки** ",
+    },
+    {
+      url: "https://marketplace-api.wildberries.ru",
+      description: "**Маркетплейс** ",
+    },
+    {
+      url: "https://marketplace-api-sandbox.wildberries.ru",
+      description: "**Песочница Маркетплейс** ",
+    },
+    {
+      url: "https://statistics-api.wildberries.ru",
+      description: "**Статистика** ",
+    },
+    {
+      url: "https://statistics-api-sandbox.wildberries.ru",
+      description: "**Песочница Статистика** ",
+    },
+    {
+      url: "https://advert-api.wildberries.ru",
+      description: "**Продвижение** ",
+    },
+    {
+      url: "https://advert-api-sandbox.wildberries.ru",
+      description: "**Песочница Продвижение** ",
+    },
+    {
+      url: "https://feedbacks-api.wildberries.ru",
+      description: "**Вопросы и отзывы** ",
+    },
+    {
+      url: "https://feedbacks-api-sandbox.wildberries.ru",
+      description: "**Песочница Вопросы и отзывы** ",
+    },
+    {
+      url: "https://buyer-chat-api.wildberries.ru",
+      description: "**Чат с покупателями** ",
+    },
+    {
+      url: "https://supplies-api.wildberries.ru",
+      description: "**Поставки** ",
+    },
+    {
+      url: "https://returns-api.wildberries.ru",
+      description: "**Возвраты покупателями** ",
+    },
+    {
+      url: "https://documents-api.wildberries.ru",
+      description: "**Документы** ",
+    },
+    {
+      url: "https://finance-api.wildberries.ru",
+      description: "**Финансы** ",
+    },
+    {
+      url: "https://user-management-api.wildberries.ru",
+      description: "**Управление пользователями продавца** ",
     },
   ],
   "GeneralApi.getV1Rating": [

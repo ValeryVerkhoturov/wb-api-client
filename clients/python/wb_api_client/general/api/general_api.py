@@ -332,11 +332,11 @@ class GeneralApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=20)] = 0,
     ) -> GetPingResponse200:
         """Проверка подключения
 
-        Метод проверяет: 1. Успешно ли запрос доходит до WB API 2. Валидность токена авторизации и URL запроса 3. Совпадают ли категория токена и сервис  Метод не предназначен для проверки доступности сервисов WB  У каждого сервиса есть свой вариант метода в зависимости от домена: | Категория | URL запроса | |---------------|-----------------------| | Контент | `https://content-api.wildberries.ru/ping` `https://content-api-sandbox.wildberries.ru/ping` | | Аналитика | `https://seller-analytics-api.wildberries.ru/ping` | | Цены и скидки | `https://discounts-prices-api.wildberries.ru/ping` `https://discounts-prices-api-sandbox.wildberries.ru/ping` | | Маркетплейс | `https://marketplace-api.wildberries.ru/ping` | | Статистика | `https://statistics-api.wildberries.ru/ping` `https://statistics-api-sandbox.wildberries.ru/ping` | | Продвижение | `https://advert-api.wildberries.ru/ping` `https://advert-api-sandbox.wildberries.ru/ping` | | Вопросы и отзывы | `https://feedbacks-api.wildberries.ru/ping` `https://feedbacks-api-sandbox.wildberries.ru/ping` | | Чат с покупателями | `https://buyer-chat-api.wildberries.ru/ping` | | Поставки | `https://supplies-api.wildberries.ru/ping` | | Возвраты покупателями | `https://returns-api.wildberries.ru/ping` | | Документы | `https://documents-api.wildberries.ru/ping` | | Финансы | `https://finance-api.wildberries.ru/ping` | | Тарифы, Новости, Получить информацию о продавце | `https://common-api.wildberries.ru/ping` | | Управление пользователями продавца | `https://user-management-api.wildberries.ru/ping` |  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 30 сек | 3 запроса | 10 сек | 99 запросов |  Лимит действует отдельно для каждого варианта метода в зависимости от домена  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/general/get-ping
+        Метод проверяет: 1. Успешно ли запрос доходит до WB API 2. Валидность токена авторизации и URL запроса 3. Совпадают ли категория токена и сервис  Метод не предназначен для проверки доступности сервисов WB  У каждого сервиса есть свой вариант метода в зависимости от домена.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 30 сек | 3 запроса | 10 сек | 99 запросов |  Лимит действует отдельно для каждого варианта метода в зависимости от домена  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/general/get-ping
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -395,11 +395,11 @@ class GeneralApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=20)] = 0,
     ) -> ApiResponse[GetPingResponse200]:
         """Проверка подключения
 
-        Метод проверяет: 1. Успешно ли запрос доходит до WB API 2. Валидность токена авторизации и URL запроса 3. Совпадают ли категория токена и сервис  Метод не предназначен для проверки доступности сервисов WB  У каждого сервиса есть свой вариант метода в зависимости от домена: | Категория | URL запроса | |---------------|-----------------------| | Контент | `https://content-api.wildberries.ru/ping` `https://content-api-sandbox.wildberries.ru/ping` | | Аналитика | `https://seller-analytics-api.wildberries.ru/ping` | | Цены и скидки | `https://discounts-prices-api.wildberries.ru/ping` `https://discounts-prices-api-sandbox.wildberries.ru/ping` | | Маркетплейс | `https://marketplace-api.wildberries.ru/ping` | | Статистика | `https://statistics-api.wildberries.ru/ping` `https://statistics-api-sandbox.wildberries.ru/ping` | | Продвижение | `https://advert-api.wildberries.ru/ping` `https://advert-api-sandbox.wildberries.ru/ping` | | Вопросы и отзывы | `https://feedbacks-api.wildberries.ru/ping` `https://feedbacks-api-sandbox.wildberries.ru/ping` | | Чат с покупателями | `https://buyer-chat-api.wildberries.ru/ping` | | Поставки | `https://supplies-api.wildberries.ru/ping` | | Возвраты покупателями | `https://returns-api.wildberries.ru/ping` | | Документы | `https://documents-api.wildberries.ru/ping` | | Финансы | `https://finance-api.wildberries.ru/ping` | | Тарифы, Новости, Получить информацию о продавце | `https://common-api.wildberries.ru/ping` | | Управление пользователями продавца | `https://user-management-api.wildberries.ru/ping` |  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 30 сек | 3 запроса | 10 сек | 99 запросов |  Лимит действует отдельно для каждого варианта метода в зависимости от домена  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/general/get-ping
+        Метод проверяет: 1. Успешно ли запрос доходит до WB API 2. Валидность токена авторизации и URL запроса 3. Совпадают ли категория токена и сервис  Метод не предназначен для проверки доступности сервисов WB  У каждого сервиса есть свой вариант метода в зависимости от домена.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 30 сек | 3 запроса | 10 сек | 99 запросов |  Лимит действует отдельно для каждого варианта метода в зависимости от домена  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/general/get-ping
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -458,11 +458,11 @@ class GeneralApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=20)] = 0,
     ) -> RESTResponseType:
         """Проверка подключения
 
-        Метод проверяет: 1. Успешно ли запрос доходит до WB API 2. Валидность токена авторизации и URL запроса 3. Совпадают ли категория токена и сервис  Метод не предназначен для проверки доступности сервисов WB  У каждого сервиса есть свой вариант метода в зависимости от домена: | Категория | URL запроса | |---------------|-----------------------| | Контент | `https://content-api.wildberries.ru/ping` `https://content-api-sandbox.wildberries.ru/ping` | | Аналитика | `https://seller-analytics-api.wildberries.ru/ping` | | Цены и скидки | `https://discounts-prices-api.wildberries.ru/ping` `https://discounts-prices-api-sandbox.wildberries.ru/ping` | | Маркетплейс | `https://marketplace-api.wildberries.ru/ping` | | Статистика | `https://statistics-api.wildberries.ru/ping` `https://statistics-api-sandbox.wildberries.ru/ping` | | Продвижение | `https://advert-api.wildberries.ru/ping` `https://advert-api-sandbox.wildberries.ru/ping` | | Вопросы и отзывы | `https://feedbacks-api.wildberries.ru/ping` `https://feedbacks-api-sandbox.wildberries.ru/ping` | | Чат с покупателями | `https://buyer-chat-api.wildberries.ru/ping` | | Поставки | `https://supplies-api.wildberries.ru/ping` | | Возвраты покупателями | `https://returns-api.wildberries.ru/ping` | | Документы | `https://documents-api.wildberries.ru/ping` | | Финансы | `https://finance-api.wildberries.ru/ping` | | Тарифы, Новости, Получить информацию о продавце | `https://common-api.wildberries.ru/ping` | | Управление пользователями продавца | `https://user-management-api.wildberries.ru/ping` |  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 30 сек | 3 запроса | 10 сек | 99 запросов |  Лимит действует отдельно для каждого варианта метода в зависимости от домена  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/general/get-ping
+        Метод проверяет: 1. Успешно ли запрос доходит до WB API 2. Валидность токена авторизации и URL запроса 3. Совпадают ли категория токена и сервис  Метод не предназначен для проверки доступности сервисов WB  У каждого сервиса есть свой вариант метода в зависимости от домена.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 30 сек | 3 запроса | 10 сек | 99 запросов |  Лимит действует отдельно для каждого варианта метода в зависимости от домена  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/general/get-ping
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -512,7 +512,28 @@ class GeneralApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = ["https://common-api.wildberries.ru"]
+        _hosts = [
+            "https://common-api.wildberries.ru",
+            "https://content-api.wildberries.ru",
+            "https://content-api-sandbox.wildberries.ru",
+            "https://seller-analytics-api.wildberries.ru",
+            "https://discounts-prices-api.wildberries.ru",
+            "https://discounts-prices-api-sandbox.wildberries.ru",
+            "https://marketplace-api.wildberries.ru",
+            "https://marketplace-api-sandbox.wildberries.ru",
+            "https://statistics-api.wildberries.ru",
+            "https://statistics-api-sandbox.wildberries.ru",
+            "https://advert-api.wildberries.ru",
+            "https://advert-api-sandbox.wildberries.ru",
+            "https://feedbacks-api.wildberries.ru",
+            "https://feedbacks-api-sandbox.wildberries.ru",
+            "https://buyer-chat-api.wildberries.ru",
+            "https://supplies-api.wildberries.ru",
+            "https://returns-api.wildberries.ru",
+            "https://documents-api.wildberries.ru",
+            "https://finance-api.wildberries.ru",
+            "https://user-management-api.wildberries.ru",
+        ]
         _host = _hosts[_host_index]
 
         _collection_formats: Dict[str, str] = {}

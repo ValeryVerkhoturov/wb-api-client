@@ -33,7 +33,7 @@ namespace ValeryVerkhoturov.WbApiClient.General.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "1.20261010.2";
+        public const string Version = "1.20261013.0";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -152,7 +152,140 @@ namespace ValeryVerkhoturov.WbApiClient.General.Client
                             new Dictionary<string, object>
                             {
                                 {"url", "https://common-api.wildberries.ru"},
-                                {"description", "No description provided"}
+                                {"description", "**Тарифы, Новости, Информация о продавце** "}
+                            }
+                        },
+                        {
+                            new Dictionary<string, object>
+                            {
+                                {"url", "https://content-api.wildberries.ru"},
+                                {"description", "**Контент** "}
+                            }
+                        },
+                        {
+                            new Dictionary<string, object>
+                            {
+                                {"url", "https://content-api-sandbox.wildberries.ru"},
+                                {"description", "**Песочница Контент** "}
+                            }
+                        },
+                        {
+                            new Dictionary<string, object>
+                            {
+                                {"url", "https://seller-analytics-api.wildberries.ru"},
+                                {"description", "**Аналитика** "}
+                            }
+                        },
+                        {
+                            new Dictionary<string, object>
+                            {
+                                {"url", "https://discounts-prices-api.wildberries.ru"},
+                                {"description", "**Цены и скидки** "}
+                            }
+                        },
+                        {
+                            new Dictionary<string, object>
+                            {
+                                {"url", "https://discounts-prices-api-sandbox.wildberries.ru"},
+                                {"description", "**Песочница Цены и скидки** "}
+                            }
+                        },
+                        {
+                            new Dictionary<string, object>
+                            {
+                                {"url", "https://marketplace-api.wildberries.ru"},
+                                {"description", "**Маркетплейс** "}
+                            }
+                        },
+                        {
+                            new Dictionary<string, object>
+                            {
+                                {"url", "https://marketplace-api-sandbox.wildberries.ru"},
+                                {"description", "**Песочница Маркетплейс** "}
+                            }
+                        },
+                        {
+                            new Dictionary<string, object>
+                            {
+                                {"url", "https://statistics-api.wildberries.ru"},
+                                {"description", "**Статистика** "}
+                            }
+                        },
+                        {
+                            new Dictionary<string, object>
+                            {
+                                {"url", "https://statistics-api-sandbox.wildberries.ru"},
+                                {"description", "**Песочница Статистика** "}
+                            }
+                        },
+                        {
+                            new Dictionary<string, object>
+                            {
+                                {"url", "https://advert-api.wildberries.ru"},
+                                {"description", "**Продвижение** "}
+                            }
+                        },
+                        {
+                            new Dictionary<string, object>
+                            {
+                                {"url", "https://advert-api-sandbox.wildberries.ru"},
+                                {"description", "**Песочница Продвижение** "}
+                            }
+                        },
+                        {
+                            new Dictionary<string, object>
+                            {
+                                {"url", "https://feedbacks-api.wildberries.ru"},
+                                {"description", "**Вопросы и отзывы** "}
+                            }
+                        },
+                        {
+                            new Dictionary<string, object>
+                            {
+                                {"url", "https://feedbacks-api-sandbox.wildberries.ru"},
+                                {"description", "**Песочница Вопросы и отзывы** "}
+                            }
+                        },
+                        {
+                            new Dictionary<string, object>
+                            {
+                                {"url", "https://buyer-chat-api.wildberries.ru"},
+                                {"description", "**Чат с покупателями** "}
+                            }
+                        },
+                        {
+                            new Dictionary<string, object>
+                            {
+                                {"url", "https://supplies-api.wildberries.ru"},
+                                {"description", "**Поставки** "}
+                            }
+                        },
+                        {
+                            new Dictionary<string, object>
+                            {
+                                {"url", "https://returns-api.wildberries.ru"},
+                                {"description", "**Возвраты покупателями** "}
+                            }
+                        },
+                        {
+                            new Dictionary<string, object>
+                            {
+                                {"url", "https://documents-api.wildberries.ru"},
+                                {"description", "**Документы** "}
+                            }
+                        },
+                        {
+                            new Dictionary<string, object>
+                            {
+                                {"url", "https://finance-api.wildberries.ru"},
+                                {"description", "**Финансы** "}
+                            }
+                        },
+                        {
+                            new Dictionary<string, object>
+                            {
+                                {"url", "https://user-management-api.wildberries.ru"},
+                                {"description", "**Управление пользователями продавца** "}
                             }
                         },
                     }
@@ -683,7 +816,7 @@ namespace ValeryVerkhoturov.WbApiClient.General.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version + "\n";
             report += "    Version of the API: general\n";
-            report += "    SDK Package Version: 1.20261010.2\n";
+            report += "    SDK Package Version: 1.20261013.0\n";
 
             return report;
         }
