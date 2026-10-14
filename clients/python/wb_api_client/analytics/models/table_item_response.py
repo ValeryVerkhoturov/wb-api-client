@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.analytics.models.table_item_item_st import TableItemItemSt
+from wb_api_client.analytics.models.table_item_st import TableItemSt
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -29,7 +29,7 @@ class TableItemResponse(BaseModel):
     TableItemResponse
     """  # noqa: E501
 
-    items: Optional[List[TableItemItemSt]] = Field(
+    items: Optional[List[TableItemSt]] = Field(
         default=None, description="Множество данных по товарам"
     )
     currency: Optional[StrictStr] = Field(default=None, description="Валюта отчёта")
@@ -93,7 +93,7 @@ class TableItemResponse(BaseModel):
         _obj = cls.model_validate(
             {
                 "items": (
-                    [TableItemItemSt.from_dict(_item) for _item in obj["items"]]
+                    [TableItemSt.from_dict(_item) for _item in obj["items"]]
                     if obj.get("items") is not None
                     else None
                 ),

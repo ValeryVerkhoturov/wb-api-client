@@ -41,7 +41,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         public TextLimit(int actualInstance)
         {
             this.IsNullable = false;
-            this.SchemaType = "oneOf";
+            this.SchemaType= "oneOf";
             this.ActualInstance = actualInstance;
         }
 
@@ -189,9 +189,9 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <returns>The object converted from the JSON string</returns>
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
-            switch (reader.TokenType)
+            switch(reader.TokenType) 
             {
-                case JsonToken.Integer:
+                case JsonToken.Integer: 
                     return new TextLimit(Convert.ToInt32(reader.Value));
                 case JsonToken.StartObject:
                     return TextLimit.FromJson(JObject.Load(reader).ToString(Formatting.None));

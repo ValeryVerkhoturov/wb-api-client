@@ -26,13 +26,13 @@ using OpenAPIDateConverter = ValeryVerkhoturov.WbApiClient.Analytics.Client.Open
 namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
 {
     /// <summary>
-    /// TableItemItem
+    /// TableItem
     /// </summary>
-    [DataContract(Name = "TableItemItem")]
-    public partial class TableItemItem : IValidatableObject
+    [DataContract(Name = "TableItem")]
+    public partial class TableItem : IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="TableItemItem" /> class.
+        /// Initializes a new instance of the <see cref="TableItem" /> class.
         /// </summary>
         /// <param name="nmId">Артикул WB.</param>
         /// <param name="name">Название товара.</param>
@@ -53,7 +53,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <param name="orders">orders.</param>
         /// <param name="cartToOrder">cartToOrder.</param>
         /// <param name="visibility">visibility.</param>
-        public TableItemItem(long nmId = default(long), string name = default(string), string vendorCode = default(string), string subjectName = default(string), string brandName = default(string), string mainPhoto = default(string), bool isAdvertised = default(bool), bool isSubstitutedSKU = default(bool), bool isCardRated = default(bool), decimal rating = default(decimal), decimal feedbackRating = default(decimal), TableItemItemAllOfPrice price = default(TableItemItemAllOfPrice), TableGroupItemMetricsAvgPosition avgPosition = default(TableGroupItemMetricsAvgPosition), VisibilityInfoOpenCard openCard = default(VisibilityInfoOpenCard), TableGroupItemMetricsAddToCart addToCart = default(TableGroupItemMetricsAddToCart), TableGroupItemMetricsOpenToCart openToCart = default(TableGroupItemMetricsOpenToCart), TableGroupItemMetricsOrders orders = default(TableGroupItemMetricsOrders), TableGroupItemMetricsCartToOrder cartToOrder = default(TableGroupItemMetricsCartToOrder), TableGroupItemMetricsVisibility visibility = default(TableGroupItemMetricsVisibility))
+        public TableItem(long nmId = default(long), string name = default(string), string vendorCode = default(string), string subjectName = default(string), string brandName = default(string), string mainPhoto = default(string), bool isAdvertised = default(bool), bool isSubstitutedSKU = default(bool), bool isCardRated = default(bool), decimal rating = default(decimal), decimal feedbackRating = default(decimal), TableItemAllOfPrice price = default(TableItemAllOfPrice), TableGroupItemMetricsAvgPosition avgPosition = default(TableGroupItemMetricsAvgPosition), VisibilityInfoOpenCard openCard = default(VisibilityInfoOpenCard), TableGroupItemMetricsAddToCart addToCart = default(TableGroupItemMetricsAddToCart), TableGroupItemMetricsOpenToCart openToCart = default(TableGroupItemMetricsOpenToCart), TableGroupItemMetricsOrders orders = default(TableGroupItemMetricsOrders), TableGroupItemMetricsCartToOrder cartToOrder = default(TableGroupItemMetricsCartToOrder), TableGroupItemMetricsVisibility visibility = default(TableGroupItemMetricsVisibility))
         {
             this.NmId = nmId;
             this.Name = name;
@@ -190,7 +190,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// Gets or Sets Price
         /// </summary>
         [DataMember(Name = "price", EmitDefaultValue = false)]
-        public TableItemItemAllOfPrice Price { get; set; }
+        public TableItemAllOfPrice Price { get; set; }
 
         /// <summary>
         /// Gets or Sets AvgPosition
@@ -241,7 +241,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class TableItemItem {\n");
+            sb.Append("class TableItem {\n");
             sb.Append("  NmId: ").Append(NmId).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  VendorCode: ").Append(VendorCode).Append("\n");

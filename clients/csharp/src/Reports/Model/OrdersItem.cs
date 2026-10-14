@@ -359,67 +359,67 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
             // WarehouseName (string) maxLength
             if (this.WarehouseName != null && this.WarehouseName.Length > 50)
             {
-                yield return new ValidationResult("Invalid value for WarehouseName, length must be less than 50.", new[] { "WarehouseName" });
+                yield return new ValidationResult("Invalid value for WarehouseName, length must be less than 50.", new [] { "WarehouseName" });
             }
 
             // CountryName (string) maxLength
             if (this.CountryName != null && this.CountryName.Length > 200)
             {
-                yield return new ValidationResult("Invalid value for CountryName, length must be less than 200.", new[] { "CountryName" });
+                yield return new ValidationResult("Invalid value for CountryName, length must be less than 200.", new [] { "CountryName" });
             }
 
             // OblastOkrugName (string) maxLength
             if (this.OblastOkrugName != null && this.OblastOkrugName.Length > 200)
             {
-                yield return new ValidationResult("Invalid value for OblastOkrugName, length must be less than 200.", new[] { "OblastOkrugName" });
+                yield return new ValidationResult("Invalid value for OblastOkrugName, length must be less than 200.", new [] { "OblastOkrugName" });
             }
 
             // RegionName (string) maxLength
             if (this.RegionName != null && this.RegionName.Length > 200)
             {
-                yield return new ValidationResult("Invalid value for RegionName, length must be less than 200.", new[] { "RegionName" });
+                yield return new ValidationResult("Invalid value for RegionName, length must be less than 200.", new [] { "RegionName" });
             }
 
             // SupplierArticle (string) maxLength
             if (this.SupplierArticle != null && this.SupplierArticle.Length > 75)
             {
-                yield return new ValidationResult("Invalid value for SupplierArticle, length must be less than 75.", new[] { "SupplierArticle" });
+                yield return new ValidationResult("Invalid value for SupplierArticle, length must be less than 75.", new [] { "SupplierArticle" });
             }
 
             // Barcode (string) maxLength
             if (this.Barcode != null && this.Barcode.Length > 30)
             {
-                yield return new ValidationResult("Invalid value for Barcode, length must be less than 30.", new[] { "Barcode" });
+                yield return new ValidationResult("Invalid value for Barcode, length must be less than 30.", new [] { "Barcode" });
             }
 
             // Category (string) maxLength
             if (this.Category != null && this.Category.Length > 50)
             {
-                yield return new ValidationResult("Invalid value for Category, length must be less than 50.", new[] { "Category" });
+                yield return new ValidationResult("Invalid value for Category, length must be less than 50.", new [] { "Category" });
             }
 
             // Subject (string) maxLength
             if (this.Subject != null && this.Subject.Length > 50)
             {
-                yield return new ValidationResult("Invalid value for Subject, length must be less than 50.", new[] { "Subject" });
+                yield return new ValidationResult("Invalid value for Subject, length must be less than 50.", new [] { "Subject" });
             }
 
             // Brand (string) maxLength
             if (this.Brand != null && this.Brand.Length > 50)
             {
-                yield return new ValidationResult("Invalid value for Brand, length must be less than 50.", new[] { "Brand" });
+                yield return new ValidationResult("Invalid value for Brand, length must be less than 50.", new [] { "Brand" });
             }
 
             // TechSize (string) maxLength
             if (this.TechSize != null && this.TechSize.Length > 30)
             {
-                yield return new ValidationResult("Invalid value for TechSize, length must be less than 30.", new[] { "TechSize" });
+                yield return new ValidationResult("Invalid value for TechSize, length must be less than 30.", new [] { "TechSize" });
             }
 
             // GNumber (string) maxLength
             if (this.GNumber != null && this.GNumber.Length > 50)
             {
-                yield return new ValidationResult("Invalid value for GNumber, length must be less than 50.", new[] { "GNumber" });
+                yield return new ValidationResult("Invalid value for GNumber, length must be less than 50.", new [] { "GNumber" });
             }
 
             yield break;

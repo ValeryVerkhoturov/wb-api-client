@@ -40,7 +40,7 @@ public class TableDetailsResponse {
 
   @SerializedName(SERIALIZED_NAME_PRODUCTS)
   @jakarta.annotation.Nullable
-  private List<TableItemItem> products = new ArrayList<>();
+  private List<TableItem> products = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_CURRENCY = "currency";
 
@@ -50,12 +50,12 @@ public class TableDetailsResponse {
 
   public TableDetailsResponse() {}
 
-  public TableDetailsResponse products(@jakarta.annotation.Nullable List<TableItemItem> products) {
+  public TableDetailsResponse products(@jakarta.annotation.Nullable List<TableItem> products) {
     this.products = products;
     return this;
   }
 
-  public TableDetailsResponse addProductsItem(TableItemItem productsItem) {
+  public TableDetailsResponse addProductsItem(TableItem productsItem) {
     if (this.products == null) {
       this.products = new ArrayList<>();
     }
@@ -69,11 +69,11 @@ public class TableDetailsResponse {
    * @return products
    */
   @jakarta.annotation.Nullable
-  public List<TableItemItem> getProducts() {
+  public List<TableItem> getProducts() {
     return products;
   }
 
-  public void setProducts(@jakarta.annotation.Nullable List<TableItemItem> products) {
+  public void setProducts(@jakarta.annotation.Nullable List<TableItem> products) {
     this.products = products;
   }
 
@@ -188,7 +188,7 @@ public class TableDetailsResponse {
 
         // validate the optional field `products` (array)
         for (int i = 0; i < jsonArrayproducts.size(); i++) {
-          TableItemItem.validateJsonElement(jsonArrayproducts.get(i));
+          TableItem.validateJsonElement(jsonArrayproducts.get(i));
         }
         ;
       }

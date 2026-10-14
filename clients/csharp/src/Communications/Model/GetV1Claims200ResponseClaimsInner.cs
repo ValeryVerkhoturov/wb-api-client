@@ -259,13 +259,13 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
             // UserComment (string) maxLength
             if (this.UserComment != null && this.UserComment.Length > 1000)
             {
-                yield return new ValidationResult("Invalid value for UserComment, length must be less than 1000.", new[] { "UserComment" });
+                yield return new ValidationResult("Invalid value for UserComment, length must be less than 1000.", new [] { "UserComment" });
             }
 
             // WbComment (string) maxLength
             if (this.WbComment != null && this.WbComment.Length > 10000)
             {
-                yield return new ValidationResult("Invalid value for WbComment, length must be less than 10000.", new[] { "WbComment" });
+                yield return new ValidationResult("Invalid value for WbComment, length must be less than 10000.", new [] { "WbComment" });
             }
 
             yield break;

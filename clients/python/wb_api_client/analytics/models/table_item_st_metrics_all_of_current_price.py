@@ -17,56 +17,28 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.analytics.models.table_item_item_st_metrics import (
-    TableItemItemStMetrics,
-)
 from typing import Optional, Set
 from typing_extensions import Self
 
 
-class TableItemItemSt(BaseModel):
+class TableItemStMetricsAllOfCurrentPrice(BaseModel):
     """
-    Данные по товару
+    Текущая цена
     """  # noqa: E501
 
-    nm_id: Optional[StrictInt] = Field(
-        default=None, description="Артикул WB", alias="nmID"
-    )
-    is_deleted: Optional[StrictBool] = Field(
-        default=None, description="Является ли товар удалённым", alias="isDeleted"
-    )
-    subject_name: Optional[StrictStr] = Field(
-        default=None, description="Название предмета", alias="subjectName"
-    )
-    name: Optional[StrictStr] = Field(default=None, description="Название товара")
-    vendor_code: Optional[StrictStr] = Field(
-        default=None, description="Артикул продавца", alias="vendorCode"
-    )
-    brand_name: Optional[StrictStr] = Field(
-        default=None, description="Бренд", alias="brandName"
-    )
-    main_photo: Optional[StrictStr] = Field(
-        default=None, description="Ссылка на главное фото", alias="mainPhoto"
-    )
-    has_sizes: Optional[StrictBool] = Field(
+    min_price: Optional[StrictInt] = Field(
         default=None,
-        description='Является ли товар размерным. Неразмерный товар имеет единственный размер, с `"techSize":"0"`',
-        alias="hasSizes",
+        description="Минимальная цена продавца со скидкой продавца (без учёта скидки WB Клуба)",
+        alias="minPrice",
     )
-    metrics: Optional[TableItemItemStMetrics] = None
-    __properties: ClassVar[List[str]] = [
-        "nmID",
-        "isDeleted",
-        "subjectName",
-        "name",
-        "vendorCode",
-        "brandName",
-        "mainPhoto",
-        "hasSizes",
-        "metrics",
-    ]
+    max_price: Optional[StrictInt] = Field(
+        default=None,
+        description="Максимальная цена продавца со скидкой продавца (без учёта скидки WB Клуба)",
+        alias="maxPrice",
+    )
+    __properties: ClassVar[List[str]] = ["minPrice", "maxPrice"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -85,7 +57,7 @@ class TableItemItemSt(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of TableItemItemSt from a JSON string"""
+        """Create an instance of TableItemStMetricsAllOfCurrentPrice from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -105,14 +77,11 @@ class TableItemItemSt(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of metrics
-        if self.metrics:
-            _dict["metrics"] = self.metrics.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of TableItemItemSt from a dict"""
+        """Create an instance of TableItemStMetricsAllOfCurrentPrice from a dict"""
         if obj is None:
             return None
 
@@ -120,20 +89,6 @@ class TableItemItemSt(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate(
-            {
-                "nmID": obj.get("nmID"),
-                "isDeleted": obj.get("isDeleted"),
-                "subjectName": obj.get("subjectName"),
-                "name": obj.get("name"),
-                "vendorCode": obj.get("vendorCode"),
-                "brandName": obj.get("brandName"),
-                "mainPhoto": obj.get("mainPhoto"),
-                "hasSizes": obj.get("hasSizes"),
-                "metrics": (
-                    TableItemItemStMetrics.from_dict(obj["metrics"])
-                    if obj.get("metrics") is not None
-                    else None
-                ),
-            }
+            {"minPrice": obj.get("minPrice"), "maxPrice": obj.get("maxPrice")}
         )
         return _obj

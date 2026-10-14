@@ -57,7 +57,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// </summary>
         /// <value>Полное представление стикера в заданном формате (кодировка base64)</value>
         /*
-        <example>[B@55d1f065</example>
+        <example>[B@2ffa91dc</example>
         */
         [DataMember(Name = "file", EmitDefaultValue = false)]
         public byte[] File { get; set; }

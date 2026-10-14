@@ -99,13 +99,13 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Model
             // Quantity (int) maximum
             if (this.Quantity > (int)999999)
             {
-                yield return new ValidationResult("Invalid value for Quantity, must be a value less than or equal to 999999.", new[] { "Quantity" });
+                yield return new ValidationResult("Invalid value for Quantity, must be a value less than or equal to 999999.", new [] { "Quantity" });
             }
 
             // Quantity (int) minimum
             if (this.Quantity < (int)1)
             {
-                yield return new ValidationResult("Invalid value for Quantity, must be a value greater than or equal to 1.", new[] { "Quantity" });
+                yield return new ValidationResult("Invalid value for Quantity, must be a value greater than or equal to 1.", new [] { "Quantity" });
             }
 
             yield break;

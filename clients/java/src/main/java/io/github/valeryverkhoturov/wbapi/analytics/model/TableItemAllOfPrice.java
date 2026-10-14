@@ -28,11 +28,11 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** Текущая цена */
+/** Цена */
 @jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     comments = "Generator version: 7.10.0")
-public class TableItemItemStMetricsAllOfCurrentPrice {
+public class TableItemAllOfPrice {
   public static final String SERIALIZED_NAME_MIN_PRICE = "minPrice";
 
   @SerializedName(SERIALIZED_NAME_MIN_PRICE)
@@ -45,10 +45,9 @@ public class TableItemItemStMetricsAllOfCurrentPrice {
   @jakarta.annotation.Nullable
   private Integer maxPrice;
 
-  public TableItemItemStMetricsAllOfCurrentPrice() {}
+  public TableItemAllOfPrice() {}
 
-  public TableItemItemStMetricsAllOfCurrentPrice minPrice(
-      @jakarta.annotation.Nullable Integer minPrice) {
+  public TableItemAllOfPrice minPrice(@jakarta.annotation.Nullable Integer minPrice) {
     this.minPrice = minPrice;
     return this;
   }
@@ -67,8 +66,7 @@ public class TableItemItemStMetricsAllOfCurrentPrice {
     this.minPrice = minPrice;
   }
 
-  public TableItemItemStMetricsAllOfCurrentPrice maxPrice(
-      @jakarta.annotation.Nullable Integer maxPrice) {
+  public TableItemAllOfPrice maxPrice(@jakarta.annotation.Nullable Integer maxPrice) {
     this.maxPrice = maxPrice;
     return this;
   }
@@ -95,10 +93,9 @@ public class TableItemItemStMetricsAllOfCurrentPrice {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TableItemItemStMetricsAllOfCurrentPrice tableItemItemStMetricsAllOfCurrentPrice =
-        (TableItemItemStMetricsAllOfCurrentPrice) o;
-    return Objects.equals(this.minPrice, tableItemItemStMetricsAllOfCurrentPrice.minPrice)
-        && Objects.equals(this.maxPrice, tableItemItemStMetricsAllOfCurrentPrice.maxPrice);
+    TableItemAllOfPrice tableItemAllOfPrice = (TableItemAllOfPrice) o;
+    return Objects.equals(this.minPrice, tableItemAllOfPrice.minPrice)
+        && Objects.equals(this.maxPrice, tableItemAllOfPrice.maxPrice);
   }
 
   @Override
@@ -109,7 +106,7 @@ public class TableItemItemStMetricsAllOfCurrentPrice {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TableItemItemStMetricsAllOfCurrentPrice {\n");
+    sb.append("class TableItemAllOfPrice {\n");
     sb.append("    minPrice: ").append(toIndentedString(minPrice)).append("\n");
     sb.append("    maxPrice: ").append(toIndentedString(maxPrice)).append("\n");
     sb.append("}");
@@ -143,27 +140,26 @@ public class TableItemItemStMetricsAllOfCurrentPrice {
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to
-   *     TableItemItemStMetricsAllOfCurrentPrice
+   * @throws IOException if the JSON Element is invalid with respect to TableItemAllOfPrice
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
     if (jsonElement == null) {
-      if (!TableItemItemStMetricsAllOfCurrentPrice.openapiRequiredFields
+      if (!TableItemAllOfPrice.openapiRequiredFields
           .isEmpty()) { // has required fields but JSON element is null
         throw new IllegalArgumentException(
             String.format(
-                "The required field(s) %s in TableItemItemStMetricsAllOfCurrentPrice is not found in the empty JSON string",
-                TableItemItemStMetricsAllOfCurrentPrice.openapiRequiredFields.toString()));
+                "The required field(s) %s in TableItemAllOfPrice is not found in the empty JSON string",
+                TableItemAllOfPrice.openapiRequiredFields.toString()));
       }
     }
 
     Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
     // check to see if the JSON string contains additional fields
     for (Map.Entry<String, JsonElement> entry : entries) {
-      if (!TableItemItemStMetricsAllOfCurrentPrice.openapiFields.contains(entry.getKey())) {
+      if (!TableItemAllOfPrice.openapiFields.contains(entry.getKey())) {
         throw new IllegalArgumentException(
             String.format(
-                "The field `%s` in the JSON string is not defined in the `TableItemItemStMetricsAllOfCurrentPrice` properties. JSON: %s",
+                "The field `%s` in the JSON string is not defined in the `TableItemAllOfPrice` properties. JSON: %s",
                 entry.getKey(), jsonElement.toString()));
       }
     }
@@ -174,26 +170,23 @@ public class TableItemItemStMetricsAllOfCurrentPrice {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-      if (!TableItemItemStMetricsAllOfCurrentPrice.class.isAssignableFrom(type.getRawType())) {
-        return null; // this class only serializes 'TableItemItemStMetricsAllOfCurrentPrice' and its
-        // subtypes
+      if (!TableItemAllOfPrice.class.isAssignableFrom(type.getRawType())) {
+        return null; // this class only serializes 'TableItemAllOfPrice' and its subtypes
       }
       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-      final TypeAdapter<TableItemItemStMetricsAllOfCurrentPrice> thisAdapter =
-          gson.getDelegateAdapter(
-              this, TypeToken.get(TableItemItemStMetricsAllOfCurrentPrice.class));
+      final TypeAdapter<TableItemAllOfPrice> thisAdapter =
+          gson.getDelegateAdapter(this, TypeToken.get(TableItemAllOfPrice.class));
 
       return (TypeAdapter<T>)
-          new TypeAdapter<TableItemItemStMetricsAllOfCurrentPrice>() {
+          new TypeAdapter<TableItemAllOfPrice>() {
             @Override
-            public void write(JsonWriter out, TableItemItemStMetricsAllOfCurrentPrice value)
-                throws IOException {
+            public void write(JsonWriter out, TableItemAllOfPrice value) throws IOException {
               JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
               elementAdapter.write(out, obj);
             }
 
             @Override
-            public TableItemItemStMetricsAllOfCurrentPrice read(JsonReader in) throws IOException {
+            public TableItemAllOfPrice read(JsonReader in) throws IOException {
               JsonElement jsonElement = elementAdapter.read(in);
               validateJsonElement(jsonElement);
               return thisAdapter.fromJsonTree(jsonElement);
@@ -203,20 +196,18 @@ public class TableItemItemStMetricsAllOfCurrentPrice {
   }
 
   /**
-   * Create an instance of TableItemItemStMetricsAllOfCurrentPrice given an JSON string
+   * Create an instance of TableItemAllOfPrice given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of TableItemItemStMetricsAllOfCurrentPrice
-   * @throws IOException if the JSON string is invalid with respect to
-   *     TableItemItemStMetricsAllOfCurrentPrice
+   * @return An instance of TableItemAllOfPrice
+   * @throws IOException if the JSON string is invalid with respect to TableItemAllOfPrice
    */
-  public static TableItemItemStMetricsAllOfCurrentPrice fromJson(String jsonString)
-      throws IOException {
-    return JSON.getGson().fromJson(jsonString, TableItemItemStMetricsAllOfCurrentPrice.class);
+  public static TableItemAllOfPrice fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, TableItemAllOfPrice.class);
   }
 
   /**
-   * Convert an instance of TableItemItemStMetricsAllOfCurrentPrice to an JSON string
+   * Convert an instance of TableItemAllOfPrice to an JSON string
    *
    * @return JSON string
    */

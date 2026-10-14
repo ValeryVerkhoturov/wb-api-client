@@ -186,13 +186,13 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
             // VendorCode (string) maxLength
             if (this.VendorCode != null && this.VendorCode.Length > 72)
             {
-                yield return new ValidationResult("Invalid value for VendorCode, length must be less than 72.", new[] { "VendorCode" });
+                yield return new ValidationResult("Invalid value for VendorCode, length must be less than 72.", new [] { "VendorCode" });
             }
 
             // Title (string) maxLength
             if (this.Title != null && this.Title.Length > 60)
             {
-                yield return new ValidationResult("Invalid value for Title, length must be less than 60.", new[] { "Title" });
+                yield return new ValidationResult("Invalid value for Title, length must be less than 60.", new [] { "Title" });
             }
 
             yield break;

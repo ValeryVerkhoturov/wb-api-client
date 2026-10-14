@@ -82,13 +82,13 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
             // Name (string) maxLength
             if (this.Name != null && this.Name.Length > 128)
             {
-                yield return new ValidationResult("Invalid value for Name, length must be less than 128.", new[] { "Name" });
+                yield return new ValidationResult("Invalid value for Name, length must be less than 128.", new [] { "Name" });
             }
 
             // Name (string) minLength
             if (this.Name != null && this.Name.Length < 1)
             {
-                yield return new ValidationResult("Invalid value for Name, length must be greater than 1.", new[] { "Name" });
+                yield return new ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
             }
 
             yield break;

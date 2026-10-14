@@ -31,8 +31,8 @@ from wb_api_client.analytics.models.table_common_metrics_office_missing_time imp
 from wb_api_client.analytics.models.table_common_metrics_sale_rate import (
     TableCommonMetricsSaleRate,
 )
-from wb_api_client.analytics.models.table_item_item_st_metrics_all_of_current_price import (
-    TableItemItemStMetricsAllOfCurrentPrice,
+from wb_api_client.analytics.models.table_item_st_metrics_all_of_current_price import (
+    TableItemStMetricsAllOfCurrentPrice,
 )
 from typing import Optional, Set
 from typing_extensions import Self
@@ -107,7 +107,7 @@ class TableSizeResponseSizesInnerMetrics(BaseModel):
         description="Упущенные выкупы, сумма. Особые случаи:   1. Значение меньше `0` и не равно `-2` — значение не рассчитано   2. Значение `-2` — нулевое значение ",
         alias="lostBuyoutsSum",
     )
-    current_price: Optional[TableItemItemStMetricsAllOfCurrentPrice] = Field(
+    current_price: Optional[TableItemStMetricsAllOfCurrentPrice] = Field(
         default=None, alias="currentPrice"
     )
     __properties: ClassVar[List[str]] = [
@@ -243,9 +243,7 @@ class TableSizeResponseSizesInnerMetrics(BaseModel):
                 "lostBuyoutsCount": obj.get("lostBuyoutsCount"),
                 "lostBuyoutsSum": obj.get("lostBuyoutsSum"),
                 "currentPrice": (
-                    TableItemItemStMetricsAllOfCurrentPrice.from_dict(
-                        obj["currentPrice"]
-                    )
+                    TableItemStMetricsAllOfCurrentPrice.from_dict(obj["currentPrice"])
                     if obj.get("currentPrice") is not None
                     else None
                 ),

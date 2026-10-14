@@ -41,7 +41,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         public PostV1StatsResponse200Inner(StatInterval actualInstance)
         {
             this.IsNullable = false;
-            this.SchemaType = "oneOf";
+            this.SchemaType= "oneOf";
             this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
         }
 
@@ -53,7 +53,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         public PostV1StatsResponse200Inner(StatDate actualInstance)
         {
             this.IsNullable = false;
-            this.SchemaType = "oneOf";
+            this.SchemaType= "oneOf";
             this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
         }
 
@@ -65,7 +65,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         public PostV1StatsResponse200Inner(Stat actualInstance)
         {
             this.IsNullable = false;
-            this.SchemaType = "oneOf";
+            this.SchemaType= "oneOf";
             this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
         }
 
@@ -77,7 +77,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         public PostV1StatsResponse200Inner(StatCampaignNotFound actualInstance)
         {
             this.IsNullable = false;
-            this.SchemaType = "oneOf";
+            this.SchemaType= "oneOf";
             this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
         }
 
@@ -327,7 +327,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <returns>The object converted from the JSON string</returns>
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
-            switch (reader.TokenType)
+            switch(reader.TokenType) 
             {
                 case JsonToken.StartObject:
                     return PostV1StatsResponse200Inner.FromJson(JObject.Load(reader).ToString(Formatting.None));

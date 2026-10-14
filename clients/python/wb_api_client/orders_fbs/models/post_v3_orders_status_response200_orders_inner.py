@@ -42,6 +42,11 @@ class PostV3OrdersStatusResponse200OrdersInner(BaseModel):
         description="Доступна ли [отмена](./orders-fbs#tag/fbsAssemblyOrders/operation/patchV3OrdersOrderIdCancel) сборочного задания: - `false` — недоступна - `true` — доступна ",
         alias="isCancellable",
     )
+    is_transferable: Optional[StrictBool] = Field(
+        default=None,
+        description="Можно ли [перевести сборочное задание](./orders-fbs#tag/fbsSupplies/operation/patchV3PortalSuppliesSupplyOrdersTransfer) из доставки на сборку: - `false` — нет - `true` — да  Сборочное задание можно перенести из доставки на сборку, если выполняются все условия:   - сборочное задание находится в статусе `complete` — в доставке   - поставка, в которую нужно перенести сборочное задание, не [передана в доставку](./orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdDeliver)   - сборочное задание ранее не переносили ",
+        alias="isTransferable",
+    )
     supplier_status: Optional[StrictStr] = Field(
         default=None,
         description="Статус сборочного задания, установленный продавцом",
@@ -55,6 +60,7 @@ class PostV3OrdersStatusResponse200OrdersInner(BaseModel):
     __properties: ClassVar[List[str]] = [
         "id",
         "isCancellable",
+        "isTransferable",
         "supplierStatus",
         "wbStatus",
     ]
@@ -149,6 +155,7 @@ class PostV3OrdersStatusResponse200OrdersInner(BaseModel):
             {
                 "id": obj.get("id"),
                 "isCancellable": obj.get("isCancellable"),
+                "isTransferable": obj.get("isTransferable"),
                 "supplierStatus": obj.get("supplierStatus"),
                 "wbStatus": obj.get("wbStatus"),
             }

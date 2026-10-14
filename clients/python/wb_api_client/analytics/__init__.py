@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "1.20261013.0"
+__version__ = "1.20261014.0"
 
 # import apis into sdk package
 from wb_api_client.analytics.api.analytics_api import AnalyticsApi
@@ -367,20 +367,16 @@ from wb_api_client.analytics.models.table_group_request import TableGroupRequest
 from wb_api_client.analytics.models.table_group_request_st import TableGroupRequestSt
 from wb_api_client.analytics.models.table_group_response import TableGroupResponse
 from wb_api_client.analytics.models.table_group_response_st import TableGroupResponseSt
+from wb_api_client.analytics.models.table_item import TableItem
+from wb_api_client.analytics.models.table_item_all_of_price import TableItemAllOfPrice
 from wb_api_client.analytics.models.table_item_float import TableItemFloat
-from wb_api_client.analytics.models.table_item_item import TableItemItem
-from wb_api_client.analytics.models.table_item_item_all_of_price import (
-    TableItemItemAllOfPrice,
-)
-from wb_api_client.analytics.models.table_item_item_st import TableItemItemSt
-from wb_api_client.analytics.models.table_item_item_st_metrics import (
-    TableItemItemStMetrics,
-)
-from wb_api_client.analytics.models.table_item_item_st_metrics_all_of_current_price import (
-    TableItemItemStMetricsAllOfCurrentPrice,
-)
 from wb_api_client.analytics.models.table_item_request import TableItemRequest
 from wb_api_client.analytics.models.table_item_response import TableItemResponse
+from wb_api_client.analytics.models.table_item_st import TableItemSt
+from wb_api_client.analytics.models.table_item_st_metrics import TableItemStMetrics
+from wb_api_client.analytics.models.table_item_st_metrics_all_of_current_price import (
+    TableItemStMetricsAllOfCurrentPrice,
+)
 from wb_api_client.analytics.models.table_office_item import TableOfficeItem
 from wb_api_client.analytics.models.table_order_by import TableOrderBy
 from wb_api_client.analytics.models.table_search_text_item import TableSearchTextItem

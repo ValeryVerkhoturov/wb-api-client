@@ -41,7 +41,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         public PostV2NmReportDownloads429Response(Response429Download actualInstance)
         {
             this.IsNullable = false;
-            this.SchemaType = "oneOf";
+            this.SchemaType= "oneOf";
             this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
         }
 
@@ -53,7 +53,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         public PostV2NmReportDownloads429Response(Response429DownloadDaily actualInstance)
         {
             this.IsNullable = false;
-            this.SchemaType = "oneOf";
+            this.SchemaType= "oneOf";
             this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
         }
 
@@ -235,7 +235,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <returns>The object converted from the JSON string</returns>
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
-            switch (reader.TokenType)
+            switch(reader.TokenType) 
             {
                 case JsonToken.StartObject:
                     return PostV2NmReportDownloads429Response.FromJson(JObject.Load(reader).ToString(Formatting.None));

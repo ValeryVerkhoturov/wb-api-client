@@ -112,6 +112,9 @@ from wb_api_client.orders_fbs.models.patch_v3_fbs_settings_autoreturns_request i
 from wb_api_client.orders_fbs.models.patch_v3_fbs_supplies_shipping_method_request import (
     PatchV3FbsSuppliesShippingMethodRequest,
 )
+from wb_api_client.orders_fbs.models.patch_v3_fbs_supplies_supply_id_orders_transfer_request import (
+    PatchV3FbsSuppliesSupplyIdOrdersTransferRequest,
+)
 from wb_api_client.orders_fbs.models.patch_v3_supplies_supply_id_orders_request import (
     PatchV3SuppliesSupplyIdOrdersRequest,
 )
@@ -277,3 +280,12 @@ from wb_api_client.orders_fbs.models.v3_get_meta_multi_request import (
 from wb_api_client.orders_fbs.models.v3_order_meta_api import V3OrderMetaAPI
 from wb_api_client.orders_fbs.models.v3_orders_meta_api import V3OrdersMetaAPI
 from wb_api_client.orders_fbs.models.v3_supply_order_ids_api import V3SupplyOrderIDsAPI
+from wb_api_client.orders_fbs.models.v3_transfer_order_to_assembly import (
+    V3TransferOrderToAssembly,
+)
+from wb_api_client.orders_fbs.models.v3_transfer_order_to_assembly_error import (
+    V3TransferOrderToAssemblyError,
+)
+from wb_api_client.orders_fbs.models.v3_transfer_orders_to_assembly_response import (
+    V3TransferOrdersToAssemblyResponse,
+)

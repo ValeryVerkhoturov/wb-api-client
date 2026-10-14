@@ -37,7 +37,7 @@ import java.util.Set;
 @jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     comments = "Generator version: 7.10.0")
-public class TableItemItemStMetrics {
+public class TableItemStMetrics {
   public static final String SERIALIZED_NAME_ORDERS_COUNT = "ordersCount";
 
   @SerializedName(SERIALIZED_NAME_ORDERS_COUNT)
@@ -150,7 +150,7 @@ public class TableItemItemStMetrics {
 
   @SerializedName(SERIALIZED_NAME_CURRENT_PRICE)
   @jakarta.annotation.Nullable
-  private TableItemItemStMetricsAllOfCurrentPrice currentPrice;
+  private TableItemStMetricsAllOfCurrentPrice currentPrice;
 
   /**
    * Доступность товара: - &#x60;deficient&#x60; — Дефицит - &#x60;actual&#x60; — Актуальный -
@@ -221,9 +221,9 @@ public class TableItemItemStMetrics {
   @jakarta.annotation.Nullable
   private AvailabilityEnum availability;
 
-  public TableItemItemStMetrics() {}
+  public TableItemStMetrics() {}
 
-  public TableItemItemStMetrics ordersCount(@jakarta.annotation.Nullable Integer ordersCount) {
+  public TableItemStMetrics ordersCount(@jakarta.annotation.Nullable Integer ordersCount) {
     this.ordersCount = ordersCount;
     return this;
   }
@@ -242,7 +242,7 @@ public class TableItemItemStMetrics {
     this.ordersCount = ordersCount;
   }
 
-  public TableItemItemStMetrics ordersSum(@jakarta.annotation.Nullable Integer ordersSum) {
+  public TableItemStMetrics ordersSum(@jakarta.annotation.Nullable Integer ordersSum) {
     this.ordersSum = ordersSum;
     return this;
   }
@@ -261,7 +261,7 @@ public class TableItemItemStMetrics {
     this.ordersSum = ordersSum;
   }
 
-  public TableItemItemStMetrics avgOrders(@jakarta.annotation.Nullable BigDecimal avgOrders) {
+  public TableItemStMetrics avgOrders(@jakarta.annotation.Nullable BigDecimal avgOrders) {
     this.avgOrders = avgOrders;
     return this;
   }
@@ -280,14 +280,13 @@ public class TableItemItemStMetrics {
     this.avgOrders = avgOrders;
   }
 
-  public TableItemItemStMetrics avgOrdersByMonth(
+  public TableItemStMetrics avgOrdersByMonth(
       @jakarta.annotation.Nullable List<FloatGraphByPeriodItem> avgOrdersByMonth) {
     this.avgOrdersByMonth = avgOrdersByMonth;
     return this;
   }
 
-  public TableItemItemStMetrics addAvgOrdersByMonthItem(
-      FloatGraphByPeriodItem avgOrdersByMonthItem) {
+  public TableItemStMetrics addAvgOrdersByMonthItem(FloatGraphByPeriodItem avgOrdersByMonthItem) {
     if (this.avgOrdersByMonth == null) {
       this.avgOrdersByMonth = new ArrayList<>();
     }
@@ -310,7 +309,7 @@ public class TableItemItemStMetrics {
     this.avgOrdersByMonth = avgOrdersByMonth;
   }
 
-  public TableItemItemStMetrics buyoutCount(@jakarta.annotation.Nullable Integer buyoutCount) {
+  public TableItemStMetrics buyoutCount(@jakarta.annotation.Nullable Integer buyoutCount) {
     this.buyoutCount = buyoutCount;
     return this;
   }
@@ -329,7 +328,7 @@ public class TableItemItemStMetrics {
     this.buyoutCount = buyoutCount;
   }
 
-  public TableItemItemStMetrics buyoutSum(@jakarta.annotation.Nullable Integer buyoutSum) {
+  public TableItemStMetrics buyoutSum(@jakarta.annotation.Nullable Integer buyoutSum) {
     this.buyoutSum = buyoutSum;
     return this;
   }
@@ -348,7 +347,7 @@ public class TableItemItemStMetrics {
     this.buyoutSum = buyoutSum;
   }
 
-  public TableItemItemStMetrics buyoutPercent(@jakarta.annotation.Nullable Integer buyoutPercent) {
+  public TableItemStMetrics buyoutPercent(@jakarta.annotation.Nullable Integer buyoutPercent) {
     this.buyoutPercent = buyoutPercent;
     return this;
   }
@@ -367,7 +366,7 @@ public class TableItemItemStMetrics {
     this.buyoutPercent = buyoutPercent;
   }
 
-  public TableItemItemStMetrics stockCount(@jakarta.annotation.Nullable Integer stockCount) {
+  public TableItemStMetrics stockCount(@jakarta.annotation.Nullable Integer stockCount) {
     this.stockCount = stockCount;
     return this;
   }
@@ -386,7 +385,7 @@ public class TableItemItemStMetrics {
     this.stockCount = stockCount;
   }
 
-  public TableItemItemStMetrics stockSum(@jakarta.annotation.Nullable Integer stockSum) {
+  public TableItemStMetrics stockSum(@jakarta.annotation.Nullable Integer stockSum) {
     this.stockSum = stockSum;
     return this;
   }
@@ -405,7 +404,7 @@ public class TableItemItemStMetrics {
     this.stockSum = stockSum;
   }
 
-  public TableItemItemStMetrics saleRate(
+  public TableItemStMetrics saleRate(
       @jakarta.annotation.Nullable TableCommonMetricsSaleRate saleRate) {
     this.saleRate = saleRate;
     return this;
@@ -425,7 +424,7 @@ public class TableItemItemStMetrics {
     this.saleRate = saleRate;
   }
 
-  public TableItemItemStMetrics avgStockTurnover(
+  public TableItemStMetrics avgStockTurnover(
       @jakarta.annotation.Nullable TableCommonMetricsAvgStockTurnover avgStockTurnover) {
     this.avgStockTurnover = avgStockTurnover;
     return this;
@@ -446,7 +445,7 @@ public class TableItemItemStMetrics {
     this.avgStockTurnover = avgStockTurnover;
   }
 
-  public TableItemItemStMetrics toClientCount(@jakarta.annotation.Nullable Integer toClientCount) {
+  public TableItemStMetrics toClientCount(@jakarta.annotation.Nullable Integer toClientCount) {
     this.toClientCount = toClientCount;
     return this;
   }
@@ -465,8 +464,7 @@ public class TableItemItemStMetrics {
     this.toClientCount = toClientCount;
   }
 
-  public TableItemItemStMetrics fromClientCount(
-      @jakarta.annotation.Nullable Integer fromClientCount) {
+  public TableItemStMetrics fromClientCount(@jakarta.annotation.Nullable Integer fromClientCount) {
     this.fromClientCount = fromClientCount;
     return this;
   }
@@ -485,7 +483,7 @@ public class TableItemItemStMetrics {
     this.fromClientCount = fromClientCount;
   }
 
-  public TableItemItemStMetrics officeMissingTime(
+  public TableItemStMetrics officeMissingTime(
       @jakarta.annotation.Nullable TableCommonMetricsOfficeMissingTime officeMissingTime) {
     this.officeMissingTime = officeMissingTime;
     return this;
@@ -506,7 +504,7 @@ public class TableItemItemStMetrics {
     this.officeMissingTime = officeMissingTime;
   }
 
-  public TableItemItemStMetrics lostOrdersCount(
+  public TableItemStMetrics lostOrdersCount(
       @jakarta.annotation.Nullable BigDecimal lostOrdersCount) {
     this.lostOrdersCount = lostOrdersCount;
     return this;
@@ -527,8 +525,7 @@ public class TableItemItemStMetrics {
     this.lostOrdersCount = lostOrdersCount;
   }
 
-  public TableItemItemStMetrics lostOrdersSum(
-      @jakarta.annotation.Nullable BigDecimal lostOrdersSum) {
+  public TableItemStMetrics lostOrdersSum(@jakarta.annotation.Nullable BigDecimal lostOrdersSum) {
     this.lostOrdersSum = lostOrdersSum;
     return this;
   }
@@ -548,7 +545,7 @@ public class TableItemItemStMetrics {
     this.lostOrdersSum = lostOrdersSum;
   }
 
-  public TableItemItemStMetrics lostBuyoutsCount(
+  public TableItemStMetrics lostBuyoutsCount(
       @jakarta.annotation.Nullable BigDecimal lostBuyoutsCount) {
     this.lostBuyoutsCount = lostBuyoutsCount;
     return this;
@@ -569,8 +566,7 @@ public class TableItemItemStMetrics {
     this.lostBuyoutsCount = lostBuyoutsCount;
   }
 
-  public TableItemItemStMetrics lostBuyoutsSum(
-      @jakarta.annotation.Nullable BigDecimal lostBuyoutsSum) {
+  public TableItemStMetrics lostBuyoutsSum(@jakarta.annotation.Nullable BigDecimal lostBuyoutsSum) {
     this.lostBuyoutsSum = lostBuyoutsSum;
     return this;
   }
@@ -590,8 +586,8 @@ public class TableItemItemStMetrics {
     this.lostBuyoutsSum = lostBuyoutsSum;
   }
 
-  public TableItemItemStMetrics currentPrice(
-      @jakarta.annotation.Nullable TableItemItemStMetricsAllOfCurrentPrice currentPrice) {
+  public TableItemStMetrics currentPrice(
+      @jakarta.annotation.Nullable TableItemStMetricsAllOfCurrentPrice currentPrice) {
     this.currentPrice = currentPrice;
     return this;
   }
@@ -602,16 +598,16 @@ public class TableItemItemStMetrics {
    * @return currentPrice
    */
   @jakarta.annotation.Nullable
-  public TableItemItemStMetricsAllOfCurrentPrice getCurrentPrice() {
+  public TableItemStMetricsAllOfCurrentPrice getCurrentPrice() {
     return currentPrice;
   }
 
   public void setCurrentPrice(
-      @jakarta.annotation.Nullable TableItemItemStMetricsAllOfCurrentPrice currentPrice) {
+      @jakarta.annotation.Nullable TableItemStMetricsAllOfCurrentPrice currentPrice) {
     this.currentPrice = currentPrice;
   }
 
-  public TableItemItemStMetrics availability(
+  public TableItemStMetrics availability(
       @jakarta.annotation.Nullable AvailabilityEnum availability) {
     this.availability = availability;
     return this;
@@ -641,27 +637,27 @@ public class TableItemItemStMetrics {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TableItemItemStMetrics tableItemItemStMetrics = (TableItemItemStMetrics) o;
-    return Objects.equals(this.ordersCount, tableItemItemStMetrics.ordersCount)
-        && Objects.equals(this.ordersSum, tableItemItemStMetrics.ordersSum)
-        && Objects.equals(this.avgOrders, tableItemItemStMetrics.avgOrders)
-        && Objects.equals(this.avgOrdersByMonth, tableItemItemStMetrics.avgOrdersByMonth)
-        && Objects.equals(this.buyoutCount, tableItemItemStMetrics.buyoutCount)
-        && Objects.equals(this.buyoutSum, tableItemItemStMetrics.buyoutSum)
-        && Objects.equals(this.buyoutPercent, tableItemItemStMetrics.buyoutPercent)
-        && Objects.equals(this.stockCount, tableItemItemStMetrics.stockCount)
-        && Objects.equals(this.stockSum, tableItemItemStMetrics.stockSum)
-        && Objects.equals(this.saleRate, tableItemItemStMetrics.saleRate)
-        && Objects.equals(this.avgStockTurnover, tableItemItemStMetrics.avgStockTurnover)
-        && Objects.equals(this.toClientCount, tableItemItemStMetrics.toClientCount)
-        && Objects.equals(this.fromClientCount, tableItemItemStMetrics.fromClientCount)
-        && Objects.equals(this.officeMissingTime, tableItemItemStMetrics.officeMissingTime)
-        && Objects.equals(this.lostOrdersCount, tableItemItemStMetrics.lostOrdersCount)
-        && Objects.equals(this.lostOrdersSum, tableItemItemStMetrics.lostOrdersSum)
-        && Objects.equals(this.lostBuyoutsCount, tableItemItemStMetrics.lostBuyoutsCount)
-        && Objects.equals(this.lostBuyoutsSum, tableItemItemStMetrics.lostBuyoutsSum)
-        && Objects.equals(this.currentPrice, tableItemItemStMetrics.currentPrice)
-        && Objects.equals(this.availability, tableItemItemStMetrics.availability);
+    TableItemStMetrics tableItemStMetrics = (TableItemStMetrics) o;
+    return Objects.equals(this.ordersCount, tableItemStMetrics.ordersCount)
+        && Objects.equals(this.ordersSum, tableItemStMetrics.ordersSum)
+        && Objects.equals(this.avgOrders, tableItemStMetrics.avgOrders)
+        && Objects.equals(this.avgOrdersByMonth, tableItemStMetrics.avgOrdersByMonth)
+        && Objects.equals(this.buyoutCount, tableItemStMetrics.buyoutCount)
+        && Objects.equals(this.buyoutSum, tableItemStMetrics.buyoutSum)
+        && Objects.equals(this.buyoutPercent, tableItemStMetrics.buyoutPercent)
+        && Objects.equals(this.stockCount, tableItemStMetrics.stockCount)
+        && Objects.equals(this.stockSum, tableItemStMetrics.stockSum)
+        && Objects.equals(this.saleRate, tableItemStMetrics.saleRate)
+        && Objects.equals(this.avgStockTurnover, tableItemStMetrics.avgStockTurnover)
+        && Objects.equals(this.toClientCount, tableItemStMetrics.toClientCount)
+        && Objects.equals(this.fromClientCount, tableItemStMetrics.fromClientCount)
+        && Objects.equals(this.officeMissingTime, tableItemStMetrics.officeMissingTime)
+        && Objects.equals(this.lostOrdersCount, tableItemStMetrics.lostOrdersCount)
+        && Objects.equals(this.lostOrdersSum, tableItemStMetrics.lostOrdersSum)
+        && Objects.equals(this.lostBuyoutsCount, tableItemStMetrics.lostBuyoutsCount)
+        && Objects.equals(this.lostBuyoutsSum, tableItemStMetrics.lostBuyoutsSum)
+        && Objects.equals(this.currentPrice, tableItemStMetrics.currentPrice)
+        && Objects.equals(this.availability, tableItemStMetrics.availability);
   }
 
   @Override
@@ -692,7 +688,7 @@ public class TableItemItemStMetrics {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TableItemItemStMetrics {\n");
+    sb.append("class TableItemStMetrics {\n");
     sb.append("    ordersCount: ").append(toIndentedString(ordersCount)).append("\n");
     sb.append("    ordersSum: ").append(toIndentedString(ordersSum)).append("\n");
     sb.append("    avgOrders: ").append(toIndentedString(avgOrders)).append("\n");
@@ -762,26 +758,26 @@ public class TableItemItemStMetrics {
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to TableItemItemStMetrics
+   * @throws IOException if the JSON Element is invalid with respect to TableItemStMetrics
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
     if (jsonElement == null) {
-      if (!TableItemItemStMetrics.openapiRequiredFields
+      if (!TableItemStMetrics.openapiRequiredFields
           .isEmpty()) { // has required fields but JSON element is null
         throw new IllegalArgumentException(
             String.format(
-                "The required field(s) %s in TableItemItemStMetrics is not found in the empty JSON string",
-                TableItemItemStMetrics.openapiRequiredFields.toString()));
+                "The required field(s) %s in TableItemStMetrics is not found in the empty JSON string",
+                TableItemStMetrics.openapiRequiredFields.toString()));
       }
     }
 
     Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
     // check to see if the JSON string contains additional fields
     for (Map.Entry<String, JsonElement> entry : entries) {
-      if (!TableItemItemStMetrics.openapiFields.contains(entry.getKey())) {
+      if (!TableItemStMetrics.openapiFields.contains(entry.getKey())) {
         throw new IllegalArgumentException(
             String.format(
-                "The field `%s` in the JSON string is not defined in the `TableItemItemStMetrics` properties. JSON: %s",
+                "The field `%s` in the JSON string is not defined in the `TableItemStMetrics` properties. JSON: %s",
                 entry.getKey(), jsonElement.toString()));
       }
     }
@@ -819,7 +815,7 @@ public class TableItemItemStMetrics {
     }
     // validate the optional field `currentPrice`
     if (jsonObj.get("currentPrice") != null && !jsonObj.get("currentPrice").isJsonNull()) {
-      TableItemItemStMetricsAllOfCurrentPrice.validateJsonElement(jsonObj.get("currentPrice"));
+      TableItemStMetricsAllOfCurrentPrice.validateJsonElement(jsonObj.get("currentPrice"));
     }
     if ((jsonObj.get("availability") != null && !jsonObj.get("availability").isJsonNull())
         && !jsonObj.get("availability").isJsonPrimitive()) {
@@ -838,23 +834,23 @@ public class TableItemItemStMetrics {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-      if (!TableItemItemStMetrics.class.isAssignableFrom(type.getRawType())) {
-        return null; // this class only serializes 'TableItemItemStMetrics' and its subtypes
+      if (!TableItemStMetrics.class.isAssignableFrom(type.getRawType())) {
+        return null; // this class only serializes 'TableItemStMetrics' and its subtypes
       }
       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-      final TypeAdapter<TableItemItemStMetrics> thisAdapter =
-          gson.getDelegateAdapter(this, TypeToken.get(TableItemItemStMetrics.class));
+      final TypeAdapter<TableItemStMetrics> thisAdapter =
+          gson.getDelegateAdapter(this, TypeToken.get(TableItemStMetrics.class));
 
       return (TypeAdapter<T>)
-          new TypeAdapter<TableItemItemStMetrics>() {
+          new TypeAdapter<TableItemStMetrics>() {
             @Override
-            public void write(JsonWriter out, TableItemItemStMetrics value) throws IOException {
+            public void write(JsonWriter out, TableItemStMetrics value) throws IOException {
               JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
               elementAdapter.write(out, obj);
             }
 
             @Override
-            public TableItemItemStMetrics read(JsonReader in) throws IOException {
+            public TableItemStMetrics read(JsonReader in) throws IOException {
               JsonElement jsonElement = elementAdapter.read(in);
               validateJsonElement(jsonElement);
               return thisAdapter.fromJsonTree(jsonElement);
@@ -864,18 +860,18 @@ public class TableItemItemStMetrics {
   }
 
   /**
-   * Create an instance of TableItemItemStMetrics given an JSON string
+   * Create an instance of TableItemStMetrics given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of TableItemItemStMetrics
-   * @throws IOException if the JSON string is invalid with respect to TableItemItemStMetrics
+   * @return An instance of TableItemStMetrics
+   * @throws IOException if the JSON string is invalid with respect to TableItemStMetrics
    */
-  public static TableItemItemStMetrics fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, TableItemItemStMetrics.class);
+  public static TableItemStMetrics fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, TableItemStMetrics.class);
   }
 
   /**
-   * Convert an instance of TableItemItemStMetrics to an JSON string
+   * Convert an instance of TableItemStMetrics to an JSON string
    *
    * @return JSON string
    */

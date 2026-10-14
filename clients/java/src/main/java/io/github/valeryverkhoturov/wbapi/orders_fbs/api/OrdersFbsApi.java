@@ -37,6 +37,7 @@ import io.github.valeryverkhoturov.wbapi.orders_fbs.model.PatchV3FbsSettingsAuto
 import io.github.valeryverkhoturov.wbapi.orders_fbs.model.PatchV3FbsSettingsAutoreturnsItemsResponse200;
 import io.github.valeryverkhoturov.wbapi.orders_fbs.model.PatchV3FbsSettingsAutoreturnsRequest;
 import io.github.valeryverkhoturov.wbapi.orders_fbs.model.PatchV3FbsSuppliesShippingMethodRequest;
+import io.github.valeryverkhoturov.wbapi.orders_fbs.model.PatchV3FbsSuppliesSupplyIdOrdersTransferRequest;
 import io.github.valeryverkhoturov.wbapi.orders_fbs.model.PatchV3SuppliesSupplyIdOrdersRequest;
 import io.github.valeryverkhoturov.wbapi.orders_fbs.model.PostV3FbsSettingsAutoreturnsItemsRequest;
 import io.github.valeryverkhoturov.wbapi.orders_fbs.model.PostV3FbsSettingsAutoreturnsItemsResponse200;
@@ -74,6 +75,7 @@ import io.github.valeryverkhoturov.wbapi.orders_fbs.model.V3ArchiveOrders;
 import io.github.valeryverkhoturov.wbapi.orders_fbs.model.V3GetMetaMultiRequest;
 import io.github.valeryverkhoturov.wbapi.orders_fbs.model.V3OrdersMetaAPI;
 import io.github.valeryverkhoturov.wbapi.orders_fbs.model.V3SupplyOrderIDsAPI;
+import io.github.valeryverkhoturov.wbapi.orders_fbs.model.V3TransferOrdersToAssemblyResponse;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -4918,6 +4920,233 @@ public class OrdersFbsApi {
   }
 
   /**
+   * Build call for patchV3FbsSuppliesSupplyIdOrdersTransfer
+   *
+   * @param supplyId ID поставки, из которой будут перемещены заказы (required)
+   * @param patchV3FbsSuppliesSupplyIdOrdersTransferRequest (required)
+   * @param _callback Callback for upload/download progress
+   * @return Call to execute
+   * @throws ApiException If fail to serialize the request body object
+   * @http.response.details
+   *     <table border="1">
+   * <caption>Response Details</caption>
+   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
+   * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
+   * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
+   * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
+   * </table>
+   */
+  public okhttp3.Call patchV3FbsSuppliesSupplyIdOrdersTransferCall(
+      String supplyId,
+      PatchV3FbsSuppliesSupplyIdOrdersTransferRequest
+          patchV3FbsSuppliesSupplyIdOrdersTransferRequest,
+      final ApiCallback _callback)
+      throws ApiException {
+    String basePath = null;
+    // Operation Servers
+    String[] localBasePaths = new String[] {"https://marketplace-api.wildberries.ru"};
+
+    // Determine Base Path to Use
+    if (localCustomBaseUrl != null) {
+      basePath = localCustomBaseUrl;
+    } else if (localBasePaths.length > 0) {
+      basePath = localBasePaths[localHostIndex];
+    } else {
+      basePath = null;
+    }
+
+    Object localVarPostBody = patchV3FbsSuppliesSupplyIdOrdersTransferRequest;
+
+    // create path and map variables
+    String localVarPath =
+        "/api/marketplace/v3/fbs/supplies/{supplyId}/orders/transfer"
+            .replace("{" + "supplyId" + "}", localVarApiClient.escapeString(supplyId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    final String[] localVarAccepts = {"application/json", "application/problem+json"};
+    final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+    if (localVarAccept != null) {
+      localVarHeaderParams.put("Accept", localVarAccept);
+    }
+
+    final String[] localVarContentTypes = {"application/json"};
+    final String localVarContentType =
+        localVarApiClient.selectHeaderContentType(localVarContentTypes);
+    if (localVarContentType != null) {
+      localVarHeaderParams.put("Content-Type", localVarContentType);
+    }
+
+    String[] localVarAuthNames = new String[] {"BearerAuth"};
+    return localVarApiClient.buildCall(
+        basePath,
+        localVarPath,
+        "PATCH",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAuthNames,
+        _callback);
+  }
+
+  @SuppressWarnings("rawtypes")
+  private okhttp3.Call patchV3FbsSuppliesSupplyIdOrdersTransferValidateBeforeCall(
+      String supplyId,
+      PatchV3FbsSuppliesSupplyIdOrdersTransferRequest
+          patchV3FbsSuppliesSupplyIdOrdersTransferRequest,
+      final ApiCallback _callback)
+      throws ApiException {
+    // verify the required parameter 'supplyId' is set
+    if (supplyId == null) {
+      throw new ApiException(
+          "Missing the required parameter 'supplyId' when calling patchV3FbsSuppliesSupplyIdOrdersTransfer(Async)");
+    }
+
+    // verify the required parameter 'patchV3FbsSuppliesSupplyIdOrdersTransferRequest' is set
+    if (patchV3FbsSuppliesSupplyIdOrdersTransferRequest == null) {
+      throw new ApiException(
+          "Missing the required parameter 'patchV3FbsSuppliesSupplyIdOrdersTransferRequest' when calling patchV3FbsSuppliesSupplyIdOrdersTransfer(Async)");
+    }
+
+    return patchV3FbsSuppliesSupplyIdOrdersTransferCall(
+        supplyId, patchV3FbsSuppliesSupplyIdOrdersTransferRequest, _callback);
+  }
+
+  /**
+   * Перевести сборочные задания из доставки на сборку Метод переводит сборочные задания из статуса
+   * &#x60;complete&#x60; — в доставке в статус &#x60;confirm&#x60; — на сборке. Используйте метод,
+   * чтобы переместить сборочное задание из закрытой поставки в открытую. Сборочное задание можно
+   * перевести из доставки на сборку, если выполнены все условия: - сборочное задание находится в
+   * статусе &#x60;complete&#x60; — в доставке - поставка, в которую нужно перенести сборочное
+   * задание, [не передана в
+   * доставку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdDeliver)
+   * - сборочное задание ранее не переносили из доставки на сборку Чтобы проверить, можно ли
+   * перевести сборочное задание из доставки на сборку, используйте [статусы сборочных
+   * заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus),
+   * поле &#x60;isTransferable&#x60;. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/patch-api-marketplace-v3-fbs-supplies-supplyid-orders-transfer
+   *
+   * @param supplyId ID поставки, из которой будут перемещены заказы (required)
+   * @param patchV3FbsSuppliesSupplyIdOrdersTransferRequest (required)
+   * @return V3TransferOrdersToAssemblyResponse
+   * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+   *     response body
+   * @http.response.details
+   *     <table border="1">
+   * <caption>Response Details</caption>
+   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
+   * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
+   * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
+   * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
+   * </table>
+   */
+  public V3TransferOrdersToAssemblyResponse patchV3FbsSuppliesSupplyIdOrdersTransfer(
+      String supplyId,
+      PatchV3FbsSuppliesSupplyIdOrdersTransferRequest
+          patchV3FbsSuppliesSupplyIdOrdersTransferRequest)
+      throws ApiException {
+    ApiResponse<V3TransferOrdersToAssemblyResponse> localVarResp =
+        patchV3FbsSuppliesSupplyIdOrdersTransferWithHttpInfo(
+            supplyId, patchV3FbsSuppliesSupplyIdOrdersTransferRequest);
+    return localVarResp.getData();
+  }
+
+  /**
+   * Перевести сборочные задания из доставки на сборку Метод переводит сборочные задания из статуса
+   * &#x60;complete&#x60; — в доставке в статус &#x60;confirm&#x60; — на сборке. Используйте метод,
+   * чтобы переместить сборочное задание из закрытой поставки в открытую. Сборочное задание можно
+   * перевести из доставки на сборку, если выполнены все условия: - сборочное задание находится в
+   * статусе &#x60;complete&#x60; — в доставке - поставка, в которую нужно перенести сборочное
+   * задание, [не передана в
+   * доставку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdDeliver)
+   * - сборочное задание ранее не переносили из доставки на сборку Чтобы проверить, можно ли
+   * перевести сборочное задание из доставки на сборку, используйте [статусы сборочных
+   * заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus),
+   * поле &#x60;isTransferable&#x60;. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/patch-api-marketplace-v3-fbs-supplies-supplyid-orders-transfer
+   *
+   * @param supplyId ID поставки, из которой будут перемещены заказы (required)
+   * @param patchV3FbsSuppliesSupplyIdOrdersTransferRequest (required)
+   * @return ApiResponse&lt;V3TransferOrdersToAssemblyResponse&gt;
+   * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+   *     response body
+   * @http.response.details
+   *     <table border="1">
+   * <caption>Response Details</caption>
+   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
+   * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
+   * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
+   * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
+   * </table>
+   */
+  public ApiResponse<V3TransferOrdersToAssemblyResponse>
+      patchV3FbsSuppliesSupplyIdOrdersTransferWithHttpInfo(
+          String supplyId,
+          PatchV3FbsSuppliesSupplyIdOrdersTransferRequest
+              patchV3FbsSuppliesSupplyIdOrdersTransferRequest)
+          throws ApiException {
+    okhttp3.Call localVarCall =
+        patchV3FbsSuppliesSupplyIdOrdersTransferValidateBeforeCall(
+            supplyId, patchV3FbsSuppliesSupplyIdOrdersTransferRequest, null);
+    Type localVarReturnType = new TypeToken<V3TransferOrdersToAssemblyResponse>() {}.getType();
+    return localVarApiClient.execute(localVarCall, localVarReturnType);
+  }
+
+  /**
+   * Перевести сборочные задания из доставки на сборку (asynchronously) Метод переводит сборочные
+   * задания из статуса &#x60;complete&#x60; — в доставке в статус &#x60;confirm&#x60; — на сборке.
+   * Используйте метод, чтобы переместить сборочное задание из закрытой поставки в открытую.
+   * Сборочное задание можно перевести из доставки на сборку, если выполнены все условия: -
+   * сборочное задание находится в статусе &#x60;complete&#x60; — в доставке - поставка, в которую
+   * нужно перенести сборочное задание, [не передана в
+   * доставку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdDeliver)
+   * - сборочное задание ранее не переносили из доставки на сборку Чтобы проверить, можно ли
+   * перевести сборочное задание из доставки на сборку, используйте [статусы сборочных
+   * заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus),
+   * поле &#x60;isTransferable&#x60;. Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/patch-api-marketplace-v3-fbs-supplies-supplyid-orders-transfer
+   *
+   * @param supplyId ID поставки, из которой будут перемещены заказы (required)
+   * @param patchV3FbsSuppliesSupplyIdOrdersTransferRequest (required)
+   * @param _callback The callback to be executed when the API call finishes
+   * @return The request call
+   * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+   * @http.response.details
+   *     <table border="1">
+   * <caption>Response Details</caption>
+   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
+   * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
+   * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
+   * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
+   * </table>
+   */
+  public okhttp3.Call patchV3FbsSuppliesSupplyIdOrdersTransferAsync(
+      String supplyId,
+      PatchV3FbsSuppliesSupplyIdOrdersTransferRequest
+          patchV3FbsSuppliesSupplyIdOrdersTransferRequest,
+      final ApiCallback<V3TransferOrdersToAssemblyResponse> _callback)
+      throws ApiException {
+
+    okhttp3.Call localVarCall =
+        patchV3FbsSuppliesSupplyIdOrdersTransferValidateBeforeCall(
+            supplyId, patchV3FbsSuppliesSupplyIdOrdersTransferRequest, _callback);
+    Type localVarReturnType = new TypeToken<V3TransferOrdersToAssemblyResponse>() {}.getType();
+    localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+    return localVarCall;
+  }
+
+  /**
    * Build call for patchV3OrdersOrderIdCancel
    *
    * @param orderId ID сборочного задания (required)
@@ -6575,6 +6804,8 @@ public class OrdersFbsApi {
    * \\*\\*Новое сборочное задание\\*\\* | | | &#x60;confirm&#x60; | \\*\\*На сборке\\*\\*
    * |[Добавить сборочное задание к
    * поставке](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdOrders)
+   * [Перевести сборочные задания из доставки на
+   * сборку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesSupplyIdOrdersTransfer)|
    * | &#x60;complete&#x60; | \\*\\*В доставке\\*\\* | [Передать поставку в
    * доставку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdDeliver)
    * | | &#x60;cancel&#x60; | \\*\\*Отменено продавцом\\*\\* | [Отменить сборочное
@@ -6633,6 +6864,8 @@ public class OrdersFbsApi {
    * \\*\\*Новое сборочное задание\\*\\* | | | &#x60;confirm&#x60; | \\*\\*На сборке\\*\\*
    * |[Добавить сборочное задание к
    * поставке](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdOrders)
+   * [Перевести сборочные задания из доставки на
+   * сборку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesSupplyIdOrdersTransfer)|
    * | &#x60;complete&#x60; | \\*\\*В доставке\\*\\* | [Передать поставку в
    * доставку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdDeliver)
    * | | &#x60;cancel&#x60; | \\*\\*Отменено продавцом\\*\\* | [Отменить сборочное
@@ -6692,6 +6925,8 @@ public class OrdersFbsApi {
    * \\*\\*Новое сборочное задание\\*\\* | | | &#x60;confirm&#x60; | \\*\\*На сборке\\*\\*
    * |[Добавить сборочное задание к
    * поставке](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdOrders)
+   * [Перевести сборочные задания из доставки на
+   * сборку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesSupplyIdOrdersTransfer)|
    * | &#x60;complete&#x60; | \\*\\*В доставке\\*\\* | [Передать поставку в
    * доставку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdDeliver)
    * | | &#x60;cancel&#x60; | \\*\\*Отменено продавцом\\*\\* | [Отменить сборочное

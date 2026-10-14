@@ -30,9 +30,7 @@ from typing import Any, ClassVar, Dict, List, Optional, Union
 from wb_api_client.analytics.models.table_group_item_metrics_avg_position import (
     TableGroupItemMetricsAvgPosition,
 )
-from wb_api_client.analytics.models.table_item_item_all_of_price import (
-    TableItemItemAllOfPrice,
-)
+from wb_api_client.analytics.models.table_item_all_of_price import TableItemAllOfPrice
 from wb_api_client.analytics.models.table_search_text_item_all_of_add_to_cart import (
     TableSearchTextItemAllOfAddToCart,
 )
@@ -93,7 +91,7 @@ class TableSearchTextItem(BaseModel):
     feedback_rating: Optional[Union[StrictFloat, StrictInt]] = Field(
         default=None, description="Рейтинг по отзывам", alias="feedbackRating"
     )
-    price: Optional[TableItemItemAllOfPrice] = None
+    price: Optional[TableItemAllOfPrice] = None
     frequency: Optional[TableSearchTextItemAllOfFrequency] = None
     week_frequency: Optional[StrictInt] = Field(
         default=None,
@@ -233,7 +231,7 @@ class TableSearchTextItem(BaseModel):
                 "rating": obj.get("rating"),
                 "feedbackRating": obj.get("feedbackRating"),
                 "price": (
-                    TableItemItemAllOfPrice.from_dict(obj["price"])
+                    TableItemAllOfPrice.from_dict(obj["price"])
                     if obj.get("price") is not None
                     else None
                 ),

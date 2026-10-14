@@ -105,19 +105,19 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
             // Name (string) maxLength
             if (this.Name != null && this.Name.Length > 200)
             {
-                yield return new ValidationResult("Invalid value for Name, length must be less than 200.", new[] { "Name" });
+                yield return new ValidationResult("Invalid value for Name, length must be less than 200.", new [] { "Name" });
             }
 
             // Name (string) minLength
             if (this.Name != null && this.Name.Length < 1)
             {
-                yield return new ValidationResult("Invalid value for Name, length must be greater than 1.", new[] { "Name" });
+                yield return new ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
             }
 
             // OfficeId (int) minimum
             if (this.OfficeId < (int)1)
             {
-                yield return new ValidationResult("Invalid value for OfficeId, must be a value greater than or equal to 1.", new[] { "OfficeId" });
+                yield return new ValidationResult("Invalid value for OfficeId, must be a value greater than or equal to 1.", new [] { "OfficeId" });
             }
 
             yield break;

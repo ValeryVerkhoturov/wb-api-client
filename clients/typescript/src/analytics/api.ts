@@ -5177,10 +5177,10 @@ export type TableDetailsRequestPositionClusterEnum =
 export interface TableDetailsResponse {
   /**
    * Список товаров в группе по фильтру
-   * @type {Array<TableItemItem>}
+   * @type {Array<TableItem>}
    * @memberof TableDetailsResponse
    */
-  products?: Array<TableItemItem>;
+  products?: Array<TableItem>;
   /**
    * Валюта отчёта
    * @type {string}
@@ -5263,10 +5263,10 @@ export interface TableGroupItem {
   metrics?: TableGroupItemMetrics;
   /**
    * Массив товаров группы
-   * @type {Array<TableItemItem>}
+   * @type {Array<TableItem>}
    * @memberof TableGroupItem
    */
-  items?: Array<TableItemItem>;
+  items?: Array<TableItem>;
 }
 /**
  * Метрики товара в таблице
@@ -5475,10 +5475,10 @@ export interface TableGroupItemSt {
   metrics?: TableCommonMetrics;
   /**
    * Товары группы
-   * @type {Array<TableItemItemSt>}
+   * @type {Array<TableItemSt>}
    * @memberof TableGroupItemSt
    */
-  items?: Array<TableItemItemSt>;
+  items?: Array<TableItemSt>;
 }
 /**
  * Параметры запроса для пагинации по группам:   - `currentPeriod` — текущий период   - `pastPeriod` — предыдущий период для сравнения
@@ -5685,6 +5685,146 @@ export interface TableGroupResponseSt {
   currency?: string;
 }
 /**
+ *
+ * @export
+ * @interface TableItem
+ */
+export interface TableItem {
+  /**
+   * Артикул WB
+   * @type {number}
+   * @memberof TableItem
+   */
+  nmId?: number;
+  /**
+   * Название товара
+   * @type {string}
+   * @memberof TableItem
+   */
+  name?: string;
+  /**
+   * Артикул продавца
+   * @type {string}
+   * @memberof TableItem
+   */
+  vendorCode?: string;
+  /**
+   * Название предмета
+   * @type {string}
+   * @memberof TableItem
+   */
+  subjectName?: string;
+  /**
+   * Бренд
+   * @type {string}
+   * @memberof TableItem
+   */
+  brandName?: string;
+  /**
+   * URL главного фото карточки товара
+   * @type {string}
+   * @memberof TableItem
+   */
+  mainPhoto?: string;
+  /**
+   * Находится ли товар в продвижении в Поисковой выдаче
+   * @type {boolean}
+   * @memberof TableItem
+   */
+  isAdvertised?: boolean;
+  /**
+   * Искали ли товар по подменному артикулу. Поле будет в ответе при наличии в запросе `includeSubstitutedSKUs` и/или `includeSearchTexts`
+   * @type {boolean}
+   * @memberof TableItem
+   */
+  isSubstitutedSKU?: boolean;
+  /**
+   * Есть ли рейтинг у карточки товара
+   * @type {boolean}
+   * @memberof TableItem
+   */
+  isCardRated?: boolean;
+  /**
+   * Рейтинг карточки товара
+   * @type {number}
+   * @memberof TableItem
+   */
+  rating?: number;
+  /**
+   * Рейтинг по отзывам
+   * @type {number}
+   * @memberof TableItem
+   */
+  feedbackRating?: number;
+  /**
+   *
+   * @type {TableItemAllOfPrice}
+   * @memberof TableItem
+   */
+  price?: TableItemAllOfPrice;
+  /**
+   *
+   * @type {TableGroupItemMetricsAvgPosition}
+   * @memberof TableItem
+   */
+  avgPosition?: TableGroupItemMetricsAvgPosition;
+  /**
+   *
+   * @type {VisibilityInfoOpenCard}
+   * @memberof TableItem
+   */
+  openCard?: VisibilityInfoOpenCard;
+  /**
+   *
+   * @type {TableGroupItemMetricsAddToCart}
+   * @memberof TableItem
+   */
+  addToCart?: TableGroupItemMetricsAddToCart;
+  /**
+   *
+   * @type {TableGroupItemMetricsOpenToCart}
+   * @memberof TableItem
+   */
+  openToCart?: TableGroupItemMetricsOpenToCart;
+  /**
+   *
+   * @type {TableGroupItemMetricsOrders}
+   * @memberof TableItem
+   */
+  orders?: TableGroupItemMetricsOrders;
+  /**
+   *
+   * @type {TableGroupItemMetricsCartToOrder}
+   * @memberof TableItem
+   */
+  cartToOrder?: TableGroupItemMetricsCartToOrder;
+  /**
+   *
+   * @type {TableGroupItemMetricsVisibility}
+   * @memberof TableItem
+   */
+  visibility?: TableGroupItemMetricsVisibility;
+}
+/**
+ * Цена
+ * @export
+ * @interface TableItemAllOfPrice
+ */
+export interface TableItemAllOfPrice {
+  /**
+   * Минимальная цена продавца со скидкой продавца (без учёта скидки WB Клуба)
+   * @type {number}
+   * @memberof TableItemAllOfPrice
+   */
+  minPrice?: number;
+  /**
+   * Максимальная цена продавца со скидкой продавца (без учёта скидки WB Клуба)
+   * @type {number}
+   * @memberof TableItemAllOfPrice
+   */
+  maxPrice?: number;
+}
+/**
  * Рейтинг продавца
  * @export
  * @interface TableItemFloat
@@ -5702,366 +5842,6 @@ export interface TableItemFloat {
    * @memberof TableItemFloat
    */
   dynamics?: number;
-}
-/**
- *
- * @export
- * @interface TableItemItem
- */
-export interface TableItemItem {
-  /**
-   * Артикул WB
-   * @type {number}
-   * @memberof TableItemItem
-   */
-  nmId?: number;
-  /**
-   * Название товара
-   * @type {string}
-   * @memberof TableItemItem
-   */
-  name?: string;
-  /**
-   * Артикул продавца
-   * @type {string}
-   * @memberof TableItemItem
-   */
-  vendorCode?: string;
-  /**
-   * Название предмета
-   * @type {string}
-   * @memberof TableItemItem
-   */
-  subjectName?: string;
-  /**
-   * Бренд
-   * @type {string}
-   * @memberof TableItemItem
-   */
-  brandName?: string;
-  /**
-   * URL главного фото карточки товара
-   * @type {string}
-   * @memberof TableItemItem
-   */
-  mainPhoto?: string;
-  /**
-   * Находится ли товар в продвижении в Поисковой выдаче
-   * @type {boolean}
-   * @memberof TableItemItem
-   */
-  isAdvertised?: boolean;
-  /**
-   * Искали ли товар по подменному артикулу. Поле будет в ответе при наличии в запросе `includeSubstitutedSKUs` и/или `includeSearchTexts`
-   * @type {boolean}
-   * @memberof TableItemItem
-   */
-  isSubstitutedSKU?: boolean;
-  /**
-   * Есть ли рейтинг у карточки товара
-   * @type {boolean}
-   * @memberof TableItemItem
-   */
-  isCardRated?: boolean;
-  /**
-   * Рейтинг карточки товара
-   * @type {number}
-   * @memberof TableItemItem
-   */
-  rating?: number;
-  /**
-   * Рейтинг по отзывам
-   * @type {number}
-   * @memberof TableItemItem
-   */
-  feedbackRating?: number;
-  /**
-   *
-   * @type {TableItemItemAllOfPrice}
-   * @memberof TableItemItem
-   */
-  price?: TableItemItemAllOfPrice;
-  /**
-   *
-   * @type {TableGroupItemMetricsAvgPosition}
-   * @memberof TableItemItem
-   */
-  avgPosition?: TableGroupItemMetricsAvgPosition;
-  /**
-   *
-   * @type {VisibilityInfoOpenCard}
-   * @memberof TableItemItem
-   */
-  openCard?: VisibilityInfoOpenCard;
-  /**
-   *
-   * @type {TableGroupItemMetricsAddToCart}
-   * @memberof TableItemItem
-   */
-  addToCart?: TableGroupItemMetricsAddToCart;
-  /**
-   *
-   * @type {TableGroupItemMetricsOpenToCart}
-   * @memberof TableItemItem
-   */
-  openToCart?: TableGroupItemMetricsOpenToCart;
-  /**
-   *
-   * @type {TableGroupItemMetricsOrders}
-   * @memberof TableItemItem
-   */
-  orders?: TableGroupItemMetricsOrders;
-  /**
-   *
-   * @type {TableGroupItemMetricsCartToOrder}
-   * @memberof TableItemItem
-   */
-  cartToOrder?: TableGroupItemMetricsCartToOrder;
-  /**
-   *
-   * @type {TableGroupItemMetricsVisibility}
-   * @memberof TableItemItem
-   */
-  visibility?: TableGroupItemMetricsVisibility;
-}
-/**
- * Цена
- * @export
- * @interface TableItemItemAllOfPrice
- */
-export interface TableItemItemAllOfPrice {
-  /**
-   * Минимальная цена продавца со скидкой продавца (без учёта скидки WB Клуба)
-   * @type {number}
-   * @memberof TableItemItemAllOfPrice
-   */
-  minPrice?: number;
-  /**
-   * Максимальная цена продавца со скидкой продавца (без учёта скидки WB Клуба)
-   * @type {number}
-   * @memberof TableItemItemAllOfPrice
-   */
-  maxPrice?: number;
-}
-/**
- * Данные по товару
- * @export
- * @interface TableItemItemSt
- */
-export interface TableItemItemSt {
-  /**
-   * Артикул WB
-   * @type {number}
-   * @memberof TableItemItemSt
-   */
-  nmID?: number;
-  /**
-   * Является ли товар удалённым
-   * @type {boolean}
-   * @memberof TableItemItemSt
-   */
-  isDeleted?: boolean;
-  /**
-   * Название предмета
-   * @type {string}
-   * @memberof TableItemItemSt
-   */
-  subjectName?: string;
-  /**
-   * Название товара
-   * @type {string}
-   * @memberof TableItemItemSt
-   */
-  name?: string;
-  /**
-   * Артикул продавца
-   * @type {string}
-   * @memberof TableItemItemSt
-   */
-  vendorCode?: string;
-  /**
-   * Бренд
-   * @type {string}
-   * @memberof TableItemItemSt
-   */
-  brandName?: string;
-  /**
-   * Ссылка на главное фото
-   * @type {string}
-   * @memberof TableItemItemSt
-   */
-  mainPhoto?: string;
-  /**
-   * Является ли товар размерным. Неразмерный товар имеет единственный размер, с `\"techSize\":\"0\"`
-   * @type {boolean}
-   * @memberof TableItemItemSt
-   */
-  hasSizes?: boolean;
-  /**
-   *
-   * @type {TableItemItemStMetrics}
-   * @memberof TableItemItemSt
-   */
-  metrics?: TableItemItemStMetrics;
-}
-/**
- * Метрики товара
- * @export
- * @interface TableItemItemStMetrics
- */
-export interface TableItemItemStMetrics {
-  /**
-   * Заказы, шт.
-   * @type {number}
-   * @memberof TableItemItemStMetrics
-   */
-  ordersCount?: number;
-  /**
-   * Заказы, сумма
-   * @type {number}
-   * @memberof TableItemItemStMetrics
-   */
-  ordersSum?: number;
-  /**
-   * Среднее количество заказов в день
-   * @type {number}
-   * @memberof TableItemItemStMetrics
-   */
-  avgOrders?: number;
-  /**
-   * Среднее количество заказов по месяцам
-   * @type {Array<FloatGraphByPeriodItem>}
-   * @memberof TableItemItemStMetrics
-   */
-  avgOrdersByMonth?: Array<FloatGraphByPeriodItem>;
-  /**
-   * Выкупы, шт.
-   * @type {number}
-   * @memberof TableItemItemStMetrics
-   */
-  buyoutCount?: number;
-  /**
-   * Выкупы, сумма
-   * @type {number}
-   * @memberof TableItemItemStMetrics
-   */
-  buyoutSum?: number;
-  /**
-   * Процент выкупа
-   * @type {number}
-   * @memberof TableItemItemStMetrics
-   */
-  buyoutPercent?: number;
-  /**
-   * Остатки на текущий день, шт.
-   * @type {number}
-   * @memberof TableItemItemStMetrics
-   */
-  stockCount?: number;
-  /**
-   * Стоимость остатков на текущий день
-   * @type {number}
-   * @memberof TableItemItemStMetrics
-   */
-  stockSum?: number;
-  /**
-   *
-   * @type {TableCommonMetricsSaleRate}
-   * @memberof TableItemItemStMetrics
-   */
-  saleRate?: TableCommonMetricsSaleRate;
-  /**
-   *
-   * @type {TableCommonMetricsAvgStockTurnover}
-   * @memberof TableItemItemStMetrics
-   */
-  avgStockTurnover?: TableCommonMetricsAvgStockTurnover;
-  /**
-   * В пути к клиенту, шт.
-   * @type {number}
-   * @memberof TableItemItemStMetrics
-   */
-  toClientCount?: number;
-  /**
-   * В пути от клиента, шт.
-   * @type {number}
-   * @memberof TableItemItemStMetrics
-   */
-  fromClientCount?: number;
-  /**
-   *
-   * @type {TableCommonMetricsOfficeMissingTime}
-   * @memberof TableItemItemStMetrics
-   */
-  officeMissingTime?: TableCommonMetricsOfficeMissingTime;
-  /**
-   * Упущенные заказы, шт. Особые случаи:   1. Значение меньше `0` и не равно `-2` — значение не рассчитано   2. Значение `-2` — нулевое значение
-   * @type {number}
-   * @memberof TableItemItemStMetrics
-   */
-  lostOrdersCount?: number;
-  /**
-   * Упущенные заказы, сумма. Особые случаи:   1. Значение меньше `0` и не равно `-2` — значение не рассчитано   2. Значение `-2` — нулевое значение
-   * @type {number}
-   * @memberof TableItemItemStMetrics
-   */
-  lostOrdersSum?: number;
-  /**
-   * Упущенные выкупы, шт. Особые случаи:   1. Значение меньше `0` и не равно `-2` — значение не рассчитано   2. Значение `-2` — нулевое значение
-   * @type {number}
-   * @memberof TableItemItemStMetrics
-   */
-  lostBuyoutsCount?: number;
-  /**
-   * Упущенные выкупы, сумма. Особые случаи:   1. Значение меньше `0` и не равно `-2` — значение не рассчитано   2. Значение `-2` — нулевое значение
-   * @type {number}
-   * @memberof TableItemItemStMetrics
-   */
-  lostBuyoutsSum?: number;
-  /**
-   *
-   * @type {TableItemItemStMetricsAllOfCurrentPrice}
-   * @memberof TableItemItemStMetrics
-   */
-  currentPrice?: TableItemItemStMetricsAllOfCurrentPrice;
-  /**
-   * Доступность товара:   - `deficient` — Дефицит   - `actual` — Актуальный   - `balanced` — Баланс   - `nonActual` — Неактуальный   - `nonLiquid` — Неликвид   - `invalidData` — Не рассчитано
-   * @type {string}
-   * @memberof TableItemItemStMetrics
-   */
-  availability?: TableItemItemStMetricsAvailabilityEnum;
-}
-
-export const TableItemItemStMetricsAvailabilityEnum = {
-  Deficient: "deficient",
-  Actual: "actual",
-  Balanced: "balanced",
-  NonActual: "nonActual",
-  NonLiquid: "nonLiquid",
-  InvalidData: "invalidData",
-} as const;
-
-export type TableItemItemStMetricsAvailabilityEnum =
-  (typeof TableItemItemStMetricsAvailabilityEnum)[keyof typeof TableItemItemStMetricsAvailabilityEnum];
-
-/**
- * Текущая цена
- * @export
- * @interface TableItemItemStMetricsAllOfCurrentPrice
- */
-export interface TableItemItemStMetricsAllOfCurrentPrice {
-  /**
-   * Минимальная цена продавца со скидкой продавца (без учёта скидки WB Клуба)
-   * @type {number}
-   * @memberof TableItemItemStMetricsAllOfCurrentPrice
-   */
-  minPrice?: number;
-  /**
-   * Максимальная цена продавца со скидкой продавца (без учёта скидки WB Клуба)
-   * @type {number}
-   * @memberof TableItemItemStMetricsAllOfCurrentPrice
-   */
-  maxPrice?: number;
 }
 /**
  * Параметры запроса об остатках по товарам
@@ -6157,16 +5937,236 @@ export type TableItemRequestAvailabilityFiltersEnum =
 export interface TableItemResponse {
   /**
    * Множество данных по товарам
-   * @type {Array<TableItemItemSt>}
+   * @type {Array<TableItemSt>}
    * @memberof TableItemResponse
    */
-  items?: Array<TableItemItemSt>;
+  items?: Array<TableItemSt>;
   /**
    * Валюта отчёта
    * @type {string}
    * @memberof TableItemResponse
    */
   currency?: string;
+}
+/**
+ * Данные по товару
+ * @export
+ * @interface TableItemSt
+ */
+export interface TableItemSt {
+  /**
+   * Артикул WB
+   * @type {number}
+   * @memberof TableItemSt
+   */
+  nmID?: number;
+  /**
+   * Является ли товар удалённым
+   * @type {boolean}
+   * @memberof TableItemSt
+   */
+  isDeleted?: boolean;
+  /**
+   * Название предмета
+   * @type {string}
+   * @memberof TableItemSt
+   */
+  subjectName?: string;
+  /**
+   * Название товара
+   * @type {string}
+   * @memberof TableItemSt
+   */
+  name?: string;
+  /**
+   * Артикул продавца
+   * @type {string}
+   * @memberof TableItemSt
+   */
+  vendorCode?: string;
+  /**
+   * Бренд
+   * @type {string}
+   * @memberof TableItemSt
+   */
+  brandName?: string;
+  /**
+   * Ссылка на главное фото
+   * @type {string}
+   * @memberof TableItemSt
+   */
+  mainPhoto?: string;
+  /**
+   * Является ли товар размерным. Неразмерный товар имеет единственный размер, с `\"techSize\":\"0\"`
+   * @type {boolean}
+   * @memberof TableItemSt
+   */
+  hasSizes?: boolean;
+  /**
+   *
+   * @type {TableItemStMetrics}
+   * @memberof TableItemSt
+   */
+  metrics?: TableItemStMetrics;
+}
+/**
+ * Метрики товара
+ * @export
+ * @interface TableItemStMetrics
+ */
+export interface TableItemStMetrics {
+  /**
+   * Заказы, шт.
+   * @type {number}
+   * @memberof TableItemStMetrics
+   */
+  ordersCount?: number;
+  /**
+   * Заказы, сумма
+   * @type {number}
+   * @memberof TableItemStMetrics
+   */
+  ordersSum?: number;
+  /**
+   * Среднее количество заказов в день
+   * @type {number}
+   * @memberof TableItemStMetrics
+   */
+  avgOrders?: number;
+  /**
+   * Среднее количество заказов по месяцам
+   * @type {Array<FloatGraphByPeriodItem>}
+   * @memberof TableItemStMetrics
+   */
+  avgOrdersByMonth?: Array<FloatGraphByPeriodItem>;
+  /**
+   * Выкупы, шт.
+   * @type {number}
+   * @memberof TableItemStMetrics
+   */
+  buyoutCount?: number;
+  /**
+   * Выкупы, сумма
+   * @type {number}
+   * @memberof TableItemStMetrics
+   */
+  buyoutSum?: number;
+  /**
+   * Процент выкупа
+   * @type {number}
+   * @memberof TableItemStMetrics
+   */
+  buyoutPercent?: number;
+  /**
+   * Остатки на текущий день, шт.
+   * @type {number}
+   * @memberof TableItemStMetrics
+   */
+  stockCount?: number;
+  /**
+   * Стоимость остатков на текущий день
+   * @type {number}
+   * @memberof TableItemStMetrics
+   */
+  stockSum?: number;
+  /**
+   *
+   * @type {TableCommonMetricsSaleRate}
+   * @memberof TableItemStMetrics
+   */
+  saleRate?: TableCommonMetricsSaleRate;
+  /**
+   *
+   * @type {TableCommonMetricsAvgStockTurnover}
+   * @memberof TableItemStMetrics
+   */
+  avgStockTurnover?: TableCommonMetricsAvgStockTurnover;
+  /**
+   * В пути к клиенту, шт.
+   * @type {number}
+   * @memberof TableItemStMetrics
+   */
+  toClientCount?: number;
+  /**
+   * В пути от клиента, шт.
+   * @type {number}
+   * @memberof TableItemStMetrics
+   */
+  fromClientCount?: number;
+  /**
+   *
+   * @type {TableCommonMetricsOfficeMissingTime}
+   * @memberof TableItemStMetrics
+   */
+  officeMissingTime?: TableCommonMetricsOfficeMissingTime;
+  /**
+   * Упущенные заказы, шт. Особые случаи:   1. Значение меньше `0` и не равно `-2` — значение не рассчитано   2. Значение `-2` — нулевое значение
+   * @type {number}
+   * @memberof TableItemStMetrics
+   */
+  lostOrdersCount?: number;
+  /**
+   * Упущенные заказы, сумма. Особые случаи:   1. Значение меньше `0` и не равно `-2` — значение не рассчитано   2. Значение `-2` — нулевое значение
+   * @type {number}
+   * @memberof TableItemStMetrics
+   */
+  lostOrdersSum?: number;
+  /**
+   * Упущенные выкупы, шт. Особые случаи:   1. Значение меньше `0` и не равно `-2` — значение не рассчитано   2. Значение `-2` — нулевое значение
+   * @type {number}
+   * @memberof TableItemStMetrics
+   */
+  lostBuyoutsCount?: number;
+  /**
+   * Упущенные выкупы, сумма. Особые случаи:   1. Значение меньше `0` и не равно `-2` — значение не рассчитано   2. Значение `-2` — нулевое значение
+   * @type {number}
+   * @memberof TableItemStMetrics
+   */
+  lostBuyoutsSum?: number;
+  /**
+   *
+   * @type {TableItemStMetricsAllOfCurrentPrice}
+   * @memberof TableItemStMetrics
+   */
+  currentPrice?: TableItemStMetricsAllOfCurrentPrice;
+  /**
+   * Доступность товара:   - `deficient` — Дефицит   - `actual` — Актуальный   - `balanced` — Баланс   - `nonActual` — Неактуальный   - `nonLiquid` — Неликвид   - `invalidData` — Не рассчитано
+   * @type {string}
+   * @memberof TableItemStMetrics
+   */
+  availability?: TableItemStMetricsAvailabilityEnum;
+}
+
+export const TableItemStMetricsAvailabilityEnum = {
+  Deficient: "deficient",
+  Actual: "actual",
+  Balanced: "balanced",
+  NonActual: "nonActual",
+  NonLiquid: "nonLiquid",
+  InvalidData: "invalidData",
+} as const;
+
+export type TableItemStMetricsAvailabilityEnum =
+  (typeof TableItemStMetricsAvailabilityEnum)[keyof typeof TableItemStMetricsAvailabilityEnum];
+
+/**
+ * Текущая цена
+ * @export
+ * @interface TableItemStMetricsAllOfCurrentPrice
+ */
+export interface TableItemStMetricsAllOfCurrentPrice {
+  /**
+   * Минимальная цена продавца со скидкой продавца (без учёта скидки WB Клуба)
+   * @type {number}
+   * @memberof TableItemStMetricsAllOfCurrentPrice
+   */
+  minPrice?: number;
+  /**
+   * Максимальная цена продавца со скидкой продавца (без учёта скидки WB Клуба)
+   * @type {number}
+   * @memberof TableItemStMetricsAllOfCurrentPrice
+   */
+  maxPrice?: number;
 }
 /**
  * Данные по складу
@@ -6281,10 +6281,10 @@ export interface TableSearchTextItem {
   feedbackRating?: number;
   /**
    *
-   * @type {TableItemItemAllOfPrice}
+   * @type {TableItemAllOfPrice}
    * @memberof TableSearchTextItem
    */
-  price?: TableItemItemAllOfPrice;
+  price?: TableItemAllOfPrice;
   /**
    *
    * @type {TableSearchTextItemAllOfFrequency}
@@ -6894,10 +6894,10 @@ export interface TableSizeResponseSizesInnerMetrics {
   lostBuyoutsSum?: number;
   /**
    *
-   * @type {TableItemItemStMetricsAllOfCurrentPrice}
+   * @type {TableItemStMetricsAllOfCurrentPrice}
    * @memberof TableSizeResponseSizesInnerMetrics
    */
-  currentPrice?: TableItemItemStMetricsAllOfCurrentPrice;
+  currentPrice?: TableItemStMetricsAllOfCurrentPrice;
 }
 /**
  * Ярлык

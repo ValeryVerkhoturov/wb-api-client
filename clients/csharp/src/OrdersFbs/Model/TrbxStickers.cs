@@ -57,7 +57,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// </summary>
         /// <value>Полное представление стикера в заданном формате (кодировка base64)</value>
         /*
-        <example>[B@365e65bb</example>
+        <example>[B@186481d4</example>
         */
         [DataMember(Name = "file", EmitDefaultValue = false)]
         public byte[] File { get; set; }
@@ -95,13 +95,13 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
             // Barcode (string) minLength
             if (this.Barcode != null && this.Barcode.Length < 1)
             {
-                yield return new ValidationResult("Invalid value for Barcode, length must be greater than 1.", new[] { "Barcode" });
+                yield return new ValidationResult("Invalid value for Barcode, length must be greater than 1.", new [] { "Barcode" });
             }
 
             // File (byte[]) minLength
             if (this.File != null && this.File.Length < 1)
             {
-                yield return new ValidationResult("Invalid value for File, length must be greater than 1.", new[] { "File" });
+                yield return new ValidationResult("Invalid value for File, length must be greater than 1.", new [] { "File" });
             }
 
             yield break;

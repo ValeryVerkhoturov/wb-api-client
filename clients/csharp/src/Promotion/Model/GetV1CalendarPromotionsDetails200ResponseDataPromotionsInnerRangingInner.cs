@@ -99,13 +99,13 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
             // ParticipationRate (int) maximum
             if (this.ParticipationRate > (int)100)
             {
-                yield return new ValidationResult("Invalid value for ParticipationRate, must be a value less than or equal to 100.", new[] { "ParticipationRate" });
+                yield return new ValidationResult("Invalid value for ParticipationRate, must be a value less than or equal to 100.", new [] { "ParticipationRate" });
             }
 
             // ParticipationRate (int) minimum
             if (this.ParticipationRate < (int)0)
             {
-                yield return new ValidationResult("Invalid value for ParticipationRate, must be a value greater than or equal to 0.", new[] { "ParticipationRate" });
+                yield return new ValidationResult("Invalid value for ParticipationRate, must be a value greater than or equal to 0.", new [] { "ParticipationRate" });
             }
 
             yield break;

@@ -54,7 +54,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <param name="orders">orders.</param>
         /// <param name="cartToOrder">cartToOrder.</param>
         /// <param name="visibility">visibility.</param>
-        public TableSearchTextItem(string text = default(string), int nmId = default(int), string subjectName = default(string), string brandName = default(string), string vendorCode = default(string), string name = default(string), bool isCardRated = default(bool), decimal rating = default(decimal), decimal feedbackRating = default(decimal), TableItemItemAllOfPrice price = default(TableItemItemAllOfPrice), TableSearchTextItemAllOfFrequency frequency = default(TableSearchTextItemAllOfFrequency), int weekFrequency = default(int), TableSearchTextItemAllOfMedianPosition medianPosition = default(TableSearchTextItemAllOfMedianPosition), TableGroupItemMetricsAvgPosition avgPosition = default(TableGroupItemMetricsAvgPosition), TableSearchTextItemAllOfOpenCard openCard = default(TableSearchTextItemAllOfOpenCard), TableSearchTextItemAllOfAddToCart addToCart = default(TableSearchTextItemAllOfAddToCart), TableSearchTextItemAllOfOpenToCart openToCart = default(TableSearchTextItemAllOfOpenToCart), TableSearchTextItemAllOfOrders orders = default(TableSearchTextItemAllOfOrders), TableSearchTextItemAllOfCartToOrder cartToOrder = default(TableSearchTextItemAllOfCartToOrder), TableSearchTextItemAllOfVisibility visibility = default(TableSearchTextItemAllOfVisibility))
+        public TableSearchTextItem(string text = default(string), int nmId = default(int), string subjectName = default(string), string brandName = default(string), string vendorCode = default(string), string name = default(string), bool isCardRated = default(bool), decimal rating = default(decimal), decimal feedbackRating = default(decimal), TableItemAllOfPrice price = default(TableItemAllOfPrice), TableSearchTextItemAllOfFrequency frequency = default(TableSearchTextItemAllOfFrequency), int weekFrequency = default(int), TableSearchTextItemAllOfMedianPosition medianPosition = default(TableSearchTextItemAllOfMedianPosition), TableGroupItemMetricsAvgPosition avgPosition = default(TableGroupItemMetricsAvgPosition), TableSearchTextItemAllOfOpenCard openCard = default(TableSearchTextItemAllOfOpenCard), TableSearchTextItemAllOfAddToCart addToCart = default(TableSearchTextItemAllOfAddToCart), TableSearchTextItemAllOfOpenToCart openToCart = default(TableSearchTextItemAllOfOpenToCart), TableSearchTextItemAllOfOrders orders = default(TableSearchTextItemAllOfOrders), TableSearchTextItemAllOfCartToOrder cartToOrder = default(TableSearchTextItemAllOfCartToOrder), TableSearchTextItemAllOfVisibility visibility = default(TableSearchTextItemAllOfVisibility))
         {
             this.Text = text;
             this.NmId = nmId;
@@ -172,7 +172,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// Gets or Sets Price
         /// </summary>
         [DataMember(Name = "price", EmitDefaultValue = false)]
-        public TableItemItemAllOfPrice Price { get; set; }
+        public TableItemAllOfPrice Price { get; set; }
 
         /// <summary>
         /// Gets or Sets Frequency

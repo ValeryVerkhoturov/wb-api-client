@@ -32,7 +32,7 @@ import java.util.Set;
 @jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     comments = "Generator version: 7.10.0")
-public class TableItemItemSt {
+public class TableItemSt {
   public static final String SERIALIZED_NAME_NM_I_D = "nmID";
 
   @SerializedName(SERIALIZED_NAME_NM_I_D)
@@ -85,11 +85,11 @@ public class TableItemItemSt {
 
   @SerializedName(SERIALIZED_NAME_METRICS)
   @jakarta.annotation.Nullable
-  private TableItemItemStMetrics metrics;
+  private TableItemStMetrics metrics;
 
-  public TableItemItemSt() {}
+  public TableItemSt() {}
 
-  public TableItemItemSt nmID(@jakarta.annotation.Nullable Long nmID) {
+  public TableItemSt nmID(@jakarta.annotation.Nullable Long nmID) {
     this.nmID = nmID;
     return this;
   }
@@ -108,7 +108,7 @@ public class TableItemItemSt {
     this.nmID = nmID;
   }
 
-  public TableItemItemSt isDeleted(@jakarta.annotation.Nullable Boolean isDeleted) {
+  public TableItemSt isDeleted(@jakarta.annotation.Nullable Boolean isDeleted) {
     this.isDeleted = isDeleted;
     return this;
   }
@@ -127,7 +127,7 @@ public class TableItemItemSt {
     this.isDeleted = isDeleted;
   }
 
-  public TableItemItemSt subjectName(@jakarta.annotation.Nullable String subjectName) {
+  public TableItemSt subjectName(@jakarta.annotation.Nullable String subjectName) {
     this.subjectName = subjectName;
     return this;
   }
@@ -146,7 +146,7 @@ public class TableItemItemSt {
     this.subjectName = subjectName;
   }
 
-  public TableItemItemSt name(@jakarta.annotation.Nullable String name) {
+  public TableItemSt name(@jakarta.annotation.Nullable String name) {
     this.name = name;
     return this;
   }
@@ -165,7 +165,7 @@ public class TableItemItemSt {
     this.name = name;
   }
 
-  public TableItemItemSt vendorCode(@jakarta.annotation.Nullable String vendorCode) {
+  public TableItemSt vendorCode(@jakarta.annotation.Nullable String vendorCode) {
     this.vendorCode = vendorCode;
     return this;
   }
@@ -184,7 +184,7 @@ public class TableItemItemSt {
     this.vendorCode = vendorCode;
   }
 
-  public TableItemItemSt brandName(@jakarta.annotation.Nullable String brandName) {
+  public TableItemSt brandName(@jakarta.annotation.Nullable String brandName) {
     this.brandName = brandName;
     return this;
   }
@@ -203,7 +203,7 @@ public class TableItemItemSt {
     this.brandName = brandName;
   }
 
-  public TableItemItemSt mainPhoto(@jakarta.annotation.Nullable String mainPhoto) {
+  public TableItemSt mainPhoto(@jakarta.annotation.Nullable String mainPhoto) {
     this.mainPhoto = mainPhoto;
     return this;
   }
@@ -222,7 +222,7 @@ public class TableItemItemSt {
     this.mainPhoto = mainPhoto;
   }
 
-  public TableItemItemSt hasSizes(@jakarta.annotation.Nullable Boolean hasSizes) {
+  public TableItemSt hasSizes(@jakarta.annotation.Nullable Boolean hasSizes) {
     this.hasSizes = hasSizes;
     return this;
   }
@@ -242,7 +242,7 @@ public class TableItemItemSt {
     this.hasSizes = hasSizes;
   }
 
-  public TableItemItemSt metrics(@jakarta.annotation.Nullable TableItemItemStMetrics metrics) {
+  public TableItemSt metrics(@jakarta.annotation.Nullable TableItemStMetrics metrics) {
     this.metrics = metrics;
     return this;
   }
@@ -253,11 +253,11 @@ public class TableItemItemSt {
    * @return metrics
    */
   @jakarta.annotation.Nullable
-  public TableItemItemStMetrics getMetrics() {
+  public TableItemStMetrics getMetrics() {
     return metrics;
   }
 
-  public void setMetrics(@jakarta.annotation.Nullable TableItemItemStMetrics metrics) {
+  public void setMetrics(@jakarta.annotation.Nullable TableItemStMetrics metrics) {
     this.metrics = metrics;
   }
 
@@ -269,16 +269,16 @@ public class TableItemItemSt {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TableItemItemSt tableItemItemSt = (TableItemItemSt) o;
-    return Objects.equals(this.nmID, tableItemItemSt.nmID)
-        && Objects.equals(this.isDeleted, tableItemItemSt.isDeleted)
-        && Objects.equals(this.subjectName, tableItemItemSt.subjectName)
-        && Objects.equals(this.name, tableItemItemSt.name)
-        && Objects.equals(this.vendorCode, tableItemItemSt.vendorCode)
-        && Objects.equals(this.brandName, tableItemItemSt.brandName)
-        && Objects.equals(this.mainPhoto, tableItemItemSt.mainPhoto)
-        && Objects.equals(this.hasSizes, tableItemItemSt.hasSizes)
-        && Objects.equals(this.metrics, tableItemItemSt.metrics);
+    TableItemSt tableItemSt = (TableItemSt) o;
+    return Objects.equals(this.nmID, tableItemSt.nmID)
+        && Objects.equals(this.isDeleted, tableItemSt.isDeleted)
+        && Objects.equals(this.subjectName, tableItemSt.subjectName)
+        && Objects.equals(this.name, tableItemSt.name)
+        && Objects.equals(this.vendorCode, tableItemSt.vendorCode)
+        && Objects.equals(this.brandName, tableItemSt.brandName)
+        && Objects.equals(this.mainPhoto, tableItemSt.mainPhoto)
+        && Objects.equals(this.hasSizes, tableItemSt.hasSizes)
+        && Objects.equals(this.metrics, tableItemSt.metrics);
   }
 
   @Override
@@ -290,7 +290,7 @@ public class TableItemItemSt {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TableItemItemSt {\n");
+    sb.append("class TableItemSt {\n");
     sb.append("    nmID: ").append(toIndentedString(nmID)).append("\n");
     sb.append("    isDeleted: ").append(toIndentedString(isDeleted)).append("\n");
     sb.append("    subjectName: ").append(toIndentedString(subjectName)).append("\n");
@@ -338,26 +338,26 @@ public class TableItemItemSt {
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to TableItemItemSt
+   * @throws IOException if the JSON Element is invalid with respect to TableItemSt
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
     if (jsonElement == null) {
-      if (!TableItemItemSt.openapiRequiredFields
+      if (!TableItemSt.openapiRequiredFields
           .isEmpty()) { // has required fields but JSON element is null
         throw new IllegalArgumentException(
             String.format(
-                "The required field(s) %s in TableItemItemSt is not found in the empty JSON string",
-                TableItemItemSt.openapiRequiredFields.toString()));
+                "The required field(s) %s in TableItemSt is not found in the empty JSON string",
+                TableItemSt.openapiRequiredFields.toString()));
       }
     }
 
     Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
     // check to see if the JSON string contains additional fields
     for (Map.Entry<String, JsonElement> entry : entries) {
-      if (!TableItemItemSt.openapiFields.contains(entry.getKey())) {
+      if (!TableItemSt.openapiFields.contains(entry.getKey())) {
         throw new IllegalArgumentException(
             String.format(
-                "The field `%s` in the JSON string is not defined in the `TableItemItemSt` properties. JSON: %s",
+                "The field `%s` in the JSON string is not defined in the `TableItemSt` properties. JSON: %s",
                 entry.getKey(), jsonElement.toString()));
       }
     }
@@ -399,7 +399,7 @@ public class TableItemItemSt {
     }
     // validate the optional field `metrics`
     if (jsonObj.get("metrics") != null && !jsonObj.get("metrics").isJsonNull()) {
-      TableItemItemStMetrics.validateJsonElement(jsonObj.get("metrics"));
+      TableItemStMetrics.validateJsonElement(jsonObj.get("metrics"));
     }
   }
 
@@ -407,23 +407,23 @@ public class TableItemItemSt {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-      if (!TableItemItemSt.class.isAssignableFrom(type.getRawType())) {
-        return null; // this class only serializes 'TableItemItemSt' and its subtypes
+      if (!TableItemSt.class.isAssignableFrom(type.getRawType())) {
+        return null; // this class only serializes 'TableItemSt' and its subtypes
       }
       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-      final TypeAdapter<TableItemItemSt> thisAdapter =
-          gson.getDelegateAdapter(this, TypeToken.get(TableItemItemSt.class));
+      final TypeAdapter<TableItemSt> thisAdapter =
+          gson.getDelegateAdapter(this, TypeToken.get(TableItemSt.class));
 
       return (TypeAdapter<T>)
-          new TypeAdapter<TableItemItemSt>() {
+          new TypeAdapter<TableItemSt>() {
             @Override
-            public void write(JsonWriter out, TableItemItemSt value) throws IOException {
+            public void write(JsonWriter out, TableItemSt value) throws IOException {
               JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
               elementAdapter.write(out, obj);
             }
 
             @Override
-            public TableItemItemSt read(JsonReader in) throws IOException {
+            public TableItemSt read(JsonReader in) throws IOException {
               JsonElement jsonElement = elementAdapter.read(in);
               validateJsonElement(jsonElement);
               return thisAdapter.fromJsonTree(jsonElement);
@@ -433,18 +433,18 @@ public class TableItemItemSt {
   }
 
   /**
-   * Create an instance of TableItemItemSt given an JSON string
+   * Create an instance of TableItemSt given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of TableItemItemSt
-   * @throws IOException if the JSON string is invalid with respect to TableItemItemSt
+   * @return An instance of TableItemSt
+   * @throws IOException if the JSON string is invalid with respect to TableItemSt
    */
-  public static TableItemItemSt fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, TableItemItemSt.class);
+  public static TableItemSt fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, TableItemSt.class);
   }
 
   /**
-   * Convert an instance of TableItemItemSt to an JSON string
+   * Convert an instance of TableItemSt to an JSON string
    *
    * @return JSON string
    */

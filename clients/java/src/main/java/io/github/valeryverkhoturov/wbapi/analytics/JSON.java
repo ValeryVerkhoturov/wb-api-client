@@ -635,28 +635,27 @@ public class JSON {
         new io.github.valeryverkhoturov.wbapi.analytics.model.TableGroupResponseSt
             .CustomTypeAdapterFactory());
     gsonBuilder.registerTypeAdapterFactory(
+        new io.github.valeryverkhoturov.wbapi.analytics.model.TableItem.CustomTypeAdapterFactory());
+    gsonBuilder.registerTypeAdapterFactory(
+        new io.github.valeryverkhoturov.wbapi.analytics.model.TableItemAllOfPrice
+            .CustomTypeAdapterFactory());
+    gsonBuilder.registerTypeAdapterFactory(
         new io.github.valeryverkhoturov.wbapi.analytics.model.TableItemFloat
             .CustomTypeAdapterFactory());
-    gsonBuilder.registerTypeAdapterFactory(
-        new io.github.valeryverkhoturov.wbapi.analytics.model.TableItemItem
-            .CustomTypeAdapterFactory());
-    gsonBuilder.registerTypeAdapterFactory(
-        new io.github.valeryverkhoturov.wbapi.analytics.model.TableItemItemAllOfPrice
-            .CustomTypeAdapterFactory());
-    gsonBuilder.registerTypeAdapterFactory(
-        new io.github.valeryverkhoturov.wbapi.analytics.model.TableItemItemSt
-            .CustomTypeAdapterFactory());
-    gsonBuilder.registerTypeAdapterFactory(
-        new io.github.valeryverkhoturov.wbapi.analytics.model.TableItemItemStMetrics
-            .CustomTypeAdapterFactory());
-    gsonBuilder.registerTypeAdapterFactory(
-        new io.github.valeryverkhoturov.wbapi.analytics.model
-            .TableItemItemStMetricsAllOfCurrentPrice.CustomTypeAdapterFactory());
     gsonBuilder.registerTypeAdapterFactory(
         new io.github.valeryverkhoturov.wbapi.analytics.model.TableItemRequest
             .CustomTypeAdapterFactory());
     gsonBuilder.registerTypeAdapterFactory(
         new io.github.valeryverkhoturov.wbapi.analytics.model.TableItemResponse
+            .CustomTypeAdapterFactory());
+    gsonBuilder.registerTypeAdapterFactory(
+        new io.github.valeryverkhoturov.wbapi.analytics.model.TableItemSt
+            .CustomTypeAdapterFactory());
+    gsonBuilder.registerTypeAdapterFactory(
+        new io.github.valeryverkhoturov.wbapi.analytics.model.TableItemStMetrics
+            .CustomTypeAdapterFactory());
+    gsonBuilder.registerTypeAdapterFactory(
+        new io.github.valeryverkhoturov.wbapi.analytics.model.TableItemStMetricsAllOfCurrentPrice
             .CustomTypeAdapterFactory());
     gsonBuilder.registerTypeAdapterFactory(
         new io.github.valeryverkhoturov.wbapi.analytics.model.TableOfficeItem

@@ -118,13 +118,13 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
             // Comment (string) maxLength
             if (this.Comment != null && this.Comment.Length > 1000)
             {
-                yield return new ValidationResult("Invalid value for Comment, length must be less than 1000.", new[] { "Comment" });
+                yield return new ValidationResult("Invalid value for Comment, length must be less than 1000.", new [] { "Comment" });
             }
 
             // Comment (string) minLength
             if (this.Comment != null && this.Comment.Length < 10)
             {
-                yield return new ValidationResult("Invalid value for Comment, length must be greater than 10.", new[] { "Comment" });
+                yield return new ValidationResult("Invalid value for Comment, length must be greater than 10.", new [] { "Comment" });
             }
 
             yield break;

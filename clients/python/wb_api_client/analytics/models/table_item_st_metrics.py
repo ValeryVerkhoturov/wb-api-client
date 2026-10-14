@@ -39,14 +39,14 @@ from wb_api_client.analytics.models.table_common_metrics_office_missing_time imp
 from wb_api_client.analytics.models.table_common_metrics_sale_rate import (
     TableCommonMetricsSaleRate,
 )
-from wb_api_client.analytics.models.table_item_item_st_metrics_all_of_current_price import (
-    TableItemItemStMetricsAllOfCurrentPrice,
+from wb_api_client.analytics.models.table_item_st_metrics_all_of_current_price import (
+    TableItemStMetricsAllOfCurrentPrice,
 )
 from typing import Optional, Set
 from typing_extensions import Self
 
 
-class TableItemItemStMetrics(BaseModel):
+class TableItemStMetrics(BaseModel):
     """
     Метрики товара
     """  # noqa: E501
@@ -115,7 +115,7 @@ class TableItemItemStMetrics(BaseModel):
         description="Упущенные выкупы, сумма. Особые случаи:   1. Значение меньше `0` и не равно `-2` — значение не рассчитано   2. Значение `-2` — нулевое значение ",
         alias="lostBuyoutsSum",
     )
-    current_price: Optional[TableItemItemStMetricsAllOfCurrentPrice] = Field(
+    current_price: Optional[TableItemStMetricsAllOfCurrentPrice] = Field(
         default=None, alias="currentPrice"
     )
     availability: Optional[StrictStr] = Field(
@@ -176,7 +176,7 @@ class TableItemItemStMetrics(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of TableItemItemStMetrics from a JSON string"""
+        """Create an instance of TableItemStMetrics from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -219,7 +219,7 @@ class TableItemItemStMetrics(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of TableItemItemStMetrics from a dict"""
+        """Create an instance of TableItemStMetrics from a dict"""
         if obj is None:
             return None
 
@@ -270,9 +270,7 @@ class TableItemItemStMetrics(BaseModel):
                 "lostBuyoutsCount": obj.get("lostBuyoutsCount"),
                 "lostBuyoutsSum": obj.get("lostBuyoutsSum"),
                 "currentPrice": (
-                    TableItemItemStMetricsAllOfCurrentPrice.from_dict(
-                        obj["currentPrice"]
-                    )
+                    TableItemStMetricsAllOfCurrentPrice.from_dict(obj["currentPrice"])
                     if obj.get("currentPrice") is not None
                     else None
                 ),

@@ -23,7 +23,7 @@ from typing import Optional, Set
 from typing_extensions import Self
 
 
-class TableItemItemAllOfPrice(BaseModel):
+class TableItemAllOfPrice(BaseModel):
     """
     Цена
     """  # noqa: E501
@@ -57,7 +57,7 @@ class TableItemItemAllOfPrice(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of TableItemItemAllOfPrice from a JSON string"""
+        """Create an instance of TableItemAllOfPrice from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -81,7 +81,7 @@ class TableItemItemAllOfPrice(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of TableItemItemAllOfPrice from a dict"""
+        """Create an instance of TableItemAllOfPrice from a dict"""
         if obj is None:
             return None
 

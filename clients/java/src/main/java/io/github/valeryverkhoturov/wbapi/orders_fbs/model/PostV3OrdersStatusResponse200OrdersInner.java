@@ -46,6 +46,12 @@ public class PostV3OrdersStatusResponse200OrdersInner {
   @jakarta.annotation.Nullable
   private Boolean isCancellable;
 
+  public static final String SERIALIZED_NAME_IS_TRANSFERABLE = "isTransferable";
+
+  @SerializedName(SERIALIZED_NAME_IS_TRANSFERABLE)
+  @jakarta.annotation.Nullable
+  private Boolean isTransferable;
+
   /** Статус сборочного задания, установленный продавцом */
   @JsonAdapter(SupplierStatusEnum.Adapter.class)
   public enum SupplierStatusEnum {
@@ -224,6 +230,33 @@ public class PostV3OrdersStatusResponse200OrdersInner {
     this.isCancellable = isCancellable;
   }
 
+  public PostV3OrdersStatusResponse200OrdersInner isTransferable(
+      @jakarta.annotation.Nullable Boolean isTransferable) {
+    this.isTransferable = isTransferable;
+    return this;
+  }
+
+  /**
+   * Можно ли [перевести сборочное
+   * задание](./orders-fbs#tag/fbsSupplies/operation/patchV3PortalSuppliesSupplyOrdersTransfer) из
+   * доставки на сборку: - &#x60;false&#x60; — нет - &#x60;true&#x60; — да Сборочное задание можно
+   * перенести из доставки на сборку, если выполняются все условия: - сборочное задание находится в
+   * статусе &#x60;complete&#x60; — в доставке - поставка, в которую нужно перенести сборочное
+   * задание, не [передана в
+   * доставку](./orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdDeliver) - сборочное
+   * задание ранее не переносили
+   *
+   * @return isTransferable
+   */
+  @jakarta.annotation.Nullable
+  public Boolean getIsTransferable() {
+    return isTransferable;
+  }
+
+  public void setIsTransferable(@jakarta.annotation.Nullable Boolean isTransferable) {
+    this.isTransferable = isTransferable;
+  }
+
   public PostV3OrdersStatusResponse200OrdersInner supplierStatus(
       @jakarta.annotation.Nullable SupplierStatusEnum supplierStatus) {
     this.supplierStatus = supplierStatus;
@@ -278,13 +311,15 @@ public class PostV3OrdersStatusResponse200OrdersInner {
         && Objects.equals(
             this.isCancellable, postV3OrdersStatusResponse200OrdersInner.isCancellable)
         && Objects.equals(
+            this.isTransferable, postV3OrdersStatusResponse200OrdersInner.isTransferable)
+        && Objects.equals(
             this.supplierStatus, postV3OrdersStatusResponse200OrdersInner.supplierStatus)
         && Objects.equals(this.wbStatus, postV3OrdersStatusResponse200OrdersInner.wbStatus);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, isCancellable, supplierStatus, wbStatus);
+    return Objects.hash(id, isCancellable, isTransferable, supplierStatus, wbStatus);
   }
 
   @Override
@@ -293,6 +328,7 @@ public class PostV3OrdersStatusResponse200OrdersInner {
     sb.append("class PostV3OrdersStatusResponse200OrdersInner {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    isCancellable: ").append(toIndentedString(isCancellable)).append("\n");
+    sb.append("    isTransferable: ").append(toIndentedString(isTransferable)).append("\n");
     sb.append("    supplierStatus: ").append(toIndentedString(supplierStatus)).append("\n");
     sb.append("    wbStatus: ").append(toIndentedString(wbStatus)).append("\n");
     sb.append("}");
@@ -317,6 +353,7 @@ public class PostV3OrdersStatusResponse200OrdersInner {
     openapiFields = new HashSet<String>();
     openapiFields.add("id");
     openapiFields.add("isCancellable");
+    openapiFields.add("isTransferable");
     openapiFields.add("supplierStatus");
     openapiFields.add("wbStatus");
 

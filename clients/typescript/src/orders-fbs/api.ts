@@ -1316,6 +1316,25 @@ export interface PatchV3FbsSuppliesShippingMethodRequest {
 /**
  *
  * @export
+ * @interface PatchV3FbsSuppliesSupplyIdOrdersTransferRequest
+ */
+export interface PatchV3FbsSuppliesSupplyIdOrdersTransferRequest {
+  /**
+   * Список ID сборочных заданий, которые нужно перевести на сборку
+   * @type {Array<number>}
+   * @memberof PatchV3FbsSuppliesSupplyIdOrdersTransferRequest
+   */
+  orderIds: Array<number>;
+  /**
+   * ID поставки, в которую будут перемещены сборочные задания. Поставка не должна быть в доставке
+   * @type {string}
+   * @memberof PatchV3FbsSuppliesSupplyIdOrdersTransferRequest
+   */
+  newSupplyId: string;
+}
+/**
+ *
+ * @export
  * @interface PatchV3SuppliesSupplyIdOrdersRequest
  */
 export interface PatchV3SuppliesSupplyIdOrdersRequest {
@@ -1547,6 +1566,12 @@ export interface PostV3OrdersStatusResponse200OrdersInner {
    * @memberof PostV3OrdersStatusResponse200OrdersInner
    */
   isCancellable?: boolean;
+  /**
+   * Можно ли [перевести сборочное задание](./orders-fbs#tag/fbsSupplies/operation/patchV3PortalSuppliesSupplyOrdersTransfer) из доставки на сборку: - `false` — нет - `true` — да  Сборочное задание можно перенести из доставки на сборку, если выполняются все условия:   - сборочное задание находится в статусе `complete` — в доставке   - поставка, в которую нужно перенести сборочное задание, не [передана в доставку](./orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdDeliver)   - сборочное задание ранее не переносили
+   * @type {boolean}
+   * @memberof PostV3OrdersStatusResponse200OrdersInner
+   */
+  isTransferable?: boolean;
   /**
    * Статус сборочного задания, установленный продавцом
    * @type {string}
@@ -2986,6 +3011,75 @@ export interface V3SupplyOrderIDsAPI {
    */
   orderIds?: Array<number> | null;
 }
+/**
+ *
+ * @export
+ * @interface V3TransferOrderToAssembly
+ */
+export interface V3TransferOrderToAssembly {
+  /**
+   *
+   * @type {V3TransferOrderToAssemblyError}
+   * @memberof V3TransferOrderToAssembly
+   */
+  error?: V3TransferOrderToAssemblyError;
+  /**
+   * Успешна ли обработка запроса. Может быть только `true`
+   * @type {boolean}
+   * @memberof V3TransferOrderToAssembly
+   */
+  success?: boolean;
+  /**
+   * Новый ID стикера
+   * @type {number}
+   * @memberof V3TransferOrderToAssembly
+   */
+  newStickerId?: number;
+  /**
+   * Старый ID стикера
+   * @type {number}
+   * @memberof V3TransferOrderToAssembly
+   */
+  oldStickerId?: number;
+  /**
+   * ID сборочного задания
+   * @type {number}
+   * @memberof V3TransferOrderToAssembly
+   */
+  orderId?: number;
+}
+/**
+ * Детали ошибки
+ * @export
+ * @interface V3TransferOrderToAssemblyError
+ */
+export interface V3TransferOrderToAssemblyError {
+  /**
+   * Детали ошибки
+   * @type {string}
+   * @memberof V3TransferOrderToAssemblyError
+   */
+  detail?: string;
+  /**
+   * Внутренний код ошибки
+   * @type {number}
+   * @memberof V3TransferOrderToAssemblyError
+   */
+  code?: number;
+}
+/**
+ *
+ * @export
+ * @interface V3TransferOrdersToAssemblyResponse
+ */
+export interface V3TransferOrdersToAssemblyResponse {
+  /**
+   *
+   * @type {Array<V3TransferOrderToAssembly>}
+   * @memberof V3TransferOrdersToAssemblyResponse
+   */
+  transferredOrders?: Array<V3TransferOrderToAssembly>;
+}
 
 /**
  * OrdersFbsApi - axios parameter creator
@@ -4228,6 +4322,76 @@ export const OrdersFbsApiAxiosParamCreator = function (
       };
     },
     /**
+     * Метод переводит сборочные задания из статуса `complete` — в доставке в статус `confirm` — на сборке.  Используйте метод, чтобы переместить сборочное задание из закрытой поставки в открытую.  Сборочное задание можно перевести из доставки на сборку, если выполнены все условия: - сборочное задание находится в статусе `complete` — в доставке - поставка, в которую нужно перенести сборочное задание, [не передана в доставку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdDeliver) - сборочное задание ранее не переносили из доставки на сборку Чтобы проверить, можно ли перевести сборочное задание из доставки на сборку, используйте [статусы сборочных заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus), поле `isTransferable`.  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/patch-api-marketplace-v3-fbs-supplies-supplyid-orders-transfer
+     * @summary Перевести сборочные задания из доставки на сборку
+     * @param {string} supplyId ID поставки, из которой будут перемещены заказы
+     * @param {PatchV3FbsSuppliesSupplyIdOrdersTransferRequest} patchV3FbsSuppliesSupplyIdOrdersTransferRequest
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    patchV3FbsSuppliesSupplyIdOrdersTransfer: async (
+      supplyId: string,
+      patchV3FbsSuppliesSupplyIdOrdersTransferRequest: PatchV3FbsSuppliesSupplyIdOrdersTransferRequest,
+      options: RawAxiosRequestConfig = {},
+    ): Promise<RequestArgs> => {
+      // verify required parameter 'supplyId' is not null or undefined
+      assertParamExists(
+        "patchV3FbsSuppliesSupplyIdOrdersTransfer",
+        "supplyId",
+        supplyId,
+      );
+      // verify required parameter 'patchV3FbsSuppliesSupplyIdOrdersTransferRequest' is not null or undefined
+      assertParamExists(
+        "patchV3FbsSuppliesSupplyIdOrdersTransfer",
+        "patchV3FbsSuppliesSupplyIdOrdersTransferRequest",
+        patchV3FbsSuppliesSupplyIdOrdersTransferRequest,
+      );
+      const localVarPath =
+        `/api/marketplace/v3/fbs/supplies/{supplyId}/orders/transfer`.replace(
+          `{${"supplyId"}}`,
+          encodeURIComponent(String(supplyId)),
+        );
+      // use dummy base URL string because the URL constructor only accepts absolute URLs.
+      const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+
+      const localVarRequestOptions = {
+        method: "PATCH",
+        ...baseOptions,
+        ...options,
+      };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      // authentication BearerAuth required
+      // http bearer authentication required
+      await setBearerAuthToObject(localVarHeaderParameter, configuration);
+
+      localVarHeaderParameter["Content-Type"] = "application/json";
+
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
+      let headersFromBaseOptions =
+        baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = {
+        ...localVarHeaderParameter,
+        ...headersFromBaseOptions,
+        ...options.headers,
+      };
+      localVarRequestOptions.data = serializeDataIfNeeded(
+        patchV3FbsSuppliesSupplyIdOrdersTransferRequest,
+        localVarRequestOptions,
+        configuration,
+      );
+
+      return {
+        url: toPathString(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
      * Метод отменяет [сборочное задание](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) и переводит в [статус](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `cancel` — отменено продавцом.  Сборочное задание можно отменить до его передачи Wildberries. Чтобы проверить, можно ли отменить сборочное задание, используйте метод [POST /api/v3/orders/status](https://dev.wildberries.ru/docs/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus), поле `isCancellable`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов.  ---  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/patch-api-v3-orders-orderid-cancel
      * @summary Отменить сборочное задание
      * @param {number} orderId ID сборочного задания
@@ -4620,7 +4784,7 @@ export const OrdersFbsApiAxiosParamCreator = function (
       };
     },
     /**
-     * Метод возвращает статусы [сборочных заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) по их ID.  `supplierStatus` — статус сборочного задания. Триггер его изменения — действие самого продавца. Возможные значения `supplierStatus`: | Статус | Описание | Как перевести сборочное задание в данный статус | |-------|----------------------|--------------------------------------| | `new` | \\*\\*Новое сборочное задание\\*\\* | | | `confirm` | \\*\\*На сборке\\*\\* |[Добавить сборочное задание к поставке](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdOrders) | `complete` | \\*\\*В доставке\\*\\* | [Передать поставку в доставку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdDeliver) | | `cancel` | \\*\\*Отменено продавцом\\*\\* | [Отменить сборочное задание](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/patchV3OrdersOrderIdCancel)| | `cancel\\_carrier` | \\*\\*Отменено перевозчиком\\*\\* Только для трансграничных поставок | Переводится перевозчиком |  `wbStatus` — статус системы Wildberries. Возможные значения `wbStatus`: - `waiting` — сборочное задание в работе - `sorted` — сборочное задание отсортировано - `sold` — заказ получен покупателем - `canceled` — отмена сборочного задания - `canceled\\_by\\_client` — покупатель отменил заказ при получении - `declined\\_by\\_client` — покупатель отменил заказ. Отмена доступна покупателю в первый час с момента заказа, если заказ не переведён на сборку - `defect` — отмена заказа по причине брака - `ready\\_for\\_pickup` — заказ прибыл на пункт выдачи заказов (ПВЗ) - `accepted\\_by\\_carrier` — продавец передал заказ в службу доставки в своей стране - `sent\\_to\\_carrier` — заказ отправлен на склад службы доставки в стране продавца - `canceled\\_by\\_carrier` — заказ отменён перевозчиком. Только для трансграничных поставок  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов.  ---  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-v3-orders-status
+     * Метод возвращает статусы [сборочных заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) по их ID.  `supplierStatus` — статус сборочного задания. Триггер его изменения — действие самого продавца. Возможные значения `supplierStatus`: | Статус | Описание | Как перевести сборочное задание в данный статус | |-------|----------------------|--------------------------------------| | `new` | \\*\\*Новое сборочное задание\\*\\* | | | `confirm` | \\*\\*На сборке\\*\\* |[Добавить сборочное задание к поставке](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdOrders)  [Перевести сборочные задания из доставки на сборку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesSupplyIdOrdersTransfer)| | `complete` | \\*\\*В доставке\\*\\* | [Передать поставку в доставку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdDeliver) | | `cancel` | \\*\\*Отменено продавцом\\*\\* | [Отменить сборочное задание](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/patchV3OrdersOrderIdCancel)| | `cancel\\_carrier` | \\*\\*Отменено перевозчиком\\*\\* Только для трансграничных поставок | Переводится перевозчиком |  `wbStatus` — статус системы Wildberries. Возможные значения `wbStatus`: - `waiting` — сборочное задание в работе - `sorted` — сборочное задание отсортировано - `sold` — заказ получен покупателем - `canceled` — отмена сборочного задания - `canceled\\_by\\_client` — покупатель отменил заказ при получении - `declined\\_by\\_client` — покупатель отменил заказ. Отмена доступна покупателю в первый час с момента заказа, если заказ не переведён на сборку - `defect` — отмена заказа по причине брака - `ready\\_for\\_pickup` — заказ прибыл на пункт выдачи заказов (ПВЗ) - `accepted\\_by\\_carrier` — продавец передал заказ в службу доставки в своей стране - `sent\\_to\\_carrier` — заказ отправлен на склад службы доставки в стране продавца - `canceled\\_by\\_carrier` — заказ отменён перевозчиком. Только для трансграничных поставок  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов.  ---  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-v3-orders-status
      * @summary Получить статусы сборочных заданий
      * @param {PostV3OrdersStatusRequest} [postV3OrdersStatusRequest]
      * @param {*} [options] Override http request option.
@@ -6399,6 +6563,43 @@ export const OrdersFbsApiFp = function (configuration?: Configuration) {
         )(axios, localVarOperationServerBasePath || basePath);
     },
     /**
+     * Метод переводит сборочные задания из статуса `complete` — в доставке в статус `confirm` — на сборке.  Используйте метод, чтобы переместить сборочное задание из закрытой поставки в открытую.  Сборочное задание можно перевести из доставки на сборку, если выполнены все условия: - сборочное задание находится в статусе `complete` — в доставке - поставка, в которую нужно перенести сборочное задание, [не передана в доставку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdDeliver) - сборочное задание ранее не переносили из доставки на сборку Чтобы проверить, можно ли перевести сборочное задание из доставки на сборку, используйте [статусы сборочных заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus), поле `isTransferable`.  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/patch-api-marketplace-v3-fbs-supplies-supplyid-orders-transfer
+     * @summary Перевести сборочные задания из доставки на сборку
+     * @param {string} supplyId ID поставки, из которой будут перемещены заказы
+     * @param {PatchV3FbsSuppliesSupplyIdOrdersTransferRequest} patchV3FbsSuppliesSupplyIdOrdersTransferRequest
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async patchV3FbsSuppliesSupplyIdOrdersTransfer(
+      supplyId: string,
+      patchV3FbsSuppliesSupplyIdOrdersTransferRequest: PatchV3FbsSuppliesSupplyIdOrdersTransferRequest,
+      options?: RawAxiosRequestConfig,
+    ): Promise<
+      (
+        axios?: AxiosInstance,
+        basePath?: string,
+      ) => AxiosPromise<V3TransferOrdersToAssemblyResponse>
+    > {
+      const localVarAxiosArgs =
+        await localVarAxiosParamCreator.patchV3FbsSuppliesSupplyIdOrdersTransfer(
+          supplyId,
+          patchV3FbsSuppliesSupplyIdOrdersTransferRequest,
+          options,
+        );
+      const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+      const localVarOperationServerBasePath =
+        operationServerMap[
+          "OrdersFbsApi.patchV3FbsSuppliesSupplyIdOrdersTransfer"
+        ]?.[localVarOperationServerIndex]?.url;
+      return (axios, basePath) =>
+        createRequestFunction(
+          localVarAxiosArgs,
+          globalAxios,
+          BASE_PATH,
+          configuration,
+        )(axios, localVarOperationServerBasePath || basePath);
+    },
+    /**
      * Метод отменяет [сборочное задание](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) и переводит в [статус](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `cancel` — отменено продавцом.  Сборочное задание можно отменить до его передачи Wildberries. Чтобы проверить, можно ли отменить сборочное задание, используйте метод [POST /api/v3/orders/status](https://dev.wildberries.ru/docs/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus), поле `isCancellable`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов.  ---  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/patch-api-v3-orders-orderid-cancel
      * @summary Отменить сборочное задание
      * @param {number} orderId ID сборочного задания
@@ -6631,7 +6832,7 @@ export const OrdersFbsApiFp = function (configuration?: Configuration) {
         )(axios, localVarOperationServerBasePath || basePath);
     },
     /**
-     * Метод возвращает статусы [сборочных заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) по их ID.  `supplierStatus` — статус сборочного задания. Триггер его изменения — действие самого продавца. Возможные значения `supplierStatus`: | Статус | Описание | Как перевести сборочное задание в данный статус | |-------|----------------------|--------------------------------------| | `new` | \\*\\*Новое сборочное задание\\*\\* | | | `confirm` | \\*\\*На сборке\\*\\* |[Добавить сборочное задание к поставке](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdOrders) | `complete` | \\*\\*В доставке\\*\\* | [Передать поставку в доставку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdDeliver) | | `cancel` | \\*\\*Отменено продавцом\\*\\* | [Отменить сборочное задание](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/patchV3OrdersOrderIdCancel)| | `cancel\\_carrier` | \\*\\*Отменено перевозчиком\\*\\* Только для трансграничных поставок | Переводится перевозчиком |  `wbStatus` — статус системы Wildberries. Возможные значения `wbStatus`: - `waiting` — сборочное задание в работе - `sorted` — сборочное задание отсортировано - `sold` — заказ получен покупателем - `canceled` — отмена сборочного задания - `canceled\\_by\\_client` — покупатель отменил заказ при получении - `declined\\_by\\_client` — покупатель отменил заказ. Отмена доступна покупателю в первый час с момента заказа, если заказ не переведён на сборку - `defect` — отмена заказа по причине брака - `ready\\_for\\_pickup` — заказ прибыл на пункт выдачи заказов (ПВЗ) - `accepted\\_by\\_carrier` — продавец передал заказ в службу доставки в своей стране - `sent\\_to\\_carrier` — заказ отправлен на склад службы доставки в стране продавца - `canceled\\_by\\_carrier` — заказ отменён перевозчиком. Только для трансграничных поставок  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов.  ---  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-v3-orders-status
+     * Метод возвращает статусы [сборочных заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) по их ID.  `supplierStatus` — статус сборочного задания. Триггер его изменения — действие самого продавца. Возможные значения `supplierStatus`: | Статус | Описание | Как перевести сборочное задание в данный статус | |-------|----------------------|--------------------------------------| | `new` | \\*\\*Новое сборочное задание\\*\\* | | | `confirm` | \\*\\*На сборке\\*\\* |[Добавить сборочное задание к поставке](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdOrders)  [Перевести сборочные задания из доставки на сборку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesSupplyIdOrdersTransfer)| | `complete` | \\*\\*В доставке\\*\\* | [Передать поставку в доставку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdDeliver) | | `cancel` | \\*\\*Отменено продавцом\\*\\* | [Отменить сборочное задание](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/patchV3OrdersOrderIdCancel)| | `cancel\\_carrier` | \\*\\*Отменено перевозчиком\\*\\* Только для трансграничных поставок | Переводится перевозчиком |  `wbStatus` — статус системы Wildberries. Возможные значения `wbStatus`: - `waiting` — сборочное задание в работе - `sorted` — сборочное задание отсортировано - `sold` — заказ получен покупателем - `canceled` — отмена сборочного задания - `canceled\\_by\\_client` — покупатель отменил заказ при получении - `declined\\_by\\_client` — покупатель отменил заказ. Отмена доступна покупателю в первый час с момента заказа, если заказ не переведён на сборку - `defect` — отмена заказа по причине брака - `ready\\_for\\_pickup` — заказ прибыл на пункт выдачи заказов (ПВЗ) - `accepted\\_by\\_carrier` — продавец передал заказ в службу доставки в своей стране - `sent\\_to\\_carrier` — заказ отправлен на склад службы доставки в стране продавца - `canceled\\_by\\_carrier` — заказ отменён перевозчиком. Только для трансграничных поставок  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов.  ---  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-v3-orders-status
      * @summary Получить статусы сборочных заданий
      * @param {PostV3OrdersStatusRequest} [postV3OrdersStatusRequest]
      * @param {*} [options] Override http request option.
@@ -7577,6 +7778,27 @@ export const OrdersFbsApiFactory = function (
         .then((request) => request(axios, basePath));
     },
     /**
+     * Метод переводит сборочные задания из статуса `complete` — в доставке в статус `confirm` — на сборке.  Используйте метод, чтобы переместить сборочное задание из закрытой поставки в открытую.  Сборочное задание можно перевести из доставки на сборку, если выполнены все условия: - сборочное задание находится в статусе `complete` — в доставке - поставка, в которую нужно перенести сборочное задание, [не передана в доставку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdDeliver) - сборочное задание ранее не переносили из доставки на сборку Чтобы проверить, можно ли перевести сборочное задание из доставки на сборку, используйте [статусы сборочных заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus), поле `isTransferable`.  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/patch-api-marketplace-v3-fbs-supplies-supplyid-orders-transfer
+     * @summary Перевести сборочные задания из доставки на сборку
+     * @param {string} supplyId ID поставки, из которой будут перемещены заказы
+     * @param {PatchV3FbsSuppliesSupplyIdOrdersTransferRequest} patchV3FbsSuppliesSupplyIdOrdersTransferRequest
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    patchV3FbsSuppliesSupplyIdOrdersTransfer(
+      supplyId: string,
+      patchV3FbsSuppliesSupplyIdOrdersTransferRequest: PatchV3FbsSuppliesSupplyIdOrdersTransferRequest,
+      options?: RawAxiosRequestConfig,
+    ): AxiosPromise<V3TransferOrdersToAssemblyResponse> {
+      return localVarFp
+        .patchV3FbsSuppliesSupplyIdOrdersTransfer(
+          supplyId,
+          patchV3FbsSuppliesSupplyIdOrdersTransferRequest,
+          options,
+        )
+        .then((request) => request(axios, basePath));
+    },
+    /**
      * Метод отменяет [сборочное задание](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) и переводит в [статус](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `cancel` — отменено продавцом.  Сборочное задание можно отменить до его передачи Wildberries. Чтобы проверить, можно ли отменить сборочное задание, используйте метод [POST /api/v3/orders/status](https://dev.wildberries.ru/docs/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus), поле `isCancellable`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов.  ---  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/patch-api-v3-orders-orderid-cancel
      * @summary Отменить сборочное задание
      * @param {number} orderId ID сборочного задания
@@ -7691,7 +7913,7 @@ export const OrdersFbsApiFactory = function (
         .then((request) => request(axios, basePath));
     },
     /**
-     * Метод возвращает статусы [сборочных заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) по их ID.  `supplierStatus` — статус сборочного задания. Триггер его изменения — действие самого продавца. Возможные значения `supplierStatus`: | Статус | Описание | Как перевести сборочное задание в данный статус | |-------|----------------------|--------------------------------------| | `new` | \\*\\*Новое сборочное задание\\*\\* | | | `confirm` | \\*\\*На сборке\\*\\* |[Добавить сборочное задание к поставке](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdOrders) | `complete` | \\*\\*В доставке\\*\\* | [Передать поставку в доставку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdDeliver) | | `cancel` | \\*\\*Отменено продавцом\\*\\* | [Отменить сборочное задание](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/patchV3OrdersOrderIdCancel)| | `cancel\\_carrier` | \\*\\*Отменено перевозчиком\\*\\* Только для трансграничных поставок | Переводится перевозчиком |  `wbStatus` — статус системы Wildberries. Возможные значения `wbStatus`: - `waiting` — сборочное задание в работе - `sorted` — сборочное задание отсортировано - `sold` — заказ получен покупателем - `canceled` — отмена сборочного задания - `canceled\\_by\\_client` — покупатель отменил заказ при получении - `declined\\_by\\_client` — покупатель отменил заказ. Отмена доступна покупателю в первый час с момента заказа, если заказ не переведён на сборку - `defect` — отмена заказа по причине брака - `ready\\_for\\_pickup` — заказ прибыл на пункт выдачи заказов (ПВЗ) - `accepted\\_by\\_carrier` — продавец передал заказ в службу доставки в своей стране - `sent\\_to\\_carrier` — заказ отправлен на склад службы доставки в стране продавца - `canceled\\_by\\_carrier` — заказ отменён перевозчиком. Только для трансграничных поставок  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов.  ---  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-v3-orders-status
+     * Метод возвращает статусы [сборочных заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) по их ID.  `supplierStatus` — статус сборочного задания. Триггер его изменения — действие самого продавца. Возможные значения `supplierStatus`: | Статус | Описание | Как перевести сборочное задание в данный статус | |-------|----------------------|--------------------------------------| | `new` | \\*\\*Новое сборочное задание\\*\\* | | | `confirm` | \\*\\*На сборке\\*\\* |[Добавить сборочное задание к поставке](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdOrders)  [Перевести сборочные задания из доставки на сборку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesSupplyIdOrdersTransfer)| | `complete` | \\*\\*В доставке\\*\\* | [Передать поставку в доставку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdDeliver) | | `cancel` | \\*\\*Отменено продавцом\\*\\* | [Отменить сборочное задание](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/patchV3OrdersOrderIdCancel)| | `cancel\\_carrier` | \\*\\*Отменено перевозчиком\\*\\* Только для трансграничных поставок | Переводится перевозчиком |  `wbStatus` — статус системы Wildberries. Возможные значения `wbStatus`: - `waiting` — сборочное задание в работе - `sorted` — сборочное задание отсортировано - `sold` — заказ получен покупателем - `canceled` — отмена сборочного задания - `canceled\\_by\\_client` — покупатель отменил заказ при получении - `declined\\_by\\_client` — покупатель отменил заказ. Отмена доступна покупателю в первый час с момента заказа, если заказ не переведён на сборку - `defect` — отмена заказа по причине брака - `ready\\_for\\_pickup` — заказ прибыл на пункт выдачи заказов (ПВЗ) - `accepted\\_by\\_carrier` — продавец передал заказ в службу доставки в своей стране - `sent\\_to\\_carrier` — заказ отправлен на склад службы доставки в стране продавца - `canceled\\_by\\_carrier` — заказ отменён перевозчиком. Только для трансграничных поставок  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов.  ---  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-v3-orders-status
      * @summary Получить статусы сборочных заданий
      * @param {PostV3OrdersStatusRequest} [postV3OrdersStatusRequest]
      * @param {*} [options] Override http request option.
@@ -8323,6 +8545,21 @@ export interface OrdersFbsApiInterface {
   ): AxiosPromise<UpdateSuppliesShippingMethodResponse>;
 
   /**
+   * Метод переводит сборочные задания из статуса `complete` — в доставке в статус `confirm` — на сборке.  Используйте метод, чтобы переместить сборочное задание из закрытой поставки в открытую.  Сборочное задание можно перевести из доставки на сборку, если выполнены все условия: - сборочное задание находится в статусе `complete` — в доставке - поставка, в которую нужно перенести сборочное задание, [не передана в доставку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdDeliver) - сборочное задание ранее не переносили из доставки на сборку Чтобы проверить, можно ли перевести сборочное задание из доставки на сборку, используйте [статусы сборочных заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus), поле `isTransferable`.  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/patch-api-marketplace-v3-fbs-supplies-supplyid-orders-transfer
+   * @summary Перевести сборочные задания из доставки на сборку
+   * @param {string} supplyId ID поставки, из которой будут перемещены заказы
+   * @param {PatchV3FbsSuppliesSupplyIdOrdersTransferRequest} patchV3FbsSuppliesSupplyIdOrdersTransferRequest
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof OrdersFbsApiInterface
+   */
+  patchV3FbsSuppliesSupplyIdOrdersTransfer(
+    supplyId: string,
+    patchV3FbsSuppliesSupplyIdOrdersTransferRequest: PatchV3FbsSuppliesSupplyIdOrdersTransferRequest,
+    options?: RawAxiosRequestConfig,
+  ): AxiosPromise<V3TransferOrdersToAssemblyResponse>;
+
+  /**
    * Метод отменяет [сборочное задание](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) и переводит в [статус](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `cancel` — отменено продавцом.  Сборочное задание можно отменить до его передачи Wildberries. Чтобы проверить, можно ли отменить сборочное задание, используйте метод [POST /api/v3/orders/status](https://dev.wildberries.ru/docs/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus), поле `isCancellable`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов.  ---  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/patch-api-v3-orders-orderid-cancel
    * @summary Отменить сборочное задание
    * @param {number} orderId ID сборочного задания
@@ -8416,7 +8653,7 @@ export interface OrdersFbsApiInterface {
   ): AxiosPromise<V3OrdersMetaAPI>;
 
   /**
-   * Метод возвращает статусы [сборочных заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) по их ID.  `supplierStatus` — статус сборочного задания. Триггер его изменения — действие самого продавца. Возможные значения `supplierStatus`: | Статус | Описание | Как перевести сборочное задание в данный статус | |-------|----------------------|--------------------------------------| | `new` | \\*\\*Новое сборочное задание\\*\\* | | | `confirm` | \\*\\*На сборке\\*\\* |[Добавить сборочное задание к поставке](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdOrders) | `complete` | \\*\\*В доставке\\*\\* | [Передать поставку в доставку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdDeliver) | | `cancel` | \\*\\*Отменено продавцом\\*\\* | [Отменить сборочное задание](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/patchV3OrdersOrderIdCancel)| | `cancel\\_carrier` | \\*\\*Отменено перевозчиком\\*\\* Только для трансграничных поставок | Переводится перевозчиком |  `wbStatus` — статус системы Wildberries. Возможные значения `wbStatus`: - `waiting` — сборочное задание в работе - `sorted` — сборочное задание отсортировано - `sold` — заказ получен покупателем - `canceled` — отмена сборочного задания - `canceled\\_by\\_client` — покупатель отменил заказ при получении - `declined\\_by\\_client` — покупатель отменил заказ. Отмена доступна покупателю в первый час с момента заказа, если заказ не переведён на сборку - `defect` — отмена заказа по причине брака - `ready\\_for\\_pickup` — заказ прибыл на пункт выдачи заказов (ПВЗ) - `accepted\\_by\\_carrier` — продавец передал заказ в службу доставки в своей стране - `sent\\_to\\_carrier` — заказ отправлен на склад службы доставки в стране продавца - `canceled\\_by\\_carrier` — заказ отменён перевозчиком. Только для трансграничных поставок  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов.  ---  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-v3-orders-status
+   * Метод возвращает статусы [сборочных заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) по их ID.  `supplierStatus` — статус сборочного задания. Триггер его изменения — действие самого продавца. Возможные значения `supplierStatus`: | Статус | Описание | Как перевести сборочное задание в данный статус | |-------|----------------------|--------------------------------------| | `new` | \\*\\*Новое сборочное задание\\*\\* | | | `confirm` | \\*\\*На сборке\\*\\* |[Добавить сборочное задание к поставке](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdOrders)  [Перевести сборочные задания из доставки на сборку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesSupplyIdOrdersTransfer)| | `complete` | \\*\\*В доставке\\*\\* | [Передать поставку в доставку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdDeliver) | | `cancel` | \\*\\*Отменено продавцом\\*\\* | [Отменить сборочное задание](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/patchV3OrdersOrderIdCancel)| | `cancel\\_carrier` | \\*\\*Отменено перевозчиком\\*\\* Только для трансграничных поставок | Переводится перевозчиком |  `wbStatus` — статус системы Wildberries. Возможные значения `wbStatus`: - `waiting` — сборочное задание в работе - `sorted` — сборочное задание отсортировано - `sold` — заказ получен покупателем - `canceled` — отмена сборочного задания - `canceled\\_by\\_client` — покупатель отменил заказ при получении - `declined\\_by\\_client` — покупатель отменил заказ. Отмена доступна покупателю в первый час с момента заказа, если заказ не переведён на сборку - `defect` — отмена заказа по причине брака - `ready\\_for\\_pickup` — заказ прибыл на пункт выдачи заказов (ПВЗ) - `accepted\\_by\\_carrier` — продавец передал заказ в службу доставки в своей стране - `sent\\_to\\_carrier` — заказ отправлен на склад службы доставки в стране продавца - `canceled\\_by\\_carrier` — заказ отменён перевозчиком. Только для трансграничных поставок  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов.  ---  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-v3-orders-status
    * @summary Получить статусы сборочных заданий
    * @param {PostV3OrdersStatusRequest} [postV3OrdersStatusRequest]
    * @param {*} [options] Override http request option.
@@ -9061,6 +9298,29 @@ export class OrdersFbsApi extends BaseAPI implements OrdersFbsApiInterface {
   }
 
   /**
+   * Метод переводит сборочные задания из статуса `complete` — в доставке в статус `confirm` — на сборке.  Используйте метод, чтобы переместить сборочное задание из закрытой поставки в открытую.  Сборочное задание можно перевести из доставки на сборку, если выполнены все условия: - сборочное задание находится в статусе `complete` — в доставке - поставка, в которую нужно перенести сборочное задание, [не передана в доставку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdDeliver) - сборочное задание ранее не переносили из доставки на сборку Чтобы проверить, можно ли перевести сборочное задание из доставки на сборку, используйте [статусы сборочных заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus), поле `isTransferable`.  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/patch-api-marketplace-v3-fbs-supplies-supplyid-orders-transfer
+   * @summary Перевести сборочные задания из доставки на сборку
+   * @param {string} supplyId ID поставки, из которой будут перемещены заказы
+   * @param {PatchV3FbsSuppliesSupplyIdOrdersTransferRequest} patchV3FbsSuppliesSupplyIdOrdersTransferRequest
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof OrdersFbsApi
+   */
+  public patchV3FbsSuppliesSupplyIdOrdersTransfer(
+    supplyId: string,
+    patchV3FbsSuppliesSupplyIdOrdersTransferRequest: PatchV3FbsSuppliesSupplyIdOrdersTransferRequest,
+    options?: RawAxiosRequestConfig,
+  ) {
+    return OrdersFbsApiFp(this.configuration)
+      .patchV3FbsSuppliesSupplyIdOrdersTransfer(
+        supplyId,
+        patchV3FbsSuppliesSupplyIdOrdersTransferRequest,
+        options,
+      )
+      .then((request) => request(this.axios, this.basePath));
+  }
+
+  /**
    * Метод отменяет [сборочное задание](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) и переводит в [статус](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `cancel` — отменено продавцом.  Сборочное задание можно отменить до его передачи Wildberries. Чтобы проверить, можно ли отменить сборочное задание, используйте метод [POST /api/v3/orders/status](https://dev.wildberries.ru/docs/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus), поле `isCancellable`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов.  ---  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/patch-api-v3-orders-orderid-cancel
    * @summary Отменить сборочное задание
    * @param {number} orderId ID сборочного задания
@@ -9189,7 +9449,7 @@ export class OrdersFbsApi extends BaseAPI implements OrdersFbsApiInterface {
   }
 
   /**
-   * Метод возвращает статусы [сборочных заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) по их ID.  `supplierStatus` — статус сборочного задания. Триггер его изменения — действие самого продавца. Возможные значения `supplierStatus`: | Статус | Описание | Как перевести сборочное задание в данный статус | |-------|----------------------|--------------------------------------| | `new` | \\*\\*Новое сборочное задание\\*\\* | | | `confirm` | \\*\\*На сборке\\*\\* |[Добавить сборочное задание к поставке](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdOrders) | `complete` | \\*\\*В доставке\\*\\* | [Передать поставку в доставку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdDeliver) | | `cancel` | \\*\\*Отменено продавцом\\*\\* | [Отменить сборочное задание](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/patchV3OrdersOrderIdCancel)| | `cancel\\_carrier` | \\*\\*Отменено перевозчиком\\*\\* Только для трансграничных поставок | Переводится перевозчиком |  `wbStatus` — статус системы Wildberries. Возможные значения `wbStatus`: - `waiting` — сборочное задание в работе - `sorted` — сборочное задание отсортировано - `sold` — заказ получен покупателем - `canceled` — отмена сборочного задания - `canceled\\_by\\_client` — покупатель отменил заказ при получении - `declined\\_by\\_client` — покупатель отменил заказ. Отмена доступна покупателю в первый час с момента заказа, если заказ не переведён на сборку - `defect` — отмена заказа по причине брака - `ready\\_for\\_pickup` — заказ прибыл на пункт выдачи заказов (ПВЗ) - `accepted\\_by\\_carrier` — продавец передал заказ в службу доставки в своей стране - `sent\\_to\\_carrier` — заказ отправлен на склад службы доставки в стране продавца - `canceled\\_by\\_carrier` — заказ отменён перевозчиком. Только для трансграничных поставок  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов.  ---  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-v3-orders-status
+   * Метод возвращает статусы [сборочных заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) по их ID.  `supplierStatus` — статус сборочного задания. Триггер его изменения — действие самого продавца. Возможные значения `supplierStatus`: | Статус | Описание | Как перевести сборочное задание в данный статус | |-------|----------------------|--------------------------------------| | `new` | \\*\\*Новое сборочное задание\\*\\* | | | `confirm` | \\*\\*На сборке\\*\\* |[Добавить сборочное задание к поставке](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdOrders)  [Перевести сборочные задания из доставки на сборку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesSupplyIdOrdersTransfer)| | `complete` | \\*\\*В доставке\\*\\* | [Передать поставку в доставку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdDeliver) | | `cancel` | \\*\\*Отменено продавцом\\*\\* | [Отменить сборочное задание](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/patchV3OrdersOrderIdCancel)| | `cancel\\_carrier` | \\*\\*Отменено перевозчиком\\*\\* Только для трансграничных поставок | Переводится перевозчиком |  `wbStatus` — статус системы Wildberries. Возможные значения `wbStatus`: - `waiting` — сборочное задание в работе - `sorted` — сборочное задание отсортировано - `sold` — заказ получен покупателем - `canceled` — отмена сборочного задания - `canceled\\_by\\_client` — покупатель отменил заказ при получении - `declined\\_by\\_client` — покупатель отменил заказ. Отмена доступна покупателю в первый час с момента заказа, если заказ не переведён на сборку - `defect` — отмена заказа по причине брака - `ready\\_for\\_pickup` — заказ прибыл на пункт выдачи заказов (ПВЗ) - `accepted\\_by\\_carrier` — продавец передал заказ в службу доставки в своей стране - `sent\\_to\\_carrier` — заказ отправлен на склад службы доставки в стране продавца - `canceled\\_by\\_carrier` — заказ отменён перевозчиком. Только для трансграничных поставок  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов.  ---  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-v3-orders-status
    * @summary Получить статусы сборочных заданий
    * @param {PostV3OrdersStatusRequest} [postV3OrdersStatusRequest]
    * @param {*} [options] Override http request option.

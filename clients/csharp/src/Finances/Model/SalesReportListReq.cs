@@ -169,7 +169,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
             // Limit (int) maximum
             if (this.Limit > (int)1000)
             {
-                yield return new ValidationResult("Invalid value for Limit, must be a value less than or equal to 1000.", new[] { "Limit" });
+                yield return new ValidationResult("Invalid value for Limit, must be a value less than or equal to 1000.", new [] { "Limit" });
             }
 
             yield break;

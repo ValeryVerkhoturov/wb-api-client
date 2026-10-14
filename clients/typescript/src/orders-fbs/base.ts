@@ -283,6 +283,12 @@ export const operationServerMap: ServerMap = {
       description: "No description provided",
     },
   ],
+  "OrdersFbsApi.patchV3FbsSuppliesSupplyIdOrdersTransfer": [
+    {
+      url: "https://marketplace-api.wildberries.ru",
+      description: "**Prod** ",
+    },
+  ],
   "OrdersFbsApi.patchV3OrdersOrderIdCancel": [
     {
       url: "https://marketplace-api.wildberries.ru",

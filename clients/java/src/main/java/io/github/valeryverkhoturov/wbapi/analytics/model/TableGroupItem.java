@@ -80,7 +80,7 @@ public class TableGroupItem {
 
   @SerializedName(SERIALIZED_NAME_ITEMS)
   @jakarta.annotation.Nullable
-  private List<TableItemItem> items = new ArrayList<>();
+  private List<TableItem> items = new ArrayList<>();
 
   public TableGroupItem() {}
 
@@ -198,12 +198,12 @@ public class TableGroupItem {
     this.metrics = metrics;
   }
 
-  public TableGroupItem items(@jakarta.annotation.Nullable List<TableItemItem> items) {
+  public TableGroupItem items(@jakarta.annotation.Nullable List<TableItem> items) {
     this.items = items;
     return this;
   }
 
-  public TableGroupItem addItemsItem(TableItemItem itemsItem) {
+  public TableGroupItem addItemsItem(TableItem itemsItem) {
     if (this.items == null) {
       this.items = new ArrayList<>();
     }
@@ -217,11 +217,11 @@ public class TableGroupItem {
    * @return items
    */
   @jakarta.annotation.Nullable
-  public List<TableItemItem> getItems() {
+  public List<TableItem> getItems() {
     return items;
   }
 
-  public void setItems(@jakarta.annotation.Nullable List<TableItemItem> items) {
+  public void setItems(@jakarta.annotation.Nullable List<TableItem> items) {
     this.items = items;
   }
 
@@ -357,7 +357,7 @@ public class TableGroupItem {
 
         // validate the optional field `items` (array)
         for (int i = 0; i < jsonArrayitems.size(); i++) {
-          TableItemItem.validateJsonElement(jsonArrayitems.get(i));
+          TableItem.validateJsonElement(jsonArrayitems.get(i));
         }
         ;
       }

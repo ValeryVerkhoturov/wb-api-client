@@ -99,7 +99,7 @@ namespace ValeryVerkhoturov.WbApiClient.General.Model
             // Position (string) maxLength
             if (this.Position != null && this.Position.Length > 150)
             {
-                yield return new ValidationResult("Invalid value for Position, length must be less than 150.", new[] { "Position" });
+                yield return new ValidationResult("Invalid value for Position, length must be less than 150.", new [] { "Position" });
             }
 
             yield break;

@@ -53,7 +53,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <param name="lostBuyoutsCount">Упущенные выкупы, шт. Особые случаи:   1. Значение меньше &#x60;0&#x60; и не равно &#x60;-2&#x60; — значение не рассчитано   2. Значение &#x60;-2&#x60; — нулевое значение .</param>
         /// <param name="lostBuyoutsSum">Упущенные выкупы, сумма. Особые случаи:   1. Значение меньше &#x60;0&#x60; и не равно &#x60;-2&#x60; — значение не рассчитано   2. Значение &#x60;-2&#x60; — нулевое значение .</param>
         /// <param name="currentPrice">currentPrice.</param>
-        public TableSizeResponseSizesInnerMetrics(int ordersCount = default(int), int ordersSum = default(int), decimal avgOrders = default(decimal), List<FloatGraphByPeriodItem> avgOrdersByMonth = default(List<FloatGraphByPeriodItem>), int buyoutCount = default(int), int buyoutSum = default(int), int buyoutPercent = default(int), int stockCount = default(int), int stockSum = default(int), TableCommonMetricsSaleRate saleRate = default(TableCommonMetricsSaleRate), TableCommonMetricsAvgStockTurnover avgStockTurnover = default(TableCommonMetricsAvgStockTurnover), int toClientCount = default(int), int fromClientCount = default(int), TableCommonMetricsOfficeMissingTime officeMissingTime = default(TableCommonMetricsOfficeMissingTime), decimal lostOrdersCount = default(decimal), decimal lostOrdersSum = default(decimal), decimal lostBuyoutsCount = default(decimal), decimal lostBuyoutsSum = default(decimal), TableItemItemStMetricsAllOfCurrentPrice currentPrice = default(TableItemItemStMetricsAllOfCurrentPrice))
+        public TableSizeResponseSizesInnerMetrics(int ordersCount = default(int), int ordersSum = default(int), decimal avgOrders = default(decimal), List<FloatGraphByPeriodItem> avgOrdersByMonth = default(List<FloatGraphByPeriodItem>), int buyoutCount = default(int), int buyoutSum = default(int), int buyoutPercent = default(int), int stockCount = default(int), int stockSum = default(int), TableCommonMetricsSaleRate saleRate = default(TableCommonMetricsSaleRate), TableCommonMetricsAvgStockTurnover avgStockTurnover = default(TableCommonMetricsAvgStockTurnover), int toClientCount = default(int), int fromClientCount = default(int), TableCommonMetricsOfficeMissingTime officeMissingTime = default(TableCommonMetricsOfficeMissingTime), decimal lostOrdersCount = default(decimal), decimal lostOrdersSum = default(decimal), decimal lostBuyoutsCount = default(decimal), decimal lostBuyoutsSum = default(decimal), TableItemStMetricsAllOfCurrentPrice currentPrice = default(TableItemStMetricsAllOfCurrentPrice))
         {
             this.OrdersCount = ordersCount;
             this.OrdersSum = ordersSum;
@@ -245,7 +245,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// Gets or Sets CurrentPrice
         /// </summary>
         [DataMember(Name = "currentPrice", EmitDefaultValue = false)]
-        public TableItemItemStMetricsAllOfCurrentPrice CurrentPrice { get; set; }
+        public TableItemStMetricsAllOfCurrentPrice CurrentPrice { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

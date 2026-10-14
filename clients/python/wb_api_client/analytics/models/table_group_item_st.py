@@ -20,7 +20,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from wb_api_client.analytics.models.table_common_metrics import TableCommonMetrics
-from wb_api_client.analytics.models.table_item_item_st import TableItemItemSt
+from wb_api_client.analytics.models.table_item_st import TableItemSt
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -48,7 +48,7 @@ class TableGroupItemSt(BaseModel):
     metrics: Optional[TableCommonMetrics] = Field(
         default=None, description="Метрики группы"
     )
-    items: Optional[List[TableItemItemSt]] = Field(
+    items: Optional[List[TableItemSt]] = Field(
         default=None, description="Товары группы"
     )
     __properties: ClassVar[List[str]] = [
@@ -132,7 +132,7 @@ class TableGroupItemSt(BaseModel):
                     else None
                 ),
                 "items": (
-                    [TableItemItemSt.from_dict(_item) for _item in obj["items"]]
+                    [TableItemSt.from_dict(_item) for _item in obj["items"]]
                     if obj.get("items") is not None
                     else None
                 ),

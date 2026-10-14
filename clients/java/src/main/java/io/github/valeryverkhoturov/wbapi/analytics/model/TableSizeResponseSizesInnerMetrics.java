@@ -149,7 +149,7 @@ public class TableSizeResponseSizesInnerMetrics {
 
   @SerializedName(SERIALIZED_NAME_CURRENT_PRICE)
   @jakarta.annotation.Nullable
-  private TableItemItemStMetricsAllOfCurrentPrice currentPrice;
+  private TableItemStMetricsAllOfCurrentPrice currentPrice;
 
   public TableSizeResponseSizesInnerMetrics() {}
 
@@ -530,7 +530,7 @@ public class TableSizeResponseSizesInnerMetrics {
   }
 
   public TableSizeResponseSizesInnerMetrics currentPrice(
-      @jakarta.annotation.Nullable TableItemItemStMetricsAllOfCurrentPrice currentPrice) {
+      @jakarta.annotation.Nullable TableItemStMetricsAllOfCurrentPrice currentPrice) {
     this.currentPrice = currentPrice;
     return this;
   }
@@ -541,12 +541,12 @@ public class TableSizeResponseSizesInnerMetrics {
    * @return currentPrice
    */
   @jakarta.annotation.Nullable
-  public TableItemItemStMetricsAllOfCurrentPrice getCurrentPrice() {
+  public TableItemStMetricsAllOfCurrentPrice getCurrentPrice() {
     return currentPrice;
   }
 
   public void setCurrentPrice(
-      @jakarta.annotation.Nullable TableItemItemStMetricsAllOfCurrentPrice currentPrice) {
+      @jakarta.annotation.Nullable TableItemStMetricsAllOfCurrentPrice currentPrice) {
     this.currentPrice = currentPrice;
   }
 
@@ -738,7 +738,7 @@ public class TableSizeResponseSizesInnerMetrics {
     }
     // validate the optional field `currentPrice`
     if (jsonObj.get("currentPrice") != null && !jsonObj.get("currentPrice").isJsonNull()) {
-      TableItemItemStMetricsAllOfCurrentPrice.validateJsonElement(jsonObj.get("currentPrice"));
+      TableItemStMetricsAllOfCurrentPrice.validateJsonElement(jsonObj.get("currentPrice"));
     }
   }
 

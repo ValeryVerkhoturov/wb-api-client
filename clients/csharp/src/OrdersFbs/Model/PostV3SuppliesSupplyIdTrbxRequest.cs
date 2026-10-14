@@ -87,13 +87,13 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
             // Amount (int) maximum
             if (this.Amount > (int)1000)
             {
-                yield return new ValidationResult("Invalid value for Amount, must be a value less than or equal to 1000.", new[] { "Amount" });
+                yield return new ValidationResult("Invalid value for Amount, must be a value less than or equal to 1000.", new [] { "Amount" });
             }
 
             // Amount (int) minimum
             if (this.Amount < (int)1)
             {
-                yield return new ValidationResult("Invalid value for Amount, must be a value greater than or equal to 1.", new[] { "Amount" });
+                yield return new ValidationResult("Invalid value for Amount, must be a value greater than or equal to 1.", new [] { "Amount" });
             }
 
             yield break;

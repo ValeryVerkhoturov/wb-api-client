@@ -192,7 +192,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
             // Title (string) maxLength
             if (this.Title != null && this.Title.Length > 60)
             {
-                yield return new ValidationResult("Invalid value for Title, length must be less than 60.", new[] { "Title" });
+                yield return new ValidationResult("Invalid value for Title, length must be less than 60.", new [] { "Title" });
             }
 
             yield break;

@@ -36,7 +36,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// </summary>
         /// <param name="products">Список товаров в группе по фильтру .</param>
         /// <param name="currency">Валюта отчёта.</param>
-        public TableDetailsResponse(List<TableItemItem> products = default(List<TableItemItem>), string currency = default(string))
+        public TableDetailsResponse(List<TableItem> products = default(List<TableItem>), string currency = default(string))
         {
             this.Products = products;
             this.Currency = currency;
@@ -47,7 +47,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// </summary>
         /// <value>Список товаров в группе по фильтру </value>
         [DataMember(Name = "products", EmitDefaultValue = false)]
-        public List<TableItemItem> Products { get; set; }
+        public List<TableItem> Products { get; set; }
 
         /// <summary>
         /// Валюта отчёта

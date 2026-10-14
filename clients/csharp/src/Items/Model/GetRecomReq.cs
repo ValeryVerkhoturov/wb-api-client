@@ -131,19 +131,19 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
             // Limit (int) maximum
             if (this.Limit > (int)5000)
             {
-                yield return new ValidationResult("Invalid value for Limit, must be a value less than or equal to 5000.", new[] { "Limit" });
+                yield return new ValidationResult("Invalid value for Limit, must be a value less than or equal to 5000.", new [] { "Limit" });
             }
 
             // Limit (int) minimum
             if (this.Limit < (int)0)
             {
-                yield return new ValidationResult("Invalid value for Limit, must be a value greater than or equal to 0.", new[] { "Limit" });
+                yield return new ValidationResult("Invalid value for Limit, must be a value greater than or equal to 0.", new [] { "Limit" });
             }
 
             // Search (string) maxLength
             if (this.Search != null && this.Search.Length > 72)
             {
-                yield return new ValidationResult("Invalid value for Search, length must be less than 72.", new[] { "Search" });
+                yield return new ValidationResult("Invalid value for Search, length must be less than 72.", new [] { "Search" });
             }
 
             yield break;

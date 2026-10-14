@@ -42,7 +42,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         public PostV2NmReportDownloadsRequest(SalesFunnelItemReq actualInstance)
         {
             this.IsNullable = false;
-            this.SchemaType = "oneOf";
+            this.SchemaType= "oneOf";
             this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
         }
 
@@ -54,7 +54,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         public PostV2NmReportDownloadsRequest(SalesFunnelGroupReq actualInstance)
         {
             this.IsNullable = false;
-            this.SchemaType = "oneOf";
+            this.SchemaType= "oneOf";
             this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
         }
 
@@ -66,7 +66,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         public PostV2NmReportDownloadsRequest(SearchReportGroupReq actualInstance)
         {
             this.IsNullable = false;
-            this.SchemaType = "oneOf";
+            this.SchemaType= "oneOf";
             this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
         }
 
@@ -78,7 +78,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         public PostV2NmReportDownloadsRequest(SearchReportItemReq actualInstance)
         {
             this.IsNullable = false;
-            this.SchemaType = "oneOf";
+            this.SchemaType= "oneOf";
             this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
         }
 
@@ -90,7 +90,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         public PostV2NmReportDownloadsRequest(SearchReportTextReq actualInstance)
         {
             this.IsNullable = false;
-            this.SchemaType = "oneOf";
+            this.SchemaType= "oneOf";
             this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
         }
 
@@ -102,7 +102,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         public PostV2NmReportDownloadsRequest(InventoryMetricsReportReq actualInstance)
         {
             this.IsNullable = false;
-            this.SchemaType = "oneOf";
+            this.SchemaType= "oneOf";
             this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
         }
 
@@ -114,7 +114,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         public PostV2NmReportDownloadsRequest(InventoryHistoryReportReq actualInstance)
         {
             this.IsNullable = false;
-            this.SchemaType = "oneOf";
+            this.SchemaType= "oneOf";
             this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
         }
 
@@ -466,7 +466,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <returns>The object converted from the JSON string</returns>
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
-            switch (reader.TokenType)
+            switch(reader.TokenType) 
             {
                 case JsonToken.StartObject:
                     return PostV2NmReportDownloadsRequest.FromJson(JObject.Load(reader).ToString(Formatting.None));

@@ -28,8 +28,8 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
     /// <summary>
     /// Метрики товара
     /// </summary>
-    [DataContract(Name = "TableItemItemSt_metrics")]
-    public partial class TableItemItemStMetrics : IValidatableObject
+    [DataContract(Name = "TableItemSt_metrics")]
+    public partial class TableItemStMetrics : IValidatableObject
     {
         /// <summary>
         /// Доступность товара:   - &#x60;deficient&#x60; — Дефицит   - &#x60;actual&#x60; — Актуальный   - &#x60;balanced&#x60; — Баланс   - &#x60;nonActual&#x60; — Неактуальный   - &#x60;nonLiquid&#x60; — Неликвид   - &#x60;invalidData&#x60; — Не рассчитано 
@@ -86,7 +86,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         [DataMember(Name = "availability", EmitDefaultValue = false)]
         public AvailabilityEnum? Availability { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="TableItemItemStMetrics" /> class.
+        /// Initializes a new instance of the <see cref="TableItemStMetrics" /> class.
         /// </summary>
         /// <param name="ordersCount">Заказы, шт..</param>
         /// <param name="ordersSum">Заказы, сумма.</param>
@@ -108,7 +108,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <param name="lostBuyoutsSum">Упущенные выкупы, сумма. Особые случаи:   1. Значение меньше &#x60;0&#x60; и не равно &#x60;-2&#x60; — значение не рассчитано   2. Значение &#x60;-2&#x60; — нулевое значение .</param>
         /// <param name="currentPrice">currentPrice.</param>
         /// <param name="availability">Доступность товара:   - &#x60;deficient&#x60; — Дефицит   - &#x60;actual&#x60; — Актуальный   - &#x60;balanced&#x60; — Баланс   - &#x60;nonActual&#x60; — Неактуальный   - &#x60;nonLiquid&#x60; — Неликвид   - &#x60;invalidData&#x60; — Не рассчитано .</param>
-        public TableItemItemStMetrics(int ordersCount = default(int), int ordersSum = default(int), decimal avgOrders = default(decimal), List<FloatGraphByPeriodItem> avgOrdersByMonth = default(List<FloatGraphByPeriodItem>), int buyoutCount = default(int), int buyoutSum = default(int), int buyoutPercent = default(int), int stockCount = default(int), int stockSum = default(int), TableCommonMetricsSaleRate saleRate = default(TableCommonMetricsSaleRate), TableCommonMetricsAvgStockTurnover avgStockTurnover = default(TableCommonMetricsAvgStockTurnover), int toClientCount = default(int), int fromClientCount = default(int), TableCommonMetricsOfficeMissingTime officeMissingTime = default(TableCommonMetricsOfficeMissingTime), decimal lostOrdersCount = default(decimal), decimal lostOrdersSum = default(decimal), decimal lostBuyoutsCount = default(decimal), decimal lostBuyoutsSum = default(decimal), TableItemItemStMetricsAllOfCurrentPrice currentPrice = default(TableItemItemStMetricsAllOfCurrentPrice), AvailabilityEnum? availability = default(AvailabilityEnum?))
+        public TableItemStMetrics(int ordersCount = default(int), int ordersSum = default(int), decimal avgOrders = default(decimal), List<FloatGraphByPeriodItem> avgOrdersByMonth = default(List<FloatGraphByPeriodItem>), int buyoutCount = default(int), int buyoutSum = default(int), int buyoutPercent = default(int), int stockCount = default(int), int stockSum = default(int), TableCommonMetricsSaleRate saleRate = default(TableCommonMetricsSaleRate), TableCommonMetricsAvgStockTurnover avgStockTurnover = default(TableCommonMetricsAvgStockTurnover), int toClientCount = default(int), int fromClientCount = default(int), TableCommonMetricsOfficeMissingTime officeMissingTime = default(TableCommonMetricsOfficeMissingTime), decimal lostOrdersCount = default(decimal), decimal lostOrdersSum = default(decimal), decimal lostBuyoutsCount = default(decimal), decimal lostBuyoutsSum = default(decimal), TableItemStMetricsAllOfCurrentPrice currentPrice = default(TableItemStMetricsAllOfCurrentPrice), AvailabilityEnum? availability = default(AvailabilityEnum?))
         {
             this.OrdersCount = ordersCount;
             this.OrdersSum = ordersSum;
@@ -301,7 +301,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// Gets or Sets CurrentPrice
         /// </summary>
         [DataMember(Name = "currentPrice", EmitDefaultValue = false)]
-        public TableItemItemStMetricsAllOfCurrentPrice CurrentPrice { get; set; }
+        public TableItemStMetricsAllOfCurrentPrice CurrentPrice { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -310,7 +310,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class TableItemItemStMetrics {\n");
+            sb.Append("class TableItemStMetrics {\n");
             sb.Append("  OrdersCount: ").Append(OrdersCount).Append("\n");
             sb.Append("  OrdersSum: ").Append(OrdersSum).Append("\n");
             sb.Append("  AvgOrders: ").Append(AvgOrders).Append("\n");

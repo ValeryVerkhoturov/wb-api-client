@@ -33,7 +33,7 @@ namespace ValeryVerkhoturov.WbApiClient.General.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "1.20261013.0";
+        public const string Version = "1.20261014.0";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -436,7 +436,7 @@ namespace ValeryVerkhoturov.WbApiClient.General.Client
         /// <summary>
         /// Gets or sets the base path for API access.
         /// </summary>
-        public virtual string BasePath
+        public virtual string BasePath 
         {
             get { return _basePath; }
             set { _basePath = value; }
@@ -797,7 +797,7 @@ namespace ValeryVerkhoturov.WbApiClient.General.Client
 
             return url;
         }
-
+        
         /// <summary>
         /// Gets and Sets the RemoteCertificateValidationCallback
         /// </summary>
@@ -814,9 +814,9 @@ namespace ValeryVerkhoturov.WbApiClient.General.Client
         {
             string report = "C# SDK (ValeryVerkhoturov.WbApiClient.General) Debug Report:\n";
             report += "    OS: " + System.Environment.OSVersion + "\n";
-            report += "    .NET Framework Version: " + System.Environment.Version + "\n";
+            report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
             report += "    Version of the API: general\n";
-            report += "    SDK Package Version: 1.20261013.0\n";
+            report += "    SDK Package Version: 1.20261014.0\n";
 
             return report;
         }

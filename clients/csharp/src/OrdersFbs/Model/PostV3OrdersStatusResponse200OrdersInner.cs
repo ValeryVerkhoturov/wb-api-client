@@ -159,12 +159,14 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// </summary>
         /// <param name="id">ID сборочного задания.</param>
         /// <param name="isCancellable">Доступна ли [отмена](./orders-fbs#tag/fbsAssemblyOrders/operation/patchV3OrdersOrderIdCancel) сборочного задания: - &#x60;false&#x60; — недоступна - &#x60;true&#x60; — доступна .</param>
+        /// <param name="isTransferable">Можно ли [перевести сборочное задание](./orders-fbs#tag/fbsSupplies/operation/patchV3PortalSuppliesSupplyOrdersTransfer) из доставки на сборку: - &#x60;false&#x60; — нет - &#x60;true&#x60; — да  Сборочное задание можно перенести из доставки на сборку, если выполняются все условия:   - сборочное задание находится в статусе &#x60;complete&#x60; — в доставке   - поставка, в которую нужно перенести сборочное задание, не [передана в доставку](./orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdDeliver)   - сборочное задание ранее не переносили .</param>
         /// <param name="supplierStatus">Статус сборочного задания, установленный продавцом.</param>
         /// <param name="wbStatus">Статус сборочного задания в системе Wildberries.</param>
-        public PostV3OrdersStatusResponse200OrdersInner(long id = default(long), bool isCancellable = default(bool), SupplierStatusEnum? supplierStatus = default(SupplierStatusEnum?), WbStatusEnum? wbStatus = default(WbStatusEnum?))
+        public PostV3OrdersStatusResponse200OrdersInner(long id = default(long), bool isCancellable = default(bool), bool isTransferable = default(bool), SupplierStatusEnum? supplierStatus = default(SupplierStatusEnum?), WbStatusEnum? wbStatus = default(WbStatusEnum?))
         {
             this.Id = id;
             this.IsCancellable = isCancellable;
+            this.IsTransferable = isTransferable;
             this.SupplierStatus = supplierStatus;
             this.WbStatus = wbStatus;
         }
@@ -190,6 +192,16 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         public bool IsCancellable { get; set; }
 
         /// <summary>
+        /// Можно ли [перевести сборочное задание](./orders-fbs#tag/fbsSupplies/operation/patchV3PortalSuppliesSupplyOrdersTransfer) из доставки на сборку: - &#x60;false&#x60; — нет - &#x60;true&#x60; — да  Сборочное задание можно перенести из доставки на сборку, если выполняются все условия:   - сборочное задание находится в статусе &#x60;complete&#x60; — в доставке   - поставка, в которую нужно перенести сборочное задание, не [передана в доставку](./orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdDeliver)   - сборочное задание ранее не переносили 
+        /// </summary>
+        /// <value>Можно ли [перевести сборочное задание](./orders-fbs#tag/fbsSupplies/operation/patchV3PortalSuppliesSupplyOrdersTransfer) из доставки на сборку: - &#x60;false&#x60; — нет - &#x60;true&#x60; — да  Сборочное задание можно перенести из доставки на сборку, если выполняются все условия:   - сборочное задание находится в статусе &#x60;complete&#x60; — в доставке   - поставка, в которую нужно перенести сборочное задание, не [передана в доставку](./orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdDeliver)   - сборочное задание ранее не переносили </value>
+        /*
+        <example>false</example>
+        */
+        [DataMember(Name = "isTransferable", EmitDefaultValue = true)]
+        public bool IsTransferable { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -199,6 +211,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
             sb.Append("class PostV3OrdersStatusResponse200OrdersInner {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  IsCancellable: ").Append(IsCancellable).Append("\n");
+            sb.Append("  IsTransferable: ").Append(IsTransferable).Append("\n");
             sb.Append("  SupplierStatus: ").Append(SupplierStatus).Append("\n");
             sb.Append("  WbStatus: ").Append(WbStatus).Append("\n");
             sb.Append("}\n");

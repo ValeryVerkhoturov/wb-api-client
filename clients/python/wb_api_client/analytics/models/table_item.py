@@ -45,9 +45,7 @@ from wb_api_client.analytics.models.table_group_item_metrics_orders import (
 from wb_api_client.analytics.models.table_group_item_metrics_visibility import (
     TableGroupItemMetricsVisibility,
 )
-from wb_api_client.analytics.models.table_item_item_all_of_price import (
-    TableItemItemAllOfPrice,
-)
+from wb_api_client.analytics.models.table_item_all_of_price import TableItemAllOfPrice
 from wb_api_client.analytics.models.visibility_info_open_card import (
     VisibilityInfoOpenCard,
 )
@@ -55,9 +53,9 @@ from typing import Optional, Set
 from typing_extensions import Self
 
 
-class TableItemItem(BaseModel):
+class TableItem(BaseModel):
     """
-    TableItemItem
+    TableItem
     """  # noqa: E501
 
     nm_id: Optional[StrictInt] = Field(
@@ -97,7 +95,7 @@ class TableItemItem(BaseModel):
     feedback_rating: Optional[Union[StrictFloat, StrictInt]] = Field(
         default=None, description="Рейтинг по отзывам", alias="feedbackRating"
     )
-    price: Optional[TableItemItemAllOfPrice] = None
+    price: Optional[TableItemAllOfPrice] = None
     avg_position: Optional[TableGroupItemMetricsAvgPosition] = Field(
         default=None, alias="avgPosition"
     )
@@ -152,7 +150,7 @@ class TableItemItem(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of TableItemItem from a JSON string"""
+        """Create an instance of TableItem from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -200,7 +198,7 @@ class TableItemItem(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of TableItemItem from a dict"""
+        """Create an instance of TableItem from a dict"""
         if obj is None:
             return None
 
@@ -221,7 +219,7 @@ class TableItemItem(BaseModel):
                 "rating": obj.get("rating"),
                 "feedbackRating": obj.get("feedbackRating"),
                 "price": (
-                    TableItemItemAllOfPrice.from_dict(obj["price"])
+                    TableItemAllOfPrice.from_dict(obj["price"])
                     if obj.get("price") is not None
                     else None
                 ),

@@ -41,7 +41,7 @@ namespace ValeryVerkhoturov.WbApiClient.Rates.Model
         public GetV1TariffsCommission200Response(Fee actualInstance)
         {
             this.IsNullable = false;
-            this.SchemaType = "oneOf";
+            this.SchemaType= "oneOf";
             this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
         }
 
@@ -53,7 +53,7 @@ namespace ValeryVerkhoturov.WbApiClient.Rates.Model
         public GetV1TariffsCommission200Response(FeeChina actualInstance)
         {
             this.IsNullable = false;
-            this.SchemaType = "oneOf";
+            this.SchemaType= "oneOf";
             this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
         }
 
@@ -65,7 +65,7 @@ namespace ValeryVerkhoturov.WbApiClient.Rates.Model
         public GetV1TariffsCommission200Response(FeeTurkey actualInstance)
         {
             this.IsNullable = false;
-            this.SchemaType = "oneOf";
+            this.SchemaType= "oneOf";
             this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
         }
 
@@ -77,7 +77,7 @@ namespace ValeryVerkhoturov.WbApiClient.Rates.Model
         public GetV1TariffsCommission200Response(FeeUzbekistan actualInstance)
         {
             this.IsNullable = false;
-            this.SchemaType = "oneOf";
+            this.SchemaType= "oneOf";
             this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
         }
 
@@ -89,7 +89,7 @@ namespace ValeryVerkhoturov.WbApiClient.Rates.Model
         public GetV1TariffsCommission200Response(FeeUAE actualInstance)
         {
             this.IsNullable = false;
-            this.SchemaType = "oneOf";
+            this.SchemaType= "oneOf";
             this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
         }
 
@@ -373,7 +373,7 @@ namespace ValeryVerkhoturov.WbApiClient.Rates.Model
         /// <returns>The object converted from the JSON string</returns>
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
-            switch (reader.TokenType)
+            switch(reader.TokenType) 
             {
                 case JsonToken.StartObject:
                     return GetV1TariffsCommission200Response.FromJson(JObject.Load(reader).ToString(Formatting.None));

@@ -108,7 +108,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
             // PromotionID (int) minimum
             if (this.PromotionID < (int)1)
             {
-                yield return new ValidationResult("Invalid value for PromotionID, must be a value greater than or equal to 1.", new[] { "PromotionID" });
+                yield return new ValidationResult("Invalid value for PromotionID, must be a value greater than or equal to 1.", new [] { "PromotionID" });
             }
 
             yield break;

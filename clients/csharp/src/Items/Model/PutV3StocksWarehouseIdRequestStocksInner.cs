@@ -95,7 +95,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
             // Amount (int) maximum
             if (this.Amount > (int)100000)
             {
-                yield return new ValidationResult("Invalid value for Amount, must be a value less than or equal to 100000.", new[] { "Amount" });
+                yield return new ValidationResult("Invalid value for Amount, must be a value less than or equal to 100000.", new [] { "Amount" });
             }
 
             yield break;

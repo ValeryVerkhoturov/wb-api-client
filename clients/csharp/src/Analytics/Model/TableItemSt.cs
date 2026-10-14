@@ -28,11 +28,11 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
     /// <summary>
     /// Данные по товару
     /// </summary>
-    [DataContract(Name = "TableItemItemSt")]
-    public partial class TableItemItemSt : IValidatableObject
+    [DataContract(Name = "TableItemSt")]
+    public partial class TableItemSt : IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="TableItemItemSt" /> class.
+        /// Initializes a new instance of the <see cref="TableItemSt" /> class.
         /// </summary>
         /// <param name="nmID">Артикул WB.</param>
         /// <param name="isDeleted">Является ли товар удалённым.</param>
@@ -43,7 +43,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <param name="mainPhoto">Ссылка на главное фото.</param>
         /// <param name="hasSizes">Является ли товар размерным. Неразмерный товар имеет единственный размер, с &#x60;\&quot;techSize\&quot;:\&quot;0\&quot;&#x60;.</param>
         /// <param name="metrics">metrics.</param>
-        public TableItemItemSt(long nmID = default(long), bool isDeleted = default(bool), string subjectName = default(string), string name = default(string), string vendorCode = default(string), string brandName = default(string), string mainPhoto = default(string), bool hasSizes = default(bool), TableItemItemStMetrics metrics = default(TableItemItemStMetrics))
+        public TableItemSt(long nmID = default(long), bool isDeleted = default(bool), string subjectName = default(string), string name = default(string), string vendorCode = default(string), string brandName = default(string), string mainPhoto = default(string), bool hasSizes = default(bool), TableItemStMetrics metrics = default(TableItemStMetrics))
         {
             this.NmID = nmID;
             this.IsDeleted = isDeleted;
@@ -140,7 +140,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// Gets or Sets Metrics
         /// </summary>
         [DataMember(Name = "metrics", EmitDefaultValue = false)]
-        public TableItemItemStMetrics Metrics { get; set; }
+        public TableItemStMetrics Metrics { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -149,7 +149,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class TableItemItemSt {\n");
+            sb.Append("class TableItemSt {\n");
             sb.Append("  NmID: ").Append(NmID).Append("\n");
             sb.Append("  IsDeleted: ").Append(IsDeleted).Append("\n");
             sb.Append("  SubjectName: ").Append(SubjectName).Append("\n");

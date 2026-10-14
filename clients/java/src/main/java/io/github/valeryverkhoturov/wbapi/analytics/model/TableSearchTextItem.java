@@ -92,7 +92,7 @@ public class TableSearchTextItem {
 
   @SerializedName(SERIALIZED_NAME_PRICE)
   @jakarta.annotation.Nullable
-  private TableItemItemAllOfPrice price;
+  private TableItemAllOfPrice price;
 
   public static final String SERIALIZED_NAME_FREQUENCY = "frequency";
 
@@ -328,7 +328,7 @@ public class TableSearchTextItem {
     this.feedbackRating = feedbackRating;
   }
 
-  public TableSearchTextItem price(@jakarta.annotation.Nullable TableItemItemAllOfPrice price) {
+  public TableSearchTextItem price(@jakarta.annotation.Nullable TableItemAllOfPrice price) {
     this.price = price;
     return this;
   }
@@ -339,11 +339,11 @@ public class TableSearchTextItem {
    * @return price
    */
   @jakarta.annotation.Nullable
-  public TableItemItemAllOfPrice getPrice() {
+  public TableItemAllOfPrice getPrice() {
     return price;
   }
 
-  public void setPrice(@jakarta.annotation.Nullable TableItemItemAllOfPrice price) {
+  public void setPrice(@jakarta.annotation.Nullable TableItemAllOfPrice price) {
     this.price = price;
   }
 
@@ -743,7 +743,7 @@ public class TableSearchTextItem {
     }
     // validate the optional field `price`
     if (jsonObj.get("price") != null && !jsonObj.get("price").isJsonNull()) {
-      TableItemItemAllOfPrice.validateJsonElement(jsonObj.get("price"));
+      TableItemAllOfPrice.validateJsonElement(jsonObj.get("price"));
     }
     // validate the optional field `frequency`
     if (jsonObj.get("frequency") != null && !jsonObj.get("frequency").isJsonNull()) {

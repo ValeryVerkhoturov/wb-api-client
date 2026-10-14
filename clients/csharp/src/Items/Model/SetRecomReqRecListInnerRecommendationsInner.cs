@@ -95,13 +95,13 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
             // Sort (int) maximum
             if (this.Sort > (int)20)
             {
-                yield return new ValidationResult("Invalid value for Sort, must be a value less than or equal to 20.", new[] { "Sort" });
+                yield return new ValidationResult("Invalid value for Sort, must be a value less than or equal to 20.", new [] { "Sort" });
             }
 
             // Sort (int) minimum
             if (this.Sort < (int)0)
             {
-                yield return new ValidationResult("Invalid value for Sort, must be a value greater than or equal to 0.", new[] { "Sort" });
+                yield return new ValidationResult("Invalid value for Sort, must be a value greater than or equal to 0.", new [] { "Sort" });
             }
 
             yield break;

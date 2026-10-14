@@ -131,7 +131,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
             // DailyLimit (long) minimum
             if (this.DailyLimit < (long)1000)
             {
-                yield return new ValidationResult("Invalid value for DailyLimit, must be a value greater than or equal to 1000.", new[] { "DailyLimit" });
+                yield return new ValidationResult("Invalid value for DailyLimit, must be a value greater than or equal to 1000.", new [] { "DailyLimit" });
             }
 
             yield break;

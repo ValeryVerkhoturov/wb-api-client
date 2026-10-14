@@ -108,7 +108,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
             // Limit (int) maximum
             if (this.Limit > (int)10000)
             {
-                yield return new ValidationResult("Invalid value for Limit, must be a value less than or equal to 10000.", new[] { "Limit" });
+                yield return new ValidationResult("Invalid value for Limit, must be a value less than or equal to 10000.", new [] { "Limit" });
             }
 
             yield break;

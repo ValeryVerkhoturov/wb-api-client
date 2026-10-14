@@ -2161,8 +2161,8 @@ components:
           type: array
           description: Массив товаров группы
           items:
-            $ref: '#/components/schemas/TableItemItem'
-    TableItemItem:
+            $ref: '#/components/schemas/TableItem'
+    TableItem:
       type: object
       allOf:
       - type: object
@@ -2487,7 +2487,7 @@ components:
             Список товаров в группе по фильтру
           type: array
           items:
-            $ref: '#/components/schemas/TableItemItem'
+            $ref: '#/components/schemas/TableItem'
         currency:
           $ref: '#/components/schemas/Currency'
     ItemSearchTextsRequest:
@@ -3869,7 +3869,7 @@ components:
           type: array
           description: Товары группы
           items:
-            $ref: '#/components/schemas/TableItemItemSt'
+            $ref: '#/components/schemas/TableItemSt'
     TableCommonMetrics:
       type: object
       description: Метрики
@@ -4033,7 +4033,7 @@ components:
           format: float64
           description: Среднее количество заказов
           example: 25.55
-    TableItemItemSt:
+    TableItemSt:
       type: object
       description: Данные по товару
       properties:
@@ -4200,7 +4200,7 @@ components:
           type: array
           description: Множество данных по товарам
           items:
-            $ref: '#/components/schemas/TableItemItemSt'
+            $ref: '#/components/schemas/TableItemSt'
         currency:
           $ref: '#/components/schemas/Currency'
     TableSizeRequest:

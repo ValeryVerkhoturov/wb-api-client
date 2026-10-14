@@ -211,6 +211,9 @@ public class JSON {
         new io.github.valeryverkhoturov.wbapi.orders_fbs.model
             .PatchV3FbsSuppliesShippingMethodRequest.CustomTypeAdapterFactory());
     gsonBuilder.registerTypeAdapterFactory(
+        new io.github.valeryverkhoturov.wbapi.orders_fbs.model
+            .PatchV3FbsSuppliesSupplyIdOrdersTransferRequest.CustomTypeAdapterFactory());
+    gsonBuilder.registerTypeAdapterFactory(
         new io.github.valeryverkhoturov.wbapi.orders_fbs.model.PatchV3SuppliesSupplyIdOrdersRequest
             .CustomTypeAdapterFactory());
     gsonBuilder.registerTypeAdapterFactory(
@@ -405,6 +408,15 @@ public class JSON {
             .CustomTypeAdapterFactory());
     gsonBuilder.registerTypeAdapterFactory(
         new io.github.valeryverkhoturov.wbapi.orders_fbs.model.V3SupplyOrderIDsAPI
+            .CustomTypeAdapterFactory());
+    gsonBuilder.registerTypeAdapterFactory(
+        new io.github.valeryverkhoturov.wbapi.orders_fbs.model.V3TransferOrderToAssembly
+            .CustomTypeAdapterFactory());
+    gsonBuilder.registerTypeAdapterFactory(
+        new io.github.valeryverkhoturov.wbapi.orders_fbs.model.V3TransferOrderToAssemblyError
+            .CustomTypeAdapterFactory());
+    gsonBuilder.registerTypeAdapterFactory(
+        new io.github.valeryverkhoturov.wbapi.orders_fbs.model.V3TransferOrdersToAssemblyResponse
             .CustomTypeAdapterFactory());
     gson = gsonBuilder.create();
   }

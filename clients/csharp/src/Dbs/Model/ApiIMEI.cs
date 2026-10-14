@@ -105,13 +105,13 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Model
             // Imei (string) maxLength
             if (this.Imei != null && this.Imei.Length > 15)
             {
-                yield return new ValidationResult("Invalid value for Imei, length must be less than 15.", new[] { "Imei" });
+                yield return new ValidationResult("Invalid value for Imei, length must be less than 15.", new [] { "Imei" });
             }
 
             // Imei (string) minLength
             if (this.Imei != null && this.Imei.Length < 15)
             {
-                yield return new ValidationResult("Invalid value for Imei, length must be greater than 15.", new[] { "Imei" });
+                yield return new ValidationResult("Invalid value for Imei, length must be greater than 15.", new [] { "Imei" });
             }
 
             yield break;

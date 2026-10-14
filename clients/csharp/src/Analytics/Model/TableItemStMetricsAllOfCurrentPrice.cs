@@ -26,17 +26,17 @@ using OpenAPIDateConverter = ValeryVerkhoturov.WbApiClient.Analytics.Client.Open
 namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
 {
     /// <summary>
-    /// Цена
+    /// Текущая цена
     /// </summary>
-    [DataContract(Name = "TableItemItem_allOf_price")]
-    public partial class TableItemItemAllOfPrice : IValidatableObject
+    [DataContract(Name = "TableItemSt_metrics_allOf_currentPrice")]
+    public partial class TableItemStMetricsAllOfCurrentPrice : IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="TableItemItemAllOfPrice" /> class.
+        /// Initializes a new instance of the <see cref="TableItemStMetricsAllOfCurrentPrice" /> class.
         /// </summary>
         /// <param name="minPrice">Минимальная цена продавца со скидкой продавца (без учёта скидки WB Клуба).</param>
         /// <param name="maxPrice">Максимальная цена продавца со скидкой продавца (без учёта скидки WB Клуба).</param>
-        public TableItemItemAllOfPrice(int minPrice = default(int), int maxPrice = default(int))
+        public TableItemStMetricsAllOfCurrentPrice(int minPrice = default(int), int maxPrice = default(int))
         {
             this.MinPrice = minPrice;
             this.MaxPrice = maxPrice;
@@ -47,7 +47,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// </summary>
         /// <value>Минимальная цена продавца со скидкой продавца (без учёта скидки WB Клуба)</value>
         /*
-        <example>150</example>
+        <example>50</example>
         */
         [DataMember(Name = "minPrice", EmitDefaultValue = false)]
         public int MinPrice { get; set; }
@@ -57,7 +57,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// </summary>
         /// <value>Максимальная цена продавца со скидкой продавца (без учёта скидки WB Клуба)</value>
         /*
-        <example>300</example>
+        <example>100</example>
         */
         [DataMember(Name = "maxPrice", EmitDefaultValue = false)]
         public int MaxPrice { get; set; }
@@ -69,7 +69,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class TableItemItemAllOfPrice {\n");
+            sb.Append("class TableItemStMetricsAllOfCurrentPrice {\n");
             sb.Append("  MinPrice: ").Append(MinPrice).Append("\n");
             sb.Append("  MaxPrice: ").Append(MaxPrice).Append("\n");
             sb.Append("}\n");

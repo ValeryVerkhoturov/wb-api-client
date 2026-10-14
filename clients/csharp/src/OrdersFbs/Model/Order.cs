@@ -427,7 +427,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
             // Comment (string) maxLength
             if (this.Comment != null && this.Comment.Length > 300)
             {
-                yield return new ValidationResult("Invalid value for Comment, length must be less than 300.", new[] { "Comment" });
+                yield return new ValidationResult("Invalid value for Comment, length must be less than 300.", new [] { "Comment" });
             }
 
             yield break;
