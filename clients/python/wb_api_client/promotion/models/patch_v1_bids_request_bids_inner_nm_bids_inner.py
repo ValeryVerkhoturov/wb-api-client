@@ -30,7 +30,7 @@ class PatchV1BidsRequestBidsInnerNmBidsInner(BaseModel):
 
     nm_id: StrictInt = Field(description="Артикул WB")
     bid_kopecks: StrictInt = Field(
-        description="Ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)"
+        description="Ставка в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)"
     )
     placement: StrictStr = Field(
         description="Место размещения:   - `search` — в поиске (для кампаний с ручной ставкой)   - `recommendations`— в рекомендациях (для кампаний с ручной ставкой)   - `combined` — в поиске и рекомендациях (для кампаний с единой ставкой) "

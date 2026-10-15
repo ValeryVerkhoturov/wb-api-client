@@ -17,9 +17,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from wb_api_client.orders_fbs.models.trbx_stickers import TrbxStickers
 from typing import Optional, Set
 from typing_extensions import Self
@@ -30,7 +29,7 @@ class PostV3SuppliesSupplyIdTrbxStickersResponse200(BaseModel):
     PostV3SuppliesSupplyIdTrbxStickersResponse200
     """  # noqa: E501
 
-    stickers: Optional[Annotated[List[TrbxStickers], Field(min_length=1)]] = None
+    stickers: Optional[List[TrbxStickers]] = None
     __properties: ClassVar[List[str]] = ["stickers"]
 
     model_config = ConfigDict(

@@ -25,7 +25,7 @@ from typing_extensions import Self
 
 class AdvertBidsKopecks(BaseModel):
     """
-    Ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+    Ставка в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
     """  # noqa: E501
 
     search: Optional[StrictInt] = Field(default=None, description="Ставка в поиске")

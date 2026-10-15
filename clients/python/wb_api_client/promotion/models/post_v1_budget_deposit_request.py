@@ -30,7 +30,7 @@ class PostV1BudgetDepositRequest(BaseModel):
 
     sum: Optional[StrictInt] = Field(
         default=None,
-        description="Общая сумма пополнения бюджета в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)",
+        description="Общая сумма пополнения бюджета в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)",
     )
     cashback_sum: Optional[StrictInt] = Field(
         default=None,

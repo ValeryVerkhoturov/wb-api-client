@@ -46,11 +46,11 @@ class V0GetNormQueryStatsItemStat(BaseModel):
     )
     cpc: Optional[Union[StrictFloat, StrictInt]] = Field(
         default=None,
-        description="Стоимость одного клика в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)",
+        description="Стоимость одного клика в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)",
     )
     cpm: Optional[Union[StrictFloat, StrictInt]] = Field(
         default=None,
-        description="Средняя стоимость за тысячу показов в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).  Для кампаний с типом оплаты `cpc` — за клики — значение будет `null` ",
+        description="Средняя стоимость за тысячу показов в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances).  Для кампаний с типом оплаты `cpc` — за клики — значение будет `null` ",
     )
     avg_pos: Optional[Union[StrictFloat, StrictInt]] = Field(
         default=None, description="Средняя позиция товара на страницах поисковой выдачи"
@@ -64,7 +64,7 @@ class V0GetNormQueryStatsItemStat(BaseModel):
     )
     currency: Optional[StrictStr] = Field(
         default=None,
-        description="Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)",
+        description="Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)",
     )
     __properties: ClassVar[List[str]] = [
         "norm_query",

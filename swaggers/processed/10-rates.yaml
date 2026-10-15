@@ -44,7 +44,7 @@ paths:
       description: |-
         Метод возвращает данные о [комиссии](https://seller.wildberries.ru/dynamic-product-categories/commission) WB по [родительским категориям товаров](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectParentAll) согласно модели продаж.
 
-        [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+        [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
         | Тип | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- | --- |
         | Персональный | 1 мин | 1 запрос | 1 мин | 2 запроса |
@@ -113,7 +113,7 @@ paths:
       description: |-
         Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)
 
-        [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+        [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
         | Тип | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- | --- |
         | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов |
@@ -171,7 +171,7 @@ paths:
       summary: Тарифы для коробов
       tags:
       - Rates
-      description: "Для остатков товаров, которые поставляются на склад в коробах, метод возвращает [тарифы](https://seller.wildberries.ru/dynamic-product-categories) на:\n- доставку со склада или пункта приёма до покупателя\n- доставку от покупателя до пункта приёма\n- хранение на складе WB\n\nТарифы для коробов совпадают с тарифами для **Суперсейфа**\n\n[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:\n| Тип | Период | Лимит | Интервал | Всплеск |\n| --- | --- | --- | --- | --- |\n| Персональный | 1 мин | 60 запросов | 1 сек | 5 запросов |\n| Сервисный | 1 мин | 60 запросов | 1 сек | 5 запросов |\n| Базовый с секретом | 1 мин | 60 запросов | 1 сек | 5 запросов |\n| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |\n\nLibrary doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/rates/get-api-v1-tariffs-box"
+      description: "Для остатков товаров, которые поставляются на склад в коробах, метод возвращает [тарифы](https://seller.wildberries.ru/dynamic-product-categories) на:\n- доставку со склада или пункта приёма до покупателя\n- доставку от покупателя до пункта приёма\n- хранение на складе WB\n\nТарифы для коробов совпадают с тарифами для **Суперсейфа**\n\n[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:\n| Тип | Период | Лимит | Интервал | Всплеск |\n| --- | --- | --- | --- | --- |\n| Персональный | 1 мин | 60 запросов | 1 сек | 5 запросов |\n| Сервисный | 1 мин | 60 запросов | 1 сек | 5 запросов |\n| Базовый с секретом | 1 мин | 60 запросов | 1 сек | 5 запросов |\n| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |\n\nLibrary doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/rates/get-api-v1-tariffs-box"
       parameters:
       - $ref: '#/components/parameters/Date'
       responses:
@@ -211,7 +211,7 @@ paths:
       summary: Тарифы для монопаллет
       tags:
       - Rates
-      description: "Для товаров, которые поставляются на склад WB на монопаллетах, метод возвращает [стоимость](https://seller.wildberries.ru/dynamic-product-categories):\n- доставки со склада до покупателя\n- доставки от покупателя до склада\n- хранения на складе WB\n\nТарифы для монопаллет совпадают с тарифами для **Поштучных паллет**\n\n[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:\n| Тип | Период | Лимит | Интервал | Всплеск |\n| --- | --- | --- | --- | --- |\n| Персональный | 1 мин | 60 запросов | 1 сек | 5 запросов |\n| Сервисный | 1 мин | 60 запросов | 1 сек | 5 запросов |\n| Базовый с секретом | 1 мин | 60 запросов | 1 сек | 5 запросов |\n| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |\n\nLibrary doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/rates/get-api-v1-tariffs-pallet"
+      description: "Для товаров, которые поставляются на склад WB на монопаллетах, метод возвращает [стоимость](https://seller.wildberries.ru/dynamic-product-categories):\n- доставки со склада до покупателя\n- доставки от покупателя до склада\n- хранения на складе WB\n\nТарифы для монопаллет совпадают с тарифами для **Поштучных паллет**\n\n[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:\n| Тип | Период | Лимит | Интервал | Всплеск |\n| --- | --- | --- | --- | --- |\n| Персональный | 1 мин | 60 запросов | 1 сек | 5 запросов |\n| Сервисный | 1 мин | 60 запросов | 1 сек | 5 запросов |\n| Базовый с секретом | 1 мин | 60 запросов | 1 сек | 5 запросов |\n| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |\n\nLibrary doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/rates/get-api-v1-tariffs-pallet"
       parameters:
       - $ref: '#/components/parameters/Date'
       responses:
@@ -251,7 +251,7 @@ paths:
       summary: "Тарифы на возврат"
       tags:
       - Rates
-      description: "Метод возвращает [тарифы](https://seller.wildberries.ru/dynamic-product-categories/return-cost):\n- на перевозку товаров со склада WB или из пункта приёма до продавца\n- на обратную перевозку возвратов, которые не забрал продавец\n\n[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:\n| Тип | Период | Лимит | Интервал | Всплеск |\n| --- | --- | --- | --- | --- |\n| Персональный | 1 мин | 60 запросов | 1 сек | 5 запросов |\n| Сервисный | 1 мин | 60 запросов | 1 сек | 5 запросов |\n| Базовый с секретом | 1 мин | 60 запросов | 1 сек | 5 запросов |\n| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |\n\nLibrary doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/rates/get-api-v1-tariffs-return"
+      description: "Метод возвращает [тарифы](https://seller.wildberries.ru/dynamic-product-categories/return-cost):\n- на перевозку товаров со склада WB или из пункта приёма до продавца\n- на обратную перевозку возвратов, которые не забрал продавец\n\n[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:\n| Тип | Период | Лимит | Интервал | Всплеск |\n| --- | --- | --- | --- | --- |\n| Персональный | 1 мин | 60 запросов | 1 сек | 5 запросов |\n| Сервисный | 1 мин | 60 запросов | 1 сек | 5 запросов |\n| Базовый с секретом | 1 мин | 60 запросов | 1 сек | 5 запросов |\n| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |\n\nLibrary doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/rates/get-api-v1-tariffs-return"
       parameters:
       - $ref: '#/components/parameters/Date'
       responses:

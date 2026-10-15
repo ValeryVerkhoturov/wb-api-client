@@ -31,7 +31,7 @@ class PatchV1BidsResponse200BidsInnerNmBidsInner(BaseModel):
     nm_id: Optional[StrictInt] = Field(default=None, description="Артикул WB")
     bid_kopecks: Optional[StrictInt] = Field(
         default=None,
-        description="Ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)",
+        description="Ставка в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)",
     )
     placement: Optional[StrictStr] = Field(
         default=None,

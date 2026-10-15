@@ -35,7 +35,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// Initializes a new instance of the <see cref="ResponseWithReturn" /> class.
         /// </summary>
         /// <param name="total">Размер обновлённого бюджета.</param>
-        /// <param name="currency">Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).</param>
+        /// <param name="currency">Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances).</param>
         public ResponseWithReturn(int total = default(int), string currency = default(string))
         {
             this.Total = total;
@@ -50,9 +50,9 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         public int Total { get; set; }
 
         /// <summary>
-        /// Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+        /// Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
         /// </summary>
-        /// <value>Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)</value>
+        /// <value>Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)</value>
         [DataMember(Name = "currency", EmitDefaultValue = false)]
         public string Currency { get; set; }
 

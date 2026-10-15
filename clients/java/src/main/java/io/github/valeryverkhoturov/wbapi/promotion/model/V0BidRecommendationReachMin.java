@@ -53,7 +53,7 @@ public class V0BidRecommendationReachMin {
   }
 
   /**
-   * Рекомендуемая ставка в разменных единицах — 0,01 от базовой валюты [аккаунта
+   * Рекомендуемая ставка в разменных единицах — 0,01 от базовой валюты [профиля
    * продавца](https://cmp.wildberries.ru/campaigns/finances)
    *
    * @return bidKopecks
@@ -74,7 +74,7 @@ public class V0BidRecommendationReachMin {
   }
 
   /**
-   * Минимальная ставка в разменных единицах — 0,01 от базовой валюты [аккаунта
+   * Минимальная ставка в разменных единицах — 0,01 от базовой валюты [профиля
    * продавца](https://cmp.wildberries.ru/campaigns/finances)
    *
    * @return bidKopecksMin

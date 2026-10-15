@@ -59,7 +59,7 @@ public class GetV1BalanceResponse200CashbacksInner {
   }
 
   /**
-   * Промо-бонусы в базовых единицах валюты [аккаунта
+   * Промо-бонусы в базовых единицах валюты [профиля
    * продавца](https://cmp.wildberries.ru/campaigns/finances)
    *
    * @return sum

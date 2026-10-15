@@ -74,7 +74,7 @@ public class GetV1BalanceResponse200 {
   }
 
   /**
-   * Счёт в базовых единицах валюты [аккаунта
+   * Счёт в базовых единицах валюты [профиля
    * продавца](https://cmp.wildberries.ru/campaigns/finances)
    *
    * @return balance
@@ -94,7 +94,7 @@ public class GetV1BalanceResponse200 {
   }
 
   /**
-   * Баланс в базовых единицах валюты [аккаунта
+   * Баланс в базовых единицах валюты [профиля
    * продавца](https://cmp.wildberries.ru/campaigns/finances)
    *
    * @return net
@@ -114,7 +114,7 @@ public class GetV1BalanceResponse200 {
   }
 
   /**
-   * Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+   * Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
    *
    * @return currency
    */
@@ -133,7 +133,7 @@ public class GetV1BalanceResponse200 {
   }
 
   /**
-   * Бонусы в базовых единицах валюты [аккаунта
+   * Бонусы в базовых единицах валюты [профиля
    * продавца](https://cmp.wildberries.ru/campaigns/finances)
    *
    * @return bonus

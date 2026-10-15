@@ -36,7 +36,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <param name="updNum">Номер выставленного документа.</param>
         /// <param name="updTime">Время списания.</param>
-        /// <param name="updSum">Выставленная сумма в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).</param>
+        /// <param name="updSum">Выставленная сумма в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances).</param>
         /// <param name="advertId">ID кампании.</param>
         /// <param name="campName">Название кампании.</param>
         /// <param name="advertType">Тип кампании.</param>
@@ -69,9 +69,9 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         public string UpdTime { get; set; }
 
         /// <summary>
-        /// Выставленная сумма в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+        /// Выставленная сумма в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
         /// </summary>
-        /// <value>Выставленная сумма в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)</value>
+        /// <value>Выставленная сумма в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)</value>
         [DataMember(Name = "updSum", EmitDefaultValue = false)]
         public int UpdSum { get; set; }
 

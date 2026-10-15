@@ -253,7 +253,7 @@ public class FullStatsItemDaysInnerAppsInner {
   }
 
   /**
-   * Средняя стоимость клика в базовых единицах валюты [аккаунта
+   * Средняя стоимость клика в базовых единицах валюты [профиля
    * продавца](https://cmp.wildberries.ru/campaigns/finances)
    *
    * @return cpc
@@ -379,7 +379,7 @@ public class FullStatsItemDaysInnerAppsInner {
   }
 
   /**
-   * Затраты в базовых единицах валюты [аккаунта
+   * Затраты в базовых единицах валюты [профиля
    * продавца](https://cmp.wildberries.ru/campaigns/finances)
    *
    * @return sum
@@ -400,7 +400,7 @@ public class FullStatsItemDaysInnerAppsInner {
   }
 
   /**
-   * Заказов на сумму в базовых единицах валюты [аккаунта
+   * Заказов на сумму в базовых единицах валюты [профиля
    * продавца](https://cmp.wildberries.ru/campaigns/finances)
    *
    * @return sumPrice

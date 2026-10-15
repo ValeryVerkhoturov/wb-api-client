@@ -36,7 +36,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// </summary>
         /// <param name="data">Дополнительная информация об ошибке.</param>
         /// <param name="code">Код ошибки.</param>
-        /// <param name="message">Описание ошибки.</param>
+        /// <param name="message">Детали ошибки.</param>
         public PutV3StocksWarehouseIdResponse409Inner(List<PutV3StocksWarehouseIdResponse409InnerDataInner> data = default(List<PutV3StocksWarehouseIdResponse409InnerDataInner>), string code = default(string), string message = default(string))
         {
             this.Data = data;
@@ -48,7 +48,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// Дополнительная информация об ошибке
         /// </summary>
         /// <value>Дополнительная информация об ошибке</value>
-        [DataMember(Name = "data", EmitDefaultValue = true)]
+        [DataMember(Name = "data", EmitDefaultValue = false)]
         public List<PutV3StocksWarehouseIdResponse409InnerDataInner> Data { get; set; }
 
         /// <summary>
@@ -59,9 +59,9 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         public string Code { get; set; }
 
         /// <summary>
-        /// Описание ошибки
+        /// Детали ошибки
         /// </summary>
-        /// <value>Описание ошибки</value>
+        /// <value>Детали ошибки</value>
         [DataMember(Name = "message", EmitDefaultValue = false)]
         public string Message { get; set; }
 

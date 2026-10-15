@@ -34,8 +34,8 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PutV3StocksWarehouseIdResponse409InnerDataInner" /> class.
         /// </summary>
-        /// <param name="sku">Баркод.</param>
-        /// <param name="chrtId">ID размера товара.</param>
+        /// <param name="sku">Не используется.</param>
+        /// <param name="chrtId">ID размера.</param>
         /// <param name="amount">Остаток.</param>
         public PutV3StocksWarehouseIdResponse409InnerDataInner(string sku = default(string), int chrtId = default(int), int amount = default(int))
         {
@@ -45,16 +45,16 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         }
 
         /// <summary>
-        /// Баркод
+        /// Не используется
         /// </summary>
-        /// <value>Баркод</value>
+        /// <value>Не используется</value>
         [DataMember(Name = "sku", EmitDefaultValue = false)]
         public string Sku { get; set; }
 
         /// <summary>
-        /// ID размера товара
+        /// ID размера
         /// </summary>
-        /// <value>ID размера товара</value>
+        /// <value>ID размера</value>
         [DataMember(Name = "chrtId", EmitDefaultValue = false)]
         public int ChrtId { get; set; }
 

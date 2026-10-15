@@ -34,8 +34,8 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="V0BidRecommendationReachMin" /> class.
         /// </summary>
-        /// <param name="bidKopecks">Рекомендуемая ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).</param>
-        /// <param name="bidKopecksMin">Минимальная ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).</param>
+        /// <param name="bidKopecks">Рекомендуемая ставка в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances).</param>
+        /// <param name="bidKopecksMin">Минимальная ставка в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances).</param>
         public V0BidRecommendationReachMin(int bidKopecks = default(int), int bidKopecksMin = default(int))
         {
             this.BidKopecks = bidKopecks;
@@ -43,16 +43,16 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         }
 
         /// <summary>
-        /// Рекомендуемая ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+        /// Рекомендуемая ставка в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
         /// </summary>
-        /// <value>Рекомендуемая ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)</value>
+        /// <value>Рекомендуемая ставка в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)</value>
         [DataMember(Name = "bidKopecks", EmitDefaultValue = false)]
         public int BidKopecks { get; set; }
 
         /// <summary>
-        /// Минимальная ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+        /// Минимальная ставка в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
         /// </summary>
-        /// <value>Минимальная ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)</value>
+        /// <value>Минимальная ставка в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)</value>
         [DataMember(Name = "bidKopecksMin", EmitDefaultValue = false)]
         public int BidKopecksMin { get; set; }
 

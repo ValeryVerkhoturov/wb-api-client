@@ -38,7 +38,7 @@ class V0PutDailyLimitsAdvertResult(BaseModel):
     )
     required_limit: Optional[StrictInt] = Field(
         default=None,
-        description="Рекомендуемый минимальный размер дневного лимита при текущих ставках кампании. Указывается в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances). С меньшим лимитом бюджет может расходоваться неравномерно и в кампании возникнут ошибки ",
+        description="Рекомендуемый минимальный размер дневного лимита при текущих ставках кампании. Указывается в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances). С меньшим лимитом бюджет может расходоваться неравномерно и в кампании возникнут ошибки ",
         alias="requiredLimit",
     )
     __properties: ClassVar[List[str]] = ["advertId", "belowMinLimit", "requiredLimit"]

@@ -31,12 +31,12 @@ class PostV1BidsMinResponse200BidsInnerBidsInner(BaseModel):
 
     currency: Optional[StrictStr] = Field(
         default=None,
-        description="Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)",
+        description="Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)",
     )
     type: Optional[PlacementType] = None
     value: Optional[StrictInt] = Field(
         default=None,
-        description="Минимальная ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) ",
+        description="Минимальная ставка в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances) ",
     )
     __properties: ClassVar[List[str]] = ["currency", "type", "value"]
 

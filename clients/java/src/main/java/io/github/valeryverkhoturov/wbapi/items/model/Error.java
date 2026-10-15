@@ -45,12 +45,6 @@ public class Error {
   @jakarta.annotation.Nullable
   private String message;
 
-  public static final String SERIALIZED_NAME_DATA = "data";
-
-  @SerializedName(SERIALIZED_NAME_DATA)
-  @jakarta.annotation.Nullable
-  private Object data;
-
   public Error() {}
 
   public Error code(@jakarta.annotation.Nullable String code) {
@@ -78,7 +72,7 @@ public class Error {
   }
 
   /**
-   * Описание ошибки
+   * Детали ошибки
    *
    * @return message
    */
@@ -91,25 +85,6 @@ public class Error {
     this.message = message;
   }
 
-  public Error data(@jakarta.annotation.Nullable Object data) {
-    this.data = data;
-    return this;
-  }
-
-  /**
-   * Дополнительные данные ошибки
-   *
-   * @return data
-   */
-  @jakarta.annotation.Nullable
-  public Object getData() {
-    return data;
-  }
-
-  public void setData(@jakarta.annotation.Nullable Object data) {
-    this.data = data;
-  }
-
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -119,14 +94,12 @@ public class Error {
       return false;
     }
     Error error = (Error) o;
-    return Objects.equals(this.code, error.code)
-        && Objects.equals(this.message, error.message)
-        && Objects.equals(this.data, error.data);
+    return Objects.equals(this.code, error.code) && Objects.equals(this.message, error.message);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(code, message, data);
+    return Objects.hash(code, message);
   }
 
   @Override
@@ -135,7 +108,6 @@ public class Error {
     sb.append("class Error {\n");
     sb.append("    code: ").append(toIndentedString(code)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -158,7 +130,6 @@ public class Error {
     openapiFields = new HashSet<String>();
     openapiFields.add("code");
     openapiFields.add("message");
-    openapiFields.add("data");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

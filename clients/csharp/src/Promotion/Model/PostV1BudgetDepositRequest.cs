@@ -34,7 +34,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PostV1BudgetDepositRequest" /> class.
         /// </summary>
-        /// <param name="sum">Общая сумма пополнения бюджета в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).</param>
+        /// <param name="sum">Общая сумма пополнения бюджета в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances).</param>
         /// <param name="cashbackSum">Сумма пополнения бюджета промо-бонусами.  Пополнить можно только определённый процент от общей суммы, указанный в поле &#x60;percent&#x60; ответа метода получения [баланса](./promotion#tag/finances/operation/getV1Balance).  Оставшаяся часть общей суммы спишется с указанного источника пополнения. Пополнить можно только определённый процент от общей суммы, указанный в поле &#x60;percent&#x60; ответа метода получения [баланса](./promotion#tag/finances/operation/getV1Balance).  Оставшаяся часть общей суммы спишется с указанного источника пополнения.  Списать промо-бонусы можно только для источников пополнения: - &#x60;0&#x60; — счёт - &#x60;1&#x60; — баланс.</param>
         /// <param name="cashbackPercent">Процент от суммы пополнения, который можно пополнить промо-бонусами. Нужно указать значение поля percent из ответа метода получения [баланса](./promotion#tag/finances/operation/getV1Balance)  Если вы указали &#x60;cashback\\_sum&#x60;, параметр &#x60;cashback\\_percent&#x60; становится обязательным.</param>
         /// <param name="type">Тип источника пополнения: - &#x60;0&#x60; — Счёт - &#x60;1&#x60; — Баланс - &#x60;3&#x60; — Бонусы .</param>
@@ -49,9 +49,9 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         }
 
         /// <summary>
-        /// Общая сумма пополнения бюджета в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+        /// Общая сумма пополнения бюджета в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
         /// </summary>
-        /// <value>Общая сумма пополнения бюджета в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)</value>
+        /// <value>Общая сумма пополнения бюджета в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)</value>
         /*
         <example>5000</example>
         */

@@ -57,7 +57,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// </summary>
         /// <value>Остаток</value>
         /*
-        <example>10</example>
+        <example>11</example>
         */
         [DataMember(Name = "amount", EmitDefaultValue = false)]
         public int Amount { get; set; }

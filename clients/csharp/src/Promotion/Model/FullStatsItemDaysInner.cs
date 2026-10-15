@@ -39,13 +39,13 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <param name="canceled">Отмены, шт..</param>
         /// <param name="date">Дата, за которую представлены данные.</param>
         /// <param name="clicks">Количество кликов.</param>
-        /// <param name="cpc">Средняя стоимость клика в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).</param>
+        /// <param name="cpc">Средняя стоимость клика в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances).</param>
         /// <param name="cr">CR (conversion rate) — отношение количества заказов к общему количеству посещений кампании.</param>
         /// <param name="ctr">CTR (click-through rate) — отношение числа кликов к количеству показов в процентах.</param>
         /// <param name="orders">Количество заказов.</param>
         /// <param name="shks">Количество заказанных товаров, шт..</param>
-        /// <param name="sum">Затраты в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).</param>
-        /// <param name="sumPrice">Заказов на сумму в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).</param>
+        /// <param name="sum">Затраты в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances).</param>
+        /// <param name="sumPrice">Заказов на сумму в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances).</param>
         /// <param name="views">Количество просмотров.</param>
         public FullStatsItemDaysInner(List<FullStatsItemDaysInnerAppsInner> apps = default(List<FullStatsItemDaysInnerAppsInner>), int atbs = default(int), int canceled = default(int), string date = default(string), int clicks = default(int), decimal cpc = default(decimal), decimal cr = default(decimal), decimal ctr = default(decimal), int orders = default(int), int shks = default(int), decimal sum = default(decimal), decimal sumPrice = default(decimal), int views = default(int))
         {
@@ -100,9 +100,9 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         public int Clicks { get; set; }
 
         /// <summary>
-        /// Средняя стоимость клика в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+        /// Средняя стоимость клика в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
         /// </summary>
-        /// <value>Средняя стоимость клика в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)</value>
+        /// <value>Средняя стоимость клика в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)</value>
         [DataMember(Name = "cpc", EmitDefaultValue = false)]
         public decimal Cpc { get; set; }
 
@@ -135,16 +135,16 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         public int Shks { get; set; }
 
         /// <summary>
-        /// Затраты в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+        /// Затраты в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
         /// </summary>
-        /// <value>Затраты в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)</value>
+        /// <value>Затраты в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)</value>
         [DataMember(Name = "sum", EmitDefaultValue = false)]
         public decimal Sum { get; set; }
 
         /// <summary>
-        /// Заказов на сумму в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+        /// Заказов на сумму в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
         /// </summary>
-        /// <value>Заказов на сумму в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)</value>
+        /// <value>Заказов на сумму в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)</value>
         [DataMember(Name = "sum_price", EmitDefaultValue = false)]
         public decimal SumPrice { get; set; }
 

@@ -40,7 +40,7 @@ class GetAdvertsAdvertsInner(BaseModel):
     )
     currency: Optional[StrictStr] = Field(
         default=None,
-        description="Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)",
+        description="Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)",
     )
     id: Optional[StrictInt] = Field(default=None, description="ID кампании")
     nm_settings: Optional[List[AdvertNMsSettings]] = Field(

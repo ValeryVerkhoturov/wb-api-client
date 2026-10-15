@@ -37,7 +37,10 @@ class GetV1SellerInfoResponse200(BaseModel):
     trade_mark: Optional[StrictStr] = Field(
         default=None, description="Торговое наименование продавца", alias="tradeMark"
     )
-    __properties: ClassVar[List[str]] = ["name", "sid", "tin", "tradeMark"]
+    country: Optional[StrictStr] = Field(
+        default=None, description="Страна регистрации профиля продавца"
+    )
+    __properties: ClassVar[List[str]] = ["name", "sid", "tin", "tradeMark", "country"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -93,6 +96,7 @@ class GetV1SellerInfoResponse200(BaseModel):
                 "sid": obj.get("sid"),
                 "tin": obj.get("tin"),
                 "tradeMark": obj.get("tradeMark"),
+                "country": obj.get("country"),
             }
         )
         return _obj

@@ -79,7 +79,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// Initializes a new instance of the <see cref="GetAdvertsAdvertsInner" /> class.
         /// </summary>
         /// <param name="bidType">Тип ставки:   - &#x60;unified&#x60; — единая ставка   - &#x60;manual&#x60; — ручная ставка .</param>
-        /// <param name="currency">Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).</param>
+        /// <param name="currency">Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances).</param>
         /// <param name="id">ID кампании.</param>
         /// <param name="nmSettings">Настройки товаров.</param>
         /// <param name="settings">settings.</param>
@@ -106,9 +106,9 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         public string BidType { get; set; }
 
         /// <summary>
-        /// Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+        /// Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
         /// </summary>
-        /// <value>Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)</value>
+        /// <value>Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)</value>
         [DataMember(Name = "currency", EmitDefaultValue = false)]
         public string Currency { get; set; }
 

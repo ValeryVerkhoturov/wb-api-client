@@ -17,9 +17,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List, Optional, Union
-from typing_extensions import Annotated
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -29,17 +28,11 @@ class TrbxStickers(BaseModel):
     TrbxStickers
     """  # noqa: E501
 
-    barcode: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(
+    barcode: Optional[StrictStr] = Field(
         default=None, description="Закодированное значение стикера"
     )
-    file: Optional[
-        Union[
-            Annotated[bytes, Field(min_length=1, strict=True)],
-            Annotated[str, Field(min_length=1, strict=True)],
-        ]
-    ] = Field(
-        default=None,
-        description="Полное представление стикера в заданном формате (кодировка base64)",
+    file: Optional[StrictStr] = Field(
+        default=None, description="Полное представление стикера в заданном формате"
     )
     __properties: ClassVar[List[str]] = ["barcode", "file"]
 

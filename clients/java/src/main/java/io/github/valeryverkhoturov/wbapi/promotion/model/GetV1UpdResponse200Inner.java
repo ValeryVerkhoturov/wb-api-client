@@ -127,7 +127,7 @@ public class GetV1UpdResponse200Inner {
   }
 
   /**
-   * Выставленная сумма в базовых единицах валюты [аккаунта
+   * Выставленная сумма в базовых единицах валюты [профиля
    * продавца](https://cmp.wildberries.ru/campaigns/finances)
    *
    * @return updSum

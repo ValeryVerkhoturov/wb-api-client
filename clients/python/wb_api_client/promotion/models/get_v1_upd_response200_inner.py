@@ -36,7 +36,7 @@ class GetV1UpdResponse200Inner(BaseModel):
     )
     upd_sum: Optional[StrictInt] = Field(
         default=None,
-        description="Выставленная сумма в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)",
+        description="Выставленная сумма в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)",
         alias="updSum",
     )
     advert_id: Optional[StrictInt] = Field(

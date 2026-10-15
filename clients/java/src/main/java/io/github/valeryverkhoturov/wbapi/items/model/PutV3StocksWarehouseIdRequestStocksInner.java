@@ -36,19 +36,19 @@ public class PutV3StocksWarehouseIdRequestStocksInner {
   public static final String SERIALIZED_NAME_CHRT_ID = "chrtId";
 
   @SerializedName(SERIALIZED_NAME_CHRT_ID)
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   private Integer chrtId;
 
   public static final String SERIALIZED_NAME_AMOUNT = "amount";
 
   @SerializedName(SERIALIZED_NAME_AMOUNT)
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   private Integer amount;
 
   public PutV3StocksWarehouseIdRequestStocksInner() {}
 
   public PutV3StocksWarehouseIdRequestStocksInner chrtId(
-      @jakarta.annotation.Nullable Integer chrtId) {
+      @jakarta.annotation.Nonnull Integer chrtId) {
     this.chrtId = chrtId;
     return this;
   }
@@ -58,17 +58,17 @@ public class PutV3StocksWarehouseIdRequestStocksInner {
    *
    * @return chrtId
    */
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   public Integer getChrtId() {
     return chrtId;
   }
 
-  public void setChrtId(@jakarta.annotation.Nullable Integer chrtId) {
+  public void setChrtId(@jakarta.annotation.Nonnull Integer chrtId) {
     this.chrtId = chrtId;
   }
 
   public PutV3StocksWarehouseIdRequestStocksInner amount(
-      @jakarta.annotation.Nullable Integer amount) {
+      @jakarta.annotation.Nonnull Integer amount) {
     this.amount = amount;
     return this;
   }
@@ -78,12 +78,12 @@ public class PutV3StocksWarehouseIdRequestStocksInner {
    *
    * @return amount
    */
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   public Integer getAmount() {
     return amount;
   }
 
-  public void setAmount(@jakarta.annotation.Nullable Integer amount) {
+  public void setAmount(@jakarta.annotation.Nonnull Integer amount) {
     this.amount = amount;
   }
 
@@ -137,6 +137,8 @@ public class PutV3StocksWarehouseIdRequestStocksInner {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("chrtId");
+    openapiRequiredFields.add("amount");
   }
 
   /**
@@ -165,6 +167,16 @@ public class PutV3StocksWarehouseIdRequestStocksInner {
             String.format(
                 "The field `%s` in the JSON string is not defined in the `PutV3StocksWarehouseIdRequestStocksInner` properties. JSON: %s",
                 entry.getKey(), jsonElement.toString()));
+      }
+    }
+
+    // check to make sure all required properties/fields are present in the JSON string
+    for (String requiredField : PutV3StocksWarehouseIdRequestStocksInner.openapiRequiredFields) {
+      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+        throw new IllegalArgumentException(
+            String.format(
+                "The required field `%s` is not found in the JSON string: %s",
+                requiredField, jsonElement.toString()));
       }
     }
     JsonObject jsonObj = jsonElement.getAsJsonObject();

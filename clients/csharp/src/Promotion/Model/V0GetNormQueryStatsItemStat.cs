@@ -40,12 +40,12 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <param name="atbs">Количество добавлений товаров в корзину.</param>
         /// <param name="orders">Количество заказов.</param>
         /// <param name="ctr">Кликабельность — отношение числа кликов к количеству показов, %.  Для кампаний с типом оплаты &#x60;cpc&#x60; — за клики — значение будет &#x60;null&#x60; .</param>
-        /// <param name="cpc">Стоимость одного клика в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).</param>
-        /// <param name="cpm">Средняя стоимость за тысячу показов в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).  Для кампаний с типом оплаты &#x60;cpc&#x60; — за клики — значение будет &#x60;null&#x60; .</param>
+        /// <param name="cpc">Стоимость одного клика в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances).</param>
+        /// <param name="cpm">Средняя стоимость за тысячу показов в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances).  Для кампаний с типом оплаты &#x60;cpc&#x60; — за клики — значение будет &#x60;null&#x60; .</param>
         /// <param name="avgPos">Средняя позиция товара на страницах поисковой выдачи.</param>
         /// <param name="shks">Количество заказанных товаров, шт..</param>
         /// <param name="spend">Затраты на продвижение товаров в конкретном поисковом кластере кампании .</param>
-        /// <param name="currency">Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).</param>
+        /// <param name="currency">Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances).</param>
         public V0GetNormQueryStatsItemStat(string normQuery = default(string), int? views = default(int?), int clicks = default(int), int atbs = default(int), int orders = default(int), double? ctr = default(double?), double cpc = default(double), double? cpm = default(double?), double avgPos = default(double), int shks = default(int), double spend = default(double), string currency = default(string))
         {
             this.NormQuery = normQuery;
@@ -105,16 +105,16 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         public double? Ctr { get; set; }
 
         /// <summary>
-        /// Стоимость одного клика в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+        /// Стоимость одного клика в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
         /// </summary>
-        /// <value>Стоимость одного клика в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)</value>
+        /// <value>Стоимость одного клика в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)</value>
         [DataMember(Name = "cpc", EmitDefaultValue = false)]
         public double Cpc { get; set; }
 
         /// <summary>
-        /// Средняя стоимость за тысячу показов в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).  Для кампаний с типом оплаты &#x60;cpc&#x60; — за клики — значение будет &#x60;null&#x60; 
+        /// Средняя стоимость за тысячу показов в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances).  Для кампаний с типом оплаты &#x60;cpc&#x60; — за клики — значение будет &#x60;null&#x60; 
         /// </summary>
-        /// <value>Средняя стоимость за тысячу показов в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).  Для кампаний с типом оплаты &#x60;cpc&#x60; — за клики — значение будет &#x60;null&#x60; </value>
+        /// <value>Средняя стоимость за тысячу показов в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances).  Для кампаний с типом оплаты &#x60;cpc&#x60; — за клики — значение будет &#x60;null&#x60; </value>
         [DataMember(Name = "cpm", EmitDefaultValue = true)]
         public double? Cpm { get; set; }
 
@@ -140,9 +140,9 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         public double Spend { get; set; }
 
         /// <summary>
-        /// Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+        /// Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
         /// </summary>
-        /// <value>Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)</value>
+        /// <value>Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)</value>
         [DataMember(Name = "currency", EmitDefaultValue = false)]
         public string Currency { get; set; }
 

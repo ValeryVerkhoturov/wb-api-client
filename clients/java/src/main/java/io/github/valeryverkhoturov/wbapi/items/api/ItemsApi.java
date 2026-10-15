@@ -226,7 +226,7 @@ public class ItemsApi {
    * ярлыков](https://dev.wildberries.ru/openapi/item-management#tag/labels/operation/getV2Tags)
    * продавца. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов **Ярлыков**: | Тип | Период | Лимит | Интервал |
+   * на один профиль продавца для всех методов **Ярлыков**: | Тип | Период | Лимит | Интервал |
    * Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5
    * запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1
    * мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
@@ -260,7 +260,7 @@ public class ItemsApi {
    * ярлыков](https://dev.wildberries.ru/openapi/item-management#tag/labels/operation/getV2Tags)
    * продавца. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов **Ярлыков**: | Тип | Период | Лимит | Интервал |
+   * на один профиль продавца для всех методов **Ярлыков**: | Тип | Период | Лимит | Интервал |
    * Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5
    * запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1
    * мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
@@ -296,7 +296,7 @@ public class ItemsApi {
    * ярлыков](https://dev.wildberries.ru/openapi/item-management#tag/labels/operation/getV2Tags)
    * продавца. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов **Ярлыков**: | Тип | Период | Лимит | Интервал |
+   * на один профиль продавца для всех методов **Ярлыков**: | Тип | Период | Лимит | Интервал |
    * Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5
    * запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1
    * мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
@@ -347,7 +347,7 @@ public class ItemsApi {
    * <tr><td> 402 </td><td> Требуется платёж </td><td>  -  </td></tr>
    * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
    * <tr><td> 404 </td><td> Не найдено </td><td>  -  </td></tr>
-   * <tr><td> 409 </td><td> Ошибка удаления остатков </td><td>  -  </td></tr>
+   * <tr><td> 409 </td><td> Конфликт </td><td>  -  </td></tr>
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
@@ -441,7 +441,7 @@ public class ItemsApi {
    * **Действие необратимо**. Удаленный остаток будет необходимо загрузить повторно для
    * возобновления продаж. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
+   * на один профиль продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
    * мин | 10 запросов | 6 сек | 2 запроса | Один запрос с кодами ответов &#x60;4XX&#x60;
    * учитывается как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1
    * запрос в секунду суммарно для всех методов **Маркетплейса**. Library doc:
@@ -461,7 +461,7 @@ public class ItemsApi {
    * <tr><td> 402 </td><td> Требуется платёж </td><td>  -  </td></tr>
    * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
    * <tr><td> 404 </td><td> Не найдено </td><td>  -  </td></tr>
-   * <tr><td> 409 </td><td> Ошибка удаления остатков </td><td>  -  </td></tr>
+   * <tr><td> 409 </td><td> Конфликт </td><td>  -  </td></tr>
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
@@ -477,7 +477,7 @@ public class ItemsApi {
    * **Действие необратимо**. Удаленный остаток будет необходимо загрузить повторно для
    * возобновления продаж. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
+   * на один профиль продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
    * мин | 10 запросов | 6 сек | 2 запроса | Один запрос с кодами ответов &#x60;4XX&#x60;
    * учитывается как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1
    * запрос в секунду суммарно для всех методов **Маркетплейса**. Library doc:
@@ -498,7 +498,7 @@ public class ItemsApi {
    * <tr><td> 402 </td><td> Требуется платёж </td><td>  -  </td></tr>
    * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
    * <tr><td> 404 </td><td> Не найдено </td><td>  -  </td></tr>
-   * <tr><td> 409 </td><td> Ошибка удаления остатков </td><td>  -  </td></tr>
+   * <tr><td> 409 </td><td> Конфликт </td><td>  -  </td></tr>
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
@@ -518,7 +518,7 @@ public class ItemsApi {
    * **Действие необратимо**. Удаленный остаток будет необходимо загрузить повторно для
    * возобновления продаж. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
+   * на один профиль продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
    * мин | 10 запросов | 6 сек | 2 запроса | Один запрос с кодами ответов &#x60;4XX&#x60;
    * учитывается как 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1
    * запрос в секунду суммарно для всех методов **Маркетплейса**. Library doc:
@@ -539,7 +539,7 @@ public class ItemsApi {
    * <tr><td> 402 </td><td> Требуется платёж </td><td>  -  </td></tr>
    * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
    * <tr><td> 404 </td><td> Не найдено </td><td>  -  </td></tr>
-   * <tr><td> 409 </td><td> Ошибка удаления остатков </td><td>  -  </td></tr>
+   * <tr><td> 409 </td><td> Конфликт </td><td>  -  </td></tr>
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
@@ -652,7 +652,7 @@ public class ItemsApi {
    * продавца](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehouses/operation/getV3Warehouses).
    * [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов **складов продавца**: | Период | Лимит | Интервал |
+   * на один профиль продавца для всех методов **складов продавца**: | Период | Лимит | Интервал |
    * Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос
    * с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов. --- В
    * [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех
@@ -683,7 +683,7 @@ public class ItemsApi {
    * продавца](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehouses/operation/getV3Warehouses).
    * [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов **складов продавца**: | Период | Лимит | Интервал |
+   * на один профиль продавца для всех методов **складов продавца**: | Период | Лимит | Интервал |
    * Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос
    * с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов. --- В
    * [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех
@@ -717,7 +717,7 @@ public class ItemsApi {
    * продавца](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehouses/operation/getV3Warehouses).
    * [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов **складов продавца**: | Период | Лимит | Интервал |
+   * на один профиль продавца для всех методов **складов продавца**: | Период | Лимит | Интервал |
    * Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос
    * с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов. --- В
    * [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех
@@ -847,7 +847,7 @@ public class ItemsApi {
   /**
    * Бренды Метод возвращает список брендов по ID предмета. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
+   * на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Сервисный | 1 сек | 1 запрос
    * | 1 сек | 5 запросов | | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый
    * | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
@@ -879,7 +879,7 @@ public class ItemsApi {
   /**
    * Бренды Метод возвращает список брендов по ID предмета. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
+   * на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Сервисный | 1 сек | 1 запрос
    * | 1 сек | 5 запросов | | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый
    * | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
@@ -913,7 +913,7 @@ public class ItemsApi {
   /**
    * Бренды (asynchronously) Метод возвращает список брендов по ID предмета. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
+   * на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Сервисный | 1 сек | 1 запрос
    * | 1 сек | 5 запросов | | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый
    * | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
@@ -1064,7 +1064,7 @@ public class ItemsApi {
    * акций](https://dev.wildberries.ru/openapi/promotion#tag/promoCalendar). Такие скидки применятся
    * к товарам только в момент старта акции. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов категории **Цены и скидки**: | Тип | Период | Лимит |
+   * на один профиль продавца для всех методов категории **Цены и скидки**: | Тип | Период | Лимит |
    * Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600
    * мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с
    * секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1
@@ -1103,7 +1103,7 @@ public class ItemsApi {
    * акций](https://dev.wildberries.ru/openapi/promotion#tag/promoCalendar). Такие скидки применятся
    * к товарам только в момент старта акции. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов категории **Цены и скидки**: | Тип | Период | Лимит |
+   * на один профиль продавца для всех методов категории **Цены и скидки**: | Тип | Период | Лимит |
    * Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600
    * мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с
    * секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1
@@ -1143,7 +1143,7 @@ public class ItemsApi {
    * [календаре акций](https://dev.wildberries.ru/openapi/promotion#tag/promoCalendar). Такие скидки
    * применятся к товарам только в момент старта акции. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов категории **Цены и скидки**: | Тип | Период | Лимит |
+   * на один профиль продавца для всех методов категории **Цены и скидки**: | Тип | Период | Лимит |
    * Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600
    * мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с
    * секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1
@@ -1281,7 +1281,7 @@ public class ItemsApi {
    * акций](https://dev.wildberries.ru/openapi/promotion#tag/promoCalendar). Такие скидки применятся
    * к товарам только в момент старта акции. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов категории **Цены и скидки**: | Тип | Период | Лимит |
+   * на один профиль продавца для всех методов категории **Цены и скидки**: | Тип | Период | Лимит |
    * Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600
    * мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с
    * секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1
@@ -1315,7 +1315,7 @@ public class ItemsApi {
    * акций](https://dev.wildberries.ru/openapi/promotion#tag/promoCalendar). Такие скидки применятся
    * к товарам только в момент старта акции. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов категории **Цены и скидки**: | Тип | Период | Лимит |
+   * на один профиль продавца для всех методов категории **Цены и скидки**: | Тип | Период | Лимит |
    * Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600
    * мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с
    * секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1
@@ -1351,7 +1351,7 @@ public class ItemsApi {
    * акций](https://dev.wildberries.ru/openapi/promotion#tag/promoCalendar). Такие скидки применятся
    * к товарам только в момент старта акции. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов категории **Цены и скидки**: | Тип | Период | Лимит |
+   * на один профиль продавца для всех методов категории **Цены и скидки**: | Тип | Период | Лимит |
    * Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600
    * мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с
    * секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1
@@ -1473,7 +1473,7 @@ public class ItemsApi {
    * корзине](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2GetCardsTrash).
    * [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для методов: * [получения лимитов карточек
+   * на один профиль продавца для методов: * [получения лимитов карточек
    * товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/getV2CardsLimits)
    * * [получения несозданных карточек товаров с
    * ошибками](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsErrorList)
@@ -1513,7 +1513,7 @@ public class ItemsApi {
    * корзине](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2GetCardsTrash).
    * [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для методов: * [получения лимитов карточек
+   * на один профиль продавца для методов: * [получения лимитов карточек
    * товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/getV2CardsLimits)
    * * [получения несозданных карточек товаров с
    * ошибками](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsErrorList)
@@ -1556,7 +1556,7 @@ public class ItemsApi {
    * корзине](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2GetCardsTrash).
    * [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для методов: * [получения лимитов карточек
+   * на один профиль продавца для методов: * [получения лимитов карточек
    * товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/getV2CardsLimits)
    * * [получения несозданных карточек товаров с
    * ошибками](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsErrorList)
@@ -1681,7 +1681,7 @@ public class ItemsApi {
    * [характеристики](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId)
    * предмета &#x60;Цвет&#x60;. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для методов **Характеристик**: | Тип | Период | Лимит | Интервал |
+   * на один профиль продавца для методов **Характеристик**: | Тип | Период | Лимит | Интервал |
    * Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5
    * запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1
    * мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
@@ -1717,7 +1717,7 @@ public class ItemsApi {
    * [характеристики](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId)
    * предмета &#x60;Цвет&#x60;. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для методов **Характеристик**: | Тип | Период | Лимит | Интервал |
+   * на один профиль продавца для методов **Характеристик**: | Тип | Период | Лимит | Интервал |
    * Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5
    * запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1
    * мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
@@ -1754,7 +1754,7 @@ public class ItemsApi {
    * [характеристики](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId)
    * предмета &#x60;Цвет&#x60;. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для методов **Характеристик**: | Тип | Период | Лимит | Интервал |
+   * на один профиль продавца для методов **Характеристик**: | Тип | Период | Лимит | Интервал |
    * Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5
    * запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1
    * мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
@@ -1881,7 +1881,7 @@ public class ItemsApi {
    * [характеристики](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId)
    * предмета &#x60;Страна производства&#x60;. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал |
+   * на один профиль продавца для всех методов категории **Контент**: | Период | Лимит | Интервал |
    * Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение —
    * методы: * [создания карточек
    * товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
@@ -1928,7 +1928,7 @@ public class ItemsApi {
    * [характеристики](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId)
    * предмета &#x60;Страна производства&#x60;. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал |
+   * на один профиль продавца для всех методов категории **Контент**: | Период | Лимит | Интервал |
    * Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение —
    * методы: * [создания карточек
    * товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
@@ -1975,7 +1975,7 @@ public class ItemsApi {
    * [характеристики](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId)
    * предмета &#x60;Страна производства&#x60;. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал |
+   * на один профиль продавца для всех методов категории **Контент**: | Период | Лимит | Интервал |
    * Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение —
    * методы: * [создания карточек
    * товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
@@ -2112,7 +2112,7 @@ public class ItemsApi {
    * [характеристики](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId)
    * предмета &#x60;Пол&#x60;. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для методов **Характеристик**: | Тип | Период | Лимит | Интервал |
+   * на один профиль продавца для методов **Характеристик**: | Тип | Период | Лимит | Интервал |
    * Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5
    * запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1
    * мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
@@ -2148,7 +2148,7 @@ public class ItemsApi {
    * [характеристики](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId)
    * предмета &#x60;Пол&#x60;. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для методов **Характеристик**: | Тип | Период | Лимит | Интервал |
+   * на один профиль продавца для методов **Характеристик**: | Тип | Период | Лимит | Интервал |
    * Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5
    * запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1
    * мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
@@ -2185,7 +2185,7 @@ public class ItemsApi {
    * [характеристики](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId)
    * предмета &#x60;Пол&#x60;. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для методов **Характеристик**: | Тип | Период | Лимит | Интервал |
+   * на один профиль продавца для методов **Характеристик**: | Тип | Период | Лимит | Интервал |
    * Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5
    * запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1
    * мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
@@ -2326,7 +2326,7 @@ public class ItemsApi {
    * [предмета](https://dev.wildberries.ru/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1all/get)
    * и фрагменту кода ОКПД2. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал |
+   * на один профиль продавца для всех методов категории **Контент**: | Период | Лимит | Интервал |
    * Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение —
    * методы: * [создания карточек
    * товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
@@ -2373,7 +2373,7 @@ public class ItemsApi {
    * [предмета](https://dev.wildberries.ru/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1all/get)
    * и фрагменту кода ОКПД2. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал |
+   * на один профиль продавца для всех методов категории **Контент**: | Период | Лимит | Интервал |
    * Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение —
    * методы: * [создания карточек
    * товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
@@ -2421,7 +2421,7 @@ public class ItemsApi {
    * [предмета](https://dev.wildberries.ru/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1all/get)
    * и фрагменту кода ОКПД2. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал |
+   * на один профиль продавца для всех методов категории **Контент**: | Период | Лимит | Интервал |
    * Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение —
    * методы: * [создания карточек
    * товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
@@ -2562,7 +2562,7 @@ public class ItemsApi {
    * Список кодов ОКПД2 Метод возвращает справочный список всех кодов ОКПД2. Чтобы найти код по его
    * фрагменту, укажите первые цифры кода через точку в параметре &#x60;search&#x60;. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал |
+   * на один профиль продавца для всех методов категории **Контент**: | Период | Лимит | Интервал |
    * Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение —
    * методы: * [создания карточек
    * товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
@@ -2607,7 +2607,7 @@ public class ItemsApi {
    * Список кодов ОКПД2 Метод возвращает справочный список всех кодов ОКПД2. Чтобы найти код по его
    * фрагменту, укажите первые цифры кода через точку в параметре &#x60;search&#x60;. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал |
+   * на один профиль продавца для всех методов категории **Контент**: | Период | Лимит | Интервал |
    * Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение —
    * методы: * [создания карточек
    * товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
@@ -2653,7 +2653,7 @@ public class ItemsApi {
    * найти код по его фрагменту, укажите первые цифры кода через точку в параметре
    * &#x60;search&#x60;. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал |
+   * на один профиль продавца для всех методов категории **Контент**: | Период | Лимит | Интервал |
    * Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение —
    * методы: * [создания карточек
    * товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
@@ -2791,7 +2791,7 @@ public class ItemsApi {
    * [характеристики](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId)
    * предмета &#x60;Сезон&#x60;. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для методов **Характеристик**: | Тип | Период | Лимит | Интервал |
+   * на один профиль продавца для методов **Характеристик**: | Тип | Период | Лимит | Интервал |
    * Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5
    * запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1
    * мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
@@ -2827,7 +2827,7 @@ public class ItemsApi {
    * [характеристики](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId)
    * предмета &#x60;Сезон&#x60;. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для методов **Характеристик**: | Тип | Период | Лимит | Интервал |
+   * на один профиль продавца для методов **Характеристик**: | Тип | Период | Лимит | Интервал |
    * Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5
    * запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1
    * мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
@@ -2864,7 +2864,7 @@ public class ItemsApi {
    * [характеристики](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId)
    * предмета &#x60;Сезон&#x60;. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для методов **Характеристик**: | Тип | Период | Лимит | Интервал |
+   * на один профиль продавца для методов **Характеристик**: | Тип | Период | Лимит | Интервал |
    * Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5
    * запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1
    * мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
@@ -3009,7 +3009,7 @@ public class ItemsApi {
    * [предмета](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll)
    * и фрагменту кода ТН ВЭД. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал |
+   * на один профиль продавца для всех методов категории **Контент**: | Период | Лимит | Интервал |
    * Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение —
    * методы: * [создания карточек
    * товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
@@ -3058,7 +3058,7 @@ public class ItemsApi {
    * [предмета](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll)
    * и фрагменту кода ТН ВЭД. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал |
+   * на один профиль продавца для всех методов категории **Контент**: | Период | Лимит | Интервал |
    * Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение —
    * методы: * [создания карточек
    * товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
@@ -3108,7 +3108,7 @@ public class ItemsApi {
    * [предмета](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll)
    * и фрагменту кода ТН ВЭД. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал |
+   * на один профиль продавца для всех методов категории **Контент**: | Период | Лимит | Интервал |
    * Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение —
    * методы: * [создания карточек
    * товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
@@ -3251,7 +3251,7 @@ public class ItemsApi {
    * Список кодов ТН ВЭД Метод возвращает справочный список всех кодов ТН ВЭД. Чтобы найти код по
    * его фрагменту, укажите первые цифры кода в параметре &#x60;search&#x60;. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал |
+   * на один профиль продавца для всех методов категории **Контент**: | Период | Лимит | Интервал |
    * Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение —
    * методы: * [создания карточек
    * товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
@@ -3297,7 +3297,7 @@ public class ItemsApi {
    * Список кодов ТН ВЭД Метод возвращает справочный список всех кодов ТН ВЭД. Чтобы найти код по
    * его фрагменту, укажите первые цифры кода в параметре &#x60;search&#x60;. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал |
+   * на один профиль продавца для всех методов категории **Контент**: | Период | Лимит | Интервал |
    * Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение —
    * методы: * [создания карточек
    * товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
@@ -3344,7 +3344,7 @@ public class ItemsApi {
    * Чтобы найти код по его фрагменту, укажите первые цифры кода в параметре &#x60;search&#x60;.
    * [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал |
+   * на один профиль продавца для всех методов категории **Контент**: | Период | Лимит | Интервал |
    * Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение —
    * методы: * [создания карточек
    * товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
@@ -3481,7 +3481,7 @@ public class ItemsApi {
    * [характеристики](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId)
    * предмета &#x60;Ставка НДС&#x60;. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для методов **Характеристик**: | Тип | Период | Лимит | Интервал |
+   * на один профиль продавца для методов **Характеристик**: | Тип | Период | Лимит | Интервал |
    * Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5
    * запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1
    * мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
@@ -3516,7 +3516,7 @@ public class ItemsApi {
    * [характеристики](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId)
    * предмета &#x60;Ставка НДС&#x60;. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для методов **Характеристик**: | Тип | Период | Лимит | Интервал |
+   * на один профиль продавца для методов **Характеристик**: | Тип | Период | Лимит | Интервал |
    * Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5
    * запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1
    * мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
@@ -3553,7 +3553,7 @@ public class ItemsApi {
    * [характеристики](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId)
    * предмета &#x60;Ставка НДС&#x60;. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для методов **Характеристик**: | Тип | Период | Лимит | Интервал |
+   * на один профиль продавца для методов **Характеристик**: | Тип | Период | Лимит | Интервал |
    * Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5
    * запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1
    * мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
@@ -3711,7 +3711,7 @@ public class ItemsApi {
    * B2B-продаж](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/postV1UploadTaskB2bWholesale).
    * [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов категории **Цены и скидки**: | Тип | Период | Лимит |
+   * на один профиль продавца для всех методов категории **Цены и скидки**: | Тип | Период | Лимит |
    * Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600
    * мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с
    * секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1
@@ -3756,7 +3756,7 @@ public class ItemsApi {
    * B2B-продаж](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/postV1UploadTaskB2bWholesale).
    * [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов категории **Цены и скидки**: | Тип | Период | Лимит |
+   * на один профиль продавца для всех методов категории **Цены и скидки**: | Тип | Период | Лимит |
    * Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600
    * мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с
    * секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1
@@ -3803,7 +3803,7 @@ public class ItemsApi {
    * B2B-продаж](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/postV1UploadTaskB2bWholesale).
    * [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов категории **Цены и скидки**: | Тип | Период | Лимит |
+   * на один профиль продавца для всех методов категории **Цены и скидки**: | Тип | Период | Лимит |
    * Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600
    * мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с
    * секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1
@@ -3947,7 +3947,7 @@ public class ItemsApi {
    * B2B-продаж](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/postV1UploadTaskB2bWholesale).
    * [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов категории **Цены и скидки**: | Тип | Период | Лимит |
+   * на один профиль продавца для всех методов категории **Цены и скидки**: | Тип | Период | Лимит |
    * Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600
    * мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с
    * секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1
@@ -3988,7 +3988,7 @@ public class ItemsApi {
    * B2B-продаж](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/postV1UploadTaskB2bWholesale).
    * [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов категории **Цены и скидки**: | Тип | Период | Лимит |
+   * на один профиль продавца для всех методов категории **Цены и скидки**: | Тип | Период | Лимит |
    * Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600
    * мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с
    * секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1
@@ -4030,7 +4030,7 @@ public class ItemsApi {
    * B2B-продаж](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/postV1UploadTaskB2bWholesale).
    * [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов категории **Цены и скидки**: | Тип | Период | Лимит |
+   * на один профиль продавца для всех методов категории **Цены и скидки**: | Тип | Период | Лимит |
    * Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600
    * мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с
    * секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1
@@ -4186,7 +4186,7 @@ public class ItemsApi {
    * товара](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsSizeNm)
    * [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов категории **Цены и скидки**: | Тип | Период | Лимит |
+   * на один профиль продавца для всех методов категории **Цены и скидки**: | Тип | Период | Лимит |
    * Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600
    * мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с
    * секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1
@@ -4237,7 +4237,7 @@ public class ItemsApi {
    * товара](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsSizeNm)
    * [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов категории **Цены и скидки**: | Тип | Период | Лимит |
+   * на один профиль продавца для всех методов категории **Цены и скидки**: | Тип | Период | Лимит |
    * Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600
    * мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с
    * секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1
@@ -4289,7 +4289,7 @@ public class ItemsApi {
    * товара](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsSizeNm)
    * [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов категории **Цены и скидки**: | Тип | Период | Лимит |
+   * на один профиль продавца для всех методов категории **Цены и скидки**: | Тип | Период | Лимит |
    * Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600
    * мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с
    * секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1
@@ -4452,7 +4452,7 @@ public class ItemsApi {
    * метод](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsFilter).
    * [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов категории **Цены и скидки**: | Тип | Период | Лимит |
+   * на один профиль продавца для всех методов категории **Цены и скидки**: | Тип | Период | Лимит |
    * Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600
    * мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с
    * секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1
@@ -4496,7 +4496,7 @@ public class ItemsApi {
    * метод](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsFilter).
    * [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов категории **Цены и скидки**: | Тип | Период | Лимит |
+   * на один профиль продавца для всех методов категории **Цены и скидки**: | Тип | Период | Лимит |
    * Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600
    * мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с
    * секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1
@@ -4540,7 +4540,7 @@ public class ItemsApi {
    * метод](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsFilter).
    * [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов категории **Цены и скидки**: | Тип | Период | Лимит |
+   * на один профиль продавца для всех методов категории **Цены и скидки**: | Тип | Период | Лимит |
    * Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600
    * мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с
    * секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1
@@ -4707,7 +4707,7 @@ public class ItemsApi {
    * и их предметов с ID. Например, у категории &#x60;Игрушки&#x60; будут предметы
    * &#x60;Калейдоскопы&#x60;, &#x60;Куклы&#x60;, &#x60;Мячики&#x60;. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал |
+   * на один профиль продавца для всех методов категории **Контент**: | Период | Лимит | Интервал |
    * Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение —
    * методы: * [создания карточек
    * товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
@@ -4761,7 +4761,7 @@ public class ItemsApi {
    * и их предметов с ID. Например, у категории &#x60;Игрушки&#x60; будут предметы
    * &#x60;Калейдоскопы&#x60;, &#x60;Куклы&#x60;, &#x60;Мячики&#x60;. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал |
+   * на один профиль продавца для всех методов категории **Контент**: | Период | Лимит | Интервал |
    * Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение —
    * методы: * [создания карточек
    * товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
@@ -4816,7 +4816,7 @@ public class ItemsApi {
    * и их предметов с ID. Например, у категории &#x60;Игрушки&#x60; будут предметы
    * &#x60;Калейдоскопы&#x60;, &#x60;Куклы&#x60;, &#x60;Мячики&#x60;. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал |
+   * на один профиль продавца для всех методов категории **Контент**: | Период | Лимит | Интервал |
    * Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение —
    * методы: * [создания карточек
    * товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
@@ -4984,7 +4984,7 @@ public class ItemsApi {
    * [ТНВЭД-код](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2DirectoryTnved)
    * используйте отдельные методы [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал |
+   * на один профиль продавца для всех методов категории **Контент**: | Период | Лимит | Интервал |
    * Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение —
    * методы: * [создания карточек
    * товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
@@ -5043,7 +5043,7 @@ public class ItemsApi {
    * [ТНВЭД-код](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2DirectoryTnved)
    * используйте отдельные методы [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал |
+   * на один профиль продавца для всех методов категории **Контент**: | Период | Лимит | Интервал |
    * Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение —
    * методы: * [создания карточек
    * товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
@@ -5103,7 +5103,7 @@ public class ItemsApi {
    * [ТНВЭД-код](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2DirectoryTnved)
    * используйте отдельные методы [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал |
+   * на один профиль продавца для всех методов категории **Контент**: | Период | Лимит | Интервал |
    * Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение —
    * методы: * [создания карточек
    * товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
@@ -5245,7 +5245,7 @@ public class ItemsApi {
    * товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems): например,
    * &#x60;Электроника&#x60;, &#x60;Бытовая химия&#x60;, &#x60;Рукоделие&#x60;. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал |
+   * на один профиль продавца для всех методов категории **Контент**: | Период | Лимит | Интервал |
    * Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение —
    * методы: * [создания карточек
    * товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
@@ -5292,7 +5292,7 @@ public class ItemsApi {
    * товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems): например,
    * &#x60;Электроника&#x60;, &#x60;Бытовая химия&#x60;, &#x60;Рукоделие&#x60;. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал |
+   * на один профиль продавца для всех методов категории **Контент**: | Период | Лимит | Интервал |
    * Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение —
    * методы: * [создания карточек
    * товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
@@ -5340,7 +5340,7 @@ public class ItemsApi {
    * товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems): например,
    * &#x60;Электроника&#x60;, &#x60;Бытовая химия&#x60;, &#x60;Рукоделие&#x60;. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал |
+   * на один профиль продавца для всех методов категории **Контент**: | Период | Лимит | Интервал |
    * Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение —
    * методы: * [создания карточек
    * товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
@@ -5500,7 +5500,7 @@ public class ItemsApi {
    * карантин не применяется. В [песочнице](https://dev.wildberries.ru/sandbox) товары автоматически
    * удаляются из карантина через 3 дня. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов категории **Цены и скидки**: | Тип | Период | Лимит |
+   * на один профиль продавца для всех методов категории **Цены и скидки**: | Тип | Период | Лимит |
    * Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600
    * мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с
    * секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1
@@ -5549,7 +5549,7 @@ public class ItemsApi {
    * карантин не применяется. В [песочнице](https://dev.wildberries.ru/sandbox) товары автоматически
    * удаляются из карантина через 3 дня. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов категории **Цены и скидки**: | Тип | Период | Лимит |
+   * на один профиль продавца для всех методов категории **Цены и скидки**: | Тип | Период | Лимит |
    * Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600
    * мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с
    * секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1
@@ -5598,7 +5598,7 @@ public class ItemsApi {
    * карантин не применяется. В [песочнице](https://dev.wildberries.ru/sandbox) товары автоматически
    * удаляются из карантина через 3 дня. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов категории **Цены и скидки**: | Тип | Период | Лимит |
+   * на один профиль продавца для всех методов категории **Цены и скидки**: | Тип | Период | Лимит |
    * Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600
    * мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с
    * секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1
@@ -5718,7 +5718,7 @@ public class ItemsApi {
    * Список ярлыков Метод возвращает список и характеристики всех ярлыков продавца для группировки и
    * фильтрации товаров. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов **Ярлыков**: | Тип | Период | Лимит | Интервал |
+   * на один профиль продавца для всех методов **Ярлыков**: | Тип | Период | Лимит | Интервал |
    * Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5
    * запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1
    * мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
@@ -5749,7 +5749,7 @@ public class ItemsApi {
    * Список ярлыков Метод возвращает список и характеристики всех ярлыков продавца для группировки и
    * фильтрации товаров. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов **Ярлыков**: | Тип | Период | Лимит | Интервал |
+   * на один профиль продавца для всех методов **Ярлыков**: | Тип | Период | Лимит | Интервал |
    * Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5
    * запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1
    * мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
@@ -5781,7 +5781,7 @@ public class ItemsApi {
    * Список ярлыков (asynchronously) Метод возвращает список и характеристики всех ярлыков продавца
    * для группировки и фильтрации товаров. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов **Ярлыков**: | Тип | Период | Лимит | Интервал |
+   * на один профиль продавца для всех методов **Ярлыков**: | Тип | Период | Лимит | Интервал |
    * Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5
    * запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1
    * мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
@@ -5906,7 +5906,7 @@ public class ItemsApi {
    * Только для складов с типом доставки &#x60;3&#x60; — Деливери WB
    * ([DBW](https://dev.wildberries.ru/openapi/orders-dbw)). [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для следующих методов DBW: * получение и обновление списка контактов *
+   * на один профиль продавца для следующих методов DBW: * получение и обновление списка контактов *
    * получение и удаление идентификаторов маркировки * методы сборочных заданий | Период | Лимит |
    * Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |
    * Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов Library doc:
@@ -5941,7 +5941,7 @@ public class ItemsApi {
    * Только для складов с типом доставки &#x60;3&#x60; — Деливери WB
    * ([DBW](https://dev.wildberries.ru/openapi/orders-dbw)). [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для следующих методов DBW: * получение и обновление списка контактов *
+   * на один профиль продавца для следующих методов DBW: * получение и обновление списка контактов *
    * получение и удаление идентификаторов маркировки * методы сборочных заданий | Период | Лимит |
    * Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |
    * Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов Library doc:
@@ -5978,7 +5978,7 @@ public class ItemsApi {
    * Только для складов с типом доставки &#x60;3&#x60; — Деливери WB
    * ([DBW](https://dev.wildberries.ru/openapi/orders-dbw)). [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для следующих методов DBW: * получение и обновление списка контактов *
+   * на один профиль продавца для следующих методов DBW: * получение и обновление списка контактов *
    * получение и удаление идентификаторов маркировки * методы сборочных заданий | Период | Лимит |
    * Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |
    * Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов Library doc:
@@ -6099,7 +6099,7 @@ public class ItemsApi {
    * [редактировании](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehouses/operation/putV3WarehousesWarehouseId).
    * [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов **складов продавца**: | Период | Лимит | Интервал |
+   * на один профиль продавца для всех методов **складов продавца**: | Период | Лимит | Интервал |
    * Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос
    * с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов. --- В
    * [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех
@@ -6132,7 +6132,7 @@ public class ItemsApi {
    * [редактировании](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehouses/operation/putV3WarehousesWarehouseId).
    * [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов **складов продавца**: | Период | Лимит | Интервал |
+   * на один профиль продавца для всех методов **складов продавца**: | Период | Лимит | Интервал |
    * Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос
    * с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов. --- В
    * [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех
@@ -6166,7 +6166,7 @@ public class ItemsApi {
    * [редактировании](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehouses/operation/putV3WarehousesWarehouseId).
    * [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов **складов продавца**: | Период | Лимит | Интервал |
+   * на один профиль продавца для всех методов **складов продавца**: | Период | Лимит | Интервал |
    * Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос
    * с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов. --- В
    * [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех
@@ -6279,7 +6279,7 @@ public class ItemsApi {
    * товаров](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehousesInventory).
    * [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов **складов продавца**: | Период | Лимит | Интервал |
+   * на один профиль продавца для всех методов **складов продавца**: | Период | Лимит | Интервал |
    * Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос
    * с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов. --- В
    * [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех
@@ -6310,7 +6310,7 @@ public class ItemsApi {
    * товаров](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehousesInventory).
    * [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов **складов продавца**: | Период | Лимит | Интервал |
+   * на один профиль продавца для всех методов **складов продавца**: | Период | Лимит | Интервал |
    * Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос
    * с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов. --- В
    * [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех
@@ -6342,7 +6342,7 @@ public class ItemsApi {
    * товаров](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehousesInventory).
    * [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов **складов продавца**: | Период | Лимит | Интервал |
+   * на один профиль продавца для всех методов **складов продавца**: | Период | Лимит | Интервал |
    * Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос
    * с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов. --- В
    * [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех
@@ -6475,7 +6475,7 @@ public class ItemsApi {
    * [списке](https://dev.wildberries.ru/openapi/item-management#tag/labels/operation/getV2Tags).
    * [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов **Ярлыков**: | Тип | Период | Лимит | Интервал |
+   * на один профиль продавца для всех методов **Ярлыков**: | Тип | Период | Лимит | Интервал |
    * Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5
    * запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1
    * мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
@@ -6512,7 +6512,7 @@ public class ItemsApi {
    * [списке](https://dev.wildberries.ru/openapi/item-management#tag/labels/operation/getV2Tags).
    * [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов **Ярлыков**: | Тип | Период | Лимит | Интервал |
+   * на один профиль продавца для всех методов **Ярлыков**: | Тип | Период | Лимит | Интервал |
    * Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5
    * запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1
    * мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
@@ -6550,7 +6550,7 @@ public class ItemsApi {
    * [списке](https://dev.wildberries.ru/openapi/item-management#tag/labels/operation/getV2Tags).
    * [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов **Ярлыков**: | Тип | Период | Лимит | Интервал |
+   * на один профиль продавца для всех методов **Ярлыков**: | Тип | Период | Лимит | Интервал |
    * Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5
    * запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1
    * мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
@@ -6671,7 +6671,7 @@ public class ItemsApi {
    * по **Персональному** токену, **Сервисному** токену Метод возвращает список
    * [рекомендаций](https://seller.wildberries.ru/recommendations-v3) в карточках товаров. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
+   * на один профиль продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
    * мин | 100 запросов | 600 мс | 5 запросов | Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-api-content-v1-recommendations-list
    *
@@ -6701,7 +6701,7 @@ public class ItemsApi {
    * по **Персональному** токену, **Сервисному** токену Метод возвращает список
    * [рекомендаций](https://seller.wildberries.ru/recommendations-v3) в карточках товаров. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
+   * на один профиль продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
    * мин | 100 запросов | 600 мс | 5 запросов | Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-api-content-v1-recommendations-list
    *
@@ -6733,7 +6733,7 @@ public class ItemsApi {
    * по **Персональному** токену, **Сервисному** токену Метод возвращает список
    * [рекомендаций](https://seller.wildberries.ru/recommendations-v3) в карточках товаров. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
+   * на один профиль продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
    * мин | 100 запросов | 600 мс | 5 запросов | Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-api-content-v1-recommendations-list
    *
@@ -6852,7 +6852,7 @@ public class ItemsApi {
    * по **Персональному** токену, **Сервисному** токену Метод обновляет, добавляет или удаляет
    * [рекомендации](https://seller.wildberries.ru/recommendations-v3) для товаров. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
+   * на один профиль продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
    * мин | 100 запросов | 600 мс | 5 запросов | Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-api-content-v1-recommendations-set
    *
@@ -6883,7 +6883,7 @@ public class ItemsApi {
    * по **Персональному** токену, **Сервисному** токену Метод обновляет, добавляет или удаляет
    * [рекомендации](https://seller.wildberries.ru/recommendations-v3) для товаров. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
+   * на один профиль продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
    * мин | 100 запросов | 600 мс | 5 запросов | Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-api-content-v1-recommendations-set
    *
@@ -6916,7 +6916,7 @@ public class ItemsApi {
    * по **Персональному** токену, **Сервисному** токену Метод обновляет, добавляет или удаляет
    * [рекомендации](https://seller.wildberries.ru/recommendations-v3) для товаров. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
+   * на один профиль продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
    * мин | 100 запросов | 600 мс | 5 запросов | Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-api-content-v1-recommendations-set
    *
@@ -7045,7 +7045,7 @@ public class ItemsApi {
    * [детализации](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryGoodsTask)
    * обработанной загрузки. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов категории **Цены и скидки**: | Тип | Период | Лимит |
+   * на один профиль продавца для всех методов категории **Цены и скидки**: | Тип | Период | Лимит |
    * Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600
    * мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-api-discounts-prices-v1-upload-task-b2b-wholesale
@@ -7084,7 +7084,7 @@ public class ItemsApi {
    * [детализации](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryGoodsTask)
    * обработанной загрузки. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов категории **Цены и скидки**: | Тип | Период | Лимит |
+   * на один профиль продавца для всех методов категории **Цены и скидки**: | Тип | Период | Лимит |
    * Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600
    * мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-api-discounts-prices-v1-upload-task-b2b-wholesale
@@ -7126,7 +7126,7 @@ public class ItemsApi {
    * [детализации](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryGoodsTask)
    * обработанной загрузки. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов категории **Цены и скидки**: | Тип | Период | Лимит |
+   * на один профиль продавца для всех методов категории **Цены и скидки**: | Тип | Период | Лимит |
    * Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600
    * мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-api-discounts-prices-v1-upload-task-b2b-wholesale
@@ -7254,7 +7254,7 @@ public class ItemsApi {
    * товара](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload).
    * Можно использовать, если у вас нет собственных баркодов. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал |
+   * на один профиль продавца для всех методов категории **Контент**: | Период | Лимит | Интервал |
    * Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение —
    * методы: * [создания карточек
    * товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
@@ -7299,7 +7299,7 @@ public class ItemsApi {
    * товара](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload).
    * Можно использовать, если у вас нет собственных баркодов. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал |
+   * на один профиль продавца для всех методов категории **Контент**: | Период | Лимит | Интервал |
    * Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение —
    * методы: * [создания карточек
    * товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
@@ -7345,7 +7345,7 @@ public class ItemsApi {
    * товара](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload).
    * Можно использовать, если у вас нет собственных баркодов. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал |
+   * на один профиль продавца для всех методов категории **Контент**: | Период | Лимит | Интервал |
    * Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение —
    * методы: * [создания карточек
    * товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
@@ -7493,7 +7493,7 @@ public class ItemsApi {
    * пока по ней есть остатки на складе, даже если её переместили в корзину. Чтобы полностью снять
    * карточку с продажи, обнулите остатки. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
+   * на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100
    * запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5
    * запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | Library doc:
@@ -7536,7 +7536,7 @@ public class ItemsApi {
    * пока по ней есть остатки на складе, даже если её переместили в корзину. Чтобы полностью снять
    * карточку с продажи, обнулите остатки. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
+   * на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100
    * запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5
    * запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | Library doc:
@@ -7580,7 +7580,7 @@ public class ItemsApi {
    * пока по ней есть остатки на складе, даже если её переместили в корзину. Чтобы полностью снять
    * карточку с продажи, обнулите остатки. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
+   * на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100
    * запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5
    * запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | Library doc:
@@ -7734,7 +7734,7 @@ public class ItemsApi {
    * удалить карточку товара из списка, сделайте ещё один запрос на создание, создание с
    * присоединением или редактирование карточки товара с исправленными ошибками [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для методов: * [получения лимитов карточек
+   * на один профиль продавца для методов: * [получения лимитов карточек
    * товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/getV2CardsLimits)
    * * [получения несозданных карточек товаров с
    * ошибками](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsErrorList)
@@ -7790,7 +7790,7 @@ public class ItemsApi {
    * удалить карточку товара из списка, сделайте ещё один запрос на создание, создание с
    * присоединением или редактирование карточки товара с исправленными ошибками [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для методов: * [получения лимитов карточек
+   * на один профиль продавца для методов: * [получения лимитов карточек
    * товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/getV2CardsLimits)
    * * [получения несозданных карточек товаров с
    * ошибками](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsErrorList)
@@ -7849,7 +7849,7 @@ public class ItemsApi {
    * удалить карточку товара из списка, сделайте ещё один запрос на создание, создание с
    * присоединением или редактирование карточки товара с исправленными ошибками [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для методов: * [получения лимитов карточек
+   * на один профиль продавца для методов: * [получения лимитов карточек
    * товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/getV2CardsLimits)
    * * [получения несозданных карточек товаров с
    * ошибками](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsErrorList)
@@ -7988,7 +7988,7 @@ public class ItemsApi {
    * карточке товара за запрос. Максимальный размер запроса 10 Мб. Объединить можно карточки товаров
    * только в рамках одного предмета [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал |
+   * на один профиль продавца для всех методов категории **Контент**: | Период | Лимит | Интервал |
    * Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение —
    * методы: * [создания карточек
    * товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
@@ -8043,7 +8043,7 @@ public class ItemsApi {
    * карточке товара за запрос. Максимальный размер запроса 10 Мб. Объединить можно карточки товаров
    * только в рамках одного предмета [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал |
+   * на один профиль продавца для всех методов категории **Контент**: | Период | Лимит | Интервал |
    * Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение —
    * методы: * [создания карточек
    * товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
@@ -8098,7 +8098,7 @@ public class ItemsApi {
    * карточке товара за запрос. Максимальный размер запроса 10 Мб. Объединить можно карточки товаров
    * только в рамках одного предмета [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал |
+   * на один профиль продавца для всех методов категории **Контент**: | Период | Лимит | Интервал |
    * Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение —
    * методы: * [создания карточек
    * товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
@@ -8244,7 +8244,7 @@ public class ItemsApi {
    * корзину](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsDeleteTrash)
    * [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
+   * на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 5 запросов | | Сервисный | 1 мин | 3
    * запроса | 20 сек | 5 запросов | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 5 запросов
    * | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | Library doc:
@@ -8282,7 +8282,7 @@ public class ItemsApi {
    * корзину](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsDeleteTrash)
    * [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
+   * на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 5 запросов | | Сервисный | 1 мин | 3
    * запроса | 20 сек | 5 запросов | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 5 запросов
    * | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | Library doc:
@@ -8322,7 +8322,7 @@ public class ItemsApi {
    * корзину](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsDeleteTrash)
    * [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
+   * на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 5 запросов | | Сервисный | 1 мин | 3
    * запроса | 20 сек | 5 запросов | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 5 запросов
    * | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | Library doc:
@@ -8500,7 +8500,7 @@ public class ItemsApi {
    * самостоятельно определяете, какие разрешительные документы требуются для товара в соответствии
    * с законодательством. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
+   * на один профиль продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
    * мин | 10 запросов | 6 сек | 5 запросов | Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-cards-update
    *
@@ -8585,7 +8585,7 @@ public class ItemsApi {
    * самостоятельно определяете, какие разрешительные документы требуются для товара в соответствии
    * с законодательством. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
+   * на один профиль продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
    * мин | 10 запросов | 6 сек | 5 запросов | Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-cards-update
    *
@@ -8671,7 +8671,7 @@ public class ItemsApi {
    * самостоятельно определяете, какие разрешительные документы требуются для товара в соответствии
    * с законодательством. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
+   * на один профиль продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
    * мин | 10 запросов | 6 сек | 5 запросов | Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-cards-update
    *
@@ -8823,7 +8823,7 @@ public class ItemsApi {
    * самостоятельно определяете, какие разрешительные документы требуются для товара в соответствии
    * с законодательством. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
+   * на один профиль продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
    * мин | 10 запросов | 6 сек | 5 запросов | Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-cards-upload
    *
@@ -8883,7 +8883,7 @@ public class ItemsApi {
    * самостоятельно определяете, какие разрешительные документы требуются для товара в соответствии
    * с законодательством. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
+   * на один профиль продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
    * мин | 10 запросов | 6 сек | 5 запросов | Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-cards-upload
    *
@@ -8944,7 +8944,7 @@ public class ItemsApi {
    * самостоятельно определяете, какие разрешительные документы требуются для товара в соответствии
    * с законодательством. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
+   * на один профиль продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
    * мин | 10 запросов | 6 сек | 5 запросов | Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-cards-upload
    *
@@ -9094,7 +9094,7 @@ public class ItemsApi {
    * самостоятельно определяете, какие разрешительные документы требуются для товара в соответствии
    * с законодательством. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
+   * на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 10 запросов | 6 сек | 5 запросов | | Сервисный | 1 мин | 10
    * запросов | 6 сек | 5 запросов | | Базовый с секретом | 1 мин | 10 запросов | 6 сек | 5 запросов
    * | | Базовый | 2 ч | 1 запрос | 2 ч | 1 запрос | Library doc:
@@ -9156,7 +9156,7 @@ public class ItemsApi {
    * самостоятельно определяете, какие разрешительные документы требуются для товара в соответствии
    * с законодательством. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
+   * на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 10 запросов | 6 сек | 5 запросов | | Сервисный | 1 мин | 10
    * запросов | 6 сек | 5 запросов | | Базовый с секретом | 1 мин | 10 запросов | 6 сек | 5 запросов
    * | | Базовый | 2 ч | 1 запрос | 2 ч | 1 запрос | Library doc:
@@ -9219,7 +9219,7 @@ public class ItemsApi {
    * самостоятельно определяете, какие разрешительные документы требуются для товара в соответствии
    * с законодательством. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
+   * на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 10 запросов | 6 сек | 5 запросов | | Сервисный | 1 мин | 10
    * запросов | 6 сек | 5 запросов | | Базовый с секретом | 1 мин | 10 запросов | 6 сек | 5 запросов
    * | | Базовый | 2 ч | 1 запрос | 2 ч | 1 запрос | Library doc:
@@ -9390,7 +9390,7 @@ public class ItemsApi {
    * &#x60;updatedAt&#x60;. Чтобы получить новые результаты проверки, используйте выгрузку с
    * пагинацией с сортировкой по возрастанию. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
+   * на один профиль продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
    * мин | 100 запросов | 600 мс | 5 запросов | Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-get-cards-list
    *
@@ -9455,7 +9455,7 @@ public class ItemsApi {
    * &#x60;updatedAt&#x60;. Чтобы получить новые результаты проверки, используйте выгрузку с
    * пагинацией с сортировкой по возрастанию. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
+   * на один профиль продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
    * мин | 100 запросов | 600 мс | 5 запросов | Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-get-cards-list
    *
@@ -9522,7 +9522,7 @@ public class ItemsApi {
    * &#x60;updatedAt&#x60;. Чтобы получить новые результаты проверки, используйте выгрузку с
    * пагинацией с сортировкой по возрастанию. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
+   * на один профиль продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
    * мин | 100 запросов | 600 мс | 5 запросов | Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-get-cards-list
    *
@@ -9682,7 +9682,7 @@ public class ItemsApi {
    * &#x60;\&quot;cursor\&quot;:{\&quot;trashedAt\&quot;:\&quot;\\*\\*\\*\&quot;,\&quot;nmID\&quot;:\\*\\*\\*}&#x60;
    * из последнего ответа текущей выгрузки. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал |
+   * на один профиль продавца для всех методов категории **Контент**: | Период | Лимит | Интервал |
    * Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение —
    * методы: * [создания карточек
    * товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
@@ -9749,7 +9749,7 @@ public class ItemsApi {
    * &#x60;\&quot;cursor\&quot;:{\&quot;trashedAt\&quot;:\&quot;\\*\\*\\*\&quot;,\&quot;nmID\&quot;:\\*\\*\\*}&#x60;
    * из последнего ответа текущей выгрузки. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал |
+   * на один профиль продавца для всех методов категории **Контент**: | Период | Лимит | Интервал |
    * Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение —
    * методы: * [создания карточек
    * товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
@@ -9817,7 +9817,7 @@ public class ItemsApi {
    * &#x60;\&quot;cursor\&quot;:{\&quot;trashedAt\&quot;:\&quot;\\*\\*\\*\&quot;,\&quot;nmID\&quot;:\\*\\*\\*}&#x60;
    * из последнего ответа текущей выгрузки. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал |
+   * на один профиль продавца для всех методов категории **Контент**: | Период | Лимит | Интервал |
    * Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение —
    * методы: * [создания карточек
    * товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
@@ -9971,7 +9971,7 @@ public class ItemsApi {
    * товара](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsSizeNm)
    * [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов категории **Цены и скидки**: | Тип | Период | Лимит |
+   * на один профиль продавца для всех методов категории **Цены и скидки**: | Тип | Период | Лимит |
    * Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600
    * мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с
    * секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1
@@ -10015,7 +10015,7 @@ public class ItemsApi {
    * товара](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsSizeNm)
    * [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов категории **Цены и скидки**: | Тип | Период | Лимит |
+   * на один профиль продавца для всех методов категории **Цены и скидки**: | Тип | Период | Лимит |
    * Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600
    * мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с
    * секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1
@@ -10060,7 +10060,7 @@ public class ItemsApi {
    * товара](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsSizeNm)
    * [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов категории **Цены и скидки**: | Тип | Период | Лимит |
+   * на один профиль продавца для всех методов категории **Цены и скидки**: | Тип | Период | Лимит |
    * Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600
    * мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с
    * секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1
@@ -10191,7 +10191,7 @@ public class ItemsApi {
    * [списке](https://dev.wildberries.ru/openapi/item-management#tag/labels/operation/getV2Tags).
    * [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов **Ярлыков**: | Тип | Период | Лимит | Интервал |
+   * на один профиль продавца для всех методов **Ярлыков**: | Тип | Период | Лимит | Интервал |
    * Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5
    * запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1
    * мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
@@ -10227,7 +10227,7 @@ public class ItemsApi {
    * [списке](https://dev.wildberries.ru/openapi/item-management#tag/labels/operation/getV2Tags).
    * [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов **Ярлыков**: | Тип | Период | Лимит | Интервал |
+   * на один профиль продавца для всех методов **Ярлыков**: | Тип | Период | Лимит | Интервал |
    * Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5
    * запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1
    * мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
@@ -10265,7 +10265,7 @@ public class ItemsApi {
    * [списке](https://dev.wildberries.ru/openapi/item-management#tag/labels/operation/getV2Tags).
    * [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов **Ярлыков**: | Тип | Период | Лимит | Интервал |
+   * на один профиль продавца для всех методов **Ярлыков**: | Тип | Период | Лимит | Интервал |
    * Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5
    * запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1
    * мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
@@ -10398,7 +10398,7 @@ public class ItemsApi {
    * ярлыков](https://dev.wildberries.ru/openapi/item-management#tag/labels/operation/getV2Tags)
    * продавца. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов **Ярлыков**: | Тип | Период | Лимит | Интервал |
+   * на один профиль продавца для всех методов **Ярлыков**: | Тип | Период | Лимит | Интервал |
    * Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5
    * запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1
    * мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
@@ -10436,7 +10436,7 @@ public class ItemsApi {
    * ярлыков](https://dev.wildberries.ru/openapi/item-management#tag/labels/operation/getV2Tags)
    * продавца. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов **Ярлыков**: | Тип | Период | Лимит | Интервал |
+   * на один профиль продавца для всех методов **Ярлыков**: | Тип | Период | Лимит | Интервал |
    * Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5
    * запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1
    * мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
@@ -10475,7 +10475,7 @@ public class ItemsApi {
    * ярлыков](https://dev.wildberries.ru/openapi/item-management#tag/labels/operation/getV2Tags)
    * продавца. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов **Ярлыков**: | Тип | Период | Лимит | Интервал |
+   * на один профиль продавца для всех методов **Ярлыков**: | Тип | Период | Лимит | Интервал |
    * Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5
    * запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1
    * мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
@@ -10615,7 +10615,7 @@ public class ItemsApi {
    * [детализации](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryGoodsTask)
    * обработанной загрузки. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов категории **Цены и скидки**: | Тип | Период | Лимит |
+   * на один профиль продавца для всех методов категории **Цены и скидки**: | Тип | Период | Лимит |
    * Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600
    * мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с
    * секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1
@@ -10658,7 +10658,7 @@ public class ItemsApi {
    * [детализации](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryGoodsTask)
    * обработанной загрузки. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов категории **Цены и скидки**: | Тип | Период | Лимит |
+   * на один профиль продавца для всех методов категории **Цены и скидки**: | Тип | Период | Лимит |
    * Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600
    * мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с
    * секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1
@@ -10702,7 +10702,7 @@ public class ItemsApi {
    * [детализации](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryGoodsTask)
    * обработанной загрузки. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов категории **Цены и скидки**: | Тип | Период | Лимит |
+   * на один профиль продавца для всех методов категории **Цены и скидки**: | Тип | Период | Лимит |
    * Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600
    * мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с
    * секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1
@@ -10845,7 +10845,7 @@ public class ItemsApi {
    * [детализации](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryGoodsTask)
    * обработанной загрузки. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов категории **Цены и скидки**: | Тип | Период | Лимит |
+   * на один профиль продавца для всех методов категории **Цены и скидки**: | Тип | Период | Лимит |
    * Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600
    * мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с
    * секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1
@@ -10888,7 +10888,7 @@ public class ItemsApi {
    * [детализации](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryGoodsTask)
    * обработанной загрузки. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов категории **Цены и скидки**: | Тип | Период | Лимит |
+   * на один профиль продавца для всех методов категории **Цены и скидки**: | Тип | Период | Лимит |
    * Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600
    * мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с
    * секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1
@@ -10932,7 +10932,7 @@ public class ItemsApi {
    * [детализации](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryGoodsTask)
    * обработанной загрузки. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов категории **Цены и скидки**: | Тип | Период | Лимит |
+   * на один профиль продавца для всех методов категории **Цены и скидки**: | Тип | Период | Лимит |
    * Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600
    * мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с
    * секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1
@@ -11080,7 +11080,7 @@ public class ItemsApi {
    * [детализации](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryGoodsTask)
    * обработанной загрузки. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов категории **Цены и скидки**: | Тип | Период | Лимит |
+   * на один профиль продавца для всех методов категории **Цены и скидки**: | Тип | Период | Лимит |
    * Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600
    * мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с
    * секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1
@@ -11128,7 +11128,7 @@ public class ItemsApi {
    * [детализации](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryGoodsTask)
    * обработанной загрузки. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов категории **Цены и скидки**: | Тип | Период | Лимит |
+   * на один профиль продавца для всех методов категории **Цены и скидки**: | Тип | Период | Лимит |
    * Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600
    * мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с
    * секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1
@@ -11177,7 +11177,7 @@ public class ItemsApi {
    * [детализации](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryGoodsTask)
    * обработанной загрузки. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов категории **Цены и скидки**: | Тип | Период | Лимит |
+   * на один профиль продавца для всех методов категории **Цены и скидки**: | Тип | Период | Лимит |
    * Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600
    * мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с
    * секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1
@@ -11335,7 +11335,7 @@ public class ItemsApi {
    * форматы — JPG, PNG, BMP, GIF (статичные), WebP Требования к видео: \\* максимум одно видео для
    * одной карточки товара \\* максимальный размер — 50 Мб \\* форматы — MOV, MP4 [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов **Медиафайлов**: | Тип | Период | Лимит | Интервал |
+   * на один профиль продавца для всех методов **Медиафайлов**: | Тип | Период | Лимит | Интервал |
    * Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5
    * запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1
    * мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
@@ -11377,7 +11377,7 @@ public class ItemsApi {
    * форматы — JPG, PNG, BMP, GIF (статичные), WebP Требования к видео: \\* максимум одно видео для
    * одной карточки товара \\* максимальный размер — 50 Мб \\* форматы — MOV, MP4 [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов **Медиафайлов**: | Тип | Период | Лимит | Интервал |
+   * на один профиль продавца для всех методов **Медиафайлов**: | Тип | Период | Лимит | Интервал |
    * Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5
    * запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1
    * мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
@@ -11421,7 +11421,7 @@ public class ItemsApi {
    * одно видео для одной карточки товара \\* максимальный размер — 50 Мб \\* форматы — MOV, MP4
    * [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов **Медиафайлов**: | Тип | Период | Лимит | Интервал |
+   * на один профиль продавца для всех методов **Медиафайлов**: | Тип | Период | Лимит | Интервал |
    * Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5
    * запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1
    * мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
@@ -11573,7 +11573,7 @@ public class ItemsApi {
    * запросе не соответствует требованиям, то даже при успешном ответе (&#x60;200&#x60;) ни одно
    * изображение/видео не загрузится. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов **Медиафайлов**: | Тип | Период | Лимит | Интервал |
+   * на один профиль продавца для всех методов **Медиафайлов**: | Тип | Период | Лимит | Интервал |
    * Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5
    * запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1
    * мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
@@ -11624,7 +11624,7 @@ public class ItemsApi {
    * запросе не соответствует требованиям, то даже при успешном ответе (&#x60;200&#x60;) ни одно
    * изображение/видео не загрузится. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов **Медиафайлов**: | Тип | Период | Лимит | Интервал |
+   * на один профиль продавца для всех методов **Медиафайлов**: | Тип | Период | Лимит | Интервал |
    * Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5
    * запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1
    * мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
@@ -11675,7 +11675,7 @@ public class ItemsApi {
    * запросе не соответствует требованиям, то даже при успешном ответе (&#x60;200&#x60;) ни одно
    * изображение/видео не загрузится. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов **Медиафайлов**: | Тип | Период | Лимит | Интервал |
+   * на один профиль продавца для всех методов **Медиафайлов**: | Тип | Период | Лимит | Интервал |
    * Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5
    * запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1
    * мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
@@ -11822,7 +11822,7 @@ public class ItemsApi {
    * Получить остатки товаров Метод возвращает данные об остатках товаров на [складах
    * продавца](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehouses). [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов **остатков на складах продавца** кроме метода
+   * на один профиль продавца для всех методов **остатков на складах продавца** кроме метода
    * [удаления
    * остатков](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehousesInventory/operation/deleteV3StocksWarehouseId):
    * | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200
@@ -11861,7 +11861,7 @@ public class ItemsApi {
    * Получить остатки товаров Метод возвращает данные об остатках товаров на [складах
    * продавца](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehouses). [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов **остатков на складах продавца** кроме метода
+   * на один профиль продавца для всех методов **остатков на складах продавца** кроме метода
    * [удаления
    * остатков](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehousesInventory/operation/deleteV3StocksWarehouseId):
    * | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200
@@ -11903,7 +11903,7 @@ public class ItemsApi {
    * [складах продавца](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehouses).
    * [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов **остатков на складах продавца** кроме метода
+   * на один профиль продавца для всех методов **остатков на складах продавца** кроме метода
    * [удаления
    * остатков](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehousesInventory/operation/deleteV3StocksWarehouseId):
    * | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200
@@ -12042,7 +12042,7 @@ public class ItemsApi {
    * кроме сверхгабаритных (СГТ), по модели [FBS](https://dev.wildberries.ru/openapi/orders-fbs)
    * (Fulfillment by Seller). [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов **складов продавца**: | Период | Лимит | Интервал |
+   * на один профиль продавца для всех методов **складов продавца**: | Период | Лимит | Интервал |
    * Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос
    * с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов. --- В
    * [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех
@@ -12080,7 +12080,7 @@ public class ItemsApi {
    * кроме сверхгабаритных (СГТ), по модели [FBS](https://dev.wildberries.ru/openapi/orders-fbs)
    * (Fulfillment by Seller). [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов **складов продавца**: | Период | Лимит | Интервал |
+   * на один профиль продавца для всех методов **складов продавца**: | Период | Лимит | Интервал |
    * Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос
    * с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов. --- В
    * [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех
@@ -12118,7 +12118,7 @@ public class ItemsApi {
    * кроме сверхгабаритных (СГТ), по модели [FBS](https://dev.wildberries.ru/openapi/orders-fbs)
    * (Fulfillment by Seller). [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов **складов продавца**: | Период | Лимит | Интервал |
+   * на один профиль продавца для всех методов **складов продавца**: | Период | Лимит | Интервал |
    * Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос
    * с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов. --- В
    * [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех
@@ -12265,7 +12265,7 @@ public class ItemsApi {
    * складов с типом доставки &#x60;3&#x60; — Деливери WB (DBW). К складу можно добавить максимум 5
    * контактов. Чтобы удалить контакты, отправьте пустой массив &#x60;contacts&#x60;. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для следующих методов DBW: * получение и обновление списка контактов *
+   * на один профиль продавца для следующих методов DBW: * получение и обновление списка контактов *
    * получение и удаление идентификаторов маркировки * методы сборочных заданий | Период | Лимит |
    * Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |
    * Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов Library doc:
@@ -12300,7 +12300,7 @@ public class ItemsApi {
    * складов с типом доставки &#x60;3&#x60; — Деливери WB (DBW). К складу можно добавить максимум 5
    * контактов. Чтобы удалить контакты, отправьте пустой массив &#x60;contacts&#x60;. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для следующих методов DBW: * получение и обновление списка контактов *
+   * на один профиль продавца для следующих методов DBW: * получение и обновление списка контактов *
    * получение и удаление идентификаторов маркировки * методы сборочных заданий | Период | Лимит |
    * Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |
    * Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов Library doc:
@@ -12339,7 +12339,7 @@ public class ItemsApi {
    * складов с типом доставки &#x60;3&#x60; — Деливери WB (DBW). К складу можно добавить максимум 5
    * контактов. Чтобы удалить контакты, отправьте пустой массив &#x60;contacts&#x60;. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для следующих методов DBW: * получение и обновление списка контактов *
+   * на один профиль продавца для следующих методов DBW: * получение и обновление списка контактов *
    * получение и удаление идентификаторов маркировки * методы сборочных заданий | Период | Лимит |
    * Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |
    * Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов Library doc:
@@ -12393,8 +12393,8 @@ public class ItemsApi {
    * <tr><td> 402 </td><td> Требуется платёж </td><td>  -  </td></tr>
    * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
    * <tr><td> 404 </td><td> Не найдено </td><td>  -  </td></tr>
-   * <tr><td> 406 </td><td> Обновление остатков заблокировано </td><td>  -  </td></tr>
-   * <tr><td> 409 </td><td> Ошибка обновления остатков </td><td>  -  </td></tr>
+   * <tr><td> 406 </td><td> Не применимо </td><td>  -  </td></tr>
+   * <tr><td> 409 </td><td> Конфликт </td><td>  -  </td></tr>
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
@@ -12482,7 +12482,7 @@ public class ItemsApi {
    * Названия параметров запроса не валидируются. При отправке некорректных названий вы получите
    * успешный ответ (&#x60;204&#x60;), но остатки не обновятся. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов **остатков на складах продавца** кроме метода
+   * на один профиль продавца для всех методов **остатков на складах продавца** кроме метода
    * [удаления
    * остатков](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehousesInventory/operation/deleteV3StocksWarehouseId):
    * | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200
@@ -12505,8 +12505,8 @@ public class ItemsApi {
    * <tr><td> 402 </td><td> Требуется платёж </td><td>  -  </td></tr>
    * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
    * <tr><td> 404 </td><td> Не найдено </td><td>  -  </td></tr>
-   * <tr><td> 406 </td><td> Обновление остатков заблокировано </td><td>  -  </td></tr>
-   * <tr><td> 409 </td><td> Ошибка обновления остатков </td><td>  -  </td></tr>
+   * <tr><td> 406 </td><td> Не применимо </td><td>  -  </td></tr>
+   * <tr><td> 409 </td><td> Конфликт </td><td>  -  </td></tr>
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
@@ -12522,7 +12522,7 @@ public class ItemsApi {
    * Названия параметров запроса не валидируются. При отправке некорректных названий вы получите
    * успешный ответ (&#x60;204&#x60;), но остатки не обновятся. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов **остатков на складах продавца** кроме метода
+   * на один профиль продавца для всех методов **остатков на складах продавца** кроме метода
    * [удаления
    * остатков](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehousesInventory/operation/deleteV3StocksWarehouseId):
    * | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200
@@ -12546,8 +12546,8 @@ public class ItemsApi {
    * <tr><td> 402 </td><td> Требуется платёж </td><td>  -  </td></tr>
    * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
    * <tr><td> 404 </td><td> Не найдено </td><td>  -  </td></tr>
-   * <tr><td> 406 </td><td> Обновление остатков заблокировано </td><td>  -  </td></tr>
-   * <tr><td> 409 </td><td> Ошибка обновления остатков </td><td>  -  </td></tr>
+   * <tr><td> 406 </td><td> Не применимо </td><td>  -  </td></tr>
+   * <tr><td> 409 </td><td> Конфликт </td><td>  -  </td></tr>
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
@@ -12566,7 +12566,7 @@ public class ItemsApi {
    * Названия параметров запроса не валидируются. При отправке некорректных названий вы получите
    * успешный ответ (&#x60;204&#x60;), но остатки не обновятся. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов **остатков на складах продавца** кроме метода
+   * на один профиль продавца для всех методов **остатков на складах продавца** кроме метода
    * [удаления
    * остатков](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehousesInventory/operation/deleteV3StocksWarehouseId):
    * | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200
@@ -12590,8 +12590,8 @@ public class ItemsApi {
    * <tr><td> 402 </td><td> Требуется платёж </td><td>  -  </td></tr>
    * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
    * <tr><td> 404 </td><td> Не найдено </td><td>  -  </td></tr>
-   * <tr><td> 406 </td><td> Обновление остатков заблокировано </td><td>  -  </td></tr>
-   * <tr><td> 409 </td><td> Ошибка обновления остатков </td><td>  -  </td></tr>
+   * <tr><td> 406 </td><td> Не применимо </td><td>  -  </td></tr>
+   * <tr><td> 409 </td><td> Конфликт </td><td>  -  </td></tr>
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
@@ -12720,7 +12720,7 @@ public class ItemsApi {
    * продавца](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehouses/operation/getV3Warehouses),
    * кроме складов для сверхгабаритных товаров (СГТ, &#x60;\&quot;cargoType\&quot;:2&#x60;). [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов **складов продавца**: | Период | Лимит | Интервал |
+   * на один профиль продавца для всех методов **складов продавца**: | Период | Лимит | Интервал |
    * Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос
    * с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов. --- В
    * [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех
@@ -12756,7 +12756,7 @@ public class ItemsApi {
    * продавца](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehouses/operation/getV3Warehouses),
    * кроме складов для сверхгабаритных товаров (СГТ, &#x60;\&quot;cargoType\&quot;:2&#x60;). [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов **складов продавца**: | Период | Лимит | Интервал |
+   * на один профиль продавца для всех методов **складов продавца**: | Период | Лимит | Интервал |
    * Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос
    * с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов. --- В
    * [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех
@@ -12796,7 +12796,7 @@ public class ItemsApi {
    * продавца](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehouses/operation/getV3Warehouses),
    * кроме складов для сверхгабаритных товаров (СГТ, &#x60;\&quot;cargoType\&quot;:2&#x60;). [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов **складов продавца**: | Период | Лимит | Интервал |
+   * на один профиль продавца для всех методов **складов продавца**: | Период | Лимит | Интервал |
    * Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос
    * с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов. --- В
    * [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех

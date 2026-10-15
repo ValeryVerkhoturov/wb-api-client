@@ -34,8 +34,13 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PutV3StocksWarehouseIdRequestStocksInner" /> class.
         /// </summary>
-        /// <param name="chrtId">ID размера товара.</param>
-        /// <param name="amount">Остаток.</param>
+        [JsonConstructorAttribute]
+        protected PutV3StocksWarehouseIdRequestStocksInner() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PutV3StocksWarehouseIdRequestStocksInner" /> class.
+        /// </summary>
+        /// <param name="chrtId">ID размера товара (required).</param>
+        /// <param name="amount">Остаток (required).</param>
         public PutV3StocksWarehouseIdRequestStocksInner(int chrtId = default(int), int amount = default(int))
         {
             this.ChrtId = chrtId;
@@ -49,7 +54,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /*
         <example>12345678</example>
         */
-        [DataMember(Name = "chrtId", EmitDefaultValue = false)]
+        [DataMember(Name = "chrtId", IsRequired = true, EmitDefaultValue = true)]
         public int ChrtId { get; set; }
 
         /// <summary>
@@ -57,9 +62,9 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// </summary>
         /// <value>Остаток</value>
         /*
-        <example>10</example>
+        <example>11</example>
         */
-        [DataMember(Name = "amount", EmitDefaultValue = false)]
+        [DataMember(Name = "amount", IsRequired = true, EmitDefaultValue = true)]
         public int Amount { get; set; }
 
         /// <summary>

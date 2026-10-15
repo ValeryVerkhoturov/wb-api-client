@@ -42,7 +42,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <param name="advertId">ID кампании (required).</param>
         /// <param name="nmId">Артикул WB (required).</param>
         /// <param name="normQuery">Поисковый кластер (required).</param>
-        /// <param name="bid">Ставка за тысячу показов в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) (required).</param>
+        /// <param name="bid">Ставка за тысячу показов в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances) (required).</param>
         public V0SetNormQueryBidsRequestItem(int advertId = default(int), int nmId = default(int), string normQuery = default(string), int bid = default(int))
         {
             this.AdvertId = advertId;
@@ -78,9 +78,9 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         public string NormQuery { get; set; }
 
         /// <summary>
-        /// Ставка за тысячу показов в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+        /// Ставка за тысячу показов в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
         /// </summary>
-        /// <value>Ставка за тысячу показов в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)</value>
+        /// <value>Ставка за тысячу показов в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)</value>
         [DataMember(Name = "bid", IsRequired = true, EmitDefaultValue = true)]
         public int Bid { get; set; }
 

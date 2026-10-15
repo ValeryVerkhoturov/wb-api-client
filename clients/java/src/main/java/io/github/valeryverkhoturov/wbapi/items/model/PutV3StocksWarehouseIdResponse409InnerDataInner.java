@@ -60,7 +60,7 @@ public class PutV3StocksWarehouseIdResponse409InnerDataInner {
   }
 
   /**
-   * Баркод
+   * Не используется
    *
    * @return sku
    */
@@ -80,7 +80,7 @@ public class PutV3StocksWarehouseIdResponse409InnerDataInner {
   }
 
   /**
-   * ID размера товара
+   * ID размера
    *
    * @return chrtId
    */

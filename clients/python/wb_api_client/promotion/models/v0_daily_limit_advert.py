@@ -37,12 +37,12 @@ class V0DailyLimitAdvert(BaseModel):
     )
     daily_limit: Optional[StrictInt] = Field(
         default=None,
-        description="Размер дневного лимита в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)",
+        description="Размер дневного лимита в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)",
         alias="dailyLimit",
     )
     spent_today: Optional[StrictInt] = Field(
         default=None,
-        description="Потрачено сегодня в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)",
+        description="Потрачено сегодня в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)",
         alias="spentToday",
     )
     currency: Optional[StrictStr] = Field(default=None, description="Код валюты")
@@ -57,7 +57,7 @@ class V0DailyLimitAdvert(BaseModel):
     )
     required_limit: Optional[StrictInt] = Field(
         default=None,
-        description="Рекомендуемый минимальный размер дневного лимита при текущих ставках кампании. Указывается в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) ",
+        description="Рекомендуемый минимальный размер дневного лимита при текущих ставках кампании. Указывается в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances) ",
         alias="requiredLimit",
     )
     __properties: ClassVar[List[str]] = [

@@ -29,11 +29,8 @@ class UpdateBlocked(BaseModel):
     """  # noqa: E501
 
     code: Optional[StrictStr] = Field(default=None, description="Код ошибки")
-    message: Optional[StrictStr] = Field(default=None, description="Описание ошибки")
-    data: Optional[Dict[str, Any]] = Field(
-        default=None, description="Дополнительные данные ошибки"
-    )
-    __properties: ClassVar[List[str]] = ["code", "message", "data"]
+    message: Optional[StrictStr] = Field(default=None, description="Детали ошибки")
+    __properties: ClassVar[List[str]] = ["code", "message"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -72,11 +69,6 @@ class UpdateBlocked(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # set to None if data (nullable) is None
-        # and model_fields_set contains the field
-        if self.data is None and "data" in self.model_fields_set:
-            _dict["data"] = None
-
         return _dict
 
     @classmethod
@@ -89,10 +81,6 @@ class UpdateBlocked(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate(
-            {
-                "code": obj.get("code"),
-                "message": obj.get("message"),
-                "data": obj.get("data"),
-            }
+            {"code": obj.get("code"), "message": obj.get("message")}
         )
         return _obj

@@ -33,19 +33,19 @@ class GetV1BalanceResponse200(BaseModel):
 
     balance: Optional[StrictInt] = Field(
         default=None,
-        description="Счёт в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)",
+        description="Счёт в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)",
     )
     net: Optional[StrictInt] = Field(
         default=None,
-        description="Баланс в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)",
+        description="Баланс в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)",
     )
     currency: Optional[StrictStr] = Field(
         default=None,
-        description="Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)",
+        description="Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)",
     )
     bonus: Optional[StrictInt] = Field(
         default=None,
-        description="Бонусы в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)",
+        description="Бонусы в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)",
     )
     cashbacks: Optional[List[GetV1BalanceResponse200CashbacksInner]] = Field(
         default=None, description="Промо-бонусы"

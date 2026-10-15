@@ -134,7 +134,7 @@ public class V0GetNormQueryBidsItem {
   }
 
   /**
-   * Текущая ставка в базовых единицах валюты [аккаунта
+   * Текущая ставка в базовых единицах валюты [профиля
    * продавца](https://cmp.wildberries.ru/campaigns/finances) за тысячу показов
    *
    * @return bid
@@ -154,7 +154,7 @@ public class V0GetNormQueryBidsItem {
   }
 
   /**
-   * Текущая ставка в разменных единицах — 0,01 от базовой валюты [аккаунта
+   * Текущая ставка в разменных единицах — 0,01 от базовой валюты [профиля
    * продавца](https://cmp.wildberries.ru/campaigns/finances) за тысячу показов
    *
    * @return bidKopecks
@@ -174,7 +174,7 @@ public class V0GetNormQueryBidsItem {
   }
 
   /**
-   * Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+   * Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
    *
    * @return currency
    */

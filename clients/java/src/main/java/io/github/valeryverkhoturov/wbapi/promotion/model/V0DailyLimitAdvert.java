@@ -127,7 +127,7 @@ public class V0DailyLimitAdvert {
   }
 
   /**
-   * Размер дневного лимита в разменных единицах — 0,01 от базовой валюты [аккаунта
+   * Размер дневного лимита в разменных единицах — 0,01 от базовой валюты [профиля
    * продавца](https://cmp.wildberries.ru/campaigns/finances)
    *
    * @return dailyLimit
@@ -147,7 +147,7 @@ public class V0DailyLimitAdvert {
   }
 
   /**
-   * Потрачено сегодня в разменных единицах — 0,01 от базовой валюты [аккаунта
+   * Потрачено сегодня в разменных единицах — 0,01 от базовой валюты [профиля
    * продавца](https://cmp.wildberries.ru/campaigns/finances)
    *
    * @return spentToday
@@ -230,7 +230,7 @@ public class V0DailyLimitAdvert {
 
   /**
    * Рекомендуемый минимальный размер дневного лимита при текущих ставках кампании. Указывается в
-   * разменных единицах — 0,01 от базовой валюты [аккаунта
+   * разменных единицах — 0,01 от базовой валюты [профиля
    * продавца](https://cmp.wildberries.ru/campaigns/finances)
    *
    * @return requiredLimit

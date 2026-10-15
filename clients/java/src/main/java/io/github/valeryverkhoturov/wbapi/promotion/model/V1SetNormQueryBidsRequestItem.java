@@ -123,7 +123,7 @@ public class V1SetNormQueryBidsRequestItem {
   }
 
   /**
-   * Ставка в разменных единицах — 0,01 от базовой валюты [аккаунта
+   * Ставка в разменных единицах — 0,01 от базовой валюты [профиля
    * продавца](https://cmp.wildberries.ru/campaigns/finances). Допустимый шаг ставки указан в ответе
    * метода [GET /api/advert/v1/config](./promotion#tag/campaignManagement/operation/getV1Config)
    *

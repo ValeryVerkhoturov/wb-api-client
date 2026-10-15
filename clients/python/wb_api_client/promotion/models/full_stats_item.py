@@ -49,7 +49,7 @@ class FullStatsItem(BaseModel):
     clicks: Optional[StrictInt] = Field(default=None, description="Количество кликов")
     cpc: Optional[Union[StrictFloat, StrictInt]] = Field(
         default=None,
-        description="Средняя стоимость клика в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)",
+        description="Средняя стоимость клика в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)",
     )
     cr: Optional[Union[StrictFloat, StrictInt]] = Field(
         default=None,
@@ -68,18 +68,18 @@ class FullStatsItem(BaseModel):
     )
     sum: Optional[Union[StrictFloat, StrictInt]] = Field(
         default=None,
-        description="Затраты в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)",
+        description="Затраты в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)",
     )
     sum_price: Optional[Union[StrictFloat, StrictInt]] = Field(
         default=None,
-        description="Сумма заказов в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)",
+        description="Сумма заказов в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)",
     )
     views: Optional[StrictInt] = Field(
         default=None, description="Количество просмотров"
     )
     currency: Optional[StrictStr] = Field(
         default=None,
-        description="Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)",
+        description="Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)",
     )
     __properties: ClassVar[List[str]] = [
         "advertId",

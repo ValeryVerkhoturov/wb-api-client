@@ -30,7 +30,7 @@ class V0BidRecommendationBaseBidTop2(BaseModel):
 
     bid_kopecks: Optional[StrictInt] = Field(
         default=None,
-        description="Рекомендуемая ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances). Если `0`, для данного предмета топ-ставка не используется",
+        description="Рекомендуемая ставка в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances). Если `0`, для данного предмета топ-ставка не используется",
         alias="bidKopecks",
     )
     __properties: ClassVar[List[str]] = ["bidKopecks"]

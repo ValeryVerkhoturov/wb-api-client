@@ -241,7 +241,7 @@ public class FullStatsItem {
   }
 
   /**
-   * Средняя стоимость клика в базовых единицах валюты [аккаунта
+   * Средняя стоимость клика в базовых единицах валюты [профиля
    * продавца](https://cmp.wildberries.ru/campaigns/finances)
    *
    * @return cpc
@@ -364,7 +364,7 @@ public class FullStatsItem {
   }
 
   /**
-   * Затраты в базовых единицах валюты [аккаунта
+   * Затраты в базовых единицах валюты [профиля
    * продавца](https://cmp.wildberries.ru/campaigns/finances)
    *
    * @return sum
@@ -384,7 +384,7 @@ public class FullStatsItem {
   }
 
   /**
-   * Сумма заказов в базовых единицах валюты [аккаунта
+   * Сумма заказов в базовых единицах валюты [профиля
    * продавца](https://cmp.wildberries.ru/campaigns/finances)
    *
    * @return sumPrice
@@ -423,7 +423,7 @@ public class FullStatsItem {
   }
 
   /**
-   * Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+   * Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
    *
    * @return currency
    */

@@ -23,7 +23,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.github.valeryverkhoturov.wbapi.orders_fbs.JSON;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Objects;
@@ -44,7 +43,7 @@ public class TrbxStickers {
 
   @SerializedName(SERIALIZED_NAME_FILE)
   @jakarta.annotation.Nullable
-  private byte[] _file;
+  private String _file;
 
   public TrbxStickers() {}
 
@@ -67,22 +66,22 @@ public class TrbxStickers {
     this.barcode = barcode;
   }
 
-  public TrbxStickers _file(@jakarta.annotation.Nullable byte[] _file) {
+  public TrbxStickers _file(@jakarta.annotation.Nullable String _file) {
     this._file = _file;
     return this;
   }
 
   /**
-   * Полное представление стикера в заданном формате (кодировка base64)
+   * Полное представление стикера в заданном формате
    *
    * @return _file
    */
   @jakarta.annotation.Nullable
-  public byte[] getFile() {
+  public String getFile() {
     return _file;
   }
 
-  public void setFile(@jakarta.annotation.Nullable byte[] _file) {
+  public void setFile(@jakarta.annotation.Nullable String _file) {
     this._file = _file;
   }
 
@@ -96,12 +95,12 @@ public class TrbxStickers {
     }
     TrbxStickers trbxStickers = (TrbxStickers) o;
     return Objects.equals(this.barcode, trbxStickers.barcode)
-        && Arrays.equals(this._file, trbxStickers._file);
+        && Objects.equals(this._file, trbxStickers._file);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(barcode, Arrays.hashCode(_file));
+    return Objects.hash(barcode, _file);
   }
 
   @Override
@@ -171,6 +170,13 @@ public class TrbxStickers {
           String.format(
               "Expected the field `barcode` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("barcode").toString()));
+    }
+    if ((jsonObj.get("file") != null && !jsonObj.get("file").isJsonNull())
+        && !jsonObj.get("file").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `file` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("file").toString()));
     }
   }
 

@@ -71,7 +71,7 @@ public class PostV1BudgetDepositRequest {
   }
 
   /**
-   * Общая сумма пополнения бюджета в базовых единицах валюты [аккаунта
+   * Общая сумма пополнения бюджета в базовых единицах валюты [профиля
    * продавца](https://cmp.wildberries.ru/campaigns/finances)
    *
    * @return sum

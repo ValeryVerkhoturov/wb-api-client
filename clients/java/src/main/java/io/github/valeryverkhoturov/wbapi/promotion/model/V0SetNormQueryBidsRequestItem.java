@@ -122,7 +122,7 @@ public class V0SetNormQueryBidsRequestItem {
   }
 
   /**
-   * Ставка за тысячу показов в базовых единицах валюты [аккаунта
+   * Ставка за тысячу показов в базовых единицах валюты [профиля
    * продавца](https://cmp.wildberries.ru/campaigns/finances)
    *
    * @return bid

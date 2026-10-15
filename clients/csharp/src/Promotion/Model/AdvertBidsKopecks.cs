@@ -26,7 +26,7 @@ using OpenAPIDateConverter = ValeryVerkhoturov.WbApiClient.Promotion.Client.Open
 namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
 {
     /// <summary>
-    /// Ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) 
+    /// Ставка в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances) 
     /// </summary>
     [DataContract(Name = "AdvertBidsKopecks")]
     public partial class AdvertBidsKopecks : IValidatableObject

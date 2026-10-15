@@ -28,9 +28,9 @@ class PutV3StocksWarehouseIdResponse409InnerDataInner(BaseModel):
     PutV3StocksWarehouseIdResponse409InnerDataInner
     """  # noqa: E501
 
-    sku: Optional[StrictStr] = Field(default=None, description="Баркод")
+    sku: Optional[StrictStr] = Field(default=None, description="Не используется")
     chrt_id: Optional[StrictInt] = Field(
-        default=None, description="ID размера товара", alias="chrtId"
+        default=None, description="ID размера", alias="chrtId"
     )
     amount: Optional[StrictInt] = Field(default=None, description="Остаток")
     __properties: ClassVar[List[str]] = ["sku", "chrtId", "amount"]

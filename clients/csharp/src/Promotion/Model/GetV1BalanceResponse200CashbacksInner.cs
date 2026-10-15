@@ -34,7 +34,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GetV1BalanceResponse200CashbacksInner" /> class.
         /// </summary>
-        /// <param name="sum">Промо-бонусы в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).</param>
+        /// <param name="sum">Промо-бонусы в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances).</param>
         /// <param name="percent">Процент от суммы пополнения бюджета кампании, который можно оплатить промо-бонусами за один раз.</param>
         /// <param name="expirationDate">Дата окончания действия промо-бонусов.</param>
         public GetV1BalanceResponse200CashbacksInner(int sum = default(int), int percent = default(int), string expirationDate = default(string))
@@ -45,9 +45,9 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         }
 
         /// <summary>
-        /// Промо-бонусы в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+        /// Промо-бонусы в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
         /// </summary>
-        /// <value>Промо-бонусы в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)</value>
+        /// <value>Промо-бонусы в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)</value>
         [DataMember(Name = "sum", EmitDefaultValue = false)]
         public int Sum { get; set; }
 

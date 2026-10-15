@@ -45,12 +45,6 @@ public class UpdateBlocked {
   @jakarta.annotation.Nullable
   private String message;
 
-  public static final String SERIALIZED_NAME_DATA = "data";
-
-  @SerializedName(SERIALIZED_NAME_DATA)
-  @jakarta.annotation.Nullable
-  private Object data;
-
   public UpdateBlocked() {}
 
   public UpdateBlocked code(@jakarta.annotation.Nullable String code) {
@@ -78,7 +72,7 @@ public class UpdateBlocked {
   }
 
   /**
-   * Описание ошибки
+   * Детали ошибки
    *
    * @return message
    */
@@ -91,25 +85,6 @@ public class UpdateBlocked {
     this.message = message;
   }
 
-  public UpdateBlocked data(@jakarta.annotation.Nullable Object data) {
-    this.data = data;
-    return this;
-  }
-
-  /**
-   * Дополнительные данные ошибки
-   *
-   * @return data
-   */
-  @jakarta.annotation.Nullable
-  public Object getData() {
-    return data;
-  }
-
-  public void setData(@jakarta.annotation.Nullable Object data) {
-    this.data = data;
-  }
-
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -120,13 +95,12 @@ public class UpdateBlocked {
     }
     UpdateBlocked updateBlocked = (UpdateBlocked) o;
     return Objects.equals(this.code, updateBlocked.code)
-        && Objects.equals(this.message, updateBlocked.message)
-        && Objects.equals(this.data, updateBlocked.data);
+        && Objects.equals(this.message, updateBlocked.message);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(code, message, data);
+    return Objects.hash(code, message);
   }
 
   @Override
@@ -135,7 +109,6 @@ public class UpdateBlocked {
     sb.append("class UpdateBlocked {\n");
     sb.append("    code: ").append(toIndentedString(code)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -158,7 +131,6 @@ public class UpdateBlocked {
     openapiFields = new HashSet<String>();
     openapiFields.add("code");
     openapiFields.add("message");
-    openapiFields.add("data");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

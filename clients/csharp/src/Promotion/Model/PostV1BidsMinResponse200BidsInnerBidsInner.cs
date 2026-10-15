@@ -40,9 +40,9 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PostV1BidsMinResponse200BidsInnerBidsInner" /> class.
         /// </summary>
-        /// <param name="currency">Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).</param>
+        /// <param name="currency">Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances).</param>
         /// <param name="type">type.</param>
-        /// <param name="value">Минимальная ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) .</param>
+        /// <param name="value">Минимальная ставка в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances) .</param>
         public PostV1BidsMinResponse200BidsInnerBidsInner(string currency = default(string), PlacementType? type = default(PlacementType?), int value = default(int))
         {
             this.Currency = currency;
@@ -51,16 +51,16 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         }
 
         /// <summary>
-        /// Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+        /// Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
         /// </summary>
-        /// <value>Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)</value>
+        /// <value>Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)</value>
         [DataMember(Name = "currency", EmitDefaultValue = false)]
         public string Currency { get; set; }
 
         /// <summary>
-        /// Минимальная ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) 
+        /// Минимальная ставка в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances) 
         /// </summary>
-        /// <value>Минимальная ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) </value>
+        /// <value>Минимальная ставка в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances) </value>
         [DataMember(Name = "value", EmitDefaultValue = false)]
         public int Value { get; set; }
 

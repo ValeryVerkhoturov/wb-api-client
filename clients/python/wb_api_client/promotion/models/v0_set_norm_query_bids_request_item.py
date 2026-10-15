@@ -32,7 +32,7 @@ class V0SetNormQueryBidsRequestItem(BaseModel):
     nm_id: StrictInt = Field(description="Артикул WB")
     norm_query: StrictStr = Field(description="Поисковый кластер")
     bid: StrictInt = Field(
-        description="Ставка за тысячу показов в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)"
+        description="Ставка за тысячу показов в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)"
     )
     __properties: ClassVar[List[str]] = ["advert_id", "nm_id", "norm_query", "bid"]
 

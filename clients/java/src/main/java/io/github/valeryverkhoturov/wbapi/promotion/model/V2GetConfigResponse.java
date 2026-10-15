@@ -77,7 +77,7 @@ public class V2GetConfigResponse {
   }
 
   /**
-   * Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+   * Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
    *
    * @return currency
    */
@@ -96,7 +96,7 @@ public class V2GetConfigResponse {
   }
 
   /**
-   * Код валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+   * Код валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
    *
    * @return currencyCode
    */
@@ -115,7 +115,7 @@ public class V2GetConfigResponse {
   }
 
   /**
-   * Шаг ставки в разменных единицах — 0,01 от базовой валюты [аккаунта
+   * Шаг ставки в разменных единицах — 0,01 от базовой валюты [профиля
    * продавца](https://cmp.wildberries.ru/campaigns/finances) для CPM-кампаний
    *
    * @return cpmStep
@@ -135,7 +135,7 @@ public class V2GetConfigResponse {
   }
 
   /**
-   * Шаг ставки в разменных единицах — 0,01 от базовой валюты [аккаунта
+   * Шаг ставки в разменных единицах — 0,01 от базовой валюты [профиля
    * продавца](https://cmp.wildberries.ru/campaigns/finances) для кампаний CPC
    *
    * @return cpcStep
@@ -156,7 +156,7 @@ public class V2GetConfigResponse {
 
   /**
    * Минимальная сумма пополнения бюджета кампании в разменных единицах — 0,01 от базовой валюты
-   * [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances). Например, минимальная сумма
+   * [профиля продавца](https://cmp.wildberries.ru/campaigns/finances). Например, минимальная сумма
    * пополнения бюджета при &#x60;\&quot;minTopUp\&quot;: 10000&#x60; и
    * &#x60;\&quot;currency\&quot;: \&quot;UZS\&quot;&#x60; — 100 узбекских сум
    *
@@ -178,7 +178,7 @@ public class V2GetConfigResponse {
 
   /**
    * Минимально допустимый размер дневного лимита, вне зависимости от ставок кампании. Указывается в
-   * разменных единицах — 0,01 от базовой валюты [аккаунта
+   * разменных единицах — 0,01 от базовой валюты [профиля
    * продавца](https://cmp.wildberries.ru/campaigns/finances)
    *
    * @return minDailyLimit

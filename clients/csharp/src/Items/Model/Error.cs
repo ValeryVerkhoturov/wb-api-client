@@ -35,13 +35,11 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// Initializes a new instance of the <see cref="Error" /> class.
         /// </summary>
         /// <param name="code">Код ошибки.</param>
-        /// <param name="message">Описание ошибки.</param>
-        /// <param name="data">Дополнительные данные ошибки.</param>
-        public Error(string code = default(string), string message = default(string), Object data = default(Object))
+        /// <param name="message">Детали ошибки.</param>
+        public Error(string code = default(string), string message = default(string))
         {
             this.Code = code;
             this.Message = message;
-            this.Data = data;
         }
 
         /// <summary>
@@ -52,18 +50,11 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         public string Code { get; set; }
 
         /// <summary>
-        /// Описание ошибки
+        /// Детали ошибки
         /// </summary>
-        /// <value>Описание ошибки</value>
+        /// <value>Детали ошибки</value>
         [DataMember(Name = "message", EmitDefaultValue = false)]
         public string Message { get; set; }
-
-        /// <summary>
-        /// Дополнительные данные ошибки
-        /// </summary>
-        /// <value>Дополнительные данные ошибки</value>
-        [DataMember(Name = "data", EmitDefaultValue = true)]
-        public Object Data { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -75,7 +66,6 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
             sb.Append("class Error {\n");
             sb.Append("  Code: ").Append(Code).Append("\n");
             sb.Append("  Message: ").Append(Message).Append("\n");
-            sb.Append("  Data: ").Append(Data).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

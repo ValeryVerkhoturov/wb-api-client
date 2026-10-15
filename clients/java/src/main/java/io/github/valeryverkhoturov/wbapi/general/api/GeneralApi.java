@@ -167,7 +167,7 @@ public class GeneralApi {
    * продавца](https://dev.wildberries.ru/openapi/api-information#tag/sellerUserManagement/operation/getV1Users).
    * Этому пользователю будет закрыт доступ в профиль продавца. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
+   * на один профиль продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
    * сек | 1 запрос | 1 сек | 10 запросов | Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/general/delete-api-v1-user
    *
@@ -196,7 +196,7 @@ public class GeneralApi {
    * продавца](https://dev.wildberries.ru/openapi/api-information#tag/sellerUserManagement/operation/getV1Users).
    * Этому пользователю будет закрыт доступ в профиль продавца. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
+   * на один профиль продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
    * сек | 1 запрос | 1 сек | 10 запросов | Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/general/delete-api-v1-user
    *
@@ -227,7 +227,7 @@ public class GeneralApi {
    * продавца](https://dev.wildberries.ru/openapi/api-information#tag/sellerUserManagement/operation/getV1Users).
    * Этому пользователю будет закрыт доступ в профиль продавца. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
+   * на один профиль продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
    * сек | 1 запрос | 1 сек | 10 запросов | Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/general/delete-api-v1-user
    *
@@ -356,7 +356,7 @@ public class GeneralApi {
    * предназначен для проверки доступности сервисов WB У каждого сервиса есть свой вариант метода в
    * зависимости от домена. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | |
+   * на один профиль продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | |
    * 30 сек | 3 запроса | 10 сек | 99 запросов | Лимит действует отдельно для каждого варианта
    * метода в зависимости от домена Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/general/get-ping
@@ -385,7 +385,7 @@ public class GeneralApi {
    * предназначен для проверки доступности сервисов WB У каждого сервиса есть свой вариант метода в
    * зависимости от домена. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | |
+   * на один профиль продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | |
    * 30 сек | 3 запроса | 10 сек | 99 запросов | Лимит действует отдельно для каждого варианта
    * метода в зависимости от домена Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/general/get-ping
@@ -415,7 +415,7 @@ public class GeneralApi {
    * не предназначен для проверки доступности сервисов WB У каждого сервиса есть свой вариант метода
    * в зависимости от домена. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | |
+   * на один профиль продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | |
    * 30 сек | 3 запроса | 10 сек | 99 запросов | Лимит действует отдельно для каждого варианта
    * метода в зависимости от домена Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/general/get-ping
@@ -526,7 +526,7 @@ public class GeneralApi {
    * по **Сервисному** токену Метод возвращает пользовательский рейтинг продавца и количество
    * отзывов. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
+   * на один профиль продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
    * мин | 1 запрос | 1 мин | 1 запрос | Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/general/get-api-common-v1-rating
    *
@@ -557,7 +557,7 @@ public class GeneralApi {
    * по **Сервисному** токену Метод возвращает пользовательский рейтинг продавца и количество
    * отзывов. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
+   * на один профиль продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
    * мин | 1 запрос | 1 мин | 1 запрос | Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/general/get-api-common-v1-rating
    *
@@ -589,7 +589,7 @@ public class GeneralApi {
    * по **Сервисному** токену Метод возвращает пользовательский рейтинг продавца и количество
    * отзывов. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
+   * на один профиль продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
    * мин | 1 запрос | 1 мин | 1 запрос | Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/general/get-api-common-v1-rating
    *
@@ -696,7 +696,7 @@ public class GeneralApi {
    * [категории](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Kategorii-tokenov)
    * Метод позволяет получать наименование продавца и ID его профиля. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
+   * на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1
    * запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов |
    * | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос | Library doc:
@@ -725,7 +725,7 @@ public class GeneralApi {
    * [категории](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Kategorii-tokenov)
    * Метод позволяет получать наименование продавца и ID его профиля. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
+   * на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1
    * запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов |
    * | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос | Library doc:
@@ -756,7 +756,7 @@ public class GeneralApi {
    * [категории](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Kategorii-tokenov)
    * Метод позволяет получать наименование продавца и ID его профиля. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
+   * на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1
    * запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов |
    * | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос | Library doc:
@@ -875,7 +875,7 @@ public class GeneralApi {
    * подписка неактивна, возвращается: - дата первой активации подписки &#x60;since&#x60; - дата
    * окончания последнего оплаченного периода &#x60;till&#x60; [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
+   * на один профиль продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
    * мин | 1 запрос | 1 мин | 10 запросов | Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/general/get-api-common-v1-subscriptions
    *
@@ -913,7 +913,7 @@ public class GeneralApi {
    * подписка неактивна, возвращается: - дата первой активации подписки &#x60;since&#x60; - дата
    * окончания последнего оплаченного периода &#x60;till&#x60; [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
+   * на один профиль продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
    * мин | 1 запрос | 1 мин | 10 запросов | Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/general/get-api-common-v1-subscriptions
    *
@@ -953,7 +953,7 @@ public class GeneralApi {
    * подписка неактивна, возвращается: - дата первой активации подписки &#x60;since&#x60; - дата
    * окончания последнего оплаченного периода &#x60;till&#x60; [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
+   * на один профиль продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
    * мин | 1 запрос | 1 мин | 10 запросов | Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/general/get-api-common-v1-subscriptions
    *
@@ -1075,7 +1075,7 @@ public class GeneralApi {
    * Опции, входящие в подключённые пакеты, возвращаются в массиве &#x60;packages&#x60;. Опции,
    * подключённые вне пакетов, возвращаются в массиве &#x60;options&#x60;. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
+   * на один профиль продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
    * мин | 1 запрос | 1 мин | 10 запросов | Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/general/get-api-common-v1-tariff-constructor-options
    *
@@ -1113,7 +1113,7 @@ public class GeneralApi {
    * Опции, входящие в подключённые пакеты, возвращаются в массиве &#x60;packages&#x60;. Опции,
    * подключённые вне пакетов, возвращаются в массиве &#x60;options&#x60;. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
+   * на один профиль продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
    * мин | 1 запрос | 1 мин | 10 запросов | Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/general/get-api-common-v1-tariff-constructor-options
    *
@@ -1152,7 +1152,7 @@ public class GeneralApi {
    * Опции, входящие в подключённые пакеты, возвращаются в массиве &#x60;packages&#x60;. Опции,
    * подключённые вне пакетов, возвращаются в массиве &#x60;options&#x60;. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
+   * на один профиль продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
    * мин | 1 запрос | 1 мин | 10 запросов | Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/general/get-api-common-v1-tariff-constructor-options
    *
@@ -1291,7 +1291,7 @@ public class GeneralApi {
    * есть доступы - статус приглашения Список приглашённых пользователей в ответе всегда
    * отсортирован по дате создания: от новых до старых. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
+   * на один профиль продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
    * сек | 1 запрос | 1 сек | 5 запросов | Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/general/get-api-v1-users
    *
@@ -1334,7 +1334,7 @@ public class GeneralApi {
    * есть доступы - статус приглашения Список приглашённых пользователей в ответе всегда
    * отсортирован по дате создания: от новых до старых. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
+   * на один профиль продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
    * сек | 1 запрос | 1 сек | 5 запросов | Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/general/get-api-v1-users
    *
@@ -1377,7 +1377,7 @@ public class GeneralApi {
    * есть доступы - статус приглашения Список приглашённых пользователей в ответе всегда
    * отсортирован по дате создания: от новых до старых. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
+   * на один профиль продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
    * сек | 1 запрос | 1 сек | 5 запросов | Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/general/get-api-v1-users
    *
@@ -1505,7 +1505,7 @@ public class GeneralApi {
    * получения успешного ответа необходимо указать один из параметров &#x60;from&#x60; или
    * &#x60;fromID&#x60;. За один запрос можно получить не более 100 новостей. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
+   * на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1
    * запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов |
    * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
@@ -1537,7 +1537,7 @@ public class GeneralApi {
    * получения успешного ответа необходимо указать один из параметров &#x60;from&#x60; или
    * &#x60;fromID&#x60;. За один запрос можно получить не более 100 новостей. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
+   * на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1
    * запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов |
    * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
@@ -1572,7 +1572,7 @@ public class GeneralApi {
    * &#x60;from&#x60; или &#x60;fromID&#x60;. За один запрос можно получить не более 100 новостей.
    * [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
+   * на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1
    * запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов |
    * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
@@ -1703,7 +1703,7 @@ public class GeneralApi {
    * при одинаковых значениях &#x60;\&quot;disabled\&quot;: true&#x60; доступ не будет выдан - при
    * одинаковых значениях &#x60;\&quot;disabled\&quot;: false&#x60; доступ будет выдан [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
+   * на один профиль продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
    * сек | 1 запрос | 1 сек | 5 запросов | Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/general/post-api-v1-invite
    *
@@ -1743,7 +1743,7 @@ public class GeneralApi {
    * при одинаковых значениях &#x60;\&quot;disabled\&quot;: true&#x60; доступ не будет выдан - при
    * одинаковых значениях &#x60;\&quot;disabled\&quot;: false&#x60; доступ будет выдан [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
+   * на один профиль продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
    * сек | 1 запрос | 1 сек | 5 запросов | Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/general/post-api-v1-invite
    *
@@ -1784,7 +1784,7 @@ public class GeneralApi {
    * при одинаковых значениях &#x60;\&quot;disabled\&quot;: true&#x60; доступ не будет выдан - при
    * одинаковых значениях &#x60;\&quot;disabled\&quot;: false&#x60; доступ будет выдан [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
+   * на один профиль продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
    * сек | 1 запрос | 1 сек | 5 запросов | Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/general/post-api-v1-invite
    *
@@ -1906,7 +1906,7 @@ public class GeneralApi {
    * Обновляются только права доступа, переданные в параметрах запроса. Остальные поля остаются без
    * изменений. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
+   * на один профиль продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
    * сек | 1 запрос | 1 сек | 5 запросов | Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/general/put-api-v1-users-access
    *
@@ -1936,7 +1936,7 @@ public class GeneralApi {
    * Обновляются только права доступа, переданные в параметрах запроса. Остальные поля остаются без
    * изменений. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
+   * на один профиль продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
    * сек | 1 запрос | 1 сек | 5 запросов | Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/general/put-api-v1-users-access
    *
@@ -1968,7 +1968,7 @@ public class GeneralApi {
    * Обновляются только права доступа, переданные в параметрах запроса. Остальные поля остаются без
    * изменений. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
+   * на один профиль продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
    * сек | 1 запрос | 1 сек | 5 запросов | Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/general/put-api-v1-users-access
    *

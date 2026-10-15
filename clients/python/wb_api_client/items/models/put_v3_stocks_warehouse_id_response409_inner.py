@@ -35,7 +35,7 @@ class PutV3StocksWarehouseIdResponse409Inner(BaseModel):
         default=None, description="Дополнительная информация об ошибке"
     )
     code: Optional[StrictStr] = Field(default=None, description="Код ошибки")
-    message: Optional[StrictStr] = Field(default=None, description="Описание ошибки")
+    message: Optional[StrictStr] = Field(default=None, description="Детали ошибки")
     __properties: ClassVar[List[str]] = ["data", "code", "message"]
 
     model_config = ConfigDict(
@@ -82,11 +82,6 @@ class PutV3StocksWarehouseIdResponse409Inner(BaseModel):
                 if _item_data:
                     _items.append(_item_data.to_dict())
             _dict["data"] = _items
-        # set to None if data (nullable) is None
-        # and model_fields_set contains the field
-        if self.data is None and "data" in self.model_fields_set:
-            _dict["data"] = None
-
         return _dict
 
     @classmethod

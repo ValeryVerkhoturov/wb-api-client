@@ -40,7 +40,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <param name="type">Тип источника списания: - &#x60;0&#x60; — Счёт - &#x60;1&#x60; — Баланс - &#x60;3&#x60; — Картой .</param>
         /// <param name="statusId">Статус: - &#x60;0&#x60; — ошибка - &#x60;1&#x60; — обработано .</param>
         /// <param name="cardStatus">Статус операции при оплате картой: - &#x60;success&#x60; — успех - &#x60;fail&#x60; — неуспех - &#x60;pending&#x60; — в ожидании ответа - &#x60;unknown&#x60; — неизвестно .</param>
-        /// <param name="currency">Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).</param>
+        /// <param name="currency">Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances).</param>
         public GetV1PaymentsResponse200Inner(int id = default(int), string date = default(string), int sum = default(int), int type = default(int), int statusId = default(int), string cardStatus = default(string), string currency = default(string))
         {
             this.Id = id;
@@ -95,9 +95,9 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         public string CardStatus { get; set; }
 
         /// <summary>
-        /// Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+        /// Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
         /// </summary>
-        /// <value>Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)</value>
+        /// <value>Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)</value>
         [DataMember(Name = "currency", EmitDefaultValue = false)]
         public string Currency { get; set; }
 

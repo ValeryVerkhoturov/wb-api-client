@@ -35,8 +35,8 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// Initializes a new instance of the <see cref="V1BudgetAdvert" /> class.
         /// </summary>
         /// <param name="advertId">ID кампании.</param>
-        /// <param name="currency">Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).</param>
-        /// <param name="total">Бюджет кампании в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).</param>
+        /// <param name="currency">Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances).</param>
+        /// <param name="total">Бюджет кампании в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances).</param>
         public V1BudgetAdvert(int advertId = default(int), string currency = default(string), int total = default(int))
         {
             this.AdvertId = advertId;
@@ -55,9 +55,9 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         public int AdvertId { get; set; }
 
         /// <summary>
-        /// Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+        /// Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
         /// </summary>
-        /// <value>Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)</value>
+        /// <value>Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)</value>
         /*
         <example>RUB</example>
         */
@@ -65,9 +65,9 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         public string Currency { get; set; }
 
         /// <summary>
-        /// Бюджет кампании в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+        /// Бюджет кампании в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
         /// </summary>
-        /// <value>Бюджет кампании в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)</value>
+        /// <value>Бюджет кампании в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)</value>
         /*
         <example>3000</example>
         */

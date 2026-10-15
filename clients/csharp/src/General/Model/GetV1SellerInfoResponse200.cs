@@ -38,12 +38,14 @@ namespace ValeryVerkhoturov.WbApiClient.General.Model
         /// <param name="sid">Уникальный ID продавца на Wildberries, [находящийся в публичном поле токена](./api-information#tag/authorization/Kak-ustroen-token).</param>
         /// <param name="tin">ИНН.</param>
         /// <param name="tradeMark">Торговое наименование продавца.</param>
-        public GetV1SellerInfoResponse200(string name = default(string), Guid sid = default(Guid), string tin = default(string), string tradeMark = default(string))
+        /// <param name="country">Страна регистрации профиля продавца.</param>
+        public GetV1SellerInfoResponse200(string name = default(string), Guid sid = default(Guid), string tin = default(string), string tradeMark = default(string), string country = default(string))
         {
             this.Name = name;
             this.Sid = sid;
             this.Tin = tin;
             this.TradeMark = tradeMark;
+            this.Country = country;
         }
 
         /// <summary>
@@ -75,6 +77,13 @@ namespace ValeryVerkhoturov.WbApiClient.General.Model
         public string TradeMark { get; set; }
 
         /// <summary>
+        /// Страна регистрации профиля продавца
+        /// </summary>
+        /// <value>Страна регистрации профиля продавца</value>
+        [DataMember(Name = "country", EmitDefaultValue = false)]
+        public string Country { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -86,6 +95,7 @@ namespace ValeryVerkhoturov.WbApiClient.General.Model
             sb.Append("  Sid: ").Append(Sid).Append("\n");
             sb.Append("  Tin: ").Append(Tin).Append("\n");
             sb.Append("  TradeMark: ").Append(TradeMark).Append("\n");
+            sb.Append("  Country: ").Append(Country).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

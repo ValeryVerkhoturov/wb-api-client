@@ -224,7 +224,7 @@ public class V1GetNormQueryStatsResponseItemStat {
   }
 
   /**
-   * Средняя стоимость клика в базовых единицах валюты [аккаунта
+   * Средняя стоимость клика в базовых единицах валюты [профиля
    * продавца](https://cmp.wildberries.ru/campaigns/finances)
    *
    * @return cpc
@@ -244,7 +244,7 @@ public class V1GetNormQueryStatsResponseItemStat {
   }
 
   /**
-   * Средняя стоимость за тысячу показов в базовых единицах валюты [аккаунта
+   * Средняя стоимость за тысячу показов в базовых единицах валюты [профиля
    * продавца](https://cmp.wildberries.ru/campaigns/finances). Для кампаний с типом оплаты
    * &#x60;cpc&#x60; — за клики — значение будет &#x60;null&#x60;
    *

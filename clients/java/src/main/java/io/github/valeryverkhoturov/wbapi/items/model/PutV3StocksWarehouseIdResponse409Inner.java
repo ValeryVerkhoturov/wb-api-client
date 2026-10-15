@@ -40,7 +40,7 @@ public class PutV3StocksWarehouseIdResponse409Inner {
 
   @SerializedName(SERIALIZED_NAME_DATA)
   @jakarta.annotation.Nullable
-  private List<PutV3StocksWarehouseIdResponse409InnerDataInner> data;
+  private List<PutV3StocksWarehouseIdResponse409InnerDataInner> data = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_CODE = "code";
 
@@ -112,7 +112,7 @@ public class PutV3StocksWarehouseIdResponse409Inner {
   }
 
   /**
-   * Описание ошибки
+   * Детали ошибки
    *
    * @return message
    */

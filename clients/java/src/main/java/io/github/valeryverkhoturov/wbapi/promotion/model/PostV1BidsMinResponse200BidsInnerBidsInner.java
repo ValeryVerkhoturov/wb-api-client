@@ -60,7 +60,7 @@ public class PostV1BidsMinResponse200BidsInnerBidsInner {
   }
 
   /**
-   * Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+   * Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
    *
    * @return currency
    */
@@ -100,7 +100,7 @@ public class PostV1BidsMinResponse200BidsInnerBidsInner {
   }
 
   /**
-   * Минимальная ставка в разменных единицах — 0,01 от базовой валюты [аккаунта
+   * Минимальная ставка в разменных единицах — 0,01 от базовой валюты [профиля
    * продавца](https://cmp.wildberries.ru/campaigns/finances)
    *
    * @return value

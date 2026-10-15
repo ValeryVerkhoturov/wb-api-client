@@ -42,7 +42,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <param name="advertId">ID кампании (required).</param>
         /// <param name="nmId">Артикул WB (required).</param>
         /// <param name="normQuery">Поисковый кластер (required).</param>
-        /// <param name="bidMinorUnits">Ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances). Допустимый шаг ставки указан в ответе метода [GET /api/advert/v1/config](./promotion#tag/campaignManagement/operation/getV1Config)  (required).</param>
+        /// <param name="bidMinorUnits">Ставка в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances). Допустимый шаг ставки указан в ответе метода [GET /api/advert/v1/config](./promotion#tag/campaignManagement/operation/getV1Config)  (required).</param>
         public V1SetNormQueryBidsRequestItem(int advertId = default(int), int nmId = default(int), string normQuery = default(string), int bidMinorUnits = default(int))
         {
             this.AdvertId = advertId;
@@ -78,9 +78,9 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         public string NormQuery { get; set; }
 
         /// <summary>
-        /// Ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances). Допустимый шаг ставки указан в ответе метода [GET /api/advert/v1/config](./promotion#tag/campaignManagement/operation/getV1Config) 
+        /// Ставка в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances). Допустимый шаг ставки указан в ответе метода [GET /api/advert/v1/config](./promotion#tag/campaignManagement/operation/getV1Config) 
         /// </summary>
-        /// <value>Ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances). Допустимый шаг ставки указан в ответе метода [GET /api/advert/v1/config](./promotion#tag/campaignManagement/operation/getV1Config) </value>
+        /// <value>Ставка в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances). Допустимый шаг ставки указан в ответе метода [GET /api/advert/v1/config](./promotion#tag/campaignManagement/operation/getV1Config) </value>
         [DataMember(Name = "bidMinorUnits", IsRequired = true, EmitDefaultValue = true)]
         public int BidMinorUnits { get; set; }
 

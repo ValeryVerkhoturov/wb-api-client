@@ -58,6 +58,12 @@ public class GetV1SellerInfoResponse200 {
   @jakarta.annotation.Nullable
   private String tradeMark;
 
+  public static final String SERIALIZED_NAME_COUNTRY = "country";
+
+  @SerializedName(SERIALIZED_NAME_COUNTRY)
+  @jakarta.annotation.Nullable
+  private String country;
+
   public GetV1SellerInfoResponse200() {}
 
   public GetV1SellerInfoResponse200 name(@jakarta.annotation.Nullable String name) {
@@ -137,6 +143,25 @@ public class GetV1SellerInfoResponse200 {
     this.tradeMark = tradeMark;
   }
 
+  public GetV1SellerInfoResponse200 country(@jakarta.annotation.Nullable String country) {
+    this.country = country;
+    return this;
+  }
+
+  /**
+   * Страна регистрации профиля продавца
+   *
+   * @return country
+   */
+  @jakarta.annotation.Nullable
+  public String getCountry() {
+    return country;
+  }
+
+  public void setCountry(@jakarta.annotation.Nullable String country) {
+    this.country = country;
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -149,12 +174,13 @@ public class GetV1SellerInfoResponse200 {
     return Objects.equals(this.name, getV1SellerInfoResponse200.name)
         && Objects.equals(this.sid, getV1SellerInfoResponse200.sid)
         && Objects.equals(this.tin, getV1SellerInfoResponse200.tin)
-        && Objects.equals(this.tradeMark, getV1SellerInfoResponse200.tradeMark);
+        && Objects.equals(this.tradeMark, getV1SellerInfoResponse200.tradeMark)
+        && Objects.equals(this.country, getV1SellerInfoResponse200.country);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, sid, tin, tradeMark);
+    return Objects.hash(name, sid, tin, tradeMark, country);
   }
 
   @Override
@@ -165,6 +191,7 @@ public class GetV1SellerInfoResponse200 {
     sb.append("    sid: ").append(toIndentedString(sid)).append("\n");
     sb.append("    tin: ").append(toIndentedString(tin)).append("\n");
     sb.append("    tradeMark: ").append(toIndentedString(tradeMark)).append("\n");
+    sb.append("    country: ").append(toIndentedString(country)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -189,6 +216,7 @@ public class GetV1SellerInfoResponse200 {
     openapiFields.add("sid");
     openapiFields.add("tin");
     openapiFields.add("tradeMark");
+    openapiFields.add("country");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -249,6 +277,13 @@ public class GetV1SellerInfoResponse200 {
           String.format(
               "Expected the field `tradeMark` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("tradeMark").toString()));
+    }
+    if ((jsonObj.get("country") != null && !jsonObj.get("country").isJsonNull())
+        && !jsonObj.get("country").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `country` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("country").toString()));
     }
   }
 

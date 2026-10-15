@@ -78,7 +78,7 @@ public class V1BudgetAdvert {
   }
 
   /**
-   * Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+   * Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
    *
    * @return currency
    */
@@ -97,7 +97,7 @@ public class V1BudgetAdvert {
   }
 
   /**
-   * Бюджет кампании в базовых единицах валюты [аккаунта
+   * Бюджет кампании в базовых единицах валюты [профиля
    * продавца](https://cmp.wildberries.ru/campaigns/finances)
    *
    * @return total

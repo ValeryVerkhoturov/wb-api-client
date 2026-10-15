@@ -37,7 +37,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <param name="advertId">ID кампании.</param>
         /// <param name="nmId">Артикул WB.</param>
         /// <param name="normQuery">Поисковый кластер — это группа похожих поисковых запросов, по которым покупатели находят товары.</param>
-        /// <param name="currency">Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).</param>
+        /// <param name="currency">Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances).</param>
         public V1SetNormQueryBidsSuccessResponseItem(int advertId = default(int), int nmId = default(int), string normQuery = default(string), string currency = default(string))
         {
             this.AdvertId = advertId;
@@ -68,9 +68,9 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         public string NormQuery { get; set; }
 
         /// <summary>
-        /// Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+        /// Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
         /// </summary>
-        /// <value>Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)</value>
+        /// <value>Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)</value>
         [DataMember(Name = "currency", EmitDefaultValue = false)]
         public string Currency { get; set; }
 

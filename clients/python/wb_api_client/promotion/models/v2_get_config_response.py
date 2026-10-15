@@ -30,31 +30,31 @@ class V2GetConfigResponse(BaseModel):
 
     currency: Optional[StrictStr] = Field(
         default=None,
-        description="Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)",
+        description="Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)",
     )
     currency_code: Optional[StrictInt] = Field(
         default=None,
-        description="Код валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)",
+        description="Код валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)",
         alias="currencyCode",
     )
     cpm_step: Optional[StrictInt] = Field(
         default=None,
-        description="Шаг ставки в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) для CPM-кампаний",
+        description="Шаг ставки в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances) для CPM-кампаний",
         alias="cpmStep",
     )
     cpc_step: Optional[StrictInt] = Field(
         default=None,
-        description="Шаг ставки в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) для кампаний CPC",
+        description="Шаг ставки в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances) для кампаний CPC",
         alias="cpcStep",
     )
     min_top_up: Optional[StrictInt] = Field(
         default=None,
-        description='Минимальная сумма пополнения бюджета кампании в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).  Например, минимальная сумма пополнения бюджета при `"minTopUp": 10000` и `"currency": "UZS"` — 100 узбекских сум ',
+        description='Минимальная сумма пополнения бюджета кампании в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances).  Например, минимальная сумма пополнения бюджета при `"minTopUp": 10000` и `"currency": "UZS"` — 100 узбекских сум ',
         alias="minTopUp",
     )
     min_daily_limit: Optional[StrictInt] = Field(
         default=None,
-        description="Минимально допустимый размер дневного лимита, вне зависимости от ставок кампании. Указывается в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) ",
+        description="Минимально допустимый размер дневного лимита, вне зависимости от ставок кампании. Указывается в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances) ",
         alias="minDailyLimit",
     )
     __properties: ClassVar[List[str]] = [

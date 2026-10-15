@@ -37,9 +37,9 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <param name="advertId">ID кампании.</param>
         /// <param name="nmId">Артикул WB.</param>
         /// <param name="normQuery">Поисковый кластер.</param>
-        /// <param name="bid">Текущая ставка в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) за тысячу показов.</param>
-        /// <param name="bidKopecks">Текущая ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) за тысячу показов.</param>
-        /// <param name="currency">Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).</param>
+        /// <param name="bid">Текущая ставка в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances) за тысячу показов.</param>
+        /// <param name="bidKopecks">Текущая ставка в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances) за тысячу показов.</param>
+        /// <param name="currency">Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances).</param>
         public V0GetNormQueryBidsItem(int advertId = default(int), int nmId = default(int), string normQuery = default(string), int bid = default(int), int bidKopecks = default(int), string currency = default(string))
         {
             this.AdvertId = advertId;
@@ -72,23 +72,23 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         public string NormQuery { get; set; }
 
         /// <summary>
-        /// Текущая ставка в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) за тысячу показов
+        /// Текущая ставка в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances) за тысячу показов
         /// </summary>
-        /// <value>Текущая ставка в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) за тысячу показов</value>
+        /// <value>Текущая ставка в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances) за тысячу показов</value>
         [DataMember(Name = "bid", EmitDefaultValue = false)]
         public int Bid { get; set; }
 
         /// <summary>
-        /// Текущая ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) за тысячу показов
+        /// Текущая ставка в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances) за тысячу показов
         /// </summary>
-        /// <value>Текущая ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) за тысячу показов</value>
+        /// <value>Текущая ставка в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances) за тысячу показов</value>
         [DataMember(Name = "bid_kopecks", EmitDefaultValue = false)]
         public int BidKopecks { get; set; }
 
         /// <summary>
-        /// Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+        /// Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
         /// </summary>
-        /// <value>Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)</value>
+        /// <value>Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)</value>
         [DataMember(Name = "currency", EmitDefaultValue = false)]
         public string Currency { get; set; }
 

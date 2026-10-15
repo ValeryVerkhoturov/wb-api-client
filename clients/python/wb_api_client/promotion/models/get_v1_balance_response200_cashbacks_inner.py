@@ -30,7 +30,7 @@ class GetV1BalanceResponse200CashbacksInner(BaseModel):
 
     sum: Optional[StrictInt] = Field(
         default=None,
-        description="Промо-бонусы в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)",
+        description="Промо-бонусы в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)",
     )
     percent: Optional[StrictInt] = Field(
         default=None,

@@ -35,7 +35,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// Initializes a new instance of the <see cref="PatchV1BidsResponse200" /> class.
         /// </summary>
         /// <param name="bids">Результат отработки запроса.</param>
-        /// <param name="currency">Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).</param>
+        /// <param name="currency">Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances).</param>
         public PatchV1BidsResponse200(List<PatchV1BidsResponse200BidsInner> bids = default(List<PatchV1BidsResponse200BidsInner>), string currency = default(string))
         {
             this.Bids = bids;
@@ -50,9 +50,9 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         public List<PatchV1BidsResponse200BidsInner> Bids { get; set; }
 
         /// <summary>
-        /// Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+        /// Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
         /// </summary>
-        /// <value>Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)</value>
+        /// <value>Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)</value>
         [DataMember(Name = "currency", EmitDefaultValue = false)]
         public string Currency { get; set; }
 

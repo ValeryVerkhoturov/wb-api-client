@@ -35,8 +35,8 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// Initializes a new instance of the <see cref="TrbxStickers" /> class.
         /// </summary>
         /// <param name="barcode">Закодированное значение стикера.</param>
-        /// <param name="file">Полное представление стикера в заданном формате (кодировка base64).</param>
-        public TrbxStickers(string barcode = default(string), byte[] file = default(byte[]))
+        /// <param name="file">Полное представление стикера в заданном формате.</param>
+        public TrbxStickers(string barcode = default(string), string file = default(string))
         {
             this.Barcode = barcode;
             this.File = file;
@@ -53,14 +53,14 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         public string Barcode { get; set; }
 
         /// <summary>
-        /// Полное представление стикера в заданном формате (кодировка base64)
+        /// Полное представление стикера в заданном формате
         /// </summary>
-        /// <value>Полное представление стикера в заданном формате (кодировка base64)</value>
+        /// <value>Полное представление стикера в заданном формате</value>
         /*
-        <example>[B@186481d4</example>
+        <example>^XA\n^CI28\n^CF0\n^LS0</example>
         */
         [DataMember(Name = "file", EmitDefaultValue = false)]
-        public byte[] File { get; set; }
+        public string File { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -92,18 +92,6 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// <returns>Validation Result</returns>
         IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Barcode (string) minLength
-            if (this.Barcode != null && this.Barcode.Length < 1)
-            {
-                yield return new ValidationResult("Invalid value for Barcode, length must be greater than 1.", new [] { "Barcode" });
-            }
-
-            // File (byte[]) minLength
-            if (this.File != null && this.File.Length < 1)
-            {
-                yield return new ValidationResult("Invalid value for File, length must be greater than 1.", new [] { "File" });
-            }
-
             yield break;
         }
     }

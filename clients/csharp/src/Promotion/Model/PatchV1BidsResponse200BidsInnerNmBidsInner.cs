@@ -35,7 +35,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// Initializes a new instance of the <see cref="PatchV1BidsResponse200BidsInnerNmBidsInner" /> class.
         /// </summary>
         /// <param name="nmId">Артикул WB.</param>
-        /// <param name="bidKopecks">Ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).</param>
+        /// <param name="bidKopecks">Ставка в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances).</param>
         /// <param name="placement">Место размещения:   - &#x60;search&#x60; — в поиске   - &#x60;recommendations&#x60;— в рекомендациях .</param>
         public PatchV1BidsResponse200BidsInnerNmBidsInner(long nmId = default(long), long bidKopecks = default(long), string placement = default(string))
         {
@@ -52,9 +52,9 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         public long NmId { get; set; }
 
         /// <summary>
-        /// Ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+        /// Ставка в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
         /// </summary>
-        /// <value>Ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)</value>
+        /// <value>Ставка в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)</value>
         [DataMember(Name = "bid_kopecks", EmitDefaultValue = false)]
         public long BidKopecks { get; set; }
 

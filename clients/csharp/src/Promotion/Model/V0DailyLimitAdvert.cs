@@ -36,12 +36,12 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <param name="advertId">ID кампании.</param>
         /// <param name="enabled">- &#x60;true&#x60; — дневной лимит включен - &#x60;false&#x60; — дневной лимит отключен .</param>
-        /// <param name="dailyLimit">Размер дневного лимита в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).</param>
-        /// <param name="spentToday">Потрачено сегодня в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).</param>
+        /// <param name="dailyLimit">Размер дневного лимита в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances).</param>
+        /// <param name="spentToday">Потрачено сегодня в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances).</param>
         /// <param name="currency">Код валюты.</param>
         /// <param name="carryOverEnabled">Перенос остатка дневного лимита на следующий день. Если за 24 часа лимит потратится не полностью, добавим остаток суммы к лимиту следующего дня. Расходы на продвижение не увеличатся.   - &#x60;true&#x60; — перенос остатка включен   - &#x60;false&#x60; — перенос остатка отключен .</param>
         /// <param name="valid">Хватает ли текущего размера лимита на установку ставок кампании:   - &#x60;true&#x60; — да   - &#x60;false&#x60; — нет, рекомендуем повысить лимит, иначе бюджет кампании может расходоваться неравномерно .</param>
-        /// <param name="requiredLimit">Рекомендуемый минимальный размер дневного лимита при текущих ставках кампании. Указывается в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) .</param>
+        /// <param name="requiredLimit">Рекомендуемый минимальный размер дневного лимита при текущих ставках кампании. Указывается в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances) .</param>
         public V0DailyLimitAdvert(long advertId = default(long), bool enabled = default(bool), long dailyLimit = default(long), long spentToday = default(long), string currency = default(string), bool carryOverEnabled = default(bool), bool valid = default(bool), long requiredLimit = default(long))
         {
             this.AdvertId = advertId;
@@ -75,9 +75,9 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         public bool Enabled { get; set; }
 
         /// <summary>
-        /// Размер дневного лимита в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+        /// Размер дневного лимита в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
         /// </summary>
-        /// <value>Размер дневного лимита в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)</value>
+        /// <value>Размер дневного лимита в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)</value>
         /*
         <example>100000</example>
         */
@@ -85,9 +85,9 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         public long DailyLimit { get; set; }
 
         /// <summary>
-        /// Потрачено сегодня в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+        /// Потрачено сегодня в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
         /// </summary>
-        /// <value>Потрачено сегодня в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)</value>
+        /// <value>Потрачено сегодня в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)</value>
         /*
         <example>35000</example>
         */
@@ -125,9 +125,9 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         public bool Valid { get; set; }
 
         /// <summary>
-        /// Рекомендуемый минимальный размер дневного лимита при текущих ставках кампании. Указывается в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) 
+        /// Рекомендуемый минимальный размер дневного лимита при текущих ставках кампании. Указывается в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances) 
         /// </summary>
-        /// <value>Рекомендуемый минимальный размер дневного лимита при текущих ставках кампании. Указывается в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) </value>
+        /// <value>Рекомендуемый минимальный размер дневного лимита при текущих ставках кампании. Указывается в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances) </value>
         /*
         <example>3001</example>
         */
