@@ -37,7 +37,7 @@ public class AcquiringReportsDetailedRes {
 
   @SerializedName(SERIALIZED_NAME_RRD_ID)
   @jakarta.annotation.Nullable
-  private Integer rrdId;
+  private Long rrdId;
 
   public static final String SERIALIZED_NAME_REPORT_ID = "reportId";
 
@@ -92,7 +92,7 @@ public class AcquiringReportsDetailedRes {
 
   @SerializedName(SERIALIZED_NAME_NM_ID)
   @jakarta.annotation.Nullable
-  private Integer nmId;
+  private Long nmId;
 
   public static final String SERIALIZED_NAME_RETAIL_AMOUNT = "retailAmount";
 
@@ -128,7 +128,7 @@ public class AcquiringReportsDetailedRes {
 
   @SerializedName(SERIALIZED_NAME_SHK_ID)
   @jakarta.annotation.Nullable
-  private Integer shkId;
+  private Long shkId;
 
   public static final String SERIALIZED_NAME_CURRENCY = "currency";
 
@@ -138,7 +138,7 @@ public class AcquiringReportsDetailedRes {
 
   public AcquiringReportsDetailedRes() {}
 
-  public AcquiringReportsDetailedRes rrdId(@jakarta.annotation.Nullable Integer rrdId) {
+  public AcquiringReportsDetailedRes rrdId(@jakarta.annotation.Nullable Long rrdId) {
     this.rrdId = rrdId;
     return this;
   }
@@ -149,11 +149,11 @@ public class AcquiringReportsDetailedRes {
    * @return rrdId
    */
   @jakarta.annotation.Nullable
-  public Integer getRrdId() {
+  public Long getRrdId() {
     return rrdId;
   }
 
-  public void setRrdId(@jakarta.annotation.Nullable Integer rrdId) {
+  public void setRrdId(@jakarta.annotation.Nullable Long rrdId) {
     this.rrdId = rrdId;
   }
 
@@ -316,7 +316,7 @@ public class AcquiringReportsDetailedRes {
     this.documentType = documentType;
   }
 
-  public AcquiringReportsDetailedRes nmId(@jakarta.annotation.Nullable Integer nmId) {
+  public AcquiringReportsDetailedRes nmId(@jakarta.annotation.Nullable Long nmId) {
     this.nmId = nmId;
     return this;
   }
@@ -327,11 +327,11 @@ public class AcquiringReportsDetailedRes {
    * @return nmId
    */
   @jakarta.annotation.Nullable
-  public Integer getNmId() {
+  public Long getNmId() {
     return nmId;
   }
 
-  public void setNmId(@jakarta.annotation.Nullable Integer nmId) {
+  public void setNmId(@jakarta.annotation.Nullable Long nmId) {
     this.nmId = nmId;
   }
 
@@ -434,7 +434,7 @@ public class AcquiringReportsDetailedRes {
     this.invoiceDate = invoiceDate;
   }
 
-  public AcquiringReportsDetailedRes shkId(@jakarta.annotation.Nullable Integer shkId) {
+  public AcquiringReportsDetailedRes shkId(@jakarta.annotation.Nullable Long shkId) {
     this.shkId = shkId;
     return this;
   }
@@ -445,11 +445,11 @@ public class AcquiringReportsDetailedRes {
    * @return shkId
    */
   @jakarta.annotation.Nullable
-  public Integer getShkId() {
+  public Long getShkId() {
     return shkId;
   }
 
-  public void setShkId(@jakarta.annotation.Nullable Integer shkId) {
+  public void setShkId(@jakarta.annotation.Nullable Long shkId) {
     this.shkId = shkId;
   }
 

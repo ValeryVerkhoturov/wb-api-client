@@ -41,7 +41,7 @@ public class StatsBlok1 {
 
   @SerializedName(SERIALIZED_NAME_ITEM_ID)
   @jakarta.annotation.Nullable
-  private Integer itemId;
+  private Long itemId;
 
   public static final String SERIALIZED_NAME_ITEM_NAME = "item_name";
 
@@ -59,25 +59,25 @@ public class StatsBlok1 {
 
   @SerializedName(SERIALIZED_NAME_ADVERT_TYPE)
   @jakarta.annotation.Nullable
-  private Integer advertType;
+  private Long advertType;
 
   public static final String SERIALIZED_NAME_PLACE = "place";
 
   @SerializedName(SERIALIZED_NAME_PLACE)
   @jakarta.annotation.Nullable
-  private Integer place;
+  private Long place;
 
   public static final String SERIALIZED_NAME_VIEWS = "views";
 
   @SerializedName(SERIALIZED_NAME_VIEWS)
   @jakarta.annotation.Nullable
-  private Integer views;
+  private Long views;
 
   public static final String SERIALIZED_NAME_CLICKS = "clicks";
 
   @SerializedName(SERIALIZED_NAME_CLICKS)
   @jakarta.annotation.Nullable
-  private Integer clicks;
+  private Long clicks;
 
   public static final String SERIALIZED_NAME_CR = "cr";
 
@@ -113,13 +113,13 @@ public class StatsBlok1 {
 
   @SerializedName(SERIALIZED_NAME_ATBS)
   @jakarta.annotation.Nullable
-  private Integer atbs;
+  private Long atbs;
 
   public static final String SERIALIZED_NAME_ORDERS = "orders";
 
   @SerializedName(SERIALIZED_NAME_ORDERS)
   @jakarta.annotation.Nullable
-  private Integer orders;
+  private Long orders;
 
   public static final String SERIALIZED_NAME_PRICE = "price";
 
@@ -137,7 +137,7 @@ public class StatsBlok1 {
 
   @SerializedName(SERIALIZED_NAME_STATUS)
   @jakarta.annotation.Nullable
-  private Integer status;
+  private Long status;
 
   public static final String SERIALIZED_NAME_DAILY_STATS = "daily_stats";
 
@@ -161,11 +161,11 @@ public class StatsBlok1 {
 
   @SerializedName(SERIALIZED_NAME_CR2)
   @jakarta.annotation.Nullable
-  private Integer cr2;
+  private Long cr2;
 
   public StatsBlok1() {}
 
-  public StatsBlok1 itemId(@jakarta.annotation.Nullable Integer itemId) {
+  public StatsBlok1 itemId(@jakarta.annotation.Nullable Long itemId) {
     this.itemId = itemId;
     return this;
   }
@@ -176,11 +176,11 @@ public class StatsBlok1 {
    * @return itemId
    */
   @jakarta.annotation.Nullable
-  public Integer getItemId() {
+  public Long getItemId() {
     return itemId;
   }
 
-  public void setItemId(@jakarta.annotation.Nullable Integer itemId) {
+  public void setItemId(@jakarta.annotation.Nullable Long itemId) {
     this.itemId = itemId;
   }
 
@@ -222,7 +222,7 @@ public class StatsBlok1 {
     this.categoryName = categoryName;
   }
 
-  public StatsBlok1 advertType(@jakarta.annotation.Nullable Integer advertType) {
+  public StatsBlok1 advertType(@jakarta.annotation.Nullable Long advertType) {
     this.advertType = advertType;
     return this;
   }
@@ -234,15 +234,15 @@ public class StatsBlok1 {
    * @return advertType
    */
   @jakarta.annotation.Nullable
-  public Integer getAdvertType() {
+  public Long getAdvertType() {
     return advertType;
   }
 
-  public void setAdvertType(@jakarta.annotation.Nullable Integer advertType) {
+  public void setAdvertType(@jakarta.annotation.Nullable Long advertType) {
     this.advertType = advertType;
   }
 
-  public StatsBlok1 place(@jakarta.annotation.Nullable Integer place) {
+  public StatsBlok1 place(@jakarta.annotation.Nullable Long place) {
     this.place = place;
     return this;
   }
@@ -253,15 +253,15 @@ public class StatsBlok1 {
    * @return place
    */
   @jakarta.annotation.Nullable
-  public Integer getPlace() {
+  public Long getPlace() {
     return place;
   }
 
-  public void setPlace(@jakarta.annotation.Nullable Integer place) {
+  public void setPlace(@jakarta.annotation.Nullable Long place) {
     this.place = place;
   }
 
-  public StatsBlok1 views(@jakarta.annotation.Nullable Integer views) {
+  public StatsBlok1 views(@jakarta.annotation.Nullable Long views) {
     this.views = views;
     return this;
   }
@@ -272,15 +272,15 @@ public class StatsBlok1 {
    * @return views
    */
   @jakarta.annotation.Nullable
-  public Integer getViews() {
+  public Long getViews() {
     return views;
   }
 
-  public void setViews(@jakarta.annotation.Nullable Integer views) {
+  public void setViews(@jakarta.annotation.Nullable Long views) {
     this.views = views;
   }
 
-  public StatsBlok1 clicks(@jakarta.annotation.Nullable Integer clicks) {
+  public StatsBlok1 clicks(@jakarta.annotation.Nullable Long clicks) {
     this.clicks = clicks;
     return this;
   }
@@ -291,11 +291,11 @@ public class StatsBlok1 {
    * @return clicks
    */
   @jakarta.annotation.Nullable
-  public Integer getClicks() {
+  public Long getClicks() {
     return clicks;
   }
 
-  public void setClicks(@jakarta.annotation.Nullable Integer clicks) {
+  public void setClicks(@jakarta.annotation.Nullable Long clicks) {
     this.clicks = clicks;
   }
 
@@ -396,7 +396,7 @@ public class StatsBlok1 {
     this.subjectName = subjectName;
   }
 
-  public StatsBlok1 atbs(@jakarta.annotation.Nullable Integer atbs) {
+  public StatsBlok1 atbs(@jakarta.annotation.Nullable Long atbs) {
     this.atbs = atbs;
     return this;
   }
@@ -407,15 +407,15 @@ public class StatsBlok1 {
    * @return atbs
    */
   @jakarta.annotation.Nullable
-  public Integer getAtbs() {
+  public Long getAtbs() {
     return atbs;
   }
 
-  public void setAtbs(@jakarta.annotation.Nullable Integer atbs) {
+  public void setAtbs(@jakarta.annotation.Nullable Long atbs) {
     this.atbs = atbs;
   }
 
-  public StatsBlok1 orders(@jakarta.annotation.Nullable Integer orders) {
+  public StatsBlok1 orders(@jakarta.annotation.Nullable Long orders) {
     this.orders = orders;
     return this;
   }
@@ -426,11 +426,11 @@ public class StatsBlok1 {
    * @return orders
    */
   @jakarta.annotation.Nullable
-  public Integer getOrders() {
+  public Long getOrders() {
     return orders;
   }
 
-  public void setOrders(@jakarta.annotation.Nullable Integer orders) {
+  public void setOrders(@jakarta.annotation.Nullable Long orders) {
     this.orders = orders;
   }
 
@@ -472,7 +472,7 @@ public class StatsBlok1 {
     this.cpc = cpc;
   }
 
-  public StatsBlok1 status(@jakarta.annotation.Nullable Integer status) {
+  public StatsBlok1 status(@jakarta.annotation.Nullable Long status) {
     this.status = status;
     return this;
   }
@@ -483,11 +483,11 @@ public class StatsBlok1 {
    * @return status
    */
   @jakarta.annotation.Nullable
-  public Integer getStatus() {
+  public Long getStatus() {
     return status;
   }
 
-  public void setStatus(@jakarta.annotation.Nullable Integer status) {
+  public void setStatus(@jakarta.annotation.Nullable Long status) {
     this.status = status;
   }
 
@@ -558,7 +558,7 @@ public class StatsBlok1 {
     this.cr1 = cr1;
   }
 
-  public StatsBlok1 cr2(@jakarta.annotation.Nullable Integer cr2) {
+  public StatsBlok1 cr2(@jakarta.annotation.Nullable Long cr2) {
     this.cr2 = cr2;
     return this;
   }
@@ -569,11 +569,11 @@ public class StatsBlok1 {
    * @return cr2
    */
   @jakarta.annotation.Nullable
-  public Integer getCr2() {
+  public Long getCr2() {
     return cr2;
   }
 
-  public void setCr2(@jakarta.annotation.Nullable Integer cr2) {
+  public void setCr2(@jakarta.annotation.Nullable Long cr2) {
     this.cr2 = cr2;
   }
 

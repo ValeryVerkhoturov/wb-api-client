@@ -40,7 +40,7 @@ public class ModelsListDraftsResponse {
 
   @SerializedName(SERIALIZED_NAME_TOTAL)
   @jakarta.annotation.Nullable
-  private Integer total;
+  private Long total;
 
   public static final String SERIALIZED_NAME_DRAFTS = "drafts";
 
@@ -50,7 +50,7 @@ public class ModelsListDraftsResponse {
 
   public ModelsListDraftsResponse() {}
 
-  public ModelsListDraftsResponse total(@jakarta.annotation.Nullable Integer total) {
+  public ModelsListDraftsResponse total(@jakarta.annotation.Nullable Long total) {
     this.total = total;
     return this;
   }
@@ -61,11 +61,11 @@ public class ModelsListDraftsResponse {
    * @return total
    */
   @jakarta.annotation.Nullable
-  public Integer getTotal() {
+  public Long getTotal() {
     return total;
   }
 
-  public void setTotal(@jakarta.annotation.Nullable Integer total) {
+  public void setTotal(@jakarta.annotation.Nullable Long total) {
     this.total = total;
   }
 

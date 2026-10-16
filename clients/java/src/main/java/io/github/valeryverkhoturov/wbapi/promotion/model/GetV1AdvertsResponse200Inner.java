@@ -37,7 +37,7 @@ public class GetV1AdvertsResponse200Inner {
 
   @SerializedName(SERIALIZED_NAME_ADVERT_ID)
   @jakarta.annotation.Nullable
-  private Integer advertId;
+  private Long advertId;
 
   public static final String SERIALIZED_NAME_NAME = "name";
 
@@ -55,13 +55,13 @@ public class GetV1AdvertsResponse200Inner {
 
   @SerializedName(SERIALIZED_NAME_TYPE)
   @jakarta.annotation.Nullable
-  private Integer type;
+  private Long type;
 
   public static final String SERIALIZED_NAME_STATUS = "status";
 
   @SerializedName(SERIALIZED_NAME_STATUS)
   @jakarta.annotation.Nullable
-  private Integer status;
+  private Long status;
 
   public static final String SERIALIZED_NAME_CREATE_TIME = "createTime";
 
@@ -77,7 +77,7 @@ public class GetV1AdvertsResponse200Inner {
 
   public GetV1AdvertsResponse200Inner() {}
 
-  public GetV1AdvertsResponse200Inner advertId(@jakarta.annotation.Nullable Integer advertId) {
+  public GetV1AdvertsResponse200Inner advertId(@jakarta.annotation.Nullable Long advertId) {
     this.advertId = advertId;
     return this;
   }
@@ -88,11 +88,11 @@ public class GetV1AdvertsResponse200Inner {
    * @return advertId
    */
   @jakarta.annotation.Nullable
-  public Integer getAdvertId() {
+  public Long getAdvertId() {
     return advertId;
   }
 
-  public void setAdvertId(@jakarta.annotation.Nullable Integer advertId) {
+  public void setAdvertId(@jakarta.annotation.Nullable Long advertId) {
     this.advertId = advertId;
   }
 
@@ -134,7 +134,7 @@ public class GetV1AdvertsResponse200Inner {
     this.brand = brand;
   }
 
-  public GetV1AdvertsResponse200Inner type(@jakarta.annotation.Nullable Integer type) {
+  public GetV1AdvertsResponse200Inner type(@jakarta.annotation.Nullable Long type) {
     this.type = type;
     return this;
   }
@@ -146,15 +146,15 @@ public class GetV1AdvertsResponse200Inner {
    * @return type
    */
   @jakarta.annotation.Nullable
-  public Integer getType() {
+  public Long getType() {
     return type;
   }
 
-  public void setType(@jakarta.annotation.Nullable Integer type) {
+  public void setType(@jakarta.annotation.Nullable Long type) {
     this.type = type;
   }
 
-  public GetV1AdvertsResponse200Inner status(@jakarta.annotation.Nullable Integer status) {
+  public GetV1AdvertsResponse200Inner status(@jakarta.annotation.Nullable Long status) {
     this.status = status;
     return this;
   }
@@ -169,11 +169,11 @@ public class GetV1AdvertsResponse200Inner {
    * @return status
    */
   @jakarta.annotation.Nullable
-  public Integer getStatus() {
+  public Long getStatus() {
     return status;
   }
 
-  public void setStatus(@jakarta.annotation.Nullable Integer status) {
+  public void setStatus(@jakarta.annotation.Nullable Long status) {
     this.status = status;
   }
 

@@ -44,7 +44,7 @@ namespace ValeryVerkhoturov.WbApiClient.Rates.Model
         /// <param name="parentName">Название родительской категории.</param>
         /// <param name="subjectID">ID предмета.</param>
         /// <param name="subjectName">Название предмета.</param>
-        public FeeReportInner(decimal kgvpBooking = default(decimal), decimal kgvpMarketplace = default(decimal), decimal kgvpPickup = default(decimal), decimal kgvpSupplier = default(decimal), decimal kgvpSupplierExpress = default(decimal), decimal paidStorageKgvp = default(decimal), int parentID = default(int), string parentName = default(string), int subjectID = default(int), string subjectName = default(string))
+        public FeeReportInner(decimal kgvpBooking = default(decimal), decimal kgvpMarketplace = default(decimal), decimal kgvpPickup = default(decimal), decimal kgvpSupplier = default(decimal), decimal kgvpSupplierExpress = default(decimal), decimal paidStorageKgvp = default(decimal), long parentID = default(long), string parentName = default(string), long subjectID = default(long), string subjectName = default(string))
         {
             this.KgvpBooking = kgvpBooking;
             this.KgvpMarketplace = kgvpMarketplace;
@@ -105,7 +105,7 @@ namespace ValeryVerkhoturov.WbApiClient.Rates.Model
         /// </summary>
         /// <value>ID родительской категории</value>
         [DataMember(Name = "parentID", EmitDefaultValue = false)]
-        public int ParentID { get; set; }
+        public long ParentID { get; set; }
 
         /// <summary>
         /// Название родительской категории
@@ -119,7 +119,7 @@ namespace ValeryVerkhoturov.WbApiClient.Rates.Model
         /// </summary>
         /// <value>ID предмета</value>
         [DataMember(Name = "subjectID", EmitDefaultValue = false)]
-        public int SubjectID { get; set; }
+        public long SubjectID { get; set; }
 
         /// <summary>
         /// Название предмета

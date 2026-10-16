@@ -43,7 +43,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// <param name="newDiscount">Новая скидка продавца, %.</param>
         /// <param name="oldDiscount">Текущая скидка продавца, %.</param>
         /// <param name="priceDiff">Разница: &#x60;newPrice&#x60; * (1 - &#x60;newDiscount&#x60; / 100) - &#x60;oldPrice&#x60; * (1 - &#x60;oldDiscount&#x60; / 100).</param>
-        public QuarantineItems(int nmID = default(int), int? sizeID = default(int?), string techSizeName = default(string), string currencyIsoCode4217 = default(string), float? newPrice = default(float?), float oldPrice = default(float), int? newDiscount = default(int?), int oldDiscount = default(int), float priceDiff = default(float))
+        public QuarantineItems(long nmID = default(long), long? sizeID = default(long?), string techSizeName = default(string), string currencyIsoCode4217 = default(string), float? newPrice = default(float?), float oldPrice = default(float), long? newDiscount = default(long?), long oldDiscount = default(long), float priceDiff = default(float))
         {
             this.NmID = nmID;
             this.SizeID = sizeID;
@@ -64,14 +64,14 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         <example>206025152</example>
         */
         [DataMember(Name = "nmID", EmitDefaultValue = false)]
-        public int NmID { get; set; }
+        public long NmID { get; set; }
 
         /// <summary>
         /// Не используется
         /// </summary>
         /// <value>Не используется</value>
         [DataMember(Name = "sizeID", EmitDefaultValue = true)]
-        public int? SizeID { get; set; }
+        public long? SizeID { get; set; }
 
         /// <summary>
         /// Не используется
@@ -118,7 +118,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         <example>25</example>
         */
         [DataMember(Name = "newDiscount", EmitDefaultValue = true)]
-        public int? NewDiscount { get; set; }
+        public long? NewDiscount { get; set; }
 
         /// <summary>
         /// Текущая скидка продавца, %
@@ -128,7 +128,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         <example>25</example>
         */
         [DataMember(Name = "oldDiscount", EmitDefaultValue = false)]
-        public int OldDiscount { get; set; }
+        public long OldDiscount { get; set; }
 
         /// <summary>
         /// Разница: &#x60;newPrice&#x60; * (1 - &#x60;newDiscount&#x60; / 100) - &#x60;oldPrice&#x60; * (1 - &#x60;oldDiscount&#x60; / 100)

@@ -36,7 +36,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         /// </summary>
         /// <param name="moderationState">Статус модерации.</param>
         /// <param name="retrySeconds">Секунд до следующей попытки запроса файла.</param>
-        public GetV1SellerDownloadIdResponse202(string moderationState = default(string), int retrySeconds = default(int))
+        public GetV1SellerDownloadIdResponse202(string moderationState = default(string), long retrySeconds = default(long))
         {
             this.ModerationState = moderationState;
             this.RetrySeconds = retrySeconds;
@@ -60,7 +60,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         <example>30</example>
         */
         [DataMember(Name = "retrySeconds", EmitDefaultValue = false)]
-        public int RetrySeconds { get; set; }
+        public long RetrySeconds { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

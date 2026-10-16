@@ -37,7 +37,7 @@ public class ResponseWithReturn {
 
   @SerializedName(SERIALIZED_NAME_TOTAL)
   @jakarta.annotation.Nullable
-  private Integer total;
+  private Long total;
 
   public static final String SERIALIZED_NAME_CURRENCY = "currency";
 
@@ -47,7 +47,7 @@ public class ResponseWithReturn {
 
   public ResponseWithReturn() {}
 
-  public ResponseWithReturn total(@jakarta.annotation.Nullable Integer total) {
+  public ResponseWithReturn total(@jakarta.annotation.Nullable Long total) {
     this.total = total;
     return this;
   }
@@ -58,11 +58,11 @@ public class ResponseWithReturn {
    * @return total
    */
   @jakarta.annotation.Nullable
-  public Integer getTotal() {
+  public Long getTotal() {
     return total;
   }
 
-  public void setTotal(@jakarta.annotation.Nullable Integer total) {
+  public void setTotal(@jakarta.annotation.Nullable Long total) {
     this.total = total;
   }
 

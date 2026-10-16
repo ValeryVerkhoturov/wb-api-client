@@ -35,7 +35,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// Initializes a new instance of the <see cref="V0BidRecommendationBaseBidTop2" /> class.
         /// </summary>
         /// <param name="bidKopecks">Рекомендуемая ставка в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances). Если &#x60;0&#x60;, для данного предмета топ-ставка не используется.</param>
-        public V0BidRecommendationBaseBidTop2(int bidKopecks = default(int))
+        public V0BidRecommendationBaseBidTop2(long bidKopecks = default(long))
         {
             this.BidKopecks = bidKopecks;
         }
@@ -45,7 +45,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <value>Рекомендуемая ставка в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances). Если &#x60;0&#x60;, для данного предмета топ-ставка не используется</value>
         [DataMember(Name = "bidKopecks", EmitDefaultValue = false)]
-        public int BidKopecks { get; set; }
+        public long BidKopecks { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

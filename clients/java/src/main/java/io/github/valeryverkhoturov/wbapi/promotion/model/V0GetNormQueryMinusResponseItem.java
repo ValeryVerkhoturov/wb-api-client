@@ -39,13 +39,13 @@ public class V0GetNormQueryMinusResponseItem {
 
   @SerializedName(SERIALIZED_NAME_ADVERT_ID)
   @jakarta.annotation.Nullable
-  private Integer advertId;
+  private Long advertId;
 
   public static final String SERIALIZED_NAME_NM_ID = "nm_id";
 
   @SerializedName(SERIALIZED_NAME_NM_ID)
   @jakarta.annotation.Nullable
-  private Integer nmId;
+  private Long nmId;
 
   public static final String SERIALIZED_NAME_NORM_QUERIES = "norm_queries";
 
@@ -55,7 +55,7 @@ public class V0GetNormQueryMinusResponseItem {
 
   public V0GetNormQueryMinusResponseItem() {}
 
-  public V0GetNormQueryMinusResponseItem advertId(@jakarta.annotation.Nullable Integer advertId) {
+  public V0GetNormQueryMinusResponseItem advertId(@jakarta.annotation.Nullable Long advertId) {
     this.advertId = advertId;
     return this;
   }
@@ -66,15 +66,15 @@ public class V0GetNormQueryMinusResponseItem {
    * @return advertId
    */
   @jakarta.annotation.Nullable
-  public Integer getAdvertId() {
+  public Long getAdvertId() {
     return advertId;
   }
 
-  public void setAdvertId(@jakarta.annotation.Nullable Integer advertId) {
+  public void setAdvertId(@jakarta.annotation.Nullable Long advertId) {
     this.advertId = advertId;
   }
 
-  public V0GetNormQueryMinusResponseItem nmId(@jakarta.annotation.Nullable Integer nmId) {
+  public V0GetNormQueryMinusResponseItem nmId(@jakarta.annotation.Nullable Long nmId) {
     this.nmId = nmId;
     return this;
   }
@@ -85,11 +85,11 @@ public class V0GetNormQueryMinusResponseItem {
    * @return nmId
    */
   @jakarta.annotation.Nullable
-  public Integer getNmId() {
+  public Long getNmId() {
     return nmId;
   }
 
-  public void setNmId(@jakarta.annotation.Nullable Integer nmId) {
+  public void setNmId(@jakarta.annotation.Nullable Long nmId) {
     this.nmId = nmId;
   }
 

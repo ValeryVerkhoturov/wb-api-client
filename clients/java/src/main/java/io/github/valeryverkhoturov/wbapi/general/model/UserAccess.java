@@ -40,7 +40,7 @@ public class UserAccess {
 
   @SerializedName(SERIALIZED_NAME_USER_ID)
   @jakarta.annotation.Nullable
-  private Integer userId;
+  private Long userId;
 
   public static final String SERIALIZED_NAME_ACCESS = "access";
 
@@ -50,7 +50,7 @@ public class UserAccess {
 
   public UserAccess() {}
 
-  public UserAccess userId(@jakarta.annotation.Nullable Integer userId) {
+  public UserAccess userId(@jakarta.annotation.Nullable Long userId) {
     this.userId = userId;
     return this;
   }
@@ -61,11 +61,11 @@ public class UserAccess {
    * @return userId
    */
   @jakarta.annotation.Nullable
-  public Integer getUserId() {
+  public Long getUserId() {
     return userId;
   }
 
-  public void setUserId(@jakarta.annotation.Nullable Integer userId) {
+  public void setUserId(@jakarta.annotation.Nullable Long userId) {
     this.userId = userId;
   }
 

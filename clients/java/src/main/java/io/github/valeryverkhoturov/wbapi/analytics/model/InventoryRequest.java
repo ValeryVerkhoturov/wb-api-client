@@ -45,19 +45,19 @@ public class InventoryRequest {
 
   @SerializedName(SERIALIZED_NAME_CHRT_IDS)
   @jakarta.annotation.Nullable
-  private List<Integer> chrtIds = new ArrayList<>();
+  private List<Long> chrtIds = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_LIMIT = "limit";
 
   @SerializedName(SERIALIZED_NAME_LIMIT)
   @jakarta.annotation.Nullable
-  private Integer limit = 250000;
+  private Long limit = 250000l;
 
   public static final String SERIALIZED_NAME_OFFSET = "offset";
 
   @SerializedName(SERIALIZED_NAME_OFFSET)
   @jakarta.annotation.Nullable
-  private Integer offset = 0;
+  private Long offset = 0l;
 
   public InventoryRequest() {}
 
@@ -88,12 +88,12 @@ public class InventoryRequest {
     this.nmIds = nmIds;
   }
 
-  public InventoryRequest chrtIds(@jakarta.annotation.Nullable List<Integer> chrtIds) {
+  public InventoryRequest chrtIds(@jakarta.annotation.Nullable List<Long> chrtIds) {
     this.chrtIds = chrtIds;
     return this;
   }
 
-  public InventoryRequest addChrtIdsItem(Integer chrtIdsItem) {
+  public InventoryRequest addChrtIdsItem(Long chrtIdsItem) {
     if (this.chrtIds == null) {
       this.chrtIds = new ArrayList<>();
     }
@@ -107,15 +107,15 @@ public class InventoryRequest {
    * @return chrtIds
    */
   @jakarta.annotation.Nullable
-  public List<Integer> getChrtIds() {
+  public List<Long> getChrtIds() {
     return chrtIds;
   }
 
-  public void setChrtIds(@jakarta.annotation.Nullable List<Integer> chrtIds) {
+  public void setChrtIds(@jakarta.annotation.Nullable List<Long> chrtIds) {
     this.chrtIds = chrtIds;
   }
 
-  public InventoryRequest limit(@jakarta.annotation.Nullable Integer limit) {
+  public InventoryRequest limit(@jakarta.annotation.Nullable Long limit) {
     this.limit = limit;
     return this;
   }
@@ -126,15 +126,15 @@ public class InventoryRequest {
    * @return limit
    */
   @jakarta.annotation.Nullable
-  public Integer getLimit() {
+  public Long getLimit() {
     return limit;
   }
 
-  public void setLimit(@jakarta.annotation.Nullable Integer limit) {
+  public void setLimit(@jakarta.annotation.Nullable Long limit) {
     this.limit = limit;
   }
 
-  public InventoryRequest offset(@jakarta.annotation.Nullable Integer offset) {
+  public InventoryRequest offset(@jakarta.annotation.Nullable Long offset) {
     this.offset = offset;
     return this;
   }
@@ -146,11 +146,11 @@ public class InventoryRequest {
    * @return offset
    */
   @jakarta.annotation.Nullable
-  public Integer getOffset() {
+  public Long getOffset() {
     return offset;
   }
 
-  public void setOffset(@jakarta.annotation.Nullable Integer offset) {
+  public void setOffset(@jakarta.annotation.Nullable Long offset) {
     this.offset = offset;
   }
 

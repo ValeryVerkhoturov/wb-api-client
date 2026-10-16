@@ -39,16 +39,16 @@ public class PostV2CardsDeleteTrashRequest {
 
   @SerializedName(SERIALIZED_NAME_NM_I_DS)
   @jakarta.annotation.Nullable
-  private List<Integer> nmIDs = new ArrayList<>();
+  private List<Long> nmIDs = new ArrayList<>();
 
   public PostV2CardsDeleteTrashRequest() {}
 
-  public PostV2CardsDeleteTrashRequest nmIDs(@jakarta.annotation.Nullable List<Integer> nmIDs) {
+  public PostV2CardsDeleteTrashRequest nmIDs(@jakarta.annotation.Nullable List<Long> nmIDs) {
     this.nmIDs = nmIDs;
     return this;
   }
 
-  public PostV2CardsDeleteTrashRequest addNmIDsItem(Integer nmIDsItem) {
+  public PostV2CardsDeleteTrashRequest addNmIDsItem(Long nmIDsItem) {
     if (this.nmIDs == null) {
       this.nmIDs = new ArrayList<>();
     }
@@ -62,11 +62,11 @@ public class PostV2CardsDeleteTrashRequest {
    * @return nmIDs
    */
   @jakarta.annotation.Nullable
-  public List<Integer> getNmIDs() {
+  public List<Long> getNmIDs() {
     return nmIDs;
   }
 
-  public void setNmIDs(@jakarta.annotation.Nullable List<Integer> nmIDs) {
+  public void setNmIDs(@jakarta.annotation.Nullable List<Long> nmIDs) {
     this.nmIDs = nmIDs;
   }
 

@@ -39,7 +39,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Model
         /// <param name="activeFrom">С какого числа доступно транзитное направление.</param>
         /// <param name="boxTariff">Тариф за транзит коробов. Если &#x60;null&#x60;, транзит для коробов недоступен.</param>
         /// <param name="palletTariff">Тариф за паллету, ₽.</param>
-        public ModelsTransitTariff(string transitWarehouseName = default(string), string destinationWarehouseName = default(string), string activeFrom = default(string), List<ModelsVolumeTariff> boxTariff = default(List<ModelsVolumeTariff>), int palletTariff = default(int))
+        public ModelsTransitTariff(string transitWarehouseName = default(string), string destinationWarehouseName = default(string), string activeFrom = default(string), List<ModelsVolumeTariff> boxTariff = default(List<ModelsVolumeTariff>), long palletTariff = default(long))
         {
             this.TransitWarehouseName = transitWarehouseName;
             this.DestinationWarehouseName = destinationWarehouseName;
@@ -81,7 +81,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Model
         /// </summary>
         /// <value>Тариф за паллету, ₽</value>
         [DataMember(Name = "palletTariff", EmitDefaultValue = false)]
-        public int PalletTariff { get; set; }
+        public long PalletTariff { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

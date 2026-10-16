@@ -38,7 +38,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// <param name="parentID">ID родительской категории.</param>
         /// <param name="subjectName">Название предмета.</param>
         /// <param name="parentName">Название родительской категории.</param>
-        public GetV2ObjectAllResponse200DataInner(int subjectID = default(int), int parentID = default(int), string subjectName = default(string), string parentName = default(string))
+        public GetV2ObjectAllResponse200DataInner(long subjectID = default(long), long parentID = default(long), string subjectName = default(string), string parentName = default(string))
         {
             this.SubjectID = subjectID;
             this.ParentID = parentID;
@@ -51,14 +51,14 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// </summary>
         /// <value>ID предмета</value>
         [DataMember(Name = "subjectID", EmitDefaultValue = false)]
-        public int SubjectID { get; set; }
+        public long SubjectID { get; set; }
 
         /// <summary>
         /// ID родительской категории
         /// </summary>
         /// <value>ID родительской категории</value>
         [DataMember(Name = "parentID", EmitDefaultValue = false)]
-        public int ParentID { get; set; }
+        public long ParentID { get; set; }
 
         /// <summary>
         /// Название предмета

@@ -46,7 +46,7 @@ public class GetV1Claims200Response {
 
   @SerializedName(SERIALIZED_NAME_TOTAL)
   @jakarta.annotation.Nullable
-  private Integer total;
+  private Long total;
 
   public GetV1Claims200Response() {}
 
@@ -79,7 +79,7 @@ public class GetV1Claims200Response {
     this.claims = claims;
   }
 
-  public GetV1Claims200Response total(@jakarta.annotation.Nullable Integer total) {
+  public GetV1Claims200Response total(@jakarta.annotation.Nullable Long total) {
     this.total = total;
     return this;
   }
@@ -91,11 +91,11 @@ public class GetV1Claims200Response {
    * @return total
    */
   @jakarta.annotation.Nullable
-  public Integer getTotal() {
+  public Long getTotal() {
     return total;
   }
 
-  public void setTotal(@jakarta.annotation.Nullable Integer total) {
+  public void setTotal(@jakarta.annotation.Nullable Long total) {
     this.total = total;
   }
 

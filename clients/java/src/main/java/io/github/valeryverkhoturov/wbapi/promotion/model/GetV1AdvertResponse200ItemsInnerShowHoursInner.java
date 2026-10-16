@@ -37,18 +37,18 @@ public class GetV1AdvertResponse200ItemsInnerShowHoursInner {
 
   @SerializedName(SERIALIZED_NAME_FROM)
   @jakarta.annotation.Nullable
-  private Integer from;
+  private Long from;
 
   public static final String SERIALIZED_NAME_TO = "To";
 
   @SerializedName(SERIALIZED_NAME_TO)
   @jakarta.annotation.Nullable
-  private Integer to;
+  private Long to;
 
   public GetV1AdvertResponse200ItemsInnerShowHoursInner() {}
 
   public GetV1AdvertResponse200ItemsInnerShowHoursInner from(
-      @jakarta.annotation.Nullable Integer from) {
+      @jakarta.annotation.Nullable Long from) {
     this.from = from;
     return this;
   }
@@ -59,16 +59,15 @@ public class GetV1AdvertResponse200ItemsInnerShowHoursInner {
    * @return from
    */
   @jakarta.annotation.Nullable
-  public Integer getFrom() {
+  public Long getFrom() {
     return from;
   }
 
-  public void setFrom(@jakarta.annotation.Nullable Integer from) {
+  public void setFrom(@jakarta.annotation.Nullable Long from) {
     this.from = from;
   }
 
-  public GetV1AdvertResponse200ItemsInnerShowHoursInner to(
-      @jakarta.annotation.Nullable Integer to) {
+  public GetV1AdvertResponse200ItemsInnerShowHoursInner to(@jakarta.annotation.Nullable Long to) {
     this.to = to;
     return this;
   }
@@ -79,11 +78,11 @@ public class GetV1AdvertResponse200ItemsInnerShowHoursInner {
    * @return to
    */
   @jakarta.annotation.Nullable
-  public Integer getTo() {
+  public Long getTo() {
     return to;
   }
 
-  public void setTo(@jakarta.annotation.Nullable Integer to) {
+  public void setTo(@jakarta.annotation.Nullable Long to) {
     this.to = to;
   }
 

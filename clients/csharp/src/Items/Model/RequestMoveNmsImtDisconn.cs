@@ -40,7 +40,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// Initializes a new instance of the <see cref="RequestMoveNmsImtDisconn" /> class.
         /// </summary>
         /// <param name="nmIDs">&#x60;nmID&#x60;, которые необходимо разъединить  (required).</param>
-        public RequestMoveNmsImtDisconn(List<int> nmIDs = default(List<int>))
+        public RequestMoveNmsImtDisconn(List<long> nmIDs = default(List<long>))
         {
             // to ensure "nmIDs" is required (not null)
             if (nmIDs == null)
@@ -58,7 +58,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         <example>[837459235,828572090]</example>
         */
         [DataMember(Name = "nmIDs", IsRequired = true, EmitDefaultValue = true)]
-        public List<int> NmIDs { get; set; }
+        public List<long> NmIDs { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -37,13 +37,13 @@ public class Listing {
 
   @SerializedName(SERIALIZED_NAME_NM_I_D)
   @jakarta.annotation.Nullable
-  private Integer nmID;
+  private Long nmID;
 
   public static final String SERIALIZED_NAME_PRICE = "price";
 
   @SerializedName(SERIALIZED_NAME_PRICE)
   @jakarta.annotation.Nullable
-  private Integer price;
+  private Long price;
 
   public static final String SERIALIZED_NAME_PRICE_CURRENCY = "priceCurrency";
 
@@ -65,7 +65,7 @@ public class Listing {
 
   public Listing() {}
 
-  public Listing nmID(@jakarta.annotation.Nullable Integer nmID) {
+  public Listing nmID(@jakarta.annotation.Nullable Long nmID) {
     this.nmID = nmID;
     return this;
   }
@@ -76,15 +76,15 @@ public class Listing {
    * @return nmID
    */
   @jakarta.annotation.Nullable
-  public Integer getNmID() {
+  public Long getNmID() {
     return nmID;
   }
 
-  public void setNmID(@jakarta.annotation.Nullable Integer nmID) {
+  public void setNmID(@jakarta.annotation.Nullable Long nmID) {
     this.nmID = nmID;
   }
 
-  public Listing price(@jakarta.annotation.Nullable Integer price) {
+  public Listing price(@jakarta.annotation.Nullable Long price) {
     this.price = price;
     return this;
   }
@@ -95,11 +95,11 @@ public class Listing {
    * @return price
    */
   @jakarta.annotation.Nullable
-  public Integer getPrice() {
+  public Long getPrice() {
     return price;
   }
 
-  public void setPrice(@jakarta.annotation.Nullable Integer price) {
+  public void setPrice(@jakarta.annotation.Nullable Long price) {
     this.price = price;
   }
 

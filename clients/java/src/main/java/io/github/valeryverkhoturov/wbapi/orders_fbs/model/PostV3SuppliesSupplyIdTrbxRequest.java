@@ -37,11 +37,11 @@ public class PostV3SuppliesSupplyIdTrbxRequest {
 
   @SerializedName(SERIALIZED_NAME_AMOUNT)
   @jakarta.annotation.Nonnull
-  private Integer amount;
+  private Long amount;
 
   public PostV3SuppliesSupplyIdTrbxRequest() {}
 
-  public PostV3SuppliesSupplyIdTrbxRequest amount(@jakarta.annotation.Nonnull Integer amount) {
+  public PostV3SuppliesSupplyIdTrbxRequest amount(@jakarta.annotation.Nonnull Long amount) {
     this.amount = amount;
     return this;
   }
@@ -52,11 +52,11 @@ public class PostV3SuppliesSupplyIdTrbxRequest {
    * @return amount
    */
   @jakarta.annotation.Nonnull
-  public Integer getAmount() {
+  public Long getAmount() {
     return amount;
   }
 
-  public void setAmount(@jakarta.annotation.Nonnull Integer amount) {
+  public void setAmount(@jakarta.annotation.Nonnull Long amount) {
     this.amount = amount;
   }
 

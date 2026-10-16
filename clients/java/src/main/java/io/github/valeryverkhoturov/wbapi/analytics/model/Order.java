@@ -45,7 +45,7 @@ public class Order {
 
   @SerializedName(SERIALIZED_NAME_CHRT_ID)
   @jakarta.annotation.Nullable
-  private Integer chrtId;
+  private Long chrtId;
 
   public static final String SERIALIZED_NAME_SRID = "srid";
 
@@ -260,7 +260,7 @@ public class Order {
     this.nmId = nmId;
   }
 
-  public Order chrtId(@jakarta.annotation.Nullable Integer chrtId) {
+  public Order chrtId(@jakarta.annotation.Nullable Long chrtId) {
     this.chrtId = chrtId;
     return this;
   }
@@ -271,11 +271,11 @@ public class Order {
    * @return chrtId
    */
   @jakarta.annotation.Nullable
-  public Integer getChrtId() {
+  public Long getChrtId() {
     return chrtId;
   }
 
-  public void setChrtId(@jakarta.annotation.Nullable Integer chrtId) {
+  public void setChrtId(@jakarta.annotation.Nullable Long chrtId) {
     this.chrtId = chrtId;
   }
 

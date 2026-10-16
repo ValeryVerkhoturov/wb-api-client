@@ -44,7 +44,7 @@ public class StatisticsPast {
 
   @SerializedName(SERIALIZED_NAME_OPEN_COUNT)
   @jakarta.annotation.Nullable
-  private Integer openCount;
+  private Long openCount;
 
   public static final String SERIALIZED_NAME_CART_COUNT = "cartCount";
 
@@ -56,43 +56,43 @@ public class StatisticsPast {
 
   @SerializedName(SERIALIZED_NAME_ORDER_COUNT)
   @jakarta.annotation.Nullable
-  private Integer orderCount;
+  private Long orderCount;
 
   public static final String SERIALIZED_NAME_ORDER_SUM = "orderSum";
 
   @SerializedName(SERIALIZED_NAME_ORDER_SUM)
   @jakarta.annotation.Nullable
-  private Integer orderSum;
+  private Long orderSum;
 
   public static final String SERIALIZED_NAME_BUYOUT_COUNT = "buyoutCount";
 
   @SerializedName(SERIALIZED_NAME_BUYOUT_COUNT)
   @jakarta.annotation.Nullable
-  private Integer buyoutCount;
+  private Long buyoutCount;
 
   public static final String SERIALIZED_NAME_BUYOUT_SUM = "buyoutSum";
 
   @SerializedName(SERIALIZED_NAME_BUYOUT_SUM)
   @jakarta.annotation.Nullable
-  private Integer buyoutSum;
+  private Long buyoutSum;
 
   public static final String SERIALIZED_NAME_CANCEL_COUNT = "cancelCount";
 
   @SerializedName(SERIALIZED_NAME_CANCEL_COUNT)
   @jakarta.annotation.Nullable
-  private Integer cancelCount;
+  private Long cancelCount;
 
   public static final String SERIALIZED_NAME_CANCEL_SUM = "cancelSum";
 
   @SerializedName(SERIALIZED_NAME_CANCEL_SUM)
   @jakarta.annotation.Nullable
-  private Integer cancelSum;
+  private Long cancelSum;
 
   public static final String SERIALIZED_NAME_AVG_PRICE = "avgPrice";
 
   @SerializedName(SERIALIZED_NAME_AVG_PRICE)
   @jakarta.annotation.Nullable
-  private Integer avgPrice;
+  private Long avgPrice;
 
   public static final String SERIALIZED_NAME_AVG_ORDERS_COUNT_PER_DAY = "avgOrdersCountPerDay";
 
@@ -110,7 +110,7 @@ public class StatisticsPast {
 
   @SerializedName(SERIALIZED_NAME_ADD_TO_WISHLIST)
   @jakarta.annotation.Nullable
-  private Integer addToWishlist;
+  private Long addToWishlist;
 
   public static final String SERIALIZED_NAME_TIME_TO_READY = "timeToReady";
 
@@ -122,7 +122,7 @@ public class StatisticsPast {
 
   @SerializedName(SERIALIZED_NAME_LOCALIZATION_PERCENT)
   @jakarta.annotation.Nullable
-  private Integer localizationPercent;
+  private Long localizationPercent;
 
   public static final String SERIALIZED_NAME_WB_CLUB = "wbClub";
 
@@ -157,7 +157,7 @@ public class StatisticsPast {
     this.period = period;
   }
 
-  public StatisticsPast openCount(@jakarta.annotation.Nullable Integer openCount) {
+  public StatisticsPast openCount(@jakarta.annotation.Nullable Long openCount) {
     this.openCount = openCount;
     return this;
   }
@@ -168,11 +168,11 @@ public class StatisticsPast {
    * @return openCount
    */
   @jakarta.annotation.Nullable
-  public Integer getOpenCount() {
+  public Long getOpenCount() {
     return openCount;
   }
 
-  public void setOpenCount(@jakarta.annotation.Nullable Integer openCount) {
+  public void setOpenCount(@jakarta.annotation.Nullable Long openCount) {
     this.openCount = openCount;
   }
 
@@ -195,7 +195,7 @@ public class StatisticsPast {
     this.cartCount = cartCount;
   }
 
-  public StatisticsPast orderCount(@jakarta.annotation.Nullable Integer orderCount) {
+  public StatisticsPast orderCount(@jakarta.annotation.Nullable Long orderCount) {
     this.orderCount = orderCount;
     return this;
   }
@@ -206,15 +206,15 @@ public class StatisticsPast {
    * @return orderCount
    */
   @jakarta.annotation.Nullable
-  public Integer getOrderCount() {
+  public Long getOrderCount() {
     return orderCount;
   }
 
-  public void setOrderCount(@jakarta.annotation.Nullable Integer orderCount) {
+  public void setOrderCount(@jakarta.annotation.Nullable Long orderCount) {
     this.orderCount = orderCount;
   }
 
-  public StatisticsPast orderSum(@jakarta.annotation.Nullable Integer orderSum) {
+  public StatisticsPast orderSum(@jakarta.annotation.Nullable Long orderSum) {
     this.orderSum = orderSum;
     return this;
   }
@@ -225,15 +225,15 @@ public class StatisticsPast {
    * @return orderSum
    */
   @jakarta.annotation.Nullable
-  public Integer getOrderSum() {
+  public Long getOrderSum() {
     return orderSum;
   }
 
-  public void setOrderSum(@jakarta.annotation.Nullable Integer orderSum) {
+  public void setOrderSum(@jakarta.annotation.Nullable Long orderSum) {
     this.orderSum = orderSum;
   }
 
-  public StatisticsPast buyoutCount(@jakarta.annotation.Nullable Integer buyoutCount) {
+  public StatisticsPast buyoutCount(@jakarta.annotation.Nullable Long buyoutCount) {
     this.buyoutCount = buyoutCount;
     return this;
   }
@@ -244,15 +244,15 @@ public class StatisticsPast {
    * @return buyoutCount
    */
   @jakarta.annotation.Nullable
-  public Integer getBuyoutCount() {
+  public Long getBuyoutCount() {
     return buyoutCount;
   }
 
-  public void setBuyoutCount(@jakarta.annotation.Nullable Integer buyoutCount) {
+  public void setBuyoutCount(@jakarta.annotation.Nullable Long buyoutCount) {
     this.buyoutCount = buyoutCount;
   }
 
-  public StatisticsPast buyoutSum(@jakarta.annotation.Nullable Integer buyoutSum) {
+  public StatisticsPast buyoutSum(@jakarta.annotation.Nullable Long buyoutSum) {
     this.buyoutSum = buyoutSum;
     return this;
   }
@@ -263,15 +263,15 @@ public class StatisticsPast {
    * @return buyoutSum
    */
   @jakarta.annotation.Nullable
-  public Integer getBuyoutSum() {
+  public Long getBuyoutSum() {
     return buyoutSum;
   }
 
-  public void setBuyoutSum(@jakarta.annotation.Nullable Integer buyoutSum) {
+  public void setBuyoutSum(@jakarta.annotation.Nullable Long buyoutSum) {
     this.buyoutSum = buyoutSum;
   }
 
-  public StatisticsPast cancelCount(@jakarta.annotation.Nullable Integer cancelCount) {
+  public StatisticsPast cancelCount(@jakarta.annotation.Nullable Long cancelCount) {
     this.cancelCount = cancelCount;
     return this;
   }
@@ -282,15 +282,15 @@ public class StatisticsPast {
    * @return cancelCount
    */
   @jakarta.annotation.Nullable
-  public Integer getCancelCount() {
+  public Long getCancelCount() {
     return cancelCount;
   }
 
-  public void setCancelCount(@jakarta.annotation.Nullable Integer cancelCount) {
+  public void setCancelCount(@jakarta.annotation.Nullable Long cancelCount) {
     this.cancelCount = cancelCount;
   }
 
-  public StatisticsPast cancelSum(@jakarta.annotation.Nullable Integer cancelSum) {
+  public StatisticsPast cancelSum(@jakarta.annotation.Nullable Long cancelSum) {
     this.cancelSum = cancelSum;
     return this;
   }
@@ -301,15 +301,15 @@ public class StatisticsPast {
    * @return cancelSum
    */
   @jakarta.annotation.Nullable
-  public Integer getCancelSum() {
+  public Long getCancelSum() {
     return cancelSum;
   }
 
-  public void setCancelSum(@jakarta.annotation.Nullable Integer cancelSum) {
+  public void setCancelSum(@jakarta.annotation.Nullable Long cancelSum) {
     this.cancelSum = cancelSum;
   }
 
-  public StatisticsPast avgPrice(@jakarta.annotation.Nullable Integer avgPrice) {
+  public StatisticsPast avgPrice(@jakarta.annotation.Nullable Long avgPrice) {
     this.avgPrice = avgPrice;
     return this;
   }
@@ -320,11 +320,11 @@ public class StatisticsPast {
    * @return avgPrice
    */
   @jakarta.annotation.Nullable
-  public Integer getAvgPrice() {
+  public Long getAvgPrice() {
     return avgPrice;
   }
 
-  public void setAvgPrice(@jakarta.annotation.Nullable Integer avgPrice) {
+  public void setAvgPrice(@jakarta.annotation.Nullable Long avgPrice) {
     this.avgPrice = avgPrice;
   }
 
@@ -369,7 +369,7 @@ public class StatisticsPast {
     this.shareOrderPercent = shareOrderPercent;
   }
 
-  public StatisticsPast addToWishlist(@jakarta.annotation.Nullable Integer addToWishlist) {
+  public StatisticsPast addToWishlist(@jakarta.annotation.Nullable Long addToWishlist) {
     this.addToWishlist = addToWishlist;
     return this;
   }
@@ -380,11 +380,11 @@ public class StatisticsPast {
    * @return addToWishlist
    */
   @jakarta.annotation.Nullable
-  public Integer getAddToWishlist() {
+  public Long getAddToWishlist() {
     return addToWishlist;
   }
 
-  public void setAddToWishlist(@jakarta.annotation.Nullable Integer addToWishlist) {
+  public void setAddToWishlist(@jakarta.annotation.Nullable Long addToWishlist) {
     this.addToWishlist = addToWishlist;
   }
 
@@ -407,8 +407,7 @@ public class StatisticsPast {
     this.timeToReady = timeToReady;
   }
 
-  public StatisticsPast localizationPercent(
-      @jakarta.annotation.Nullable Integer localizationPercent) {
+  public StatisticsPast localizationPercent(@jakarta.annotation.Nullable Long localizationPercent) {
     this.localizationPercent = localizationPercent;
     return this;
   }
@@ -420,11 +419,11 @@ public class StatisticsPast {
    * @return localizationPercent
    */
   @jakarta.annotation.Nullable
-  public Integer getLocalizationPercent() {
+  public Long getLocalizationPercent() {
     return localizationPercent;
   }
 
-  public void setLocalizationPercent(@jakarta.annotation.Nullable Integer localizationPercent) {
+  public void setLocalizationPercent(@jakarta.annotation.Nullable Long localizationPercent) {
     this.localizationPercent = localizationPercent;
   }
 

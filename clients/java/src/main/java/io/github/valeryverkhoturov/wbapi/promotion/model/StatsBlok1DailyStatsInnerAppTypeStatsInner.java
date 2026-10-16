@@ -40,7 +40,7 @@ public class StatsBlok1DailyStatsInnerAppTypeStatsInner {
 
   @SerializedName(SERIALIZED_NAME_APP_TYPE)
   @jakarta.annotation.Nullable
-  private Integer appType;
+  private Long appType;
 
   public static final String SERIALIZED_NAME_STATS = "stats";
 
@@ -51,7 +51,7 @@ public class StatsBlok1DailyStatsInnerAppTypeStatsInner {
   public StatsBlok1DailyStatsInnerAppTypeStatsInner() {}
 
   public StatsBlok1DailyStatsInnerAppTypeStatsInner appType(
-      @jakarta.annotation.Nullable Integer appType) {
+      @jakarta.annotation.Nullable Long appType) {
     this.appType = appType;
     return this;
   }
@@ -62,11 +62,11 @@ public class StatsBlok1DailyStatsInnerAppTypeStatsInner {
    * @return appType
    */
   @jakarta.annotation.Nullable
-  public Integer getAppType() {
+  public Long getAppType() {
     return appType;
   }
 
-  public void setAppType(@jakarta.annotation.Nullable Integer appType) {
+  public void setAppType(@jakarta.annotation.Nullable Long appType) {
     this.appType = appType;
   }
 

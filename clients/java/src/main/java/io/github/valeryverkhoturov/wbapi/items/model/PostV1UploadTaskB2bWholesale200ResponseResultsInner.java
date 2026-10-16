@@ -37,7 +37,7 @@ public class PostV1UploadTaskB2bWholesale200ResponseResultsInner {
 
   @SerializedName(SERIALIZED_NAME_NM_ID)
   @jakarta.annotation.Nonnull
-  private Integer nmId;
+  private Long nmId;
 
   public static final String SERIALIZED_NAME_SUCCESS = "success";
 
@@ -54,7 +54,7 @@ public class PostV1UploadTaskB2bWholesale200ResponseResultsInner {
   public PostV1UploadTaskB2bWholesale200ResponseResultsInner() {}
 
   public PostV1UploadTaskB2bWholesale200ResponseResultsInner nmId(
-      @jakarta.annotation.Nonnull Integer nmId) {
+      @jakarta.annotation.Nonnull Long nmId) {
     this.nmId = nmId;
     return this;
   }
@@ -65,11 +65,11 @@ public class PostV1UploadTaskB2bWholesale200ResponseResultsInner {
    * @return nmId
    */
   @jakarta.annotation.Nonnull
-  public Integer getNmId() {
+  public Long getNmId() {
     return nmId;
   }
 
-  public void setNmId(@jakarta.annotation.Nonnull Integer nmId) {
+  public void setNmId(@jakarta.annotation.Nonnull Long nmId) {
     this.nmId = nmId;
   }
 

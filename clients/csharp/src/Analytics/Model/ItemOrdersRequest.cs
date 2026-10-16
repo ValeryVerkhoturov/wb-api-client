@@ -42,7 +42,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <param name="period">period (required).</param>
         /// <param name="nmId">Артикул WB (required).</param>
         /// <param name="searchTexts">Поисковые запросы. Для тарифов [Джема](https://seller.wildberries.ru/monetization/tariffs) **Продвинутый** и **Премиальный** максимум — 100  (required).</param>
-        public ItemOrdersRequest(PeriodOrdersRequest period = default(PeriodOrdersRequest), int nmId = default(int), List<string> searchTexts = default(List<string>))
+        public ItemOrdersRequest(PeriodOrdersRequest period = default(PeriodOrdersRequest), long nmId = default(long), List<string> searchTexts = default(List<string>))
         {
             // to ensure "period" is required (not null)
             if (period == null)
@@ -73,7 +73,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         <example>211131895</example>
         */
         [DataMember(Name = "nmId", IsRequired = true, EmitDefaultValue = true)]
-        public int NmId { get; set; }
+        public long NmId { get; set; }
 
         /// <summary>
         /// Поисковые запросы. Для тарифов [Джема](https://seller.wildberries.ru/monetization/tariffs) **Продвинутый** и **Премиальный** максимум — 100 

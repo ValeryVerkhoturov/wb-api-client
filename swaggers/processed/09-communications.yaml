@@ -194,12 +194,14 @@ paths:
         schema:
           type: integer
           example: 1688465092
+          format: int64
       - name: dateTo
         in: query
         description: Дата конца периода в формате Unix timestamp
         schema:
           type: integer
           example: 1688465092
+          format: int64
       - name: isAnswered
         in: query
         description: |
@@ -303,6 +305,7 @@ paths:
         description: Артикул WB
         schema:
           type: integer
+          format: int64
       - name: take
         in: query
         description: |
@@ -310,6 +313,7 @@ paths:
           при этом сумма значений параметров `take` и `skip` не должна превышать 10 000)
         schema:
           type: integer
+          format: int64
         required: true
       - name: skip
         in: query
@@ -318,6 +322,7 @@ paths:
           при этом сумма значений параметров `take` и `skip` не должна превышать 10 000)
         schema:
           type: integer
+          format: int64
         required: true
       - name: order
         in: query
@@ -331,12 +336,14 @@ paths:
         schema:
           type: integer
           example: 1688465092
+          format: int64
       - name: dateTo
         in: query
         description: Дата конца периода в формате Unix timestamp
         schema:
           type: integer
           example: 1688465092
+          format: int64
       responses:
         '200':
           description: Успешно
@@ -752,12 +759,14 @@ paths:
         schema:
           type: integer
           example: 1688465092
+          format: int64
       - name: dateTo
         in: query
         description: Дата конца периода в формате Unix timestamp
         schema:
           type: integer
           example: 1688465092
+          format: int64
       - name: isAnswered
         in: query
         required: true
@@ -864,6 +873,7 @@ paths:
         schema:
           type: integer
           example: 5870243
+          format: int64
       - name: take
         in: query
         required: true
@@ -871,6 +881,7 @@ paths:
         schema:
           type: integer
           example: 1
+          format: int64
       - name: skip
         in: query
         required: true
@@ -878,6 +889,7 @@ paths:
         schema:
           type: integer
           example: 0
+          format: int64
       - name: order
         in: query
         description: Сортировка отзывов по дате (dateAsc/dateDesc)
@@ -892,12 +904,14 @@ paths:
         schema:
           type: integer
           example: 1688465092
+          format: int64
       - name: dateTo
         in: query
         description: Дата конца периода в формате Unix timestamp
         schema:
           type: integer
           example: 1688465092
+          format: int64
       responses:
         '200':
           description: Успешно
@@ -1376,6 +1390,7 @@ paths:
         schema:
           type: integer
           example: 14917842
+          format: int64
       - name: take
         in: query
         required: true
@@ -1383,6 +1398,7 @@ paths:
         schema:
           type: integer
           example: 1
+          format: int64
       - name: skip
         in: query
         required: true
@@ -1390,6 +1406,7 @@ paths:
         schema:
           type: integer
           example: 0
+          format: int64
       - name: order
         in: query
         description: Сортировка отзывов по дате (dateAsc/dateDesc)
@@ -1562,18 +1579,21 @@ paths:
         schema:
           type: integer
           example: 256972151
+          format: int64
       - name: nmId
         in: query
         description: Артикул WB
         schema:
           type: integer
           example: 177974151
+          format: int64
       - name: feedbackId
         in: query
         description: ID отзыва
         schema:
           type: integer
           example: 789
+          format: int64
       - name: dateFrom
         in: query
         description: Дата закрепления первого отзыва в списке
@@ -1592,6 +1612,7 @@ paths:
         schema:
           type: integer
           example: 741
+          format: int64
       - name: limit
         in: query
         description: Количество отзывов на одной странице (пагинация)
@@ -1600,6 +1621,7 @@ paths:
           default: 500
           example: 100
           maximum: 500
+          format: int64
       responses:
         '200':
           description: Успешно
@@ -1747,6 +1769,7 @@ paths:
               maxItems: 500
               items:
                 type: integer
+                format: int64
               example:
               - 123456
               - 234567
@@ -1840,18 +1863,21 @@ paths:
         schema:
           type: integer
           example: 256971531
+          format: int64
       - name: nmId
         in: query
         description: Артикул WB
         schema:
           type: integer
           example: 177974151
+          format: int64
       - name: feedbackId
         in: query
         description: ID отзыва
         schema:
           type: integer
           example: 789
+          format: int64
       - name: dateFrom
         in: query
         description: Дата закрепления первого отзыва в списке
@@ -2013,6 +2039,7 @@ paths:
           Формат Unix timestamp \*\*с миллисекундами\*\*
         schema:
           type: integer
+          format: int64
       responses:
         '200':
           description: Успешно
@@ -2680,6 +2707,7 @@ components:
         addTimestamp:
           type: integer
           description: Время появления события на сервере. Формат Unix timestamp
+          format: int64
         addTime:
           type: string
           description: Время появления события на сервере в UTC
@@ -2737,6 +2765,7 @@ components:
         size:
           type: integer
           description: Размер файла в байтах
+          format: int64
     Listing:
       type: object
       description: Информация о заказе
@@ -2744,9 +2773,11 @@ components:
         nmID:
           type: integer
           description: Артикул WB
+          format: int64
         price:
           type: integer
           description: Фактическая цена с учетом всех скидок. Взимается с покупателя
+          format: int64
         priceCurrency:
           type: string
           description: Валюта
@@ -2779,6 +2810,7 @@ components:
         addTimestamp:
           type: integer
           description: Время сообщения
+          format: int64
     Image:
       type: object
       description: Изображение
@@ -2806,7 +2838,7 @@ components:
             addTime:
               type: integer
               description: Дата и время создания чата
-              format: Unix Timestamp в миллисекундах
+              format: int64
             chatID:
               type: string
               description: ID чата
@@ -2841,7 +2873,7 @@ components:
         next:
           type: integer
           description: Пагинатор. Значение поля необходимо указать в запросе для получения следующего пакета данных
-          format: Unix timestamp
+          format: int64
         newestEventTime:
           description: Время новейшего события в ответе
           type: string
@@ -2851,6 +2883,7 @@ components:
         totalEvents:
           type: integer
           description: Количество событий
+          format: int64
         events:
           type: array
           items:
@@ -2942,6 +2975,7 @@ components:
                 type: integer
                 description: |
                   ID операции закрепления. Если поле отсутствует — закрепить отзыв не удалось
+                format: int64
               pinMethod:
                 type: string
                 description: |
@@ -2985,14 +3019,17 @@ components:
           type: integer
           description: ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров
           example: 256971531
+          format: int64
         nmId:
           type: integer
           description: Артикул WB
           example: 177974151
+          format: int64
         pinId:
           type: integer
           description: ID операции закрепления отзыва
           example: 1857762
+          format: int64
         pinMethod:
           type: string
           description: |
@@ -3078,14 +3115,17 @@ components:
           type: integer
           description: Максимальное количество закреплённых отзывов в одной карточке товара или в группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек
           example: 2
+          format: int64
         remaining:
           type: integer
           description: Сколько ещё отзывов можно закрепить
           example: 5
+          format: int64
         totalLimit:
           type: integer
           description: Общий лимит закреплений
           example: 15
+          format: int64
         unlimited:
           type: boolean
           description: |
@@ -3097,6 +3137,7 @@ components:
           type: integer
           description: Текущее количество закреплённых отзывов
           example: 10
+          format: int64
     openapi.SellerLimitsResponse:
       type: object
       properties:
@@ -3130,6 +3171,7 @@ components:
         status:
           type: integer
           description: HTTP статус-код
+          format: int64
         title:
           type: string
           description: Заголовок ошибки
@@ -3210,10 +3252,12 @@ components:
               type: integer
               description: Количество неотвеченных вопросов
               example: 24
+              format: int64
             countUnansweredToday:
               type: integer
               description: Количество неотвеченных вопросов за сегодня
               example: 0
+              format: int64
         error:
           type: boolean
           description: Есть ли ошибка
@@ -3236,6 +3280,7 @@ components:
           type: integer
           description: Количество вопросов
           example: 77
+          format: int64
         error:
           type: boolean
           description: Есть ли ошибка
@@ -3260,9 +3305,11 @@ components:
             countUnanswered:
               type: integer
               description: Количество неотвеченных вопросов
+              format: int64
             countArchive:
               type: integer
               description: Количество отвеченных вопросов
+              format: int64
             questions:
               description: Вопросы
               type: array
@@ -3306,9 +3353,11 @@ components:
                       nmId:
                         type: integer
                         description: Артикул WB
+                        format: int64
                       imtId:
                         type: integer
                         description: ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров
+                        format: int64
                       productName:
                         type: string
                         description: Название товара
@@ -3404,9 +3453,11 @@ components:
                 nmId:
                   type: integer
                   description: Артикул WB
+                  format: int64
                 imtId:
                   type: integer
                   description: ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров
+                  format: int64
                 productName:
                   type: string
                   description: Название товара
@@ -3452,10 +3503,12 @@ components:
               type: integer
               description: Количество необработанных отзывов
               example: 1
+              format: int64
             countUnansweredToday:
               type: integer
               description: Количество необработанных отзывов за сегодня
               example: 0
+              format: int64
         error:
           type: boolean
           description: Есть ли ошибка
@@ -3478,6 +3531,7 @@ components:
           type: integer
           description: Количество отзывов
           example: 724583
+          format: int64
         error:
           type: boolean
           description: Есть ли ошибка
@@ -3502,9 +3556,11 @@ components:
             countUnanswered:
               type: integer
               description: Количество необработанных отзывов
+              format: int64
             countArchive:
               type: integer
               description: Количество обработанных отзывов
+              format: int64
             feedbacks:
               description: Массив отзывов
               type: array
@@ -3529,6 +3585,7 @@ components:
                   productValuation:
                     type: integer
                     description: Оценка товара
+                    format: int64
                   createdDate:
                     type: string
                     description: Дата и время создания отзыва
@@ -3567,9 +3624,11 @@ components:
                       nmId:
                         type: integer
                         description: Артикул WB
+                        format: int64
                       imtId:
                         type: integer
                         description: ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров
+                        format: int64
                       productName:
                         type: string
                         description: Название товара
@@ -3615,6 +3674,7 @@ components:
                       durationSec:
                         type: integer
                         description: Общая продолжительность видео
+                        format: int64
                   wasViewed:
                     type: boolean
                     description: Просмотрен ли отзыв
@@ -3634,6 +3694,7 @@ components:
                     description: |
                       Ключ причины жалобы на отзыв
                     type: integer
+                    format: int64
                   isAbleSupplierProductValuation:
                     description: |
                       Доступна ли продавцу возможность сообщить о проблеме с товаром:
@@ -3644,6 +3705,7 @@ components:
                     description: |
                       Ключ проблемы с товаром
                     type: integer
+                    format: int64
                   isAbleReturnProductOrders:
                     description: |
                       Опция возврата товара:
@@ -3663,6 +3725,7 @@ components:
                   lastOrderShkId:
                     type: integer
                     description: Штрихкод единицы товара
+                    format: int64
                   lastOrderCreatedAt:
                     type: string
                     description: Дата покупки
@@ -3672,6 +3735,7 @@ components:
                   subjectId:
                     type: integer
                     description: ID предмета
+                    format: int64
                   subjectName:
                     type: string
                     description: Название предмета
@@ -3746,6 +3810,7 @@ components:
             productValuation:
               type: integer
               description: Оценка товара
+              format: int64
             createdDate:
               type: string
               description: Дата и время создания отзыва
@@ -3784,9 +3849,11 @@ components:
                 nmId:
                   type: integer
                   description: Артикул WB
+                  format: int64
                 imtId:
                   type: integer
                   description: ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров
+                  format: int64
                 productName:
                   type: string
                   description: Название товара
@@ -3846,6 +3913,7 @@ components:
                 durationSec:
                   type: integer
                   description: Общая продолжительность видео
+                  format: int64
             wasViewed:
               type: boolean
               description: Просмотрен ли отзыв
@@ -3859,6 +3927,7 @@ components:
               description: |
                 Ключ причины жалобы на отзыв
               type: integer
+              format: int64
             isAbleSupplierProductValuation:
               description: Доступна ли продавцу возможность сообщить о проблеме с товаром  (`true` - доступна, `false` - не доступна)
               type: boolean
@@ -3866,6 +3935,7 @@ components:
               description: |
                 Ключ проблемы с товаром
               type: integer
+              format: int64
             isAbleReturnProductOrders:
               description: |
                 Опция возврата товара:
@@ -3885,6 +3955,7 @@ components:
             lastOrderShkId:
               type: integer
               description: Штрихкод единицы товара
+              format: int64
             lastOrderCreatedAt:
               type: string
               description: Дата покупки
@@ -3894,6 +3965,7 @@ components:
             subjectId:
               type: integer
               description: ID предмета
+              format: int64
             subjectName:
               type: string
               description: Название предмета
@@ -3947,6 +4019,7 @@ components:
                   productValuation:
                     type: integer
                     description: Оценка товара
+                    format: int64
                   createdDate:
                     type: string
                     description: Дата и время создания отзыва
@@ -3985,9 +4058,11 @@ components:
                       nmId:
                         type: integer
                         description: Артикул WB
+                        format: int64
                       imtId:
                         type: integer
                         description: ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров
+                        format: int64
                       productName:
                         type: string
                         description: Название товара
@@ -4033,6 +4108,7 @@ components:
                       durationSec:
                         type: integer
                         description: Общая продолжительность видео
+                        format: int64
                   wasViewed:
                     type: boolean
                     description: Просмотрен ли отзыв
@@ -4052,6 +4128,7 @@ components:
                     description: |
                       Ключ причины жалобы на отзыв
                     type: integer
+                    format: int64
                   isAbleSupplierProductValuation:
                     description: |
                       Доступна ли продавцу возможность сообщить о проблеме с товаром:
@@ -4062,6 +4139,7 @@ components:
                     description: |
                       Ключ проблемы с товаром
                     type: integer
+                    format: int64
                   isAbleReturnProductOrders:
                     description: |
                       Опция возврата товара:
@@ -4081,6 +4159,7 @@ components:
                   lastOrderShkId:
                     type: integer
                     description: Штрихкод единицы товара
+                    format: int64
                   lastOrderCreatedAt:
                     type: string
                     description: Дата покупки
@@ -4090,6 +4169,7 @@ components:
                   subjectId:
                     type: integer
                     description: ID предмета
+                    format: int64
                   subjectName:
                     type: string
                     description: Название предмета
@@ -4126,6 +4206,7 @@ components:
             type: integer
             description: Параметр пагинации. Укажите это значение в запросе, чтобы получить следующий пакет данных. Если поле отсутствует, вы получили все данные
             example: 200
+            format: int64
     PostV1PinsResponse200:
       allOf:
       - $ref: '#/components/schemas/respond.SuccessResponse'
@@ -4144,6 +4225,7 @@ components:
             - 345678
             items:
               type: integer
+              format: int64
     GetV1PinsCountResponse200:
       allOf:
       - $ref: '#/components/schemas/respond.SuccessResponse'
@@ -4152,6 +4234,7 @@ components:
           data:
             type: integer
             description: Количество отзывов
+            format: int64
     GetV1PinsLimitsResponse200:
       allOf:
       - $ref: '#/components/schemas/respond.SuccessResponse'
@@ -4209,6 +4292,7 @@ components:
           type: integer
           description: Секунд до следующей попытки запроса файла
           example: 30
+          format: int64
     GetV1SellerDownloadIdResponse400:
       type: object
       properties:
@@ -4237,6 +4321,7 @@ components:
           type: integer
           description: HTTP статус-код
           example: 451
+          format: int64
         title:
           type: string
           description: Заголовок ошибки
@@ -4442,6 +4527,7 @@ components:
                         Источник заявки:
                           * `1` — портал покупателей
                           * `3` — чат
+                      format: int64
                     status:
                       type: integer
                       description: |
@@ -4449,6 +4535,7 @@ components:
                           * `0` — на рассмотрении
                           * `1` — отказ
                           * `2` — одобрено
+                      format: int64
                     status_ex:
                       type: integer
                       description: |
@@ -4459,9 +4546,11 @@ components:
                           * `5` — товар остается у покупателя (Заявка одобрена)
                           * `8` — товар будет возвращён в реализацию после проверки WB
                           * `10` — товар возвращается продавцу
+                      format: int64
                     nm_id:
                       type: integer
                       description: Артикул WB
+                      format: int64
                     user_comment:
                       type: string
                       maxLength: 1000
@@ -4544,6 +4633,7 @@ components:
               total:
                 type: integer
                 description: Количество заявок, соответствующих параметрам запроса. Без учёта `limit` и `offset`
+                format: int64
     Error400GetClaims:
       description: Неправильный запрос
       content:
@@ -4657,6 +4747,7 @@ components:
       schema:
         type: integer
         example: 196320101
+        format: int64
   securitySchemes:
     BearerAuth:
       type: http

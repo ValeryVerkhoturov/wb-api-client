@@ -37,7 +37,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <param name="advertId">ID кампании.</param>
         /// <param name="currency">Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances).</param>
         /// <param name="total">Бюджет кампании в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances).</param>
-        public V1BudgetAdvert(int advertId = default(int), string currency = default(string), int total = default(int))
+        public V1BudgetAdvert(long advertId = default(long), string currency = default(string), long total = default(long))
         {
             this.AdvertId = advertId;
             this.Currency = currency;
@@ -52,7 +52,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         <example>1234567</example>
         */
         [DataMember(Name = "advertId", EmitDefaultValue = false)]
-        public int AdvertId { get; set; }
+        public long AdvertId { get; set; }
 
         /// <summary>
         /// Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
@@ -72,7 +72,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         <example>3000</example>
         */
         [DataMember(Name = "total", EmitDefaultValue = false)]
-        public int Total { get; set; }
+        public long Total { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -42,7 +42,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <param name="advertId">ID кампании (required).</param>
         /// <param name="nmId">Артикул WB (required).</param>
         /// <param name="normQuery">Поисковый кластер (required).</param>
-        public V0DeleteNormQueryBidsRequestItem(int advertId = default(int), int nmId = default(int), string normQuery = default(string))
+        public V0DeleteNormQueryBidsRequestItem(long advertId = default(long), long nmId = default(long), string normQuery = default(string))
         {
             this.AdvertId = advertId;
             this.NmId = nmId;
@@ -59,14 +59,14 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <value>ID кампании</value>
         [DataMember(Name = "advert_id", IsRequired = true, EmitDefaultValue = true)]
-        public int AdvertId { get; set; }
+        public long AdvertId { get; set; }
 
         /// <summary>
         /// Артикул WB
         /// </summary>
         /// <value>Артикул WB</value>
         [DataMember(Name = "nm_id", IsRequired = true, EmitDefaultValue = true)]
-        public int NmId { get; set; }
+        public long NmId { get; set; }
 
         /// <summary>
         /// Поисковый кластер

@@ -38,49 +38,49 @@ public class WbClubMetrics {
 
   @SerializedName(SERIALIZED_NAME_ORDER_COUNT)
   @jakarta.annotation.Nullable
-  private Integer orderCount;
+  private Long orderCount;
 
   public static final String SERIALIZED_NAME_ORDER_SUM = "orderSum";
 
   @SerializedName(SERIALIZED_NAME_ORDER_SUM)
   @jakarta.annotation.Nullable
-  private Integer orderSum;
+  private Long orderSum;
 
   public static final String SERIALIZED_NAME_BUYOUT_SUM = "buyoutSum";
 
   @SerializedName(SERIALIZED_NAME_BUYOUT_SUM)
   @jakarta.annotation.Nullable
-  private Integer buyoutSum;
+  private Long buyoutSum;
 
   public static final String SERIALIZED_NAME_BUYOUT_COUNT = "buyoutCount";
 
   @SerializedName(SERIALIZED_NAME_BUYOUT_COUNT)
   @jakarta.annotation.Nullable
-  private Integer buyoutCount;
+  private Long buyoutCount;
 
   public static final String SERIALIZED_NAME_CANCEL_SUM = "cancelSum";
 
   @SerializedName(SERIALIZED_NAME_CANCEL_SUM)
   @jakarta.annotation.Nullable
-  private Integer cancelSum;
+  private Long cancelSum;
 
   public static final String SERIALIZED_NAME_CANCEL_COUNT = "cancelCount";
 
   @SerializedName(SERIALIZED_NAME_CANCEL_COUNT)
   @jakarta.annotation.Nullable
-  private Integer cancelCount;
+  private Long cancelCount;
 
   public static final String SERIALIZED_NAME_AVG_PRICE = "avgPrice";
 
   @SerializedName(SERIALIZED_NAME_AVG_PRICE)
   @jakarta.annotation.Nullable
-  private Integer avgPrice;
+  private Long avgPrice;
 
   public static final String SERIALIZED_NAME_BUYOUT_PERCENT = "buyoutPercent";
 
   @SerializedName(SERIALIZED_NAME_BUYOUT_PERCENT)
   @jakarta.annotation.Nullable
-  private Integer buyoutPercent;
+  private Long buyoutPercent;
 
   public static final String SERIALIZED_NAME_AVG_ORDER_COUNT_PER_DAY = "avgOrderCountPerDay";
 
@@ -90,7 +90,7 @@ public class WbClubMetrics {
 
   public WbClubMetrics() {}
 
-  public WbClubMetrics orderCount(@jakarta.annotation.Nullable Integer orderCount) {
+  public WbClubMetrics orderCount(@jakarta.annotation.Nullable Long orderCount) {
     this.orderCount = orderCount;
     return this;
   }
@@ -101,15 +101,15 @@ public class WbClubMetrics {
    * @return orderCount
    */
   @jakarta.annotation.Nullable
-  public Integer getOrderCount() {
+  public Long getOrderCount() {
     return orderCount;
   }
 
-  public void setOrderCount(@jakarta.annotation.Nullable Integer orderCount) {
+  public void setOrderCount(@jakarta.annotation.Nullable Long orderCount) {
     this.orderCount = orderCount;
   }
 
-  public WbClubMetrics orderSum(@jakarta.annotation.Nullable Integer orderSum) {
+  public WbClubMetrics orderSum(@jakarta.annotation.Nullable Long orderSum) {
     this.orderSum = orderSum;
     return this;
   }
@@ -120,15 +120,15 @@ public class WbClubMetrics {
    * @return orderSum
    */
   @jakarta.annotation.Nullable
-  public Integer getOrderSum() {
+  public Long getOrderSum() {
     return orderSum;
   }
 
-  public void setOrderSum(@jakarta.annotation.Nullable Integer orderSum) {
+  public void setOrderSum(@jakarta.annotation.Nullable Long orderSum) {
     this.orderSum = orderSum;
   }
 
-  public WbClubMetrics buyoutSum(@jakarta.annotation.Nullable Integer buyoutSum) {
+  public WbClubMetrics buyoutSum(@jakarta.annotation.Nullable Long buyoutSum) {
     this.buyoutSum = buyoutSum;
     return this;
   }
@@ -139,15 +139,15 @@ public class WbClubMetrics {
    * @return buyoutSum
    */
   @jakarta.annotation.Nullable
-  public Integer getBuyoutSum() {
+  public Long getBuyoutSum() {
     return buyoutSum;
   }
 
-  public void setBuyoutSum(@jakarta.annotation.Nullable Integer buyoutSum) {
+  public void setBuyoutSum(@jakarta.annotation.Nullable Long buyoutSum) {
     this.buyoutSum = buyoutSum;
   }
 
-  public WbClubMetrics buyoutCount(@jakarta.annotation.Nullable Integer buyoutCount) {
+  public WbClubMetrics buyoutCount(@jakarta.annotation.Nullable Long buyoutCount) {
     this.buyoutCount = buyoutCount;
     return this;
   }
@@ -158,15 +158,15 @@ public class WbClubMetrics {
    * @return buyoutCount
    */
   @jakarta.annotation.Nullable
-  public Integer getBuyoutCount() {
+  public Long getBuyoutCount() {
     return buyoutCount;
   }
 
-  public void setBuyoutCount(@jakarta.annotation.Nullable Integer buyoutCount) {
+  public void setBuyoutCount(@jakarta.annotation.Nullable Long buyoutCount) {
     this.buyoutCount = buyoutCount;
   }
 
-  public WbClubMetrics cancelSum(@jakarta.annotation.Nullable Integer cancelSum) {
+  public WbClubMetrics cancelSum(@jakarta.annotation.Nullable Long cancelSum) {
     this.cancelSum = cancelSum;
     return this;
   }
@@ -177,15 +177,15 @@ public class WbClubMetrics {
    * @return cancelSum
    */
   @jakarta.annotation.Nullable
-  public Integer getCancelSum() {
+  public Long getCancelSum() {
     return cancelSum;
   }
 
-  public void setCancelSum(@jakarta.annotation.Nullable Integer cancelSum) {
+  public void setCancelSum(@jakarta.annotation.Nullable Long cancelSum) {
     this.cancelSum = cancelSum;
   }
 
-  public WbClubMetrics cancelCount(@jakarta.annotation.Nullable Integer cancelCount) {
+  public WbClubMetrics cancelCount(@jakarta.annotation.Nullable Long cancelCount) {
     this.cancelCount = cancelCount;
     return this;
   }
@@ -196,15 +196,15 @@ public class WbClubMetrics {
    * @return cancelCount
    */
   @jakarta.annotation.Nullable
-  public Integer getCancelCount() {
+  public Long getCancelCount() {
     return cancelCount;
   }
 
-  public void setCancelCount(@jakarta.annotation.Nullable Integer cancelCount) {
+  public void setCancelCount(@jakarta.annotation.Nullable Long cancelCount) {
     this.cancelCount = cancelCount;
   }
 
-  public WbClubMetrics avgPrice(@jakarta.annotation.Nullable Integer avgPrice) {
+  public WbClubMetrics avgPrice(@jakarta.annotation.Nullable Long avgPrice) {
     this.avgPrice = avgPrice;
     return this;
   }
@@ -215,15 +215,15 @@ public class WbClubMetrics {
    * @return avgPrice
    */
   @jakarta.annotation.Nullable
-  public Integer getAvgPrice() {
+  public Long getAvgPrice() {
     return avgPrice;
   }
 
-  public void setAvgPrice(@jakarta.annotation.Nullable Integer avgPrice) {
+  public void setAvgPrice(@jakarta.annotation.Nullable Long avgPrice) {
     this.avgPrice = avgPrice;
   }
 
-  public WbClubMetrics buyoutPercent(@jakarta.annotation.Nullable Integer buyoutPercent) {
+  public WbClubMetrics buyoutPercent(@jakarta.annotation.Nullable Long buyoutPercent) {
     this.buyoutPercent = buyoutPercent;
     return this;
   }
@@ -234,11 +234,11 @@ public class WbClubMetrics {
    * @return buyoutPercent
    */
   @jakarta.annotation.Nullable
-  public Integer getBuyoutPercent() {
+  public Long getBuyoutPercent() {
     return buyoutPercent;
   }
 
-  public void setBuyoutPercent(@jakarta.annotation.Nullable Integer buyoutPercent) {
+  public void setBuyoutPercent(@jakarta.annotation.Nullable Long buyoutPercent) {
     this.buyoutPercent = buyoutPercent;
   }
 

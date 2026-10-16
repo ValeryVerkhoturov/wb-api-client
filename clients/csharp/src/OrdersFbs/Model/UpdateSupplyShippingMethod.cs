@@ -73,7 +73,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// <param name="shippingPointId">ID пункта отгрузки. Можно получить с помощью [отдельного метода](./orders-fbs#tag/fbsSupplies/operation/getV3FbsShippingPoints) (required).</param>
         /// <param name="shippingType">Способ доставки до пункта отгрузки:   - &#x60;selfShipping&#x60; — доставка силами продавца   - &#x60;transportCompany&#x60; — доставка через транспортную компанию  (required).</param>
         /// <param name="supplyId">ID поставки (required).</param>
-        public UpdateSupplyShippingMethod(string shippingDt = default(string), int shippingPointId = default(int), ShippingTypeEnum shippingType = default(ShippingTypeEnum), string supplyId = default(string))
+        public UpdateSupplyShippingMethod(string shippingDt = default(string), long shippingPointId = default(long), ShippingTypeEnum shippingType = default(ShippingTypeEnum), string supplyId = default(string))
         {
             // to ensure "shippingDt" is required (not null)
             if (shippingDt == null)
@@ -109,7 +109,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         <example>100</example>
         */
         [DataMember(Name = "shippingPointId", IsRequired = true, EmitDefaultValue = true)]
-        public int ShippingPointId { get; set; }
+        public long ShippingPointId { get; set; }
 
         /// <summary>
         /// ID поставки

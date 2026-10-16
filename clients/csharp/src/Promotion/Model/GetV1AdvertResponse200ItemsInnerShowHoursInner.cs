@@ -36,7 +36,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <param name="from">Начало показа.</param>
         /// <param name="to">Конец показа.</param>
-        public GetV1AdvertResponse200ItemsInnerShowHoursInner(int from = default(int), int to = default(int))
+        public GetV1AdvertResponse200ItemsInnerShowHoursInner(long from = default(long), long to = default(long))
         {
             this.From = from;
             this.To = to;
@@ -47,14 +47,14 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <value>Начало показа</value>
         [DataMember(Name = "From", EmitDefaultValue = false)]
-        public int From { get; set; }
+        public long From { get; set; }
 
         /// <summary>
         /// Конец показа
         /// </summary>
         /// <value>Конец показа</value>
         [DataMember(Name = "To", EmitDefaultValue = false)]
-        public int To { get; set; }
+        public long To { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

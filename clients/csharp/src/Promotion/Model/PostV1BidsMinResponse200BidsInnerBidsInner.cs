@@ -43,7 +43,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <param name="currency">Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances).</param>
         /// <param name="type">type.</param>
         /// <param name="value">Минимальная ставка в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances) .</param>
-        public PostV1BidsMinResponse200BidsInnerBidsInner(string currency = default(string), PlacementType? type = default(PlacementType?), int value = default(int))
+        public PostV1BidsMinResponse200BidsInnerBidsInner(string currency = default(string), PlacementType? type = default(PlacementType?), long value = default(long))
         {
             this.Currency = currency;
             this.Type = type;
@@ -62,7 +62,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <value>Минимальная ставка в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances) </value>
         [DataMember(Name = "value", EmitDefaultValue = false)]
-        public int Value { get; set; }
+        public long Value { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

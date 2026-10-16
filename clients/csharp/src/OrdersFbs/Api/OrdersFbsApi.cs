@@ -156,7 +156,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         /// <param name="limit">Количество сборочных заданий в ответе</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>V3ArchiveOrders</returns>
-        V3ArchiveOrders GetV3FbsOrdersArchive(int year, int month, long next, int limit, int operationIndex = 0);
+        V3ArchiveOrders GetV3FbsOrdersArchive(long year, long month, long next, int limit, int operationIndex = 0);
 
         /// <summary>
         /// Получить список архивных сборочных заданий
@@ -171,7 +171,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         /// <param name="limit">Количество сборочных заданий в ответе</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of V3ArchiveOrders</returns>
-        ApiResponse<V3ArchiveOrders> GetV3FbsOrdersArchiveWithHttpInfo(int year, int month, long next, int limit, int operationIndex = 0);
+        ApiResponse<V3ArchiveOrders> GetV3FbsOrdersArchiveWithHttpInfo(long year, long month, long next, int limit, int operationIndex = 0);
         /// <summary>
         /// Получить настройки автовозврата продавца
         /// </summary>
@@ -229,7 +229,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         /// <param name="cargoType">Тип товара, который принимает пункт отгрузки:   - &#x60;1&#x60; — малогабаритный товар (МГТ)   - &#x60;2&#x60; — сверхгабаритный товар (СГТ)   - &#x60;3&#x60; — крупногабаритный товар (КГТ+) </param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ShippingPointsResponse</returns>
-        ShippingPointsResponse GetV3FbsShippingPoints(string city, int cargoType, int operationIndex = 0);
+        ShippingPointsResponse GetV3FbsShippingPoints(string city, long cargoType, int operationIndex = 0);
 
         /// <summary>
         /// Получить список пунктов отгрузки поставок
@@ -242,7 +242,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         /// <param name="cargoType">Тип товара, который принимает пункт отгрузки:   - &#x60;1&#x60; — малогабаритный товар (МГТ)   - &#x60;2&#x60; — сверхгабаритный товар (СГТ)   - &#x60;3&#x60; — крупногабаритный товар (КГТ+) </param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ShippingPointsResponse</returns>
-        ApiResponse<ShippingPointsResponse> GetV3FbsShippingPointsWithHttpInfo(string city, int cargoType, int operationIndex = 0);
+        ApiResponse<ShippingPointsResponse> GetV3FbsShippingPointsWithHttpInfo(string city, long cargoType, int operationIndex = 0);
         /// <summary>
         /// Получить QR-код СПОТ
         /// </summary>
@@ -279,7 +279,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         /// <param name="dateTo">Дата конца периода в формате Unix timestamp. Часовой пояс — UTC (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GetV3OrdersResponse200</returns>
-        GetV3OrdersResponse200 GetV3Orders(int limit, long next, int? dateFrom = default(int?), int? dateTo = default(int?), int operationIndex = 0);
+        GetV3OrdersResponse200 GetV3Orders(long limit, long next, long? dateFrom = default(long?), long? dateTo = default(long?), int operationIndex = 0);
 
         /// <summary>
         /// Получить информацию о сборочных заданиях
@@ -294,7 +294,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         /// <param name="dateTo">Дата конца периода в формате Unix timestamp. Часовой пояс — UTC (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GetV3OrdersResponse200</returns>
-        ApiResponse<GetV3OrdersResponse200> GetV3OrdersWithHttpInfo(int limit, long next, int? dateFrom = default(int?), int? dateTo = default(int?), int operationIndex = 0);
+        ApiResponse<GetV3OrdersResponse200> GetV3OrdersWithHttpInfo(long limit, long next, long? dateFrom = default(long?), long? dateTo = default(long?), int operationIndex = 0);
         /// <summary>
         /// Получить список новых сборочных заданий
         /// </summary>
@@ -369,7 +369,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         /// <param name="next">Параметр пагинации. Устанавливает значение, с которого надо получить следующий пакет данных. Для получения полного списка данных должен быть равен &#x60;0&#x60; в первом запросе. Для следующих запросов необходимо брать значения из одноимённого поля в ответе.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GetV3SuppliesResponse200</returns>
-        GetV3SuppliesResponse200 GetV3Supplies(int limit, long next, int operationIndex = 0);
+        GetV3SuppliesResponse200 GetV3Supplies(long limit, long next, int operationIndex = 0);
 
         /// <summary>
         /// Получить список поставок
@@ -382,7 +382,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         /// <param name="next">Параметр пагинации. Устанавливает значение, с которого надо получить следующий пакет данных. Для получения полного списка данных должен быть равен &#x60;0&#x60; в первом запросе. Для следующих запросов необходимо брать значения из одноимённого поля в ответе.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GetV3SuppliesResponse200</returns>
-        ApiResponse<GetV3SuppliesResponse200> GetV3SuppliesWithHttpInfo(int limit, long next, int operationIndex = 0);
+        ApiResponse<GetV3SuppliesResponse200> GetV3SuppliesWithHttpInfo(long limit, long next, int operationIndex = 0);
         /// <summary>
         /// Получить все сборочные задания для повторной отгрузки
         /// </summary>
@@ -814,7 +814,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         /// <param name="postV3OrdersStickersRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>PostV3OrdersStickersResponse200</returns>
-        PostV3OrdersStickersResponse200 PostV3OrdersStickers(string type, int width, int height, PostV3OrdersStickersRequest? postV3OrdersStickersRequest = default(PostV3OrdersStickersRequest?), int operationIndex = 0);
+        PostV3OrdersStickersResponse200 PostV3OrdersStickers(string type, long width, long height, PostV3OrdersStickersRequest? postV3OrdersStickersRequest = default(PostV3OrdersStickersRequest?), int operationIndex = 0);
 
         /// <summary>
         /// Получить стикеры сборочных заданий
@@ -829,7 +829,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         /// <param name="postV3OrdersStickersRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of PostV3OrdersStickersResponse200</returns>
-        ApiResponse<PostV3OrdersStickersResponse200> PostV3OrdersStickersWithHttpInfo(string type, int width, int height, PostV3OrdersStickersRequest? postV3OrdersStickersRequest = default(PostV3OrdersStickersRequest?), int operationIndex = 0);
+        ApiResponse<PostV3OrdersStickersResponse200> PostV3OrdersStickersWithHttpInfo(string type, long width, long height, PostV3OrdersStickersRequest? postV3OrdersStickersRequest = default(PostV3OrdersStickersRequest?), int operationIndex = 0);
         /// <summary>
         /// Получить стикеры сборочных заданий трансграничных поставок
         /// </summary>
@@ -1301,7 +1301,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of V3ArchiveOrders</returns>
-        System.Threading.Tasks.Task<V3ArchiveOrders> GetV3FbsOrdersArchiveAsync(int year, int month, long next, int limit, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<V3ArchiveOrders> GetV3FbsOrdersArchiveAsync(long year, long month, long next, int limit, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Получить список архивных сборочных заданий
@@ -1317,7 +1317,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (V3ArchiveOrders)</returns>
-        System.Threading.Tasks.Task<ApiResponse<V3ArchiveOrders>> GetV3FbsOrdersArchiveWithHttpInfoAsync(int year, int month, long next, int limit, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<V3ArchiveOrders>> GetV3FbsOrdersArchiveWithHttpInfoAsync(long year, long month, long next, int limit, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Получить настройки автовозврата продавца
         /// </summary>
@@ -1380,7 +1380,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ShippingPointsResponse</returns>
-        System.Threading.Tasks.Task<ShippingPointsResponse> GetV3FbsShippingPointsAsync(string city, int cargoType, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ShippingPointsResponse> GetV3FbsShippingPointsAsync(string city, long cargoType, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Получить список пунктов отгрузки поставок
@@ -1394,7 +1394,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ShippingPointsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ShippingPointsResponse>> GetV3FbsShippingPointsWithHttpInfoAsync(string city, int cargoType, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ShippingPointsResponse>> GetV3FbsShippingPointsWithHttpInfoAsync(string city, long cargoType, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Получить QR-код СПОТ
         /// </summary>
@@ -1434,7 +1434,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GetV3OrdersResponse200</returns>
-        System.Threading.Tasks.Task<GetV3OrdersResponse200> GetV3OrdersAsync(int limit, long next, int? dateFrom = default(int?), int? dateTo = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<GetV3OrdersResponse200> GetV3OrdersAsync(long limit, long next, long? dateFrom = default(long?), long? dateTo = default(long?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Получить информацию о сборочных заданиях
@@ -1450,7 +1450,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetV3OrdersResponse200)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetV3OrdersResponse200>> GetV3OrdersWithHttpInfoAsync(int limit, long next, int? dateFrom = default(int?), int? dateTo = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<GetV3OrdersResponse200>> GetV3OrdersWithHttpInfoAsync(long limit, long next, long? dateFrom = default(long?), long? dateTo = default(long?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Получить список новых сборочных заданий
         /// </summary>
@@ -1532,7 +1532,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GetV3SuppliesResponse200</returns>
-        System.Threading.Tasks.Task<GetV3SuppliesResponse200> GetV3SuppliesAsync(int limit, long next, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<GetV3SuppliesResponse200> GetV3SuppliesAsync(long limit, long next, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Получить список поставок
@@ -1546,7 +1546,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetV3SuppliesResponse200)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetV3SuppliesResponse200>> GetV3SuppliesWithHttpInfoAsync(int limit, long next, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<GetV3SuppliesResponse200>> GetV3SuppliesWithHttpInfoAsync(long limit, long next, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Получить все сборочные задания для повторной отгрузки
         /// </summary>
@@ -2015,7 +2015,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PostV3OrdersStickersResponse200</returns>
-        System.Threading.Tasks.Task<PostV3OrdersStickersResponse200> PostV3OrdersStickersAsync(string type, int width, int height, PostV3OrdersStickersRequest? postV3OrdersStickersRequest = default(PostV3OrdersStickersRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PostV3OrdersStickersResponse200> PostV3OrdersStickersAsync(string type, long width, long height, PostV3OrdersStickersRequest? postV3OrdersStickersRequest = default(PostV3OrdersStickersRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Получить стикеры сборочных заданий
@@ -2031,7 +2031,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PostV3OrdersStickersResponse200)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PostV3OrdersStickersResponse200>> PostV3OrdersStickersWithHttpInfoAsync(string type, int width, int height, PostV3OrdersStickersRequest? postV3OrdersStickersRequest = default(PostV3OrdersStickersRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PostV3OrdersStickersResponse200>> PostV3OrdersStickersWithHttpInfoAsync(string type, long width, long height, PostV3OrdersStickersRequest? postV3OrdersStickersRequest = default(PostV3OrdersStickersRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Получить стикеры сборочных заданий трансграничных поставок
         /// </summary>
@@ -3275,7 +3275,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         /// <param name="limit">Количество сборочных заданий в ответе</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>V3ArchiveOrders</returns>
-        public V3ArchiveOrders GetV3FbsOrdersArchive(int year, int month, long next, int limit, int operationIndex = 0)
+        public V3ArchiveOrders GetV3FbsOrdersArchive(long year, long month, long next, int limit, int operationIndex = 0)
         {
             ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<V3ArchiveOrders> localVarResponse = GetV3FbsOrdersArchiveWithHttpInfo(year, month, next, limit);
             return localVarResponse.Data;
@@ -3291,7 +3291,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         /// <param name="limit">Количество сборочных заданий в ответе</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of V3ArchiveOrders</returns>
-        public ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<V3ArchiveOrders> GetV3FbsOrdersArchiveWithHttpInfo(int year, int month, long next, int limit, int operationIndex = 0)
+        public ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<V3ArchiveOrders> GetV3FbsOrdersArchiveWithHttpInfo(long year, long month, long next, int limit, int operationIndex = 0)
         {
             ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.RequestOptions();
 
@@ -3356,7 +3356,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of V3ArchiveOrders</returns>
-        public async System.Threading.Tasks.Task<V3ArchiveOrders> GetV3FbsOrdersArchiveAsync(int year, int month, long next, int limit, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<V3ArchiveOrders> GetV3FbsOrdersArchiveAsync(long year, long month, long next, int limit, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<V3ArchiveOrders> localVarResponse = await GetV3FbsOrdersArchiveWithHttpInfoAsync(year, month, next, limit, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -3373,7 +3373,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (V3ArchiveOrders)</returns>
-        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<V3ArchiveOrders>> GetV3FbsOrdersArchiveWithHttpInfoAsync(int year, int month, long next, int limit, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<V3ArchiveOrders>> GetV3FbsOrdersArchiveWithHttpInfoAsync(long year, long month, long next, int limit, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.RequestOptions();
@@ -3729,7 +3729,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         /// <param name="cargoType">Тип товара, который принимает пункт отгрузки:   - &#x60;1&#x60; — малогабаритный товар (МГТ)   - &#x60;2&#x60; — сверхгабаритный товар (СГТ)   - &#x60;3&#x60; — крупногабаритный товар (КГТ+) </param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ShippingPointsResponse</returns>
-        public ShippingPointsResponse GetV3FbsShippingPoints(string city, int cargoType, int operationIndex = 0)
+        public ShippingPointsResponse GetV3FbsShippingPoints(string city, long cargoType, int operationIndex = 0)
         {
             ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<ShippingPointsResponse> localVarResponse = GetV3FbsShippingPointsWithHttpInfo(city, cargoType);
             return localVarResponse.Data;
@@ -3743,7 +3743,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         /// <param name="cargoType">Тип товара, который принимает пункт отгрузки:   - &#x60;1&#x60; — малогабаритный товар (МГТ)   - &#x60;2&#x60; — сверхгабаритный товар (СГТ)   - &#x60;3&#x60; — крупногабаритный товар (КГТ+) </param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ShippingPointsResponse</returns>
-        public ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<ShippingPointsResponse> GetV3FbsShippingPointsWithHttpInfo(string city, int cargoType, int operationIndex = 0)
+        public ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<ShippingPointsResponse> GetV3FbsShippingPointsWithHttpInfo(string city, long cargoType, int operationIndex = 0)
         {
             // verify the required parameter 'city' is set
             if (city == null)
@@ -3810,7 +3810,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ShippingPointsResponse</returns>
-        public async System.Threading.Tasks.Task<ShippingPointsResponse> GetV3FbsShippingPointsAsync(string city, int cargoType, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ShippingPointsResponse> GetV3FbsShippingPointsAsync(string city, long cargoType, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<ShippingPointsResponse> localVarResponse = await GetV3FbsShippingPointsWithHttpInfoAsync(city, cargoType, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -3825,7 +3825,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ShippingPointsResponse)</returns>
-        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<ShippingPointsResponse>> GetV3FbsShippingPointsWithHttpInfoAsync(string city, int cargoType, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<ShippingPointsResponse>> GetV3FbsShippingPointsWithHttpInfoAsync(string city, long cargoType, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'city' is set
             if (city == null)
@@ -4053,7 +4053,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         /// <param name="dateTo">Дата конца периода в формате Unix timestamp. Часовой пояс — UTC (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GetV3OrdersResponse200</returns>
-        public GetV3OrdersResponse200 GetV3Orders(int limit, long next, int? dateFrom = default(int?), int? dateTo = default(int?), int operationIndex = 0)
+        public GetV3OrdersResponse200 GetV3Orders(long limit, long next, long? dateFrom = default(long?), long? dateTo = default(long?), int operationIndex = 0)
         {
             ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<GetV3OrdersResponse200> localVarResponse = GetV3OrdersWithHttpInfo(limit, next, dateFrom, dateTo);
             return localVarResponse.Data;
@@ -4069,7 +4069,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         /// <param name="dateTo">Дата конца периода в формате Unix timestamp. Часовой пояс — UTC (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GetV3OrdersResponse200</returns>
-        public ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<GetV3OrdersResponse200> GetV3OrdersWithHttpInfo(int limit, long next, int? dateFrom = default(int?), int? dateTo = default(int?), int operationIndex = 0)
+        public ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<GetV3OrdersResponse200> GetV3OrdersWithHttpInfo(long limit, long next, long? dateFrom = default(long?), long? dateTo = default(long?), int operationIndex = 0)
         {
             ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.RequestOptions();
 
@@ -4140,7 +4140,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GetV3OrdersResponse200</returns>
-        public async System.Threading.Tasks.Task<GetV3OrdersResponse200> GetV3OrdersAsync(int limit, long next, int? dateFrom = default(int?), int? dateTo = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<GetV3OrdersResponse200> GetV3OrdersAsync(long limit, long next, long? dateFrom = default(long?), long? dateTo = default(long?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<GetV3OrdersResponse200> localVarResponse = await GetV3OrdersWithHttpInfoAsync(limit, next, dateFrom, dateTo, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -4157,7 +4157,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetV3OrdersResponse200)</returns>
-        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<GetV3OrdersResponse200>> GetV3OrdersWithHttpInfoAsync(int limit, long next, int? dateFrom = default(int?), int? dateTo = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<GetV3OrdersResponse200>> GetV3OrdersWithHttpInfoAsync(long limit, long next, long? dateFrom = default(long?), long? dateTo = default(long?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.RequestOptions();
@@ -4647,7 +4647,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         /// <param name="next">Параметр пагинации. Устанавливает значение, с которого надо получить следующий пакет данных. Для получения полного списка данных должен быть равен &#x60;0&#x60; в первом запросе. Для следующих запросов необходимо брать значения из одноимённого поля в ответе.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GetV3SuppliesResponse200</returns>
-        public GetV3SuppliesResponse200 GetV3Supplies(int limit, long next, int operationIndex = 0)
+        public GetV3SuppliesResponse200 GetV3Supplies(long limit, long next, int operationIndex = 0)
         {
             ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<GetV3SuppliesResponse200> localVarResponse = GetV3SuppliesWithHttpInfo(limit, next);
             return localVarResponse.Data;
@@ -4661,7 +4661,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         /// <param name="next">Параметр пагинации. Устанавливает значение, с которого надо получить следующий пакет данных. Для получения полного списка данных должен быть равен &#x60;0&#x60; в первом запросе. Для следующих запросов необходимо брать значения из одноимённого поля в ответе.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GetV3SuppliesResponse200</returns>
-        public ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<GetV3SuppliesResponse200> GetV3SuppliesWithHttpInfo(int limit, long next, int operationIndex = 0)
+        public ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<GetV3SuppliesResponse200> GetV3SuppliesWithHttpInfo(long limit, long next, int operationIndex = 0)
         {
             ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.RequestOptions();
 
@@ -4722,7 +4722,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GetV3SuppliesResponse200</returns>
-        public async System.Threading.Tasks.Task<GetV3SuppliesResponse200> GetV3SuppliesAsync(int limit, long next, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<GetV3SuppliesResponse200> GetV3SuppliesAsync(long limit, long next, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<GetV3SuppliesResponse200> localVarResponse = await GetV3SuppliesWithHttpInfoAsync(limit, next, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -4737,7 +4737,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetV3SuppliesResponse200)</returns>
-        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<GetV3SuppliesResponse200>> GetV3SuppliesWithHttpInfoAsync(int limit, long next, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<GetV3SuppliesResponse200>> GetV3SuppliesWithHttpInfoAsync(long limit, long next, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.RequestOptions();
@@ -7623,7 +7623,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         /// <param name="postV3OrdersStickersRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>PostV3OrdersStickersResponse200</returns>
-        public PostV3OrdersStickersResponse200 PostV3OrdersStickers(string type, int width, int height, PostV3OrdersStickersRequest? postV3OrdersStickersRequest = default(PostV3OrdersStickersRequest?), int operationIndex = 0)
+        public PostV3OrdersStickersResponse200 PostV3OrdersStickers(string type, long width, long height, PostV3OrdersStickersRequest? postV3OrdersStickersRequest = default(PostV3OrdersStickersRequest?), int operationIndex = 0)
         {
             ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<PostV3OrdersStickersResponse200> localVarResponse = PostV3OrdersStickersWithHttpInfo(type, width, height, postV3OrdersStickersRequest);
             return localVarResponse.Data;
@@ -7639,7 +7639,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         /// <param name="postV3OrdersStickersRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of PostV3OrdersStickersResponse200</returns>
-        public ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<PostV3OrdersStickersResponse200> PostV3OrdersStickersWithHttpInfo(string type, int width, int height, PostV3OrdersStickersRequest? postV3OrdersStickersRequest = default(PostV3OrdersStickersRequest?), int operationIndex = 0)
+        public ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<PostV3OrdersStickersResponse200> PostV3OrdersStickersWithHttpInfo(string type, long width, long height, PostV3OrdersStickersRequest? postV3OrdersStickersRequest = default(PostV3OrdersStickersRequest?), int operationIndex = 0)
         {
             // verify the required parameter 'type' is set
             if (type == null)
@@ -7711,7 +7711,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PostV3OrdersStickersResponse200</returns>
-        public async System.Threading.Tasks.Task<PostV3OrdersStickersResponse200> PostV3OrdersStickersAsync(string type, int width, int height, PostV3OrdersStickersRequest? postV3OrdersStickersRequest = default(PostV3OrdersStickersRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PostV3OrdersStickersResponse200> PostV3OrdersStickersAsync(string type, long width, long height, PostV3OrdersStickersRequest? postV3OrdersStickersRequest = default(PostV3OrdersStickersRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<PostV3OrdersStickersResponse200> localVarResponse = await PostV3OrdersStickersWithHttpInfoAsync(type, width, height, postV3OrdersStickersRequest, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -7728,7 +7728,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PostV3OrdersStickersResponse200)</returns>
-        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<PostV3OrdersStickersResponse200>> PostV3OrdersStickersWithHttpInfoAsync(string type, int width, int height, PostV3OrdersStickersRequest? postV3OrdersStickersRequest = default(PostV3OrdersStickersRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<PostV3OrdersStickersResponse200>> PostV3OrdersStickersWithHttpInfoAsync(string type, long width, long height, PostV3OrdersStickersRequest? postV3OrdersStickersRequest = default(PostV3OrdersStickersRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'type' is set
             if (type == null)

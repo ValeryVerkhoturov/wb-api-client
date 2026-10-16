@@ -45,7 +45,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <param name="brandNames">Список брендов для фильтрации.</param>
         /// <param name="tagIds">Список ID ярлыков для фильтрации.</param>
         /// <param name="pagination">pagination.</param>
-        public OrderFeedRequest(OrderFeedRequestSelectedPeriod selectedPeriod = default(OrderFeedRequestSelectedPeriod), List<int> nmIds = default(List<int>), List<int> subjectIds = default(List<int>), List<string> brandNames = default(List<string>), List<int> tagIds = default(List<int>), OrderFeedRequestPagination pagination = default(OrderFeedRequestPagination))
+        public OrderFeedRequest(OrderFeedRequestSelectedPeriod selectedPeriod = default(OrderFeedRequestSelectedPeriod), List<long> nmIds = default(List<long>), List<long> subjectIds = default(List<long>), List<string> brandNames = default(List<string>), List<long> tagIds = default(List<long>), OrderFeedRequestPagination pagination = default(OrderFeedRequestPagination))
         {
             // to ensure "selectedPeriod" is required (not null)
             if (selectedPeriod == null)
@@ -74,7 +74,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         <example>[162579635,166699779]</example>
         */
         [DataMember(Name = "nmIds", EmitDefaultValue = false)]
-        public List<int> NmIds { get; set; }
+        public List<long> NmIds { get; set; }
 
         /// <summary>
         /// Список ID предметов для фильтрации
@@ -84,7 +84,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         <example>[232,1364]</example>
         */
         [DataMember(Name = "subjectIds", EmitDefaultValue = false)]
-        public List<int> SubjectIds { get; set; }
+        public List<long> SubjectIds { get; set; }
 
         /// <summary>
         /// Список брендов для фильтрации
@@ -104,7 +104,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         <example>[3,5,6]</example>
         */
         [DataMember(Name = "tagIds", EmitDefaultValue = false)]
-        public List<int> TagIds { get; set; }
+        public List<long> TagIds { get; set; }
 
         /// <summary>
         /// Gets or Sets Pagination

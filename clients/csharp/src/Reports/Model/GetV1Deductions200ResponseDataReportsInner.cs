@@ -49,7 +49,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /// <param name="bonusSumm">Сумма удержания.</param>
         /// <param name="bonusType">Причина удержания.</param>
         /// <param name="photoUrls">Фото замеров.</param>
-        public GetV1Deductions200ResponseDataReportsInner(string dtBonus = default(string), int nmId = default(int), int oldShkId = default(int), string oldColor = default(string), string oldSize = default(string), string oldSku = default(string), string oldVendorCode = default(string), int newShkId = default(int), string newColor = default(string), string newSize = default(string), string newSku = default(string), string newVendorCode = default(string), decimal bonusSumm = default(decimal), string bonusType = default(string), List<string> photoUrls = default(List<string>))
+        public GetV1Deductions200ResponseDataReportsInner(string dtBonus = default(string), long nmId = default(long), long oldShkId = default(long), string oldColor = default(string), string oldSize = default(string), string oldSku = default(string), string oldVendorCode = default(string), long newShkId = default(long), string newColor = default(string), string newSize = default(string), string newSku = default(string), string newVendorCode = default(string), decimal bonusSumm = default(decimal), string bonusType = default(string), List<string> photoUrls = default(List<string>))
         {
             this.DtBonus = dtBonus;
             this.NmId = nmId;
@@ -86,7 +86,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         <example>544454</example>
         */
         [DataMember(Name = "nmId", EmitDefaultValue = false)]
-        public int NmId { get; set; }
+        public long NmId { get; set; }
 
         /// <summary>
         /// Старый штрихкод
@@ -96,7 +96,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         <example>26624352356</example>
         */
         [DataMember(Name = "oldShkId", EmitDefaultValue = false)]
-        public int OldShkId { get; set; }
+        public long OldShkId { get; set; }
 
         /// <summary>
         /// Старый цвет
@@ -146,7 +146,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         <example>123333223</example>
         */
         [DataMember(Name = "newShkId", EmitDefaultValue = false)]
-        public int NewShkId { get; set; }
+        public long NewShkId { get; set; }
 
         /// <summary>
         /// Новый цвет

@@ -36,7 +36,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// </summary>
         /// <param name="data">Данные о товарах и их рекомендациях.</param>
         /// <param name="next">Курсор. Последний &#x60;nmId&#x60; в ответе.</param>
-        public GetRecomRes(List<GetRecomResDataInner> data = default(List<GetRecomResDataInner>), int next = default(int))
+        public GetRecomRes(List<GetRecomResDataInner> data = default(List<GetRecomResDataInner>), long next = default(long))
         {
             this.Data = data;
             this.Next = next;
@@ -57,7 +57,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         <example>143</example>
         */
         [DataMember(Name = "next", EmitDefaultValue = false)]
-        public int Next { get; set; }
+        public long Next { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

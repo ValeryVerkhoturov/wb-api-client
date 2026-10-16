@@ -53,7 +53,7 @@ public class PostV3OrdersStatusHistoryResponse200OrdersInner {
 
   @SerializedName(SERIALIZED_NAME_ORDER_I_D)
   @jakarta.annotation.Nullable
-  private Integer orderID;
+  private Long orderID;
 
   public PostV3OrdersStatusHistoryResponse200OrdersInner() {}
 
@@ -110,7 +110,7 @@ public class PostV3OrdersStatusHistoryResponse200OrdersInner {
   }
 
   public PostV3OrdersStatusHistoryResponse200OrdersInner orderID(
-      @jakarta.annotation.Nullable Integer orderID) {
+      @jakarta.annotation.Nullable Long orderID) {
     this.orderID = orderID;
     return this;
   }
@@ -121,11 +121,11 @@ public class PostV3OrdersStatusHistoryResponse200OrdersInner {
    * @return orderID
    */
   @jakarta.annotation.Nullable
-  public Integer getOrderID() {
+  public Long getOrderID() {
     return orderID;
   }
 
-  public void setOrderID(@jakarta.annotation.Nullable Integer orderID) {
+  public void setOrderID(@jakarta.annotation.Nullable Long orderID) {
     this.orderID = orderID;
   }
 

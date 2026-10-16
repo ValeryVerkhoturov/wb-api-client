@@ -35,7 +35,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Model
         /// Initializes a new instance of the <see cref="OrdersRequestAPI" /> class.
         /// </summary>
         /// <param name="orders">Список ID сборочных заданий.</param>
-        public OrdersRequestAPI(List<int> orders = default(List<int>))
+        public OrdersRequestAPI(List<long> orders = default(List<long>))
         {
             this.Orders = orders;
         }
@@ -45,7 +45,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Model
         /// </summary>
         /// <value>Список ID сборочных заданий</value>
         [DataMember(Name = "orders", EmitDefaultValue = false)]
-        public List<int> Orders { get; set; }
+        public List<long> Orders { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

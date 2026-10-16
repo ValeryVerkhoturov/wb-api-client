@@ -40,7 +40,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// Initializes a new instance of the <see cref="RequestWithCampaignID" /> class.
         /// </summary>
         /// <param name="id">ID кампании (required).</param>
-        public RequestWithCampaignID(int id = default(int))
+        public RequestWithCampaignID(long id = default(long))
         {
             this.Id = id;
         }
@@ -50,7 +50,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <value>ID кампании</value>
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

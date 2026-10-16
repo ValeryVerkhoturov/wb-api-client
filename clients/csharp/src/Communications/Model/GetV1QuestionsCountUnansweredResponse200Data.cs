@@ -36,7 +36,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         /// </summary>
         /// <param name="countUnanswered">Количество неотвеченных вопросов.</param>
         /// <param name="countUnansweredToday">Количество неотвеченных вопросов за сегодня.</param>
-        public GetV1QuestionsCountUnansweredResponse200Data(int countUnanswered = default(int), int countUnansweredToday = default(int))
+        public GetV1QuestionsCountUnansweredResponse200Data(long countUnanswered = default(long), long countUnansweredToday = default(long))
         {
             this.CountUnanswered = countUnanswered;
             this.CountUnansweredToday = countUnansweredToday;
@@ -50,7 +50,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         <example>24</example>
         */
         [DataMember(Name = "countUnanswered", EmitDefaultValue = false)]
-        public int CountUnanswered { get; set; }
+        public long CountUnanswered { get; set; }
 
         /// <summary>
         /// Количество неотвеченных вопросов за сегодня
@@ -60,7 +60,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         <example>0</example>
         */
         [DataMember(Name = "countUnansweredToday", EmitDefaultValue = false)]
-        public int CountUnansweredToday { get; set; }
+        public long CountUnansweredToday { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

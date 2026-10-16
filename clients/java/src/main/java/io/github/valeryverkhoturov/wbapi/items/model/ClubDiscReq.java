@@ -37,17 +37,17 @@ public class ClubDiscReq {
 
   @SerializedName(SERIALIZED_NAME_NM_I_D)
   @jakarta.annotation.Nonnull
-  private Integer nmID;
+  private Long nmID;
 
   public static final String SERIALIZED_NAME_CLUB_DISCOUNT = "clubDiscount";
 
   @SerializedName(SERIALIZED_NAME_CLUB_DISCOUNT)
   @jakarta.annotation.Nonnull
-  private Integer clubDiscount;
+  private Long clubDiscount;
 
   public ClubDiscReq() {}
 
-  public ClubDiscReq nmID(@jakarta.annotation.Nonnull Integer nmID) {
+  public ClubDiscReq nmID(@jakarta.annotation.Nonnull Long nmID) {
     this.nmID = nmID;
     return this;
   }
@@ -58,15 +58,15 @@ public class ClubDiscReq {
    * @return nmID
    */
   @jakarta.annotation.Nonnull
-  public Integer getNmID() {
+  public Long getNmID() {
     return nmID;
   }
 
-  public void setNmID(@jakarta.annotation.Nonnull Integer nmID) {
+  public void setNmID(@jakarta.annotation.Nonnull Long nmID) {
     this.nmID = nmID;
   }
 
-  public ClubDiscReq clubDiscount(@jakarta.annotation.Nonnull Integer clubDiscount) {
+  public ClubDiscReq clubDiscount(@jakarta.annotation.Nonnull Long clubDiscount) {
     this.clubDiscount = clubDiscount;
     return this;
   }
@@ -77,11 +77,11 @@ public class ClubDiscReq {
    * @return clubDiscount
    */
   @jakarta.annotation.Nonnull
-  public Integer getClubDiscount() {
+  public Long getClubDiscount() {
     return clubDiscount;
   }
 
-  public void setClubDiscount(@jakarta.annotation.Nonnull Integer clubDiscount) {
+  public void setClubDiscount(@jakarta.annotation.Nonnull Long clubDiscount) {
     this.clubDiscount = clubDiscount;
   }
 

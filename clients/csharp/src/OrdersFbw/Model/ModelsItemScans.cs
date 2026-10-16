@@ -72,7 +72,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Model
         /// <param name="scanTime">Дата и время сканирования.</param>
         /// <param name="discrepancyLabel">Тип расхождения товара:  - &#x60;surplus&#x60; — товара больше, чем заявлено  - &#x60;shortage&#x60; — товара меньше, чем заявлено  - &#x60;re-sorting&#x60; — баркод принятого товара не соответствует заявленному при формировании поставки .</param>
         /// <param name="actualSku">Фактический баркод.</param>
-        public ModelsItemScans(int scanId = default(int), string declaredSku = default(string), string scanTime = default(string), DiscrepancyLabelEnum? discrepancyLabel = default(DiscrepancyLabelEnum?), string actualSku = default(string))
+        public ModelsItemScans(long scanId = default(long), string declaredSku = default(string), string scanTime = default(string), DiscrepancyLabelEnum? discrepancyLabel = default(DiscrepancyLabelEnum?), string actualSku = default(string))
         {
             this.ScanId = scanId;
             this.DeclaredSku = declaredSku;
@@ -86,7 +86,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Model
         /// </summary>
         /// <value>ID сканирования</value>
         [DataMember(Name = "scanId", EmitDefaultValue = false)]
-        public int ScanId { get; set; }
+        public long ScanId { get; set; }
 
         /// <summary>
         /// Баркод, заявленный при формировании поставки

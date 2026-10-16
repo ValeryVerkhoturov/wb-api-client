@@ -41,7 +41,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// </summary>
         /// <param name="chrtId">ID размера товара (required).</param>
         /// <param name="amount">Остаток (required).</param>
-        public PutV3StocksWarehouseIdRequestStocksInner(int chrtId = default(int), int amount = default(int))
+        public PutV3StocksWarehouseIdRequestStocksInner(long chrtId = default(long), long amount = default(long))
         {
             this.ChrtId = chrtId;
             this.Amount = amount;
@@ -55,7 +55,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         <example>12345678</example>
         */
         [DataMember(Name = "chrtId", IsRequired = true, EmitDefaultValue = true)]
-        public int ChrtId { get; set; }
+        public long ChrtId { get; set; }
 
         /// <summary>
         /// Остаток
@@ -65,7 +65,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         <example>11</example>
         */
         [DataMember(Name = "amount", IsRequired = true, EmitDefaultValue = true)]
-        public int Amount { get; set; }
+        public long Amount { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -97,10 +97,10 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// <returns>Validation Result</returns>
         IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Amount (int) maximum
-            if (this.Amount > (int)100000)
+            // Amount (long) maximum
+            if (this.Amount > (long)100000)
             {
-                yield return new ValidationResult("Invalid value for Amount, must be a value less than or equal to 100000.", new [] { "Amount" });
+                yield return new ValidationResult("Invalid value for Amount, must be a value less than or equal to 100000.", new[] { "Amount" });
             }
 
             yield break;

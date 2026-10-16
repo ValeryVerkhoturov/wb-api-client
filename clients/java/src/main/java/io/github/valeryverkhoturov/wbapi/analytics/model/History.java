@@ -43,61 +43,61 @@ public class History {
 
   @SerializedName(SERIALIZED_NAME_OPEN_COUNT)
   @jakarta.annotation.Nullable
-  private Integer openCount;
+  private Long openCount;
 
   public static final String SERIALIZED_NAME_CART_COUNT = "cartCount";
 
   @SerializedName(SERIALIZED_NAME_CART_COUNT)
   @jakarta.annotation.Nullable
-  private Integer cartCount;
+  private Long cartCount;
 
   public static final String SERIALIZED_NAME_ORDER_COUNT = "orderCount";
 
   @SerializedName(SERIALIZED_NAME_ORDER_COUNT)
   @jakarta.annotation.Nullable
-  private Integer orderCount;
+  private Long orderCount;
 
   public static final String SERIALIZED_NAME_ORDER_SUM = "orderSum";
 
   @SerializedName(SERIALIZED_NAME_ORDER_SUM)
   @jakarta.annotation.Nullable
-  private Integer orderSum;
+  private Long orderSum;
 
   public static final String SERIALIZED_NAME_BUYOUT_COUNT = "buyoutCount";
 
   @SerializedName(SERIALIZED_NAME_BUYOUT_COUNT)
   @jakarta.annotation.Nullable
-  private Integer buyoutCount;
+  private Long buyoutCount;
 
   public static final String SERIALIZED_NAME_BUYOUT_SUM = "buyoutSum";
 
   @SerializedName(SERIALIZED_NAME_BUYOUT_SUM)
   @jakarta.annotation.Nullable
-  private Integer buyoutSum;
+  private Long buyoutSum;
 
   public static final String SERIALIZED_NAME_BUYOUT_PERCENT = "buyoutPercent";
 
   @SerializedName(SERIALIZED_NAME_BUYOUT_PERCENT)
   @jakarta.annotation.Nullable
-  private Integer buyoutPercent;
+  private Long buyoutPercent;
 
   public static final String SERIALIZED_NAME_ADD_TO_CART_CONVERSION = "addToCartConversion";
 
   @SerializedName(SERIALIZED_NAME_ADD_TO_CART_CONVERSION)
   @jakarta.annotation.Nullable
-  private Integer addToCartConversion;
+  private Long addToCartConversion;
 
   public static final String SERIALIZED_NAME_CART_TO_ORDER_CONVERSION = "cartToOrderConversion";
 
   @SerializedName(SERIALIZED_NAME_CART_TO_ORDER_CONVERSION)
   @jakarta.annotation.Nullable
-  private Integer cartToOrderConversion;
+  private Long cartToOrderConversion;
 
   public static final String SERIALIZED_NAME_ADD_TO_WISHLIST_COUNT = "addToWishlistCount";
 
   @SerializedName(SERIALIZED_NAME_ADD_TO_WISHLIST_COUNT)
   @jakarta.annotation.Nullable
-  private Integer addToWishlistCount;
+  private Long addToWishlistCount;
 
   public History() {}
 
@@ -120,7 +120,7 @@ public class History {
     this.date = date;
   }
 
-  public History openCount(@jakarta.annotation.Nullable Integer openCount) {
+  public History openCount(@jakarta.annotation.Nullable Long openCount) {
     this.openCount = openCount;
     return this;
   }
@@ -131,15 +131,15 @@ public class History {
    * @return openCount
    */
   @jakarta.annotation.Nullable
-  public Integer getOpenCount() {
+  public Long getOpenCount() {
     return openCount;
   }
 
-  public void setOpenCount(@jakarta.annotation.Nullable Integer openCount) {
+  public void setOpenCount(@jakarta.annotation.Nullable Long openCount) {
     this.openCount = openCount;
   }
 
-  public History cartCount(@jakarta.annotation.Nullable Integer cartCount) {
+  public History cartCount(@jakarta.annotation.Nullable Long cartCount) {
     this.cartCount = cartCount;
     return this;
   }
@@ -150,15 +150,15 @@ public class History {
    * @return cartCount
    */
   @jakarta.annotation.Nullable
-  public Integer getCartCount() {
+  public Long getCartCount() {
     return cartCount;
   }
 
-  public void setCartCount(@jakarta.annotation.Nullable Integer cartCount) {
+  public void setCartCount(@jakarta.annotation.Nullable Long cartCount) {
     this.cartCount = cartCount;
   }
 
-  public History orderCount(@jakarta.annotation.Nullable Integer orderCount) {
+  public History orderCount(@jakarta.annotation.Nullable Long orderCount) {
     this.orderCount = orderCount;
     return this;
   }
@@ -169,15 +169,15 @@ public class History {
    * @return orderCount
    */
   @jakarta.annotation.Nullable
-  public Integer getOrderCount() {
+  public Long getOrderCount() {
     return orderCount;
   }
 
-  public void setOrderCount(@jakarta.annotation.Nullable Integer orderCount) {
+  public void setOrderCount(@jakarta.annotation.Nullable Long orderCount) {
     this.orderCount = orderCount;
   }
 
-  public History orderSum(@jakarta.annotation.Nullable Integer orderSum) {
+  public History orderSum(@jakarta.annotation.Nullable Long orderSum) {
     this.orderSum = orderSum;
     return this;
   }
@@ -188,15 +188,15 @@ public class History {
    * @return orderSum
    */
   @jakarta.annotation.Nullable
-  public Integer getOrderSum() {
+  public Long getOrderSum() {
     return orderSum;
   }
 
-  public void setOrderSum(@jakarta.annotation.Nullable Integer orderSum) {
+  public void setOrderSum(@jakarta.annotation.Nullable Long orderSum) {
     this.orderSum = orderSum;
   }
 
-  public History buyoutCount(@jakarta.annotation.Nullable Integer buyoutCount) {
+  public History buyoutCount(@jakarta.annotation.Nullable Long buyoutCount) {
     this.buyoutCount = buyoutCount;
     return this;
   }
@@ -207,15 +207,15 @@ public class History {
    * @return buyoutCount
    */
   @jakarta.annotation.Nullable
-  public Integer getBuyoutCount() {
+  public Long getBuyoutCount() {
     return buyoutCount;
   }
 
-  public void setBuyoutCount(@jakarta.annotation.Nullable Integer buyoutCount) {
+  public void setBuyoutCount(@jakarta.annotation.Nullable Long buyoutCount) {
     this.buyoutCount = buyoutCount;
   }
 
-  public History buyoutSum(@jakarta.annotation.Nullable Integer buyoutSum) {
+  public History buyoutSum(@jakarta.annotation.Nullable Long buyoutSum) {
     this.buyoutSum = buyoutSum;
     return this;
   }
@@ -226,15 +226,15 @@ public class History {
    * @return buyoutSum
    */
   @jakarta.annotation.Nullable
-  public Integer getBuyoutSum() {
+  public Long getBuyoutSum() {
     return buyoutSum;
   }
 
-  public void setBuyoutSum(@jakarta.annotation.Nullable Integer buyoutSum) {
+  public void setBuyoutSum(@jakarta.annotation.Nullable Long buyoutSum) {
     this.buyoutSum = buyoutSum;
   }
 
-  public History buyoutPercent(@jakarta.annotation.Nullable Integer buyoutPercent) {
+  public History buyoutPercent(@jakarta.annotation.Nullable Long buyoutPercent) {
     this.buyoutPercent = buyoutPercent;
     return this;
   }
@@ -245,15 +245,15 @@ public class History {
    * @return buyoutPercent
    */
   @jakarta.annotation.Nullable
-  public Integer getBuyoutPercent() {
+  public Long getBuyoutPercent() {
     return buyoutPercent;
   }
 
-  public void setBuyoutPercent(@jakarta.annotation.Nullable Integer buyoutPercent) {
+  public void setBuyoutPercent(@jakarta.annotation.Nullable Long buyoutPercent) {
     this.buyoutPercent = buyoutPercent;
   }
 
-  public History addToCartConversion(@jakarta.annotation.Nullable Integer addToCartConversion) {
+  public History addToCartConversion(@jakarta.annotation.Nullable Long addToCartConversion) {
     this.addToCartConversion = addToCartConversion;
     return this;
   }
@@ -265,15 +265,15 @@ public class History {
    * @return addToCartConversion
    */
   @jakarta.annotation.Nullable
-  public Integer getAddToCartConversion() {
+  public Long getAddToCartConversion() {
     return addToCartConversion;
   }
 
-  public void setAddToCartConversion(@jakarta.annotation.Nullable Integer addToCartConversion) {
+  public void setAddToCartConversion(@jakarta.annotation.Nullable Long addToCartConversion) {
     this.addToCartConversion = addToCartConversion;
   }
 
-  public History cartToOrderConversion(@jakarta.annotation.Nullable Integer cartToOrderConversion) {
+  public History cartToOrderConversion(@jakarta.annotation.Nullable Long cartToOrderConversion) {
     this.cartToOrderConversion = cartToOrderConversion;
     return this;
   }
@@ -284,15 +284,15 @@ public class History {
    * @return cartToOrderConversion
    */
   @jakarta.annotation.Nullable
-  public Integer getCartToOrderConversion() {
+  public Long getCartToOrderConversion() {
     return cartToOrderConversion;
   }
 
-  public void setCartToOrderConversion(@jakarta.annotation.Nullable Integer cartToOrderConversion) {
+  public void setCartToOrderConversion(@jakarta.annotation.Nullable Long cartToOrderConversion) {
     this.cartToOrderConversion = cartToOrderConversion;
   }
 
-  public History addToWishlistCount(@jakarta.annotation.Nullable Integer addToWishlistCount) {
+  public History addToWishlistCount(@jakarta.annotation.Nullable Long addToWishlistCount) {
     this.addToWishlistCount = addToWishlistCount;
     return this;
   }
@@ -303,11 +303,11 @@ public class History {
    * @return addToWishlistCount
    */
   @jakarta.annotation.Nullable
-  public Integer getAddToWishlistCount() {
+  public Long getAddToWishlistCount() {
     return addToWishlistCount;
   }
 
-  public void setAddToWishlistCount(@jakarta.annotation.Nullable Integer addToWishlistCount) {
+  public void setAddToWishlistCount(@jakarta.annotation.Nullable Long addToWishlistCount) {
     this.addToWishlistCount = addToWishlistCount;
   }
 

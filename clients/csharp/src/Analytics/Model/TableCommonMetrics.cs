@@ -52,7 +52,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <param name="lostOrdersSum">Упущенные заказы, сумма. Особые случаи:   1. Значение меньше &#x60;0&#x60; и не равно &#x60;-2&#x60; — значение не рассчитано   2. Значение &#x60;-2&#x60; — нулевое значение .</param>
         /// <param name="lostBuyoutsCount">Упущенные выкупы, шт. Особые случаи:   1. Значение меньше &#x60;0&#x60; и не равно &#x60;-2&#x60; — значение не рассчитано   2. Значение &#x60;-2&#x60; — нулевое значение .</param>
         /// <param name="lostBuyoutsSum">Упущенные выкупы, сумма. Особые случаи:   1. Значение меньше &#x60;0&#x60; и не равно &#x60;-2&#x60; — значение не рассчитано   2. Значение &#x60;-2&#x60; — нулевое значение .</param>
-        public TableCommonMetrics(int ordersCount = default(int), int ordersSum = default(int), decimal avgOrders = default(decimal), List<FloatGraphByPeriodItem> avgOrdersByMonth = default(List<FloatGraphByPeriodItem>), int buyoutCount = default(int), int buyoutSum = default(int), int buyoutPercent = default(int), int stockCount = default(int), int stockSum = default(int), TableCommonMetricsSaleRate saleRate = default(TableCommonMetricsSaleRate), TableCommonMetricsAvgStockTurnover avgStockTurnover = default(TableCommonMetricsAvgStockTurnover), int toClientCount = default(int), int fromClientCount = default(int), TableCommonMetricsOfficeMissingTime officeMissingTime = default(TableCommonMetricsOfficeMissingTime), decimal lostOrdersCount = default(decimal), decimal lostOrdersSum = default(decimal), decimal lostBuyoutsCount = default(decimal), decimal lostBuyoutsSum = default(decimal))
+        public TableCommonMetrics(long ordersCount = default(long), long ordersSum = default(long), decimal avgOrders = default(decimal), List<FloatGraphByPeriodItem> avgOrdersByMonth = default(List<FloatGraphByPeriodItem>), long buyoutCount = default(long), long buyoutSum = default(long), long buyoutPercent = default(long), long stockCount = default(long), long stockSum = default(long), TableCommonMetricsSaleRate saleRate = default(TableCommonMetricsSaleRate), TableCommonMetricsAvgStockTurnover avgStockTurnover = default(TableCommonMetricsAvgStockTurnover), long toClientCount = default(long), long fromClientCount = default(long), TableCommonMetricsOfficeMissingTime officeMissingTime = default(TableCommonMetricsOfficeMissingTime), decimal lostOrdersCount = default(decimal), decimal lostOrdersSum = default(decimal), decimal lostBuyoutsCount = default(decimal), decimal lostBuyoutsSum = default(decimal))
         {
             this.OrdersCount = ordersCount;
             this.OrdersSum = ordersSum;
@@ -82,7 +82,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         <example>100</example>
         */
         [DataMember(Name = "ordersCount", EmitDefaultValue = false)]
-        public int OrdersCount { get; set; }
+        public long OrdersCount { get; set; }
 
         /// <summary>
         /// Заказы, сумма
@@ -92,7 +92,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         <example>100000</example>
         */
         [DataMember(Name = "ordersSum", EmitDefaultValue = false)]
-        public int OrdersSum { get; set; }
+        public long OrdersSum { get; set; }
 
         /// <summary>
         /// Среднее количество заказов в день
@@ -119,7 +119,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         <example>150</example>
         */
         [DataMember(Name = "buyoutCount", EmitDefaultValue = false)]
-        public int BuyoutCount { get; set; }
+        public long BuyoutCount { get; set; }
 
         /// <summary>
         /// Выкупы, сумма
@@ -129,7 +129,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         <example>150000</example>
         */
         [DataMember(Name = "buyoutSum", EmitDefaultValue = false)]
-        public int BuyoutSum { get; set; }
+        public long BuyoutSum { get; set; }
 
         /// <summary>
         /// Процент выкупа
@@ -139,7 +139,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         <example>5</example>
         */
         [DataMember(Name = "buyoutPercent", EmitDefaultValue = false)]
-        public int BuyoutPercent { get; set; }
+        public long BuyoutPercent { get; set; }
 
         /// <summary>
         /// Остатки на текущий день, шт.
@@ -149,7 +149,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         <example>50</example>
         */
         [DataMember(Name = "stockCount", EmitDefaultValue = false)]
-        public int StockCount { get; set; }
+        public long StockCount { get; set; }
 
         /// <summary>
         /// Стоимость остатков на текущий день
@@ -159,7 +159,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         <example>50000</example>
         */
         [DataMember(Name = "stockSum", EmitDefaultValue = false)]
-        public int StockSum { get; set; }
+        public long StockSum { get; set; }
 
         /// <summary>
         /// Gets or Sets SaleRate
@@ -181,7 +181,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         <example>20</example>
         */
         [DataMember(Name = "toClientCount", EmitDefaultValue = false)]
-        public int ToClientCount { get; set; }
+        public long ToClientCount { get; set; }
 
         /// <summary>
         /// В пути от клиента, шт.
@@ -191,7 +191,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         <example>30</example>
         */
         [DataMember(Name = "fromClientCount", EmitDefaultValue = false)]
-        public int FromClientCount { get; set; }
+        public long FromClientCount { get; set; }
 
         /// <summary>
         /// Gets or Sets OfficeMissingTime

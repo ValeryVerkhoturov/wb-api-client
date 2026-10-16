@@ -41,7 +41,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Model
         /// </summary>
         /// <param name="orderId">ID сборочного задания (required).</param>
         /// <param name="imei">IMEI (required).</param>
-        public ApiIMEI(int orderId = default(int), string imei = default(string))
+        public ApiIMEI(long orderId = default(long), string imei = default(string))
         {
             this.OrderId = orderId;
             // to ensure "imei" is required (not null)
@@ -60,7 +60,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Model
         <example>123456</example>
         */
         [DataMember(Name = "orderId", IsRequired = true, EmitDefaultValue = true)]
-        public int OrderId { get; set; }
+        public long OrderId { get; set; }
 
         /// <summary>
         /// IMEI
@@ -105,13 +105,13 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Model
             // Imei (string) maxLength
             if (this.Imei != null && this.Imei.Length > 15)
             {
-                yield return new ValidationResult("Invalid value for Imei, length must be less than 15.", new [] { "Imei" });
+                yield return new ValidationResult("Invalid value for Imei, length must be less than 15.", new[] { "Imei" });
             }
 
             // Imei (string) minLength
             if (this.Imei != null && this.Imei.Length < 15)
             {
-                yield return new ValidationResult("Invalid value for Imei, length must be greater than 15.", new [] { "Imei" });
+                yield return new ValidationResult("Invalid value for Imei, length must be greater than 15.", new[] { "Imei" });
             }
 
             yield break;

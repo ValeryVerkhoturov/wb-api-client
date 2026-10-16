@@ -89,19 +89,19 @@ public class Supply {
    */
   @JsonAdapter(CargoTypeEnum.Adapter.class)
   public enum CargoTypeEnum {
-    NUMBER_1(1),
+    NUMBER_1(1l),
 
-    NUMBER_2(2),
+    NUMBER_2(2l),
 
-    NUMBER_3(3);
+    NUMBER_3(3l);
 
-    private Integer value;
+    private Long value;
 
-    CargoTypeEnum(Integer value) {
+    CargoTypeEnum(Long value) {
       this.value = value;
     }
 
-    public Integer getValue() {
+    public Long getValue() {
       return value;
     }
 
@@ -110,7 +110,7 @@ public class Supply {
       return String.valueOf(value);
     }
 
-    public static CargoTypeEnum fromValue(Integer value) {
+    public static CargoTypeEnum fromValue(Long value) {
       for (CargoTypeEnum b : CargoTypeEnum.values()) {
         if (b.value.equals(value)) {
           return b;
@@ -128,13 +128,13 @@ public class Supply {
 
       @Override
       public CargoTypeEnum read(final JsonReader jsonReader) throws IOException {
-        Integer value = jsonReader.nextInt();
+        Long value = jsonReader.nextLong();
         return CargoTypeEnum.fromValue(value);
       }
     }
 
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      Integer value = jsonElement.getAsInt();
+      Long value = jsonElement.getAsLong();
       CargoTypeEnum.fromValue(value);
     }
   }
@@ -227,7 +227,7 @@ public class Supply {
 
   @SerializedName(SERIALIZED_NAME_SHIPPING_POINT_ID)
   @jakarta.annotation.Nullable
-  private Integer shippingPointId;
+  private Long shippingPointId;
 
   /**
    * Способ доставки до пункта отгрузки: - &#x60;selfShipping&#x60; — доставка силами продавца -
@@ -559,7 +559,7 @@ public class Supply {
     this.shippingDt = shippingDt;
   }
 
-  public Supply shippingPointId(@jakarta.annotation.Nullable Integer shippingPointId) {
+  public Supply shippingPointId(@jakarta.annotation.Nullable Long shippingPointId) {
     this.shippingPointId = shippingPointId;
     return this;
   }
@@ -571,11 +571,11 @@ public class Supply {
    * @return shippingPointId
    */
   @jakarta.annotation.Nullable
-  public Integer getShippingPointId() {
+  public Long getShippingPointId() {
     return shippingPointId;
   }
 
-  public void setShippingPointId(@jakarta.annotation.Nullable Integer shippingPointId) {
+  public void setShippingPointId(@jakarta.annotation.Nullable Long shippingPointId) {
     this.shippingPointId = shippingPointId;
   }
 

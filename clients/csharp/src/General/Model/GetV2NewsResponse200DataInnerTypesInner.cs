@@ -36,7 +36,7 @@ namespace ValeryVerkhoturov.WbApiClient.General.Model
         /// </summary>
         /// <param name="id">ID тега.</param>
         /// <param name="name">Название тега.</param>
-        public GetV2NewsResponse200DataInnerTypesInner(int id = default(int), string name = default(string))
+        public GetV2NewsResponse200DataInnerTypesInner(long id = default(long), string name = default(string))
         {
             this.Id = id;
             this.Name = name;
@@ -47,7 +47,7 @@ namespace ValeryVerkhoturov.WbApiClient.General.Model
         /// </summary>
         /// <value>ID тега</value>
         [DataMember(Name = "id", EmitDefaultValue = false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// Название тега

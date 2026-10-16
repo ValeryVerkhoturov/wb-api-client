@@ -68,19 +68,19 @@ public class ModelsExciseReportResponseDataInner {
 
   @SerializedName(SERIALIZED_NAME_NM_ID)
   @jakarta.annotation.Nullable
-  private Integer nmId;
+  private Long nmId;
 
   public static final String SERIALIZED_NAME_OPERATION_TYPE_ID = "operation_type_id";
 
   @SerializedName(SERIALIZED_NAME_OPERATION_TYPE_ID)
   @jakarta.annotation.Nullable
-  private Integer operationTypeId;
+  private Long operationTypeId;
 
   public static final String SERIALIZED_NAME_FISCAL_DOC_NUMBER = "fiscal_doc_number";
 
   @SerializedName(SERIALIZED_NAME_FISCAL_DOC_NUMBER)
   @jakarta.annotation.Nullable
-  private Integer fiscalDocNumber;
+  private Long fiscalDocNumber;
 
   public static final String SERIALIZED_NAME_FISCAL_DT = "fiscal_dt";
 
@@ -98,7 +98,7 @@ public class ModelsExciseReportResponseDataInner {
 
   @SerializedName(SERIALIZED_NAME_RID)
   @jakarta.annotation.Nullable
-  private Integer rid;
+  private Long rid;
 
   public static final String SERIALIZED_NAME_SRID = "srid";
 
@@ -205,7 +205,7 @@ public class ModelsExciseReportResponseDataInner {
     this.barcode = barcode;
   }
 
-  public ModelsExciseReportResponseDataInner nmId(@jakarta.annotation.Nullable Integer nmId) {
+  public ModelsExciseReportResponseDataInner nmId(@jakarta.annotation.Nullable Long nmId) {
     this.nmId = nmId;
     return this;
   }
@@ -216,16 +216,16 @@ public class ModelsExciseReportResponseDataInner {
    * @return nmId
    */
   @jakarta.annotation.Nullable
-  public Integer getNmId() {
+  public Long getNmId() {
     return nmId;
   }
 
-  public void setNmId(@jakarta.annotation.Nullable Integer nmId) {
+  public void setNmId(@jakarta.annotation.Nullable Long nmId) {
     this.nmId = nmId;
   }
 
   public ModelsExciseReportResponseDataInner operationTypeId(
-      @jakarta.annotation.Nullable Integer operationTypeId) {
+      @jakarta.annotation.Nullable Long operationTypeId) {
     this.operationTypeId = operationTypeId;
     return this;
   }
@@ -236,16 +236,16 @@ public class ModelsExciseReportResponseDataInner {
    * @return operationTypeId
    */
   @jakarta.annotation.Nullable
-  public Integer getOperationTypeId() {
+  public Long getOperationTypeId() {
     return operationTypeId;
   }
 
-  public void setOperationTypeId(@jakarta.annotation.Nullable Integer operationTypeId) {
+  public void setOperationTypeId(@jakarta.annotation.Nullable Long operationTypeId) {
     this.operationTypeId = operationTypeId;
   }
 
   public ModelsExciseReportResponseDataInner fiscalDocNumber(
-      @jakarta.annotation.Nullable Integer fiscalDocNumber) {
+      @jakarta.annotation.Nullable Long fiscalDocNumber) {
     this.fiscalDocNumber = fiscalDocNumber;
     return this;
   }
@@ -256,11 +256,11 @@ public class ModelsExciseReportResponseDataInner {
    * @return fiscalDocNumber
    */
   @jakarta.annotation.Nullable
-  public Integer getFiscalDocNumber() {
+  public Long getFiscalDocNumber() {
     return fiscalDocNumber;
   }
 
-  public void setFiscalDocNumber(@jakarta.annotation.Nullable Integer fiscalDocNumber) {
+  public void setFiscalDocNumber(@jakarta.annotation.Nullable Long fiscalDocNumber) {
     this.fiscalDocNumber = fiscalDocNumber;
   }
 
@@ -304,7 +304,7 @@ public class ModelsExciseReportResponseDataInner {
     this.fiscalDriveNumber = fiscalDriveNumber;
   }
 
-  public ModelsExciseReportResponseDataInner rid(@jakarta.annotation.Nullable Integer rid) {
+  public ModelsExciseReportResponseDataInner rid(@jakarta.annotation.Nullable Long rid) {
     this.rid = rid;
     return this;
   }
@@ -315,11 +315,11 @@ public class ModelsExciseReportResponseDataInner {
    * @return rid
    */
   @jakarta.annotation.Nullable
-  public Integer getRid() {
+  public Long getRid() {
     return rid;
   }
 
-  public void setRid(@jakarta.annotation.Nullable Integer rid) {
+  public void setRid(@jakarta.annotation.Nullable Long rid) {
     this.rid = rid;
   }
 

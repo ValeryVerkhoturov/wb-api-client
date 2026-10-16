@@ -42,7 +42,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <param name="threeStar">threeStar.</param>
         /// <param name="twoStar">twoStar.</param>
         /// <param name="oneStar">oneStar.</param>
-        public FeedbacksIncreaseItem(int current = default(int), int total = default(int), int dynamics = default(int), FeedbacksIncreaseItemFiveStar fiveStar = default(FeedbacksIncreaseItemFiveStar), FeedbacksIncreaseItemFourStar fourStar = default(FeedbacksIncreaseItemFourStar), FeedbacksIncreaseItemThreeStar threeStar = default(FeedbacksIncreaseItemThreeStar), FeedbacksIncreaseItemTwoStar twoStar = default(FeedbacksIncreaseItemTwoStar), FeedbacksIncreaseItemOneStar oneStar = default(FeedbacksIncreaseItemOneStar))
+        public FeedbacksIncreaseItem(long current = default(long), long total = default(long), long dynamics = default(long), FeedbacksIncreaseItemFiveStar fiveStar = default(FeedbacksIncreaseItemFiveStar), FeedbacksIncreaseItemFourStar fourStar = default(FeedbacksIncreaseItemFourStar), FeedbacksIncreaseItemThreeStar threeStar = default(FeedbacksIncreaseItemThreeStar), FeedbacksIncreaseItemTwoStar twoStar = default(FeedbacksIncreaseItemTwoStar), FeedbacksIncreaseItemOneStar oneStar = default(FeedbacksIncreaseItemOneStar))
         {
             this.Current = current;
             this.Total = total;
@@ -62,7 +62,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         <example>26</example>
         */
         [DataMember(Name = "current", EmitDefaultValue = false)]
-        public int Current { get; set; }
+        public long Current { get; set; }
 
         /// <summary>
         /// Всего оценок
@@ -72,7 +72,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         <example>116</example>
         */
         [DataMember(Name = "total", EmitDefaultValue = false)]
-        public int Total { get; set; }
+        public long Total { get; set; }
 
         /// <summary>
         /// Динамика по сравнению с предыдущим периодом, %
@@ -82,7 +82,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         <example>23</example>
         */
         [DataMember(Name = "dynamics", EmitDefaultValue = false)]
-        public int Dynamics { get; set; }
+        public long Dynamics { get; set; }
 
         /// <summary>
         /// Gets or Sets FiveStar

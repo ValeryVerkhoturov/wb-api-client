@@ -70,7 +70,7 @@ public class V3ArchiveOrder {
 
   @SerializedName(SERIALIZED_NAME_ID)
   @jakarta.annotation.Nullable
-  private Integer id;
+  private Long id;
 
   public static final String SERIALIZED_NAME_IS_ZERO_ORDER = "isZeroOrder";
 
@@ -118,7 +118,7 @@ public class V3ArchiveOrder {
 
   @SerializedName(SERIALIZED_NAME_SCAN_PRICE)
   @jakarta.annotation.Nullable
-  private Integer scanPrice;
+  private Long scanPrice;
 
   public static final String SERIALIZED_NAME_STATUS = "status";
 
@@ -130,7 +130,7 @@ public class V3ArchiveOrder {
 
   @SerializedName(SERIALIZED_NAME_STICKER_ID)
   @jakarta.annotation.Nullable
-  private Integer stickerId;
+  private Long stickerId;
 
   public static final String SERIALIZED_NAME_SUPPLY_ID = "supplyId";
 
@@ -142,7 +142,7 @@ public class V3ArchiveOrder {
 
   @SerializedName(SERIALIZED_NAME_WAREHOUSE_ID)
   @jakarta.annotation.Nullable
-  private Integer warehouseId;
+  private Long warehouseId;
 
   public V3ArchiveOrder() {}
 
@@ -244,7 +244,7 @@ public class V3ArchiveOrder {
     this.crossBorderType = crossBorderType;
   }
 
-  public V3ArchiveOrder id(@jakarta.annotation.Nullable Integer id) {
+  public V3ArchiveOrder id(@jakarta.annotation.Nullable Long id) {
     this.id = id;
     return this;
   }
@@ -255,11 +255,11 @@ public class V3ArchiveOrder {
    * @return id
    */
   @jakarta.annotation.Nullable
-  public Integer getId() {
+  public Long getId() {
     return id;
   }
 
-  public void setId(@jakarta.annotation.Nullable Integer id) {
+  public void setId(@jakarta.annotation.Nullable Long id) {
     this.id = id;
   }
 
@@ -422,7 +422,7 @@ public class V3ArchiveOrder {
     this.rid = rid;
   }
 
-  public V3ArchiveOrder scanPrice(@jakarta.annotation.Nullable Integer scanPrice) {
+  public V3ArchiveOrder scanPrice(@jakarta.annotation.Nullable Long scanPrice) {
     this.scanPrice = scanPrice;
     return this;
   }
@@ -433,11 +433,11 @@ public class V3ArchiveOrder {
    * @return scanPrice
    */
   @jakarta.annotation.Nullable
-  public Integer getScanPrice() {
+  public Long getScanPrice() {
     return scanPrice;
   }
 
-  public void setScanPrice(@jakarta.annotation.Nullable Integer scanPrice) {
+  public void setScanPrice(@jakarta.annotation.Nullable Long scanPrice) {
     this.scanPrice = scanPrice;
   }
 
@@ -460,7 +460,7 @@ public class V3ArchiveOrder {
     this.status = status;
   }
 
-  public V3ArchiveOrder stickerId(@jakarta.annotation.Nullable Integer stickerId) {
+  public V3ArchiveOrder stickerId(@jakarta.annotation.Nullable Long stickerId) {
     this.stickerId = stickerId;
     return this;
   }
@@ -471,11 +471,11 @@ public class V3ArchiveOrder {
    * @return stickerId
    */
   @jakarta.annotation.Nullable
-  public Integer getStickerId() {
+  public Long getStickerId() {
     return stickerId;
   }
 
-  public void setStickerId(@jakarta.annotation.Nullable Integer stickerId) {
+  public void setStickerId(@jakarta.annotation.Nullable Long stickerId) {
     this.stickerId = stickerId;
   }
 
@@ -498,7 +498,7 @@ public class V3ArchiveOrder {
     this.supplyId = supplyId;
   }
 
-  public V3ArchiveOrder warehouseId(@jakarta.annotation.Nullable Integer warehouseId) {
+  public V3ArchiveOrder warehouseId(@jakarta.annotation.Nullable Long warehouseId) {
     this.warehouseId = warehouseId;
     return this;
   }
@@ -509,11 +509,11 @@ public class V3ArchiveOrder {
    * @return warehouseId
    */
   @jakarta.annotation.Nullable
-  public Integer getWarehouseId() {
+  public Long getWarehouseId() {
     return warehouseId;
   }
 
-  public void setWarehouseId(@jakarta.annotation.Nullable Integer warehouseId) {
+  public void setWarehouseId(@jakarta.annotation.Nullable Long warehouseId) {
     this.warehouseId = warehouseId;
   }
 

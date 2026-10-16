@@ -46,7 +46,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /// <param name="fiscalDriveNumber">Номер фискального накопителя, если есть.</param>
         /// <param name="rid">&#x60;Rid&#x60; .</param>
         /// <param name="srid">&#x60;Srid&#x60; .</param>
-        public ModelsExciseReportResponseDataInner(string name = default(string), decimal price = default(decimal), string currencyNameShort = default(string), string exciseShort = default(string), string barcode = default(string), int nmId = default(int), int operationTypeId = default(int), int fiscalDocNumber = default(int), string fiscalDt = default(string), string fiscalDriveNumber = default(string), int rid = default(int), string srid = default(string))
+        public ModelsExciseReportResponseDataInner(string name = default(string), decimal price = default(decimal), string currencyNameShort = default(string), string exciseShort = default(string), string barcode = default(string), long nmId = default(long), long operationTypeId = default(long), long fiscalDocNumber = default(long), string fiscalDt = default(string), string fiscalDriveNumber = default(string), long rid = default(long), string srid = default(string))
         {
             this.Name = name;
             this.Price = price;
@@ -120,7 +120,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         <example>169085355</example>
         */
         [DataMember(Name = "nm_id", EmitDefaultValue = false)]
-        public int NmId { get; set; }
+        public long NmId { get; set; }
 
         /// <summary>
         /// Тип операции, если есть:    * &#x60;1&#x60; — вывод из оборота   * &#x60;2&#x60; — возврат в оборот 
@@ -130,7 +130,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         <example>1</example>
         */
         [DataMember(Name = "operation_type_id", EmitDefaultValue = false)]
-        public int OperationTypeId { get; set; }
+        public long OperationTypeId { get; set; }
 
         /// <summary>
         /// Номер фискального документа (чека полного расчёта), если есть
@@ -140,7 +140,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         <example>12345678</example>
         */
         [DataMember(Name = "fiscal_doc_number", EmitDefaultValue = false)]
-        public int FiscalDocNumber { get; set; }
+        public long FiscalDocNumber { get; set; }
 
         /// <summary>
         /// Дата фискализации (дата в чеке), если есть, &#x60;ГГГГ-ММ-ДД&#x60;
@@ -167,7 +167,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         <example>606217433440</example>
         */
         [DataMember(Name = "rid", EmitDefaultValue = false)]
-        public int Rid { get; set; }
+        public long Rid { get; set; }
 
         /// <summary>
         /// &#x60;Srid&#x60; 

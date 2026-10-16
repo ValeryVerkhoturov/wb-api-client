@@ -38,7 +38,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <param name="status">Статус кампании.</param>
         /// <param name="count">Количество кампаний.</param>
         /// <param name="advertList">Список кампаний.</param>
-        public GetV1PromotionCountResponse200AdvertsInner(int type = default(int), int status = default(int), int count = default(int), List<GetV1PromotionCountResponse200AdvertsInnerAdvertListInner> advertList = default(List<GetV1PromotionCountResponse200AdvertsInnerAdvertListInner>))
+        public GetV1PromotionCountResponse200AdvertsInner(long type = default(long), long status = default(long), long count = default(long), List<GetV1PromotionCountResponse200AdvertsInnerAdvertListInner> advertList = default(List<GetV1PromotionCountResponse200AdvertsInnerAdvertListInner>))
         {
             this.Type = type;
             this.Status = status;
@@ -51,21 +51,21 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <value>Тип кампании:   - &#x60;8&#x60; — кампания с единой ставкой (**устаревший тип**)   - &#x60;9&#x60; — кампания с единой или ручной ставкой. Тип ставки вы можете получить с помощью метода [Информация о кампаниях](./promotion#tag/campaigns/operation/getV2Adverts), поле &#x60;bid_type&#x60; </value>
         [DataMember(Name = "type", EmitDefaultValue = false)]
-        public int Type { get; set; }
+        public long Type { get; set; }
 
         /// <summary>
         /// Статус кампании
         /// </summary>
         /// <value>Статус кампании</value>
         [DataMember(Name = "status", EmitDefaultValue = false)]
-        public int Status { get; set; }
+        public long Status { get; set; }
 
         /// <summary>
         /// Количество кампаний
         /// </summary>
         /// <value>Количество кампаний</value>
         [DataMember(Name = "count", EmitDefaultValue = false)]
-        public int Count { get; set; }
+        public long Count { get; set; }
 
         /// <summary>
         /// Список кампаний

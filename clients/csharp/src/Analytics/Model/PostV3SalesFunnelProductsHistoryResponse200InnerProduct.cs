@@ -40,7 +40,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <param name="brandName">Бренд.</param>
         /// <param name="subjectId">ID предмета.</param>
         /// <param name="subjectName">Название предмета.</param>
-        public PostV3SalesFunnelProductsHistoryResponse200InnerProduct(long nmId = default(long), string title = default(string), string vendorCode = default(string), string brandName = default(string), int subjectId = default(int), string subjectName = default(string))
+        public PostV3SalesFunnelProductsHistoryResponse200InnerProduct(long nmId = default(long), string title = default(string), string vendorCode = default(string), string brandName = default(string), long subjectId = default(long), string subjectName = default(string))
         {
             this.NmId = nmId;
             this.Title = title;
@@ -98,7 +98,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         <example>105</example>
         */
         [DataMember(Name = "subjectId", EmitDefaultValue = false)]
-        public int SubjectId { get; set; }
+        public long SubjectId { get; set; }
 
         /// <summary>
         /// Название предмета

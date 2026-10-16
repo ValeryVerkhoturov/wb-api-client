@@ -37,23 +37,23 @@ public class ItemStocks {
 
   @SerializedName(SERIALIZED_NAME_WB)
   @jakarta.annotation.Nullable
-  private Integer wb;
+  private Long wb;
 
   public static final String SERIALIZED_NAME_MP = "mp";
 
   @SerializedName(SERIALIZED_NAME_MP)
   @jakarta.annotation.Nullable
-  private Integer mp;
+  private Long mp;
 
   public static final String SERIALIZED_NAME_BALANCE_SUM = "balanceSum";
 
   @SerializedName(SERIALIZED_NAME_BALANCE_SUM)
   @jakarta.annotation.Nullable
-  private Integer balanceSum;
+  private Long balanceSum;
 
   public ItemStocks() {}
 
-  public ItemStocks wb(@jakarta.annotation.Nullable Integer wb) {
+  public ItemStocks wb(@jakarta.annotation.Nullable Long wb) {
     this.wb = wb;
     return this;
   }
@@ -64,15 +64,15 @@ public class ItemStocks {
    * @return wb
    */
   @jakarta.annotation.Nullable
-  public Integer getWb() {
+  public Long getWb() {
     return wb;
   }
 
-  public void setWb(@jakarta.annotation.Nullable Integer wb) {
+  public void setWb(@jakarta.annotation.Nullable Long wb) {
     this.wb = wb;
   }
 
-  public ItemStocks mp(@jakarta.annotation.Nullable Integer mp) {
+  public ItemStocks mp(@jakarta.annotation.Nullable Long mp) {
     this.mp = mp;
     return this;
   }
@@ -83,15 +83,15 @@ public class ItemStocks {
    * @return mp
    */
   @jakarta.annotation.Nullable
-  public Integer getMp() {
+  public Long getMp() {
     return mp;
   }
 
-  public void setMp(@jakarta.annotation.Nullable Integer mp) {
+  public void setMp(@jakarta.annotation.Nullable Long mp) {
     this.mp = mp;
   }
 
-  public ItemStocks balanceSum(@jakarta.annotation.Nullable Integer balanceSum) {
+  public ItemStocks balanceSum(@jakarta.annotation.Nullable Long balanceSum) {
     this.balanceSum = balanceSum;
     return this;
   }
@@ -102,11 +102,11 @@ public class ItemStocks {
    * @return balanceSum
    */
   @jakarta.annotation.Nullable
-  public Integer getBalanceSum() {
+  public Long getBalanceSum() {
     return balanceSum;
   }
 
-  public void setBalanceSum(@jakarta.annotation.Nullable Integer balanceSum) {
+  public void setBalanceSum(@jakarta.annotation.Nullable Long balanceSum) {
     this.balanceSum = balanceSum;
   }
 

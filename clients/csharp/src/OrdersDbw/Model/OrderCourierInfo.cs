@@ -36,7 +36,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersDbw.Model
         /// </summary>
         /// <param name="courierInfo">Информация о курьере.</param>
         /// <param name="orderID">ID сборочного задания.</param>
-        public OrderCourierInfo(CourierInfo courierInfo = default(CourierInfo), int orderID = default(int))
+        public OrderCourierInfo(CourierInfo courierInfo = default(CourierInfo), long orderID = default(long))
         {
             this.CourierInfo = courierInfo;
             this.OrderID = orderID;
@@ -57,7 +57,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersDbw.Model
         <example>2876979713</example>
         */
         [DataMember(Name = "orderID", EmitDefaultValue = false)]
-        public int OrderID { get; set; }
+        public long OrderID { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

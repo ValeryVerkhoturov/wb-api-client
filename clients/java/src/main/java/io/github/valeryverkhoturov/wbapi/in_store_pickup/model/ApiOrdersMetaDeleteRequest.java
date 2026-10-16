@@ -102,7 +102,7 @@ public class ApiOrdersMetaDeleteRequest {
 
   @SerializedName(SERIALIZED_NAME_ORDERS_IDS)
   @jakarta.annotation.Nonnull
-  private List<Integer> ordersIds = new ArrayList<>();
+  private List<Long> ordersIds = new ArrayList<>();
 
   public ApiOrdersMetaDeleteRequest() {}
 
@@ -125,12 +125,12 @@ public class ApiOrdersMetaDeleteRequest {
     this.key = key;
   }
 
-  public ApiOrdersMetaDeleteRequest ordersIds(@jakarta.annotation.Nonnull List<Integer> ordersIds) {
+  public ApiOrdersMetaDeleteRequest ordersIds(@jakarta.annotation.Nonnull List<Long> ordersIds) {
     this.ordersIds = ordersIds;
     return this;
   }
 
-  public ApiOrdersMetaDeleteRequest addOrdersIdsItem(Integer ordersIdsItem) {
+  public ApiOrdersMetaDeleteRequest addOrdersIdsItem(Long ordersIdsItem) {
     if (this.ordersIds == null) {
       this.ordersIds = new ArrayList<>();
     }
@@ -144,11 +144,11 @@ public class ApiOrdersMetaDeleteRequest {
    * @return ordersIds
    */
   @jakarta.annotation.Nonnull
-  public List<Integer> getOrdersIds() {
+  public List<Long> getOrdersIds() {
     return ordersIds;
   }
 
-  public void setOrdersIds(@jakarta.annotation.Nonnull List<Integer> ordersIds) {
+  public void setOrdersIds(@jakarta.annotation.Nonnull List<Long> ordersIds) {
     this.ordersIds = ordersIds;
   }
 

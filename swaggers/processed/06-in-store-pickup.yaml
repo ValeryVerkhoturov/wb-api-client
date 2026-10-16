@@ -125,6 +125,7 @@ paths:
           type: integer
           minimum: 1
           maximum: 1000
+          format: int64
       - name: next
         in: query
         description: |
@@ -132,18 +133,21 @@ paths:
         required: true
         schema:
           type: integer
+          format: int64
       - name: dateFrom
         in: query
         description: Дата начала периода в формате Unix timestamp
         required: true
         schema:
           type: integer
+          format: int64
       - name: dateTo
         in: query
         description: Дата конца периода в формате Unix timestamp
         required: true
         schema:
           type: integer
+          format: int64
       responses:
         '200':
           description: Успешно
@@ -1285,6 +1289,7 @@ paths:
                       orderId:
                         type: integer
                         description: ID сборочного задания
+                        format: int64
                       originCountryCode:
                         type: string
                         description: |
@@ -1456,6 +1461,7 @@ components:
           description: ID сборочного задания
           type: integer
           nullable: false
+          format: int64
         data:
           description: |-
             Данные сборочного задания.
@@ -1472,18 +1478,22 @@ components:
               description: Цена продавца в валюте продажи без учёта скидок, умноженная на 100. Предоставляется в информационных целях
               type: integer
               nullable: false
+              format: int64
             convertedOriginalPrice:
               description: Цена продавца в валюте страны продавца без учёта скидок, умноженная на 100. Предоставляется в информационных целях
               type: integer
               nullable: false
+              format: int64
             originalFinalPrice:
               description: Сумма к оплате покупателем в валюте продажи с учетом всех скидок и кэшбека, умноженная на 100. Код валюты продажи указан в поле `currencyCode`. Предоставляется в информационных целях
               type: integer
               nullable: false
+              format: int64
             convertedOriginalFinalPrice:
               description: Сумма к оплате покупателем в валюте страны продавца с учетом всех скидок и кэшбека, умноженная на 100. Предоставляется в информационных целях
               type: integer
               nullable: false
+              format: int64
             currencyCode:
               type: integer
               nullable: false
@@ -1562,6 +1572,7 @@ components:
           type: integer
           nullable: true
           example: 504600
+          format: int64
         requiredMeta:
           type: array
           nullable: true
@@ -1614,23 +1625,27 @@ components:
         id:
           type: integer
           description: ID сборочного задания
+          format: int64
         warehouseId:
           type: integer
           description: |
             ID склада продавца, на который поступило сборочное
             задание
+          format: int64
         nmId:
           type: integer
           description: Артикул WB
+          format: int64
         chrtId:
           type: integer
-          format: uint64
+          format: int64
           description: ID размера товара в системе WB
         price:
           type: integer
           description: |
             Цена в валюте продажи с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100.
             Код валюты продажи указан в поле `currencyCode`. Предоставляется в информационных целях
+          format: int64
         finalPrice:
           description: |-
             Сумма к оплате покупателем в валюте продажи с учётом всех скидок, умноженная на 100.
@@ -1642,10 +1657,12 @@ components:
             Используйте значение поля `finalPrice`, только если в ответе метода [POST /api/marketplace/v3/click-collect/orders/final-price](./docs/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersFinalPrice) вернулось `"data": null`. Во всех остальных случаях используйте значение поля `originalFinalPrice` из ответа указанного метода
           type: integer
           example: 5000
+          format: int64
         convertedPrice:
           description: Цена в валюте страны продавца с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100. Код валюты продажи указан в поле `currencyCode`. Предоставляется в информационных целях
           type: integer
           example: 5000
+          format: int64
         convertedFinalPrice:
           description: |-
             Сумма к оплате покупателем в валюте страны продавца с учетом всех скидок, умноженная на 100.
@@ -1655,6 +1672,7 @@ components:
             Используйте значение поля `convertedFinalPrice`, только если в ответе метода [POST /api/marketplace/v3/click-collect/orders/final-price](./docs/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersFinalPrice) вернулось `"data": null`. Во всех остальных случаях используйте значение поля `convertedOriginalFinalPrice` из ответа того же метода
           type: integer
           example: 5000
+          format: int64
         currencyCode:
           type: integer
           description: Код валюты продажи
@@ -1677,6 +1695,7 @@ components:
           - 1
           - 2
           - 3
+          format: int64
         isZeroOrder:
           type: boolean
           description: |
@@ -1728,9 +1747,10 @@ components:
           - 2
           - 3
           example: 1
+          format: int64
         chrtId:
           type: integer
-          format: uint64
+          format: int64
           description: ID размера товара в системе WB
           example: 12345676
         createdAt:
@@ -1743,6 +1763,7 @@ components:
             Цена в валюте продажи с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100.
             Код валюты продажи указан в поле `currencyCode`. Предоставляется в информационных целях
           example: 5000
+          format: int64
         finalPrice:
           description: |-
             Сумма к оплате покупателем в валюте продажи с учётом всех скидок, умноженная на 100.
@@ -1754,10 +1775,12 @@ components:
             Используйте значение поля `finalPrice`, только если в ответе метода [POST /api/marketplace/v3/click-collect/orders/final-price](./docs/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersFinalPrice) вернулось `"data": null`. Во всех остальных случаях используйте значение поля `originalFinalPrice` из ответа указанного метода
           type: integer
           example: 5000
+          format: int64
         convertedPrice:
           description: Цена в валюте страны продавца с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100. Код валюты продажи указан в поле `currencyCode`. Предоставляется в информационных целях
           type: integer
           example: 5000
+          format: int64
         convertedFinalPrice:
           description: |-
             Сумма к оплате покупателем в валюте страны продавца с учетом всех скидок, умноженная на 100.
@@ -1767,6 +1790,7 @@ components:
             Используйте значение поля `convertedFinalPrice`, только если в ответе метода [POST /api/marketplace/v3/click-collect/orders/final-price](./docs/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersFinalPrice) вернулось `"data": null`. Во всех остальных случаях используйте значение поля `convertedOriginalFinalPrice` из ответа того же метода
           type: integer
           example: 5000
+          format: int64
         currencyCode:
           type: integer
           description: Код валюты продажи
@@ -1781,6 +1805,7 @@ components:
           type: integer
           description: ID сборочного задания
           example: 123456789
+          format: int64
         isZeroOrder:
           type: boolean
           description: |
@@ -1792,6 +1817,7 @@ components:
           type: integer
           description: Артикул WB
           example: 1234567898765
+          format: int64
         orderCode:
           type: string
           description: |
@@ -1835,6 +1861,7 @@ components:
           type: integer
           description: ID склада продавца, на который поступило сборочное задание
           example: 1162157
+          format: int64
         tireService:
           type: boolean
           example: false
@@ -1871,10 +1898,12 @@ components:
           type: integer
           example: 4564152
           description: ID сборочного задания
+          format: int64
         phoneCode:
           type: integer
           example: 3535
           description: Добавочный код
+          format: int64
     api.OrderClientInfoResp:
       type: object
       properties:
@@ -1891,6 +1920,7 @@ components:
             Параметр пагинации. Содержит значение, которое необходимо указать в
             запросе для получения следующего пакета данных
           example: 12345566
+          format: int64
         orders:
           type: array
           description: Список сборочных заданий
@@ -1904,6 +1934,7 @@ components:
           description: Список ID сборочных заданий
           items:
             type: integer
+            format: int64
       example:
         orders:
         - 1234567
@@ -1927,6 +1958,7 @@ components:
           description: ID сборочного задания
           type: integer
           example: 123456
+          format: int64
         sgtins:
           type: array
           minItems: 1
@@ -1957,6 +1989,7 @@ components:
           description: ID сборочного задания
           type: integer
           example: 123456
+          format: int64
         uin:
           type: string
           minLength: 16
@@ -1983,6 +2016,7 @@ components:
           description: ID сборочного задания
           type: integer
           example: 123456
+          format: int64
         imei:
           type: string
           minLength: 15
@@ -2015,6 +2049,7 @@ components:
           description: ID сборочного задания
           type: integer
           example: 123456
+          format: int64
     api.BatchError:
       type: object
       properties:
@@ -2045,6 +2080,7 @@ components:
               - `409`
               - `400`
           example: 404
+          format: int64
         detail:
           type: string
           description: |
@@ -2065,6 +2101,7 @@ components:
               - `400` — `StatusMismatch`
               - `422` — `PriceNotCalculated`
           example: 404
+          format: int64
         detail:
           type: string
           description: |
@@ -2083,6 +2120,7 @@ components:
               - `409`
               - `400`
           example: 404
+          format: int64
         detail:
           type: string
           description: |
@@ -2098,6 +2136,7 @@ components:
           type: integer
           description: Код ошибки
           example: 404
+          format: int64
         detail:
           type: string
           description: |
@@ -2112,6 +2151,7 @@ components:
           type: integer
           description: Код ошибки
           example: 404
+          format: int64
         detail:
           type: string
           description: |
@@ -2133,6 +2173,7 @@ components:
           type: array
           items:
             type: integer
+            format: int64
     api.StatusSetResponses:
       example:
         requestId: 03615778-eb9e-4f55-b4O4-fd3ac0fad2сc
@@ -2180,6 +2221,7 @@ components:
           type: integer
           description: ID сборочного задания
           example: 123456
+          format: int64
         isError:
           type: boolean
           description: Есть ли ошибки
@@ -2196,6 +2238,7 @@ components:
           type: integer
           description: ID сборочного задания
           example: 123456
+          format: int64
         isError:
           type: boolean
           description: Есть ли ошибки
@@ -2236,6 +2279,7 @@ components:
               orderId:
                 type: integer
                 description: ID сборочного задания
+                format: int64
               isError:
                 type: boolean
                 description: Есть ли ошибки
@@ -2245,6 +2289,7 @@ components:
                     code:
                       type: integer
                       description: Код ошибки
+                      format: int64
                     detail:
                       type: string
                       description: |
@@ -2301,6 +2346,7 @@ components:
           type: integer
           description: ID сборочного задания
           example: 123456
+          format: int64
         isError:
           type: boolean
           description: Есть ли ошибки
@@ -2337,6 +2383,7 @@ components:
           type: integer
           description: ID сборочного задания
           example: 123456
+          format: int64
         isError:
           type: boolean
           description: Есть ли ошибки
@@ -2377,6 +2424,7 @@ components:
         orderId:
           type: integer
           description: ID сборочного задания
+          format: int64
         supplierStatus:
           type: string
           description: Статус сборочного задания, установленный продавцом
@@ -2400,6 +2448,7 @@ components:
                 type: integer
                 example: 123456
                 description: ID сборочного задания
+                format: int64
               isError:
                 type: boolean
                 description: Есть ли ошибки
@@ -2415,6 +2464,7 @@ components:
                       type: integer
                       description: Код ошибки
                       example: 404
+                      format: int64
                     detail:
                       type: string
                       example: NotFound
@@ -2511,6 +2561,7 @@ components:
           - 234567
           items:
             type: integer
+            format: int64
     Response4XX:
       type: object
       properties:

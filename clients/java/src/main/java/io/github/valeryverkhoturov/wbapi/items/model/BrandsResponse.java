@@ -46,13 +46,13 @@ public class BrandsResponse {
 
   @SerializedName(SERIALIZED_NAME_NEXT)
   @jakarta.annotation.Nullable
-  private Integer next;
+  private Long next;
 
   public static final String SERIALIZED_NAME_TOTAL = "total";
 
   @SerializedName(SERIALIZED_NAME_TOTAL)
   @jakarta.annotation.Nullable
-  private Integer total;
+  private Long total;
 
   public BrandsResponse() {}
 
@@ -84,7 +84,7 @@ public class BrandsResponse {
     this.brands = brands;
   }
 
-  public BrandsResponse next(@jakarta.annotation.Nullable Integer next) {
+  public BrandsResponse next(@jakarta.annotation.Nullable Long next) {
     this.next = next;
     return this;
   }
@@ -96,15 +96,15 @@ public class BrandsResponse {
    * @return next
    */
   @jakarta.annotation.Nullable
-  public Integer getNext() {
+  public Long getNext() {
     return next;
   }
 
-  public void setNext(@jakarta.annotation.Nullable Integer next) {
+  public void setNext(@jakarta.annotation.Nullable Long next) {
     this.next = next;
   }
 
-  public BrandsResponse total(@jakarta.annotation.Nullable Integer total) {
+  public BrandsResponse total(@jakarta.annotation.Nullable Long total) {
     this.total = total;
     return this;
   }
@@ -115,11 +115,11 @@ public class BrandsResponse {
    * @return total
    */
   @jakarta.annotation.Nullable
-  public Integer getTotal() {
+  public Long getTotal() {
     return total;
   }
 
-  public void setTotal(@jakarta.annotation.Nullable Integer total) {
+  public void setTotal(@jakarta.annotation.Nullable Long total) {
     this.total = total;
   }
 

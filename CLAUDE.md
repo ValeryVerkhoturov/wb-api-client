@@ -155,18 +155,19 @@ Every generated client sends `ValeryVerkhoturov/wb-api-client/<lang>` on every r
 
 1. `inject_bearer_auth` — drops WB's `HeaderApiKey` and installs `BearerAuth` as the only scheme
 2. `fix_untyped_arrays` — `items: {type: string}` for arrays missing an inner type (Go/TS otherwise emit `Array` / `any`)
-3. `inline_top_level_arrays` — inlines every `$ref` to a `type: array` component, collapses `allOf: [array, description-only]` wrappers (openapi-generator mishandles arrays-at-root; runs to fixed point because inlined subtrees can contain further refs)
-4. `rename_digit_prefixed_schemas` — `409SupplyDeliverError` → `Http409SupplyDeliverError` (invalid Go identifier otherwise)
-5. `name_inline_response_schemas` — hoists anonymous inline 4xx/5xx bodies to `<OperationId>Response<code>` (invalid Go identifier otherwise)
-6. `sanitize_non_ascii_enums` — adds `x-enum-varnames` for `["Склад WB", "Склад продавца"]`-style enums (empty JS/Go/Java identifiers otherwise)
-7. `htmlize_descriptions_to_markdown` — every `description` field goes through `markdownify` (`<div>`, `<a href>`, `<br>`, `<ul>`, `<code>` → Markdown for readable doc-comments)
-8. `absolutize_description_links` — prefixes `[…](/openapi/…)` with `https://dev.wildberries.ru` so links in generated docstrings resolve
-9. `drop_date_formats` — strips `format: date` / `date-time` from string schemas (WB returns `""` for unset dates like `fixTariffDateFrom`/`utdUcdDate`, which crashes strict date parsers in every language; plain strings are the honest contract)
-10. `drop_response_required` — deletes `required` arrays from every schema reachable from a response definition, so missing response fields deserialize to defaults (`None` / null / zero value) instead of throwing. Request-body schemas keep their `required` lists — input validation is unaffected
-11. `rename_tags_to_module` — rewrites every operation's `tags` to the module name (`Finances`, `Reports`, …) so each module generates a single well-named API class (`FinancesApi`, …) instead of `Api`/`DefaultApi` (WB tags are Russian; generators sanitize non-ASCII tag names to an empty class-name stem). Original tags are stashed in `x-original-tags` for the docs generator
-12. `add_docs_links` — appends `Library doc: <url>` to every operation description, pointing at the operation's page on the docs site; stock generator templates copy `description` into docstrings/doc-comments in all 7 languages. gen-api-reference.py strips the marker line back out, so the docs markdown is unaffected. Runs last so the HTML→MD and link-absolutizing passes never rewrite it
+3. `widen_integer_formats` — uses `format: int64` for integers without a format, unsigned 32/64-bit formats, or Unix timestamp formats (WB uses these for IDs and millisecond timestamps that overflow signed 32-bit integers); explicit `int32`, `int`, and currency-code formats are preserved
+4. `inline_top_level_arrays` — inlines every `$ref` to a `type: array` component, collapses `allOf: [array, description-only]` wrappers (openapi-generator mishandles arrays-at-root; runs to fixed point because inlined subtrees can contain further refs)
+5. `rename_digit_prefixed_schemas` — `409SupplyDeliverError` → `Http409SupplyDeliverError` (invalid Go identifier otherwise)
+6. `name_inline_response_schemas` — hoists anonymous inline 4xx/5xx bodies to `<OperationId>Response<code>` (invalid Go identifier otherwise)
+7. `sanitize_non_ascii_enums` — adds `x-enum-varnames` for `["Склад WB", "Склад продавца"]`-style enums (empty JS/Go/Java identifiers otherwise)
+8. `htmlize_descriptions_to_markdown` — every `description` field goes through `markdownify` (`<div>`, `<a href>`, `<br>`, `<ul>`, `<code>` → Markdown for readable doc-comments)
+9. `absolutize_description_links` — prefixes `[…](/openapi/…)` with `https://dev.wildberries.ru` so links in generated docstrings resolve
+10. `drop_date_formats` — strips `format: date` / `date-time` from string schemas (WB returns `""` for unset dates like `fixTariffDateFrom`/`utdUcdDate`, which crashes strict date parsers in every language; plain strings are the honest contract)
+11. `drop_response_required` — deletes `required` arrays from every schema reachable from a response definition, so missing response fields deserialize to defaults (`None` / null / zero value) instead of throwing. Request-body schemas keep their `required` lists — input validation is unaffected
+12. `rename_tags_to_module` — rewrites every operation's `tags` to the module name (`Finances`, `Reports`, …) so each module generates a single well-named API class (`FinancesApi`, …) instead of `Api`/`DefaultApi` (WB tags are Russian; generators sanitize non-ASCII tag names to an empty class-name stem). Original tags are stashed in `x-original-tags` for the docs generator
+13. `add_docs_links` — appends `Library doc: <url>` to every operation description, pointing at the operation's page on the docs site; stock generator templates copy `description` into docstrings/doc-comments in all 7 languages. gen-api-reference.py strips the marker line back out, so the docs markdown is unaffected. Runs last so the HTML→MD and link-absolutizing passes never rewrite it
 
-(Counted as "12 passes" if you split HTML→MD and link-absolutize; the pipeline diagram calls it 11 for the sake of the "one big semantic step for descriptions" reading.)
+(Counted as "13 passes" if you split HTML→MD and link-absolutize; the pipeline diagram calls it 12 for the sake of the "one big semantic step for descriptions" reading.)
 
 ## Spec source — GitLab mirror
 

@@ -38,7 +38,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Model
         /// <param name="errors">Детали ошибки.</param>
         /// <param name="isError">Есть ли ошибки.</param>
         /// <param name="orderId">ID сборочного задания.</param>
-        public ApiB2bClientInfoResponse(ApiB2bClientInfo data = default(ApiB2bClientInfo), List<ApiB2bClientInfoResponseErrorsInner> errors = default(List<ApiB2bClientInfoResponseErrorsInner>), bool isError = default(bool), int orderId = default(int))
+        public ApiB2bClientInfoResponse(ApiB2bClientInfo data = default(ApiB2bClientInfo), List<ApiB2bClientInfoResponseErrorsInner> errors = default(List<ApiB2bClientInfoResponseErrorsInner>), bool isError = default(bool), long orderId = default(long))
         {
             this.Data = data;
             this.Errors = errors;
@@ -77,7 +77,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Model
         <example>123456</example>
         */
         [DataMember(Name = "orderId", EmitDefaultValue = false)]
-        public int OrderId { get; set; }
+        public long OrderId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -38,7 +38,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <param name="chrtIds">ID размеров. Используется только для указанных в массиве &#x60;nmIds&#x60; артикулов.</param>
         /// <param name="limit">Количество строк в ответе (default to 250000).</param>
         /// <param name="offset">Сколько элементов пропустить. Например, для значения &#x60;10&#x60; ответ начнётся с 11 элемента (default to 0).</param>
-        public InventoryRequest(List<long> nmIds = default(List<long>), List<int> chrtIds = default(List<int>), int limit = 250000, int offset = 0)
+        public InventoryRequest(List<long> nmIds = default(List<long>), List<long> chrtIds = default(List<long>), long limit = 250000, long offset = 0)
         {
             this.NmIds = nmIds;
             this.ChrtIds = chrtIds;
@@ -64,7 +64,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         <example>[111222333,91663228]</example>
         */
         [DataMember(Name = "chrtIds", EmitDefaultValue = false)]
-        public List<int> ChrtIds { get; set; }
+        public List<long> ChrtIds { get; set; }
 
         /// <summary>
         /// Количество строк в ответе
@@ -74,7 +74,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         <example>250000</example>
         */
         [DataMember(Name = "limit", EmitDefaultValue = false)]
-        public int Limit { get; set; }
+        public long Limit { get; set; }
 
         /// <summary>
         /// Сколько элементов пропустить. Например, для значения &#x60;10&#x60; ответ начнётся с 11 элемента
@@ -84,7 +84,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         <example>500000</example>
         */
         [DataMember(Name = "offset", EmitDefaultValue = false)]
-        public int Offset { get; set; }
+        public long Offset { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -118,10 +118,10 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <returns>Validation Result</returns>
         IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Limit (int) maximum
-            if (this.Limit > (int)250000)
+            // Limit (long) maximum
+            if (this.Limit > (long)250000)
             {
-                yield return new ValidationResult("Invalid value for Limit, must be a value less than or equal to 250000.", new [] { "Limit" });
+                yield return new ValidationResult("Invalid value for Limit, must be a value less than or equal to 250000.", new[] { "Limit" });
             }
 
             yield break;

@@ -37,7 +37,7 @@ public class ApiOrdersErrorResponse {
 
   @SerializedName(SERIALIZED_NAME_CODE)
   @jakarta.annotation.Nullable
-  private Integer code;
+  private Long code;
 
   public static final String SERIALIZED_NAME_DETAIL = "detail";
 
@@ -47,7 +47,7 @@ public class ApiOrdersErrorResponse {
 
   public ApiOrdersErrorResponse() {}
 
-  public ApiOrdersErrorResponse code(@jakarta.annotation.Nullable Integer code) {
+  public ApiOrdersErrorResponse code(@jakarta.annotation.Nullable Long code) {
     this.code = code;
     return this;
   }
@@ -58,11 +58,11 @@ public class ApiOrdersErrorResponse {
    * @return code
    */
   @jakarta.annotation.Nullable
-  public Integer getCode() {
+  public Long getCode() {
     return code;
   }
 
-  public void setCode(@jakarta.annotation.Nullable Integer code) {
+  public void setCode(@jakarta.annotation.Nullable Long code) {
     this.code = code;
   }
 

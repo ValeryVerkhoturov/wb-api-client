@@ -95,7 +95,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <param name="includeSearchTexts">Показать данные по поисковым запросам без учёта подменного артикула (default to true).</param>
         /// <param name="orderBy">orderBy (required).</param>
         /// <param name="limit">limit (required).</param>
-        public ItemSearchTextsRequest(Period currentPeriod = default(Period), PastPeriod pastPeriod = default(PastPeriod), List<int> nmIds = default(List<int>), TopOrderByEnum topOrderBy = default(TopOrderByEnum), bool includeSubstitutedSKUs = true, bool includeSearchTexts = true, OrderByGrTe orderBy = default(OrderByGrTe), TextLimit limit = default(TextLimit))
+        public ItemSearchTextsRequest(Period currentPeriod = default(Period), PastPeriod pastPeriod = default(PastPeriod), List<long> nmIds = default(List<long>), TopOrderByEnum topOrderBy = default(TopOrderByEnum), bool includeSubstitutedSKUs = true, bool includeSearchTexts = true, OrderByGrTe orderBy = default(OrderByGrTe), TextLimit limit = default(TextLimit))
         {
             // to ensure "currentPeriod" is required (not null)
             if (currentPeriod == null)
@@ -147,7 +147,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         <example>[162579635,166699779]</example>
         */
         [DataMember(Name = "nmIds", IsRequired = true, EmitDefaultValue = true)]
-        public List<int> NmIds { get; set; }
+        public List<long> NmIds { get; set; }
 
         /// <summary>
         /// Показать данные по прямым запросам с [подменным артикулом](https://seller.wildberries.ru/help-center/article/A-524)

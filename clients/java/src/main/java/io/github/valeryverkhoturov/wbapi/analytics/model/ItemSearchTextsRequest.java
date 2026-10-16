@@ -55,7 +55,7 @@ public class ItemSearchTextsRequest {
 
   @SerializedName(SERIALIZED_NAME_NM_IDS)
   @jakarta.annotation.Nonnull
-  private List<Integer> nmIds = new ArrayList<>();
+  private List<Long> nmIds = new ArrayList<>();
 
   /**
    * Фильтрация по поисковым запросам, по которым больше всего: - &#x60;openCard&#x60; — перешли в
@@ -188,12 +188,12 @@ public class ItemSearchTextsRequest {
     this.pastPeriod = pastPeriod;
   }
 
-  public ItemSearchTextsRequest nmIds(@jakarta.annotation.Nonnull List<Integer> nmIds) {
+  public ItemSearchTextsRequest nmIds(@jakarta.annotation.Nonnull List<Long> nmIds) {
     this.nmIds = nmIds;
     return this;
   }
 
-  public ItemSearchTextsRequest addNmIdsItem(Integer nmIdsItem) {
+  public ItemSearchTextsRequest addNmIdsItem(Long nmIdsItem) {
     if (this.nmIds == null) {
       this.nmIds = new ArrayList<>();
     }
@@ -207,11 +207,11 @@ public class ItemSearchTextsRequest {
    * @return nmIds
    */
   @jakarta.annotation.Nonnull
-  public List<Integer> getNmIds() {
+  public List<Long> getNmIds() {
     return nmIds;
   }
 
-  public void setNmIds(@jakarta.annotation.Nonnull List<Integer> nmIds) {
+  public void setNmIds(@jakarta.annotation.Nonnull List<Long> nmIds) {
     this.nmIds = nmIds;
   }
 

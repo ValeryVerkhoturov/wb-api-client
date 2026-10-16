@@ -46,7 +46,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Model
         /// <param name="readyForSaleQuantity">Поступило в продажу, шт.</param>
         /// <param name="acceptedQuantity">Принято, шт.</param>
         /// <param name="unloadingQuantity">Количество товара на раскладке, шт.</param>
-        public ModelsGoodInSupply(string barcode = default(string), string vendorCode = default(string), int nmID = default(int), bool needKiz = default(bool), string tnved = default(string), string techSize = default(string), string color = default(string), int? supplierBoxAmount = default(int?), int quantity = default(int), int? readyForSaleQuantity = default(int?), int? acceptedQuantity = default(int?), int? unloadingQuantity = default(int?))
+        public ModelsGoodInSupply(string barcode = default(string), string vendorCode = default(string), long nmID = default(long), bool needKiz = default(bool), string tnved = default(string), string techSize = default(string), string color = default(string), long? supplierBoxAmount = default(long?), long quantity = default(long), long? readyForSaleQuantity = default(long?), long? acceptedQuantity = default(long?), long? unloadingQuantity = default(long?))
         {
             this.Barcode = barcode;
             this.VendorCode = vendorCode;
@@ -81,7 +81,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Model
         /// </summary>
         /// <value>Артикул WB</value>
         [DataMember(Name = "nmID", EmitDefaultValue = false)]
-        public int NmID { get; set; }
+        public long NmID { get; set; }
 
         /// <summary>
         /// Нужен ли [код маркировки Честного знака](https://честныйзнак.рф/) для этого товара:   - &#x60;false&#x60; — не нужен   - &#x60;true&#x60; — нужен 
@@ -116,35 +116,35 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Model
         /// </summary>
         /// <value>Указано в упаковке, шт</value>
         [DataMember(Name = "supplierBoxAmount", EmitDefaultValue = true)]
-        public int? SupplierBoxAmount { get; set; }
+        public long? SupplierBoxAmount { get; set; }
 
         /// <summary>
         /// Указано в поставке/заказе, шт
         /// </summary>
         /// <value>Указано в поставке/заказе, шт</value>
         [DataMember(Name = "quantity", EmitDefaultValue = false)]
-        public int Quantity { get; set; }
+        public long Quantity { get; set; }
 
         /// <summary>
         /// Поступило в продажу, шт
         /// </summary>
         /// <value>Поступило в продажу, шт</value>
         [DataMember(Name = "readyForSaleQuantity", EmitDefaultValue = true)]
-        public int? ReadyForSaleQuantity { get; set; }
+        public long? ReadyForSaleQuantity { get; set; }
 
         /// <summary>
         /// Принято, шт
         /// </summary>
         /// <value>Принято, шт</value>
         [DataMember(Name = "acceptedQuantity", EmitDefaultValue = true)]
-        public int? AcceptedQuantity { get; set; }
+        public long? AcceptedQuantity { get; set; }
 
         /// <summary>
         /// Количество товара на раскладке, шт
         /// </summary>
         /// <value>Количество товара на раскладке, шт</value>
         [DataMember(Name = "unloadingQuantity", EmitDefaultValue = true)]
-        public int? UnloadingQuantity { get; set; }
+        public long? UnloadingQuantity { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

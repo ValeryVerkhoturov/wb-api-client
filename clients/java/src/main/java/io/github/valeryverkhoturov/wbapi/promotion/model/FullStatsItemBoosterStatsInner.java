@@ -37,7 +37,7 @@ public class FullStatsItemBoosterStatsInner {
 
   @SerializedName(SERIALIZED_NAME_AVG_POSITION)
   @jakarta.annotation.Nullable
-  private Integer avgPosition;
+  private Long avgPosition;
 
   public static final String SERIALIZED_NAME_DATE = "date";
 
@@ -49,12 +49,11 @@ public class FullStatsItemBoosterStatsInner {
 
   @SerializedName(SERIALIZED_NAME_NM)
   @jakarta.annotation.Nullable
-  private Integer nm;
+  private Long nm;
 
   public FullStatsItemBoosterStatsInner() {}
 
-  public FullStatsItemBoosterStatsInner avgPosition(
-      @jakarta.annotation.Nullable Integer avgPosition) {
+  public FullStatsItemBoosterStatsInner avgPosition(@jakarta.annotation.Nullable Long avgPosition) {
     this.avgPosition = avgPosition;
     return this;
   }
@@ -65,11 +64,11 @@ public class FullStatsItemBoosterStatsInner {
    * @return avgPosition
    */
   @jakarta.annotation.Nullable
-  public Integer getAvgPosition() {
+  public Long getAvgPosition() {
     return avgPosition;
   }
 
-  public void setAvgPosition(@jakarta.annotation.Nullable Integer avgPosition) {
+  public void setAvgPosition(@jakarta.annotation.Nullable Long avgPosition) {
     this.avgPosition = avgPosition;
   }
 
@@ -92,7 +91,7 @@ public class FullStatsItemBoosterStatsInner {
     this.date = date;
   }
 
-  public FullStatsItemBoosterStatsInner nm(@jakarta.annotation.Nullable Integer nm) {
+  public FullStatsItemBoosterStatsInner nm(@jakarta.annotation.Nullable Long nm) {
     this.nm = nm;
     return this;
   }
@@ -103,11 +102,11 @@ public class FullStatsItemBoosterStatsInner {
    * @return nm
    */
   @jakarta.annotation.Nullable
-  public Integer getNm() {
+  public Long getNm() {
     return nm;
   }
 
-  public void setNm(@jakarta.annotation.Nullable Integer nm) {
+  public void setNm(@jakarta.annotation.Nullable Long nm) {
     this.nm = nm;
   }
 

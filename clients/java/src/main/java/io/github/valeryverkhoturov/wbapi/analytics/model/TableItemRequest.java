@@ -153,13 +153,13 @@ public class TableItemRequest {
 
   @SerializedName(SERIALIZED_NAME_LIMIT)
   @jakarta.annotation.Nullable
-  private Integer limit = 100;
+  private Long limit = 100l;
 
   public static final String SERIALIZED_NAME_OFFSET = "offset";
 
   @SerializedName(SERIALIZED_NAME_OFFSET)
   @jakarta.annotation.Nonnull
-  private Integer offset;
+  private Long offset;
 
   public TableItemRequest() {}
 
@@ -355,7 +355,7 @@ public class TableItemRequest {
     this.availabilityFilters = availabilityFilters;
   }
 
-  public TableItemRequest limit(@jakarta.annotation.Nullable Integer limit) {
+  public TableItemRequest limit(@jakarta.annotation.Nullable Long limit) {
     this.limit = limit;
     return this;
   }
@@ -366,15 +366,15 @@ public class TableItemRequest {
    * @return limit
    */
   @jakarta.annotation.Nullable
-  public Integer getLimit() {
+  public Long getLimit() {
     return limit;
   }
 
-  public void setLimit(@jakarta.annotation.Nullable Integer limit) {
+  public void setLimit(@jakarta.annotation.Nullable Long limit) {
     this.limit = limit;
   }
 
-  public TableItemRequest offset(@jakarta.annotation.Nonnull Integer offset) {
+  public TableItemRequest offset(@jakarta.annotation.Nonnull Long offset) {
     this.offset = offset;
     return this;
   }
@@ -385,11 +385,11 @@ public class TableItemRequest {
    * @return offset
    */
   @jakarta.annotation.Nonnull
-  public Integer getOffset() {
+  public Long getOffset() {
     return offset;
   }
 
-  public void setOffset(@jakarta.annotation.Nonnull Integer offset) {
+  public void setOffset(@jakarta.annotation.Nonnull Long offset) {
     this.offset = offset;
   }
 

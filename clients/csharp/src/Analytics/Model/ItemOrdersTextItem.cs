@@ -37,7 +37,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <param name="text">Текст поискового запроса.</param>
         /// <param name="frequency">Количество обращений с поисковым запросом.</param>
         /// <param name="dateItems">Статистика по датам.</param>
-        public ItemOrdersTextItem(string text = default(string), int frequency = default(int), List<ItemOrdersMetrics> dateItems = default(List<ItemOrdersMetrics>))
+        public ItemOrdersTextItem(string text = default(string), long frequency = default(long), List<ItemOrdersMetrics> dateItems = default(List<ItemOrdersMetrics>))
         {
             this.Text = text;
             this.Frequency = frequency;
@@ -56,7 +56,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// </summary>
         /// <value>Количество обращений с поисковым запросом</value>
         [DataMember(Name = "frequency", EmitDefaultValue = false)]
-        public int Frequency { get; set; }
+        public long Frequency { get; set; }
 
         /// <summary>
         /// Статистика по датам

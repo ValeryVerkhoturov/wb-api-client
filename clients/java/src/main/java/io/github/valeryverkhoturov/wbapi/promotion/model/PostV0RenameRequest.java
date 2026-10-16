@@ -37,7 +37,7 @@ public class PostV0RenameRequest {
 
   @SerializedName(SERIALIZED_NAME_ADVERT_ID)
   @jakarta.annotation.Nonnull
-  private Integer advertId;
+  private Long advertId;
 
   public static final String SERIALIZED_NAME_NAME = "name";
 
@@ -47,7 +47,7 @@ public class PostV0RenameRequest {
 
   public PostV0RenameRequest() {}
 
-  public PostV0RenameRequest advertId(@jakarta.annotation.Nonnull Integer advertId) {
+  public PostV0RenameRequest advertId(@jakarta.annotation.Nonnull Long advertId) {
     this.advertId = advertId;
     return this;
   }
@@ -58,11 +58,11 @@ public class PostV0RenameRequest {
    * @return advertId
    */
   @jakarta.annotation.Nonnull
-  public Integer getAdvertId() {
+  public Long getAdvertId() {
     return advertId;
   }
 
-  public void setAdvertId(@jakarta.annotation.Nonnull Integer advertId) {
+  public void setAdvertId(@jakarta.annotation.Nonnull Long advertId) {
     this.advertId = advertId;
   }
 

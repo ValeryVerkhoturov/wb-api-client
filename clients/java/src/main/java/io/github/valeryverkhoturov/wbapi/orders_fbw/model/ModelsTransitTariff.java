@@ -65,7 +65,7 @@ public class ModelsTransitTariff {
 
   @SerializedName(SERIALIZED_NAME_PALLET_TARIFF)
   @jakarta.annotation.Nullable
-  private Integer palletTariff;
+  private Long palletTariff;
 
   public ModelsTransitTariff() {}
 
@@ -157,7 +157,7 @@ public class ModelsTransitTariff {
     this.boxTariff = boxTariff;
   }
 
-  public ModelsTransitTariff palletTariff(@jakarta.annotation.Nullable Integer palletTariff) {
+  public ModelsTransitTariff palletTariff(@jakarta.annotation.Nullable Long palletTariff) {
     this.palletTariff = palletTariff;
     return this;
   }
@@ -168,11 +168,11 @@ public class ModelsTransitTariff {
    * @return palletTariff
    */
   @jakarta.annotation.Nullable
-  public Integer getPalletTariff() {
+  public Long getPalletTariff() {
     return palletTariff;
   }
 
-  public void setPalletTariff(@jakarta.annotation.Nullable Integer palletTariff) {
+  public void setPalletTariff(@jakarta.annotation.Nullable Long palletTariff) {
     this.palletTariff = palletTariff;
   }
 

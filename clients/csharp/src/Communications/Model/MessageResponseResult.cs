@@ -37,7 +37,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         /// <param name="addTime">Дата и время создания чата.</param>
         /// <param name="chatID">ID чата.</param>
         /// <param name="sign">Подпись чата.</param>
-        public MessageResponseResult(int addTime = default(int), string chatID = default(string), string sign = default(string))
+        public MessageResponseResult(long addTime = default(long), string chatID = default(string), string sign = default(string))
         {
             this.AddTime = addTime;
             this.ChatID = chatID;
@@ -49,7 +49,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         /// </summary>
         /// <value>Дата и время создания чата</value>
         [DataMember(Name = "addTime", EmitDefaultValue = false)]
-        public int AddTime { get; set; }
+        public long AddTime { get; set; }
 
         /// <summary>
         /// ID чата

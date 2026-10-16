@@ -37,7 +37,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// <param name="trashedAt">Дата и время, с которых надо запрашивать следующий список карточек товаров.</param>
         /// <param name="nmID">Артикул WB, с которого надо запрашивать следующий список карточек товаров.</param>
         /// <param name="total">Количество возвращённых карточек товаров.</param>
-        public PostV2GetCardsTrashResponse200Cursor(string trashedAt = default(string), int nmID = default(int), int total = default(int))
+        public PostV2GetCardsTrashResponse200Cursor(string trashedAt = default(string), long nmID = default(long), long total = default(long))
         {
             this.TrashedAt = trashedAt;
             this.NmID = nmID;
@@ -56,14 +56,14 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// </summary>
         /// <value>Артикул WB, с которого надо запрашивать следующий список карточек товаров</value>
         [DataMember(Name = "nmID", EmitDefaultValue = false)]
-        public int NmID { get; set; }
+        public long NmID { get; set; }
 
         /// <summary>
         /// Количество возвращённых карточек товаров
         /// </summary>
         /// <value>Количество возвращённых карточек товаров</value>
         [DataMember(Name = "total", EmitDefaultValue = false)]
-        public int Total { get; set; }
+        public long Total { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

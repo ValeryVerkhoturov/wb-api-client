@@ -59,7 +59,7 @@ public class GetV1WarehouseRemainsTasksTaskIdDownloadResponse200Inner {
 
   @SerializedName(SERIALIZED_NAME_NM_ID)
   @jakarta.annotation.Nullable
-  private Integer nmId;
+  private Long nmId;
 
   public static final String SERIALIZED_NAME_BARCODE = "barcode";
 
@@ -149,7 +149,7 @@ public class GetV1WarehouseRemainsTasksTaskIdDownloadResponse200Inner {
   }
 
   public GetV1WarehouseRemainsTasksTaskIdDownloadResponse200Inner nmId(
-      @jakarta.annotation.Nullable Integer nmId) {
+      @jakarta.annotation.Nullable Long nmId) {
     this.nmId = nmId;
     return this;
   }
@@ -160,11 +160,11 @@ public class GetV1WarehouseRemainsTasksTaskIdDownloadResponse200Inner {
    * @return nmId
    */
   @jakarta.annotation.Nullable
-  public Integer getNmId() {
+  public Long getNmId() {
     return nmId;
   }
 
-  public void setNmId(@jakarta.annotation.Nullable Integer nmId) {
+  public void setNmId(@jakarta.annotation.Nullable Long nmId) {
     this.nmId = nmId;
   }
 

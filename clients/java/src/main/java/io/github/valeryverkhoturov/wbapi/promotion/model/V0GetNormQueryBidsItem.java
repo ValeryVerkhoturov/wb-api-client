@@ -37,13 +37,13 @@ public class V0GetNormQueryBidsItem {
 
   @SerializedName(SERIALIZED_NAME_ADVERT_ID)
   @jakarta.annotation.Nullable
-  private Integer advertId;
+  private Long advertId;
 
   public static final String SERIALIZED_NAME_NM_ID = "nm_id";
 
   @SerializedName(SERIALIZED_NAME_NM_ID)
   @jakarta.annotation.Nullable
-  private Integer nmId;
+  private Long nmId;
 
   public static final String SERIALIZED_NAME_NORM_QUERY = "norm_query";
 
@@ -55,13 +55,13 @@ public class V0GetNormQueryBidsItem {
 
   @SerializedName(SERIALIZED_NAME_BID)
   @jakarta.annotation.Nullable
-  private Integer bid;
+  private Long bid;
 
   public static final String SERIALIZED_NAME_BID_KOPECKS = "bid_kopecks";
 
   @SerializedName(SERIALIZED_NAME_BID_KOPECKS)
   @jakarta.annotation.Nullable
-  private Integer bidKopecks;
+  private Long bidKopecks;
 
   public static final String SERIALIZED_NAME_CURRENCY = "currency";
 
@@ -71,7 +71,7 @@ public class V0GetNormQueryBidsItem {
 
   public V0GetNormQueryBidsItem() {}
 
-  public V0GetNormQueryBidsItem advertId(@jakarta.annotation.Nullable Integer advertId) {
+  public V0GetNormQueryBidsItem advertId(@jakarta.annotation.Nullable Long advertId) {
     this.advertId = advertId;
     return this;
   }
@@ -82,15 +82,15 @@ public class V0GetNormQueryBidsItem {
    * @return advertId
    */
   @jakarta.annotation.Nullable
-  public Integer getAdvertId() {
+  public Long getAdvertId() {
     return advertId;
   }
 
-  public void setAdvertId(@jakarta.annotation.Nullable Integer advertId) {
+  public void setAdvertId(@jakarta.annotation.Nullable Long advertId) {
     this.advertId = advertId;
   }
 
-  public V0GetNormQueryBidsItem nmId(@jakarta.annotation.Nullable Integer nmId) {
+  public V0GetNormQueryBidsItem nmId(@jakarta.annotation.Nullable Long nmId) {
     this.nmId = nmId;
     return this;
   }
@@ -101,11 +101,11 @@ public class V0GetNormQueryBidsItem {
    * @return nmId
    */
   @jakarta.annotation.Nullable
-  public Integer getNmId() {
+  public Long getNmId() {
     return nmId;
   }
 
-  public void setNmId(@jakarta.annotation.Nullable Integer nmId) {
+  public void setNmId(@jakarta.annotation.Nullable Long nmId) {
     this.nmId = nmId;
   }
 
@@ -128,7 +128,7 @@ public class V0GetNormQueryBidsItem {
     this.normQuery = normQuery;
   }
 
-  public V0GetNormQueryBidsItem bid(@jakarta.annotation.Nullable Integer bid) {
+  public V0GetNormQueryBidsItem bid(@jakarta.annotation.Nullable Long bid) {
     this.bid = bid;
     return this;
   }
@@ -140,15 +140,15 @@ public class V0GetNormQueryBidsItem {
    * @return bid
    */
   @jakarta.annotation.Nullable
-  public Integer getBid() {
+  public Long getBid() {
     return bid;
   }
 
-  public void setBid(@jakarta.annotation.Nullable Integer bid) {
+  public void setBid(@jakarta.annotation.Nullable Long bid) {
     this.bid = bid;
   }
 
-  public V0GetNormQueryBidsItem bidKopecks(@jakarta.annotation.Nullable Integer bidKopecks) {
+  public V0GetNormQueryBidsItem bidKopecks(@jakarta.annotation.Nullable Long bidKopecks) {
     this.bidKopecks = bidKopecks;
     return this;
   }
@@ -160,11 +160,11 @@ public class V0GetNormQueryBidsItem {
    * @return bidKopecks
    */
   @jakarta.annotation.Nullable
-  public Integer getBidKopecks() {
+  public Long getBidKopecks() {
     return bidKopecks;
   }
 
-  public void setBidKopecks(@jakarta.annotation.Nullable Integer bidKopecks) {
+  public void setBidKopecks(@jakarta.annotation.Nullable Long bidKopecks) {
     this.bidKopecks = bidKopecks;
   }
 

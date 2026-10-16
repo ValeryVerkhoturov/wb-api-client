@@ -49,7 +49,7 @@ public class GetV1FeedbacksResponse200DataFeedbacksInnerVideo {
 
   @SerializedName(SERIALIZED_NAME_DURATION_SEC)
   @jakarta.annotation.Nullable
-  private Integer durationSec;
+  private Long durationSec;
 
   public GetV1FeedbacksResponse200DataFeedbacksInnerVideo() {}
 
@@ -94,7 +94,7 @@ public class GetV1FeedbacksResponse200DataFeedbacksInnerVideo {
   }
 
   public GetV1FeedbacksResponse200DataFeedbacksInnerVideo durationSec(
-      @jakarta.annotation.Nullable Integer durationSec) {
+      @jakarta.annotation.Nullable Long durationSec) {
     this.durationSec = durationSec;
     return this;
   }
@@ -105,11 +105,11 @@ public class GetV1FeedbacksResponse200DataFeedbacksInnerVideo {
    * @return durationSec
    */
   @jakarta.annotation.Nullable
-  public Integer getDurationSec() {
+  public Long getDurationSec() {
     return durationSec;
   }
 
-  public void setDurationSec(@jakarta.annotation.Nullable Integer durationSec) {
+  public void setDurationSec(@jakarta.annotation.Nullable Long durationSec) {
     this.durationSec = durationSec;
   }
 

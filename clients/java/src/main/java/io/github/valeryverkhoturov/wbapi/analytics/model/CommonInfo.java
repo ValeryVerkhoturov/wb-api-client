@@ -49,7 +49,7 @@ public class CommonInfo {
 
   @SerializedName(SERIALIZED_NAME_TOTAL_PRODUCTS)
   @jakarta.annotation.Nullable
-  private Integer totalProducts;
+  private Long totalProducts;
 
   public CommonInfo() {}
 
@@ -95,7 +95,7 @@ public class CommonInfo {
     this.advertisedProducts = advertisedProducts;
   }
 
-  public CommonInfo totalProducts(@jakarta.annotation.Nullable Integer totalProducts) {
+  public CommonInfo totalProducts(@jakarta.annotation.Nullable Long totalProducts) {
     this.totalProducts = totalProducts;
     return this;
   }
@@ -106,11 +106,11 @@ public class CommonInfo {
    * @return totalProducts
    */
   @jakarta.annotation.Nullable
-  public Integer getTotalProducts() {
+  public Long getTotalProducts() {
     return totalProducts;
   }
 
-  public void setTotalProducts(@jakarta.annotation.Nullable Integer totalProducts) {
+  public void setTotalProducts(@jakarta.annotation.Nullable Long totalProducts) {
     this.totalProducts = totalProducts;
   }
 

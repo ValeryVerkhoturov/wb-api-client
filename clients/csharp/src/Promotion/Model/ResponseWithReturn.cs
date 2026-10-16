@@ -36,7 +36,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <param name="total">Размер обновлённого бюджета.</param>
         /// <param name="currency">Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances).</param>
-        public ResponseWithReturn(int total = default(int), string currency = default(string))
+        public ResponseWithReturn(long total = default(long), string currency = default(string))
         {
             this.Total = total;
             this.Currency = currency;
@@ -47,7 +47,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <value>Размер обновлённого бюджета</value>
         [DataMember(Name = "total", EmitDefaultValue = false)]
-        public int Total { get; set; }
+        public long Total { get; set; }
 
         /// <summary>
         /// Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)

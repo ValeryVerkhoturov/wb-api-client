@@ -35,13 +35,13 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="TextLimit" /> class
-        /// with the <see cref="int" /> class
+        /// with the <see cref="long" /> class
         /// </summary>
-        /// <param name="actualInstance">An instance of int.</param>
-        public TextLimit(int actualInstance)
+        /// <param name="actualInstance">An instance of long.</param>
+        public TextLimit(long actualInstance)
         {
             this.IsNullable = false;
-            this.SchemaType= "oneOf";
+            this.SchemaType = "oneOf";
             this.ActualInstance = actualInstance;
         }
 
@@ -59,25 +59,25 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
             }
             set
             {
-                if (value.GetType() == typeof(int) || value is int)
+                if (value.GetType() == typeof(long) || value is long)
                 {
                     this._actualInstance = value;
                 }
                 else
                 {
-                    throw new ArgumentException("Invalid instance found. Must be the following types: int");
+                    throw new ArgumentException("Invalid instance found. Must be the following types: long");
                 }
             }
         }
 
         /// <summary>
-        /// Get the actual instance of `int`. If the actual instance is not `int`,
+        /// Get the actual instance of `long`. If the actual instance is not `long`,
         /// the InvalidClassException will be thrown
         /// </summary>
-        /// <returns>An instance of int</returns>
-        public int GetInt()
+        /// <returns>An instance of long</returns>
+        public long GetLong()
         {
-            return (int)this.ActualInstance;
+            return (long)this.ActualInstance;
         }
 
         /// <summary>
@@ -121,21 +121,21 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
             try
             {
                 // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
-                if (typeof(int).GetProperty("AdditionalProperties") == null)
+                if (typeof(long).GetProperty("AdditionalProperties") == null)
                 {
-                    newTextLimit = new TextLimit(JsonConvert.DeserializeObject<int>(jsonString, TextLimit.SerializerSettings));
+                    newTextLimit = new TextLimit(JsonConvert.DeserializeObject<long>(jsonString, TextLimit.SerializerSettings));
                 }
                 else
                 {
-                    newTextLimit = new TextLimit(JsonConvert.DeserializeObject<int>(jsonString, TextLimit.AdditionalPropertiesSerializerSettings));
+                    newTextLimit = new TextLimit(JsonConvert.DeserializeObject<long>(jsonString, TextLimit.AdditionalPropertiesSerializerSettings));
                 }
-                matchedTypes.Add("int");
+                matchedTypes.Add("long");
                 match++;
             }
             catch (Exception exception)
             {
                 // deserialization failed, try the next one
-                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into int: {1}", jsonString, exception.ToString()));
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into long: {1}", jsonString, exception.ToString()));
             }
 
             if (match == 0)
@@ -189,10 +189,8 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <returns>The object converted from the JSON string</returns>
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
-            switch(reader.TokenType) 
+            switch (reader.TokenType)
             {
-                case JsonToken.Integer: 
-                    return new TextLimit(Convert.ToInt32(reader.Value));
                 case JsonToken.StartObject:
                     return TextLimit.FromJson(JObject.Load(reader).ToString(Formatting.None));
                 case JsonToken.StartArray:

@@ -41,7 +41,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <param name="planPrice">Плановая цена (цена во время акции).</param>
         /// <param name="discount">Текущая скидка.</param>
         /// <param name="planDiscount">Рекомендуемая скидка для участия в акции.</param>
-        public PromoItemsList(int id = default(int), bool inAction = default(bool), float price = default(float), string currencyCode = default(string), float planPrice = default(float), int discount = default(int), int planDiscount = default(int))
+        public PromoItemsList(long id = default(long), bool inAction = default(bool), float price = default(float), string currencyCode = default(string), float planPrice = default(float), long discount = default(long), long planDiscount = default(long))
         {
             this.Id = id;
             this.InAction = inAction;
@@ -60,7 +60,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         <example>162579635</example>
         */
         [DataMember(Name = "id", EmitDefaultValue = false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// Участвует в акции:   - &#x60;true&#x60; — да   - &#x60;false&#x60; — нет 
@@ -110,7 +110,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         <example>15</example>
         */
         [DataMember(Name = "discount", EmitDefaultValue = false)]
-        public int Discount { get; set; }
+        public long Discount { get; set; }
 
         /// <summary>
         /// Рекомендуемая скидка для участия в акции
@@ -120,7 +120,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         <example>34</example>
         */
         [DataMember(Name = "planDiscount", EmitDefaultValue = false)]
-        public int PlanDiscount { get; set; }
+        public long PlanDiscount { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

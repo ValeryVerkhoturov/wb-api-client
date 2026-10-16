@@ -88,7 +88,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Model
         /// <param name="statusID">ID статуса поставки:   - &#x60;1&#x60; — Не запланировано   - &#x60;2&#x60; — Запланировано   - &#x60;3&#x60; — Отгрузка разрешена   - &#x60;4&#x60; — Идёт приёмка   - &#x60;5&#x60; — Принято   - &#x60;6&#x60; — Отгружено на воротах .</param>
         /// <param name="boxTypeID">ID типа поставки:   - &#x60;0&#x60; — Без коробов (виртуальная поставка)   - &#x60;1&#x60; и &#x60;2&#x60; — Короба   - &#x60;5&#x60; — Монопаллеты   - &#x60;6&#x60; — Суперсейф .</param>
         /// <param name="isBoxOnPallet">Тип поставки — **Поштучная палета**:   - &#x60;true&#x60; — да   - &#x60;false&#x60; — нет    Поле возвращается только при &#x60;\&quot;boxTypeID\&quot;: 2&#x60; .</param>
-        public ModelsSupply(string phone = default(string), int? supplyID = default(int?), int preorderID = default(int), string createDate = default(string), string supplyDate = default(string), string factDate = default(string), string updatedDate = default(string), StatusIDEnum? statusID = default(StatusIDEnum?), Object boxTypeID = default(Object), bool isBoxOnPallet = default(bool))
+        public ModelsSupply(string phone = default(string), long? supplyID = default(long?), long preorderID = default(long), string createDate = default(string), string supplyDate = default(string), string factDate = default(string), string updatedDate = default(string), StatusIDEnum? statusID = default(StatusIDEnum?), Object boxTypeID = default(Object), bool isBoxOnPallet = default(bool))
         {
             this.Phone = phone;
             this.SupplyID = supplyID;
@@ -114,14 +114,14 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Model
         /// </summary>
         /// <value>ID поставки. Если &#x60;null&#x60;, это заказ, тогда используйте значение поля &#x60;preorderID&#x60;</value>
         [DataMember(Name = "supplyID", EmitDefaultValue = true)]
-        public int? SupplyID { get; set; }
+        public long? SupplyID { get; set; }
 
         /// <summary>
         /// ID заказа (незапланированная поставка). Для всех виртуальных поставок будет &#x60;0&#x60;
         /// </summary>
         /// <value>ID заказа (незапланированная поставка). Для всех виртуальных поставок будет &#x60;0&#x60;</value>
         [DataMember(Name = "preorderID", EmitDefaultValue = false)]
-        public int PreorderID { get; set; }
+        public long PreorderID { get; set; }
 
         /// <summary>
         /// Дата и время создания поставки

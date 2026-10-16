@@ -55,7 +55,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <param name="expenses">Стоимость размещения баннера.</param>
         /// <param name="cr1">Отношение количества добавлений в корзину к количеству кликов.</param>
         /// <param name="cr2">Отношение количества заказов к количеству добавлений в корзину.</param>
-        public StatsBlok1(int itemId = default(int), string itemName = default(string), string categoryName = default(string), int advertType = default(int), int place = default(int), int views = default(int), int clicks = default(int), decimal cr = default(decimal), decimal ctr = default(decimal), string dateFrom = default(string), string dateTo = default(string), string subjectName = default(string), int atbs = default(int), int orders = default(int), decimal price = default(decimal), decimal cpc = default(decimal), int status = default(int), List<StatsBlok1DailyStatsInner> dailyStats = default(List<StatsBlok1DailyStatsInner>), decimal expenses = default(decimal), decimal cr1 = default(decimal), int cr2 = default(int))
+        public StatsBlok1(long itemId = default(long), string itemName = default(string), string categoryName = default(string), long advertType = default(long), long place = default(long), long views = default(long), long clicks = default(long), decimal cr = default(decimal), decimal ctr = default(decimal), string dateFrom = default(string), string dateTo = default(string), string subjectName = default(string), long atbs = default(long), long orders = default(long), decimal price = default(decimal), decimal cpc = default(decimal), long status = default(long), List<StatsBlok1DailyStatsInner> dailyStats = default(List<StatsBlok1DailyStatsInner>), decimal expenses = default(decimal), decimal cr1 = default(decimal), long cr2 = default(long))
         {
             this.ItemId = itemId;
             this.ItemName = itemName;
@@ -85,7 +85,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <value>ID баннера</value>
         [DataMember(Name = "item_id", EmitDefaultValue = false)]
-        public int ItemId { get; set; }
+        public long ItemId { get; set; }
 
         /// <summary>
         /// Бренд
@@ -106,28 +106,28 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <value>Тип медиакампании:   - &#x60;1&#x60; — размещение по дням   - &#x60;2&#x60; — размещение по просмотрам </value>
         [DataMember(Name = "advert_type", EmitDefaultValue = false)]
-        public int AdvertType { get; set; }
+        public long AdvertType { get; set; }
 
         /// <summary>
         /// Место на странице
         /// </summary>
         /// <value>Место на странице</value>
         [DataMember(Name = "place", EmitDefaultValue = false)]
-        public int Place { get; set; }
+        public long Place { get; set; }
 
         /// <summary>
         /// Количество просмотров
         /// </summary>
         /// <value>Количество просмотров</value>
         [DataMember(Name = "views", EmitDefaultValue = false)]
-        public int Views { get; set; }
+        public long Views { get; set; }
 
         /// <summary>
         /// Количество кликов
         /// </summary>
         /// <value>Количество кликов</value>
         [DataMember(Name = "clicks", EmitDefaultValue = false)]
-        public int Clicks { get; set; }
+        public long Clicks { get; set; }
 
         /// <summary>
         /// CR(conversion rate) — это отношение количества заказов к общему количеству посещений медиакампании 
@@ -169,14 +169,14 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <value>Количество добавлений товаров в корзину</value>
         [DataMember(Name = "atbs", EmitDefaultValue = false)]
-        public int Atbs { get; set; }
+        public long Atbs { get; set; }
 
         /// <summary>
         /// Количество заказов
         /// </summary>
         /// <value>Количество заказов</value>
         [DataMember(Name = "orders", EmitDefaultValue = false)]
-        public int Orders { get; set; }
+        public long Orders { get; set; }
 
         /// <summary>
         /// Стоимость размещения
@@ -197,7 +197,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <value>Статус медиакампании</value>
         [DataMember(Name = "status", EmitDefaultValue = false)]
-        public int Status { get; set; }
+        public long Status { get; set; }
 
         /// <summary>
         /// Gets or Sets DailyStats
@@ -224,7 +224,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <value>Отношение количества заказов к количеству добавлений в корзину</value>
         [DataMember(Name = "cr2", EmitDefaultValue = false)]
-        public int Cr2 { get; set; }
+        public long Cr2 { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

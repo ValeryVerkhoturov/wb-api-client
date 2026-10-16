@@ -74,7 +74,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Model
         /// <param name="discrepancyQuantity">Разница между заявленным и фактическим количеством товара.</param>
         /// <param name="actualSku">Фактический баркод.</param>
         /// <param name="skuScans">Результаты сканирования товаров.</param>
-        public ModelsDiscrepancyResponseItem(string declaredSku = default(string), DiscrepancyTypeEnum? discrepancyType = default(DiscrepancyTypeEnum?), int declaredAmount = default(int), int actualAmount = default(int), int discrepancyQuantity = default(int), string actualSku = default(string), List<ModelsItemScans> skuScans = default(List<ModelsItemScans>))
+        public ModelsDiscrepancyResponseItem(string declaredSku = default(string), DiscrepancyTypeEnum? discrepancyType = default(DiscrepancyTypeEnum?), long declaredAmount = default(long), long actualAmount = default(long), long discrepancyQuantity = default(long), string actualSku = default(string), List<ModelsItemScans> skuScans = default(List<ModelsItemScans>))
         {
             this.DeclaredSku = declaredSku;
             this.DiscrepancyType = discrepancyType;
@@ -97,21 +97,21 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Model
         /// </summary>
         /// <value>Количество товара, заявленное при формировании поставки</value>
         [DataMember(Name = "declaredAmount", EmitDefaultValue = false)]
-        public int DeclaredAmount { get; set; }
+        public long DeclaredAmount { get; set; }
 
         /// <summary>
         /// Фактическое количество товара
         /// </summary>
         /// <value>Фактическое количество товара</value>
         [DataMember(Name = "actualAmount", EmitDefaultValue = false)]
-        public int ActualAmount { get; set; }
+        public long ActualAmount { get; set; }
 
         /// <summary>
         /// Разница между заявленным и фактическим количеством товара
         /// </summary>
         /// <value>Разница между заявленным и фактическим количеством товара</value>
         [DataMember(Name = "discrepancyQuantity", EmitDefaultValue = false)]
-        public int DiscrepancyQuantity { get; set; }
+        public long DiscrepancyQuantity { get; set; }
 
         /// <summary>
         /// Фактический баркод

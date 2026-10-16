@@ -41,7 +41,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <param name="advertId">ID кампании, в которой меняется название (required).</param>
         /// <param name="name">Новое название (максимум 100 символов) (required).</param>
-        public PostV0RenameRequest(int advertId = default(int), string name = default(string))
+        public PostV0RenameRequest(long advertId = default(long), string name = default(string))
         {
             this.AdvertId = advertId;
             // to ensure "name" is required (not null)
@@ -57,7 +57,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <value>ID кампании, в которой меняется название</value>
         [DataMember(Name = "advertId", IsRequired = true, EmitDefaultValue = true)]
-        public int AdvertId { get; set; }
+        public long AdvertId { get; set; }
 
         /// <summary>
         /// Новое название (максимум 100 символов)

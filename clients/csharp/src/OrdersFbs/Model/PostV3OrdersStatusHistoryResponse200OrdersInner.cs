@@ -37,7 +37,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// <param name="deliveryDate">Планируемая дата доставки, [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339).</param>
         /// <param name="statuses">Статусы.</param>
         /// <param name="orderID">ID сборочного задания.</param>
-        public PostV3OrdersStatusHistoryResponse200OrdersInner(string deliveryDate = default(string), List<PostV3OrdersStatusHistoryResponse200OrdersInnerStatusesInner> statuses = default(List<PostV3OrdersStatusHistoryResponse200OrdersInnerStatusesInner>), int orderID = default(int))
+        public PostV3OrdersStatusHistoryResponse200OrdersInner(string deliveryDate = default(string), List<PostV3OrdersStatusHistoryResponse200OrdersInnerStatusesInner> statuses = default(List<PostV3OrdersStatusHistoryResponse200OrdersInnerStatusesInner>), long orderID = default(long))
         {
             this.DeliveryDate = deliveryDate;
             this.Statuses = statuses;
@@ -66,7 +66,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         <example>123456789</example>
         */
         [DataMember(Name = "orderID", EmitDefaultValue = false)]
-        public int OrderID { get; set; }
+        public long OrderID { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

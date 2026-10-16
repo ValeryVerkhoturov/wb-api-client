@@ -63,7 +63,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         /// <param name="subjectName">Название предмета.</param>
         /// <param name="parentFeedbackId">ID начального отзыва (&#x60;null&#x60;, если этот отзыв начальный).</param>
         /// <param name="childFeedbackId">ID дополненного отзыва (&#x60;null&#x60;, если этот отзыв дополненный).</param>
-        public GetV1FeedbacksResponse200DataFeedbacksInner(string id = default(string), string text = default(string), string pros = default(string), string cons = default(string), int productValuation = default(int), string createdDate = default(string), GetV1FeedbacksResponse200DataFeedbacksInnerAnswer answer = default(GetV1FeedbacksResponse200DataFeedbacksInnerAnswer), string state = default(string), GetV1FeedbacksResponse200DataFeedbacksInnerProductDetails productDetails = default(GetV1FeedbacksResponse200DataFeedbacksInnerProductDetails), List<GetV1FeedbacksResponse200DataFeedbacksInnerPhotoLinksInner> photoLinks = default(List<GetV1FeedbacksResponse200DataFeedbacksInnerPhotoLinksInner>), GetV1FeedbacksResponse200DataFeedbacksInnerVideo video = default(GetV1FeedbacksResponse200DataFeedbacksInnerVideo), bool wasViewed = default(bool), string userName = default(string), string orderStatus = default(string), string matchingSize = default(string), bool isAbleSupplierFeedbackValuation = default(bool), int supplierFeedbackValuation = default(int), bool isAbleSupplierProductValuation = default(bool), int supplierProductValuation = default(int), bool isAbleReturnProductOrders = default(bool), string returnProductOrdersDate = default(string), List<string> bables = default(List<string>), int lastOrderShkId = default(int), string lastOrderCreatedAt = default(string), string color = default(string), int subjectId = default(int), string subjectName = default(string), string parentFeedbackId = default(string), string childFeedbackId = default(string))
+        public GetV1FeedbacksResponse200DataFeedbacksInner(string id = default(string), string text = default(string), string pros = default(string), string cons = default(string), long productValuation = default(long), string createdDate = default(string), GetV1FeedbacksResponse200DataFeedbacksInnerAnswer answer = default(GetV1FeedbacksResponse200DataFeedbacksInnerAnswer), string state = default(string), GetV1FeedbacksResponse200DataFeedbacksInnerProductDetails productDetails = default(GetV1FeedbacksResponse200DataFeedbacksInnerProductDetails), List<GetV1FeedbacksResponse200DataFeedbacksInnerPhotoLinksInner> photoLinks = default(List<GetV1FeedbacksResponse200DataFeedbacksInnerPhotoLinksInner>), GetV1FeedbacksResponse200DataFeedbacksInnerVideo video = default(GetV1FeedbacksResponse200DataFeedbacksInnerVideo), bool wasViewed = default(bool), string userName = default(string), string orderStatus = default(string), string matchingSize = default(string), bool isAbleSupplierFeedbackValuation = default(bool), long supplierFeedbackValuation = default(long), bool isAbleSupplierProductValuation = default(bool), long supplierProductValuation = default(long), bool isAbleReturnProductOrders = default(bool), string returnProductOrdersDate = default(string), List<string> bables = default(List<string>), long lastOrderShkId = default(long), string lastOrderCreatedAt = default(string), string color = default(string), long subjectId = default(long), string subjectName = default(string), string parentFeedbackId = default(string), string childFeedbackId = default(string))
         {
             this.Id = id;
             this.Text = text;
@@ -129,7 +129,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         /// </summary>
         /// <value>Оценка товара</value>
         [DataMember(Name = "productValuation", EmitDefaultValue = false)]
-        public int ProductValuation { get; set; }
+        public long ProductValuation { get; set; }
 
         /// <summary>
         /// Дата и время создания отзыва
@@ -210,7 +210,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         /// </summary>
         /// <value>Ключ причины жалобы на отзыв </value>
         [DataMember(Name = "supplierFeedbackValuation", EmitDefaultValue = false)]
-        public int SupplierFeedbackValuation { get; set; }
+        public long SupplierFeedbackValuation { get; set; }
 
         /// <summary>
         /// Доступна ли продавцу возможность сообщить о проблеме с товаром:   - &#x60;true&#x60; — да   - &#x60;false&#x60; — нет 
@@ -224,7 +224,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         /// </summary>
         /// <value>Ключ проблемы с товаром </value>
         [DataMember(Name = "supplierProductValuation", EmitDefaultValue = false)]
-        public int SupplierProductValuation { get; set; }
+        public long SupplierProductValuation { get; set; }
 
         /// <summary>
         /// Опция возврата товара:  - &#x60;true&#x60; — доступна  - &#x60;false&#x60; — недоступна 
@@ -252,7 +252,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         /// </summary>
         /// <value>Штрихкод единицы товара</value>
         [DataMember(Name = "lastOrderShkId", EmitDefaultValue = false)]
-        public int LastOrderShkId { get; set; }
+        public long LastOrderShkId { get; set; }
 
         /// <summary>
         /// Дата покупки
@@ -273,7 +273,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         /// </summary>
         /// <value>ID предмета</value>
         [DataMember(Name = "subjectId", EmitDefaultValue = false)]
-        public int SubjectId { get; set; }
+        public long SubjectId { get; set; }
 
         /// <summary>
         /// Название предмета

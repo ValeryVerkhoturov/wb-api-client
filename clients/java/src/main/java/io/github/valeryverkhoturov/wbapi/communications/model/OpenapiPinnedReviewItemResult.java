@@ -44,19 +44,19 @@ public class OpenapiPinnedReviewItemResult {
 
   @SerializedName(SERIALIZED_NAME_IMT_ID)
   @jakarta.annotation.Nullable
-  private Integer imtId;
+  private Long imtId;
 
   public static final String SERIALIZED_NAME_NM_ID = "nmId";
 
   @SerializedName(SERIALIZED_NAME_NM_ID)
   @jakarta.annotation.Nullable
-  private Integer nmId;
+  private Long nmId;
 
   public static final String SERIALIZED_NAME_PIN_ID = "pinId";
 
   @SerializedName(SERIALIZED_NAME_PIN_ID)
   @jakarta.annotation.Nullable
-  private Integer pinId;
+  private Long pinId;
 
   public static final String SERIALIZED_NAME_PIN_METHOD = "pinMethod";
 
@@ -172,7 +172,7 @@ public class OpenapiPinnedReviewItemResult {
     this.changeStateAt = changeStateAt;
   }
 
-  public OpenapiPinnedReviewItemResult imtId(@jakarta.annotation.Nullable Integer imtId) {
+  public OpenapiPinnedReviewItemResult imtId(@jakarta.annotation.Nullable Long imtId) {
     this.imtId = imtId;
     return this;
   }
@@ -185,15 +185,15 @@ public class OpenapiPinnedReviewItemResult {
    * @return imtId
    */
   @jakarta.annotation.Nullable
-  public Integer getImtId() {
+  public Long getImtId() {
     return imtId;
   }
 
-  public void setImtId(@jakarta.annotation.Nullable Integer imtId) {
+  public void setImtId(@jakarta.annotation.Nullable Long imtId) {
     this.imtId = imtId;
   }
 
-  public OpenapiPinnedReviewItemResult nmId(@jakarta.annotation.Nullable Integer nmId) {
+  public OpenapiPinnedReviewItemResult nmId(@jakarta.annotation.Nullable Long nmId) {
     this.nmId = nmId;
     return this;
   }
@@ -204,15 +204,15 @@ public class OpenapiPinnedReviewItemResult {
    * @return nmId
    */
   @jakarta.annotation.Nullable
-  public Integer getNmId() {
+  public Long getNmId() {
     return nmId;
   }
 
-  public void setNmId(@jakarta.annotation.Nullable Integer nmId) {
+  public void setNmId(@jakarta.annotation.Nullable Long nmId) {
     this.nmId = nmId;
   }
 
-  public OpenapiPinnedReviewItemResult pinId(@jakarta.annotation.Nullable Integer pinId) {
+  public OpenapiPinnedReviewItemResult pinId(@jakarta.annotation.Nullable Long pinId) {
     this.pinId = pinId;
     return this;
   }
@@ -223,11 +223,11 @@ public class OpenapiPinnedReviewItemResult {
    * @return pinId
    */
   @jakarta.annotation.Nullable
-  public Integer getPinId() {
+  public Long getPinId() {
     return pinId;
   }
 
-  public void setPinId(@jakarta.annotation.Nullable Integer pinId) {
+  public void setPinId(@jakarta.annotation.Nullable Long pinId) {
     this.pinId = pinId;
   }
 

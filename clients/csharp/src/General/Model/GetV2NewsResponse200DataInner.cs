@@ -39,7 +39,7 @@ namespace ValeryVerkhoturov.WbApiClient.General.Model
         /// <param name="header">Заголовок новости.</param>
         /// <param name="id">ID новости.</param>
         /// <param name="types">Теги новости.</param>
-        public GetV2NewsResponse200DataInner(string content = default(string), string date = default(string), string header = default(string), int id = default(int), List<GetV2NewsResponse200DataInnerTypesInner> types = default(List<GetV2NewsResponse200DataInnerTypesInner>))
+        public GetV2NewsResponse200DataInner(string content = default(string), string date = default(string), string header = default(string), long id = default(long), List<GetV2NewsResponse200DataInnerTypesInner> types = default(List<GetV2NewsResponse200DataInnerTypesInner>))
         {
             this.Content = content;
             this.Date = date;
@@ -74,7 +74,7 @@ namespace ValeryVerkhoturov.WbApiClient.General.Model
         /// </summary>
         /// <value>ID новости</value>
         [DataMember(Name = "id", EmitDefaultValue = false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// Теги новости

@@ -38,7 +38,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Model
         /// <param name="isError">Есть ли ошибки.</param>
         /// <param name="errors">Информация об ошибке.</param>
         /// <param name="metaDetails">Идентификаторы маркировки и статусы их валидации.</param>
-        public ApiOrdersMetaDetailsResponseOrdersInner(int orderId = default(int), bool isError = default(bool), List<ApiOrdersMetaDetailsResponseOrdersInnerErrorsInner> errors = default(List<ApiOrdersMetaDetailsResponseOrdersInnerErrorsInner>), List<ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner> metaDetails = default(List<ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner>))
+        public ApiOrdersMetaDetailsResponseOrdersInner(long orderId = default(long), bool isError = default(bool), List<ApiOrdersMetaDetailsResponseOrdersInnerErrorsInner> errors = default(List<ApiOrdersMetaDetailsResponseOrdersInnerErrorsInner>), List<ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner> metaDetails = default(List<ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner>))
         {
             this.OrderId = orderId;
             this.IsError = isError;
@@ -54,7 +54,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Model
         <example>123456</example>
         */
         [DataMember(Name = "orderId", EmitDefaultValue = false)]
-        public int OrderId { get; set; }
+        public long OrderId { get; set; }
 
         /// <summary>
         /// Есть ли ошибки

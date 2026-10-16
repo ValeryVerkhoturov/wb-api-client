@@ -46,7 +46,7 @@ public class TableSizeResponseSizesInner {
 
   @SerializedName(SERIALIZED_NAME_CHRT_I_D)
   @jakarta.annotation.Nullable
-  private Integer chrtID;
+  private Long chrtID;
 
   public static final String SERIALIZED_NAME_OFFICES = "offices";
 
@@ -81,7 +81,7 @@ public class TableSizeResponseSizesInner {
     this.name = name;
   }
 
-  public TableSizeResponseSizesInner chrtID(@jakarta.annotation.Nullable Integer chrtID) {
+  public TableSizeResponseSizesInner chrtID(@jakarta.annotation.Nullable Long chrtID) {
     this.chrtID = chrtID;
     return this;
   }
@@ -92,11 +92,11 @@ public class TableSizeResponseSizesInner {
    * @return chrtID
    */
   @jakarta.annotation.Nullable
-  public Integer getChrtID() {
+  public Long getChrtID() {
     return chrtID;
   }
 
-  public void setChrtID(@jakarta.annotation.Nullable Integer chrtID) {
+  public void setChrtID(@jakarta.annotation.Nullable Long chrtID) {
     this.chrtID = chrtID;
   }
 

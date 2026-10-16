@@ -37,7 +37,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersDbw.Model
         /// <param name="errors">Детали ошибки.</param>
         /// <param name="isError">Есть ли ошибки.</param>
         /// <param name="orderId">ID сборочного задания с успешно обновлёнными данными.</param>
-        public ApiMetaDeleteResponsesResultsInner(List<ApiMetaDeleteResponsesResultsInnerErrorsInner> errors = default(List<ApiMetaDeleteResponsesResultsInnerErrorsInner>), bool isError = default(bool), int orderId = default(int))
+        public ApiMetaDeleteResponsesResultsInner(List<ApiMetaDeleteResponsesResultsInnerErrorsInner> errors = default(List<ApiMetaDeleteResponsesResultsInnerErrorsInner>), bool isError = default(bool), long orderId = default(long))
         {
             this.Errors = errors;
             this.IsError = isError;
@@ -63,7 +63,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersDbw.Model
         /// </summary>
         /// <value>ID сборочного задания с успешно обновлёнными данными</value>
         [DataMember(Name = "orderId", EmitDefaultValue = false)]
-        public int OrderId { get; set; }
+        public long OrderId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

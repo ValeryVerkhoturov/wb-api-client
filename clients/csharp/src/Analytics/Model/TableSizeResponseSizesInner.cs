@@ -38,7 +38,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <param name="chrtID">ID размера.</param>
         /// <param name="offices">Склады.</param>
         /// <param name="metrics">metrics.</param>
-        public TableSizeResponseSizesInner(string name = default(string), int chrtID = default(int), List<TableOfficeItem> offices = default(List<TableOfficeItem>), TableSizeResponseSizesInnerMetrics metrics = default(TableSizeResponseSizesInnerMetrics))
+        public TableSizeResponseSizesInner(string name = default(string), long chrtID = default(long), List<TableOfficeItem> offices = default(List<TableOfficeItem>), TableSizeResponseSizesInnerMetrics metrics = default(TableSizeResponseSizesInnerMetrics))
         {
             this.Name = name;
             this.ChrtID = chrtID;
@@ -64,7 +64,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         <example>123321</example>
         */
         [DataMember(Name = "chrtID", EmitDefaultValue = false)]
-        public int ChrtID { get; set; }
+        public long ChrtID { get; set; }
 
         /// <summary>
         /// Склады

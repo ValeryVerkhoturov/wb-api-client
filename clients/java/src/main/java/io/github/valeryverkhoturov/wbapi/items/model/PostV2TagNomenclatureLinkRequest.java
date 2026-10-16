@@ -39,17 +39,17 @@ public class PostV2TagNomenclatureLinkRequest {
 
   @SerializedName(SERIALIZED_NAME_NM_I_D)
   @jakarta.annotation.Nullable
-  private Integer nmID;
+  private Long nmID;
 
   public static final String SERIALIZED_NAME_TAGS_I_DS = "tagsIDs";
 
   @SerializedName(SERIALIZED_NAME_TAGS_I_DS)
   @jakarta.annotation.Nullable
-  private List<Integer> tagsIDs = new ArrayList<>();
+  private List<Long> tagsIDs = new ArrayList<>();
 
   public PostV2TagNomenclatureLinkRequest() {}
 
-  public PostV2TagNomenclatureLinkRequest nmID(@jakarta.annotation.Nullable Integer nmID) {
+  public PostV2TagNomenclatureLinkRequest nmID(@jakarta.annotation.Nullable Long nmID) {
     this.nmID = nmID;
     return this;
   }
@@ -60,21 +60,20 @@ public class PostV2TagNomenclatureLinkRequest {
    * @return nmID
    */
   @jakarta.annotation.Nullable
-  public Integer getNmID() {
+  public Long getNmID() {
     return nmID;
   }
 
-  public void setNmID(@jakarta.annotation.Nullable Integer nmID) {
+  public void setNmID(@jakarta.annotation.Nullable Long nmID) {
     this.nmID = nmID;
   }
 
-  public PostV2TagNomenclatureLinkRequest tagsIDs(
-      @jakarta.annotation.Nullable List<Integer> tagsIDs) {
+  public PostV2TagNomenclatureLinkRequest tagsIDs(@jakarta.annotation.Nullable List<Long> tagsIDs) {
     this.tagsIDs = tagsIDs;
     return this;
   }
 
-  public PostV2TagNomenclatureLinkRequest addTagsIDsItem(Integer tagsIDsItem) {
+  public PostV2TagNomenclatureLinkRequest addTagsIDsItem(Long tagsIDsItem) {
     if (this.tagsIDs == null) {
       this.tagsIDs = new ArrayList<>();
     }
@@ -90,11 +89,11 @@ public class PostV2TagNomenclatureLinkRequest {
    * @return tagsIDs
    */
   @jakarta.annotation.Nullable
-  public List<Integer> getTagsIDs() {
+  public List<Long> getTagsIDs() {
     return tagsIDs;
   }
 
-  public void setTagsIDs(@jakarta.annotation.Nullable List<Integer> tagsIDs) {
+  public void setTagsIDs(@jakarta.annotation.Nullable List<Long> tagsIDs) {
     this.tagsIDs = tagsIDs;
   }
 

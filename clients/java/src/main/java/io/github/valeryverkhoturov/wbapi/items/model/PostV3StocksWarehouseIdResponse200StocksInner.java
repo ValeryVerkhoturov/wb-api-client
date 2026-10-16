@@ -37,18 +37,18 @@ public class PostV3StocksWarehouseIdResponse200StocksInner {
 
   @SerializedName(SERIALIZED_NAME_CHRT_ID)
   @jakarta.annotation.Nullable
-  private Integer chrtId;
+  private Long chrtId;
 
   public static final String SERIALIZED_NAME_AMOUNT = "amount";
 
   @SerializedName(SERIALIZED_NAME_AMOUNT)
   @jakarta.annotation.Nullable
-  private Integer amount;
+  private Long amount;
 
   public PostV3StocksWarehouseIdResponse200StocksInner() {}
 
   public PostV3StocksWarehouseIdResponse200StocksInner chrtId(
-      @jakarta.annotation.Nullable Integer chrtId) {
+      @jakarta.annotation.Nullable Long chrtId) {
     this.chrtId = chrtId;
     return this;
   }
@@ -59,16 +59,16 @@ public class PostV3StocksWarehouseIdResponse200StocksInner {
    * @return chrtId
    */
   @jakarta.annotation.Nullable
-  public Integer getChrtId() {
+  public Long getChrtId() {
     return chrtId;
   }
 
-  public void setChrtId(@jakarta.annotation.Nullable Integer chrtId) {
+  public void setChrtId(@jakarta.annotation.Nullable Long chrtId) {
     this.chrtId = chrtId;
   }
 
   public PostV3StocksWarehouseIdResponse200StocksInner amount(
-      @jakarta.annotation.Nullable Integer amount) {
+      @jakarta.annotation.Nullable Long amount) {
     this.amount = amount;
     return this;
   }
@@ -79,11 +79,11 @@ public class PostV3StocksWarehouseIdResponse200StocksInner {
    * @return amount
    */
   @jakarta.annotation.Nullable
-  public Integer getAmount() {
+  public Long getAmount() {
     return amount;
   }
 
-  public void setAmount(@jakarta.annotation.Nullable Integer amount) {
+  public void setAmount(@jakarta.annotation.Nullable Long amount) {
     this.amount = amount;
   }
 

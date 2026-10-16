@@ -46,7 +46,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// <param name="recomCount">Количество рекомендуемых товаров.</param>
         /// <param name="recomPics">Список URL основных изображений рекомендуемых товаров.</param>
         /// <param name="recomNms">Список &#x60;nmId&#x60; рекомендуемых товаров.</param>
-        public GetRecomResDataInner(int nmId = default(int), long imtId = default(long), string vendorCode = default(string), string brandName = default(string), string updatedAt = default(string), int picsCount = default(int), string title = default(string), string subjectName = default(string), string pic = default(string), int recomCount = default(int), List<string> recomPics = default(List<string>), List<int> recomNms = default(List<int>))
+        public GetRecomResDataInner(long nmId = default(long), long imtId = default(long), string vendorCode = default(string), string brandName = default(string), string updatedAt = default(string), long picsCount = default(long), string title = default(string), string subjectName = default(string), string pic = default(string), long recomCount = default(long), List<string> recomPics = default(List<string>), List<long> recomNms = default(List<long>))
         {
             this.NmId = nmId;
             this.ImtId = imtId;
@@ -70,7 +70,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         <example>5870243</example>
         */
         [DataMember(Name = "nmId", EmitDefaultValue = false)]
-        public int NmId { get; set; }
+        public long NmId { get; set; }
 
         /// <summary>
         /// ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров
@@ -120,7 +120,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         <example>4</example>
         */
         [DataMember(Name = "picsCount", EmitDefaultValue = false)]
-        public int PicsCount { get; set; }
+        public long PicsCount { get; set; }
 
         /// <summary>
         /// Название товара
@@ -160,7 +160,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         <example>2</example>
         */
         [DataMember(Name = "recomCount", EmitDefaultValue = false)]
-        public int RecomCount { get; set; }
+        public long RecomCount { get; set; }
 
         /// <summary>
         /// Список URL основных изображений рекомендуемых товаров
@@ -180,7 +180,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         <example>[17405826,17420062]</example>
         */
         [DataMember(Name = "recomNms", EmitDefaultValue = false)]
-        public List<int> RecomNms { get; set; }
+        public List<long> RecomNms { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

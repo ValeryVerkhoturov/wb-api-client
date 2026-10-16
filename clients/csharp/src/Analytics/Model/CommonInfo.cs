@@ -37,7 +37,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <param name="supplierRating">supplierRating.</param>
         /// <param name="advertisedProducts">advertisedProducts.</param>
         /// <param name="totalProducts">Общее количество товаров.</param>
-        public CommonInfo(CommonInfoSupplierRating supplierRating = default(CommonInfoSupplierRating), CommonInfoAdvertisedProducts advertisedProducts = default(CommonInfoAdvertisedProducts), int totalProducts = default(int))
+        public CommonInfo(CommonInfoSupplierRating supplierRating = default(CommonInfoSupplierRating), CommonInfoAdvertisedProducts advertisedProducts = default(CommonInfoAdvertisedProducts), long totalProducts = default(long))
         {
             this.SupplierRating = supplierRating;
             this.AdvertisedProducts = advertisedProducts;
@@ -64,7 +64,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         <example>150</example>
         */
         [DataMember(Name = "totalProducts", EmitDefaultValue = false)]
-        public int TotalProducts { get; set; }
+        public long TotalProducts { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

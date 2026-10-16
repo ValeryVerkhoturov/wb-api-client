@@ -39,7 +39,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// <param name="height">Высота, см.</param>
         /// <param name="weightBrutto">Вес, кг Количество знаков после запятой &lt;&#x3D;3.</param>
         /// <param name="isValid">Потенциальная некорректность габаритов товара:  - &#x60;true&#x60; — не выявлена. &#x60;\&quot;isValid\&quot;:true&#x60; не гарантирует, что размеры указаны корректно. В отдельных случаях (например, при создании новой категории товаров) &#x60;\&quot;isValid\&quot;:true&#x60; будет возвращаться при любых значениях, кроме нулевых.  - &#x60;false&#x60; — указанные габариты значительно отличаются от средних по категории (предмету). Рекомендуется перепроверить, правильно ли указаны размеры товара в упаковке в &#x60;сантиметрах&#x60;. Функциональность карточки товара, в том числе начисление логистики и хранения, при этом ограничена не будет. Логистика и хранение продолжают начисляться — по текущим габаритам. Также &#x60;\&quot;isValid\&quot;:false&#x60; возвращается при отсутствии значений или нулевом значении любой стороны. .</param>
-        public PostV2GetCardsListResponse200CardsInnerDimensions(int length = default(int), int width = default(int), int height = default(int), decimal weightBrutto = default(decimal), bool isValid = default(bool))
+        public PostV2GetCardsListResponse200CardsInnerDimensions(long length = default(long), long width = default(long), long height = default(long), decimal weightBrutto = default(decimal), bool isValid = default(bool))
         {
             this.Length = length;
             this.Width = width;
@@ -53,21 +53,21 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// </summary>
         /// <value>Длина, см</value>
         [DataMember(Name = "length", EmitDefaultValue = false)]
-        public int Length { get; set; }
+        public long Length { get; set; }
 
         /// <summary>
         /// Ширина, см
         /// </summary>
         /// <value>Ширина, см</value>
         [DataMember(Name = "width", EmitDefaultValue = false)]
-        public int Width { get; set; }
+        public long Width { get; set; }
 
         /// <summary>
         /// Высота, см
         /// </summary>
         /// <value>Высота, см</value>
         [DataMember(Name = "height", EmitDefaultValue = false)]
-        public int Height { get; set; }
+        public long Height { get; set; }
 
         /// <summary>
         /// Вес, кг Количество знаков после запятой &lt;&#x3D;3

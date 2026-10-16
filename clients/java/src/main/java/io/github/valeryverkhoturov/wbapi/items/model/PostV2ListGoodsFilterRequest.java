@@ -39,16 +39,16 @@ public class PostV2ListGoodsFilterRequest {
 
   @SerializedName(SERIALIZED_NAME_NM_LIST)
   @jakarta.annotation.Nonnull
-  private List<Integer> nmList = new ArrayList<>();
+  private List<Long> nmList = new ArrayList<>();
 
   public PostV2ListGoodsFilterRequest() {}
 
-  public PostV2ListGoodsFilterRequest nmList(@jakarta.annotation.Nonnull List<Integer> nmList) {
+  public PostV2ListGoodsFilterRequest nmList(@jakarta.annotation.Nonnull List<Long> nmList) {
     this.nmList = nmList;
     return this;
   }
 
-  public PostV2ListGoodsFilterRequest addNmListItem(Integer nmListItem) {
+  public PostV2ListGoodsFilterRequest addNmListItem(Long nmListItem) {
     if (this.nmList == null) {
       this.nmList = new ArrayList<>();
     }
@@ -62,11 +62,11 @@ public class PostV2ListGoodsFilterRequest {
    * @return nmList
    */
   @jakarta.annotation.Nonnull
-  public List<Integer> getNmList() {
+  public List<Long> getNmList() {
     return nmList;
   }
 
-  public void setNmList(@jakarta.annotation.Nonnull List<Integer> nmList) {
+  public void setNmList(@jakarta.annotation.Nonnull List<Long> nmList) {
     this.nmList = nmList;
   }
 

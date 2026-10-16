@@ -44,7 +44,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <param name="productRating">Оценка карточки.</param>
         /// <param name="feedbackRating">Оценка пользователей.</param>
         /// <param name="stocks">stocks.</param>
-        public ItemsResponseProductsInnerProduct(long nmId = default(long), string title = default(string), string vendorCode = default(string), string brandName = default(string), int subjectId = default(int), string subjectName = default(string), List<Tag> tags = default(List<Tag>), decimal productRating = default(decimal), decimal feedbackRating = default(decimal), ItemStocks stocks = default(ItemStocks))
+        public ItemsResponseProductsInnerProduct(long nmId = default(long), string title = default(string), string vendorCode = default(string), string brandName = default(string), long subjectId = default(long), string subjectName = default(string), List<Tag> tags = default(List<Tag>), decimal productRating = default(decimal), decimal feedbackRating = default(decimal), ItemStocks stocks = default(ItemStocks))
         {
             this.NmId = nmId;
             this.Title = title;
@@ -106,7 +106,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         <example>105</example>
         */
         [DataMember(Name = "subjectId", EmitDefaultValue = false)]
-        public int SubjectId { get; set; }
+        public long SubjectId { get; set; }
 
         /// <summary>
         /// Название предмета

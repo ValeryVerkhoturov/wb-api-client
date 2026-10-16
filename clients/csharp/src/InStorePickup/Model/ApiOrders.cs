@@ -36,7 +36,7 @@ namespace ValeryVerkhoturov.WbApiClient.InStorePickup.Model
         /// </summary>
         /// <param name="next">Параметр пагинации. Содержит значение, которое необходимо указать в запросе для получения следующего пакета данных .</param>
         /// <param name="orders">Список сборочных заданий.</param>
-        public ApiOrders(int next = default(int), List<ApiOrder> orders = default(List<ApiOrder>))
+        public ApiOrders(long next = default(long), List<ApiOrder> orders = default(List<ApiOrder>))
         {
             this.Next = next;
             this.Orders = orders;
@@ -50,7 +50,7 @@ namespace ValeryVerkhoturov.WbApiClient.InStorePickup.Model
         <example>12345566</example>
         */
         [DataMember(Name = "next", EmitDefaultValue = false)]
-        public int Next { get; set; }
+        public long Next { get; set; }
 
         /// <summary>
         /// Список сборочных заданий

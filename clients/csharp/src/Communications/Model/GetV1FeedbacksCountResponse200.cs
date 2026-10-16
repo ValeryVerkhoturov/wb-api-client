@@ -38,7 +38,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         /// <param name="error">Есть ли ошибка.</param>
         /// <param name="errorText">Описание ошибки.</param>
         /// <param name="additionalErrors">Дополнительные ошибки.</param>
-        public GetV1FeedbacksCountResponse200(int data = default(int), bool error = default(bool), string errorText = default(string), List<string> additionalErrors = default(List<string>))
+        public GetV1FeedbacksCountResponse200(long data = default(long), bool error = default(bool), string errorText = default(string), List<string> additionalErrors = default(List<string>))
         {
             this.Data = data;
             this.Error = error;
@@ -54,7 +54,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         <example>724583</example>
         */
         [DataMember(Name = "data", EmitDefaultValue = false)]
-        public int Data { get; set; }
+        public long Data { get; set; }
 
         /// <summary>
         /// Есть ли ошибка

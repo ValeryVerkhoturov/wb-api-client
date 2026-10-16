@@ -45,13 +45,13 @@ public class OrderFeedRequest {
 
   @SerializedName(SERIALIZED_NAME_NM_IDS)
   @jakarta.annotation.Nullable
-  private List<Integer> nmIds = new ArrayList<>();
+  private List<Long> nmIds = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_SUBJECT_IDS = "subjectIds";
 
   @SerializedName(SERIALIZED_NAME_SUBJECT_IDS)
   @jakarta.annotation.Nullable
-  private List<Integer> subjectIds = new ArrayList<>();
+  private List<Long> subjectIds = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_BRAND_NAMES = "brandNames";
 
@@ -63,7 +63,7 @@ public class OrderFeedRequest {
 
   @SerializedName(SERIALIZED_NAME_TAG_IDS)
   @jakarta.annotation.Nullable
-  private List<Integer> tagIds = new ArrayList<>();
+  private List<Long> tagIds = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_PAGINATION = "pagination";
 
@@ -94,12 +94,12 @@ public class OrderFeedRequest {
     this.selectedPeriod = selectedPeriod;
   }
 
-  public OrderFeedRequest nmIds(@jakarta.annotation.Nullable List<Integer> nmIds) {
+  public OrderFeedRequest nmIds(@jakarta.annotation.Nullable List<Long> nmIds) {
     this.nmIds = nmIds;
     return this;
   }
 
-  public OrderFeedRequest addNmIdsItem(Integer nmIdsItem) {
+  public OrderFeedRequest addNmIdsItem(Long nmIdsItem) {
     if (this.nmIds == null) {
       this.nmIds = new ArrayList<>();
     }
@@ -113,20 +113,20 @@ public class OrderFeedRequest {
    * @return nmIds
    */
   @jakarta.annotation.Nullable
-  public List<Integer> getNmIds() {
+  public List<Long> getNmIds() {
     return nmIds;
   }
 
-  public void setNmIds(@jakarta.annotation.Nullable List<Integer> nmIds) {
+  public void setNmIds(@jakarta.annotation.Nullable List<Long> nmIds) {
     this.nmIds = nmIds;
   }
 
-  public OrderFeedRequest subjectIds(@jakarta.annotation.Nullable List<Integer> subjectIds) {
+  public OrderFeedRequest subjectIds(@jakarta.annotation.Nullable List<Long> subjectIds) {
     this.subjectIds = subjectIds;
     return this;
   }
 
-  public OrderFeedRequest addSubjectIdsItem(Integer subjectIdsItem) {
+  public OrderFeedRequest addSubjectIdsItem(Long subjectIdsItem) {
     if (this.subjectIds == null) {
       this.subjectIds = new ArrayList<>();
     }
@@ -140,11 +140,11 @@ public class OrderFeedRequest {
    * @return subjectIds
    */
   @jakarta.annotation.Nullable
-  public List<Integer> getSubjectIds() {
+  public List<Long> getSubjectIds() {
     return subjectIds;
   }
 
-  public void setSubjectIds(@jakarta.annotation.Nullable List<Integer> subjectIds) {
+  public void setSubjectIds(@jakarta.annotation.Nullable List<Long> subjectIds) {
     this.subjectIds = subjectIds;
   }
 
@@ -175,12 +175,12 @@ public class OrderFeedRequest {
     this.brandNames = brandNames;
   }
 
-  public OrderFeedRequest tagIds(@jakarta.annotation.Nullable List<Integer> tagIds) {
+  public OrderFeedRequest tagIds(@jakarta.annotation.Nullable List<Long> tagIds) {
     this.tagIds = tagIds;
     return this;
   }
 
-  public OrderFeedRequest addTagIdsItem(Integer tagIdsItem) {
+  public OrderFeedRequest addTagIdsItem(Long tagIdsItem) {
     if (this.tagIds == null) {
       this.tagIds = new ArrayList<>();
     }
@@ -194,11 +194,11 @@ public class OrderFeedRequest {
    * @return tagIds
    */
   @jakarta.annotation.Nullable
-  public List<Integer> getTagIds() {
+  public List<Long> getTagIds() {
     return tagIds;
   }
 
-  public void setTagIds(@jakarta.annotation.Nullable List<Integer> tagIds) {
+  public void setTagIds(@jakarta.annotation.Nullable List<Long> tagIds) {
     this.tagIds = tagIds;
   }
 

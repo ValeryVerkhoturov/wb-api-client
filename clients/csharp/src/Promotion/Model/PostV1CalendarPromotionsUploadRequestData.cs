@@ -37,7 +37,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <param name="promotionID">ID акции.</param>
         /// <param name="uploadNow">Установить скидку:   - &#x60;true&#x60; — сейчас   - &#x60;false&#x60; — в момент старта акции .</param>
         /// <param name="nomenclatures">Артикулы WB, которые можно добавить в акцию.</param>
-        public PostV1CalendarPromotionsUploadRequestData(int promotionID = default(int), bool uploadNow = default(bool), List<int> nomenclatures = default(List<int>))
+        public PostV1CalendarPromotionsUploadRequestData(long promotionID = default(long), bool uploadNow = default(bool), List<long> nomenclatures = default(List<long>))
         {
             this.PromotionID = promotionID;
             this.UploadNow = uploadNow;
@@ -52,7 +52,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         <example>1</example>
         */
         [DataMember(Name = "promotionID", EmitDefaultValue = false)]
-        public int PromotionID { get; set; }
+        public long PromotionID { get; set; }
 
         /// <summary>
         /// Установить скидку:   - &#x60;true&#x60; — сейчас   - &#x60;false&#x60; — в момент старта акции 
@@ -72,7 +72,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         <example>[75632091,31322455,642080796]</example>
         */
         [DataMember(Name = "nomenclatures", EmitDefaultValue = false)]
-        public List<int> Nomenclatures { get; set; }
+        public List<long> Nomenclatures { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -105,10 +105,10 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <returns>Validation Result</returns>
         IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // PromotionID (int) minimum
-            if (this.PromotionID < (int)1)
+            // PromotionID (long) minimum
+            if (this.PromotionID < (long)1)
             {
-                yield return new ValidationResult("Invalid value for PromotionID, must be a value greater than or equal to 1.", new [] { "PromotionID" });
+                yield return new ValidationResult("Invalid value for PromotionID, must be a value greater than or equal to 1.", new[] { "PromotionID" });
             }
 
             yield break;

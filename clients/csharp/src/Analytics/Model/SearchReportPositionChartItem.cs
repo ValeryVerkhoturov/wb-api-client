@@ -37,7 +37,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <param name="dt">Дата.</param>
         /// <param name="average">Средняя позиция товара в результатах поиска.</param>
         /// <param name="median">Медианная позиция товара в результатах поиска.</param>
-        public SearchReportPositionChartItem(string dt = default(string), int average = default(int), int median = default(int))
+        public SearchReportPositionChartItem(string dt = default(string), long average = default(long), long median = default(long))
         {
             this.Dt = dt;
             this.Average = average;
@@ -62,7 +62,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         <example>1</example>
         */
         [DataMember(Name = "average", EmitDefaultValue = false)]
-        public int Average { get; set; }
+        public long Average { get; set; }
 
         /// <summary>
         /// Медианная позиция товара в результатах поиска
@@ -72,7 +72,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         <example>1</example>
         */
         [DataMember(Name = "median", EmitDefaultValue = false)]
-        public int Median { get; set; }
+        public long Median { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

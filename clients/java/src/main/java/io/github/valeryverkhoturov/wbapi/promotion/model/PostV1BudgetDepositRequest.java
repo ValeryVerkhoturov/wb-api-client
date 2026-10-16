@@ -37,25 +37,25 @@ public class PostV1BudgetDepositRequest {
 
   @SerializedName(SERIALIZED_NAME_SUM)
   @jakarta.annotation.Nullable
-  private Integer sum;
+  private Long sum;
 
   public static final String SERIALIZED_NAME_CASHBACK_SUM = "cashback_sum";
 
   @SerializedName(SERIALIZED_NAME_CASHBACK_SUM)
   @jakarta.annotation.Nullable
-  private Integer cashbackSum;
+  private Long cashbackSum;
 
   public static final String SERIALIZED_NAME_CASHBACK_PERCENT = "cashback_percent";
 
   @SerializedName(SERIALIZED_NAME_CASHBACK_PERCENT)
   @jakarta.annotation.Nullable
-  private Integer cashbackPercent;
+  private Long cashbackPercent;
 
   public static final String SERIALIZED_NAME_TYPE = "type";
 
   @SerializedName(SERIALIZED_NAME_TYPE)
   @jakarta.annotation.Nullable
-  private Integer type;
+  private Long type;
 
   public static final String SERIALIZED_NAME_RETURN = "return";
 
@@ -65,7 +65,7 @@ public class PostV1BudgetDepositRequest {
 
   public PostV1BudgetDepositRequest() {}
 
-  public PostV1BudgetDepositRequest sum(@jakarta.annotation.Nullable Integer sum) {
+  public PostV1BudgetDepositRequest sum(@jakarta.annotation.Nullable Long sum) {
     this.sum = sum;
     return this;
   }
@@ -77,15 +77,15 @@ public class PostV1BudgetDepositRequest {
    * @return sum
    */
   @jakarta.annotation.Nullable
-  public Integer getSum() {
+  public Long getSum() {
     return sum;
   }
 
-  public void setSum(@jakarta.annotation.Nullable Integer sum) {
+  public void setSum(@jakarta.annotation.Nullable Long sum) {
     this.sum = sum;
   }
 
-  public PostV1BudgetDepositRequest cashbackSum(@jakarta.annotation.Nullable Integer cashbackSum) {
+  public PostV1BudgetDepositRequest cashbackSum(@jakarta.annotation.Nullable Long cashbackSum) {
     this.cashbackSum = cashbackSum;
     return this;
   }
@@ -103,16 +103,16 @@ public class PostV1BudgetDepositRequest {
    * @return cashbackSum
    */
   @jakarta.annotation.Nullable
-  public Integer getCashbackSum() {
+  public Long getCashbackSum() {
     return cashbackSum;
   }
 
-  public void setCashbackSum(@jakarta.annotation.Nullable Integer cashbackSum) {
+  public void setCashbackSum(@jakarta.annotation.Nullable Long cashbackSum) {
     this.cashbackSum = cashbackSum;
   }
 
   public PostV1BudgetDepositRequest cashbackPercent(
-      @jakarta.annotation.Nullable Integer cashbackPercent) {
+      @jakarta.annotation.Nullable Long cashbackPercent) {
     this.cashbackPercent = cashbackPercent;
     return this;
   }
@@ -126,15 +126,15 @@ public class PostV1BudgetDepositRequest {
    * @return cashbackPercent
    */
   @jakarta.annotation.Nullable
-  public Integer getCashbackPercent() {
+  public Long getCashbackPercent() {
     return cashbackPercent;
   }
 
-  public void setCashbackPercent(@jakarta.annotation.Nullable Integer cashbackPercent) {
+  public void setCashbackPercent(@jakarta.annotation.Nullable Long cashbackPercent) {
     this.cashbackPercent = cashbackPercent;
   }
 
-  public PostV1BudgetDepositRequest type(@jakarta.annotation.Nullable Integer type) {
+  public PostV1BudgetDepositRequest type(@jakarta.annotation.Nullable Long type) {
     this.type = type;
     return this;
   }
@@ -146,11 +146,11 @@ public class PostV1BudgetDepositRequest {
    * @return type
    */
   @jakarta.annotation.Nullable
-  public Integer getType() {
+  public Long getType() {
     return type;
   }
 
-  public void setType(@jakarta.annotation.Nullable Integer type) {
+  public void setType(@jakarta.annotation.Nullable Long type) {
     this.type = type;
   }
 

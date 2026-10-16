@@ -51,7 +51,7 @@ public class PostV2CardsUploadRequestInnerVariantsInnerSizesInner {
 
   @SerializedName(SERIALIZED_NAME_PRICE)
   @jakarta.annotation.Nullable
-  private Integer price;
+  private Long price;
 
   public static final String SERIALIZED_NAME_SKUS = "skus";
 
@@ -102,7 +102,7 @@ public class PostV2CardsUploadRequestInnerVariantsInnerSizesInner {
   }
 
   public PostV2CardsUploadRequestInnerVariantsInnerSizesInner price(
-      @jakarta.annotation.Nullable Integer price) {
+      @jakarta.annotation.Nullable Long price) {
     this.price = price;
     return this;
   }
@@ -113,11 +113,11 @@ public class PostV2CardsUploadRequestInnerVariantsInnerSizesInner {
    * @return price
    */
   @jakarta.annotation.Nullable
-  public Integer getPrice() {
+  public Long getPrice() {
     return price;
   }
 
-  public void setPrice(@jakarta.annotation.Nullable Integer price) {
+  public void setPrice(@jakarta.annotation.Nullable Long price) {
     this.price = price;
   }
 

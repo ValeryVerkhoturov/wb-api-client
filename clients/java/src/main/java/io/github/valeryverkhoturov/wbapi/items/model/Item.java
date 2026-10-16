@@ -37,23 +37,23 @@ public class Item {
 
   @SerializedName(SERIALIZED_NAME_NM_I_D)
   @jakarta.annotation.Nonnull
-  private Integer nmID;
+  private Long nmID;
 
   public static final String SERIALIZED_NAME_PRICE = "price";
 
   @SerializedName(SERIALIZED_NAME_PRICE)
   @jakarta.annotation.Nullable
-  private Integer price;
+  private Long price;
 
   public static final String SERIALIZED_NAME_DISCOUNT = "discount";
 
   @SerializedName(SERIALIZED_NAME_DISCOUNT)
   @jakarta.annotation.Nullable
-  private Integer discount;
+  private Long discount;
 
   public Item() {}
 
-  public Item nmID(@jakarta.annotation.Nonnull Integer nmID) {
+  public Item nmID(@jakarta.annotation.Nonnull Long nmID) {
     this.nmID = nmID;
     return this;
   }
@@ -64,15 +64,15 @@ public class Item {
    * @return nmID
    */
   @jakarta.annotation.Nonnull
-  public Integer getNmID() {
+  public Long getNmID() {
     return nmID;
   }
 
-  public void setNmID(@jakarta.annotation.Nonnull Integer nmID) {
+  public void setNmID(@jakarta.annotation.Nonnull Long nmID) {
     this.nmID = nmID;
   }
 
-  public Item price(@jakarta.annotation.Nullable Integer price) {
+  public Item price(@jakarta.annotation.Nullable Long price) {
     this.price = price;
     return this;
   }
@@ -87,15 +87,15 @@ public class Item {
    * @return price
    */
   @jakarta.annotation.Nullable
-  public Integer getPrice() {
+  public Long getPrice() {
     return price;
   }
 
-  public void setPrice(@jakarta.annotation.Nullable Integer price) {
+  public void setPrice(@jakarta.annotation.Nullable Long price) {
     this.price = price;
   }
 
-  public Item discount(@jakarta.annotation.Nullable Integer discount) {
+  public Item discount(@jakarta.annotation.Nullable Long discount) {
     this.discount = discount;
     return this;
   }
@@ -106,11 +106,11 @@ public class Item {
    * @return discount
    */
   @jakarta.annotation.Nullable
-  public Integer getDiscount() {
+  public Long getDiscount() {
     return discount;
   }
 
-  public void setDiscount(@jakarta.annotation.Nullable Integer discount) {
+  public void setDiscount(@jakarta.annotation.Nullable Long discount) {
     this.discount = discount;
   }
 

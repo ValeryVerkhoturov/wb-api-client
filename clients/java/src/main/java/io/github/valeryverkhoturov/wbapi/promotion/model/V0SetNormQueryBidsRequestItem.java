@@ -37,13 +37,13 @@ public class V0SetNormQueryBidsRequestItem {
 
   @SerializedName(SERIALIZED_NAME_ADVERT_ID)
   @jakarta.annotation.Nonnull
-  private Integer advertId;
+  private Long advertId;
 
   public static final String SERIALIZED_NAME_NM_ID = "nm_id";
 
   @SerializedName(SERIALIZED_NAME_NM_ID)
   @jakarta.annotation.Nonnull
-  private Integer nmId;
+  private Long nmId;
 
   public static final String SERIALIZED_NAME_NORM_QUERY = "norm_query";
 
@@ -55,11 +55,11 @@ public class V0SetNormQueryBidsRequestItem {
 
   @SerializedName(SERIALIZED_NAME_BID)
   @jakarta.annotation.Nonnull
-  private Integer bid;
+  private Long bid;
 
   public V0SetNormQueryBidsRequestItem() {}
 
-  public V0SetNormQueryBidsRequestItem advertId(@jakarta.annotation.Nonnull Integer advertId) {
+  public V0SetNormQueryBidsRequestItem advertId(@jakarta.annotation.Nonnull Long advertId) {
     this.advertId = advertId;
     return this;
   }
@@ -70,15 +70,15 @@ public class V0SetNormQueryBidsRequestItem {
    * @return advertId
    */
   @jakarta.annotation.Nonnull
-  public Integer getAdvertId() {
+  public Long getAdvertId() {
     return advertId;
   }
 
-  public void setAdvertId(@jakarta.annotation.Nonnull Integer advertId) {
+  public void setAdvertId(@jakarta.annotation.Nonnull Long advertId) {
     this.advertId = advertId;
   }
 
-  public V0SetNormQueryBidsRequestItem nmId(@jakarta.annotation.Nonnull Integer nmId) {
+  public V0SetNormQueryBidsRequestItem nmId(@jakarta.annotation.Nonnull Long nmId) {
     this.nmId = nmId;
     return this;
   }
@@ -89,11 +89,11 @@ public class V0SetNormQueryBidsRequestItem {
    * @return nmId
    */
   @jakarta.annotation.Nonnull
-  public Integer getNmId() {
+  public Long getNmId() {
     return nmId;
   }
 
-  public void setNmId(@jakarta.annotation.Nonnull Integer nmId) {
+  public void setNmId(@jakarta.annotation.Nonnull Long nmId) {
     this.nmId = nmId;
   }
 
@@ -116,7 +116,7 @@ public class V0SetNormQueryBidsRequestItem {
     this.normQuery = normQuery;
   }
 
-  public V0SetNormQueryBidsRequestItem bid(@jakarta.annotation.Nonnull Integer bid) {
+  public V0SetNormQueryBidsRequestItem bid(@jakarta.annotation.Nonnull Long bid) {
     this.bid = bid;
     return this;
   }
@@ -128,11 +128,11 @@ public class V0SetNormQueryBidsRequestItem {
    * @return bid
    */
   @jakarta.annotation.Nonnull
-  public Integer getBid() {
+  public Long getBid() {
     return bid;
   }
 
-  public void setBid(@jakarta.annotation.Nonnull Integer bid) {
+  public void setBid(@jakarta.annotation.Nonnull Long bid) {
     this.bid = bid;
   }
 

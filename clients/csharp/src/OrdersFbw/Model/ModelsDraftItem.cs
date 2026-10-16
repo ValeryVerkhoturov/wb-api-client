@@ -40,7 +40,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Model
         /// <param name="updatedAt">Дата и время последнего обновления черновика.</param>
         /// <param name="skuQuantity">Количество баркодов.</param>
         /// <param name="itemQuantity">Количество единиц товара.</param>
-        public ModelsDraftItem(string draftId = default(string), string phone = default(string), string createdAt = default(string), string updatedAt = default(string), int skuQuantity = default(int), int itemQuantity = default(int))
+        public ModelsDraftItem(string draftId = default(string), string phone = default(string), string createdAt = default(string), string updatedAt = default(string), long skuQuantity = default(long), long itemQuantity = default(long))
         {
             this.DraftId = draftId;
             this.Phone = phone;
@@ -83,14 +83,14 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Model
         /// </summary>
         /// <value>Количество баркодов</value>
         [DataMember(Name = "skuQuantity", EmitDefaultValue = false)]
-        public int SkuQuantity { get; set; }
+        public long SkuQuantity { get; set; }
 
         /// <summary>
         /// Количество единиц товара
         /// </summary>
         /// <value>Количество единиц товара</value>
         [DataMember(Name = "itemQuantity", EmitDefaultValue = false)]
-        public int ItemQuantity { get; set; }
+        public long ItemQuantity { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

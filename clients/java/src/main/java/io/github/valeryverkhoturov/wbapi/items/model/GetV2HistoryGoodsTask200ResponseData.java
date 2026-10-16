@@ -40,7 +40,7 @@ public class GetV2HistoryGoodsTask200ResponseData {
 
   @SerializedName(SERIALIZED_NAME_UPLOAD_I_D)
   @jakarta.annotation.Nullable
-  private Integer uploadID;
+  private Long uploadID;
 
   public static final String SERIALIZED_NAME_HISTORY_GOODS = "historyGoods";
 
@@ -50,8 +50,7 @@ public class GetV2HistoryGoodsTask200ResponseData {
 
   public GetV2HistoryGoodsTask200ResponseData() {}
 
-  public GetV2HistoryGoodsTask200ResponseData uploadID(
-      @jakarta.annotation.Nullable Integer uploadID) {
+  public GetV2HistoryGoodsTask200ResponseData uploadID(@jakarta.annotation.Nullable Long uploadID) {
     this.uploadID = uploadID;
     return this;
   }
@@ -62,11 +61,11 @@ public class GetV2HistoryGoodsTask200ResponseData {
    * @return uploadID
    */
   @jakarta.annotation.Nullable
-  public Integer getUploadID() {
+  public Long getUploadID() {
     return uploadID;
   }
 
-  public void setUploadID(@jakarta.annotation.Nullable Integer uploadID) {
+  public void setUploadID(@jakarta.annotation.Nullable Long uploadID) {
     this.uploadID = uploadID;
   }
 

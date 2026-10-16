@@ -37,13 +37,13 @@ public class V1SetNormQueryBidsSuccessResponseItem {
 
   @SerializedName(SERIALIZED_NAME_ADVERT_ID)
   @jakarta.annotation.Nullable
-  private Integer advertId;
+  private Long advertId;
 
   public static final String SERIALIZED_NAME_NM_ID = "nmId";
 
   @SerializedName(SERIALIZED_NAME_NM_ID)
   @jakarta.annotation.Nullable
-  private Integer nmId;
+  private Long nmId;
 
   public static final String SERIALIZED_NAME_NORM_QUERY = "normQuery";
 
@@ -60,7 +60,7 @@ public class V1SetNormQueryBidsSuccessResponseItem {
   public V1SetNormQueryBidsSuccessResponseItem() {}
 
   public V1SetNormQueryBidsSuccessResponseItem advertId(
-      @jakarta.annotation.Nullable Integer advertId) {
+      @jakarta.annotation.Nullable Long advertId) {
     this.advertId = advertId;
     return this;
   }
@@ -71,15 +71,15 @@ public class V1SetNormQueryBidsSuccessResponseItem {
    * @return advertId
    */
   @jakarta.annotation.Nullable
-  public Integer getAdvertId() {
+  public Long getAdvertId() {
     return advertId;
   }
 
-  public void setAdvertId(@jakarta.annotation.Nullable Integer advertId) {
+  public void setAdvertId(@jakarta.annotation.Nullable Long advertId) {
     this.advertId = advertId;
   }
 
-  public V1SetNormQueryBidsSuccessResponseItem nmId(@jakarta.annotation.Nullable Integer nmId) {
+  public V1SetNormQueryBidsSuccessResponseItem nmId(@jakarta.annotation.Nullable Long nmId) {
     this.nmId = nmId;
     return this;
   }
@@ -90,11 +90,11 @@ public class V1SetNormQueryBidsSuccessResponseItem {
    * @return nmId
    */
   @jakarta.annotation.Nullable
-  public Integer getNmId() {
+  public Long getNmId() {
     return nmId;
   }
 
-  public void setNmId(@jakarta.annotation.Nullable Integer nmId) {
+  public void setNmId(@jakarta.annotation.Nullable Long nmId) {
     this.nmId = nmId;
   }
 

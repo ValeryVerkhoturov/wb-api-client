@@ -36,7 +36,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /// </summary>
         /// <param name="parentId">ID родительской категории.</param>
         /// <param name="parentName">Название родительской категории.</param>
-        public GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner(int parentId = default(int), string parentName = default(string))
+        public GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner(long parentId = default(long), string parentName = default(string))
         {
             this.ParentId = parentId;
             this.ParentName = parentName;
@@ -47,7 +47,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /// </summary>
         /// <value>ID родительской категории</value>
         [DataMember(Name = "parentId", EmitDefaultValue = false)]
-        public int ParentId { get; set; }
+        public long ParentId { get; set; }
 
         /// <summary>
         /// Название родительской категории

@@ -40,19 +40,19 @@ public class GetV1PromotionCountResponse200AdvertsInner {
 
   @SerializedName(SERIALIZED_NAME_TYPE)
   @jakarta.annotation.Nullable
-  private Integer type;
+  private Long type;
 
   public static final String SERIALIZED_NAME_STATUS = "status";
 
   @SerializedName(SERIALIZED_NAME_STATUS)
   @jakarta.annotation.Nullable
-  private Integer status;
+  private Long status;
 
   public static final String SERIALIZED_NAME_COUNT = "count";
 
   @SerializedName(SERIALIZED_NAME_COUNT)
   @jakarta.annotation.Nullable
-  private Integer count;
+  private Long count;
 
   public static final String SERIALIZED_NAME_ADVERT_LIST = "advert_list";
 
@@ -63,8 +63,7 @@ public class GetV1PromotionCountResponse200AdvertsInner {
 
   public GetV1PromotionCountResponse200AdvertsInner() {}
 
-  public GetV1PromotionCountResponse200AdvertsInner type(
-      @jakarta.annotation.Nullable Integer type) {
+  public GetV1PromotionCountResponse200AdvertsInner type(@jakarta.annotation.Nullable Long type) {
     this.type = type;
     return this;
   }
@@ -78,16 +77,16 @@ public class GetV1PromotionCountResponse200AdvertsInner {
    * @return type
    */
   @jakarta.annotation.Nullable
-  public Integer getType() {
+  public Long getType() {
     return type;
   }
 
-  public void setType(@jakarta.annotation.Nullable Integer type) {
+  public void setType(@jakarta.annotation.Nullable Long type) {
     this.type = type;
   }
 
   public GetV1PromotionCountResponse200AdvertsInner status(
-      @jakarta.annotation.Nullable Integer status) {
+      @jakarta.annotation.Nullable Long status) {
     this.status = status;
     return this;
   }
@@ -98,16 +97,15 @@ public class GetV1PromotionCountResponse200AdvertsInner {
    * @return status
    */
   @jakarta.annotation.Nullable
-  public Integer getStatus() {
+  public Long getStatus() {
     return status;
   }
 
-  public void setStatus(@jakarta.annotation.Nullable Integer status) {
+  public void setStatus(@jakarta.annotation.Nullable Long status) {
     this.status = status;
   }
 
-  public GetV1PromotionCountResponse200AdvertsInner count(
-      @jakarta.annotation.Nullable Integer count) {
+  public GetV1PromotionCountResponse200AdvertsInner count(@jakarta.annotation.Nullable Long count) {
     this.count = count;
     return this;
   }
@@ -118,11 +116,11 @@ public class GetV1PromotionCountResponse200AdvertsInner {
    * @return count
    */
   @jakarta.annotation.Nullable
-  public Integer getCount() {
+  public Long getCount() {
     return count;
   }
 
-  public void setCount(@jakarta.annotation.Nullable Integer count) {
+  public void setCount(@jakarta.annotation.Nullable Long count) {
     this.count = count;
   }
 

@@ -43,7 +43,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <param name="nmId">Артикул WB (required).</param>
         /// <param name="normQuery">Поисковый кластер (required).</param>
         /// <param name="bidMinorUnits">Ставка в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances). Допустимый шаг ставки указан в ответе метода [GET /api/advert/v1/config](./promotion#tag/campaignManagement/operation/getV1Config)  (required).</param>
-        public V1SetNormQueryBidsRequestItem(int advertId = default(int), int nmId = default(int), string normQuery = default(string), int bidMinorUnits = default(int))
+        public V1SetNormQueryBidsRequestItem(long advertId = default(long), long nmId = default(long), string normQuery = default(string), long bidMinorUnits = default(long))
         {
             this.AdvertId = advertId;
             this.NmId = nmId;
@@ -61,14 +61,14 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <value>ID кампании</value>
         [DataMember(Name = "advertId", IsRequired = true, EmitDefaultValue = true)]
-        public int AdvertId { get; set; }
+        public long AdvertId { get; set; }
 
         /// <summary>
         /// Артикул WB
         /// </summary>
         /// <value>Артикул WB</value>
         [DataMember(Name = "nmId", IsRequired = true, EmitDefaultValue = true)]
-        public int NmId { get; set; }
+        public long NmId { get; set; }
 
         /// <summary>
         /// Поисковый кластер
@@ -82,7 +82,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <value>Ставка в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances). Допустимый шаг ставки указан в ответе метода [GET /api/advert/v1/config](./promotion#tag/campaignManagement/operation/getV1Config) </value>
         [DataMember(Name = "bidMinorUnits", IsRequired = true, EmitDefaultValue = true)]
-        public int BidMinorUnits { get; set; }
+        public long BidMinorUnits { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

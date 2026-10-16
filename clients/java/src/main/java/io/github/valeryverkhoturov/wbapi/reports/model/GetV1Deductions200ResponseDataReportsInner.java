@@ -46,13 +46,13 @@ public class GetV1Deductions200ResponseDataReportsInner {
 
   @SerializedName(SERIALIZED_NAME_NM_ID)
   @jakarta.annotation.Nullable
-  private Integer nmId;
+  private Long nmId;
 
   public static final String SERIALIZED_NAME_OLD_SHK_ID = "oldShkId";
 
   @SerializedName(SERIALIZED_NAME_OLD_SHK_ID)
   @jakarta.annotation.Nullable
-  private Integer oldShkId;
+  private Long oldShkId;
 
   public static final String SERIALIZED_NAME_OLD_COLOR = "oldColor";
 
@@ -82,7 +82,7 @@ public class GetV1Deductions200ResponseDataReportsInner {
 
   @SerializedName(SERIALIZED_NAME_NEW_SHK_ID)
   @jakarta.annotation.Nullable
-  private Integer newShkId;
+  private Long newShkId;
 
   public static final String SERIALIZED_NAME_NEW_COLOR = "newColor";
 
@@ -148,8 +148,7 @@ public class GetV1Deductions200ResponseDataReportsInner {
     this.dtBonus = dtBonus;
   }
 
-  public GetV1Deductions200ResponseDataReportsInner nmId(
-      @jakarta.annotation.Nullable Integer nmId) {
+  public GetV1Deductions200ResponseDataReportsInner nmId(@jakarta.annotation.Nullable Long nmId) {
     this.nmId = nmId;
     return this;
   }
@@ -160,16 +159,16 @@ public class GetV1Deductions200ResponseDataReportsInner {
    * @return nmId
    */
   @jakarta.annotation.Nullable
-  public Integer getNmId() {
+  public Long getNmId() {
     return nmId;
   }
 
-  public void setNmId(@jakarta.annotation.Nullable Integer nmId) {
+  public void setNmId(@jakarta.annotation.Nullable Long nmId) {
     this.nmId = nmId;
   }
 
   public GetV1Deductions200ResponseDataReportsInner oldShkId(
-      @jakarta.annotation.Nullable Integer oldShkId) {
+      @jakarta.annotation.Nullable Long oldShkId) {
     this.oldShkId = oldShkId;
     return this;
   }
@@ -180,11 +179,11 @@ public class GetV1Deductions200ResponseDataReportsInner {
    * @return oldShkId
    */
   @jakarta.annotation.Nullable
-  public Integer getOldShkId() {
+  public Long getOldShkId() {
     return oldShkId;
   }
 
-  public void setOldShkId(@jakarta.annotation.Nullable Integer oldShkId) {
+  public void setOldShkId(@jakarta.annotation.Nullable Long oldShkId) {
     this.oldShkId = oldShkId;
   }
 
@@ -269,7 +268,7 @@ public class GetV1Deductions200ResponseDataReportsInner {
   }
 
   public GetV1Deductions200ResponseDataReportsInner newShkId(
-      @jakarta.annotation.Nullable Integer newShkId) {
+      @jakarta.annotation.Nullable Long newShkId) {
     this.newShkId = newShkId;
     return this;
   }
@@ -280,11 +279,11 @@ public class GetV1Deductions200ResponseDataReportsInner {
    * @return newShkId
    */
   @jakarta.annotation.Nullable
-  public Integer getNewShkId() {
+  public Long getNewShkId() {
     return newShkId;
   }
 
-  public void setNewShkId(@jakarta.annotation.Nullable Integer newShkId) {
+  public void setNewShkId(@jakarta.annotation.Nullable Long newShkId) {
     this.newShkId = newShkId;
   }
 

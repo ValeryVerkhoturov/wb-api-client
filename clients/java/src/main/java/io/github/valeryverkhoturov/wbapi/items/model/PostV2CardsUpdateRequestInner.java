@@ -40,7 +40,7 @@ public class PostV2CardsUpdateRequestInner {
 
   @SerializedName(SERIALIZED_NAME_NM_I_D)
   @jakarta.annotation.Nonnull
-  private Integer nmID;
+  private Long nmID;
 
   public static final String SERIALIZED_NAME_VENDOR_CODE = "vendorCode";
 
@@ -105,7 +105,7 @@ public class PostV2CardsUpdateRequestInner {
 
   public PostV2CardsUpdateRequestInner() {}
 
-  public PostV2CardsUpdateRequestInner nmID(@jakarta.annotation.Nonnull Integer nmID) {
+  public PostV2CardsUpdateRequestInner nmID(@jakarta.annotation.Nonnull Long nmID) {
     this.nmID = nmID;
     return this;
   }
@@ -116,11 +116,11 @@ public class PostV2CardsUpdateRequestInner {
    * @return nmID
    */
   @jakarta.annotation.Nonnull
-  public Integer getNmID() {
+  public Long getNmID() {
     return nmID;
   }
 
-  public void setNmID(@jakarta.annotation.Nonnull Integer nmID) {
+  public void setNmID(@jakarta.annotation.Nonnull Long nmID) {
     this.nmID = nmID;
   }
 

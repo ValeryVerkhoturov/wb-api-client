@@ -40,17 +40,17 @@ public class TableGroupItemMetricsOpenToCart {
 
   @SerializedName(SERIALIZED_NAME_CURRENT)
   @jakarta.annotation.Nullable
-  private Integer current;
+  private Long current;
 
   public static final String SERIALIZED_NAME_DYNAMICS = "dynamics";
 
   @SerializedName(SERIALIZED_NAME_DYNAMICS)
   @jakarta.annotation.Nullable
-  private Integer dynamics;
+  private Long dynamics;
 
   public TableGroupItemMetricsOpenToCart() {}
 
-  public TableGroupItemMetricsOpenToCart current(@jakarta.annotation.Nullable Integer current) {
+  public TableGroupItemMetricsOpenToCart current(@jakarta.annotation.Nullable Long current) {
     this.current = current;
     return this;
   }
@@ -61,15 +61,15 @@ public class TableGroupItemMetricsOpenToCart {
    * @return current
    */
   @jakarta.annotation.Nullable
-  public Integer getCurrent() {
+  public Long getCurrent() {
     return current;
   }
 
-  public void setCurrent(@jakarta.annotation.Nullable Integer current) {
+  public void setCurrent(@jakarta.annotation.Nullable Long current) {
     this.current = current;
   }
 
-  public TableGroupItemMetricsOpenToCart dynamics(@jakarta.annotation.Nullable Integer dynamics) {
+  public TableGroupItemMetricsOpenToCart dynamics(@jakarta.annotation.Nullable Long dynamics) {
     this.dynamics = dynamics;
     return this;
   }
@@ -80,11 +80,11 @@ public class TableGroupItemMetricsOpenToCart {
    * @return dynamics
    */
   @jakarta.annotation.Nullable
-  public Integer getDynamics() {
+  public Long getDynamics() {
     return dynamics;
   }
 
-  public void setDynamics(@jakarta.annotation.Nullable Integer dynamics) {
+  public void setDynamics(@jakarta.annotation.Nullable Long dynamics) {
     this.dynamics = dynamics;
   }
 

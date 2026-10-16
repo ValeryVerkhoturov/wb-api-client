@@ -41,7 +41,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /// </summary>
         /// <param name="reports">Удержания (required).</param>
         /// <param name="total">Количество удержаний в отчёте. Без учёта &#x60;limit&#x60; и &#x60;offset&#x60; (required).</param>
-        public GetV1Deductions200ResponseData(List<GetV1Deductions200ResponseDataReportsInner> reports = default(List<GetV1Deductions200ResponseDataReportsInner>), int total = default(int))
+        public GetV1Deductions200ResponseData(List<GetV1Deductions200ResponseDataReportsInner> reports = default(List<GetV1Deductions200ResponseDataReportsInner>), long total = default(long))
         {
             // to ensure "reports" is required (not null)
             if (reports == null)
@@ -67,7 +67,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         <example>11</example>
         */
         [DataMember(Name = "total", IsRequired = true, EmitDefaultValue = true)]
-        public int Total { get; set; }
+        public long Total { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

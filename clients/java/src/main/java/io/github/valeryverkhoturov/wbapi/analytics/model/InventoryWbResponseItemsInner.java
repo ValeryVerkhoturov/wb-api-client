@@ -43,7 +43,7 @@ public class InventoryWbResponseItemsInner {
 
   @SerializedName(SERIALIZED_NAME_CHRT_ID)
   @jakarta.annotation.Nullable
-  private Integer chrtId;
+  private Long chrtId;
 
   public static final String SERIALIZED_NAME_WAREHOUSE_ID = "warehouseId";
 
@@ -67,19 +67,19 @@ public class InventoryWbResponseItemsInner {
 
   @SerializedName(SERIALIZED_NAME_QUANTITY)
   @jakarta.annotation.Nullable
-  private Integer quantity;
+  private Long quantity;
 
   public static final String SERIALIZED_NAME_IN_WAY_TO_CLIENT = "inWayToClient";
 
   @SerializedName(SERIALIZED_NAME_IN_WAY_TO_CLIENT)
   @jakarta.annotation.Nullable
-  private Integer inWayToClient;
+  private Long inWayToClient;
 
   public static final String SERIALIZED_NAME_IN_WAY_FROM_CLIENT = "inWayFromClient";
 
   @SerializedName(SERIALIZED_NAME_IN_WAY_FROM_CLIENT)
   @jakarta.annotation.Nullable
-  private Integer inWayFromClient;
+  private Long inWayFromClient;
 
   public InventoryWbResponseItemsInner() {}
 
@@ -102,7 +102,7 @@ public class InventoryWbResponseItemsInner {
     this.nmId = nmId;
   }
 
-  public InventoryWbResponseItemsInner chrtId(@jakarta.annotation.Nullable Integer chrtId) {
+  public InventoryWbResponseItemsInner chrtId(@jakarta.annotation.Nullable Long chrtId) {
     this.chrtId = chrtId;
     return this;
   }
@@ -113,11 +113,11 @@ public class InventoryWbResponseItemsInner {
    * @return chrtId
    */
   @jakarta.annotation.Nullable
-  public Integer getChrtId() {
+  public Long getChrtId() {
     return chrtId;
   }
 
-  public void setChrtId(@jakarta.annotation.Nullable Integer chrtId) {
+  public void setChrtId(@jakarta.annotation.Nullable Long chrtId) {
     this.chrtId = chrtId;
   }
 
@@ -182,7 +182,7 @@ public class InventoryWbResponseItemsInner {
     this.regionName = regionName;
   }
 
-  public InventoryWbResponseItemsInner quantity(@jakarta.annotation.Nullable Integer quantity) {
+  public InventoryWbResponseItemsInner quantity(@jakarta.annotation.Nullable Long quantity) {
     this.quantity = quantity;
     return this;
   }
@@ -193,16 +193,16 @@ public class InventoryWbResponseItemsInner {
    * @return quantity
    */
   @jakarta.annotation.Nullable
-  public Integer getQuantity() {
+  public Long getQuantity() {
     return quantity;
   }
 
-  public void setQuantity(@jakarta.annotation.Nullable Integer quantity) {
+  public void setQuantity(@jakarta.annotation.Nullable Long quantity) {
     this.quantity = quantity;
   }
 
   public InventoryWbResponseItemsInner inWayToClient(
-      @jakarta.annotation.Nullable Integer inWayToClient) {
+      @jakarta.annotation.Nullable Long inWayToClient) {
     this.inWayToClient = inWayToClient;
     return this;
   }
@@ -213,16 +213,16 @@ public class InventoryWbResponseItemsInner {
    * @return inWayToClient
    */
   @jakarta.annotation.Nullable
-  public Integer getInWayToClient() {
+  public Long getInWayToClient() {
     return inWayToClient;
   }
 
-  public void setInWayToClient(@jakarta.annotation.Nullable Integer inWayToClient) {
+  public void setInWayToClient(@jakarta.annotation.Nullable Long inWayToClient) {
     this.inWayToClient = inWayToClient;
   }
 
   public InventoryWbResponseItemsInner inWayFromClient(
-      @jakarta.annotation.Nullable Integer inWayFromClient) {
+      @jakarta.annotation.Nullable Long inWayFromClient) {
     this.inWayFromClient = inWayFromClient;
     return this;
   }
@@ -233,11 +233,11 @@ public class InventoryWbResponseItemsInner {
    * @return inWayFromClient
    */
   @jakarta.annotation.Nullable
-  public Integer getInWayFromClient() {
+  public Long getInWayFromClient() {
     return inWayFromClient;
   }
 
-  public void setInWayFromClient(@jakarta.annotation.Nullable Integer inWayFromClient) {
+  public void setInWayFromClient(@jakarta.annotation.Nullable Long inWayFromClient) {
     this.inWayFromClient = inWayFromClient;
   }
 

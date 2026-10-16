@@ -41,7 +41,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Model
         /// </summary>
         /// <param name="gtin">GTIN (required).</param>
         /// <param name="orderId">ID сборочного задания (required).</param>
-        public ApiGTIN(string gtin = default(string), int orderId = default(int))
+        public ApiGTIN(string gtin = default(string), long orderId = default(long))
         {
             // to ensure "gtin" is required (not null)
             if (gtin == null)
@@ -70,7 +70,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Model
         <example>123456</example>
         */
         [DataMember(Name = "orderId", IsRequired = true, EmitDefaultValue = true)]
-        public int OrderId { get; set; }
+        public long OrderId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -105,13 +105,13 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Model
             // Gtin (string) maxLength
             if (this.Gtin != null && this.Gtin.Length > 13)
             {
-                yield return new ValidationResult("Invalid value for Gtin, length must be less than 13.", new [] { "Gtin" });
+                yield return new ValidationResult("Invalid value for Gtin, length must be less than 13.", new[] { "Gtin" });
             }
 
             // Gtin (string) minLength
             if (this.Gtin != null && this.Gtin.Length < 13)
             {
-                yield return new ValidationResult("Invalid value for Gtin, length must be greater than 13.", new [] { "Gtin" });
+                yield return new ValidationResult("Invalid value for Gtin, length must be greater than 13.", new[] { "Gtin" });
             }
 
             yield break;

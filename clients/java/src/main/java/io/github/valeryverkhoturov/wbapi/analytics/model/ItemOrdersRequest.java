@@ -45,7 +45,7 @@ public class ItemOrdersRequest {
 
   @SerializedName(SERIALIZED_NAME_NM_ID)
   @jakarta.annotation.Nonnull
-  private Integer nmId;
+  private Long nmId;
 
   public static final String SERIALIZED_NAME_SEARCH_TEXTS = "searchTexts";
 
@@ -74,7 +74,7 @@ public class ItemOrdersRequest {
     this.period = period;
   }
 
-  public ItemOrdersRequest nmId(@jakarta.annotation.Nonnull Integer nmId) {
+  public ItemOrdersRequest nmId(@jakarta.annotation.Nonnull Long nmId) {
     this.nmId = nmId;
     return this;
   }
@@ -85,11 +85,11 @@ public class ItemOrdersRequest {
    * @return nmId
    */
   @jakarta.annotation.Nonnull
-  public Integer getNmId() {
+  public Long getNmId() {
     return nmId;
   }
 
-  public void setNmId(@jakarta.annotation.Nonnull Integer nmId) {
+  public void setNmId(@jakarta.annotation.Nonnull Long nmId) {
     this.nmId = nmId;
   }
 

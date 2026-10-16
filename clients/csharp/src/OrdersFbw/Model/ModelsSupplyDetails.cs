@@ -105,7 +105,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Model
         /// <param name="depersonalizedQuantity">Количество обезличенного товара, шт.</param>
         /// <param name="discrepancies">Расхождения между заявленным и фактическим количеством товара в поставке.  Только при &#x60;\&quot;statusID\&quot;:5&#x60;.</param>
         /// <param name="isBoxOnPallet">Тип поставки — **Поштучная палета**:   - &#x60;true&#x60; — да   - &#x60;false&#x60; — нет    Поле возвращается только при &#x60;\&quot;boxTypeID\&quot;: 2&#x60; .</param>
-        public ModelsSupplyDetails(string phone = default(string), StatusIDEnum? statusID = default(StatusIDEnum?), int virtualTypeID = default(int), int boxTypeID = default(int), string createDate = default(string), string supplyDate = default(string), string factDate = default(string), string updatedDate = default(string), int warehouseID = default(int), string warehouseName = default(string), int? actualWarehouseID = default(int?), string actualWarehouseName = default(string), int? transitWarehouseID = default(int?), string transitWarehouseName = default(string), decimal? acceptanceCost = default(decimal?), decimal? paidAcceptanceCoefficient = default(decimal?), string rejectReason = default(string), string supplierAssignName = default(string), string storageCoef = default(string), string deliveryCoef = default(string), int quantity = default(int), int readyForSaleQuantity = default(int), int acceptedQuantity = default(int), int unloadingQuantity = default(int), int? depersonalizedQuantity = default(int?), int discrepancies = default(int), bool isBoxOnPallet = default(bool))
+        public ModelsSupplyDetails(string phone = default(string), StatusIDEnum? statusID = default(StatusIDEnum?), long virtualTypeID = default(long), long boxTypeID = default(long), string createDate = default(string), string supplyDate = default(string), string factDate = default(string), string updatedDate = default(string), long warehouseID = default(long), string warehouseName = default(string), long? actualWarehouseID = default(long?), string actualWarehouseName = default(string), long? transitWarehouseID = default(long?), string transitWarehouseName = default(string), decimal? acceptanceCost = default(decimal?), decimal? paidAcceptanceCoefficient = default(decimal?), string rejectReason = default(string), string supplierAssignName = default(string), string storageCoef = default(string), string deliveryCoef = default(string), long quantity = default(long), long readyForSaleQuantity = default(long), long acceptedQuantity = default(long), long unloadingQuantity = default(long), long? depersonalizedQuantity = default(long?), long discrepancies = default(long), bool isBoxOnPallet = default(bool))
         {
             this.Phone = phone;
             this.StatusID = statusID;
@@ -148,14 +148,14 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Model
         /// </summary>
         /// <value>ID типа виртуальной поставки. Отображается только для поставок с &#x60;\&quot;boxTypeID\&quot;:0&#x60;.   - &#x60;0&#x60; — Перенос остатков   - &#x60;1&#x60; — Обезличка   - &#x60;4&#x60; — QR-поставка   - &#x60;5&#x60; — Допринято   - &#x60;6&#x60; — Скан-приёмка </value>
         [DataMember(Name = "virtualTypeID", EmitDefaultValue = false)]
-        public int VirtualTypeID { get; set; }
+        public long VirtualTypeID { get; set; }
 
         /// <summary>
         /// ID типа поставки:   - &#x60;0&#x60; — Без коробов (виртуальная поставка)   - &#x60;1&#x60; и &#x60;2&#x60; — Короба   - &#x60;5&#x60; — Монопаллеты   - &#x60;6&#x60; — Суперсейф 
         /// </summary>
         /// <value>ID типа поставки:   - &#x60;0&#x60; — Без коробов (виртуальная поставка)   - &#x60;1&#x60; и &#x60;2&#x60; — Короба   - &#x60;5&#x60; — Монопаллеты   - &#x60;6&#x60; — Суперсейф </value>
         [DataMember(Name = "boxTypeID", EmitDefaultValue = false)]
-        public int BoxTypeID { get; set; }
+        public long BoxTypeID { get; set; }
 
         /// <summary>
         /// Дата и время создания поставки
@@ -190,7 +190,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Model
         /// </summary>
         /// <value>ID склада, на который планируется поставка</value>
         [DataMember(Name = "warehouseID", EmitDefaultValue = false)]
-        public int WarehouseID { get; set; }
+        public long WarehouseID { get; set; }
 
         /// <summary>
         /// Название склада, на который планируется поставка
@@ -204,7 +204,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Model
         /// </summary>
         /// <value>ID склада, на который поставка была привезена</value>
         [DataMember(Name = "actualWarehouseID", EmitDefaultValue = true)]
-        public int? ActualWarehouseID { get; set; }
+        public long? ActualWarehouseID { get; set; }
 
         /// <summary>
         /// Название склада, на который поставка привезена
@@ -218,7 +218,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Model
         /// </summary>
         /// <value>ID транзитного склада</value>
         [DataMember(Name = "transitWarehouseID", EmitDefaultValue = true)]
-        public int? TransitWarehouseID { get; set; }
+        public long? TransitWarehouseID { get; set; }
 
         /// <summary>
         /// Название транзитного склада
@@ -274,42 +274,42 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Model
         /// </summary>
         /// <value>Добавлено в поставку/заказ, шт</value>
         [DataMember(Name = "quantity", EmitDefaultValue = false)]
-        public int Quantity { get; set; }
+        public long Quantity { get; set; }
 
         /// <summary>
         /// Поступило в продажу, шт
         /// </summary>
         /// <value>Поступило в продажу, шт</value>
         [DataMember(Name = "readyForSaleQuantity", EmitDefaultValue = false)]
-        public int ReadyForSaleQuantity { get; set; }
+        public long ReadyForSaleQuantity { get; set; }
 
         /// <summary>
         /// Принято, шт
         /// </summary>
         /// <value>Принято, шт</value>
         [DataMember(Name = "acceptedQuantity", EmitDefaultValue = false)]
-        public int AcceptedQuantity { get; set; }
+        public long AcceptedQuantity { get; set; }
 
         /// <summary>
         /// Количество товара, находящегося на раскладке, шт
         /// </summary>
         /// <value>Количество товара, находящегося на раскладке, шт</value>
         [DataMember(Name = "unloadingQuantity", EmitDefaultValue = false)]
-        public int UnloadingQuantity { get; set; }
+        public long UnloadingQuantity { get; set; }
 
         /// <summary>
         /// Количество обезличенного товара, шт
         /// </summary>
         /// <value>Количество обезличенного товара, шт</value>
         [DataMember(Name = "depersonalizedQuantity", EmitDefaultValue = true)]
-        public int? DepersonalizedQuantity { get; set; }
+        public long? DepersonalizedQuantity { get; set; }
 
         /// <summary>
         /// Расхождения между заявленным и фактическим количеством товара в поставке.  Только при &#x60;\&quot;statusID\&quot;:5&#x60;
         /// </summary>
         /// <value>Расхождения между заявленным и фактическим количеством товара в поставке.  Только при &#x60;\&quot;statusID\&quot;:5&#x60;</value>
         [DataMember(Name = "discrepancies", EmitDefaultValue = false)]
-        public int Discrepancies { get; set; }
+        public long Discrepancies { get; set; }
 
         /// <summary>
         /// Тип поставки — **Поштучная палета**:   - &#x60;true&#x60; — да   - &#x60;false&#x60; — нет    Поле возвращается только при &#x60;\&quot;boxTypeID\&quot;: 2&#x60; 

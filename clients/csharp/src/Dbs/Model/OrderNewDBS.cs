@@ -122,7 +122,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Model
         /// <param name="cargoType">Тип товара:   - &#x60;1&#x60; — малогабаритный товар (МГТ)   - &#x60;2&#x60; — сверхгабаритный товар (СГТ)   - &#x60;3&#x60; — крупногабаритный товар (КГТ+) .</param>
         /// <param name="isZeroOrder">Признак заказа товара с нулевым остатком:   - &#x60;false&#x60; — заказ сделан на товар с ненулевым остатком   - &#x60;true&#x60; — заказ сделан на товар с нулевым остатком. Такой заказ можно отменить без штрафа за отмену .</param>
         /// <param name="wbStickerId">ID стикера. Отображается только для заказов в ПВЗ.</param>
-        public OrderNewDBS(int? salePrice = default(int?), List<string> requiredMeta = default(List<string>), string comment = default(string), OrderNewDBSOptions options = default(OrderNewDBSOptions), OrderNewDBSAddress address = default(OrderNewDBSAddress), string orderUid = default(string), Guid groupId = default(Guid), string article = default(string), string colorCode = default(string), Object rid = default(Object), string createdAt = default(string), DeliveryTypeEnum? deliveryType = default(DeliveryTypeEnum?), List<string> skus = default(List<string>), long id = default(long), int warehouseId = default(int), int nmId = default(int), int chrtId = default(int), int price = default(int), int finalPrice = default(int), int convertedFinalPrice = default(int), int convertedPrice = default(int), int currencyCode = default(int), int convertedCurrencyCode = default(int), CargoTypeEnum? cargoType = default(CargoTypeEnum?), bool isZeroOrder = default(bool), int wbStickerId = default(int))
+        public OrderNewDBS(long? salePrice = default(long?), List<string> requiredMeta = default(List<string>), string comment = default(string), OrderNewDBSOptions options = default(OrderNewDBSOptions), OrderNewDBSAddress address = default(OrderNewDBSAddress), string orderUid = default(string), Guid groupId = default(Guid), string article = default(string), string colorCode = default(string), Object rid = default(Object), string createdAt = default(string), DeliveryTypeEnum? deliveryType = default(DeliveryTypeEnum?), List<string> skus = default(List<string>), long id = default(long), long warehouseId = default(long), long nmId = default(long), long chrtId = default(long), long price = default(long), long finalPrice = default(long), long convertedFinalPrice = default(long), long convertedPrice = default(long), int currencyCode = default(int), int convertedCurrencyCode = default(int), CargoTypeEnum? cargoType = default(CargoTypeEnum?), bool isZeroOrder = default(bool), long wbStickerId = default(long))
         {
             this.SalePrice = salePrice;
             this.RequiredMeta = requiredMeta;
@@ -160,7 +160,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Model
         <example>504658</example>
         */
         [DataMember(Name = "salePrice", EmitDefaultValue = true)]
-        public int? SalePrice { get; set; }
+        public long? SalePrice { get; set; }
 
         /// <summary>
         /// Список идентификаторов маркировки, доступных для сборочного задания. [Указывать IMEI](./dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaImei) обязательно для [предмета](./item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll) &#x60;Смартфоны&#x60;, &#x60;\&quot;subjectId\&quot;:515&#x60;
@@ -279,7 +279,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Model
         <example>658434</example>
         */
         [DataMember(Name = "warehouseId", EmitDefaultValue = false)]
-        public int WarehouseId { get; set; }
+        public long WarehouseId { get; set; }
 
         /// <summary>
         /// Артикул WB
@@ -289,7 +289,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Model
         <example>123456789</example>
         */
         [DataMember(Name = "nmId", EmitDefaultValue = false)]
-        public int NmId { get; set; }
+        public long NmId { get; set; }
 
         /// <summary>
         /// ID размера товара в системе WB
@@ -299,7 +299,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Model
         <example>987654321</example>
         */
         [DataMember(Name = "chrtId", EmitDefaultValue = false)]
-        public int ChrtId { get; set; }
+        public long ChrtId { get; set; }
 
         /// <summary>
         /// Цена в валюте продажи с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100. Код валюты продажи указан в поле &#x60;currencyCode&#x60;. Предоставляется в информационных целях
@@ -309,7 +309,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Model
         <example>1014</example>
         */
         [DataMember(Name = "price", EmitDefaultValue = false)]
-        public int Price { get; set; }
+        public long Price { get; set; }
 
         /// <summary>
         /// Сумма к оплате покупателем в валюте продажи с учётом всех скидок, умноженная на 100.  Код валюты продажи указан в поле &#x60;currencyCode&#x60;.  Предоставляется в информационных целях.  Используйте значение поля &#x60;finalPrice&#x60;, только если в ответе метода [POST /api/marketplace/v3/dbs/orders/final-price](./docs/openapi/dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersFinalPrice) вернулось &#x60;\&quot;data\&quot;: null&#x60;. Во всех остальных случаях используйте значение поля &#x60;originalFinalPrice&#x60; из ответа того же метода
@@ -319,7 +319,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Model
         <example>1014</example>
         */
         [DataMember(Name = "finalPrice", EmitDefaultValue = false)]
-        public int FinalPrice { get; set; }
+        public long FinalPrice { get; set; }
 
         /// <summary>
         /// Сумма к оплате покупателем в валюте страны продавца с учетом всех скидок, умноженная на 100.  Предоставляется в информационных целях.  Используйте значение поля &#x60;convertedFinalPrice&#x60;, только если в ответе метода [POST /api/marketplace/v3/dbs/orders/final-price](./docs/openapi/dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersFinalPrice) вернулось &#x60;\&quot;data\&quot;: null&#x60;. Во всех остальных случаях используйте значение поля &#x60;convertedOriginalFinalPrice&#x60; из ответа того же метода
@@ -329,7 +329,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Model
         <example>1014</example>
         */
         [DataMember(Name = "convertedFinalPrice", EmitDefaultValue = false)]
-        public int ConvertedFinalPrice { get; set; }
+        public long ConvertedFinalPrice { get; set; }
 
         /// <summary>
         /// Цена в валюте страны продавца с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100. Предоставляется в информационных целях
@@ -339,7 +339,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Model
         <example>1014</example>
         */
         [DataMember(Name = "convertedPrice", EmitDefaultValue = false)]
-        public int ConvertedPrice { get; set; }
+        public long ConvertedPrice { get; set; }
 
         /// <summary>
         /// Код валюты продажи
@@ -379,7 +379,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Model
         <example>123456</example>
         */
         [DataMember(Name = "wbStickerId", EmitDefaultValue = false)]
-        public int WbStickerId { get; set; }
+        public long WbStickerId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -438,7 +438,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Model
             // Comment (string) maxLength
             if (this.Comment != null && this.Comment.Length > 300)
             {
-                yield return new ValidationResult("Invalid value for Comment, length must be less than 300.", new [] { "Comment" });
+                yield return new ValidationResult("Invalid value for Comment, length must be less than 300.", new[] { "Comment" });
             }
 
             yield break;

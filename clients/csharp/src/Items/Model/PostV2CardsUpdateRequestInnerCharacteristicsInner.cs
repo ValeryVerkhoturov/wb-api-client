@@ -41,7 +41,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// </summary>
         /// <param name="id">ID характеристики (required).</param>
         /// <param name="value">Значения характеристики.  Тип данных — массив строк или число — зависит от типа характеристики, см. описание поля &#x60;charcType&#x60; в методе [Характеристики предмета](./item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId).  Допустимое количество значений отображено в поле &#x60;maxCount&#x60; того же метода (required).</param>
-        public PostV2CardsUpdateRequestInnerCharacteristicsInner(int id = default(int), Object value = default(Object))
+        public PostV2CardsUpdateRequestInnerCharacteristicsInner(long id = default(long), Object value = default(Object))
         {
             this.Id = id;
             // to ensure "value" is required (not null)
@@ -57,7 +57,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// </summary>
         /// <value>ID характеристики</value>
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// Значения характеристики.  Тип данных — массив строк или число — зависит от типа характеристики, см. описание поля &#x60;charcType&#x60; в методе [Характеристики предмета](./item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId).  Допустимое количество значений отображено в поле &#x60;maxCount&#x60; того же метода

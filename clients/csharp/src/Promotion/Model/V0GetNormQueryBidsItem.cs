@@ -40,7 +40,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <param name="bid">Текущая ставка в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances) за тысячу показов.</param>
         /// <param name="bidKopecks">Текущая ставка в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances) за тысячу показов.</param>
         /// <param name="currency">Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances).</param>
-        public V0GetNormQueryBidsItem(int advertId = default(int), int nmId = default(int), string normQuery = default(string), int bid = default(int), int bidKopecks = default(int), string currency = default(string))
+        public V0GetNormQueryBidsItem(long advertId = default(long), long nmId = default(long), string normQuery = default(string), long bid = default(long), long bidKopecks = default(long), string currency = default(string))
         {
             this.AdvertId = advertId;
             this.NmId = nmId;
@@ -55,14 +55,14 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <value>ID кампании</value>
         [DataMember(Name = "advert_id", EmitDefaultValue = false)]
-        public int AdvertId { get; set; }
+        public long AdvertId { get; set; }
 
         /// <summary>
         /// Артикул WB
         /// </summary>
         /// <value>Артикул WB</value>
         [DataMember(Name = "nm_id", EmitDefaultValue = false)]
-        public int NmId { get; set; }
+        public long NmId { get; set; }
 
         /// <summary>
         /// Поисковый кластер
@@ -76,14 +76,14 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <value>Текущая ставка в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances) за тысячу показов</value>
         [DataMember(Name = "bid", EmitDefaultValue = false)]
-        public int Bid { get; set; }
+        public long Bid { get; set; }
 
         /// <summary>
         /// Текущая ставка в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances) за тысячу показов
         /// </summary>
         /// <value>Текущая ставка в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances) за тысячу показов</value>
         [DataMember(Name = "bid_kopecks", EmitDefaultValue = false)]
-        public int BidKopecks { get; set; }
+        public long BidKopecks { get; set; }
 
         /// <summary>
         /// Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)

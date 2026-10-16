@@ -41,7 +41,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <param name="size">Размер отчёта, Б.</param>
         /// <param name="startDate">Начало периода.</param>
         /// <param name="endDate">Конец периода.</param>
-        public NmReportGetReportsResponseDataInner(Guid id = default(Guid), string createdAt = default(string), string status = default(string), string name = default(string), int size = default(int), string startDate = default(string), string endDate = default(string))
+        public NmReportGetReportsResponseDataInner(Guid id = default(Guid), string createdAt = default(string), string status = default(string), string name = default(string), long size = default(long), string startDate = default(string), string endDate = default(string))
         {
             this.Id = id;
             this.CreatedAt = createdAt;
@@ -100,7 +100,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         <example>123</example>
         */
         [DataMember(Name = "size", EmitDefaultValue = false)]
-        public int Size { get; set; }
+        public long Size { get; set; }
 
         /// <summary>
         /// Начало периода

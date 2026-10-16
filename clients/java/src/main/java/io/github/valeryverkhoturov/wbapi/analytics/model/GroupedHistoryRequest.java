@@ -51,13 +51,13 @@ public class GroupedHistoryRequest {
 
   @SerializedName(SERIALIZED_NAME_SUBJECT_IDS)
   @jakarta.annotation.Nullable
-  private List<Integer> subjectIds = new ArrayList<>();
+  private List<Long> subjectIds = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_TAG_IDS = "tagIds";
 
   @SerializedName(SERIALIZED_NAME_TAG_IDS)
   @jakarta.annotation.Nullable
-  private List<Integer> tagIds = new ArrayList<>();
+  private List<Long> tagIds = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_SKIP_DELETED_NM = "skipDeletedNm";
 
@@ -121,12 +121,12 @@ public class GroupedHistoryRequest {
     this.brandNames = brandNames;
   }
 
-  public GroupedHistoryRequest subjectIds(@jakarta.annotation.Nullable List<Integer> subjectIds) {
+  public GroupedHistoryRequest subjectIds(@jakarta.annotation.Nullable List<Long> subjectIds) {
     this.subjectIds = subjectIds;
     return this;
   }
 
-  public GroupedHistoryRequest addSubjectIdsItem(Integer subjectIdsItem) {
+  public GroupedHistoryRequest addSubjectIdsItem(Long subjectIdsItem) {
     if (this.subjectIds == null) {
       this.subjectIds = new ArrayList<>();
     }
@@ -140,20 +140,20 @@ public class GroupedHistoryRequest {
    * @return subjectIds
    */
   @jakarta.annotation.Nullable
-  public List<Integer> getSubjectIds() {
+  public List<Long> getSubjectIds() {
     return subjectIds;
   }
 
-  public void setSubjectIds(@jakarta.annotation.Nullable List<Integer> subjectIds) {
+  public void setSubjectIds(@jakarta.annotation.Nullable List<Long> subjectIds) {
     this.subjectIds = subjectIds;
   }
 
-  public GroupedHistoryRequest tagIds(@jakarta.annotation.Nullable List<Integer> tagIds) {
+  public GroupedHistoryRequest tagIds(@jakarta.annotation.Nullable List<Long> tagIds) {
     this.tagIds = tagIds;
     return this;
   }
 
-  public GroupedHistoryRequest addTagIdsItem(Integer tagIdsItem) {
+  public GroupedHistoryRequest addTagIdsItem(Long tagIdsItem) {
     if (this.tagIds == null) {
       this.tagIds = new ArrayList<>();
     }
@@ -167,11 +167,11 @@ public class GroupedHistoryRequest {
    * @return tagIds
    */
   @jakarta.annotation.Nullable
-  public List<Integer> getTagIds() {
+  public List<Long> getTagIds() {
     return tagIds;
   }
 
-  public void setTagIds(@jakarta.annotation.Nullable List<Integer> tagIds) {
+  public void setTagIds(@jakarta.annotation.Nullable List<Long> tagIds) {
     this.tagIds = tagIds;
   }
 

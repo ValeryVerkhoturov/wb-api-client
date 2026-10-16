@@ -43,7 +43,7 @@ public class InventorySellerResponseItemsInner {
 
   @SerializedName(SERIALIZED_NAME_CHRT_ID)
   @jakarta.annotation.Nullable
-  private Integer chrtId;
+  private Long chrtId;
 
   public static final String SERIALIZED_NAME_WAREHOUSE_ID = "warehouseId";
 
@@ -67,7 +67,7 @@ public class InventorySellerResponseItemsInner {
 
   @SerializedName(SERIALIZED_NAME_QUANTITY)
   @jakarta.annotation.Nullable
-  private Integer quantity;
+  private Long quantity;
 
   public InventorySellerResponseItemsInner() {}
 
@@ -90,7 +90,7 @@ public class InventorySellerResponseItemsInner {
     this.nmId = nmId;
   }
 
-  public InventorySellerResponseItemsInner chrtId(@jakarta.annotation.Nullable Integer chrtId) {
+  public InventorySellerResponseItemsInner chrtId(@jakarta.annotation.Nullable Long chrtId) {
     this.chrtId = chrtId;
     return this;
   }
@@ -101,11 +101,11 @@ public class InventorySellerResponseItemsInner {
    * @return chrtId
    */
   @jakarta.annotation.Nullable
-  public Integer getChrtId() {
+  public Long getChrtId() {
     return chrtId;
   }
 
-  public void setChrtId(@jakarta.annotation.Nullable Integer chrtId) {
+  public void setChrtId(@jakarta.annotation.Nullable Long chrtId) {
     this.chrtId = chrtId;
   }
 
@@ -169,7 +169,7 @@ public class InventorySellerResponseItemsInner {
     this.regionName = regionName;
   }
 
-  public InventorySellerResponseItemsInner quantity(@jakarta.annotation.Nullable Integer quantity) {
+  public InventorySellerResponseItemsInner quantity(@jakarta.annotation.Nullable Long quantity) {
     this.quantity = quantity;
     return this;
   }
@@ -180,11 +180,11 @@ public class InventorySellerResponseItemsInner {
    * @return quantity
    */
   @jakarta.annotation.Nullable
-  public Integer getQuantity() {
+  public Long getQuantity() {
     return quantity;
   }
 
-  public void setQuantity(@jakarta.annotation.Nullable Integer quantity) {
+  public void setQuantity(@jakarta.annotation.Nullable Long quantity) {
     this.quantity = quantity;
   }
 

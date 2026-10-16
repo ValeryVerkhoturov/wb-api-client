@@ -41,7 +41,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <param name="id">ID кампании (required).</param>
         /// <param name="dates">Даты, за которые нужно получить информацию (required).</param>
-        public RequestWithDate(int id = default(int), List<string> dates = default(List<string>))
+        public RequestWithDate(long id = default(long), List<string> dates = default(List<string>))
         {
             this.Id = id;
             // to ensure "dates" is required (not null)
@@ -57,7 +57,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <value>ID кампании</value>
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// Даты, за которые нужно получить информацию

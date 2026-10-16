@@ -39,7 +39,7 @@ public class PostV2CardsUpdateRequestInnerSizesInner {
 
   @SerializedName(SERIALIZED_NAME_CHRT_I_D)
   @jakarta.annotation.Nullable
-  private Integer chrtID;
+  private Long chrtID;
 
   public static final String SERIALIZED_NAME_TECH_SIZE = "techSize";
 
@@ -57,7 +57,7 @@ public class PostV2CardsUpdateRequestInnerSizesInner {
 
   @SerializedName(SERIALIZED_NAME_PRICE)
   @jakarta.annotation.Nullable
-  private Integer price;
+  private Long price;
 
   public static final String SERIALIZED_NAME_SKUS = "skus";
 
@@ -67,8 +67,7 @@ public class PostV2CardsUpdateRequestInnerSizesInner {
 
   public PostV2CardsUpdateRequestInnerSizesInner() {}
 
-  public PostV2CardsUpdateRequestInnerSizesInner chrtID(
-      @jakarta.annotation.Nullable Integer chrtID) {
+  public PostV2CardsUpdateRequestInnerSizesInner chrtID(@jakarta.annotation.Nullable Long chrtID) {
     this.chrtID = chrtID;
     return this;
   }
@@ -80,11 +79,11 @@ public class PostV2CardsUpdateRequestInnerSizesInner {
    * @return chrtID
    */
   @jakarta.annotation.Nullable
-  public Integer getChrtID() {
+  public Long getChrtID() {
     return chrtID;
   }
 
-  public void setChrtID(@jakarta.annotation.Nullable Integer chrtID) {
+  public void setChrtID(@jakarta.annotation.Nullable Long chrtID) {
     this.chrtID = chrtID;
   }
 
@@ -128,7 +127,7 @@ public class PostV2CardsUpdateRequestInnerSizesInner {
     this.wbSize = wbSize;
   }
 
-  public PostV2CardsUpdateRequestInnerSizesInner price(@jakarta.annotation.Nullable Integer price) {
+  public PostV2CardsUpdateRequestInnerSizesInner price(@jakarta.annotation.Nullable Long price) {
     this.price = price;
     return this;
   }
@@ -139,11 +138,11 @@ public class PostV2CardsUpdateRequestInnerSizesInner {
    * @return price
    */
   @jakarta.annotation.Nullable
-  public Integer getPrice() {
+  public Long getPrice() {
     return price;
   }
 
-  public void setPrice(@jakarta.annotation.Nullable Integer price) {
+  public void setPrice(@jakarta.annotation.Nullable Long price) {
     this.price = price;
   }
 

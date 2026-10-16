@@ -157,7 +157,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /// <param name="utdUcdDate">Дата УПД или УКД.</param>
         /// <param name="orderUid">ID корзины заказа — транзакции. Заказы в одной корзине покупателя будут иметь одинаковый &#x60;orderUid&#x60;.</param>
         /// <param name="srid">ID заказа. В ответах методов сборочных заданий [FBS](./orders-fbs#tag/fbsAssemblyOrders), [DBW](./orders-dbw#tag/dbwAssemblyOrders), [DBS](./dbs#tag/dbsAssemblyOrders) и [Самовывоз](./in-store-pickup#tag/inStorePickupAssemblyOrders) &#x60;srid&#x60; равен &#x60;rid&#x60;.</param>
-        public SalesReportsDetailedRes(long reportId = default(long), string dateFrom = default(string), string dateTo = default(string), string createDate = default(string), string currency = default(string), ReportTypeEnum? reportType = default(ReportTypeEnum?), int rrdId = default(int), int giId = default(int), decimal dlvPrc = default(decimal), string fixTariffDateFrom = default(string), string fixTariffDateTo = default(string), string subjectName = default(string), int nmId = default(int), string brandName = default(string), string vendorCode = default(string), string title = default(string), string techSize = default(string), string sku = default(string), string docTypeName = default(string), int quantity = default(int), string retailPrice = default(string), string retailAmount = default(string), int salePercent = default(int), decimal commissionPercent = default(decimal), string officeName = default(string), string sellerOperName = default(string), string orderDt = default(string), string saleDt = default(string), string rrDate = default(string), int shkId = default(int), string retailPriceWithDisc = default(string), int deliveryAmount = default(int), int returnAmount = default(int), string deliveryService = default(string), string giBoxTypeName = default(string), decimal productDiscountForReport = default(decimal), decimal sellerPromo = default(decimal), decimal spp = default(decimal), decimal kvwBase = default(decimal), decimal kvw = default(decimal), decimal supRatingUp = default(decimal), decimal isKgvpV2 = default(decimal), string ppvzSalesCommission = default(string), string forPay = default(string), string ppvzReward = default(string), string acquiringFee = default(string), decimal acquiringPercent = default(decimal), string paymentProcessing = default(string), string acquiringBank = default(string), string vw = default(string), string vwNds = default(string), string ppvzOfficeName = default(string), int ppvzOfficeId = default(int), string ppvzSupplierName = default(string), string ppvzSupplierInn = default(string), string declarationNumber = default(string), string bonusTypeName = default(string), string stickerId = default(string), string country = default(string), bool srvDbs = default(bool), string penalty = default(string), string additionalPayment = default(string), string rebillLogisticCost = default(string), string rebillLogisticOrg = default(string), string paidStorage = default(string), string deduction = default(string), string paidAcceptance = default(string), int orderId = default(int), string kiz = default(string), bool isB2b = default(bool), string trbxId = default(string), string installmentCofinancingAmount = default(string), decimal wibesDiscountPercent = default(decimal), string cashbackAmount = default(string), string cashbackDiscount = default(string), string cashbackCommissionChange = default(string), string paymentSchedule = default(string), string deliveryMethod = default(string), int sellerPromoId = default(int), decimal sellerPromoDiscount = default(decimal), int loyaltyId = default(int), decimal loyaltyDiscount = default(decimal), string uuidPromocode = default(string), decimal salePricePromocodeDiscountPrc = default(decimal), string articleSubstitution = default(string), decimal salePriceAffiliatedDiscountPrc = default(decimal), decimal agencyVat = default(decimal), decimal salePriceWholesaleDiscountPrc = default(decimal), string b2bCustomerTin = default(string), bool paidWithSocialCertificate = default(bool), decimal warehouseLogisticsCoeff = default(decimal), string buyerTaxRegistrationReasonCode = default(string), string utdUcdNumber = default(string), string utdUcdDate = default(string), string orderUid = default(string), string srid = default(string))
+        public SalesReportsDetailedRes(long reportId = default(long), string dateFrom = default(string), string dateTo = default(string), string createDate = default(string), string currency = default(string), ReportTypeEnum? reportType = default(ReportTypeEnum?), long rrdId = default(long), long giId = default(long), decimal dlvPrc = default(decimal), string fixTariffDateFrom = default(string), string fixTariffDateTo = default(string), string subjectName = default(string), long nmId = default(long), string brandName = default(string), string vendorCode = default(string), string title = default(string), string techSize = default(string), string sku = default(string), string docTypeName = default(string), long quantity = default(long), string retailPrice = default(string), string retailAmount = default(string), long salePercent = default(long), decimal commissionPercent = default(decimal), string officeName = default(string), string sellerOperName = default(string), string orderDt = default(string), string saleDt = default(string), string rrDate = default(string), long shkId = default(long), string retailPriceWithDisc = default(string), long deliveryAmount = default(long), long returnAmount = default(long), string deliveryService = default(string), string giBoxTypeName = default(string), decimal productDiscountForReport = default(decimal), decimal sellerPromo = default(decimal), decimal spp = default(decimal), decimal kvwBase = default(decimal), decimal kvw = default(decimal), decimal supRatingUp = default(decimal), decimal isKgvpV2 = default(decimal), string ppvzSalesCommission = default(string), string forPay = default(string), string ppvzReward = default(string), string acquiringFee = default(string), decimal acquiringPercent = default(decimal), string paymentProcessing = default(string), string acquiringBank = default(string), string vw = default(string), string vwNds = default(string), string ppvzOfficeName = default(string), long ppvzOfficeId = default(long), string ppvzSupplierName = default(string), string ppvzSupplierInn = default(string), string declarationNumber = default(string), string bonusTypeName = default(string), string stickerId = default(string), string country = default(string), bool srvDbs = default(bool), string penalty = default(string), string additionalPayment = default(string), string rebillLogisticCost = default(string), string rebillLogisticOrg = default(string), string paidStorage = default(string), string deduction = default(string), string paidAcceptance = default(string), long orderId = default(long), string kiz = default(string), bool isB2b = default(bool), string trbxId = default(string), string installmentCofinancingAmount = default(string), decimal wibesDiscountPercent = default(decimal), string cashbackAmount = default(string), string cashbackDiscount = default(string), string cashbackCommissionChange = default(string), string paymentSchedule = default(string), string deliveryMethod = default(string), long sellerPromoId = default(long), decimal sellerPromoDiscount = default(decimal), long loyaltyId = default(long), decimal loyaltyDiscount = default(decimal), string uuidPromocode = default(string), decimal salePricePromocodeDiscountPrc = default(decimal), string articleSubstitution = default(string), decimal salePriceAffiliatedDiscountPrc = default(decimal), decimal agencyVat = default(decimal), decimal salePriceWholesaleDiscountPrc = default(decimal), string b2bCustomerTin = default(string), bool paidWithSocialCertificate = default(bool), decimal warehouseLogisticsCoeff = default(decimal), string buyerTaxRegistrationReasonCode = default(string), string utdUcdNumber = default(string), string utdUcdDate = default(string), string orderUid = default(string), string srid = default(string))
         {
             this.ReportId = reportId;
             this.DateFrom = dateFrom;
@@ -315,7 +315,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         <example>1232610467</example>
         */
         [DataMember(Name = "rrdId", EmitDefaultValue = false)]
-        public int RrdId { get; set; }
+        public long RrdId { get; set; }
 
         /// <summary>
         /// ID поставки
@@ -325,7 +325,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         <example>123456</example>
         */
         [DataMember(Name = "giId", EmitDefaultValue = false)]
-        public int GiId { get; set; }
+        public long GiId { get; set; }
 
         /// <summary>
         /// Фиксированный коэффициент склада по поставке
@@ -375,7 +375,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         <example>1234567</example>
         */
         [DataMember(Name = "nmId", EmitDefaultValue = false)]
-        public int NmId { get; set; }
+        public long NmId { get; set; }
 
         /// <summary>
         /// Бренд
@@ -445,7 +445,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         <example>1</example>
         */
         [DataMember(Name = "quantity", EmitDefaultValue = false)]
-        public int Quantity { get; set; }
+        public long Quantity { get; set; }
 
         /// <summary>
         /// Цена розничная
@@ -475,7 +475,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         <example>0</example>
         */
         [DataMember(Name = "salePercent", EmitDefaultValue = false)]
-        public int SalePercent { get; set; }
+        public long SalePercent { get; set; }
 
         /// <summary>
         /// Размер кВВ, %
@@ -545,7 +545,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         <example>1239159661</example>
         */
         [DataMember(Name = "shkId", EmitDefaultValue = false)]
-        public int ShkId { get; set; }
+        public long ShkId { get; set; }
 
         /// <summary>
         /// Цена розничная с учётом согласованной скидки
@@ -565,7 +565,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         <example>0</example>
         */
         [DataMember(Name = "deliveryAmount", EmitDefaultValue = false)]
-        public int DeliveryAmount { get; set; }
+        public long DeliveryAmount { get; set; }
 
         /// <summary>
         /// Количество возврата
@@ -575,7 +575,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         <example>0</example>
         */
         [DataMember(Name = "returnAmount", EmitDefaultValue = false)]
-        public int ReturnAmount { get; set; }
+        public long ReturnAmount { get; set; }
 
         /// <summary>
         /// Услуги по доставке товара покупателю
@@ -769,7 +769,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         <example>105383</example>
         */
         [DataMember(Name = "ppvzOfficeId", EmitDefaultValue = false)]
-        public int PpvzOfficeId { get; set; }
+        public long PpvzOfficeId { get; set; }
 
         /// <summary>
         /// Партнёр
@@ -916,7 +916,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         <example>2816993144</example>
         */
         [DataMember(Name = "orderId", EmitDefaultValue = false)]
-        public int OrderId { get; set; }
+        public long OrderId { get; set; }
 
         /// <summary>
         /// Код маркировки [Честного знака](https://честныйзнак.рф)
@@ -1026,7 +1026,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         <example>14350</example>
         */
         [DataMember(Name = "sellerPromoId", EmitDefaultValue = false)]
-        public int SellerPromoId { get; set; }
+        public long SellerPromoId { get; set; }
 
         /// <summary>
         /// Размер дополнительной скидки по собственной акции продавца, %
@@ -1046,7 +1046,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         <example>0</example>
         */
         [DataMember(Name = "loyaltyId", EmitDefaultValue = false)]
-        public int LoyaltyId { get; set; }
+        public long LoyaltyId { get; set; }
 
         /// <summary>
         /// Размер скидки лояльности от продавца, %

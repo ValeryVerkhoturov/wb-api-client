@@ -44,7 +44,7 @@ public class UpdateSupplyShippingMethod {
 
   @SerializedName(SERIALIZED_NAME_SHIPPING_POINT_ID)
   @jakarta.annotation.Nonnull
-  private Integer shippingPointId;
+  private Long shippingPointId;
 
   /**
    * Способ доставки до пункта отгрузки: - &#x60;selfShipping&#x60; — доставка силами продавца -
@@ -134,7 +134,7 @@ public class UpdateSupplyShippingMethod {
   }
 
   public UpdateSupplyShippingMethod shippingPointId(
-      @jakarta.annotation.Nonnull Integer shippingPointId) {
+      @jakarta.annotation.Nonnull Long shippingPointId) {
     this.shippingPointId = shippingPointId;
     return this;
   }
@@ -146,11 +146,11 @@ public class UpdateSupplyShippingMethod {
    * @return shippingPointId
    */
   @jakarta.annotation.Nonnull
-  public Integer getShippingPointId() {
+  public Long getShippingPointId() {
     return shippingPointId;
   }
 
-  public void setShippingPointId(@jakarta.annotation.Nonnull Integer shippingPointId) {
+  public void setShippingPointId(@jakarta.annotation.Nonnull Long shippingPointId) {
     this.shippingPointId = shippingPointId;
   }
 

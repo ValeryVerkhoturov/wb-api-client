@@ -36,7 +36,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /// </summary>
         /// <param name="count">Общее количество возвратов за запрашиваемый период.</param>
         /// <param name="report">Отчёт.</param>
-        public GoodsReturn200Response(int count = default(int), List<GoodsReturn200ResponseReportInner> report = default(List<GoodsReturn200ResponseReportInner>))
+        public GoodsReturn200Response(long count = default(long), List<GoodsReturn200ResponseReportInner> report = default(List<GoodsReturn200ResponseReportInner>))
         {
             this.Count = count;
             this.Report = report;
@@ -47,7 +47,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /// </summary>
         /// <value>Общее количество возвратов за запрашиваемый период</value>
         [DataMember(Name = "count", EmitDefaultValue = false)]
-        public int Count { get; set; }
+        public long Count { get; set; }
 
         /// <summary>
         /// Отчёт

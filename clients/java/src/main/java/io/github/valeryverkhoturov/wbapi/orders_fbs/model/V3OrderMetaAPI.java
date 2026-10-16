@@ -40,7 +40,7 @@ public class V3OrderMetaAPI {
 
   @SerializedName(SERIALIZED_NAME_ID)
   @jakarta.annotation.Nullable
-  private Integer id;
+  private Long id;
 
   public static final String SERIALIZED_NAME_META_DETAILS = "metaDetails";
 
@@ -50,7 +50,7 @@ public class V3OrderMetaAPI {
 
   public V3OrderMetaAPI() {}
 
-  public V3OrderMetaAPI id(@jakarta.annotation.Nullable Integer id) {
+  public V3OrderMetaAPI id(@jakarta.annotation.Nullable Long id) {
     this.id = id;
     return this;
   }
@@ -61,11 +61,11 @@ public class V3OrderMetaAPI {
    * @return id
    */
   @jakarta.annotation.Nullable
-  public Integer getId() {
+  public Long getId() {
     return id;
   }
 
-  public void setId(@jakarta.annotation.Nullable Integer id) {
+  public void setId(@jakarta.annotation.Nullable Long id) {
     this.id = id;
   }
 

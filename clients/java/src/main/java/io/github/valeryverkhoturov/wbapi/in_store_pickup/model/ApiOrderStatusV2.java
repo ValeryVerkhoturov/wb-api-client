@@ -46,7 +46,7 @@ public class ApiOrderStatusV2 {
 
   @SerializedName(SERIALIZED_NAME_ORDER_ID)
   @jakarta.annotation.Nullable
-  private Integer orderId;
+  private Long orderId;
 
   public static final String SERIALIZED_NAME_SUPPLIER_STATUS = "supplierStatus";
 
@@ -89,7 +89,7 @@ public class ApiOrderStatusV2 {
     this.errors = errors;
   }
 
-  public ApiOrderStatusV2 orderId(@jakarta.annotation.Nullable Integer orderId) {
+  public ApiOrderStatusV2 orderId(@jakarta.annotation.Nullable Long orderId) {
     this.orderId = orderId;
     return this;
   }
@@ -100,11 +100,11 @@ public class ApiOrderStatusV2 {
    * @return orderId
    */
   @jakarta.annotation.Nullable
-  public Integer getOrderId() {
+  public Long getOrderId() {
     return orderId;
   }
 
-  public void setOrderId(@jakarta.annotation.Nullable Integer orderId) {
+  public void setOrderId(@jakarta.annotation.Nullable Long orderId) {
     this.orderId = orderId;
   }
 

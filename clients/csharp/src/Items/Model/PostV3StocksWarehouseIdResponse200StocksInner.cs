@@ -36,7 +36,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// </summary>
         /// <param name="chrtId">ID размера товара.</param>
         /// <param name="amount">Остаток.</param>
-        public PostV3StocksWarehouseIdResponse200StocksInner(int chrtId = default(int), int amount = default(int))
+        public PostV3StocksWarehouseIdResponse200StocksInner(long chrtId = default(long), long amount = default(long))
         {
             this.ChrtId = chrtId;
             this.Amount = amount;
@@ -50,7 +50,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         <example>12345678</example>
         */
         [DataMember(Name = "chrtId", EmitDefaultValue = false)]
-        public int ChrtId { get; set; }
+        public long ChrtId { get; set; }
 
         /// <summary>
         /// Остаток
@@ -60,7 +60,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         <example>11</example>
         */
         [DataMember(Name = "amount", EmitDefaultValue = false)]
-        public int Amount { get; set; }
+        public long Amount { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -117,7 +117,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <param name="bidType">Тип ставки:   - &#x60;manual&#x60; — ручная   - &#x60;unified&#x60; — единая  (default to BidTypeEnum.Manual).</param>
         /// <param name="paymentType">Тип оплаты: - &#x60;cpm&#x60; — за показы - &#x60;cpc&#x60; — за клик. При создании с этим типом оплаты в кампании автоматически устанавливается минимальная ставка  (default to PaymentTypeEnum.Cpm).</param>
         /// <param name="placementTypes">Места размещения:   - &#x60;search&#x60; — в поиске   - &#x60;recommendations&#x60; — в рекомендациях  Укажите только для кампании с ручной ставкой .</param>
-        public PostV2SeacatSaveAdRequest(string name = default(string), List<int> nms = default(List<int>), BidTypeEnum? bidType = BidTypeEnum.Manual, PaymentTypeEnum? paymentType = PaymentTypeEnum.Cpm, List<PlacementTypesEnum> placementTypes = default(List<PlacementTypesEnum>))
+        public PostV2SeacatSaveAdRequest(string name = default(string), List<long> nms = default(List<long>), BidTypeEnum? bidType = BidTypeEnum.Manual, PaymentTypeEnum? paymentType = PaymentTypeEnum.Cpm, List<PlacementTypesEnum> placementTypes = default(List<PlacementTypesEnum>))
         {
             // to ensure "name" is required (not null)
             if (name == null)
@@ -143,7 +143,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <value>Карточки товаров для кампании. Доступные карточки товаров можно получить с помощью метода [Карточки товаров для кампаний](./promotion#tag/creatingCampaigns/operation/postV2SupplierNms). Максимум 50 товаров (&#x60;nm&#x60;) </value>
         [DataMember(Name = "nms", EmitDefaultValue = false)]
-        public List<int> Nms { get; set; }
+        public List<long> Nms { get; set; }
 
         /// <summary>
         /// Места размещения:   - &#x60;search&#x60; — в поиске   - &#x60;recommendations&#x60; — в рекомендациях  Укажите только для кампании с ручной ставкой 

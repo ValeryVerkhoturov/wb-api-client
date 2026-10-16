@@ -39,7 +39,7 @@ public class GetRecomResDataInner {
 
   @SerializedName(SERIALIZED_NAME_NM_ID)
   @jakarta.annotation.Nullable
-  private Integer nmId;
+  private Long nmId;
 
   public static final String SERIALIZED_NAME_IMT_ID = "imtId";
 
@@ -69,7 +69,7 @@ public class GetRecomResDataInner {
 
   @SerializedName(SERIALIZED_NAME_PICS_COUNT)
   @jakarta.annotation.Nullable
-  private Integer picsCount;
+  private Long picsCount;
 
   public static final String SERIALIZED_NAME_TITLE = "title";
 
@@ -93,7 +93,7 @@ public class GetRecomResDataInner {
 
   @SerializedName(SERIALIZED_NAME_RECOM_COUNT)
   @jakarta.annotation.Nullable
-  private Integer recomCount;
+  private Long recomCount;
 
   public static final String SERIALIZED_NAME_RECOM_PICS = "recomPics";
 
@@ -105,11 +105,11 @@ public class GetRecomResDataInner {
 
   @SerializedName(SERIALIZED_NAME_RECOM_NMS)
   @jakarta.annotation.Nullable
-  private List<Integer> recomNms = new ArrayList<>();
+  private List<Long> recomNms = new ArrayList<>();
 
   public GetRecomResDataInner() {}
 
-  public GetRecomResDataInner nmId(@jakarta.annotation.Nullable Integer nmId) {
+  public GetRecomResDataInner nmId(@jakarta.annotation.Nullable Long nmId) {
     this.nmId = nmId;
     return this;
   }
@@ -120,11 +120,11 @@ public class GetRecomResDataInner {
    * @return nmId
    */
   @jakarta.annotation.Nullable
-  public Integer getNmId() {
+  public Long getNmId() {
     return nmId;
   }
 
-  public void setNmId(@jakarta.annotation.Nullable Integer nmId) {
+  public void setNmId(@jakarta.annotation.Nullable Long nmId) {
     this.nmId = nmId;
   }
 
@@ -206,7 +206,7 @@ public class GetRecomResDataInner {
     this.updatedAt = updatedAt;
   }
 
-  public GetRecomResDataInner picsCount(@jakarta.annotation.Nullable Integer picsCount) {
+  public GetRecomResDataInner picsCount(@jakarta.annotation.Nullable Long picsCount) {
     this.picsCount = picsCount;
     return this;
   }
@@ -217,11 +217,11 @@ public class GetRecomResDataInner {
    * @return picsCount
    */
   @jakarta.annotation.Nullable
-  public Integer getPicsCount() {
+  public Long getPicsCount() {
     return picsCount;
   }
 
-  public void setPicsCount(@jakarta.annotation.Nullable Integer picsCount) {
+  public void setPicsCount(@jakarta.annotation.Nullable Long picsCount) {
     this.picsCount = picsCount;
   }
 
@@ -282,7 +282,7 @@ public class GetRecomResDataInner {
     this.pic = pic;
   }
 
-  public GetRecomResDataInner recomCount(@jakarta.annotation.Nullable Integer recomCount) {
+  public GetRecomResDataInner recomCount(@jakarta.annotation.Nullable Long recomCount) {
     this.recomCount = recomCount;
     return this;
   }
@@ -293,11 +293,11 @@ public class GetRecomResDataInner {
    * @return recomCount
    */
   @jakarta.annotation.Nullable
-  public Integer getRecomCount() {
+  public Long getRecomCount() {
     return recomCount;
   }
 
-  public void setRecomCount(@jakarta.annotation.Nullable Integer recomCount) {
+  public void setRecomCount(@jakarta.annotation.Nullable Long recomCount) {
     this.recomCount = recomCount;
   }
 
@@ -328,12 +328,12 @@ public class GetRecomResDataInner {
     this.recomPics = recomPics;
   }
 
-  public GetRecomResDataInner recomNms(@jakarta.annotation.Nullable List<Integer> recomNms) {
+  public GetRecomResDataInner recomNms(@jakarta.annotation.Nullable List<Long> recomNms) {
     this.recomNms = recomNms;
     return this;
   }
 
-  public GetRecomResDataInner addRecomNmsItem(Integer recomNmsItem) {
+  public GetRecomResDataInner addRecomNmsItem(Long recomNmsItem) {
     if (this.recomNms == null) {
       this.recomNms = new ArrayList<>();
     }
@@ -347,11 +347,11 @@ public class GetRecomResDataInner {
    * @return recomNms
    */
   @jakarta.annotation.Nullable
-  public List<Integer> getRecomNms() {
+  public List<Long> getRecomNms() {
     return recomNms;
   }
 
-  public void setRecomNms(@jakarta.annotation.Nullable List<Integer> recomNms) {
+  public void setRecomNms(@jakarta.annotation.Nullable List<Long> recomNms) {
     this.recomNms = recomNms;
   }
 

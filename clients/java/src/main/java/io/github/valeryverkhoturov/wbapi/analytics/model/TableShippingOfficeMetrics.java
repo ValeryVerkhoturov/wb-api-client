@@ -37,13 +37,13 @@ public class TableShippingOfficeMetrics {
 
   @SerializedName(SERIALIZED_NAME_STOCK_COUNT)
   @jakarta.annotation.Nullable
-  private Integer stockCount;
+  private Long stockCount;
 
   public static final String SERIALIZED_NAME_STOCK_SUM = "stockSum";
 
   @SerializedName(SERIALIZED_NAME_STOCK_SUM)
   @jakarta.annotation.Nullable
-  private Integer stockSum;
+  private Long stockSum;
 
   public static final String SERIALIZED_NAME_SALE_RATE = "saleRate";
 
@@ -55,17 +55,17 @@ public class TableShippingOfficeMetrics {
 
   @SerializedName(SERIALIZED_NAME_TO_CLIENT_COUNT)
   @jakarta.annotation.Nullable
-  private Integer toClientCount;
+  private Long toClientCount;
 
   public static final String SERIALIZED_NAME_FROM_CLIENT_COUNT = "fromClientCount";
 
   @SerializedName(SERIALIZED_NAME_FROM_CLIENT_COUNT)
   @jakarta.annotation.Nullable
-  private Integer fromClientCount;
+  private Long fromClientCount;
 
   public TableShippingOfficeMetrics() {}
 
-  public TableShippingOfficeMetrics stockCount(@jakarta.annotation.Nullable Integer stockCount) {
+  public TableShippingOfficeMetrics stockCount(@jakarta.annotation.Nullable Long stockCount) {
     this.stockCount = stockCount;
     return this;
   }
@@ -76,15 +76,15 @@ public class TableShippingOfficeMetrics {
    * @return stockCount
    */
   @jakarta.annotation.Nullable
-  public Integer getStockCount() {
+  public Long getStockCount() {
     return stockCount;
   }
 
-  public void setStockCount(@jakarta.annotation.Nullable Integer stockCount) {
+  public void setStockCount(@jakarta.annotation.Nullable Long stockCount) {
     this.stockCount = stockCount;
   }
 
-  public TableShippingOfficeMetrics stockSum(@jakarta.annotation.Nullable Integer stockSum) {
+  public TableShippingOfficeMetrics stockSum(@jakarta.annotation.Nullable Long stockSum) {
     this.stockSum = stockSum;
     return this;
   }
@@ -95,11 +95,11 @@ public class TableShippingOfficeMetrics {
    * @return stockSum
    */
   @jakarta.annotation.Nullable
-  public Integer getStockSum() {
+  public Long getStockSum() {
     return stockSum;
   }
 
-  public void setStockSum(@jakarta.annotation.Nullable Integer stockSum) {
+  public void setStockSum(@jakarta.annotation.Nullable Long stockSum) {
     this.stockSum = stockSum;
   }
 
@@ -123,8 +123,7 @@ public class TableShippingOfficeMetrics {
     this.saleRate = saleRate;
   }
 
-  public TableShippingOfficeMetrics toClientCount(
-      @jakarta.annotation.Nullable Integer toClientCount) {
+  public TableShippingOfficeMetrics toClientCount(@jakarta.annotation.Nullable Long toClientCount) {
     this.toClientCount = toClientCount;
     return this;
   }
@@ -135,16 +134,16 @@ public class TableShippingOfficeMetrics {
    * @return toClientCount
    */
   @jakarta.annotation.Nullable
-  public Integer getToClientCount() {
+  public Long getToClientCount() {
     return toClientCount;
   }
 
-  public void setToClientCount(@jakarta.annotation.Nullable Integer toClientCount) {
+  public void setToClientCount(@jakarta.annotation.Nullable Long toClientCount) {
     this.toClientCount = toClientCount;
   }
 
   public TableShippingOfficeMetrics fromClientCount(
-      @jakarta.annotation.Nullable Integer fromClientCount) {
+      @jakarta.annotation.Nullable Long fromClientCount) {
     this.fromClientCount = fromClientCount;
     return this;
   }
@@ -155,11 +154,11 @@ public class TableShippingOfficeMetrics {
    * @return fromClientCount
    */
   @jakarta.annotation.Nullable
-  public Integer getFromClientCount() {
+  public Long getFromClientCount() {
     return fromClientCount;
   }
 
-  public void setFromClientCount(@jakarta.annotation.Nullable Integer fromClientCount) {
+  public void setFromClientCount(@jakarta.annotation.Nullable Long fromClientCount) {
     this.fromClientCount = fromClientCount;
   }
 

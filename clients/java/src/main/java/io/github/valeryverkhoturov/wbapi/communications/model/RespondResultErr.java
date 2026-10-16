@@ -55,7 +55,7 @@ public class RespondResultErr {
 
   @SerializedName(SERIALIZED_NAME_STATUS)
   @jakarta.annotation.Nullable
-  private Integer status;
+  private Long status;
 
   public static final String SERIALIZED_NAME_TITLE = "title";
 
@@ -122,7 +122,7 @@ public class RespondResultErr {
     this.requestId = requestId;
   }
 
-  public RespondResultErr status(@jakarta.annotation.Nullable Integer status) {
+  public RespondResultErr status(@jakarta.annotation.Nullable Long status) {
     this.status = status;
     return this;
   }
@@ -133,11 +133,11 @@ public class RespondResultErr {
    * @return status
    */
   @jakarta.annotation.Nullable
-  public Integer getStatus() {
+  public Long getStatus() {
     return status;
   }
 
-  public void setStatus(@jakarta.annotation.Nullable Integer status) {
+  public void setStatus(@jakarta.annotation.Nullable Long status) {
     this.status = status;
   }
 

@@ -43,7 +43,7 @@ public class GetV1AdvertResponse200Extended {
 
   @SerializedName(SERIALIZED_NAME_EXPENSES)
   @jakarta.annotation.Nullable
-  private Integer expenses;
+  private Long expenses;
 
   public static final String SERIALIZED_NAME_FROM = "from";
 
@@ -67,25 +67,25 @@ public class GetV1AdvertResponse200Extended {
 
   @SerializedName(SERIALIZED_NAME_PRICE)
   @jakarta.annotation.Nullable
-  private Integer price;
+  private Long price;
 
   public static final String SERIALIZED_NAME_BUDGET = "budget";
 
   @SerializedName(SERIALIZED_NAME_BUDGET)
   @jakarta.annotation.Nullable
-  private Integer budget;
+  private Long budget;
 
   public static final String SERIALIZED_NAME_OPERATION = "operation";
 
   @SerializedName(SERIALIZED_NAME_OPERATION)
   @jakarta.annotation.Nullable
-  private Integer operation;
+  private Long operation;
 
   public static final String SERIALIZED_NAME_CONTRACT_ID = "contract_id";
 
   @SerializedName(SERIALIZED_NAME_CONTRACT_ID)
   @jakarta.annotation.Nullable
-  private Integer contractId;
+  private Long contractId;
 
   public GetV1AdvertResponse200Extended() {}
 
@@ -108,7 +108,7 @@ public class GetV1AdvertResponse200Extended {
     this.reason = reason;
   }
 
-  public GetV1AdvertResponse200Extended expenses(@jakarta.annotation.Nullable Integer expenses) {
+  public GetV1AdvertResponse200Extended expenses(@jakarta.annotation.Nullable Long expenses) {
     this.expenses = expenses;
     return this;
   }
@@ -119,11 +119,11 @@ public class GetV1AdvertResponse200Extended {
    * @return expenses
    */
   @jakarta.annotation.Nullable
-  public Integer getExpenses() {
+  public Long getExpenses() {
     return expenses;
   }
 
-  public void setExpenses(@jakarta.annotation.Nullable Integer expenses) {
+  public void setExpenses(@jakarta.annotation.Nullable Long expenses) {
     this.expenses = expenses;
   }
 
@@ -184,7 +184,7 @@ public class GetV1AdvertResponse200Extended {
     this.updatedAt = updatedAt;
   }
 
-  public GetV1AdvertResponse200Extended price(@jakarta.annotation.Nullable Integer price) {
+  public GetV1AdvertResponse200Extended price(@jakarta.annotation.Nullable Long price) {
     this.price = price;
     return this;
   }
@@ -195,15 +195,15 @@ public class GetV1AdvertResponse200Extended {
    * @return price
    */
   @jakarta.annotation.Nullable
-  public Integer getPrice() {
+  public Long getPrice() {
     return price;
   }
 
-  public void setPrice(@jakarta.annotation.Nullable Integer price) {
+  public void setPrice(@jakarta.annotation.Nullable Long price) {
     this.price = price;
   }
 
-  public GetV1AdvertResponse200Extended budget(@jakarta.annotation.Nullable Integer budget) {
+  public GetV1AdvertResponse200Extended budget(@jakarta.annotation.Nullable Long budget) {
     this.budget = budget;
     return this;
   }
@@ -214,15 +214,15 @@ public class GetV1AdvertResponse200Extended {
    * @return budget
    */
   @jakarta.annotation.Nullable
-  public Integer getBudget() {
+  public Long getBudget() {
     return budget;
   }
 
-  public void setBudget(@jakarta.annotation.Nullable Integer budget) {
+  public void setBudget(@jakarta.annotation.Nullable Long budget) {
     this.budget = budget;
   }
 
-  public GetV1AdvertResponse200Extended operation(@jakarta.annotation.Nullable Integer operation) {
+  public GetV1AdvertResponse200Extended operation(@jakarta.annotation.Nullable Long operation) {
     this.operation = operation;
     return this;
   }
@@ -233,16 +233,15 @@ public class GetV1AdvertResponse200Extended {
    * @return operation
    */
   @jakarta.annotation.Nullable
-  public Integer getOperation() {
+  public Long getOperation() {
     return operation;
   }
 
-  public void setOperation(@jakarta.annotation.Nullable Integer operation) {
+  public void setOperation(@jakarta.annotation.Nullable Long operation) {
     this.operation = operation;
   }
 
-  public GetV1AdvertResponse200Extended contractId(
-      @jakarta.annotation.Nullable Integer contractId) {
+  public GetV1AdvertResponse200Extended contractId(@jakarta.annotation.Nullable Long contractId) {
     this.contractId = contractId;
     return this;
   }
@@ -253,11 +252,11 @@ public class GetV1AdvertResponse200Extended {
    * @return contractId
    */
   @jakarta.annotation.Nullable
-  public Integer getContractId() {
+  public Long getContractId() {
     return contractId;
   }
 
-  public void setContractId(@jakarta.annotation.Nullable Integer contractId) {
+  public void setContractId(@jakarta.annotation.Nullable Long contractId) {
     this.contractId = contractId;
   }
 

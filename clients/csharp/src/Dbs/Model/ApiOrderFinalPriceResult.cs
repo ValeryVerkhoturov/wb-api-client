@@ -38,7 +38,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Model
         /// <param name="data">data.</param>
         /// <param name="errors">Детали ошибки.</param>
         /// <param name="isError">Есть ли ошибки.</param>
-        public ApiOrderFinalPriceResult(int orderId = default(int), ApiOrderFinalPriceResultData data = default(ApiOrderFinalPriceResultData), List<ApiBatchErrorFinalPriceResponse> errors = default(List<ApiBatchErrorFinalPriceResponse>), bool isError = default(bool))
+        public ApiOrderFinalPriceResult(long orderId = default(long), ApiOrderFinalPriceResultData data = default(ApiOrderFinalPriceResultData), List<ApiBatchErrorFinalPriceResponse> errors = default(List<ApiBatchErrorFinalPriceResponse>), bool isError = default(bool))
         {
             this.OrderId = orderId;
             this.Data = data;
@@ -51,7 +51,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Model
         /// </summary>
         /// <value>ID сборочного задания</value>
         [DataMember(Name = "orderId", EmitDefaultValue = false)]
-        public int OrderId { get; set; }
+        public long OrderId { get; set; }
 
         /// <summary>
         /// Gets or Sets Data

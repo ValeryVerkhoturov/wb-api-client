@@ -35,7 +35,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// Initializes a new instance of the <see cref="PatchV3SuppliesSupplyIdOrdersRequest" /> class.
         /// </summary>
         /// <param name="orders">ID сборочных заданий.</param>
-        public PatchV3SuppliesSupplyIdOrdersRequest(List<int> orders = default(List<int>))
+        public PatchV3SuppliesSupplyIdOrdersRequest(List<long> orders = default(List<long>))
         {
             this.Orders = orders;
         }
@@ -48,7 +48,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         <example>[5632423,3453452,7654533,4529544]</example>
         */
         [DataMember(Name = "orders", EmitDefaultValue = false)]
-        public List<int> Orders { get; set; }
+        public List<long> Orders { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

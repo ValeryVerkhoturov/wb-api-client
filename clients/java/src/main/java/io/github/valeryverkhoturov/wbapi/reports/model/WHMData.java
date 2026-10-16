@@ -46,7 +46,7 @@ public class WHMData {
 
   @SerializedName(SERIALIZED_NAME_TOTAL)
   @jakarta.annotation.Nullable
-  private Integer total;
+  private Long total;
 
   public WHMData() {}
 
@@ -77,7 +77,7 @@ public class WHMData {
     this.reports = reports;
   }
 
-  public WHMData total(@jakarta.annotation.Nullable Integer total) {
+  public WHMData total(@jakarta.annotation.Nullable Long total) {
     this.total = total;
     return this;
   }
@@ -88,11 +88,11 @@ public class WHMData {
    * @return total
    */
   @jakarta.annotation.Nullable
-  public Integer getTotal() {
+  public Long getTotal() {
     return total;
   }
 
-  public void setTotal(@jakarta.annotation.Nullable Integer total) {
+  public void setTotal(@jakarta.annotation.Nullable Long total) {
     this.total = total;
   }
 

@@ -80,7 +80,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /// <param name="stickerId">Стикер заказа на возврат.</param>
         /// <param name="subjectName">Предмет.</param>
         /// <param name="techSize">Размер.</param>
-        public GetV1AnalyticsGoodsReturnResponse200ReportInner(string barcode = default(string), string brand = default(string), string completedDt = default(string), string dstOfficeAddress = default(string), int dstOfficeId = default(int), string expiredDt = default(string), IsStatusActiveEnum? isStatusActive = default(IsStatusActiveEnum?), int nmId = default(int), string orderDt = default(string), int orderId = default(int), string readyToReturnDt = default(string), string reason = default(string), string returnType = default(string), int shkId = default(int), string srid = default(string), string status = default(string), string stickerId = default(string), string subjectName = default(string), string techSize = default(string))
+        public GetV1AnalyticsGoodsReturnResponse200ReportInner(string barcode = default(string), string brand = default(string), string completedDt = default(string), string dstOfficeAddress = default(string), long dstOfficeId = default(long), string expiredDt = default(string), IsStatusActiveEnum? isStatusActive = default(IsStatusActiveEnum?), long nmId = default(long), string orderDt = default(string), long orderId = default(long), string readyToReturnDt = default(string), string reason = default(string), string returnType = default(string), long shkId = default(long), string srid = default(string), string status = default(string), string stickerId = default(string), string subjectName = default(string), string techSize = default(string))
         {
             this.Barcode = barcode;
             this.Brand = brand;
@@ -151,7 +151,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         <example>310105</example>
         */
         [DataMember(Name = "dstOfficeId", EmitDefaultValue = false)]
-        public int DstOfficeId { get; set; }
+        public long DstOfficeId { get; set; }
 
         /// <summary>
         /// Дата и время истечения срока хранения возврата
@@ -171,7 +171,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         <example>12862181</example>
         */
         [DataMember(Name = "nmId", EmitDefaultValue = false)]
-        public int NmId { get; set; }
+        public long NmId { get; set; }
 
         /// <summary>
         /// Дата заказа на возврат
@@ -191,7 +191,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         <example>2034240826</example>
         */
         [DataMember(Name = "orderId", EmitDefaultValue = false)]
-        public int OrderId { get; set; }
+        public long OrderId { get; set; }
 
         /// <summary>
         /// Дата и время готовности возврата к выдаче
@@ -231,7 +231,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         <example>23411783472</example>
         */
         [DataMember(Name = "shkId", EmitDefaultValue = false)]
-        public int ShkId { get; set; }
+        public long ShkId { get; set; }
 
         /// <summary>
         /// Уникальный ID заказа на возврат

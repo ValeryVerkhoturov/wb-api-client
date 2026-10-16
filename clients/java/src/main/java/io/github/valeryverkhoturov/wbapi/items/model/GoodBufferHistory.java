@@ -37,7 +37,7 @@ public class GoodBufferHistory {
 
   @SerializedName(SERIALIZED_NAME_NM_I_D)
   @jakarta.annotation.Nullable
-  private Integer nmID;
+  private Long nmID;
 
   public static final String SERIALIZED_NAME_VENDOR_CODE = "vendorCode";
 
@@ -49,7 +49,7 @@ public class GoodBufferHistory {
 
   @SerializedName(SERIALIZED_NAME_SIZE_I_D)
   @jakarta.annotation.Nullable
-  private Integer sizeID;
+  private Long sizeID;
 
   public static final String SERIALIZED_NAME_TECH_SIZE_NAME = "techSizeName";
 
@@ -61,7 +61,7 @@ public class GoodBufferHistory {
 
   @SerializedName(SERIALIZED_NAME_PRICE)
   @jakarta.annotation.Nullable
-  private Integer price;
+  private Long price;
 
   public static final String SERIALIZED_NAME_CURRENCY_ISO_CODE4217 = "currencyIsoCode4217";
 
@@ -73,19 +73,19 @@ public class GoodBufferHistory {
 
   @SerializedName(SERIALIZED_NAME_DISCOUNT)
   @jakarta.annotation.Nullable
-  private Integer discount;
+  private Long discount;
 
   public static final String SERIALIZED_NAME_CLUB_DISCOUNT = "clubDiscount";
 
   @SerializedName(SERIALIZED_NAME_CLUB_DISCOUNT)
   @jakarta.annotation.Nullable
-  private Integer clubDiscount;
+  private Long clubDiscount;
 
   public static final String SERIALIZED_NAME_STATUS = "status";
 
   @SerializedName(SERIALIZED_NAME_STATUS)
   @jakarta.annotation.Nullable
-  private Integer status;
+  private Long status;
 
   public static final String SERIALIZED_NAME_ERROR_TEXT = "errorText";
 
@@ -95,7 +95,7 @@ public class GoodBufferHistory {
 
   public GoodBufferHistory() {}
 
-  public GoodBufferHistory nmID(@jakarta.annotation.Nullable Integer nmID) {
+  public GoodBufferHistory nmID(@jakarta.annotation.Nullable Long nmID) {
     this.nmID = nmID;
     return this;
   }
@@ -106,11 +106,11 @@ public class GoodBufferHistory {
    * @return nmID
    */
   @jakarta.annotation.Nullable
-  public Integer getNmID() {
+  public Long getNmID() {
     return nmID;
   }
 
-  public void setNmID(@jakarta.annotation.Nullable Integer nmID) {
+  public void setNmID(@jakarta.annotation.Nullable Long nmID) {
     this.nmID = nmID;
   }
 
@@ -133,7 +133,7 @@ public class GoodBufferHistory {
     this.vendorCode = vendorCode;
   }
 
-  public GoodBufferHistory sizeID(@jakarta.annotation.Nullable Integer sizeID) {
+  public GoodBufferHistory sizeID(@jakarta.annotation.Nullable Long sizeID) {
     this.sizeID = sizeID;
     return this;
   }
@@ -144,11 +144,11 @@ public class GoodBufferHistory {
    * @return sizeID
    */
   @jakarta.annotation.Nullable
-  public Integer getSizeID() {
+  public Long getSizeID() {
     return sizeID;
   }
 
-  public void setSizeID(@jakarta.annotation.Nullable Integer sizeID) {
+  public void setSizeID(@jakarta.annotation.Nullable Long sizeID) {
     this.sizeID = sizeID;
   }
 
@@ -171,7 +171,7 @@ public class GoodBufferHistory {
     this.techSizeName = techSizeName;
   }
 
-  public GoodBufferHistory price(@jakarta.annotation.Nullable Integer price) {
+  public GoodBufferHistory price(@jakarta.annotation.Nullable Long price) {
     this.price = price;
     return this;
   }
@@ -182,11 +182,11 @@ public class GoodBufferHistory {
    * @return price
    */
   @jakarta.annotation.Nullable
-  public Integer getPrice() {
+  public Long getPrice() {
     return price;
   }
 
-  public void setPrice(@jakarta.annotation.Nullable Integer price) {
+  public void setPrice(@jakarta.annotation.Nullable Long price) {
     this.price = price;
   }
 
@@ -210,7 +210,7 @@ public class GoodBufferHistory {
     this.currencyIsoCode4217 = currencyIsoCode4217;
   }
 
-  public GoodBufferHistory discount(@jakarta.annotation.Nullable Integer discount) {
+  public GoodBufferHistory discount(@jakarta.annotation.Nullable Long discount) {
     this.discount = discount;
     return this;
   }
@@ -221,15 +221,15 @@ public class GoodBufferHistory {
    * @return discount
    */
   @jakarta.annotation.Nullable
-  public Integer getDiscount() {
+  public Long getDiscount() {
     return discount;
   }
 
-  public void setDiscount(@jakarta.annotation.Nullable Integer discount) {
+  public void setDiscount(@jakarta.annotation.Nullable Long discount) {
     this.discount = discount;
   }
 
-  public GoodBufferHistory clubDiscount(@jakarta.annotation.Nullable Integer clubDiscount) {
+  public GoodBufferHistory clubDiscount(@jakarta.annotation.Nullable Long clubDiscount) {
     this.clubDiscount = clubDiscount;
     return this;
   }
@@ -240,15 +240,15 @@ public class GoodBufferHistory {
    * @return clubDiscount
    */
   @jakarta.annotation.Nullable
-  public Integer getClubDiscount() {
+  public Long getClubDiscount() {
     return clubDiscount;
   }
 
-  public void setClubDiscount(@jakarta.annotation.Nullable Integer clubDiscount) {
+  public void setClubDiscount(@jakarta.annotation.Nullable Long clubDiscount) {
     this.clubDiscount = clubDiscount;
   }
 
-  public GoodBufferHistory status(@jakarta.annotation.Nullable Integer status) {
+  public GoodBufferHistory status(@jakarta.annotation.Nullable Long status) {
     this.status = status;
     return this;
   }
@@ -259,11 +259,11 @@ public class GoodBufferHistory {
    * @return status
    */
   @jakarta.annotation.Nullable
-  public Integer getStatus() {
+  public Long getStatus() {
     return status;
   }
 
-  public void setStatus(@jakarta.annotation.Nullable Integer status) {
+  public void setStatus(@jakarta.annotation.Nullable Long status) {
     this.status = status;
   }
 

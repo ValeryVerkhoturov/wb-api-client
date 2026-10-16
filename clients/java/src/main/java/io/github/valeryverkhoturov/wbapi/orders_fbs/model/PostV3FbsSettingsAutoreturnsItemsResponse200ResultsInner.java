@@ -47,7 +47,7 @@ public class PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInner {
 
   @SerializedName(SERIALIZED_NAME_CHRT_ID)
   @jakarta.annotation.Nullable
-  private Integer chrtId;
+  private Long chrtId;
 
   /**
    * Куда будет возвращён товар: - &#x60;auto&#x60; — место возврата определяется автоматически -
@@ -152,7 +152,7 @@ public class PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInner {
   }
 
   public PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInner chrtId(
-      @jakarta.annotation.Nullable Integer chrtId) {
+      @jakarta.annotation.Nullable Long chrtId) {
     this.chrtId = chrtId;
     return this;
   }
@@ -163,11 +163,11 @@ public class PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInner {
    * @return chrtId
    */
   @jakarta.annotation.Nullable
-  public Integer getChrtId() {
+  public Long getChrtId() {
     return chrtId;
   }
 
-  public void setChrtId(@jakarta.annotation.Nullable Integer chrtId) {
+  public void setChrtId(@jakarta.annotation.Nullable Long chrtId) {
     this.chrtId = chrtId;
   }
 

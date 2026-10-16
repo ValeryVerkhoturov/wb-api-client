@@ -45,7 +45,7 @@ public class UpdatedSuppliesShippingMethodError {
 
   @SerializedName(SERIALIZED_NAME_CODE)
   @jakarta.annotation.Nullable
-  private Integer code;
+  private Long code;
 
   public static final String SERIALIZED_NAME_DETAIL = "detail";
 
@@ -55,7 +55,7 @@ public class UpdatedSuppliesShippingMethodError {
 
   public UpdatedSuppliesShippingMethodError() {}
 
-  public UpdatedSuppliesShippingMethodError code(@jakarta.annotation.Nullable Integer code) {
+  public UpdatedSuppliesShippingMethodError code(@jakarta.annotation.Nullable Long code) {
     this.code = code;
     return this;
   }
@@ -66,11 +66,11 @@ public class UpdatedSuppliesShippingMethodError {
    * @return code
    */
   @jakarta.annotation.Nullable
-  public Integer getCode() {
+  public Long getCode() {
     return code;
   }
 
-  public void setCode(@jakarta.annotation.Nullable Integer code) {
+  public void setCode(@jakarta.annotation.Nullable Long code) {
     this.code = code;
   }
 

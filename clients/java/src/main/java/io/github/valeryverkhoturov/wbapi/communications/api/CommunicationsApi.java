@@ -110,7 +110,7 @@ public class CommunicationsApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public okhttp3.Call deleteV1PinsCall(List<Integer> requestBody, final ApiCallback _callback)
+  public okhttp3.Call deleteV1PinsCall(List<Long> requestBody, final ApiCallback _callback)
       throws ApiException {
     String basePath = null;
     // Operation Servers
@@ -166,7 +166,7 @@ public class CommunicationsApi {
 
   @SuppressWarnings("rawtypes")
   private okhttp3.Call deleteV1PinsValidateBeforeCall(
-      List<Integer> requestBody, final ApiCallback _callback) throws ApiException {
+      List<Long> requestBody, final ApiCallback _callback) throws ApiException {
     // verify the required parameter 'requestBody' is set
     if (requestBody == null) {
       throw new ApiException(
@@ -207,7 +207,7 @@ public class CommunicationsApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public DeleteV1PinsResponse200 deleteV1Pins(List<Integer> requestBody) throws ApiException {
+  public DeleteV1PinsResponse200 deleteV1Pins(List<Long> requestBody) throws ApiException {
     ApiResponse<DeleteV1PinsResponse200> localVarResp = deleteV1PinsWithHttpInfo(requestBody);
     return localVarResp.getData();
   }
@@ -243,7 +243,7 @@ public class CommunicationsApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public ApiResponse<DeleteV1PinsResponse200> deleteV1PinsWithHttpInfo(List<Integer> requestBody)
+  public ApiResponse<DeleteV1PinsResponse200> deleteV1PinsWithHttpInfo(List<Long> requestBody)
       throws ApiException {
     okhttp3.Call localVarCall = deleteV1PinsValidateBeforeCall(requestBody, null);
     Type localVarReturnType = new TypeToken<DeleteV1PinsResponse200>() {}.getType();
@@ -283,7 +283,7 @@ public class CommunicationsApi {
    * </table>
    */
   public okhttp3.Call deleteV1PinsAsync(
-      List<Integer> requestBody, final ApiCallback<DeleteV1PinsResponse200> _callback)
+      List<Long> requestBody, final ApiCallback<DeleteV1PinsResponse200> _callback)
       throws ApiException {
 
     okhttp3.Call localVarCall = deleteV1PinsValidateBeforeCall(requestBody, _callback);
@@ -321,7 +321,7 @@ public class CommunicationsApi {
       UUID id,
       Integer limit,
       Integer offset,
-      Integer nmId,
+      Long nmId,
       final ApiCallback _callback)
       throws ApiException {
     String basePath = null;
@@ -402,7 +402,7 @@ public class CommunicationsApi {
       UUID id,
       Integer limit,
       Integer offset,
-      Integer nmId,
+      Long nmId,
       final ApiCallback _callback)
       throws ApiException {
     // verify the required parameter 'isArchive' is set
@@ -448,7 +448,7 @@ public class CommunicationsApi {
    * </table>
    */
   public GetV1Claims200Response getV1Claims(
-      Boolean isArchive, UUID id, Integer limit, Integer offset, Integer nmId) throws ApiException {
+      Boolean isArchive, UUID id, Integer limit, Integer offset, Long nmId) throws ApiException {
     ApiResponse<GetV1Claims200Response> localVarResp =
         getV1ClaimsWithHttpInfo(isArchive, id, limit, offset, nmId);
     return localVarResp.getData();
@@ -488,7 +488,7 @@ public class CommunicationsApi {
    * </table>
    */
   public ApiResponse<GetV1Claims200Response> getV1ClaimsWithHttpInfo(
-      Boolean isArchive, UUID id, Integer limit, Integer offset, Integer nmId) throws ApiException {
+      Boolean isArchive, UUID id, Integer limit, Integer offset, Long nmId) throws ApiException {
     okhttp3.Call localVarCall =
         getV1ClaimsValidateBeforeCall(isArchive, id, limit, offset, nmId, null);
     Type localVarReturnType = new TypeToken<GetV1Claims200Response>() {}.getType();
@@ -533,7 +533,7 @@ public class CommunicationsApi {
       UUID id,
       Integer limit,
       Integer offset,
-      Integer nmId,
+      Long nmId,
       final ApiCallback<GetV1Claims200Response> _callback)
       throws ApiException {
 
@@ -769,12 +769,12 @@ public class CommunicationsApi {
    */
   public okhttp3.Call getV1FeedbacksCall(
       Boolean isAnswered,
-      Integer take,
-      Integer skip,
-      Integer nmId,
+      Long take,
+      Long skip,
+      Long nmId,
       String order,
-      Integer dateFrom,
-      Integer dateTo,
+      Long dateFrom,
+      Long dateTo,
       final ApiCallback _callback)
       throws ApiException {
     String basePath = null;
@@ -863,12 +863,12 @@ public class CommunicationsApi {
   @SuppressWarnings("rawtypes")
   private okhttp3.Call getV1FeedbacksValidateBeforeCall(
       Boolean isAnswered,
-      Integer take,
-      Integer skip,
-      Integer nmId,
+      Long take,
+      Long skip,
+      Long nmId,
       String order,
-      Integer dateFrom,
-      Integer dateTo,
+      Long dateFrom,
+      Long dateTo,
       final ApiCallback _callback)
       throws ApiException {
     // verify the required parameter 'isAnswered' is set
@@ -929,13 +929,7 @@ public class CommunicationsApi {
    * </table>
    */
   public GetV1FeedbacksResponse200 getV1Feedbacks(
-      Boolean isAnswered,
-      Integer take,
-      Integer skip,
-      Integer nmId,
-      String order,
-      Integer dateFrom,
-      Integer dateTo)
+      Boolean isAnswered, Long take, Long skip, Long nmId, String order, Long dateFrom, Long dateTo)
       throws ApiException {
     ApiResponse<GetV1FeedbacksResponse200> localVarResp =
         getV1FeedbacksWithHttpInfo(isAnswered, take, skip, nmId, order, dateFrom, dateTo);
@@ -979,13 +973,7 @@ public class CommunicationsApi {
    * </table>
    */
   public ApiResponse<GetV1FeedbacksResponse200> getV1FeedbacksWithHttpInfo(
-      Boolean isAnswered,
-      Integer take,
-      Integer skip,
-      Integer nmId,
-      String order,
-      Integer dateFrom,
-      Integer dateTo)
+      Boolean isAnswered, Long take, Long skip, Long nmId, String order, Long dateFrom, Long dateTo)
       throws ApiException {
     okhttp3.Call localVarCall =
         getV1FeedbacksValidateBeforeCall(
@@ -1033,12 +1021,12 @@ public class CommunicationsApi {
    */
   public okhttp3.Call getV1FeedbacksAsync(
       Boolean isAnswered,
-      Integer take,
-      Integer skip,
-      Integer nmId,
+      Long take,
+      Long skip,
+      Long nmId,
       String order,
-      Integer dateFrom,
-      Integer dateTo,
+      Long dateFrom,
+      Long dateTo,
       final ApiCallback<GetV1FeedbacksResponse200> _callback)
       throws ApiException {
 
@@ -1074,7 +1062,7 @@ public class CommunicationsApi {
    * </table>
    */
   public okhttp3.Call getV1FeedbacksArchiveCall(
-      Integer take, Integer skip, Integer nmId, String order, final ApiCallback _callback)
+      Long take, Long skip, Long nmId, String order, final ApiCallback _callback)
       throws ApiException {
     String basePath = null;
     // Operation Servers
@@ -1149,7 +1137,7 @@ public class CommunicationsApi {
 
   @SuppressWarnings("rawtypes")
   private okhttp3.Call getV1FeedbacksArchiveValidateBeforeCall(
-      Integer take, Integer skip, Integer nmId, String order, final ApiCallback _callback)
+      Long take, Long skip, Long nmId, String order, final ApiCallback _callback)
       throws ApiException {
     // verify the required parameter 'take' is set
     if (take == null) {
@@ -1200,7 +1188,7 @@ public class CommunicationsApi {
    * </table>
    */
   public GetV1FeedbacksArchiveResponse200 getV1FeedbacksArchive(
-      Integer take, Integer skip, Integer nmId, String order) throws ApiException {
+      Long take, Long skip, Long nmId, String order) throws ApiException {
     ApiResponse<GetV1FeedbacksArchiveResponse200> localVarResp =
         getV1FeedbacksArchiveWithHttpInfo(take, skip, nmId, order);
     return localVarResp.getData();
@@ -1240,7 +1228,7 @@ public class CommunicationsApi {
    * </table>
    */
   public ApiResponse<GetV1FeedbacksArchiveResponse200> getV1FeedbacksArchiveWithHttpInfo(
-      Integer take, Integer skip, Integer nmId, String order) throws ApiException {
+      Long take, Long skip, Long nmId, String order) throws ApiException {
     okhttp3.Call localVarCall =
         getV1FeedbacksArchiveValidateBeforeCall(take, skip, nmId, order, null);
     Type localVarReturnType = new TypeToken<GetV1FeedbacksArchiveResponse200>() {}.getType();
@@ -1281,9 +1269,9 @@ public class CommunicationsApi {
    * </table>
    */
   public okhttp3.Call getV1FeedbacksArchiveAsync(
-      Integer take,
-      Integer skip,
-      Integer nmId,
+      Long take,
+      Long skip,
+      Long nmId,
       String order,
       final ApiCallback<GetV1FeedbacksArchiveResponse200> _callback)
       throws ApiException {
@@ -1318,7 +1306,7 @@ public class CommunicationsApi {
    * </table>
    */
   public okhttp3.Call getV1FeedbacksCountCall(
-      Boolean isAnswered, Integer dateFrom, Integer dateTo, final ApiCallback _callback)
+      Boolean isAnswered, Long dateFrom, Long dateTo, final ApiCallback _callback)
       throws ApiException {
     String basePath = null;
     // Operation Servers
@@ -1389,7 +1377,7 @@ public class CommunicationsApi {
 
   @SuppressWarnings("rawtypes")
   private okhttp3.Call getV1FeedbacksCountValidateBeforeCall(
-      Boolean isAnswered, Integer dateFrom, Integer dateTo, final ApiCallback _callback)
+      Boolean isAnswered, Long dateFrom, Long dateTo, final ApiCallback _callback)
       throws ApiException {
     // verify the required parameter 'isAnswered' is set
     if (isAnswered == null) {
@@ -1433,7 +1421,7 @@ public class CommunicationsApi {
    * </table>
    */
   public GetV1FeedbacksCountResponse200 getV1FeedbacksCount(
-      Boolean isAnswered, Integer dateFrom, Integer dateTo) throws ApiException {
+      Boolean isAnswered, Long dateFrom, Long dateTo) throws ApiException {
     ApiResponse<GetV1FeedbacksCountResponse200> localVarResp =
         getV1FeedbacksCountWithHttpInfo(isAnswered, dateFrom, dateTo);
     return localVarResp.getData();
@@ -1472,7 +1460,7 @@ public class CommunicationsApi {
    * </table>
    */
   public ApiResponse<GetV1FeedbacksCountResponse200> getV1FeedbacksCountWithHttpInfo(
-      Boolean isAnswered, Integer dateFrom, Integer dateTo) throws ApiException {
+      Boolean isAnswered, Long dateFrom, Long dateTo) throws ApiException {
     okhttp3.Call localVarCall =
         getV1FeedbacksCountValidateBeforeCall(isAnswered, dateFrom, dateTo, null);
     Type localVarReturnType = new TypeToken<GetV1FeedbacksCountResponse200>() {}.getType();
@@ -1513,8 +1501,8 @@ public class CommunicationsApi {
    */
   public okhttp3.Call getV1FeedbacksCountAsync(
       Boolean isAnswered,
-      Integer dateFrom,
-      Integer dateTo,
+      Long dateFrom,
+      Long dateTo,
       final ApiCallback<GetV1FeedbacksCountResponse200> _callback)
       throws ApiException {
 
@@ -1935,13 +1923,13 @@ public class CommunicationsApi {
   public okhttp3.Call getV1PinsCall(
       String state,
       String pinOn,
-      Integer imtId,
-      Integer nmId,
-      Integer feedbackId,
+      Long imtId,
+      Long nmId,
+      Long feedbackId,
       String dateFrom,
       String dateTo,
-      Integer next,
-      Integer limit,
+      Long next,
+      Long limit,
       final ApiCallback _callback)
       throws ApiException {
     String basePath = null;
@@ -2036,13 +2024,13 @@ public class CommunicationsApi {
   private okhttp3.Call getV1PinsValidateBeforeCall(
       String state,
       String pinOn,
-      Integer imtId,
-      Integer nmId,
-      Integer feedbackId,
+      Long imtId,
+      Long nmId,
+      Long feedbackId,
       String dateFrom,
       String dateTo,
-      Integer next,
-      Integer limit,
+      Long next,
+      Long limit,
       final ApiCallback _callback)
       throws ApiException {
     return getV1PinsCall(
@@ -2096,13 +2084,13 @@ public class CommunicationsApi {
   public GetV1PinsResponse200 getV1Pins(
       String state,
       String pinOn,
-      Integer imtId,
-      Integer nmId,
-      Integer feedbackId,
+      Long imtId,
+      Long nmId,
+      Long feedbackId,
       String dateFrom,
       String dateTo,
-      Integer next,
-      Integer limit)
+      Long next,
+      Long limit)
       throws ApiException {
     ApiResponse<GetV1PinsResponse200> localVarResp =
         getV1PinsWithHttpInfo(state, pinOn, imtId, nmId, feedbackId, dateFrom, dateTo, next, limit);
@@ -2156,13 +2144,13 @@ public class CommunicationsApi {
   public ApiResponse<GetV1PinsResponse200> getV1PinsWithHttpInfo(
       String state,
       String pinOn,
-      Integer imtId,
-      Integer nmId,
-      Integer feedbackId,
+      Long imtId,
+      Long nmId,
+      Long feedbackId,
       String dateFrom,
       String dateTo,
-      Integer next,
-      Integer limit)
+      Long next,
+      Long limit)
       throws ApiException {
     okhttp3.Call localVarCall =
         getV1PinsValidateBeforeCall(
@@ -2219,13 +2207,13 @@ public class CommunicationsApi {
   public okhttp3.Call getV1PinsAsync(
       String state,
       String pinOn,
-      Integer imtId,
-      Integer nmId,
-      Integer feedbackId,
+      Long imtId,
+      Long nmId,
+      Long feedbackId,
       String dateFrom,
       String dateTo,
-      Integer next,
-      Integer limit,
+      Long next,
+      Long limit,
       final ApiCallback<GetV1PinsResponse200> _callback)
       throws ApiException {
 
@@ -2273,9 +2261,9 @@ public class CommunicationsApi {
   public okhttp3.Call getV1PinsCountCall(
       String state,
       String pinOn,
-      Integer imtId,
-      Integer nmId,
-      Integer feedbackId,
+      Long imtId,
+      Long nmId,
+      Long feedbackId,
       String dateFrom,
       String dateTo,
       final ApiCallback _callback)
@@ -2364,9 +2352,9 @@ public class CommunicationsApi {
   private okhttp3.Call getV1PinsCountValidateBeforeCall(
       String state,
       String pinOn,
-      Integer imtId,
-      Integer nmId,
-      Integer feedbackId,
+      Long imtId,
+      Long nmId,
+      Long feedbackId,
       String dateFrom,
       String dateTo,
       final ApiCallback _callback)
@@ -2418,9 +2406,9 @@ public class CommunicationsApi {
   public GetV1PinsCountResponse200 getV1PinsCount(
       String state,
       String pinOn,
-      Integer imtId,
-      Integer nmId,
-      Integer feedbackId,
+      Long imtId,
+      Long nmId,
+      Long feedbackId,
       String dateFrom,
       String dateTo)
       throws ApiException {
@@ -2473,9 +2461,9 @@ public class CommunicationsApi {
   public ApiResponse<GetV1PinsCountResponse200> getV1PinsCountWithHttpInfo(
       String state,
       String pinOn,
-      Integer imtId,
-      Integer nmId,
-      Integer feedbackId,
+      Long imtId,
+      Long nmId,
+      Long feedbackId,
       String dateFrom,
       String dateTo)
       throws ApiException {
@@ -2530,9 +2518,9 @@ public class CommunicationsApi {
   public okhttp3.Call getV1PinsCountAsync(
       String state,
       String pinOn,
-      Integer imtId,
-      Integer nmId,
-      Integer feedbackId,
+      Long imtId,
+      Long nmId,
+      Long feedbackId,
       String dateFrom,
       String dateTo,
       final ApiCallback<GetV1PinsCountResponse200> _callback)
@@ -2952,12 +2940,12 @@ public class CommunicationsApi {
    */
   public okhttp3.Call getV1QuestionsCall(
       Boolean isAnswered,
-      Integer take,
-      Integer skip,
-      Integer nmId,
+      Long take,
+      Long skip,
+      Long nmId,
       String order,
-      Integer dateFrom,
-      Integer dateTo,
+      Long dateFrom,
+      Long dateTo,
       final ApiCallback _callback)
       throws ApiException {
     String basePath = null;
@@ -3046,12 +3034,12 @@ public class CommunicationsApi {
   @SuppressWarnings("rawtypes")
   private okhttp3.Call getV1QuestionsValidateBeforeCall(
       Boolean isAnswered,
-      Integer take,
-      Integer skip,
-      Integer nmId,
+      Long take,
+      Long skip,
+      Long nmId,
       String order,
-      Integer dateFrom,
-      Integer dateTo,
+      Long dateFrom,
+      Long dateTo,
       final ApiCallback _callback)
       throws ApiException {
     // verify the required parameter 'isAnswered' is set
@@ -3115,13 +3103,7 @@ public class CommunicationsApi {
    * </table>
    */
   public GetV1QuestionsResponse200 getV1Questions(
-      Boolean isAnswered,
-      Integer take,
-      Integer skip,
-      Integer nmId,
-      String order,
-      Integer dateFrom,
-      Integer dateTo)
+      Boolean isAnswered, Long take, Long skip, Long nmId, String order, Long dateFrom, Long dateTo)
       throws ApiException {
     ApiResponse<GetV1QuestionsResponse200> localVarResp =
         getV1QuestionsWithHttpInfo(isAnswered, take, skip, nmId, order, dateFrom, dateTo);
@@ -3168,13 +3150,7 @@ public class CommunicationsApi {
    * </table>
    */
   public ApiResponse<GetV1QuestionsResponse200> getV1QuestionsWithHttpInfo(
-      Boolean isAnswered,
-      Integer take,
-      Integer skip,
-      Integer nmId,
-      String order,
-      Integer dateFrom,
-      Integer dateTo)
+      Boolean isAnswered, Long take, Long skip, Long nmId, String order, Long dateFrom, Long dateTo)
       throws ApiException {
     okhttp3.Call localVarCall =
         getV1QuestionsValidateBeforeCall(
@@ -3225,12 +3201,12 @@ public class CommunicationsApi {
    */
   public okhttp3.Call getV1QuestionsAsync(
       Boolean isAnswered,
-      Integer take,
-      Integer skip,
-      Integer nmId,
+      Long take,
+      Long skip,
+      Long nmId,
       String order,
-      Integer dateFrom,
-      Integer dateTo,
+      Long dateFrom,
+      Long dateTo,
       final ApiCallback<GetV1QuestionsResponse200> _callback)
       throws ApiException {
 
@@ -3265,7 +3241,7 @@ public class CommunicationsApi {
    * </table>
    */
   public okhttp3.Call getV1QuestionsCountCall(
-      Integer dateFrom, Integer dateTo, Boolean isAnswered, final ApiCallback _callback)
+      Long dateFrom, Long dateTo, Boolean isAnswered, final ApiCallback _callback)
       throws ApiException {
     String basePath = null;
     // Operation Servers
@@ -3336,7 +3312,7 @@ public class CommunicationsApi {
 
   @SuppressWarnings("rawtypes")
   private okhttp3.Call getV1QuestionsCountValidateBeforeCall(
-      Integer dateFrom, Integer dateTo, Boolean isAnswered, final ApiCallback _callback)
+      Long dateFrom, Long dateTo, Boolean isAnswered, final ApiCallback _callback)
       throws ApiException {
     return getV1QuestionsCountCall(dateFrom, dateTo, isAnswered, _callback);
   }
@@ -3373,7 +3349,7 @@ public class CommunicationsApi {
    * </table>
    */
   public GetV1QuestionsCountResponse200 getV1QuestionsCount(
-      Integer dateFrom, Integer dateTo, Boolean isAnswered) throws ApiException {
+      Long dateFrom, Long dateTo, Boolean isAnswered) throws ApiException {
     ApiResponse<GetV1QuestionsCountResponse200> localVarResp =
         getV1QuestionsCountWithHttpInfo(dateFrom, dateTo, isAnswered);
     return localVarResp.getData();
@@ -3411,7 +3387,7 @@ public class CommunicationsApi {
    * </table>
    */
   public ApiResponse<GetV1QuestionsCountResponse200> getV1QuestionsCountWithHttpInfo(
-      Integer dateFrom, Integer dateTo, Boolean isAnswered) throws ApiException {
+      Long dateFrom, Long dateTo, Boolean isAnswered) throws ApiException {
     okhttp3.Call localVarCall =
         getV1QuestionsCountValidateBeforeCall(dateFrom, dateTo, isAnswered, null);
     Type localVarReturnType = new TypeToken<GetV1QuestionsCountResponse200>() {}.getType();
@@ -3450,8 +3426,8 @@ public class CommunicationsApi {
    * </table>
    */
   public okhttp3.Call getV1QuestionsCountAsync(
-      Integer dateFrom,
-      Integer dateTo,
+      Long dateFrom,
+      Long dateTo,
       Boolean isAnswered,
       final ApiCallback<GetV1QuestionsCountResponse200> _callback)
       throws ApiException {
@@ -4043,7 +4019,7 @@ public class CommunicationsApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public okhttp3.Call getV1SellerEventsCall(Integer next, final ApiCallback _callback)
+  public okhttp3.Call getV1SellerEventsCall(Long next, final ApiCallback _callback)
       throws ApiException {
     String basePath = null;
     // Operation Servers
@@ -4102,8 +4078,8 @@ public class CommunicationsApi {
   }
 
   @SuppressWarnings("rawtypes")
-  private okhttp3.Call getV1SellerEventsValidateBeforeCall(
-      Integer next, final ApiCallback _callback) throws ApiException {
+  private okhttp3.Call getV1SellerEventsValidateBeforeCall(Long next, final ApiCallback _callback)
+      throws ApiException {
     return getV1SellerEventsCall(next, _callback);
   }
 
@@ -4138,7 +4114,7 @@ public class CommunicationsApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public EventsResponse getV1SellerEvents(Integer next) throws ApiException {
+  public EventsResponse getV1SellerEvents(Long next) throws ApiException {
     ApiResponse<EventsResponse> localVarResp = getV1SellerEventsWithHttpInfo(next);
     return localVarResp.getData();
   }
@@ -4174,8 +4150,7 @@ public class CommunicationsApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public ApiResponse<EventsResponse> getV1SellerEventsWithHttpInfo(Integer next)
-      throws ApiException {
+  public ApiResponse<EventsResponse> getV1SellerEventsWithHttpInfo(Long next) throws ApiException {
     okhttp3.Call localVarCall = getV1SellerEventsValidateBeforeCall(next, null);
     Type localVarReturnType = new TypeToken<EventsResponse>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -4212,8 +4187,8 @@ public class CommunicationsApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public okhttp3.Call getV1SellerEventsAsync(
-      Integer next, final ApiCallback<EventsResponse> _callback) throws ApiException {
+  public okhttp3.Call getV1SellerEventsAsync(Long next, final ApiCallback<EventsResponse> _callback)
+      throws ApiException {
 
     okhttp3.Call localVarCall = getV1SellerEventsValidateBeforeCall(next, _callback);
     Type localVarReturnType = new TypeToken<EventsResponse>() {}.getType();

@@ -38,7 +38,7 @@ public class GetV1AcceptanceReportTasksTaskIdDownloadResponse200Inner {
 
   @SerializedName(SERIALIZED_NAME_COUNT)
   @jakarta.annotation.Nullable
-  private Integer count;
+  private Long count;
 
   public static final String SERIALIZED_NAME_GI_CREATE_DATE = "giCreateDate";
 
@@ -50,13 +50,13 @@ public class GetV1AcceptanceReportTasksTaskIdDownloadResponse200Inner {
 
   @SerializedName(SERIALIZED_NAME_INCOME_ID)
   @jakarta.annotation.Nullable
-  private Integer incomeId;
+  private Long incomeId;
 
   public static final String SERIALIZED_NAME_NM_I_D = "nmID";
 
   @SerializedName(SERIALIZED_NAME_NM_I_D)
   @jakarta.annotation.Nullable
-  private Integer nmID;
+  private Long nmID;
 
   public static final String SERIALIZED_NAME_SHK_CREATE_DATE = "shkCreateDate";
 
@@ -79,7 +79,7 @@ public class GetV1AcceptanceReportTasksTaskIdDownloadResponse200Inner {
   public GetV1AcceptanceReportTasksTaskIdDownloadResponse200Inner() {}
 
   public GetV1AcceptanceReportTasksTaskIdDownloadResponse200Inner count(
-      @jakarta.annotation.Nullable Integer count) {
+      @jakarta.annotation.Nullable Long count) {
     this.count = count;
     return this;
   }
@@ -90,11 +90,11 @@ public class GetV1AcceptanceReportTasksTaskIdDownloadResponse200Inner {
    * @return count
    */
   @jakarta.annotation.Nullable
-  public Integer getCount() {
+  public Long getCount() {
     return count;
   }
 
-  public void setCount(@jakarta.annotation.Nullable Integer count) {
+  public void setCount(@jakarta.annotation.Nullable Long count) {
     this.count = count;
   }
 
@@ -119,7 +119,7 @@ public class GetV1AcceptanceReportTasksTaskIdDownloadResponse200Inner {
   }
 
   public GetV1AcceptanceReportTasksTaskIdDownloadResponse200Inner incomeId(
-      @jakarta.annotation.Nullable Integer incomeId) {
+      @jakarta.annotation.Nullable Long incomeId) {
     this.incomeId = incomeId;
     return this;
   }
@@ -130,16 +130,16 @@ public class GetV1AcceptanceReportTasksTaskIdDownloadResponse200Inner {
    * @return incomeId
    */
   @jakarta.annotation.Nullable
-  public Integer getIncomeId() {
+  public Long getIncomeId() {
     return incomeId;
   }
 
-  public void setIncomeId(@jakarta.annotation.Nullable Integer incomeId) {
+  public void setIncomeId(@jakarta.annotation.Nullable Long incomeId) {
     this.incomeId = incomeId;
   }
 
   public GetV1AcceptanceReportTasksTaskIdDownloadResponse200Inner nmID(
-      @jakarta.annotation.Nullable Integer nmID) {
+      @jakarta.annotation.Nullable Long nmID) {
     this.nmID = nmID;
     return this;
   }
@@ -150,11 +150,11 @@ public class GetV1AcceptanceReportTasksTaskIdDownloadResponse200Inner {
    * @return nmID
    */
   @jakarta.annotation.Nullable
-  public Integer getNmID() {
+  public Long getNmID() {
     return nmID;
   }
 
-  public void setNmID(@jakarta.annotation.Nullable Integer nmID) {
+  public void setNmID(@jakarta.annotation.Nullable Long nmID) {
     this.nmID = nmID;
   }
 

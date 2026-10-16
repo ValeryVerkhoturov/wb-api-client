@@ -37,11 +37,11 @@ public class PostV3PassesResponse201 {
 
   @SerializedName(SERIALIZED_NAME_ID)
   @jakarta.annotation.Nullable
-  private Integer id;
+  private Long id;
 
   public PostV3PassesResponse201() {}
 
-  public PostV3PassesResponse201 id(@jakarta.annotation.Nullable Integer id) {
+  public PostV3PassesResponse201 id(@jakarta.annotation.Nullable Long id) {
     this.id = id;
     return this;
   }
@@ -52,11 +52,11 @@ public class PostV3PassesResponse201 {
    * @return id
    */
   @jakarta.annotation.Nullable
-  public Integer getId() {
+  public Long getId() {
     return id;
   }
 
-  public void setId(@jakarta.annotation.Nullable Integer id) {
+  public void setId(@jakarta.annotation.Nullable Long id) {
     this.id = id;
   }
 

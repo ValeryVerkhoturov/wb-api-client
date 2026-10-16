@@ -44,7 +44,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// <param name="clubDiscount">Скидка WB Клуба, %.</param>
         /// <param name="status">Статус товара:   * &#x60;2&#x60; — товар без ошибок, цена и/или скидка обновилась   * &#x60;3&#x60; — есть ошибки, данные не обновились .</param>
         /// <param name="errorText">Описание ошибки. Например:   - &#x60;New price is several times lower than the current price. Item has been moved to Price Quarantine&#x60; — ошибка возникает, если новая цена со скидкой меньше [порогового значения](https://seller.wildberries.ru/instructions/ru/ru/material/price-quarantine#2ef3641a-5165-41db-9ac7-e4374c9fc3f1). Вы можете изменить цену или скидку с помощью API либо вывести товар из карантина в [личном кабинете](https://seller.wildberries.ru/discount-and-prices/quarantine). .</param>
-        public GoodHistory(int nmID = default(int), string vendorCode = default(string), int? sizeID = default(int?), string techSizeName = default(string), int? price = default(int?), string currencyIsoCode4217 = default(string), int discount = default(int), int? clubDiscount = default(int?), int status = default(int), string errorText = default(string))
+        public GoodHistory(long nmID = default(long), string vendorCode = default(string), long? sizeID = default(long?), string techSizeName = default(string), long? price = default(long?), string currencyIsoCode4217 = default(string), long discount = default(long), long? clubDiscount = default(long?), long status = default(long), string errorText = default(string))
         {
             this.NmID = nmID;
             this.VendorCode = vendorCode;
@@ -66,7 +66,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         <example>544833232</example>
         */
         [DataMember(Name = "nmID", EmitDefaultValue = false)]
-        public int NmID { get; set; }
+        public long NmID { get; set; }
 
         /// <summary>
         /// Артикул продавца
@@ -86,7 +86,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         <example>54483342</example>
         */
         [DataMember(Name = "sizeID", EmitDefaultValue = true)]
-        public int? SizeID { get; set; }
+        public long? SizeID { get; set; }
 
         /// <summary>
         /// Размер
@@ -106,7 +106,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         <example>1500</example>
         */
         [DataMember(Name = "price", EmitDefaultValue = true)]
-        public int? Price { get; set; }
+        public long? Price { get; set; }
 
         /// <summary>
         /// Валюта, по стандарту ISO 4217
@@ -126,7 +126,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         <example>25</example>
         */
         [DataMember(Name = "discount", EmitDefaultValue = false)]
-        public int Discount { get; set; }
+        public long Discount { get; set; }
 
         /// <summary>
         /// Скидка WB Клуба, %
@@ -136,7 +136,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         <example>5</example>
         */
         [DataMember(Name = "clubDiscount", EmitDefaultValue = true)]
-        public int? ClubDiscount { get; set; }
+        public long? ClubDiscount { get; set; }
 
         /// <summary>
         /// Статус товара:   * &#x60;2&#x60; — товар без ошибок, цена и/или скидка обновилась   * &#x60;3&#x60; — есть ошибки, данные не обновились 
@@ -146,7 +146,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         <example>1</example>
         */
         [DataMember(Name = "status", EmitDefaultValue = false)]
-        public int Status { get; set; }
+        public long Status { get; set; }
 
         /// <summary>
         /// Описание ошибки. Например:   - &#x60;New price is several times lower than the current price. Item has been moved to Price Quarantine&#x60; — ошибка возникает, если новая цена со скидкой меньше [порогового значения](https://seller.wildberries.ru/instructions/ru/ru/material/price-quarantine#2ef3641a-5165-41db-9ac7-e4374c9fc3f1). Вы можете изменить цену или скидку с помощью API либо вывести товар из карантина в [личном кабинете](https://seller.wildberries.ru/discount-and-prices/quarantine). 

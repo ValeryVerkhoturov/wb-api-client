@@ -37,7 +37,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <param name="id">ID предмета.</param>
         /// <param name="name">Предмет.</param>
         /// <param name="count">Количество Артикулов WB (&#x60;nmId&#x60;) с таким предметом..</param>
-        public GetV1SupplierSubjectsResponse200Inner(int id = default(int), string name = default(string), int count = default(int))
+        public GetV1SupplierSubjectsResponse200Inner(long id = default(long), string name = default(string), long count = default(long))
         {
             this.Id = id;
             this.Name = name;
@@ -49,7 +49,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <value>ID предмета</value>
         [DataMember(Name = "id", EmitDefaultValue = false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// Предмет
@@ -63,7 +63,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <value>Количество Артикулов WB (&#x60;nmId&#x60;) с таким предметом.</value>
         [DataMember(Name = "count", EmitDefaultValue = false)]
-        public int Count { get; set; }
+        public long Count { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

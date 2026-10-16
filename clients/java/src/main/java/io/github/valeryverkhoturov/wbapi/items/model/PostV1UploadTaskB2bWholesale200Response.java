@@ -40,7 +40,7 @@ public class PostV1UploadTaskB2bWholesale200Response {
 
   @SerializedName(SERIALIZED_NAME_ID)
   @jakarta.annotation.Nonnull
-  private Integer id;
+  private Long id;
 
   public static final String SERIALIZED_NAME_ALREADY_EXISTS = "alreadyExists";
 
@@ -56,7 +56,7 @@ public class PostV1UploadTaskB2bWholesale200Response {
 
   public PostV1UploadTaskB2bWholesale200Response() {}
 
-  public PostV1UploadTaskB2bWholesale200Response id(@jakarta.annotation.Nonnull Integer id) {
+  public PostV1UploadTaskB2bWholesale200Response id(@jakarta.annotation.Nonnull Long id) {
     this.id = id;
     return this;
   }
@@ -67,11 +67,11 @@ public class PostV1UploadTaskB2bWholesale200Response {
    * @return id
    */
   @jakarta.annotation.Nonnull
-  public Integer getId() {
+  public Long getId() {
     return id;
   }
 
-  public void setId(@jakarta.annotation.Nonnull Integer id) {
+  public void setId(@jakarta.annotation.Nonnull Long id) {
     this.id = id;
   }
 

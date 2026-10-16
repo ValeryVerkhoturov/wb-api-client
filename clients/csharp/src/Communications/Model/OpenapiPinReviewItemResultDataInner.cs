@@ -94,7 +94,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         /// <param name="pinOn">Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров .</param>
         /// <param name="isErrors">Есть ли ошибки.</param>
         /// <param name="errors">Детали ошибок.</param>
-        public OpenapiPinReviewItemResultDataInner(string feedbackId = default(string), int pinId = default(int), PinMethodEnum? pinMethod = default(PinMethodEnum?), PinOnEnum? pinOn = default(PinOnEnum?), bool isErrors = default(bool), List<OpenapiResultErr> errors = default(List<OpenapiResultErr>))
+        public OpenapiPinReviewItemResultDataInner(string feedbackId = default(string), long pinId = default(long), PinMethodEnum? pinMethod = default(PinMethodEnum?), PinOnEnum? pinOn = default(PinOnEnum?), bool isErrors = default(bool), List<OpenapiResultErr> errors = default(List<OpenapiResultErr>))
         {
             this.FeedbackId = feedbackId;
             this.PinId = pinId;
@@ -116,7 +116,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         /// </summary>
         /// <value>ID операции закрепления. Если поле отсутствует — закрепить отзыв не удалось </value>
         [DataMember(Name = "pinId", EmitDefaultValue = false)]
-        public int PinId { get; set; }
+        public long PinId { get; set; }
 
         /// <summary>
         /// Есть ли ошибки

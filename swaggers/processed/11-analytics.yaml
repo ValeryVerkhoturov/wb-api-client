@@ -1796,13 +1796,13 @@ components:
           example: 130
           type: integer
           description: Количество групп товаров в ответе
-          format: uint32
+          format: int64
           maximum: 1000
         offset:
           example: 50
           type: integer
           description: После какого элемента выдавать данные
-          format: uint32
+          format: int64
       required:
       - currentPeriod
       - orderBy
@@ -1852,15 +1852,17 @@ components:
               example: 5
               description: Текущее количество товаров в рекламе
               type: integer
+              format: int64
             dynamics:
               example: 50
               description: Динамика по сравнению с предыдущим периодом, %
               type: integer
+              format: int64
         totalProducts:
           example: 150
           description: Общее количество товаров
           type: integer
-          format: uint64
+          format: int64
     PositionInfo:
       type: object
       description: Информация о позиции товара
@@ -1873,10 +1875,12 @@ components:
               example: 5
               description: Текущая средняя позиция товара
               type: integer
+              format: int64
             dynamics:
               example: 50
               description: Динамика по сравнению с предыдущим периодом, %
               type: integer
+              format: int64
         median:
           description: Медианная позиция товара в результатах поиска
           type: object
@@ -1885,10 +1889,12 @@ components:
               example: 5
               description: Текущая медианная позиция товара
               type: integer
+              format: int64
             dynamics:
               example: 50
               description: Динамика по сравнению с предыдущим периодом, %
               type: integer
+              format: int64
         chartItems:
           type: array
           description: Данные для чарта по средней и медианной позиции товара в результатах поиска
@@ -1907,12 +1913,12 @@ components:
           example: 1
           type: integer
           description: Средняя позиция товара в результатах поиска
-          format: uint64
+          format: int64
         median:
           example: 1
           type: integer
           description: Медианная позиция товара в результатах поиска
-          format: uint64
+          format: int64
     SearchReportPositionClusters:
       type: object
       description: |
@@ -1929,10 +1935,12 @@ components:
               example: 5
               description: Текущее количество товаров
               type: integer
+              format: int64
             dynamics:
               example: 50
               description: Динамика по сравнению с предыдущим периодом, %
               type: integer
+              format: int64
         secondHundred:
           description: от 101 до 200
           type: object
@@ -1941,10 +1949,12 @@ components:
               example: 5
               description: Текущее количество товаров
               type: integer
+              format: int64
             dynamics:
               example: 50
               description: Динамика по сравнению с предыдущим периодом, %
               type: integer
+              format: int64
         below:
           description: от 201 и ниже
           type: object
@@ -1953,10 +1963,12 @@ components:
               example: 5
               description: Текущее количество товаров
               type: integer
+              format: int64
             dynamics:
               example: 50
               description: Динамика по сравнению с предыдущим периодом, %
               type: integer
+              format: int64
     VisibilityInfo:
       type: object
       description: Видимость карточек и переходы в карточки. По дням, неделям, месяцам
@@ -1969,10 +1981,12 @@ components:
               example: 5
               description: Видимость в текущий период
               type: integer
+              format: int64
             dynamics:
               example: 50
               description: Динамика по сравнению с предыдущим периодом, %
               type: integer
+              format: int64
         openCard:
           description: Количество переходов в карточку товара из поиска
           type: object
@@ -1981,10 +1995,12 @@ components:
               example: 5
               description: Текущее количество переходов
               type: integer
+              format: int64
             dynamics:
               example: 50
               description: Динамика по сравнению с предыдущим периодом, %
               type: integer
+              format: int64
         byDay:
           type: array
           description: Данные для отрисовки графика в личном кабинете по видимости и переходам в карточки по дням
@@ -1997,12 +2013,12 @@ components:
                 example: 100
                 description: Видимость карточки в результатах поиска, %
                 type: integer
-                format: uint64
+                format: int64
               open:
                 example: 124
                 description: Количество переходов в карточку
                 type: integer
-                format: uint64
+                format: int64
         byWeek:
           type: array
           description: Данные для отрисовки графика в личном кабинете по видимости и переходам в карточки по неделям
@@ -2015,12 +2031,12 @@ components:
                 example: 100
                 description: Видимость карточки в результатах поиска, %
                 type: integer
-                format: uint64
+                format: int64
               open:
                 example: 124
                 description: Количество переходов в карточку
                 type: integer
-                format: uint64
+                format: int64
         byMonth:
           type: array
           description: Данные для отрисовки графика в личном кабинете по видимости и переходам в карточки по месяцам
@@ -2033,12 +2049,12 @@ components:
                 example: 100
                 description: Видимость карточки в результатах поиска, %
                 type: integer
-                format: uint64
+                format: int64
               open:
                 example: 124
                 description: Количество переходов в карточку
                 type: integer
-                format: uint64
+                format: int64
     TableGroupItem:
       type: object
       description: |
@@ -2055,7 +2071,7 @@ components:
           example: 50
           description: ID предмета
           type: integer
-          format: uint64
+          format: int64
         brandName:
           example: Apple
           description: Бренд
@@ -2081,10 +2097,12 @@ components:
                   example: 5
                   description: Текущая средняя позиция
                   type: integer
+                  format: int64
                 dynamics:
                   example: 50
                   description: Динамика по сравнению с предыдущим периодом, %
                   type: integer
+                  format: int64
             openCard:
               description: Количество переходов в карточку товара из поиска
               type: object
@@ -2093,10 +2111,12 @@ components:
                   example: 5
                   description: Текущее количество переходов
                   type: integer
+                  format: int64
                 dynamics:
                   example: 50
                   description: Динамика по сравнению с предыдущим периодом, %
                   type: integer
+                  format: int64
             addToCart:
               description: Сколько раз товар из поиска добавили в корзину
               type: object
@@ -2105,10 +2125,12 @@ components:
                   example: 5
                   description: Текущее количество
                   type: integer
+                  format: int64
                 dynamics:
                   example: 50
                   description: Динамика по сравнению с предыдущим периодом, %
                   type: integer
+                  format: int64
             openToCart:
               description: Конверсия в корзину из поиска — доля добавлений товара в корзину по отношению ко всем переходам в карточку товара из поиска
               type: object
@@ -2117,10 +2139,12 @@ components:
                   example: 5
                   description: Текущая конверсия
                   type: integer
+                  format: int64
                 dynamics:
                   example: 50
                   description: Динамика по сравнению с предыдущим периодом, %
                   type: integer
+                  format: int64
             orders:
               description: Сколько раз товары из поиска заказали
               type: object
@@ -2129,10 +2153,12 @@ components:
                   example: 5
                   description: Текущее количество
                   type: integer
+                  format: int64
                 dynamics:
                   example: 50
                   description: Динамика по сравнению с предыдущим периодом, %
                   type: integer
+                  format: int64
             cartToOrder:
               description: Конверсия в заказ из поиска — доля заказов товара по отношению ко всем добавлениям товара из поиска в корзину
               type: object
@@ -2141,10 +2167,12 @@ components:
                   example: 5
                   description: Текущая конверсия
                   type: integer
+                  format: int64
                 dynamics:
                   example: 50
                   description: Динамика по сравнению с предыдущим периодом, %
                   type: integer
+                  format: int64
             visibility:
               description: Процент видимости товара в результатах поиска
               type: object
@@ -2153,10 +2181,12 @@ components:
                   example: 5
                   description: Текущий процент видимости
                   type: integer
+                  format: int64
                 dynamics:
                   example: 50
                   description: Динамика по сравнению с предыдущим периодом, %
                   type: integer
+                  format: int64
         items:
           type: array
           description: Массив товаров группы
@@ -2224,12 +2254,12 @@ components:
                 example: 150
                 description: Минимальная цена продавца со скидкой продавца (без учёта скидки WB Клуба)
                 type: integer
-                format: uint64
+                format: int64
               maxPrice:
                 example: 300
                 description: Максимальная цена продавца со скидкой продавца (без учёта скидки WB Клуба)
                 type: integer
-                format: uint64
+                format: int64
           avgPosition:
             description: Средняя позиция товара в результатах поиска
             type: object
@@ -2238,10 +2268,12 @@ components:
                 example: 5
                 description: Текущая средняя позиция
                 type: integer
+                format: int64
               dynamics:
                 example: 50
                 description: Динамика по сравнению с предыдущим периодом, %
                 type: integer
+                format: int64
           openCard:
             description: Количество переходов в карточку товара из поиска
             type: object
@@ -2250,10 +2282,12 @@ components:
                 example: 5
                 description: Текущее количество переходов
                 type: integer
+                format: int64
               dynamics:
                 example: 50
                 description: Динамика по сравнению с предыдущим периодом, %
                 type: integer
+                format: int64
           addToCart:
             description: Сколько раз товар из поиска добавили в корзину
             type: object
@@ -2262,10 +2296,12 @@ components:
                 example: 5
                 description: Текущее количество
                 type: integer
+                format: int64
               dynamics:
                 example: 50
                 description: Динамика по сравнению с предыдущим периодом, %
                 type: integer
+                format: int64
           openToCart:
             description: Конверсия в корзину из поиска — доля добавлений товара в корзину по отношению ко всем переходам в карточку товара из поиска
             type: object
@@ -2274,10 +2310,12 @@ components:
                 example: 5
                 description: Текущая конверсия
                 type: integer
+                format: int64
               dynamics:
                 example: 50
                 description: Динамика по сравнению с предыдущим периодом, %
                 type: integer
+                format: int64
           orders:
             description: Сколько раз товары из поиска заказали
             type: object
@@ -2286,10 +2324,12 @@ components:
                 example: 5
                 description: Текущее количество
                 type: integer
+                format: int64
               dynamics:
                 example: 50
                 description: Динамика по сравнению с предыдущим периодом, %
                 type: integer
+                format: int64
           cartToOrder:
             description: Конверсия в заказ из поиска — доля заказов товара по отношению ко всем добавлениям товара из поиска в корзину
             type: object
@@ -2298,10 +2338,12 @@ components:
                 example: 5
                 description: Текущая конверсия
                 type: integer
+                format: int64
               dynamics:
                 example: 50
                 description: Динамика по сравнению с предыдущим периодом, %
                 type: integer
+                format: int64
           visibility:
             description: Процент видимости товара в результатах поиска
             type: object
@@ -2310,10 +2352,12 @@ components:
                 example: 5
                 description: Текущий процент видимости
                 type: integer
+                format: int64
               dynamics:
                 example: 50
                 description: Динамика по сравнению с предыдущим периодом, %
                 type: integer
+                format: int64
     TableGroupRequest:
       type: object
       description: |
@@ -2378,13 +2422,13 @@ components:
           example: 130
           type: integer
           description: Количество групп товаров в ответе
-          format: uint32
+          format: int64
           maximum: 1000
         offset:
           example: 50
           type: integer
           description: После какого элемента выдавать данные
-          format: uint32
+          format: int64
       required:
       - currentPeriod
       - orderBy
@@ -2436,7 +2480,7 @@ components:
           description: Список артикулов WB
           items:
             type: integer
-            format: uint64
+            format: int64
         orderBy:
           $ref: '#/components/schemas/OrderByMainAndDetails'
         positionCluster:
@@ -2466,13 +2510,13 @@ components:
           example: 150
           description: Количество товаров в ответе
           type: integer
-          format: uint32
+          format: int64
           maximum: 1000
         offset:
           example: 100
           description: После какого элемента выдавать данные
           type: integer
-          format: uint32
+          format: int64
       required:
       - currentPeriod
       - orderBy
@@ -2510,7 +2554,7 @@ components:
           maxItems: 50
           items:
             type: integer
-            format: uint64
+            format: int64
         topOrderBy:
           example: openToCart
           description: |
@@ -2570,7 +2614,7 @@ components:
             example: 211131895
             description: Артикул WB
             type: integer
-            format: uint64
+            format: int64
           subjectName:
             example: Phones
             description: Название предмета
@@ -2609,12 +2653,12 @@ components:
                 example: 150
                 description: Минимальная цена продавца со скидкой продавца (без учёта скидки WB Клуба)
                 type: integer
-                format: uint64
+                format: int64
               maxPrice:
                 example: 300
                 description: Максимальная цена продавца со скидкой продавца (без учёта скидки WB Клуба)
                 type: integer
-                format: uint64
+                format: int64
           frequency:
             description: Количество обращений с поисковым запросом
             type: object
@@ -2623,15 +2667,17 @@ components:
                 example: 5
                 description: Текущее количество
                 type: integer
+                format: int64
               dynamics:
                 example: 50
                 description: Динамика по сравнению с предыдущим периодом, %
                 type: integer
+                format: int64
           weekFrequency:
             description: Количество обращений с поисковым запросом за неделю
             example: 140
             type: integer
-            format: uint64
+            format: int64
           medianPosition:
             description: Медианная позиция. Учитываются только те позиции, из которых пользователи добавляли товар в корзину или переходили в его карточку. Серединное значение позиции в поисковой выдаче, которое исключает сильные отклонения данных от среднего значения
             type: object
@@ -2640,10 +2686,12 @@ components:
                 example: 5
                 description: Текущая медианная позиция
                 type: integer
+                format: int64
               dynamics:
                 example: 50
                 description: Динамика по сравнению с предыдущим периодом, %
                 type: integer
+                format: int64
           avgPosition:
             description: Средняя позиция товара в результатах поиска
             type: object
@@ -2652,10 +2700,12 @@ components:
                 example: 5
                 description: Текущая средняя позиция
                 type: integer
+                format: int64
               dynamics:
                 example: 50
                 description: Динамика по сравнению с предыдущим периодом, %
                 type: integer
+                format: int64
           openCard:
             description: Количество переходов в карточку товара из поиска
             type: object
@@ -2664,15 +2714,17 @@ components:
                 example: 5
                 description: Текущее количество переходов
                 type: integer
+                format: int64
               dynamics:
                 example: 50
                 description: Динамика по сравнению с предыдущим периодом, %
                 type: integer
+                format: int64
               percentile:
                 example: 50
                 description: Процент, на который показатель количества открытий карточки товара выше, чем у карточек других продавцов по поисковому запросу
                 type: integer
-                format: uint64
+                format: int64
           addToCart:
             description: Сколько раз товар из поиска добавили в корзину
             type: object
@@ -2681,15 +2733,17 @@ components:
                 example: 5
                 description: Текущее количество
                 type: integer
+                format: int64
               dynamics:
                 example: 50
                 description: Динамика по сравнению с предыдущим периодом, %
                 type: integer
+                format: int64
               percentile:
                 example: 50
                 description: Процент, на который показатель добавлений в корзину выше, чем у карточек других продавцов по поисковому запросу
                 type: integer
-                format: uint64
+                format: int64
           openToCart:
             description: Конверсия в корзину из поиска — доля добавлений товара в корзину по отношению ко всем переходам в карточку товара из поиска
             type: object
@@ -2698,15 +2752,17 @@ components:
                 example: 5
                 description: Текущая конверсия
                 type: integer
+                format: int64
               dynamics:
                 example: 50
                 description: Динамика по сравнению с предыдущим периодом, %
                 type: integer
+                format: int64
               percentile:
                 example: 50
                 description: Процент, на который показатель конверсии в корзину выше, чем у карточек других продавцов по поисковому запросу
                 type: integer
-                format: uint64
+                format: int64
           orders:
             description: Сколько раз товары из поиска заказали
             type: object
@@ -2715,15 +2771,17 @@ components:
                 example: 5
                 description: Текущее количество
                 type: integer
+                format: int64
               dynamics:
                 example: 50
                 description: Динамика по сравнению с предыдущим периодом, %
                 type: integer
+                format: int64
               percentile:
                 example: 50
                 description: Процент, на который показатель заказов выше, чем у карточек других продавцов по поисковому запросу
                 type: integer
-                format: uint64
+                format: int64
           cartToOrder:
             description: Конверсия в заказ из поиска — доля заказов товара по отношению ко всем добавлениям товара из поиска в корзину
             type: object
@@ -2732,15 +2790,17 @@ components:
                 example: 5
                 description: Текущая конверсия
                 type: integer
+                format: int64
               dynamics:
                 example: 50
                 description: Динамика по сравнению с предыдущим периодом, %
                 type: integer
+                format: int64
               percentile:
                 example: 50
                 description: Процент, на который показатель конверсии в заказ выше, чем у карточек других продавцов по поисковому запросу
                 type: integer
-                format: uint64
+                format: int64
           visibility:
             description: Процент видимости товара в результатах поиска
             type: object
@@ -2749,10 +2809,12 @@ components:
                 example: 5
                 description: Текущий процент
                 type: integer
+                format: int64
               dynamics:
                 example: 50
                 description: Динамика по сравнению с предыдущим периодом, %
                 type: integer
+                format: int64
     ItemOrdersRequest:
       type: object
       properties:
@@ -2762,7 +2824,7 @@ components:
           example: 211131895
           description: Артикул WB
           type: integer
-          format: uint64
+          format: int64
         searchTexts:
           example:
           - костюм
@@ -2800,7 +2862,7 @@ components:
         frequency:
           description: Количество обращений с поисковым запросом
           type: integer
-          format: uint64
+          format: int64
         dateItems:
           description: Статистика по датам
           type: array
@@ -2817,12 +2879,12 @@ components:
           example: 10
           description: Средняя позиция товара в результатах поиска
           type: integer
-          format: uint64
+          format: int64
         orders:
           example: 20
           description: Сколько раз товары из поиска заказали
           type: integer
-          format: uint64
+          format: int64
     PositionCluster:
       example: all
       description: |
@@ -2921,14 +2983,14 @@ components:
       - $ref: '#/components/schemas/AdvancedTariff'
     StandardTariff:
       type: integer
-      format: uint64
+      format: int64
       example: 20
       minimum: 1
       maximum: 30
       description: Количество поисковых запросов по товару для [стандартного](https://seller.wildberries.ru/monetization/tariffs) тарифа
     AdvancedTariff:
       type: integer
-      format: uint64
+      format: int64
       example: 50
       minimum: 1
       maximum: 100
@@ -3564,6 +3626,7 @@ components:
                 description: Размер отчёта, Б
                 type: integer
                 example: 123
+                format: int64
               startDate:
                 description: Начало периода
                 type: string
@@ -3645,14 +3708,14 @@ components:
             example: 150
             description: Количество групп в ответе
             type: integer
-            format: uint32
+            format: int64
             maximum: 1000
             default: 100
           offset:
             example: 100
             description: После какого элемента выдавать данные
             type: integer
-            format: uint32
+            format: int64
         required:
         - offset
     CommonReportFilters:
@@ -3876,12 +3939,12 @@ components:
       properties:
         ordersCount:
           type: integer
-          format: uint64
+          format: int64
           description: Заказы, шт.
           example: 100
         ordersSum:
           type: integer
-          format: uint64
+          format: int64
           description: Заказы, сумма
           example: 100000
         avgOrders:
@@ -3896,27 +3959,27 @@ components:
             $ref: '#/components/schemas/FloatGraphByPeriodItem'
         buyoutCount:
           type: integer
-          format: uint64
+          format: int64
           description: Выкупы, шт.
           example: 150
         buyoutSum:
           type: integer
-          format: uint64
+          format: int64
           description: Выкупы, сумма
           example: 150000
         buyoutPercent:
           type: integer
-          format: uint32
+          format: int64
           description: Процент выкупа
           example: 5
         stockCount:
           type: integer
-          format: uint64
+          format: int64
           description: Остатки на текущий день, шт.
           example: 50
         stockSum:
           type: integer
-          format: uint64
+          format: int64
           description: Стоимость остатков на текущий день
           example: 50000
         saleRate:
@@ -3957,12 +4020,12 @@ components:
               description: Количество часов
         toClientCount:
           type: integer
-          format: uint64
+          format: int64
           description: В пути к клиенту, шт.
           example: 20
         fromClientCount:
           type: integer
-          format: uint64
+          format: int64
           description: В пути от клиента, шт.
           example: 30
         officeMissingTime:
@@ -4082,12 +4145,12 @@ components:
                 properties:
                   minPrice:
                     type: integer
-                    format: uint64
+                    format: int64
                     description: Минимальная цена продавца со скидкой продавца (без учёта скидки WB Клуба)
                     example: 50
                   maxPrice:
                     type: integer
-                    format: uint64
+                    format: int64
                     description: Максимальная цена продавца со скидкой продавца (без учёта скидки WB Клуба)
                     example: 100
               availability:
@@ -4118,14 +4181,14 @@ components:
             example: 150
             description: Количество товаров в ответе
             type: integer
-            format: uint32
+            format: int64
             maximum: 1000
             default: 100
           offset:
             example: 100
             description: После какого элемента выдавать данные
             type: integer
-            format: uint32
+            format: int64
         required:
         - offset
     CommonItemFilters:
@@ -4252,7 +4315,7 @@ components:
                 example: '50'
               chrtID:
                 type: integer
-                format: uint64
+                format: int64
                 description: ID размера
                 example: 123321
               offices:
@@ -4272,12 +4335,12 @@ components:
                       properties:
                         minPrice:
                           type: integer
-                          format: uint64
+                          format: int64
                           description: Минимальная цена продавца со скидкой продавца (без учёта скидки WB Клуба)
                           example: 50
                         maxPrice:
                           type: integer
-                          format: uint64
+                          format: int64
                           description: Максимальная цена продавца со скидкой продавца (без учёта скидки WB Клуба)
                           example: 100
         currency:
@@ -4409,12 +4472,12 @@ components:
       properties:
         stockCount:
           type: integer
-          format: uint64
+          format: int64
           description: Остатки на текущий день, шт.
           example: 20
         stockSum:
           type: integer
-          format: uint64
+          format: int64
           description: Остатки на текущий день, сумма
           example: 20000
         saleRate:
@@ -4437,12 +4500,12 @@ components:
               description: Количество часов
         toClientCount:
           type: integer
-          format: uint64
+          format: int64
           description: В пути к клиенту, шт.
           example: 30
         fromClientCount:
           type: integer
-          format: uint64
+          format: int64
           description: В пути от клиента, шт.
           example: 40
     ItemsRequest:
@@ -4468,7 +4531,7 @@ components:
           - 1234567
           items:
             type: integer
-            format: uint64
+            format: int64
         brandNames:
           example:
           - nike
@@ -4485,7 +4548,7 @@ components:
           description: Список ID предметов для фильтрации
           items:
             type: integer
-            format: uint64
+            format: int64
         tagIds:
           type: array
           example:
@@ -4494,7 +4557,7 @@ components:
           description: Список ID ярлыков для фильтрации
           items:
             type: integer
-            format: uint64
+            format: int64
         skipDeletedNm:
           description: Скрыть удалённые товары
           type: boolean
@@ -4503,14 +4566,14 @@ components:
           $ref: '#/components/schemas/OrderBy'
         limit:
           type: integer
-          format: uint32
+          format: int64
           maximum: 1000
           default: 50
           example: 231
           description: Количество карточек товара в ответе
         offset:
           type: integer
-          format: uint32
+          format: int64
           default: 0
           example: 10
           description: Сколько элементов пропустить. Например, для значения `10` ответ начнётся с 11 элемента
@@ -4532,7 +4595,7 @@ components:
             Артикулы WB, по которым нужно составить отчёт
           items:
             type: integer
-            format: uint64
+            format: int64
         skipDeletedNm:
           description: Скрыть удалённые товары
           type: boolean
@@ -4565,7 +4628,7 @@ components:
           description: Список ID предметов для фильтрации
           items:
             type: integer
-            format: uint64
+            format: int64
         tagIds:
           type: array
           example:
@@ -4574,7 +4637,7 @@ components:
           description: Список ID ярлыков для фильтрации
           items:
             type: integer
-            format: uint64
+            format: int64
         skipDeletedNm:
           description: Скрыть удалённые товары
           type: boolean
@@ -4625,7 +4688,7 @@ components:
           example: Demix
         subjectId:
           type: integer
-          format: uint64
+          format: int64
           example: 105
           description: ID предмета
         subjectName:
@@ -4653,17 +4716,17 @@ components:
           properties:
             wb:
               type: integer
-              format: uint32
+              format: int64
               description: Общее количество остатков на складах WB на текущий день, шт.
               example: 0
             mp:
               type: integer
-              format: uint32
+              format: int64
               description: Общее количество остатков на складах продавца на текущий день, шт.
               example: 0
             balanceSum:
               type: integer
-              format: uint32
+              format: int64
               description: Сумма остатков на складах на текущий день, шт.
               example: 0
     HistoryItem:
@@ -4688,7 +4751,7 @@ components:
           example: Demix
         subjectId:
           type: integer
-          format: uint64
+          format: int64
           example: 105
           description: ID предмета
         subjectName:
@@ -4702,7 +4765,7 @@ components:
         id:
           description: ID ярлыка
           type: integer
-          format: uint64
+          format: int64
           example: 1
         name:
           type: string
@@ -4749,7 +4812,7 @@ components:
           - $ref: '#/components/schemas/DatePeriod'
         openCount:
           type: integer
-          format: uint32
+          format: int64
           example: 45
           description: Количество переходов в карточку товара
         cartCount:
@@ -4759,37 +4822,37 @@ components:
           example: 34
         orderCount:
           type: integer
-          format: uint32
+          format: int64
           description: Заказали товаров, шт.
           example: 19
         orderSum:
           type: integer
-          format: uint32
+          format: int64
           description: Заказали на сумму
           example: 1262
         buyoutCount:
           type: integer
-          format: uint32
+          format: int64
           description: Выкупили товаров, шт.
           example: 19
         buyoutSum:
           type: integer
-          format: uint32
+          format: int64
           description: Выкупили на сумму
           example: 1262
         cancelCount:
           type: integer
-          format: uint32
+          format: int64
           description: Отменили и вернули товаров, шт.
           example: 0
         cancelSum:
           type: integer
-          format: uint32
+          format: int64
           description: Отменили и вернули на сумму
           example: 0
         avgPrice:
           type: integer
-          format: uint32
+          format: int64
           description: Средняя цена
           example: 1262
         avgOrdersCountPerDay:
@@ -4806,6 +4869,7 @@ components:
           type: integer
           description: Добавили в **Отложенные**
           example: 455
+          format: int64
         timeToReady:
           allOf:
           - description: Среднее время доставки
@@ -4815,6 +4879,7 @@ components:
           type: integer
           description: Локальные заказы в рамках одного региона. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `100`
           example: 100
+          format: int64
         wbClub:
           allOf:
           - description: Статистика WB Клуба
@@ -4911,42 +4976,42 @@ components:
       properties:
         orderCount:
           type: integer
-          format: uint32
+          format: int64
           description: Заказали товаров с WB Клубом, шт.
           example: 19
         orderSum:
           type: integer
-          format: uint32
+          format: int64
           description: Заказали с WB Клубом на сумму
           example: 1262
         buyoutSum:
           type: integer
-          format: uint32
+          format: int64
           description: Выкупили с WB Клубом на сумму
           example: 1262
         buyoutCount:
           type: integer
-          format: uint32
+          format: int64
           description: Выкупили товаров с WB Клубом, шт.
           example: 19
         cancelSum:
           type: integer
-          format: uint32
+          format: int64
           description: Отменили и вернули с WB Клубом на сумму
           example: 0
         cancelCount:
           type: integer
-          format: uint32
+          format: int64
           description: Отменили и вернули товаров с WB Клубом, шт.
           example: 0
         avgPrice:
           type: integer
-          format: uint32
+          format: int64
           description: Средняя цена с WB Клубом
           example: 1262
         buyoutPercent:
           type: integer
-          format: uint32
+          format: int64
           description: Процент выкупа с WB Клубом
           example: 43
         avgOrderCountPerDay:
@@ -5007,14 +5072,17 @@ components:
           type: integer
           description: Дни
           example: 1
+          format: int64
         hours:
           type: integer
           description: Часы
           example: 8
+          format: int64
         mins:
           type: integer
           description: Минуты
           example: 34
+          format: int64
     History:
       type: object
       properties:
@@ -5024,51 +5092,51 @@ components:
           description: Дата сбора статистики
         openCount:
           type: integer
-          format: uint32
+          format: int64
           example: 45
           description: Количество переходов в карточку товара
         cartCount:
           type: integer
-          format: uint32
+          format: int64
           example: 34
           description: Положили в корзину, шт.
         orderCount:
           type: integer
-          format: uint32
+          format: int64
           description: Заказали товаров, шт.
           example: 19
         orderSum:
           type: integer
-          format: uint32
+          format: int64
           description: Заказали на сумму
           example: 1262
         buyoutCount:
           type: integer
-          format: uint32
+          format: int64
           description: Выкупили товаров, шт.
           example: 19
         buyoutSum:
           type: integer
-          format: uint32
+          format: int64
           description: Выкупили на сумму
           example: 1262
         buyoutPercent:
           type: integer
-          format: uint32
+          format: int64
           description: Процент выкупа
           example: 35
         addToCartConversion:
           type: integer
-          format: uint32
+          format: int64
           description: Конверсия в корзину. Какой процент посетителей, открывших карточку товара, добавили товар в корзину, %
           example: 43
         cartToOrderConversion:
           type: integer
-          format: uint32
+          format: int64
           description: Конверсия в заказ. Какой процент посетителей, добавивших товар в корзину, сделали заказ
         addToWishlistCount:
           type: integer
-          format: uint32
+          format: int64
           description: Количество добавлений товара в **Отложенные**
     DatePeriod:
       properties:
@@ -5185,19 +5253,19 @@ components:
           - 91663228
           items:
             type: integer
-            format: uint64
+            format: int64
         limit:
           example: 250000
           description: Количество строк в ответе
           type: integer
-          format: uint32
+          format: int64
           maximum: 250000
           default: 250000
         offset:
           example: 500000
           description: Сколько элементов пропустить. Например, для значения `10` ответ начнётся с 11 элемента
           type: integer
-          format: uint32
+          format: int64
           default: 0
     InventoryWbResponse:
       description: Текущие остатки товаров на складах WB
@@ -5218,7 +5286,7 @@ components:
                 type: integer
                 description: ID размера
                 example: 91663228
-                format: uint64
+                format: int64
               warehouseId:
                 type: integer
                 description: ID склада. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `-999999`
@@ -5236,17 +5304,17 @@ components:
                 type: integer
                 description: Количество товара на складе, доступное клиентам для добавления в корзину
                 example: 43
-                format: uint64
+                format: int64
               inWayToClient:
                 type: integer
                 description: В пути к клиенту
                 example: 14
-                format: uint64
+                format: int64
               inWayFromClient:
                 type: integer
                 description: В пути от клиента
                 example: 11
-                format: uint64
+                format: int64
     InventorySellerResponse:
       description: Текущие остатки товаров на складах продавца
       type: object
@@ -5266,7 +5334,7 @@ components:
                 type: integer
                 description: ID размера
                 example: 91663228
-                format: uint64
+                format: int64
               warehouseId:
                 type: integer
                 description: ID склада
@@ -5284,7 +5352,7 @@ components:
                 type: integer
                 description: Количество товара на складе, доступное клиентам для добавления в корзину
                 example: 43
-                format: uint64
+                format: int64
     ItemRatingRequest:
       type: object
       required:
@@ -5358,14 +5426,14 @@ components:
         limit:
           example: 130
           type: integer
-          format: uint32
+          format: int64
           default: 100
           maximum: 1000
           description: Количество товаров в ответе
         offset:
           example: 50
           type: integer
-          format: uint32
+          format: int64
           description: Сколько элементов пропустить. Например, для значения `10` ответ начнётся с 11 элемента
     PeriodItemRating:
       type: object
@@ -5471,14 +5539,17 @@ components:
           example: 26
           type: integer
           description: Прирост оценок за период
+          format: int64
         total:
           example: 116
           type: integer
           description: Всего оценок
+          format: int64
         dynamics:
           example: 23
           type: integer
           description: Динамика по сравнению с предыдущим периодом, %
+          format: int64
         fiveStar:
           type: object
           description: Отзывы 5 звёзд
@@ -5487,14 +5558,17 @@ components:
               example: 19
               type: integer
               description: Прирост оценок за период
+              format: int64
             dynamics:
               example: 17
               type: integer
               description: Динамика по сравнению с предыдущим периодом, %
+              format: int64
             total:
               example: 51
               type: integer
               description: Всего оценок
+              format: int64
         fourStar:
           type: object
           description: Отзывы 4 звезды
@@ -5503,14 +5577,17 @@ components:
               example: 2
               type: integer
               description: Прирост оценок за период
+              format: int64
             dynamics:
               example: 1
               type: integer
               description: Динамика по сравнению с предыдущим периодом, %
+              format: int64
             total:
               example: 13
               type: integer
               description: Всего оценок
+              format: int64
         threeStar:
           type: object
           description: Отзывы 3 звезды
@@ -5519,14 +5596,17 @@ components:
               example: 1
               type: integer
               description: Прирост оценок за период
+              format: int64
             dynamics:
               example: 1
               type: integer
               description: Динамика по сравнению с предыдущим периодом, %
+              format: int64
             total:
               example: 11
               type: integer
               description: Всего оценок
+              format: int64
         twoStar:
           type: object
           description: Отзывы 2 звезды
@@ -5535,14 +5615,17 @@ components:
               example: 5
               type: integer
               description: Прирост оценок за период
+              format: int64
             dynamics:
               example: 5
               type: integer
               description: Динамика по сравнению с предыдущим периодом, %
+              format: int64
             total:
               example: 34
               type: integer
               description: Всего оценок
+              format: int64
         oneStar:
           type: object
           description: Отзывы 1 звезда
@@ -5551,14 +5634,17 @@ components:
               example: -1
               type: integer
               description: Прирост оценок за период
+              format: int64
             dynamics:
               example: -1
               type: integer
               description: Динамика по сравнению с предыдущим периодом, %
+              format: int64
             total:
               example: 7
               type: integer
               description: Всего оценок
+              format: int64
     DistributionTableItem:
       type: object
       properties:
@@ -5579,7 +5665,7 @@ components:
           example: 50
           description: ID предмета
           type: integer
-          format: uint64
+          format: int64
         subjectName:
           example: Phones
           type: string
@@ -5634,10 +5720,12 @@ components:
               example: 12
               type: integer
               description: Прирост оценок за период
+              format: int64
             dynamics:
               example: 9
               type: integer
               description: Динамика по сравнению с предыдущим периодом, %
+              format: int64
         fiveStar:
           type: object
           description: Отзывы 5 звёзд
@@ -5646,10 +5734,12 @@ components:
               example: 9
               type: integer
               description: Прирост оценок за период
+              format: int64
             dynamics:
               example: 7
               type: integer
               description: Динамика по сравнению с предыдущим периодом, %
+              format: int64
         fourStar:
           type: object
           description: Отзывы 4 звезды
@@ -5658,10 +5748,12 @@ components:
               example: 0
               type: integer
               description: Прирост оценок за период
+              format: int64
             dynamics:
               example: -1
               type: integer
               description: Динамика по сравнению с предыдущим периодом, %
+              format: int64
         threeStar:
           type: object
           description: Отзывы 3 звезды
@@ -5670,10 +5762,12 @@ components:
               example: 1
               type: integer
               description: Прирост оценок за период
+              format: int64
             dynamics:
               example: 1
               type: integer
               description: Динамика по сравнению с предыдущим периодом, %
+              format: int64
         twoStar:
           type: object
           description: Отзывы 2 звезды
@@ -5682,10 +5776,12 @@ components:
               example: 2
               type: integer
               description: Прирост оценок за период
+              format: int64
             dynamics:
               example: 2
               type: integer
               description: Динамика по сравнению с предыдущим периодом, %
+              format: int64
         oneStar:
           type: object
           description: Отзывы 1 звезда
@@ -5694,14 +5790,17 @@ components:
               example: 0
               type: integer
               description: Прирост оценок за период
+              format: int64
             dynamics:
               example: 0
               type: integer
               description: Динамика по сравнению с предыдущим периодом, %
+              format: int64
         disqualified:
           example: 7
           type: integer
           description: Отзывы, исключённые из рейтинга
+          format: int64
         isShadowed:
           example: true
           type: boolean
@@ -5759,7 +5858,7 @@ components:
           maxItems: 1000
           items:
             type: integer
-            format: uint64
+            format: int64
           description: Список артикулов WB для фильтрации
         subjectIds:
           example:
@@ -5769,7 +5868,7 @@ components:
           maxItems: 50
           items:
             type: integer
-            format: uint64
+            format: int64
           description: Список ID предметов для фильтрации
         brandNames:
           example:
@@ -5789,7 +5888,7 @@ components:
           maxItems: 50
           items:
             type: integer
-            format: uint64
+            format: int64
           description: Список ID ярлыков для фильтрации
         pagination:
           type: object
@@ -5840,7 +5939,7 @@ components:
           type: integer
           description: ID размера
           example: 91663228
-          format: uint64
+          format: int64
         srid:
           type: string
           description: ID заказа

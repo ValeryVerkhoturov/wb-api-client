@@ -102,13 +102,13 @@ public class TableGroupRequest {
 
   @SerializedName(SERIALIZED_NAME_LIMIT)
   @jakarta.annotation.Nonnull
-  private Integer limit;
+  private Long limit;
 
   public static final String SERIALIZED_NAME_OFFSET = "offset";
 
   @SerializedName(SERIALIZED_NAME_OFFSET)
   @jakarta.annotation.Nonnull
-  private Integer offset;
+  private Long offset;
 
   public TableGroupRequest() {}
 
@@ -339,7 +339,7 @@ public class TableGroupRequest {
     this.includeSearchTexts = includeSearchTexts;
   }
 
-  public TableGroupRequest limit(@jakarta.annotation.Nonnull Integer limit) {
+  public TableGroupRequest limit(@jakarta.annotation.Nonnull Long limit) {
     this.limit = limit;
     return this;
   }
@@ -350,15 +350,15 @@ public class TableGroupRequest {
    * @return limit
    */
   @jakarta.annotation.Nonnull
-  public Integer getLimit() {
+  public Long getLimit() {
     return limit;
   }
 
-  public void setLimit(@jakarta.annotation.Nonnull Integer limit) {
+  public void setLimit(@jakarta.annotation.Nonnull Long limit) {
     this.limit = limit;
   }
 
-  public TableGroupRequest offset(@jakarta.annotation.Nonnull Integer offset) {
+  public TableGroupRequest offset(@jakarta.annotation.Nonnull Long offset) {
     this.offset = offset;
     return this;
   }
@@ -369,11 +369,11 @@ public class TableGroupRequest {
    * @return offset
    */
   @jakarta.annotation.Nonnull
-  public Integer getOffset() {
+  public Long getOffset() {
     return offset;
   }
 
-  public void setOffset(@jakarta.annotation.Nonnull Integer offset) {
+  public void setOffset(@jakarta.annotation.Nonnull Long offset) {
     this.offset = offset;
   }
 

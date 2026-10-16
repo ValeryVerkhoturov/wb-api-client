@@ -37,12 +37,12 @@ public class GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataIn
 
   @SerializedName(SERIALIZED_NAME_SUBJECT_ID)
   @jakarta.annotation.Nullable
-  private Integer subjectId;
+  private Long subjectId;
 
   public GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataInner() {}
 
   public GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataInner subjectId(
-      @jakarta.annotation.Nullable Integer subjectId) {
+      @jakarta.annotation.Nullable Long subjectId) {
     this.subjectId = subjectId;
     return this;
   }
@@ -53,11 +53,11 @@ public class GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataIn
    * @return subjectId
    */
   @jakarta.annotation.Nullable
-  public Integer getSubjectId() {
+  public Long getSubjectId() {
     return subjectId;
   }
 
-  public void setSubjectId(@jakarta.annotation.Nullable Integer subjectId) {
+  public void setSubjectId(@jakarta.annotation.Nullable Long subjectId) {
     this.subjectId = subjectId;
   }
 

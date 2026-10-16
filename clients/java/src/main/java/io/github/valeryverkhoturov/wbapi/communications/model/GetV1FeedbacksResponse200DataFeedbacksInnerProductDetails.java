@@ -37,13 +37,13 @@ public class GetV1FeedbacksResponse200DataFeedbacksInnerProductDetails {
 
   @SerializedName(SERIALIZED_NAME_NM_ID)
   @jakarta.annotation.Nullable
-  private Integer nmId;
+  private Long nmId;
 
   public static final String SERIALIZED_NAME_IMT_ID = "imtId";
 
   @SerializedName(SERIALIZED_NAME_IMT_ID)
   @jakarta.annotation.Nullable
-  private Integer imtId;
+  private Long imtId;
 
   public static final String SERIALIZED_NAME_PRODUCT_NAME = "productName";
 
@@ -78,7 +78,7 @@ public class GetV1FeedbacksResponse200DataFeedbacksInnerProductDetails {
   public GetV1FeedbacksResponse200DataFeedbacksInnerProductDetails() {}
 
   public GetV1FeedbacksResponse200DataFeedbacksInnerProductDetails nmId(
-      @jakarta.annotation.Nullable Integer nmId) {
+      @jakarta.annotation.Nullable Long nmId) {
     this.nmId = nmId;
     return this;
   }
@@ -89,16 +89,16 @@ public class GetV1FeedbacksResponse200DataFeedbacksInnerProductDetails {
    * @return nmId
    */
   @jakarta.annotation.Nullable
-  public Integer getNmId() {
+  public Long getNmId() {
     return nmId;
   }
 
-  public void setNmId(@jakarta.annotation.Nullable Integer nmId) {
+  public void setNmId(@jakarta.annotation.Nullable Long nmId) {
     this.nmId = nmId;
   }
 
   public GetV1FeedbacksResponse200DataFeedbacksInnerProductDetails imtId(
-      @jakarta.annotation.Nullable Integer imtId) {
+      @jakarta.annotation.Nullable Long imtId) {
     this.imtId = imtId;
     return this;
   }
@@ -111,11 +111,11 @@ public class GetV1FeedbacksResponse200DataFeedbacksInnerProductDetails {
    * @return imtId
    */
   @jakarta.annotation.Nullable
-  public Integer getImtId() {
+  public Long getImtId() {
     return imtId;
   }
 
-  public void setImtId(@jakarta.annotation.Nullable Integer imtId) {
+  public void setImtId(@jakarta.annotation.Nullable Long imtId) {
     this.imtId = imtId;
   }
 

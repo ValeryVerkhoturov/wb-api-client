@@ -37,7 +37,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// <param name="limit">Сколько карточек товаров выдать в ответе (default to 10).</param>
         /// <param name="updatedAt">Дата и время изменения.</param>
         /// <param name="nmID">Артикул WB, с которого надо запрашивать следующий список карточек товаров.</param>
-        public PostV2GetCardsListRequestSettingsCursor(int limit = 10, string updatedAt = default(string), int nmID = default(int))
+        public PostV2GetCardsListRequestSettingsCursor(long limit = 10, string updatedAt = default(string), long nmID = default(long))
         {
             this.Limit = limit;
             this.UpdatedAt = updatedAt;
@@ -49,7 +49,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// </summary>
         /// <value>Сколько карточек товаров выдать в ответе</value>
         [DataMember(Name = "limit", EmitDefaultValue = false)]
-        public int Limit { get; set; }
+        public long Limit { get; set; }
 
         /// <summary>
         /// Дата и время изменения
@@ -63,7 +63,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// </summary>
         /// <value>Артикул WB, с которого надо запрашивать следующий список карточек товаров</value>
         [DataMember(Name = "nmID", EmitDefaultValue = false)]
-        public int NmID { get; set; }
+        public long NmID { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -96,10 +96,10 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// <returns>Validation Result</returns>
         IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Limit (int) maximum
-            if (this.Limit > (int)100)
+            // Limit (long) maximum
+            if (this.Limit > (long)100)
             {
-                yield return new ValidationResult("Invalid value for Limit, must be a value less than or equal to 100.", new [] { "Limit" });
+                yield return new ValidationResult("Invalid value for Limit, must be a value less than or equal to 100.", new[] { "Limit" });
             }
 
             yield break;

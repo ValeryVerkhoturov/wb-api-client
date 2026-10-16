@@ -43,7 +43,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /// <param name="saleInvoiceCostPrice">К перечислению за товар, ₽.</param>
         /// <param name="saleInvoiceCostPricePerc">Доля, %.</param>
         /// <param name="saleItemInvoiceQty">Выкупили, шт..</param>
-        public GetV1AnalyticsRegionSale200ResponseReportInner(string cityName = default(string), string countryName = default(string), string foName = default(string), int nmID = default(int), string regionName = default(string), string sa = default(string), float saleInvoiceCostPrice = default(float), float saleInvoiceCostPricePerc = default(float), int saleItemInvoiceQty = default(int))
+        public GetV1AnalyticsRegionSale200ResponseReportInner(string cityName = default(string), string countryName = default(string), string foName = default(string), long nmID = default(long), string regionName = default(string), string sa = default(string), float saleInvoiceCostPrice = default(float), float saleInvoiceCostPricePerc = default(float), long saleItemInvoiceQty = default(long))
         {
             this.CityName = cityName;
             this.CountryName = countryName;
@@ -94,7 +94,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         <example>177974431</example>
         */
         [DataMember(Name = "nmID", EmitDefaultValue = false)]
-        public int NmID { get; set; }
+        public long NmID { get; set; }
 
         /// <summary>
         /// Регион
@@ -144,7 +144,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         <example>4</example>
         */
         [DataMember(Name = "saleItemInvoiceQty", EmitDefaultValue = false)]
-        public int SaleItemInvoiceQty { get; set; }
+        public long SaleItemInvoiceQty { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

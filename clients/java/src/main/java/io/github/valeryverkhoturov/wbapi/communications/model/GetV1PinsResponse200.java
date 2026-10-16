@@ -46,7 +46,7 @@ public class GetV1PinsResponse200 {
 
   @SerializedName(SERIALIZED_NAME_NEXT)
   @jakarta.annotation.Nullable
-  private Integer next;
+  private Long next;
 
   public GetV1PinsResponse200() {}
 
@@ -78,7 +78,7 @@ public class GetV1PinsResponse200 {
     this.data = data;
   }
 
-  public GetV1PinsResponse200 next(@jakarta.annotation.Nullable Integer next) {
+  public GetV1PinsResponse200 next(@jakarta.annotation.Nullable Long next) {
     this.next = next;
     return this;
   }
@@ -90,11 +90,11 @@ public class GetV1PinsResponse200 {
    * @return next
    */
   @jakarta.annotation.Nullable
-  public Integer getNext() {
+  public Long getNext() {
     return next;
   }
 
-  public void setNext(@jakarta.annotation.Nullable Integer next) {
+  public void setNext(@jakarta.annotation.Nullable Long next) {
     this.next = next;
   }
 

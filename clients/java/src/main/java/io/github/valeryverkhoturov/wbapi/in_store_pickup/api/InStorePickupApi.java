@@ -108,7 +108,7 @@ public class InStorePickupApi {
    * </table>
    */
   public okhttp3.Call getV3ClickCollectOrdersCall(
-      Integer limit, Integer next, Integer dateFrom, Integer dateTo, final ApiCallback _callback)
+      Long limit, Long next, Long dateFrom, Long dateTo, final ApiCallback _callback)
       throws ApiException {
     String basePath = null;
     // Operation Servers
@@ -183,7 +183,7 @@ public class InStorePickupApi {
 
   @SuppressWarnings("rawtypes")
   private okhttp3.Call getV3ClickCollectOrdersValidateBeforeCall(
-      Integer limit, Integer next, Integer dateFrom, Integer dateTo, final ApiCallback _callback)
+      Long limit, Long next, Long dateFrom, Long dateTo, final ApiCallback _callback)
       throws ApiException {
     // verify the required parameter 'limit' is set
     if (limit == null) {
@@ -245,8 +245,8 @@ public class InStorePickupApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public ApiOrders getV3ClickCollectOrders(
-      Integer limit, Integer next, Integer dateFrom, Integer dateTo) throws ApiException {
+  public ApiOrders getV3ClickCollectOrders(Long limit, Long next, Long dateFrom, Long dateTo)
+      throws ApiException {
     ApiResponse<ApiOrders> localVarResp =
         getV3ClickCollectOrdersWithHttpInfo(limit, next, dateFrom, dateTo);
     return localVarResp.getData();
@@ -286,7 +286,7 @@ public class InStorePickupApi {
    * </table>
    */
   public ApiResponse<ApiOrders> getV3ClickCollectOrdersWithHttpInfo(
-      Integer limit, Integer next, Integer dateFrom, Integer dateTo) throws ApiException {
+      Long limit, Long next, Long dateFrom, Long dateTo) throws ApiException {
     okhttp3.Call localVarCall =
         getV3ClickCollectOrdersValidateBeforeCall(limit, next, dateFrom, dateTo, null);
     Type localVarReturnType = new TypeToken<ApiOrders>() {}.getType();
@@ -327,11 +327,7 @@ public class InStorePickupApi {
    * </table>
    */
   public okhttp3.Call getV3ClickCollectOrdersAsync(
-      Integer limit,
-      Integer next,
-      Integer dateFrom,
-      Integer dateTo,
-      final ApiCallback<ApiOrders> _callback)
+      Long limit, Long next, Long dateFrom, Long dateTo, final ApiCallback<ApiOrders> _callback)
       throws ApiException {
 
     okhttp3.Call localVarCall =

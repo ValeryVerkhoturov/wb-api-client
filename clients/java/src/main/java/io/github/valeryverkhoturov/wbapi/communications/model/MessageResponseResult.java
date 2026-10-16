@@ -37,7 +37,7 @@ public class MessageResponseResult {
 
   @SerializedName(SERIALIZED_NAME_ADD_TIME)
   @jakarta.annotation.Nullable
-  private Integer addTime;
+  private Long addTime;
 
   public static final String SERIALIZED_NAME_CHAT_I_D = "chatID";
 
@@ -53,7 +53,7 @@ public class MessageResponseResult {
 
   public MessageResponseResult() {}
 
-  public MessageResponseResult addTime(@jakarta.annotation.Nullable Integer addTime) {
+  public MessageResponseResult addTime(@jakarta.annotation.Nullable Long addTime) {
     this.addTime = addTime;
     return this;
   }
@@ -64,11 +64,11 @@ public class MessageResponseResult {
    * @return addTime
    */
   @jakarta.annotation.Nullable
-  public Integer getAddTime() {
+  public Long getAddTime() {
     return addTime;
   }
 
-  public void setAddTime(@jakarta.annotation.Nullable Integer addTime) {
+  public void setAddTime(@jakarta.annotation.Nullable Long addTime) {
     this.addTime = addTime;
   }
 

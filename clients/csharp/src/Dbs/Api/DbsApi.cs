@@ -39,7 +39,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
         /// <param name="dateTo">Дата конца периода в формате Unix timestamp</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GetV3DbsOrdersResponse200</returns>
-        GetV3DbsOrdersResponse200 GetV3DbsOrders(int limit, long next, int dateFrom, int dateTo, int operationIndex = 0);
+        GetV3DbsOrdersResponse200 GetV3DbsOrders(long limit, long next, long dateFrom, long dateTo, int operationIndex = 0);
 
         /// <summary>
         /// Получить информацию о завершенных сборочных заданиях
@@ -54,7 +54,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
         /// <param name="dateTo">Дата конца периода в формате Unix timestamp</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GetV3DbsOrdersResponse200</returns>
-        ApiResponse<GetV3DbsOrdersResponse200> GetV3DbsOrdersWithHttpInfo(int limit, long next, int dateFrom, int dateTo, int operationIndex = 0);
+        ApiResponse<GetV3DbsOrdersResponse200> GetV3DbsOrdersWithHttpInfo(long limit, long next, long dateFrom, long dateTo, int operationIndex = 0);
         /// <summary>
         /// Получить список новых сборочных заданий
         /// </summary>
@@ -503,7 +503,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
         /// <param name="postV3DbsOrdersStickersRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>PostV3DbsOrdersStickersResponse200</returns>
-        PostV3DbsOrdersStickersResponse200 PostV3DbsOrdersStickers(string type, int width, int height, PostV3DbsOrdersStickersRequest? postV3DbsOrdersStickersRequest = default(PostV3DbsOrdersStickersRequest?), int operationIndex = 0);
+        PostV3DbsOrdersStickersResponse200 PostV3DbsOrdersStickers(string type, long width, long height, PostV3DbsOrdersStickersRequest? postV3DbsOrdersStickersRequest = default(PostV3DbsOrdersStickersRequest?), int operationIndex = 0);
 
         /// <summary>
         /// Получить стикеры для сборочных заданий с доставкой в ПВЗ
@@ -518,7 +518,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
         /// <param name="postV3DbsOrdersStickersRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of PostV3DbsOrdersStickersResponse200</returns>
-        ApiResponse<PostV3DbsOrdersStickersResponse200> PostV3DbsOrdersStickersWithHttpInfo(string type, int width, int height, PostV3DbsOrdersStickersRequest? postV3DbsOrdersStickersRequest = default(PostV3DbsOrdersStickersRequest?), int operationIndex = 0);
+        ApiResponse<PostV3DbsOrdersStickersResponse200> PostV3DbsOrdersStickersWithHttpInfo(string type, long width, long height, PostV3DbsOrdersStickersRequest? postV3DbsOrdersStickersRequest = default(PostV3DbsOrdersStickersRequest?), int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -542,7 +542,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GetV3DbsOrdersResponse200</returns>
-        System.Threading.Tasks.Task<GetV3DbsOrdersResponse200> GetV3DbsOrdersAsync(int limit, long next, int dateFrom, int dateTo, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<GetV3DbsOrdersResponse200> GetV3DbsOrdersAsync(long limit, long next, long dateFrom, long dateTo, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Получить информацию о завершенных сборочных заданиях
@@ -558,7 +558,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetV3DbsOrdersResponse200)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetV3DbsOrdersResponse200>> GetV3DbsOrdersWithHttpInfoAsync(int limit, long next, int dateFrom, int dateTo, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<GetV3DbsOrdersResponse200>> GetV3DbsOrdersWithHttpInfoAsync(long limit, long next, long dateFrom, long dateTo, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Получить список новых сборочных заданий
         /// </summary>
@@ -1046,7 +1046,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PostV3DbsOrdersStickersResponse200</returns>
-        System.Threading.Tasks.Task<PostV3DbsOrdersStickersResponse200> PostV3DbsOrdersStickersAsync(string type, int width, int height, PostV3DbsOrdersStickersRequest? postV3DbsOrdersStickersRequest = default(PostV3DbsOrdersStickersRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PostV3DbsOrdersStickersResponse200> PostV3DbsOrdersStickersAsync(string type, long width, long height, PostV3DbsOrdersStickersRequest? postV3DbsOrdersStickersRequest = default(PostV3DbsOrdersStickersRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Получить стикеры для сборочных заданий с доставкой в ПВЗ
@@ -1062,7 +1062,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PostV3DbsOrdersStickersResponse200)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PostV3DbsOrdersStickersResponse200>> PostV3DbsOrdersStickersWithHttpInfoAsync(string type, int width, int height, PostV3DbsOrdersStickersRequest? postV3DbsOrdersStickersRequest = default(PostV3DbsOrdersStickersRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PostV3DbsOrdersStickersResponse200>> PostV3DbsOrdersStickersWithHttpInfoAsync(string type, long width, long height, PostV3DbsOrdersStickersRequest? postV3DbsOrdersStickersRequest = default(PostV3DbsOrdersStickersRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -1193,7 +1193,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
         /// <param name="dateTo">Дата конца периода в формате Unix timestamp</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GetV3DbsOrdersResponse200</returns>
-        public GetV3DbsOrdersResponse200 GetV3DbsOrders(int limit, long next, int dateFrom, int dateTo, int operationIndex = 0)
+        public GetV3DbsOrdersResponse200 GetV3DbsOrders(long limit, long next, long dateFrom, long dateTo, int operationIndex = 0)
         {
             ValeryVerkhoturov.WbApiClient.Dbs.Client.ApiResponse<GetV3DbsOrdersResponse200> localVarResponse = GetV3DbsOrdersWithHttpInfo(limit, next, dateFrom, dateTo);
             return localVarResponse.Data;
@@ -1209,7 +1209,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
         /// <param name="dateTo">Дата конца периода в формате Unix timestamp</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GetV3DbsOrdersResponse200</returns>
-        public ValeryVerkhoturov.WbApiClient.Dbs.Client.ApiResponse<GetV3DbsOrdersResponse200> GetV3DbsOrdersWithHttpInfo(int limit, long next, int dateFrom, int dateTo, int operationIndex = 0)
+        public ValeryVerkhoturov.WbApiClient.Dbs.Client.ApiResponse<GetV3DbsOrdersResponse200> GetV3DbsOrdersWithHttpInfo(long limit, long next, long dateFrom, long dateTo, int operationIndex = 0)
         {
             ValeryVerkhoturov.WbApiClient.Dbs.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Dbs.Client.RequestOptions();
 
@@ -1274,7 +1274,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GetV3DbsOrdersResponse200</returns>
-        public async System.Threading.Tasks.Task<GetV3DbsOrdersResponse200> GetV3DbsOrdersAsync(int limit, long next, int dateFrom, int dateTo, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<GetV3DbsOrdersResponse200> GetV3DbsOrdersAsync(long limit, long next, long dateFrom, long dateTo, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             ValeryVerkhoturov.WbApiClient.Dbs.Client.ApiResponse<GetV3DbsOrdersResponse200> localVarResponse = await GetV3DbsOrdersWithHttpInfoAsync(limit, next, dateFrom, dateTo, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1291,7 +1291,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetV3DbsOrdersResponse200)</returns>
-        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.Dbs.Client.ApiResponse<GetV3DbsOrdersResponse200>> GetV3DbsOrdersWithHttpInfoAsync(int limit, long next, int dateFrom, int dateTo, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.Dbs.Client.ApiResponse<GetV3DbsOrdersResponse200>> GetV3DbsOrdersWithHttpInfoAsync(long limit, long next, long dateFrom, long dateTo, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             ValeryVerkhoturov.WbApiClient.Dbs.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Dbs.Client.RequestOptions();
@@ -4341,7 +4341,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
         /// <param name="postV3DbsOrdersStickersRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>PostV3DbsOrdersStickersResponse200</returns>
-        public PostV3DbsOrdersStickersResponse200 PostV3DbsOrdersStickers(string type, int width, int height, PostV3DbsOrdersStickersRequest? postV3DbsOrdersStickersRequest = default(PostV3DbsOrdersStickersRequest?), int operationIndex = 0)
+        public PostV3DbsOrdersStickersResponse200 PostV3DbsOrdersStickers(string type, long width, long height, PostV3DbsOrdersStickersRequest? postV3DbsOrdersStickersRequest = default(PostV3DbsOrdersStickersRequest?), int operationIndex = 0)
         {
             ValeryVerkhoturov.WbApiClient.Dbs.Client.ApiResponse<PostV3DbsOrdersStickersResponse200> localVarResponse = PostV3DbsOrdersStickersWithHttpInfo(type, width, height, postV3DbsOrdersStickersRequest);
             return localVarResponse.Data;
@@ -4357,7 +4357,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
         /// <param name="postV3DbsOrdersStickersRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of PostV3DbsOrdersStickersResponse200</returns>
-        public ValeryVerkhoturov.WbApiClient.Dbs.Client.ApiResponse<PostV3DbsOrdersStickersResponse200> PostV3DbsOrdersStickersWithHttpInfo(string type, int width, int height, PostV3DbsOrdersStickersRequest? postV3DbsOrdersStickersRequest = default(PostV3DbsOrdersStickersRequest?), int operationIndex = 0)
+        public ValeryVerkhoturov.WbApiClient.Dbs.Client.ApiResponse<PostV3DbsOrdersStickersResponse200> PostV3DbsOrdersStickersWithHttpInfo(string type, long width, long height, PostV3DbsOrdersStickersRequest? postV3DbsOrdersStickersRequest = default(PostV3DbsOrdersStickersRequest?), int operationIndex = 0)
         {
             // verify the required parameter 'type' is set
             if (type == null)
@@ -4429,7 +4429,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PostV3DbsOrdersStickersResponse200</returns>
-        public async System.Threading.Tasks.Task<PostV3DbsOrdersStickersResponse200> PostV3DbsOrdersStickersAsync(string type, int width, int height, PostV3DbsOrdersStickersRequest? postV3DbsOrdersStickersRequest = default(PostV3DbsOrdersStickersRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PostV3DbsOrdersStickersResponse200> PostV3DbsOrdersStickersAsync(string type, long width, long height, PostV3DbsOrdersStickersRequest? postV3DbsOrdersStickersRequest = default(PostV3DbsOrdersStickersRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             ValeryVerkhoturov.WbApiClient.Dbs.Client.ApiResponse<PostV3DbsOrdersStickersResponse200> localVarResponse = await PostV3DbsOrdersStickersWithHttpInfoAsync(type, width, height, postV3DbsOrdersStickersRequest, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -4446,7 +4446,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PostV3DbsOrdersStickersResponse200)</returns>
-        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.Dbs.Client.ApiResponse<PostV3DbsOrdersStickersResponse200>> PostV3DbsOrdersStickersWithHttpInfoAsync(string type, int width, int height, PostV3DbsOrdersStickersRequest? postV3DbsOrdersStickersRequest = default(PostV3DbsOrdersStickersRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.Dbs.Client.ApiResponse<PostV3DbsOrdersStickersResponse200>> PostV3DbsOrdersStickersWithHttpInfoAsync(string type, long width, long height, PostV3DbsOrdersStickersRequest? postV3DbsOrdersStickersRequest = default(PostV3DbsOrdersStickersRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'type' is set
             if (type == null)

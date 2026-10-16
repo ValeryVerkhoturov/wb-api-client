@@ -43,7 +43,7 @@ public class PostV3WarehousesRequest {
 
   @SerializedName(SERIALIZED_NAME_OFFICE_ID)
   @jakarta.annotation.Nonnull
-  private Integer officeId;
+  private Long officeId;
 
   public PostV3WarehousesRequest() {}
 
@@ -66,7 +66,7 @@ public class PostV3WarehousesRequest {
     this.name = name;
   }
 
-  public PostV3WarehousesRequest officeId(@jakarta.annotation.Nonnull Integer officeId) {
+  public PostV3WarehousesRequest officeId(@jakarta.annotation.Nonnull Long officeId) {
     this.officeId = officeId;
     return this;
   }
@@ -78,11 +78,11 @@ public class PostV3WarehousesRequest {
    * @return officeId
    */
   @jakarta.annotation.Nonnull
-  public Integer getOfficeId() {
+  public Long getOfficeId() {
     return officeId;
   }
 
-  public void setOfficeId(@jakarta.annotation.Nonnull Integer officeId) {
+  public void setOfficeId(@jakarta.annotation.Nonnull Long officeId) {
     this.officeId = officeId;
   }
 

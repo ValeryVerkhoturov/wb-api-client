@@ -102,13 +102,13 @@ public class MainRequest {
 
   @SerializedName(SERIALIZED_NAME_LIMIT)
   @jakarta.annotation.Nonnull
-  private Integer limit;
+  private Long limit;
 
   public static final String SERIALIZED_NAME_OFFSET = "offset";
 
   @SerializedName(SERIALIZED_NAME_OFFSET)
   @jakarta.annotation.Nonnull
-  private Integer offset;
+  private Long offset;
 
   public MainRequest() {}
 
@@ -337,7 +337,7 @@ public class MainRequest {
     this.includeSearchTexts = includeSearchTexts;
   }
 
-  public MainRequest limit(@jakarta.annotation.Nonnull Integer limit) {
+  public MainRequest limit(@jakarta.annotation.Nonnull Long limit) {
     this.limit = limit;
     return this;
   }
@@ -348,15 +348,15 @@ public class MainRequest {
    * @return limit
    */
   @jakarta.annotation.Nonnull
-  public Integer getLimit() {
+  public Long getLimit() {
     return limit;
   }
 
-  public void setLimit(@jakarta.annotation.Nonnull Integer limit) {
+  public void setLimit(@jakarta.annotation.Nonnull Long limit) {
     this.limit = limit;
   }
 
-  public MainRequest offset(@jakarta.annotation.Nonnull Integer offset) {
+  public MainRequest offset(@jakarta.annotation.Nonnull Long offset) {
     this.offset = offset;
     return this;
   }
@@ -367,11 +367,11 @@ public class MainRequest {
    * @return offset
    */
   @jakarta.annotation.Nonnull
-  public Integer getOffset() {
+  public Long getOffset() {
     return offset;
   }
 
-  public void setOffset(@jakarta.annotation.Nonnull Integer offset) {
+  public void setOffset(@jakarta.annotation.Nonnull Long offset) {
     this.offset = offset;
   }
 

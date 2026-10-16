@@ -36,7 +36,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         /// </summary>
         /// <param name="text">Текст сообщения.</param>
         /// <param name="addTimestamp">Время сообщения.</param>
-        public LastMessage(string text = default(string), int addTimestamp = default(int))
+        public LastMessage(string text = default(string), long addTimestamp = default(long))
         {
             this.Text = text;
             this.AddTimestamp = addTimestamp;
@@ -54,7 +54,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         /// </summary>
         /// <value>Время сообщения</value>
         [DataMember(Name = "addTimestamp", EmitDefaultValue = false)]
-        public int AddTimestamp { get; set; }
+        public long AddTimestamp { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

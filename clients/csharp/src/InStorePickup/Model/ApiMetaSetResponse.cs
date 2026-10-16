@@ -37,7 +37,7 @@ namespace ValeryVerkhoturov.WbApiClient.InStorePickup.Model
         /// <param name="orderId">ID сборочного задания.</param>
         /// <param name="isError">Есть ли ошибки.</param>
         /// <param name="errors">Детали ошибки.</param>
-        public ApiMetaSetResponse(int orderId = default(int), bool isError = default(bool), List<ApiMetaErrorResponse> errors = default(List<ApiMetaErrorResponse>))
+        public ApiMetaSetResponse(long orderId = default(long), bool isError = default(bool), List<ApiMetaErrorResponse> errors = default(List<ApiMetaErrorResponse>))
         {
             this.OrderId = orderId;
             this.IsError = isError;
@@ -52,7 +52,7 @@ namespace ValeryVerkhoturov.WbApiClient.InStorePickup.Model
         <example>123456</example>
         */
         [DataMember(Name = "orderId", EmitDefaultValue = false)]
-        public int OrderId { get; set; }
+        public long OrderId { get; set; }
 
         /// <summary>
         /// Есть ли ошибки

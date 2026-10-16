@@ -66,7 +66,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <param name="startDateTime">Начало акции.</param>
         /// <param name="endDateTime">Конец акции.</param>
         /// <param name="type">Тип акции:   - &#x60;regular&#x60; — акция   - &#x60;auto&#x60; — автоакция .</param>
-        public GetV1CalendarPromotions200ResponseDataPromotionsInner(int id = default(int), string name = default(string), string startDateTime = default(string), string endDateTime = default(string), TypeEnum? type = default(TypeEnum?))
+        public GetV1CalendarPromotions200ResponseDataPromotionsInner(long id = default(long), string name = default(string), string startDateTime = default(string), string endDateTime = default(string), TypeEnum? type = default(TypeEnum?))
         {
             this.Id = id;
             this.Name = name;
@@ -83,7 +83,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         <example>123</example>
         */
         [DataMember(Name = "id", EmitDefaultValue = false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// Название акции

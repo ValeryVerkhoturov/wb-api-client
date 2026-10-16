@@ -41,7 +41,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// <param name="requestId">Уникальный ID запроса.</param>
         /// <param name="status">HTTP статус-код ответа.</param>
         /// <param name="title">Заголовок ошибки.</param>
-        public ArhiveOrderError400(string code = default(string), string detail = default(string), List<ArhiveOrderError400ErrorsInner> errors = default(List<ArhiveOrderError400ErrorsInner>), string origin = default(string), string requestId = default(string), int status = default(int), string title = default(string))
+        public ArhiveOrderError400(string code = default(string), string detail = default(string), List<ArhiveOrderError400ErrorsInner> errors = default(List<ArhiveOrderError400ErrorsInner>), string origin = default(string), string requestId = default(string), long status = default(long), string title = default(string))
         {
             this.Code = code;
             this.Detail = detail;
@@ -92,7 +92,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// </summary>
         /// <value>HTTP статус-код ответа</value>
         [DataMember(Name = "status", EmitDefaultValue = false)]
-        public int Status { get; set; }
+        public long Status { get; set; }
 
         /// <summary>
         /// Заголовок ошибки

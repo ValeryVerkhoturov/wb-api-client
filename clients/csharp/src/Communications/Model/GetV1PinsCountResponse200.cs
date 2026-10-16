@@ -35,7 +35,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         /// Initializes a new instance of the <see cref="GetV1PinsCountResponse200" /> class.
         /// </summary>
         /// <param name="data">Количество отзывов.</param>
-        public GetV1PinsCountResponse200(int data = default(int))
+        public GetV1PinsCountResponse200(long data = default(long))
         {
             this.Data = data;
         }
@@ -45,7 +45,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         /// </summary>
         /// <value>Количество отзывов</value>
         [DataMember(Name = "data", EmitDefaultValue = false)]
-        public int Data { get; set; }
+        public long Data { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

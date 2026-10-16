@@ -43,13 +43,13 @@ public class VisibilityInfoByDayInner {
 
   @SerializedName(SERIALIZED_NAME_VISIBILITY)
   @jakarta.annotation.Nullable
-  private Integer visibility;
+  private Long visibility;
 
   public static final String SERIALIZED_NAME_OPEN = "open";
 
   @SerializedName(SERIALIZED_NAME_OPEN)
   @jakarta.annotation.Nullable
-  private Integer open;
+  private Long open;
 
   public VisibilityInfoByDayInner() {}
 
@@ -72,7 +72,7 @@ public class VisibilityInfoByDayInner {
     this.dt = dt;
   }
 
-  public VisibilityInfoByDayInner visibility(@jakarta.annotation.Nullable Integer visibility) {
+  public VisibilityInfoByDayInner visibility(@jakarta.annotation.Nullable Long visibility) {
     this.visibility = visibility;
     return this;
   }
@@ -83,15 +83,15 @@ public class VisibilityInfoByDayInner {
    * @return visibility
    */
   @jakarta.annotation.Nullable
-  public Integer getVisibility() {
+  public Long getVisibility() {
     return visibility;
   }
 
-  public void setVisibility(@jakarta.annotation.Nullable Integer visibility) {
+  public void setVisibility(@jakarta.annotation.Nullable Long visibility) {
     this.visibility = visibility;
   }
 
-  public VisibilityInfoByDayInner open(@jakarta.annotation.Nullable Integer open) {
+  public VisibilityInfoByDayInner open(@jakarta.annotation.Nullable Long open) {
     this.open = open;
     return this;
   }
@@ -102,11 +102,11 @@ public class VisibilityInfoByDayInner {
    * @return open
    */
   @jakarta.annotation.Nullable
-  public Integer getOpen() {
+  public Long getOpen() {
     return open;
   }
 
-  public void setOpen(@jakarta.annotation.Nullable Integer open) {
+  public void setOpen(@jakarta.annotation.Nullable Long open) {
     this.open = open;
   }
 

@@ -137,7 +137,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// <param name="shippingType">Способ доставки до пункта отгрузки:   - &#x60;selfShipping&#x60; — доставка силами продавца   - &#x60;transportCompany&#x60; — доставка через транспортную компанию .</param>
         /// <param name="waybillUuid">ID ЭТрН — электронной транспортной накладной.</param>
         /// <param name="spotAvailable">Доступен ли СПОТ для этой поставки:   - &#x60;true&#x60; — да. Используйте метод [получения данных СПОТ](./orders-fbs#tag/fbsSupplies/operation/postV3FbsSuppliesSpotList)   - &#x60;false&#x60; — нет .</param>
-        public Supply(string id = default(string), bool? isB2b = default(bool?), bool isPickupPointShipmentAllowed = default(bool), bool done = default(bool), string createdAt = default(string), string closedAt = default(string), string scanDt = default(string), string name = default(string), CargoTypeEnum? cargoType = default(CargoTypeEnum?), CrossBorderTypeEnum? crossBorderType = default(CrossBorderTypeEnum?), long? destinationOfficeId = default(long?), long recommendedWhId = default(long), string shippingDt = default(string), int? shippingPointId = default(int?), ShippingTypeEnum? shippingType = default(ShippingTypeEnum?), string waybillUuid = default(string), bool spotAvailable = default(bool))
+        public Supply(string id = default(string), bool? isB2b = default(bool?), bool isPickupPointShipmentAllowed = default(bool), bool done = default(bool), string createdAt = default(string), string closedAt = default(string), string scanDt = default(string), string name = default(string), CargoTypeEnum? cargoType = default(CargoTypeEnum?), CrossBorderTypeEnum? crossBorderType = default(CrossBorderTypeEnum?), long? destinationOfficeId = default(long?), long recommendedWhId = default(long), string shippingDt = default(string), long? shippingPointId = default(long?), ShippingTypeEnum? shippingType = default(ShippingTypeEnum?), string waybillUuid = default(string), bool spotAvailable = default(bool))
         {
             this.Id = id;
             this.IsB2b = isB2b;
@@ -270,7 +270,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         <example>100</example>
         */
         [DataMember(Name = "shippingPointId", EmitDefaultValue = true)]
-        public int? ShippingPointId { get; set; }
+        public long? ShippingPointId { get; set; }
 
         /// <summary>
         /// ID ЭТрН — электронной транспортной накладной

@@ -39,7 +39,7 @@ public class PostV3MediaSaveRequest {
 
   @SerializedName(SERIALIZED_NAME_NM_ID)
   @jakarta.annotation.Nullable
-  private Integer nmId;
+  private Long nmId;
 
   public static final String SERIALIZED_NAME_DATA = "data";
 
@@ -49,7 +49,7 @@ public class PostV3MediaSaveRequest {
 
   public PostV3MediaSaveRequest() {}
 
-  public PostV3MediaSaveRequest nmId(@jakarta.annotation.Nullable Integer nmId) {
+  public PostV3MediaSaveRequest nmId(@jakarta.annotation.Nullable Long nmId) {
     this.nmId = nmId;
     return this;
   }
@@ -60,11 +60,11 @@ public class PostV3MediaSaveRequest {
    * @return nmId
    */
   @jakarta.annotation.Nullable
-  public Integer getNmId() {
+  public Long getNmId() {
     return nmId;
   }
 
-  public void setNmId(@jakarta.annotation.Nullable Integer nmId) {
+  public void setNmId(@jakarta.annotation.Nullable Long nmId) {
     this.nmId = nmId;
   }
 

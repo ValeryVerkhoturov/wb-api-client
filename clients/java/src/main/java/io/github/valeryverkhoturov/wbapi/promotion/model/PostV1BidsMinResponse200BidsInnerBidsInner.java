@@ -49,7 +49,7 @@ public class PostV1BidsMinResponse200BidsInnerBidsInner {
 
   @SerializedName(SERIALIZED_NAME_VALUE)
   @jakarta.annotation.Nullable
-  private Integer value;
+  private Long value;
 
   public PostV1BidsMinResponse200BidsInnerBidsInner() {}
 
@@ -93,8 +93,7 @@ public class PostV1BidsMinResponse200BidsInnerBidsInner {
     this.type = type;
   }
 
-  public PostV1BidsMinResponse200BidsInnerBidsInner value(
-      @jakarta.annotation.Nullable Integer value) {
+  public PostV1BidsMinResponse200BidsInnerBidsInner value(@jakarta.annotation.Nullable Long value) {
     this.value = value;
     return this;
   }
@@ -106,11 +105,11 @@ public class PostV1BidsMinResponse200BidsInnerBidsInner {
    * @return value
    */
   @jakarta.annotation.Nullable
-  public Integer getValue() {
+  public Long getValue() {
     return value;
   }
 
-  public void setValue(@jakarta.annotation.Nullable Integer value) {
+  public void setValue(@jakarta.annotation.Nullable Long value) {
     this.value = value;
   }
 

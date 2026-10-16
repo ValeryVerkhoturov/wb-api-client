@@ -37,30 +37,30 @@ public class V3ArchiveOrderPriceInfo {
 
   @SerializedName(SERIALIZED_NAME_CONVERTED_CURRENCY_CODE)
   @jakarta.annotation.Nullable
-  private Integer convertedCurrencyCode;
+  private Long convertedCurrencyCode;
 
   public static final String SERIALIZED_NAME_CONVERTED_PRICE = "convertedPrice";
 
   @SerializedName(SERIALIZED_NAME_CONVERTED_PRICE)
   @jakarta.annotation.Nullable
-  private Integer convertedPrice;
+  private Long convertedPrice;
 
   public static final String SERIALIZED_NAME_CURRENCY_CODE = "currencyCode";
 
   @SerializedName(SERIALIZED_NAME_CURRENCY_CODE)
   @jakarta.annotation.Nullable
-  private Integer currencyCode;
+  private Long currencyCode;
 
   public static final String SERIALIZED_NAME_PRICE = "price";
 
   @SerializedName(SERIALIZED_NAME_PRICE)
   @jakarta.annotation.Nullable
-  private Integer price;
+  private Long price;
 
   public V3ArchiveOrderPriceInfo() {}
 
   public V3ArchiveOrderPriceInfo convertedCurrencyCode(
-      @jakarta.annotation.Nullable Integer convertedCurrencyCode) {
+      @jakarta.annotation.Nullable Long convertedCurrencyCode) {
     this.convertedCurrencyCode = convertedCurrencyCode;
     return this;
   }
@@ -71,16 +71,15 @@ public class V3ArchiveOrderPriceInfo {
    * @return convertedCurrencyCode
    */
   @jakarta.annotation.Nullable
-  public Integer getConvertedCurrencyCode() {
+  public Long getConvertedCurrencyCode() {
     return convertedCurrencyCode;
   }
 
-  public void setConvertedCurrencyCode(@jakarta.annotation.Nullable Integer convertedCurrencyCode) {
+  public void setConvertedCurrencyCode(@jakarta.annotation.Nullable Long convertedCurrencyCode) {
     this.convertedCurrencyCode = convertedCurrencyCode;
   }
 
-  public V3ArchiveOrderPriceInfo convertedPrice(
-      @jakarta.annotation.Nullable Integer convertedPrice) {
+  public V3ArchiveOrderPriceInfo convertedPrice(@jakarta.annotation.Nullable Long convertedPrice) {
     this.convertedPrice = convertedPrice;
     return this;
   }
@@ -92,15 +91,15 @@ public class V3ArchiveOrderPriceInfo {
    * @return convertedPrice
    */
   @jakarta.annotation.Nullable
-  public Integer getConvertedPrice() {
+  public Long getConvertedPrice() {
     return convertedPrice;
   }
 
-  public void setConvertedPrice(@jakarta.annotation.Nullable Integer convertedPrice) {
+  public void setConvertedPrice(@jakarta.annotation.Nullable Long convertedPrice) {
     this.convertedPrice = convertedPrice;
   }
 
-  public V3ArchiveOrderPriceInfo currencyCode(@jakarta.annotation.Nullable Integer currencyCode) {
+  public V3ArchiveOrderPriceInfo currencyCode(@jakarta.annotation.Nullable Long currencyCode) {
     this.currencyCode = currencyCode;
     return this;
   }
@@ -111,15 +110,15 @@ public class V3ArchiveOrderPriceInfo {
    * @return currencyCode
    */
   @jakarta.annotation.Nullable
-  public Integer getCurrencyCode() {
+  public Long getCurrencyCode() {
     return currencyCode;
   }
 
-  public void setCurrencyCode(@jakarta.annotation.Nullable Integer currencyCode) {
+  public void setCurrencyCode(@jakarta.annotation.Nullable Long currencyCode) {
     this.currencyCode = currencyCode;
   }
 
-  public V3ArchiveOrderPriceInfo price(@jakarta.annotation.Nullable Integer price) {
+  public V3ArchiveOrderPriceInfo price(@jakarta.annotation.Nullable Long price) {
     this.price = price;
     return this;
   }
@@ -130,11 +129,11 @@ public class V3ArchiveOrderPriceInfo {
    * @return price
    */
   @jakarta.annotation.Nullable
-  public Integer getPrice() {
+  public Long getPrice() {
     return price;
   }
 
-  public void setPrice(@jakarta.annotation.Nullable Integer price) {
+  public void setPrice(@jakarta.annotation.Nullable Long price) {
     this.price = price;
   }
 

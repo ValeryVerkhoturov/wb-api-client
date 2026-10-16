@@ -80,25 +80,25 @@ public class GetAdvertsAdvertsInner {
    */
   @JsonAdapter(StatusEnum.Adapter.class)
   public enum StatusEnum {
-    NUMBER_MINUS_1(-1),
+    NUMBER_MINUS_1(-1l),
 
-    NUMBER_4(4),
+    NUMBER_4(4l),
 
-    NUMBER_7(7),
+    NUMBER_7(7l),
 
-    NUMBER_8(8),
+    NUMBER_8(8l),
 
-    NUMBER_9(9),
+    NUMBER_9(9l),
 
-    NUMBER_11(11);
+    NUMBER_11(11l);
 
-    private Integer value;
+    private Long value;
 
-    StatusEnum(Integer value) {
+    StatusEnum(Long value) {
       this.value = value;
     }
 
-    public Integer getValue() {
+    public Long getValue() {
       return value;
     }
 
@@ -107,7 +107,7 @@ public class GetAdvertsAdvertsInner {
       return String.valueOf(value);
     }
 
-    public static StatusEnum fromValue(Integer value) {
+    public static StatusEnum fromValue(Long value) {
       for (StatusEnum b : StatusEnum.values()) {
         if (b.value.equals(value)) {
           return b;
@@ -125,13 +125,13 @@ public class GetAdvertsAdvertsInner {
 
       @Override
       public StatusEnum read(final JsonReader jsonReader) throws IOException {
-        Integer value = jsonReader.nextInt();
+        Long value = jsonReader.nextLong();
         return StatusEnum.fromValue(value);
       }
     }
 
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      Integer value = jsonElement.getAsInt();
+      Long value = jsonElement.getAsLong();
       StatusEnum.fromValue(value);
     }
   }

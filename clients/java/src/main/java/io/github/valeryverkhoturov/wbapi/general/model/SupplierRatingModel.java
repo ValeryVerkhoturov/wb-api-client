@@ -37,7 +37,7 @@ public class SupplierRatingModel {
 
   @SerializedName(SERIALIZED_NAME_FEEDBACK_COUNT)
   @jakarta.annotation.Nullable
-  private Integer feedbackCount;
+  private Long feedbackCount;
 
   public static final String SERIALIZED_NAME_VALUATION = "valuation";
 
@@ -47,7 +47,7 @@ public class SupplierRatingModel {
 
   public SupplierRatingModel() {}
 
-  public SupplierRatingModel feedbackCount(@jakarta.annotation.Nullable Integer feedbackCount) {
+  public SupplierRatingModel feedbackCount(@jakarta.annotation.Nullable Long feedbackCount) {
     this.feedbackCount = feedbackCount;
     return this;
   }
@@ -58,11 +58,11 @@ public class SupplierRatingModel {
    * @return feedbackCount
    */
   @jakarta.annotation.Nullable
-  public Integer getFeedbackCount() {
+  public Long getFeedbackCount() {
     return feedbackCount;
   }
 
-  public void setFeedbackCount(@jakarta.annotation.Nullable Integer feedbackCount) {
+  public void setFeedbackCount(@jakarta.annotation.Nullable Long feedbackCount) {
     this.feedbackCount = feedbackCount;
   }
 

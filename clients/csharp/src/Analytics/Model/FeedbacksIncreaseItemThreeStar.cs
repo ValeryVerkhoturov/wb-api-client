@@ -37,7 +37,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <param name="current">Прирост оценок за период.</param>
         /// <param name="dynamics">Динамика по сравнению с предыдущим периодом, %.</param>
         /// <param name="total">Всего оценок.</param>
-        public FeedbacksIncreaseItemThreeStar(int current = default(int), int dynamics = default(int), int total = default(int))
+        public FeedbacksIncreaseItemThreeStar(long current = default(long), long dynamics = default(long), long total = default(long))
         {
             this.Current = current;
             this.Dynamics = dynamics;
@@ -52,7 +52,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         <example>1</example>
         */
         [DataMember(Name = "current", EmitDefaultValue = false)]
-        public int Current { get; set; }
+        public long Current { get; set; }
 
         /// <summary>
         /// Динамика по сравнению с предыдущим периодом, %
@@ -62,7 +62,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         <example>1</example>
         */
         [DataMember(Name = "dynamics", EmitDefaultValue = false)]
-        public int Dynamics { get; set; }
+        public long Dynamics { get; set; }
 
         /// <summary>
         /// Всего оценок
@@ -72,7 +72,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         <example>11</example>
         */
         [DataMember(Name = "total", EmitDefaultValue = false)]
-        public int Total { get; set; }
+        public long Total { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

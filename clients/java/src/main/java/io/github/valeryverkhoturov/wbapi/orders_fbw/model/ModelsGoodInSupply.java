@@ -49,7 +49,7 @@ public class ModelsGoodInSupply {
 
   @SerializedName(SERIALIZED_NAME_NM_I_D)
   @jakarta.annotation.Nullable
-  private Integer nmID;
+  private Long nmID;
 
   public static final String SERIALIZED_NAME_NEED_KIZ = "needKiz";
 
@@ -79,31 +79,31 @@ public class ModelsGoodInSupply {
 
   @SerializedName(SERIALIZED_NAME_SUPPLIER_BOX_AMOUNT)
   @jakarta.annotation.Nullable
-  private Integer supplierBoxAmount;
+  private Long supplierBoxAmount;
 
   public static final String SERIALIZED_NAME_QUANTITY = "quantity";
 
   @SerializedName(SERIALIZED_NAME_QUANTITY)
   @jakarta.annotation.Nullable
-  private Integer quantity;
+  private Long quantity;
 
   public static final String SERIALIZED_NAME_READY_FOR_SALE_QUANTITY = "readyForSaleQuantity";
 
   @SerializedName(SERIALIZED_NAME_READY_FOR_SALE_QUANTITY)
   @jakarta.annotation.Nullable
-  private Integer readyForSaleQuantity;
+  private Long readyForSaleQuantity;
 
   public static final String SERIALIZED_NAME_ACCEPTED_QUANTITY = "acceptedQuantity";
 
   @SerializedName(SERIALIZED_NAME_ACCEPTED_QUANTITY)
   @jakarta.annotation.Nullable
-  private Integer acceptedQuantity;
+  private Long acceptedQuantity;
 
   public static final String SERIALIZED_NAME_UNLOADING_QUANTITY = "unloadingQuantity";
 
   @SerializedName(SERIALIZED_NAME_UNLOADING_QUANTITY)
   @jakarta.annotation.Nullable
-  private Integer unloadingQuantity;
+  private Long unloadingQuantity;
 
   public ModelsGoodInSupply() {}
 
@@ -145,7 +145,7 @@ public class ModelsGoodInSupply {
     this.vendorCode = vendorCode;
   }
 
-  public ModelsGoodInSupply nmID(@jakarta.annotation.Nullable Integer nmID) {
+  public ModelsGoodInSupply nmID(@jakarta.annotation.Nullable Long nmID) {
     this.nmID = nmID;
     return this;
   }
@@ -156,11 +156,11 @@ public class ModelsGoodInSupply {
    * @return nmID
    */
   @jakarta.annotation.Nullable
-  public Integer getNmID() {
+  public Long getNmID() {
     return nmID;
   }
 
-  public void setNmID(@jakarta.annotation.Nullable Integer nmID) {
+  public void setNmID(@jakarta.annotation.Nullable Long nmID) {
     this.nmID = nmID;
   }
 
@@ -244,8 +244,7 @@ public class ModelsGoodInSupply {
     this.color = color;
   }
 
-  public ModelsGoodInSupply supplierBoxAmount(
-      @jakarta.annotation.Nullable Integer supplierBoxAmount) {
+  public ModelsGoodInSupply supplierBoxAmount(@jakarta.annotation.Nullable Long supplierBoxAmount) {
     this.supplierBoxAmount = supplierBoxAmount;
     return this;
   }
@@ -256,15 +255,15 @@ public class ModelsGoodInSupply {
    * @return supplierBoxAmount
    */
   @jakarta.annotation.Nullable
-  public Integer getSupplierBoxAmount() {
+  public Long getSupplierBoxAmount() {
     return supplierBoxAmount;
   }
 
-  public void setSupplierBoxAmount(@jakarta.annotation.Nullable Integer supplierBoxAmount) {
+  public void setSupplierBoxAmount(@jakarta.annotation.Nullable Long supplierBoxAmount) {
     this.supplierBoxAmount = supplierBoxAmount;
   }
 
-  public ModelsGoodInSupply quantity(@jakarta.annotation.Nullable Integer quantity) {
+  public ModelsGoodInSupply quantity(@jakarta.annotation.Nullable Long quantity) {
     this.quantity = quantity;
     return this;
   }
@@ -275,16 +274,16 @@ public class ModelsGoodInSupply {
    * @return quantity
    */
   @jakarta.annotation.Nullable
-  public Integer getQuantity() {
+  public Long getQuantity() {
     return quantity;
   }
 
-  public void setQuantity(@jakarta.annotation.Nullable Integer quantity) {
+  public void setQuantity(@jakarta.annotation.Nullable Long quantity) {
     this.quantity = quantity;
   }
 
   public ModelsGoodInSupply readyForSaleQuantity(
-      @jakarta.annotation.Nullable Integer readyForSaleQuantity) {
+      @jakarta.annotation.Nullable Long readyForSaleQuantity) {
     this.readyForSaleQuantity = readyForSaleQuantity;
     return this;
   }
@@ -295,16 +294,15 @@ public class ModelsGoodInSupply {
    * @return readyForSaleQuantity
    */
   @jakarta.annotation.Nullable
-  public Integer getReadyForSaleQuantity() {
+  public Long getReadyForSaleQuantity() {
     return readyForSaleQuantity;
   }
 
-  public void setReadyForSaleQuantity(@jakarta.annotation.Nullable Integer readyForSaleQuantity) {
+  public void setReadyForSaleQuantity(@jakarta.annotation.Nullable Long readyForSaleQuantity) {
     this.readyForSaleQuantity = readyForSaleQuantity;
   }
 
-  public ModelsGoodInSupply acceptedQuantity(
-      @jakarta.annotation.Nullable Integer acceptedQuantity) {
+  public ModelsGoodInSupply acceptedQuantity(@jakarta.annotation.Nullable Long acceptedQuantity) {
     this.acceptedQuantity = acceptedQuantity;
     return this;
   }
@@ -315,16 +313,15 @@ public class ModelsGoodInSupply {
    * @return acceptedQuantity
    */
   @jakarta.annotation.Nullable
-  public Integer getAcceptedQuantity() {
+  public Long getAcceptedQuantity() {
     return acceptedQuantity;
   }
 
-  public void setAcceptedQuantity(@jakarta.annotation.Nullable Integer acceptedQuantity) {
+  public void setAcceptedQuantity(@jakarta.annotation.Nullable Long acceptedQuantity) {
     this.acceptedQuantity = acceptedQuantity;
   }
 
-  public ModelsGoodInSupply unloadingQuantity(
-      @jakarta.annotation.Nullable Integer unloadingQuantity) {
+  public ModelsGoodInSupply unloadingQuantity(@jakarta.annotation.Nullable Long unloadingQuantity) {
     this.unloadingQuantity = unloadingQuantity;
     return this;
   }
@@ -335,11 +332,11 @@ public class ModelsGoodInSupply {
    * @return unloadingQuantity
    */
   @jakarta.annotation.Nullable
-  public Integer getUnloadingQuantity() {
+  public Long getUnloadingQuantity() {
     return unloadingQuantity;
   }
 
-  public void setUnloadingQuantity(@jakarta.annotation.Nullable Integer unloadingQuantity) {
+  public void setUnloadingQuantity(@jakarta.annotation.Nullable Long unloadingQuantity) {
     this.unloadingQuantity = unloadingQuantity;
   }
 

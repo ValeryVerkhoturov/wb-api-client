@@ -40,7 +40,7 @@ public class ItemsList {
 
   @SerializedName(SERIALIZED_NAME_NM_I_D)
   @jakarta.annotation.Nullable
-  private Integer nmID;
+  private Long nmID;
 
   public static final String SERIALIZED_NAME_VENDOR_CODE = "vendorCode";
 
@@ -64,13 +64,13 @@ public class ItemsList {
 
   @SerializedName(SERIALIZED_NAME_DISCOUNT)
   @jakarta.annotation.Nullable
-  private Integer discount;
+  private Long discount;
 
   public static final String SERIALIZED_NAME_CLUB_DISCOUNT = "clubDiscount";
 
   @SerializedName(SERIALIZED_NAME_CLUB_DISCOUNT)
   @jakarta.annotation.Nullable
-  private Integer clubDiscount;
+  private Long clubDiscount;
 
   public static final String SERIALIZED_NAME_EDITABLE_SIZE_PRICE = "editableSizePrice";
 
@@ -87,7 +87,7 @@ public class ItemsList {
 
   public ItemsList() {}
 
-  public ItemsList nmID(@jakarta.annotation.Nullable Integer nmID) {
+  public ItemsList nmID(@jakarta.annotation.Nullable Long nmID) {
     this.nmID = nmID;
     return this;
   }
@@ -98,11 +98,11 @@ public class ItemsList {
    * @return nmID
    */
   @jakarta.annotation.Nullable
-  public Integer getNmID() {
+  public Long getNmID() {
     return nmID;
   }
 
-  public void setNmID(@jakarta.annotation.Nullable Integer nmID) {
+  public void setNmID(@jakarta.annotation.Nullable Long nmID) {
     this.nmID = nmID;
   }
 
@@ -171,7 +171,7 @@ public class ItemsList {
     this.currencyIsoCode4217 = currencyIsoCode4217;
   }
 
-  public ItemsList discount(@jakarta.annotation.Nullable Integer discount) {
+  public ItemsList discount(@jakarta.annotation.Nullable Long discount) {
     this.discount = discount;
     return this;
   }
@@ -182,15 +182,15 @@ public class ItemsList {
    * @return discount
    */
   @jakarta.annotation.Nullable
-  public Integer getDiscount() {
+  public Long getDiscount() {
     return discount;
   }
 
-  public void setDiscount(@jakarta.annotation.Nullable Integer discount) {
+  public void setDiscount(@jakarta.annotation.Nullable Long discount) {
     this.discount = discount;
   }
 
-  public ItemsList clubDiscount(@jakarta.annotation.Nullable Integer clubDiscount) {
+  public ItemsList clubDiscount(@jakarta.annotation.Nullable Long clubDiscount) {
     this.clubDiscount = clubDiscount;
     return this;
   }
@@ -201,11 +201,11 @@ public class ItemsList {
    * @return clubDiscount
    */
   @jakarta.annotation.Nullable
-  public Integer getClubDiscount() {
+  public Long getClubDiscount() {
     return clubDiscount;
   }
 
-  public void setClubDiscount(@jakarta.annotation.Nullable Integer clubDiscount) {
+  public void setClubDiscount(@jakarta.annotation.Nullable Long clubDiscount) {
     this.clubDiscount = clubDiscount;
   }
 

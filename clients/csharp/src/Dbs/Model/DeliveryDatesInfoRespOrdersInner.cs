@@ -43,7 +43,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Model
         /// <param name="dDateFrom">Не используется.</param>
         /// <param name="dDateTo">Не используется.</param>
         /// <param name="id">ID сборочного задания.</param>
-        public DeliveryDatesInfoRespOrdersInner(string dTimeFrom = default(string), string dTimeTo = default(string), string dTimeFromOld = default(string), string dTimeToOld = default(string), string dDateOld = default(string), string dDate = default(string), string dDateFrom = default(string), string dDateTo = default(string), int id = default(int))
+        public DeliveryDatesInfoRespOrdersInner(string dTimeFrom = default(string), string dTimeTo = default(string), string dTimeFromOld = default(string), string dTimeToOld = default(string), string dDateOld = default(string), string dDate = default(string), string dDateFrom = default(string), string dDateTo = default(string), long id = default(long))
         {
             this.DTimeFrom = dTimeFrom;
             this.DTimeTo = dTimeTo;
@@ -138,7 +138,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Model
         <example>1234567890</example>
         */
         [DataMember(Name = "id", EmitDefaultValue = false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -37,7 +37,7 @@ public class GetV2NewsResponse200DataInnerTypesInner {
 
   @SerializedName(SERIALIZED_NAME_ID)
   @jakarta.annotation.Nullable
-  private Integer id;
+  private Long id;
 
   public static final String SERIALIZED_NAME_NAME = "name";
 
@@ -47,7 +47,7 @@ public class GetV2NewsResponse200DataInnerTypesInner {
 
   public GetV2NewsResponse200DataInnerTypesInner() {}
 
-  public GetV2NewsResponse200DataInnerTypesInner id(@jakarta.annotation.Nullable Integer id) {
+  public GetV2NewsResponse200DataInnerTypesInner id(@jakarta.annotation.Nullable Long id) {
     this.id = id;
     return this;
   }
@@ -58,11 +58,11 @@ public class GetV2NewsResponse200DataInnerTypesInner {
    * @return id
    */
   @jakarta.annotation.Nullable
-  public Integer getId() {
+  public Long getId() {
     return id;
   }
 
-  public void setId(@jakarta.annotation.Nullable Integer id) {
+  public void setId(@jakarta.annotation.Nullable Long id) {
     this.id = id;
   }
 

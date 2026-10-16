@@ -36,7 +36,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// </summary>
         /// <param name="minPrice">Минимальная цена продавца со скидкой продавца (без учёта скидки WB Клуба).</param>
         /// <param name="maxPrice">Максимальная цена продавца со скидкой продавца (без учёта скидки WB Клуба).</param>
-        public TableItemStMetricsAllOfCurrentPrice(int minPrice = default(int), int maxPrice = default(int))
+        public TableItemStMetricsAllOfCurrentPrice(long minPrice = default(long), long maxPrice = default(long))
         {
             this.MinPrice = minPrice;
             this.MaxPrice = maxPrice;
@@ -50,7 +50,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         <example>50</example>
         */
         [DataMember(Name = "minPrice", EmitDefaultValue = false)]
-        public int MinPrice { get; set; }
+        public long MinPrice { get; set; }
 
         /// <summary>
         /// Максимальная цена продавца со скидкой продавца (без учёта скидки WB Клуба)
@@ -60,7 +60,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         <example>100</example>
         */
         [DataMember(Name = "maxPrice", EmitDefaultValue = false)]
-        public int MaxPrice { get; set; }
+        public long MaxPrice { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

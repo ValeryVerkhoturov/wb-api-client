@@ -44,7 +44,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// <param name="discountedPrice">Цена со скидкой (required).</param>
         /// <param name="clubDiscountedPrice">Цена со скидкой, включая скидку WB Клуба (required).</param>
         /// <param name="techSizeName">Размер товара (required).</param>
-        public ItemsListSizesInner(long sizeID = default(long), int price = default(int), decimal discountedPrice = default(decimal), decimal clubDiscountedPrice = default(decimal), string techSizeName = default(string))
+        public ItemsListSizesInner(long sizeID = default(long), long price = default(long), decimal discountedPrice = default(decimal), decimal clubDiscountedPrice = default(decimal), string techSizeName = default(string))
         {
             this.SizeID = sizeID;
             this.Price = price;
@@ -76,7 +76,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         <example>500</example>
         */
         [DataMember(Name = "price", IsRequired = true, EmitDefaultValue = true)]
-        public int Price { get; set; }
+        public long Price { get; set; }
 
         /// <summary>
         /// Цена со скидкой

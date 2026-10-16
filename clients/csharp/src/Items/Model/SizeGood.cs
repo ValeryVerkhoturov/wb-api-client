@@ -45,7 +45,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// <param name="clubDiscount">Скидка WB Клуба, %.</param>
         /// <param name="techSizeName">Размер товара.</param>
         /// <param name="editableSizePrice">Можно ли устанавливать цены отдельно для разных размеров (зависит от категории товара):   - &#x60;true&#x60; — можно   - &#x60;false&#x60; — нельзя .</param>
-        public SizeGood(int nmID = default(int), int sizeID = default(int), string vendorCode = default(string), int price = default(int), string currencyIsoCode4217 = default(string), decimal discountedPrice = default(decimal), decimal clubDiscountedPrice = default(decimal), int discount = default(int), int clubDiscount = default(int), string techSizeName = default(string), bool editableSizePrice = default(bool))
+        public SizeGood(long nmID = default(long), long sizeID = default(long), string vendorCode = default(string), long price = default(long), string currencyIsoCode4217 = default(string), decimal discountedPrice = default(decimal), decimal clubDiscountedPrice = default(decimal), long discount = default(long), long clubDiscount = default(long), string techSizeName = default(string), bool editableSizePrice = default(bool))
         {
             this.NmID = nmID;
             this.SizeID = sizeID;
@@ -68,7 +68,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         <example>123</example>
         */
         [DataMember(Name = "nmID", EmitDefaultValue = false)]
-        public int NmID { get; set; }
+        public long NmID { get; set; }
 
         /// <summary>
         /// ID размера. Можно получить с помощью метода [Получение списка товаров по артикулам](./item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsFilter), поле &#x60;sizeID&#x60;. В методах Контента это поле &#x60;chrtID&#x60;
@@ -78,7 +78,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         <example>98989887</example>
         */
         [DataMember(Name = "sizeID", EmitDefaultValue = false)]
-        public int SizeID { get; set; }
+        public long SizeID { get; set; }
 
         /// <summary>
         /// Артикул продавца
@@ -98,7 +98,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         <example>1000</example>
         */
         [DataMember(Name = "price", EmitDefaultValue = false)]
-        public int Price { get; set; }
+        public long Price { get; set; }
 
         /// <summary>
         /// Валюта, по стандарту ISO 4217
@@ -138,7 +138,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         <example>30</example>
         */
         [DataMember(Name = "discount", EmitDefaultValue = false)]
-        public int Discount { get; set; }
+        public long Discount { get; set; }
 
         /// <summary>
         /// Скидка WB Клуба, %
@@ -148,7 +148,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         <example>5</example>
         */
         [DataMember(Name = "clubDiscount", EmitDefaultValue = false)]
-        public int ClubDiscount { get; set; }
+        public long ClubDiscount { get; set; }
 
         /// <summary>
         /// Размер товара

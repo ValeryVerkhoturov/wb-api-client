@@ -40,7 +40,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// Initializes a new instance of the <see cref="DeleteV3StocksWarehouseIdRequest" /> class.
         /// </summary>
         /// <param name="chrtIds">Массив ID размеров товаров (required).</param>
-        public DeleteV3StocksWarehouseIdRequest(List<int> chrtIds = default(List<int>))
+        public DeleteV3StocksWarehouseIdRequest(List<long> chrtIds = default(List<long>))
         {
             // to ensure "chrtIds" is required (not null)
             if (chrtIds == null)
@@ -55,7 +55,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// </summary>
         /// <value>Массив ID размеров товаров</value>
         [DataMember(Name = "chrtIds", IsRequired = true, EmitDefaultValue = true)]
-        public List<int> ChrtIds { get; set; }
+        public List<long> ChrtIds { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

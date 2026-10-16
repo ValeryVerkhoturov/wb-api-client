@@ -37,7 +37,7 @@ public class ApiBatchErrorFinalPriceResponse {
 
   @SerializedName(SERIALIZED_NAME_CODE)
   @jakarta.annotation.Nullable
-  private Integer code;
+  private Long code;
 
   public static final String SERIALIZED_NAME_DETAIL = "detail";
 
@@ -47,7 +47,7 @@ public class ApiBatchErrorFinalPriceResponse {
 
   public ApiBatchErrorFinalPriceResponse() {}
 
-  public ApiBatchErrorFinalPriceResponse code(@jakarta.annotation.Nullable Integer code) {
+  public ApiBatchErrorFinalPriceResponse code(@jakarta.annotation.Nullable Long code) {
     this.code = code;
     return this;
   }
@@ -59,11 +59,11 @@ public class ApiBatchErrorFinalPriceResponse {
    * @return code
    */
   @jakarta.annotation.Nullable
-  public Integer getCode() {
+  public Long getCode() {
     return code;
   }
 
-  public void setCode(@jakarta.annotation.Nullable Integer code) {
+  public void setCode(@jakarta.annotation.Nullable Long code) {
     this.code = code;
   }
 

@@ -74,7 +74,7 @@ public class FeeReportInner {
 
   @SerializedName(SERIALIZED_NAME_PARENT_I_D)
   @jakarta.annotation.Nullable
-  private Integer parentID;
+  private Long parentID;
 
   public static final String SERIALIZED_NAME_PARENT_NAME = "parentName";
 
@@ -86,7 +86,7 @@ public class FeeReportInner {
 
   @SerializedName(SERIALIZED_NAME_SUBJECT_I_D)
   @jakarta.annotation.Nullable
-  private Integer subjectID;
+  private Long subjectID;
 
   public static final String SERIALIZED_NAME_SUBJECT_NAME = "subjectName";
 
@@ -211,7 +211,7 @@ public class FeeReportInner {
     this.paidStorageKgvp = paidStorageKgvp;
   }
 
-  public FeeReportInner parentID(@jakarta.annotation.Nullable Integer parentID) {
+  public FeeReportInner parentID(@jakarta.annotation.Nullable Long parentID) {
     this.parentID = parentID;
     return this;
   }
@@ -222,11 +222,11 @@ public class FeeReportInner {
    * @return parentID
    */
   @jakarta.annotation.Nullable
-  public Integer getParentID() {
+  public Long getParentID() {
     return parentID;
   }
 
-  public void setParentID(@jakarta.annotation.Nullable Integer parentID) {
+  public void setParentID(@jakarta.annotation.Nullable Long parentID) {
     this.parentID = parentID;
   }
 
@@ -249,7 +249,7 @@ public class FeeReportInner {
     this.parentName = parentName;
   }
 
-  public FeeReportInner subjectID(@jakarta.annotation.Nullable Integer subjectID) {
+  public FeeReportInner subjectID(@jakarta.annotation.Nullable Long subjectID) {
     this.subjectID = subjectID;
     return this;
   }
@@ -260,11 +260,11 @@ public class FeeReportInner {
    * @return subjectID
    */
   @jakarta.annotation.Nullable
-  public Integer getSubjectID() {
+  public Long getSubjectID() {
     return subjectID;
   }
 
-  public void setSubjectID(@jakarta.annotation.Nullable Integer subjectID) {
+  public void setSubjectID(@jakarta.annotation.Nullable Long subjectID) {
     this.subjectID = subjectID;
   }
 

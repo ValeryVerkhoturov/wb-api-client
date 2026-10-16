@@ -36,7 +36,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Model
         /// </summary>
         /// <param name="code">Код ошибки.</param>
         /// <param name="detail">- &#x60;NotFound&#x60; — сборочное задание не найдено - &#x60;StatusMismatch&#x60; — операция невозможна для этого статуса сборочного задания - &#x60;SGTINIsNotFilled&#x60; — обязательный [код маркировки](./dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaSgtin) не указан .</param>
-        public PostV3DbsOrdersStatusReceiveResponse200ResultsInnerErrorsInner(int code = default(int), string detail = default(string))
+        public PostV3DbsOrdersStatusReceiveResponse200ResultsInnerErrorsInner(long code = default(long), string detail = default(string))
         {
             this.Code = code;
             this.Detail = detail;
@@ -50,7 +50,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Model
         <example>404</example>
         */
         [DataMember(Name = "code", EmitDefaultValue = false)]
-        public int Code { get; set; }
+        public long Code { get; set; }
 
         /// <summary>
         /// - &#x60;NotFound&#x60; — сборочное задание не найдено - &#x60;StatusMismatch&#x60; — операция невозможна для этого статуса сборочного задания - &#x60;SGTINIsNotFilled&#x60; — обязательный [код маркировки](./dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaSgtin) не указан 

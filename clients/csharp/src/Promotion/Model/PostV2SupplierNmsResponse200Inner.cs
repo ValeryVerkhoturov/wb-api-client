@@ -37,7 +37,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <param name="title">Название товара.</param>
         /// <param name="nm">Артикул WB.</param>
         /// <param name="subjectId">ID предмета.</param>
-        public PostV2SupplierNmsResponse200Inner(string title = default(string), int nm = default(int), int subjectId = default(int))
+        public PostV2SupplierNmsResponse200Inner(string title = default(string), long nm = default(long), long subjectId = default(long))
         {
             this.Title = title;
             this.Nm = nm;
@@ -62,7 +62,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         <example>146168367</example>
         */
         [DataMember(Name = "nm", EmitDefaultValue = false)]
-        public int Nm { get; set; }
+        public long Nm { get; set; }
 
         /// <summary>
         /// ID предмета
@@ -72,7 +72,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         <example>765</example>
         */
         [DataMember(Name = "subjectId", EmitDefaultValue = false)]
-        public int SubjectId { get; set; }
+        public long SubjectId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

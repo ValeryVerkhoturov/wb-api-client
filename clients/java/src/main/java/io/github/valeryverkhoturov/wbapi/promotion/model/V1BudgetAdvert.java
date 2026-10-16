@@ -37,7 +37,7 @@ public class V1BudgetAdvert {
 
   @SerializedName(SERIALIZED_NAME_ADVERT_ID)
   @jakarta.annotation.Nullable
-  private Integer advertId;
+  private Long advertId;
 
   public static final String SERIALIZED_NAME_CURRENCY = "currency";
 
@@ -49,11 +49,11 @@ public class V1BudgetAdvert {
 
   @SerializedName(SERIALIZED_NAME_TOTAL)
   @jakarta.annotation.Nullable
-  private Integer total;
+  private Long total;
 
   public V1BudgetAdvert() {}
 
-  public V1BudgetAdvert advertId(@jakarta.annotation.Nullable Integer advertId) {
+  public V1BudgetAdvert advertId(@jakarta.annotation.Nullable Long advertId) {
     this.advertId = advertId;
     return this;
   }
@@ -64,11 +64,11 @@ public class V1BudgetAdvert {
    * @return advertId
    */
   @jakarta.annotation.Nullable
-  public Integer getAdvertId() {
+  public Long getAdvertId() {
     return advertId;
   }
 
-  public void setAdvertId(@jakarta.annotation.Nullable Integer advertId) {
+  public void setAdvertId(@jakarta.annotation.Nullable Long advertId) {
     this.advertId = advertId;
   }
 
@@ -91,7 +91,7 @@ public class V1BudgetAdvert {
     this.currency = currency;
   }
 
-  public V1BudgetAdvert total(@jakarta.annotation.Nullable Integer total) {
+  public V1BudgetAdvert total(@jakarta.annotation.Nullable Long total) {
     this.total = total;
     return this;
   }
@@ -103,11 +103,11 @@ public class V1BudgetAdvert {
    * @return total
    */
   @jakarta.annotation.Nullable
-  public Integer getTotal() {
+  public Long getTotal() {
     return total;
   }
 
-  public void setTotal(@jakarta.annotation.Nullable Integer total) {
+  public void setTotal(@jakarta.annotation.Nullable Long total) {
     this.total = total;
   }
 

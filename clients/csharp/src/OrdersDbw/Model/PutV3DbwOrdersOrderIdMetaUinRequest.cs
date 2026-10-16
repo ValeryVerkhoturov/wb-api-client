@@ -92,13 +92,13 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersDbw.Model
             // Uin (string) maxLength
             if (this.Uin != null && this.Uin.Length > 16)
             {
-                yield return new ValidationResult("Invalid value for Uin, length must be less than 16.", new [] { "Uin" });
+                yield return new ValidationResult("Invalid value for Uin, length must be less than 16.", new[] { "Uin" });
             }
 
             // Uin (string) minLength
             if (this.Uin != null && this.Uin.Length < 16)
             {
-                yield return new ValidationResult("Invalid value for Uin, length must be greater than 16.", new [] { "Uin" });
+                yield return new ValidationResult("Invalid value for Uin, length must be greater than 16.", new[] { "Uin" });
             }
 
             yield break;

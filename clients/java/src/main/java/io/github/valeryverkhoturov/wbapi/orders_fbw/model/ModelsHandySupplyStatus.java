@@ -22,25 +22,25 @@ import java.io.IOException;
 /** Gets or Sets models.HandySupplyStatus */
 @JsonAdapter(ModelsHandySupplyStatus.Adapter.class)
 public enum ModelsHandySupplyStatus {
-  NotPlanned(1),
+  NotPlanned(1l),
 
-  Planned(2),
+  Planned(2l),
 
-  AllowUnload(3),
+  AllowUnload(3l),
 
-  Accepting(4),
+  Accepting(4l),
 
-  Accepted(5),
+  Accepted(5l),
 
-  Virtual(6);
+  Virtual(6l);
 
-  private Integer value;
+  private Long value;
 
-  ModelsHandySupplyStatus(Integer value) {
+  ModelsHandySupplyStatus(Long value) {
     this.value = value;
   }
 
-  public Integer getValue() {
+  public Long getValue() {
     return value;
   }
 
@@ -49,7 +49,7 @@ public enum ModelsHandySupplyStatus {
     return String.valueOf(value);
   }
 
-  public static ModelsHandySupplyStatus fromValue(Integer value) {
+  public static ModelsHandySupplyStatus fromValue(Long value) {
     for (ModelsHandySupplyStatus b : ModelsHandySupplyStatus.values()) {
       if (b.value.equals(value)) {
         return b;
@@ -67,13 +67,13 @@ public enum ModelsHandySupplyStatus {
 
     @Override
     public ModelsHandySupplyStatus read(final JsonReader jsonReader) throws IOException {
-      Integer value = jsonReader.nextInt();
+      Long value = jsonReader.nextLong();
       return ModelsHandySupplyStatus.fromValue(value);
     }
   }
 
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-    Integer value = jsonElement.getAsInt();
+    Long value = jsonElement.getAsLong();
     ModelsHandySupplyStatus.fromValue(value);
   }
 }

@@ -38,7 +38,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// <param name="status">Результат проверки карточки товара:   - &#x60;1&#x60; — проверка пройдена   - &#x60;2&#x60; — проверка не пройдена .</param>
         /// <param name="reason">Ошибка при проверке, возвращается для &#x60;status: 2&#x60;. Указывается только 1 причина. Если карточка не прошла проверку по нескольким причинам, то после исправления первой причины, вернётся следующая. Возможные значения: - &#x60;tnved\\_missing&#x60; — Не указан код ТН ВЭД - &#x60;supplier\\_inn\\_missing&#x60; — Не указан ИНН - &#x60;supplier\\_not\\_registered&#x60; — Поставщик не найден в реестре - &#x60;supplier\\_inactive&#x60; — Ошибка в статусе поставщика, проверьте его в реестре - &#x60;product\\_group\\_not\\_registered&#x60; — Добавлена неверная товарная группа в системе маркировки - &#x60;kiz\\_required&#x60; — Этот товар нельзя продавать в России без кода маркировки Честного Знака - &#x60;kiz\\_certificate\\_missing&#x60; — Нет подтверждения, что на товар нанесена необходимая маркировка.</param>
         /// <param name="createdAt">Дата и время проверки карточки товара.</param>
-        public PostV2GetCardsListResponse200CardsInnerDocumentsOverallVerdict(bool isFullyChecked = default(bool), int status = default(int), string reason = default(string), string createdAt = default(string))
+        public PostV2GetCardsListResponse200CardsInnerDocumentsOverallVerdict(bool isFullyChecked = default(bool), long status = default(long), string reason = default(string), string createdAt = default(string))
         {
             this.IsFullyChecked = isFullyChecked;
             this.Status = status;
@@ -58,7 +58,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// </summary>
         /// <value>Результат проверки карточки товара:   - &#x60;1&#x60; — проверка пройдена   - &#x60;2&#x60; — проверка не пройдена </value>
         [DataMember(Name = "status", EmitDefaultValue = false)]
-        public int Status { get; set; }
+        public long Status { get; set; }
 
         /// <summary>
         /// Ошибка при проверке, возвращается для &#x60;status: 2&#x60;. Указывается только 1 причина. Если карточка не прошла проверку по нескольким причинам, то после исправления первой причины, вернётся следующая. Возможные значения: - &#x60;tnved\\_missing&#x60; — Не указан код ТН ВЭД - &#x60;supplier\\_inn\\_missing&#x60; — Не указан ИНН - &#x60;supplier\\_not\\_registered&#x60; — Поставщик не найден в реестре - &#x60;supplier\\_inactive&#x60; — Ошибка в статусе поставщика, проверьте его в реестре - &#x60;product\\_group\\_not\\_registered&#x60; — Добавлена неверная товарная группа в системе маркировки - &#x60;kiz\\_required&#x60; — Этот товар нельзя продавать в России без кода маркировки Честного Знака - &#x60;kiz\\_certificate\\_missing&#x60; — Нет подтверждения, что на товар нанесена необходимая маркировка

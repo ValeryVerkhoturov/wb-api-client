@@ -51,7 +51,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /// <param name="invoiceDate">Дата счёта-фактуры.</param>
         /// <param name="shkId">Штрихкод.</param>
         /// <param name="currency">Валюта отчёта.</param>
-        public AcquiringReportsDetailedRes(int rrdId = default(int), long reportId = default(long), string acqDate = default(string), string acquiringBank = default(string), string tin = default(string), string taxRegistrationReasonCode = default(string), string saleDate = default(string), string srid = default(string), string documentType = default(string), int nmId = default(int), string retailAmount = default(string), string acquiringFee = default(string), string acquiringFeeVat = default(string), string invoiceNumber = default(string), string invoiceDate = default(string), int shkId = default(int), string currency = default(string))
+        public AcquiringReportsDetailedRes(long rrdId = default(long), long reportId = default(long), string acqDate = default(string), string acquiringBank = default(string), string tin = default(string), string taxRegistrationReasonCode = default(string), string saleDate = default(string), string srid = default(string), string documentType = default(string), long nmId = default(long), string retailAmount = default(string), string acquiringFee = default(string), string acquiringFeeVat = default(string), string invoiceNumber = default(string), string invoiceDate = default(string), long shkId = default(long), string currency = default(string))
         {
             this.RrdId = rrdId;
             this.ReportId = reportId;
@@ -80,7 +80,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         <example>1232610467</example>
         */
         [DataMember(Name = "rrdId", EmitDefaultValue = false)]
-        public int RrdId { get; set; }
+        public long RrdId { get; set; }
 
         /// <summary>
         /// ID отчёта
@@ -170,7 +170,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         <example>1234567</example>
         */
         [DataMember(Name = "nmId", EmitDefaultValue = false)]
-        public int NmId { get; set; }
+        public long NmId { get; set; }
 
         /// <summary>
         /// Wildberries реализовал Товар (Пр)
@@ -230,7 +230,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         <example>1239159661</example>
         */
         [DataMember(Name = "shkId", EmitDefaultValue = false)]
-        public int ShkId { get; set; }
+        public long ShkId { get; set; }
 
         /// <summary>
         /// Валюта отчёта

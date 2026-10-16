@@ -45,26 +45,26 @@ public class ApiOrderFinalPriceResultData {
 
   @SerializedName(SERIALIZED_NAME_ORIGINAL_PRICE)
   @jakarta.annotation.Nullable
-  private Integer originalPrice;
+  private Long originalPrice;
 
   public static final String SERIALIZED_NAME_CONVERTED_ORIGINAL_PRICE = "convertedOriginalPrice";
 
   @SerializedName(SERIALIZED_NAME_CONVERTED_ORIGINAL_PRICE)
   @jakarta.annotation.Nullable
-  private Integer convertedOriginalPrice;
+  private Long convertedOriginalPrice;
 
   public static final String SERIALIZED_NAME_ORIGINAL_FINAL_PRICE = "originalFinalPrice";
 
   @SerializedName(SERIALIZED_NAME_ORIGINAL_FINAL_PRICE)
   @jakarta.annotation.Nullable
-  private Integer originalFinalPrice;
+  private Long originalFinalPrice;
 
   public static final String SERIALIZED_NAME_CONVERTED_ORIGINAL_FINAL_PRICE =
       "convertedOriginalFinalPrice";
 
   @SerializedName(SERIALIZED_NAME_CONVERTED_ORIGINAL_FINAL_PRICE)
   @jakarta.annotation.Nullable
-  private Integer convertedOriginalFinalPrice;
+  private Long convertedOriginalFinalPrice;
 
   public static final String SERIALIZED_NAME_CURRENCY_CODE = "currencyCode";
 
@@ -81,7 +81,7 @@ public class ApiOrderFinalPriceResultData {
   public ApiOrderFinalPriceResultData() {}
 
   public ApiOrderFinalPriceResultData originalPrice(
-      @jakarta.annotation.Nullable Integer originalPrice) {
+      @jakarta.annotation.Nullable Long originalPrice) {
     this.originalPrice = originalPrice;
     return this;
   }
@@ -93,16 +93,16 @@ public class ApiOrderFinalPriceResultData {
    * @return originalPrice
    */
   @jakarta.annotation.Nullable
-  public Integer getOriginalPrice() {
+  public Long getOriginalPrice() {
     return originalPrice;
   }
 
-  public void setOriginalPrice(@jakarta.annotation.Nullable Integer originalPrice) {
+  public void setOriginalPrice(@jakarta.annotation.Nullable Long originalPrice) {
     this.originalPrice = originalPrice;
   }
 
   public ApiOrderFinalPriceResultData convertedOriginalPrice(
-      @jakarta.annotation.Nullable Integer convertedOriginalPrice) {
+      @jakarta.annotation.Nullable Long convertedOriginalPrice) {
     this.convertedOriginalPrice = convertedOriginalPrice;
     return this;
   }
@@ -114,17 +114,16 @@ public class ApiOrderFinalPriceResultData {
    * @return convertedOriginalPrice
    */
   @jakarta.annotation.Nullable
-  public Integer getConvertedOriginalPrice() {
+  public Long getConvertedOriginalPrice() {
     return convertedOriginalPrice;
   }
 
-  public void setConvertedOriginalPrice(
-      @jakarta.annotation.Nullable Integer convertedOriginalPrice) {
+  public void setConvertedOriginalPrice(@jakarta.annotation.Nullable Long convertedOriginalPrice) {
     this.convertedOriginalPrice = convertedOriginalPrice;
   }
 
   public ApiOrderFinalPriceResultData originalFinalPrice(
-      @jakarta.annotation.Nullable Integer originalFinalPrice) {
+      @jakarta.annotation.Nullable Long originalFinalPrice) {
     this.originalFinalPrice = originalFinalPrice;
     return this;
   }
@@ -137,16 +136,16 @@ public class ApiOrderFinalPriceResultData {
    * @return originalFinalPrice
    */
   @jakarta.annotation.Nullable
-  public Integer getOriginalFinalPrice() {
+  public Long getOriginalFinalPrice() {
     return originalFinalPrice;
   }
 
-  public void setOriginalFinalPrice(@jakarta.annotation.Nullable Integer originalFinalPrice) {
+  public void setOriginalFinalPrice(@jakarta.annotation.Nullable Long originalFinalPrice) {
     this.originalFinalPrice = originalFinalPrice;
   }
 
   public ApiOrderFinalPriceResultData convertedOriginalFinalPrice(
-      @jakarta.annotation.Nullable Integer convertedOriginalFinalPrice) {
+      @jakarta.annotation.Nullable Long convertedOriginalFinalPrice) {
     this.convertedOriginalFinalPrice = convertedOriginalFinalPrice;
     return this;
   }
@@ -158,12 +157,12 @@ public class ApiOrderFinalPriceResultData {
    * @return convertedOriginalFinalPrice
    */
   @jakarta.annotation.Nullable
-  public Integer getConvertedOriginalFinalPrice() {
+  public Long getConvertedOriginalFinalPrice() {
     return convertedOriginalFinalPrice;
   }
 
   public void setConvertedOriginalFinalPrice(
-      @jakarta.annotation.Nullable Integer convertedOriginalFinalPrice) {
+      @jakarta.annotation.Nullable Long convertedOriginalFinalPrice) {
     this.convertedOriginalFinalPrice = convertedOriginalFinalPrice;
   }
 

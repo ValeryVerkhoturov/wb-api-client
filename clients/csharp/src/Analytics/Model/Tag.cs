@@ -36,7 +36,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// </summary>
         /// <param name="id">ID ярлыка.</param>
         /// <param name="name">Название ярлыка.</param>
-        public Tag(int id = default(int), string name = default(string))
+        public Tag(long id = default(long), string name = default(string))
         {
             this.Id = id;
             this.Name = name;
@@ -50,7 +50,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         <example>1</example>
         */
         [DataMember(Name = "id", EmitDefaultValue = false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// Название ярлыка

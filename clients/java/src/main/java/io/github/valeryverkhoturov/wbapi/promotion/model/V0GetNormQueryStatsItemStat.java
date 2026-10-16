@@ -43,25 +43,25 @@ public class V0GetNormQueryStatsItemStat {
 
   @SerializedName(SERIALIZED_NAME_VIEWS)
   @jakarta.annotation.Nullable
-  private Integer views;
+  private Long views;
 
   public static final String SERIALIZED_NAME_CLICKS = "clicks";
 
   @SerializedName(SERIALIZED_NAME_CLICKS)
   @jakarta.annotation.Nullable
-  private Integer clicks;
+  private Long clicks;
 
   public static final String SERIALIZED_NAME_ATBS = "atbs";
 
   @SerializedName(SERIALIZED_NAME_ATBS)
   @jakarta.annotation.Nullable
-  private Integer atbs;
+  private Long atbs;
 
   public static final String SERIALIZED_NAME_ORDERS = "orders";
 
   @SerializedName(SERIALIZED_NAME_ORDERS)
   @jakarta.annotation.Nullable
-  private Integer orders;
+  private Long orders;
 
   public static final String SERIALIZED_NAME_CTR = "ctr";
 
@@ -91,7 +91,7 @@ public class V0GetNormQueryStatsItemStat {
 
   @SerializedName(SERIALIZED_NAME_SHKS)
   @jakarta.annotation.Nullable
-  private Integer shks;
+  private Long shks;
 
   public static final String SERIALIZED_NAME_SPEND = "spend";
 
@@ -126,7 +126,7 @@ public class V0GetNormQueryStatsItemStat {
     this.normQuery = normQuery;
   }
 
-  public V0GetNormQueryStatsItemStat views(@jakarta.annotation.Nullable Integer views) {
+  public V0GetNormQueryStatsItemStat views(@jakarta.annotation.Nullable Long views) {
     this.views = views;
     return this;
   }
@@ -138,15 +138,15 @@ public class V0GetNormQueryStatsItemStat {
    * @return views
    */
   @jakarta.annotation.Nullable
-  public Integer getViews() {
+  public Long getViews() {
     return views;
   }
 
-  public void setViews(@jakarta.annotation.Nullable Integer views) {
+  public void setViews(@jakarta.annotation.Nullable Long views) {
     this.views = views;
   }
 
-  public V0GetNormQueryStatsItemStat clicks(@jakarta.annotation.Nullable Integer clicks) {
+  public V0GetNormQueryStatsItemStat clicks(@jakarta.annotation.Nullable Long clicks) {
     this.clicks = clicks;
     return this;
   }
@@ -157,15 +157,15 @@ public class V0GetNormQueryStatsItemStat {
    * @return clicks
    */
   @jakarta.annotation.Nullable
-  public Integer getClicks() {
+  public Long getClicks() {
     return clicks;
   }
 
-  public void setClicks(@jakarta.annotation.Nullable Integer clicks) {
+  public void setClicks(@jakarta.annotation.Nullable Long clicks) {
     this.clicks = clicks;
   }
 
-  public V0GetNormQueryStatsItemStat atbs(@jakarta.annotation.Nullable Integer atbs) {
+  public V0GetNormQueryStatsItemStat atbs(@jakarta.annotation.Nullable Long atbs) {
     this.atbs = atbs;
     return this;
   }
@@ -176,15 +176,15 @@ public class V0GetNormQueryStatsItemStat {
    * @return atbs
    */
   @jakarta.annotation.Nullable
-  public Integer getAtbs() {
+  public Long getAtbs() {
     return atbs;
   }
 
-  public void setAtbs(@jakarta.annotation.Nullable Integer atbs) {
+  public void setAtbs(@jakarta.annotation.Nullable Long atbs) {
     this.atbs = atbs;
   }
 
-  public V0GetNormQueryStatsItemStat orders(@jakarta.annotation.Nullable Integer orders) {
+  public V0GetNormQueryStatsItemStat orders(@jakarta.annotation.Nullable Long orders) {
     this.orders = orders;
     return this;
   }
@@ -195,11 +195,11 @@ public class V0GetNormQueryStatsItemStat {
    * @return orders
    */
   @jakarta.annotation.Nullable
-  public Integer getOrders() {
+  public Long getOrders() {
     return orders;
   }
 
-  public void setOrders(@jakarta.annotation.Nullable Integer orders) {
+  public void setOrders(@jakarta.annotation.Nullable Long orders) {
     this.orders = orders;
   }
 
@@ -283,7 +283,7 @@ public class V0GetNormQueryStatsItemStat {
     this.avgPos = avgPos;
   }
 
-  public V0GetNormQueryStatsItemStat shks(@jakarta.annotation.Nullable Integer shks) {
+  public V0GetNormQueryStatsItemStat shks(@jakarta.annotation.Nullable Long shks) {
     this.shks = shks;
     return this;
   }
@@ -294,11 +294,11 @@ public class V0GetNormQueryStatsItemStat {
    * @return shks
    */
   @jakarta.annotation.Nullable
-  public Integer getShks() {
+  public Long getShks() {
     return shks;
   }
 
-  public void setShks(@jakarta.annotation.Nullable Integer shks) {
+  public void setShks(@jakarta.annotation.Nullable Long shks) {
     this.shks = shks;
   }
 

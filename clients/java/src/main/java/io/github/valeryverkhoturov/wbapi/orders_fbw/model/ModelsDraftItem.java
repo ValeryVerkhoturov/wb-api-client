@@ -61,13 +61,13 @@ public class ModelsDraftItem {
 
   @SerializedName(SERIALIZED_NAME_SKU_QUANTITY)
   @jakarta.annotation.Nullable
-  private Integer skuQuantity;
+  private Long skuQuantity;
 
   public static final String SERIALIZED_NAME_ITEM_QUANTITY = "itemQuantity";
 
   @SerializedName(SERIALIZED_NAME_ITEM_QUANTITY)
   @jakarta.annotation.Nullable
-  private Integer itemQuantity;
+  private Long itemQuantity;
 
   public ModelsDraftItem() {}
 
@@ -147,7 +147,7 @@ public class ModelsDraftItem {
     this.updatedAt = updatedAt;
   }
 
-  public ModelsDraftItem skuQuantity(@jakarta.annotation.Nullable Integer skuQuantity) {
+  public ModelsDraftItem skuQuantity(@jakarta.annotation.Nullable Long skuQuantity) {
     this.skuQuantity = skuQuantity;
     return this;
   }
@@ -158,15 +158,15 @@ public class ModelsDraftItem {
    * @return skuQuantity
    */
   @jakarta.annotation.Nullable
-  public Integer getSkuQuantity() {
+  public Long getSkuQuantity() {
     return skuQuantity;
   }
 
-  public void setSkuQuantity(@jakarta.annotation.Nullable Integer skuQuantity) {
+  public void setSkuQuantity(@jakarta.annotation.Nullable Long skuQuantity) {
     this.skuQuantity = skuQuantity;
   }
 
-  public ModelsDraftItem itemQuantity(@jakarta.annotation.Nullable Integer itemQuantity) {
+  public ModelsDraftItem itemQuantity(@jakarta.annotation.Nullable Long itemQuantity) {
     this.itemQuantity = itemQuantity;
     return this;
   }
@@ -177,11 +177,11 @@ public class ModelsDraftItem {
    * @return itemQuantity
    */
   @jakarta.annotation.Nullable
-  public Integer getItemQuantity() {
+  public Long getItemQuantity() {
     return itemQuantity;
   }
 
-  public void setItemQuantity(@jakarta.annotation.Nullable Integer itemQuantity) {
+  public void setItemQuantity(@jakarta.annotation.Nullable Long itemQuantity) {
     this.itemQuantity = itemQuantity;
   }
 

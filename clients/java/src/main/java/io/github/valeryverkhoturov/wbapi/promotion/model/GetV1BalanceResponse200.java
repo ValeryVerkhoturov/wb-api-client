@@ -40,13 +40,13 @@ public class GetV1BalanceResponse200 {
 
   @SerializedName(SERIALIZED_NAME_BALANCE)
   @jakarta.annotation.Nullable
-  private Integer balance;
+  private Long balance;
 
   public static final String SERIALIZED_NAME_NET = "net";
 
   @SerializedName(SERIALIZED_NAME_NET)
   @jakarta.annotation.Nullable
-  private Integer net;
+  private Long net;
 
   public static final String SERIALIZED_NAME_CURRENCY = "currency";
 
@@ -58,7 +58,7 @@ public class GetV1BalanceResponse200 {
 
   @SerializedName(SERIALIZED_NAME_BONUS)
   @jakarta.annotation.Nullable
-  private Integer bonus;
+  private Long bonus;
 
   public static final String SERIALIZED_NAME_CASHBACKS = "cashbacks";
 
@@ -68,7 +68,7 @@ public class GetV1BalanceResponse200 {
 
   public GetV1BalanceResponse200() {}
 
-  public GetV1BalanceResponse200 balance(@jakarta.annotation.Nullable Integer balance) {
+  public GetV1BalanceResponse200 balance(@jakarta.annotation.Nullable Long balance) {
     this.balance = balance;
     return this;
   }
@@ -80,15 +80,15 @@ public class GetV1BalanceResponse200 {
    * @return balance
    */
   @jakarta.annotation.Nullable
-  public Integer getBalance() {
+  public Long getBalance() {
     return balance;
   }
 
-  public void setBalance(@jakarta.annotation.Nullable Integer balance) {
+  public void setBalance(@jakarta.annotation.Nullable Long balance) {
     this.balance = balance;
   }
 
-  public GetV1BalanceResponse200 net(@jakarta.annotation.Nullable Integer net) {
+  public GetV1BalanceResponse200 net(@jakarta.annotation.Nullable Long net) {
     this.net = net;
     return this;
   }
@@ -100,11 +100,11 @@ public class GetV1BalanceResponse200 {
    * @return net
    */
   @jakarta.annotation.Nullable
-  public Integer getNet() {
+  public Long getNet() {
     return net;
   }
 
-  public void setNet(@jakarta.annotation.Nullable Integer net) {
+  public void setNet(@jakarta.annotation.Nullable Long net) {
     this.net = net;
   }
 
@@ -127,7 +127,7 @@ public class GetV1BalanceResponse200 {
     this.currency = currency;
   }
 
-  public GetV1BalanceResponse200 bonus(@jakarta.annotation.Nullable Integer bonus) {
+  public GetV1BalanceResponse200 bonus(@jakarta.annotation.Nullable Long bonus) {
     this.bonus = bonus;
     return this;
   }
@@ -139,11 +139,11 @@ public class GetV1BalanceResponse200 {
    * @return bonus
    */
   @jakarta.annotation.Nullable
-  public Integer getBonus() {
+  public Long getBonus() {
     return bonus;
   }
 
-  public void setBonus(@jakarta.annotation.Nullable Integer bonus) {
+  public void setBonus(@jakarta.annotation.Nullable Long bonus) {
     this.bonus = bonus;
   }
 

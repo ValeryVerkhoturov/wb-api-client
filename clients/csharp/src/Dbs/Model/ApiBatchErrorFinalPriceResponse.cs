@@ -36,7 +36,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Model
         /// </summary>
         /// <param name="code">Код ошибки:   - &#x60;404&#x60; — &#x60;NotFound&#x60;   - &#x60;400&#x60; — &#x60;StatusMismatch&#x60;   - &#x60;422&#x60; — &#x60;PriceNotCalculated&#x60; .</param>
         /// <param name="detail">- &#x60;NotFound&#x60; — сборочное задание не найдено (&#x60;404&#x60;) - &#x60;StatusMismatch&#x60; — операция невозможна для этого статуса сборочного задания (&#x60;400&#x60;) - &#x60;PriceNotCalculated&#x60; — операция невозможна для сборочных заданий, созданных ранее 23.07.2026 (&#x60;422&#x60;) .</param>
-        public ApiBatchErrorFinalPriceResponse(int code = default(int), string detail = default(string))
+        public ApiBatchErrorFinalPriceResponse(long code = default(long), string detail = default(string))
         {
             this.Code = code;
             this.Detail = detail;
@@ -50,7 +50,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Model
         <example>404</example>
         */
         [DataMember(Name = "code", EmitDefaultValue = false)]
-        public int Code { get; set; }
+        public long Code { get; set; }
 
         /// <summary>
         /// - &#x60;NotFound&#x60; — сборочное задание не найдено (&#x60;404&#x60;) - &#x60;StatusMismatch&#x60; — операция невозможна для этого статуса сборочного задания (&#x60;400&#x60;) - &#x60;PriceNotCalculated&#x60; — операция невозможна для сборочных заданий, созданных ранее 23.07.2026 (&#x60;422&#x60;) 

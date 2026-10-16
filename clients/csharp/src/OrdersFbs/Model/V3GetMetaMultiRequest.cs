@@ -40,7 +40,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// Initializes a new instance of the <see cref="V3GetMetaMultiRequest" /> class.
         /// </summary>
         /// <param name="orders">orders (required).</param>
-        public V3GetMetaMultiRequest(List<int> orders = default(List<int>))
+        public V3GetMetaMultiRequest(List<long> orders = default(List<long>))
         {
             // to ensure "orders" is required (not null)
             if (orders == null)
@@ -57,7 +57,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         <example>[123456,234567,345678]</example>
         */
         [DataMember(Name = "orders", IsRequired = true, EmitDefaultValue = true)]
-        public List<int> Orders { get; set; }
+        public List<long> Orders { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

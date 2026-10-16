@@ -37,7 +37,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersDbw.Model
         /// <param name="code">Код ошибки:   - &#x60;404&#x60;   - &#x60;409&#x60; .</param>
         /// <param name="detail">- &#x60;NotFound&#x60; — сборочное задание не найдено - &#x60;StatusMismatch&#x60; — операция невозможна для этого статуса сборочного задания - &#x60;ImeiIsNotFilled&#x60; — не заполнен IMEI - &#x60;MetaValidationFail&#x60; — ошибки валидации идентификаторов маркировки .</param>
         /// <param name="metaDetails">Детали ошибки валидации идентификаторов маркировки.</param>
-        public ApiBatchErrorResponse(int code = default(int), string detail = default(string), List<ApiBatchErrorResponseMetaDetailsInner> metaDetails = default(List<ApiBatchErrorResponseMetaDetailsInner>))
+        public ApiBatchErrorResponse(long code = default(long), string detail = default(string), List<ApiBatchErrorResponseMetaDetailsInner> metaDetails = default(List<ApiBatchErrorResponseMetaDetailsInner>))
         {
             this.Code = code;
             this.Detail = detail;
@@ -52,7 +52,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersDbw.Model
         <example>404</example>
         */
         [DataMember(Name = "code", EmitDefaultValue = false)]
-        public int Code { get; set; }
+        public long Code { get; set; }
 
         /// <summary>
         /// - &#x60;NotFound&#x60; — сборочное задание не найдено - &#x60;StatusMismatch&#x60; — операция невозможна для этого статуса сборочного задания - &#x60;ImeiIsNotFilled&#x60; — не заполнен IMEI - &#x60;MetaValidationFail&#x60; — ошибки валидации идентификаторов маркировки 

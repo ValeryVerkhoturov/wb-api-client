@@ -40,7 +40,7 @@ public class MeasurementPenaltiesDataReportsInner {
 
   @SerializedName(SERIALIZED_NAME_NM_ID)
   @jakarta.annotation.Nullable
-  private Integer nmId;
+  private Long nmId;
 
   public static final String SERIALIZED_NAME_SUBJECT_NAME = "subjectName";
 
@@ -52,7 +52,7 @@ public class MeasurementPenaltiesDataReportsInner {
 
   @SerializedName(SERIALIZED_NAME_DIM_ID)
   @jakarta.annotation.Nullable
-  private Integer dimId;
+  private Long dimId;
 
   public static final String SERIALIZED_NAME_PRC_OVER = "prcOver";
 
@@ -70,19 +70,19 @@ public class MeasurementPenaltiesDataReportsInner {
 
   @SerializedName(SERIALIZED_NAME_WIDTH)
   @jakarta.annotation.Nullable
-  private Integer width;
+  private Long width;
 
   public static final String SERIALIZED_NAME_LENGTH = "length";
 
   @SerializedName(SERIALIZED_NAME_LENGTH)
   @jakarta.annotation.Nullable
-  private Integer length;
+  private Long length;
 
   public static final String SERIALIZED_NAME_HEIGHT = "height";
 
   @SerializedName(SERIALIZED_NAME_HEIGHT)
   @jakarta.annotation.Nullable
-  private Integer height;
+  private Long height;
 
   public static final String SERIALIZED_NAME_VOLUME_SUP = "volumeSup";
 
@@ -94,19 +94,19 @@ public class MeasurementPenaltiesDataReportsInner {
 
   @SerializedName(SERIALIZED_NAME_WIDTH_SUP)
   @jakarta.annotation.Nullable
-  private Integer widthSup;
+  private Long widthSup;
 
   public static final String SERIALIZED_NAME_LENGTH_SUP = "lengthSup";
 
   @SerializedName(SERIALIZED_NAME_LENGTH_SUP)
   @jakarta.annotation.Nullable
-  private Integer lengthSup;
+  private Long lengthSup;
 
   public static final String SERIALIZED_NAME_HEIGHT_SUP = "heightSup";
 
   @SerializedName(SERIALIZED_NAME_HEIGHT_SUP)
   @jakarta.annotation.Nullable
-  private Integer heightSup;
+  private Long heightSup;
 
   public static final String SERIALIZED_NAME_PHOTO_URLS = "photoUrls";
 
@@ -158,7 +158,7 @@ public class MeasurementPenaltiesDataReportsInner {
 
   public MeasurementPenaltiesDataReportsInner() {}
 
-  public MeasurementPenaltiesDataReportsInner nmId(@jakarta.annotation.Nullable Integer nmId) {
+  public MeasurementPenaltiesDataReportsInner nmId(@jakarta.annotation.Nullable Long nmId) {
     this.nmId = nmId;
     return this;
   }
@@ -169,11 +169,11 @@ public class MeasurementPenaltiesDataReportsInner {
    * @return nmId
    */
   @jakarta.annotation.Nullable
-  public Integer getNmId() {
+  public Long getNmId() {
     return nmId;
   }
 
-  public void setNmId(@jakarta.annotation.Nullable Integer nmId) {
+  public void setNmId(@jakarta.annotation.Nullable Long nmId) {
     this.nmId = nmId;
   }
 
@@ -197,7 +197,7 @@ public class MeasurementPenaltiesDataReportsInner {
     this.subjectName = subjectName;
   }
 
-  public MeasurementPenaltiesDataReportsInner dimId(@jakarta.annotation.Nullable Integer dimId) {
+  public MeasurementPenaltiesDataReportsInner dimId(@jakarta.annotation.Nullable Long dimId) {
     this.dimId = dimId;
     return this;
   }
@@ -208,11 +208,11 @@ public class MeasurementPenaltiesDataReportsInner {
    * @return dimId
    */
   @jakarta.annotation.Nullable
-  public Integer getDimId() {
+  public Long getDimId() {
     return dimId;
   }
 
-  public void setDimId(@jakarta.annotation.Nullable Integer dimId) {
+  public void setDimId(@jakarta.annotation.Nullable Long dimId) {
     this.dimId = dimId;
   }
 
@@ -256,7 +256,7 @@ public class MeasurementPenaltiesDataReportsInner {
     this.volume = volume;
   }
 
-  public MeasurementPenaltiesDataReportsInner width(@jakarta.annotation.Nullable Integer width) {
+  public MeasurementPenaltiesDataReportsInner width(@jakarta.annotation.Nullable Long width) {
     this.width = width;
     return this;
   }
@@ -267,15 +267,15 @@ public class MeasurementPenaltiesDataReportsInner {
    * @return width
    */
   @jakarta.annotation.Nullable
-  public Integer getWidth() {
+  public Long getWidth() {
     return width;
   }
 
-  public void setWidth(@jakarta.annotation.Nullable Integer width) {
+  public void setWidth(@jakarta.annotation.Nullable Long width) {
     this.width = width;
   }
 
-  public MeasurementPenaltiesDataReportsInner length(@jakarta.annotation.Nullable Integer length) {
+  public MeasurementPenaltiesDataReportsInner length(@jakarta.annotation.Nullable Long length) {
     this.length = length;
     return this;
   }
@@ -286,15 +286,15 @@ public class MeasurementPenaltiesDataReportsInner {
    * @return length
    */
   @jakarta.annotation.Nullable
-  public Integer getLength() {
+  public Long getLength() {
     return length;
   }
 
-  public void setLength(@jakarta.annotation.Nullable Integer length) {
+  public void setLength(@jakarta.annotation.Nullable Long length) {
     this.length = length;
   }
 
-  public MeasurementPenaltiesDataReportsInner height(@jakarta.annotation.Nullable Integer height) {
+  public MeasurementPenaltiesDataReportsInner height(@jakarta.annotation.Nullable Long height) {
     this.height = height;
     return this;
   }
@@ -305,11 +305,11 @@ public class MeasurementPenaltiesDataReportsInner {
    * @return height
    */
   @jakarta.annotation.Nullable
-  public Integer getHeight() {
+  public Long getHeight() {
     return height;
   }
 
-  public void setHeight(@jakarta.annotation.Nullable Integer height) {
+  public void setHeight(@jakarta.annotation.Nullable Long height) {
     this.height = height;
   }
 
@@ -333,8 +333,7 @@ public class MeasurementPenaltiesDataReportsInner {
     this.volumeSup = volumeSup;
   }
 
-  public MeasurementPenaltiesDataReportsInner widthSup(
-      @jakarta.annotation.Nullable Integer widthSup) {
+  public MeasurementPenaltiesDataReportsInner widthSup(@jakarta.annotation.Nullable Long widthSup) {
     this.widthSup = widthSup;
     return this;
   }
@@ -345,16 +344,16 @@ public class MeasurementPenaltiesDataReportsInner {
    * @return widthSup
    */
   @jakarta.annotation.Nullable
-  public Integer getWidthSup() {
+  public Long getWidthSup() {
     return widthSup;
   }
 
-  public void setWidthSup(@jakarta.annotation.Nullable Integer widthSup) {
+  public void setWidthSup(@jakarta.annotation.Nullable Long widthSup) {
     this.widthSup = widthSup;
   }
 
   public MeasurementPenaltiesDataReportsInner lengthSup(
-      @jakarta.annotation.Nullable Integer lengthSup) {
+      @jakarta.annotation.Nullable Long lengthSup) {
     this.lengthSup = lengthSup;
     return this;
   }
@@ -365,16 +364,16 @@ public class MeasurementPenaltiesDataReportsInner {
    * @return lengthSup
    */
   @jakarta.annotation.Nullable
-  public Integer getLengthSup() {
+  public Long getLengthSup() {
     return lengthSup;
   }
 
-  public void setLengthSup(@jakarta.annotation.Nullable Integer lengthSup) {
+  public void setLengthSup(@jakarta.annotation.Nullable Long lengthSup) {
     this.lengthSup = lengthSup;
   }
 
   public MeasurementPenaltiesDataReportsInner heightSup(
-      @jakarta.annotation.Nullable Integer heightSup) {
+      @jakarta.annotation.Nullable Long heightSup) {
     this.heightSup = heightSup;
     return this;
   }
@@ -385,11 +384,11 @@ public class MeasurementPenaltiesDataReportsInner {
    * @return heightSup
    */
   @jakarta.annotation.Nullable
-  public Integer getHeightSup() {
+  public Long getHeightSup() {
     return heightSup;
   }
 
-  public void setHeightSup(@jakarta.annotation.Nullable Integer heightSup) {
+  public void setHeightSup(@jakarta.annotation.Nullable Long heightSup) {
     this.heightSup = heightSup;
   }
 

@@ -73,7 +73,7 @@ public class Event {
 
   @SerializedName(SERIALIZED_NAME_ADD_TIMESTAMP)
   @jakarta.annotation.Nullable
-  private Integer addTimestamp;
+  private Long addTimestamp;
 
   public static final String SERIALIZED_NAME_ADD_TIME = "addTime";
 
@@ -219,7 +219,7 @@ public class Event {
     this.source = source;
   }
 
-  public Event addTimestamp(@jakarta.annotation.Nullable Integer addTimestamp) {
+  public Event addTimestamp(@jakarta.annotation.Nullable Long addTimestamp) {
     this.addTimestamp = addTimestamp;
     return this;
   }
@@ -230,11 +230,11 @@ public class Event {
    * @return addTimestamp
    */
   @jakarta.annotation.Nullable
-  public Integer getAddTimestamp() {
+  public Long getAddTimestamp() {
     return addTimestamp;
   }
 
-  public void setAddTimestamp(@jakarta.annotation.Nullable Integer addTimestamp) {
+  public void setAddTimestamp(@jakarta.annotation.Nullable Long addTimestamp) {
     this.addTimestamp = addTimestamp;
   }
 

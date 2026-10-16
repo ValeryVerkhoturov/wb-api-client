@@ -49,19 +49,19 @@ public class V3TransferOrderToAssembly {
 
   @SerializedName(SERIALIZED_NAME_NEW_STICKER_ID)
   @jakarta.annotation.Nullable
-  private Integer newStickerId;
+  private Long newStickerId;
 
   public static final String SERIALIZED_NAME_OLD_STICKER_ID = "oldStickerId";
 
   @SerializedName(SERIALIZED_NAME_OLD_STICKER_ID)
   @jakarta.annotation.Nullable
-  private Integer oldStickerId;
+  private Long oldStickerId;
 
   public static final String SERIALIZED_NAME_ORDER_ID = "orderId";
 
   @SerializedName(SERIALIZED_NAME_ORDER_ID)
   @jakarta.annotation.Nullable
-  private Integer orderId;
+  private Long orderId;
 
   public V3TransferOrderToAssembly() {}
 
@@ -104,7 +104,7 @@ public class V3TransferOrderToAssembly {
     this.success = success;
   }
 
-  public V3TransferOrderToAssembly newStickerId(@jakarta.annotation.Nullable Integer newStickerId) {
+  public V3TransferOrderToAssembly newStickerId(@jakarta.annotation.Nullable Long newStickerId) {
     this.newStickerId = newStickerId;
     return this;
   }
@@ -115,15 +115,15 @@ public class V3TransferOrderToAssembly {
    * @return newStickerId
    */
   @jakarta.annotation.Nullable
-  public Integer getNewStickerId() {
+  public Long getNewStickerId() {
     return newStickerId;
   }
 
-  public void setNewStickerId(@jakarta.annotation.Nullable Integer newStickerId) {
+  public void setNewStickerId(@jakarta.annotation.Nullable Long newStickerId) {
     this.newStickerId = newStickerId;
   }
 
-  public V3TransferOrderToAssembly oldStickerId(@jakarta.annotation.Nullable Integer oldStickerId) {
+  public V3TransferOrderToAssembly oldStickerId(@jakarta.annotation.Nullable Long oldStickerId) {
     this.oldStickerId = oldStickerId;
     return this;
   }
@@ -134,15 +134,15 @@ public class V3TransferOrderToAssembly {
    * @return oldStickerId
    */
   @jakarta.annotation.Nullable
-  public Integer getOldStickerId() {
+  public Long getOldStickerId() {
     return oldStickerId;
   }
 
-  public void setOldStickerId(@jakarta.annotation.Nullable Integer oldStickerId) {
+  public void setOldStickerId(@jakarta.annotation.Nullable Long oldStickerId) {
     this.oldStickerId = oldStickerId;
   }
 
-  public V3TransferOrderToAssembly orderId(@jakarta.annotation.Nullable Integer orderId) {
+  public V3TransferOrderToAssembly orderId(@jakarta.annotation.Nullable Long orderId) {
     this.orderId = orderId;
     return this;
   }
@@ -153,11 +153,11 @@ public class V3TransferOrderToAssembly {
    * @return orderId
    */
   @jakarta.annotation.Nullable
-  public Integer getOrderId() {
+  public Long getOrderId() {
     return orderId;
   }
 
-  public void setOrderId(@jakarta.annotation.Nullable Integer orderId) {
+  public void setOrderId(@jakarta.annotation.Nullable Long orderId) {
     this.orderId = orderId;
   }
 

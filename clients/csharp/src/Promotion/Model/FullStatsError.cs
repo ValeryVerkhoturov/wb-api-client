@@ -41,7 +41,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <param name="status">HTTP статус-код.</param>
         /// <param name="title">Заголовок ошибки.</param>
         /// <param name="type">Тип ошибки.</param>
-        public FullStatsError(List<FullStatsErrorErrorsInner> errors = default(List<FullStatsErrorErrorsInner>), string detail = default(string), string origin = default(string), string requestId = default(string), int status = default(int), string title = default(string), string type = default(string))
+        public FullStatsError(List<FullStatsErrorErrorsInner> errors = default(List<FullStatsErrorErrorsInner>), string detail = default(string), string origin = default(string), string requestId = default(string), long status = default(long), string title = default(string), string type = default(string))
         {
             this.Errors = errors;
             this.Detail = detail;
@@ -84,7 +84,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <value>HTTP статус-код</value>
         [DataMember(Name = "status", EmitDefaultValue = false)]
-        public int Status { get; set; }
+        public long Status { get; set; }
 
         /// <summary>
         /// Заголовок ошибки

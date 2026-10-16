@@ -40,7 +40,7 @@ public class WHMDataReportsInner {
 
   @SerializedName(SERIALIZED_NAME_NM_ID)
   @jakarta.annotation.Nullable
-  private Integer nmId;
+  private Long nmId;
 
   public static final String SERIALIZED_NAME_SUBJECT_NAME = "subjectName";
 
@@ -52,7 +52,7 @@ public class WHMDataReportsInner {
 
   @SerializedName(SERIALIZED_NAME_DIM_ID)
   @jakarta.annotation.Nullable
-  private Integer dimId;
+  private Long dimId;
 
   public static final String SERIALIZED_NAME_VOLUME = "volume";
 
@@ -64,19 +64,19 @@ public class WHMDataReportsInner {
 
   @SerializedName(SERIALIZED_NAME_WIDTH)
   @jakarta.annotation.Nullable
-  private Integer width;
+  private Long width;
 
   public static final String SERIALIZED_NAME_LENGTH = "length";
 
   @SerializedName(SERIALIZED_NAME_LENGTH)
   @jakarta.annotation.Nullable
-  private Integer length;
+  private Long length;
 
   public static final String SERIALIZED_NAME_HEIGHT = "height";
 
   @SerializedName(SERIALIZED_NAME_HEIGHT)
   @jakarta.annotation.Nullable
-  private Integer height;
+  private Long height;
 
   public static final String SERIALIZED_NAME_PHOTO_URLS = "photoUrls";
 
@@ -92,7 +92,7 @@ public class WHMDataReportsInner {
 
   public WHMDataReportsInner() {}
 
-  public WHMDataReportsInner nmId(@jakarta.annotation.Nullable Integer nmId) {
+  public WHMDataReportsInner nmId(@jakarta.annotation.Nullable Long nmId) {
     this.nmId = nmId;
     return this;
   }
@@ -103,11 +103,11 @@ public class WHMDataReportsInner {
    * @return nmId
    */
   @jakarta.annotation.Nullable
-  public Integer getNmId() {
+  public Long getNmId() {
     return nmId;
   }
 
-  public void setNmId(@jakarta.annotation.Nullable Integer nmId) {
+  public void setNmId(@jakarta.annotation.Nullable Long nmId) {
     this.nmId = nmId;
   }
 
@@ -130,7 +130,7 @@ public class WHMDataReportsInner {
     this.subjectName = subjectName;
   }
 
-  public WHMDataReportsInner dimId(@jakarta.annotation.Nullable Integer dimId) {
+  public WHMDataReportsInner dimId(@jakarta.annotation.Nullable Long dimId) {
     this.dimId = dimId;
     return this;
   }
@@ -141,11 +141,11 @@ public class WHMDataReportsInner {
    * @return dimId
    */
   @jakarta.annotation.Nullable
-  public Integer getDimId() {
+  public Long getDimId() {
     return dimId;
   }
 
-  public void setDimId(@jakarta.annotation.Nullable Integer dimId) {
+  public void setDimId(@jakarta.annotation.Nullable Long dimId) {
     this.dimId = dimId;
   }
 
@@ -168,7 +168,7 @@ public class WHMDataReportsInner {
     this.volume = volume;
   }
 
-  public WHMDataReportsInner width(@jakarta.annotation.Nullable Integer width) {
+  public WHMDataReportsInner width(@jakarta.annotation.Nullable Long width) {
     this.width = width;
     return this;
   }
@@ -179,15 +179,15 @@ public class WHMDataReportsInner {
    * @return width
    */
   @jakarta.annotation.Nullable
-  public Integer getWidth() {
+  public Long getWidth() {
     return width;
   }
 
-  public void setWidth(@jakarta.annotation.Nullable Integer width) {
+  public void setWidth(@jakarta.annotation.Nullable Long width) {
     this.width = width;
   }
 
-  public WHMDataReportsInner length(@jakarta.annotation.Nullable Integer length) {
+  public WHMDataReportsInner length(@jakarta.annotation.Nullable Long length) {
     this.length = length;
     return this;
   }
@@ -198,15 +198,15 @@ public class WHMDataReportsInner {
    * @return length
    */
   @jakarta.annotation.Nullable
-  public Integer getLength() {
+  public Long getLength() {
     return length;
   }
 
-  public void setLength(@jakarta.annotation.Nullable Integer length) {
+  public void setLength(@jakarta.annotation.Nullable Long length) {
     this.length = length;
   }
 
-  public WHMDataReportsInner height(@jakarta.annotation.Nullable Integer height) {
+  public WHMDataReportsInner height(@jakarta.annotation.Nullable Long height) {
     this.height = height;
     return this;
   }
@@ -217,11 +217,11 @@ public class WHMDataReportsInner {
    * @return height
    */
   @jakarta.annotation.Nullable
-  public Integer getHeight() {
+  public Long getHeight() {
     return height;
   }
 
-  public void setHeight(@jakarta.annotation.Nullable Integer height) {
+  public void setHeight(@jakarta.annotation.Nullable Long height) {
     this.height = height;
   }
 

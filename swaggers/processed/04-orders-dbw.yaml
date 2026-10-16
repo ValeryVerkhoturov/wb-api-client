@@ -116,6 +116,7 @@ paths:
         required: true
         schema:
           type: integer
+          format: int64
         description: |
           Дата начала периода в формате Unix timestamp
       - name: dateTo
@@ -123,6 +124,7 @@ paths:
         required: true
         schema:
           type: integer
+          format: int64
         description: Дата конца периода в формате Unix timestamp
       responses:
         '200':
@@ -566,6 +568,7 @@ paths:
           enum:
           - 58
           - 40
+          format: int64
       - name: height
         in: query
         required: true
@@ -575,6 +578,7 @@ paths:
           enum:
           - 40
           - 30
+          format: int64
       requestBody:
         content:
           application/json:
@@ -1441,6 +1445,7 @@ components:
         type: integer
         minimum: 1
         maximum: 1000
+        format: int64
       description: Параметр пагинации. Устанавливает предельное количество возвращаемых данных
   examples:
     IncorrectRequestBody:
@@ -1618,6 +1623,7 @@ components:
           description: ID сборочного задания
           type: integer
           example: 123456
+          format: int64
         sgtins:
           type: array
           minItems: 1
@@ -1664,6 +1670,7 @@ components:
           type: integer
           description: ID сборочного задания с успешно обновлёнными данными
           example: 123456
+          format: int64
     api.BatchErrorResponse:
       properties:
         code:
@@ -1673,6 +1680,7 @@ components:
               - `404`
               - `409`
           example: 404
+          format: int64
         detail:
           type: string
           description: |
@@ -1735,6 +1743,7 @@ components:
                         Код ошибки:
                           - `404`
                           - `409`
+                      format: int64
                     detail:
                       type: string
                       description: |
@@ -1749,6 +1758,7 @@ components:
               orderId:
                 type: integer
                 description: ID сборочного задания с успешно обновлёнными данными
+                format: int64
     api.OrdersRequestV2:
       type: object
       required:
@@ -1761,6 +1771,7 @@ components:
           - 1234678898
           items:
             type: integer
+            format: int64
           description: Список ID сборочных заданий
     api.OrdersMetaDleteRequestV2:
       type: object
@@ -1782,6 +1793,7 @@ components:
           maxItems: 1000
           items:
             type: integer
+            format: int64
           description: Список ID сборочных заданий
           example:
           - 123456789
@@ -1827,6 +1839,7 @@ components:
           type: array
           items:
             type: integer
+            format: int64
           description: |-
             Дополнительные добавочные коды.
             Используйте, если не получилось дозвониться по добавочному коду из `phoneCode`.
@@ -1837,6 +1850,7 @@ components:
           type: integer
           description: ID сборочного задания
           example: 1345678910
+          format: int64
         phoneCode:
           type: integer
           description: |-
@@ -1845,6 +1859,7 @@ components:
             Если код не указан, вы можете связаться с покупателем без кода
           example: 0
           nullable: false
+          format: int64
       type: object
     ClientInfoResp:
       properties:
@@ -1866,6 +1881,7 @@ components:
           type: integer
           description: ID сборочного задания
           example: 2876979713
+          format: int64
     OrderCourierInfoResp:
       type: object
       properties:
@@ -1937,6 +1953,7 @@ components:
                 type: integer
                 example: 123456
                 description: ID сборочного задания
+                format: int64
               isError:
                 type: boolean
                 description: Есть ли ошибки
@@ -1952,6 +1969,7 @@ components:
                       type: integer
                       description: Код ошибки
                       example: 404
+                      format: int64
                     detail:
                       type: string
                       example: NotFound
@@ -2056,6 +2074,7 @@ components:
           maxItems: 1000
           items:
             type: integer
+            format: int64
           type: array
       type: object
       example:
@@ -2070,6 +2089,7 @@ components:
             type: integer
             minItems: 1
             maxItems: 1000
+            format: int64
           type: array
       type: object
       example:
@@ -2111,6 +2131,7 @@ components:
           type: integer
           nullable: true
           example: 504658
+          format: int64
         requiredMeta:
           description: Список идентификаторов маркировки, доступных для сборочного задания. [Указывать IMEI](./orders-dbw#tag/dbwLabelIdentifiers/operation/putV3DbwOrdersOrderIdMetaImei) обязательно для [предмета](./item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll) `Смартфоны`, `"subjectId":515`
           type: array
@@ -2193,14 +2214,16 @@ components:
           nullable: false
           description: ID склада продавца, на который поступило сборочное задание
           example: 658434
+          format: int64
         nmId:
           type: integer
           nullable: false
           description: Артикул WB
           example: 123456789
+          format: int64
         chrtId:
           type: integer
-          format: uint64
+          format: int64
           nullable: false
           description: ID размера товара в системе WB
           example: 987654321
@@ -2209,11 +2232,13 @@ components:
           nullable: false
           description: Цена в валюте продажи с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100. Код валюты продажи указан в поле `currencyCode`. Предоставляется в информационных целях
           example: 1014
+          format: int64
         convertedPrice:
           type: integer
           nullable: false
           description: Цена в валюте страны продавца с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100. Предоставляется в информационных целях
           example: 1014
+          format: int64
         currencyCode:
           type: integer
           nullable: false
@@ -2238,6 +2263,7 @@ components:
           - 1
           - 2
           - 3
+          format: int64
         isZeroOrder:
           type: boolean
           description: |
@@ -2337,14 +2363,16 @@ components:
           nullable: false
           description: ID склада продавца, на который поступило сборочное задание
           example: 658434
+          format: int64
         nmId:
           type: integer
           nullable: false
           description: Артикул WB
           example: 123456789
+          format: int64
         chrtId:
           type: integer
-          format: uint64
+          format: int64
           nullable: false
           description: ID размера товара в системе WB
           example: 987654321
@@ -2353,11 +2381,13 @@ components:
           nullable: false
           description: Цена в валюте продажи с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100. Код валюты продажи указан в поле `currencyCode`. Предоставляется в информационных целях
           example: 1014
+          format: int64
         convertedPrice:
           type: integer
           nullable: false
           description: Цена в валюте страны продавца с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100. Предоставляется в информационных целях
           example: 1014
+          format: int64
         currencyCode:
           type: integer
           nullable: false
@@ -2382,6 +2412,7 @@ components:
           - 1
           - 2
           - 3
+          format: int64
         comment:
           type: string
           nullable: false
@@ -2437,6 +2468,7 @@ components:
                 type: integer
                 description: ID сборочного задания
                 example: 1234567890
+                format: int64
     Response4XX:
       type: object
       properties:

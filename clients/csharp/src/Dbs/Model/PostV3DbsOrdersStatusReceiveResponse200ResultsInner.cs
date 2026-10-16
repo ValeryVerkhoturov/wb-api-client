@@ -37,7 +37,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Model
         /// <param name="errors">Детали ошибки.</param>
         /// <param name="isError">Есть ли ошибки.</param>
         /// <param name="orderId">ID сборочного задания с успешно обновлёнными данными.</param>
-        public PostV3DbsOrdersStatusReceiveResponse200ResultsInner(List<PostV3DbsOrdersStatusReceiveResponse200ResultsInnerErrorsInner> errors = default(List<PostV3DbsOrdersStatusReceiveResponse200ResultsInnerErrorsInner>), bool isError = default(bool), int orderId = default(int))
+        public PostV3DbsOrdersStatusReceiveResponse200ResultsInner(List<PostV3DbsOrdersStatusReceiveResponse200ResultsInnerErrorsInner> errors = default(List<PostV3DbsOrdersStatusReceiveResponse200ResultsInnerErrorsInner>), bool isError = default(bool), long orderId = default(long))
         {
             this.Errors = errors;
             this.IsError = isError;
@@ -69,7 +69,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Model
         <example>123456</example>
         */
         [DataMember(Name = "orderId", EmitDefaultValue = false)]
-        public int OrderId { get; set; }
+        public long OrderId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

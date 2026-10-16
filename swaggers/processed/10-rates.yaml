@@ -629,6 +629,7 @@ components:
         status:
           type: integer
           description: HTTP статус-код
+          format: int64
         title:
           type: string
           description: ID ошибки
@@ -657,6 +658,7 @@ components:
         warehouseID:
           type: integer
           description: ID склада. По нему можно получить [информацию о складе](./orders-fbw#tag/informationForFormingSupplies/operation/getV1Warehouses)
+          format: int64
         warehouseName:
           type: string
           description: Название склада
@@ -676,6 +678,7 @@ components:
             - `6` — Суперсейф
 
             Для типа поставки \*\*QR-поставка с коробами\*\* поле не возвращается
+          format: int64
         storageCoef:
           type: string
           nullable: true
@@ -759,12 +762,14 @@ components:
               parentID:
                 type: integer
                 description: ID родительской категории
+                format: int64
               parentName:
                 type: string
                 description: Название родительской категории
               subjectID:
                 type: integer
                 description: ID предмета
+                format: int64
               subjectName:
                 type: string
                 description: Название предмета
@@ -783,12 +788,14 @@ components:
               parentID:
                 type: integer
                 description: ID родительской категории
+                format: int64
               parentName:
                 type: string
                 description: Название родительской категории
               subjectID:
                 type: integer
                 description: ID предмета
+                format: int64
               subjectName:
                 type: string
                 description: Название предмета
@@ -807,12 +814,14 @@ components:
               parentID:
                 type: integer
                 description: ID родительской категории
+                format: int64
               parentName:
                 type: string
                 description: Название родительской категории
               subjectID:
                 type: integer
                 description: ID предмета
+                format: int64
               subjectName:
                 type: string
                 description: Название предмета
@@ -837,12 +846,14 @@ components:
               parentID:
                 type: integer
                 description: ID родительской категории
+                format: int64
               parentName:
                 type: string
                 description: Название родительской категории
               subjectID:
                 type: integer
                 description: ID предмета
+                format: int64
               subjectName:
                 type: string
                 description: Название предмета
@@ -861,12 +872,14 @@ components:
               parentID:
                 type: integer
                 description: ID родительской категории
+                format: int64
               parentName:
                 type: string
                 description: Название родительской категории
               subjectID:
                 type: integer
                 description: ID предмета
+                format: int64
               subjectName:
                 type: string
                 description: Название предмета

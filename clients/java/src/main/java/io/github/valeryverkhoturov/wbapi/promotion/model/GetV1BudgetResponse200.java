@@ -37,19 +37,19 @@ public class GetV1BudgetResponse200 {
 
   @SerializedName(SERIALIZED_NAME_CASH)
   @jakarta.annotation.Nullable
-  private Integer cash;
+  private Long cash;
 
   public static final String SERIALIZED_NAME_NETTING = "netting";
 
   @SerializedName(SERIALIZED_NAME_NETTING)
   @jakarta.annotation.Nullable
-  private Integer netting;
+  private Long netting;
 
   public static final String SERIALIZED_NAME_TOTAL = "total";
 
   @SerializedName(SERIALIZED_NAME_TOTAL)
   @jakarta.annotation.Nullable
-  private Integer total;
+  private Long total;
 
   public static final String SERIALIZED_NAME_CURRENCY = "currency";
 
@@ -59,7 +59,7 @@ public class GetV1BudgetResponse200 {
 
   public GetV1BudgetResponse200() {}
 
-  public GetV1BudgetResponse200 cash(@jakarta.annotation.Nullable Integer cash) {
+  public GetV1BudgetResponse200 cash(@jakarta.annotation.Nullable Long cash) {
     this.cash = cash;
     return this;
   }
@@ -70,15 +70,15 @@ public class GetV1BudgetResponse200 {
    * @return cash
    */
   @jakarta.annotation.Nullable
-  public Integer getCash() {
+  public Long getCash() {
     return cash;
   }
 
-  public void setCash(@jakarta.annotation.Nullable Integer cash) {
+  public void setCash(@jakarta.annotation.Nullable Long cash) {
     this.cash = cash;
   }
 
-  public GetV1BudgetResponse200 netting(@jakarta.annotation.Nullable Integer netting) {
+  public GetV1BudgetResponse200 netting(@jakarta.annotation.Nullable Long netting) {
     this.netting = netting;
     return this;
   }
@@ -89,15 +89,15 @@ public class GetV1BudgetResponse200 {
    * @return netting
    */
   @jakarta.annotation.Nullable
-  public Integer getNetting() {
+  public Long getNetting() {
     return netting;
   }
 
-  public void setNetting(@jakarta.annotation.Nullable Integer netting) {
+  public void setNetting(@jakarta.annotation.Nullable Long netting) {
     this.netting = netting;
   }
 
-  public GetV1BudgetResponse200 total(@jakarta.annotation.Nullable Integer total) {
+  public GetV1BudgetResponse200 total(@jakarta.annotation.Nullable Long total) {
     this.total = total;
     return this;
   }
@@ -109,11 +109,11 @@ public class GetV1BudgetResponse200 {
    * @return total
    */
   @jakarta.annotation.Nullable
-  public Integer getTotal() {
+  public Long getTotal() {
     return total;
   }
 
-  public void setTotal(@jakarta.annotation.Nullable Integer total) {
+  public void setTotal(@jakarta.annotation.Nullable Long total) {
     this.total = total;
   }
 

@@ -59,7 +59,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <param name="actionName">Название акции.</param>
         /// <param name="showHours">Часы показа.</param>
         /// <param name="erid">Уникальный ID медиакампании для работы с ОРД.</param>
-        public GetV1AdvertResponse200ItemsInner(int id = default(int), string name = default(string), int status = default(int), int place = default(int), int budget = default(int), int dailyLimit = default(int), string categoryName = default(string), int cpm = default(int), string url = default(string), int advertType = default(int), string createdAt = default(string), string updatedAt = default(string), string dateFrom = default(string), string dateTo = default(string), List<int> nms = default(List<int>), string bottomText1 = default(string), string bottomText2 = default(string), string message = default(string), int additionalSettings = default(int), int receiversCount = default(int), int subjectId = default(int), string subjectName = default(string), string actionName = default(string), List<GetV1AdvertResponse200ItemsInnerShowHoursInner> showHours = default(List<GetV1AdvertResponse200ItemsInnerShowHoursInner>), string erid = default(string))
+        public GetV1AdvertResponse200ItemsInner(long id = default(long), string name = default(string), long status = default(long), long place = default(long), long budget = default(long), long dailyLimit = default(long), string categoryName = default(string), long cpm = default(long), string url = default(string), long advertType = default(long), string createdAt = default(string), string updatedAt = default(string), string dateFrom = default(string), string dateTo = default(string), List<long> nms = default(List<long>), string bottomText1 = default(string), string bottomText2 = default(string), string message = default(string), long additionalSettings = default(long), long receiversCount = default(long), long subjectId = default(long), string subjectName = default(string), string actionName = default(string), List<GetV1AdvertResponse200ItemsInnerShowHoursInner> showHours = default(List<GetV1AdvertResponse200ItemsInnerShowHoursInner>), string erid = default(string))
         {
             this.Id = id;
             this.Name = name;
@@ -93,7 +93,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <value>ID баннера</value>
         [DataMember(Name = "id", EmitDefaultValue = false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// Бренд
@@ -107,28 +107,28 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <value>Статус (такой же как у медиакампании)</value>
         [DataMember(Name = "status", EmitDefaultValue = false)]
-        public int Status { get; set; }
+        public long Status { get; set; }
 
         /// <summary>
         /// Позиция на странице размещения
         /// </summary>
         /// <value>Позиция на странице размещения</value>
         [DataMember(Name = "place", EmitDefaultValue = false)]
-        public int Place { get; set; }
+        public long Place { get; set; }
 
         /// <summary>
         /// Бюджет
         /// </summary>
         /// <value>Бюджет</value>
         [DataMember(Name = "budget", EmitDefaultValue = false)]
-        public int Budget { get; set; }
+        public long Budget { get; set; }
 
         /// <summary>
         /// Дневной лимит (для баннеров по показам)
         /// </summary>
         /// <value>Дневной лимит (для баннеров по показам)</value>
         [DataMember(Name = "daily_limit", EmitDefaultValue = false)]
-        public int DailyLimit { get; set; }
+        public long DailyLimit { get; set; }
 
         /// <summary>
         /// Название категории размещения
@@ -142,7 +142,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <value>Ставка</value>
         [DataMember(Name = "cpm", EmitDefaultValue = false)]
-        public int Cpm { get; set; }
+        public long Cpm { get; set; }
 
         /// <summary>
         /// URL страницы, на которую попадает пользователь при клике по баннеру
@@ -156,7 +156,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <value>Тип продвижения: - &#x60;1&#x60; — баннер - &#x60;2&#x60; — всплывающее меню - &#x60;3&#x60; — почтовая рассылка - &#x60;4&#x60; — социальные сети - &#x60;5&#x60; — push-уведомления в мобильном приложении </value>
         [DataMember(Name = "advert_type", EmitDefaultValue = false)]
-        public int AdvertType { get; set; }
+        public long AdvertType { get; set; }
 
         /// <summary>
         /// Дата создания баннера
@@ -191,7 +191,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <value>Подборка артикулов WB</value>
         [DataMember(Name = "nms", EmitDefaultValue = false)]
-        public List<int> Nms { get; set; }
+        public List<long> Nms { get; set; }
 
         /// <summary>
         /// Текст под плашкой баннера
@@ -219,21 +219,21 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <value>Дополнительные настройки.  Формат почтовой рассылки: - &#x60;1&#x60; — общий - &#x60;2&#x60; — частичный - &#x60;3&#x60; — уникальный   Социальная сеть: - &#x60;1&#x60; — VK - &#x60;2&#x60; — OK (Одноклассники) </value>
         [DataMember(Name = "additionalSettings", EmitDefaultValue = false)]
-        public int AdditionalSettings { get; set; }
+        public long AdditionalSettings { get; set; }
 
         /// <summary>
         /// Кол-во получателей push-уведомлений
         /// </summary>
         /// <value>Кол-во получателей push-уведомлений</value>
         [DataMember(Name = "receiversCount", EmitDefaultValue = false)]
-        public int ReceiversCount { get; set; }
+        public long ReceiversCount { get; set; }
 
         /// <summary>
         /// ID родительской категории товара
         /// </summary>
         /// <value>ID родительской категории товара</value>
         [DataMember(Name = "subject_id", EmitDefaultValue = false)]
-        public int SubjectId { get; set; }
+        public long SubjectId { get; set; }
 
         /// <summary>
         /// Название родительской категории товара

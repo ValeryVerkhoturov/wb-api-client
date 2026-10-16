@@ -44,7 +44,7 @@ public class TableSearchTextItem {
 
   @SerializedName(SERIALIZED_NAME_NM_ID)
   @jakarta.annotation.Nullable
-  private Integer nmId;
+  private Long nmId;
 
   public static final String SERIALIZED_NAME_SUBJECT_NAME = "subjectName";
 
@@ -104,7 +104,7 @@ public class TableSearchTextItem {
 
   @SerializedName(SERIALIZED_NAME_WEEK_FREQUENCY)
   @jakarta.annotation.Nullable
-  private Integer weekFrequency;
+  private Long weekFrequency;
 
   public static final String SERIALIZED_NAME_MEDIAN_POSITION = "medianPosition";
 
@@ -175,7 +175,7 @@ public class TableSearchTextItem {
     this.text = text;
   }
 
-  public TableSearchTextItem nmId(@jakarta.annotation.Nullable Integer nmId) {
+  public TableSearchTextItem nmId(@jakarta.annotation.Nullable Long nmId) {
     this.nmId = nmId;
     return this;
   }
@@ -186,11 +186,11 @@ public class TableSearchTextItem {
    * @return nmId
    */
   @jakarta.annotation.Nullable
-  public Integer getNmId() {
+  public Long getNmId() {
     return nmId;
   }
 
-  public void setNmId(@jakarta.annotation.Nullable Integer nmId) {
+  public void setNmId(@jakarta.annotation.Nullable Long nmId) {
     this.nmId = nmId;
   }
 
@@ -368,7 +368,7 @@ public class TableSearchTextItem {
     this.frequency = frequency;
   }
 
-  public TableSearchTextItem weekFrequency(@jakarta.annotation.Nullable Integer weekFrequency) {
+  public TableSearchTextItem weekFrequency(@jakarta.annotation.Nullable Long weekFrequency) {
     this.weekFrequency = weekFrequency;
     return this;
   }
@@ -379,11 +379,11 @@ public class TableSearchTextItem {
    * @return weekFrequency
    */
   @jakarta.annotation.Nullable
-  public Integer getWeekFrequency() {
+  public Long getWeekFrequency() {
     return weekFrequency;
   }
 
-  public void setWeekFrequency(@jakarta.annotation.Nullable Integer weekFrequency) {
+  public void setWeekFrequency(@jakarta.annotation.Nullable Long weekFrequency) {
     this.weekFrequency = weekFrequency;
   }
 

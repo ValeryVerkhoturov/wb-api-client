@@ -37,7 +37,7 @@ public class GetV1SupplierSubjectsResponse200Inner {
 
   @SerializedName(SERIALIZED_NAME_ID)
   @jakarta.annotation.Nullable
-  private Integer id;
+  private Long id;
 
   public static final String SERIALIZED_NAME_NAME = "name";
 
@@ -49,11 +49,11 @@ public class GetV1SupplierSubjectsResponse200Inner {
 
   @SerializedName(SERIALIZED_NAME_COUNT)
   @jakarta.annotation.Nullable
-  private Integer count;
+  private Long count;
 
   public GetV1SupplierSubjectsResponse200Inner() {}
 
-  public GetV1SupplierSubjectsResponse200Inner id(@jakarta.annotation.Nullable Integer id) {
+  public GetV1SupplierSubjectsResponse200Inner id(@jakarta.annotation.Nullable Long id) {
     this.id = id;
     return this;
   }
@@ -64,11 +64,11 @@ public class GetV1SupplierSubjectsResponse200Inner {
    * @return id
    */
   @jakarta.annotation.Nullable
-  public Integer getId() {
+  public Long getId() {
     return id;
   }
 
-  public void setId(@jakarta.annotation.Nullable Integer id) {
+  public void setId(@jakarta.annotation.Nullable Long id) {
     this.id = id;
   }
 
@@ -91,7 +91,7 @@ public class GetV1SupplierSubjectsResponse200Inner {
     this.name = name;
   }
 
-  public GetV1SupplierSubjectsResponse200Inner count(@jakarta.annotation.Nullable Integer count) {
+  public GetV1SupplierSubjectsResponse200Inner count(@jakarta.annotation.Nullable Long count) {
     this.count = count;
     return this;
   }
@@ -102,11 +102,11 @@ public class GetV1SupplierSubjectsResponse200Inner {
    * @return count
    */
   @jakarta.annotation.Nullable
-  public Integer getCount() {
+  public Long getCount() {
     return count;
   }
 
-  public void setCount(@jakarta.annotation.Nullable Integer count) {
+  public void setCount(@jakarta.annotation.Nullable Long count) {
     this.count = count;
   }
 

@@ -41,7 +41,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         public ResponseItemListAdditionalErrors(ResponseItemListAdditionalErrorsOneOf actualInstance)
         {
             this.IsNullable = false;
-            this.SchemaType= "oneOf";
+            this.SchemaType = "oneOf";
             this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
         }
 
@@ -53,7 +53,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         public ResponseItemListAdditionalErrors(string actualInstance)
         {
             this.IsNullable = false;
-            this.SchemaType= "oneOf";
+            this.SchemaType = "oneOf";
             this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
         }
 
@@ -65,7 +65,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         public ResponseItemListAdditionalErrors(ResponseItemListAdditionalErrorsOneOf1 actualInstance)
         {
             this.IsNullable = false;
-            this.SchemaType= "oneOf";
+            this.SchemaType = "oneOf";
             this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
         }
 
@@ -281,9 +281,9 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// <returns>The object converted from the JSON string</returns>
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
-            switch(reader.TokenType) 
+            switch (reader.TokenType)
             {
-                case JsonToken.String: 
+                case JsonToken.String:
                     return new ResponseItemListAdditionalErrors(Convert.ToString(reader.Value));
                 case JsonToken.StartObject:
                     return ResponseItemListAdditionalErrors.FromJson(JObject.Load(reader).ToString(Formatting.None));

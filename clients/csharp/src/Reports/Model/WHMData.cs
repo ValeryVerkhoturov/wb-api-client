@@ -36,7 +36,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /// </summary>
         /// <param name="reports">Замеры.</param>
         /// <param name="total">Количество замеров в отчёте. Без учёта &#x60;limit&#x60; и &#x60;offset&#x60;.</param>
-        public WHMData(List<WHMDataReportsInner> reports = default(List<WHMDataReportsInner>), int total = default(int))
+        public WHMData(List<WHMDataReportsInner> reports = default(List<WHMDataReportsInner>), long total = default(long))
         {
             this.Reports = reports;
             this.Total = total;
@@ -57,7 +57,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         <example>11</example>
         */
         [DataMember(Name = "total", EmitDefaultValue = false)]
-        public int Total { get; set; }
+        public long Total { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

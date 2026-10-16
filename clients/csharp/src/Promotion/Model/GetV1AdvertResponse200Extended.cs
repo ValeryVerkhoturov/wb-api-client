@@ -43,7 +43,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <param name="budget">Остаток бюджета для типа &#x60;2&#x60;.</param>
         /// <param name="operation">Источник списания:   - &#x60;1&#x60; — баланс   - &#x60;2&#x60; — счёт .</param>
         /// <param name="contractId">ID контракта, для продавцов на контракте.</param>
-        public GetV1AdvertResponse200Extended(string reason = default(string), int expenses = default(int), string from = default(string), string to = default(string), string updatedAt = default(string), int price = default(int), int budget = default(int), int operation = default(int), int contractId = default(int))
+        public GetV1AdvertResponse200Extended(string reason = default(string), long expenses = default(long), string from = default(string), string to = default(string), string updatedAt = default(string), long price = default(long), long budget = default(long), long operation = default(long), long contractId = default(long))
         {
             this.Reason = reason;
             this.Expenses = expenses;
@@ -68,7 +68,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <value>Затраты</value>
         [DataMember(Name = "expenses", EmitDefaultValue = false)]
-        public int Expenses { get; set; }
+        public long Expenses { get; set; }
 
         /// <summary>
         /// Дата и время начала показа медиакампании
@@ -96,28 +96,28 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <value>Стоимость размещения по дням для типа &#x60;1&#x60;</value>
         [DataMember(Name = "price", EmitDefaultValue = false)]
-        public int Price { get; set; }
+        public long Price { get; set; }
 
         /// <summary>
         /// Остаток бюджета для типа &#x60;2&#x60;
         /// </summary>
         /// <value>Остаток бюджета для типа &#x60;2&#x60;</value>
         [DataMember(Name = "budget", EmitDefaultValue = false)]
-        public int Budget { get; set; }
+        public long Budget { get; set; }
 
         /// <summary>
         /// Источник списания:   - &#x60;1&#x60; — баланс   - &#x60;2&#x60; — счёт 
         /// </summary>
         /// <value>Источник списания:   - &#x60;1&#x60; — баланс   - &#x60;2&#x60; — счёт </value>
         [DataMember(Name = "operation", EmitDefaultValue = false)]
-        public int Operation { get; set; }
+        public long Operation { get; set; }
 
         /// <summary>
         /// ID контракта, для продавцов на контракте
         /// </summary>
         /// <value>ID контракта, для продавцов на контракте</value>
         [DataMember(Name = "contract_id", EmitDefaultValue = false)]
-        public int ContractId { get; set; }
+        public long ContractId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

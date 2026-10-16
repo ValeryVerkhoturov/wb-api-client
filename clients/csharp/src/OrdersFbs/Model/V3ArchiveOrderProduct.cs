@@ -38,7 +38,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// <param name="chrtId">ID размера товара в системе WB.</param>
         /// <param name="nmId">Артикул WB.</param>
         /// <param name="skus">Список баркодов.</param>
-        public V3ArchiveOrderProduct(string article = default(string), int chrtId = default(int), int nmId = default(int), List<string> skus = default(List<string>))
+        public V3ArchiveOrderProduct(string article = default(string), long chrtId = default(long), long nmId = default(long), List<string> skus = default(List<string>))
         {
             this.Article = article;
             this.ChrtId = chrtId;
@@ -64,7 +64,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         <example>12345678</example>
         */
         [DataMember(Name = "chrtId", EmitDefaultValue = false)]
-        public int ChrtId { get; set; }
+        public long ChrtId { get; set; }
 
         /// <summary>
         /// Артикул WB
@@ -74,7 +74,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         <example>370870300</example>
         */
         [DataMember(Name = "nmId", EmitDefaultValue = false)]
-        public int NmId { get; set; }
+        public long NmId { get; set; }
 
         /// <summary>
         /// Список баркодов

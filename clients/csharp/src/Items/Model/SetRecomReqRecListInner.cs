@@ -36,7 +36,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// </summary>
         /// <param name="nmId">Артикул WB (default to 0).</param>
         /// <param name="recommendations">Рекомендуемые товары.  Укажите &#x60;recomNm&#x60; товаров, чтобы добавить их в рекомендации к указанному &#x60;nmId&#x60;.  При отправке пустого массива &#x60;[]&#x60; все текущие рекомендации для указанного &#x60;nmId&#x60; будут удалены..</param>
-        public SetRecomReqRecListInner(int nmId = 0, List<SetRecomReqRecListInnerRecommendationsInner> recommendations = default(List<SetRecomReqRecListInnerRecommendationsInner>))
+        public SetRecomReqRecListInner(long nmId = 0, List<SetRecomReqRecListInnerRecommendationsInner> recommendations = default(List<SetRecomReqRecListInnerRecommendationsInner>))
         {
             this.NmId = nmId;
             this.Recommendations = recommendations;
@@ -50,7 +50,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         <example>5870243</example>
         */
         [DataMember(Name = "nmId", EmitDefaultValue = false)]
-        public int NmId { get; set; }
+        public long NmId { get; set; }
 
         /// <summary>
         /// Рекомендуемые товары.  Укажите &#x60;recomNm&#x60; товаров, чтобы добавить их в рекомендации к указанному &#x60;nmId&#x60;.  При отправке пустого массива &#x60;[]&#x60; все текущие рекомендации для указанного &#x60;nmId&#x60; будут удалены.

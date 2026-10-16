@@ -58,7 +58,7 @@ public class ApiB2bClientInfoResponse {
 
   @SerializedName(SERIALIZED_NAME_ORDER_ID)
   @jakarta.annotation.Nullable
-  private Integer orderId;
+  private Long orderId;
 
   public ApiB2bClientInfoResponse() {}
 
@@ -129,7 +129,7 @@ public class ApiB2bClientInfoResponse {
     this.isError = isError;
   }
 
-  public ApiB2bClientInfoResponse orderId(@jakarta.annotation.Nullable Integer orderId) {
+  public ApiB2bClientInfoResponse orderId(@jakarta.annotation.Nullable Long orderId) {
     this.orderId = orderId;
     return this;
   }
@@ -140,11 +140,11 @@ public class ApiB2bClientInfoResponse {
    * @return orderId
    */
   @jakarta.annotation.Nullable
-  public Integer getOrderId() {
+  public Long getOrderId() {
     return orderId;
   }
 
-  public void setOrderId(@jakarta.annotation.Nullable Integer orderId) {
+  public void setOrderId(@jakarta.annotation.Nullable Long orderId) {
     this.orderId = orderId;
   }
 

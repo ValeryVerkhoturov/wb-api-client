@@ -92,13 +92,13 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
             // Gtin (string) maxLength
             if (this.Gtin != null && this.Gtin.Length > 13)
             {
-                yield return new ValidationResult("Invalid value for Gtin, length must be less than 13.", new [] { "Gtin" });
+                yield return new ValidationResult("Invalid value for Gtin, length must be less than 13.", new[] { "Gtin" });
             }
 
             // Gtin (string) minLength
             if (this.Gtin != null && this.Gtin.Length < 13)
             {
-                yield return new ValidationResult("Invalid value for Gtin, length must be greater than 13.", new [] { "Gtin" });
+                yield return new ValidationResult("Invalid value for Gtin, length must be greater than 13.", new[] { "Gtin" });
             }
 
             yield break;

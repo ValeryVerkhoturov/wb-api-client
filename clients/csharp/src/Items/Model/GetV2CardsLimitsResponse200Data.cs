@@ -36,7 +36,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// </summary>
         /// <param name="freeLimits">Количество бесплатных лимитов.</param>
         /// <param name="paidLimits">Количество оплаченных лимитов.</param>
-        public GetV2CardsLimitsResponse200Data(int freeLimits = default(int), int paidLimits = default(int))
+        public GetV2CardsLimitsResponse200Data(long freeLimits = default(long), long paidLimits = default(long))
         {
             this.FreeLimits = freeLimits;
             this.PaidLimits = paidLimits;
@@ -47,14 +47,14 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// </summary>
         /// <value>Количество бесплатных лимитов</value>
         [DataMember(Name = "freeLimits", EmitDefaultValue = false)]
-        public int FreeLimits { get; set; }
+        public long FreeLimits { get; set; }
 
         /// <summary>
         /// Количество оплаченных лимитов
         /// </summary>
         /// <value>Количество оплаченных лимитов</value>
         [DataMember(Name = "paidLimits", EmitDefaultValue = false)]
-        public int PaidLimits { get; set; }
+        public long PaidLimits { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

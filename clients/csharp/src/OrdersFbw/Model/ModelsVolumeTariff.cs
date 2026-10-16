@@ -37,7 +37,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Model
         /// <param name="from">Объём поставки от, литры.</param>
         /// <param name="to">Объём поставки до, литры.</param>
         /// <param name="value">Тариф, ₽ за литр.</param>
-        public ModelsVolumeTariff(int from = default(int), int to = default(int), decimal value = default(decimal))
+        public ModelsVolumeTariff(long from = default(long), long to = default(long), decimal value = default(decimal))
         {
             this.From = from;
             this.To = to;
@@ -49,14 +49,14 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Model
         /// </summary>
         /// <value>Объём поставки от, литры</value>
         [DataMember(Name = "from", EmitDefaultValue = false)]
-        public int From { get; set; }
+        public long From { get; set; }
 
         /// <summary>
         /// Объём поставки до, литры
         /// </summary>
         /// <value>Объём поставки до, литры</value>
         [DataMember(Name = "to", EmitDefaultValue = false)]
-        public int To { get; set; }
+        public long To { get; set; }
 
         /// <summary>
         /// Тариф, ₽ за литр

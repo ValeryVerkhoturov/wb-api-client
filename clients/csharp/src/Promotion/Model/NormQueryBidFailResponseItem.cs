@@ -38,7 +38,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <param name="nmId">Артикул WB.</param>
         /// <param name="normQuery">Поисковый кластер — это группа похожих поисковых запросов, по которым покупатели находят товары.</param>
         /// <param name="reason">Описание причины ошибки.</param>
-        public NormQueryBidFailResponseItem(int advertId = default(int), int nmId = default(int), string normQuery = default(string), string reason = default(string))
+        public NormQueryBidFailResponseItem(long advertId = default(long), long nmId = default(long), string normQuery = default(string), string reason = default(string))
         {
             this.AdvertId = advertId;
             this.NmId = nmId;
@@ -51,14 +51,14 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <value>ID кампании</value>
         [DataMember(Name = "advertId", EmitDefaultValue = false)]
-        public int AdvertId { get; set; }
+        public long AdvertId { get; set; }
 
         /// <summary>
         /// Артикул WB
         /// </summary>
         /// <value>Артикул WB</value>
         [DataMember(Name = "nmId", EmitDefaultValue = false)]
-        public int NmId { get; set; }
+        public long NmId { get; set; }
 
         /// <summary>
         /// Поисковый кластер — это группа похожих поисковых запросов, по которым покупатели находят товары

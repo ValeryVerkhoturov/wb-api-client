@@ -37,7 +37,7 @@ public class ApiIMEI {
 
   @SerializedName(SERIALIZED_NAME_ORDER_ID)
   @jakarta.annotation.Nonnull
-  private Integer orderId;
+  private Long orderId;
 
   public static final String SERIALIZED_NAME_IMEI = "imei";
 
@@ -47,7 +47,7 @@ public class ApiIMEI {
 
   public ApiIMEI() {}
 
-  public ApiIMEI orderId(@jakarta.annotation.Nonnull Integer orderId) {
+  public ApiIMEI orderId(@jakarta.annotation.Nonnull Long orderId) {
     this.orderId = orderId;
     return this;
   }
@@ -58,11 +58,11 @@ public class ApiIMEI {
    * @return orderId
    */
   @jakarta.annotation.Nonnull
-  public Integer getOrderId() {
+  public Long getOrderId() {
     return orderId;
   }
 
-  public void setOrderId(@jakarta.annotation.Nonnull Integer orderId) {
+  public void setOrderId(@jakarta.annotation.Nonnull Long orderId) {
     this.orderId = orderId;
   }
 

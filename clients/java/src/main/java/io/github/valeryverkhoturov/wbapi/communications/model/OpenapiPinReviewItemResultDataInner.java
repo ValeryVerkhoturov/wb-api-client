@@ -47,7 +47,7 @@ public class OpenapiPinReviewItemResultDataInner {
 
   @SerializedName(SERIALIZED_NAME_PIN_ID)
   @jakarta.annotation.Nullable
-  private Integer pinId;
+  private Long pinId;
 
   /**
    * Метод закрепления: - &#x60;subscription&#x60; — подписка Джем - &#x60;tariff&#x60; — тарифная
@@ -204,7 +204,7 @@ public class OpenapiPinReviewItemResultDataInner {
     this.feedbackId = feedbackId;
   }
 
-  public OpenapiPinReviewItemResultDataInner pinId(@jakarta.annotation.Nullable Integer pinId) {
+  public OpenapiPinReviewItemResultDataInner pinId(@jakarta.annotation.Nullable Long pinId) {
     this.pinId = pinId;
     return this;
   }
@@ -215,11 +215,11 @@ public class OpenapiPinReviewItemResultDataInner {
    * @return pinId
    */
   @jakarta.annotation.Nullable
-  public Integer getPinId() {
+  public Long getPinId() {
     return pinId;
   }
 
-  public void setPinId(@jakarta.annotation.Nullable Integer pinId) {
+  public void setPinId(@jakarta.annotation.Nullable Long pinId) {
     this.pinId = pinId;
   }
 

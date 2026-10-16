@@ -681,8 +681,8 @@ public class FinancesApi {
       String order,
       String category,
       String serviceName,
-      Integer limit,
-      Integer offset,
+      Long limit,
+      Long offset,
       final ApiCallback _callback)
       throws ApiException {
     String basePath = null;
@@ -782,8 +782,8 @@ public class FinancesApi {
       String order,
       String category,
       String serviceName,
-      Integer limit,
-      Integer offset,
+      Long limit,
+      Long offset,
       final ApiCallback _callback)
       throws ApiException {
     return getV1DocumentsListCall(
@@ -841,8 +841,8 @@ public class FinancesApi {
       String order,
       String category,
       String serviceName,
-      Integer limit,
-      Integer offset)
+      Long limit,
+      Long offset)
       throws ApiException {
     ApiResponse<GetList> localVarResp =
         getV1DocumentsListWithHttpInfo(
@@ -901,8 +901,8 @@ public class FinancesApi {
       String order,
       String category,
       String serviceName,
-      Integer limit,
-      Integer offset)
+      Long limit,
+      Long offset)
       throws ApiException {
     okhttp3.Call localVarCall =
         getV1DocumentsListValidateBeforeCall(
@@ -963,8 +963,8 @@ public class FinancesApi {
       String order,
       String category,
       String serviceName,
-      Integer limit,
-      Integer offset,
+      Long limit,
+      Long offset,
       final ApiCallback<GetList> _callback)
       throws ApiException {
 

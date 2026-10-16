@@ -38,7 +38,7 @@ namespace ValeryVerkhoturov.WbApiClient.InStorePickup.Model
         /// <param name="firstName">Имя покупателя.</param>
         /// <param name="orderID">ID сборочного задания.</param>
         /// <param name="phoneCode">Добавочный код.</param>
-        public ApiOrderClientInfo(string phone = default(string), string firstName = default(string), int orderID = default(int), int phoneCode = default(int))
+        public ApiOrderClientInfo(string phone = default(string), string firstName = default(string), long orderID = default(long), long phoneCode = default(long))
         {
             this.Phone = phone;
             this.FirstName = firstName;
@@ -74,7 +74,7 @@ namespace ValeryVerkhoturov.WbApiClient.InStorePickup.Model
         <example>4564152</example>
         */
         [DataMember(Name = "orderID", EmitDefaultValue = false)]
-        public int OrderID { get; set; }
+        public long OrderID { get; set; }
 
         /// <summary>
         /// Добавочный код
@@ -84,7 +84,7 @@ namespace ValeryVerkhoturov.WbApiClient.InStorePickup.Model
         <example>3535</example>
         */
         [DataMember(Name = "phoneCode", EmitDefaultValue = false)]
-        public int PhoneCode { get; set; }
+        public long PhoneCode { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

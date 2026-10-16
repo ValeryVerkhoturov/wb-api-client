@@ -37,7 +37,7 @@ public class ModelsWarehousesResultItems {
 
   @SerializedName(SERIALIZED_NAME_I_D)
   @jakarta.annotation.Nullable
-  private Integer ID;
+  private Long ID;
 
   public static final String SERIALIZED_NAME_NAME = "name";
 
@@ -71,7 +71,7 @@ public class ModelsWarehousesResultItems {
 
   public ModelsWarehousesResultItems() {}
 
-  public ModelsWarehousesResultItems ID(@jakarta.annotation.Nullable Integer ID) {
+  public ModelsWarehousesResultItems ID(@jakarta.annotation.Nullable Long ID) {
     this.ID = ID;
     return this;
   }
@@ -82,11 +82,11 @@ public class ModelsWarehousesResultItems {
    * @return ID
    */
   @jakarta.annotation.Nullable
-  public Integer getID() {
+  public Long getID() {
     return ID;
   }
 
-  public void setID(@jakarta.annotation.Nullable Integer ID) {
+  public void setID(@jakarta.annotation.Nullable Long ID) {
     this.ID = ID;
   }
 

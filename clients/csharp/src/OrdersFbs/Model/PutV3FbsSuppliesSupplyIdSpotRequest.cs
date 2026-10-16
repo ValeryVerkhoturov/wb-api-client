@@ -159,61 +159,61 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
             // CarrierName (string) maxLength
             if (this.CarrierName != null && this.CarrierName.Length > 1000)
             {
-                yield return new ValidationResult("Invalid value for CarrierName, length must be less than 1000.", new [] { "CarrierName" });
+                yield return new ValidationResult("Invalid value for CarrierName, length must be less than 1000.", new[] { "CarrierName" });
             }
 
             // CarrierName (string) minLength
             if (this.CarrierName != null && this.CarrierName.Length < 1)
             {
-                yield return new ValidationResult("Invalid value for CarrierName, length must be greater than 1.", new [] { "CarrierName" });
+                yield return new ValidationResult("Invalid value for CarrierName, length must be greater than 1.", new[] { "CarrierName" });
             }
 
             // CarrierTaxNumber (string) maxLength
             if (this.CarrierTaxNumber != null && this.CarrierTaxNumber.Length > 50)
             {
-                yield return new ValidationResult("Invalid value for CarrierTaxNumber, length must be less than 50.", new [] { "CarrierTaxNumber" });
+                yield return new ValidationResult("Invalid value for CarrierTaxNumber, length must be less than 50.", new[] { "CarrierTaxNumber" });
             }
 
             // CarrierTaxNumber (string) minLength
             if (this.CarrierTaxNumber != null && this.CarrierTaxNumber.Length < 1)
             {
-                yield return new ValidationResult("Invalid value for CarrierTaxNumber, length must be greater than 1.", new [] { "CarrierTaxNumber" });
+                yield return new ValidationResult("Invalid value for CarrierTaxNumber, length must be greater than 1.", new[] { "CarrierTaxNumber" });
             }
 
             // CarrierCountryCode (string) maxLength
             if (this.CarrierCountryCode != null && this.CarrierCountryCode.Length > 3)
             {
-                yield return new ValidationResult("Invalid value for CarrierCountryCode, length must be less than 3.", new [] { "CarrierCountryCode" });
+                yield return new ValidationResult("Invalid value for CarrierCountryCode, length must be less than 3.", new[] { "CarrierCountryCode" });
             }
 
             // CarrierCountryCode (string) minLength
             if (this.CarrierCountryCode != null && this.CarrierCountryCode.Length < 3)
             {
-                yield return new ValidationResult("Invalid value for CarrierCountryCode, length must be greater than 3.", new [] { "CarrierCountryCode" });
+                yield return new ValidationResult("Invalid value for CarrierCountryCode, length must be greater than 3.", new[] { "CarrierCountryCode" });
             }
 
             // VehicleRegistrationNumber (string) maxLength
             if (this.VehicleRegistrationNumber != null && this.VehicleRegistrationNumber.Length > 30)
             {
-                yield return new ValidationResult("Invalid value for VehicleRegistrationNumber, length must be less than 30.", new [] { "VehicleRegistrationNumber" });
+                yield return new ValidationResult("Invalid value for VehicleRegistrationNumber, length must be less than 30.", new[] { "VehicleRegistrationNumber" });
             }
 
             // VehicleRegistrationNumber (string) minLength
             if (this.VehicleRegistrationNumber != null && this.VehicleRegistrationNumber.Length < 1)
             {
-                yield return new ValidationResult("Invalid value for VehicleRegistrationNumber, length must be greater than 1.", new [] { "VehicleRegistrationNumber" });
+                yield return new ValidationResult("Invalid value for VehicleRegistrationNumber, length must be greater than 1.", new[] { "VehicleRegistrationNumber" });
             }
 
             // TrailerRegistrationNumber (string) maxLength
             if (this.TrailerRegistrationNumber != null && this.TrailerRegistrationNumber.Length > 30)
             {
-                yield return new ValidationResult("Invalid value for TrailerRegistrationNumber, length must be less than 30.", new [] { "TrailerRegistrationNumber" });
+                yield return new ValidationResult("Invalid value for TrailerRegistrationNumber, length must be less than 30.", new[] { "TrailerRegistrationNumber" });
             }
 
             // TrailerRegistrationNumber (string) minLength
             if (this.TrailerRegistrationNumber != null && this.TrailerRegistrationNumber.Length < 1)
             {
-                yield return new ValidationResult("Invalid value for TrailerRegistrationNumber, length must be greater than 1.", new [] { "TrailerRegistrationNumber" });
+                yield return new ValidationResult("Invalid value for TrailerRegistrationNumber, length must be greater than 1.", new[] { "TrailerRegistrationNumber" });
             }
 
             yield break;

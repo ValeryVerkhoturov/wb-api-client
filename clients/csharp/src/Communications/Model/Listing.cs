@@ -39,7 +39,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         /// <param name="priceCurrency">Валюта.</param>
         /// <param name="rid">Уникальный ID заказа. Примечание: &#x60;rid&#x60; — это &#x60;srid&#x60; в ответах методов: - [Заявки покупателей на возврат](./customer-communication#tag/buyersReturns/operation/getV1Claims) - [Лента заказов](./analytics#tag/orderFeed/operation/postV1OrderFeed) - [Заказы](./reports#tag/mainReports/operation/getV1SupplierOrders) - [Продажи](./reports#tag/mainReports/operation/getV1SupplierSales) - [Отчёт о возвратах и перемещении товаров](./reports#tag/returnsAndItemMovementReport) - [Детализации к отчётам реализации по ID отчётов](./documents-and-accounting#tag/financialReports/operation/postV1SalesReportsDetailedReportId) - [Детализации к отчётам реализации за период](./documents-and-accounting#tag/financialReports/operation/postV1SalesReportsDetailed) - [Детализации к отчётам об издержках на приём платежей по ID отчётов](./documents-and-accounting#tag/financialReports/operation/postV1AcquiringDetailedReportId) - [Детализации к отчётам об издержках на приём платежей за период](./documents-and-accounting#tag/financialReports/operation/postV1AcquiringDetailed).</param>
         /// <param name="size">Размер товара, соответствует &#x60;wbSize&#x60; в [карточке товара](./item-management#tag/listings/operation/postV2GetCardsList).</param>
-        public Listing(int nmID = default(int), int price = default(int), string priceCurrency = default(string), string rid = default(string), string size = default(string))
+        public Listing(long nmID = default(long), long price = default(long), string priceCurrency = default(string), string rid = default(string), string size = default(string))
         {
             this.NmID = nmID;
             this.Price = price;
@@ -53,14 +53,14 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         /// </summary>
         /// <value>Артикул WB</value>
         [DataMember(Name = "nmID", EmitDefaultValue = false)]
-        public int NmID { get; set; }
+        public long NmID { get; set; }
 
         /// <summary>
         /// Фактическая цена с учетом всех скидок. Взимается с покупателя
         /// </summary>
         /// <value>Фактическая цена с учетом всех скидок. Взимается с покупателя</value>
         [DataMember(Name = "price", EmitDefaultValue = false)]
-        public int Price { get; set; }
+        public long Price { get; set; }
 
         /// <summary>
         /// Валюта

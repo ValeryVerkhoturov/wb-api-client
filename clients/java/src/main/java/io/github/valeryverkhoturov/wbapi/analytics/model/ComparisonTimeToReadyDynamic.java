@@ -37,23 +37,23 @@ public class ComparisonTimeToReadyDynamic {
 
   @SerializedName(SERIALIZED_NAME_DAYS)
   @jakarta.annotation.Nullable
-  private Integer days;
+  private Long days;
 
   public static final String SERIALIZED_NAME_HOURS = "hours";
 
   @SerializedName(SERIALIZED_NAME_HOURS)
   @jakarta.annotation.Nullable
-  private Integer hours;
+  private Long hours;
 
   public static final String SERIALIZED_NAME_MINS = "mins";
 
   @SerializedName(SERIALIZED_NAME_MINS)
   @jakarta.annotation.Nullable
-  private Integer mins;
+  private Long mins;
 
   public ComparisonTimeToReadyDynamic() {}
 
-  public ComparisonTimeToReadyDynamic days(@jakarta.annotation.Nullable Integer days) {
+  public ComparisonTimeToReadyDynamic days(@jakarta.annotation.Nullable Long days) {
     this.days = days;
     return this;
   }
@@ -64,15 +64,15 @@ public class ComparisonTimeToReadyDynamic {
    * @return days
    */
   @jakarta.annotation.Nullable
-  public Integer getDays() {
+  public Long getDays() {
     return days;
   }
 
-  public void setDays(@jakarta.annotation.Nullable Integer days) {
+  public void setDays(@jakarta.annotation.Nullable Long days) {
     this.days = days;
   }
 
-  public ComparisonTimeToReadyDynamic hours(@jakarta.annotation.Nullable Integer hours) {
+  public ComparisonTimeToReadyDynamic hours(@jakarta.annotation.Nullable Long hours) {
     this.hours = hours;
     return this;
   }
@@ -83,15 +83,15 @@ public class ComparisonTimeToReadyDynamic {
    * @return hours
    */
   @jakarta.annotation.Nullable
-  public Integer getHours() {
+  public Long getHours() {
     return hours;
   }
 
-  public void setHours(@jakarta.annotation.Nullable Integer hours) {
+  public void setHours(@jakarta.annotation.Nullable Long hours) {
     this.hours = hours;
   }
 
-  public ComparisonTimeToReadyDynamic mins(@jakarta.annotation.Nullable Integer mins) {
+  public ComparisonTimeToReadyDynamic mins(@jakarta.annotation.Nullable Long mins) {
     this.mins = mins;
     return this;
   }
@@ -102,11 +102,11 @@ public class ComparisonTimeToReadyDynamic {
    * @return mins
    */
   @jakarta.annotation.Nullable
-  public Integer getMins() {
+  public Long getMins() {
     return mins;
   }
 
-  public void setMins(@jakarta.annotation.Nullable Integer mins) {
+  public void setMins(@jakarta.annotation.Nullable Long mins) {
     this.mins = mins;
   }
 

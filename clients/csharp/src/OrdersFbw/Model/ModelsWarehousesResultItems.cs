@@ -40,7 +40,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Model
         /// <param name="workTime">Режим работы склада.</param>
         /// <param name="isActive">Доступен ли в качестве склада назначения: - &#x60;true&#x60; — да - &#x60;false&#x60; — нет .</param>
         /// <param name="isTransitActive">Доступен ли в качестве транзитного склада: - &#x60;true&#x60; — да - &#x60;false&#x60; — нет .</param>
-        public ModelsWarehousesResultItems(int iD = default(int), string name = default(string), string address = default(string), string workTime = default(string), bool isActive = default(bool), bool isTransitActive = default(bool))
+        public ModelsWarehousesResultItems(long iD = default(long), string name = default(string), string address = default(string), string workTime = default(string), bool isActive = default(bool), bool isTransitActive = default(bool))
         {
             this.ID = iD;
             this.Name = name;
@@ -55,7 +55,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Model
         /// </summary>
         /// <value>ID склада</value>
         [DataMember(Name = "ID", EmitDefaultValue = false)]
-        public int ID { get; set; }
+        public long ID { get; set; }
 
         /// <summary>
         /// Название склада

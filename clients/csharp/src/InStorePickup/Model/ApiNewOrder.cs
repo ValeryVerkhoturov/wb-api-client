@@ -87,7 +87,7 @@ namespace ValeryVerkhoturov.WbApiClient.InStorePickup.Model
         /// <param name="isZeroOrder">Признак заказа товара с нулевым остатком:   - &#x60;false&#x60; — заказ сделан на товар с ненулевым остатком   - &#x60;true&#x60; — заказ сделан на товар с нулевым остатком. Такой заказ можно отменить без штрафа за отмену .</param>
         /// <param name="tireService">Указал ли покупатель, что ему требуется услуга шиномонтажа:   - &#x60;false&#x60; — нет, услуга шиномонтажа не требуется   - &#x60;true&#x60; — да, услуга шиномонтажа требуется .</param>
         /// <param name="options">options.</param>
-        public ApiNewOrder(string ddate = default(string), int? salePrice = default(int?), List<string> requiredMeta = default(List<string>), string article = default(string), string rid = default(string), string createdAt = default(string), string warehouseAddress = default(string), string orderCode = default(string), string payMode = default(string), List<string> skus = default(List<string>), int id = default(int), int warehouseId = default(int), int nmId = default(int), int chrtId = default(int), int price = default(int), int finalPrice = default(int), int convertedPrice = default(int), int convertedFinalPrice = default(int), int currencyCode = default(int), int convertedCurrencyCode = default(int), CargoTypeEnum? cargoType = default(CargoTypeEnum?), bool isZeroOrder = default(bool), bool tireService = default(bool), ApiNewOrderOptions options = default(ApiNewOrderOptions))
+        public ApiNewOrder(string ddate = default(string), long? salePrice = default(long?), List<string> requiredMeta = default(List<string>), string article = default(string), string rid = default(string), string createdAt = default(string), string warehouseAddress = default(string), string orderCode = default(string), string payMode = default(string), List<string> skus = default(List<string>), long id = default(long), long warehouseId = default(long), long nmId = default(long), long chrtId = default(long), long price = default(long), long finalPrice = default(long), long convertedPrice = default(long), long convertedFinalPrice = default(long), int currencyCode = default(int), int convertedCurrencyCode = default(int), CargoTypeEnum? cargoType = default(CargoTypeEnum?), bool isZeroOrder = default(bool), bool tireService = default(bool), ApiNewOrderOptions options = default(ApiNewOrderOptions))
         {
             this.Ddate = ddate;
             this.SalePrice = salePrice;
@@ -130,7 +130,7 @@ namespace ValeryVerkhoturov.WbApiClient.InStorePickup.Model
         <example>504600</example>
         */
         [DataMember(Name = "salePrice", EmitDefaultValue = true)]
-        public int? SalePrice { get; set; }
+        public long? SalePrice { get; set; }
 
         /// <summary>
         /// Список идентификаторов маркировки, доступных для сборочного задания 
@@ -196,35 +196,35 @@ namespace ValeryVerkhoturov.WbApiClient.InStorePickup.Model
         /// </summary>
         /// <value>ID сборочного задания</value>
         [DataMember(Name = "id", EmitDefaultValue = false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// ID склада продавца, на который поступило сборочное задание 
         /// </summary>
         /// <value>ID склада продавца, на который поступило сборочное задание </value>
         [DataMember(Name = "warehouseId", EmitDefaultValue = false)]
-        public int WarehouseId { get; set; }
+        public long WarehouseId { get; set; }
 
         /// <summary>
         /// Артикул WB
         /// </summary>
         /// <value>Артикул WB</value>
         [DataMember(Name = "nmId", EmitDefaultValue = false)]
-        public int NmId { get; set; }
+        public long NmId { get; set; }
 
         /// <summary>
         /// ID размера товара в системе WB
         /// </summary>
         /// <value>ID размера товара в системе WB</value>
         [DataMember(Name = "chrtId", EmitDefaultValue = false)]
-        public int ChrtId { get; set; }
+        public long ChrtId { get; set; }
 
         /// <summary>
         /// Цена в валюте продажи с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100. Код валюты продажи указан в поле &#x60;currencyCode&#x60;. Предоставляется в информационных целях 
         /// </summary>
         /// <value>Цена в валюте продажи с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100. Код валюты продажи указан в поле &#x60;currencyCode&#x60;. Предоставляется в информационных целях </value>
         [DataMember(Name = "price", EmitDefaultValue = false)]
-        public int Price { get; set; }
+        public long Price { get; set; }
 
         /// <summary>
         /// Сумма к оплате покупателем в валюте продажи с учётом всех скидок, умноженная на 100.  Код валюты продажи указан в поле &#x60;currencyCode&#x60;.  Предоставляется в информационных целях.  Используйте значение поля &#x60;finalPrice&#x60;, только если в ответе метода [POST /api/marketplace/v3/click-collect/orders/final-price](./docs/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersFinalPrice) вернулось &#x60;\&quot;data\&quot;: null&#x60;. Во всех остальных случаях используйте значение поля &#x60;originalFinalPrice&#x60; из ответа указанного метода
@@ -234,7 +234,7 @@ namespace ValeryVerkhoturov.WbApiClient.InStorePickup.Model
         <example>5000</example>
         */
         [DataMember(Name = "finalPrice", EmitDefaultValue = false)]
-        public int FinalPrice { get; set; }
+        public long FinalPrice { get; set; }
 
         /// <summary>
         /// Цена в валюте страны продавца с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100. Код валюты продажи указан в поле &#x60;currencyCode&#x60;. Предоставляется в информационных целях
@@ -244,7 +244,7 @@ namespace ValeryVerkhoturov.WbApiClient.InStorePickup.Model
         <example>5000</example>
         */
         [DataMember(Name = "convertedPrice", EmitDefaultValue = false)]
-        public int ConvertedPrice { get; set; }
+        public long ConvertedPrice { get; set; }
 
         /// <summary>
         /// Сумма к оплате покупателем в валюте страны продавца с учетом всех скидок, умноженная на 100.  Предоставляется в информационных целях.  Используйте значение поля &#x60;convertedFinalPrice&#x60;, только если в ответе метода [POST /api/marketplace/v3/click-collect/orders/final-price](./docs/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersFinalPrice) вернулось &#x60;\&quot;data\&quot;: null&#x60;. Во всех остальных случаях используйте значение поля &#x60;convertedOriginalFinalPrice&#x60; из ответа того же метода
@@ -254,7 +254,7 @@ namespace ValeryVerkhoturov.WbApiClient.InStorePickup.Model
         <example>5000</example>
         */
         [DataMember(Name = "convertedFinalPrice", EmitDefaultValue = false)]
-        public int ConvertedFinalPrice { get; set; }
+        public long ConvertedFinalPrice { get; set; }
 
         /// <summary>
         /// Код валюты продажи

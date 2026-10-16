@@ -36,7 +36,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// </summary>
         /// <param name="nmId">Артикул WB.</param>
         /// <param name="data">Ссылки на изображения в том порядке, в котором они будут в карточке товара, и на видео, на любой позиции массива.</param>
-        public PostV3MediaSaveRequest(int nmId = default(int), List<string> data = default(List<string>))
+        public PostV3MediaSaveRequest(long nmId = default(long), List<string> data = default(List<string>))
         {
             this.NmId = nmId;
             this.Data = data;
@@ -47,7 +47,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// </summary>
         /// <value>Артикул WB</value>
         [DataMember(Name = "nmId", EmitDefaultValue = false)]
-        public int NmId { get; set; }
+        public long NmId { get; set; }
 
         /// <summary>
         /// Ссылки на изображения в том порядке, в котором они будут в карточке товара, и на видео, на любой позиции массива

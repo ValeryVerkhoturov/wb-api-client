@@ -39,7 +39,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         /// <param name="oldestEventTime">Время старейшего события в ответе.</param>
         /// <param name="totalEvents">Количество событий.</param>
         /// <param name="events">events.</param>
-        public EventsResult(int next = default(int), string newestEventTime = default(string), string oldestEventTime = default(string), int totalEvents = default(int), List<Event> events = default(List<Event>))
+        public EventsResult(long next = default(long), string newestEventTime = default(string), string oldestEventTime = default(string), long totalEvents = default(long), List<Event> events = default(List<Event>))
         {
             this.Next = next;
             this.NewestEventTime = newestEventTime;
@@ -53,7 +53,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         /// </summary>
         /// <value>Пагинатор. Значение поля необходимо указать в запросе для получения следующего пакета данных</value>
         [DataMember(Name = "next", EmitDefaultValue = false)]
-        public int Next { get; set; }
+        public long Next { get; set; }
 
         /// <summary>
         /// Время новейшего события в ответе
@@ -74,7 +74,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         /// </summary>
         /// <value>Количество событий</value>
         [DataMember(Name = "totalEvents", EmitDefaultValue = false)]
-        public int TotalEvents { get; set; }
+        public long TotalEvents { get; set; }
 
         /// <summary>
         /// Gets or Sets Events

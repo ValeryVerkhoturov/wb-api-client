@@ -89,7 +89,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /// <param name="sticker">ID стикера.</param>
         /// <param name="gNumber">ID корзины покупателя. Заказы одной транзакции будут иметь одинаковый &#x60;gNumber&#x60;.</param>
         /// <param name="srid">Уникальный ID заказа. Примечание для использующих API Маркетплейс: &#x60;srid&#x60; равен &#x60;rid&#x60; в ответах методов сборочных заданий..</param>
-        public SalesItem(string date = default(string), string lastChangeDate = default(string), string warehouseName = default(string), WarehouseTypeEnum? warehouseType = default(WarehouseTypeEnum?), string countryName = default(string), string oblastOkrugName = default(string), string regionName = default(string), string supplierArticle = default(string), int nmId = default(int), string barcode = default(string), string category = default(string), string subject = default(string), string brand = default(string), string techSize = default(string), int incomeID = default(int), bool isSupply = default(bool), bool isRealization = default(bool), decimal totalPrice = default(decimal), int discountPercent = default(int), decimal spp = default(decimal), int paymentSaleAmount = default(int), decimal forPay = default(decimal), decimal finishedPrice = default(decimal), decimal priceWithDisc = default(decimal), string saleID = default(string), string sticker = default(string), string gNumber = default(string), string srid = default(string))
+        public SalesItem(string date = default(string), string lastChangeDate = default(string), string warehouseName = default(string), WarehouseTypeEnum? warehouseType = default(WarehouseTypeEnum?), string countryName = default(string), string oblastOkrugName = default(string), string regionName = default(string), string supplierArticle = default(string), long nmId = default(long), string barcode = default(string), string category = default(string), string subject = default(string), string brand = default(string), string techSize = default(string), long incomeID = default(long), bool isSupply = default(bool), bool isRealization = default(bool), decimal totalPrice = default(decimal), long discountPercent = default(long), decimal spp = default(decimal), long paymentSaleAmount = default(long), decimal forPay = default(decimal), decimal finishedPrice = default(decimal), decimal priceWithDisc = default(decimal), string saleID = default(string), string sticker = default(string), string gNumber = default(string), string srid = default(string))
         {
             this.Date = date;
             this.LastChangeDate = lastChangeDate;
@@ -175,7 +175,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /// </summary>
         /// <value>Артикул WB</value>
         [DataMember(Name = "nmId", EmitDefaultValue = false)]
-        public int NmId { get; set; }
+        public long NmId { get; set; }
 
         /// <summary>
         /// Баркод
@@ -217,7 +217,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /// </summary>
         /// <value>Номер поставки</value>
         [DataMember(Name = "incomeID", EmitDefaultValue = false)]
-        public int IncomeID { get; set; }
+        public long IncomeID { get; set; }
 
         /// <summary>
         /// Договор поставки
@@ -245,7 +245,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /// </summary>
         /// <value>Скидка продавца, %</value>
         [DataMember(Name = "discountPercent", EmitDefaultValue = false)]
-        public int DiscountPercent { get; set; }
+        public long DiscountPercent { get; set; }
 
         /// <summary>
         /// Скидка WB, %
@@ -259,7 +259,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /// </summary>
         /// <value>Скидка за оплату WB Кошельком, ₽</value>
         [DataMember(Name = "paymentSaleAmount", EmitDefaultValue = false)]
-        public int PaymentSaleAmount { get; set; }
+        public long PaymentSaleAmount { get; set; }
 
         /// <summary>
         /// К перечислению продавцу. Синхронизация данных занимает до 24 часов, в течение этого времени в поле может отображаться значение &#x60;0&#x60;
@@ -369,73 +369,73 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
             // WarehouseName (string) maxLength
             if (this.WarehouseName != null && this.WarehouseName.Length > 50)
             {
-                yield return new ValidationResult("Invalid value for WarehouseName, length must be less than 50.", new [] { "WarehouseName" });
+                yield return new ValidationResult("Invalid value for WarehouseName, length must be less than 50.", new[] { "WarehouseName" });
             }
 
             // CountryName (string) maxLength
             if (this.CountryName != null && this.CountryName.Length > 200)
             {
-                yield return new ValidationResult("Invalid value for CountryName, length must be less than 200.", new [] { "CountryName" });
+                yield return new ValidationResult("Invalid value for CountryName, length must be less than 200.", new[] { "CountryName" });
             }
 
             // OblastOkrugName (string) maxLength
             if (this.OblastOkrugName != null && this.OblastOkrugName.Length > 200)
             {
-                yield return new ValidationResult("Invalid value for OblastOkrugName, length must be less than 200.", new [] { "OblastOkrugName" });
+                yield return new ValidationResult("Invalid value for OblastOkrugName, length must be less than 200.", new[] { "OblastOkrugName" });
             }
 
             // RegionName (string) maxLength
             if (this.RegionName != null && this.RegionName.Length > 200)
             {
-                yield return new ValidationResult("Invalid value for RegionName, length must be less than 200.", new [] { "RegionName" });
+                yield return new ValidationResult("Invalid value for RegionName, length must be less than 200.", new[] { "RegionName" });
             }
 
             // SupplierArticle (string) maxLength
             if (this.SupplierArticle != null && this.SupplierArticle.Length > 75)
             {
-                yield return new ValidationResult("Invalid value for SupplierArticle, length must be less than 75.", new [] { "SupplierArticle" });
+                yield return new ValidationResult("Invalid value for SupplierArticle, length must be less than 75.", new[] { "SupplierArticle" });
             }
 
             // Barcode (string) maxLength
             if (this.Barcode != null && this.Barcode.Length > 30)
             {
-                yield return new ValidationResult("Invalid value for Barcode, length must be less than 30.", new [] { "Barcode" });
+                yield return new ValidationResult("Invalid value for Barcode, length must be less than 30.", new[] { "Barcode" });
             }
 
             // Category (string) maxLength
             if (this.Category != null && this.Category.Length > 50)
             {
-                yield return new ValidationResult("Invalid value for Category, length must be less than 50.", new [] { "Category" });
+                yield return new ValidationResult("Invalid value for Category, length must be less than 50.", new[] { "Category" });
             }
 
             // Subject (string) maxLength
             if (this.Subject != null && this.Subject.Length > 50)
             {
-                yield return new ValidationResult("Invalid value for Subject, length must be less than 50.", new [] { "Subject" });
+                yield return new ValidationResult("Invalid value for Subject, length must be less than 50.", new[] { "Subject" });
             }
 
             // Brand (string) maxLength
             if (this.Brand != null && this.Brand.Length > 50)
             {
-                yield return new ValidationResult("Invalid value for Brand, length must be less than 50.", new [] { "Brand" });
+                yield return new ValidationResult("Invalid value for Brand, length must be less than 50.", new[] { "Brand" });
             }
 
             // TechSize (string) maxLength
             if (this.TechSize != null && this.TechSize.Length > 30)
             {
-                yield return new ValidationResult("Invalid value for TechSize, length must be less than 30.", new [] { "TechSize" });
+                yield return new ValidationResult("Invalid value for TechSize, length must be less than 30.", new[] { "TechSize" });
             }
 
             // SaleID (string) maxLength
             if (this.SaleID != null && this.SaleID.Length > 15)
             {
-                yield return new ValidationResult("Invalid value for SaleID, length must be less than 15.", new [] { "SaleID" });
+                yield return new ValidationResult("Invalid value for SaleID, length must be less than 15.", new[] { "SaleID" });
             }
 
             // GNumber (string) maxLength
             if (this.GNumber != null && this.GNumber.Length > 50)
             {
-                yield return new ValidationResult("Invalid value for GNumber, length must be less than 50.", new [] { "GNumber" });
+                yield return new ValidationResult("Invalid value for GNumber, length must be less than 50.", new[] { "GNumber" });
             }
 
             yield break;

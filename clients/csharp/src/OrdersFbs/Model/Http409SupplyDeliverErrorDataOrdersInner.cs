@@ -36,7 +36,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// </summary>
         /// <param name="id">ID сборочного задания.</param>
         /// <param name="metaDetails">Информация об ошибках.</param>
-        public Http409SupplyDeliverErrorDataOrdersInner(int id = default(int), List<Http409SupplyDeliverErrorDataOrdersInnerMetaDetailsInner> metaDetails = default(List<Http409SupplyDeliverErrorDataOrdersInnerMetaDetailsInner>))
+        public Http409SupplyDeliverErrorDataOrdersInner(long id = default(long), List<Http409SupplyDeliverErrorDataOrdersInnerMetaDetailsInner> metaDetails = default(List<Http409SupplyDeliverErrorDataOrdersInnerMetaDetailsInner>))
         {
             this.Id = id;
             this.MetaDetails = metaDetails;
@@ -47,7 +47,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// </summary>
         /// <value>ID сборочного задания</value>
         [DataMember(Name = "id", EmitDefaultValue = false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// Информация об ошибках

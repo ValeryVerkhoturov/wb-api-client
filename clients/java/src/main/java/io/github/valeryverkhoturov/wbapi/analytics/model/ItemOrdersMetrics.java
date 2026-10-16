@@ -43,13 +43,13 @@ public class ItemOrdersMetrics {
 
   @SerializedName(SERIALIZED_NAME_AVG_POSITION)
   @jakarta.annotation.Nullable
-  private Integer avgPosition;
+  private Long avgPosition;
 
   public static final String SERIALIZED_NAME_ORDERS = "orders";
 
   @SerializedName(SERIALIZED_NAME_ORDERS)
   @jakarta.annotation.Nullable
-  private Integer orders;
+  private Long orders;
 
   public ItemOrdersMetrics() {}
 
@@ -72,7 +72,7 @@ public class ItemOrdersMetrics {
     this.dt = dt;
   }
 
-  public ItemOrdersMetrics avgPosition(@jakarta.annotation.Nullable Integer avgPosition) {
+  public ItemOrdersMetrics avgPosition(@jakarta.annotation.Nullable Long avgPosition) {
     this.avgPosition = avgPosition;
     return this;
   }
@@ -83,15 +83,15 @@ public class ItemOrdersMetrics {
    * @return avgPosition
    */
   @jakarta.annotation.Nullable
-  public Integer getAvgPosition() {
+  public Long getAvgPosition() {
     return avgPosition;
   }
 
-  public void setAvgPosition(@jakarta.annotation.Nullable Integer avgPosition) {
+  public void setAvgPosition(@jakarta.annotation.Nullable Long avgPosition) {
     this.avgPosition = avgPosition;
   }
 
-  public ItemOrdersMetrics orders(@jakarta.annotation.Nullable Integer orders) {
+  public ItemOrdersMetrics orders(@jakarta.annotation.Nullable Long orders) {
     this.orders = orders;
     return this;
   }
@@ -102,11 +102,11 @@ public class ItemOrdersMetrics {
    * @return orders
    */
   @jakarta.annotation.Nullable
-  public Integer getOrders() {
+  public Long getOrders() {
     return orders;
   }
 
-  public void setOrders(@jakarta.annotation.Nullable Integer orders) {
+  public void setOrders(@jakarta.annotation.Nullable Long orders) {
     this.orders = orders;
   }
 

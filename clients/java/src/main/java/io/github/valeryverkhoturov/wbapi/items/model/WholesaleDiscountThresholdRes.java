@@ -37,24 +37,23 @@ public class WholesaleDiscountThresholdRes {
 
   @SerializedName(SERIALIZED_NAME_MIN_QUANTITY)
   @jakarta.annotation.Nonnull
-  private Integer minQuantity;
+  private Long minQuantity;
 
   public static final String SERIALIZED_NAME_WHOLESALE_DISCOUNT = "wholesaleDiscount";
 
   @SerializedName(SERIALIZED_NAME_WHOLESALE_DISCOUNT)
   @jakarta.annotation.Nonnull
-  private Integer wholesaleDiscount;
+  private Long wholesaleDiscount;
 
   public static final String SERIALIZED_NAME_LEVEL = "level";
 
   @SerializedName(SERIALIZED_NAME_LEVEL)
   @jakarta.annotation.Nonnull
-  private Integer level;
+  private Long level;
 
   public WholesaleDiscountThresholdRes() {}
 
-  public WholesaleDiscountThresholdRes minQuantity(
-      @jakarta.annotation.Nonnull Integer minQuantity) {
+  public WholesaleDiscountThresholdRes minQuantity(@jakarta.annotation.Nonnull Long minQuantity) {
     this.minQuantity = minQuantity;
     return this;
   }
@@ -65,16 +64,16 @@ public class WholesaleDiscountThresholdRes {
    * @return minQuantity
    */
   @jakarta.annotation.Nonnull
-  public Integer getMinQuantity() {
+  public Long getMinQuantity() {
     return minQuantity;
   }
 
-  public void setMinQuantity(@jakarta.annotation.Nonnull Integer minQuantity) {
+  public void setMinQuantity(@jakarta.annotation.Nonnull Long minQuantity) {
     this.minQuantity = minQuantity;
   }
 
   public WholesaleDiscountThresholdRes wholesaleDiscount(
-      @jakarta.annotation.Nonnull Integer wholesaleDiscount) {
+      @jakarta.annotation.Nonnull Long wholesaleDiscount) {
     this.wholesaleDiscount = wholesaleDiscount;
     return this;
   }
@@ -85,15 +84,15 @@ public class WholesaleDiscountThresholdRes {
    * @return wholesaleDiscount
    */
   @jakarta.annotation.Nonnull
-  public Integer getWholesaleDiscount() {
+  public Long getWholesaleDiscount() {
     return wholesaleDiscount;
   }
 
-  public void setWholesaleDiscount(@jakarta.annotation.Nonnull Integer wholesaleDiscount) {
+  public void setWholesaleDiscount(@jakarta.annotation.Nonnull Long wholesaleDiscount) {
     this.wholesaleDiscount = wholesaleDiscount;
   }
 
-  public WholesaleDiscountThresholdRes level(@jakarta.annotation.Nonnull Integer level) {
+  public WholesaleDiscountThresholdRes level(@jakarta.annotation.Nonnull Long level) {
     this.level = level;
     return this;
   }
@@ -104,11 +103,11 @@ public class WholesaleDiscountThresholdRes {
    * @return level
    */
   @jakarta.annotation.Nonnull
-  public Integer getLevel() {
+  public Long getLevel() {
     return level;
   }
 
-  public void setLevel(@jakarta.annotation.Nonnull Integer level) {
+  public void setLevel(@jakarta.annotation.Nonnull Long level) {
     this.level = level;
   }
 

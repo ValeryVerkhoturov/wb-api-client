@@ -41,7 +41,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// </summary>
         /// <param name="nmId">Артикул WB (required).</param>
         /// <param name="wholesaleDiscountThreshold">Оптовые скидки разных уровней для B2B (required).</param>
-        public PostV1UploadTaskB2bWholesaleRequestDataInner(int nmId = default(int), List<WholesaleDiscountThresholdReq> wholesaleDiscountThreshold = default(List<WholesaleDiscountThresholdReq>))
+        public PostV1UploadTaskB2bWholesaleRequestDataInner(long nmId = default(long), List<WholesaleDiscountThresholdReq> wholesaleDiscountThreshold = default(List<WholesaleDiscountThresholdReq>))
         {
             this.NmId = nmId;
             // to ensure "wholesaleDiscountThreshold" is required (not null)
@@ -60,7 +60,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         <example>694707813</example>
         */
         [DataMember(Name = "nmId", IsRequired = true, EmitDefaultValue = true)]
-        public int NmId { get; set; }
+        public long NmId { get; set; }
 
         /// <summary>
         /// Оптовые скидки разных уровней для B2B

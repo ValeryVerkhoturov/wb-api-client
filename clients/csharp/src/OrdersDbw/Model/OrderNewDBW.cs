@@ -85,7 +85,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersDbw.Model
         /// <param name="convertedCurrencyCode">Код валюты страны продавца.</param>
         /// <param name="cargoType">Тип товара:   - &#x60;1&#x60; — малогабаритный товар (МГТ)   - &#x60;2&#x60; — сверхгабаритный товар (СГТ)   - &#x60;3&#x60; — крупногабаритный товар (КГТ+) .</param>
         /// <param name="isZeroOrder">Признак заказа товара с нулевым остатком:   - &#x60;false&#x60; — заказ сделан на товар с ненулевым остатком   - &#x60;true&#x60; — заказ сделан на товар с нулевым остатком. Такой заказ можно отменить без штрафа за отмену .</param>
-        public OrderNewDBW(OrderNewDBWAddress address = default(OrderNewDBWAddress), int? salePrice = default(int?), List<string> requiredMeta = default(List<string>), string comment = default(string), OrderNewDBWOptions options = default(OrderNewDBWOptions), string orderUid = default(string), Guid groupId = default(Guid), string article = default(string), string colorCode = default(string), string rid = default(string), string createdAt = default(string), List<string> skus = default(List<string>), long id = default(long), int warehouseId = default(int), int nmId = default(int), int chrtId = default(int), int price = default(int), int convertedPrice = default(int), int currencyCode = default(int), int convertedCurrencyCode = default(int), CargoTypeEnum? cargoType = default(CargoTypeEnum?), bool isZeroOrder = default(bool))
+        public OrderNewDBW(OrderNewDBWAddress address = default(OrderNewDBWAddress), long? salePrice = default(long?), List<string> requiredMeta = default(List<string>), string comment = default(string), OrderNewDBWOptions options = default(OrderNewDBWOptions), string orderUid = default(string), Guid groupId = default(Guid), string article = default(string), string colorCode = default(string), string rid = default(string), string createdAt = default(string), List<string> skus = default(List<string>), long id = default(long), long warehouseId = default(long), long nmId = default(long), long chrtId = default(long), long price = default(long), long convertedPrice = default(long), int currencyCode = default(int), int convertedCurrencyCode = default(int), CargoTypeEnum? cargoType = default(CargoTypeEnum?), bool isZeroOrder = default(bool))
         {
             this.Address = address;
             this.SalePrice = salePrice;
@@ -125,7 +125,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersDbw.Model
         <example>504658</example>
         */
         [DataMember(Name = "salePrice", EmitDefaultValue = true)]
-        public int? SalePrice { get; set; }
+        public long? SalePrice { get; set; }
 
         /// <summary>
         /// Список идентификаторов маркировки, доступных для сборочного задания. [Указывать IMEI](./orders-dbw#tag/dbwLabelIdentifiers/operation/putV3DbwOrdersOrderIdMetaImei) обязательно для [предмета](./item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll) &#x60;Смартфоны&#x60;, &#x60;\&quot;subjectId\&quot;:515&#x60;
@@ -238,7 +238,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersDbw.Model
         <example>658434</example>
         */
         [DataMember(Name = "warehouseId", EmitDefaultValue = false)]
-        public int WarehouseId { get; set; }
+        public long WarehouseId { get; set; }
 
         /// <summary>
         /// Артикул WB
@@ -248,7 +248,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersDbw.Model
         <example>123456789</example>
         */
         [DataMember(Name = "nmId", EmitDefaultValue = false)]
-        public int NmId { get; set; }
+        public long NmId { get; set; }
 
         /// <summary>
         /// ID размера товара в системе WB
@@ -258,7 +258,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersDbw.Model
         <example>987654321</example>
         */
         [DataMember(Name = "chrtId", EmitDefaultValue = false)]
-        public int ChrtId { get; set; }
+        public long ChrtId { get; set; }
 
         /// <summary>
         /// Цена в валюте продажи с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100. Код валюты продажи указан в поле &#x60;currencyCode&#x60;. Предоставляется в информационных целях
@@ -268,7 +268,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersDbw.Model
         <example>1014</example>
         */
         [DataMember(Name = "price", EmitDefaultValue = false)]
-        public int Price { get; set; }
+        public long Price { get; set; }
 
         /// <summary>
         /// Цена в валюте страны продавца с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100. Предоставляется в информационных целях
@@ -278,7 +278,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersDbw.Model
         <example>1014</example>
         */
         [DataMember(Name = "convertedPrice", EmitDefaultValue = false)]
-        public int ConvertedPrice { get; set; }
+        public long ConvertedPrice { get; set; }
 
         /// <summary>
         /// Код валюты продажи
@@ -363,7 +363,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersDbw.Model
             // Comment (string) maxLength
             if (this.Comment != null && this.Comment.Length > 300)
             {
-                yield return new ValidationResult("Invalid value for Comment, length must be less than 300.", new [] { "Comment" });
+                yield return new ValidationResult("Invalid value for Comment, length must be less than 300.", new[] { "Comment" });
             }
 
             yield break;

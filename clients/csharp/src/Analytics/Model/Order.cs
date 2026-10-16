@@ -138,7 +138,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <param name="destinationDistrict">Федеральный округ доставки. Если доставка не по России, возвращается страна.</param>
         /// <param name="sellerPrice">Цена продавца со скидкой продавца (без учёта скидки WB Клуба и оптовой скидки для B2B-продаж).</param>
         /// <param name="isB2b">Тип продажи:   - &#x60;true&#x60; — B2B   - &#x60;false&#x60; — B2C .</param>
-        public Order(long nmId = default(long), int chrtId = default(int), string srid = default(string), string createdAt = default(string), string updatedAt = default(string), StatusEnum? status = default(StatusEnum?), CancelTypeEnum? cancelType = default(CancelTypeEnum?), string warehouseName = default(string), string warehouseRegion = default(string), bool isMp = default(bool), string destinationCity = default(string), string destinationDistrict = default(string), decimal sellerPrice = default(decimal), bool isB2b = default(bool))
+        public Order(long nmId = default(long), long chrtId = default(long), string srid = default(string), string createdAt = default(string), string updatedAt = default(string), StatusEnum? status = default(StatusEnum?), CancelTypeEnum? cancelType = default(CancelTypeEnum?), string warehouseName = default(string), string warehouseRegion = default(string), bool isMp = default(bool), string destinationCity = default(string), string destinationDistrict = default(string), decimal sellerPrice = default(decimal), bool isB2b = default(bool))
         {
             this.NmId = nmId;
             this.ChrtId = chrtId;
@@ -174,7 +174,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         <example>91663228</example>
         */
         [DataMember(Name = "chrtId", EmitDefaultValue = false)]
-        public int ChrtId { get; set; }
+        public long ChrtId { get; set; }
 
         /// <summary>
         /// ID заказа

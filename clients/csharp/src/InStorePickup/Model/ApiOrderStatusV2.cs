@@ -38,7 +38,7 @@ namespace ValeryVerkhoturov.WbApiClient.InStorePickup.Model
         /// <param name="orderId">ID сборочного задания.</param>
         /// <param name="supplierStatus">Статус сборочного задания, установленный продавцом.</param>
         /// <param name="wbStatus">Статус сборочного задания в системе Wildberries.</param>
-        public ApiOrderStatusV2(List<ApiOrdersErrorResponse> errors = default(List<ApiOrdersErrorResponse>), int orderId = default(int), string supplierStatus = default(string), string wbStatus = default(string))
+        public ApiOrderStatusV2(List<ApiOrdersErrorResponse> errors = default(List<ApiOrdersErrorResponse>), long orderId = default(long), string supplierStatus = default(string), string wbStatus = default(string))
         {
             this.Errors = errors;
             this.OrderId = orderId;
@@ -58,7 +58,7 @@ namespace ValeryVerkhoturov.WbApiClient.InStorePickup.Model
         /// </summary>
         /// <value>ID сборочного задания</value>
         [DataMember(Name = "orderId", EmitDefaultValue = false)]
-        public int OrderId { get; set; }
+        public long OrderId { get; set; }
 
         /// <summary>
         /// Статус сборочного задания, установленный продавцом

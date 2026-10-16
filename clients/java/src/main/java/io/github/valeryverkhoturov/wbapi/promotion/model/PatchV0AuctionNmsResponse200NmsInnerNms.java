@@ -39,23 +39,23 @@ public class PatchV0AuctionNmsResponse200NmsInnerNms {
 
   @SerializedName(SERIALIZED_NAME_ADDED)
   @jakarta.annotation.Nullable
-  private List<Integer> added = new ArrayList<>();
+  private List<Long> added = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_DELETED = "deleted";
 
   @SerializedName(SERIALIZED_NAME_DELETED)
   @jakarta.annotation.Nullable
-  private List<Integer> deleted = new ArrayList<>();
+  private List<Long> deleted = new ArrayList<>();
 
   public PatchV0AuctionNmsResponse200NmsInnerNms() {}
 
   public PatchV0AuctionNmsResponse200NmsInnerNms added(
-      @jakarta.annotation.Nullable List<Integer> added) {
+      @jakarta.annotation.Nullable List<Long> added) {
     this.added = added;
     return this;
   }
 
-  public PatchV0AuctionNmsResponse200NmsInnerNms addAddedItem(Integer addedItem) {
+  public PatchV0AuctionNmsResponse200NmsInnerNms addAddedItem(Long addedItem) {
     if (this.added == null) {
       this.added = new ArrayList<>();
     }
@@ -69,21 +69,21 @@ public class PatchV0AuctionNmsResponse200NmsInnerNms {
    * @return added
    */
   @jakarta.annotation.Nullable
-  public List<Integer> getAdded() {
+  public List<Long> getAdded() {
     return added;
   }
 
-  public void setAdded(@jakarta.annotation.Nullable List<Integer> added) {
+  public void setAdded(@jakarta.annotation.Nullable List<Long> added) {
     this.added = added;
   }
 
   public PatchV0AuctionNmsResponse200NmsInnerNms deleted(
-      @jakarta.annotation.Nullable List<Integer> deleted) {
+      @jakarta.annotation.Nullable List<Long> deleted) {
     this.deleted = deleted;
     return this;
   }
 
-  public PatchV0AuctionNmsResponse200NmsInnerNms addDeletedItem(Integer deletedItem) {
+  public PatchV0AuctionNmsResponse200NmsInnerNms addDeletedItem(Long deletedItem) {
     if (this.deleted == null) {
       this.deleted = new ArrayList<>();
     }
@@ -97,11 +97,11 @@ public class PatchV0AuctionNmsResponse200NmsInnerNms {
    * @return deleted
    */
   @jakarta.annotation.Nullable
-  public List<Integer> getDeleted() {
+  public List<Long> getDeleted() {
     return deleted;
   }
 
-  public void setDeleted(@jakarta.annotation.Nullable List<Integer> deleted) {
+  public void setDeleted(@jakarta.annotation.Nullable List<Long> deleted) {
     this.deleted = deleted;
   }
 

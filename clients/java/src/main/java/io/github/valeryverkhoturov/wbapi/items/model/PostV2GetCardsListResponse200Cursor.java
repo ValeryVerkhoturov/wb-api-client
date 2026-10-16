@@ -43,13 +43,13 @@ public class PostV2GetCardsListResponse200Cursor {
 
   @SerializedName(SERIALIZED_NAME_NM_I_D)
   @jakarta.annotation.Nullable
-  private Integer nmID;
+  private Long nmID;
 
   public static final String SERIALIZED_NAME_TOTAL = "total";
 
   @SerializedName(SERIALIZED_NAME_TOTAL)
   @jakarta.annotation.Nullable
-  private Integer total;
+  private Long total;
 
   public PostV2GetCardsListResponse200Cursor() {}
 
@@ -73,7 +73,7 @@ public class PostV2GetCardsListResponse200Cursor {
     this.updatedAt = updatedAt;
   }
 
-  public PostV2GetCardsListResponse200Cursor nmID(@jakarta.annotation.Nullable Integer nmID) {
+  public PostV2GetCardsListResponse200Cursor nmID(@jakarta.annotation.Nullable Long nmID) {
     this.nmID = nmID;
     return this;
   }
@@ -84,15 +84,15 @@ public class PostV2GetCardsListResponse200Cursor {
    * @return nmID
    */
   @jakarta.annotation.Nullable
-  public Integer getNmID() {
+  public Long getNmID() {
     return nmID;
   }
 
-  public void setNmID(@jakarta.annotation.Nullable Integer nmID) {
+  public void setNmID(@jakarta.annotation.Nullable Long nmID) {
     this.nmID = nmID;
   }
 
-  public PostV2GetCardsListResponse200Cursor total(@jakarta.annotation.Nullable Integer total) {
+  public PostV2GetCardsListResponse200Cursor total(@jakarta.annotation.Nullable Long total) {
     this.total = total;
     return this;
   }
@@ -103,11 +103,11 @@ public class PostV2GetCardsListResponse200Cursor {
    * @return total
    */
   @jakarta.annotation.Nullable
-  public Integer getTotal() {
+  public Long getTotal() {
     return total;
   }
 
-  public void setTotal(@jakarta.annotation.Nullable Integer total) {
+  public void setTotal(@jakarta.annotation.Nullable Long total) {
     this.total = total;
   }
 

@@ -75,7 +75,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// <param name="objectIDs">Поиск по ID предметов.</param>
         /// <param name="brands">Поиск по брендам.</param>
         /// <param name="imtID">Поиск по [ID для объединённых карточек товаров](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov).</param>
-        public PostV2GetCardsListRequestSettingsFilter(WithPhotoEnum? withPhoto = WithPhotoEnum.NUMBER_0, string textSearch = default(string), List<int> tagIDs = default(List<int>), bool allowedCategoriesOnly = default(bool), List<int> objectIDs = default(List<int>), List<string> brands = default(List<string>), long imtID = default(long))
+        public PostV2GetCardsListRequestSettingsFilter(WithPhotoEnum? withPhoto = WithPhotoEnum.NUMBER_0, string textSearch = default(string), List<long> tagIDs = default(List<long>), bool allowedCategoriesOnly = default(bool), List<long> objectIDs = default(List<long>), List<string> brands = default(List<string>), long imtID = default(long))
         {
             this.WithPhoto = withPhoto;
             this.TextSearch = textSearch;
@@ -98,7 +98,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// </summary>
         /// <value>Поиск по ID ярлыков</value>
         [DataMember(Name = "tagIDs", EmitDefaultValue = false)]
-        public List<int> TagIDs { get; set; }
+        public List<long> TagIDs { get; set; }
 
         /// <summary>
         /// Фильтр по категории:   - &#x60;true&#x60; — только разрешённые   - &#x60;false&#x60; — все    Не используется в песочнице 
@@ -112,7 +112,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// </summary>
         /// <value>Поиск по ID предметов</value>
         [DataMember(Name = "objectIDs", EmitDefaultValue = false)]
-        public List<int> ObjectIDs { get; set; }
+        public List<long> ObjectIDs { get; set; }
 
         /// <summary>
         /// Поиск по брендам

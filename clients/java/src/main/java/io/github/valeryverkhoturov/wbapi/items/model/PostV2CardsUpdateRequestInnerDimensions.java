@@ -42,19 +42,19 @@ public class PostV2CardsUpdateRequestInnerDimensions {
 
   @SerializedName(SERIALIZED_NAME_LENGTH)
   @jakarta.annotation.Nullable
-  private Integer length;
+  private Long length;
 
   public static final String SERIALIZED_NAME_WIDTH = "width";
 
   @SerializedName(SERIALIZED_NAME_WIDTH)
   @jakarta.annotation.Nullable
-  private Integer width;
+  private Long width;
 
   public static final String SERIALIZED_NAME_HEIGHT = "height";
 
   @SerializedName(SERIALIZED_NAME_HEIGHT)
   @jakarta.annotation.Nullable
-  private Integer height;
+  private Long height;
 
   public static final String SERIALIZED_NAME_WEIGHT_BRUTTO = "weightBrutto";
 
@@ -64,8 +64,7 @@ public class PostV2CardsUpdateRequestInnerDimensions {
 
   public PostV2CardsUpdateRequestInnerDimensions() {}
 
-  public PostV2CardsUpdateRequestInnerDimensions length(
-      @jakarta.annotation.Nullable Integer length) {
+  public PostV2CardsUpdateRequestInnerDimensions length(@jakarta.annotation.Nullable Long length) {
     this.length = length;
     return this;
   }
@@ -76,15 +75,15 @@ public class PostV2CardsUpdateRequestInnerDimensions {
    * @return length
    */
   @jakarta.annotation.Nullable
-  public Integer getLength() {
+  public Long getLength() {
     return length;
   }
 
-  public void setLength(@jakarta.annotation.Nullable Integer length) {
+  public void setLength(@jakarta.annotation.Nullable Long length) {
     this.length = length;
   }
 
-  public PostV2CardsUpdateRequestInnerDimensions width(@jakarta.annotation.Nullable Integer width) {
+  public PostV2CardsUpdateRequestInnerDimensions width(@jakarta.annotation.Nullable Long width) {
     this.width = width;
     return this;
   }
@@ -95,16 +94,15 @@ public class PostV2CardsUpdateRequestInnerDimensions {
    * @return width
    */
   @jakarta.annotation.Nullable
-  public Integer getWidth() {
+  public Long getWidth() {
     return width;
   }
 
-  public void setWidth(@jakarta.annotation.Nullable Integer width) {
+  public void setWidth(@jakarta.annotation.Nullable Long width) {
     this.width = width;
   }
 
-  public PostV2CardsUpdateRequestInnerDimensions height(
-      @jakarta.annotation.Nullable Integer height) {
+  public PostV2CardsUpdateRequestInnerDimensions height(@jakarta.annotation.Nullable Long height) {
     this.height = height;
     return this;
   }
@@ -115,11 +113,11 @@ public class PostV2CardsUpdateRequestInnerDimensions {
    * @return height
    */
   @jakarta.annotation.Nullable
-  public Integer getHeight() {
+  public Long getHeight() {
     return height;
   }
 
-  public void setHeight(@jakarta.annotation.Nullable Integer height) {
+  public void setHeight(@jakarta.annotation.Nullable Long height) {
     this.height = height;
   }
 

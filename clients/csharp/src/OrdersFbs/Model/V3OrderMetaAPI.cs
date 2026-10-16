@@ -36,7 +36,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// </summary>
         /// <param name="id">ID сборочного задания.</param>
         /// <param name="metaDetails">Детали маркировки.</param>
-        public V3OrderMetaAPI(int id = default(int), List<V3ArchiveOrderMetaDetailsInner> metaDetails = default(List<V3ArchiveOrderMetaDetailsInner>))
+        public V3OrderMetaAPI(long id = default(long), List<V3ArchiveOrderMetaDetailsInner> metaDetails = default(List<V3ArchiveOrderMetaDetailsInner>))
         {
             this.Id = id;
             this.MetaDetails = metaDetails;
@@ -47,7 +47,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// </summary>
         /// <value>ID сборочного задания</value>
         [DataMember(Name = "id", EmitDefaultValue = false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// Детали маркировки

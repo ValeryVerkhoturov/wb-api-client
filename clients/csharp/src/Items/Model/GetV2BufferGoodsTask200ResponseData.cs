@@ -36,7 +36,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// </summary>
         /// <param name="uploadID">ID загрузки.</param>
         /// <param name="bufferGoods">Информация о товарах в загрузке.</param>
-        public GetV2BufferGoodsTask200ResponseData(int? uploadID = default(int?), List<GoodBufferHistory> bufferGoods = default(List<GoodBufferHistory>))
+        public GetV2BufferGoodsTask200ResponseData(long? uploadID = default(long?), List<GoodBufferHistory> bufferGoods = default(List<GoodBufferHistory>))
         {
             this.UploadID = uploadID;
             this.BufferGoods = bufferGoods;
@@ -50,7 +50,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         <example>3235236546</example>
         */
         [DataMember(Name = "uploadID", EmitDefaultValue = true)]
-        public int? UploadID { get; set; }
+        public long? UploadID { get; set; }
 
         /// <summary>
         /// Информация о товарах в загрузке

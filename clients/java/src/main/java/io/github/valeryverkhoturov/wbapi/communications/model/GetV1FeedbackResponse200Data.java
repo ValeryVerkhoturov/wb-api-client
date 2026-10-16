@@ -70,7 +70,7 @@ public class GetV1FeedbackResponse200Data {
 
   @SerializedName(SERIALIZED_NAME_PRODUCT_VALUATION)
   @jakarta.annotation.Nullable
-  private Integer productValuation;
+  private Long productValuation;
 
   public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
 
@@ -138,7 +138,7 @@ public class GetV1FeedbackResponse200Data {
 
   @SerializedName(SERIALIZED_NAME_SUPPLIER_FEEDBACK_VALUATION)
   @jakarta.annotation.Nullable
-  private Integer supplierFeedbackValuation;
+  private Long supplierFeedbackValuation;
 
   public static final String SERIALIZED_NAME_IS_ABLE_SUPPLIER_PRODUCT_VALUATION =
       "isAbleSupplierProductValuation";
@@ -152,7 +152,7 @@ public class GetV1FeedbackResponse200Data {
 
   @SerializedName(SERIALIZED_NAME_SUPPLIER_PRODUCT_VALUATION)
   @jakarta.annotation.Nullable
-  private Integer supplierProductValuation;
+  private Long supplierProductValuation;
 
   public static final String SERIALIZED_NAME_IS_ABLE_RETURN_PRODUCT_ORDERS =
       "isAbleReturnProductOrders";
@@ -177,7 +177,7 @@ public class GetV1FeedbackResponse200Data {
 
   @SerializedName(SERIALIZED_NAME_LAST_ORDER_SHK_ID)
   @jakarta.annotation.Nullable
-  private Integer lastOrderShkId;
+  private Long lastOrderShkId;
 
   public static final String SERIALIZED_NAME_LAST_ORDER_CREATED_AT = "lastOrderCreatedAt";
 
@@ -195,7 +195,7 @@ public class GetV1FeedbackResponse200Data {
 
   @SerializedName(SERIALIZED_NAME_SUBJECT_ID)
   @jakarta.annotation.Nullable
-  private Integer subjectId;
+  private Long subjectId;
 
   public static final String SERIALIZED_NAME_SUBJECT_NAME = "subjectName";
 
@@ -316,7 +316,7 @@ public class GetV1FeedbackResponse200Data {
   }
 
   public GetV1FeedbackResponse200Data productValuation(
-      @jakarta.annotation.Nullable Integer productValuation) {
+      @jakarta.annotation.Nullable Long productValuation) {
     this.productValuation = productValuation;
     return this;
   }
@@ -327,11 +327,11 @@ public class GetV1FeedbackResponse200Data {
    * @return productValuation
    */
   @jakarta.annotation.Nullable
-  public Integer getProductValuation() {
+  public Long getProductValuation() {
     return productValuation;
   }
 
-  public void setProductValuation(@jakarta.annotation.Nullable Integer productValuation) {
+  public void setProductValuation(@jakarta.annotation.Nullable Long productValuation) {
     this.productValuation = productValuation;
   }
 
@@ -547,7 +547,7 @@ public class GetV1FeedbackResponse200Data {
   }
 
   public GetV1FeedbackResponse200Data supplierFeedbackValuation(
-      @jakarta.annotation.Nullable Integer supplierFeedbackValuation) {
+      @jakarta.annotation.Nullable Long supplierFeedbackValuation) {
     this.supplierFeedbackValuation = supplierFeedbackValuation;
     return this;
   }
@@ -558,12 +558,12 @@ public class GetV1FeedbackResponse200Data {
    * @return supplierFeedbackValuation
    */
   @jakarta.annotation.Nullable
-  public Integer getSupplierFeedbackValuation() {
+  public Long getSupplierFeedbackValuation() {
     return supplierFeedbackValuation;
   }
 
   public void setSupplierFeedbackValuation(
-      @jakarta.annotation.Nullable Integer supplierFeedbackValuation) {
+      @jakarta.annotation.Nullable Long supplierFeedbackValuation) {
     this.supplierFeedbackValuation = supplierFeedbackValuation;
   }
 
@@ -590,7 +590,7 @@ public class GetV1FeedbackResponse200Data {
   }
 
   public GetV1FeedbackResponse200Data supplierProductValuation(
-      @jakarta.annotation.Nullable Integer supplierProductValuation) {
+      @jakarta.annotation.Nullable Long supplierProductValuation) {
     this.supplierProductValuation = supplierProductValuation;
     return this;
   }
@@ -601,12 +601,12 @@ public class GetV1FeedbackResponse200Data {
    * @return supplierProductValuation
    */
   @jakarta.annotation.Nullable
-  public Integer getSupplierProductValuation() {
+  public Long getSupplierProductValuation() {
     return supplierProductValuation;
   }
 
   public void setSupplierProductValuation(
-      @jakarta.annotation.Nullable Integer supplierProductValuation) {
+      @jakarta.annotation.Nullable Long supplierProductValuation) {
     this.supplierProductValuation = supplierProductValuation;
   }
 
@@ -680,7 +680,7 @@ public class GetV1FeedbackResponse200Data {
   }
 
   public GetV1FeedbackResponse200Data lastOrderShkId(
-      @jakarta.annotation.Nullable Integer lastOrderShkId) {
+      @jakarta.annotation.Nullable Long lastOrderShkId) {
     this.lastOrderShkId = lastOrderShkId;
     return this;
   }
@@ -691,11 +691,11 @@ public class GetV1FeedbackResponse200Data {
    * @return lastOrderShkId
    */
   @jakarta.annotation.Nullable
-  public Integer getLastOrderShkId() {
+  public Long getLastOrderShkId() {
     return lastOrderShkId;
   }
 
-  public void setLastOrderShkId(@jakarta.annotation.Nullable Integer lastOrderShkId) {
+  public void setLastOrderShkId(@jakarta.annotation.Nullable Long lastOrderShkId) {
     this.lastOrderShkId = lastOrderShkId;
   }
 
@@ -738,7 +738,7 @@ public class GetV1FeedbackResponse200Data {
     this.color = color;
   }
 
-  public GetV1FeedbackResponse200Data subjectId(@jakarta.annotation.Nullable Integer subjectId) {
+  public GetV1FeedbackResponse200Data subjectId(@jakarta.annotation.Nullable Long subjectId) {
     this.subjectId = subjectId;
     return this;
   }
@@ -749,11 +749,11 @@ public class GetV1FeedbackResponse200Data {
    * @return subjectId
    */
   @jakarta.annotation.Nullable
-  public Integer getSubjectId() {
+  public Long getSubjectId() {
     return subjectId;
   }
 
-  public void setSubjectId(@jakarta.annotation.Nullable Integer subjectId) {
+  public void setSubjectId(@jakarta.annotation.Nullable Long subjectId) {
     this.subjectId = subjectId;
   }
 

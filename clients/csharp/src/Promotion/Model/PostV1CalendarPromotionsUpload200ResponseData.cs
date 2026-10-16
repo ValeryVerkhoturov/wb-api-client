@@ -36,7 +36,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <param name="alreadyExists">Загрузка с такими данными уже существует.</param>
         /// <param name="uploadID">ID загрузки.</param>
-        public PostV1CalendarPromotionsUpload200ResponseData(bool alreadyExists = default(bool), int uploadID = default(int))
+        public PostV1CalendarPromotionsUpload200ResponseData(bool alreadyExists = default(bool), long uploadID = default(long))
         {
             this.AlreadyExists = alreadyExists;
             this.UploadID = uploadID;
@@ -60,7 +60,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         <example>11</example>
         */
         [DataMember(Name = "uploadID", EmitDefaultValue = false)]
-        public int UploadID { get; set; }
+        public long UploadID { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

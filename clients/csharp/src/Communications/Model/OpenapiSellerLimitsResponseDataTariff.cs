@@ -39,7 +39,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         /// <param name="totalLimit">Общий лимит закреплений.</param>
         /// <param name="unlimited">Количество закреплённых отзывов не ограничено:   - &#x60;true&#x60; — да   - &#x60;false&#x60; — нет .</param>
         /// <param name="used">Текущее количество закреплённых отзывов.</param>
-        public OpenapiSellerLimitsResponseDataTariff(int perUnitLimit = default(int), int remaining = default(int), int totalLimit = default(int), bool unlimited = default(bool), int used = default(int))
+        public OpenapiSellerLimitsResponseDataTariff(long perUnitLimit = default(long), long remaining = default(long), long totalLimit = default(long), bool unlimited = default(bool), long used = default(long))
         {
             this.PerUnitLimit = perUnitLimit;
             this.Remaining = remaining;
@@ -56,7 +56,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         <example>2</example>
         */
         [DataMember(Name = "perUnitLimit", EmitDefaultValue = false)]
-        public int PerUnitLimit { get; set; }
+        public long PerUnitLimit { get; set; }
 
         /// <summary>
         /// Сколько ещё отзывов можно закрепить
@@ -66,7 +66,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         <example>5</example>
         */
         [DataMember(Name = "remaining", EmitDefaultValue = false)]
-        public int Remaining { get; set; }
+        public long Remaining { get; set; }
 
         /// <summary>
         /// Общий лимит закреплений
@@ -76,7 +76,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         <example>15</example>
         */
         [DataMember(Name = "totalLimit", EmitDefaultValue = false)]
-        public int TotalLimit { get; set; }
+        public long TotalLimit { get; set; }
 
         /// <summary>
         /// Количество закреплённых отзывов не ограничено:   - &#x60;true&#x60; — да   - &#x60;false&#x60; — нет 
@@ -96,7 +96,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         <example>10</example>
         */
         [DataMember(Name = "used", EmitDefaultValue = false)]
-        public int Used { get; set; }
+        public long Used { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

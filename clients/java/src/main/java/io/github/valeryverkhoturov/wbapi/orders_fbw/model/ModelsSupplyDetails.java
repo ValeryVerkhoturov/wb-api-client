@@ -48,25 +48,25 @@ public class ModelsSupplyDetails {
    */
   @JsonAdapter(StatusIDEnum.Adapter.class)
   public enum StatusIDEnum {
-    NUMBER_1(1),
+    NUMBER_1(1l),
 
-    NUMBER_2(2),
+    NUMBER_2(2l),
 
-    NUMBER_3(3),
+    NUMBER_3(3l),
 
-    NUMBER_4(4),
+    NUMBER_4(4l),
 
-    NUMBER_5(5),
+    NUMBER_5(5l),
 
-    NUMBER_6(6);
+    NUMBER_6(6l);
 
-    private Integer value;
+    private Long value;
 
-    StatusIDEnum(Integer value) {
+    StatusIDEnum(Long value) {
       this.value = value;
     }
 
-    public Integer getValue() {
+    public Long getValue() {
       return value;
     }
 
@@ -75,7 +75,7 @@ public class ModelsSupplyDetails {
       return String.valueOf(value);
     }
 
-    public static StatusIDEnum fromValue(Integer value) {
+    public static StatusIDEnum fromValue(Long value) {
       for (StatusIDEnum b : StatusIDEnum.values()) {
         if (b.value.equals(value)) {
           return b;
@@ -93,13 +93,13 @@ public class ModelsSupplyDetails {
 
       @Override
       public StatusIDEnum read(final JsonReader jsonReader) throws IOException {
-        Integer value = jsonReader.nextInt();
+        Long value = jsonReader.nextLong();
         return StatusIDEnum.fromValue(value);
       }
     }
 
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      Integer value = jsonElement.getAsInt();
+      Long value = jsonElement.getAsLong();
       StatusIDEnum.fromValue(value);
     }
   }
@@ -114,13 +114,13 @@ public class ModelsSupplyDetails {
 
   @SerializedName(SERIALIZED_NAME_VIRTUAL_TYPE_I_D)
   @jakarta.annotation.Nullable
-  private Integer virtualTypeID;
+  private Long virtualTypeID;
 
   public static final String SERIALIZED_NAME_BOX_TYPE_I_D = "boxTypeID";
 
   @SerializedName(SERIALIZED_NAME_BOX_TYPE_I_D)
   @jakarta.annotation.Nullable
-  private Integer boxTypeID;
+  private Long boxTypeID;
 
   public static final String SERIALIZED_NAME_CREATE_DATE = "createDate";
 
@@ -150,7 +150,7 @@ public class ModelsSupplyDetails {
 
   @SerializedName(SERIALIZED_NAME_WAREHOUSE_I_D)
   @jakarta.annotation.Nullable
-  private Integer warehouseID;
+  private Long warehouseID;
 
   public static final String SERIALIZED_NAME_WAREHOUSE_NAME = "warehouseName";
 
@@ -162,7 +162,7 @@ public class ModelsSupplyDetails {
 
   @SerializedName(SERIALIZED_NAME_ACTUAL_WAREHOUSE_I_D)
   @jakarta.annotation.Nullable
-  private Integer actualWarehouseID;
+  private Long actualWarehouseID;
 
   public static final String SERIALIZED_NAME_ACTUAL_WAREHOUSE_NAME = "actualWarehouseName";
 
@@ -174,7 +174,7 @@ public class ModelsSupplyDetails {
 
   @SerializedName(SERIALIZED_NAME_TRANSIT_WAREHOUSE_I_D)
   @jakarta.annotation.Nullable
-  private Integer transitWarehouseID;
+  private Long transitWarehouseID;
 
   public static final String SERIALIZED_NAME_TRANSIT_WAREHOUSE_NAME = "transitWarehouseName";
 
@@ -223,37 +223,37 @@ public class ModelsSupplyDetails {
 
   @SerializedName(SERIALIZED_NAME_QUANTITY)
   @jakarta.annotation.Nullable
-  private Integer quantity;
+  private Long quantity;
 
   public static final String SERIALIZED_NAME_READY_FOR_SALE_QUANTITY = "readyForSaleQuantity";
 
   @SerializedName(SERIALIZED_NAME_READY_FOR_SALE_QUANTITY)
   @jakarta.annotation.Nullable
-  private Integer readyForSaleQuantity;
+  private Long readyForSaleQuantity;
 
   public static final String SERIALIZED_NAME_ACCEPTED_QUANTITY = "acceptedQuantity";
 
   @SerializedName(SERIALIZED_NAME_ACCEPTED_QUANTITY)
   @jakarta.annotation.Nullable
-  private Integer acceptedQuantity;
+  private Long acceptedQuantity;
 
   public static final String SERIALIZED_NAME_UNLOADING_QUANTITY = "unloadingQuantity";
 
   @SerializedName(SERIALIZED_NAME_UNLOADING_QUANTITY)
   @jakarta.annotation.Nullable
-  private Integer unloadingQuantity;
+  private Long unloadingQuantity;
 
   public static final String SERIALIZED_NAME_DEPERSONALIZED_QUANTITY = "depersonalizedQuantity";
 
   @SerializedName(SERIALIZED_NAME_DEPERSONALIZED_QUANTITY)
   @jakarta.annotation.Nullable
-  private Integer depersonalizedQuantity;
+  private Long depersonalizedQuantity;
 
   public static final String SERIALIZED_NAME_DISCREPANCIES = "discrepancies";
 
   @SerializedName(SERIALIZED_NAME_DISCREPANCIES)
   @jakarta.annotation.Nullable
-  private Integer discrepancies;
+  private Long discrepancies;
 
   public static final String SERIALIZED_NAME_IS_BOX_ON_PALLET = "isBoxOnPallet";
 
@@ -303,7 +303,7 @@ public class ModelsSupplyDetails {
     this.statusID = statusID;
   }
 
-  public ModelsSupplyDetails virtualTypeID(@jakarta.annotation.Nullable Integer virtualTypeID) {
+  public ModelsSupplyDetails virtualTypeID(@jakarta.annotation.Nullable Long virtualTypeID) {
     this.virtualTypeID = virtualTypeID;
     return this;
   }
@@ -317,15 +317,15 @@ public class ModelsSupplyDetails {
    * @return virtualTypeID
    */
   @jakarta.annotation.Nullable
-  public Integer getVirtualTypeID() {
+  public Long getVirtualTypeID() {
     return virtualTypeID;
   }
 
-  public void setVirtualTypeID(@jakarta.annotation.Nullable Integer virtualTypeID) {
+  public void setVirtualTypeID(@jakarta.annotation.Nullable Long virtualTypeID) {
     this.virtualTypeID = virtualTypeID;
   }
 
-  public ModelsSupplyDetails boxTypeID(@jakarta.annotation.Nullable Integer boxTypeID) {
+  public ModelsSupplyDetails boxTypeID(@jakarta.annotation.Nullable Long boxTypeID) {
     this.boxTypeID = boxTypeID;
     return this;
   }
@@ -337,11 +337,11 @@ public class ModelsSupplyDetails {
    * @return boxTypeID
    */
   @jakarta.annotation.Nullable
-  public Integer getBoxTypeID() {
+  public Long getBoxTypeID() {
     return boxTypeID;
   }
 
-  public void setBoxTypeID(@jakarta.annotation.Nullable Integer boxTypeID) {
+  public void setBoxTypeID(@jakarta.annotation.Nullable Long boxTypeID) {
     this.boxTypeID = boxTypeID;
   }
 
@@ -421,7 +421,7 @@ public class ModelsSupplyDetails {
     this.updatedDate = updatedDate;
   }
 
-  public ModelsSupplyDetails warehouseID(@jakarta.annotation.Nullable Integer warehouseID) {
+  public ModelsSupplyDetails warehouseID(@jakarta.annotation.Nullable Long warehouseID) {
     this.warehouseID = warehouseID;
     return this;
   }
@@ -432,11 +432,11 @@ public class ModelsSupplyDetails {
    * @return warehouseID
    */
   @jakarta.annotation.Nullable
-  public Integer getWarehouseID() {
+  public Long getWarehouseID() {
     return warehouseID;
   }
 
-  public void setWarehouseID(@jakarta.annotation.Nullable Integer warehouseID) {
+  public void setWarehouseID(@jakarta.annotation.Nullable Long warehouseID) {
     this.warehouseID = warehouseID;
   }
 
@@ -460,7 +460,7 @@ public class ModelsSupplyDetails {
   }
 
   public ModelsSupplyDetails actualWarehouseID(
-      @jakarta.annotation.Nullable Integer actualWarehouseID) {
+      @jakarta.annotation.Nullable Long actualWarehouseID) {
     this.actualWarehouseID = actualWarehouseID;
     return this;
   }
@@ -471,11 +471,11 @@ public class ModelsSupplyDetails {
    * @return actualWarehouseID
    */
   @jakarta.annotation.Nullable
-  public Integer getActualWarehouseID() {
+  public Long getActualWarehouseID() {
     return actualWarehouseID;
   }
 
-  public void setActualWarehouseID(@jakarta.annotation.Nullable Integer actualWarehouseID) {
+  public void setActualWarehouseID(@jakarta.annotation.Nullable Long actualWarehouseID) {
     this.actualWarehouseID = actualWarehouseID;
   }
 
@@ -500,7 +500,7 @@ public class ModelsSupplyDetails {
   }
 
   public ModelsSupplyDetails transitWarehouseID(
-      @jakarta.annotation.Nullable Integer transitWarehouseID) {
+      @jakarta.annotation.Nullable Long transitWarehouseID) {
     this.transitWarehouseID = transitWarehouseID;
     return this;
   }
@@ -511,11 +511,11 @@ public class ModelsSupplyDetails {
    * @return transitWarehouseID
    */
   @jakarta.annotation.Nullable
-  public Integer getTransitWarehouseID() {
+  public Long getTransitWarehouseID() {
     return transitWarehouseID;
   }
 
-  public void setTransitWarehouseID(@jakarta.annotation.Nullable Integer transitWarehouseID) {
+  public void setTransitWarehouseID(@jakarta.annotation.Nullable Long transitWarehouseID) {
     this.transitWarehouseID = transitWarehouseID;
   }
 
@@ -657,7 +657,7 @@ public class ModelsSupplyDetails {
     this.deliveryCoef = deliveryCoef;
   }
 
-  public ModelsSupplyDetails quantity(@jakarta.annotation.Nullable Integer quantity) {
+  public ModelsSupplyDetails quantity(@jakarta.annotation.Nullable Long quantity) {
     this.quantity = quantity;
     return this;
   }
@@ -668,16 +668,16 @@ public class ModelsSupplyDetails {
    * @return quantity
    */
   @jakarta.annotation.Nullable
-  public Integer getQuantity() {
+  public Long getQuantity() {
     return quantity;
   }
 
-  public void setQuantity(@jakarta.annotation.Nullable Integer quantity) {
+  public void setQuantity(@jakarta.annotation.Nullable Long quantity) {
     this.quantity = quantity;
   }
 
   public ModelsSupplyDetails readyForSaleQuantity(
-      @jakarta.annotation.Nullable Integer readyForSaleQuantity) {
+      @jakarta.annotation.Nullable Long readyForSaleQuantity) {
     this.readyForSaleQuantity = readyForSaleQuantity;
     return this;
   }
@@ -688,16 +688,15 @@ public class ModelsSupplyDetails {
    * @return readyForSaleQuantity
    */
   @jakarta.annotation.Nullable
-  public Integer getReadyForSaleQuantity() {
+  public Long getReadyForSaleQuantity() {
     return readyForSaleQuantity;
   }
 
-  public void setReadyForSaleQuantity(@jakarta.annotation.Nullable Integer readyForSaleQuantity) {
+  public void setReadyForSaleQuantity(@jakarta.annotation.Nullable Long readyForSaleQuantity) {
     this.readyForSaleQuantity = readyForSaleQuantity;
   }
 
-  public ModelsSupplyDetails acceptedQuantity(
-      @jakarta.annotation.Nullable Integer acceptedQuantity) {
+  public ModelsSupplyDetails acceptedQuantity(@jakarta.annotation.Nullable Long acceptedQuantity) {
     this.acceptedQuantity = acceptedQuantity;
     return this;
   }
@@ -708,16 +707,16 @@ public class ModelsSupplyDetails {
    * @return acceptedQuantity
    */
   @jakarta.annotation.Nullable
-  public Integer getAcceptedQuantity() {
+  public Long getAcceptedQuantity() {
     return acceptedQuantity;
   }
 
-  public void setAcceptedQuantity(@jakarta.annotation.Nullable Integer acceptedQuantity) {
+  public void setAcceptedQuantity(@jakarta.annotation.Nullable Long acceptedQuantity) {
     this.acceptedQuantity = acceptedQuantity;
   }
 
   public ModelsSupplyDetails unloadingQuantity(
-      @jakarta.annotation.Nullable Integer unloadingQuantity) {
+      @jakarta.annotation.Nullable Long unloadingQuantity) {
     this.unloadingQuantity = unloadingQuantity;
     return this;
   }
@@ -728,16 +727,16 @@ public class ModelsSupplyDetails {
    * @return unloadingQuantity
    */
   @jakarta.annotation.Nullable
-  public Integer getUnloadingQuantity() {
+  public Long getUnloadingQuantity() {
     return unloadingQuantity;
   }
 
-  public void setUnloadingQuantity(@jakarta.annotation.Nullable Integer unloadingQuantity) {
+  public void setUnloadingQuantity(@jakarta.annotation.Nullable Long unloadingQuantity) {
     this.unloadingQuantity = unloadingQuantity;
   }
 
   public ModelsSupplyDetails depersonalizedQuantity(
-      @jakarta.annotation.Nullable Integer depersonalizedQuantity) {
+      @jakarta.annotation.Nullable Long depersonalizedQuantity) {
     this.depersonalizedQuantity = depersonalizedQuantity;
     return this;
   }
@@ -748,16 +747,15 @@ public class ModelsSupplyDetails {
    * @return depersonalizedQuantity
    */
   @jakarta.annotation.Nullable
-  public Integer getDepersonalizedQuantity() {
+  public Long getDepersonalizedQuantity() {
     return depersonalizedQuantity;
   }
 
-  public void setDepersonalizedQuantity(
-      @jakarta.annotation.Nullable Integer depersonalizedQuantity) {
+  public void setDepersonalizedQuantity(@jakarta.annotation.Nullable Long depersonalizedQuantity) {
     this.depersonalizedQuantity = depersonalizedQuantity;
   }
 
-  public ModelsSupplyDetails discrepancies(@jakarta.annotation.Nullable Integer discrepancies) {
+  public ModelsSupplyDetails discrepancies(@jakarta.annotation.Nullable Long discrepancies) {
     this.discrepancies = discrepancies;
     return this;
   }
@@ -769,11 +767,11 @@ public class ModelsSupplyDetails {
    * @return discrepancies
    */
   @jakarta.annotation.Nullable
-  public Integer getDiscrepancies() {
+  public Long getDiscrepancies() {
     return discrepancies;
   }
 
-  public void setDiscrepancies(@jakarta.annotation.Nullable Integer discrepancies) {
+  public void setDiscrepancies(@jakarta.annotation.Nullable Long discrepancies) {
     this.discrepancies = discrepancies;
   }
 

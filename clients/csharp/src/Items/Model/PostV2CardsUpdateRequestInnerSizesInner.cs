@@ -39,7 +39,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// <param name="wbSize">Российский размер товара.</param>
         /// <param name="price">Цена товара, ₽ Указывается при добавлении размера.</param>
         /// <param name="skus">Баркоды.</param>
-        public PostV2CardsUpdateRequestInnerSizesInner(int chrtID = default(int), string techSize = default(string), string wbSize = default(string), int price = default(int), List<string> skus = default(List<string>))
+        public PostV2CardsUpdateRequestInnerSizesInner(long chrtID = default(long), string techSize = default(string), string wbSize = default(string), long price = default(long), List<string> skus = default(List<string>))
         {
             this.ChrtID = chrtID;
             this.TechSize = techSize;
@@ -53,7 +53,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// </summary>
         /// <value>ID размера для данного артикула WB Обязателен к заполнению для существующих размеров Для добавляемых размеров не указывается</value>
         [DataMember(Name = "chrtID", EmitDefaultValue = false)]
-        public int ChrtID { get; set; }
+        public long ChrtID { get; set; }
 
         /// <summary>
         /// Размер товара (например, XL, S, 45)
@@ -74,7 +74,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// </summary>
         /// <value>Цена товара, ₽ Указывается при добавлении размера</value>
         [DataMember(Name = "price", EmitDefaultValue = false)]
-        public int Price { get; set; }
+        public long Price { get; set; }
 
         /// <summary>
         /// Баркоды

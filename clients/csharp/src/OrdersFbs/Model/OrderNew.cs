@@ -143,7 +143,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// <param name="isZeroOrder">Признак заказа товара с нулевым остатком:   - &#x60;false&#x60; — заказ сделан на товар с ненулевым остатком   - &#x60;true&#x60; — заказ сделан на товар с нулевым остатком. Такой заказ можно отменить без штрафа за отмену .</param>
         /// <param name="isPickupPointShipmentAllowed">Можно ли отгрузить заказ на ПВЗ:   - &#x60;false&#x60; — нет   - &#x60;true&#x60; — да .</param>
         /// <param name="options">options.</param>
-        public OrderNew(OrderAddress address = default(OrderAddress), string ddate = default(string), string sellerDate = default(string), int? salePrice = default(int?), List<string> requiredMeta = default(List<string>), List<string> optionalMeta = default(List<string>), DeliveryTypeEnum? deliveryType = default(DeliveryTypeEnum?), string comment = default(string), decimal? scanPrice = default(decimal?), string orderUid = default(string), string article = default(string), string colorCode = default(string), string rid = default(string), string createdAt = default(string), List<string> offices = default(List<string>), List<string> skus = default(List<string>), long id = default(long), int warehouseId = default(int), long officeId = default(long), int nmId = default(int), int chrtId = default(int), int price = default(int), int finalPrice = default(int), int convertedPrice = default(int), int convertedFinalPrice = default(int), int currencyCode = default(int), int convertedCurrencyCode = default(int), CargoTypeEnum? cargoType = default(CargoTypeEnum?), CrossBorderTypeEnum? crossBorderType = default(CrossBorderTypeEnum?), bool isZeroOrder = default(bool), bool isPickupPointShipmentAllowed = default(bool), OrderOptions options = default(OrderOptions))
+        public OrderNew(OrderAddress address = default(OrderAddress), string ddate = default(string), string sellerDate = default(string), long? salePrice = default(long?), List<string> requiredMeta = default(List<string>), List<string> optionalMeta = default(List<string>), DeliveryTypeEnum? deliveryType = default(DeliveryTypeEnum?), string comment = default(string), decimal? scanPrice = default(decimal?), string orderUid = default(string), string article = default(string), string colorCode = default(string), string rid = default(string), string createdAt = default(string), List<string> offices = default(List<string>), List<string> skus = default(List<string>), long id = default(long), long warehouseId = default(long), long officeId = default(long), long nmId = default(long), long chrtId = default(long), long price = default(long), long finalPrice = default(long), long convertedPrice = default(long), long convertedFinalPrice = default(long), int currencyCode = default(int), int convertedCurrencyCode = default(int), CargoTypeEnum? cargoType = default(CargoTypeEnum?), CrossBorderTypeEnum? crossBorderType = default(CrossBorderTypeEnum?), bool isZeroOrder = default(bool), bool isPickupPointShipmentAllowed = default(bool), OrderOptions options = default(OrderOptions))
         {
             this.Address = address;
             this.Ddate = ddate;
@@ -213,7 +213,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         <example>504600</example>
         */
         [DataMember(Name = "salePrice", EmitDefaultValue = true)]
-        public int? SalePrice { get; set; }
+        public long? SalePrice { get; set; }
 
         /// <summary>
         /// Список идентификаторов маркировки, которые [необходимо добавить](https://dev.wildberries.ru/knowledge-base/articles/019e9273-118b-7b69-a25a-ea1d756f05d9/rabota-s-markirovkoi-po-modeli-fbs) в сборочное задание, чтобы поставку с этим сборочным заданием можно было перевести в доставку 
@@ -334,7 +334,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         <example>658434</example>
         */
         [DataMember(Name = "warehouseId", EmitDefaultValue = false)]
-        public int WarehouseId { get; set; }
+        public long WarehouseId { get; set; }
 
         /// <summary>
         /// ID склада WB, к которому привязан склад продавца
@@ -354,7 +354,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         <example>123456789</example>
         */
         [DataMember(Name = "nmId", EmitDefaultValue = false)]
-        public int NmId { get; set; }
+        public long NmId { get; set; }
 
         /// <summary>
         /// ID размера товара в системе WB
@@ -364,7 +364,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         <example>987654321</example>
         */
         [DataMember(Name = "chrtId", EmitDefaultValue = false)]
-        public int ChrtId { get; set; }
+        public long ChrtId { get; set; }
 
         /// <summary>
         /// Цена в валюте продажи с учётом всех скидок, кроме скидки по WB Кошельку, умноженная на 100. Код валюты продажи — в поле &#x60;currencyCode&#x60;. Предоставляется в информационных целях 
@@ -374,7 +374,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         <example>1014</example>
         */
         [DataMember(Name = "price", EmitDefaultValue = false)]
-        public int Price { get; set; }
+        public long Price { get; set; }
 
         /// <summary>
         /// Сумма к оплате покупателем в валюте продажи с учетом всех скидок, умноженная на 100. Код валюты продажи указан в поле &#x60;currencyCode&#x60;. Предоставляется в информационных целях
@@ -384,7 +384,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         <example>1014</example>
         */
         [DataMember(Name = "finalPrice", EmitDefaultValue = false)]
-        public int FinalPrice { get; set; }
+        public long FinalPrice { get; set; }
 
         /// <summary>
         /// Цена в валюте страны продавца с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100. Предоставляется в информационных целях
@@ -394,7 +394,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         <example>28322</example>
         */
         [DataMember(Name = "convertedPrice", EmitDefaultValue = false)]
-        public int ConvertedPrice { get; set; }
+        public long ConvertedPrice { get; set; }
 
         /// <summary>
         /// Сумма к оплате покупателем в валюте страны продавца с учетом всех скидок, умноженная на 100. Предоставляется в информационных целях
@@ -404,7 +404,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         <example>1014</example>
         */
         [DataMember(Name = "convertedFinalPrice", EmitDefaultValue = false)]
-        public int ConvertedFinalPrice { get; set; }
+        public long ConvertedFinalPrice { get; set; }
 
         /// <summary>
         /// Код валюты продажи
@@ -515,7 +515,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
             // Comment (string) maxLength
             if (this.Comment != null && this.Comment.Length > 300)
             {
-                yield return new ValidationResult("Invalid value for Comment, length must be less than 300.", new [] { "Comment" });
+                yield return new ValidationResult("Invalid value for Comment, length must be less than 300.", new[] { "Comment" });
             }
 
             yield break;

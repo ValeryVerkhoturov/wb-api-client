@@ -37,18 +37,17 @@ public class V0BidRecommendationReachMedium {
 
   @SerializedName(SERIALIZED_NAME_BID_KOPECKS)
   @jakarta.annotation.Nullable
-  private Integer bidKopecks;
+  private Long bidKopecks;
 
   public static final String SERIALIZED_NAME_BID_KOPECKS_MIN = "bidKopecksMin";
 
   @SerializedName(SERIALIZED_NAME_BID_KOPECKS_MIN)
   @jakarta.annotation.Nullable
-  private Integer bidKopecksMin;
+  private Long bidKopecksMin;
 
   public V0BidRecommendationReachMedium() {}
 
-  public V0BidRecommendationReachMedium bidKopecks(
-      @jakarta.annotation.Nullable Integer bidKopecks) {
+  public V0BidRecommendationReachMedium bidKopecks(@jakarta.annotation.Nullable Long bidKopecks) {
     this.bidKopecks = bidKopecks;
     return this;
   }
@@ -60,16 +59,16 @@ public class V0BidRecommendationReachMedium {
    * @return bidKopecks
    */
   @jakarta.annotation.Nullable
-  public Integer getBidKopecks() {
+  public Long getBidKopecks() {
     return bidKopecks;
   }
 
-  public void setBidKopecks(@jakarta.annotation.Nullable Integer bidKopecks) {
+  public void setBidKopecks(@jakarta.annotation.Nullable Long bidKopecks) {
     this.bidKopecks = bidKopecks;
   }
 
   public V0BidRecommendationReachMedium bidKopecksMin(
-      @jakarta.annotation.Nullable Integer bidKopecksMin) {
+      @jakarta.annotation.Nullable Long bidKopecksMin) {
     this.bidKopecksMin = bidKopecksMin;
     return this;
   }
@@ -81,11 +80,11 @@ public class V0BidRecommendationReachMedium {
    * @return bidKopecksMin
    */
   @jakarta.annotation.Nullable
-  public Integer getBidKopecksMin() {
+  public Long getBidKopecksMin() {
     return bidKopecksMin;
   }
 
-  public void setBidKopecksMin(@jakarta.annotation.Nullable Integer bidKopecksMin) {
+  public void setBidKopecksMin(@jakarta.annotation.Nullable Long bidKopecksMin) {
     this.bidKopecksMin = bidKopecksMin;
   }
 

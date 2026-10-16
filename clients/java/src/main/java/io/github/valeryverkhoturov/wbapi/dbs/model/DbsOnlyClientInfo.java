@@ -76,13 +76,13 @@ public class DbsOnlyClientInfo {
 
   @SerializedName(SERIALIZED_NAME_ORDER_I_D)
   @jakarta.annotation.Nullable
-  private Integer orderID;
+  private Long orderID;
 
   public static final String SERIALIZED_NAME_PHONE_CODE = "phoneCode";
 
   @SerializedName(SERIALIZED_NAME_PHONE_CODE)
   @jakarta.annotation.Nullable
-  private Integer phoneCode;
+  private Long phoneCode;
 
   public static final String SERIALIZED_NAME_ADDITIONAL_PHONE_CODES = "additionalPhoneCodes";
 
@@ -233,7 +233,7 @@ public class DbsOnlyClientInfo {
     this.replacementAdditionalPhones = replacementAdditionalPhones;
   }
 
-  public DbsOnlyClientInfo orderID(@jakarta.annotation.Nullable Integer orderID) {
+  public DbsOnlyClientInfo orderID(@jakarta.annotation.Nullable Long orderID) {
     this.orderID = orderID;
     return this;
   }
@@ -244,15 +244,15 @@ public class DbsOnlyClientInfo {
    * @return orderID
    */
   @jakarta.annotation.Nullable
-  public Integer getOrderID() {
+  public Long getOrderID() {
     return orderID;
   }
 
-  public void setOrderID(@jakarta.annotation.Nullable Integer orderID) {
+  public void setOrderID(@jakarta.annotation.Nullable Long orderID) {
     this.orderID = orderID;
   }
 
-  public DbsOnlyClientInfo phoneCode(@jakarta.annotation.Nullable Integer phoneCode) {
+  public DbsOnlyClientInfo phoneCode(@jakarta.annotation.Nullable Long phoneCode) {
     this.phoneCode = phoneCode;
     return this;
   }
@@ -263,11 +263,11 @@ public class DbsOnlyClientInfo {
    * @return phoneCode
    */
   @jakarta.annotation.Nullable
-  public Integer getPhoneCode() {
+  public Long getPhoneCode() {
     return phoneCode;
   }
 
-  public void setPhoneCode(@jakarta.annotation.Nullable Integer phoneCode) {
+  public void setPhoneCode(@jakarta.annotation.Nullable Long phoneCode) {
     this.phoneCode = phoneCode;
   }
 

@@ -150,8 +150,7 @@ public class ItemsApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public okhttp3.Call deleteV2TagIdCall(Integer id, final ApiCallback _callback)
-      throws ApiException {
+  public okhttp3.Call deleteV2TagIdCall(Long id, final ApiCallback _callback) throws ApiException {
     String basePath = null;
     // Operation Servers
     String[] localBasePaths =
@@ -210,7 +209,7 @@ public class ItemsApi {
   }
 
   @SuppressWarnings("rawtypes")
-  private okhttp3.Call deleteV2TagIdValidateBeforeCall(Integer id, final ApiCallback _callback)
+  private okhttp3.Call deleteV2TagIdValidateBeforeCall(Long id, final ApiCallback _callback)
       throws ApiException {
     // verify the required parameter 'id' is set
     if (id == null) {
@@ -250,7 +249,7 @@ public class ItemsApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public ResponseContentError deleteV2TagId(Integer id) throws ApiException {
+  public ResponseContentError deleteV2TagId(Long id) throws ApiException {
     ApiResponse<ResponseContentError> localVarResp = deleteV2TagIdWithHttpInfo(id);
     return localVarResp.getData();
   }
@@ -284,8 +283,7 @@ public class ItemsApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public ApiResponse<ResponseContentError> deleteV2TagIdWithHttpInfo(Integer id)
-      throws ApiException {
+  public ApiResponse<ResponseContentError> deleteV2TagIdWithHttpInfo(Long id) throws ApiException {
     okhttp3.Call localVarCall = deleteV2TagIdValidateBeforeCall(id, null);
     Type localVarReturnType = new TypeToken<ResponseContentError>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -320,8 +318,8 @@ public class ItemsApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public okhttp3.Call deleteV2TagIdAsync(
-      Integer id, final ApiCallback<ResponseContentError> _callback) throws ApiException {
+  public okhttp3.Call deleteV2TagIdAsync(Long id, final ApiCallback<ResponseContentError> _callback)
+      throws ApiException {
 
     okhttp3.Call localVarCall = deleteV2TagIdValidateBeforeCall(id, _callback);
     Type localVarReturnType = new TypeToken<ResponseContentError>() {}.getType();
@@ -770,7 +768,7 @@ public class ItemsApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public okhttp3.Call getV1BrandsCall(Integer subjectId, Integer next, final ApiCallback _callback)
+  public okhttp3.Call getV1BrandsCall(Long subjectId, Long next, final ApiCallback _callback)
       throws ApiException {
     String basePath = null;
     // Operation Servers
@@ -834,7 +832,7 @@ public class ItemsApi {
 
   @SuppressWarnings("rawtypes")
   private okhttp3.Call getV1BrandsValidateBeforeCall(
-      Integer subjectId, Integer next, final ApiCallback _callback) throws ApiException {
+      Long subjectId, Long next, final ApiCallback _callback) throws ApiException {
     // verify the required parameter 'subjectId' is set
     if (subjectId == null) {
       throw new ApiException(
@@ -871,7 +869,7 @@ public class ItemsApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public BrandsResponse getV1Brands(Integer subjectId, Integer next) throws ApiException {
+  public BrandsResponse getV1Brands(Long subjectId, Long next) throws ApiException {
     ApiResponse<BrandsResponse> localVarResp = getV1BrandsWithHttpInfo(subjectId, next);
     return localVarResp.getData();
   }
@@ -903,7 +901,7 @@ public class ItemsApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public ApiResponse<BrandsResponse> getV1BrandsWithHttpInfo(Integer subjectId, Integer next)
+  public ApiResponse<BrandsResponse> getV1BrandsWithHttpInfo(Long subjectId, Long next)
       throws ApiException {
     okhttp3.Call localVarCall = getV1BrandsValidateBeforeCall(subjectId, next, null);
     Type localVarReturnType = new TypeToken<BrandsResponse>() {}.getType();
@@ -938,8 +936,7 @@ public class ItemsApi {
    * </table>
    */
   public okhttp3.Call getV1BrandsAsync(
-      Integer subjectId, Integer next, final ApiCallback<BrandsResponse> _callback)
-      throws ApiException {
+      Long subjectId, Long next, final ApiCallback<BrandsResponse> _callback) throws ApiException {
 
     okhttp3.Call localVarCall = getV1BrandsValidateBeforeCall(subjectId, next, _callback);
     Type localVarReturnType = new TypeToken<BrandsResponse>() {}.getType();
@@ -969,7 +966,7 @@ public class ItemsApi {
    * </table>
    */
   public okhttp3.Call getV2BufferGoodsTaskCall(
-      Integer limit, Integer uploadID, Integer offset, final ApiCallback _callback)
+      Integer limit, Long uploadID, Integer offset, final ApiCallback _callback)
       throws ApiException {
     String basePath = null;
     // Operation Servers
@@ -1041,7 +1038,7 @@ public class ItemsApi {
 
   @SuppressWarnings("rawtypes")
   private okhttp3.Call getV2BufferGoodsTaskValidateBeforeCall(
-      Integer limit, Integer uploadID, Integer offset, final ApiCallback _callback)
+      Integer limit, Long uploadID, Integer offset, final ApiCallback _callback)
       throws ApiException {
     // verify the required parameter 'limit' is set
     if (limit == null) {
@@ -1091,7 +1088,7 @@ public class ItemsApi {
    * </table>
    */
   public GetV2BufferGoodsTask200Response getV2BufferGoodsTask(
-      Integer limit, Integer uploadID, Integer offset) throws ApiException {
+      Integer limit, Long uploadID, Integer offset) throws ApiException {
     ApiResponse<GetV2BufferGoodsTask200Response> localVarResp =
         getV2BufferGoodsTaskWithHttpInfo(limit, uploadID, offset);
     return localVarResp.getData();
@@ -1130,7 +1127,7 @@ public class ItemsApi {
    * </table>
    */
   public ApiResponse<GetV2BufferGoodsTask200Response> getV2BufferGoodsTaskWithHttpInfo(
-      Integer limit, Integer uploadID, Integer offset) throws ApiException {
+      Integer limit, Long uploadID, Integer offset) throws ApiException {
     okhttp3.Call localVarCall =
         getV2BufferGoodsTaskValidateBeforeCall(limit, uploadID, offset, null);
     Type localVarReturnType = new TypeToken<GetV2BufferGoodsTask200Response>() {}.getType();
@@ -1171,7 +1168,7 @@ public class ItemsApi {
    */
   public okhttp3.Call getV2BufferGoodsTaskAsync(
       Integer limit,
-      Integer uploadID,
+      Long uploadID,
       Integer offset,
       final ApiCallback<GetV2BufferGoodsTask200Response> _callback)
       throws ApiException {
@@ -1201,7 +1198,7 @@ public class ItemsApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public okhttp3.Call getV2BufferTasksCall(Integer uploadID, final ApiCallback _callback)
+  public okhttp3.Call getV2BufferTasksCall(Long uploadID, final ApiCallback _callback)
       throws ApiException {
     String basePath = null;
     // Operation Servers
@@ -1265,7 +1262,7 @@ public class ItemsApi {
 
   @SuppressWarnings("rawtypes")
   private okhttp3.Call getV2BufferTasksValidateBeforeCall(
-      Integer uploadID, final ApiCallback _callback) throws ApiException {
+      Long uploadID, final ApiCallback _callback) throws ApiException {
     // verify the required parameter 'uploadID' is set
     if (uploadID == null) {
       throw new ApiException(
@@ -1304,7 +1301,7 @@ public class ItemsApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public GetV2BufferTasks200Response getV2BufferTasks(Integer uploadID) throws ApiException {
+  public GetV2BufferTasks200Response getV2BufferTasks(Long uploadID) throws ApiException {
     ApiResponse<GetV2BufferTasks200Response> localVarResp = getV2BufferTasksWithHttpInfo(uploadID);
     return localVarResp.getData();
   }
@@ -1338,7 +1335,7 @@ public class ItemsApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public ApiResponse<GetV2BufferTasks200Response> getV2BufferTasksWithHttpInfo(Integer uploadID)
+  public ApiResponse<GetV2BufferTasks200Response> getV2BufferTasksWithHttpInfo(Long uploadID)
       throws ApiException {
     okhttp3.Call localVarCall = getV2BufferTasksValidateBeforeCall(uploadID, null);
     Type localVarReturnType = new TypeToken<GetV2BufferTasks200Response>() {}.getType();
@@ -1375,8 +1372,7 @@ public class ItemsApi {
    * </table>
    */
   public okhttp3.Call getV2BufferTasksAsync(
-      Integer uploadID, final ApiCallback<GetV2BufferTasks200Response> _callback)
-      throws ApiException {
+      Long uploadID, final ApiCallback<GetV2BufferTasks200Response> _callback) throws ApiException {
 
     okhttp3.Call localVarCall = getV2BufferTasksValidateBeforeCall(uploadID, _callback);
     Type localVarReturnType = new TypeToken<GetV2BufferTasks200Response>() {}.getType();
@@ -2242,7 +2238,7 @@ public class ItemsApi {
    * </table>
    */
   public okhttp3.Call getV2DirectoryOkpdCall(
-      Integer subjectId, String search, String locale, final ApiCallback _callback)
+      Long subjectId, String search, String locale, final ApiCallback _callback)
       throws ApiException {
     String basePath = null;
     // Operation Servers
@@ -2310,7 +2306,7 @@ public class ItemsApi {
 
   @SuppressWarnings("rawtypes")
   private okhttp3.Call getV2DirectoryOkpdValidateBeforeCall(
-      Integer subjectId, String search, String locale, final ApiCallback _callback)
+      Long subjectId, String search, String locale, final ApiCallback _callback)
       throws ApiException {
     // verify the required parameter 'subjectId' is set
     if (subjectId == null) {
@@ -2362,7 +2358,7 @@ public class ItemsApi {
    * </table>
    */
   public GetV2DirectoryOkpdResponse200 getV2DirectoryOkpd(
-      Integer subjectId, String search, String locale) throws ApiException {
+      Long subjectId, String search, String locale) throws ApiException {
     ApiResponse<GetV2DirectoryOkpdResponse200> localVarResp =
         getV2DirectoryOkpdWithHttpInfo(subjectId, search, locale);
     return localVarResp.getData();
@@ -2409,7 +2405,7 @@ public class ItemsApi {
    * </table>
    */
   public ApiResponse<GetV2DirectoryOkpdResponse200> getV2DirectoryOkpdWithHttpInfo(
-      Integer subjectId, String search, String locale) throws ApiException {
+      Long subjectId, String search, String locale) throws ApiException {
     okhttp3.Call localVarCall =
         getV2DirectoryOkpdValidateBeforeCall(subjectId, search, locale, null);
     Type localVarReturnType = new TypeToken<GetV2DirectoryOkpdResponse200>() {}.getType();
@@ -2457,7 +2453,7 @@ public class ItemsApi {
    * </table>
    */
   public okhttp3.Call getV2DirectoryOkpdAsync(
-      Integer subjectId,
+      Long subjectId,
       String search,
       String locale,
       final ApiCallback<GetV2DirectoryOkpdResponse200> _callback)
@@ -2922,8 +2918,7 @@ public class ItemsApi {
    * </table>
    */
   public okhttp3.Call getV2DirectoryTnvedCall(
-      Integer subjectID, Integer search, String locale, final ApiCallback _callback)
-      throws ApiException {
+      Long subjectID, Long search, String locale, final ApiCallback _callback) throws ApiException {
     String basePath = null;
     // Operation Servers
     String[] localBasePaths =
@@ -2993,8 +2988,7 @@ public class ItemsApi {
 
   @SuppressWarnings("rawtypes")
   private okhttp3.Call getV2DirectoryTnvedValidateBeforeCall(
-      Integer subjectID, Integer search, String locale, final ApiCallback _callback)
-      throws ApiException {
+      Long subjectID, Long search, String locale, final ApiCallback _callback) throws ApiException {
     // verify the required parameter 'subjectID' is set
     if (subjectID == null) {
       throw new ApiException(
@@ -3047,7 +3041,7 @@ public class ItemsApi {
    * </table>
    */
   public GetV2DirectoryTnvedResponse200 getV2DirectoryTnved(
-      Integer subjectID, Integer search, String locale) throws ApiException {
+      Long subjectID, Long search, String locale) throws ApiException {
     ApiResponse<GetV2DirectoryTnvedResponse200> localVarResp =
         getV2DirectoryTnvedWithHttpInfo(subjectID, search, locale);
     return localVarResp.getData();
@@ -3096,7 +3090,7 @@ public class ItemsApi {
    * </table>
    */
   public ApiResponse<GetV2DirectoryTnvedResponse200> getV2DirectoryTnvedWithHttpInfo(
-      Integer subjectID, Integer search, String locale) throws ApiException {
+      Long subjectID, Long search, String locale) throws ApiException {
     okhttp3.Call localVarCall =
         getV2DirectoryTnvedValidateBeforeCall(subjectID, search, locale, null);
     Type localVarReturnType = new TypeToken<GetV2DirectoryTnvedResponse200>() {}.getType();
@@ -3146,8 +3140,8 @@ public class ItemsApi {
    * </table>
    */
   public okhttp3.Call getV2DirectoryTnvedAsync(
-      Integer subjectID,
-      Integer search,
+      Long subjectID,
+      Long search,
       String locale,
       final ApiCallback<GetV2DirectoryTnvedResponse200> _callback)
       throws ApiException {
@@ -3180,7 +3174,7 @@ public class ItemsApi {
    * </table>
    */
   public okhttp3.Call getV2DirectoryTnvedAllCall(
-      Integer search, String locale, final ApiCallback _callback) throws ApiException {
+      Long search, String locale, final ApiCallback _callback) throws ApiException {
     String basePath = null;
     // Operation Servers
     String[] localBasePaths = new String[] {"https://content-api.wildberries.ru"};
@@ -3243,7 +3237,7 @@ public class ItemsApi {
 
   @SuppressWarnings("rawtypes")
   private okhttp3.Call getV2DirectoryTnvedAllValidateBeforeCall(
-      Integer search, String locale, final ApiCallback _callback) throws ApiException {
+      Long search, String locale, final ApiCallback _callback) throws ApiException {
     return getV2DirectoryTnvedAllCall(search, locale, _callback);
   }
 
@@ -3286,7 +3280,7 @@ public class ItemsApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public GetV2DirectoryTnvedAllResponse200 getV2DirectoryTnvedAll(Integer search, String locale)
+  public GetV2DirectoryTnvedAllResponse200 getV2DirectoryTnvedAll(Long search, String locale)
       throws ApiException {
     ApiResponse<GetV2DirectoryTnvedAllResponse200> localVarResp =
         getV2DirectoryTnvedAllWithHttpInfo(search, locale);
@@ -3333,7 +3327,7 @@ public class ItemsApi {
    * </table>
    */
   public ApiResponse<GetV2DirectoryTnvedAllResponse200> getV2DirectoryTnvedAllWithHttpInfo(
-      Integer search, String locale) throws ApiException {
+      Long search, String locale) throws ApiException {
     okhttp3.Call localVarCall = getV2DirectoryTnvedAllValidateBeforeCall(search, locale, null);
     Type localVarReturnType = new TypeToken<GetV2DirectoryTnvedAllResponse200>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -3380,7 +3374,7 @@ public class ItemsApi {
    * </table>
    */
   public okhttp3.Call getV2DirectoryTnvedAllAsync(
-      Integer search, String locale, final ApiCallback<GetV2DirectoryTnvedAllResponse200> _callback)
+      Long search, String locale, final ApiCallback<GetV2DirectoryTnvedAllResponse200> _callback)
       throws ApiException {
 
     okhttp3.Call localVarCall = getV2DirectoryTnvedAllValidateBeforeCall(search, locale, _callback);
@@ -3610,7 +3604,7 @@ public class ItemsApi {
    * </table>
    */
   public okhttp3.Call getV2HistoryGoodsTaskCall(
-      Integer limit, Integer uploadID, Integer offset, final ApiCallback _callback)
+      Integer limit, Long uploadID, Integer offset, final ApiCallback _callback)
       throws ApiException {
     String basePath = null;
     // Operation Servers
@@ -3682,7 +3676,7 @@ public class ItemsApi {
 
   @SuppressWarnings("rawtypes")
   private okhttp3.Call getV2HistoryGoodsTaskValidateBeforeCall(
-      Integer limit, Integer uploadID, Integer offset, final ApiCallback _callback)
+      Integer limit, Long uploadID, Integer offset, final ApiCallback _callback)
       throws ApiException {
     // verify the required parameter 'limit' is set
     if (limit == null) {
@@ -3738,7 +3732,7 @@ public class ItemsApi {
    * </table>
    */
   public GetV2HistoryGoodsTask200Response getV2HistoryGoodsTask(
-      Integer limit, Integer uploadID, Integer offset) throws ApiException {
+      Integer limit, Long uploadID, Integer offset) throws ApiException {
     ApiResponse<GetV2HistoryGoodsTask200Response> localVarResp =
         getV2HistoryGoodsTaskWithHttpInfo(limit, uploadID, offset);
     return localVarResp.getData();
@@ -3783,7 +3777,7 @@ public class ItemsApi {
    * </table>
    */
   public ApiResponse<GetV2HistoryGoodsTask200Response> getV2HistoryGoodsTaskWithHttpInfo(
-      Integer limit, Integer uploadID, Integer offset) throws ApiException {
+      Integer limit, Long uploadID, Integer offset) throws ApiException {
     okhttp3.Call localVarCall =
         getV2HistoryGoodsTaskValidateBeforeCall(limit, uploadID, offset, null);
     Type localVarReturnType = new TypeToken<GetV2HistoryGoodsTask200Response>() {}.getType();
@@ -3831,7 +3825,7 @@ public class ItemsApi {
    */
   public okhttp3.Call getV2HistoryGoodsTaskAsync(
       Integer limit,
-      Integer uploadID,
+      Long uploadID,
       Integer offset,
       final ApiCallback<GetV2HistoryGoodsTask200Response> _callback)
       throws ApiException {
@@ -3861,7 +3855,7 @@ public class ItemsApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public okhttp3.Call getV2HistoryTasksCall(Integer uploadID, final ApiCallback _callback)
+  public okhttp3.Call getV2HistoryTasksCall(Long uploadID, final ApiCallback _callback)
       throws ApiException {
     String basePath = null;
     // Operation Servers
@@ -3925,7 +3919,7 @@ public class ItemsApi {
 
   @SuppressWarnings("rawtypes")
   private okhttp3.Call getV2HistoryTasksValidateBeforeCall(
-      Integer uploadID, final ApiCallback _callback) throws ApiException {
+      Long uploadID, final ApiCallback _callback) throws ApiException {
     // verify the required parameter 'uploadID' is set
     if (uploadID == null) {
       throw new ApiException(
@@ -3970,7 +3964,7 @@ public class ItemsApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public GetV2HistoryTasks200Response getV2HistoryTasks(Integer uploadID) throws ApiException {
+  public GetV2HistoryTasks200Response getV2HistoryTasks(Long uploadID) throws ApiException {
     ApiResponse<GetV2HistoryTasks200Response> localVarResp =
         getV2HistoryTasksWithHttpInfo(uploadID);
     return localVarResp.getData();
@@ -4011,7 +4005,7 @@ public class ItemsApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public ApiResponse<GetV2HistoryTasks200Response> getV2HistoryTasksWithHttpInfo(Integer uploadID)
+  public ApiResponse<GetV2HistoryTasks200Response> getV2HistoryTasksWithHttpInfo(Long uploadID)
       throws ApiException {
     okhttp3.Call localVarCall = getV2HistoryTasksValidateBeforeCall(uploadID, null);
     Type localVarReturnType = new TypeToken<GetV2HistoryTasks200Response>() {}.getType();
@@ -4054,7 +4048,7 @@ public class ItemsApi {
    * </table>
    */
   public okhttp3.Call getV2HistoryTasksAsync(
-      Integer uploadID, final ApiCallback<GetV2HistoryTasks200Response> _callback)
+      Long uploadID, final ApiCallback<GetV2HistoryTasks200Response> _callback)
       throws ApiException {
 
     okhttp3.Call localVarCall = getV2HistoryTasksValidateBeforeCall(uploadID, _callback);
@@ -4086,7 +4080,7 @@ public class ItemsApi {
    * </table>
    */
   public okhttp3.Call getV2ListGoodsFilterCall(
-      Integer limit, Integer offset, Integer filterNmID, final ApiCallback _callback)
+      Integer limit, Integer offset, Long filterNmID, final ApiCallback _callback)
       throws ApiException {
     String basePath = null;
     // Operation Servers
@@ -4158,7 +4152,7 @@ public class ItemsApi {
 
   @SuppressWarnings("rawtypes")
   private okhttp3.Call getV2ListGoodsFilterValidateBeforeCall(
-      Integer limit, Integer offset, Integer filterNmID, final ApiCallback _callback)
+      Integer limit, Integer offset, Long filterNmID, final ApiCallback _callback)
       throws ApiException {
     // verify the required parameter 'limit' is set
     if (limit == null) {
@@ -4214,7 +4208,7 @@ public class ItemsApi {
    * </table>
    */
   public GetV2ListGoodsFilter200Response getV2ListGoodsFilter(
-      Integer limit, Integer offset, Integer filterNmID) throws ApiException {
+      Integer limit, Integer offset, Long filterNmID) throws ApiException {
     ApiResponse<GetV2ListGoodsFilter200Response> localVarResp =
         getV2ListGoodsFilterWithHttpInfo(limit, offset, filterNmID);
     return localVarResp.getData();
@@ -4265,7 +4259,7 @@ public class ItemsApi {
    * </table>
    */
   public ApiResponse<GetV2ListGoodsFilter200Response> getV2ListGoodsFilterWithHttpInfo(
-      Integer limit, Integer offset, Integer filterNmID) throws ApiException {
+      Integer limit, Integer offset, Long filterNmID) throws ApiException {
     okhttp3.Call localVarCall =
         getV2ListGoodsFilterValidateBeforeCall(limit, offset, filterNmID, null);
     Type localVarReturnType = new TypeToken<GetV2ListGoodsFilter200Response>() {}.getType();
@@ -4319,7 +4313,7 @@ public class ItemsApi {
   public okhttp3.Call getV2ListGoodsFilterAsync(
       Integer limit,
       Integer offset,
-      Integer filterNmID,
+      Long filterNmID,
       final ApiCallback<GetV2ListGoodsFilter200Response> _callback)
       throws ApiException {
 
@@ -4353,8 +4347,7 @@ public class ItemsApi {
    * </table>
    */
   public okhttp3.Call getV2ListGoodsSizeNmCall(
-      Integer limit, Integer nmID, Integer offset, final ApiCallback _callback)
-      throws ApiException {
+      Integer limit, Long nmID, Integer offset, final ApiCallback _callback) throws ApiException {
     String basePath = null;
     // Operation Servers
     String[] localBasePaths =
@@ -4425,8 +4418,7 @@ public class ItemsApi {
 
   @SuppressWarnings("rawtypes")
   private okhttp3.Call getV2ListGoodsSizeNmValidateBeforeCall(
-      Integer limit, Integer nmID, Integer offset, final ApiCallback _callback)
-      throws ApiException {
+      Integer limit, Long nmID, Integer offset, final ApiCallback _callback) throws ApiException {
     // verify the required parameter 'limit' is set
     if (limit == null) {
       throw new ApiException(
@@ -4480,7 +4472,7 @@ public class ItemsApi {
    * </table>
    */
   public GetV2ListGoodsSizeNm200Response getV2ListGoodsSizeNm(
-      Integer limit, Integer nmID, Integer offset) throws ApiException {
+      Integer limit, Long nmID, Integer offset) throws ApiException {
     ApiResponse<GetV2ListGoodsSizeNm200Response> localVarResp =
         getV2ListGoodsSizeNmWithHttpInfo(limit, nmID, offset);
     return localVarResp.getData();
@@ -4524,7 +4516,7 @@ public class ItemsApi {
    * </table>
    */
   public ApiResponse<GetV2ListGoodsSizeNm200Response> getV2ListGoodsSizeNmWithHttpInfo(
-      Integer limit, Integer nmID, Integer offset) throws ApiException {
+      Integer limit, Long nmID, Integer offset) throws ApiException {
     okhttp3.Call localVarCall = getV2ListGoodsSizeNmValidateBeforeCall(limit, nmID, offset, null);
     Type localVarReturnType = new TypeToken<GetV2ListGoodsSizeNm200Response>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -4569,7 +4561,7 @@ public class ItemsApi {
    */
   public okhttp3.Call getV2ListGoodsSizeNmAsync(
       Integer limit,
-      Integer nmID,
+      Long nmID,
       Integer offset,
       final ApiCallback<GetV2ListGoodsSizeNm200Response> _callback)
       throws ApiException {
@@ -4609,9 +4601,9 @@ public class ItemsApi {
   public okhttp3.Call getV2ObjectAllCall(
       String locale,
       String name,
-      Integer limit,
-      Integer offset,
-      Integer parentID,
+      Long limit,
+      Long offset,
+      Long parentID,
       final ApiCallback _callback)
       throws ApiException {
     String basePath = null;
@@ -4693,9 +4685,9 @@ public class ItemsApi {
   private okhttp3.Call getV2ObjectAllValidateBeforeCall(
       String locale,
       String name,
-      Integer limit,
-      Integer offset,
-      Integer parentID,
+      Long limit,
+      Long offset,
+      Long parentID,
       final ApiCallback _callback)
       throws ApiException {
     return getV2ObjectAllCall(locale, name, limit, offset, parentID, _callback);
@@ -4748,8 +4740,7 @@ public class ItemsApi {
    * </table>
    */
   public GetV2ObjectAllResponse200 getV2ObjectAll(
-      String locale, String name, Integer limit, Integer offset, Integer parentID)
-      throws ApiException {
+      String locale, String name, Long limit, Long offset, Long parentID) throws ApiException {
     ApiResponse<GetV2ObjectAllResponse200> localVarResp =
         getV2ObjectAllWithHttpInfo(locale, name, limit, offset, parentID);
     return localVarResp.getData();
@@ -4802,8 +4793,7 @@ public class ItemsApi {
    * </table>
    */
   public ApiResponse<GetV2ObjectAllResponse200> getV2ObjectAllWithHttpInfo(
-      String locale, String name, Integer limit, Integer offset, Integer parentID)
-      throws ApiException {
+      String locale, String name, Long limit, Long offset, Long parentID) throws ApiException {
     okhttp3.Call localVarCall =
         getV2ObjectAllValidateBeforeCall(locale, name, limit, offset, parentID, null);
     Type localVarReturnType = new TypeToken<GetV2ObjectAllResponse200>() {}.getType();
@@ -4859,9 +4849,9 @@ public class ItemsApi {
   public okhttp3.Call getV2ObjectAllAsync(
       String locale,
       String name,
-      Integer limit,
-      Integer offset,
-      Integer parentID,
+      Long limit,
+      Long offset,
+      Long parentID,
       final ApiCallback<GetV2ObjectAllResponse200> _callback)
       throws ApiException {
 
@@ -4894,7 +4884,7 @@ public class ItemsApi {
    * </table>
    */
   public okhttp3.Call getV2ObjectCharcsSubjectIdCall(
-      Integer subjectId, String locale, final ApiCallback _callback) throws ApiException {
+      Long subjectId, String locale, final ApiCallback _callback) throws ApiException {
     String basePath = null;
     // Operation Servers
     String[] localBasePaths =
@@ -4958,7 +4948,7 @@ public class ItemsApi {
 
   @SuppressWarnings("rawtypes")
   private okhttp3.Call getV2ObjectCharcsSubjectIdValidateBeforeCall(
-      Integer subjectId, String locale, final ApiCallback _callback) throws ApiException {
+      Long subjectId, String locale, final ApiCallback _callback) throws ApiException {
     // verify the required parameter 'subjectId' is set
     if (subjectId == null) {
       throw new ApiException(
@@ -5021,7 +5011,7 @@ public class ItemsApi {
    * </table>
    */
   public GetV2ObjectCharcsSubjectIdResponse200 getV2ObjectCharcsSubjectId(
-      Integer subjectId, String locale) throws ApiException {
+      Long subjectId, String locale) throws ApiException {
     ApiResponse<GetV2ObjectCharcsSubjectIdResponse200> localVarResp =
         getV2ObjectCharcsSubjectIdWithHttpInfo(subjectId, locale);
     return localVarResp.getData();
@@ -5080,7 +5070,7 @@ public class ItemsApi {
    * </table>
    */
   public ApiResponse<GetV2ObjectCharcsSubjectIdResponse200> getV2ObjectCharcsSubjectIdWithHttpInfo(
-      Integer subjectId, String locale) throws ApiException {
+      Long subjectId, String locale) throws ApiException {
     okhttp3.Call localVarCall =
         getV2ObjectCharcsSubjectIdValidateBeforeCall(subjectId, locale, null);
     Type localVarReturnType = new TypeToken<GetV2ObjectCharcsSubjectIdResponse200>() {}.getType();
@@ -5140,7 +5130,7 @@ public class ItemsApi {
    * </table>
    */
   public okhttp3.Call getV2ObjectCharcsSubjectIdAsync(
-      Integer subjectId,
+      Long subjectId,
       String locale,
       final ApiCallback<GetV2ObjectCharcsSubjectIdResponse200> _callback)
       throws ApiException {
@@ -6392,7 +6382,7 @@ public class ItemsApi {
    * </table>
    */
   public okhttp3.Call patchV2TagIdCall(
-      Integer id, PatchV2TagIdRequest patchV2TagIdRequest, final ApiCallback _callback)
+      Long id, PatchV2TagIdRequest patchV2TagIdRequest, final ApiCallback _callback)
       throws ApiException {
     String basePath = null;
     // Operation Servers
@@ -6453,7 +6443,7 @@ public class ItemsApi {
 
   @SuppressWarnings("rawtypes")
   private okhttp3.Call patchV2TagIdValidateBeforeCall(
-      Integer id, PatchV2TagIdRequest patchV2TagIdRequest, final ApiCallback _callback)
+      Long id, PatchV2TagIdRequest patchV2TagIdRequest, final ApiCallback _callback)
       throws ApiException {
     // verify the required parameter 'id' is set
     if (id == null) {
@@ -6500,7 +6490,7 @@ public class ItemsApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public ResponseContentError patchV2TagId(Integer id, PatchV2TagIdRequest patchV2TagIdRequest)
+  public ResponseContentError patchV2TagId(Long id, PatchV2TagIdRequest patchV2TagIdRequest)
       throws ApiException {
     ApiResponse<ResponseContentError> localVarResp =
         patchV2TagIdWithHttpInfo(id, patchV2TagIdRequest);
@@ -6538,7 +6528,7 @@ public class ItemsApi {
    * </table>
    */
   public ApiResponse<ResponseContentError> patchV2TagIdWithHttpInfo(
-      Integer id, PatchV2TagIdRequest patchV2TagIdRequest) throws ApiException {
+      Long id, PatchV2TagIdRequest patchV2TagIdRequest) throws ApiException {
     okhttp3.Call localVarCall = patchV2TagIdValidateBeforeCall(id, patchV2TagIdRequest, null);
     Type localVarReturnType = new TypeToken<ResponseContentError>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -6576,7 +6566,7 @@ public class ItemsApi {
    * </table>
    */
   public okhttp3.Call patchV2TagIdAsync(
-      Integer id,
+      Long id,
       PatchV2TagIdRequest patchV2TagIdRequest,
       final ApiCallback<ResponseContentError> _callback)
       throws ApiException {
@@ -11240,7 +11230,7 @@ public class ItemsApi {
    * </table>
    */
   public okhttp3.Call postV3MediaFileCall(
-      String xNmId, Integer xPhotoNumber, File uploadfile, final ApiCallback _callback)
+      String xNmId, Long xPhotoNumber, File uploadfile, final ApiCallback _callback)
       throws ApiException {
     String basePath = null;
     // Operation Servers
@@ -11311,7 +11301,7 @@ public class ItemsApi {
 
   @SuppressWarnings("rawtypes")
   private okhttp3.Call postV3MediaFileValidateBeforeCall(
-      String xNmId, Integer xPhotoNumber, File uploadfile, final ApiCallback _callback)
+      String xNmId, Long xPhotoNumber, File uploadfile, final ApiCallback _callback)
       throws ApiException {
     // verify the required parameter 'xNmId' is set
     if (xNmId == null) {
@@ -11364,7 +11354,7 @@ public class ItemsApi {
    * </table>
    */
   public PostV3MediaFileResponse200 postV3MediaFile(
-      String xNmId, Integer xPhotoNumber, File uploadfile) throws ApiException {
+      String xNmId, Long xPhotoNumber, File uploadfile) throws ApiException {
     ApiResponse<PostV3MediaFileResponse200> localVarResp =
         postV3MediaFileWithHttpInfo(xNmId, xPhotoNumber, uploadfile);
     return localVarResp.getData();
@@ -11406,7 +11396,7 @@ public class ItemsApi {
    * </table>
    */
   public ApiResponse<PostV3MediaFileResponse200> postV3MediaFileWithHttpInfo(
-      String xNmId, Integer xPhotoNumber, File uploadfile) throws ApiException {
+      String xNmId, Long xPhotoNumber, File uploadfile) throws ApiException {
     okhttp3.Call localVarCall =
         postV3MediaFileValidateBeforeCall(xNmId, xPhotoNumber, uploadfile, null);
     Type localVarReturnType = new TypeToken<PostV3MediaFileResponse200>() {}.getType();
@@ -11451,7 +11441,7 @@ public class ItemsApi {
    */
   public okhttp3.Call postV3MediaFileAsync(
       String xNmId,
-      Integer xPhotoNumber,
+      Long xPhotoNumber,
       File uploadfile,
       final ApiCallback<PostV3MediaFileResponse200> _callback)
       throws ApiException {

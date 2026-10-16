@@ -50,7 +50,7 @@ public class ModelsAcceptanceCoefficient {
 
   @SerializedName(SERIALIZED_NAME_WAREHOUSE_I_D)
   @jakarta.annotation.Nullable
-  private Integer warehouseID;
+  private Long warehouseID;
 
   public static final String SERIALIZED_NAME_WAREHOUSE_NAME = "warehouseName";
 
@@ -68,7 +68,7 @@ public class ModelsAcceptanceCoefficient {
 
   @SerializedName(SERIALIZED_NAME_BOX_TYPE_I_D)
   @jakarta.annotation.Nullable
-  private Integer boxTypeID;
+  private Long boxTypeID;
 
   public static final String SERIALIZED_NAME_STORAGE_COEF = "storageCoef";
 
@@ -155,7 +155,7 @@ public class ModelsAcceptanceCoefficient {
     this.coefficient = coefficient;
   }
 
-  public ModelsAcceptanceCoefficient warehouseID(@jakarta.annotation.Nullable Integer warehouseID) {
+  public ModelsAcceptanceCoefficient warehouseID(@jakarta.annotation.Nullable Long warehouseID) {
     this.warehouseID = warehouseID;
     return this;
   }
@@ -167,11 +167,11 @@ public class ModelsAcceptanceCoefficient {
    * @return warehouseID
    */
   @jakarta.annotation.Nullable
-  public Integer getWarehouseID() {
+  public Long getWarehouseID() {
     return warehouseID;
   }
 
-  public void setWarehouseID(@jakarta.annotation.Nullable Integer warehouseID) {
+  public void setWarehouseID(@jakarta.annotation.Nullable Long warehouseID) {
     this.warehouseID = warehouseID;
   }
 
@@ -215,7 +215,7 @@ public class ModelsAcceptanceCoefficient {
     this.allowUnload = allowUnload;
   }
 
-  public ModelsAcceptanceCoefficient boxTypeID(@jakarta.annotation.Nullable Integer boxTypeID) {
+  public ModelsAcceptanceCoefficient boxTypeID(@jakarta.annotation.Nullable Long boxTypeID) {
     this.boxTypeID = boxTypeID;
     return this;
   }
@@ -227,11 +227,11 @@ public class ModelsAcceptanceCoefficient {
    * @return boxTypeID
    */
   @jakarta.annotation.Nullable
-  public Integer getBoxTypeID() {
+  public Long getBoxTypeID() {
     return boxTypeID;
   }
 
-  public void setBoxTypeID(@jakarta.annotation.Nullable Integer boxTypeID) {
+  public void setBoxTypeID(@jakarta.annotation.Nullable Long boxTypeID) {
     this.boxTypeID = boxTypeID;
   }
 
