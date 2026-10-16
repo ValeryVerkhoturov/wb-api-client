@@ -5874,6 +5874,11 @@ components:
               - `false` — заказ сделан на товар с ненулевым остатком
               - `true` — заказ сделан на товар с нулевым остатком. Такой заказ можно отменить без штрафа за отмену
           example: false
+        trackNumber:
+          type: string
+          description: |
+            Трек-номер для трансграничной поставки
+          example: NRU56565656
         options:
           type: object
           description: Опции заказа

@@ -340,6 +340,12 @@ public class Order {
   @jakarta.annotation.Nullable
   private Boolean isZeroOrder;
 
+  public static final String SERIALIZED_NAME_TRACK_NUMBER = "trackNumber";
+
+  @SerializedName(SERIALIZED_NAME_TRACK_NUMBER)
+  @jakarta.annotation.Nullable
+  private String trackNumber;
+
   public static final String SERIALIZED_NAME_OPTIONS = "options";
 
   @SerializedName(SERIALIZED_NAME_OPTIONS)
@@ -841,6 +847,25 @@ public class Order {
     this.isZeroOrder = isZeroOrder;
   }
 
+  public Order trackNumber(@jakarta.annotation.Nullable String trackNumber) {
+    this.trackNumber = trackNumber;
+    return this;
+  }
+
+  /**
+   * Трек-номер для трансграничной поставки
+   *
+   * @return trackNumber
+   */
+  @jakarta.annotation.Nullable
+  public String getTrackNumber() {
+    return trackNumber;
+  }
+
+  public void setTrackNumber(@jakarta.annotation.Nullable String trackNumber) {
+    this.trackNumber = trackNumber;
+  }
+
   public Order options(@jakarta.annotation.Nullable OrderOptions options) {
     this.options = options;
     return this;
@@ -893,6 +918,7 @@ public class Order {
         && Objects.equals(this.crossBorderType, order.crossBorderType)
         && Objects.equals(this.comment, order.comment)
         && Objects.equals(this.isZeroOrder, order.isZeroOrder)
+        && Objects.equals(this.trackNumber, order.trackNumber)
         && Objects.equals(this.options, order.options);
   }
 
@@ -923,6 +949,7 @@ public class Order {
         crossBorderType,
         comment,
         isZeroOrder,
+        trackNumber,
         options);
   }
 
@@ -956,6 +983,7 @@ public class Order {
     sb.append("    crossBorderType: ").append(toIndentedString(crossBorderType)).append("\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
     sb.append("    isZeroOrder: ").append(toIndentedString(isZeroOrder)).append("\n");
+    sb.append("    trackNumber: ").append(toIndentedString(trackNumber)).append("\n");
     sb.append("    options: ").append(toIndentedString(options)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -1001,6 +1029,7 @@ public class Order {
     openapiFields.add("crossBorderType");
     openapiFields.add("comment");
     openapiFields.add("isZeroOrder");
+    openapiFields.add("trackNumber");
     openapiFields.add("options");
 
     // a set of required properties/fields (JSON key names)
@@ -1123,6 +1152,13 @@ public class Order {
           String.format(
               "Expected the field `comment` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("comment").toString()));
+    }
+    if ((jsonObj.get("trackNumber") != null && !jsonObj.get("trackNumber").isJsonNull())
+        && !jsonObj.get("trackNumber").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `trackNumber` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("trackNumber").toString()));
     }
     // validate the optional field `options`
     if (jsonObj.get("options") != null && !jsonObj.get("options").isJsonNull()) {

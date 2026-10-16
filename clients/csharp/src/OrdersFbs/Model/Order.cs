@@ -135,8 +135,9 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// <param name="crossBorderType">Тип сборочного задания:   - &#x60;0&#x60; — внутренняя поставка   - &#x60;1&#x60; — трансграничная поставка .</param>
         /// <param name="comment">Комментарий покупателя.</param>
         /// <param name="isZeroOrder">Признак заказа товара с нулевым остатком:   - &#x60;false&#x60; — заказ сделан на товар с ненулевым остатком   - &#x60;true&#x60; — заказ сделан на товар с нулевым остатком. Такой заказ можно отменить без штрафа за отмену .</param>
+        /// <param name="trackNumber">Трек-номер для трансграничной поставки .</param>
         /// <param name="options">options.</param>
-        public Order(OrderAddress address = default(OrderAddress), decimal? scanPrice = default(decimal?), DeliveryTypeEnum? deliveryType = default(DeliveryTypeEnum?), string supplyId = default(string), string orderUid = default(string), string article = default(string), string colorCode = default(string), string rid = default(string), string createdAt = default(string), List<string> offices = default(List<string>), List<string> skus = default(List<string>), long id = default(long), int warehouseId = default(int), long officeId = default(long), int nmId = default(int), int chrtId = default(int), int price = default(int), int convertedPrice = default(int), int currencyCode = default(int), int convertedCurrencyCode = default(int), CargoTypeEnum? cargoType = default(CargoTypeEnum?), CrossBorderTypeEnum? crossBorderType = default(CrossBorderTypeEnum?), string comment = default(string), bool isZeroOrder = default(bool), OrderOptions options = default(OrderOptions))
+        public Order(OrderAddress address = default(OrderAddress), decimal? scanPrice = default(decimal?), DeliveryTypeEnum? deliveryType = default(DeliveryTypeEnum?), string supplyId = default(string), string orderUid = default(string), string article = default(string), string colorCode = default(string), string rid = default(string), string createdAt = default(string), List<string> offices = default(List<string>), List<string> skus = default(List<string>), long id = default(long), int warehouseId = default(int), long officeId = default(long), int nmId = default(int), int chrtId = default(int), int price = default(int), int convertedPrice = default(int), int currencyCode = default(int), int convertedCurrencyCode = default(int), CargoTypeEnum? cargoType = default(CargoTypeEnum?), CrossBorderTypeEnum? crossBorderType = default(CrossBorderTypeEnum?), string comment = default(string), bool isZeroOrder = default(bool), string trackNumber = default(string), OrderOptions options = default(OrderOptions))
         {
             this.Address = address;
             this.ScanPrice = scanPrice;
@@ -162,6 +163,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
             this.CrossBorderType = crossBorderType;
             this.Comment = comment;
             this.IsZeroOrder = isZeroOrder;
+            this.TrackNumber = trackNumber;
             this.Options = options;
         }
 
@@ -366,6 +368,16 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         public bool IsZeroOrder { get; set; }
 
         /// <summary>
+        /// Трек-номер для трансграничной поставки 
+        /// </summary>
+        /// <value>Трек-номер для трансграничной поставки </value>
+        /*
+        <example>NRU56565656</example>
+        */
+        [DataMember(Name = "trackNumber", EmitDefaultValue = false)]
+        public string TrackNumber { get; set; }
+
+        /// <summary>
         /// Gets or Sets Options
         /// </summary>
         [DataMember(Name = "options", EmitDefaultValue = false)]
@@ -403,6 +415,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
             sb.Append("  CrossBorderType: ").Append(CrossBorderType).Append("\n");
             sb.Append("  Comment: ").Append(Comment).Append("\n");
             sb.Append("  IsZeroOrder: ").Append(IsZeroOrder).Append("\n");
+            sb.Append("  TrackNumber: ").Append(TrackNumber).Append("\n");
             sb.Append("  Options: ").Append(Options).Append("\n");
             sb.Append("}\n");
             return sb.ToString();

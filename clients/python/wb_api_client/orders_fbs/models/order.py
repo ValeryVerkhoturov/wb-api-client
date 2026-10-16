@@ -132,6 +132,11 @@ class Order(BaseModel):
         description="Признак заказа товара с нулевым остатком:   - `false` — заказ сделан на товар с ненулевым остатком   - `true` — заказ сделан на товар с нулевым остатком. Такой заказ можно отменить без штрафа за отмену ",
         alias="isZeroOrder",
     )
+    track_number: Optional[StrictStr] = Field(
+        default=None,
+        description="Трек-номер для трансграничной поставки ",
+        alias="trackNumber",
+    )
     options: Optional[OrderOptions] = None
     __properties: ClassVar[List[str]] = [
         "address",
@@ -158,6 +163,7 @@ class Order(BaseModel):
         "crossBorderType",
         "comment",
         "isZeroOrder",
+        "trackNumber",
         "options",
     ]
 
@@ -290,6 +296,7 @@ class Order(BaseModel):
                 "crossBorderType": obj.get("crossBorderType"),
                 "comment": obj.get("comment"),
                 "isZeroOrder": obj.get("isZeroOrder"),
+                "trackNumber": obj.get("trackNumber"),
                 "options": (
                     OrderOptions.from_dict(obj["options"])
                     if obj.get("options") is not None

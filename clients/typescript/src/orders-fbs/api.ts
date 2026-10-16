@@ -804,6 +804,12 @@ export interface Order {
    */
   isZeroOrder?: boolean;
   /**
+   * Трек-номер для трансграничной поставки
+   * @type {string}
+   * @memberof Order
+   */
+  trackNumber?: string;
+  /**
    *
    * @type {OrderOptions}
    * @memberof Order
