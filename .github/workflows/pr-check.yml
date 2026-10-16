@@ -117,17 +117,17 @@ jobs:
             ghcr.io/php-cs-fixer/php-cs-fixer:3-php8.3 \
             fix src --dry-run --rules=@PSR12 --using-cache=no
 
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+
       - name: C# builds and is formatted
+        working-directory: clients/csharp
         # Whitespace only: the generator's own output does not follow every
         # analyzer convention, and a style pass would fail on code we do not control.
-        # Run as root in the disposable CI container: arbitrary UIDs can hit
-        # .NET's NuGet-Migrations named-mutex failure.
         run: |
-          docker run --rm -v "$PWD/clients/csharp:/app" -w /app \
-            -e HOME=/tmp -e DOTNET_SKIP_FIRST_TIME_EXPERIENCE=1 \
-            -e DOTNET_CLI_TELEMETRY_OPTOUT=1 -e DOTNET_NOLOGO=1 \
-            -e NUGET_PACKAGES=/tmp/.nuget mcr.microsoft.com/dotnet/sdk:8.0 \
-            sh -c "dotnet build -v q --nologo && dotnet format whitespace --verify-no-changes --no-restore -v q"
+          dotnet build -v q --nologo
+          dotnet format whitespace --verify-no-changes --no-restore -v q
 
       - name: OneScript compiles
         # OneScript has no formatter to check against — the generator emits its
