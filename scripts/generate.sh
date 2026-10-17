@@ -394,22 +394,8 @@ done
 # reads the freshly-added github.com/negrel/secrecy import).
 python3 "${REPO_ROOT}/scripts/inject-secret.py" "${CLIENTS_DIR}"
 
-# Go — one module, one go.mod. gofmt runs last because both openapi-
-# generator's Go output and our injected fields arrive with misaligned
-# struct tags and inconsistent spacing.
+# Go — one module, one go.mod.
 cp "${TEMPLATE_DIR}/go/go.mod" "${CLIENTS_DIR}/go/go.mod"
-if command -v docker >/dev/null 2>&1; then
-  # gofmt -w on the whole tree in a single pass consistently leaves 18
-  # api_*.go files unformatted here — the doc-comment indentation
-  # openapi-generator emits inside interface method blocks needs two
-  # passes to converge. Do both in one container to keep the caching
-  # benefit; the second pass is a fast no-op if the first covered everything.
-  docker run --rm -u "$(id -u):$(id -g)" \
-    -v "${REPO_ROOT}:/work" -w "/work/clients/go" \
-    -e HOME=/tmp -e GOCACHE=/tmp/.cache/go-build -e GOPATH=/tmp/go \
-    golang:1.22-alpine sh -c "go mod tidy && gofmt -w . && gofmt -w ." >/dev/null 2>&1 || \
-    echo "  ! go mod tidy / gofmt failed — run manually in clients/go before publish"
-fi
 
 # Java — one pom.xml at repo root of the module.
 sed "s/__VERSION__/${VERSION}/g" "${TEMPLATE_DIR}/java/pom.xml" \
@@ -437,8 +423,25 @@ fi
 
 # ── canonicalize per-language formatting ──────────────────────────────
 # Each language uses its own community-standard formatter, pinned so
-# local and CI produce byte-identical output. The pr-check workflow's
-# per-language format check would flap otherwise.
+# local and CI produce byte-identical output. Independent trees are formatted
+# concurrently, and every exit status is collected before README generation.
+FORMAT_PIDS=()
+
+# Go — gofmt follows secret injection because both the generator and injected
+# fields arrive with misaligned struct tags and inconsistent spacing.
+if command -v docker >/dev/null 2>&1; then
+  # gofmt -w on the whole tree in a single pass consistently leaves 18
+  # api_*.go files unformatted here — the doc-comment indentation
+  # openapi-generator emits inside interface method blocks needs two
+  # passes to converge. Do both in one container to keep the caching
+  # benefit; the second pass is a fast no-op if the first covered everything.
+  docker run --rm -u "$(id -u):$(id -g)" \
+    -v "${REPO_ROOT}:/work" -w "/work/clients/go" \
+    -e HOME=/tmp -e GOCACHE=/tmp/.cache/go-build -e GOPATH=/tmp/go \
+    golang:1.22-alpine sh -c "go mod tidy && gofmt -w . && gofmt -w ." >/dev/null 2>&1 || \
+    echo "  ! go mod tidy / gofmt failed — run manually in clients/go before publish"
+fi &
+FORMAT_PIDS+=("$!")
 
 # Python — black (pinned in scripts/requirements.txt).
 if [[ -x "${REPO_ROOT}/.venv/bin/black" ]]; then
@@ -449,7 +452,8 @@ elif python3 -c "import black" 2>/dev/null; then
   python3 -m black --quiet "${CLIENTS_DIR}/python"
 else
   echo "  ! black not installed — skipping Python format (pip install -r scripts/requirements.txt)"
-fi
+fi &
+FORMAT_PIDS+=("$!")
 
 # TypeScript — prettier via the same node image used for tsc. Pinned via
 # devDependencies in templates/typescript/package.json.
@@ -460,7 +464,8 @@ if command -v docker >/dev/null 2>&1; then
     node:20-alpine sh -c "npm install --silent --no-audit --no-fund && npx --no-install prettier --write --log-level=error 'src/**/*.ts'" \
     >/dev/null 2>&1 || \
     echo "  ! prettier failed — run manually in clients/typescript before publish"
-fi
+fi &
+FORMAT_PIDS+=("$!")
 
 # Java — spotless (google-java-format). The plugin is declared in
 # templates/java/pom.xml and pins both spotless and google-java-format
@@ -471,7 +476,8 @@ if command -v docker >/dev/null 2>&1; then
     -e HOME=/tmp maven:3.9-eclipse-temurin-17 \
     mvn -q -Duser.home=/tmp spotless:apply >/dev/null 2>&1 || \
     echo "  ! mvn spotless:apply failed — run manually in clients/java before publish"
-fi
+fi &
+FORMAT_PIDS+=("$!")
 
 # PHP — PHP-CS-Fixer via the friendsofphp image. PSR-12 preset for the
 # widely-accepted community layout. Config is passed inline via
@@ -483,7 +489,8 @@ if command -v docker >/dev/null 2>&1; then
     ghcr.io/php-cs-fixer/php-cs-fixer:3-php8.3 fix src --rules=@PSR12 --using-cache=no \
     >/dev/null 2>&1 || \
     echo "  ! php-cs-fixer failed — run manually in clients/php before publish"
-fi
+fi &
+FORMAT_PIDS+=("$!")
 
 # C# — dotnet format. Whitespace only: the generated sources do not follow
 # every analyzer convention, and a style/analyzer pass would rewrite code we
@@ -500,7 +507,14 @@ elif command -v docker >/dev/null 2>&1; then
     mcr.microsoft.com/dotnet/sdk:8.0 \
     dotnet format whitespace -v q >/dev/null 2>&1 || \
     echo "  ! dotnet format failed — run manually in clients/csharp before publish"
-fi
+fi &
+FORMAT_PIDS+=("$!")
+
+format_status=0
+for pid in "${FORMAT_PIDS[@]}"; do
+  wait "${pid}" || format_status=$?
+done
+(( format_status == 0 )) || exit "${format_status}"
 
 # Per-language READMEs. Runs last so it can introspect the final,
 # formatted trees (enumerating Api classes from *.py/*.ts/*.go/*.java).
