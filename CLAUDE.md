@@ -183,7 +183,7 @@ python  scripts/post-process.py                    # -> swaggers/processed/
 make verify                                         # build + format check every language
 ```
 
-`generate.sh` always regenerates all seven languages; if you need per-language iteration during debugging, comment out the other four loops rather than adding a flag — the script is <200 lines and doesn't need argument plumbing.
+`generate.sh` always regenerates all seven languages; for per-language debugging, comment out the other `queue_generation` calls rather than adding a flag. Set `OPENAPI_GENERATOR_THREADS` to change batch concurrency (default: 2).
 
 Formatting runs inside Docker so contributors don't need language runtimes installed. `make verify-<lang>` and `make {black,prettier,gofmt,spotless,php-cs-fixer}` are individual targets. `make help` lists all.
 
