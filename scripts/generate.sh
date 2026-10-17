@@ -465,8 +465,12 @@ fi
 
 # C# — dotnet format. Whitespace only: the generated sources do not follow
 # every analyzer convention, and a style/analyzer pass would rewrite code we
-# don't control. Pinned via the SDK image tag, like the other formatters.
-if command -v docker >/dev/null 2>&1; then
+# don't control. CI uses its installed SDK for both formatting and verification;
+# local generation keeps the Docker SDK used by `make dotnet-format`.
+if [[ "${CI:-}" == "true" ]] && command -v dotnet >/dev/null 2>&1; then
+  (cd "${CLIENTS_DIR}/csharp" && dotnet format whitespace -v q) >/dev/null 2>&1 || \
+    echo "  ! dotnet format failed — run manually in clients/csharp before publish"
+elif command -v docker >/dev/null 2>&1; then
   docker run --rm -u "$(id -u):$(id -g)" \
     -v "${REPO_ROOT}/clients/csharp:/app" -w /app \
     -e HOME=/tmp -e DOTNET_CLI_TELEMETRY_OPTOUT=1 -e DOTNET_NOLOGO=1 \

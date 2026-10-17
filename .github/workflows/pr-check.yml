@@ -68,6 +68,10 @@ jobs:
       - name: Post-process specs
         run: python scripts/post-process.py
 
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+
       - name: Regenerate all seven language clients
         # openapi-generator runs inside Docker, which ubuntu-latest ships.
         # generate.sh also runs `go mod tidy` in a Go container to refresh
@@ -116,10 +120,6 @@ jobs:
             -e HOME=/tmp -e PHP_CS_FIXER_IGNORE_ENV=1 \
             ghcr.io/php-cs-fixer/php-cs-fixer:3-php8.3 \
             fix src --dry-run --rules=@PSR12 --using-cache=no
-
-      - uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: "8.0.x"
 
       - name: C# builds and is formatted
         working-directory: clients/csharp
