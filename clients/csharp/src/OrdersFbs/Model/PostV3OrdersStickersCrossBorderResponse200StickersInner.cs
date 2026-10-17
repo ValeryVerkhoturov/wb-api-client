@@ -106,9 +106,6 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// Стикер в формате PDF, кодировка base64
         /// </summary>
         /// <value>Стикер в формате PDF, кодировка base64</value>
-        /*
-        <example>[B@18faaff6</example>
-        */
         [DataMember(Name = "file", EmitDefaultValue = false)]
         public byte[] File { get; set; }
 

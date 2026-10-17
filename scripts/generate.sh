@@ -38,16 +38,15 @@ if [[ ! -d "${SPEC_DIR}" ]] || ! compgen -G "${SPEC_DIR}/*.yaml" >/dev/null; the
   exit 1
 fi
 
-# openapi-generator runs in the official Docker image so contributors don't
-# need Node/JDK installed. Repo is mounted at /work; every path passed to
-# the generator must be repo-relative so it resolves inside the container.
+# All generator tasks share one official Docker container and JVM. The repo is
+# mounted at /work, and batch configs reference paths inside that mount.
 OPENAPI_GENERATOR_VERSION="${OPENAPI_GENERATOR_VERSION:-v7.10.0}"
-GEN="docker run --rm -u $(id -u):$(id -g) -v ${REPO_ROOT}:/work -w /work openapitools/openapi-generator-cli:${OPENAPI_GENERATOR_VERSION}"
+OPENAPI_GENERATOR_THREADS="${OPENAPI_GENERATOR_THREADS:-2}"
 in_container() { echo "${1#${REPO_ROOT}/}"; }
 
 # OneScript has no generator in openapi-generator itself. The plugin lives in
 # a sibling repo, pinned by commit, and is loaded next to the CLI jar on the
-# classpath — Java merges both META-INF/services entries, so `-g onescript`
+# classpath — Java merges both META-INF/services entries, so `onescript`
 # resolves exactly like a built-in generator.
 # shellcheck source=scripts/onescript-toolchain.sh
 source "${REPO_ROOT}/scripts/onescript-toolchain.sh"
@@ -58,26 +57,6 @@ ensure_onescript_plugin
 # unified package keeps exactly one copy of each.
 ONESCRIPT_RUNTIME=(Конфигурация СекретнаяСтрока ТранспортHTTP ОтветAPI)
 
-gen_onescript() {
-  local spec="$1" out="$2" extra="$3"
-  mkdir -p "${out}"
-  docker run --rm -u "$(id -u):$(id -g)" \
-    -v "${REPO_ROOT}:/work" \
-    -v "${ONESCRIPT_PLUGIN}:/plugin.jar:ro" \
-    -w /work \
-    --entrypoint java \
-    "openapitools/openapi-generator-cli:${OPENAPI_GENERATOR_VERSION}" \
-    -cp "/plugin.jar:/opt/openapi-generator/modules/openapi-generator-cli/target/openapi-generator-cli.jar" \
-    org.openapitools.codegen.OpenAPIGenerator generate \
-    --input-spec "$(in_container "${spec}")" \
-    --generator-name onescript \
-    --output "$(in_container "${out}")" \
-    --config "$(in_container "${CONFIG_DIR}/onescript.yaml")" \
-    --additional-properties="packageVersion=${VERSION},${extra}" \
-    --skip-validate-spec \
-    >/dev/null
-}
-
 JAVA_GROUP_PATH="io/github/valeryverkhoturov/wbapi"
 
 # category slug from spec filename: "02-items.yaml" → "items"
@@ -87,26 +66,34 @@ slug_from_spec() {
   echo "${base#*-}"
 }
 
-# openapi-generator run: writes to a scratch dir under clients/.tmp/.
-# Optional 6th arg: a template override directory (used by PHP — see the
-# PHP section below).
-gen() {
-  local lang="$1" spec="$2" scratch="$3" config="$4" extra="$5" template_dir="${6:-}"
-  local template_arg=()
-  if [[ -n "${template_dir}" ]]; then
-    template_arg=(--template-dir "$(in_container "${template_dir}")")
-  fi
-  # shellcheck disable=SC2086
-  ${GEN} generate \
-    --input-spec "$(in_container "${spec}")" \
-    --generator-name "${lang}" \
-    --output "$(in_container "${scratch}")" \
-    --config "$(in_container "${config}")" \
-    --additional-properties="packageVersion=${VERSION},artifactVersion=${VERSION},npmVersion=${VERSION},${extra}" \
-    --global-property=skipFormModel=false \
-    --skip-validate-spec \
-    ${template_arg[@]+"${template_arg[@]}"} \
-    >/dev/null
+# Queue one isolated output directory for the single batch invocation below.
+# Optional args: one global property, then a template override directory (PHP).
+queue_generation() {
+  local name="$1" lang_config="$2" lang="$3" spec="$4" out="$5"
+  local properties_csv="$6" global_property="${7:-}" template_dir="${8:-}"
+  local config="${SCRATCH}/configs/${name}.yaml"
+  local property
+  local -a properties
+
+  {
+    printf "'!include': '%s'\n" "$(in_container "${lang_config}")"
+    printf "generatorName: '%s'\n" "${lang}"
+    printf "inputSpec: '/work/%s'\n" "$(in_container "${spec}")"
+    printf "outputDir: '/work/%s'\n" "$(in_container "${out}")"
+    printf "additionalProperties:\n"
+    IFS=',' read -ra properties <<< "${properties_csv}"
+    for property in "${properties[@]}"; do
+      printf "  %s: '%s'\n" "${property%%=*}" "${property#*=}"
+    done
+    if [[ -n "${global_property}" ]]; then
+      printf "globalProperties:\n  %s: '%s'\n" "${global_property%%=*}" "${global_property#*=}"
+    fi
+    printf "skipValidateSpec: true\n"
+    if [[ -n "${template_dir}" ]]; then
+      printf "templateDir: '/work/%s'\n" "$(in_container "${template_dir}")"
+    fi
+  } > "${config}"
+  BATCH_CONFIGS+=("$(in_container "${config}")")
 }
 
 # Reset the non-submodule client trees. Leave clients/php,
@@ -170,15 +157,67 @@ mkdir -p "${CLIENTS_DIR}"/{python/wb_api_client,typescript/src,go,java/src/main/
 SCRATCH="${CLIENTS_DIR}/.tmp"
 mkdir -p "${SCRATCH}"
 
-# Collect slugs so template-driven manifests (exports map) can iterate them.
+# Collect slugs for manifests and queue every generator task with an isolated
+# scratch output. The batch command reuses one container/JVM for all 91 tasks.
 SLUGS=()
+BATCH_CONFIGS=()
+mkdir -p "${SCRATCH}/configs"
 for spec in "${SPEC_DIR}"/*.yaml; do
-  SLUGS+=("$(slug_from_spec "${spec}")")
+  slug="$(slug_from_spec "${spec}")"
+  slug_snake="${slug//-/_}"
+  slug_pascal="$(printf '%s' "${slug_snake}" | awk 'BEGIN{FS="_";OFS=""} {for(i=1;i<=NF;i++) $i=toupper(substr($i,1,1)) substr($i,2)} 1')"
+  common_properties="packageVersion=${VERSION},artifactVersion=${VERSION},npmVersion=${VERSION}"
+  java_pkg="io.github.valeryverkhoturov.wbapi.${slug_snake}"
+  php_ns="ValeryVerkhoturov\\WbApiClient\\${slug_pascal}"
+  SLUGS+=("${slug}")
+
+  queue_generation "py-${slug_snake}" "${CONFIG_DIR}/python.yaml" python \
+    "${spec}" "${SCRATCH}/py-${slug_snake}" \
+    "${common_properties},packageName=wb_api_client.${slug_snake},projectName=wb_api_client_${slug_snake}" \
+    "skipFormModel=false"
+  queue_generation "ts-${slug}" "${CONFIG_DIR}/typescript.yaml" typescript-axios \
+    "${spec}" "${SCRATCH}/ts-${slug}" \
+    "${common_properties},npmName=@valeryverkhoturov/wb-api-client-${slug}" \
+    "skipFormModel=false"
+  queue_generation "go-${slug_snake}" "${CONFIG_DIR}/go.yaml" go \
+    "${spec}" "${SCRATCH}/go-${slug_snake}" \
+    "${common_properties},packageName=${slug_snake}" \
+    "skipFormModel=false"
+  queue_generation "java-${slug}" "${CONFIG_DIR}/java.yaml" java \
+    "${spec}" "${SCRATCH}/java-${slug}" \
+    "${common_properties},artifactId=wb-api-client-${slug},invokerPackage=${java_pkg},apiPackage=${java_pkg}.api,modelPackage=${java_pkg}.model" \
+    "skipFormModel=false"
+  queue_generation "php-${slug_snake}" "${CONFIG_DIR}/php.yaml" php \
+    "${spec}" "${SCRATCH}/php-${slug_snake}" \
+    "${common_properties},invokerPackage=${php_ns},packageName=WbApiClient${slug_pascal},composerPackageName=valeryverkhoturov/wb-api-client-${slug}" \
+    "skipFormModel=false" "${TEMPLATE_DIR}/php"
+  queue_generation "cs-${slug_snake}" "${CONFIG_DIR}/csharp.yaml" csharp \
+    "${spec}" "${SCRATCH}/cs-${slug_snake}" \
+    "${common_properties},packageName=ValeryVerkhoturov.WbApiClient.${slug_pascal}" \
+    "skipFormModel=false"
+  queue_generation "os-${slug_snake}" "${CONFIG_DIR}/onescript.yaml" onescript \
+    "${spec}" "${SCRATCH}/os-${slug_snake}" \
+    "packageVersion=${VERSION},modelNamePrefix=${slug_pascal}"
 done
 
+echo "→ ${#BATCH_CONFIGS[@]} generator tasks (${OPENAPI_GENERATOR_THREADS} threads)"
+docker run --rm -u "$(id -u):$(id -g)" \
+  -v "${REPO_ROOT}:/work" \
+  -v "${ONESCRIPT_PLUGIN}:/plugin.jar:ro" \
+  -w /work \
+  --entrypoint java \
+  "openapitools/openapi-generator-cli:${OPENAPI_GENERATOR_VERSION}" \
+  -cp "/plugin.jar:/opt/openapi-generator/modules/openapi-generator-cli/target/openapi-generator-cli.jar" \
+  org.openapitools.codegen.OpenAPIGenerator batch \
+  --fail-fast --includes-base-dir /work \
+  --threads "${OPENAPI_GENERATOR_THREADS}" \
+  -- "${BATCH_CONFIGS[@]}" >/dev/null
+
+# Splice the completed scratch trees into the unified packages sequentially.
 for spec in "${SPEC_DIR}"/*.yaml; do
   slug="$(slug_from_spec "${spec}")"        # e.g. "orders-fbs"
   slug_snake="${slug//-/_}"                 # e.g. "orders_fbs"
+  slug_pascal="$(printf '%s' "${slug_snake}" | awk 'BEGIN{FS="_";OFS=""} {for(i=1;i<=NF;i++) $i=toupper(substr($i,1,1)) substr($i,2)} 1')"
   echo "→ ${slug}"
 
   # -------- Python --------
@@ -187,8 +226,6 @@ for spec in "${SPEC_DIR}"/*.yaml; do
   # into the unified package; discard the manifest files the generator
   # scattered alongside it.
   py_tmp="${SCRATCH}/py-${slug_snake}"
-  gen python "${spec}" "${py_tmp}" "${CONFIG_DIR}/python.yaml" \
-    "packageName=wb_api_client.${slug_snake},projectName=wb_api_client_${slug_snake}"
   mv "${py_tmp}/wb_api_client/${slug_snake}" \
      "${CLIENTS_DIR}/python/wb_api_client/${slug_snake}"
 
@@ -196,8 +233,6 @@ for spec in "${SPEC_DIR}"/*.yaml; do
   # typescript-axios writes flat source files (no per-package folder), so we
   # generate to a scratch dir then copy just the .ts sources into src/<slug>.
   ts_tmp="${SCRATCH}/ts-${slug}"
-  gen typescript-axios "${spec}" "${ts_tmp}" "${CONFIG_DIR}/typescript.yaml" \
-    "npmName=@valeryverkhoturov/wb-api-client-${slug}"
   ts_dest="${CLIENTS_DIR}/typescript/src/${slug}"
   mkdir -p "${ts_dest}"
   # Keep only source. The generator's package.json/tsconfig.json would
@@ -222,8 +257,6 @@ for spec in "${SPEC_DIR}"/*.yaml; do
   # the per-slug go.mod/go.sum the generator emits — the top-level go.mod
   # (dropped in later from templates/) covers everything.
   go_tmp="${SCRATCH}/go-${slug_snake}"
-  gen go "${spec}" "${go_tmp}" "${CONFIG_DIR}/go.yaml" \
-    "packageName=${slug_snake}"
   go_dest="${CLIENTS_DIR}/go/${slug_snake}"
   mkdir -p "${go_dest}"
   find "${go_tmp}" -maxdepth 1 -name "*.go" -exec cp {} "${go_dest}/" \;
@@ -232,9 +265,6 @@ for spec in "${SPEC_DIR}"/*.yaml; do
   # Generate with the full per-slug package coordinates, then splice the
   # source subtree into the shared src/main/java tree.
   java_tmp="${SCRATCH}/java-${slug}"
-  java_pkg="io.github.valeryverkhoturov.wbapi.${slug_snake}"
-  gen java "${spec}" "${java_tmp}" "${CONFIG_DIR}/java.yaml" \
-    "artifactId=wb-api-client-${slug},invokerPackage=${java_pkg},apiPackage=${java_pkg}.api,modelPackage=${java_pkg}.model"
   java_src="${java_tmp}/src/main/java/${JAVA_GROUP_PATH}/${slug_snake}"
   java_dest="${CLIENTS_DIR}/java/src/main/java/${JAVA_GROUP_PATH}/${slug_snake}"
   mv "${java_src}" "${java_dest}"
@@ -249,15 +279,10 @@ for spec in "${SPEC_DIR}"/*.yaml; do
   # `\ValeryVerkhoturov\WbApiClient\<Slug>\Configuration` to
   # `src/<Slug>/Configuration.php`.
   php_tmp="${SCRATCH}/php-${slug_snake}"
-  slug_pascal="$(printf '%s' "${slug_snake}" | awk 'BEGIN{FS="_";OFS=""} {for(i=1;i<=NF;i++) $i=toupper(substr($i,1,1)) substr($i,2)} 1')"
-  php_ns="ValeryVerkhoturov\\WbApiClient\\${slug_pascal}"
   # The template override in templates/php adds the operation description
   # (`notes`) to method docblocks — the stock template's `{{#description}}`
   # placeholder binds to an empty field in this generator, so docblocks
   # would otherwise carry only the summary.
-  gen php "${spec}" "${php_tmp}" "${CONFIG_DIR}/php.yaml" \
-    "invokerPackage=${php_ns},packageName=WbApiClient${slug_pascal},composerPackageName=valeryverkhoturov/wb-api-client-${slug}" \
-    "${TEMPLATE_DIR}/php"
   php_dest="${CLIENTS_DIR}/php/src/${slug_pascal}"
   mkdir -p "${php_dest}"
   # Move Api/ Model/ dirs and top-level .php files into place.
@@ -273,8 +298,6 @@ for spec in "${SPEC_DIR}"/*.yaml; do
   # projects include every .cs beneath them.
   cs_tmp="${SCRATCH}/cs-${slug_snake}"
   cs_ns="ValeryVerkhoturov.WbApiClient.${slug_pascal}"
-  gen csharp "${spec}" "${cs_tmp}" "${CONFIG_DIR}/csharp.yaml" \
-    "packageName=${cs_ns}"
   cs_dest="${CLIENTS_DIR}/csharp/src/${slug_pascal}"
   mkdir -p "${cs_dest}"
   for cs_sub in Api Client Model; do
@@ -293,7 +316,6 @@ for spec in "${SPEC_DIR}"/*.yaml; do
   # category stamps its slug onto them via modelNamePrefix. Directories are
   # for humans — lib.config is what actually resolves a class.
   os_tmp="${SCRATCH}/os-${slug_snake}"
-  gen_onescript "${spec}" "${os_tmp}" "modelNamePrefix=${slug_pascal}"
 
   os_api_dest="${CLIENTS_DIR}/onescript/src/Классы/${slug_pascal}"
   os_model_dest="${CLIENTS_DIR}/onescript/src/Модели/${slug_pascal}"
