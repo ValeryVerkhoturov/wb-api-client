@@ -37,18 +37,18 @@ public class SetRecomReqRecListInnerRecommendationsInner {
 
   @SerializedName(SERIALIZED_NAME_RECOM_NM)
   @jakarta.annotation.Nullable
-  private Integer recomNm = 0;
+  private Long recomNm = 0l;
 
   public static final String SERIALIZED_NAME_SORT = "sort";
 
   @SerializedName(SERIALIZED_NAME_SORT)
   @jakarta.annotation.Nullable
-  private Integer sort = 20;
+  private Long sort = 20l;
 
   public SetRecomReqRecListInnerRecommendationsInner() {}
 
   public SetRecomReqRecListInnerRecommendationsInner recomNm(
-      @jakarta.annotation.Nullable Integer recomNm) {
+      @jakarta.annotation.Nullable Long recomNm) {
     this.recomNm = recomNm;
     return this;
   }
@@ -59,16 +59,15 @@ public class SetRecomReqRecListInnerRecommendationsInner {
    * @return recomNm
    */
   @jakarta.annotation.Nullable
-  public Integer getRecomNm() {
+  public Long getRecomNm() {
     return recomNm;
   }
 
-  public void setRecomNm(@jakarta.annotation.Nullable Integer recomNm) {
+  public void setRecomNm(@jakarta.annotation.Nullable Long recomNm) {
     this.recomNm = recomNm;
   }
 
-  public SetRecomReqRecListInnerRecommendationsInner sort(
-      @jakarta.annotation.Nullable Integer sort) {
+  public SetRecomReqRecListInnerRecommendationsInner sort(@jakarta.annotation.Nullable Long sort) {
     this.sort = sort;
     return this;
   }
@@ -86,11 +85,11 @@ public class SetRecomReqRecListInnerRecommendationsInner {
    * @return sort
    */
   @jakarta.annotation.Nullable
-  public Integer getSort() {
+  public Long getSort() {
     return sort;
   }
 
-  public void setSort(@jakarta.annotation.Nullable Integer sort) {
+  public void setSort(@jakarta.annotation.Nullable Long sort) {
     this.sort = sort;
   }
 

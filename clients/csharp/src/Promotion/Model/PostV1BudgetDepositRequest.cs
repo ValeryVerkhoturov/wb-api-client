@@ -39,7 +39,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <param name="cashbackPercent">Процент от суммы пополнения, который можно пополнить промо-бонусами. Нужно указать значение поля percent из ответа метода получения [баланса](./promotion#tag/finances/operation/getV1Balance)  Если вы указали &#x60;cashback\\_sum&#x60;, параметр &#x60;cashback\\_percent&#x60; становится обязательным.</param>
         /// <param name="type">Тип источника пополнения: - &#x60;0&#x60; — Счёт - &#x60;1&#x60; — Баланс - &#x60;3&#x60; — Бонусы .</param>
         /// <param name="varReturn">Флаг возврата ответа (&#x60;true&#x60; — в ответе вернется обновлённый размер бюджета кампании, &#x60;false&#x60; или не указать параметр вообще — не вернётся.).</param>
-        public PostV1BudgetDepositRequest(int sum = default(int), int cashbackSum = default(int), int cashbackPercent = default(int), int type = default(int), bool varReturn = default(bool))
+        public PostV1BudgetDepositRequest(long sum = default(long), long cashbackSum = default(long), long cashbackPercent = default(long), long type = default(long), bool varReturn = default(bool))
         {
             this.Sum = sum;
             this.CashbackSum = cashbackSum;
@@ -56,7 +56,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         <example>5000</example>
         */
         [DataMember(Name = "sum", EmitDefaultValue = false)]
-        public int Sum { get; set; }
+        public long Sum { get; set; }
 
         /// <summary>
         /// Сумма пополнения бюджета промо-бонусами.  Пополнить можно только определённый процент от общей суммы, указанный в поле &#x60;percent&#x60; ответа метода получения [баланса](./promotion#tag/finances/operation/getV1Balance).  Оставшаяся часть общей суммы спишется с указанного источника пополнения. Пополнить можно только определённый процент от общей суммы, указанный в поле &#x60;percent&#x60; ответа метода получения [баланса](./promotion#tag/finances/operation/getV1Balance).  Оставшаяся часть общей суммы спишется с указанного источника пополнения.  Списать промо-бонусы можно только для источников пополнения: - &#x60;0&#x60; — счёт - &#x60;1&#x60; — баланс
@@ -66,7 +66,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         <example>1000</example>
         */
         [DataMember(Name = "cashback_sum", EmitDefaultValue = false)]
-        public int CashbackSum { get; set; }
+        public long CashbackSum { get; set; }
 
         /// <summary>
         /// Процент от суммы пополнения, который можно пополнить промо-бонусами. Нужно указать значение поля percent из ответа метода получения [баланса](./promotion#tag/finances/operation/getV1Balance)  Если вы указали &#x60;cashback\\_sum&#x60;, параметр &#x60;cashback\\_percent&#x60; становится обязательным
@@ -76,7 +76,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         <example>50</example>
         */
         [DataMember(Name = "cashback_percent", EmitDefaultValue = false)]
-        public int CashbackPercent { get; set; }
+        public long CashbackPercent { get; set; }
 
         /// <summary>
         /// Тип источника пополнения: - &#x60;0&#x60; — Счёт - &#x60;1&#x60; — Баланс - &#x60;3&#x60; — Бонусы 
@@ -86,7 +86,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         <example>1</example>
         */
         [DataMember(Name = "type", EmitDefaultValue = false)]
-        public int Type { get; set; }
+        public long Type { get; set; }
 
         /// <summary>
         /// Флаг возврата ответа (&#x60;true&#x60; — в ответе вернется обновлённый размер бюджета кампании, &#x60;false&#x60; или не указать параметр вообще — не вернётся.)

@@ -461,7 +461,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Client
                 RemoteCertificateValidationCallback = configuration.RemoteCertificateValidationCallback
             };
             setOptions(clientOptions);
-            
+
             using (RestClient client = new RestClient(clientOptions,
                 configureSerialization: serializerConfig => serializerConfig.UseSerializer(() => new CustomJsonCodec(SerializerSettings, configuration))))
             {
@@ -534,7 +534,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Client
 
         private async Task<RestResponse<T>> DeserializeRestResponseFromPolicyAsync<T>(RestClient client, RestRequest request, PolicyResult<RestResponse> policyResult, CancellationToken cancellationToken = default)
         {
-            if (policyResult.Outcome == OutcomeType.Successful) 
+            if (policyResult.Outcome == OutcomeType.Successful)
             {
                 return await client.Deserialize<T>(policyResult.Result, cancellationToken);
             }
@@ -546,7 +546,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Client
                 };
             }
         }
-                
+
         private ApiResponse<T> Exec<T>(RestRequest request, RequestOptions options, IReadableConfiguration configuration)
         {
             Action<RestClientOptions> setOptions = (clientOptions) =>

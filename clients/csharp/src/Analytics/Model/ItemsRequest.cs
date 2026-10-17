@@ -49,7 +49,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <param name="orderBy">orderBy.</param>
         /// <param name="limit">Количество карточек товара в ответе (default to 50).</param>
         /// <param name="offset">Сколько элементов пропустить. Например, для значения &#x60;10&#x60; ответ начнётся с 11 элемента (default to 0).</param>
-        public ItemsRequest(ItemsRequestSelectedPeriod selectedPeriod = default(ItemsRequestSelectedPeriod), ItemsRequestPastPeriod pastPeriod = default(ItemsRequestPastPeriod), List<int> nmIds = default(List<int>), List<string> brandNames = default(List<string>), List<int> subjectIds = default(List<int>), List<int> tagIds = default(List<int>), bool skipDeletedNm = default(bool), OrderBy orderBy = default(OrderBy), int limit = 50, int offset = 0)
+        public ItemsRequest(ItemsRequestSelectedPeriod selectedPeriod = default(ItemsRequestSelectedPeriod), ItemsRequestPastPeriod pastPeriod = default(ItemsRequestPastPeriod), List<long> nmIds = default(List<long>), List<string> brandNames = default(List<string>), List<long> subjectIds = default(List<long>), List<long> tagIds = default(List<long>), bool skipDeletedNm = default(bool), OrderBy orderBy = default(OrderBy), long limit = 50, long offset = 0)
         {
             // to ensure "selectedPeriod" is required (not null)
             if (selectedPeriod == null)
@@ -88,7 +88,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         <example>[1234567]</example>
         */
         [DataMember(Name = "nmIds", EmitDefaultValue = false)]
-        public List<int> NmIds { get; set; }
+        public List<long> NmIds { get; set; }
 
         /// <summary>
         /// Список брендов для фильтрации
@@ -108,7 +108,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         <example>[64,334]</example>
         */
         [DataMember(Name = "subjectIds", EmitDefaultValue = false)]
-        public List<int> SubjectIds { get; set; }
+        public List<long> SubjectIds { get; set; }
 
         /// <summary>
         /// Список ID ярлыков для фильтрации
@@ -118,7 +118,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         <example>[32,53]</example>
         */
         [DataMember(Name = "tagIds", EmitDefaultValue = false)]
-        public List<int> TagIds { get; set; }
+        public List<long> TagIds { get; set; }
 
         /// <summary>
         /// Скрыть удалённые товары
@@ -144,7 +144,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         <example>231</example>
         */
         [DataMember(Name = "limit", EmitDefaultValue = false)]
-        public int Limit { get; set; }
+        public long Limit { get; set; }
 
         /// <summary>
         /// Сколько элементов пропустить. Например, для значения &#x60;10&#x60; ответ начнётся с 11 элемента
@@ -154,7 +154,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         <example>10</example>
         */
         [DataMember(Name = "offset", EmitDefaultValue = false)]
-        public int Offset { get; set; }
+        public long Offset { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -194,10 +194,10 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <returns>Validation Result</returns>
         IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Limit (int) maximum
-            if (this.Limit > (int)1000)
+            // Limit (long) maximum
+            if (this.Limit > (long)1000)
             {
-                yield return new ValidationResult("Invalid value for Limit, must be a value less than or equal to 1000.", new [] { "Limit" });
+                yield return new ValidationResult("Invalid value for Limit, must be a value less than or equal to 1000.", new[] { "Limit" });
             }
 
             yield break;

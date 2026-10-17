@@ -70,13 +70,13 @@ venv: ## Create .venv and install post-processor deps
 # ── pipeline ──────────────────────────────────────────────────────────────
 
 download: ## Pull swagger YAMLs from dev.wildberries.ru
-	./scripts/download-swaggers.sh
+	$(PY) scripts/download-swaggers.py
 
 post-process: ## Run all post-processing passes on swaggers/
 	$(PY) scripts/post-process.py
 
 generate: post-process ## Regenerate all six language clients
-	./scripts/generate.sh $(VERSION)
+	$(PY) scripts/generate.py $(VERSION)
 
 regen: download post-process generate ## Full pipeline: download → process → generate
 
@@ -134,7 +134,7 @@ verify-onescript: ## Compile-check every OneScript module + load the package
 	@echo "── OneScript ──────────────────────────────────"
 	@# No formatter step: the generator emits its own canonical layout and
 	@# OneScript has no community formatter to canonicalize against.
-	./scripts/verify-onescript.sh
+	$(PY) scripts/verify-onescript.py
 
 dotnet-format: ## Fail if any C# file needs `dotnet format`
 	@# Whitespace only: the generator's own output does not follow every
@@ -247,7 +247,7 @@ clean: ## Remove generated clients/, processed swaggers, local scratch
 	@# Never `rm -rf clients/`: that deletes the .git gitfile inside each
 	@# submodule mount, silently turning it into a plain directory — after
 	@# which regeneration writes into the main repo instead of the sibling
-	@# repo. Same invariant generate.sh protects.
+	@# repo. Same invariant generate.py protects.
 	rm -rf clients/python clients/typescript clients/java clients/csharp clients/.tmp
 	@for sub in $(SUBMODULES); do rm -rf clients/$$sub/src; done
 	@# Go has no src/: its generated content is the slug package dirs and

@@ -45,7 +45,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// <param name="isEndless">Бессрочный ли документ:   - &#x60;true&#x60; — да, документ бессрочный   - &#x60;false&#x60; — нет, у документа есть срок действия .</param>
         /// <param name="verdict">verdict.</param>
         /// <param name="createdAt">Дата добавления документа.</param>
-        public PostV2GetCardsListResponse200CardsInnerDocumentsItemsInner(string id = default(string), int type = default(int), string number = default(string), string productNumber = default(string), string tradeName = default(string), string applicant = default(string), string startDate = default(string), string endDate = default(string), bool isEndless = default(bool), PostV2GetCardsListResponse200CardsInnerDocumentsItemsInnerVerdict verdict = default(PostV2GetCardsListResponse200CardsInnerDocumentsItemsInnerVerdict), string createdAt = default(string))
+        public PostV2GetCardsListResponse200CardsInnerDocumentsItemsInner(string id = default(string), long type = default(long), string number = default(string), string productNumber = default(string), string tradeName = default(string), string applicant = default(string), string startDate = default(string), string endDate = default(string), bool isEndless = default(bool), PostV2GetCardsListResponse200CardsInnerDocumentsItemsInnerVerdict verdict = default(PostV2GetCardsListResponse200CardsInnerDocumentsItemsInnerVerdict), string createdAt = default(string))
         {
             this.Id = id;
             this.Type = type;
@@ -72,7 +72,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// </summary>
         /// <value>Тип документа:   - &#x60;1&#x60; — Сертификат соответствия   - &#x60;2&#x60; — Декларация о соответствии   - &#x60;3&#x60; — Свидетельство о государственной регистрации (СГР)   - &#x60;4&#x60; — Регистрационное удостоверение (РУ) на медицинские изделия   - &#x60;5&#x60; — Регистрационное удостоверение Республики Беларусь   - &#x60;7&#x60; — Данные о регистрации пестицида   - &#x60;8&#x60; — Данные о регистрации агрохимиката   - &#x60;9&#x60; — Регистрационное удостоверение (РУ) на лекарственные препараты </value>
         [DataMember(Name = "type", EmitDefaultValue = false)]
-        public int Type { get; set; }
+        public long Type { get; set; }
 
         /// <summary>
         /// Номер документа

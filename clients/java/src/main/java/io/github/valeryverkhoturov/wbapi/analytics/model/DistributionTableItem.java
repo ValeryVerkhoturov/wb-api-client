@@ -56,7 +56,7 @@ public class DistributionTableItem {
 
   @SerializedName(SERIALIZED_NAME_SUBJECT_ID)
   @jakarta.annotation.Nullable
-  private Integer subjectId;
+  private Long subjectId;
 
   public static final String SERIALIZED_NAME_SUBJECT_NAME = "subjectName";
 
@@ -140,7 +140,7 @@ public class DistributionTableItem {
 
   @SerializedName(SERIALIZED_NAME_DISQUALIFIED)
   @jakarta.annotation.Nullable
-  private Integer disqualified;
+  private Long disqualified;
 
   public static final String SERIALIZED_NAME_IS_SHADOWED = "isShadowed";
 
@@ -207,7 +207,7 @@ public class DistributionTableItem {
     this.vendorCode = vendorCode;
   }
 
-  public DistributionTableItem subjectId(@jakarta.annotation.Nullable Integer subjectId) {
+  public DistributionTableItem subjectId(@jakarta.annotation.Nullable Long subjectId) {
     this.subjectId = subjectId;
     return this;
   }
@@ -218,11 +218,11 @@ public class DistributionTableItem {
    * @return subjectId
    */
   @jakarta.annotation.Nullable
-  public Integer getSubjectId() {
+  public Long getSubjectId() {
     return subjectId;
   }
 
-  public void setSubjectId(@jakarta.annotation.Nullable Integer subjectId) {
+  public void setSubjectId(@jakarta.annotation.Nullable Long subjectId) {
     this.subjectId = subjectId;
   }
 
@@ -482,7 +482,7 @@ public class DistributionTableItem {
     this.oneStar = oneStar;
   }
 
-  public DistributionTableItem disqualified(@jakarta.annotation.Nullable Integer disqualified) {
+  public DistributionTableItem disqualified(@jakarta.annotation.Nullable Long disqualified) {
     this.disqualified = disqualified;
     return this;
   }
@@ -493,11 +493,11 @@ public class DistributionTableItem {
    * @return disqualified
    */
   @jakarta.annotation.Nullable
-  public Integer getDisqualified() {
+  public Long getDisqualified() {
     return disqualified;
   }
 
-  public void setDisqualified(@jakarta.annotation.Nullable Integer disqualified) {
+  public void setDisqualified(@jakarta.annotation.Nullable Long disqualified) {
     this.disqualified = disqualified;
   }
 

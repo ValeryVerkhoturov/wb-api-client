@@ -39,7 +39,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Model
         /// <param name="convertedDeliveryCost">Стоимость платной доставки в валюте страны продавца, умноженная на 100. Предоставляется в информационных целях..</param>
         /// <param name="currencyCode">Код валюты продажи.</param>
         /// <param name="convertedCurrencyCode">Код валюты страны продавца.</param>
-        public PostV3DbsGroupsInfoResponse200Inner(Guid groupID = default(Guid), int deliveryCost = default(int), int convertedDeliveryCost = default(int), int currencyCode = default(int), int convertedCurrencyCode = default(int))
+        public PostV3DbsGroupsInfoResponse200Inner(Guid groupID = default(Guid), long deliveryCost = default(long), long convertedDeliveryCost = default(long), int currencyCode = default(int), long convertedCurrencyCode = default(long))
         {
             this.GroupID = groupID;
             this.DeliveryCost = deliveryCost;
@@ -66,7 +66,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Model
         <example>1108</example>
         */
         [DataMember(Name = "deliveryCost", EmitDefaultValue = false)]
-        public int DeliveryCost { get; set; }
+        public long DeliveryCost { get; set; }
 
         /// <summary>
         /// Стоимость платной доставки в валюте страны продавца, умноженная на 100. Предоставляется в информационных целях.
@@ -76,7 +76,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Model
         <example>29803</example>
         */
         [DataMember(Name = "convertedDeliveryCost", EmitDefaultValue = false)]
-        public int ConvertedDeliveryCost { get; set; }
+        public long ConvertedDeliveryCost { get; set; }
 
         /// <summary>
         /// Код валюты продажи
@@ -96,7 +96,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Model
         <example>643</example>
         */
         [DataMember(Name = "convertedCurrencyCode", EmitDefaultValue = false)]
-        public int ConvertedCurrencyCode { get; set; }
+        public long ConvertedCurrencyCode { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

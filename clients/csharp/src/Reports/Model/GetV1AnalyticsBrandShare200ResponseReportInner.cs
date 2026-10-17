@@ -38,7 +38,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /// <param name="brandRating">Рейтинг бренда в родительской категории.</param>
         /// <param name="pricePercent">Доля от продаж в родительской категории — цена, %.</param>
         /// <param name="qtyPercent">Доля от продаж в родительской категории — количество, %.</param>
-        public GetV1AnalyticsBrandShare200ResponseReportInner(string applyDate = default(string), int brandRating = default(int), float pricePercent = default(float), float qtyPercent = default(float))
+        public GetV1AnalyticsBrandShare200ResponseReportInner(string applyDate = default(string), long brandRating = default(long), float pricePercent = default(float), float qtyPercent = default(float))
         {
             this.ApplyDate = applyDate;
             this.BrandRating = brandRating;
@@ -58,7 +58,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /// </summary>
         /// <value>Рейтинг бренда в родительской категории</value>
         [DataMember(Name = "brandRating", EmitDefaultValue = false)]
-        public int BrandRating { get; set; }
+        public long BrandRating { get; set; }
 
         /// <summary>
         /// Доля от продаж в родительской категории — цена, %

@@ -39,17 +39,17 @@ public class PostV3FbsSettingsAutoreturnsItemsRequest {
 
   @SerializedName(SERIALIZED_NAME_CHRT_IDS)
   @jakarta.annotation.Nonnull
-  private List<Integer> chrtIds = new ArrayList<>();
+  private List<Long> chrtIds = new ArrayList<>();
 
   public PostV3FbsSettingsAutoreturnsItemsRequest() {}
 
   public PostV3FbsSettingsAutoreturnsItemsRequest chrtIds(
-      @jakarta.annotation.Nonnull List<Integer> chrtIds) {
+      @jakarta.annotation.Nonnull List<Long> chrtIds) {
     this.chrtIds = chrtIds;
     return this;
   }
 
-  public PostV3FbsSettingsAutoreturnsItemsRequest addChrtIdsItem(Integer chrtIdsItem) {
+  public PostV3FbsSettingsAutoreturnsItemsRequest addChrtIdsItem(Long chrtIdsItem) {
     if (this.chrtIds == null) {
       this.chrtIds = new ArrayList<>();
     }
@@ -63,11 +63,11 @@ public class PostV3FbsSettingsAutoreturnsItemsRequest {
    * @return chrtIds
    */
   @jakarta.annotation.Nonnull
-  public List<Integer> getChrtIds() {
+  public List<Long> getChrtIds() {
     return chrtIds;
   }
 
-  public void setChrtIds(@jakarta.annotation.Nonnull List<Integer> chrtIds) {
+  public void setChrtIds(@jakarta.annotation.Nonnull List<Long> chrtIds) {
     this.chrtIds = chrtIds;
   }
 

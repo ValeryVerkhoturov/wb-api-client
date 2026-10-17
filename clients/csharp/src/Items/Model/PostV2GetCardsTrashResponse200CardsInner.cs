@@ -47,7 +47,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// <param name="characteristics">Характеристики.</param>
         /// <param name="createdAt">Date and time the item was listed.</param>
         /// <param name="trashedAt">Дата и время помещения в корзину.</param>
-        public PostV2GetCardsTrashResponse200CardsInner(int nmID = default(int), string vendorCode = default(string), bool kizMarked = false, int subjectID = default(int), string subjectName = default(string), List<PostV2GetCardsListResponse200CardsInnerPhotosInner> photos = default(List<PostV2GetCardsListResponse200CardsInnerPhotosInner>), string video = default(string), PostV2GetCardsListResponse200CardsInnerWholesale wholesale = default(PostV2GetCardsListResponse200CardsInnerWholesale), List<PostV2GetCardsTrashResponse200CardsInnerSizesInner> sizes = default(List<PostV2GetCardsTrashResponse200CardsInnerSizesInner>), PostV2GetCardsListResponse200CardsInnerDimensions dimensions = default(PostV2GetCardsListResponse200CardsInnerDimensions), List<PostV2GetCardsListResponse200CardsInnerCharacteristicsInner> characteristics = default(List<PostV2GetCardsListResponse200CardsInnerCharacteristicsInner>), string createdAt = default(string), string trashedAt = default(string))
+        public PostV2GetCardsTrashResponse200CardsInner(long nmID = default(long), string vendorCode = default(string), bool kizMarked = false, long subjectID = default(long), string subjectName = default(string), List<PostV2GetCardsListResponse200CardsInnerPhotosInner> photos = default(List<PostV2GetCardsListResponse200CardsInnerPhotosInner>), string video = default(string), PostV2GetCardsListResponse200CardsInnerWholesale wholesale = default(PostV2GetCardsListResponse200CardsInnerWholesale), List<PostV2GetCardsTrashResponse200CardsInnerSizesInner> sizes = default(List<PostV2GetCardsTrashResponse200CardsInnerSizesInner>), PostV2GetCardsListResponse200CardsInnerDimensions dimensions = default(PostV2GetCardsListResponse200CardsInnerDimensions), List<PostV2GetCardsListResponse200CardsInnerCharacteristicsInner> characteristics = default(List<PostV2GetCardsListResponse200CardsInnerCharacteristicsInner>), string createdAt = default(string), string trashedAt = default(string))
         {
             this.NmID = nmID;
             this.VendorCode = vendorCode;
@@ -69,7 +69,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// </summary>
         /// <value>Артикул WB</value>
         [DataMember(Name = "nmID", EmitDefaultValue = false)]
-        public int NmID { get; set; }
+        public long NmID { get; set; }
 
         /// <summary>
         /// Артикул продавца
@@ -90,7 +90,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// </summary>
         /// <value>ID предмета</value>
         [DataMember(Name = "subjectID", EmitDefaultValue = false)]
-        public int SubjectID { get; set; }
+        public long SubjectID { get; set; }
 
         /// <summary>
         /// Название предмета

@@ -37,18 +37,17 @@ public class GetV2CardsLimitsResponse200Data {
 
   @SerializedName(SERIALIZED_NAME_FREE_LIMITS)
   @jakarta.annotation.Nullable
-  private Integer freeLimits;
+  private Long freeLimits;
 
   public static final String SERIALIZED_NAME_PAID_LIMITS = "paidLimits";
 
   @SerializedName(SERIALIZED_NAME_PAID_LIMITS)
   @jakarta.annotation.Nullable
-  private Integer paidLimits;
+  private Long paidLimits;
 
   public GetV2CardsLimitsResponse200Data() {}
 
-  public GetV2CardsLimitsResponse200Data freeLimits(
-      @jakarta.annotation.Nullable Integer freeLimits) {
+  public GetV2CardsLimitsResponse200Data freeLimits(@jakarta.annotation.Nullable Long freeLimits) {
     this.freeLimits = freeLimits;
     return this;
   }
@@ -59,16 +58,15 @@ public class GetV2CardsLimitsResponse200Data {
    * @return freeLimits
    */
   @jakarta.annotation.Nullable
-  public Integer getFreeLimits() {
+  public Long getFreeLimits() {
     return freeLimits;
   }
 
-  public void setFreeLimits(@jakarta.annotation.Nullable Integer freeLimits) {
+  public void setFreeLimits(@jakarta.annotation.Nullable Long freeLimits) {
     this.freeLimits = freeLimits;
   }
 
-  public GetV2CardsLimitsResponse200Data paidLimits(
-      @jakarta.annotation.Nullable Integer paidLimits) {
+  public GetV2CardsLimitsResponse200Data paidLimits(@jakarta.annotation.Nullable Long paidLimits) {
     this.paidLimits = paidLimits;
     return this;
   }
@@ -79,11 +77,11 @@ public class GetV2CardsLimitsResponse200Data {
    * @return paidLimits
    */
   @jakarta.annotation.Nullable
-  public Integer getPaidLimits() {
+  public Long getPaidLimits() {
     return paidLimits;
   }
 
-  public void setPaidLimits(@jakarta.annotation.Nullable Integer paidLimits) {
+  public void setPaidLimits(@jakarta.annotation.Nullable Long paidLimits) {
     this.paidLimits = paidLimits;
   }
 

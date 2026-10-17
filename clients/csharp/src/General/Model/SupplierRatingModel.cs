@@ -36,7 +36,7 @@ namespace ValeryVerkhoturov.WbApiClient.General.Model
         /// </summary>
         /// <param name="feedbackCount">Количество отзывов.</param>
         /// <param name="valuation">Рейтинг продавца.</param>
-        public SupplierRatingModel(int feedbackCount = default(int), float valuation = default(float))
+        public SupplierRatingModel(long feedbackCount = default(long), float valuation = default(float))
         {
             this.FeedbackCount = feedbackCount;
             this.Valuation = valuation;
@@ -50,7 +50,7 @@ namespace ValeryVerkhoturov.WbApiClient.General.Model
         <example>12355</example>
         */
         [DataMember(Name = "feedbackCount", EmitDefaultValue = false)]
-        public int FeedbackCount { get; set; }
+        public long FeedbackCount { get; set; }
 
         /// <summary>
         /// Рейтинг продавца

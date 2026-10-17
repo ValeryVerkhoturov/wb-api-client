@@ -35,7 +35,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// Initializes a new instance of the <see cref="PostV3WarehousesResponse201" /> class.
         /// </summary>
         /// <param name="id">ID склада продавца.</param>
-        public PostV3WarehousesResponse201(int id = default(int))
+        public PostV3WarehousesResponse201(long id = default(long))
         {
             this.Id = id;
         }
@@ -48,7 +48,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         <example>2</example>
         */
         [DataMember(Name = "id", EmitDefaultValue = false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

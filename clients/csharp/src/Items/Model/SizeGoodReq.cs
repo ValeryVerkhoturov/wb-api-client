@@ -42,7 +42,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// <param name="nmID">Артикул WB (required).</param>
         /// <param name="sizeID">ID размера. Можно получить с помощью методов [Получить товары с ценами](./item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsFilter) и [Получить товары с ценами по артикулам](./item-management#tag/pricesAndDiscounts/operation/postV2ListGoodsFilter), поле &#x60;sizeID&#x60;. В методах Контента это поле &#x60;chrtID&#x60; (required).</param>
         /// <param name="price">Цена. Валюту можно получить с помощью методов [Получить товары с ценами](./item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsFilter) и [Получить товары с ценами по артикулам](./item-management#tag/pricesAndDiscounts/operation/postV2ListGoodsFilter), поле &#x60;currencyIsoCode4217&#x60; (required).</param>
-        public SizeGoodReq(int nmID = default(int), int sizeID = default(int), int price = default(int))
+        public SizeGoodReq(long nmID = default(long), long sizeID = default(long), long price = default(long))
         {
             this.NmID = nmID;
             this.SizeID = sizeID;
@@ -57,7 +57,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         <example>123</example>
         */
         [DataMember(Name = "nmID", IsRequired = true, EmitDefaultValue = true)]
-        public int NmID { get; set; }
+        public long NmID { get; set; }
 
         /// <summary>
         /// ID размера. Можно получить с помощью методов [Получить товары с ценами](./item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsFilter) и [Получить товары с ценами по артикулам](./item-management#tag/pricesAndDiscounts/operation/postV2ListGoodsFilter), поле &#x60;sizeID&#x60;. В методах Контента это поле &#x60;chrtID&#x60;
@@ -67,7 +67,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         <example>98989887</example>
         */
         [DataMember(Name = "sizeID", IsRequired = true, EmitDefaultValue = true)]
-        public int SizeID { get; set; }
+        public long SizeID { get; set; }
 
         /// <summary>
         /// Цена. Валюту можно получить с помощью методов [Получить товары с ценами](./item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsFilter) и [Получить товары с ценами по артикулам](./item-management#tag/pricesAndDiscounts/operation/postV2ListGoodsFilter), поле &#x60;currencyIsoCode4217&#x60;
@@ -77,7 +77,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         <example>999</example>
         */
         [DataMember(Name = "price", IsRequired = true, EmitDefaultValue = true)]
-        public int Price { get; set; }
+        public long Price { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

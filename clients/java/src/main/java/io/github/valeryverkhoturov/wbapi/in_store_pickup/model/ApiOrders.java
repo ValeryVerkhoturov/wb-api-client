@@ -40,7 +40,7 @@ public class ApiOrders {
 
   @SerializedName(SERIALIZED_NAME_NEXT)
   @jakarta.annotation.Nullable
-  private Integer next;
+  private Long next;
 
   public static final String SERIALIZED_NAME_ORDERS = "orders";
 
@@ -50,7 +50,7 @@ public class ApiOrders {
 
   public ApiOrders() {}
 
-  public ApiOrders next(@jakarta.annotation.Nullable Integer next) {
+  public ApiOrders next(@jakarta.annotation.Nullable Long next) {
     this.next = next;
     return this;
   }
@@ -62,11 +62,11 @@ public class ApiOrders {
    * @return next
    */
   @jakarta.annotation.Nullable
-  public Integer getNext() {
+  public Long getNext() {
     return next;
   }
 
-  public void setNext(@jakarta.annotation.Nullable Integer next) {
+  public void setNext(@jakarta.annotation.Nullable Long next) {
     this.next = next;
   }
 

@@ -39,16 +39,16 @@ public class ApiOrdersRequestV2 {
 
   @SerializedName(SERIALIZED_NAME_ORDERS_IDS)
   @jakarta.annotation.Nonnull
-  private List<Integer> ordersIds = new ArrayList<>();
+  private List<Long> ordersIds = new ArrayList<>();
 
   public ApiOrdersRequestV2() {}
 
-  public ApiOrdersRequestV2 ordersIds(@jakarta.annotation.Nonnull List<Integer> ordersIds) {
+  public ApiOrdersRequestV2 ordersIds(@jakarta.annotation.Nonnull List<Long> ordersIds) {
     this.ordersIds = ordersIds;
     return this;
   }
 
-  public ApiOrdersRequestV2 addOrdersIdsItem(Integer ordersIdsItem) {
+  public ApiOrdersRequestV2 addOrdersIdsItem(Long ordersIdsItem) {
     if (this.ordersIds == null) {
       this.ordersIds = new ArrayList<>();
     }
@@ -62,11 +62,11 @@ public class ApiOrdersRequestV2 {
    * @return ordersIds
    */
   @jakarta.annotation.Nonnull
-  public List<Integer> getOrdersIds() {
+  public List<Long> getOrdersIds() {
     return ordersIds;
   }
 
-  public void setOrdersIds(@jakarta.annotation.Nonnull List<Integer> ordersIds) {
+  public void setOrdersIds(@jakarta.annotation.Nonnull List<Long> ordersIds) {
     this.ordersIds = ordersIds;
   }
 

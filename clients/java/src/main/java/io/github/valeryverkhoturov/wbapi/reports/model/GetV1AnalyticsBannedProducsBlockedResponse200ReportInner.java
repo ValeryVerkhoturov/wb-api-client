@@ -43,7 +43,7 @@ public class GetV1AnalyticsBannedProducsBlockedResponse200ReportInner {
 
   @SerializedName(SERIALIZED_NAME_NM_ID)
   @jakarta.annotation.Nullable
-  private Integer nmId;
+  private Long nmId;
 
   public static final String SERIALIZED_NAME_TITLE = "title";
 
@@ -86,7 +86,7 @@ public class GetV1AnalyticsBannedProducsBlockedResponse200ReportInner {
   }
 
   public GetV1AnalyticsBannedProducsBlockedResponse200ReportInner nmId(
-      @jakarta.annotation.Nullable Integer nmId) {
+      @jakarta.annotation.Nullable Long nmId) {
     this.nmId = nmId;
     return this;
   }
@@ -97,11 +97,11 @@ public class GetV1AnalyticsBannedProducsBlockedResponse200ReportInner {
    * @return nmId
    */
   @jakarta.annotation.Nullable
-  public Integer getNmId() {
+  public Long getNmId() {
     return nmId;
   }
 
-  public void setNmId(@jakarta.annotation.Nullable Integer nmId) {
+  public void setNmId(@jakarta.annotation.Nullable Long nmId) {
     this.nmId = nmId;
   }
 

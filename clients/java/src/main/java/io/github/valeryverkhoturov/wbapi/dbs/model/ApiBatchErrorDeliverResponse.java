@@ -40,7 +40,7 @@ public class ApiBatchErrorDeliverResponse {
 
   @SerializedName(SERIALIZED_NAME_CODE)
   @jakarta.annotation.Nullable
-  private Integer code;
+  private Long code;
 
   public static final String SERIALIZED_NAME_DETAIL = "detail";
 
@@ -56,7 +56,7 @@ public class ApiBatchErrorDeliverResponse {
 
   public ApiBatchErrorDeliverResponse() {}
 
-  public ApiBatchErrorDeliverResponse code(@jakarta.annotation.Nullable Integer code) {
+  public ApiBatchErrorDeliverResponse code(@jakarta.annotation.Nullable Long code) {
     this.code = code;
     return this;
   }
@@ -67,11 +67,11 @@ public class ApiBatchErrorDeliverResponse {
    * @return code
    */
   @jakarta.annotation.Nullable
-  public Integer getCode() {
+  public Long getCode() {
     return code;
   }
 
-  public void setCode(@jakarta.annotation.Nullable Integer code) {
+  public void setCode(@jakarta.annotation.Nullable Long code) {
     this.code = code;
   }
 

@@ -42,7 +42,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <param name="advertType">Тип кампании.</param>
         /// <param name="paymentType">Источник списания:  - &#x60;Баланс&#x60;  - &#x60;Бонусы&#x60;  - &#x60;Счёт&#x60;  - &#x60;Кэшбэк&#x60; .</param>
         /// <param name="advertStatus">Статус кампании: - &#x60;-1&#x60; — удалена, процесс удаления будет завершён в течение 10 минут - &#x60;4&#x60; — готова к запуску - &#x60;7&#x60; — завершена - &#x60;8&#x60; — отменена - &#x60;9&#x60; — активна - &#x60;11&#x60; — на паузе .</param>
-        public GetV1UpdResponse200Inner(int updNum = default(int), string updTime = default(string), int updSum = default(int), int advertId = default(int), string campName = default(string), int advertType = default(int), string paymentType = default(string), int advertStatus = default(int))
+        public GetV1UpdResponse200Inner(long updNum = default(long), string updTime = default(string), long updSum = default(long), long advertId = default(long), string campName = default(string), long advertType = default(long), string paymentType = default(string), long advertStatus = default(long))
         {
             this.UpdNum = updNum;
             this.UpdTime = updTime;
@@ -59,7 +59,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <value>Номер выставленного документа</value>
         [DataMember(Name = "updNum", EmitDefaultValue = false)]
-        public int UpdNum { get; set; }
+        public long UpdNum { get; set; }
 
         /// <summary>
         /// Время списания
@@ -73,14 +73,14 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <value>Выставленная сумма в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)</value>
         [DataMember(Name = "updSum", EmitDefaultValue = false)]
-        public int UpdSum { get; set; }
+        public long UpdSum { get; set; }
 
         /// <summary>
         /// ID кампании
         /// </summary>
         /// <value>ID кампании</value>
         [DataMember(Name = "advertId", EmitDefaultValue = false)]
-        public int AdvertId { get; set; }
+        public long AdvertId { get; set; }
 
         /// <summary>
         /// Название кампании
@@ -94,7 +94,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <value>Тип кампании</value>
         [DataMember(Name = "advertType", EmitDefaultValue = false)]
-        public int AdvertType { get; set; }
+        public long AdvertType { get; set; }
 
         /// <summary>
         /// Источник списания:  - &#x60;Баланс&#x60;  - &#x60;Бонусы&#x60;  - &#x60;Счёт&#x60;  - &#x60;Кэшбэк&#x60; 
@@ -108,7 +108,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <value>Статус кампании: - &#x60;-1&#x60; — удалена, процесс удаления будет завершён в течение 10 минут - &#x60;4&#x60; — готова к запуску - &#x60;7&#x60; — завершена - &#x60;8&#x60; — отменена - &#x60;9&#x60; — активна - &#x60;11&#x60; — на паузе </value>
         [DataMember(Name = "advertStatus", EmitDefaultValue = false)]
-        public int AdvertStatus { get; set; }
+        public long AdvertStatus { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

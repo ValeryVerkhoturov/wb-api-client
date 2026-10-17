@@ -43,7 +43,7 @@ public class V2GetConfigResponse {
 
   @SerializedName(SERIALIZED_NAME_CURRENCY_CODE)
   @jakarta.annotation.Nullable
-  private Integer currencyCode;
+  private Long currencyCode;
 
   public static final String SERIALIZED_NAME_CPM_STEP = "cpmStep";
 
@@ -90,7 +90,7 @@ public class V2GetConfigResponse {
     this.currency = currency;
   }
 
-  public V2GetConfigResponse currencyCode(@jakarta.annotation.Nullable Integer currencyCode) {
+  public V2GetConfigResponse currencyCode(@jakarta.annotation.Nullable Long currencyCode) {
     this.currencyCode = currencyCode;
     return this;
   }
@@ -101,11 +101,11 @@ public class V2GetConfigResponse {
    * @return currencyCode
    */
   @jakarta.annotation.Nullable
-  public Integer getCurrencyCode() {
+  public Long getCurrencyCode() {
     return currencyCode;
   }
 
-  public void setCurrencyCode(@jakarta.annotation.Nullable Integer currencyCode) {
+  public void setCurrencyCode(@jakarta.annotation.Nullable Long currencyCode) {
     this.currencyCode = currencyCode;
   }
 

@@ -37,7 +37,7 @@ public class GetV2TagsResponse200Data {
 
   @SerializedName(SERIALIZED_NAME_ID)
   @jakarta.annotation.Nullable
-  private Integer id;
+  private Long id;
 
   public static final String SERIALIZED_NAME_COLOR = "color";
 
@@ -53,7 +53,7 @@ public class GetV2TagsResponse200Data {
 
   public GetV2TagsResponse200Data() {}
 
-  public GetV2TagsResponse200Data id(@jakarta.annotation.Nullable Integer id) {
+  public GetV2TagsResponse200Data id(@jakarta.annotation.Nullable Long id) {
     this.id = id;
     return this;
   }
@@ -64,11 +64,11 @@ public class GetV2TagsResponse200Data {
    * @return id
    */
   @jakarta.annotation.Nullable
-  public Integer getId() {
+  public Long getId() {
     return id;
   }
 
-  public void setId(@jakarta.annotation.Nullable Integer id) {
+  public void setId(@jakarta.annotation.Nullable Long id) {
     this.id = id;
   }
 

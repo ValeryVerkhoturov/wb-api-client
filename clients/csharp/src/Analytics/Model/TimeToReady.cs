@@ -37,7 +37,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <param name="days">Дни.</param>
         /// <param name="hours">Часы.</param>
         /// <param name="mins">Минуты.</param>
-        public TimeToReady(int days = default(int), int hours = default(int), int mins = default(int))
+        public TimeToReady(long days = default(long), long hours = default(long), long mins = default(long))
         {
             this.Days = days;
             this.Hours = hours;
@@ -52,7 +52,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         <example>1</example>
         */
         [DataMember(Name = "days", EmitDefaultValue = false)]
-        public int Days { get; set; }
+        public long Days { get; set; }
 
         /// <summary>
         /// Часы
@@ -62,7 +62,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         <example>8</example>
         */
         [DataMember(Name = "hours", EmitDefaultValue = false)]
-        public int Hours { get; set; }
+        public long Hours { get; set; }
 
         /// <summary>
         /// Минуты
@@ -72,7 +72,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         <example>34</example>
         */
         [DataMember(Name = "mins", EmitDefaultValue = false)]
-        public int Mins { get; set; }
+        public long Mins { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

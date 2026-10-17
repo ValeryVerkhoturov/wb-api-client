@@ -87,7 +87,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Api
         /// <param name="order">Порядок выдачи:   - &#x60;desc&#x60; — по убыванию   - &#x60;asc&#x60; — по возрастанию  (optional, default to desc)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ModelsListDraftsResponse</returns>
-        ModelsListDraftsResponse GetV1Drafts(int? limit = default(int?), int? offset = default(int?), string? sort = default(string?), string? order = default(string?), int operationIndex = 0);
+        ModelsListDraftsResponse GetV1Drafts(long? limit = default(long?), long? offset = default(long?), string? sort = default(string?), string? order = default(string?), int operationIndex = 0);
 
         /// <summary>
         /// Список черновиков
@@ -102,7 +102,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Api
         /// <param name="order">Порядок выдачи:   - &#x60;desc&#x60; — по убыванию   - &#x60;asc&#x60; — по возрастанию  (optional, default to desc)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ModelsListDraftsResponse</returns>
-        ApiResponse<ModelsListDraftsResponse> GetV1DraftsWithHttpInfo(int? limit = default(int?), int? offset = default(int?), string? sort = default(string?), string? order = default(string?), int operationIndex = 0);
+        ApiResponse<ModelsListDraftsResponse> GetV1DraftsWithHttpInfo(long? limit = default(long?), long? offset = default(long?), string? sort = default(string?), string? order = default(string?), int operationIndex = 0);
         /// <summary>
         /// Список товаров в черновике
         /// </summary>
@@ -137,7 +137,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Api
         /// <param name="isPreorderID">Поиск по:   - &#x60;true&#x60; — ID заказа, если в &#x60;ID&#x60; передаёте ID заказа   - &#x60;false&#x60; — ID поставки, если в &#x60;ID&#x60; передаёте ID поставки  (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ModelsSupplyDetails</returns>
-        ModelsSupplyDetails GetV1SuppliesId(int ID, bool? isPreorderID = default(bool?), int operationIndex = 0);
+        ModelsSupplyDetails GetV1SuppliesId(long ID, bool? isPreorderID = default(bool?), int operationIndex = 0);
 
         /// <summary>
         /// Детали поставки
@@ -150,7 +150,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Api
         /// <param name="isPreorderID">Поиск по:   - &#x60;true&#x60; — ID заказа, если в &#x60;ID&#x60; передаёте ID заказа   - &#x60;false&#x60; — ID поставки, если в &#x60;ID&#x60; передаёте ID поставки  (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ModelsSupplyDetails</returns>
-        ApiResponse<ModelsSupplyDetails> GetV1SuppliesIdWithHttpInfo(int ID, bool? isPreorderID = default(bool?), int operationIndex = 0);
+        ApiResponse<ModelsSupplyDetails> GetV1SuppliesIdWithHttpInfo(long ID, bool? isPreorderID = default(bool?), int operationIndex = 0);
         /// <summary>
         /// Товары поставки
         /// </summary>
@@ -164,7 +164,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Api
         /// <param name="isPreorderID">Поиск по:   - &#x60;true&#x60; — ID заказа, если в &#x60;ID&#x60; передаёте ID заказа   - &#x60;false&#x60; — ID поставки, если в &#x60;ID&#x60; передаёте ID поставки  (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;ModelsGoodInSupply&gt;</returns>
-        List<ModelsGoodInSupply> GetV1SuppliesIdGoods(int ID, int? limit = default(int?), int? offset = default(int?), bool? isPreorderID = default(bool?), int operationIndex = 0);
+        List<ModelsGoodInSupply> GetV1SuppliesIdGoods(long ID, long? limit = default(long?), long? offset = default(long?), bool? isPreorderID = default(bool?), int operationIndex = 0);
 
         /// <summary>
         /// Товары поставки
@@ -179,7 +179,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Api
         /// <param name="isPreorderID">Поиск по:   - &#x60;true&#x60; — ID заказа, если в &#x60;ID&#x60; передаёте ID заказа   - &#x60;false&#x60; — ID поставки, если в &#x60;ID&#x60; передаёте ID поставки  (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;ModelsGoodInSupply&gt;</returns>
-        ApiResponse<List<ModelsGoodInSupply>> GetV1SuppliesIdGoodsWithHttpInfo(int ID, int? limit = default(int?), int? offset = default(int?), bool? isPreorderID = default(bool?), int operationIndex = 0);
+        ApiResponse<List<ModelsGoodInSupply>> GetV1SuppliesIdGoodsWithHttpInfo(long ID, long? limit = default(long?), long? offset = default(long?), bool? isPreorderID = default(bool?), int operationIndex = 0);
         /// <summary>
         /// Упаковка поставки
         /// </summary>
@@ -190,7 +190,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Api
         /// <param name="ID">ID поставки</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;ModelsBox&gt;</returns>
-        List<ModelsBox> GetV1SuppliesIdPackage(int ID, int operationIndex = 0);
+        List<ModelsBox> GetV1SuppliesIdPackage(long ID, int operationIndex = 0);
 
         /// <summary>
         /// Упаковка поставки
@@ -202,7 +202,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Api
         /// <param name="ID">ID поставки</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;ModelsBox&gt;</returns>
-        ApiResponse<List<ModelsBox>> GetV1SuppliesIdPackageWithHttpInfo(int ID, int operationIndex = 0);
+        ApiResponse<List<ModelsBox>> GetV1SuppliesIdPackageWithHttpInfo(long ID, int operationIndex = 0);
         /// <summary>
         /// Расхождения в поставке
         /// </summary>
@@ -279,7 +279,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Api
         /// <param name="warehouseID">ID склада.  Если параметр не указан, возвращаются данные по всем складам.  \\*\\*Максимум одно значение\\*\\* (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ModelsOptionsResultModel</returns>
-        ModelsOptionsResultModel PostV1AcceptanceOptions(List<ModelsGood> modelsGood, int? warehouseID = default(int?), int operationIndex = 0);
+        ModelsOptionsResultModel PostV1AcceptanceOptions(List<ModelsGood> modelsGood, long? warehouseID = default(long?), int operationIndex = 0);
 
         /// <summary>
         /// Опции приёмки
@@ -292,7 +292,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Api
         /// <param name="warehouseID">ID склада.  Если параметр не указан, возвращаются данные по всем складам.  \\*\\*Максимум одно значение\\*\\* (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ModelsOptionsResultModel</returns>
-        ApiResponse<ModelsOptionsResultModel> PostV1AcceptanceOptionsWithHttpInfo(List<ModelsGood> modelsGood, int? warehouseID = default(int?), int operationIndex = 0);
+        ApiResponse<ModelsOptionsResultModel> PostV1AcceptanceOptionsWithHttpInfo(List<ModelsGood> modelsGood, long? warehouseID = default(long?), int operationIndex = 0);
         /// <summary>
         /// Создать черновик
         /// </summary>
@@ -351,7 +351,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Api
         /// <param name="offset">После какого элемента выдавать данные (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;ModelsSupply&gt;</returns>
-        List<ModelsSupply> PostV1Supplies(ModelsSuppliesFiltersRequest modelsSuppliesFiltersRequest, int? limit = default(int?), int? offset = default(int?), int operationIndex = 0);
+        List<ModelsSupply> PostV1Supplies(ModelsSuppliesFiltersRequest modelsSuppliesFiltersRequest, long? limit = default(long?), long? offset = default(long?), int operationIndex = 0);
 
         /// <summary>
         /// Список поставок
@@ -365,7 +365,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Api
         /// <param name="offset">После какого элемента выдавать данные (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;ModelsSupply&gt;</returns>
-        ApiResponse<List<ModelsSupply>> PostV1SuppliesWithHttpInfo(ModelsSuppliesFiltersRequest modelsSuppliesFiltersRequest, int? limit = default(int?), int? offset = default(int?), int operationIndex = 0);
+        ApiResponse<List<ModelsSupply>> PostV1SuppliesWithHttpInfo(ModelsSuppliesFiltersRequest modelsSuppliesFiltersRequest, long? limit = default(long?), long? offset = default(long?), int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -441,7 +441,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ModelsListDraftsResponse</returns>
-        System.Threading.Tasks.Task<ModelsListDraftsResponse> GetV1DraftsAsync(int? limit = default(int?), int? offset = default(int?), string? sort = default(string?), string? order = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ModelsListDraftsResponse> GetV1DraftsAsync(long? limit = default(long?), long? offset = default(long?), string? sort = default(string?), string? order = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Список черновиков
@@ -457,7 +457,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ModelsListDraftsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ModelsListDraftsResponse>> GetV1DraftsWithHttpInfoAsync(int? limit = default(int?), int? offset = default(int?), string? sort = default(string?), string? order = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ModelsListDraftsResponse>> GetV1DraftsWithHttpInfoAsync(long? limit = default(long?), long? offset = default(long?), string? sort = default(string?), string? order = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Список товаров в черновике
         /// </summary>
@@ -495,7 +495,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ModelsSupplyDetails</returns>
-        System.Threading.Tasks.Task<ModelsSupplyDetails> GetV1SuppliesIdAsync(int ID, bool? isPreorderID = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ModelsSupplyDetails> GetV1SuppliesIdAsync(long ID, bool? isPreorderID = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Детали поставки
@@ -509,7 +509,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ModelsSupplyDetails)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ModelsSupplyDetails>> GetV1SuppliesIdWithHttpInfoAsync(int ID, bool? isPreorderID = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ModelsSupplyDetails>> GetV1SuppliesIdWithHttpInfoAsync(long ID, bool? isPreorderID = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Товары поставки
         /// </summary>
@@ -524,7 +524,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;ModelsGoodInSupply&gt;</returns>
-        System.Threading.Tasks.Task<List<ModelsGoodInSupply>> GetV1SuppliesIdGoodsAsync(int ID, int? limit = default(int?), int? offset = default(int?), bool? isPreorderID = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<ModelsGoodInSupply>> GetV1SuppliesIdGoodsAsync(long ID, long? limit = default(long?), long? offset = default(long?), bool? isPreorderID = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Товары поставки
@@ -540,7 +540,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;ModelsGoodInSupply&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<ModelsGoodInSupply>>> GetV1SuppliesIdGoodsWithHttpInfoAsync(int ID, int? limit = default(int?), int? offset = default(int?), bool? isPreorderID = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<ModelsGoodInSupply>>> GetV1SuppliesIdGoodsWithHttpInfoAsync(long ID, long? limit = default(long?), long? offset = default(long?), bool? isPreorderID = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Упаковка поставки
         /// </summary>
@@ -552,7 +552,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;ModelsBox&gt;</returns>
-        System.Threading.Tasks.Task<List<ModelsBox>> GetV1SuppliesIdPackageAsync(int ID, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<ModelsBox>> GetV1SuppliesIdPackageAsync(long ID, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Упаковка поставки
@@ -565,7 +565,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;ModelsBox&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<ModelsBox>>> GetV1SuppliesIdPackageWithHttpInfoAsync(int ID, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<ModelsBox>>> GetV1SuppliesIdPackageWithHttpInfoAsync(long ID, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Расхождения в поставке
         /// </summary>
@@ -649,7 +649,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ModelsOptionsResultModel</returns>
-        System.Threading.Tasks.Task<ModelsOptionsResultModel> PostV1AcceptanceOptionsAsync(List<ModelsGood> modelsGood, int? warehouseID = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ModelsOptionsResultModel> PostV1AcceptanceOptionsAsync(List<ModelsGood> modelsGood, long? warehouseID = default(long?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Опции приёмки
@@ -663,7 +663,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ModelsOptionsResultModel)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ModelsOptionsResultModel>> PostV1AcceptanceOptionsWithHttpInfoAsync(List<ModelsGood> modelsGood, int? warehouseID = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ModelsOptionsResultModel>> PostV1AcceptanceOptionsWithHttpInfoAsync(List<ModelsGood> modelsGood, long? warehouseID = default(long?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Создать черновик
         /// </summary>
@@ -727,7 +727,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;ModelsSupply&gt;</returns>
-        System.Threading.Tasks.Task<List<ModelsSupply>> PostV1SuppliesAsync(ModelsSuppliesFiltersRequest modelsSuppliesFiltersRequest, int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<ModelsSupply>> PostV1SuppliesAsync(ModelsSuppliesFiltersRequest modelsSuppliesFiltersRequest, long? limit = default(long?), long? offset = default(long?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Список поставок
@@ -742,7 +742,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;ModelsSupply&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<ModelsSupply>>> PostV1SuppliesWithHttpInfoAsync(ModelsSuppliesFiltersRequest modelsSuppliesFiltersRequest, int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<ModelsSupply>>> PostV1SuppliesWithHttpInfoAsync(ModelsSuppliesFiltersRequest modelsSuppliesFiltersRequest, long? limit = default(long?), long? offset = default(long?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -1195,7 +1195,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Api
         /// <param name="order">Порядок выдачи:   - &#x60;desc&#x60; — по убыванию   - &#x60;asc&#x60; — по возрастанию  (optional, default to desc)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ModelsListDraftsResponse</returns>
-        public ModelsListDraftsResponse GetV1Drafts(int? limit = default(int?), int? offset = default(int?), string? sort = default(string?), string? order = default(string?), int operationIndex = 0)
+        public ModelsListDraftsResponse GetV1Drafts(long? limit = default(long?), long? offset = default(long?), string? sort = default(string?), string? order = default(string?), int operationIndex = 0)
         {
             ValeryVerkhoturov.WbApiClient.OrdersFbw.Client.ApiResponse<ModelsListDraftsResponse> localVarResponse = GetV1DraftsWithHttpInfo(limit, offset, sort, order);
             return localVarResponse.Data;
@@ -1211,7 +1211,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Api
         /// <param name="order">Порядок выдачи:   - &#x60;desc&#x60; — по убыванию   - &#x60;asc&#x60; — по возрастанию  (optional, default to desc)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ModelsListDraftsResponse</returns>
-        public ValeryVerkhoturov.WbApiClient.OrdersFbw.Client.ApiResponse<ModelsListDraftsResponse> GetV1DraftsWithHttpInfo(int? limit = default(int?), int? offset = default(int?), string? sort = default(string?), string? order = default(string?), int operationIndex = 0)
+        public ValeryVerkhoturov.WbApiClient.OrdersFbw.Client.ApiResponse<ModelsListDraftsResponse> GetV1DraftsWithHttpInfo(long? limit = default(long?), long? offset = default(long?), string? sort = default(string?), string? order = default(string?), int operationIndex = 0)
         {
             ValeryVerkhoturov.WbApiClient.OrdersFbw.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.OrdersFbw.Client.RequestOptions();
 
@@ -1288,7 +1288,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ModelsListDraftsResponse</returns>
-        public async System.Threading.Tasks.Task<ModelsListDraftsResponse> GetV1DraftsAsync(int? limit = default(int?), int? offset = default(int?), string? sort = default(string?), string? order = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ModelsListDraftsResponse> GetV1DraftsAsync(long? limit = default(long?), long? offset = default(long?), string? sort = default(string?), string? order = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             ValeryVerkhoturov.WbApiClient.OrdersFbw.Client.ApiResponse<ModelsListDraftsResponse> localVarResponse = await GetV1DraftsWithHttpInfoAsync(limit, offset, sort, order, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1305,7 +1305,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ModelsListDraftsResponse)</returns>
-        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.OrdersFbw.Client.ApiResponse<ModelsListDraftsResponse>> GetV1DraftsWithHttpInfoAsync(int? limit = default(int?), int? offset = default(int?), string? sort = default(string?), string? order = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.OrdersFbw.Client.ApiResponse<ModelsListDraftsResponse>> GetV1DraftsWithHttpInfoAsync(long? limit = default(long?), long? offset = default(long?), string? sort = default(string?), string? order = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             ValeryVerkhoturov.WbApiClient.OrdersFbw.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.OrdersFbw.Client.RequestOptions();
@@ -1539,7 +1539,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Api
         /// <param name="isPreorderID">Поиск по:   - &#x60;true&#x60; — ID заказа, если в &#x60;ID&#x60; передаёте ID заказа   - &#x60;false&#x60; — ID поставки, если в &#x60;ID&#x60; передаёте ID поставки  (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ModelsSupplyDetails</returns>
-        public ModelsSupplyDetails GetV1SuppliesId(int ID, bool? isPreorderID = default(bool?), int operationIndex = 0)
+        public ModelsSupplyDetails GetV1SuppliesId(long ID, bool? isPreorderID = default(bool?), int operationIndex = 0)
         {
             ValeryVerkhoturov.WbApiClient.OrdersFbw.Client.ApiResponse<ModelsSupplyDetails> localVarResponse = GetV1SuppliesIdWithHttpInfo(ID, isPreorderID);
             return localVarResponse.Data;
@@ -1553,7 +1553,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Api
         /// <param name="isPreorderID">Поиск по:   - &#x60;true&#x60; — ID заказа, если в &#x60;ID&#x60; передаёте ID заказа   - &#x60;false&#x60; — ID поставки, если в &#x60;ID&#x60; передаёте ID поставки  (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ModelsSupplyDetails</returns>
-        public ValeryVerkhoturov.WbApiClient.OrdersFbw.Client.ApiResponse<ModelsSupplyDetails> GetV1SuppliesIdWithHttpInfo(int ID, bool? isPreorderID = default(bool?), int operationIndex = 0)
+        public ValeryVerkhoturov.WbApiClient.OrdersFbw.Client.ApiResponse<ModelsSupplyDetails> GetV1SuppliesIdWithHttpInfo(long ID, bool? isPreorderID = default(bool?), int operationIndex = 0)
         {
             ValeryVerkhoturov.WbApiClient.OrdersFbw.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.OrdersFbw.Client.RequestOptions();
 
@@ -1617,7 +1617,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ModelsSupplyDetails</returns>
-        public async System.Threading.Tasks.Task<ModelsSupplyDetails> GetV1SuppliesIdAsync(int ID, bool? isPreorderID = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ModelsSupplyDetails> GetV1SuppliesIdAsync(long ID, bool? isPreorderID = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             ValeryVerkhoturov.WbApiClient.OrdersFbw.Client.ApiResponse<ModelsSupplyDetails> localVarResponse = await GetV1SuppliesIdWithHttpInfoAsync(ID, isPreorderID, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1632,7 +1632,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ModelsSupplyDetails)</returns>
-        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.OrdersFbw.Client.ApiResponse<ModelsSupplyDetails>> GetV1SuppliesIdWithHttpInfoAsync(int ID, bool? isPreorderID = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.OrdersFbw.Client.ApiResponse<ModelsSupplyDetails>> GetV1SuppliesIdWithHttpInfoAsync(long ID, bool? isPreorderID = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             ValeryVerkhoturov.WbApiClient.OrdersFbw.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.OrdersFbw.Client.RequestOptions();
@@ -1699,7 +1699,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Api
         /// <param name="isPreorderID">Поиск по:   - &#x60;true&#x60; — ID заказа, если в &#x60;ID&#x60; передаёте ID заказа   - &#x60;false&#x60; — ID поставки, если в &#x60;ID&#x60; передаёте ID поставки  (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;ModelsGoodInSupply&gt;</returns>
-        public List<ModelsGoodInSupply> GetV1SuppliesIdGoods(int ID, int? limit = default(int?), int? offset = default(int?), bool? isPreorderID = default(bool?), int operationIndex = 0)
+        public List<ModelsGoodInSupply> GetV1SuppliesIdGoods(long ID, long? limit = default(long?), long? offset = default(long?), bool? isPreorderID = default(bool?), int operationIndex = 0)
         {
             ValeryVerkhoturov.WbApiClient.OrdersFbw.Client.ApiResponse<List<ModelsGoodInSupply>> localVarResponse = GetV1SuppliesIdGoodsWithHttpInfo(ID, limit, offset, isPreorderID);
             return localVarResponse.Data;
@@ -1715,7 +1715,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Api
         /// <param name="isPreorderID">Поиск по:   - &#x60;true&#x60; — ID заказа, если в &#x60;ID&#x60; передаёте ID заказа   - &#x60;false&#x60; — ID поставки, если в &#x60;ID&#x60; передаёте ID поставки  (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;ModelsGoodInSupply&gt;</returns>
-        public ValeryVerkhoturov.WbApiClient.OrdersFbw.Client.ApiResponse<List<ModelsGoodInSupply>> GetV1SuppliesIdGoodsWithHttpInfo(int ID, int? limit = default(int?), int? offset = default(int?), bool? isPreorderID = default(bool?), int operationIndex = 0)
+        public ValeryVerkhoturov.WbApiClient.OrdersFbw.Client.ApiResponse<List<ModelsGoodInSupply>> GetV1SuppliesIdGoodsWithHttpInfo(long ID, long? limit = default(long?), long? offset = default(long?), bool? isPreorderID = default(bool?), int operationIndex = 0)
         {
             ValeryVerkhoturov.WbApiClient.OrdersFbw.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.OrdersFbw.Client.RequestOptions();
 
@@ -1790,7 +1790,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;ModelsGoodInSupply&gt;</returns>
-        public async System.Threading.Tasks.Task<List<ModelsGoodInSupply>> GetV1SuppliesIdGoodsAsync(int ID, int? limit = default(int?), int? offset = default(int?), bool? isPreorderID = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<ModelsGoodInSupply>> GetV1SuppliesIdGoodsAsync(long ID, long? limit = default(long?), long? offset = default(long?), bool? isPreorderID = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             ValeryVerkhoturov.WbApiClient.OrdersFbw.Client.ApiResponse<List<ModelsGoodInSupply>> localVarResponse = await GetV1SuppliesIdGoodsWithHttpInfoAsync(ID, limit, offset, isPreorderID, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1807,7 +1807,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;ModelsGoodInSupply&gt;)</returns>
-        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.OrdersFbw.Client.ApiResponse<List<ModelsGoodInSupply>>> GetV1SuppliesIdGoodsWithHttpInfoAsync(int ID, int? limit = default(int?), int? offset = default(int?), bool? isPreorderID = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.OrdersFbw.Client.ApiResponse<List<ModelsGoodInSupply>>> GetV1SuppliesIdGoodsWithHttpInfoAsync(long ID, long? limit = default(long?), long? offset = default(long?), bool? isPreorderID = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             ValeryVerkhoturov.WbApiClient.OrdersFbw.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.OrdersFbw.Client.RequestOptions();
@@ -1880,7 +1880,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Api
         /// <param name="ID">ID поставки</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;ModelsBox&gt;</returns>
-        public List<ModelsBox> GetV1SuppliesIdPackage(int ID, int operationIndex = 0)
+        public List<ModelsBox> GetV1SuppliesIdPackage(long ID, int operationIndex = 0)
         {
             ValeryVerkhoturov.WbApiClient.OrdersFbw.Client.ApiResponse<List<ModelsBox>> localVarResponse = GetV1SuppliesIdPackageWithHttpInfo(ID);
             return localVarResponse.Data;
@@ -1893,7 +1893,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Api
         /// <param name="ID">ID поставки</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;ModelsBox&gt;</returns>
-        public ValeryVerkhoturov.WbApiClient.OrdersFbw.Client.ApiResponse<List<ModelsBox>> GetV1SuppliesIdPackageWithHttpInfo(int ID, int operationIndex = 0)
+        public ValeryVerkhoturov.WbApiClient.OrdersFbw.Client.ApiResponse<List<ModelsBox>> GetV1SuppliesIdPackageWithHttpInfo(long ID, int operationIndex = 0)
         {
             ValeryVerkhoturov.WbApiClient.OrdersFbw.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.OrdersFbw.Client.RequestOptions();
 
@@ -1952,7 +1952,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;ModelsBox&gt;</returns>
-        public async System.Threading.Tasks.Task<List<ModelsBox>> GetV1SuppliesIdPackageAsync(int ID, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<ModelsBox>> GetV1SuppliesIdPackageAsync(long ID, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             ValeryVerkhoturov.WbApiClient.OrdersFbw.Client.ApiResponse<List<ModelsBox>> localVarResponse = await GetV1SuppliesIdPackageWithHttpInfoAsync(ID, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1966,7 +1966,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;ModelsBox&gt;)</returns>
-        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.OrdersFbw.Client.ApiResponse<List<ModelsBox>>> GetV1SuppliesIdPackageWithHttpInfoAsync(int ID, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.OrdersFbw.Client.ApiResponse<List<ModelsBox>>> GetV1SuppliesIdPackageWithHttpInfoAsync(long ID, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             ValeryVerkhoturov.WbApiClient.OrdersFbw.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.OrdersFbw.Client.RequestOptions();
@@ -2453,7 +2453,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Api
         /// <param name="warehouseID">ID склада.  Если параметр не указан, возвращаются данные по всем складам.  \\*\\*Максимум одно значение\\*\\* (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ModelsOptionsResultModel</returns>
-        public ModelsOptionsResultModel PostV1AcceptanceOptions(List<ModelsGood> modelsGood, int? warehouseID = default(int?), int operationIndex = 0)
+        public ModelsOptionsResultModel PostV1AcceptanceOptions(List<ModelsGood> modelsGood, long? warehouseID = default(long?), int operationIndex = 0)
         {
             ValeryVerkhoturov.WbApiClient.OrdersFbw.Client.ApiResponse<ModelsOptionsResultModel> localVarResponse = PostV1AcceptanceOptionsWithHttpInfo(modelsGood, warehouseID);
             return localVarResponse.Data;
@@ -2467,7 +2467,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Api
         /// <param name="warehouseID">ID склада.  Если параметр не указан, возвращаются данные по всем складам.  \\*\\*Максимум одно значение\\*\\* (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ModelsOptionsResultModel</returns>
-        public ValeryVerkhoturov.WbApiClient.OrdersFbw.Client.ApiResponse<ModelsOptionsResultModel> PostV1AcceptanceOptionsWithHttpInfo(List<ModelsGood> modelsGood, int? warehouseID = default(int?), int operationIndex = 0)
+        public ValeryVerkhoturov.WbApiClient.OrdersFbw.Client.ApiResponse<ModelsOptionsResultModel> PostV1AcceptanceOptionsWithHttpInfo(List<ModelsGood> modelsGood, long? warehouseID = default(long?), int operationIndex = 0)
         {
             // verify the required parameter 'modelsGood' is set
             if (modelsGood == null)
@@ -2538,7 +2538,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ModelsOptionsResultModel</returns>
-        public async System.Threading.Tasks.Task<ModelsOptionsResultModel> PostV1AcceptanceOptionsAsync(List<ModelsGood> modelsGood, int? warehouseID = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ModelsOptionsResultModel> PostV1AcceptanceOptionsAsync(List<ModelsGood> modelsGood, long? warehouseID = default(long?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             ValeryVerkhoturov.WbApiClient.OrdersFbw.Client.ApiResponse<ModelsOptionsResultModel> localVarResponse = await PostV1AcceptanceOptionsWithHttpInfoAsync(modelsGood, warehouseID, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -2553,7 +2553,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ModelsOptionsResultModel)</returns>
-        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.OrdersFbw.Client.ApiResponse<ModelsOptionsResultModel>> PostV1AcceptanceOptionsWithHttpInfoAsync(List<ModelsGood> modelsGood, int? warehouseID = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.OrdersFbw.Client.ApiResponse<ModelsOptionsResultModel>> PostV1AcceptanceOptionsWithHttpInfoAsync(List<ModelsGood> modelsGood, long? warehouseID = default(long?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'modelsGood' is set
             if (modelsGood == null)
@@ -2944,7 +2944,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Api
         /// <param name="offset">После какого элемента выдавать данные (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;ModelsSupply&gt;</returns>
-        public List<ModelsSupply> PostV1Supplies(ModelsSuppliesFiltersRequest modelsSuppliesFiltersRequest, int? limit = default(int?), int? offset = default(int?), int operationIndex = 0)
+        public List<ModelsSupply> PostV1Supplies(ModelsSuppliesFiltersRequest modelsSuppliesFiltersRequest, long? limit = default(long?), long? offset = default(long?), int operationIndex = 0)
         {
             ValeryVerkhoturov.WbApiClient.OrdersFbw.Client.ApiResponse<List<ModelsSupply>> localVarResponse = PostV1SuppliesWithHttpInfo(modelsSuppliesFiltersRequest, limit, offset);
             return localVarResponse.Data;
@@ -2959,7 +2959,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Api
         /// <param name="offset">После какого элемента выдавать данные (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;ModelsSupply&gt;</returns>
-        public ValeryVerkhoturov.WbApiClient.OrdersFbw.Client.ApiResponse<List<ModelsSupply>> PostV1SuppliesWithHttpInfo(ModelsSuppliesFiltersRequest modelsSuppliesFiltersRequest, int? limit = default(int?), int? offset = default(int?), int operationIndex = 0)
+        public ValeryVerkhoturov.WbApiClient.OrdersFbw.Client.ApiResponse<List<ModelsSupply>> PostV1SuppliesWithHttpInfo(ModelsSuppliesFiltersRequest modelsSuppliesFiltersRequest, long? limit = default(long?), long? offset = default(long?), int operationIndex = 0)
         {
             // verify the required parameter 'modelsSuppliesFiltersRequest' is set
             if (modelsSuppliesFiltersRequest == null)
@@ -3035,7 +3035,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;ModelsSupply&gt;</returns>
-        public async System.Threading.Tasks.Task<List<ModelsSupply>> PostV1SuppliesAsync(ModelsSuppliesFiltersRequest modelsSuppliesFiltersRequest, int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<ModelsSupply>> PostV1SuppliesAsync(ModelsSuppliesFiltersRequest modelsSuppliesFiltersRequest, long? limit = default(long?), long? offset = default(long?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             ValeryVerkhoturov.WbApiClient.OrdersFbw.Client.ApiResponse<List<ModelsSupply>> localVarResponse = await PostV1SuppliesWithHttpInfoAsync(modelsSuppliesFiltersRequest, limit, offset, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -3051,7 +3051,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;ModelsSupply&gt;)</returns>
-        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.OrdersFbw.Client.ApiResponse<List<ModelsSupply>>> PostV1SuppliesWithHttpInfoAsync(ModelsSuppliesFiltersRequest modelsSuppliesFiltersRequest, int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.OrdersFbw.Client.ApiResponse<List<ModelsSupply>>> PostV1SuppliesWithHttpInfoAsync(ModelsSuppliesFiltersRequest modelsSuppliesFiltersRequest, long? limit = default(long?), long? offset = default(long?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'modelsSuppliesFiltersRequest' is set
             if (modelsSuppliesFiltersRequest == null)

@@ -50,13 +50,13 @@ public class SalesReportListReq {
 
   @SerializedName(SERIALIZED_NAME_LIMIT)
   @jakarta.annotation.Nullable
-  private Integer limit = 1000;
+  private Long limit = 1000l;
 
   public static final String SERIALIZED_NAME_OFFSET = "offset";
 
   @SerializedName(SERIALIZED_NAME_OFFSET)
   @jakarta.annotation.Nullable
-  private Integer offset = 0;
+  private Long offset = 0l;
 
   /** Периодичность отчётов: - &#x60;weekly&#x60; — еженедельные - &#x60;daily&#x60; — ежедневные */
   @JsonAdapter(PeriodEnum.Adapter.class)
@@ -163,7 +163,7 @@ public class SalesReportListReq {
     this.dateTo = dateTo;
   }
 
-  public SalesReportListReq limit(@jakarta.annotation.Nullable Integer limit) {
+  public SalesReportListReq limit(@jakarta.annotation.Nullable Long limit) {
     this.limit = limit;
     return this;
   }
@@ -174,15 +174,15 @@ public class SalesReportListReq {
    * @return limit
    */
   @jakarta.annotation.Nullable
-  public Integer getLimit() {
+  public Long getLimit() {
     return limit;
   }
 
-  public void setLimit(@jakarta.annotation.Nullable Integer limit) {
+  public void setLimit(@jakarta.annotation.Nullable Long limit) {
     this.limit = limit;
   }
 
-  public SalesReportListReq offset(@jakarta.annotation.Nullable Integer offset) {
+  public SalesReportListReq offset(@jakarta.annotation.Nullable Long offset) {
     this.offset = offset;
     return this;
   }
@@ -194,11 +194,11 @@ public class SalesReportListReq {
    * @return offset
    */
   @jakarta.annotation.Nullable
-  public Integer getOffset() {
+  public Long getOffset() {
     return offset;
   }
 
-  public void setOffset(@jakarta.annotation.Nullable Integer offset) {
+  public void setOffset(@jakarta.annotation.Nullable Long offset) {
     this.offset = offset;
   }
 

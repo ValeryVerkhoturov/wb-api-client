@@ -40,13 +40,13 @@ public class GetUsersResponse {
 
   @SerializedName(SERIALIZED_NAME_TOTAL)
   @jakarta.annotation.Nullable
-  private Integer total;
+  private Long total;
 
   public static final String SERIALIZED_NAME_COUNT_IN_RESPONSE = "countInResponse";
 
   @SerializedName(SERIALIZED_NAME_COUNT_IN_RESPONSE)
   @jakarta.annotation.Nullable
-  private Integer countInResponse;
+  private Long countInResponse;
 
   public static final String SERIALIZED_NAME_USERS = "users";
 
@@ -56,7 +56,7 @@ public class GetUsersResponse {
 
   public GetUsersResponse() {}
 
-  public GetUsersResponse total(@jakarta.annotation.Nullable Integer total) {
+  public GetUsersResponse total(@jakarta.annotation.Nullable Long total) {
     this.total = total;
     return this;
   }
@@ -67,15 +67,15 @@ public class GetUsersResponse {
    * @return total
    */
   @jakarta.annotation.Nullable
-  public Integer getTotal() {
+  public Long getTotal() {
     return total;
   }
 
-  public void setTotal(@jakarta.annotation.Nullable Integer total) {
+  public void setTotal(@jakarta.annotation.Nullable Long total) {
     this.total = total;
   }
 
-  public GetUsersResponse countInResponse(@jakarta.annotation.Nullable Integer countInResponse) {
+  public GetUsersResponse countInResponse(@jakarta.annotation.Nullable Long countInResponse) {
     this.countInResponse = countInResponse;
     return this;
   }
@@ -86,11 +86,11 @@ public class GetUsersResponse {
    * @return countInResponse
    */
   @jakarta.annotation.Nullable
-  public Integer getCountInResponse() {
+  public Long getCountInResponse() {
     return countInResponse;
   }
 
-  public void setCountInResponse(@jakarta.annotation.Nullable Integer countInResponse) {
+  public void setCountInResponse(@jakarta.annotation.Nullable Long countInResponse) {
     this.countInResponse = countInResponse;
   }
 

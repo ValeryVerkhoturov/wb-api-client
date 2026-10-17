@@ -42,7 +42,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersDbw.Model
         /// <param name="additionalPhoneCodes">Дополнительные добавочные коды. Используйте, если не получилось дозвониться по добавочному коду из &#x60;phoneCode&#x60;. Пустое значение указывает, коды ещё не назначены.</param>
         /// <param name="orderId">ID сборочного задания.</param>
         /// <param name="phoneCode">Добавочный код. Используйте, чтобы связаться с покупателем по номеру из &#x60;phone&#x60;. Если код не указан, вы можете связаться с покупателем без кода.</param>
-        public ClientInfo(string replacementPhone = default(string), string phone = default(string), string firstName = default(string), string fullName = default(string), List<string> additionalPhones = default(List<string>), List<int> additionalPhoneCodes = default(List<int>), int orderId = default(int), int phoneCode = default(int))
+        public ClientInfo(string replacementPhone = default(string), string phone = default(string), string firstName = default(string), string fullName = default(string), List<string> additionalPhones = default(List<string>), List<long> additionalPhoneCodes = default(List<long>), long orderId = default(long), long phoneCode = default(long))
         {
             this.ReplacementPhone = replacementPhone;
             this.Phone = phone;
@@ -109,7 +109,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersDbw.Model
         <example>[12345]</example>
         */
         [DataMember(Name = "additionalPhoneCodes", EmitDefaultValue = false)]
-        public List<int> AdditionalPhoneCodes { get; set; }
+        public List<long> AdditionalPhoneCodes { get; set; }
 
         /// <summary>
         /// ID сборочного задания
@@ -119,7 +119,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersDbw.Model
         <example>1345678910</example>
         */
         [DataMember(Name = "orderId", EmitDefaultValue = false)]
-        public int OrderId { get; set; }
+        public long OrderId { get; set; }
 
         /// <summary>
         /// Добавочный код. Используйте, чтобы связаться с покупателем по номеру из &#x60;phone&#x60;. Если код не указан, вы можете связаться с покупателем без кода
@@ -129,7 +129,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersDbw.Model
         <example>0</example>
         */
         [DataMember(Name = "phoneCode", EmitDefaultValue = false)]
-        public int PhoneCode { get; set; }
+        public long PhoneCode { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

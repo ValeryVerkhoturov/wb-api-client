@@ -43,7 +43,7 @@ public class PostV3ClickCollectOrdersMetaCustomsDeclarationRequestOrdersInner {
 
   @SerializedName(SERIALIZED_NAME_ORDER_ID)
   @jakarta.annotation.Nonnull
-  private Integer orderId;
+  private Long orderId;
 
   public static final String SERIALIZED_NAME_ORIGIN_COUNTRY_CODE = "originCountryCode";
 
@@ -74,7 +74,7 @@ public class PostV3ClickCollectOrdersMetaCustomsDeclarationRequestOrdersInner {
   }
 
   public PostV3ClickCollectOrdersMetaCustomsDeclarationRequestOrdersInner orderId(
-      @jakarta.annotation.Nonnull Integer orderId) {
+      @jakarta.annotation.Nonnull Long orderId) {
     this.orderId = orderId;
     return this;
   }
@@ -85,11 +85,11 @@ public class PostV3ClickCollectOrdersMetaCustomsDeclarationRequestOrdersInner {
    * @return orderId
    */
   @jakarta.annotation.Nonnull
-  public Integer getOrderId() {
+  public Long getOrderId() {
     return orderId;
   }
 
-  public void setOrderId(@jakarta.annotation.Nonnull Integer orderId) {
+  public void setOrderId(@jakarta.annotation.Nonnull Long orderId) {
     this.orderId = orderId;
   }
 

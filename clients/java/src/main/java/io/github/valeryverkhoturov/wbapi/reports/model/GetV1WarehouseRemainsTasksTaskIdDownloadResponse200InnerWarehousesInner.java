@@ -43,7 +43,7 @@ public class GetV1WarehouseRemainsTasksTaskIdDownloadResponse200InnerWarehousesI
 
   @SerializedName(SERIALIZED_NAME_QUANTITY)
   @jakarta.annotation.Nullable
-  private Integer quantity;
+  private Long quantity;
 
   public GetV1WarehouseRemainsTasksTaskIdDownloadResponse200InnerWarehousesInner() {}
 
@@ -68,7 +68,7 @@ public class GetV1WarehouseRemainsTasksTaskIdDownloadResponse200InnerWarehousesI
   }
 
   public GetV1WarehouseRemainsTasksTaskIdDownloadResponse200InnerWarehousesInner quantity(
-      @jakarta.annotation.Nullable Integer quantity) {
+      @jakarta.annotation.Nullable Long quantity) {
     this.quantity = quantity;
     return this;
   }
@@ -79,11 +79,11 @@ public class GetV1WarehouseRemainsTasksTaskIdDownloadResponse200InnerWarehousesI
    * @return quantity
    */
   @jakarta.annotation.Nullable
-  public Integer getQuantity() {
+  public Long getQuantity() {
     return quantity;
   }
 
-  public void setQuantity(@jakarta.annotation.Nullable Integer quantity) {
+  public void setQuantity(@jakarta.annotation.Nullable Long quantity) {
     this.quantity = quantity;
   }
 

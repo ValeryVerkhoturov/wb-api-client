@@ -40,7 +40,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <param name="orders">Количество заказов.</param>
         /// <param name="cr">CR(conversion rate) — отношение количества заказов к общему количеству посещений медиакампании .</param>
         /// <param name="ctr">CTR (click-through rate) — показатель кликабельности, отношение числа кликов к количеству показов в рамках медиакампании .</param>
-        public StatsBlok2DailyStatsInnerAppTypeStatsInnerStatsInner(int views = default(int), int clicks = default(int), int atbs = default(int), int orders = default(int), decimal cr = default(decimal), decimal ctr = default(decimal))
+        public StatsBlok2DailyStatsInnerAppTypeStatsInnerStatsInner(long views = default(long), long clicks = default(long), long atbs = default(long), long orders = default(long), decimal cr = default(decimal), decimal ctr = default(decimal))
         {
             this.Views = views;
             this.Clicks = clicks;
@@ -55,28 +55,28 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <value>Количество просмотров</value>
         [DataMember(Name = "views", EmitDefaultValue = false)]
-        public int Views { get; set; }
+        public long Views { get; set; }
 
         /// <summary>
         /// Количество кликов
         /// </summary>
         /// <value>Количество кликов</value>
         [DataMember(Name = "clicks", EmitDefaultValue = false)]
-        public int Clicks { get; set; }
+        public long Clicks { get; set; }
 
         /// <summary>
         /// Количество добавлений товаров в корзину
         /// </summary>
         /// <value>Количество добавлений товаров в корзину</value>
         [DataMember(Name = "atbs", EmitDefaultValue = false)]
-        public int Atbs { get; set; }
+        public long Atbs { get; set; }
 
         /// <summary>
         /// Количество заказов
         /// </summary>
         /// <value>Количество заказов</value>
         [DataMember(Name = "orders", EmitDefaultValue = false)]
-        public int Orders { get; set; }
+        public long Orders { get; set; }
 
         /// <summary>
         /// CR(conversion rate) — отношение количества заказов к общему количеству посещений медиакампании 

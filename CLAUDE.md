@@ -16,9 +16,9 @@ Everything under `clients/` is generated output. Do not edit it — regenerate.
 ## Pipeline
 
 ```
-download-swaggers.sh   →  swaggers/*.yaml         (raw upstream, checksummed)
+download-swaggers.py   →  swaggers/*.yaml         (raw upstream, checksummed)
 post-process.py        →  swaggers/processed/     (11 passes; see below)
-generate.sh <ver>      →  clients/<lang>/…        (openapi-generator-cli, 7 langs)
+generate.py <ver>      →  clients/<lang>/…        (openapi-generator-cli, 7 langs)
     ├── inject-secret.py           (SecretString wrapper per lang; OneScript ships its own)
     ├── {black|prettier|gofmt|spotless|php-cs-fixer}   (canonicalize formatting)
     ├── gen-onescript-manifests.py (unified packagedef + lib.config)
@@ -73,9 +73,9 @@ git submodule sync clients/onescript
 git -c protocol.file.allow=always submodule update --init clients/onescript
 ```
 
-`scripts/generate.sh` writes to `clients/php/…`, `clients/onescript/…` and `clients/go/…` unchanged — the mounts transparently redirect into the submodule working trees. `make git-status` / `git-commit` / `git-push` / `git-pull` act on the main repo and all submodules (the `SUBMODULES` variable at the top of the Makefile is the list).
+`scripts/generate.py` writes to `clients/php/…`, `clients/onescript/…` and `clients/go/…` unchanged — the mounts transparently redirect into the submodule working trees. `make git-status` / `git-commit` / `git-push` / `git-pull` act on the main repo and all submodules (the `SUBMODULES` variable at the top of the Makefile is the list).
 
-`pr-check.yml` enforces the invariant on pull requests: it regenerates from scratch using the version currently baked into `clients/python/pyproject.toml`, then fails the PR if `git diff` against `swaggers/` or `clients/` is non-empty. For that check to be meaningful, generation must be deterministic — every generator config sets `hideGenerationTimestamp: true`, and the openapi-generator Docker image tag is pinned in `generate.sh`. Each formatter version is pinned too (black in `scripts/requirements.txt`; prettier in `templates/typescript/package.json`; google-java-format via spotless in `templates/java/pom.xml`; php-cs-fixer image tag in `generate.sh`; gofmt bundled with pinned `golang:1.22-alpine`). If a change makes generation non-deterministic (e.g. re-adds a timestamp), PRs will flap; fix at the source rather than skipping the check.
+`pr-check.yml` enforces the invariant on pull requests: it regenerates from scratch using the version currently baked into `clients/python/pyproject.toml`, then fails the PR if `git diff` against `swaggers/` or `clients/` is non-empty. For that check to be meaningful, generation must be deterministic — every generator config sets `hideGenerationTimestamp: true`, and the openapi-generator Docker image tag is pinned in `generate.py`. Each formatter version is pinned too (black in `scripts/requirements.txt`; prettier in `templates/typescript/package.json`; google-java-format via spotless in `templates/java/pom.xml`; php-cs-fixer image tag in `generate.py`; gofmt bundled with pinned `golang:1.22-alpine`). If a change makes generation non-deterministic (e.g. re-adds a timestamp), PRs will flap; fix at the source rather than skipping the check.
 
 The daily workflow uses `swaggers/checksums.txt` to decide whether upstream changed. That file is committed alongside the specs and is what makes the "release only when upstream moves" behavior work — don't hand-edit it.
 
@@ -111,7 +111,7 @@ Computed in `daily-check.yml`: `n=$(git tag --list "v1.$(date -u +%Y%m%d).*" | w
 
 ## Package layout — one library per language, 13 sub-modules inside
 
-7 published packages per release (one per language), each bundling all 13 WB API categories as isolated sub-namespaces. `openapi-generator` still emits a standalone SDK per spec (own `ApiClient`, own model namespace); `generate.sh` splices those 13 outputs into a single unified tree with no cross-category name clashes:
+7 published packages per release (one per language), each bundling all 13 WB API categories as isolated sub-namespaces. `openapi-generator` still emits a standalone SDK per spec (own `ApiClient`, own model namespace); `generate.py` splices those 13 outputs into a single unified tree with no cross-category name clashes:
 
 ```
 clients/python/wb_api_client/<slug>/…           (packageName=wb_api_client.<slug>)
@@ -155,34 +155,35 @@ Every generated client sends `ValeryVerkhoturov/wb-api-client/<lang>` on every r
 
 1. `inject_bearer_auth` — drops WB's `HeaderApiKey` and installs `BearerAuth` as the only scheme
 2. `fix_untyped_arrays` — `items: {type: string}` for arrays missing an inner type (Go/TS otherwise emit `Array` / `any`)
-3. `inline_top_level_arrays` — inlines every `$ref` to a `type: array` component, collapses `allOf: [array, description-only]` wrappers (openapi-generator mishandles arrays-at-root; runs to fixed point because inlined subtrees can contain further refs)
-4. `rename_digit_prefixed_schemas` — `409SupplyDeliverError` → `Http409SupplyDeliverError` (invalid Go identifier otherwise)
-5. `name_inline_response_schemas` — hoists anonymous inline 4xx/5xx bodies to `<OperationId>Response<code>` (invalid Go identifier otherwise)
-6. `sanitize_non_ascii_enums` — adds `x-enum-varnames` for `["Склад WB", "Склад продавца"]`-style enums (empty JS/Go/Java identifiers otherwise)
-7. `htmlize_descriptions_to_markdown` — every `description` field goes through `markdownify` (`<div>`, `<a href>`, `<br>`, `<ul>`, `<code>` → Markdown for readable doc-comments)
-8. `absolutize_description_links` — prefixes `[…](/openapi/…)` with `https://dev.wildberries.ru` so links in generated docstrings resolve
-9. `drop_date_formats` — strips `format: date` / `date-time` from string schemas (WB returns `""` for unset dates like `fixTariffDateFrom`/`utdUcdDate`, which crashes strict date parsers in every language; plain strings are the honest contract)
-10. `drop_response_required` — deletes `required` arrays from every schema reachable from a response definition, so missing response fields deserialize to defaults (`None` / null / zero value) instead of throwing. Request-body schemas keep their `required` lists — input validation is unaffected
-11. `rename_tags_to_module` — rewrites every operation's `tags` to the module name (`Finances`, `Reports`, …) so each module generates a single well-named API class (`FinancesApi`, …) instead of `Api`/`DefaultApi` (WB tags are Russian; generators sanitize non-ASCII tag names to an empty class-name stem). Original tags are stashed in `x-original-tags` for the docs generator
-12. `add_docs_links` — appends `Library doc: <url>` to every operation description, pointing at the operation's page on the docs site; stock generator templates copy `description` into docstrings/doc-comments in all 7 languages. gen-api-reference.py strips the marker line back out, so the docs markdown is unaffected. Runs last so the HTML→MD and link-absolutizing passes never rewrite it
+3. `widen_integer_formats` — uses `format: int64` for integers without a format, unsigned 32/64-bit formats, or Unix timestamp formats (WB uses these for IDs and millisecond timestamps that overflow signed 32-bit integers); explicit `int32`, `int`, and currency-code formats are preserved
+4. `inline_top_level_arrays` — inlines every `$ref` to a `type: array` component, collapses `allOf: [array, description-only]` wrappers (openapi-generator mishandles arrays-at-root; runs to fixed point because inlined subtrees can contain further refs)
+5. `rename_digit_prefixed_schemas` — `409SupplyDeliverError` → `Http409SupplyDeliverError` (invalid Go identifier otherwise)
+6. `name_inline_response_schemas` — hoists anonymous inline 4xx/5xx bodies to `<OperationId>Response<code>` (invalid Go identifier otherwise)
+7. `sanitize_non_ascii_enums` — adds `x-enum-varnames` for `["Склад WB", "Склад продавца"]`-style enums (empty JS/Go/Java identifiers otherwise)
+8. `htmlize_descriptions_to_markdown` — every `description` field goes through `markdownify` (`<div>`, `<a href>`, `<br>`, `<ul>`, `<code>` → Markdown for readable doc-comments)
+9. `absolutize_description_links` — prefixes `[…](/openapi/…)` with `https://dev.wildberries.ru` so links in generated docstrings resolve
+10. `drop_date_formats` — strips `format: date` / `date-time` from string schemas (WB returns `""` for unset dates like `fixTariffDateFrom`/`utdUcdDate`, which crashes strict date parsers in every language; plain strings are the honest contract)
+11. `drop_response_required` — deletes `required` arrays from every schema reachable from a response definition, so missing response fields deserialize to defaults (`None` / null / zero value) instead of throwing. Request-body schemas keep their `required` lists — input validation is unaffected
+12. `rename_tags_to_module` — rewrites every operation's `tags` to the module name (`Finances`, `Reports`, …) so each module generates a single well-named API class (`FinancesApi`, …) instead of `Api`/`DefaultApi` (WB tags are Russian; generators sanitize non-ASCII tag names to an empty class-name stem). Original tags are stashed in `x-original-tags` for the docs generator
+13. `add_docs_links` — appends `Library doc: <url>` to every operation description, pointing at the operation's page on the docs site; stock generator templates copy `description` into docstrings/doc-comments in all 7 languages. gen-api-reference.py strips the marker line back out, so the docs markdown is unaffected. Runs last so the HTML→MD and link-absolutizing passes never rewrite it
 
-(Counted as "12 passes" if you split HTML→MD and link-absolutize; the pipeline diagram calls it 11 for the sake of the "one big semantic step for descriptions" reading.)
+(Counted as "13 passes" if you split HTML→MD and link-absolutize; the pipeline diagram calls it 12 for the sake of the "one big semantic step for descriptions" reading.)
 
 ## Spec source — GitLab mirror
 
-`dev.wildberries.ru` sits behind WBAAS and returns HTTP 498 with a JS challenge to non-browser clients, so specs are not pulled from the portal directly. `download-swaggers.sh` fetches them from [wb-api-client-specs](https://gitlab.com/ValeryVerkhoturov/wb-api-client-specs) (`specs/ru/*.yaml` on `main`), a mirror of the portal specs that refreshes hourly. Do not strip the checksum step to hide download failures — daily-check depends on it.
+`dev.wildberries.ru` sits behind WBAAS and returns HTTP 498 with a JS challenge to non-browser clients, so specs are not pulled from the portal directly. `download-swaggers.py` fetches them from [wb-api-client-specs](https://gitlab.com/ValeryVerkhoturov/wb-api-client-specs) (`specs/ru/*.yaml` on `main`), a mirror of the portal specs that refreshes hourly. Do not strip the checksum step to hide download failures — daily-check depends on it.
 
 ## Local commands
 
 ```bash
-./scripts/download-swaggers.sh                     # pull upstream (from the wb-api-client-specs mirror)
-pip install -r scripts/requirements.txt            # ruamel.yaml, markdownify, black, flask
+pip install -r scripts/requirements.txt            # ruamel.yaml, markdownify, requests, black, flask
+./scripts/download-swaggers.py                     # pull upstream (from the wb-api-client-specs mirror)
 python  scripts/post-process.py                    # -> swaggers/processed/
-./scripts/generate.sh 1.20260920.0                 # -> clients/{python,typescript,go,java,php,onescript,csharp}
+./scripts/generate.py 1.20260920.0                 # -> clients/{python,typescript,go,java,php,onescript,csharp}
 make verify                                         # build + format check every language
 ```
 
-`generate.sh` always regenerates all seven languages; if you need per-language iteration during debugging, comment out the other four loops rather than adding a flag — the script is <200 lines and doesn't need argument plumbing.
+`generate.py` always regenerates all seven languages; for per-language debugging, comment out the other `queue_generation` calls rather than adding a flag. Set `OPENAPI_GENERATOR_THREADS` to change batch concurrency (default: 2).
 
 Formatting runs inside Docker so contributors don't need language runtimes installed. `make verify-<lang>` and `make {black,prettier,gofmt,spotless,php-cs-fixer}` are individual targets. `make help` lists all.
 
@@ -209,14 +210,14 @@ PyPI + npm trusted publishing: **the "Workflow filename" on pypi.org and npmjs.c
   mounted here as the `clients/onescript` submodule — same arrangement as PHP, so
   OneScript users can clone just the client and `opm install` from a tag. See the
   pipeline section for how daily-check.yml coordinates commits + tags across the three
-  repos. `generate.sh` must never `rm -rf` the mount: that would delete the `.git`
+  repos. `generate.py` must never `rm -rf` the mount: that would delete the `.git`
   gitfile and silently turn it into a plain directory, after which every regenerated
   file would land in the main repo instead of the sibling. It clears only
   `clients/onescript/src/` and refuses to run if the mount is missing.
 - **The transport is built on [1connector](https://github.com/vbondarevsky/1connector).**
   It is the generated package's only dependency, declared in `packagedef` and pinned
   by `connectorVersion` in `generator-configs/onescript.yaml`. Keep that in step with
-  `ONESCRIPT_CONNECTOR_VERSION` in `scripts/onescript-toolchain.sh`, which installs it —
+  `ONESCRIPT_CONNECTOR_VERSION` in `scripts/onescript_toolchain.py`, which installs it —
   `ТранспортHTTP.os` opens with `#Использовать 1connector`, so the library must resolve
   even for `oscript -check`, not just at runtime. 1connector supplies query-string
   building and encoding, JSON serialisation, response parsing, retries, proxy and SSL;
@@ -227,7 +228,7 @@ PyPI + npm trusted publishing: **the "Workflow filename" on pypi.org and npmjs.c
   `-g onescript` comes from a plugin in
   [`ValeryVerkhoturov/onescript-openapi-generator`](https://github.com/ValeryVerkhoturov/onescript-openapi-generator),
   loaded next to `openapi-generator-cli.jar` on the classpath (Java merges both
-  `META-INF/services` entries). `scripts/onescript-toolchain.sh` pins it **by commit**
+  `META-INF/services` entries). `scripts/onescript_toolchain.py` pins it **by commit**
   and builds it in the Maven image, caching the jar under `.cache/`. That pin is the
   OneScript equivalent of `OPENAPI_GENERATOR_VERSION` — bump it deliberately, since it
   decides every generated name.
@@ -258,14 +259,14 @@ PyPI + npm trusted publishing: **the "Workflow filename" on pypi.org and npmjs.c
   Info-ZIP rewrites them (as `#Uxxxx` escapes on Linux, as decomposed NFD with some
   macOS tools), which leaves every path in `lib.config` dangling and breaks OneScript's
   own bundled libraries — `asserts` first, which cascades into `cli`, `logos` and `opm`.
-  `python3 -m zipfile -e` reads the names as stored; the toolchain script and
-  `publish.yml` both use it.
+  Python's `zipfile` reads the names as stored; the toolchain uses its API and
+  `publish.yml` uses `python3 -m zipfile -e`.
 - **macOS Gatekeeper SIGKILLs the unsigned arm64 `oscript`** with no diagnostic of its
-  own. `onescript-toolchain.sh` clears the quarantine flag and ad-hoc signs the binary
+  own. `onescript_toolchain.py` clears the quarantine flag and ad-hoc signs the binary
   and its dylibs right after extraction.
 - **No formatter.** There is no community formatter for BSL, so there is no
   OneScript counterpart to black/prettier/gofmt/spotless/php-cs-fixer. The equivalent
-  gate is `scripts/verify-onescript.sh`: `oscript -check` over every module (in
+  gate is `scripts/verify-onescript.py`: `oscript -check` over every module (in
   parallel — it is one process per file) plus a `#Использовать` load of the package,
   which is what proves `lib.config` actually resolves.
 - **Errors carry text, not objects.** `ВызватьИсключение <объект>` does not preserve the
@@ -277,5 +278,5 @@ PyPI + npm trusted publishing: **the "Workflow filename" on pypi.org and npmjs.c
 - **Lives in a separate git repo** (`ValeryVerkhoturov/wb-api-client-php`), mounted here as the `clients/php` submodule — Packagist requires `composer.json` at the crawled repo root, which rules out a subdirectory layout. See the pipeline section for how daily-check.yml coordinates commits + tags across the sibling repos.
 - PSR-4 root namespace: `ValeryVerkhoturov\WbApiClient\`; each slug is a PascalCase sub-namespace (`Items`, `OrdersFbs`, `InStorePickup`, …)
 - `composer.json` keeps the `version` field even though Packagist prefers to derive it from git tags — the field is how the pipeline stamps a uniform version across every language manifest. `composer validate --strict` therefore fails; `make verify-php` runs plain `composer validate --no-check-publish`
-- openapi-generator's PHP template writes `src/{Api,Model,Configuration.php,ApiException.php,HeaderSelector.php,ObjectSerializer.php}` at a flat root with the invoker namespace declared inside the files. `generate.sh` splices the whole `src/` contents into `clients/php/src/<Slug>/` (which resolves through the submodule mount to `wb-api-client-php/src/<Slug>/`), so PSR-4 resolves `\ValeryVerkhoturov\WbApiClient\<Slug>\Configuration` to `src/<Slug>/Configuration.php`
+- openapi-generator's PHP template writes `src/{Api,Model,Configuration.php,ApiException.php,HeaderSelector.php,ObjectSerializer.php}` at a flat root with the invoker namespace declared inside the files. `generate.py` splices the whole `src/` contents into `clients/php/src/<Slug>/` (which resolves through the submodule mount to `wb-api-client-php/src/<Slug>/`), so PSR-4 resolves `\ValeryVerkhoturov\WbApiClient\<Slug>\Configuration` to `src/<Slug>/Configuration.php`
 - `SecretString` lives per sub-module (not consolidated) because PHP autoload is namespace-scoped and each sub-module already has its own namespace root — no reason to force consumers to cross namespace boundaries

@@ -36,7 +36,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Model
         /// </summary>
         /// <param name="code">Код ошибки.</param>
         /// <param name="detail">Описание ошибки.</param>
-        public ApiB2bClientInfoResponseErrorsInner(int code = default(int), string detail = default(string))
+        public ApiB2bClientInfoResponseErrorsInner(long code = default(long), string detail = default(string))
         {
             this.Code = code;
             this.Detail = detail;
@@ -47,7 +47,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Model
         /// </summary>
         /// <value>Код ошибки</value>
         [DataMember(Name = "code", EmitDefaultValue = false)]
-        public int Code { get; set; }
+        public long Code { get; set; }
 
         /// <summary>
         /// Описание ошибки

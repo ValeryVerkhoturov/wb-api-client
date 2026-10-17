@@ -42,7 +42,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// <param name="nmId">Артикул WB (required).</param>
         /// <param name="success">Успешна ли установка скидки на товар:   - &#x60;false&#x60; — неуспешна   - &#x60;true&#x60; — успешна  (required).</param>
         /// <param name="error">error.</param>
-        public PostV1UploadTaskB2bWholesale200ResponseResultsInner(int nmId = default(int), bool success = default(bool), PostV1UploadTaskB2bWholesale200ResponseResultsInnerError error = default(PostV1UploadTaskB2bWholesale200ResponseResultsInnerError))
+        public PostV1UploadTaskB2bWholesale200ResponseResultsInner(long nmId = default(long), bool success = default(bool), PostV1UploadTaskB2bWholesale200ResponseResultsInnerError error = default(PostV1UploadTaskB2bWholesale200ResponseResultsInnerError))
         {
             this.NmId = nmId;
             this.Success = success;
@@ -57,7 +57,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         <example>1</example>
         */
         [DataMember(Name = "nmId", IsRequired = true, EmitDefaultValue = true)]
-        public int NmId { get; set; }
+        public long NmId { get; set; }
 
         /// <summary>
         /// Успешна ли установка скидки на товар:   - &#x60;false&#x60; — неуспешна   - &#x60;true&#x60; — успешна 

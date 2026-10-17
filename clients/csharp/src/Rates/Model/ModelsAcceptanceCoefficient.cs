@@ -47,7 +47,7 @@ namespace ValeryVerkhoturov.WbApiClient.Rates.Model
         /// <param name="storageBaseLiter">Стоимость хранения:   - для паллет — стоимость за одну паллету   - для коробов — стоимость хранения за первый литр .</param>
         /// <param name="storageAdditionalLiter">Стоимость хранения каждого последующего литра:   - для паллет — всегда будет &#x60;null&#x60;, т.к. стоимость хранения за единицу паллеты определяется в &#x60;StorageBaseLiter&#x60;   - для коробов — стоимость хранения за каждый последующий литр .</param>
         /// <param name="isSortingCenter">Тип склада:   - &#x60;true&#x60; — сортировочный центр (СЦ)  - &#x60;false&#x60; — обычный .</param>
-        public ModelsAcceptanceCoefficient(string date = default(string), decimal coefficient = default(decimal), int warehouseID = default(int), string warehouseName = default(string), bool allowUnload = default(bool), int boxTypeID = default(int), string storageCoef = default(string), string deliveryCoef = default(string), string deliveryBaseLiter = default(string), string deliveryAdditionalLiter = default(string), string storageBaseLiter = default(string), string storageAdditionalLiter = default(string), bool isSortingCenter = default(bool))
+        public ModelsAcceptanceCoefficient(string date = default(string), decimal coefficient = default(decimal), long warehouseID = default(long), string warehouseName = default(string), bool allowUnload = default(bool), long boxTypeID = default(long), string storageCoef = default(string), string deliveryCoef = default(string), string deliveryBaseLiter = default(string), string deliveryAdditionalLiter = default(string), string storageBaseLiter = default(string), string storageAdditionalLiter = default(string), bool isSortingCenter = default(bool))
         {
             this.Date = date;
             this.Coefficient = coefficient;
@@ -83,7 +83,7 @@ namespace ValeryVerkhoturov.WbApiClient.Rates.Model
         /// </summary>
         /// <value>ID склада. По нему можно получить [информацию о складе](./orders-fbw#tag/informationForFormingSupplies/operation/getV1Warehouses)</value>
         [DataMember(Name = "warehouseID", EmitDefaultValue = false)]
-        public int WarehouseID { get; set; }
+        public long WarehouseID { get; set; }
 
         /// <summary>
         /// Название склада
@@ -104,7 +104,7 @@ namespace ValeryVerkhoturov.WbApiClient.Rates.Model
         /// </summary>
         /// <value>ID типа поставки: - &#x60;2&#x60; — Короба - &#x60;5&#x60; — Монопаллеты - &#x60;6&#x60; — Суперсейф  Для типа поставки \\*\\*QR-поставка с коробами\\*\\* поле не возвращается</value>
         [DataMember(Name = "boxTypeID", EmitDefaultValue = false)]
-        public int BoxTypeID { get; set; }
+        public long BoxTypeID { get; set; }
 
         /// <summary>
         /// Коэффициент хранения

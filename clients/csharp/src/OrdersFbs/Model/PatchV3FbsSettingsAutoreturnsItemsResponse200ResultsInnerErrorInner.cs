@@ -36,7 +36,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// </summary>
         /// <param name="code">Код ошибки.</param>
         /// <param name="detail">Дополнительная информация об ошибке:   - &#x60;Not Found&#x60; — ID размера товара не найден или указан ID размера немалогабаритного товара .</param>
-        public PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner(int code = default(int), string detail = default(string))
+        public PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner(long code = default(long), string detail = default(string))
         {
             this.Code = code;
             this.Detail = detail;
@@ -47,7 +47,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// </summary>
         /// <value>Код ошибки</value>
         [DataMember(Name = "code", EmitDefaultValue = false)]
-        public int Code { get; set; }
+        public long Code { get; set; }
 
         /// <summary>
         /// Дополнительная информация об ошибке:   - &#x60;Not Found&#x60; — ID размера товара не найден или указан ID размера немалогабаритного товара 

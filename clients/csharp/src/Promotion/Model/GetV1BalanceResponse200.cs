@@ -39,7 +39,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <param name="currency">Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances).</param>
         /// <param name="bonus">Бонусы в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances).</param>
         /// <param name="cashbacks">Промо-бонусы.</param>
-        public GetV1BalanceResponse200(int balance = default(int), int net = default(int), string currency = default(string), int bonus = default(int), List<GetV1BalanceResponse200CashbacksInner> cashbacks = default(List<GetV1BalanceResponse200CashbacksInner>))
+        public GetV1BalanceResponse200(long balance = default(long), long net = default(long), string currency = default(string), long bonus = default(long), List<GetV1BalanceResponse200CashbacksInner> cashbacks = default(List<GetV1BalanceResponse200CashbacksInner>))
         {
             this.Balance = balance;
             this.Net = net;
@@ -53,14 +53,14 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <value>Счёт в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)</value>
         [DataMember(Name = "balance", EmitDefaultValue = false)]
-        public int Balance { get; set; }
+        public long Balance { get; set; }
 
         /// <summary>
         /// Баланс в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
         /// </summary>
         /// <value>Баланс в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)</value>
         [DataMember(Name = "net", EmitDefaultValue = false)]
-        public int Net { get; set; }
+        public long Net { get; set; }
 
         /// <summary>
         /// Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
@@ -74,7 +74,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <value>Бонусы в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)</value>
         [DataMember(Name = "bonus", EmitDefaultValue = false)]
-        public int Bonus { get; set; }
+        public long Bonus { get; set; }
 
         /// <summary>
         /// Промо-бонусы

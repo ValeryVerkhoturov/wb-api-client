@@ -73,7 +73,7 @@ public class TableDetailsRequest {
 
   @SerializedName(SERIALIZED_NAME_NM_IDS)
   @jakarta.annotation.Nullable
-  private List<Integer> nmIds = new ArrayList<>();
+  private List<Long> nmIds = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_ORDER_BY = "orderBy";
 
@@ -162,13 +162,13 @@ public class TableDetailsRequest {
 
   @SerializedName(SERIALIZED_NAME_LIMIT)
   @jakarta.annotation.Nonnull
-  private Integer limit;
+  private Long limit;
 
   public static final String SERIALIZED_NAME_OFFSET = "offset";
 
   @SerializedName(SERIALIZED_NAME_OFFSET)
   @jakarta.annotation.Nonnull
-  private Integer offset;
+  private Long offset;
 
   public TableDetailsRequest() {}
 
@@ -267,12 +267,12 @@ public class TableDetailsRequest {
     this.tagId = tagId;
   }
 
-  public TableDetailsRequest nmIds(@jakarta.annotation.Nullable List<Integer> nmIds) {
+  public TableDetailsRequest nmIds(@jakarta.annotation.Nullable List<Long> nmIds) {
     this.nmIds = nmIds;
     return this;
   }
 
-  public TableDetailsRequest addNmIdsItem(Integer nmIdsItem) {
+  public TableDetailsRequest addNmIdsItem(Long nmIdsItem) {
     if (this.nmIds == null) {
       this.nmIds = new ArrayList<>();
     }
@@ -286,11 +286,11 @@ public class TableDetailsRequest {
    * @return nmIds
    */
   @jakarta.annotation.Nullable
-  public List<Integer> getNmIds() {
+  public List<Long> getNmIds() {
     return nmIds;
   }
 
-  public void setNmIds(@jakarta.annotation.Nullable List<Integer> nmIds) {
+  public void setNmIds(@jakarta.annotation.Nullable List<Long> nmIds) {
     this.nmIds = nmIds;
   }
 
@@ -377,7 +377,7 @@ public class TableDetailsRequest {
     this.includeSearchTexts = includeSearchTexts;
   }
 
-  public TableDetailsRequest limit(@jakarta.annotation.Nonnull Integer limit) {
+  public TableDetailsRequest limit(@jakarta.annotation.Nonnull Long limit) {
     this.limit = limit;
     return this;
   }
@@ -388,15 +388,15 @@ public class TableDetailsRequest {
    * @return limit
    */
   @jakarta.annotation.Nonnull
-  public Integer getLimit() {
+  public Long getLimit() {
     return limit;
   }
 
-  public void setLimit(@jakarta.annotation.Nonnull Integer limit) {
+  public void setLimit(@jakarta.annotation.Nonnull Long limit) {
     this.limit = limit;
   }
 
-  public TableDetailsRequest offset(@jakarta.annotation.Nonnull Integer offset) {
+  public TableDetailsRequest offset(@jakarta.annotation.Nonnull Long offset) {
     this.offset = offset;
     return this;
   }
@@ -407,11 +407,11 @@ public class TableDetailsRequest {
    * @return offset
    */
   @jakarta.annotation.Nonnull
-  public Integer getOffset() {
+  public Long getOffset() {
     return offset;
   }
 
-  public void setOffset(@jakarta.annotation.Nonnull Integer offset) {
+  public void setOffset(@jakarta.annotation.Nonnull Long offset) {
     this.offset = offset;
   }
 

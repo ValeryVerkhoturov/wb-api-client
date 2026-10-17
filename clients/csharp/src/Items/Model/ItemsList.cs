@@ -42,7 +42,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// <param name="clubDiscount">Скидка WB Клуба, %.</param>
         /// <param name="editableSizePrice">Можно ли устанавливать цены отдельно для разных размеров (зависит от категории товара):   - &#x60;true&#x60; — можно   - &#x60;false&#x60; — нельзя .</param>
         /// <param name="wholesaleDiscountThreshold">Оптовые скидки разных уровней для B2B.</param>
-        public ItemsList(int nmID = default(int), string vendorCode = default(string), List<ItemsListSizesInner> sizes = default(List<ItemsListSizesInner>), string currencyIsoCode4217 = default(string), int discount = default(int), int clubDiscount = default(int), bool editableSizePrice = default(bool), List<WholesaleDiscountThresholdRes> wholesaleDiscountThreshold = default(List<WholesaleDiscountThresholdRes>))
+        public ItemsList(long nmID = default(long), string vendorCode = default(string), List<ItemsListSizesInner> sizes = default(List<ItemsListSizesInner>), string currencyIsoCode4217 = default(string), long discount = default(long), long clubDiscount = default(long), bool editableSizePrice = default(bool), List<WholesaleDiscountThresholdRes> wholesaleDiscountThreshold = default(List<WholesaleDiscountThresholdRes>))
         {
             this.NmID = nmID;
             this.VendorCode = vendorCode;
@@ -62,7 +62,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         <example>98486</example>
         */
         [DataMember(Name = "nmID", EmitDefaultValue = false)]
-        public int NmID { get; set; }
+        public long NmID { get; set; }
 
         /// <summary>
         /// Артикул продавца
@@ -99,7 +99,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         <example>30</example>
         */
         [DataMember(Name = "discount", EmitDefaultValue = false)]
-        public int Discount { get; set; }
+        public long Discount { get; set; }
 
         /// <summary>
         /// Скидка WB Клуба, %
@@ -109,7 +109,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         <example>5</example>
         */
         [DataMember(Name = "clubDiscount", EmitDefaultValue = false)]
-        public int ClubDiscount { get; set; }
+        public long ClubDiscount { get; set; }
 
         /// <summary>
         /// Можно ли устанавливать цены отдельно для разных размеров (зависит от категории товара):   - &#x60;true&#x60; — можно   - &#x60;false&#x60; — нельзя 

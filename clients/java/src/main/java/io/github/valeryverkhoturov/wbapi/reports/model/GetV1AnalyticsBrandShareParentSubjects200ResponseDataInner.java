@@ -37,7 +37,7 @@ public class GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner {
 
   @SerializedName(SERIALIZED_NAME_PARENT_ID)
   @jakarta.annotation.Nullable
-  private Integer parentId;
+  private Long parentId;
 
   public static final String SERIALIZED_NAME_PARENT_NAME = "parentName";
 
@@ -48,7 +48,7 @@ public class GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner {
   public GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner() {}
 
   public GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner parentId(
-      @jakarta.annotation.Nullable Integer parentId) {
+      @jakarta.annotation.Nullable Long parentId) {
     this.parentId = parentId;
     return this;
   }
@@ -59,11 +59,11 @@ public class GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner {
    * @return parentId
    */
   @jakarta.annotation.Nullable
-  public Integer getParentId() {
+  public Long getParentId() {
     return parentId;
   }
 
-  public void setParentId(@jakarta.annotation.Nullable Integer parentId) {
+  public void setParentId(@jakarta.annotation.Nullable Long parentId) {
     this.parentId = parentId;
   }
 

@@ -40,7 +40,7 @@ public class PatchV3FbsSettingsAutoreturnsItemsRequest {
 
   @SerializedName(SERIALIZED_NAME_CHRT_IDS)
   @jakarta.annotation.Nonnull
-  private List<Integer> chrtIds = new ArrayList<>();
+  private List<Long> chrtIds = new ArrayList<>();
 
   /**
    * Тип автовозврата малогабаритных товаров: - &#x60;byWarehouse&#x60; — все товары отправляются на
@@ -105,12 +105,12 @@ public class PatchV3FbsSettingsAutoreturnsItemsRequest {
   public PatchV3FbsSettingsAutoreturnsItemsRequest() {}
 
   public PatchV3FbsSettingsAutoreturnsItemsRequest chrtIds(
-      @jakarta.annotation.Nonnull List<Integer> chrtIds) {
+      @jakarta.annotation.Nonnull List<Long> chrtIds) {
     this.chrtIds = chrtIds;
     return this;
   }
 
-  public PatchV3FbsSettingsAutoreturnsItemsRequest addChrtIdsItem(Integer chrtIdsItem) {
+  public PatchV3FbsSettingsAutoreturnsItemsRequest addChrtIdsItem(Long chrtIdsItem) {
     if (this.chrtIds == null) {
       this.chrtIds = new ArrayList<>();
     }
@@ -124,11 +124,11 @@ public class PatchV3FbsSettingsAutoreturnsItemsRequest {
    * @return chrtIds
    */
   @jakarta.annotation.Nonnull
-  public List<Integer> getChrtIds() {
+  public List<Long> getChrtIds() {
     return chrtIds;
   }
 
-  public void setChrtIds(@jakarta.annotation.Nonnull List<Integer> chrtIds) {
+  public void setChrtIds(@jakarta.annotation.Nonnull List<Long> chrtIds) {
     this.chrtIds = chrtIds;
   }
 

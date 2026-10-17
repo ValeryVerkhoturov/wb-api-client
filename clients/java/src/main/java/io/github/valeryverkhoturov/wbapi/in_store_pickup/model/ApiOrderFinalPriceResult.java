@@ -40,7 +40,7 @@ public class ApiOrderFinalPriceResult {
 
   @SerializedName(SERIALIZED_NAME_ORDER_ID)
   @jakarta.annotation.Nullable
-  private Integer orderId;
+  private Long orderId;
 
   public static final String SERIALIZED_NAME_DATA = "data";
 
@@ -62,7 +62,7 @@ public class ApiOrderFinalPriceResult {
 
   public ApiOrderFinalPriceResult() {}
 
-  public ApiOrderFinalPriceResult orderId(@jakarta.annotation.Nullable Integer orderId) {
+  public ApiOrderFinalPriceResult orderId(@jakarta.annotation.Nullable Long orderId) {
     this.orderId = orderId;
     return this;
   }
@@ -73,11 +73,11 @@ public class ApiOrderFinalPriceResult {
    * @return orderId
    */
   @jakarta.annotation.Nullable
-  public Integer getOrderId() {
+  public Long getOrderId() {
     return orderId;
   }
 
-  public void setOrderId(@jakarta.annotation.Nullable Integer orderId) {
+  public void setOrderId(@jakarta.annotation.Nullable Long orderId) {
     this.orderId = orderId;
   }
 

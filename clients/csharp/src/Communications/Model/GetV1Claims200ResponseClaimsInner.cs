@@ -53,7 +53,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         /// <param name="srid">Уникальный ID заказа, по товару которого создана заявка.</param>
         /// <param name="originIdInfo">Результат сверки [IMEI](https://seller.wildberries.ru/instructions/ru/ru/material/items-labeling-in-fbs#imei) для возврата через ПВЗ Wildberries. Значение показывает, совпадает ли IMEI, который был указан продавцом или отсканирован при приёмке на складе Wildberries, с IMEI из заявки покупателя, что позволяет эффективнее [обрабатывать заявки](./customer-communication#tag/buyersReturns/operation/patchV1Claim). Применимо только для товаров \\*\\*Apple\\*\\* предмета &#x60;Смартфоны&#x60; (&#x60;\&quot;subjectId\&quot;:515&#x60;) с ценой от 40000 рублей, учитывая скидку продавца ([только](./item-management#tag/pricesAndDiscounts/operation/postV2UploadTask) параметры и поля &#x60;price&#x60; и &#x60;discount&#x60;).</param>
         /// <param name="deliveryDt">Дата и время получения заказа покупателем.</param>
-        public GetV1Claims200ResponseClaimsInner(Guid id = default(Guid), int claimType = default(int), int status = default(int), int statusEx = default(int), int nmId = default(int), string userComment = default(string), string wbComment = default(string), string dt = default(string), string imtName = default(string), string orderDt = default(string), string dtUpdate = default(string), List<string> photos = default(List<string>), List<string> videoPaths = default(List<string>), List<string> actions = default(List<string>), decimal price = default(decimal), string currencyCode = default(string), string srid = default(string), string originIdInfo = default(string), string deliveryDt = default(string))
+        public GetV1Claims200ResponseClaimsInner(Guid id = default(Guid), long claimType = default(long), long status = default(long), long statusEx = default(long), long nmId = default(long), string userComment = default(string), string wbComment = default(string), string dt = default(string), string imtName = default(string), string orderDt = default(string), string dtUpdate = default(string), List<string> photos = default(List<string>), List<string> videoPaths = default(List<string>), List<string> actions = default(List<string>), decimal price = default(decimal), string currencyCode = default(string), string srid = default(string), string originIdInfo = default(string), string deliveryDt = default(string))
         {
             this.Id = id;
             this.ClaimType = claimType;
@@ -88,28 +88,28 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         /// </summary>
         /// <value>Источник заявки:   * &#x60;1&#x60; — портал покупателей   * &#x60;3&#x60; — чат </value>
         [DataMember(Name = "claim_type", EmitDefaultValue = false)]
-        public int ClaimType { get; set; }
+        public long ClaimType { get; set; }
 
         /// <summary>
         /// Решение по возврату покупателю:   * &#x60;0&#x60; — на рассмотрении   * &#x60;1&#x60; — отказ   * &#x60;2&#x60; — одобрено 
         /// </summary>
         /// <value>Решение по возврату покупателю:   * &#x60;0&#x60; — на рассмотрении   * &#x60;1&#x60; — отказ   * &#x60;2&#x60; — одобрено </value>
         [DataMember(Name = "status", EmitDefaultValue = false)]
-        public int Status { get; set; }
+        public long Status { get; set; }
 
         /// <summary>
         /// Статус товара:   * &#x60;0&#x60; — заявка на рассмотрении   * &#x60;1&#x60; — товар остается у покупателя (Заявка отклонена)   * &#x60;2&#x60; — покупатель сдает товар на WB, товар отправляется в утиль   * &#x60;5&#x60; — товар остается у покупателя (Заявка одобрена)   * &#x60;8&#x60; — товар будет возвращён в реализацию после проверки WB   * &#x60;10&#x60; — товар возвращается продавцу 
         /// </summary>
         /// <value>Статус товара:   * &#x60;0&#x60; — заявка на рассмотрении   * &#x60;1&#x60; — товар остается у покупателя (Заявка отклонена)   * &#x60;2&#x60; — покупатель сдает товар на WB, товар отправляется в утиль   * &#x60;5&#x60; — товар остается у покупателя (Заявка одобрена)   * &#x60;8&#x60; — товар будет возвращён в реализацию после проверки WB   * &#x60;10&#x60; — товар возвращается продавцу </value>
         [DataMember(Name = "status_ex", EmitDefaultValue = false)]
-        public int StatusEx { get; set; }
+        public long StatusEx { get; set; }
 
         /// <summary>
         /// Артикул WB
         /// </summary>
         /// <value>Артикул WB</value>
         [DataMember(Name = "nm_id", EmitDefaultValue = false)]
-        public int NmId { get; set; }
+        public long NmId { get; set; }
 
         /// <summary>
         /// Комментарий покупателя
@@ -259,13 +259,13 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
             // UserComment (string) maxLength
             if (this.UserComment != null && this.UserComment.Length > 1000)
             {
-                yield return new ValidationResult("Invalid value for UserComment, length must be less than 1000.", new [] { "UserComment" });
+                yield return new ValidationResult("Invalid value for UserComment, length must be less than 1000.", new[] { "UserComment" });
             }
 
             // WbComment (string) maxLength
             if (this.WbComment != null && this.WbComment.Length > 10000)
             {
-                yield return new ValidationResult("Invalid value for WbComment, length must be less than 10000.", new [] { "WbComment" });
+                yield return new ValidationResult("Invalid value for WbComment, length must be less than 10000.", new[] { "WbComment" });
             }
 
             yield break;

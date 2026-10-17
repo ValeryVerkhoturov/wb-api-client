@@ -37,7 +37,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         /// <param name="countUnanswered">Количество неотвеченных вопросов.</param>
         /// <param name="countArchive">Количество отвеченных вопросов.</param>
         /// <param name="questions">Вопросы.</param>
-        public GetV1QuestionsResponse200Data(int countUnanswered = default(int), int countArchive = default(int), List<GetV1QuestionsResponse200DataQuestionsInner> questions = default(List<GetV1QuestionsResponse200DataQuestionsInner>))
+        public GetV1QuestionsResponse200Data(long countUnanswered = default(long), long countArchive = default(long), List<GetV1QuestionsResponse200DataQuestionsInner> questions = default(List<GetV1QuestionsResponse200DataQuestionsInner>))
         {
             this.CountUnanswered = countUnanswered;
             this.CountArchive = countArchive;
@@ -49,14 +49,14 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         /// </summary>
         /// <value>Количество неотвеченных вопросов</value>
         [DataMember(Name = "countUnanswered", EmitDefaultValue = false)]
-        public int CountUnanswered { get; set; }
+        public long CountUnanswered { get; set; }
 
         /// <summary>
         /// Количество отвеченных вопросов
         /// </summary>
         /// <value>Количество отвеченных вопросов</value>
         [DataMember(Name = "countArchive", EmitDefaultValue = false)]
-        public int CountArchive { get; set; }
+        public long CountArchive { get; set; }
 
         /// <summary>
         /// Вопросы

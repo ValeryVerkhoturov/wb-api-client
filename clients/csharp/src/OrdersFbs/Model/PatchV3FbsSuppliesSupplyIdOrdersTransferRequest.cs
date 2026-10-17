@@ -41,7 +41,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// </summary>
         /// <param name="orderIds">Список ID сборочных заданий, которые нужно перевести на сборку (required).</param>
         /// <param name="newSupplyId">ID поставки, в которую будут перемещены сборочные задания. Поставка не должна быть в доставке (required).</param>
-        public PatchV3FbsSuppliesSupplyIdOrdersTransferRequest(List<int> orderIds = default(List<int>), string newSupplyId = default(string))
+        public PatchV3FbsSuppliesSupplyIdOrdersTransferRequest(List<long> orderIds = default(List<long>), string newSupplyId = default(string))
         {
             // to ensure "orderIds" is required (not null)
             if (orderIds == null)
@@ -62,7 +62,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// </summary>
         /// <value>Список ID сборочных заданий, которые нужно перевести на сборку</value>
         [DataMember(Name = "orderIds", IsRequired = true, EmitDefaultValue = true)]
-        public List<int> OrderIds { get; set; }
+        public List<long> OrderIds { get; set; }
 
         /// <summary>
         /// ID поставки, в которую будут перемещены сборочные задания. Поставка не должна быть в доставке

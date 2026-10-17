@@ -67,7 +67,7 @@ public class ModelFile {
 
   @SerializedName(SERIALIZED_NAME_SIZE)
   @jakarta.annotation.Nullable
-  private Integer size;
+  private Long size;
 
   public ModelFile() {}
 
@@ -167,7 +167,7 @@ public class ModelFile {
     this.url = url;
   }
 
-  public ModelFile size(@jakarta.annotation.Nullable Integer size) {
+  public ModelFile size(@jakarta.annotation.Nullable Long size) {
     this.size = size;
     return this;
   }
@@ -178,11 +178,11 @@ public class ModelFile {
    * @return size
    */
   @jakarta.annotation.Nullable
-  public Integer getSize() {
+  public Long getSize() {
     return size;
   }
 
-  public void setSize(@jakarta.annotation.Nullable Integer size) {
+  public void setSize(@jakarta.annotation.Nullable Long size) {
     this.size = size;
   }
 

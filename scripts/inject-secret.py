@@ -561,6 +561,14 @@ def fix_csharp_shadowed_loops(text: str) -> str:
     return _CS_SHADOWED_LOOP_RE.sub(rewrite, text)
 
 
+# Base64 examples become byte[] objects whose toString() contains a random
+# identity hash. Drop those invalid example blocks so regeneration is stable.
+_CS_BYTE_ARRAY_EXAMPLE_RE = re.compile(
+    r"^[ \t]*/\*\n[ \t]*<example>\[B@[0-9a-f]+</example>\n[ \t]*\*/\n",
+    re.MULTILINE,
+)
+
+
 def patch_csharp(root: Path) -> int:
     src = root / "src"
     if not src.is_dir():
@@ -580,6 +588,12 @@ def patch_csharp(root: Path) -> int:
         for source in sorted((sub / "Api").glob("*.cs")) if (sub / "Api").is_dir() else []:
             text = source.read_text()
             fixed = fix_csharp_shadowed_loops(text)
+            if fixed != text:
+                source.write_text(fixed)
+
+        for source in sorted((sub / "Model").glob("*.cs")) if (sub / "Model").is_dir() else []:
+            text = source.read_text()
+            fixed = _CS_BYTE_ARRAY_EXAMPLE_RE.sub("", text)
             if fixed != text:
                 source.write_text(fixed)
         n += 1

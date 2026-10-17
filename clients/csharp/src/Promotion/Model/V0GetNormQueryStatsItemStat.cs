@@ -46,7 +46,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <param name="shks">Количество заказанных товаров, шт..</param>
         /// <param name="spend">Затраты на продвижение товаров в конкретном поисковом кластере кампании .</param>
         /// <param name="currency">Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances).</param>
-        public V0GetNormQueryStatsItemStat(string normQuery = default(string), int? views = default(int?), int clicks = default(int), int atbs = default(int), int orders = default(int), double? ctr = default(double?), double cpc = default(double), double? cpm = default(double?), double avgPos = default(double), int shks = default(int), double spend = default(double), string currency = default(string))
+        public V0GetNormQueryStatsItemStat(string normQuery = default(string), long? views = default(long?), long clicks = default(long), long atbs = default(long), long orders = default(long), double? ctr = default(double?), double cpc = default(double), double? cpm = default(double?), double avgPos = default(double), long shks = default(long), double spend = default(double), string currency = default(string))
         {
             this.NormQuery = normQuery;
             this.Views = views;
@@ -74,28 +74,28 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <value>Количество просмотров.  Для кампаний с типом оплаты &#x60;cpc&#x60; — за клики — значение будет &#x60;null&#x60; </value>
         [DataMember(Name = "views", EmitDefaultValue = true)]
-        public int? Views { get; set; }
+        public long? Views { get; set; }
 
         /// <summary>
         /// Количество кликов
         /// </summary>
         /// <value>Количество кликов</value>
         [DataMember(Name = "clicks", EmitDefaultValue = false)]
-        public int Clicks { get; set; }
+        public long Clicks { get; set; }
 
         /// <summary>
         /// Количество добавлений товаров в корзину
         /// </summary>
         /// <value>Количество добавлений товаров в корзину</value>
         [DataMember(Name = "atbs", EmitDefaultValue = false)]
-        public int Atbs { get; set; }
+        public long Atbs { get; set; }
 
         /// <summary>
         /// Количество заказов
         /// </summary>
         /// <value>Количество заказов</value>
         [DataMember(Name = "orders", EmitDefaultValue = false)]
-        public int Orders { get; set; }
+        public long Orders { get; set; }
 
         /// <summary>
         /// Кликабельность — отношение числа кликов к количеству показов, %.  Для кампаний с типом оплаты &#x60;cpc&#x60; — за клики — значение будет &#x60;null&#x60; 
@@ -130,7 +130,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <value>Количество заказанных товаров, шт.</value>
         [DataMember(Name = "shks", EmitDefaultValue = false)]
-        public int Shks { get; set; }
+        public long Shks { get; set; }
 
         /// <summary>
         /// Затраты на продвижение товаров в конкретном поисковом кластере кампании 

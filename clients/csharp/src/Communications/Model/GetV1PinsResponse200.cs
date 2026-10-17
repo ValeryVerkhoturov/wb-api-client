@@ -36,7 +36,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         /// </summary>
         /// <param name="data">data.</param>
         /// <param name="next">Параметр пагинации. Укажите это значение в запросе, чтобы получить следующий пакет данных. Если поле отсутствует, вы получили все данные.</param>
-        public GetV1PinsResponse200(List<OpenapiPinnedReviewItemResult> data = default(List<OpenapiPinnedReviewItemResult>), int next = default(int))
+        public GetV1PinsResponse200(List<OpenapiPinnedReviewItemResult> data = default(List<OpenapiPinnedReviewItemResult>), long next = default(long))
         {
             this.Data = data;
             this.Next = next;
@@ -56,7 +56,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         <example>200</example>
         */
         [DataMember(Name = "next", EmitDefaultValue = false)]
-        public int Next { get; set; }
+        public long Next { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

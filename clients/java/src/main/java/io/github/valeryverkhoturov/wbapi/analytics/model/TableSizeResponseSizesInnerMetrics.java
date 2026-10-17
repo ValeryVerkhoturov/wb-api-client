@@ -41,13 +41,13 @@ public class TableSizeResponseSizesInnerMetrics {
 
   @SerializedName(SERIALIZED_NAME_ORDERS_COUNT)
   @jakarta.annotation.Nullable
-  private Integer ordersCount;
+  private Long ordersCount;
 
   public static final String SERIALIZED_NAME_ORDERS_SUM = "ordersSum";
 
   @SerializedName(SERIALIZED_NAME_ORDERS_SUM)
   @jakarta.annotation.Nullable
-  private Integer ordersSum;
+  private Long ordersSum;
 
   public static final String SERIALIZED_NAME_AVG_ORDERS = "avgOrders";
 
@@ -65,31 +65,31 @@ public class TableSizeResponseSizesInnerMetrics {
 
   @SerializedName(SERIALIZED_NAME_BUYOUT_COUNT)
   @jakarta.annotation.Nullable
-  private Integer buyoutCount;
+  private Long buyoutCount;
 
   public static final String SERIALIZED_NAME_BUYOUT_SUM = "buyoutSum";
 
   @SerializedName(SERIALIZED_NAME_BUYOUT_SUM)
   @jakarta.annotation.Nullable
-  private Integer buyoutSum;
+  private Long buyoutSum;
 
   public static final String SERIALIZED_NAME_BUYOUT_PERCENT = "buyoutPercent";
 
   @SerializedName(SERIALIZED_NAME_BUYOUT_PERCENT)
   @jakarta.annotation.Nullable
-  private Integer buyoutPercent;
+  private Long buyoutPercent;
 
   public static final String SERIALIZED_NAME_STOCK_COUNT = "stockCount";
 
   @SerializedName(SERIALIZED_NAME_STOCK_COUNT)
   @jakarta.annotation.Nullable
-  private Integer stockCount;
+  private Long stockCount;
 
   public static final String SERIALIZED_NAME_STOCK_SUM = "stockSum";
 
   @SerializedName(SERIALIZED_NAME_STOCK_SUM)
   @jakarta.annotation.Nullable
-  private Integer stockSum;
+  private Long stockSum;
 
   public static final String SERIALIZED_NAME_SALE_RATE = "saleRate";
 
@@ -107,13 +107,13 @@ public class TableSizeResponseSizesInnerMetrics {
 
   @SerializedName(SERIALIZED_NAME_TO_CLIENT_COUNT)
   @jakarta.annotation.Nullable
-  private Integer toClientCount;
+  private Long toClientCount;
 
   public static final String SERIALIZED_NAME_FROM_CLIENT_COUNT = "fromClientCount";
 
   @SerializedName(SERIALIZED_NAME_FROM_CLIENT_COUNT)
   @jakarta.annotation.Nullable
-  private Integer fromClientCount;
+  private Long fromClientCount;
 
   public static final String SERIALIZED_NAME_OFFICE_MISSING_TIME = "officeMissingTime";
 
@@ -154,7 +154,7 @@ public class TableSizeResponseSizesInnerMetrics {
   public TableSizeResponseSizesInnerMetrics() {}
 
   public TableSizeResponseSizesInnerMetrics ordersCount(
-      @jakarta.annotation.Nullable Integer ordersCount) {
+      @jakarta.annotation.Nullable Long ordersCount) {
     this.ordersCount = ordersCount;
     return this;
   }
@@ -165,16 +165,15 @@ public class TableSizeResponseSizesInnerMetrics {
    * @return ordersCount
    */
   @jakarta.annotation.Nullable
-  public Integer getOrdersCount() {
+  public Long getOrdersCount() {
     return ordersCount;
   }
 
-  public void setOrdersCount(@jakarta.annotation.Nullable Integer ordersCount) {
+  public void setOrdersCount(@jakarta.annotation.Nullable Long ordersCount) {
     this.ordersCount = ordersCount;
   }
 
-  public TableSizeResponseSizesInnerMetrics ordersSum(
-      @jakarta.annotation.Nullable Integer ordersSum) {
+  public TableSizeResponseSizesInnerMetrics ordersSum(@jakarta.annotation.Nullable Long ordersSum) {
     this.ordersSum = ordersSum;
     return this;
   }
@@ -185,11 +184,11 @@ public class TableSizeResponseSizesInnerMetrics {
    * @return ordersSum
    */
   @jakarta.annotation.Nullable
-  public Integer getOrdersSum() {
+  public Long getOrdersSum() {
     return ordersSum;
   }
 
-  public void setOrdersSum(@jakarta.annotation.Nullable Integer ordersSum) {
+  public void setOrdersSum(@jakarta.annotation.Nullable Long ordersSum) {
     this.ordersSum = ordersSum;
   }
 
@@ -244,7 +243,7 @@ public class TableSizeResponseSizesInnerMetrics {
   }
 
   public TableSizeResponseSizesInnerMetrics buyoutCount(
-      @jakarta.annotation.Nullable Integer buyoutCount) {
+      @jakarta.annotation.Nullable Long buyoutCount) {
     this.buyoutCount = buyoutCount;
     return this;
   }
@@ -255,16 +254,15 @@ public class TableSizeResponseSizesInnerMetrics {
    * @return buyoutCount
    */
   @jakarta.annotation.Nullable
-  public Integer getBuyoutCount() {
+  public Long getBuyoutCount() {
     return buyoutCount;
   }
 
-  public void setBuyoutCount(@jakarta.annotation.Nullable Integer buyoutCount) {
+  public void setBuyoutCount(@jakarta.annotation.Nullable Long buyoutCount) {
     this.buyoutCount = buyoutCount;
   }
 
-  public TableSizeResponseSizesInnerMetrics buyoutSum(
-      @jakarta.annotation.Nullable Integer buyoutSum) {
+  public TableSizeResponseSizesInnerMetrics buyoutSum(@jakarta.annotation.Nullable Long buyoutSum) {
     this.buyoutSum = buyoutSum;
     return this;
   }
@@ -275,16 +273,16 @@ public class TableSizeResponseSizesInnerMetrics {
    * @return buyoutSum
    */
   @jakarta.annotation.Nullable
-  public Integer getBuyoutSum() {
+  public Long getBuyoutSum() {
     return buyoutSum;
   }
 
-  public void setBuyoutSum(@jakarta.annotation.Nullable Integer buyoutSum) {
+  public void setBuyoutSum(@jakarta.annotation.Nullable Long buyoutSum) {
     this.buyoutSum = buyoutSum;
   }
 
   public TableSizeResponseSizesInnerMetrics buyoutPercent(
-      @jakarta.annotation.Nullable Integer buyoutPercent) {
+      @jakarta.annotation.Nullable Long buyoutPercent) {
     this.buyoutPercent = buyoutPercent;
     return this;
   }
@@ -295,16 +293,16 @@ public class TableSizeResponseSizesInnerMetrics {
    * @return buyoutPercent
    */
   @jakarta.annotation.Nullable
-  public Integer getBuyoutPercent() {
+  public Long getBuyoutPercent() {
     return buyoutPercent;
   }
 
-  public void setBuyoutPercent(@jakarta.annotation.Nullable Integer buyoutPercent) {
+  public void setBuyoutPercent(@jakarta.annotation.Nullable Long buyoutPercent) {
     this.buyoutPercent = buyoutPercent;
   }
 
   public TableSizeResponseSizesInnerMetrics stockCount(
-      @jakarta.annotation.Nullable Integer stockCount) {
+      @jakarta.annotation.Nullable Long stockCount) {
     this.stockCount = stockCount;
     return this;
   }
@@ -315,16 +313,15 @@ public class TableSizeResponseSizesInnerMetrics {
    * @return stockCount
    */
   @jakarta.annotation.Nullable
-  public Integer getStockCount() {
+  public Long getStockCount() {
     return stockCount;
   }
 
-  public void setStockCount(@jakarta.annotation.Nullable Integer stockCount) {
+  public void setStockCount(@jakarta.annotation.Nullable Long stockCount) {
     this.stockCount = stockCount;
   }
 
-  public TableSizeResponseSizesInnerMetrics stockSum(
-      @jakarta.annotation.Nullable Integer stockSum) {
+  public TableSizeResponseSizesInnerMetrics stockSum(@jakarta.annotation.Nullable Long stockSum) {
     this.stockSum = stockSum;
     return this;
   }
@@ -335,11 +332,11 @@ public class TableSizeResponseSizesInnerMetrics {
    * @return stockSum
    */
   @jakarta.annotation.Nullable
-  public Integer getStockSum() {
+  public Long getStockSum() {
     return stockSum;
   }
 
-  public void setStockSum(@jakarta.annotation.Nullable Integer stockSum) {
+  public void setStockSum(@jakarta.annotation.Nullable Long stockSum) {
     this.stockSum = stockSum;
   }
 
@@ -385,7 +382,7 @@ public class TableSizeResponseSizesInnerMetrics {
   }
 
   public TableSizeResponseSizesInnerMetrics toClientCount(
-      @jakarta.annotation.Nullable Integer toClientCount) {
+      @jakarta.annotation.Nullable Long toClientCount) {
     this.toClientCount = toClientCount;
     return this;
   }
@@ -396,16 +393,16 @@ public class TableSizeResponseSizesInnerMetrics {
    * @return toClientCount
    */
   @jakarta.annotation.Nullable
-  public Integer getToClientCount() {
+  public Long getToClientCount() {
     return toClientCount;
   }
 
-  public void setToClientCount(@jakarta.annotation.Nullable Integer toClientCount) {
+  public void setToClientCount(@jakarta.annotation.Nullable Long toClientCount) {
     this.toClientCount = toClientCount;
   }
 
   public TableSizeResponseSizesInnerMetrics fromClientCount(
-      @jakarta.annotation.Nullable Integer fromClientCount) {
+      @jakarta.annotation.Nullable Long fromClientCount) {
     this.fromClientCount = fromClientCount;
     return this;
   }
@@ -416,11 +413,11 @@ public class TableSizeResponseSizesInnerMetrics {
    * @return fromClientCount
    */
   @jakarta.annotation.Nullable
-  public Integer getFromClientCount() {
+  public Long getFromClientCount() {
     return fromClientCount;
   }
 
-  public void setFromClientCount(@jakarta.annotation.Nullable Integer fromClientCount) {
+  public void setFromClientCount(@jakarta.annotation.Nullable Long fromClientCount) {
     this.fromClientCount = fromClientCount;
   }
 

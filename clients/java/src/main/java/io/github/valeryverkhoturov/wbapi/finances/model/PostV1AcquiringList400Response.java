@@ -37,7 +37,7 @@ public class PostV1AcquiringList400Response {
 
   @SerializedName(SERIALIZED_NAME_STATUS)
   @jakarta.annotation.Nonnull
-  private Integer status;
+  private Long status;
 
   public static final String SERIALIZED_NAME_TITLE = "title";
 
@@ -65,7 +65,7 @@ public class PostV1AcquiringList400Response {
 
   public PostV1AcquiringList400Response() {}
 
-  public PostV1AcquiringList400Response status(@jakarta.annotation.Nonnull Integer status) {
+  public PostV1AcquiringList400Response status(@jakarta.annotation.Nonnull Long status) {
     this.status = status;
     return this;
   }
@@ -76,11 +76,11 @@ public class PostV1AcquiringList400Response {
    * @return status
    */
   @jakarta.annotation.Nonnull
-  public Integer getStatus() {
+  public Long getStatus() {
     return status;
   }
 
-  public void setStatus(@jakarta.annotation.Nonnull Integer status) {
+  public void setStatus(@jakarta.annotation.Nonnull Long status) {
     this.status = status;
   }
 

@@ -40,7 +40,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// Initializes a new instance of the <see cref="PostV3SuppliesSupplyIdTrbxRequest" /> class.
         /// </summary>
         /// <param name="amount">Количество грузомест, которые необходимо добавить к поставке (required).</param>
-        public PostV3SuppliesSupplyIdTrbxRequest(int amount = default(int))
+        public PostV3SuppliesSupplyIdTrbxRequest(long amount = default(long))
         {
             this.Amount = amount;
         }
@@ -53,7 +53,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         <example>4</example>
         */
         [DataMember(Name = "amount", IsRequired = true, EmitDefaultValue = true)]
-        public int Amount { get; set; }
+        public long Amount { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -84,16 +84,16 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// <returns>Validation Result</returns>
         IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Amount (int) maximum
-            if (this.Amount > (int)1000)
+            // Amount (long) maximum
+            if (this.Amount > (long)1000)
             {
-                yield return new ValidationResult("Invalid value for Amount, must be a value less than or equal to 1000.", new [] { "Amount" });
+                yield return new ValidationResult("Invalid value for Amount, must be a value less than or equal to 1000.", new[] { "Amount" });
             }
 
-            // Amount (int) minimum
-            if (this.Amount < (int)1)
+            // Amount (long) minimum
+            if (this.Amount < (long)1)
             {
-                yield return new ValidationResult("Invalid value for Amount, must be a value greater than or equal to 1.", new [] { "Amount" });
+                yield return new ValidationResult("Invalid value for Amount, must be a value greater than or equal to 1.", new[] { "Amount" });
             }
 
             yield break;

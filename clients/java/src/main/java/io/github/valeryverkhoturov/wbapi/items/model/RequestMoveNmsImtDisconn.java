@@ -39,16 +39,16 @@ public class RequestMoveNmsImtDisconn {
 
   @SerializedName(SERIALIZED_NAME_NM_I_DS)
   @jakarta.annotation.Nonnull
-  private List<Integer> nmIDs = new ArrayList<>();
+  private List<Long> nmIDs = new ArrayList<>();
 
   public RequestMoveNmsImtDisconn() {}
 
-  public RequestMoveNmsImtDisconn nmIDs(@jakarta.annotation.Nonnull List<Integer> nmIDs) {
+  public RequestMoveNmsImtDisconn nmIDs(@jakarta.annotation.Nonnull List<Long> nmIDs) {
     this.nmIDs = nmIDs;
     return this;
   }
 
-  public RequestMoveNmsImtDisconn addNmIDsItem(Integer nmIDsItem) {
+  public RequestMoveNmsImtDisconn addNmIDsItem(Long nmIDsItem) {
     if (this.nmIDs == null) {
       this.nmIDs = new ArrayList<>();
     }
@@ -62,11 +62,11 @@ public class RequestMoveNmsImtDisconn {
    * @return nmIDs
    */
   @jakarta.annotation.Nonnull
-  public List<Integer> getNmIDs() {
+  public List<Long> getNmIDs() {
     return nmIDs;
   }
 
-  public void setNmIDs(@jakarta.annotation.Nonnull List<Integer> nmIDs) {
+  public void setNmIDs(@jakarta.annotation.Nonnull List<Long> nmIDs) {
     this.nmIDs = nmIDs;
   }
 

@@ -37,7 +37,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// <param name="id">ID характеристики.</param>
         /// <param name="name">Название характеристики.</param>
         /// <param name="value">Значение характеристики. Тип значения зависит от типа характеристики.</param>
-        public PostV2GetCardsListResponse200CardsInnerCharacteristicsInner(int id = default(int), string name = default(string), Object value = default(Object))
+        public PostV2GetCardsListResponse200CardsInnerCharacteristicsInner(long id = default(long), string name = default(string), Object value = default(Object))
         {
             this.Id = id;
             this.Name = name;
@@ -49,7 +49,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// </summary>
         /// <value>ID характеристики</value>
         [DataMember(Name = "id", EmitDefaultValue = false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// Название характеристики

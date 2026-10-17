@@ -43,7 +43,7 @@ public class ApiGTIN {
 
   @SerializedName(SERIALIZED_NAME_ORDER_ID)
   @jakarta.annotation.Nonnull
-  private Integer orderId;
+  private Long orderId;
 
   public ApiGTIN() {}
 
@@ -66,7 +66,7 @@ public class ApiGTIN {
     this.gtin = gtin;
   }
 
-  public ApiGTIN orderId(@jakarta.annotation.Nonnull Integer orderId) {
+  public ApiGTIN orderId(@jakarta.annotation.Nonnull Long orderId) {
     this.orderId = orderId;
     return this;
   }
@@ -77,11 +77,11 @@ public class ApiGTIN {
    * @return orderId
    */
   @jakarta.annotation.Nonnull
-  public Integer getOrderId() {
+  public Long getOrderId() {
     return orderId;
   }
 
-  public void setOrderId(@jakarta.annotation.Nonnull Integer orderId) {
+  public void setOrderId(@jakarta.annotation.Nonnull Long orderId) {
     this.orderId = orderId;
   }
 

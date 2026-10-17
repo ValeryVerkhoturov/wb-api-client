@@ -43,13 +43,13 @@ public class SearchReportPositionChartItem {
 
   @SerializedName(SERIALIZED_NAME_AVERAGE)
   @jakarta.annotation.Nullable
-  private Integer average;
+  private Long average;
 
   public static final String SERIALIZED_NAME_MEDIAN = "median";
 
   @SerializedName(SERIALIZED_NAME_MEDIAN)
   @jakarta.annotation.Nullable
-  private Integer median;
+  private Long median;
 
   public SearchReportPositionChartItem() {}
 
@@ -72,7 +72,7 @@ public class SearchReportPositionChartItem {
     this.dt = dt;
   }
 
-  public SearchReportPositionChartItem average(@jakarta.annotation.Nullable Integer average) {
+  public SearchReportPositionChartItem average(@jakarta.annotation.Nullable Long average) {
     this.average = average;
     return this;
   }
@@ -83,15 +83,15 @@ public class SearchReportPositionChartItem {
    * @return average
    */
   @jakarta.annotation.Nullable
-  public Integer getAverage() {
+  public Long getAverage() {
     return average;
   }
 
-  public void setAverage(@jakarta.annotation.Nullable Integer average) {
+  public void setAverage(@jakarta.annotation.Nullable Long average) {
     this.average = average;
   }
 
-  public SearchReportPositionChartItem median(@jakarta.annotation.Nullable Integer median) {
+  public SearchReportPositionChartItem median(@jakarta.annotation.Nullable Long median) {
     this.median = median;
     return this;
   }
@@ -102,11 +102,11 @@ public class SearchReportPositionChartItem {
    * @return median
    */
   @jakarta.annotation.Nullable
-  public Integer getMedian() {
+  public Long getMedian() {
     return median;
   }
 
-  public void setMedian(@jakarta.annotation.Nullable Integer median) {
+  public void setMedian(@jakarta.annotation.Nullable Long median) {
     this.median = median;
   }
 

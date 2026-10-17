@@ -46,7 +46,7 @@ public class GetRecomRes {
 
   @SerializedName(SERIALIZED_NAME_NEXT)
   @jakarta.annotation.Nullable
-  private Integer next;
+  private Long next;
 
   public GetRecomRes() {}
 
@@ -77,7 +77,7 @@ public class GetRecomRes {
     this.data = data;
   }
 
-  public GetRecomRes next(@jakarta.annotation.Nullable Integer next) {
+  public GetRecomRes next(@jakarta.annotation.Nullable Long next) {
     this.next = next;
     return this;
   }
@@ -88,11 +88,11 @@ public class GetRecomRes {
    * @return next
    */
   @jakarta.annotation.Nullable
-  public Integer getNext() {
+  public Long getNext() {
     return next;
   }
 
-  public void setNext(@jakarta.annotation.Nullable Integer next) {
+  public void setNext(@jakarta.annotation.Nullable Long next) {
     this.next = next;
   }
 

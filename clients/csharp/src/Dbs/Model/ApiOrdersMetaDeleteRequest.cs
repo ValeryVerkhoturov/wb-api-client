@@ -89,7 +89,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Model
         /// </summary>
         /// <param name="key">Название идентификатора маркировки для удаления. Передаётся только одно значение (required).</param>
         /// <param name="orderIds">Список ID сборочных заданий (required).</param>
-        public ApiOrdersMetaDeleteRequest(KeyEnum key = default(KeyEnum), List<int> orderIds = default(List<int>))
+        public ApiOrdersMetaDeleteRequest(KeyEnum key = default(KeyEnum), List<long> orderIds = default(List<long>))
         {
             this.Key = key;
             // to ensure "orderIds" is required (not null)
@@ -108,7 +108,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Model
         <example>[123456,234567]</example>
         */
         [DataMember(Name = "orderIds", IsRequired = true, EmitDefaultValue = true)]
-        public List<int> OrderIds { get; set; }
+        public List<long> OrderIds { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

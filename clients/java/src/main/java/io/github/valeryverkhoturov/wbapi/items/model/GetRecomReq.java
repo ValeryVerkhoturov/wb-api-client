@@ -45,13 +45,13 @@ public class GetRecomReq {
 
   @SerializedName(SERIALIZED_NAME_LIMIT)
   @jakarta.annotation.Nullable
-  private Integer limit = 20;
+  private Long limit = 20l;
 
   public static final String SERIALIZED_NAME_NEXT = "next";
 
   @SerializedName(SERIALIZED_NAME_NEXT)
   @jakarta.annotation.Nullable
-  private Integer next = 0;
+  private Long next = 0l;
 
   public static final String SERIALIZED_NAME_SEARCH = "search";
 
@@ -63,7 +63,7 @@ public class GetRecomReq {
 
   @SerializedName(SERIALIZED_NAME_SUBJECT_IDS)
   @jakarta.annotation.Nullable
-  private List<Integer> subjectIds = new ArrayList<>();
+  private List<Long> subjectIds = new ArrayList<>();
 
   public GetRecomReq() {}
 
@@ -94,7 +94,7 @@ public class GetRecomReq {
     this.brandNames = brandNames;
   }
 
-  public GetRecomReq limit(@jakarta.annotation.Nullable Integer limit) {
+  public GetRecomReq limit(@jakarta.annotation.Nullable Long limit) {
     this.limit = limit;
     return this;
   }
@@ -105,15 +105,15 @@ public class GetRecomReq {
    * @return limit
    */
   @jakarta.annotation.Nullable
-  public Integer getLimit() {
+  public Long getLimit() {
     return limit;
   }
 
-  public void setLimit(@jakarta.annotation.Nullable Integer limit) {
+  public void setLimit(@jakarta.annotation.Nullable Long limit) {
     this.limit = limit;
   }
 
-  public GetRecomReq next(@jakarta.annotation.Nullable Integer next) {
+  public GetRecomReq next(@jakarta.annotation.Nullable Long next) {
     this.next = next;
     return this;
   }
@@ -124,11 +124,11 @@ public class GetRecomReq {
    * @return next
    */
   @jakarta.annotation.Nullable
-  public Integer getNext() {
+  public Long getNext() {
     return next;
   }
 
-  public void setNext(@jakarta.annotation.Nullable Integer next) {
+  public void setNext(@jakarta.annotation.Nullable Long next) {
     this.next = next;
   }
 
@@ -152,12 +152,12 @@ public class GetRecomReq {
     this.search = search;
   }
 
-  public GetRecomReq subjectIds(@jakarta.annotation.Nullable List<Integer> subjectIds) {
+  public GetRecomReq subjectIds(@jakarta.annotation.Nullable List<Long> subjectIds) {
     this.subjectIds = subjectIds;
     return this;
   }
 
-  public GetRecomReq addSubjectIdsItem(Integer subjectIdsItem) {
+  public GetRecomReq addSubjectIdsItem(Long subjectIdsItem) {
     if (this.subjectIds == null) {
       this.subjectIds = new ArrayList<>();
     }
@@ -171,11 +171,11 @@ public class GetRecomReq {
    * @return subjectIds
    */
   @jakarta.annotation.Nullable
-  public List<Integer> getSubjectIds() {
+  public List<Long> getSubjectIds() {
     return subjectIds;
   }
 
-  public void setSubjectIds(@jakarta.annotation.Nullable List<Integer> subjectIds) {
+  public void setSubjectIds(@jakarta.annotation.Nullable List<Long> subjectIds) {
     this.subjectIds = subjectIds;
   }
 

@@ -37,7 +37,7 @@ namespace ValeryVerkhoturov.WbApiClient.General.Model
         /// <param name="total">Общее количество активных или приглашённых пользователей.</param>
         /// <param name="countInResponse">Количество активных или приглашённых пользователей на текущей странице.</param>
         /// <param name="users">Информация о пользователях.</param>
-        public GetUsersResponse(int total = default(int), int countInResponse = default(int), List<GetUsersResponseUsersInner> users = default(List<GetUsersResponseUsersInner>))
+        public GetUsersResponse(long total = default(long), long countInResponse = default(long), List<GetUsersResponseUsersInner> users = default(List<GetUsersResponseUsersInner>))
         {
             this.Total = total;
             this.CountInResponse = countInResponse;
@@ -49,14 +49,14 @@ namespace ValeryVerkhoturov.WbApiClient.General.Model
         /// </summary>
         /// <value>Общее количество активных или приглашённых пользователей</value>
         [DataMember(Name = "total", EmitDefaultValue = false)]
-        public int Total { get; set; }
+        public long Total { get; set; }
 
         /// <summary>
         /// Количество активных или приглашённых пользователей на текущей странице
         /// </summary>
         /// <value>Количество активных или приглашённых пользователей на текущей странице</value>
         [DataMember(Name = "countInResponse", EmitDefaultValue = false)]
-        public int CountInResponse { get; set; }
+        public long CountInResponse { get; set; }
 
         /// <summary>
         /// Информация о пользователях

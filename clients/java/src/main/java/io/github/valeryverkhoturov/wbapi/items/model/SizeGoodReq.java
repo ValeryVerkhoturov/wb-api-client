@@ -37,23 +37,23 @@ public class SizeGoodReq {
 
   @SerializedName(SERIALIZED_NAME_NM_I_D)
   @jakarta.annotation.Nonnull
-  private Integer nmID;
+  private Long nmID;
 
   public static final String SERIALIZED_NAME_SIZE_I_D = "sizeID";
 
   @SerializedName(SERIALIZED_NAME_SIZE_I_D)
   @jakarta.annotation.Nonnull
-  private Integer sizeID;
+  private Long sizeID;
 
   public static final String SERIALIZED_NAME_PRICE = "price";
 
   @SerializedName(SERIALIZED_NAME_PRICE)
   @jakarta.annotation.Nonnull
-  private Integer price;
+  private Long price;
 
   public SizeGoodReq() {}
 
-  public SizeGoodReq nmID(@jakarta.annotation.Nonnull Integer nmID) {
+  public SizeGoodReq nmID(@jakarta.annotation.Nonnull Long nmID) {
     this.nmID = nmID;
     return this;
   }
@@ -64,15 +64,15 @@ public class SizeGoodReq {
    * @return nmID
    */
   @jakarta.annotation.Nonnull
-  public Integer getNmID() {
+  public Long getNmID() {
     return nmID;
   }
 
-  public void setNmID(@jakarta.annotation.Nonnull Integer nmID) {
+  public void setNmID(@jakarta.annotation.Nonnull Long nmID) {
     this.nmID = nmID;
   }
 
-  public SizeGoodReq sizeID(@jakarta.annotation.Nonnull Integer sizeID) {
+  public SizeGoodReq sizeID(@jakarta.annotation.Nonnull Long sizeID) {
     this.sizeID = sizeID;
     return this;
   }
@@ -87,15 +87,15 @@ public class SizeGoodReq {
    * @return sizeID
    */
   @jakarta.annotation.Nonnull
-  public Integer getSizeID() {
+  public Long getSizeID() {
     return sizeID;
   }
 
-  public void setSizeID(@jakarta.annotation.Nonnull Integer sizeID) {
+  public void setSizeID(@jakarta.annotation.Nonnull Long sizeID) {
     this.sizeID = sizeID;
   }
 
-  public SizeGoodReq price(@jakarta.annotation.Nonnull Integer price) {
+  public SizeGoodReq price(@jakarta.annotation.Nonnull Long price) {
     this.price = price;
     return this;
   }
@@ -110,11 +110,11 @@ public class SizeGoodReq {
    * @return price
    */
   @jakarta.annotation.Nonnull
-  public Integer getPrice() {
+  public Long getPrice() {
     return price;
   }
 
-  public void setPrice(@jakarta.annotation.Nonnull Integer price) {
+  public void setPrice(@jakarta.annotation.Nonnull Long price) {
     this.price = price;
   }
 

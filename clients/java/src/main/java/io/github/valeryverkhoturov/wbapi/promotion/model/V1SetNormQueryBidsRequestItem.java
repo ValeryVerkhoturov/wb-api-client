@@ -37,13 +37,13 @@ public class V1SetNormQueryBidsRequestItem {
 
   @SerializedName(SERIALIZED_NAME_ADVERT_ID)
   @jakarta.annotation.Nonnull
-  private Integer advertId;
+  private Long advertId;
 
   public static final String SERIALIZED_NAME_NM_ID = "nmId";
 
   @SerializedName(SERIALIZED_NAME_NM_ID)
   @jakarta.annotation.Nonnull
-  private Integer nmId;
+  private Long nmId;
 
   public static final String SERIALIZED_NAME_NORM_QUERY = "normQuery";
 
@@ -55,11 +55,11 @@ public class V1SetNormQueryBidsRequestItem {
 
   @SerializedName(SERIALIZED_NAME_BID_MINOR_UNITS)
   @jakarta.annotation.Nonnull
-  private Integer bidMinorUnits;
+  private Long bidMinorUnits;
 
   public V1SetNormQueryBidsRequestItem() {}
 
-  public V1SetNormQueryBidsRequestItem advertId(@jakarta.annotation.Nonnull Integer advertId) {
+  public V1SetNormQueryBidsRequestItem advertId(@jakarta.annotation.Nonnull Long advertId) {
     this.advertId = advertId;
     return this;
   }
@@ -70,15 +70,15 @@ public class V1SetNormQueryBidsRequestItem {
    * @return advertId
    */
   @jakarta.annotation.Nonnull
-  public Integer getAdvertId() {
+  public Long getAdvertId() {
     return advertId;
   }
 
-  public void setAdvertId(@jakarta.annotation.Nonnull Integer advertId) {
+  public void setAdvertId(@jakarta.annotation.Nonnull Long advertId) {
     this.advertId = advertId;
   }
 
-  public V1SetNormQueryBidsRequestItem nmId(@jakarta.annotation.Nonnull Integer nmId) {
+  public V1SetNormQueryBidsRequestItem nmId(@jakarta.annotation.Nonnull Long nmId) {
     this.nmId = nmId;
     return this;
   }
@@ -89,11 +89,11 @@ public class V1SetNormQueryBidsRequestItem {
    * @return nmId
    */
   @jakarta.annotation.Nonnull
-  public Integer getNmId() {
+  public Long getNmId() {
     return nmId;
   }
 
-  public void setNmId(@jakarta.annotation.Nonnull Integer nmId) {
+  public void setNmId(@jakarta.annotation.Nonnull Long nmId) {
     this.nmId = nmId;
   }
 
@@ -117,7 +117,7 @@ public class V1SetNormQueryBidsRequestItem {
   }
 
   public V1SetNormQueryBidsRequestItem bidMinorUnits(
-      @jakarta.annotation.Nonnull Integer bidMinorUnits) {
+      @jakarta.annotation.Nonnull Long bidMinorUnits) {
     this.bidMinorUnits = bidMinorUnits;
     return this;
   }
@@ -130,11 +130,11 @@ public class V1SetNormQueryBidsRequestItem {
    * @return bidMinorUnits
    */
   @jakarta.annotation.Nonnull
-  public Integer getBidMinorUnits() {
+  public Long getBidMinorUnits() {
     return bidMinorUnits;
   }
 
-  public void setBidMinorUnits(@jakarta.annotation.Nonnull Integer bidMinorUnits) {
+  public void setBidMinorUnits(@jakarta.annotation.Nonnull Long bidMinorUnits) {
     this.bidMinorUnits = bidMinorUnits;
   }
 

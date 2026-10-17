@@ -44,7 +44,7 @@ public class ItemsListSizesInner {
 
   @SerializedName(SERIALIZED_NAME_PRICE)
   @jakarta.annotation.Nonnull
-  private Integer price;
+  private Long price;
 
   public static final String SERIALIZED_NAME_DISCOUNTED_PRICE = "discountedPrice";
 
@@ -85,7 +85,7 @@ public class ItemsListSizesInner {
     this.sizeID = sizeID;
   }
 
-  public ItemsListSizesInner price(@jakarta.annotation.Nonnull Integer price) {
+  public ItemsListSizesInner price(@jakarta.annotation.Nonnull Long price) {
     this.price = price;
     return this;
   }
@@ -96,11 +96,11 @@ public class ItemsListSizesInner {
    * @return price
    */
   @jakarta.annotation.Nonnull
-  public Integer getPrice() {
+  public Long getPrice() {
     return price;
   }
 
-  public void setPrice(@jakarta.annotation.Nonnull Integer price) {
+  public void setPrice(@jakarta.annotation.Nonnull Long price) {
     this.price = price;
   }
 

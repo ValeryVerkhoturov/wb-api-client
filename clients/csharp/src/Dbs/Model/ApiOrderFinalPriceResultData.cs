@@ -40,7 +40,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Model
         /// <param name="convertedOriginalFinalPrice">Сумма к оплате покупателем в валюте страны продавца с учетом всех скидок и кэшбека, умноженная на 100. Предоставляется в информационных целях.</param>
         /// <param name="currencyCode">Код валюты продажи.</param>
         /// <param name="convertedCurrencyCode">Код валюты страны продавца.</param>
-        public ApiOrderFinalPriceResultData(int originalPrice = default(int), int convertedOriginalPrice = default(int), int originalFinalPrice = default(int), int convertedOriginalFinalPrice = default(int), int currencyCode = default(int), int convertedCurrencyCode = default(int))
+        public ApiOrderFinalPriceResultData(long originalPrice = default(long), long convertedOriginalPrice = default(long), long originalFinalPrice = default(long), long convertedOriginalFinalPrice = default(long), int currencyCode = default(int), int convertedCurrencyCode = default(int))
         {
             this.OriginalPrice = originalPrice;
             this.ConvertedOriginalPrice = convertedOriginalPrice;
@@ -55,28 +55,28 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Model
         /// </summary>
         /// <value>Цена продавца в валюте продажи без учёта скидок, умноженная на 100. Предоставляется в информационных целях</value>
         [DataMember(Name = "originalPrice", EmitDefaultValue = false)]
-        public int OriginalPrice { get; set; }
+        public long OriginalPrice { get; set; }
 
         /// <summary>
         /// Цена продавца в валюте страны продавца без учёта скидок, умноженная на 100. Предоставляется в информационных целях
         /// </summary>
         /// <value>Цена продавца в валюте страны продавца без учёта скидок, умноженная на 100. Предоставляется в информационных целях</value>
         [DataMember(Name = "convertedOriginalPrice", EmitDefaultValue = false)]
-        public int ConvertedOriginalPrice { get; set; }
+        public long ConvertedOriginalPrice { get; set; }
 
         /// <summary>
         /// Сумма к оплате покупателем в валюте продажи с учетом всех скидок и кэшбека, умноженная на 100. Код валюты продажи указан в поле &#x60;currencyCode&#x60;. Предоставляется в информационных целях
         /// </summary>
         /// <value>Сумма к оплате покупателем в валюте продажи с учетом всех скидок и кэшбека, умноженная на 100. Код валюты продажи указан в поле &#x60;currencyCode&#x60;. Предоставляется в информационных целях</value>
         [DataMember(Name = "originalFinalPrice", EmitDefaultValue = false)]
-        public int OriginalFinalPrice { get; set; }
+        public long OriginalFinalPrice { get; set; }
 
         /// <summary>
         /// Сумма к оплате покупателем в валюте страны продавца с учетом всех скидок и кэшбека, умноженная на 100. Предоставляется в информационных целях
         /// </summary>
         /// <value>Сумма к оплате покупателем в валюте страны продавца с учетом всех скидок и кэшбека, умноженная на 100. Предоставляется в информационных целях</value>
         [DataMember(Name = "convertedOriginalFinalPrice", EmitDefaultValue = false)]
-        public int ConvertedOriginalFinalPrice { get; set; }
+        public long ConvertedOriginalFinalPrice { get; set; }
 
         /// <summary>
         /// Код валюты продажи

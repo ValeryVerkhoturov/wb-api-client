@@ -501,7 +501,7 @@ public class OrdersFbwApi {
    * </table>
    */
   public okhttp3.Call getV1DraftsCall(
-      Integer limit, Integer offset, String sort, String order, final ApiCallback _callback)
+      Long limit, Long offset, String sort, String order, final ApiCallback _callback)
       throws ApiException {
     String basePath = null;
     // Operation Servers
@@ -573,7 +573,7 @@ public class OrdersFbwApi {
 
   @SuppressWarnings("rawtypes")
   private okhttp3.Call getV1DraftsValidateBeforeCall(
-      Integer limit, Integer offset, String sort, String order, final ApiCallback _callback)
+      Long limit, Long offset, String sort, String order, final ApiCallback _callback)
       throws ApiException {
     return getV1DraftsCall(limit, offset, sort, order, _callback);
   }
@@ -609,8 +609,8 @@ public class OrdersFbwApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public ModelsListDraftsResponse getV1Drafts(
-      Integer limit, Integer offset, String sort, String order) throws ApiException {
+  public ModelsListDraftsResponse getV1Drafts(Long limit, Long offset, String sort, String order)
+      throws ApiException {
     ApiResponse<ModelsListDraftsResponse> localVarResp =
         getV1DraftsWithHttpInfo(limit, offset, sort, order);
     return localVarResp.getData();
@@ -648,7 +648,7 @@ public class OrdersFbwApi {
    * </table>
    */
   public ApiResponse<ModelsListDraftsResponse> getV1DraftsWithHttpInfo(
-      Integer limit, Integer offset, String sort, String order) throws ApiException {
+      Long limit, Long offset, String sort, String order) throws ApiException {
     okhttp3.Call localVarCall = getV1DraftsValidateBeforeCall(limit, offset, sort, order, null);
     Type localVarReturnType = new TypeToken<ModelsListDraftsResponse>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -686,8 +686,8 @@ public class OrdersFbwApi {
    * </table>
    */
   public okhttp3.Call getV1DraftsAsync(
-      Integer limit,
-      Integer offset,
+      Long limit,
+      Long offset,
       String sort,
       String order,
       final ApiCallback<ModelsListDraftsResponse> _callback)
@@ -912,7 +912,7 @@ public class OrdersFbwApi {
    * </table>
    */
   public okhttp3.Call getV1SuppliesIdCall(
-      Integer ID, Boolean isPreorderID, final ApiCallback _callback) throws ApiException {
+      Long ID, Boolean isPreorderID, final ApiCallback _callback) throws ApiException {
     String basePath = null;
     // Operation Servers
     String[] localBasePaths = new String[] {"https://supplies-api.wildberries.ru"};
@@ -973,7 +973,7 @@ public class OrdersFbwApi {
 
   @SuppressWarnings("rawtypes")
   private okhttp3.Call getV1SuppliesIdValidateBeforeCall(
-      Integer ID, Boolean isPreorderID, final ApiCallback _callback) throws ApiException {
+      Long ID, Boolean isPreorderID, final ApiCallback _callback) throws ApiException {
     // verify the required parameter 'ID' is set
     if (ID == null) {
       throw new ApiException(
@@ -1012,7 +1012,7 @@ public class OrdersFbwApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public ModelsSupplyDetails getV1SuppliesId(Integer ID, Boolean isPreorderID) throws ApiException {
+  public ModelsSupplyDetails getV1SuppliesId(Long ID, Boolean isPreorderID) throws ApiException {
     ApiResponse<ModelsSupplyDetails> localVarResp = getV1SuppliesIdWithHttpInfo(ID, isPreorderID);
     return localVarResp.getData();
   }
@@ -1046,8 +1046,8 @@ public class OrdersFbwApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public ApiResponse<ModelsSupplyDetails> getV1SuppliesIdWithHttpInfo(
-      Integer ID, Boolean isPreorderID) throws ApiException {
+  public ApiResponse<ModelsSupplyDetails> getV1SuppliesIdWithHttpInfo(Long ID, Boolean isPreorderID)
+      throws ApiException {
     okhttp3.Call localVarCall = getV1SuppliesIdValidateBeforeCall(ID, isPreorderID, null);
     Type localVarReturnType = new TypeToken<ModelsSupplyDetails>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -1083,7 +1083,7 @@ public class OrdersFbwApi {
    * </table>
    */
   public okhttp3.Call getV1SuppliesIdAsync(
-      Integer ID, Boolean isPreorderID, final ApiCallback<ModelsSupplyDetails> _callback)
+      Long ID, Boolean isPreorderID, final ApiCallback<ModelsSupplyDetails> _callback)
       throws ApiException {
 
     okhttp3.Call localVarCall = getV1SuppliesIdValidateBeforeCall(ID, isPreorderID, _callback);
@@ -1117,7 +1117,7 @@ public class OrdersFbwApi {
    * </table>
    */
   public okhttp3.Call getV1SuppliesIdGoodsCall(
-      Integer ID, Integer limit, Integer offset, Boolean isPreorderID, final ApiCallback _callback)
+      Long ID, Long limit, Long offset, Boolean isPreorderID, final ApiCallback _callback)
       throws ApiException {
     String basePath = null;
     // Operation Servers
@@ -1189,7 +1189,7 @@ public class OrdersFbwApi {
 
   @SuppressWarnings("rawtypes")
   private okhttp3.Call getV1SuppliesIdGoodsValidateBeforeCall(
-      Integer ID, Integer limit, Integer offset, Boolean isPreorderID, final ApiCallback _callback)
+      Long ID, Long limit, Long offset, Boolean isPreorderID, final ApiCallback _callback)
       throws ApiException {
     // verify the required parameter 'ID' is set
     if (ID == null) {
@@ -1231,7 +1231,7 @@ public class OrdersFbwApi {
    * </table>
    */
   public List<ModelsGoodInSupply> getV1SuppliesIdGoods(
-      Integer ID, Integer limit, Integer offset, Boolean isPreorderID) throws ApiException {
+      Long ID, Long limit, Long offset, Boolean isPreorderID) throws ApiException {
     ApiResponse<List<ModelsGoodInSupply>> localVarResp =
         getV1SuppliesIdGoodsWithHttpInfo(ID, limit, offset, isPreorderID);
     return localVarResp.getData();
@@ -1268,7 +1268,7 @@ public class OrdersFbwApi {
    * </table>
    */
   public ApiResponse<List<ModelsGoodInSupply>> getV1SuppliesIdGoodsWithHttpInfo(
-      Integer ID, Integer limit, Integer offset, Boolean isPreorderID) throws ApiException {
+      Long ID, Long limit, Long offset, Boolean isPreorderID) throws ApiException {
     okhttp3.Call localVarCall =
         getV1SuppliesIdGoodsValidateBeforeCall(ID, limit, offset, isPreorderID, null);
     Type localVarReturnType = new TypeToken<List<ModelsGoodInSupply>>() {}.getType();
@@ -1306,9 +1306,9 @@ public class OrdersFbwApi {
    * </table>
    */
   public okhttp3.Call getV1SuppliesIdGoodsAsync(
-      Integer ID,
-      Integer limit,
-      Integer offset,
+      Long ID,
+      Long limit,
+      Long offset,
       Boolean isPreorderID,
       final ApiCallback<List<ModelsGoodInSupply>> _callback)
       throws ApiException {
@@ -1339,7 +1339,7 @@ public class OrdersFbwApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public okhttp3.Call getV1SuppliesIdPackageCall(Integer ID, final ApiCallback _callback)
+  public okhttp3.Call getV1SuppliesIdPackageCall(Long ID, final ApiCallback _callback)
       throws ApiException {
     String basePath = null;
     // Operation Servers
@@ -1397,7 +1397,7 @@ public class OrdersFbwApi {
 
   @SuppressWarnings("rawtypes")
   private okhttp3.Call getV1SuppliesIdPackageValidateBeforeCall(
-      Integer ID, final ApiCallback _callback) throws ApiException {
+      Long ID, final ApiCallback _callback) throws ApiException {
     // verify the required parameter 'ID' is set
     if (ID == null) {
       throw new ApiException(
@@ -1432,7 +1432,7 @@ public class OrdersFbwApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public List<ModelsBox> getV1SuppliesIdPackage(Integer ID) throws ApiException {
+  public List<ModelsBox> getV1SuppliesIdPackage(Long ID) throws ApiException {
     ApiResponse<List<ModelsBox>> localVarResp = getV1SuppliesIdPackageWithHttpInfo(ID);
     return localVarResp.getData();
   }
@@ -1462,7 +1462,7 @@ public class OrdersFbwApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public ApiResponse<List<ModelsBox>> getV1SuppliesIdPackageWithHttpInfo(Integer ID)
+  public ApiResponse<List<ModelsBox>> getV1SuppliesIdPackageWithHttpInfo(Long ID)
       throws ApiException {
     okhttp3.Call localVarCall = getV1SuppliesIdPackageValidateBeforeCall(ID, null);
     Type localVarReturnType = new TypeToken<List<ModelsBox>>() {}.getType();
@@ -1495,7 +1495,7 @@ public class OrdersFbwApi {
    * </table>
    */
   public okhttp3.Call getV1SuppliesIdPackageAsync(
-      Integer ID, final ApiCallback<List<ModelsBox>> _callback) throws ApiException {
+      Long ID, final ApiCallback<List<ModelsBox>> _callback) throws ApiException {
 
     okhttp3.Call localVarCall = getV1SuppliesIdPackageValidateBeforeCall(ID, _callback);
     Type localVarReturnType = new TypeToken<List<ModelsBox>>() {}.getType();
@@ -2090,7 +2090,7 @@ public class OrdersFbwApi {
    * </table>
    */
   public okhttp3.Call postV1AcceptanceOptionsCall(
-      List<ModelsGood> modelsGood, Integer warehouseID, final ApiCallback _callback)
+      List<ModelsGood> modelsGood, Long warehouseID, final ApiCallback _callback)
       throws ApiException {
     String basePath = null;
     // Operation Servers
@@ -2153,7 +2153,7 @@ public class OrdersFbwApi {
 
   @SuppressWarnings("rawtypes")
   private okhttp3.Call postV1AcceptanceOptionsValidateBeforeCall(
-      List<ModelsGood> modelsGood, Integer warehouseID, final ApiCallback _callback)
+      List<ModelsGood> modelsGood, Long warehouseID, final ApiCallback _callback)
       throws ApiException {
     // verify the required parameter 'modelsGood' is set
     if (modelsGood == null) {
@@ -2195,7 +2195,7 @@ public class OrdersFbwApi {
    * </table>
    */
   public ModelsOptionsResultModel postV1AcceptanceOptions(
-      List<ModelsGood> modelsGood, Integer warehouseID) throws ApiException {
+      List<ModelsGood> modelsGood, Long warehouseID) throws ApiException {
     ApiResponse<ModelsOptionsResultModel> localVarResp =
         postV1AcceptanceOptionsWithHttpInfo(modelsGood, warehouseID);
     return localVarResp.getData();
@@ -2232,7 +2232,7 @@ public class OrdersFbwApi {
    * </table>
    */
   public ApiResponse<ModelsOptionsResultModel> postV1AcceptanceOptionsWithHttpInfo(
-      List<ModelsGood> modelsGood, Integer warehouseID) throws ApiException {
+      List<ModelsGood> modelsGood, Long warehouseID) throws ApiException {
     okhttp3.Call localVarCall =
         postV1AcceptanceOptionsValidateBeforeCall(modelsGood, warehouseID, null);
     Type localVarReturnType = new TypeToken<ModelsOptionsResultModel>() {}.getType();
@@ -2271,7 +2271,7 @@ public class OrdersFbwApi {
    */
   public okhttp3.Call postV1AcceptanceOptionsAsync(
       List<ModelsGood> modelsGood,
-      Integer warehouseID,
+      Long warehouseID,
       final ApiCallback<ModelsOptionsResultModel> _callback)
       throws ApiException {
 
@@ -2687,8 +2687,8 @@ public class OrdersFbwApi {
    */
   public okhttp3.Call postV1SuppliesCall(
       ModelsSuppliesFiltersRequest modelsSuppliesFiltersRequest,
-      Integer limit,
-      Integer offset,
+      Long limit,
+      Long offset,
       final ApiCallback _callback)
       throws ApiException {
     String basePath = null;
@@ -2754,8 +2754,8 @@ public class OrdersFbwApi {
   @SuppressWarnings("rawtypes")
   private okhttp3.Call postV1SuppliesValidateBeforeCall(
       ModelsSuppliesFiltersRequest modelsSuppliesFiltersRequest,
-      Integer limit,
-      Integer offset,
+      Long limit,
+      Long offset,
       final ApiCallback _callback)
       throws ApiException {
     // verify the required parameter 'modelsSuppliesFiltersRequest' is set
@@ -2796,7 +2796,7 @@ public class OrdersFbwApi {
    * </table>
    */
   public List<ModelsSupply> postV1Supplies(
-      ModelsSuppliesFiltersRequest modelsSuppliesFiltersRequest, Integer limit, Integer offset)
+      ModelsSuppliesFiltersRequest modelsSuppliesFiltersRequest, Long limit, Long offset)
       throws ApiException {
     ApiResponse<List<ModelsSupply>> localVarResp =
         postV1SuppliesWithHttpInfo(modelsSuppliesFiltersRequest, limit, offset);
@@ -2832,7 +2832,7 @@ public class OrdersFbwApi {
    * </table>
    */
   public ApiResponse<List<ModelsSupply>> postV1SuppliesWithHttpInfo(
-      ModelsSuppliesFiltersRequest modelsSuppliesFiltersRequest, Integer limit, Integer offset)
+      ModelsSuppliesFiltersRequest modelsSuppliesFiltersRequest, Long limit, Long offset)
       throws ApiException {
     okhttp3.Call localVarCall =
         postV1SuppliesValidateBeforeCall(modelsSuppliesFiltersRequest, limit, offset, null);
@@ -2870,8 +2870,8 @@ public class OrdersFbwApi {
    */
   public okhttp3.Call postV1SuppliesAsync(
       ModelsSuppliesFiltersRequest modelsSuppliesFiltersRequest,
-      Integer limit,
-      Integer offset,
+      Long limit,
+      Long offset,
       final ApiCallback<List<ModelsSupply>> _callback)
       throws ApiException {
 

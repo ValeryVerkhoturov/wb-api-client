@@ -40,7 +40,7 @@ public class GetV1AdvertResponse200ItemsInner {
 
   @SerializedName(SERIALIZED_NAME_ID)
   @jakarta.annotation.Nullable
-  private Integer id;
+  private Long id;
 
   public static final String SERIALIZED_NAME_NAME = "name";
 
@@ -52,25 +52,25 @@ public class GetV1AdvertResponse200ItemsInner {
 
   @SerializedName(SERIALIZED_NAME_STATUS)
   @jakarta.annotation.Nullable
-  private Integer status;
+  private Long status;
 
   public static final String SERIALIZED_NAME_PLACE = "place";
 
   @SerializedName(SERIALIZED_NAME_PLACE)
   @jakarta.annotation.Nullable
-  private Integer place;
+  private Long place;
 
   public static final String SERIALIZED_NAME_BUDGET = "budget";
 
   @SerializedName(SERIALIZED_NAME_BUDGET)
   @jakarta.annotation.Nullable
-  private Integer budget;
+  private Long budget;
 
   public static final String SERIALIZED_NAME_DAILY_LIMIT = "daily_limit";
 
   @SerializedName(SERIALIZED_NAME_DAILY_LIMIT)
   @jakarta.annotation.Nullable
-  private Integer dailyLimit;
+  private Long dailyLimit;
 
   public static final String SERIALIZED_NAME_CATEGORY_NAME = "category_name";
 
@@ -82,7 +82,7 @@ public class GetV1AdvertResponse200ItemsInner {
 
   @SerializedName(SERIALIZED_NAME_CPM)
   @jakarta.annotation.Nullable
-  private Integer cpm;
+  private Long cpm;
 
   public static final String SERIALIZED_NAME_URL = "url";
 
@@ -94,7 +94,7 @@ public class GetV1AdvertResponse200ItemsInner {
 
   @SerializedName(SERIALIZED_NAME_ADVERT_TYPE)
   @jakarta.annotation.Nullable
-  private Integer advertType;
+  private Long advertType;
 
   public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
 
@@ -124,7 +124,7 @@ public class GetV1AdvertResponse200ItemsInner {
 
   @SerializedName(SERIALIZED_NAME_NMS)
   @jakarta.annotation.Nullable
-  private List<Integer> nms = new ArrayList<>();
+  private List<Long> nms = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_BOTTOM_TEXT1 = "bottomText1";
 
@@ -148,19 +148,19 @@ public class GetV1AdvertResponse200ItemsInner {
 
   @SerializedName(SERIALIZED_NAME_ADDITIONAL_SETTINGS)
   @jakarta.annotation.Nullable
-  private Integer additionalSettings;
+  private Long additionalSettings;
 
   public static final String SERIALIZED_NAME_RECEIVERS_COUNT = "receiversCount";
 
   @SerializedName(SERIALIZED_NAME_RECEIVERS_COUNT)
   @jakarta.annotation.Nullable
-  private Integer receiversCount;
+  private Long receiversCount;
 
   public static final String SERIALIZED_NAME_SUBJECT_ID = "subject_id";
 
   @SerializedName(SERIALIZED_NAME_SUBJECT_ID)
   @jakarta.annotation.Nullable
-  private Integer subjectId;
+  private Long subjectId;
 
   public static final String SERIALIZED_NAME_SUBJECT_NAME = "subject_name";
 
@@ -188,7 +188,7 @@ public class GetV1AdvertResponse200ItemsInner {
 
   public GetV1AdvertResponse200ItemsInner() {}
 
-  public GetV1AdvertResponse200ItemsInner id(@jakarta.annotation.Nullable Integer id) {
+  public GetV1AdvertResponse200ItemsInner id(@jakarta.annotation.Nullable Long id) {
     this.id = id;
     return this;
   }
@@ -199,11 +199,11 @@ public class GetV1AdvertResponse200ItemsInner {
    * @return id
    */
   @jakarta.annotation.Nullable
-  public Integer getId() {
+  public Long getId() {
     return id;
   }
 
-  public void setId(@jakarta.annotation.Nullable Integer id) {
+  public void setId(@jakarta.annotation.Nullable Long id) {
     this.id = id;
   }
 
@@ -226,7 +226,7 @@ public class GetV1AdvertResponse200ItemsInner {
     this.name = name;
   }
 
-  public GetV1AdvertResponse200ItemsInner status(@jakarta.annotation.Nullable Integer status) {
+  public GetV1AdvertResponse200ItemsInner status(@jakarta.annotation.Nullable Long status) {
     this.status = status;
     return this;
   }
@@ -237,15 +237,15 @@ public class GetV1AdvertResponse200ItemsInner {
    * @return status
    */
   @jakarta.annotation.Nullable
-  public Integer getStatus() {
+  public Long getStatus() {
     return status;
   }
 
-  public void setStatus(@jakarta.annotation.Nullable Integer status) {
+  public void setStatus(@jakarta.annotation.Nullable Long status) {
     this.status = status;
   }
 
-  public GetV1AdvertResponse200ItemsInner place(@jakarta.annotation.Nullable Integer place) {
+  public GetV1AdvertResponse200ItemsInner place(@jakarta.annotation.Nullable Long place) {
     this.place = place;
     return this;
   }
@@ -256,15 +256,15 @@ public class GetV1AdvertResponse200ItemsInner {
    * @return place
    */
   @jakarta.annotation.Nullable
-  public Integer getPlace() {
+  public Long getPlace() {
     return place;
   }
 
-  public void setPlace(@jakarta.annotation.Nullable Integer place) {
+  public void setPlace(@jakarta.annotation.Nullable Long place) {
     this.place = place;
   }
 
-  public GetV1AdvertResponse200ItemsInner budget(@jakarta.annotation.Nullable Integer budget) {
+  public GetV1AdvertResponse200ItemsInner budget(@jakarta.annotation.Nullable Long budget) {
     this.budget = budget;
     return this;
   }
@@ -275,16 +275,15 @@ public class GetV1AdvertResponse200ItemsInner {
    * @return budget
    */
   @jakarta.annotation.Nullable
-  public Integer getBudget() {
+  public Long getBudget() {
     return budget;
   }
 
-  public void setBudget(@jakarta.annotation.Nullable Integer budget) {
+  public void setBudget(@jakarta.annotation.Nullable Long budget) {
     this.budget = budget;
   }
 
-  public GetV1AdvertResponse200ItemsInner dailyLimit(
-      @jakarta.annotation.Nullable Integer dailyLimit) {
+  public GetV1AdvertResponse200ItemsInner dailyLimit(@jakarta.annotation.Nullable Long dailyLimit) {
     this.dailyLimit = dailyLimit;
     return this;
   }
@@ -295,11 +294,11 @@ public class GetV1AdvertResponse200ItemsInner {
    * @return dailyLimit
    */
   @jakarta.annotation.Nullable
-  public Integer getDailyLimit() {
+  public Long getDailyLimit() {
     return dailyLimit;
   }
 
-  public void setDailyLimit(@jakarta.annotation.Nullable Integer dailyLimit) {
+  public void setDailyLimit(@jakarta.annotation.Nullable Long dailyLimit) {
     this.dailyLimit = dailyLimit;
   }
 
@@ -323,7 +322,7 @@ public class GetV1AdvertResponse200ItemsInner {
     this.categoryName = categoryName;
   }
 
-  public GetV1AdvertResponse200ItemsInner cpm(@jakarta.annotation.Nullable Integer cpm) {
+  public GetV1AdvertResponse200ItemsInner cpm(@jakarta.annotation.Nullable Long cpm) {
     this.cpm = cpm;
     return this;
   }
@@ -334,11 +333,11 @@ public class GetV1AdvertResponse200ItemsInner {
    * @return cpm
    */
   @jakarta.annotation.Nullable
-  public Integer getCpm() {
+  public Long getCpm() {
     return cpm;
   }
 
-  public void setCpm(@jakarta.annotation.Nullable Integer cpm) {
+  public void setCpm(@jakarta.annotation.Nullable Long cpm) {
     this.cpm = cpm;
   }
 
@@ -361,8 +360,7 @@ public class GetV1AdvertResponse200ItemsInner {
     this.url = url;
   }
 
-  public GetV1AdvertResponse200ItemsInner advertType(
-      @jakarta.annotation.Nullable Integer advertType) {
+  public GetV1AdvertResponse200ItemsInner advertType(@jakarta.annotation.Nullable Long advertType) {
     this.advertType = advertType;
     return this;
   }
@@ -375,11 +373,11 @@ public class GetV1AdvertResponse200ItemsInner {
    * @return advertType
    */
   @jakarta.annotation.Nullable
-  public Integer getAdvertType() {
+  public Long getAdvertType() {
     return advertType;
   }
 
-  public void setAdvertType(@jakarta.annotation.Nullable Integer advertType) {
+  public void setAdvertType(@jakarta.annotation.Nullable Long advertType) {
     this.advertType = advertType;
   }
 
@@ -459,12 +457,12 @@ public class GetV1AdvertResponse200ItemsInner {
     this.dateTo = dateTo;
   }
 
-  public GetV1AdvertResponse200ItemsInner nms(@jakarta.annotation.Nullable List<Integer> nms) {
+  public GetV1AdvertResponse200ItemsInner nms(@jakarta.annotation.Nullable List<Long> nms) {
     this.nms = nms;
     return this;
   }
 
-  public GetV1AdvertResponse200ItemsInner addNmsItem(Integer nmsItem) {
+  public GetV1AdvertResponse200ItemsInner addNmsItem(Long nmsItem) {
     if (this.nms == null) {
       this.nms = new ArrayList<>();
     }
@@ -478,11 +476,11 @@ public class GetV1AdvertResponse200ItemsInner {
    * @return nms
    */
   @jakarta.annotation.Nullable
-  public List<Integer> getNms() {
+  public List<Long> getNms() {
     return nms;
   }
 
-  public void setNms(@jakarta.annotation.Nullable List<Integer> nms) {
+  public void setNms(@jakarta.annotation.Nullable List<Long> nms) {
     this.nms = nms;
   }
 
@@ -546,7 +544,7 @@ public class GetV1AdvertResponse200ItemsInner {
   }
 
   public GetV1AdvertResponse200ItemsInner additionalSettings(
-      @jakarta.annotation.Nullable Integer additionalSettings) {
+      @jakarta.annotation.Nullable Long additionalSettings) {
     this.additionalSettings = additionalSettings;
     return this;
   }
@@ -559,16 +557,16 @@ public class GetV1AdvertResponse200ItemsInner {
    * @return additionalSettings
    */
   @jakarta.annotation.Nullable
-  public Integer getAdditionalSettings() {
+  public Long getAdditionalSettings() {
     return additionalSettings;
   }
 
-  public void setAdditionalSettings(@jakarta.annotation.Nullable Integer additionalSettings) {
+  public void setAdditionalSettings(@jakarta.annotation.Nullable Long additionalSettings) {
     this.additionalSettings = additionalSettings;
   }
 
   public GetV1AdvertResponse200ItemsInner receiversCount(
-      @jakarta.annotation.Nullable Integer receiversCount) {
+      @jakarta.annotation.Nullable Long receiversCount) {
     this.receiversCount = receiversCount;
     return this;
   }
@@ -579,16 +577,15 @@ public class GetV1AdvertResponse200ItemsInner {
    * @return receiversCount
    */
   @jakarta.annotation.Nullable
-  public Integer getReceiversCount() {
+  public Long getReceiversCount() {
     return receiversCount;
   }
 
-  public void setReceiversCount(@jakarta.annotation.Nullable Integer receiversCount) {
+  public void setReceiversCount(@jakarta.annotation.Nullable Long receiversCount) {
     this.receiversCount = receiversCount;
   }
 
-  public GetV1AdvertResponse200ItemsInner subjectId(
-      @jakarta.annotation.Nullable Integer subjectId) {
+  public GetV1AdvertResponse200ItemsInner subjectId(@jakarta.annotation.Nullable Long subjectId) {
     this.subjectId = subjectId;
     return this;
   }
@@ -599,11 +596,11 @@ public class GetV1AdvertResponse200ItemsInner {
    * @return subjectId
    */
   @jakarta.annotation.Nullable
-  public Integer getSubjectId() {
+  public Long getSubjectId() {
     return subjectId;
   }
 
-  public void setSubjectId(@jakarta.annotation.Nullable Integer subjectId) {
+  public void setSubjectId(@jakarta.annotation.Nullable Long subjectId) {
     this.subjectId = subjectId;
   }
 

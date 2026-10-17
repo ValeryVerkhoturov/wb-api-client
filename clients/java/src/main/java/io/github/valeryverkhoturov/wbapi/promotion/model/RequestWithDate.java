@@ -39,7 +39,7 @@ public class RequestWithDate {
 
   @SerializedName(SERIALIZED_NAME_ID)
   @jakarta.annotation.Nonnull
-  private Integer id;
+  private Long id;
 
   public static final String SERIALIZED_NAME_DATES = "dates";
 
@@ -49,7 +49,7 @@ public class RequestWithDate {
 
   public RequestWithDate() {}
 
-  public RequestWithDate id(@jakarta.annotation.Nonnull Integer id) {
+  public RequestWithDate id(@jakarta.annotation.Nonnull Long id) {
     this.id = id;
     return this;
   }
@@ -60,11 +60,11 @@ public class RequestWithDate {
    * @return id
    */
   @jakarta.annotation.Nonnull
-  public Integer getId() {
+  public Long getId() {
     return id;
   }
 
-  public void setId(@jakarta.annotation.Nonnull Integer id) {
+  public void setId(@jakarta.annotation.Nonnull Long id) {
     this.id = id;
   }
 

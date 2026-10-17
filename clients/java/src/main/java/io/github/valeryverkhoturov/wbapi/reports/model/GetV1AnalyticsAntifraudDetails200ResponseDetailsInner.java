@@ -37,13 +37,13 @@ public class GetV1AnalyticsAntifraudDetails200ResponseDetailsInner {
 
   @SerializedName(SERIALIZED_NAME_NM_I_D)
   @jakarta.annotation.Nullable
-  private Integer nmID;
+  private Long nmID;
 
   public static final String SERIALIZED_NAME_SUM = "sum";
 
   @SerializedName(SERIALIZED_NAME_SUM)
   @jakarta.annotation.Nullable
-  private Integer sum;
+  private Long sum;
 
   public static final String SERIALIZED_NAME_CURRENCY = "currency";
 
@@ -66,7 +66,7 @@ public class GetV1AnalyticsAntifraudDetails200ResponseDetailsInner {
   public GetV1AnalyticsAntifraudDetails200ResponseDetailsInner() {}
 
   public GetV1AnalyticsAntifraudDetails200ResponseDetailsInner nmID(
-      @jakarta.annotation.Nullable Integer nmID) {
+      @jakarta.annotation.Nullable Long nmID) {
     this.nmID = nmID;
     return this;
   }
@@ -77,16 +77,16 @@ public class GetV1AnalyticsAntifraudDetails200ResponseDetailsInner {
    * @return nmID
    */
   @jakarta.annotation.Nullable
-  public Integer getNmID() {
+  public Long getNmID() {
     return nmID;
   }
 
-  public void setNmID(@jakarta.annotation.Nullable Integer nmID) {
+  public void setNmID(@jakarta.annotation.Nullable Long nmID) {
     this.nmID = nmID;
   }
 
   public GetV1AnalyticsAntifraudDetails200ResponseDetailsInner sum(
-      @jakarta.annotation.Nullable Integer sum) {
+      @jakarta.annotation.Nullable Long sum) {
     this.sum = sum;
     return this;
   }
@@ -97,11 +97,11 @@ public class GetV1AnalyticsAntifraudDetails200ResponseDetailsInner {
    * @return sum
    */
   @jakarta.annotation.Nullable
-  public Integer getSum() {
+  public Long getSum() {
     return sum;
   }
 
-  public void setSum(@jakarta.annotation.Nullable Integer sum) {
+  public void setSum(@jakarta.annotation.Nullable Long sum) {
     this.sum = sum;
   }
 

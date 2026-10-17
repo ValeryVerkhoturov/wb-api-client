@@ -62,7 +62,7 @@ public class NmReportGetReportsResponseDataInner {
 
   @SerializedName(SERIALIZED_NAME_SIZE)
   @jakarta.annotation.Nullable
-  private Integer size;
+  private Long size;
 
   public static final String SERIALIZED_NAME_START_DATE = "startDate";
 
@@ -157,7 +157,7 @@ public class NmReportGetReportsResponseDataInner {
     this.name = name;
   }
 
-  public NmReportGetReportsResponseDataInner size(@jakarta.annotation.Nullable Integer size) {
+  public NmReportGetReportsResponseDataInner size(@jakarta.annotation.Nullable Long size) {
     this.size = size;
     return this;
   }
@@ -168,11 +168,11 @@ public class NmReportGetReportsResponseDataInner {
    * @return size
    */
   @jakarta.annotation.Nullable
-  public Integer getSize() {
+  public Long getSize() {
     return size;
   }
 
-  public void setSize(@jakarta.annotation.Nullable Integer size) {
+  public void setSize(@jakarta.annotation.Nullable Long size) {
     this.size = size;
   }
 

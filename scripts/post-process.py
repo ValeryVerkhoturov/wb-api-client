@@ -12,37 +12,41 @@ Passes applied to every spec:
    template emit `[]Array` (undefined) and TS fall back to `any[]`. We
    default missing inner types to `{type: string}`.
 
-3. `inline_top_level_arrays` — WB defines schemas like `DaysV3` at the
+3. `widen_integer_formats` — WB omits integer formats or uses unsigned
+   formats for IDs and timestamps that exceed signed 32-bit integers. We
+   use `int64` unless the schema explicitly requests a smaller signed type.
+
+4. `inline_top_level_arrays` — WB defines schemas like `DaysV3` at the
    root as `type: array`. Java/Go/TS templates all mishandle a `$ref` to
    an array-at-root (Go emits `*Array`, Java calls `.validateJsonElement()`
    on `List<>`). We inline every array-schema $ref at its use site and
    delete the top-level entry.
 
-4. `name_inline_response_schemas` — anonymous inline schemas under 4xx/5xx
+5. `name_inline_response_schemas` — anonymous inline schemas under 4xx/5xx
    responses get auto-named `_409SupplyDeliverErrorData` by the generator,
    which is an invalid Go identifier (leading digit). We hoist each inline
    response schema to `#/components/schemas/<OperationId>Response<code>`
    so the generator uses a stable, language-safe name.
 
-5. `sanitize_non_ascii_enums` — string enums whose values are non-ASCII
+6. `sanitize_non_ascii_enums` — string enums whose values are non-ASCII
    (e.g. `["Склад WB", "Склад продавца"]`) produce empty JS/Go/Java
    identifiers. We add `x-enum-varnames: [Value1, Value2, ...]` so the
    generator has a fallback ASCII name for every value.
 
-6. `htmlize_descriptions_to_markdown` — WB descriptions are HTML (with
+7. `htmlize_descriptions_to_markdown` — WB descriptions are HTML (with
    `<div class="api-block">`, `<a href>`, `<strong>`, `<br>`, `<ul>`, etc.)
    which reads badly in generated code doc-comments. Convert every
    `description` string to Markdown so docstrings and Javadoc/JSDoc render
    as intended.
 
-7. `absolutize_description_links` — Markdown links in descriptions point
+8. `absolutize_description_links` — Markdown links in descriptions point
    at relative paths on the WB developer portal (e.g.
    `[warehouses inventory](/openapi/reports#tag/warehousesInventoryReport)`).
    Those don't resolve outside the portal, so we prefix them with
    `https://dev.wildberries.ru`. Runs after the HTML→Markdown pass so it
    sees the final link form.
 
-8. `drop_date_formats` — WB returns `""` for unset date fields (e.g.
+9. `drop_date_formats` — WB returns `""` for unset date fields (e.g.
    `fixTariffDateFrom`, `utdUcdDate` in sales-report detail rows), which is
    not a valid RFC3339 date. Strict date parsers in every generated
    language then fail response deserialization (pydantic
@@ -50,24 +54,24 @@ Passes applied to every spec:
    `LocalDate`). We strip `format: date` / `format: date-time` from string
    schemas so clients type these as plain strings.
 
-9. `drop_response_required` — WB marks nearly every response field
-   `required`, but the live API omits fields at will, and every generated
-   language throws on deserialization when a "required" field is absent
-   (pydantic `model_validate`, Java `validateJsonElement`, Go
-   `UnmarshalJSON`, C# `DataMember(IsRequired)`, PHP setter null-checks).
-   We delete `required` arrays from every schema reachable from a response
-   definition so missing fields deserialize to defaults (`None` / null /
-   zero value). Request-body schemas keep their `required` lists, so
-   input validation is unaffected.
+10. `drop_response_required` — WB marks nearly every response field
+    `required`, but the live API omits fields at will, and every generated
+    language throws on deserialization when a "required" field is absent
+    (pydantic `model_validate`, Java `validateJsonElement`, Go
+    `UnmarshalJSON`, C# `DataMember(IsRequired)`, PHP setter null-checks).
+    We delete `required` arrays from every schema reachable from a response
+    definition so missing fields deserialize to defaults (`None` / null /
+    zero value). Request-body schemas keep their `required` lists, so
+    input validation is unaffected.
 
-10. `rename_tags_to_module` — WB tags are Russian (`Финансовые отчёты`),
+11. `rename_tags_to_module` — WB tags are Russian (`Финансовые отчёты`),
     which openapi-generator sanitizes to an empty class-name stem, so every
     language falls back to `Api`/`DefaultApi` classes. We rewrite every
     operation's `tags` to the module name (`Finances`, `Reports`, …), so
     each module gets a single well-named API class (`FinancesApi`, …), and
     stash the original tags in `x-original-tags` for the docs generator.
 
-11. `add_docs_links` — appends a `Library doc: <url>` line to every
+12. `add_docs_links` — appends a `Library doc: <url>` line to every
     operation's `description`, pointing at the operation's page on
     https://valeryverkhoturov.github.io/wb-api-client-docs. Generators copy
     `description` into docstrings/Javadoc/doc-comments, so every client
@@ -161,6 +165,26 @@ def fix_untyped_arrays(node: Any) -> int:
     elif isinstance(node, list):
         for v in node:
             fixed += fix_untyped_arrays(v)
+    return fixed
+
+
+def widen_integer_formats(node: Any) -> int:
+    """Use int64 for integers that can exceed signed 32-bit values."""
+    fixed = 0
+    if isinstance(node, dict):
+        fmt = node.get("format")
+        if node.get("type") == "integer" and (
+            fmt is None
+            or fmt in {"uint32", "uint64"}
+            or (isinstance(fmt, str) and fmt.lower().startswith("unix"))
+        ):
+            node["format"] = "int64"
+            fixed += 1
+        for v in node.values():
+            fixed += widen_integer_formats(v)
+    elif isinstance(node, list):
+        for v in node:
+            fixed += widen_integer_formats(v)
     return fixed
 
 
@@ -683,6 +707,7 @@ def process_file(src: Path, dst: Path) -> dict:
     inject_bearer_auth(spec)
     stats = {
         "arrays": fix_untyped_arrays(spec),
+        "integers_widened": widen_integer_formats(spec),
         "inlined_arrays": inline_top_level_arrays(spec),
         "renamed_schemas": rename_digit_prefixed_schemas(spec),
         "hoisted_responses": name_inline_response_schemas(spec),
@@ -708,13 +733,14 @@ def main() -> int:
 
     specs = sorted(p for p in src_dir.glob("*.yaml") if p.parent == src_dir)
     if not specs:
-        sys.stderr.write(f"No specs found in {src_dir}. Run download-swaggers.sh first.\n")
+        sys.stderr.write(f"No specs found in {src_dir}. Run download-swaggers.py first.\n")
         return 1
 
-    totals = {"arrays": 0, "inlined_arrays": 0, "renamed_schemas": 0,
-              "hoisted_responses": 0, "required_dropped": 0, "enums": 0,
-              "tags_renamed": 0, "date_formats_dropped": 0,
-              "descriptions_md": 0, "links_absolutized": 0, "docs_links": 0}
+    totals = {"arrays": 0, "integers_widened": 0, "inlined_arrays": 0,
+              "renamed_schemas": 0, "hoisted_responses": 0,
+              "required_dropped": 0, "enums": 0, "tags_renamed": 0,
+              "date_formats_dropped": 0, "descriptions_md": 0,
+              "links_absolutized": 0, "docs_links": 0}
     for spec_path in specs:
         target = dst_dir / spec_path.name
         stats = process_file(spec_path, target)
@@ -723,6 +749,7 @@ def main() -> int:
         print(
             f"  {spec_path.name:28s} "
             f"arrays={stats['arrays']:>2} "
+            f"integers-widened={stats['integers_widened']:>4} "
             f"inlined-arrays={stats['inlined_arrays']:>2} "
             f"renamed={stats['renamed_schemas']:>2} "
             f"hoisted-responses={stats['hoisted_responses']:>3} "

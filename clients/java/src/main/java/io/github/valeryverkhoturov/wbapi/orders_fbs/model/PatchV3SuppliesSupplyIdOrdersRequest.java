@@ -39,17 +39,17 @@ public class PatchV3SuppliesSupplyIdOrdersRequest {
 
   @SerializedName(SERIALIZED_NAME_ORDERS)
   @jakarta.annotation.Nullable
-  private List<Integer> orders = new ArrayList<>();
+  private List<Long> orders = new ArrayList<>();
 
   public PatchV3SuppliesSupplyIdOrdersRequest() {}
 
   public PatchV3SuppliesSupplyIdOrdersRequest orders(
-      @jakarta.annotation.Nullable List<Integer> orders) {
+      @jakarta.annotation.Nullable List<Long> orders) {
     this.orders = orders;
     return this;
   }
 
-  public PatchV3SuppliesSupplyIdOrdersRequest addOrdersItem(Integer ordersItem) {
+  public PatchV3SuppliesSupplyIdOrdersRequest addOrdersItem(Long ordersItem) {
     if (this.orders == null) {
       this.orders = new ArrayList<>();
     }
@@ -63,11 +63,11 @@ public class PatchV3SuppliesSupplyIdOrdersRequest {
    * @return orders
    */
   @jakarta.annotation.Nullable
-  public List<Integer> getOrders() {
+  public List<Long> getOrders() {
     return orders;
   }
 
-  public void setOrders(@jakarta.annotation.Nullable List<Integer> orders) {
+  public void setOrders(@jakarta.annotation.Nullable List<Long> orders) {
     this.orders = orders;
   }
 

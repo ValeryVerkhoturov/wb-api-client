@@ -159,43 +159,43 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
             // FirstName (string) minLength
             if (this.FirstName != null && this.FirstName.Length < 1)
             {
-                yield return new ValidationResult("Invalid value for FirstName, length must be greater than 1.", new [] { "FirstName" });
+                yield return new ValidationResult("Invalid value for FirstName, length must be greater than 1.", new[] { "FirstName" });
             }
 
             // LastName (string) minLength
             if (this.LastName != null && this.LastName.Length < 1)
             {
-                yield return new ValidationResult("Invalid value for LastName, length must be greater than 1.", new [] { "LastName" });
+                yield return new ValidationResult("Invalid value for LastName, length must be greater than 1.", new[] { "LastName" });
             }
 
             // CarModel (string) maxLength
             if (this.CarModel != null && this.CarModel.Length > 100)
             {
-                yield return new ValidationResult("Invalid value for CarModel, length must be less than 100.", new [] { "CarModel" });
+                yield return new ValidationResult("Invalid value for CarModel, length must be less than 100.", new[] { "CarModel" });
             }
 
             // CarModel (string) minLength
             if (this.CarModel != null && this.CarModel.Length < 1)
             {
-                yield return new ValidationResult("Invalid value for CarModel, length must be greater than 1.", new [] { "CarModel" });
+                yield return new ValidationResult("Invalid value for CarModel, length must be greater than 1.", new[] { "CarModel" });
             }
 
             // CarNumber (string) maxLength
             if (this.CarNumber != null && this.CarNumber.Length > 9)
             {
-                yield return new ValidationResult("Invalid value for CarNumber, length must be less than 9.", new [] { "CarNumber" });
+                yield return new ValidationResult("Invalid value for CarNumber, length must be less than 9.", new[] { "CarNumber" });
             }
 
             // CarNumber (string) minLength
             if (this.CarNumber != null && this.CarNumber.Length < 6)
             {
-                yield return new ValidationResult("Invalid value for CarNumber, length must be greater than 6.", new [] { "CarNumber" });
+                yield return new ValidationResult("Invalid value for CarNumber, length must be greater than 6.", new[] { "CarNumber" });
             }
 
             // OfficeId (long) minimum
             if (this.OfficeId < (long)1)
             {
-                yield return new ValidationResult("Invalid value for OfficeId, must be a value greater than or equal to 1.", new [] { "OfficeId" });
+                yield return new ValidationResult("Invalid value for OfficeId, must be a value greater than or equal to 1.", new[] { "OfficeId" });
             }
 
             yield break;

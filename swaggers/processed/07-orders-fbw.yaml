@@ -65,6 +65,7 @@ paths:
         description: "ID склада.\n Если параметр не указан, возвращаются данные по всем складам.\n \\*\\*Максимум одно значение\\*\\*"
         schema:
           type: integer
+          format: int64
         example: 507
       requestBody:
         content:
@@ -233,12 +234,14 @@ paths:
           default: 1000
           maximum: 1000
           minimum: 1
+          format: int64
       - name: offset
         in: query
         description: После какого элемента выдавать данные
         schema:
           type: integer
           default: 0
+          format: int64
       requestBody:
         required: true
         content:
@@ -346,6 +349,7 @@ paths:
         required: true
         schema:
           type: integer
+          format: int64
       - name: isPreorderID
         in: query
         description: |
@@ -428,12 +432,14 @@ paths:
           default: 100
           maximum: 1000
           minimum: 1
+          format: int64
       - name: offset
         in: query
         description: После какого элемента выдавать данные
         schema:
           type: integer
           default: 0
+          format: int64
       - name: isPreorderID
         in: query
         description: |
@@ -449,6 +455,7 @@ paths:
         required: true
         schema:
           type: integer
+          format: int64
       responses:
         '200':
           description: Успешно
@@ -515,6 +522,7 @@ paths:
         required: true
         schema:
           type: integer
+          format: int64
       responses:
         '200':
           description: Успешно
@@ -581,6 +589,7 @@ paths:
           default: 1000
           minimum: 0
           maximum: 1000
+          format: int64
       - name: offset
         in: query
         description: Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента
@@ -588,6 +597,7 @@ paths:
           type: integer
           default: 0
           minimum: 0
+          format: int64
       - name: sort
         in: query
         schema:
@@ -1179,14 +1189,17 @@ components:
           nullable: false
           description: Количество товара, заявленное при формировании поставки
           type: integer
+          format: int64
         actualAmount:
           nullable: false
           description: Фактическое количество товара
           type: integer
+          format: int64
         discrepancyQuantity:
           nullable: false
           description: Разница между заявленным и фактическим количеством товара
           type: integer
+          format: int64
         actualSku:
           nullable: false
           description: Фактический баркод
@@ -1204,6 +1217,7 @@ components:
           nullable: false
           description: ID сканирования
           type: integer
+          format: int64
         declaredSku:
           nullable: false
           description: Баркод, заявленный при формировании поставки
@@ -1234,6 +1248,7 @@ components:
         status:
           type: integer
           description: HTTP статус-код
+          format: int64
         title:
           type: string
           description: Заголовок ошибки
@@ -1323,6 +1338,7 @@ components:
         quantity:
           type: integer
           description: Количество единиц товара
+          format: int64
         brandName:
           type: string
           description: Бренд
@@ -1332,6 +1348,7 @@ components:
         nmId:
           type: integer
           description: Артикул WB
+          format: int64
         subjectName:
           type: string
           description: Предмет
@@ -1364,18 +1381,22 @@ components:
         skuQuantity:
           type: integer
           description: Количество баркодов
+          format: int64
         itemQuantity:
           type: integer
           description: Количество единиц товара
+          format: int64
     models.ListDraftItemsResponse:
       type: object
       properties:
         skuQuantity:
           type: integer
           description: Количество баркодов
+          format: int64
         itemQuantity:
           type: integer
           description: Количество единиц товара
+          format: int64
         items:
           type: array
           items:
@@ -1387,6 +1408,7 @@ components:
         total:
           type: integer
           description: Общее количество черновиков
+          format: int64
         drafts:
           type: array
           items:
@@ -1404,6 +1426,7 @@ components:
             Количество единиц товара
           minimum: 1
           maximum: 999999
+          format: int64
         sku:
           type: string
           description: Баркод из карточки товара
@@ -1428,15 +1451,18 @@ components:
         palletTariff:
           type: integer
           description: Тариф за паллету, ₽
+          format: int64
     models.VolumeTariff:
       type: object
       properties:
         from:
           type: integer
           description: Объём поставки от, литры
+          format: int64
         to:
           type: integer
           description: Объём поставки до, литры
+          format: int64
         value:
           type: number
           description: Тариф, ₽ за литр
@@ -1449,6 +1475,7 @@ components:
         quantity:
           type: integer
           description: Суммарное количество товара в упаковке, шт
+          format: int64
         barcodes:
           type: array
           description: Список упакованных товаров
@@ -1469,6 +1496,7 @@ components:
         quantity:
           type: integer
           description: Количество, шт
+          format: int64
     models.SuppliesFiltersRequest:
       properties:
         dates:
@@ -1501,6 +1529,7 @@ components:
         nmID:
           type: integer
           description: Артикул WB
+          format: int64
         needKiz:
           description: |
             Нужен ли [код маркировки Честного знака](https://честныйзнак.рф/) для этого товара:
@@ -1525,21 +1554,26 @@ components:
           type: integer
           nullable: true
           description: Указано в упаковке, шт
+          format: int64
         quantity:
           type: integer
           description: Указано в поставке/заказе, шт
+          format: int64
         readyForSaleQuantity:
           type: integer
           nullable: true
           description: Поступило в продажу, шт
+          format: int64
         acceptedQuantity:
           type: integer
           nullable: true
           description: Принято, шт
+          format: int64
         unloadingQuantity:
           type: integer
           nullable: true
           description: Количество товара на раскладке, шт
+          format: int64
       example:
         barcode: '1234567891234'
         vendorCode: wb4sewt0vg
@@ -1602,6 +1636,7 @@ components:
           - 5
           - 6
           type: integer
+          format: int64
         virtualTypeID:
           description: |
             ID типа виртуальной поставки. Отображается только для поставок с `"boxTypeID":0`.
@@ -1611,6 +1646,7 @@ components:
               - `5` — Допринято
               - `6` — Скан-приёмка
           type: integer
+          format: int64
         boxTypeID:
           description: |
             ID типа поставки:
@@ -1619,6 +1655,7 @@ components:
               - `5` — Монопаллеты
               - `6` — Суперсейф
           type: integer
+          format: int64
         createDate:
           description: Дата и время создания поставки
           type: string
@@ -1637,6 +1674,7 @@ components:
         warehouseID:
           description: ID склада, на который планируется поставка
           type: integer
+          format: int64
         warehouseName:
           description: Название склада, на который планируется поставка
           type: string
@@ -1644,6 +1682,7 @@ components:
           description: ID склада, на который поставка была привезена
           type: integer
           nullable: true
+          format: int64
         actualWarehouseName:
           description: Название склада, на который поставка привезена
           type: string
@@ -1651,6 +1690,7 @@ components:
           description: ID транзитного склада
           type: integer
           nullable: true
+          format: int64
         transitWarehouseName:
           description: Название транзитного склада
           type: string
@@ -1681,28 +1721,34 @@ components:
         quantity:
           type: integer
           description: Добавлено в поставку/заказ, шт
+          format: int64
         readyForSaleQuantity:
           type: integer
           nullable: false
           description: Поступило в продажу, шт
+          format: int64
         acceptedQuantity:
           type: integer
           nullable: false
           description: Принято, шт
+          format: int64
         unloadingQuantity:
           type: integer
           nullable: false
           description: Количество товара, находящегося на раскладке, шт
+          format: int64
         depersonalizedQuantity:
           type: integer
           nullable: true
           description: Количество обезличенного товара, шт
+          format: int64
         discrepancies:
           type: integer
           description: |-
             Расхождения между заявленным и фактическим количеством товара в поставке.
 
             Только при `"statusID":5`
+          format: int64
         isBoxOnPallet:
           type: boolean
           description: |
@@ -1755,6 +1801,7 @@ components:
       - Accepted
       - Virtual
       - UnloadedOnGate
+      format: int64
     models.Supply:
       properties:
         phone:
@@ -1764,9 +1811,11 @@ components:
           description: ID поставки. Если `null`, это заказ, тогда используйте значение поля `preorderID`
           type: integer
           nullable: true
+          format: int64
         preorderID:
           description: ID заказа (незапланированная поставка). Для всех виртуальных поставок будет `0`
           type: integer
+          format: int64
         createDate:
           description: Дата и время создания поставки
           type: string
@@ -1799,6 +1848,7 @@ components:
           - 5
           - 6
           type: integer
+          format: int64
         boxTypeID:
           description: |
             ID типа поставки:
@@ -1821,6 +1871,7 @@ components:
         ID:
           type: integer
           description: ID склада
+          format: int64
         name:
           type: string
           description: Название склада
@@ -1859,6 +1910,7 @@ components:
              \*\*Максимум 999999\*\*
           minimum: 1
           maximum: 999999
+          format: int64
         barcode:
           type: string
           description: Баркод из карточки товара
@@ -1868,6 +1920,7 @@ components:
         status:
           type: integer
           description: HTTP статус-код
+          format: int64
         title:
           type: string
           description: ID ошибки
@@ -1917,6 +1970,7 @@ components:
                     warehouseID:
                       type: integer
                       description: ID склада. По нему можно получить [информацию о складе](./orders-fbw#tag/informationForFormingSupplies/operation/getV1Warehouses)
+                      format: int64
                     canBox:
                       type: boolean
                       description: |
@@ -1950,6 +2004,7 @@ components:
         status:
           type: integer
           description: HTTP-статус код
+          format: int64
         title:
           type: string
           description: Краткое описание ошибки

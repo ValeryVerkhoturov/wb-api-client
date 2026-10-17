@@ -40,7 +40,7 @@ public class PostV2GetCardsTrashResponse200CardsInner {
 
   @SerializedName(SERIALIZED_NAME_NM_I_D)
   @jakarta.annotation.Nullable
-  private Integer nmID;
+  private Long nmID;
 
   public static final String SERIALIZED_NAME_VENDOR_CODE = "vendorCode";
 
@@ -58,7 +58,7 @@ public class PostV2GetCardsTrashResponse200CardsInner {
 
   @SerializedName(SERIALIZED_NAME_SUBJECT_I_D)
   @jakarta.annotation.Nullable
-  private Integer subjectID;
+  private Long subjectID;
 
   public static final String SERIALIZED_NAME_SUBJECT_NAME = "subjectName";
 
@@ -116,7 +116,7 @@ public class PostV2GetCardsTrashResponse200CardsInner {
 
   public PostV2GetCardsTrashResponse200CardsInner() {}
 
-  public PostV2GetCardsTrashResponse200CardsInner nmID(@jakarta.annotation.Nullable Integer nmID) {
+  public PostV2GetCardsTrashResponse200CardsInner nmID(@jakarta.annotation.Nullable Long nmID) {
     this.nmID = nmID;
     return this;
   }
@@ -127,11 +127,11 @@ public class PostV2GetCardsTrashResponse200CardsInner {
    * @return nmID
    */
   @jakarta.annotation.Nullable
-  public Integer getNmID() {
+  public Long getNmID() {
     return nmID;
   }
 
-  public void setNmID(@jakarta.annotation.Nullable Integer nmID) {
+  public void setNmID(@jakarta.annotation.Nullable Long nmID) {
     this.nmID = nmID;
   }
 
@@ -185,7 +185,7 @@ public class PostV2GetCardsTrashResponse200CardsInner {
   }
 
   public PostV2GetCardsTrashResponse200CardsInner subjectID(
-      @jakarta.annotation.Nullable Integer subjectID) {
+      @jakarta.annotation.Nullable Long subjectID) {
     this.subjectID = subjectID;
     return this;
   }
@@ -196,11 +196,11 @@ public class PostV2GetCardsTrashResponse200CardsInner {
    * @return subjectID
    */
   @jakarta.annotation.Nullable
-  public Integer getSubjectID() {
+  public Long getSubjectID() {
     return subjectID;
   }
 
-  public void setSubjectID(@jakarta.annotation.Nullable Integer subjectID) {
+  public void setSubjectID(@jakarta.annotation.Nullable Long subjectID) {
     this.subjectID = subjectID;
   }
 

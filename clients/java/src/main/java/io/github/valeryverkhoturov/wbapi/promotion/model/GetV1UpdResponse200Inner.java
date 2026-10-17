@@ -37,7 +37,7 @@ public class GetV1UpdResponse200Inner {
 
   @SerializedName(SERIALIZED_NAME_UPD_NUM)
   @jakarta.annotation.Nullable
-  private Integer updNum;
+  private Long updNum;
 
   public static final String SERIALIZED_NAME_UPD_TIME = "updTime";
 
@@ -49,13 +49,13 @@ public class GetV1UpdResponse200Inner {
 
   @SerializedName(SERIALIZED_NAME_UPD_SUM)
   @jakarta.annotation.Nullable
-  private Integer updSum;
+  private Long updSum;
 
   public static final String SERIALIZED_NAME_ADVERT_ID = "advertId";
 
   @SerializedName(SERIALIZED_NAME_ADVERT_ID)
   @jakarta.annotation.Nullable
-  private Integer advertId;
+  private Long advertId;
 
   public static final String SERIALIZED_NAME_CAMP_NAME = "campName";
 
@@ -67,7 +67,7 @@ public class GetV1UpdResponse200Inner {
 
   @SerializedName(SERIALIZED_NAME_ADVERT_TYPE)
   @jakarta.annotation.Nullable
-  private Integer advertType;
+  private Long advertType;
 
   public static final String SERIALIZED_NAME_PAYMENT_TYPE = "paymentType";
 
@@ -79,11 +79,11 @@ public class GetV1UpdResponse200Inner {
 
   @SerializedName(SERIALIZED_NAME_ADVERT_STATUS)
   @jakarta.annotation.Nullable
-  private Integer advertStatus;
+  private Long advertStatus;
 
   public GetV1UpdResponse200Inner() {}
 
-  public GetV1UpdResponse200Inner updNum(@jakarta.annotation.Nullable Integer updNum) {
+  public GetV1UpdResponse200Inner updNum(@jakarta.annotation.Nullable Long updNum) {
     this.updNum = updNum;
     return this;
   }
@@ -94,11 +94,11 @@ public class GetV1UpdResponse200Inner {
    * @return updNum
    */
   @jakarta.annotation.Nullable
-  public Integer getUpdNum() {
+  public Long getUpdNum() {
     return updNum;
   }
 
-  public void setUpdNum(@jakarta.annotation.Nullable Integer updNum) {
+  public void setUpdNum(@jakarta.annotation.Nullable Long updNum) {
     this.updNum = updNum;
   }
 
@@ -121,7 +121,7 @@ public class GetV1UpdResponse200Inner {
     this.updTime = updTime;
   }
 
-  public GetV1UpdResponse200Inner updSum(@jakarta.annotation.Nullable Integer updSum) {
+  public GetV1UpdResponse200Inner updSum(@jakarta.annotation.Nullable Long updSum) {
     this.updSum = updSum;
     return this;
   }
@@ -133,15 +133,15 @@ public class GetV1UpdResponse200Inner {
    * @return updSum
    */
   @jakarta.annotation.Nullable
-  public Integer getUpdSum() {
+  public Long getUpdSum() {
     return updSum;
   }
 
-  public void setUpdSum(@jakarta.annotation.Nullable Integer updSum) {
+  public void setUpdSum(@jakarta.annotation.Nullable Long updSum) {
     this.updSum = updSum;
   }
 
-  public GetV1UpdResponse200Inner advertId(@jakarta.annotation.Nullable Integer advertId) {
+  public GetV1UpdResponse200Inner advertId(@jakarta.annotation.Nullable Long advertId) {
     this.advertId = advertId;
     return this;
   }
@@ -152,11 +152,11 @@ public class GetV1UpdResponse200Inner {
    * @return advertId
    */
   @jakarta.annotation.Nullable
-  public Integer getAdvertId() {
+  public Long getAdvertId() {
     return advertId;
   }
 
-  public void setAdvertId(@jakarta.annotation.Nullable Integer advertId) {
+  public void setAdvertId(@jakarta.annotation.Nullable Long advertId) {
     this.advertId = advertId;
   }
 
@@ -179,7 +179,7 @@ public class GetV1UpdResponse200Inner {
     this.campName = campName;
   }
 
-  public GetV1UpdResponse200Inner advertType(@jakarta.annotation.Nullable Integer advertType) {
+  public GetV1UpdResponse200Inner advertType(@jakarta.annotation.Nullable Long advertType) {
     this.advertType = advertType;
     return this;
   }
@@ -190,11 +190,11 @@ public class GetV1UpdResponse200Inner {
    * @return advertType
    */
   @jakarta.annotation.Nullable
-  public Integer getAdvertType() {
+  public Long getAdvertType() {
     return advertType;
   }
 
-  public void setAdvertType(@jakarta.annotation.Nullable Integer advertType) {
+  public void setAdvertType(@jakarta.annotation.Nullable Long advertType) {
     this.advertType = advertType;
   }
 
@@ -218,7 +218,7 @@ public class GetV1UpdResponse200Inner {
     this.paymentType = paymentType;
   }
 
-  public GetV1UpdResponse200Inner advertStatus(@jakarta.annotation.Nullable Integer advertStatus) {
+  public GetV1UpdResponse200Inner advertStatus(@jakarta.annotation.Nullable Long advertStatus) {
     this.advertStatus = advertStatus;
     return this;
   }
@@ -231,11 +231,11 @@ public class GetV1UpdResponse200Inner {
    * @return advertStatus
    */
   @jakarta.annotation.Nullable
-  public Integer getAdvertStatus() {
+  public Long getAdvertStatus() {
     return advertStatus;
   }
 
-  public void setAdvertStatus(@jakarta.annotation.Nullable Integer advertStatus) {
+  public void setAdvertStatus(@jakarta.annotation.Nullable Long advertStatus) {
     this.advertStatus = advertStatus;
   }
 

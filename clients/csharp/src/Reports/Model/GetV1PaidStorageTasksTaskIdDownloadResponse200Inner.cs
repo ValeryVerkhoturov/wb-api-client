@@ -57,7 +57,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /// <param name="loyaltyDiscount">Скидка программы лояльности, ₽.</param>
         /// <param name="tariffFixDate">Дата фиксации тарифа.</param>
         /// <param name="tariffLowerDate">Дата понижения тарифа.</param>
-        public GetV1PaidStorageTasksTaskIdDownloadResponse200Inner(string date = default(string), decimal logWarehouseCoef = default(decimal), int officeId = default(int), string warehouse = default(string), decimal warehouseCoef = default(decimal), int giId = default(int), int chrtId = default(int), string size = default(string), string barcode = default(string), string subject = default(string), string brand = default(string), string vendorCode = default(string), int nmId = default(int), decimal volume = default(decimal), string calcType = default(string), decimal warehousePrice = default(decimal), int barcodesCount = default(int), int palletPlaceCode = default(int), decimal palletCount = default(decimal), string originalDate = default(string), decimal loyaltyDiscount = default(decimal), string tariffFixDate = default(string), string tariffLowerDate = default(string))
+        public GetV1PaidStorageTasksTaskIdDownloadResponse200Inner(string date = default(string), decimal logWarehouseCoef = default(decimal), long officeId = default(long), string warehouse = default(string), decimal warehouseCoef = default(decimal), long giId = default(long), long chrtId = default(long), string size = default(string), string barcode = default(string), string subject = default(string), string brand = default(string), string vendorCode = default(string), long nmId = default(long), decimal volume = default(decimal), string calcType = default(string), decimal warehousePrice = default(decimal), long barcodesCount = default(long), long palletPlaceCode = default(long), decimal palletCount = default(decimal), string originalDate = default(string), decimal loyaltyDiscount = default(decimal), string tariffFixDate = default(string), string tariffLowerDate = default(string))
         {
             this.Date = date;
             this.LogWarehouseCoef = logWarehouseCoef;
@@ -103,7 +103,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /// </summary>
         /// <value>ID склада. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может быть только &#x60;0&#x60;</value>
         [DataMember(Name = "officeId", EmitDefaultValue = false)]
-        public int OfficeId { get; set; }
+        public long OfficeId { get; set; }
 
         /// <summary>
         /// Название склада. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может быть только &#x60;Склад WB РФ&#x60;
@@ -124,14 +124,14 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /// </summary>
         /// <value>ID поставки</value>
         [DataMember(Name = "giId", EmitDefaultValue = false)]
-        public int GiId { get; set; }
+        public long GiId { get; set; }
 
         /// <summary>
         /// ID размера для этого артикула WB
         /// </summary>
         /// <value>ID размера для этого артикула WB</value>
         [DataMember(Name = "chrtId", EmitDefaultValue = false)]
-        public int ChrtId { get; set; }
+        public long ChrtId { get; set; }
 
         /// <summary>
         /// Размер (&#x60;techSize&#x60; в карточке товара)
@@ -173,7 +173,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /// </summary>
         /// <value>Артикул WB</value>
         [DataMember(Name = "nmId", EmitDefaultValue = false)]
-        public int NmId { get; set; }
+        public long NmId { get; set; }
 
         /// <summary>
         /// Объём товара
@@ -201,14 +201,14 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /// </summary>
         /// <value>Количество единиц товара (штук), подлежащих тарифицированию за расчётные сутки</value>
         [DataMember(Name = "barcodesCount", EmitDefaultValue = false)]
-        public int BarcodesCount { get; set; }
+        public long BarcodesCount { get; set; }
 
         /// <summary>
         /// Код паллетоместа. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может быть только &#x60;0&#x60;
         /// </summary>
         /// <value>Код паллетоместа. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может быть только &#x60;0&#x60;</value>
         [DataMember(Name = "palletPlaceCode", EmitDefaultValue = false)]
-        public int PalletPlaceCode { get; set; }
+        public long PalletPlaceCode { get; set; }
 
         /// <summary>
         /// Количество паллет

@@ -41,7 +41,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// </summary>
         /// <param name="nmID">Артикул WB (required).</param>
         /// <param name="clubDiscount">Скидка WB Клуба, % (required).</param>
-        public ClubDiscReq(int nmID = default(int), int clubDiscount = default(int))
+        public ClubDiscReq(long nmID = default(long), long clubDiscount = default(long))
         {
             this.NmID = nmID;
             this.ClubDiscount = clubDiscount;
@@ -55,7 +55,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         <example>123</example>
         */
         [DataMember(Name = "nmID", IsRequired = true, EmitDefaultValue = true)]
-        public int NmID { get; set; }
+        public long NmID { get; set; }
 
         /// <summary>
         /// Скидка WB Клуба, %
@@ -65,7 +65,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         <example>5</example>
         */
         [DataMember(Name = "clubDiscount", IsRequired = true, EmitDefaultValue = true)]
-        public int ClubDiscount { get; set; }
+        public long ClubDiscount { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

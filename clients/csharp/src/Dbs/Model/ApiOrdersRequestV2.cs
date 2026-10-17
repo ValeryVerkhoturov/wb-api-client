@@ -40,7 +40,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Model
         /// Initializes a new instance of the <see cref="ApiOrdersRequestV2" /> class.
         /// </summary>
         /// <param name="ordersIds">Список ID сборочных заданий (required).</param>
-        public ApiOrdersRequestV2(List<int> ordersIds = default(List<int>))
+        public ApiOrdersRequestV2(List<long> ordersIds = default(List<long>))
         {
             // to ensure "ordersIds" is required (not null)
             if (ordersIds == null)
@@ -58,7 +58,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Model
         <example>[123456,234567]</example>
         */
         [DataMember(Name = "ordersIds", IsRequired = true, EmitDefaultValue = true)]
-        public List<int> OrdersIds { get; set; }
+        public List<long> OrdersIds { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

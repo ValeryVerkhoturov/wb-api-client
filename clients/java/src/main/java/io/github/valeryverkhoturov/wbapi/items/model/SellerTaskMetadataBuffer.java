@@ -37,13 +37,13 @@ public class SellerTaskMetadataBuffer {
 
   @SerializedName(SERIALIZED_NAME_UPLOAD_I_D)
   @jakarta.annotation.Nullable
-  private Integer uploadID;
+  private Long uploadID;
 
   public static final String SERIALIZED_NAME_STATUS = "status";
 
   @SerializedName(SERIALIZED_NAME_STATUS)
   @jakarta.annotation.Nullable
-  private Integer status;
+  private Long status;
 
   public static final String SERIALIZED_NAME_UPLOAD_DATE = "uploadDate";
 
@@ -61,17 +61,17 @@ public class SellerTaskMetadataBuffer {
 
   @SerializedName(SERIALIZED_NAME_OVER_ALL_GOODS_NUMBER)
   @jakarta.annotation.Nullable
-  private Integer overAllGoodsNumber;
+  private Long overAllGoodsNumber;
 
   public static final String SERIALIZED_NAME_SUCCESS_GOODS_NUMBER = "successGoodsNumber";
 
   @SerializedName(SERIALIZED_NAME_SUCCESS_GOODS_NUMBER)
   @jakarta.annotation.Nullable
-  private Integer successGoodsNumber;
+  private Long successGoodsNumber;
 
   public SellerTaskMetadataBuffer() {}
 
-  public SellerTaskMetadataBuffer uploadID(@jakarta.annotation.Nullable Integer uploadID) {
+  public SellerTaskMetadataBuffer uploadID(@jakarta.annotation.Nullable Long uploadID) {
     this.uploadID = uploadID;
     return this;
   }
@@ -82,15 +82,15 @@ public class SellerTaskMetadataBuffer {
    * @return uploadID
    */
   @jakarta.annotation.Nullable
-  public Integer getUploadID() {
+  public Long getUploadID() {
     return uploadID;
   }
 
-  public void setUploadID(@jakarta.annotation.Nullable Integer uploadID) {
+  public void setUploadID(@jakarta.annotation.Nullable Long uploadID) {
     this.uploadID = uploadID;
   }
 
-  public SellerTaskMetadataBuffer status(@jakarta.annotation.Nullable Integer status) {
+  public SellerTaskMetadataBuffer status(@jakarta.annotation.Nullable Long status) {
     this.status = status;
     return this;
   }
@@ -101,11 +101,11 @@ public class SellerTaskMetadataBuffer {
    * @return status
    */
   @jakarta.annotation.Nullable
-  public Integer getStatus() {
+  public Long getStatus() {
     return status;
   }
 
-  public void setStatus(@jakarta.annotation.Nullable Integer status) {
+  public void setStatus(@jakarta.annotation.Nullable Long status) {
     this.status = status;
   }
 
@@ -149,7 +149,7 @@ public class SellerTaskMetadataBuffer {
   }
 
   public SellerTaskMetadataBuffer overAllGoodsNumber(
-      @jakarta.annotation.Nullable Integer overAllGoodsNumber) {
+      @jakarta.annotation.Nullable Long overAllGoodsNumber) {
     this.overAllGoodsNumber = overAllGoodsNumber;
     return this;
   }
@@ -160,16 +160,16 @@ public class SellerTaskMetadataBuffer {
    * @return overAllGoodsNumber
    */
   @jakarta.annotation.Nullable
-  public Integer getOverAllGoodsNumber() {
+  public Long getOverAllGoodsNumber() {
     return overAllGoodsNumber;
   }
 
-  public void setOverAllGoodsNumber(@jakarta.annotation.Nullable Integer overAllGoodsNumber) {
+  public void setOverAllGoodsNumber(@jakarta.annotation.Nullable Long overAllGoodsNumber) {
     this.overAllGoodsNumber = overAllGoodsNumber;
   }
 
   public SellerTaskMetadataBuffer successGoodsNumber(
-      @jakarta.annotation.Nullable Integer successGoodsNumber) {
+      @jakarta.annotation.Nullable Long successGoodsNumber) {
     this.successGoodsNumber = successGoodsNumber;
     return this;
   }
@@ -180,11 +180,11 @@ public class SellerTaskMetadataBuffer {
    * @return successGoodsNumber
    */
   @jakarta.annotation.Nullable
-  public Integer getSuccessGoodsNumber() {
+  public Long getSuccessGoodsNumber() {
     return successGoodsNumber;
   }
 
-  public void setSuccessGoodsNumber(@jakarta.annotation.Nullable Integer successGoodsNumber) {
+  public void setSuccessGoodsNumber(@jakarta.annotation.Nullable Long successGoodsNumber) {
     this.successGoodsNumber = successGoodsNumber;
   }
 

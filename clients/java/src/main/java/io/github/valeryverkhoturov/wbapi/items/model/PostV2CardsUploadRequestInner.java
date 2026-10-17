@@ -40,7 +40,7 @@ public class PostV2CardsUploadRequestInner {
 
   @SerializedName(SERIALIZED_NAME_SUBJECT_I_D)
   @jakarta.annotation.Nonnull
-  private Integer subjectID;
+  private Long subjectID;
 
   public static final String SERIALIZED_NAME_VARIANTS = "variants";
 
@@ -50,7 +50,7 @@ public class PostV2CardsUploadRequestInner {
 
   public PostV2CardsUploadRequestInner() {}
 
-  public PostV2CardsUploadRequestInner subjectID(@jakarta.annotation.Nonnull Integer subjectID) {
+  public PostV2CardsUploadRequestInner subjectID(@jakarta.annotation.Nonnull Long subjectID) {
     this.subjectID = subjectID;
     return this;
   }
@@ -61,11 +61,11 @@ public class PostV2CardsUploadRequestInner {
    * @return subjectID
    */
   @jakarta.annotation.Nonnull
-  public Integer getSubjectID() {
+  public Long getSubjectID() {
     return subjectID;
   }
 
-  public void setSubjectID(@jakarta.annotation.Nonnull Integer subjectID) {
+  public void setSubjectID(@jakarta.annotation.Nonnull Long subjectID) {
     this.subjectID = subjectID;
   }
 

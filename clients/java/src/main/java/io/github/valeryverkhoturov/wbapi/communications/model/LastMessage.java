@@ -43,7 +43,7 @@ public class LastMessage {
 
   @SerializedName(SERIALIZED_NAME_ADD_TIMESTAMP)
   @jakarta.annotation.Nullable
-  private Integer addTimestamp;
+  private Long addTimestamp;
 
   public LastMessage() {}
 
@@ -66,7 +66,7 @@ public class LastMessage {
     this.text = text;
   }
 
-  public LastMessage addTimestamp(@jakarta.annotation.Nullable Integer addTimestamp) {
+  public LastMessage addTimestamp(@jakarta.annotation.Nullable Long addTimestamp) {
     this.addTimestamp = addTimestamp;
     return this;
   }
@@ -77,11 +77,11 @@ public class LastMessage {
    * @return addTimestamp
    */
   @jakarta.annotation.Nullable
-  public Integer getAddTimestamp() {
+  public Long getAddTimestamp() {
     return addTimestamp;
   }
 
-  public void setAddTimestamp(@jakarta.annotation.Nullable Integer addTimestamp) {
+  public void setAddTimestamp(@jakarta.annotation.Nullable Long addTimestamp) {
     this.addTimestamp = addTimestamp;
   }
 

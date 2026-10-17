@@ -49,13 +49,13 @@ public class AcquiringReportListReq {
 
   @SerializedName(SERIALIZED_NAME_LIMIT)
   @jakarta.annotation.Nullable
-  private Integer limit = 1000;
+  private Long limit = 1000l;
 
   public static final String SERIALIZED_NAME_OFFSET = "offset";
 
   @SerializedName(SERIALIZED_NAME_OFFSET)
   @jakarta.annotation.Nullable
-  private Integer offset = 0;
+  private Long offset = 0l;
 
   public AcquiringReportListReq() {}
 
@@ -105,7 +105,7 @@ public class AcquiringReportListReq {
     this.dateTo = dateTo;
   }
 
-  public AcquiringReportListReq limit(@jakarta.annotation.Nullable Integer limit) {
+  public AcquiringReportListReq limit(@jakarta.annotation.Nullable Long limit) {
     this.limit = limit;
     return this;
   }
@@ -116,15 +116,15 @@ public class AcquiringReportListReq {
    * @return limit
    */
   @jakarta.annotation.Nullable
-  public Integer getLimit() {
+  public Long getLimit() {
     return limit;
   }
 
-  public void setLimit(@jakarta.annotation.Nullable Integer limit) {
+  public void setLimit(@jakarta.annotation.Nullable Long limit) {
     this.limit = limit;
   }
 
-  public AcquiringReportListReq offset(@jakarta.annotation.Nullable Integer offset) {
+  public AcquiringReportListReq offset(@jakarta.annotation.Nullable Long offset) {
     this.offset = offset;
     return this;
   }
@@ -136,11 +136,11 @@ public class AcquiringReportListReq {
    * @return offset
    */
   @jakarta.annotation.Nullable
-  public Integer getOffset() {
+  public Long getOffset() {
     return offset;
   }
 
-  public void setOffset(@jakarta.annotation.Nullable Integer offset) {
+  public void setOffset(@jakarta.annotation.Nullable Long offset) {
     this.offset = offset;
   }
 

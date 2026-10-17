@@ -39,7 +39,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// <param name="next">Курсор. Последний &#x60;nmId&#x60; в ответе (default to 0).</param>
         /// <param name="search">Поиск:   - по артикулу WB &#x60;nmId&#x60; — полное совпадение   - по артикулу продавца &#x60;vendorCode&#x60; — частичное совпадение .</param>
         /// <param name="subjectIds">ID предметов.</param>
-        public GetRecomReq(List<string> brandNames = default(List<string>), int limit = 20, int next = 0, string search = default(string), List<int> subjectIds = default(List<int>))
+        public GetRecomReq(List<string> brandNames = default(List<string>), long limit = 20, long next = 0, string search = default(string), List<long> subjectIds = default(List<long>))
         {
             this.BrandNames = brandNames;
             this.Limit = limit;
@@ -63,7 +63,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// </summary>
         /// <value>Количество товаров в ответе</value>
         [DataMember(Name = "limit", EmitDefaultValue = false)]
-        public int Limit { get; set; }
+        public long Limit { get; set; }
 
         /// <summary>
         /// Курсор. Последний &#x60;nmId&#x60; в ответе
@@ -73,7 +73,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         <example>123</example>
         */
         [DataMember(Name = "next", EmitDefaultValue = false)]
-        public int Next { get; set; }
+        public long Next { get; set; }
 
         /// <summary>
         /// Поиск:   - по артикулу WB &#x60;nmId&#x60; — полное совпадение   - по артикулу продавца &#x60;vendorCode&#x60; — частичное совпадение 
@@ -93,7 +93,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         <example>[123,5231]</example>
         */
         [DataMember(Name = "subjectIds", EmitDefaultValue = false)]
-        public List<int> SubjectIds { get; set; }
+        public List<long> SubjectIds { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -128,22 +128,22 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// <returns>Validation Result</returns>
         IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Limit (int) maximum
-            if (this.Limit > (int)5000)
+            // Limit (long) maximum
+            if (this.Limit > (long)5000)
             {
-                yield return new ValidationResult("Invalid value for Limit, must be a value less than or equal to 5000.", new [] { "Limit" });
+                yield return new ValidationResult("Invalid value for Limit, must be a value less than or equal to 5000.", new[] { "Limit" });
             }
 
-            // Limit (int) minimum
-            if (this.Limit < (int)0)
+            // Limit (long) minimum
+            if (this.Limit < (long)0)
             {
-                yield return new ValidationResult("Invalid value for Limit, must be a value greater than or equal to 0.", new [] { "Limit" });
+                yield return new ValidationResult("Invalid value for Limit, must be a value greater than or equal to 0.", new[] { "Limit" });
             }
 
             // Search (string) maxLength
             if (this.Search != null && this.Search.Length > 72)
             {
-                yield return new ValidationResult("Invalid value for Search, length must be less than 72.", new [] { "Search" });
+                yield return new ValidationResult("Invalid value for Search, length must be less than 72.", new[] { "Search" });
             }
 
             yield break;

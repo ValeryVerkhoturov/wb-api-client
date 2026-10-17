@@ -37,13 +37,13 @@ public class NormQueryBidFailResponseItem {
 
   @SerializedName(SERIALIZED_NAME_ADVERT_ID)
   @jakarta.annotation.Nullable
-  private Integer advertId;
+  private Long advertId;
 
   public static final String SERIALIZED_NAME_NM_ID = "nmId";
 
   @SerializedName(SERIALIZED_NAME_NM_ID)
   @jakarta.annotation.Nullable
-  private Integer nmId;
+  private Long nmId;
 
   public static final String SERIALIZED_NAME_NORM_QUERY = "normQuery";
 
@@ -59,7 +59,7 @@ public class NormQueryBidFailResponseItem {
 
   public NormQueryBidFailResponseItem() {}
 
-  public NormQueryBidFailResponseItem advertId(@jakarta.annotation.Nullable Integer advertId) {
+  public NormQueryBidFailResponseItem advertId(@jakarta.annotation.Nullable Long advertId) {
     this.advertId = advertId;
     return this;
   }
@@ -70,15 +70,15 @@ public class NormQueryBidFailResponseItem {
    * @return advertId
    */
   @jakarta.annotation.Nullable
-  public Integer getAdvertId() {
+  public Long getAdvertId() {
     return advertId;
   }
 
-  public void setAdvertId(@jakarta.annotation.Nullable Integer advertId) {
+  public void setAdvertId(@jakarta.annotation.Nullable Long advertId) {
     this.advertId = advertId;
   }
 
-  public NormQueryBidFailResponseItem nmId(@jakarta.annotation.Nullable Integer nmId) {
+  public NormQueryBidFailResponseItem nmId(@jakarta.annotation.Nullable Long nmId) {
     this.nmId = nmId;
     return this;
   }
@@ -89,11 +89,11 @@ public class NormQueryBidFailResponseItem {
    * @return nmId
    */
   @jakarta.annotation.Nullable
-  public Integer getNmId() {
+  public Long getNmId() {
     return nmId;
   }
 
-  public void setNmId(@jakarta.annotation.Nullable Integer nmId) {
+  public void setNmId(@jakarta.annotation.Nullable Long nmId) {
     this.nmId = nmId;
   }
 

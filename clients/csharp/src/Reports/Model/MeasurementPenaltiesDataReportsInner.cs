@@ -54,7 +54,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /// <param name="penaltyAmount">Сумма штрафа.</param>
         /// <param name="dateStart">Дата и время начала действия коэффициента.</param>
         /// <param name="dateEnd">Дата и время окончания действия коэффициента.</param>
-        public MeasurementPenaltiesDataReportsInner(int nmId = default(int), string subjectName = default(string), int dimId = default(int), decimal prcOver = default(decimal), decimal volume = default(decimal), int width = default(int), int length = default(int), int height = default(int), decimal volumeSup = default(decimal), int widthSup = default(int), int lengthSup = default(int), int heightSup = default(int), List<string> photoUrls = default(List<string>), string dtBonus = default(string), bool isValid = default(bool), string isValidDt = default(string), decimal reversalAmount = default(decimal), decimal penaltyAmount = default(decimal), string dateStart = default(string), string dateEnd = default(string))
+        public MeasurementPenaltiesDataReportsInner(long nmId = default(long), string subjectName = default(string), long dimId = default(long), decimal prcOver = default(decimal), decimal volume = default(decimal), long width = default(long), long length = default(long), long height = default(long), decimal volumeSup = default(decimal), long widthSup = default(long), long lengthSup = default(long), long heightSup = default(long), List<string> photoUrls = default(List<string>), string dtBonus = default(string), bool isValid = default(bool), string isValidDt = default(string), decimal reversalAmount = default(decimal), decimal penaltyAmount = default(decimal), string dateStart = default(string), string dateEnd = default(string))
         {
             this.NmId = nmId;
             this.SubjectName = subjectName;
@@ -86,7 +86,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         <example>123456789</example>
         */
         [DataMember(Name = "nmId", EmitDefaultValue = false)]
-        public int NmId { get; set; }
+        public long NmId { get; set; }
 
         /// <summary>
         /// Предмет
@@ -106,7 +106,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         <example>123456789</example>
         */
         [DataMember(Name = "dimId", EmitDefaultValue = false)]
-        public int DimId { get; set; }
+        public long DimId { get; set; }
 
         /// <summary>
         /// Разница в габаритах, %
@@ -136,7 +136,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         <example>7</example>
         */
         [DataMember(Name = "width", EmitDefaultValue = false)]
-        public int Width { get; set; }
+        public long Width { get; set; }
 
         /// <summary>
         /// Длина, см (фактические габариты по замеру на складе)
@@ -146,7 +146,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         <example>28</example>
         */
         [DataMember(Name = "length", EmitDefaultValue = false)]
-        public int Length { get; set; }
+        public long Length { get; set; }
 
         /// <summary>
         /// Высота, см (фактические габариты по замеру на складе)
@@ -156,7 +156,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         <example>33</example>
         */
         [DataMember(Name = "height", EmitDefaultValue = false)]
-        public int Height { get; set; }
+        public long Height { get; set; }
 
         /// <summary>
         /// Объём, л (габариты карточки товара)
@@ -176,7 +176,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         <example>8</example>
         */
         [DataMember(Name = "widthSup", EmitDefaultValue = false)]
-        public int WidthSup { get; set; }
+        public long WidthSup { get; set; }
 
         /// <summary>
         /// Длина, см (габариты карточки товара)
@@ -186,7 +186,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         <example>33</example>
         */
         [DataMember(Name = "lengthSup", EmitDefaultValue = false)]
-        public int LengthSup { get; set; }
+        public long LengthSup { get; set; }
 
         /// <summary>
         /// Высота, см (габариты карточки товара)
@@ -196,7 +196,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         <example>33</example>
         */
         [DataMember(Name = "heightSup", EmitDefaultValue = false)]
-        public int HeightSup { get; set; }
+        public long HeightSup { get; set; }
 
         /// <summary>
         /// Фото замеров

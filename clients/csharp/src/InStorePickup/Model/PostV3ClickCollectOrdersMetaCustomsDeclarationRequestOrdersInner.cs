@@ -42,7 +42,7 @@ namespace ValeryVerkhoturov.WbApiClient.InStorePickup.Model
         /// <param name="customsDeclaration">Номер ДТ (required).</param>
         /// <param name="orderId">ID сборочного задания (required).</param>
         /// <param name="originCountryCode">Числовой код страны происхождения товара из [Общероссийского классификатора стран мира](https://esnsi.gosuslugi.ru/classifiers/16269). Необходимо указывать только для сборочных заданий с признаком B2B-продажи \&quot;isB2b\&quot;:true  (required).</param>
-        public PostV3ClickCollectOrdersMetaCustomsDeclarationRequestOrdersInner(string customsDeclaration = default(string), int orderId = default(int), string originCountryCode = default(string))
+        public PostV3ClickCollectOrdersMetaCustomsDeclarationRequestOrdersInner(string customsDeclaration = default(string), long orderId = default(long), string originCountryCode = default(string))
         {
             // to ensure "customsDeclaration" is required (not null)
             if (customsDeclaration == null)
@@ -74,7 +74,7 @@ namespace ValeryVerkhoturov.WbApiClient.InStorePickup.Model
         /// </summary>
         /// <value>ID сборочного задания</value>
         [DataMember(Name = "orderId", IsRequired = true, EmitDefaultValue = true)]
-        public int OrderId { get; set; }
+        public long OrderId { get; set; }
 
         /// <summary>
         /// Числовой код страны происхождения товара из [Общероссийского классификатора стран мира](https://esnsi.gosuslugi.ru/classifiers/16269). Необходимо указывать только для сборочных заданий с признаком B2B-продажи \&quot;isB2b\&quot;:true 
@@ -120,19 +120,19 @@ namespace ValeryVerkhoturov.WbApiClient.InStorePickup.Model
             // CustomsDeclaration (string) maxLength
             if (this.CustomsDeclaration != null && this.CustomsDeclaration.Length > 29)
             {
-                yield return new ValidationResult("Invalid value for CustomsDeclaration, length must be less than 29.", new [] { "CustomsDeclaration" });
+                yield return new ValidationResult("Invalid value for CustomsDeclaration, length must be less than 29.", new[] { "CustomsDeclaration" });
             }
 
             // CustomsDeclaration (string) minLength
             if (this.CustomsDeclaration != null && this.CustomsDeclaration.Length < 17)
             {
-                yield return new ValidationResult("Invalid value for CustomsDeclaration, length must be greater than 17.", new [] { "CustomsDeclaration" });
+                yield return new ValidationResult("Invalid value for CustomsDeclaration, length must be greater than 17.", new[] { "CustomsDeclaration" });
             }
 
             // OriginCountryCode (string) maxLength
             if (this.OriginCountryCode != null && this.OriginCountryCode.Length > 3)
             {
-                yield return new ValidationResult("Invalid value for OriginCountryCode, length must be less than 3.", new [] { "OriginCountryCode" });
+                yield return new ValidationResult("Invalid value for OriginCountryCode, length must be less than 3.", new[] { "OriginCountryCode" });
             }
 
             yield break;

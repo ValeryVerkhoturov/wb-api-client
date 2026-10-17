@@ -59,7 +59,7 @@ public class OrderNew {
 
   @SerializedName(SERIALIZED_NAME_SALE_PRICE)
   @jakarta.annotation.Nullable
-  private Integer salePrice;
+  private Long salePrice;
 
   public static final String SERIALIZED_NAME_REQUIRED_META = "requiredMeta";
 
@@ -192,7 +192,7 @@ public class OrderNew {
 
   @SerializedName(SERIALIZED_NAME_WAREHOUSE_ID)
   @jakarta.annotation.Nullable
-  private Integer warehouseId;
+  private Long warehouseId;
 
   public static final String SERIALIZED_NAME_OFFICE_ID = "officeId";
 
@@ -204,37 +204,37 @@ public class OrderNew {
 
   @SerializedName(SERIALIZED_NAME_NM_ID)
   @jakarta.annotation.Nullable
-  private Integer nmId;
+  private Long nmId;
 
   public static final String SERIALIZED_NAME_CHRT_ID = "chrtId";
 
   @SerializedName(SERIALIZED_NAME_CHRT_ID)
   @jakarta.annotation.Nullable
-  private Integer chrtId;
+  private Long chrtId;
 
   public static final String SERIALIZED_NAME_PRICE = "price";
 
   @SerializedName(SERIALIZED_NAME_PRICE)
   @jakarta.annotation.Nullable
-  private Integer price;
+  private Long price;
 
   public static final String SERIALIZED_NAME_FINAL_PRICE = "finalPrice";
 
   @SerializedName(SERIALIZED_NAME_FINAL_PRICE)
   @jakarta.annotation.Nullable
-  private Integer finalPrice;
+  private Long finalPrice;
 
   public static final String SERIALIZED_NAME_CONVERTED_PRICE = "convertedPrice";
 
   @SerializedName(SERIALIZED_NAME_CONVERTED_PRICE)
   @jakarta.annotation.Nullable
-  private Integer convertedPrice;
+  private Long convertedPrice;
 
   public static final String SERIALIZED_NAME_CONVERTED_FINAL_PRICE = "convertedFinalPrice";
 
   @SerializedName(SERIALIZED_NAME_CONVERTED_FINAL_PRICE)
   @jakarta.annotation.Nullable
-  private Integer convertedFinalPrice;
+  private Long convertedFinalPrice;
 
   public static final String SERIALIZED_NAME_CURRENCY_CODE = "currencyCode";
 
@@ -254,19 +254,19 @@ public class OrderNew {
    */
   @JsonAdapter(CargoTypeEnum.Adapter.class)
   public enum CargoTypeEnum {
-    NUMBER_1(1),
+    NUMBER_1(1l),
 
-    NUMBER_2(2),
+    NUMBER_2(2l),
 
-    NUMBER_3(3);
+    NUMBER_3(3l);
 
-    private Integer value;
+    private Long value;
 
-    CargoTypeEnum(Integer value) {
+    CargoTypeEnum(Long value) {
       this.value = value;
     }
 
-    public Integer getValue() {
+    public Long getValue() {
       return value;
     }
 
@@ -275,7 +275,7 @@ public class OrderNew {
       return String.valueOf(value);
     }
 
-    public static CargoTypeEnum fromValue(Integer value) {
+    public static CargoTypeEnum fromValue(Long value) {
       for (CargoTypeEnum b : CargoTypeEnum.values()) {
         if (b.value.equals(value)) {
           return b;
@@ -293,13 +293,13 @@ public class OrderNew {
 
       @Override
       public CargoTypeEnum read(final JsonReader jsonReader) throws IOException {
-        Integer value = jsonReader.nextInt();
+        Long value = jsonReader.nextLong();
         return CargoTypeEnum.fromValue(value);
       }
     }
 
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      Integer value = jsonElement.getAsInt();
+      Long value = jsonElement.getAsLong();
       CargoTypeEnum.fromValue(value);
     }
   }
@@ -450,7 +450,7 @@ public class OrderNew {
     this.sellerDate = sellerDate;
   }
 
-  public OrderNew salePrice(@jakarta.annotation.Nullable Integer salePrice) {
+  public OrderNew salePrice(@jakarta.annotation.Nullable Long salePrice) {
     this.salePrice = salePrice;
     return this;
   }
@@ -462,11 +462,11 @@ public class OrderNew {
    * @return salePrice
    */
   @jakarta.annotation.Nullable
-  public Integer getSalePrice() {
+  public Long getSalePrice() {
     return salePrice;
   }
 
-  public void setSalePrice(@jakarta.annotation.Nullable Integer salePrice) {
+  public void setSalePrice(@jakarta.annotation.Nullable Long salePrice) {
     this.salePrice = salePrice;
   }
 
@@ -770,7 +770,7 @@ public class OrderNew {
     this.id = id;
   }
 
-  public OrderNew warehouseId(@jakarta.annotation.Nullable Integer warehouseId) {
+  public OrderNew warehouseId(@jakarta.annotation.Nullable Long warehouseId) {
     this.warehouseId = warehouseId;
     return this;
   }
@@ -781,11 +781,11 @@ public class OrderNew {
    * @return warehouseId
    */
   @jakarta.annotation.Nullable
-  public Integer getWarehouseId() {
+  public Long getWarehouseId() {
     return warehouseId;
   }
 
-  public void setWarehouseId(@jakarta.annotation.Nullable Integer warehouseId) {
+  public void setWarehouseId(@jakarta.annotation.Nullable Long warehouseId) {
     this.warehouseId = warehouseId;
   }
 
@@ -808,7 +808,7 @@ public class OrderNew {
     this.officeId = officeId;
   }
 
-  public OrderNew nmId(@jakarta.annotation.Nullable Integer nmId) {
+  public OrderNew nmId(@jakarta.annotation.Nullable Long nmId) {
     this.nmId = nmId;
     return this;
   }
@@ -819,15 +819,15 @@ public class OrderNew {
    * @return nmId
    */
   @jakarta.annotation.Nullable
-  public Integer getNmId() {
+  public Long getNmId() {
     return nmId;
   }
 
-  public void setNmId(@jakarta.annotation.Nullable Integer nmId) {
+  public void setNmId(@jakarta.annotation.Nullable Long nmId) {
     this.nmId = nmId;
   }
 
-  public OrderNew chrtId(@jakarta.annotation.Nullable Integer chrtId) {
+  public OrderNew chrtId(@jakarta.annotation.Nullable Long chrtId) {
     this.chrtId = chrtId;
     return this;
   }
@@ -838,15 +838,15 @@ public class OrderNew {
    * @return chrtId
    */
   @jakarta.annotation.Nullable
-  public Integer getChrtId() {
+  public Long getChrtId() {
     return chrtId;
   }
 
-  public void setChrtId(@jakarta.annotation.Nullable Integer chrtId) {
+  public void setChrtId(@jakarta.annotation.Nullable Long chrtId) {
     this.chrtId = chrtId;
   }
 
-  public OrderNew price(@jakarta.annotation.Nullable Integer price) {
+  public OrderNew price(@jakarta.annotation.Nullable Long price) {
     this.price = price;
     return this;
   }
@@ -858,15 +858,15 @@ public class OrderNew {
    * @return price
    */
   @jakarta.annotation.Nullable
-  public Integer getPrice() {
+  public Long getPrice() {
     return price;
   }
 
-  public void setPrice(@jakarta.annotation.Nullable Integer price) {
+  public void setPrice(@jakarta.annotation.Nullable Long price) {
     this.price = price;
   }
 
-  public OrderNew finalPrice(@jakarta.annotation.Nullable Integer finalPrice) {
+  public OrderNew finalPrice(@jakarta.annotation.Nullable Long finalPrice) {
     this.finalPrice = finalPrice;
     return this;
   }
@@ -878,15 +878,15 @@ public class OrderNew {
    * @return finalPrice
    */
   @jakarta.annotation.Nullable
-  public Integer getFinalPrice() {
+  public Long getFinalPrice() {
     return finalPrice;
   }
 
-  public void setFinalPrice(@jakarta.annotation.Nullable Integer finalPrice) {
+  public void setFinalPrice(@jakarta.annotation.Nullable Long finalPrice) {
     this.finalPrice = finalPrice;
   }
 
-  public OrderNew convertedPrice(@jakarta.annotation.Nullable Integer convertedPrice) {
+  public OrderNew convertedPrice(@jakarta.annotation.Nullable Long convertedPrice) {
     this.convertedPrice = convertedPrice;
     return this;
   }
@@ -898,15 +898,15 @@ public class OrderNew {
    * @return convertedPrice
    */
   @jakarta.annotation.Nullable
-  public Integer getConvertedPrice() {
+  public Long getConvertedPrice() {
     return convertedPrice;
   }
 
-  public void setConvertedPrice(@jakarta.annotation.Nullable Integer convertedPrice) {
+  public void setConvertedPrice(@jakarta.annotation.Nullable Long convertedPrice) {
     this.convertedPrice = convertedPrice;
   }
 
-  public OrderNew convertedFinalPrice(@jakarta.annotation.Nullable Integer convertedFinalPrice) {
+  public OrderNew convertedFinalPrice(@jakarta.annotation.Nullable Long convertedFinalPrice) {
     this.convertedFinalPrice = convertedFinalPrice;
     return this;
   }
@@ -918,11 +918,11 @@ public class OrderNew {
    * @return convertedFinalPrice
    */
   @jakarta.annotation.Nullable
-  public Integer getConvertedFinalPrice() {
+  public Long getConvertedFinalPrice() {
     return convertedFinalPrice;
   }
 
-  public void setConvertedFinalPrice(@jakarta.annotation.Nullable Integer convertedFinalPrice) {
+  public void setConvertedFinalPrice(@jakarta.annotation.Nullable Long convertedFinalPrice) {
     this.convertedFinalPrice = convertedFinalPrice;
   }
 

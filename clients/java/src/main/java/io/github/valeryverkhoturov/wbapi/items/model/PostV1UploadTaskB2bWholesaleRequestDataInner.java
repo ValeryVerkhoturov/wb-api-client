@@ -40,7 +40,7 @@ public class PostV1UploadTaskB2bWholesaleRequestDataInner {
 
   @SerializedName(SERIALIZED_NAME_NM_ID)
   @jakarta.annotation.Nonnull
-  private Integer nmId;
+  private Long nmId;
 
   public static final String SERIALIZED_NAME_WHOLESALE_DISCOUNT_THRESHOLD =
       "wholesaleDiscountThreshold";
@@ -51,8 +51,7 @@ public class PostV1UploadTaskB2bWholesaleRequestDataInner {
 
   public PostV1UploadTaskB2bWholesaleRequestDataInner() {}
 
-  public PostV1UploadTaskB2bWholesaleRequestDataInner nmId(
-      @jakarta.annotation.Nonnull Integer nmId) {
+  public PostV1UploadTaskB2bWholesaleRequestDataInner nmId(@jakarta.annotation.Nonnull Long nmId) {
     this.nmId = nmId;
     return this;
   }
@@ -63,11 +62,11 @@ public class PostV1UploadTaskB2bWholesaleRequestDataInner {
    * @return nmId
    */
   @jakarta.annotation.Nonnull
-  public Integer getNmId() {
+  public Long getNmId() {
     return nmId;
   }
 
-  public void setNmId(@jakarta.annotation.Nonnull Integer nmId) {
+  public void setNmId(@jakarta.annotation.Nonnull Long nmId) {
     this.nmId = nmId;
   }
 

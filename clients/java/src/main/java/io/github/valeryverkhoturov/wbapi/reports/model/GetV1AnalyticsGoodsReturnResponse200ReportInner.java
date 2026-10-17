@@ -62,7 +62,7 @@ public class GetV1AnalyticsGoodsReturnResponse200ReportInner {
 
   @SerializedName(SERIALIZED_NAME_DST_OFFICE_ID)
   @jakarta.annotation.Nullable
-  private Integer dstOfficeId;
+  private Long dstOfficeId;
 
   public static final String SERIALIZED_NAME_EXPIRED_DT = "expiredDt";
 
@@ -73,17 +73,17 @@ public class GetV1AnalyticsGoodsReturnResponse200ReportInner {
   /** Тип статуса возврата: * &#x60;0&#x60; — архивный * &#x60;1&#x60; — активный */
   @JsonAdapter(IsStatusActiveEnum.Adapter.class)
   public enum IsStatusActiveEnum {
-    NUMBER_0(0),
+    NUMBER_0(0l),
 
-    NUMBER_1(1);
+    NUMBER_1(1l);
 
-    private Integer value;
+    private Long value;
 
-    IsStatusActiveEnum(Integer value) {
+    IsStatusActiveEnum(Long value) {
       this.value = value;
     }
 
-    public Integer getValue() {
+    public Long getValue() {
       return value;
     }
 
@@ -92,7 +92,7 @@ public class GetV1AnalyticsGoodsReturnResponse200ReportInner {
       return String.valueOf(value);
     }
 
-    public static IsStatusActiveEnum fromValue(Integer value) {
+    public static IsStatusActiveEnum fromValue(Long value) {
       for (IsStatusActiveEnum b : IsStatusActiveEnum.values()) {
         if (b.value.equals(value)) {
           return b;
@@ -110,13 +110,13 @@ public class GetV1AnalyticsGoodsReturnResponse200ReportInner {
 
       @Override
       public IsStatusActiveEnum read(final JsonReader jsonReader) throws IOException {
-        Integer value = jsonReader.nextInt();
+        Long value = jsonReader.nextLong();
         return IsStatusActiveEnum.fromValue(value);
       }
     }
 
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      Integer value = jsonElement.getAsInt();
+      Long value = jsonElement.getAsLong();
       IsStatusActiveEnum.fromValue(value);
     }
   }
@@ -131,7 +131,7 @@ public class GetV1AnalyticsGoodsReturnResponse200ReportInner {
 
   @SerializedName(SERIALIZED_NAME_NM_ID)
   @jakarta.annotation.Nullable
-  private Integer nmId;
+  private Long nmId;
 
   public static final String SERIALIZED_NAME_ORDER_DT = "orderDt";
 
@@ -143,7 +143,7 @@ public class GetV1AnalyticsGoodsReturnResponse200ReportInner {
 
   @SerializedName(SERIALIZED_NAME_ORDER_ID)
   @jakarta.annotation.Nullable
-  private Integer orderId;
+  private Long orderId;
 
   public static final String SERIALIZED_NAME_READY_TO_RETURN_DT = "readyToReturnDt";
 
@@ -167,7 +167,7 @@ public class GetV1AnalyticsGoodsReturnResponse200ReportInner {
 
   @SerializedName(SERIALIZED_NAME_SHK_ID)
   @jakarta.annotation.Nullable
-  private Integer shkId;
+  private Long shkId;
 
   public static final String SERIALIZED_NAME_SRID = "srid";
 
@@ -282,7 +282,7 @@ public class GetV1AnalyticsGoodsReturnResponse200ReportInner {
   }
 
   public GetV1AnalyticsGoodsReturnResponse200ReportInner dstOfficeId(
-      @jakarta.annotation.Nullable Integer dstOfficeId) {
+      @jakarta.annotation.Nullable Long dstOfficeId) {
     this.dstOfficeId = dstOfficeId;
     return this;
   }
@@ -293,11 +293,11 @@ public class GetV1AnalyticsGoodsReturnResponse200ReportInner {
    * @return dstOfficeId
    */
   @jakarta.annotation.Nullable
-  public Integer getDstOfficeId() {
+  public Long getDstOfficeId() {
     return dstOfficeId;
   }
 
-  public void setDstOfficeId(@jakarta.annotation.Nullable Integer dstOfficeId) {
+  public void setDstOfficeId(@jakarta.annotation.Nullable Long dstOfficeId) {
     this.dstOfficeId = dstOfficeId;
   }
 
@@ -342,7 +342,7 @@ public class GetV1AnalyticsGoodsReturnResponse200ReportInner {
   }
 
   public GetV1AnalyticsGoodsReturnResponse200ReportInner nmId(
-      @jakarta.annotation.Nullable Integer nmId) {
+      @jakarta.annotation.Nullable Long nmId) {
     this.nmId = nmId;
     return this;
   }
@@ -353,11 +353,11 @@ public class GetV1AnalyticsGoodsReturnResponse200ReportInner {
    * @return nmId
    */
   @jakarta.annotation.Nullable
-  public Integer getNmId() {
+  public Long getNmId() {
     return nmId;
   }
 
-  public void setNmId(@jakarta.annotation.Nullable Integer nmId) {
+  public void setNmId(@jakarta.annotation.Nullable Long nmId) {
     this.nmId = nmId;
   }
 
@@ -382,7 +382,7 @@ public class GetV1AnalyticsGoodsReturnResponse200ReportInner {
   }
 
   public GetV1AnalyticsGoodsReturnResponse200ReportInner orderId(
-      @jakarta.annotation.Nullable Integer orderId) {
+      @jakarta.annotation.Nullable Long orderId) {
     this.orderId = orderId;
     return this;
   }
@@ -393,11 +393,11 @@ public class GetV1AnalyticsGoodsReturnResponse200ReportInner {
    * @return orderId
    */
   @jakarta.annotation.Nullable
-  public Integer getOrderId() {
+  public Long getOrderId() {
     return orderId;
   }
 
-  public void setOrderId(@jakarta.annotation.Nullable Integer orderId) {
+  public void setOrderId(@jakarta.annotation.Nullable Long orderId) {
     this.orderId = orderId;
   }
 
@@ -462,7 +462,7 @@ public class GetV1AnalyticsGoodsReturnResponse200ReportInner {
   }
 
   public GetV1AnalyticsGoodsReturnResponse200ReportInner shkId(
-      @jakarta.annotation.Nullable Integer shkId) {
+      @jakarta.annotation.Nullable Long shkId) {
     this.shkId = shkId;
     return this;
   }
@@ -473,11 +473,11 @@ public class GetV1AnalyticsGoodsReturnResponse200ReportInner {
    * @return shkId
    */
   @jakarta.annotation.Nullable
-  public Integer getShkId() {
+  public Long getShkId() {
     return shkId;
   }
 
-  public void setShkId(@jakarta.annotation.Nullable Integer shkId) {
+  public void setShkId(@jakarta.annotation.Nullable Long shkId) {
     this.shkId = shkId;
   }
 

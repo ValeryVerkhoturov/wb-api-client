@@ -37,7 +37,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// <param name="chrtId">ID размера товара в системе WB.</param>
         /// <param name="error">Детали ошибки.</param>
         /// <param name="success">- &#x60;true&#x60; — настройки автовозврата товара обновлены .</param>
-        public PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInner(int chrtId = default(int), List<PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner> error = default(List<PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner>), bool success = default(bool))
+        public PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInner(long chrtId = default(long), List<PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner> error = default(List<PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner>), bool success = default(bool))
         {
             this.ChrtId = chrtId;
             this.Error = error;
@@ -49,7 +49,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// </summary>
         /// <value>ID размера товара в системе WB</value>
         [DataMember(Name = "chrtId", EmitDefaultValue = false)]
-        public int ChrtId { get; set; }
+        public long ChrtId { get; set; }
 
         /// <summary>
         /// Детали ошибки

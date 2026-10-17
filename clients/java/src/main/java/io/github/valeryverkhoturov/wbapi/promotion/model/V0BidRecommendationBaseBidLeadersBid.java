@@ -40,12 +40,12 @@ public class V0BidRecommendationBaseBidLeadersBid {
 
   @SerializedName(SERIALIZED_NAME_BID_KOPECKS)
   @jakarta.annotation.Nullable
-  private Integer bidKopecks;
+  private Long bidKopecks;
 
   public V0BidRecommendationBaseBidLeadersBid() {}
 
   public V0BidRecommendationBaseBidLeadersBid bidKopecks(
-      @jakarta.annotation.Nullable Integer bidKopecks) {
+      @jakarta.annotation.Nullable Long bidKopecks) {
     this.bidKopecks = bidKopecks;
     return this;
   }
@@ -57,11 +57,11 @@ public class V0BidRecommendationBaseBidLeadersBid {
    * @return bidKopecks
    */
   @jakarta.annotation.Nullable
-  public Integer getBidKopecks() {
+  public Long getBidKopecks() {
     return bidKopecks;
   }
 
-  public void setBidKopecks(@jakarta.annotation.Nullable Integer bidKopecks) {
+  public void setBidKopecks(@jakarta.annotation.Nullable Long bidKopecks) {
     this.bidKopecks = bidKopecks;
   }
 

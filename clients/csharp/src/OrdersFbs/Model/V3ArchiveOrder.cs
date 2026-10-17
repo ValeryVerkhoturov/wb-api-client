@@ -52,7 +52,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// <param name="stickerId">ID стикера.</param>
         /// <param name="supplyId">ID поставки.</param>
         /// <param name="warehouseId">ID склада продавца, с которого был отгружен товар.</param>
-        public V3ArchiveOrder(string cargoType = default(string), string colorCode = default(string), string createdAt = default(string), V3ArchiveOrderCrossBorder crossBorder = default(V3ArchiveOrderCrossBorder), string crossBorderType = default(string), int id = default(int), bool isZeroOrder = default(bool), List<V3ArchiveOrderMetaDetailsInner> metaDetails = default(List<V3ArchiveOrderMetaDetailsInner>), V3ArchiveOrderOptions options = default(V3ArchiveOrderOptions), string orderUid = default(string), V3ArchiveOrderPriceInfo priceInfo = default(V3ArchiveOrderPriceInfo), V3ArchiveOrderProduct product = default(V3ArchiveOrderProduct), string rid = default(string), int? scanPrice = default(int?), V3ArchiveOrderStatus status = default(V3ArchiveOrderStatus), int stickerId = default(int), string supplyId = default(string), int warehouseId = default(int))
+        public V3ArchiveOrder(string cargoType = default(string), string colorCode = default(string), string createdAt = default(string), V3ArchiveOrderCrossBorder crossBorder = default(V3ArchiveOrderCrossBorder), string crossBorderType = default(string), long id = default(long), bool isZeroOrder = default(bool), List<V3ArchiveOrderMetaDetailsInner> metaDetails = default(List<V3ArchiveOrderMetaDetailsInner>), V3ArchiveOrderOptions options = default(V3ArchiveOrderOptions), string orderUid = default(string), V3ArchiveOrderPriceInfo priceInfo = default(V3ArchiveOrderPriceInfo), V3ArchiveOrderProduct product = default(V3ArchiveOrderProduct), string rid = default(string), long? scanPrice = default(long?), V3ArchiveOrderStatus status = default(V3ArchiveOrderStatus), long stickerId = default(long), string supplyId = default(string), long warehouseId = default(long))
         {
             this.CargoType = cargoType;
             this.ColorCode = colorCode;
@@ -128,7 +128,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         <example>1234567890</example>
         */
         [DataMember(Name = "id", EmitDefaultValue = false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// Признак заказа товара с нулевым остатком:   - &#x60;false&#x60; — заказ сделан на товар с ненулевым остатком   - &#x60;true&#x60; — заказ сделан на товар с нулевым остатком 
@@ -193,7 +193,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         <example>5200</example>
         */
         [DataMember(Name = "scanPrice", EmitDefaultValue = true)]
-        public int? ScanPrice { get; set; }
+        public long? ScanPrice { get; set; }
 
         /// <summary>
         /// Gets or Sets Status
@@ -209,7 +209,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         <example>33811984302</example>
         */
         [DataMember(Name = "stickerId", EmitDefaultValue = false)]
-        public int StickerId { get; set; }
+        public long StickerId { get; set; }
 
         /// <summary>
         /// ID поставки
@@ -229,7 +229,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         <example>55684681</example>
         */
         [DataMember(Name = "warehouseId", EmitDefaultValue = false)]
-        public int WarehouseId { get; set; }
+        public long WarehouseId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

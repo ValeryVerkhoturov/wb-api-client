@@ -40,7 +40,7 @@ public class GoodsReturn200Response {
 
   @SerializedName(SERIALIZED_NAME_COUNT)
   @jakarta.annotation.Nullable
-  private Integer count;
+  private Long count;
 
   public static final String SERIALIZED_NAME_REPORT = "report";
 
@@ -50,7 +50,7 @@ public class GoodsReturn200Response {
 
   public GoodsReturn200Response() {}
 
-  public GoodsReturn200Response count(@jakarta.annotation.Nullable Integer count) {
+  public GoodsReturn200Response count(@jakarta.annotation.Nullable Long count) {
     this.count = count;
     return this;
   }
@@ -61,11 +61,11 @@ public class GoodsReturn200Response {
    * @return count
    */
   @jakarta.annotation.Nullable
-  public Integer getCount() {
+  public Long getCount() {
     return count;
   }
 
-  public void setCount(@jakarta.annotation.Nullable Integer count) {
+  public void setCount(@jakarta.annotation.Nullable Long count) {
     this.count = count;
   }
 

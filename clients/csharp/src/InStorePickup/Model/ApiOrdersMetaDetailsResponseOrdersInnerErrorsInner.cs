@@ -36,7 +36,7 @@ namespace ValeryVerkhoturov.WbApiClient.InStorePickup.Model
         /// </summary>
         /// <param name="code">Код ошибки.</param>
         /// <param name="detail">Дополнительная информация об ошибке.</param>
-        public ApiOrdersMetaDetailsResponseOrdersInnerErrorsInner(int code = default(int), string detail = default(string))
+        public ApiOrdersMetaDetailsResponseOrdersInnerErrorsInner(long code = default(long), string detail = default(string))
         {
             this.Code = code;
             this.Detail = detail;
@@ -50,7 +50,7 @@ namespace ValeryVerkhoturov.WbApiClient.InStorePickup.Model
         <example>404</example>
         */
         [DataMember(Name = "code", EmitDefaultValue = false)]
-        public int Code { get; set; }
+        public long Code { get; set; }
 
         /// <summary>
         /// Дополнительная информация об ошибке

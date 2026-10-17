@@ -51,7 +51,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <param name="tagIds">Список ID ярлыков для фильтрации.</param>
         /// <param name="skipDeletedNm">Скрыть удалённые товары.</param>
         /// <param name="aggregationLevel">aggregationLevel.</param>
-        public GroupedHistoryRequest(ItemsRequestSelectedPeriod selectedPeriod = default(ItemsRequestSelectedPeriod), List<string> brandNames = default(List<string>), List<int> subjectIds = default(List<int>), List<int> tagIds = default(List<int>), bool skipDeletedNm = default(bool), Level? aggregationLevel = default(Level?))
+        public GroupedHistoryRequest(ItemsRequestSelectedPeriod selectedPeriod = default(ItemsRequestSelectedPeriod), List<string> brandNames = default(List<string>), List<long> subjectIds = default(List<long>), List<long> tagIds = default(List<long>), bool skipDeletedNm = default(bool), Level? aggregationLevel = default(Level?))
         {
             // to ensure "selectedPeriod" is required (not null)
             if (selectedPeriod == null)
@@ -90,7 +90,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         <example>[64,334]</example>
         */
         [DataMember(Name = "subjectIds", EmitDefaultValue = false)]
-        public List<int> SubjectIds { get; set; }
+        public List<long> SubjectIds { get; set; }
 
         /// <summary>
         /// Список ID ярлыков для фильтрации
@@ -100,7 +100,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         <example>[32,53]</example>
         */
         [DataMember(Name = "tagIds", EmitDefaultValue = false)]
-        public List<int> TagIds { get; set; }
+        public List<long> TagIds { get; set; }
 
         /// <summary>
         /// Скрыть удалённые товары

@@ -38,7 +38,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <param name="netting">Поле не используется. Значение всегда 0..</param>
         /// <param name="total">Бюджет кампании в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances).</param>
         /// <param name="currency">Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances).</param>
-        public GetV1BudgetResponse200(int cash = default(int), int netting = default(int), int total = default(int), string currency = default(string))
+        public GetV1BudgetResponse200(long cash = default(long), long netting = default(long), long total = default(long), string currency = default(string))
         {
             this.Cash = cash;
             this.Netting = netting;
@@ -51,21 +51,21 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <value>Поле не используется. Значение всегда 0.</value>
         [DataMember(Name = "cash", EmitDefaultValue = false)]
-        public int Cash { get; set; }
+        public long Cash { get; set; }
 
         /// <summary>
         /// Поле не используется. Значение всегда 0.
         /// </summary>
         /// <value>Поле не используется. Значение всегда 0.</value>
         [DataMember(Name = "netting", EmitDefaultValue = false)]
-        public int Netting { get; set; }
+        public long Netting { get; set; }
 
         /// <summary>
         /// Бюджет кампании в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
         /// </summary>
         /// <value>Бюджет кампании в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)</value>
         [DataMember(Name = "total", EmitDefaultValue = false)]
-        public int Total { get; set; }
+        public long Total { get; set; }
 
         /// <summary>
         /// Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)

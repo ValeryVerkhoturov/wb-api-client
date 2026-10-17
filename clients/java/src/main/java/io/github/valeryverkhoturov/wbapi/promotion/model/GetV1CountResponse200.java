@@ -37,7 +37,7 @@ public class GetV1CountResponse200 {
 
   @SerializedName(SERIALIZED_NAME_ALL)
   @jakarta.annotation.Nullable
-  private Integer all;
+  private Long all;
 
   public static final String SERIALIZED_NAME_ADVERTS = "adverts";
 
@@ -47,7 +47,7 @@ public class GetV1CountResponse200 {
 
   public GetV1CountResponse200() {}
 
-  public GetV1CountResponse200 all(@jakarta.annotation.Nullable Integer all) {
+  public GetV1CountResponse200 all(@jakarta.annotation.Nullable Long all) {
     this.all = all;
     return this;
   }
@@ -58,11 +58,11 @@ public class GetV1CountResponse200 {
    * @return all
    */
   @jakarta.annotation.Nullable
-  public Integer getAll() {
+  public Long getAll() {
     return all;
   }
 
-  public void setAll(@jakarta.annotation.Nullable Integer all) {
+  public void setAll(@jakarta.annotation.Nullable Long all) {
     this.all = all;
   }
 

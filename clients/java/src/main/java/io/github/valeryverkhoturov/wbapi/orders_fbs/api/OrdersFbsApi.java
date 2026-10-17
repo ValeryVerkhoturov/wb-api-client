@@ -1166,7 +1166,7 @@ public class OrdersFbsApi {
    * </table>
    */
   public okhttp3.Call getV3FbsOrdersArchiveCall(
-      Integer year, Integer month, Long next, Integer limit, final ApiCallback _callback)
+      Long year, Long month, Long next, Integer limit, final ApiCallback _callback)
       throws ApiException {
     String basePath = null;
     // Operation Servers
@@ -1238,7 +1238,7 @@ public class OrdersFbsApi {
 
   @SuppressWarnings("rawtypes")
   private okhttp3.Call getV3FbsOrdersArchiveValidateBeforeCall(
-      Integer year, Integer month, Long next, Integer limit, final ApiCallback _callback)
+      Long year, Long month, Long next, Integer limit, final ApiCallback _callback)
       throws ApiException {
     // verify the required parameter 'year' is set
     if (year == null) {
@@ -1302,8 +1302,8 @@ public class OrdersFbsApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public V3ArchiveOrders getV3FbsOrdersArchive(
-      Integer year, Integer month, Long next, Integer limit) throws ApiException {
+  public V3ArchiveOrders getV3FbsOrdersArchive(Long year, Long month, Long next, Integer limit)
+      throws ApiException {
     ApiResponse<V3ArchiveOrders> localVarResp =
         getV3FbsOrdersArchiveWithHttpInfo(year, month, next, limit);
     return localVarResp.getData();
@@ -1345,7 +1345,7 @@ public class OrdersFbsApi {
    * </table>
    */
   public ApiResponse<V3ArchiveOrders> getV3FbsOrdersArchiveWithHttpInfo(
-      Integer year, Integer month, Long next, Integer limit) throws ApiException {
+      Long year, Long month, Long next, Integer limit) throws ApiException {
     okhttp3.Call localVarCall =
         getV3FbsOrdersArchiveValidateBeforeCall(year, month, next, limit, null);
     Type localVarReturnType = new TypeToken<V3ArchiveOrders>() {}.getType();
@@ -1388,11 +1388,7 @@ public class OrdersFbsApi {
    * </table>
    */
   public okhttp3.Call getV3FbsOrdersArchiveAsync(
-      Integer year,
-      Integer month,
-      Long next,
-      Integer limit,
-      final ApiCallback<V3ArchiveOrders> _callback)
+      Long year, Long month, Long next, Integer limit, final ApiCallback<V3ArchiveOrders> _callback)
       throws ApiException {
 
     okhttp3.Call localVarCall =
@@ -1832,7 +1828,7 @@ public class OrdersFbsApi {
    * </table>
    */
   public okhttp3.Call getV3FbsShippingPointsCall(
-      String city, Integer cargoType, final ApiCallback _callback) throws ApiException {
+      String city, Long cargoType, final ApiCallback _callback) throws ApiException {
     String basePath = null;
     // Operation Servers
     String[] localBasePaths = new String[] {"https://marketplace-api.wildberries.ru"};
@@ -1895,7 +1891,7 @@ public class OrdersFbsApi {
 
   @SuppressWarnings("rawtypes")
   private okhttp3.Call getV3FbsShippingPointsValidateBeforeCall(
-      String city, Integer cargoType, final ApiCallback _callback) throws ApiException {
+      String city, Long cargoType, final ApiCallback _callback) throws ApiException {
     // verify the required parameter 'city' is set
     if (city == null) {
       throw new ApiException(
@@ -1942,7 +1938,7 @@ public class OrdersFbsApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public ShippingPointsResponse getV3FbsShippingPoints(String city, Integer cargoType)
+  public ShippingPointsResponse getV3FbsShippingPoints(String city, Long cargoType)
       throws ApiException {
     ApiResponse<ShippingPointsResponse> localVarResp =
         getV3FbsShippingPointsWithHttpInfo(city, cargoType);
@@ -1981,7 +1977,7 @@ public class OrdersFbsApi {
    * </table>
    */
   public ApiResponse<ShippingPointsResponse> getV3FbsShippingPointsWithHttpInfo(
-      String city, Integer cargoType) throws ApiException {
+      String city, Long cargoType) throws ApiException {
     okhttp3.Call localVarCall = getV3FbsShippingPointsValidateBeforeCall(city, cargoType, null);
     Type localVarReturnType = new TypeToken<ShippingPointsResponse>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -2020,7 +2016,7 @@ public class OrdersFbsApi {
    * </table>
    */
   public okhttp3.Call getV3FbsShippingPointsAsync(
-      String city, Integer cargoType, final ApiCallback<ShippingPointsResponse> _callback)
+      String city, Long cargoType, final ApiCallback<ShippingPointsResponse> _callback)
       throws ApiException {
 
     okhttp3.Call localVarCall =
@@ -2254,7 +2250,7 @@ public class OrdersFbsApi {
    * </table>
    */
   public okhttp3.Call getV3OrdersCall(
-      Integer limit, Long next, Integer dateFrom, Integer dateTo, final ApiCallback _callback)
+      Long limit, Long next, Long dateFrom, Long dateTo, final ApiCallback _callback)
       throws ApiException {
     String basePath = null;
     // Operation Servers
@@ -2329,7 +2325,7 @@ public class OrdersFbsApi {
 
   @SuppressWarnings("rawtypes")
   private okhttp3.Call getV3OrdersValidateBeforeCall(
-      Integer limit, Long next, Integer dateFrom, Integer dateTo, final ApiCallback _callback)
+      Long limit, Long next, Long dateFrom, Long dateTo, final ApiCallback _callback)
       throws ApiException {
     // verify the required parameter 'limit' is set
     if (limit == null) {
@@ -2388,8 +2384,8 @@ public class OrdersFbsApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public GetV3OrdersResponse200 getV3Orders(
-      Integer limit, Long next, Integer dateFrom, Integer dateTo) throws ApiException {
+  public GetV3OrdersResponse200 getV3Orders(Long limit, Long next, Long dateFrom, Long dateTo)
+      throws ApiException {
     ApiResponse<GetV3OrdersResponse200> localVarResp =
         getV3OrdersWithHttpInfo(limit, next, dateFrom, dateTo);
     return localVarResp.getData();
@@ -2438,7 +2434,7 @@ public class OrdersFbsApi {
    * </table>
    */
   public ApiResponse<GetV3OrdersResponse200> getV3OrdersWithHttpInfo(
-      Integer limit, Long next, Integer dateFrom, Integer dateTo) throws ApiException {
+      Long limit, Long next, Long dateFrom, Long dateTo) throws ApiException {
     okhttp3.Call localVarCall = getV3OrdersValidateBeforeCall(limit, next, dateFrom, dateTo, null);
     Type localVarReturnType = new TypeToken<GetV3OrdersResponse200>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -2487,10 +2483,10 @@ public class OrdersFbsApi {
    * </table>
    */
   public okhttp3.Call getV3OrdersAsync(
-      Integer limit,
+      Long limit,
       Long next,
-      Integer dateFrom,
-      Integer dateTo,
+      Long dateFrom,
+      Long dateTo,
       final ApiCallback<GetV3OrdersResponse200> _callback)
       throws ApiException {
 
@@ -3087,7 +3083,7 @@ public class OrdersFbsApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public okhttp3.Call getV3SuppliesCall(Integer limit, Long next, final ApiCallback _callback)
+  public okhttp3.Call getV3SuppliesCall(Long limit, Long next, final ApiCallback _callback)
       throws ApiException {
     String basePath = null;
     // Operation Servers
@@ -3154,7 +3150,7 @@ public class OrdersFbsApi {
 
   @SuppressWarnings("rawtypes")
   private okhttp3.Call getV3SuppliesValidateBeforeCall(
-      Integer limit, Long next, final ApiCallback _callback) throws ApiException {
+      Long limit, Long next, final ApiCallback _callback) throws ApiException {
     // verify the required parameter 'limit' is set
     if (limit == null) {
       throw new ApiException(
@@ -3203,7 +3199,7 @@ public class OrdersFbsApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public GetV3SuppliesResponse200 getV3Supplies(Integer limit, Long next) throws ApiException {
+  public GetV3SuppliesResponse200 getV3Supplies(Long limit, Long next) throws ApiException {
     ApiResponse<GetV3SuppliesResponse200> localVarResp = getV3SuppliesWithHttpInfo(limit, next);
     return localVarResp.getData();
   }
@@ -3241,7 +3237,7 @@ public class OrdersFbsApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public ApiResponse<GetV3SuppliesResponse200> getV3SuppliesWithHttpInfo(Integer limit, Long next)
+  public ApiResponse<GetV3SuppliesResponse200> getV3SuppliesWithHttpInfo(Long limit, Long next)
       throws ApiException {
     okhttp3.Call localVarCall = getV3SuppliesValidateBeforeCall(limit, next, null);
     Type localVarReturnType = new TypeToken<GetV3SuppliesResponse200>() {}.getType();
@@ -3282,7 +3278,7 @@ public class OrdersFbsApi {
    * </table>
    */
   public okhttp3.Call getV3SuppliesAsync(
-      Integer limit, Long next, final ApiCallback<GetV3SuppliesResponse200> _callback)
+      Long limit, Long next, final ApiCallback<GetV3SuppliesResponse200> _callback)
       throws ApiException {
 
     okhttp3.Call localVarCall = getV3SuppliesValidateBeforeCall(limit, next, _callback);
@@ -7213,8 +7209,8 @@ public class OrdersFbsApi {
    */
   public okhttp3.Call postV3OrdersStickersCall(
       String type,
-      Integer width,
-      Integer height,
+      Long width,
+      Long height,
       PostV3OrdersStickersRequest postV3OrdersStickersRequest,
       final ApiCallback _callback)
       throws ApiException {
@@ -7288,8 +7284,8 @@ public class OrdersFbsApi {
   @SuppressWarnings("rawtypes")
   private okhttp3.Call postV3OrdersStickersValidateBeforeCall(
       String type,
-      Integer width,
-      Integer height,
+      Long width,
+      Long height,
       PostV3OrdersStickersRequest postV3OrdersStickersRequest,
       final ApiCallback _callback)
       throws ApiException {
@@ -7355,10 +7351,7 @@ public class OrdersFbsApi {
    * </table>
    */
   public PostV3OrdersStickersResponse200 postV3OrdersStickers(
-      String type,
-      Integer width,
-      Integer height,
-      PostV3OrdersStickersRequest postV3OrdersStickersRequest)
+      String type, Long width, Long height, PostV3OrdersStickersRequest postV3OrdersStickersRequest)
       throws ApiException {
     ApiResponse<PostV3OrdersStickersResponse200> localVarResp =
         postV3OrdersStickersWithHttpInfo(type, width, height, postV3OrdersStickersRequest);
@@ -7406,10 +7399,7 @@ public class OrdersFbsApi {
    * </table>
    */
   public ApiResponse<PostV3OrdersStickersResponse200> postV3OrdersStickersWithHttpInfo(
-      String type,
-      Integer width,
-      Integer height,
-      PostV3OrdersStickersRequest postV3OrdersStickersRequest)
+      String type, Long width, Long height, PostV3OrdersStickersRequest postV3OrdersStickersRequest)
       throws ApiException {
     okhttp3.Call localVarCall =
         postV3OrdersStickersValidateBeforeCall(
@@ -7460,8 +7450,8 @@ public class OrdersFbsApi {
    */
   public okhttp3.Call postV3OrdersStickersAsync(
       String type,
-      Integer width,
-      Integer height,
+      Long width,
+      Long height,
       PostV3OrdersStickersRequest postV3OrdersStickersRequest,
       final ApiCallback<PostV3OrdersStickersResponse200> _callback)
       throws ApiException {

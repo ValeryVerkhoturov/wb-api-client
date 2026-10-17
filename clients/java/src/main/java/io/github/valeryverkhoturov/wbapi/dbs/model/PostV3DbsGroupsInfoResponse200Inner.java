@@ -44,13 +44,13 @@ public class PostV3DbsGroupsInfoResponse200Inner {
 
   @SerializedName(SERIALIZED_NAME_DELIVERY_COST)
   @jakarta.annotation.Nullable
-  private Integer deliveryCost;
+  private Long deliveryCost;
 
   public static final String SERIALIZED_NAME_CONVERTED_DELIVERY_COST = "convertedDeliveryCost";
 
   @SerializedName(SERIALIZED_NAME_CONVERTED_DELIVERY_COST)
   @jakarta.annotation.Nullable
-  private Integer convertedDeliveryCost;
+  private Long convertedDeliveryCost;
 
   public static final String SERIALIZED_NAME_CURRENCY_CODE = "currencyCode";
 
@@ -62,7 +62,7 @@ public class PostV3DbsGroupsInfoResponse200Inner {
 
   @SerializedName(SERIALIZED_NAME_CONVERTED_CURRENCY_CODE)
   @jakarta.annotation.Nullable
-  private Integer convertedCurrencyCode;
+  private Long convertedCurrencyCode;
 
   public PostV3DbsGroupsInfoResponse200Inner() {}
 
@@ -86,7 +86,7 @@ public class PostV3DbsGroupsInfoResponse200Inner {
   }
 
   public PostV3DbsGroupsInfoResponse200Inner deliveryCost(
-      @jakarta.annotation.Nullable Integer deliveryCost) {
+      @jakarta.annotation.Nullable Long deliveryCost) {
     this.deliveryCost = deliveryCost;
     return this;
   }
@@ -97,16 +97,16 @@ public class PostV3DbsGroupsInfoResponse200Inner {
    * @return deliveryCost
    */
   @jakarta.annotation.Nullable
-  public Integer getDeliveryCost() {
+  public Long getDeliveryCost() {
     return deliveryCost;
   }
 
-  public void setDeliveryCost(@jakarta.annotation.Nullable Integer deliveryCost) {
+  public void setDeliveryCost(@jakarta.annotation.Nullable Long deliveryCost) {
     this.deliveryCost = deliveryCost;
   }
 
   public PostV3DbsGroupsInfoResponse200Inner convertedDeliveryCost(
-      @jakarta.annotation.Nullable Integer convertedDeliveryCost) {
+      @jakarta.annotation.Nullable Long convertedDeliveryCost) {
     this.convertedDeliveryCost = convertedDeliveryCost;
     return this;
   }
@@ -118,11 +118,11 @@ public class PostV3DbsGroupsInfoResponse200Inner {
    * @return convertedDeliveryCost
    */
   @jakarta.annotation.Nullable
-  public Integer getConvertedDeliveryCost() {
+  public Long getConvertedDeliveryCost() {
     return convertedDeliveryCost;
   }
 
-  public void setConvertedDeliveryCost(@jakarta.annotation.Nullable Integer convertedDeliveryCost) {
+  public void setConvertedDeliveryCost(@jakarta.annotation.Nullable Long convertedDeliveryCost) {
     this.convertedDeliveryCost = convertedDeliveryCost;
   }
 
@@ -147,7 +147,7 @@ public class PostV3DbsGroupsInfoResponse200Inner {
   }
 
   public PostV3DbsGroupsInfoResponse200Inner convertedCurrencyCode(
-      @jakarta.annotation.Nullable Integer convertedCurrencyCode) {
+      @jakarta.annotation.Nullable Long convertedCurrencyCode) {
     this.convertedCurrencyCode = convertedCurrencyCode;
     return this;
   }
@@ -158,11 +158,11 @@ public class PostV3DbsGroupsInfoResponse200Inner {
    * @return convertedCurrencyCode
    */
   @jakarta.annotation.Nullable
-  public Integer getConvertedCurrencyCode() {
+  public Long getConvertedCurrencyCode() {
     return convertedCurrencyCode;
   }
 
-  public void setConvertedCurrencyCode(@jakarta.annotation.Nullable Integer convertedCurrencyCode) {
+  public void setConvertedCurrencyCode(@jakarta.annotation.Nullable Long convertedCurrencyCode) {
     this.convertedCurrencyCode = convertedCurrencyCode;
   }
 

@@ -41,7 +41,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <param name="tagId">ID ярлыка.</param>
         /// <param name="metrics">metrics.</param>
         /// <param name="items">Массив товаров группы.</param>
-        public TableGroupItem(string subjectName = default(string), int subjectId = default(int), string brandName = default(string), string tagName = default(string), long tagId = default(long), TableGroupItemMetrics metrics = default(TableGroupItemMetrics), List<TableItem> items = default(List<TableItem>))
+        public TableGroupItem(string subjectName = default(string), long subjectId = default(long), string brandName = default(string), string tagName = default(string), long tagId = default(long), TableGroupItemMetrics metrics = default(TableGroupItemMetrics), List<TableItem> items = default(List<TableItem>))
         {
             this.SubjectName = subjectName;
             this.SubjectId = subjectId;
@@ -70,7 +70,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         <example>50</example>
         */
         [DataMember(Name = "subjectId", EmitDefaultValue = false)]
-        public int SubjectId { get; set; }
+        public long SubjectId { get; set; }
 
         /// <summary>
         /// Бренд

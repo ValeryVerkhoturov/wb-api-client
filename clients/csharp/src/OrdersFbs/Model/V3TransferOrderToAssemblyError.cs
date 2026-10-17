@@ -36,7 +36,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// </summary>
         /// <param name="detail">Детали ошибки.</param>
         /// <param name="code">Внутренний код ошибки.</param>
-        public V3TransferOrderToAssemblyError(string detail = default(string), int code = default(int))
+        public V3TransferOrderToAssemblyError(string detail = default(string), long code = default(long))
         {
             this.Detail = detail;
             this.Code = code;
@@ -54,7 +54,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// </summary>
         /// <value>Внутренний код ошибки</value>
         [DataMember(Name = "code", EmitDefaultValue = false)]
-        public int Code { get; set; }
+        public long Code { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

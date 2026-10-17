@@ -43,7 +43,7 @@ public class V3TransferOrderToAssemblyError {
 
   @SerializedName(SERIALIZED_NAME_CODE)
   @jakarta.annotation.Nullable
-  private Integer code;
+  private Long code;
 
   public V3TransferOrderToAssemblyError() {}
 
@@ -66,7 +66,7 @@ public class V3TransferOrderToAssemblyError {
     this.detail = detail;
   }
 
-  public V3TransferOrderToAssemblyError code(@jakarta.annotation.Nullable Integer code) {
+  public V3TransferOrderToAssemblyError code(@jakarta.annotation.Nullable Long code) {
     this.code = code;
     return this;
   }
@@ -77,11 +77,11 @@ public class V3TransferOrderToAssemblyError {
    * @return code
    */
   @jakarta.annotation.Nullable
-  public Integer getCode() {
+  public Long getCode() {
     return code;
   }
 
-  public void setCode(@jakarta.annotation.Nullable Integer code) {
+  public void setCode(@jakarta.annotation.Nullable Long code) {
     this.code = code;
   }
 

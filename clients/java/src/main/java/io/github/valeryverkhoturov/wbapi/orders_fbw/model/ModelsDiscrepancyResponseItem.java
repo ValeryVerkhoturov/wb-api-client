@@ -110,19 +110,19 @@ public class ModelsDiscrepancyResponseItem {
 
   @SerializedName(SERIALIZED_NAME_DECLARED_AMOUNT)
   @jakarta.annotation.Nullable
-  private Integer declaredAmount;
+  private Long declaredAmount;
 
   public static final String SERIALIZED_NAME_ACTUAL_AMOUNT = "actualAmount";
 
   @SerializedName(SERIALIZED_NAME_ACTUAL_AMOUNT)
   @jakarta.annotation.Nullable
-  private Integer actualAmount;
+  private Long actualAmount;
 
   public static final String SERIALIZED_NAME_DISCREPANCY_QUANTITY = "discrepancyQuantity";
 
   @SerializedName(SERIALIZED_NAME_DISCREPANCY_QUANTITY)
   @jakarta.annotation.Nullable
-  private Integer discrepancyQuantity;
+  private Long discrepancyQuantity;
 
   public static final String SERIALIZED_NAME_ACTUAL_SKU = "actualSku";
 
@@ -181,7 +181,7 @@ public class ModelsDiscrepancyResponseItem {
   }
 
   public ModelsDiscrepancyResponseItem declaredAmount(
-      @jakarta.annotation.Nullable Integer declaredAmount) {
+      @jakarta.annotation.Nullable Long declaredAmount) {
     this.declaredAmount = declaredAmount;
     return this;
   }
@@ -192,16 +192,16 @@ public class ModelsDiscrepancyResponseItem {
    * @return declaredAmount
    */
   @jakarta.annotation.Nullable
-  public Integer getDeclaredAmount() {
+  public Long getDeclaredAmount() {
     return declaredAmount;
   }
 
-  public void setDeclaredAmount(@jakarta.annotation.Nullable Integer declaredAmount) {
+  public void setDeclaredAmount(@jakarta.annotation.Nullable Long declaredAmount) {
     this.declaredAmount = declaredAmount;
   }
 
   public ModelsDiscrepancyResponseItem actualAmount(
-      @jakarta.annotation.Nullable Integer actualAmount) {
+      @jakarta.annotation.Nullable Long actualAmount) {
     this.actualAmount = actualAmount;
     return this;
   }
@@ -212,16 +212,16 @@ public class ModelsDiscrepancyResponseItem {
    * @return actualAmount
    */
   @jakarta.annotation.Nullable
-  public Integer getActualAmount() {
+  public Long getActualAmount() {
     return actualAmount;
   }
 
-  public void setActualAmount(@jakarta.annotation.Nullable Integer actualAmount) {
+  public void setActualAmount(@jakarta.annotation.Nullable Long actualAmount) {
     this.actualAmount = actualAmount;
   }
 
   public ModelsDiscrepancyResponseItem discrepancyQuantity(
-      @jakarta.annotation.Nullable Integer discrepancyQuantity) {
+      @jakarta.annotation.Nullable Long discrepancyQuantity) {
     this.discrepancyQuantity = discrepancyQuantity;
     return this;
   }
@@ -232,11 +232,11 @@ public class ModelsDiscrepancyResponseItem {
    * @return discrepancyQuantity
    */
   @jakarta.annotation.Nullable
-  public Integer getDiscrepancyQuantity() {
+  public Long getDiscrepancyQuantity() {
     return discrepancyQuantity;
   }
 
-  public void setDiscrepancyQuantity(@jakarta.annotation.Nullable Integer discrepancyQuantity) {
+  public void setDiscrepancyQuantity(@jakarta.annotation.Nullable Long discrepancyQuantity) {
     this.discrepancyQuantity = discrepancyQuantity;
   }
 

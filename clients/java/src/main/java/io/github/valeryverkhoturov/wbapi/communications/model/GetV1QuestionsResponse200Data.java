@@ -40,13 +40,13 @@ public class GetV1QuestionsResponse200Data {
 
   @SerializedName(SERIALIZED_NAME_COUNT_UNANSWERED)
   @jakarta.annotation.Nullable
-  private Integer countUnanswered;
+  private Long countUnanswered;
 
   public static final String SERIALIZED_NAME_COUNT_ARCHIVE = "countArchive";
 
   @SerializedName(SERIALIZED_NAME_COUNT_ARCHIVE)
   @jakarta.annotation.Nullable
-  private Integer countArchive;
+  private Long countArchive;
 
   public static final String SERIALIZED_NAME_QUESTIONS = "questions";
 
@@ -57,7 +57,7 @@ public class GetV1QuestionsResponse200Data {
   public GetV1QuestionsResponse200Data() {}
 
   public GetV1QuestionsResponse200Data countUnanswered(
-      @jakarta.annotation.Nullable Integer countUnanswered) {
+      @jakarta.annotation.Nullable Long countUnanswered) {
     this.countUnanswered = countUnanswered;
     return this;
   }
@@ -68,16 +68,16 @@ public class GetV1QuestionsResponse200Data {
    * @return countUnanswered
    */
   @jakarta.annotation.Nullable
-  public Integer getCountUnanswered() {
+  public Long getCountUnanswered() {
     return countUnanswered;
   }
 
-  public void setCountUnanswered(@jakarta.annotation.Nullable Integer countUnanswered) {
+  public void setCountUnanswered(@jakarta.annotation.Nullable Long countUnanswered) {
     this.countUnanswered = countUnanswered;
   }
 
   public GetV1QuestionsResponse200Data countArchive(
-      @jakarta.annotation.Nullable Integer countArchive) {
+      @jakarta.annotation.Nullable Long countArchive) {
     this.countArchive = countArchive;
     return this;
   }
@@ -88,11 +88,11 @@ public class GetV1QuestionsResponse200Data {
    * @return countArchive
    */
   @jakarta.annotation.Nullable
-  public Integer getCountArchive() {
+  public Long getCountArchive() {
     return countArchive;
   }
 
-  public void setCountArchive(@jakarta.annotation.Nullable Integer countArchive) {
+  public void setCountArchive(@jakarta.annotation.Nullable Long countArchive) {
     this.countArchive = countArchive;
   }
 

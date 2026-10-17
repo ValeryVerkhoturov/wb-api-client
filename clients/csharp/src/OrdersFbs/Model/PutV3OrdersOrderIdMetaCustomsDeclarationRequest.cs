@@ -92,13 +92,13 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
             // CustomsDeclaration (string) maxLength
             if (this.CustomsDeclaration != null && this.CustomsDeclaration.Length > 29)
             {
-                yield return new ValidationResult("Invalid value for CustomsDeclaration, length must be less than 29.", new [] { "CustomsDeclaration" });
+                yield return new ValidationResult("Invalid value for CustomsDeclaration, length must be less than 29.", new[] { "CustomsDeclaration" });
             }
 
             // CustomsDeclaration (string) minLength
             if (this.CustomsDeclaration != null && this.CustomsDeclaration.Length < 17)
             {
-                yield return new ValidationResult("Invalid value for CustomsDeclaration, length must be greater than 17.", new [] { "CustomsDeclaration" });
+                yield return new ValidationResult("Invalid value for CustomsDeclaration, length must be greater than 17.", new[] { "CustomsDeclaration" });
             }
 
             yield break;

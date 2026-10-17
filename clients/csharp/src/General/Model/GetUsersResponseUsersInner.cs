@@ -74,7 +74,7 @@ namespace ValeryVerkhoturov.WbApiClient.General.Model
         /// <param name="isInvitee">Приглашён ли пользователь.</param>
         /// <param name="inviteeInfo">inviteeInfo.</param>
         /// <param name="access">Настройки доступа к разделам профиля продавца.</param>
-        public GetUsersResponseUsersInner(int id = default(int), RoleEnum? role = default(RoleEnum?), string position = default(string), string phone = default(string), string email = default(string), bool isOwner = default(bool), string firstName = default(string), string secondName = default(string), string patronymic = default(string), bool goodsReturn = default(bool), bool isInvitee = default(bool), GetUsersResponseUsersInnerInviteeInfo inviteeInfo = default(GetUsersResponseUsersInnerInviteeInfo), List<GetUsersResponseUsersInnerAccessInner> access = default(List<GetUsersResponseUsersInnerAccessInner>))
+        public GetUsersResponseUsersInner(long id = default(long), RoleEnum? role = default(RoleEnum?), string position = default(string), string phone = default(string), string email = default(string), bool isOwner = default(bool), string firstName = default(string), string secondName = default(string), string patronymic = default(string), bool goodsReturn = default(bool), bool isInvitee = default(bool), GetUsersResponseUsersInnerInviteeInfo inviteeInfo = default(GetUsersResponseUsersInnerInviteeInfo), List<GetUsersResponseUsersInnerAccessInner> access = default(List<GetUsersResponseUsersInnerAccessInner>))
         {
             this.Id = id;
             this.Role = role;
@@ -96,7 +96,7 @@ namespace ValeryVerkhoturov.WbApiClient.General.Model
         /// </summary>
         /// <value>ID пользователя</value>
         [DataMember(Name = "id", EmitDefaultValue = false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// Должность пользователя

@@ -44,21 +44,21 @@ public class PostV2GetCardsListRequestSettingsFilter {
    */
   @JsonAdapter(WithPhotoEnum.Adapter.class)
   public enum WithPhotoEnum {
-    NUMBER_MINUS_1(-1),
+    NUMBER_MINUS_1(-1l),
 
-    NUMBER_0(0),
+    NUMBER_0(0l),
 
-    NUMBER_1(1),
+    NUMBER_1(1l),
 
-    NUMBER_2(2);
+    NUMBER_2(2l);
 
-    private Integer value;
+    private Long value;
 
-    WithPhotoEnum(Integer value) {
+    WithPhotoEnum(Long value) {
       this.value = value;
     }
 
-    public Integer getValue() {
+    public Long getValue() {
       return value;
     }
 
@@ -67,7 +67,7 @@ public class PostV2GetCardsListRequestSettingsFilter {
       return String.valueOf(value);
     }
 
-    public static WithPhotoEnum fromValue(Integer value) {
+    public static WithPhotoEnum fromValue(Long value) {
       for (WithPhotoEnum b : WithPhotoEnum.values()) {
         if (b.value.equals(value)) {
           return b;
@@ -85,13 +85,13 @@ public class PostV2GetCardsListRequestSettingsFilter {
 
       @Override
       public WithPhotoEnum read(final JsonReader jsonReader) throws IOException {
-        Integer value = jsonReader.nextInt();
+        Long value = jsonReader.nextLong();
         return WithPhotoEnum.fromValue(value);
       }
     }
 
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      Integer value = jsonElement.getAsInt();
+      Long value = jsonElement.getAsLong();
       WithPhotoEnum.fromValue(value);
     }
   }
@@ -112,7 +112,7 @@ public class PostV2GetCardsListRequestSettingsFilter {
 
   @SerializedName(SERIALIZED_NAME_TAG_I_DS)
   @jakarta.annotation.Nullable
-  private List<Integer> tagIDs = new ArrayList<>();
+  private List<Long> tagIDs = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_ALLOWED_CATEGORIES_ONLY = "allowedCategoriesOnly";
 
@@ -124,7 +124,7 @@ public class PostV2GetCardsListRequestSettingsFilter {
 
   @SerializedName(SERIALIZED_NAME_OBJECT_I_DS)
   @jakarta.annotation.Nullable
-  private List<Integer> objectIDs = new ArrayList<>();
+  private List<Long> objectIDs = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_BRANDS = "brands";
 
@@ -184,12 +184,12 @@ public class PostV2GetCardsListRequestSettingsFilter {
   }
 
   public PostV2GetCardsListRequestSettingsFilter tagIDs(
-      @jakarta.annotation.Nullable List<Integer> tagIDs) {
+      @jakarta.annotation.Nullable List<Long> tagIDs) {
     this.tagIDs = tagIDs;
     return this;
   }
 
-  public PostV2GetCardsListRequestSettingsFilter addTagIDsItem(Integer tagIDsItem) {
+  public PostV2GetCardsListRequestSettingsFilter addTagIDsItem(Long tagIDsItem) {
     if (this.tagIDs == null) {
       this.tagIDs = new ArrayList<>();
     }
@@ -203,11 +203,11 @@ public class PostV2GetCardsListRequestSettingsFilter {
    * @return tagIDs
    */
   @jakarta.annotation.Nullable
-  public List<Integer> getTagIDs() {
+  public List<Long> getTagIDs() {
     return tagIDs;
   }
 
-  public void setTagIDs(@jakarta.annotation.Nullable List<Integer> tagIDs) {
+  public void setTagIDs(@jakarta.annotation.Nullable List<Long> tagIDs) {
     this.tagIDs = tagIDs;
   }
 
@@ -233,12 +233,12 @@ public class PostV2GetCardsListRequestSettingsFilter {
   }
 
   public PostV2GetCardsListRequestSettingsFilter objectIDs(
-      @jakarta.annotation.Nullable List<Integer> objectIDs) {
+      @jakarta.annotation.Nullable List<Long> objectIDs) {
     this.objectIDs = objectIDs;
     return this;
   }
 
-  public PostV2GetCardsListRequestSettingsFilter addObjectIDsItem(Integer objectIDsItem) {
+  public PostV2GetCardsListRequestSettingsFilter addObjectIDsItem(Long objectIDsItem) {
     if (this.objectIDs == null) {
       this.objectIDs = new ArrayList<>();
     }
@@ -252,11 +252,11 @@ public class PostV2GetCardsListRequestSettingsFilter {
    * @return objectIDs
    */
   @jakarta.annotation.Nullable
-  public List<Integer> getObjectIDs() {
+  public List<Long> getObjectIDs() {
     return objectIDs;
   }
 
-  public void setObjectIDs(@jakarta.annotation.Nullable List<Integer> objectIDs) {
+  public void setObjectIDs(@jakarta.annotation.Nullable List<Long> objectIDs) {
     this.objectIDs = objectIDs;
   }
 

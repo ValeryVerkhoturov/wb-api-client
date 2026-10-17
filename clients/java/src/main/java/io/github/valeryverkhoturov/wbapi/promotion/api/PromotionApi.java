@@ -717,7 +717,7 @@ public class PromotionApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public okhttp3.Call getV0DeleteCall(Integer id, final ApiCallback _callback) throws ApiException {
+  public okhttp3.Call getV0DeleteCall(Long id, final ApiCallback _callback) throws ApiException {
     String basePath = null;
     // Operation Servers
     String[] localBasePaths =
@@ -778,7 +778,7 @@ public class PromotionApi {
   }
 
   @SuppressWarnings("rawtypes")
-  private okhttp3.Call getV0DeleteValidateBeforeCall(Integer id, final ApiCallback _callback)
+  private okhttp3.Call getV0DeleteValidateBeforeCall(Long id, final ApiCallback _callback)
       throws ApiException {
     // verify the required parameter 'id' is set
     if (id == null) {
@@ -815,7 +815,7 @@ public class PromotionApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public void getV0Delete(Integer id) throws ApiException {
+  public void getV0Delete(Long id) throws ApiException {
     getV0DeleteWithHttpInfo(id);
   }
 
@@ -847,7 +847,7 @@ public class PromotionApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public ApiResponse<Void> getV0DeleteWithHttpInfo(Integer id) throws ApiException {
+  public ApiResponse<Void> getV0DeleteWithHttpInfo(Long id) throws ApiException {
     okhttp3.Call localVarCall = getV0DeleteValidateBeforeCall(id, null);
     return localVarApiClient.execute(localVarCall);
   }
@@ -880,7 +880,7 @@ public class PromotionApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public okhttp3.Call getV0DeleteAsync(Integer id, final ApiCallback<Void> _callback)
+  public okhttp3.Call getV0DeleteAsync(Long id, final ApiCallback<Void> _callback)
       throws ApiException {
 
     okhttp3.Call localVarCall = getV0DeleteValidateBeforeCall(id, _callback);
@@ -907,7 +907,7 @@ public class PromotionApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public okhttp3.Call getV0PauseCall(Integer id, final ApiCallback _callback) throws ApiException {
+  public okhttp3.Call getV0PauseCall(Long id, final ApiCallback _callback) throws ApiException {
     String basePath = null;
     // Operation Servers
     String[] localBasePaths =
@@ -968,7 +968,7 @@ public class PromotionApi {
   }
 
   @SuppressWarnings("rawtypes")
-  private okhttp3.Call getV0PauseValidateBeforeCall(Integer id, final ApiCallback _callback)
+  private okhttp3.Call getV0PauseValidateBeforeCall(Long id, final ApiCallback _callback)
       throws ApiException {
     // verify the required parameter 'id' is set
     if (id == null) {
@@ -1004,7 +1004,7 @@ public class PromotionApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public void getV0Pause(Integer id) throws ApiException {
+  public void getV0Pause(Long id) throws ApiException {
     getV0PauseWithHttpInfo(id);
   }
 
@@ -1035,7 +1035,7 @@ public class PromotionApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public ApiResponse<Void> getV0PauseWithHttpInfo(Integer id) throws ApiException {
+  public ApiResponse<Void> getV0PauseWithHttpInfo(Long id) throws ApiException {
     okhttp3.Call localVarCall = getV0PauseValidateBeforeCall(id, null);
     return localVarApiClient.execute(localVarCall);
   }
@@ -1067,7 +1067,7 @@ public class PromotionApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public okhttp3.Call getV0PauseAsync(Integer id, final ApiCallback<Void> _callback)
+  public okhttp3.Call getV0PauseAsync(Long id, final ApiCallback<Void> _callback)
       throws ApiException {
 
     okhttp3.Call localVarCall = getV0PauseValidateBeforeCall(id, _callback);
@@ -1094,7 +1094,7 @@ public class PromotionApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public okhttp3.Call getV0StartCall(Integer id, final ApiCallback _callback) throws ApiException {
+  public okhttp3.Call getV0StartCall(Long id, final ApiCallback _callback) throws ApiException {
     String basePath = null;
     // Operation Servers
     String[] localBasePaths =
@@ -1155,7 +1155,7 @@ public class PromotionApi {
   }
 
   @SuppressWarnings("rawtypes")
-  private okhttp3.Call getV0StartValidateBeforeCall(Integer id, final ApiCallback _callback)
+  private okhttp3.Call getV0StartValidateBeforeCall(Long id, final ApiCallback _callback)
       throws ApiException {
     // verify the required parameter 'id' is set
     if (id == null) {
@@ -1194,7 +1194,7 @@ public class PromotionApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public void getV0Start(Integer id) throws ApiException {
+  public void getV0Start(Long id) throws ApiException {
     getV0StartWithHttpInfo(id);
   }
 
@@ -1228,7 +1228,7 @@ public class PromotionApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public ApiResponse<Void> getV0StartWithHttpInfo(Integer id) throws ApiException {
+  public ApiResponse<Void> getV0StartWithHttpInfo(Long id) throws ApiException {
     okhttp3.Call localVarCall = getV0StartValidateBeforeCall(id, null);
     return localVarApiClient.execute(localVarCall);
   }
@@ -1263,7 +1263,7 @@ public class PromotionApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public okhttp3.Call getV0StartAsync(Integer id, final ApiCallback<Void> _callback)
+  public okhttp3.Call getV0StartAsync(Long id, final ApiCallback<Void> _callback)
       throws ApiException {
 
     okhttp3.Call localVarCall = getV0StartValidateBeforeCall(id, _callback);
@@ -1290,7 +1290,7 @@ public class PromotionApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public okhttp3.Call getV0StopCall(Integer id, final ApiCallback _callback) throws ApiException {
+  public okhttp3.Call getV0StopCall(Long id, final ApiCallback _callback) throws ApiException {
     String basePath = null;
     // Operation Servers
     String[] localBasePaths =
@@ -1351,7 +1351,7 @@ public class PromotionApi {
   }
 
   @SuppressWarnings("rawtypes")
-  private okhttp3.Call getV0StopValidateBeforeCall(Integer id, final ApiCallback _callback)
+  private okhttp3.Call getV0StopValidateBeforeCall(Long id, final ApiCallback _callback)
       throws ApiException {
     // verify the required parameter 'id' is set
     if (id == null) {
@@ -1387,7 +1387,7 @@ public class PromotionApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public void getV0Stop(Integer id) throws ApiException {
+  public void getV0Stop(Long id) throws ApiException {
     getV0StopWithHttpInfo(id);
   }
 
@@ -1418,7 +1418,7 @@ public class PromotionApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public ApiResponse<Void> getV0StopWithHttpInfo(Integer id) throws ApiException {
+  public ApiResponse<Void> getV0StopWithHttpInfo(Long id) throws ApiException {
     okhttp3.Call localVarCall = getV0StopValidateBeforeCall(id, null);
     return localVarApiClient.execute(localVarCall);
   }
@@ -1450,7 +1450,7 @@ public class PromotionApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public okhttp3.Call getV0StopAsync(Integer id, final ApiCallback<Void> _callback)
+  public okhttp3.Call getV0StopAsync(Long id, final ApiCallback<Void> _callback)
       throws ApiException {
 
     okhttp3.Call localVarCall = getV0StopValidateBeforeCall(id, _callback);
@@ -1477,7 +1477,7 @@ public class PromotionApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public okhttp3.Call getV1AdvertCall(Integer id, final ApiCallback _callback) throws ApiException {
+  public okhttp3.Call getV1AdvertCall(Long id, final ApiCallback _callback) throws ApiException {
     String basePath = null;
     // Operation Servers
     String[] localBasePaths = new String[] {"https://advert-media-api.wildberries.ru"};
@@ -1535,7 +1535,7 @@ public class PromotionApi {
   }
 
   @SuppressWarnings("rawtypes")
-  private okhttp3.Call getV1AdvertValidateBeforeCall(Integer id, final ApiCallback _callback)
+  private okhttp3.Call getV1AdvertValidateBeforeCall(Long id, final ApiCallback _callback)
       throws ApiException {
     // verify the required parameter 'id' is set
     if (id == null) {
@@ -1572,7 +1572,7 @@ public class PromotionApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public GetV1AdvertResponse200 getV1Advert(Integer id) throws ApiException {
+  public GetV1AdvertResponse200 getV1Advert(Long id) throws ApiException {
     ApiResponse<GetV1AdvertResponse200> localVarResp = getV1AdvertWithHttpInfo(id);
     return localVarResp.getData();
   }
@@ -1604,8 +1604,7 @@ public class PromotionApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public ApiResponse<GetV1AdvertResponse200> getV1AdvertWithHttpInfo(Integer id)
-      throws ApiException {
+  public ApiResponse<GetV1AdvertResponse200> getV1AdvertWithHttpInfo(Long id) throws ApiException {
     okhttp3.Call localVarCall = getV1AdvertValidateBeforeCall(id, null);
     Type localVarReturnType = new TypeToken<GetV1AdvertResponse200>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -1638,8 +1637,8 @@ public class PromotionApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public okhttp3.Call getV1AdvertAsync(
-      Integer id, final ApiCallback<GetV1AdvertResponse200> _callback) throws ApiException {
+  public okhttp3.Call getV1AdvertAsync(Long id, final ApiCallback<GetV1AdvertResponse200> _callback)
+      throws ApiException {
 
     okhttp3.Call localVarCall = getV1AdvertValidateBeforeCall(id, _callback);
     Type localVarReturnType = new TypeToken<GetV1AdvertResponse200>() {}.getType();
@@ -1679,9 +1678,9 @@ public class PromotionApi {
    */
   public okhttp3.Call getV1AdvertsCall(
       String status,
-      Integer type,
-      Integer limit,
-      Integer offset,
+      Long type,
+      Long limit,
+      Long offset,
       String order,
       String direction,
       final ApiCallback _callback)
@@ -1765,9 +1764,9 @@ public class PromotionApi {
   @SuppressWarnings("rawtypes")
   private okhttp3.Call getV1AdvertsValidateBeforeCall(
       String status,
-      Integer type,
-      Integer limit,
-      Integer offset,
+      Long type,
+      Long limit,
+      Long offset,
       String order,
       String direction,
       final ApiCallback _callback)
@@ -1814,7 +1813,7 @@ public class PromotionApi {
    * </table>
    */
   public List<GetV1AdvertsResponse200Inner> getV1Adverts(
-      String status, Integer type, Integer limit, Integer offset, String order, String direction)
+      String status, Long type, Long limit, Long offset, String order, String direction)
       throws ApiException {
     ApiResponse<List<GetV1AdvertsResponse200Inner>> localVarResp =
         getV1AdvertsWithHttpInfo(status, type, limit, offset, order, direction);
@@ -1860,7 +1859,7 @@ public class PromotionApi {
    * </table>
    */
   public ApiResponse<List<GetV1AdvertsResponse200Inner>> getV1AdvertsWithHttpInfo(
-      String status, Integer type, Integer limit, Integer offset, String order, String direction)
+      String status, Long type, Long limit, Long offset, String order, String direction)
       throws ApiException {
     okhttp3.Call localVarCall =
         getV1AdvertsValidateBeforeCall(status, type, limit, offset, order, direction, null);
@@ -1908,9 +1907,9 @@ public class PromotionApi {
    */
   public okhttp3.Call getV1AdvertsAsync(
       String status,
-      Integer type,
-      Integer limit,
-      Integer offset,
+      Long type,
+      Long limit,
+      Long offset,
       String order,
       String direction,
       final ApiCallback<List<GetV1AdvertsResponse200Inner>> _callback)
@@ -2130,7 +2129,7 @@ public class PromotionApi {
    * @deprecated
    */
   @Deprecated
-  public okhttp3.Call getV1BudgetCall(Integer id, final ApiCallback _callback) throws ApiException {
+  public okhttp3.Call getV1BudgetCall(Long id, final ApiCallback _callback) throws ApiException {
     String basePath = null;
     // Operation Servers
     String[] localBasePaths =
@@ -2192,7 +2191,7 @@ public class PromotionApi {
 
   @Deprecated
   @SuppressWarnings("rawtypes")
-  private okhttp3.Call getV1BudgetValidateBeforeCall(Integer id, final ApiCallback _callback)
+  private okhttp3.Call getV1BudgetValidateBeforeCall(Long id, final ApiCallback _callback)
       throws ApiException {
     // verify the required parameter 'id' is set
     if (id == null) {
@@ -2230,7 +2229,7 @@ public class PromotionApi {
    * @deprecated
    */
   @Deprecated
-  public GetV1BudgetResponse200 getV1Budget(Integer id) throws ApiException {
+  public GetV1BudgetResponse200 getV1Budget(Long id) throws ApiException {
     ApiResponse<GetV1BudgetResponse200> localVarResp = getV1BudgetWithHttpInfo(id);
     return localVarResp.getData();
   }
@@ -2263,8 +2262,7 @@ public class PromotionApi {
    * @deprecated
    */
   @Deprecated
-  public ApiResponse<GetV1BudgetResponse200> getV1BudgetWithHttpInfo(Integer id)
-      throws ApiException {
+  public ApiResponse<GetV1BudgetResponse200> getV1BudgetWithHttpInfo(Long id) throws ApiException {
     okhttp3.Call localVarCall = getV1BudgetValidateBeforeCall(id, null);
     Type localVarReturnType = new TypeToken<GetV1BudgetResponse200>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -2298,8 +2296,8 @@ public class PromotionApi {
    * @deprecated
    */
   @Deprecated
-  public okhttp3.Call getV1BudgetAsync(
-      Integer id, final ApiCallback<GetV1BudgetResponse200> _callback) throws ApiException {
+  public okhttp3.Call getV1BudgetAsync(Long id, final ApiCallback<GetV1BudgetResponse200> _callback)
+      throws ApiException {
 
     okhttp3.Call localVarCall = getV1BudgetValidateBeforeCall(id, _callback);
     Type localVarReturnType = new TypeToken<GetV1BudgetResponse200>() {}.getType();
@@ -2596,7 +2594,7 @@ public class PromotionApi {
    * </table>
    */
   public okhttp3.Call getV1CalendarPromotionsDetailsCall(
-      Set<Integer> promotionIDs, final ApiCallback _callback) throws ApiException {
+      Set<Long> promotionIDs, final ApiCallback _callback) throws ApiException {
     String basePath = null;
     // Operation Servers
     String[] localBasePaths = new String[] {"https://dp-calendar-api.wildberries.ru"};
@@ -2656,7 +2654,7 @@ public class PromotionApi {
 
   @SuppressWarnings("rawtypes")
   private okhttp3.Call getV1CalendarPromotionsDetailsValidateBeforeCall(
-      Set<Integer> promotionIDs, final ApiCallback _callback) throws ApiException {
+      Set<Long> promotionIDs, final ApiCallback _callback) throws ApiException {
     // verify the required parameter 'promotionIDs' is set
     if (promotionIDs == null) {
       throw new ApiException(
@@ -2695,7 +2693,7 @@ public class PromotionApi {
    * </table>
    */
   public GetV1CalendarPromotionsDetails200Response getV1CalendarPromotionsDetails(
-      Set<Integer> promotionIDs) throws ApiException {
+      Set<Long> promotionIDs) throws ApiException {
     ApiResponse<GetV1CalendarPromotionsDetails200Response> localVarResp =
         getV1CalendarPromotionsDetailsWithHttpInfo(promotionIDs);
     return localVarResp.getData();
@@ -2730,7 +2728,7 @@ public class PromotionApi {
    * </table>
    */
   public ApiResponse<GetV1CalendarPromotionsDetails200Response>
-      getV1CalendarPromotionsDetailsWithHttpInfo(Set<Integer> promotionIDs) throws ApiException {
+      getV1CalendarPromotionsDetailsWithHttpInfo(Set<Long> promotionIDs) throws ApiException {
     okhttp3.Call localVarCall =
         getV1CalendarPromotionsDetailsValidateBeforeCall(promotionIDs, null);
     Type localVarReturnType =
@@ -2767,7 +2765,7 @@ public class PromotionApi {
    * </table>
    */
   public okhttp3.Call getV1CalendarPromotionsDetailsAsync(
-      Set<Integer> promotionIDs,
+      Set<Long> promotionIDs,
       final ApiCallback<GetV1CalendarPromotionsDetails200Response> _callback)
       throws ApiException {
 
@@ -2803,7 +2801,7 @@ public class PromotionApi {
    * </table>
    */
   public okhttp3.Call getV1CalendarPromotionsNomenclaturesCall(
-      Integer promotionID,
+      Long promotionID,
       Boolean inAction,
       Integer limit,
       Integer offset,
@@ -2879,7 +2877,7 @@ public class PromotionApi {
 
   @SuppressWarnings("rawtypes")
   private okhttp3.Call getV1CalendarPromotionsNomenclaturesValidateBeforeCall(
-      Integer promotionID,
+      Long promotionID,
       Boolean inAction,
       Integer limit,
       Integer offset,
@@ -2934,7 +2932,7 @@ public class PromotionApi {
    * </table>
    */
   public GetV1CalendarPromotionsNomenclatures200Response getV1CalendarPromotionsNomenclatures(
-      Integer promotionID, Boolean inAction, Integer limit, Integer offset) throws ApiException {
+      Long promotionID, Boolean inAction, Integer limit, Integer offset) throws ApiException {
     ApiResponse<GetV1CalendarPromotionsNomenclatures200Response> localVarResp =
         getV1CalendarPromotionsNomenclaturesWithHttpInfo(promotionID, inAction, limit, offset);
     return localVarResp.getData();
@@ -2974,8 +2972,7 @@ public class PromotionApi {
    */
   public ApiResponse<GetV1CalendarPromotionsNomenclatures200Response>
       getV1CalendarPromotionsNomenclaturesWithHttpInfo(
-          Integer promotionID, Boolean inAction, Integer limit, Integer offset)
-          throws ApiException {
+          Long promotionID, Boolean inAction, Integer limit, Integer offset) throws ApiException {
     okhttp3.Call localVarCall =
         getV1CalendarPromotionsNomenclaturesValidateBeforeCall(
             promotionID, inAction, limit, offset, null);
@@ -3018,7 +3015,7 @@ public class PromotionApi {
    * </table>
    */
   public okhttp3.Call getV1CalendarPromotionsNomenclaturesAsync(
-      Integer promotionID,
+      Long promotionID,
       Boolean inAction,
       Integer limit,
       Integer offset,
@@ -6479,9 +6476,7 @@ public class PromotionApi {
    * </table>
    */
   public okhttp3.Call postV1BudgetDepositCall(
-      Integer id,
-      PostV1BudgetDepositRequest postV1BudgetDepositRequest,
-      final ApiCallback _callback)
+      Long id, PostV1BudgetDepositRequest postV1BudgetDepositRequest, final ApiCallback _callback)
       throws ApiException {
     String basePath = null;
     // Operation Servers
@@ -6544,9 +6539,7 @@ public class PromotionApi {
 
   @SuppressWarnings("rawtypes")
   private okhttp3.Call postV1BudgetDepositValidateBeforeCall(
-      Integer id,
-      PostV1BudgetDepositRequest postV1BudgetDepositRequest,
-      final ApiCallback _callback)
+      Long id, PostV1BudgetDepositRequest postV1BudgetDepositRequest, final ApiCallback _callback)
       throws ApiException {
     // verify the required parameter 'id' is set
     if (id == null) {
@@ -6593,7 +6586,7 @@ public class PromotionApi {
    * </table>
    */
   public ResponseWithReturn postV1BudgetDeposit(
-      Integer id, PostV1BudgetDepositRequest postV1BudgetDepositRequest) throws ApiException {
+      Long id, PostV1BudgetDepositRequest postV1BudgetDepositRequest) throws ApiException {
     ApiResponse<ResponseWithReturn> localVarResp =
         postV1BudgetDepositWithHttpInfo(id, postV1BudgetDepositRequest);
     return localVarResp.getData();
@@ -6629,7 +6622,7 @@ public class PromotionApi {
    * </table>
    */
   public ApiResponse<ResponseWithReturn> postV1BudgetDepositWithHttpInfo(
-      Integer id, PostV1BudgetDepositRequest postV1BudgetDepositRequest) throws ApiException {
+      Long id, PostV1BudgetDepositRequest postV1BudgetDepositRequest) throws ApiException {
     okhttp3.Call localVarCall =
         postV1BudgetDepositValidateBeforeCall(id, postV1BudgetDepositRequest, null);
     Type localVarReturnType = new TypeToken<ResponseWithReturn>() {}.getType();
@@ -6666,7 +6659,7 @@ public class PromotionApi {
    * </table>
    */
   public okhttp3.Call postV1BudgetDepositAsync(
-      Integer id,
+      Long id,
       PostV1BudgetDepositRequest postV1BudgetDepositRequest,
       final ApiCallback<ResponseWithReturn> _callback)
       throws ApiException {
@@ -7758,7 +7751,7 @@ public class PromotionApi {
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v2-seacat-save-ad
    *
    * @param postV2SeacatSaveAdRequest (optional)
-   * @return Integer
+   * @return Long
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
    * @http.response.details
@@ -7772,9 +7765,9 @@ public class PromotionApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public Integer postV2SeacatSaveAd(PostV2SeacatSaveAdRequest postV2SeacatSaveAdRequest)
+  public Long postV2SeacatSaveAd(PostV2SeacatSaveAdRequest postV2SeacatSaveAdRequest)
       throws ApiException {
-    ApiResponse<Integer> localVarResp = postV2SeacatSaveAdWithHttpInfo(postV2SeacatSaveAdRequest);
+    ApiResponse<Long> localVarResp = postV2SeacatSaveAdWithHttpInfo(postV2SeacatSaveAdRequest);
     return localVarResp.getData();
   }
 
@@ -7790,7 +7783,7 @@ public class PromotionApi {
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v2-seacat-save-ad
    *
    * @param postV2SeacatSaveAdRequest (optional)
-   * @return ApiResponse&lt;Integer&gt;
+   * @return ApiResponse&lt;Long&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
    * @http.response.details
@@ -7804,11 +7797,11 @@ public class PromotionApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public ApiResponse<Integer> postV2SeacatSaveAdWithHttpInfo(
+  public ApiResponse<Long> postV2SeacatSaveAdWithHttpInfo(
       PostV2SeacatSaveAdRequest postV2SeacatSaveAdRequest) throws ApiException {
     okhttp3.Call localVarCall =
         postV2SeacatSaveAdValidateBeforeCall(postV2SeacatSaveAdRequest, null);
-    Type localVarReturnType = new TypeToken<Integer>() {}.getType();
+    Type localVarReturnType = new TypeToken<Long>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
   }
 
@@ -7839,12 +7832,12 @@ public class PromotionApi {
    * </table>
    */
   public okhttp3.Call postV2SeacatSaveAdAsync(
-      PostV2SeacatSaveAdRequest postV2SeacatSaveAdRequest, final ApiCallback<Integer> _callback)
+      PostV2SeacatSaveAdRequest postV2SeacatSaveAdRequest, final ApiCallback<Long> _callback)
       throws ApiException {
 
     okhttp3.Call localVarCall =
         postV2SeacatSaveAdValidateBeforeCall(postV2SeacatSaveAdRequest, _callback);
-    Type localVarReturnType = new TypeToken<Integer>() {}.getType();
+    Type localVarReturnType = new TypeToken<Long>() {}.getType();
     localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
     return localVarCall;
   }
@@ -7867,7 +7860,7 @@ public class PromotionApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public okhttp3.Call postV2SupplierNmsCall(List<Integer> requestBody, final ApiCallback _callback)
+  public okhttp3.Call postV2SupplierNmsCall(List<Long> requestBody, final ApiCallback _callback)
       throws ApiException {
     String basePath = null;
     // Operation Servers
@@ -7926,7 +7919,7 @@ public class PromotionApi {
 
   @SuppressWarnings("rawtypes")
   private okhttp3.Call postV2SupplierNmsValidateBeforeCall(
-      List<Integer> requestBody, final ApiCallback _callback) throws ApiException {
+      List<Long> requestBody, final ApiCallback _callback) throws ApiException {
     return postV2SupplierNmsCall(requestBody, _callback);
   }
 
@@ -7960,7 +7953,7 @@ public class PromotionApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public List<PostV2SupplierNmsResponse200Inner> postV2SupplierNms(List<Integer> requestBody)
+  public List<PostV2SupplierNmsResponse200Inner> postV2SupplierNms(List<Long> requestBody)
       throws ApiException {
     ApiResponse<List<PostV2SupplierNmsResponse200Inner>> localVarResp =
         postV2SupplierNmsWithHttpInfo(requestBody);
@@ -7998,7 +7991,7 @@ public class PromotionApi {
    * </table>
    */
   public ApiResponse<List<PostV2SupplierNmsResponse200Inner>> postV2SupplierNmsWithHttpInfo(
-      List<Integer> requestBody) throws ApiException {
+      List<Long> requestBody) throws ApiException {
     okhttp3.Call localVarCall = postV2SupplierNmsValidateBeforeCall(requestBody, null);
     Type localVarReturnType = new TypeToken<List<PostV2SupplierNmsResponse200Inner>>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -8035,8 +8028,7 @@ public class PromotionApi {
    * </table>
    */
   public okhttp3.Call postV2SupplierNmsAsync(
-      List<Integer> requestBody,
-      final ApiCallback<List<PostV2SupplierNmsResponse200Inner>> _callback)
+      List<Long> requestBody, final ApiCallback<List<PostV2SupplierNmsResponse200Inner>> _callback)
       throws ApiException {
 
     okhttp3.Call localVarCall = postV2SupplierNmsValidateBeforeCall(requestBody, _callback);

@@ -42,7 +42,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// <param name="startDate">Дата и время начала срока действия документа.</param>
         /// <param name="endDate">Дата и время окончания срока действия документа.</param>
         /// <param name="isEndless">Бессрочный ли документ:   - &#x60;true&#x60; — да, документ бессрочный   - &#x60;false&#x60; — нет, у документа есть срок действия .</param>
-        public DocumentsRequest(int type = default(int), string number = default(string), string productNumber = default(string), string tradeName = default(string), string applicant = default(string), string startDate = default(string), string endDate = default(string), bool isEndless = default(bool))
+        public DocumentsRequest(long type = default(long), string number = default(string), string productNumber = default(string), string tradeName = default(string), string applicant = default(string), string startDate = default(string), string endDate = default(string), bool isEndless = default(bool))
         {
             this.Type = type;
             this.Number = number;
@@ -59,7 +59,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// </summary>
         /// <value>Тип документа. Типы документов, которые вы можете добавить для товара, указаны в [характеристиках предмета](./item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId) — поле &#x60;charcID&#x60;. Возможные типы документов: - &#x60;1&#x60; — Сертификат соответствия. Можно указать для &#x60;charcID&#x60;: 15001136, 15001137, 15001138 - &#x60;2&#x60; — Декларация о соответствии. Можно указать для &#x60;charcID&#x60;: 15001135, 15001137, 15001138 - &#x60;3&#x60; — Свидетельство о государственной регистрации (СГР). Можно указать для &#x60;charcID&#x60;: 62945173, 15000785, 15004302 - &#x60;4&#x60; — Регистрационное удостоверение (РУ) на медицинские изделия. Можно указать для &#x60;charcID&#x60;: 15001574, 15002355, 15002356, 15002357 - &#x60;5&#x60; — Регистрационное удостоверение Республики Беларусь. Можно указать для &#x60;charcID&#x60;: 15003071, 15003939 - &#x60;7&#x60; — Данные о регистрации пестицида. Можно указать для &#x60;charcID&#x60;: 15003924, 15003925 - &#x60;8&#x60; — Данные о регистрации агрохимиката. Можно указать для &#x60;charcID&#x60;: 15003920, 15003921 - &#x60;9&#x60; — Регистрационное удостоверение (РУ) на лекарственные препараты. Можно указать для &#x60;charcID&#x60;: 1897013, 15004284</value>
         [DataMember(Name = "type", EmitDefaultValue = false)]
-        public int Type { get; set; }
+        public long Type { get; set; }
 
         /// <summary>
         /// Номер документа

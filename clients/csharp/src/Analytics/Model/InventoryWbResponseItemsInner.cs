@@ -42,7 +42,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <param name="quantity">Количество товара на складе, доступное клиентам для добавления в корзину.</param>
         /// <param name="inWayToClient">В пути к клиенту.</param>
         /// <param name="inWayFromClient">В пути от клиента.</param>
-        public InventoryWbResponseItemsInner(long nmId = default(long), int chrtId = default(int), long warehouseId = default(long), string warehouseName = default(string), string regionName = default(string), int quantity = default(int), int inWayToClient = default(int), int inWayFromClient = default(int))
+        public InventoryWbResponseItemsInner(long nmId = default(long), long chrtId = default(long), long warehouseId = default(long), string warehouseName = default(string), string regionName = default(string), long quantity = default(long), long inWayToClient = default(long), long inWayFromClient = default(long))
         {
             this.NmId = nmId;
             this.ChrtId = chrtId;
@@ -72,7 +72,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         <example>91663228</example>
         */
         [DataMember(Name = "chrtId", EmitDefaultValue = false)]
-        public int ChrtId { get; set; }
+        public long ChrtId { get; set; }
 
         /// <summary>
         /// ID склада. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может быть только &#x60;-999999&#x60;
@@ -112,7 +112,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         <example>43</example>
         */
         [DataMember(Name = "quantity", EmitDefaultValue = false)]
-        public int Quantity { get; set; }
+        public long Quantity { get; set; }
 
         /// <summary>
         /// В пути к клиенту
@@ -122,7 +122,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         <example>14</example>
         */
         [DataMember(Name = "inWayToClient", EmitDefaultValue = false)]
-        public int InWayToClient { get; set; }
+        public long InWayToClient { get; set; }
 
         /// <summary>
         /// В пути от клиента
@@ -132,7 +132,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         <example>11</example>
         */
         [DataMember(Name = "inWayFromClient", EmitDefaultValue = false)]
-        public int InWayFromClient { get; set; }
+        public long InWayFromClient { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

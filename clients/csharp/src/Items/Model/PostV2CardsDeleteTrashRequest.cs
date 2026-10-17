@@ -35,7 +35,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// Initializes a new instance of the <see cref="PostV2CardsDeleteTrashRequest" /> class.
         /// </summary>
         /// <param name="nmIDs">Артикулы WB.</param>
-        public PostV2CardsDeleteTrashRequest(List<int> nmIDs = default(List<int>))
+        public PostV2CardsDeleteTrashRequest(List<long> nmIDs = default(List<long>))
         {
             this.NmIDs = nmIDs;
         }
@@ -45,7 +45,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// </summary>
         /// <value>Артикулы WB</value>
         [DataMember(Name = "nmIDs", EmitDefaultValue = false)]
-        public List<int> NmIDs { get; set; }
+        public List<long> NmIDs { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

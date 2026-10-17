@@ -38,7 +38,7 @@ public class PostV1CalendarPromotionsUploadRequestData {
 
   @SerializedName(SERIALIZED_NAME_PROMOTION_I_D)
   @jakarta.annotation.Nullable
-  private Integer promotionID;
+  private Long promotionID;
 
   public static final String SERIALIZED_NAME_UPLOAD_NOW = "uploadNow";
 
@@ -50,12 +50,12 @@ public class PostV1CalendarPromotionsUploadRequestData {
 
   @SerializedName(SERIALIZED_NAME_NOMENCLATURES)
   @jakarta.annotation.Nullable
-  private Set<Integer> nomenclatures = new LinkedHashSet<>();
+  private Set<Long> nomenclatures = new LinkedHashSet<>();
 
   public PostV1CalendarPromotionsUploadRequestData() {}
 
   public PostV1CalendarPromotionsUploadRequestData promotionID(
-      @jakarta.annotation.Nullable Integer promotionID) {
+      @jakarta.annotation.Nullable Long promotionID) {
     this.promotionID = promotionID;
     return this;
   }
@@ -66,11 +66,11 @@ public class PostV1CalendarPromotionsUploadRequestData {
    * @return promotionID
    */
   @jakarta.annotation.Nullable
-  public Integer getPromotionID() {
+  public Long getPromotionID() {
     return promotionID;
   }
 
-  public void setPromotionID(@jakarta.annotation.Nullable Integer promotionID) {
+  public void setPromotionID(@jakarta.annotation.Nullable Long promotionID) {
     this.promotionID = promotionID;
   }
 
@@ -95,12 +95,12 @@ public class PostV1CalendarPromotionsUploadRequestData {
   }
 
   public PostV1CalendarPromotionsUploadRequestData nomenclatures(
-      @jakarta.annotation.Nullable Set<Integer> nomenclatures) {
+      @jakarta.annotation.Nullable Set<Long> nomenclatures) {
     this.nomenclatures = nomenclatures;
     return this;
   }
 
-  public PostV1CalendarPromotionsUploadRequestData addNomenclaturesItem(Integer nomenclaturesItem) {
+  public PostV1CalendarPromotionsUploadRequestData addNomenclaturesItem(Long nomenclaturesItem) {
     if (this.nomenclatures == null) {
       this.nomenclatures = new LinkedHashSet<>();
     }
@@ -114,11 +114,11 @@ public class PostV1CalendarPromotionsUploadRequestData {
    * @return nomenclatures
    */
   @jakarta.annotation.Nullable
-  public Set<Integer> getNomenclatures() {
+  public Set<Long> getNomenclatures() {
     return nomenclatures;
   }
 
-  public void setNomenclatures(@jakarta.annotation.Nullable Set<Integer> nomenclatures) {
+  public void setNomenclatures(@jakarta.annotation.Nullable Set<Long> nomenclatures) {
     this.nomenclatures = nomenclatures;
   }
 

@@ -36,7 +36,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <param name="added">Добавленные карточки товаров.</param>
         /// <param name="deleted">Удалённые карточки товаров.</param>
-        public PatchV0AuctionNmsResponse200NmsInnerNms(List<int> added = default(List<int>), List<int> deleted = default(List<int>))
+        public PatchV0AuctionNmsResponse200NmsInnerNms(List<long> added = default(List<long>), List<long> deleted = default(List<long>))
         {
             this.Added = added;
             this.Deleted = deleted;
@@ -47,14 +47,14 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <value>Добавленные карточки товаров</value>
         [DataMember(Name = "added", EmitDefaultValue = false)]
-        public List<int> Added { get; set; }
+        public List<long> Added { get; set; }
 
         /// <summary>
         /// Удалённые карточки товаров
         /// </summary>
         /// <value>Удалённые карточки товаров</value>
         [DataMember(Name = "deleted", EmitDefaultValue = false)]
-        public List<int> Deleted { get; set; }
+        public List<long> Deleted { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

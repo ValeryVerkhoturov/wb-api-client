@@ -37,7 +37,7 @@ public class DocumentsRequest {
 
   @SerializedName(SERIALIZED_NAME_TYPE)
   @jakarta.annotation.Nullable
-  private Integer type;
+  private Long type;
 
   public static final String SERIALIZED_NAME_NUMBER = "number";
 
@@ -83,7 +83,7 @@ public class DocumentsRequest {
 
   public DocumentsRequest() {}
 
-  public DocumentsRequest type(@jakarta.annotation.Nullable Integer type) {
+  public DocumentsRequest type(@jakarta.annotation.Nullable Long type) {
     this.type = type;
     return this;
   }
@@ -108,11 +108,11 @@ public class DocumentsRequest {
    * @return type
    */
   @jakarta.annotation.Nullable
-  public Integer getType() {
+  public Long getType() {
     return type;
   }
 
-  public void setType(@jakarta.annotation.Nullable Integer type) {
+  public void setType(@jakarta.annotation.Nullable Long type) {
     this.type = type;
   }
 

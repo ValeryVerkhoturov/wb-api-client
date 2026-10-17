@@ -39,22 +39,22 @@ public class PatchV0AuctionNmsRequestNmsInnerNms {
 
   @SerializedName(SERIALIZED_NAME_ADD)
   @jakarta.annotation.Nullable
-  private List<Integer> add = new ArrayList<>();
+  private List<Long> add = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_DELETE = "delete";
 
   @SerializedName(SERIALIZED_NAME_DELETE)
   @jakarta.annotation.Nullable
-  private List<Integer> delete = new ArrayList<>();
+  private List<Long> delete = new ArrayList<>();
 
   public PatchV0AuctionNmsRequestNmsInnerNms() {}
 
-  public PatchV0AuctionNmsRequestNmsInnerNms add(@jakarta.annotation.Nullable List<Integer> add) {
+  public PatchV0AuctionNmsRequestNmsInnerNms add(@jakarta.annotation.Nullable List<Long> add) {
     this.add = add;
     return this;
   }
 
-  public PatchV0AuctionNmsRequestNmsInnerNms addAddItem(Integer addItem) {
+  public PatchV0AuctionNmsRequestNmsInnerNms addAddItem(Long addItem) {
     if (this.add == null) {
       this.add = new ArrayList<>();
     }
@@ -68,21 +68,21 @@ public class PatchV0AuctionNmsRequestNmsInnerNms {
    * @return add
    */
   @jakarta.annotation.Nullable
-  public List<Integer> getAdd() {
+  public List<Long> getAdd() {
     return add;
   }
 
-  public void setAdd(@jakarta.annotation.Nullable List<Integer> add) {
+  public void setAdd(@jakarta.annotation.Nullable List<Long> add) {
     this.add = add;
   }
 
   public PatchV0AuctionNmsRequestNmsInnerNms delete(
-      @jakarta.annotation.Nullable List<Integer> delete) {
+      @jakarta.annotation.Nullable List<Long> delete) {
     this.delete = delete;
     return this;
   }
 
-  public PatchV0AuctionNmsRequestNmsInnerNms addDeleteItem(Integer deleteItem) {
+  public PatchV0AuctionNmsRequestNmsInnerNms addDeleteItem(Long deleteItem) {
     if (this.delete == null) {
       this.delete = new ArrayList<>();
     }
@@ -96,11 +96,11 @@ public class PatchV0AuctionNmsRequestNmsInnerNms {
    * @return delete
    */
   @jakarta.annotation.Nullable
-  public List<Integer> getDelete() {
+  public List<Long> getDelete() {
     return delete;
   }
 
-  public void setDelete(@jakarta.annotation.Nullable List<Integer> delete) {
+  public void setDelete(@jakarta.annotation.Nullable List<Long> delete) {
     this.delete = delete;
   }
 

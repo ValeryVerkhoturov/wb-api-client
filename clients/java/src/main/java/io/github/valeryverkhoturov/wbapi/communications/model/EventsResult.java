@@ -40,7 +40,7 @@ public class EventsResult {
 
   @SerializedName(SERIALIZED_NAME_NEXT)
   @jakarta.annotation.Nullable
-  private Integer next;
+  private Long next;
 
   public static final String SERIALIZED_NAME_NEWEST_EVENT_TIME = "newestEventTime";
 
@@ -58,7 +58,7 @@ public class EventsResult {
 
   @SerializedName(SERIALIZED_NAME_TOTAL_EVENTS)
   @jakarta.annotation.Nullable
-  private Integer totalEvents;
+  private Long totalEvents;
 
   public static final String SERIALIZED_NAME_EVENTS = "events";
 
@@ -68,7 +68,7 @@ public class EventsResult {
 
   public EventsResult() {}
 
-  public EventsResult next(@jakarta.annotation.Nullable Integer next) {
+  public EventsResult next(@jakarta.annotation.Nullable Long next) {
     this.next = next;
     return this;
   }
@@ -79,11 +79,11 @@ public class EventsResult {
    * @return next
    */
   @jakarta.annotation.Nullable
-  public Integer getNext() {
+  public Long getNext() {
     return next;
   }
 
-  public void setNext(@jakarta.annotation.Nullable Integer next) {
+  public void setNext(@jakarta.annotation.Nullable Long next) {
     this.next = next;
   }
 
@@ -125,7 +125,7 @@ public class EventsResult {
     this.oldestEventTime = oldestEventTime;
   }
 
-  public EventsResult totalEvents(@jakarta.annotation.Nullable Integer totalEvents) {
+  public EventsResult totalEvents(@jakarta.annotation.Nullable Long totalEvents) {
     this.totalEvents = totalEvents;
     return this;
   }
@@ -136,11 +136,11 @@ public class EventsResult {
    * @return totalEvents
    */
   @jakarta.annotation.Nullable
-  public Integer getTotalEvents() {
+  public Long getTotalEvents() {
     return totalEvents;
   }
 
-  public void setTotalEvents(@jakarta.annotation.Nullable Integer totalEvents) {
+  public void setTotalEvents(@jakarta.annotation.Nullable Long totalEvents) {
     this.totalEvents = totalEvents;
   }
 

@@ -49,7 +49,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <param name="sumPrice">Сумма заказов в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances).</param>
         /// <param name="views">Количество просмотров.</param>
         /// <param name="currency">Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances).</param>
-        public FullStatsItem(int advertId = default(int), int atbs = default(int), List<FullStatsItemBoosterStatsInner> boosterStats = default(List<FullStatsItemBoosterStatsInner>), int canceled = default(int), int clicks = default(int), double cpc = default(double), double cr = default(double), double ctr = default(double), List<FullStatsItemDaysInner> days = default(List<FullStatsItemDaysInner>), int orders = default(int), int shks = default(int), double sum = default(double), double sumPrice = default(double), int views = default(int), string currency = default(string))
+        public FullStatsItem(long advertId = default(long), long atbs = default(long), List<FullStatsItemBoosterStatsInner> boosterStats = default(List<FullStatsItemBoosterStatsInner>), long canceled = default(long), long clicks = default(long), double cpc = default(double), double cr = default(double), double ctr = default(double), List<FullStatsItemDaysInner> days = default(List<FullStatsItemDaysInner>), long orders = default(long), long shks = default(long), double sum = default(double), double sumPrice = default(double), long views = default(long), string currency = default(string))
         {
             this.AdvertId = advertId;
             this.Atbs = atbs;
@@ -73,14 +73,14 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <value>ID кампании</value>
         [DataMember(Name = "advertId", EmitDefaultValue = false)]
-        public int AdvertId { get; set; }
+        public long AdvertId { get; set; }
 
         /// <summary>
         /// Количество добавлений товаров в корзину
         /// </summary>
         /// <value>Количество добавлений товаров в корзину</value>
         [DataMember(Name = "atbs", EmitDefaultValue = false)]
-        public int Atbs { get; set; }
+        public long Atbs { get; set; }
 
         /// <summary>
         /// Статистика по средней позиции товара (для кампаний с единой ставкой)
@@ -94,14 +94,14 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <value>Отмены, шт.</value>
         [DataMember(Name = "canceled", EmitDefaultValue = false)]
-        public int Canceled { get; set; }
+        public long Canceled { get; set; }
 
         /// <summary>
         /// Количество кликов
         /// </summary>
         /// <value>Количество кликов</value>
         [DataMember(Name = "clicks", EmitDefaultValue = false)]
-        public int Clicks { get; set; }
+        public long Clicks { get; set; }
 
         /// <summary>
         /// Средняя стоимость клика в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
@@ -136,14 +136,14 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <value>Количество заказов</value>
         [DataMember(Name = "orders", EmitDefaultValue = false)]
-        public int Orders { get; set; }
+        public long Orders { get; set; }
 
         /// <summary>
         /// Количество заказанных товаров, шт.
         /// </summary>
         /// <value>Количество заказанных товаров, шт.</value>
         [DataMember(Name = "shks", EmitDefaultValue = false)]
-        public int Shks { get; set; }
+        public long Shks { get; set; }
 
         /// <summary>
         /// Затраты в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
@@ -164,7 +164,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <value>Количество просмотров</value>
         [DataMember(Name = "views", EmitDefaultValue = false)]
-        public int Views { get; set; }
+        public long Views { get; set; }
 
         /// <summary>
         /// Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)

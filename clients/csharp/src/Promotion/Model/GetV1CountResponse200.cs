@@ -36,7 +36,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <param name="all">Общее количество медиакампаний всех статусов и типов.</param>
         /// <param name="adverts">adverts.</param>
-        public GetV1CountResponse200(int all = default(int), GetV1CountResponse200Adverts adverts = default(GetV1CountResponse200Adverts))
+        public GetV1CountResponse200(long all = default(long), GetV1CountResponse200Adverts adverts = default(GetV1CountResponse200Adverts))
         {
             this.All = all;
             this.Adverts = adverts;
@@ -47,7 +47,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <value>Общее количество медиакампаний всех статусов и типов</value>
         [DataMember(Name = "all", EmitDefaultValue = false)]
-        public int All { get; set; }
+        public long All { get; set; }
 
         /// <summary>
         /// Gets or Sets Adverts

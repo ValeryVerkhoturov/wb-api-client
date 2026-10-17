@@ -40,7 +40,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// <param name="activationDate">Дата и время, когда загрузка отправляется в обработку.</param>
         /// <param name="overAllGoodsNumber">Всего товаров.</param>
         /// <param name="successGoodsNumber">Товаров без ошибок (0, потому что загрузка в обработке).</param>
-        public SellerTaskMetadataBuffer(int uploadID = default(int), int status = default(int), string uploadDate = default(string), string activationDate = default(string), int overAllGoodsNumber = default(int), int successGoodsNumber = default(int))
+        public SellerTaskMetadataBuffer(long uploadID = default(long), long status = default(long), string uploadDate = default(string), string activationDate = default(string), long overAllGoodsNumber = default(long), long successGoodsNumber = default(long))
         {
             this.UploadID = uploadID;
             this.Status = status;
@@ -58,7 +58,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         <example>395643565</example>
         */
         [DataMember(Name = "uploadID", EmitDefaultValue = false)]
-        public int UploadID { get; set; }
+        public long UploadID { get; set; }
 
         /// <summary>
         /// Статус загрузки: &#x60;1&#x60; — в обработке 
@@ -68,7 +68,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         <example>1</example>
         */
         [DataMember(Name = "status", EmitDefaultValue = false)]
-        public int Status { get; set; }
+        public long Status { get; set; }
 
         /// <summary>
         /// Дата и время, когда загрузка создана
@@ -98,7 +98,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         <example>100</example>
         */
         [DataMember(Name = "overAllGoodsNumber", EmitDefaultValue = false)]
-        public int OverAllGoodsNumber { get; set; }
+        public long OverAllGoodsNumber { get; set; }
 
         /// <summary>
         /// Товаров без ошибок (0, потому что загрузка в обработке)
@@ -108,7 +108,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         <example>0</example>
         */
         [DataMember(Name = "successGoodsNumber", EmitDefaultValue = false)]
-        public int SuccessGoodsNumber { get; set; }
+        public long SuccessGoodsNumber { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

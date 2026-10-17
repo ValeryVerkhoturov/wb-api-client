@@ -35,7 +35,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// Initializes a new instance of the <see cref="PostV3OrdersStatusHistoryRequest" /> class.
         /// </summary>
         /// <param name="orders">ID сборочных заданий.</param>
-        public PostV3OrdersStatusHistoryRequest(List<int> orders = default(List<int>))
+        public PostV3OrdersStatusHistoryRequest(List<long> orders = default(List<long>))
         {
             this.Orders = orders;
         }
@@ -48,7 +48,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         <example>[123456789,987654321]</example>
         */
         [DataMember(Name = "orders", EmitDefaultValue = false)]
-        public List<int> Orders { get; set; }
+        public List<long> Orders { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

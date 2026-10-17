@@ -74,7 +74,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /// <param name="limit">Количество отчётов в ответе (default to 1000).</param>
         /// <param name="offset">Сколько элементов пропустить. Например, для значения &#x60;10&#x60; ответ начнётся с 11 элемента (default to 0).</param>
         /// <param name="period">Периодичность отчётов:   - &#x60;weekly&#x60; — еженедельные   - &#x60;daily&#x60; — ежедневные  (default to PeriodEnum.Weekly).</param>
-        public SalesReportListReq(string dateFrom = default(string), string dateTo = default(string), int limit = 1000, int offset = 0, PeriodEnum? period = PeriodEnum.Weekly)
+        public SalesReportListReq(string dateFrom = default(string), string dateTo = default(string), long limit = 1000, long offset = 0, PeriodEnum? period = PeriodEnum.Weekly)
         {
             // to ensure "dateFrom" is required (not null)
             if (dateFrom == null)
@@ -121,7 +121,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         <example>211</example>
         */
         [DataMember(Name = "limit", EmitDefaultValue = false)]
-        public int Limit { get; set; }
+        public long Limit { get; set; }
 
         /// <summary>
         /// Сколько элементов пропустить. Например, для значения &#x60;10&#x60; ответ начнётся с 11 элемента
@@ -131,7 +131,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         <example>345</example>
         */
         [DataMember(Name = "offset", EmitDefaultValue = false)]
-        public int Offset { get; set; }
+        public long Offset { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -166,10 +166,10 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /// <returns>Validation Result</returns>
         IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Limit (int) maximum
-            if (this.Limit > (int)1000)
+            // Limit (long) maximum
+            if (this.Limit > (long)1000)
             {
-                yield return new ValidationResult("Invalid value for Limit, must be a value less than or equal to 1000.", new [] { "Limit" });
+                yield return new ValidationResult("Invalid value for Limit, must be a value less than or equal to 1000.", new[] { "Limit" });
             }
 
             yield break;

@@ -37,7 +37,7 @@ public class ModelsItem {
 
   @SerializedName(SERIALIZED_NAME_QUANTITY)
   @jakarta.annotation.Nonnull
-  private Integer quantity;
+  private Long quantity;
 
   public static final String SERIALIZED_NAME_SKU = "sku";
 
@@ -47,7 +47,7 @@ public class ModelsItem {
 
   public ModelsItem() {}
 
-  public ModelsItem quantity(@jakarta.annotation.Nonnull Integer quantity) {
+  public ModelsItem quantity(@jakarta.annotation.Nonnull Long quantity) {
     this.quantity = quantity;
     return this;
   }
@@ -58,11 +58,11 @@ public class ModelsItem {
    * @return quantity
    */
   @jakarta.annotation.Nonnull
-  public Integer getQuantity() {
+  public Long getQuantity() {
     return quantity;
   }
 
-  public void setQuantity(@jakarta.annotation.Nonnull Integer quantity) {
+  public void setQuantity(@jakarta.annotation.Nonnull Long quantity) {
     this.quantity = quantity;
   }
 

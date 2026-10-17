@@ -37,7 +37,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// <param name="id">ID бренда.</param>
         /// <param name="logoUrl">URL логотипа бренда.</param>
         /// <param name="name">Название бренда.</param>
-        public BrandsResponseBrandsInner(int id = default(int), string logoUrl = default(string), string name = default(string))
+        public BrandsResponseBrandsInner(long id = default(long), string logoUrl = default(string), string name = default(string))
         {
             this.Id = id;
             this.LogoUrl = logoUrl;
@@ -52,7 +52,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         <example>9007199254</example>
         */
         [DataMember(Name = "id", EmitDefaultValue = false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// URL логотипа бренда

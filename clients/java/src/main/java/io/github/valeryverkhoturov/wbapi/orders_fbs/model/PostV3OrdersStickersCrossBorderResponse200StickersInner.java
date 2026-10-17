@@ -39,7 +39,7 @@ public class PostV3OrdersStickersCrossBorderResponse200StickersInner {
 
   @SerializedName(SERIALIZED_NAME_ORDER_ID)
   @jakarta.annotation.Nullable
-  private Integer orderId;
+  private Long orderId;
 
   /**
    * Статус генерации стикера: - &#x60;awaitingTrackNumber&#x60; — стикер не готов. Ожидается
@@ -134,7 +134,7 @@ public class PostV3OrdersStickersCrossBorderResponse200StickersInner {
   public PostV3OrdersStickersCrossBorderResponse200StickersInner() {}
 
   public PostV3OrdersStickersCrossBorderResponse200StickersInner orderId(
-      @jakarta.annotation.Nullable Integer orderId) {
+      @jakarta.annotation.Nullable Long orderId) {
     this.orderId = orderId;
     return this;
   }
@@ -145,11 +145,11 @@ public class PostV3OrdersStickersCrossBorderResponse200StickersInner {
    * @return orderId
    */
   @jakarta.annotation.Nullable
-  public Integer getOrderId() {
+  public Long getOrderId() {
     return orderId;
   }
 
-  public void setOrderId(@jakarta.annotation.Nullable Integer orderId) {
+  public void setOrderId(@jakarta.annotation.Nullable Long orderId) {
     this.orderId = orderId;
   }
 

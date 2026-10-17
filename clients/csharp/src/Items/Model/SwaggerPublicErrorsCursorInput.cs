@@ -99,7 +99,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
             // Limit (decimal) maximum
             if (this.Limit > (decimal)100)
             {
-                yield return new ValidationResult("Invalid value for Limit, must be a value less than or equal to 100.", new [] { "Limit" });
+                yield return new ValidationResult("Invalid value for Limit, must be a value less than or equal to 100.", new[] { "Limit" });
             }
 
             yield break;

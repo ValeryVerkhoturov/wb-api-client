@@ -192,7 +192,7 @@ paths:
         required: false
         schema:
           type: integer
-          format: uint64
+          format: int64
         description: ID новости, начиная с которой — включая её — нужно получить список новостей
         example: 7369
       responses:
@@ -1045,9 +1045,11 @@ components:
         total:
           type: integer
           description: Общее количество активных или приглашённых пользователей
+          format: int64
         countInResponse:
           type: integer
           description: Количество активных или приглашённых пользователей на текущей странице
+          format: int64
         users:
           type: array
           description: Информация о пользователях
@@ -1057,6 +1059,7 @@ components:
               id:
                 type: integer
                 description: ID пользователя
+                format: int64
               role:
                 type: string
                 description: |
@@ -1364,6 +1367,7 @@ components:
         userId:
           type: integer
           description: ID пользователя
+          format: int64
         access:
           type: array
           description: Настройки доступа к разделам профиля продавца
@@ -1465,6 +1469,7 @@ components:
           description: Количество отзывов
           type: integer
           example: 12355
+          format: int64
         valuation:
           description: Рейтинг продавца
           type: number
@@ -1755,6 +1760,7 @@ components:
               id:
                 type: integer
                 description: ID новости
+                format: int64
               types:
                 type: array
                 description: Теги новости
@@ -1764,6 +1770,7 @@ components:
                     id:
                       type: integer
                       description: ID тега
+                      format: int64
                     name:
                       type: string
                       description: Название тега

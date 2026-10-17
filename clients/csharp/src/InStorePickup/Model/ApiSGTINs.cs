@@ -41,7 +41,7 @@ namespace ValeryVerkhoturov.WbApiClient.InStorePickup.Model
         /// </summary>
         /// <param name="orderId">ID сборочного задания (required).</param>
         /// <param name="sgtins">Массив кодов маркировки. Допускается от 16 до 135 символов для кода одной маркировки (required).</param>
-        public ApiSGTINs(int orderId = default(int), List<string> sgtins = default(List<string>))
+        public ApiSGTINs(long orderId = default(long), List<string> sgtins = default(List<string>))
         {
             this.OrderId = orderId;
             // to ensure "sgtins" is required (not null)
@@ -60,7 +60,7 @@ namespace ValeryVerkhoturov.WbApiClient.InStorePickup.Model
         <example>123456</example>
         */
         [DataMember(Name = "orderId", IsRequired = true, EmitDefaultValue = true)]
-        public int OrderId { get; set; }
+        public long OrderId { get; set; }
 
         /// <summary>
         /// Массив кодов маркировки. Допускается от 16 до 135 символов для кода одной маркировки

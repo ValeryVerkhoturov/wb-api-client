@@ -39,7 +39,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Model
         /// <param name="canMonopallet">Тип упаковки **Монопаллета**:   - &#x60;true&#x60; — доступен   - &#x60;false&#x60; — недоступен .</param>
         /// <param name="canSupersafe">Тип упаковки **Суперсейф**:   - &#x60;true&#x60; — доступен   - &#x60;false&#x60; — недоступен .</param>
         /// <param name="isBoxOnPallet">Тип поставки **Поштучная палета**:   - &#x60;true&#x60; — доступен   - &#x60;false&#x60; — недоступен .</param>
-        public ModelsOptionsResultModelResultInnerWarehousesInner(int warehouseID = default(int), bool canBox = default(bool), bool canMonopallet = default(bool), bool canSupersafe = default(bool), bool isBoxOnPallet = default(bool))
+        public ModelsOptionsResultModelResultInnerWarehousesInner(long warehouseID = default(long), bool canBox = default(bool), bool canMonopallet = default(bool), bool canSupersafe = default(bool), bool isBoxOnPallet = default(bool))
         {
             this.WarehouseID = warehouseID;
             this.CanBox = canBox;
@@ -53,7 +53,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Model
         /// </summary>
         /// <value>ID склада. По нему можно получить [информацию о складе](./orders-fbw#tag/informationForFormingSupplies/operation/getV1Warehouses)</value>
         [DataMember(Name = "warehouseID", EmitDefaultValue = false)]
-        public int WarehouseID { get; set; }
+        public long WarehouseID { get; set; }
 
         /// <summary>
         /// Тип упаковки **Короб**:   - &#x60;true&#x60; — доступен   - &#x60;false&#x60; — недоступен 

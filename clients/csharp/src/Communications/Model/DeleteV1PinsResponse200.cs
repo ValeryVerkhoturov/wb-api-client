@@ -35,7 +35,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         /// Initializes a new instance of the <see cref="DeleteV1PinsResponse200" /> class.
         /// </summary>
         /// <param name="data">Список &#x60;pinId&#x60; — ID операций закрепления отзывов, которые были успешно откреплены.</param>
-        public DeleteV1PinsResponse200(List<int> data = default(List<int>))
+        public DeleteV1PinsResponse200(List<long> data = default(List<long>))
         {
             this.Data = data;
         }
@@ -48,7 +48,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         <example>[123456,234567,345678]</example>
         */
         [DataMember(Name = "data", EmitDefaultValue = false)]
-        public List<int> Data { get; set; }
+        public List<long> Data { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -47,7 +47,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <param name="sum">Затраты в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances).</param>
         /// <param name="sumPrice">Заказов на сумму в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances).</param>
         /// <param name="views">Количество просмотров.</param>
-        public FullStatsItemDaysInnerAppsInnerNmsInner(int atbs = default(int), int canceled = default(int), int clicks = default(int), decimal cpc = default(decimal), decimal cr = default(decimal), decimal ctr = default(decimal), string name = default(string), int nmId = default(int), int orders = default(int), int shks = default(int), decimal sum = default(decimal), decimal sumPrice = default(decimal), int views = default(int))
+        public FullStatsItemDaysInnerAppsInnerNmsInner(long atbs = default(long), long canceled = default(long), long clicks = default(long), decimal cpc = default(decimal), decimal cr = default(decimal), decimal ctr = default(decimal), string name = default(string), long nmId = default(long), long orders = default(long), long shks = default(long), decimal sum = default(decimal), decimal sumPrice = default(decimal), long views = default(long))
         {
             this.Atbs = atbs;
             this.Canceled = canceled;
@@ -69,21 +69,21 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <value>Количество добавлений товаров в корзину</value>
         [DataMember(Name = "atbs", EmitDefaultValue = false)]
-        public int Atbs { get; set; }
+        public long Atbs { get; set; }
 
         /// <summary>
         /// Отмены, шт.
         /// </summary>
         /// <value>Отмены, шт.</value>
         [DataMember(Name = "canceled", EmitDefaultValue = false)]
-        public int Canceled { get; set; }
+        public long Canceled { get; set; }
 
         /// <summary>
         /// Количество кликов
         /// </summary>
         /// <value>Количество кликов</value>
         [DataMember(Name = "clicks", EmitDefaultValue = false)]
-        public int Clicks { get; set; }
+        public long Clicks { get; set; }
 
         /// <summary>
         /// Средняя стоимость клика в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
@@ -118,21 +118,21 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <value>Артикул WB</value>
         [DataMember(Name = "nmId", EmitDefaultValue = false)]
-        public int NmId { get; set; }
+        public long NmId { get; set; }
 
         /// <summary>
         /// Количество заказов
         /// </summary>
         /// <value>Количество заказов</value>
         [DataMember(Name = "orders", EmitDefaultValue = false)]
-        public int Orders { get; set; }
+        public long Orders { get; set; }
 
         /// <summary>
         /// Количество заказанных товаров, шт.
         /// </summary>
         /// <value>Количество заказанных товаров, шт.</value>
         [DataMember(Name = "shks", EmitDefaultValue = false)]
-        public int Shks { get; set; }
+        public long Shks { get; set; }
 
         /// <summary>
         /// Затраты в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
@@ -153,7 +153,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <value>Количество просмотров</value>
         [DataMember(Name = "views", EmitDefaultValue = false)]
-        public int Views { get; set; }
+        public long Views { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

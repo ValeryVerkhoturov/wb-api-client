@@ -38,7 +38,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// <param name="wbSize">Российский размер товара.</param>
         /// <param name="price">Цена товара.</param>
         /// <param name="skus">Массив баркодов для размера. Если не указать, сгенерируется автоматически. Позволяет связать несколько баркодов с одним размером, например, для разных партий товара.</param>
-        public PostV2CardsUploadRequestInnerVariantsInnerSizesInner(string techSize = default(string), string wbSize = default(string), int price = default(int), List<string> skus = default(List<string>))
+        public PostV2CardsUploadRequestInnerVariantsInnerSizesInner(string techSize = default(string), string wbSize = default(string), long price = default(long), List<string> skus = default(List<string>))
         {
             this.TechSize = techSize;
             this.WbSize = wbSize;
@@ -65,7 +65,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// </summary>
         /// <value>Цена товара</value>
         [DataMember(Name = "price", EmitDefaultValue = false)]
-        public int Price { get; set; }
+        public long Price { get; set; }
 
         /// <summary>
         /// Массив баркодов для размера. Если не указать, сгенерируется автоматически. Позволяет связать несколько баркодов с одним размером, например, для разных партий товара

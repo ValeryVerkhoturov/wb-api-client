@@ -109,13 +109,13 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
             // ReplySign (string) maxLength
             if (this.ReplySign != null && this.ReplySign.Length > 255)
             {
-                yield return new ValidationResult("Invalid value for ReplySign, length must be less than 255.", new [] { "ReplySign" });
+                yield return new ValidationResult("Invalid value for ReplySign, length must be less than 255.", new[] { "ReplySign" });
             }
 
             // Message (string) maxLength
             if (this.Message != null && this.Message.Length > 1000)
             {
-                yield return new ValidationResult("Invalid value for Message, length must be less than 1000.", new [] { "Message" });
+                yield return new ValidationResult("Invalid value for Message, length must be less than 1000.", new[] { "Message" });
             }
 
             yield break;

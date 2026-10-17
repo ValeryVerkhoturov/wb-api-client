@@ -42,7 +42,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// <param name="nmID">Артикул WB (required).</param>
         /// <param name="price">Цена. Валюту можно получить с помощью методов [Получить товары с ценами](./item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsFilter) и [Получить товары с ценами по артикулам](./item-management#tag/pricesAndDiscounts/operation/postV2ListGoodsFilter), поле &#x60;currencyIsoCode4217&#x60;.</param>
         /// <param name="discount">Скидка, %.</param>
-        public Item(int nmID = default(int), int? price = default(int?), int? discount = default(int?))
+        public Item(long nmID = default(long), long? price = default(long?), long? discount = default(long?))
         {
             this.NmID = nmID;
             this.Price = price;
@@ -57,7 +57,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         <example>123</example>
         */
         [DataMember(Name = "nmID", IsRequired = true, EmitDefaultValue = true)]
-        public int NmID { get; set; }
+        public long NmID { get; set; }
 
         /// <summary>
         /// Цена. Валюту можно получить с помощью методов [Получить товары с ценами](./item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsFilter) и [Получить товары с ценами по артикулам](./item-management#tag/pricesAndDiscounts/operation/postV2ListGoodsFilter), поле &#x60;currencyIsoCode4217&#x60;
@@ -67,7 +67,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         <example>999</example>
         */
         [DataMember(Name = "price", EmitDefaultValue = true)]
-        public int? Price { get; set; }
+        public long? Price { get; set; }
 
         /// <summary>
         /// Скидка, %
@@ -77,7 +77,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         <example>30</example>
         */
         [DataMember(Name = "discount", EmitDefaultValue = true)]
-        public int? Discount { get; set; }
+        public long? Discount { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -42,13 +42,13 @@ public class FullStatsItem {
 
   @SerializedName(SERIALIZED_NAME_ADVERT_ID)
   @jakarta.annotation.Nullable
-  private Integer advertId;
+  private Long advertId;
 
   public static final String SERIALIZED_NAME_ATBS = "atbs";
 
   @SerializedName(SERIALIZED_NAME_ATBS)
   @jakarta.annotation.Nullable
-  private Integer atbs;
+  private Long atbs;
 
   public static final String SERIALIZED_NAME_BOOSTER_STATS = "boosterStats";
 
@@ -60,13 +60,13 @@ public class FullStatsItem {
 
   @SerializedName(SERIALIZED_NAME_CANCELED)
   @jakarta.annotation.Nullable
-  private Integer canceled;
+  private Long canceled;
 
   public static final String SERIALIZED_NAME_CLICKS = "clicks";
 
   @SerializedName(SERIALIZED_NAME_CLICKS)
   @jakarta.annotation.Nullable
-  private Integer clicks;
+  private Long clicks;
 
   public static final String SERIALIZED_NAME_CPC = "cpc";
 
@@ -96,13 +96,13 @@ public class FullStatsItem {
 
   @SerializedName(SERIALIZED_NAME_ORDERS)
   @jakarta.annotation.Nullable
-  private Integer orders;
+  private Long orders;
 
   public static final String SERIALIZED_NAME_SHKS = "shks";
 
   @SerializedName(SERIALIZED_NAME_SHKS)
   @jakarta.annotation.Nullable
-  private Integer shks;
+  private Long shks;
 
   public static final String SERIALIZED_NAME_SUM = "sum";
 
@@ -120,7 +120,7 @@ public class FullStatsItem {
 
   @SerializedName(SERIALIZED_NAME_VIEWS)
   @jakarta.annotation.Nullable
-  private Integer views;
+  private Long views;
 
   public static final String SERIALIZED_NAME_CURRENCY = "currency";
 
@@ -130,7 +130,7 @@ public class FullStatsItem {
 
   public FullStatsItem() {}
 
-  public FullStatsItem advertId(@jakarta.annotation.Nullable Integer advertId) {
+  public FullStatsItem advertId(@jakarta.annotation.Nullable Long advertId) {
     this.advertId = advertId;
     return this;
   }
@@ -141,15 +141,15 @@ public class FullStatsItem {
    * @return advertId
    */
   @jakarta.annotation.Nullable
-  public Integer getAdvertId() {
+  public Long getAdvertId() {
     return advertId;
   }
 
-  public void setAdvertId(@jakarta.annotation.Nullable Integer advertId) {
+  public void setAdvertId(@jakarta.annotation.Nullable Long advertId) {
     this.advertId = advertId;
   }
 
-  public FullStatsItem atbs(@jakarta.annotation.Nullable Integer atbs) {
+  public FullStatsItem atbs(@jakarta.annotation.Nullable Long atbs) {
     this.atbs = atbs;
     return this;
   }
@@ -160,11 +160,11 @@ public class FullStatsItem {
    * @return atbs
    */
   @jakarta.annotation.Nullable
-  public Integer getAtbs() {
+  public Long getAtbs() {
     return atbs;
   }
 
-  public void setAtbs(@jakarta.annotation.Nullable Integer atbs) {
+  public void setAtbs(@jakarta.annotation.Nullable Long atbs) {
     this.atbs = atbs;
   }
 
@@ -197,7 +197,7 @@ public class FullStatsItem {
     this.boosterStats = boosterStats;
   }
 
-  public FullStatsItem canceled(@jakarta.annotation.Nullable Integer canceled) {
+  public FullStatsItem canceled(@jakarta.annotation.Nullable Long canceled) {
     this.canceled = canceled;
     return this;
   }
@@ -208,15 +208,15 @@ public class FullStatsItem {
    * @return canceled
    */
   @jakarta.annotation.Nullable
-  public Integer getCanceled() {
+  public Long getCanceled() {
     return canceled;
   }
 
-  public void setCanceled(@jakarta.annotation.Nullable Integer canceled) {
+  public void setCanceled(@jakarta.annotation.Nullable Long canceled) {
     this.canceled = canceled;
   }
 
-  public FullStatsItem clicks(@jakarta.annotation.Nullable Integer clicks) {
+  public FullStatsItem clicks(@jakarta.annotation.Nullable Long clicks) {
     this.clicks = clicks;
     return this;
   }
@@ -227,11 +227,11 @@ public class FullStatsItem {
    * @return clicks
    */
   @jakarta.annotation.Nullable
-  public Integer getClicks() {
+  public Long getClicks() {
     return clicks;
   }
 
-  public void setClicks(@jakarta.annotation.Nullable Integer clicks) {
+  public void setClicks(@jakarta.annotation.Nullable Long clicks) {
     this.clicks = clicks;
   }
 
@@ -320,7 +320,7 @@ public class FullStatsItem {
     this.days = days;
   }
 
-  public FullStatsItem orders(@jakarta.annotation.Nullable Integer orders) {
+  public FullStatsItem orders(@jakarta.annotation.Nullable Long orders) {
     this.orders = orders;
     return this;
   }
@@ -331,15 +331,15 @@ public class FullStatsItem {
    * @return orders
    */
   @jakarta.annotation.Nullable
-  public Integer getOrders() {
+  public Long getOrders() {
     return orders;
   }
 
-  public void setOrders(@jakarta.annotation.Nullable Integer orders) {
+  public void setOrders(@jakarta.annotation.Nullable Long orders) {
     this.orders = orders;
   }
 
-  public FullStatsItem shks(@jakarta.annotation.Nullable Integer shks) {
+  public FullStatsItem shks(@jakarta.annotation.Nullable Long shks) {
     this.shks = shks;
     return this;
   }
@@ -350,11 +350,11 @@ public class FullStatsItem {
    * @return shks
    */
   @jakarta.annotation.Nullable
-  public Integer getShks() {
+  public Long getShks() {
     return shks;
   }
 
-  public void setShks(@jakarta.annotation.Nullable Integer shks) {
+  public void setShks(@jakarta.annotation.Nullable Long shks) {
     this.shks = shks;
   }
 
@@ -398,7 +398,7 @@ public class FullStatsItem {
     this.sumPrice = sumPrice;
   }
 
-  public FullStatsItem views(@jakarta.annotation.Nullable Integer views) {
+  public FullStatsItem views(@jakarta.annotation.Nullable Long views) {
     this.views = views;
     return this;
   }
@@ -409,11 +409,11 @@ public class FullStatsItem {
    * @return views
    */
   @jakarta.annotation.Nullable
-  public Integer getViews() {
+  public Long getViews() {
     return views;
   }
 
-  public void setViews(@jakarta.annotation.Nullable Integer views) {
+  public void setViews(@jakarta.annotation.Nullable Long views) {
     this.views = views;
   }
 

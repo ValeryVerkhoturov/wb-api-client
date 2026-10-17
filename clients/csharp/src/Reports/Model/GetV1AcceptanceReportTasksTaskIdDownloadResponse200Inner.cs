@@ -41,7 +41,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /// <param name="shkCreateDate">Дата приёмки.</param>
         /// <param name="subjectName">Предмет.</param>
         /// <param name="total">Суммарная стоимость приёмки, ₽ с копейками.</param>
-        public GetV1AcceptanceReportTasksTaskIdDownloadResponse200Inner(int count = default(int), string giCreateDate = default(string), int incomeId = default(int), int nmID = default(int), string shkCreateDate = default(string), string subjectName = default(string), decimal total = default(decimal))
+        public GetV1AcceptanceReportTasksTaskIdDownloadResponse200Inner(long count = default(long), string giCreateDate = default(string), long incomeId = default(long), long nmID = default(long), string shkCreateDate = default(string), string subjectName = default(string), decimal total = default(decimal))
         {
             this.Count = count;
             this.GiCreateDate = giCreateDate;
@@ -60,7 +60,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         <example>40</example>
         */
         [DataMember(Name = "count", EmitDefaultValue = false)]
-        public int Count { get; set; }
+        public long Count { get; set; }
 
         /// <summary>
         /// Дата создания поставки
@@ -80,7 +80,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         <example>11834106</example>
         */
         [DataMember(Name = "incomeId", EmitDefaultValue = false)]
-        public int IncomeId { get; set; }
+        public long IncomeId { get; set; }
 
         /// <summary>
         /// Артикул WB
@@ -90,7 +90,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         <example>123456789</example>
         */
         [DataMember(Name = "nmID", EmitDefaultValue = false)]
-        public int NmID { get; set; }
+        public long NmID { get; set; }
 
         /// <summary>
         /// Дата приёмки

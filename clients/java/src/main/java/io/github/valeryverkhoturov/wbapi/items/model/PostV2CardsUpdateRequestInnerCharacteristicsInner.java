@@ -37,7 +37,7 @@ public class PostV2CardsUpdateRequestInnerCharacteristicsInner {
 
   @SerializedName(SERIALIZED_NAME_ID)
   @jakarta.annotation.Nonnull
-  private Integer id;
+  private Long id;
 
   public static final String SERIALIZED_NAME_VALUE = "value";
 
@@ -47,8 +47,7 @@ public class PostV2CardsUpdateRequestInnerCharacteristicsInner {
 
   public PostV2CardsUpdateRequestInnerCharacteristicsInner() {}
 
-  public PostV2CardsUpdateRequestInnerCharacteristicsInner id(
-      @jakarta.annotation.Nonnull Integer id) {
+  public PostV2CardsUpdateRequestInnerCharacteristicsInner id(@jakarta.annotation.Nonnull Long id) {
     this.id = id;
     return this;
   }
@@ -59,11 +58,11 @@ public class PostV2CardsUpdateRequestInnerCharacteristicsInner {
    * @return id
    */
   @jakarta.annotation.Nonnull
-  public Integer getId() {
+  public Long getId() {
     return id;
   }
 
-  public void setId(@jakarta.annotation.Nonnull Integer id) {
+  public void setId(@jakarta.annotation.Nonnull Long id) {
     this.id = id;
   }
 

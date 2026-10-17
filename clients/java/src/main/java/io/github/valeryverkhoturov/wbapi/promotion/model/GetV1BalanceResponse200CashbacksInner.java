@@ -37,13 +37,13 @@ public class GetV1BalanceResponse200CashbacksInner {
 
   @SerializedName(SERIALIZED_NAME_SUM)
   @jakarta.annotation.Nullable
-  private Integer sum;
+  private Long sum;
 
   public static final String SERIALIZED_NAME_PERCENT = "percent";
 
   @SerializedName(SERIALIZED_NAME_PERCENT)
   @jakarta.annotation.Nullable
-  private Integer percent;
+  private Long percent;
 
   public static final String SERIALIZED_NAME_EXPIRATION_DATE = "expiration_date";
 
@@ -53,7 +53,7 @@ public class GetV1BalanceResponse200CashbacksInner {
 
   public GetV1BalanceResponse200CashbacksInner() {}
 
-  public GetV1BalanceResponse200CashbacksInner sum(@jakarta.annotation.Nullable Integer sum) {
+  public GetV1BalanceResponse200CashbacksInner sum(@jakarta.annotation.Nullable Long sum) {
     this.sum = sum;
     return this;
   }
@@ -65,16 +65,15 @@ public class GetV1BalanceResponse200CashbacksInner {
    * @return sum
    */
   @jakarta.annotation.Nullable
-  public Integer getSum() {
+  public Long getSum() {
     return sum;
   }
 
-  public void setSum(@jakarta.annotation.Nullable Integer sum) {
+  public void setSum(@jakarta.annotation.Nullable Long sum) {
     this.sum = sum;
   }
 
-  public GetV1BalanceResponse200CashbacksInner percent(
-      @jakarta.annotation.Nullable Integer percent) {
+  public GetV1BalanceResponse200CashbacksInner percent(@jakarta.annotation.Nullable Long percent) {
     this.percent = percent;
     return this;
   }
@@ -85,11 +84,11 @@ public class GetV1BalanceResponse200CashbacksInner {
    * @return percent
    */
   @jakarta.annotation.Nullable
-  public Integer getPercent() {
+  public Long getPercent() {
     return percent;
   }
 
-  public void setPercent(@jakarta.annotation.Nullable Integer percent) {
+  public void setPercent(@jakarta.annotation.Nullable Long percent) {
     this.percent = percent;
   }
 

@@ -43,7 +43,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <param name="nmId">Артикул WB (required).</param>
         /// <param name="normQuery">Поисковый кластер (required).</param>
         /// <param name="bid">Ставка за тысячу показов в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances) (required).</param>
-        public V0SetNormQueryBidsRequestItem(int advertId = default(int), int nmId = default(int), string normQuery = default(string), int bid = default(int))
+        public V0SetNormQueryBidsRequestItem(long advertId = default(long), long nmId = default(long), string normQuery = default(string), long bid = default(long))
         {
             this.AdvertId = advertId;
             this.NmId = nmId;
@@ -61,14 +61,14 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <value>ID кампании</value>
         [DataMember(Name = "advert_id", IsRequired = true, EmitDefaultValue = true)]
-        public int AdvertId { get; set; }
+        public long AdvertId { get; set; }
 
         /// <summary>
         /// Артикул WB
         /// </summary>
         /// <value>Артикул WB</value>
         [DataMember(Name = "nm_id", IsRequired = true, EmitDefaultValue = true)]
-        public int NmId { get; set; }
+        public long NmId { get; set; }
 
         /// <summary>
         /// Поисковый кластер
@@ -82,7 +82,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <value>Ставка за тысячу показов в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)</value>
         [DataMember(Name = "bid", IsRequired = true, EmitDefaultValue = true)]
-        public int Bid { get; set; }
+        public long Bid { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

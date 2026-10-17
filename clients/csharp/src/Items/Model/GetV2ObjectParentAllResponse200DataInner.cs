@@ -37,7 +37,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// <param name="name">Название категории.</param>
         /// <param name="id">ID родительской категории.</param>
         /// <param name="isVisible">Виден на сайте.</param>
-        public GetV2ObjectParentAllResponse200DataInner(string name = default(string), int id = default(int), bool isVisible = default(bool))
+        public GetV2ObjectParentAllResponse200DataInner(string name = default(string), long id = default(long), bool isVisible = default(bool))
         {
             this.Name = name;
             this.Id = id;
@@ -62,7 +62,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         <example>479</example>
         */
         [DataMember(Name = "id", EmitDefaultValue = false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// Виден на сайте

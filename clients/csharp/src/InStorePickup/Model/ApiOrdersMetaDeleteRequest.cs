@@ -89,7 +89,7 @@ namespace ValeryVerkhoturov.WbApiClient.InStorePickup.Model
         /// </summary>
         /// <param name="key">Тип идентификаторов маркировки для удаления. Передаётся только одно значение (required).</param>
         /// <param name="ordersIds">Список ID сборочных заданий (required).</param>
-        public ApiOrdersMetaDeleteRequest(KeyEnum key = default(KeyEnum), List<int> ordersIds = default(List<int>))
+        public ApiOrdersMetaDeleteRequest(KeyEnum key = default(KeyEnum), List<long> ordersIds = default(List<long>))
         {
             this.Key = key;
             // to ensure "ordersIds" is required (not null)
@@ -108,7 +108,7 @@ namespace ValeryVerkhoturov.WbApiClient.InStorePickup.Model
         <example>[123456,234567]</example>
         */
         [DataMember(Name = "ordersIds", IsRequired = true, EmitDefaultValue = true)]
-        public List<int> OrdersIds { get; set; }
+        public List<long> OrdersIds { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

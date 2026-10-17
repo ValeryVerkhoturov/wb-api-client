@@ -37,7 +37,7 @@ public class PostV2GetCardsTrashRequestSettingsCursor {
 
   @SerializedName(SERIALIZED_NAME_LIMIT)
   @jakarta.annotation.Nullable
-  private Integer limit = 10;
+  private Long limit = 10l;
 
   public static final String SERIALIZED_NAME_TRASHED_AT = "trashedAt";
 
@@ -49,12 +49,11 @@ public class PostV2GetCardsTrashRequestSettingsCursor {
 
   @SerializedName(SERIALIZED_NAME_NM_I_D)
   @jakarta.annotation.Nullable
-  private Integer nmID;
+  private Long nmID;
 
   public PostV2GetCardsTrashRequestSettingsCursor() {}
 
-  public PostV2GetCardsTrashRequestSettingsCursor limit(
-      @jakarta.annotation.Nullable Integer limit) {
+  public PostV2GetCardsTrashRequestSettingsCursor limit(@jakarta.annotation.Nullable Long limit) {
     this.limit = limit;
     return this;
   }
@@ -65,11 +64,11 @@ public class PostV2GetCardsTrashRequestSettingsCursor {
    * @return limit
    */
   @jakarta.annotation.Nullable
-  public Integer getLimit() {
+  public Long getLimit() {
     return limit;
   }
 
-  public void setLimit(@jakarta.annotation.Nullable Integer limit) {
+  public void setLimit(@jakarta.annotation.Nullable Long limit) {
     this.limit = limit;
   }
 
@@ -93,7 +92,7 @@ public class PostV2GetCardsTrashRequestSettingsCursor {
     this.trashedAt = trashedAt;
   }
 
-  public PostV2GetCardsTrashRequestSettingsCursor nmID(@jakarta.annotation.Nullable Integer nmID) {
+  public PostV2GetCardsTrashRequestSettingsCursor nmID(@jakarta.annotation.Nullable Long nmID) {
     this.nmID = nmID;
     return this;
   }
@@ -104,11 +103,11 @@ public class PostV2GetCardsTrashRequestSettingsCursor {
    * @return nmID
    */
   @jakarta.annotation.Nullable
-  public Integer getNmID() {
+  public Long getNmID() {
     return nmID;
   }
 
-  public void setNmID(@jakarta.annotation.Nullable Integer nmID) {
+  public void setNmID(@jakarta.annotation.Nullable Long nmID) {
     this.nmID = nmID;
   }
 

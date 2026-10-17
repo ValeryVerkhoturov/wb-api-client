@@ -46,7 +46,7 @@ public class ModelsBox {
 
   @SerializedName(SERIALIZED_NAME_QUANTITY)
   @jakarta.annotation.Nullable
-  private Integer quantity;
+  private Long quantity;
 
   public static final String SERIALIZED_NAME_BARCODES = "barcodes";
 
@@ -75,7 +75,7 @@ public class ModelsBox {
     this.packageCode = packageCode;
   }
 
-  public ModelsBox quantity(@jakarta.annotation.Nullable Integer quantity) {
+  public ModelsBox quantity(@jakarta.annotation.Nullable Long quantity) {
     this.quantity = quantity;
     return this;
   }
@@ -86,11 +86,11 @@ public class ModelsBox {
    * @return quantity
    */
   @jakarta.annotation.Nullable
-  public Integer getQuantity() {
+  public Long getQuantity() {
     return quantity;
   }
 
-  public void setQuantity(@jakarta.annotation.Nullable Integer quantity) {
+  public void setQuantity(@jakarta.annotation.Nullable Long quantity) {
     this.quantity = quantity;
   }
 

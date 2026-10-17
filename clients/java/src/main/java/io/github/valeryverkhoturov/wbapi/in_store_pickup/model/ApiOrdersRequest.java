@@ -39,16 +39,16 @@ public class ApiOrdersRequest {
 
   @SerializedName(SERIALIZED_NAME_ORDERS)
   @jakarta.annotation.Nullable
-  private List<Integer> orders = new ArrayList<>();
+  private List<Long> orders = new ArrayList<>();
 
   public ApiOrdersRequest() {}
 
-  public ApiOrdersRequest orders(@jakarta.annotation.Nullable List<Integer> orders) {
+  public ApiOrdersRequest orders(@jakarta.annotation.Nullable List<Long> orders) {
     this.orders = orders;
     return this;
   }
 
-  public ApiOrdersRequest addOrdersItem(Integer ordersItem) {
+  public ApiOrdersRequest addOrdersItem(Long ordersItem) {
     if (this.orders == null) {
       this.orders = new ArrayList<>();
     }
@@ -62,11 +62,11 @@ public class ApiOrdersRequest {
    * @return orders
    */
   @jakarta.annotation.Nullable
-  public List<Integer> getOrders() {
+  public List<Long> getOrders() {
     return orders;
   }
 
-  public void setOrders(@jakarta.annotation.Nullable List<Integer> orders) {
+  public void setOrders(@jakarta.annotation.Nullable List<Long> orders) {
     this.orders = orders;
   }
 

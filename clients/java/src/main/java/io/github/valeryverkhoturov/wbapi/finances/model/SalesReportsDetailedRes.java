@@ -68,17 +68,17 @@ public class SalesReportsDetailedRes {
   /** Тип отчёта: - &#x60;1&#x60; — основной - &#x60;2&#x60; — по выкупам */
   @JsonAdapter(ReportTypeEnum.Adapter.class)
   public enum ReportTypeEnum {
-    NUMBER_1(1),
+    NUMBER_1(1l),
 
-    NUMBER_2(2);
+    NUMBER_2(2l);
 
-    private Integer value;
+    private Long value;
 
-    ReportTypeEnum(Integer value) {
+    ReportTypeEnum(Long value) {
       this.value = value;
     }
 
-    public Integer getValue() {
+    public Long getValue() {
       return value;
     }
 
@@ -87,7 +87,7 @@ public class SalesReportsDetailedRes {
       return String.valueOf(value);
     }
 
-    public static ReportTypeEnum fromValue(Integer value) {
+    public static ReportTypeEnum fromValue(Long value) {
       for (ReportTypeEnum b : ReportTypeEnum.values()) {
         if (b.value.equals(value)) {
           return b;
@@ -105,13 +105,13 @@ public class SalesReportsDetailedRes {
 
       @Override
       public ReportTypeEnum read(final JsonReader jsonReader) throws IOException {
-        Integer value = jsonReader.nextInt();
+        Long value = jsonReader.nextLong();
         return ReportTypeEnum.fromValue(value);
       }
     }
 
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      Integer value = jsonElement.getAsInt();
+      Long value = jsonElement.getAsLong();
       ReportTypeEnum.fromValue(value);
     }
   }
@@ -126,13 +126,13 @@ public class SalesReportsDetailedRes {
 
   @SerializedName(SERIALIZED_NAME_RRD_ID)
   @jakarta.annotation.Nullable
-  private Integer rrdId;
+  private Long rrdId;
 
   public static final String SERIALIZED_NAME_GI_ID = "giId";
 
   @SerializedName(SERIALIZED_NAME_GI_ID)
   @jakarta.annotation.Nullable
-  private Integer giId;
+  private Long giId;
 
   public static final String SERIALIZED_NAME_DLV_PRC = "dlvPrc";
 
@@ -162,7 +162,7 @@ public class SalesReportsDetailedRes {
 
   @SerializedName(SERIALIZED_NAME_NM_ID)
   @jakarta.annotation.Nullable
-  private Integer nmId;
+  private Long nmId;
 
   public static final String SERIALIZED_NAME_BRAND_NAME = "brandName";
 
@@ -204,7 +204,7 @@ public class SalesReportsDetailedRes {
 
   @SerializedName(SERIALIZED_NAME_QUANTITY)
   @jakarta.annotation.Nullable
-  private Integer quantity;
+  private Long quantity;
 
   public static final String SERIALIZED_NAME_RETAIL_PRICE = "retailPrice";
 
@@ -222,7 +222,7 @@ public class SalesReportsDetailedRes {
 
   @SerializedName(SERIALIZED_NAME_SALE_PERCENT)
   @jakarta.annotation.Nullable
-  private Integer salePercent;
+  private Long salePercent;
 
   public static final String SERIALIZED_NAME_COMMISSION_PERCENT = "commissionPercent";
 
@@ -264,7 +264,7 @@ public class SalesReportsDetailedRes {
 
   @SerializedName(SERIALIZED_NAME_SHK_ID)
   @jakarta.annotation.Nullable
-  private Integer shkId;
+  private Long shkId;
 
   public static final String SERIALIZED_NAME_RETAIL_PRICE_WITH_DISC = "retailPriceWithDisc";
 
@@ -276,13 +276,13 @@ public class SalesReportsDetailedRes {
 
   @SerializedName(SERIALIZED_NAME_DELIVERY_AMOUNT)
   @jakarta.annotation.Nullable
-  private Integer deliveryAmount;
+  private Long deliveryAmount;
 
   public static final String SERIALIZED_NAME_RETURN_AMOUNT = "returnAmount";
 
   @SerializedName(SERIALIZED_NAME_RETURN_AMOUNT)
   @jakarta.annotation.Nullable
-  private Integer returnAmount;
+  private Long returnAmount;
 
   public static final String SERIALIZED_NAME_DELIVERY_SERVICE = "deliveryService";
 
@@ -403,7 +403,7 @@ public class SalesReportsDetailedRes {
 
   @SerializedName(SERIALIZED_NAME_PPVZ_OFFICE_ID)
   @jakarta.annotation.Nullable
-  private Integer ppvzOfficeId;
+  private Long ppvzOfficeId;
 
   public static final String SERIALIZED_NAME_PPVZ_SUPPLIER_NAME = "ppvzSupplierName";
 
@@ -493,7 +493,7 @@ public class SalesReportsDetailedRes {
 
   @SerializedName(SERIALIZED_NAME_ORDER_ID)
   @jakarta.annotation.Nullable
-  private Integer orderId;
+  private Long orderId;
 
   public static final String SERIALIZED_NAME_KIZ = "kiz";
 
@@ -561,7 +561,7 @@ public class SalesReportsDetailedRes {
 
   @SerializedName(SERIALIZED_NAME_SELLER_PROMO_ID)
   @jakarta.annotation.Nullable
-  private Integer sellerPromoId;
+  private Long sellerPromoId;
 
   public static final String SERIALIZED_NAME_SELLER_PROMO_DISCOUNT = "sellerPromoDiscount";
 
@@ -573,7 +573,7 @@ public class SalesReportsDetailedRes {
 
   @SerializedName(SERIALIZED_NAME_LOYALTY_ID)
   @jakarta.annotation.Nullable
-  private Integer loyaltyId;
+  private Long loyaltyId;
 
   public static final String SERIALIZED_NAME_LOYALTY_DISCOUNT = "loyaltyDiscount";
 
@@ -787,7 +787,7 @@ public class SalesReportsDetailedRes {
     this.reportType = reportType;
   }
 
-  public SalesReportsDetailedRes rrdId(@jakarta.annotation.Nullable Integer rrdId) {
+  public SalesReportsDetailedRes rrdId(@jakarta.annotation.Nullable Long rrdId) {
     this.rrdId = rrdId;
     return this;
   }
@@ -798,15 +798,15 @@ public class SalesReportsDetailedRes {
    * @return rrdId
    */
   @jakarta.annotation.Nullable
-  public Integer getRrdId() {
+  public Long getRrdId() {
     return rrdId;
   }
 
-  public void setRrdId(@jakarta.annotation.Nullable Integer rrdId) {
+  public void setRrdId(@jakarta.annotation.Nullable Long rrdId) {
     this.rrdId = rrdId;
   }
 
-  public SalesReportsDetailedRes giId(@jakarta.annotation.Nullable Integer giId) {
+  public SalesReportsDetailedRes giId(@jakarta.annotation.Nullable Long giId) {
     this.giId = giId;
     return this;
   }
@@ -817,11 +817,11 @@ public class SalesReportsDetailedRes {
    * @return giId
    */
   @jakarta.annotation.Nullable
-  public Integer getGiId() {
+  public Long getGiId() {
     return giId;
   }
 
-  public void setGiId(@jakarta.annotation.Nullable Integer giId) {
+  public void setGiId(@jakarta.annotation.Nullable Long giId) {
     this.giId = giId;
   }
 
@@ -903,7 +903,7 @@ public class SalesReportsDetailedRes {
     this.subjectName = subjectName;
   }
 
-  public SalesReportsDetailedRes nmId(@jakarta.annotation.Nullable Integer nmId) {
+  public SalesReportsDetailedRes nmId(@jakarta.annotation.Nullable Long nmId) {
     this.nmId = nmId;
     return this;
   }
@@ -914,11 +914,11 @@ public class SalesReportsDetailedRes {
    * @return nmId
    */
   @jakarta.annotation.Nullable
-  public Integer getNmId() {
+  public Long getNmId() {
     return nmId;
   }
 
-  public void setNmId(@jakarta.annotation.Nullable Integer nmId) {
+  public void setNmId(@jakarta.annotation.Nullable Long nmId) {
     this.nmId = nmId;
   }
 
@@ -1036,7 +1036,7 @@ public class SalesReportsDetailedRes {
     this.docTypeName = docTypeName;
   }
 
-  public SalesReportsDetailedRes quantity(@jakarta.annotation.Nullable Integer quantity) {
+  public SalesReportsDetailedRes quantity(@jakarta.annotation.Nullable Long quantity) {
     this.quantity = quantity;
     return this;
   }
@@ -1047,11 +1047,11 @@ public class SalesReportsDetailedRes {
    * @return quantity
    */
   @jakarta.annotation.Nullable
-  public Integer getQuantity() {
+  public Long getQuantity() {
     return quantity;
   }
 
-  public void setQuantity(@jakarta.annotation.Nullable Integer quantity) {
+  public void setQuantity(@jakarta.annotation.Nullable Long quantity) {
     this.quantity = quantity;
   }
 
@@ -1093,7 +1093,7 @@ public class SalesReportsDetailedRes {
     this.retailAmount = retailAmount;
   }
 
-  public SalesReportsDetailedRes salePercent(@jakarta.annotation.Nullable Integer salePercent) {
+  public SalesReportsDetailedRes salePercent(@jakarta.annotation.Nullable Long salePercent) {
     this.salePercent = salePercent;
     return this;
   }
@@ -1104,11 +1104,11 @@ public class SalesReportsDetailedRes {
    * @return salePercent
    */
   @jakarta.annotation.Nullable
-  public Integer getSalePercent() {
+  public Long getSalePercent() {
     return salePercent;
   }
 
-  public void setSalePercent(@jakarta.annotation.Nullable Integer salePercent) {
+  public void setSalePercent(@jakarta.annotation.Nullable Long salePercent) {
     this.salePercent = salePercent;
   }
 
@@ -1228,7 +1228,7 @@ public class SalesReportsDetailedRes {
     this.rrDate = rrDate;
   }
 
-  public SalesReportsDetailedRes shkId(@jakarta.annotation.Nullable Integer shkId) {
+  public SalesReportsDetailedRes shkId(@jakarta.annotation.Nullable Long shkId) {
     this.shkId = shkId;
     return this;
   }
@@ -1239,11 +1239,11 @@ public class SalesReportsDetailedRes {
    * @return shkId
    */
   @jakarta.annotation.Nullable
-  public Integer getShkId() {
+  public Long getShkId() {
     return shkId;
   }
 
-  public void setShkId(@jakarta.annotation.Nullable Integer shkId) {
+  public void setShkId(@jakarta.annotation.Nullable Long shkId) {
     this.shkId = shkId;
   }
 
@@ -1267,8 +1267,7 @@ public class SalesReportsDetailedRes {
     this.retailPriceWithDisc = retailPriceWithDisc;
   }
 
-  public SalesReportsDetailedRes deliveryAmount(
-      @jakarta.annotation.Nullable Integer deliveryAmount) {
+  public SalesReportsDetailedRes deliveryAmount(@jakarta.annotation.Nullable Long deliveryAmount) {
     this.deliveryAmount = deliveryAmount;
     return this;
   }
@@ -1279,15 +1278,15 @@ public class SalesReportsDetailedRes {
    * @return deliveryAmount
    */
   @jakarta.annotation.Nullable
-  public Integer getDeliveryAmount() {
+  public Long getDeliveryAmount() {
     return deliveryAmount;
   }
 
-  public void setDeliveryAmount(@jakarta.annotation.Nullable Integer deliveryAmount) {
+  public void setDeliveryAmount(@jakarta.annotation.Nullable Long deliveryAmount) {
     this.deliveryAmount = deliveryAmount;
   }
 
-  public SalesReportsDetailedRes returnAmount(@jakarta.annotation.Nullable Integer returnAmount) {
+  public SalesReportsDetailedRes returnAmount(@jakarta.annotation.Nullable Long returnAmount) {
     this.returnAmount = returnAmount;
     return this;
   }
@@ -1298,11 +1297,11 @@ public class SalesReportsDetailedRes {
    * @return returnAmount
    */
   @jakarta.annotation.Nullable
-  public Integer getReturnAmount() {
+  public Long getReturnAmount() {
     return returnAmount;
   }
 
-  public void setReturnAmount(@jakarta.annotation.Nullable Integer returnAmount) {
+  public void setReturnAmount(@jakarta.annotation.Nullable Long returnAmount) {
     this.returnAmount = returnAmount;
   }
 
@@ -1674,7 +1673,7 @@ public class SalesReportsDetailedRes {
     this.ppvzOfficeName = ppvzOfficeName;
   }
 
-  public SalesReportsDetailedRes ppvzOfficeId(@jakarta.annotation.Nullable Integer ppvzOfficeId) {
+  public SalesReportsDetailedRes ppvzOfficeId(@jakarta.annotation.Nullable Long ppvzOfficeId) {
     this.ppvzOfficeId = ppvzOfficeId;
     return this;
   }
@@ -1685,11 +1684,11 @@ public class SalesReportsDetailedRes {
    * @return ppvzOfficeId
    */
   @jakarta.annotation.Nullable
-  public Integer getPpvzOfficeId() {
+  public Long getPpvzOfficeId() {
     return ppvzOfficeId;
   }
 
-  public void setPpvzOfficeId(@jakarta.annotation.Nullable Integer ppvzOfficeId) {
+  public void setPpvzOfficeId(@jakarta.annotation.Nullable Long ppvzOfficeId) {
     this.ppvzOfficeId = ppvzOfficeId;
   }
 
@@ -1966,7 +1965,7 @@ public class SalesReportsDetailedRes {
     this.paidAcceptance = paidAcceptance;
   }
 
-  public SalesReportsDetailedRes orderId(@jakarta.annotation.Nullable Integer orderId) {
+  public SalesReportsDetailedRes orderId(@jakarta.annotation.Nullable Long orderId) {
     this.orderId = orderId;
     return this;
   }
@@ -1977,11 +1976,11 @@ public class SalesReportsDetailedRes {
    * @return orderId
    */
   @jakarta.annotation.Nullable
-  public Integer getOrderId() {
+  public Long getOrderId() {
     return orderId;
   }
 
-  public void setOrderId(@jakarta.annotation.Nullable Integer orderId) {
+  public void setOrderId(@jakarta.annotation.Nullable Long orderId) {
     this.orderId = orderId;
   }
 
@@ -2185,7 +2184,7 @@ public class SalesReportsDetailedRes {
     this.deliveryMethod = deliveryMethod;
   }
 
-  public SalesReportsDetailedRes sellerPromoId(@jakarta.annotation.Nullable Integer sellerPromoId) {
+  public SalesReportsDetailedRes sellerPromoId(@jakarta.annotation.Nullable Long sellerPromoId) {
     this.sellerPromoId = sellerPromoId;
     return this;
   }
@@ -2196,11 +2195,11 @@ public class SalesReportsDetailedRes {
    * @return sellerPromoId
    */
   @jakarta.annotation.Nullable
-  public Integer getSellerPromoId() {
+  public Long getSellerPromoId() {
     return sellerPromoId;
   }
 
-  public void setSellerPromoId(@jakarta.annotation.Nullable Integer sellerPromoId) {
+  public void setSellerPromoId(@jakarta.annotation.Nullable Long sellerPromoId) {
     this.sellerPromoId = sellerPromoId;
   }
 
@@ -2224,7 +2223,7 @@ public class SalesReportsDetailedRes {
     this.sellerPromoDiscount = sellerPromoDiscount;
   }
 
-  public SalesReportsDetailedRes loyaltyId(@jakarta.annotation.Nullable Integer loyaltyId) {
+  public SalesReportsDetailedRes loyaltyId(@jakarta.annotation.Nullable Long loyaltyId) {
     this.loyaltyId = loyaltyId;
     return this;
   }
@@ -2235,11 +2234,11 @@ public class SalesReportsDetailedRes {
    * @return loyaltyId
    */
   @jakarta.annotation.Nullable
-  public Integer getLoyaltyId() {
+  public Long getLoyaltyId() {
     return loyaltyId;
   }
 
-  public void setLoyaltyId(@jakarta.annotation.Nullable Integer loyaltyId) {
+  public void setLoyaltyId(@jakarta.annotation.Nullable Long loyaltyId) {
     this.loyaltyId = loyaltyId;
   }
 

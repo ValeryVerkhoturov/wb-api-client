@@ -39,16 +39,16 @@ public class DeleteV1PinsResponse200 {
 
   @SerializedName(SERIALIZED_NAME_DATA)
   @jakarta.annotation.Nullable
-  private List<Integer> data = new ArrayList<>();
+  private List<Long> data = new ArrayList<>();
 
   public DeleteV1PinsResponse200() {}
 
-  public DeleteV1PinsResponse200 data(@jakarta.annotation.Nullable List<Integer> data) {
+  public DeleteV1PinsResponse200 data(@jakarta.annotation.Nullable List<Long> data) {
     this.data = data;
     return this;
   }
 
-  public DeleteV1PinsResponse200 addDataItem(Integer dataItem) {
+  public DeleteV1PinsResponse200 addDataItem(Long dataItem) {
     if (this.data == null) {
       this.data = new ArrayList<>();
     }
@@ -62,11 +62,11 @@ public class DeleteV1PinsResponse200 {
    * @return data
    */
   @jakarta.annotation.Nullable
-  public List<Integer> getData() {
+  public List<Long> getData() {
     return data;
   }
 
-  public void setData(@jakarta.annotation.Nullable List<Integer> data) {
+  public void setData(@jakarta.annotation.Nullable List<Long> data) {
     this.data = data;
   }
 

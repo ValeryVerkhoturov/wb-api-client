@@ -39,7 +39,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         /// <param name="origin">ID внутреннего сервиса WB.</param>
         /// <param name="detail">Детали ошибки.</param>
         /// <param name="requestId">ID запроса.</param>
-        public GetV1SellerDownloadIdResponse451(int status = default(int), string title = default(string), string origin = default(string), string detail = default(string), string requestId = default(string))
+        public GetV1SellerDownloadIdResponse451(long status = default(long), string title = default(string), string origin = default(string), string detail = default(string), string requestId = default(string))
         {
             this.Status = status;
             this.Title = title;
@@ -56,7 +56,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         <example>451</example>
         */
         [DataMember(Name = "status", EmitDefaultValue = false)]
-        public int Status { get; set; }
+        public long Status { get; set; }
 
         /// <summary>
         /// Заголовок ошибки

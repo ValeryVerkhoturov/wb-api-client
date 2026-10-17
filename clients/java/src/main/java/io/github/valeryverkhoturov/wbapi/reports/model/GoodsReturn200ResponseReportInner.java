@@ -67,7 +67,7 @@ public class GoodsReturn200ResponseReportInner {
 
   @SerializedName(SERIALIZED_NAME_DST_OFFICE_ID)
   @jakarta.annotation.Nullable
-  private Integer dstOfficeId;
+  private Long dstOfficeId;
 
   public static final String SERIALIZED_NAME_EXPIRED_DT = "expiredDt";
 
@@ -79,7 +79,7 @@ public class GoodsReturn200ResponseReportInner {
 
   @SerializedName(SERIALIZED_NAME_NM_ID)
   @jakarta.annotation.Nullable
-  private Integer nmId;
+  private Long nmId;
 
   public static final String SERIALIZED_NAME_ORDER_DT = "orderDt";
 
@@ -91,7 +91,7 @@ public class GoodsReturn200ResponseReportInner {
 
   @SerializedName(SERIALIZED_NAME_ORDER_ID)
   @jakarta.annotation.Nullable
-  private Integer orderId;
+  private Long orderId;
 
   public static final String SERIALIZED_NAME_READY_TO_RETURN_DT = "readyToReturnDt";
 
@@ -115,7 +115,7 @@ public class GoodsReturn200ResponseReportInner {
 
   @SerializedName(SERIALIZED_NAME_SHK_ID)
   @jakarta.annotation.Nullable
-  private Integer shkId;
+  private Long shkId;
 
   public static final String SERIALIZED_NAME_SRID = "srid";
 
@@ -247,7 +247,7 @@ public class GoodsReturn200ResponseReportInner {
   }
 
   public GoodsReturn200ResponseReportInner dstOfficeId(
-      @jakarta.annotation.Nullable Integer dstOfficeId) {
+      @jakarta.annotation.Nullable Long dstOfficeId) {
     this.dstOfficeId = dstOfficeId;
     return this;
   }
@@ -258,11 +258,11 @@ public class GoodsReturn200ResponseReportInner {
    * @return dstOfficeId
    */
   @jakarta.annotation.Nullable
-  public Integer getDstOfficeId() {
+  public Long getDstOfficeId() {
     return dstOfficeId;
   }
 
-  public void setDstOfficeId(@jakarta.annotation.Nullable Integer dstOfficeId) {
+  public void setDstOfficeId(@jakarta.annotation.Nullable Long dstOfficeId) {
     this.dstOfficeId = dstOfficeId;
   }
 
@@ -286,7 +286,7 @@ public class GoodsReturn200ResponseReportInner {
     this.expiredDt = expiredDt;
   }
 
-  public GoodsReturn200ResponseReportInner nmId(@jakarta.annotation.Nullable Integer nmId) {
+  public GoodsReturn200ResponseReportInner nmId(@jakarta.annotation.Nullable Long nmId) {
     this.nmId = nmId;
     return this;
   }
@@ -297,11 +297,11 @@ public class GoodsReturn200ResponseReportInner {
    * @return nmId
    */
   @jakarta.annotation.Nullable
-  public Integer getNmId() {
+  public Long getNmId() {
     return nmId;
   }
 
-  public void setNmId(@jakarta.annotation.Nullable Integer nmId) {
+  public void setNmId(@jakarta.annotation.Nullable Long nmId) {
     this.nmId = nmId;
   }
 
@@ -324,7 +324,7 @@ public class GoodsReturn200ResponseReportInner {
     this.orderDt = orderDt;
   }
 
-  public GoodsReturn200ResponseReportInner orderId(@jakarta.annotation.Nullable Integer orderId) {
+  public GoodsReturn200ResponseReportInner orderId(@jakarta.annotation.Nullable Long orderId) {
     this.orderId = orderId;
     return this;
   }
@@ -335,11 +335,11 @@ public class GoodsReturn200ResponseReportInner {
    * @return orderId
    */
   @jakarta.annotation.Nullable
-  public Integer getOrderId() {
+  public Long getOrderId() {
     return orderId;
   }
 
-  public void setOrderId(@jakarta.annotation.Nullable Integer orderId) {
+  public void setOrderId(@jakarta.annotation.Nullable Long orderId) {
     this.orderId = orderId;
   }
 
@@ -404,7 +404,7 @@ public class GoodsReturn200ResponseReportInner {
     this.returnType = returnType;
   }
 
-  public GoodsReturn200ResponseReportInner shkId(@jakarta.annotation.Nullable Integer shkId) {
+  public GoodsReturn200ResponseReportInner shkId(@jakarta.annotation.Nullable Long shkId) {
     this.shkId = shkId;
     return this;
   }
@@ -415,11 +415,11 @@ public class GoodsReturn200ResponseReportInner {
    * @return shkId
    */
   @jakarta.annotation.Nullable
-  public Integer getShkId() {
+  public Long getShkId() {
     return shkId;
   }
 
-  public void setShkId(@jakarta.annotation.Nullable Integer shkId) {
+  public void setShkId(@jakarta.annotation.Nullable Long shkId) {
     this.shkId = shkId;
   }
 

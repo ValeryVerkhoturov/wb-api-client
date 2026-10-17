@@ -78,7 +78,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <param name="type">Тип акции:   - &#x60;regular&#x60; — акция   - &#x60;auto&#x60; — автоакция .</param>
         /// <param name="exceptionProductsCount">Количество товаров, исключенных из автоакции до её старта. Только при &#x60;\&quot;type\&quot;: \&quot;auto\&quot;&#x60;.  В момент старта акции эти товары автоматически будут без скидки.</param>
         /// <param name="ranging">Ранжирование (если подключено).</param>
-        public GetV1CalendarPromotionsDetails200ResponseDataPromotionsInner(int id = default(int), string name = default(string), string description = default(string), List<string> advantages = default(List<string>), string startDateTime = default(string), string endDateTime = default(string), int inPromoActionLeftovers = default(int), int inPromoActionTotal = default(int), int notInPromoActionLeftovers = default(int), int notInPromoActionTotal = default(int), int participationPercentage = default(int), TypeEnum? type = default(TypeEnum?), int exceptionProductsCount = default(int), List<GetV1CalendarPromotionsDetails200ResponseDataPromotionsInnerRangingInner> ranging = default(List<GetV1CalendarPromotionsDetails200ResponseDataPromotionsInnerRangingInner>))
+        public GetV1CalendarPromotionsDetails200ResponseDataPromotionsInner(long id = default(long), string name = default(string), string description = default(string), List<string> advantages = default(List<string>), string startDateTime = default(string), string endDateTime = default(string), long inPromoActionLeftovers = default(long), long inPromoActionTotal = default(long), long notInPromoActionLeftovers = default(long), long notInPromoActionTotal = default(long), long participationPercentage = default(long), TypeEnum? type = default(TypeEnum?), int exceptionProductsCount = default(int), List<GetV1CalendarPromotionsDetails200ResponseDataPromotionsInnerRangingInner> ranging = default(List<GetV1CalendarPromotionsDetails200ResponseDataPromotionsInnerRangingInner>))
         {
             this.Id = id;
             this.Name = name;
@@ -104,7 +104,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         <example>123</example>
         */
         [DataMember(Name = "id", EmitDefaultValue = false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// Название акции
@@ -164,7 +164,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         <example>45</example>
         */
         [DataMember(Name = "inPromoActionLeftovers", EmitDefaultValue = false)]
-        public int InPromoActionLeftovers { get; set; }
+        public long InPromoActionLeftovers { get; set; }
 
         /// <summary>
         /// Общее количество товаров, участвующих в акции
@@ -174,7 +174,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         <example>123</example>
         */
         [DataMember(Name = "inPromoActionTotal", EmitDefaultValue = false)]
-        public int InPromoActionTotal { get; set; }
+        public long InPromoActionTotal { get; set; }
 
         /// <summary>
         /// Количество товаров с остатками, не участвующих в акции
@@ -184,7 +184,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         <example>3</example>
         */
         [DataMember(Name = "notInPromoActionLeftovers", EmitDefaultValue = false)]
-        public int NotInPromoActionLeftovers { get; set; }
+        public long NotInPromoActionLeftovers { get; set; }
 
         /// <summary>
         /// Общее количество товаров, не участвующих в акции
@@ -194,7 +194,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         <example>10</example>
         */
         [DataMember(Name = "notInPromoActionTotal", EmitDefaultValue = false)]
-        public int NotInPromoActionTotal { get; set; }
+        public long NotInPromoActionTotal { get; set; }
 
         /// <summary>
         /// Уже участвующие в акции товары, %. Рассчитывается по товарам в акции и с остатком
@@ -204,7 +204,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         <example>10</example>
         */
         [DataMember(Name = "participationPercentage", EmitDefaultValue = false)]
-        public int ParticipationPercentage { get; set; }
+        public long ParticipationPercentage { get; set; }
 
         /// <summary>
         /// Количество товаров, исключенных из автоакции до её старта. Только при &#x60;\&quot;type\&quot;: \&quot;auto\&quot;&#x60;.  В момент старта акции эти товары автоматически будут без скидки

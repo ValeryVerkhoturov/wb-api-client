@@ -36,7 +36,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Model
         /// </summary>
         /// <param name="total">Общее количество черновиков.</param>
         /// <param name="drafts">Список черновиков.</param>
-        public ModelsListDraftsResponse(int total = default(int), List<ModelsDraftItem> drafts = default(List<ModelsDraftItem>))
+        public ModelsListDraftsResponse(long total = default(long), List<ModelsDraftItem> drafts = default(List<ModelsDraftItem>))
         {
             this.Total = total;
             this.Drafts = drafts;
@@ -47,7 +47,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Model
         /// </summary>
         /// <value>Общее количество черновиков</value>
         [DataMember(Name = "total", EmitDefaultValue = false)]
-        public int Total { get; set; }
+        public long Total { get; set; }
 
         /// <summary>
         /// Список черновиков

@@ -36,7 +36,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// </summary>
         /// <param name="current">Текущая средняя позиция.</param>
         /// <param name="dynamics">Динамика по сравнению с предыдущим периодом, %.</param>
-        public TableGroupItemMetricsAvgPosition(int current = default(int), int dynamics = default(int))
+        public TableGroupItemMetricsAvgPosition(long current = default(long), long dynamics = default(long))
         {
             this.Current = current;
             this.Dynamics = dynamics;
@@ -50,7 +50,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         <example>5</example>
         */
         [DataMember(Name = "current", EmitDefaultValue = false)]
-        public int Current { get; set; }
+        public long Current { get; set; }
 
         /// <summary>
         /// Динамика по сравнению с предыдущим периодом, %
@@ -60,7 +60,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         <example>50</example>
         */
         [DataMember(Name = "dynamics", EmitDefaultValue = false)]
-        public int Dynamics { get; set; }
+        public long Dynamics { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

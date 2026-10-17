@@ -41,7 +41,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// </summary>
         /// <param name="subjectID">ID предмета (required).</param>
         /// <param name="variants">[Объединённые](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточки товаров. Чтобы создать отдельную карточку, передайте только один объект (required).</param>
-        public PostV2CardsUploadRequestInner(int subjectID = default(int), List<PostV2CardsUploadRequestInnerVariantsInner> variants = default(List<PostV2CardsUploadRequestInnerVariantsInner>))
+        public PostV2CardsUploadRequestInner(long subjectID = default(long), List<PostV2CardsUploadRequestInnerVariantsInner> variants = default(List<PostV2CardsUploadRequestInnerVariantsInner>))
         {
             this.SubjectID = subjectID;
             // to ensure "variants" is required (not null)
@@ -57,7 +57,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// </summary>
         /// <value>ID предмета</value>
         [DataMember(Name = "subjectID", IsRequired = true, EmitDefaultValue = true)]
-        public int SubjectID { get; set; }
+        public long SubjectID { get; set; }
 
         /// <summary>
         /// [Объединённые](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточки товаров. Чтобы создать отдельную карточку, передайте только один объект

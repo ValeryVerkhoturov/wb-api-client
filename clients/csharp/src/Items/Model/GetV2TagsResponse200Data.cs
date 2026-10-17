@@ -37,7 +37,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// <param name="id">Числовой ID ярлыка.</param>
         /// <param name="color">Цвет ярлыка.</param>
         /// <param name="name">Имя ярлыка.</param>
-        public GetV2TagsResponse200Data(int id = default(int), string color = default(string), string name = default(string))
+        public GetV2TagsResponse200Data(long id = default(long), string color = default(string), string name = default(string))
         {
             this.Id = id;
             this.Color = color;
@@ -49,7 +49,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// </summary>
         /// <value>Числовой ID ярлыка</value>
         [DataMember(Name = "id", EmitDefaultValue = false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// Цвет ярлыка

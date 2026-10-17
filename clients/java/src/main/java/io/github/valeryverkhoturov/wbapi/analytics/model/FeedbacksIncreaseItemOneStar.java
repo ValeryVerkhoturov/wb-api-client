@@ -37,23 +37,23 @@ public class FeedbacksIncreaseItemOneStar {
 
   @SerializedName(SERIALIZED_NAME_CURRENT)
   @jakarta.annotation.Nullable
-  private Integer current;
+  private Long current;
 
   public static final String SERIALIZED_NAME_DYNAMICS = "dynamics";
 
   @SerializedName(SERIALIZED_NAME_DYNAMICS)
   @jakarta.annotation.Nullable
-  private Integer dynamics;
+  private Long dynamics;
 
   public static final String SERIALIZED_NAME_TOTAL = "total";
 
   @SerializedName(SERIALIZED_NAME_TOTAL)
   @jakarta.annotation.Nullable
-  private Integer total;
+  private Long total;
 
   public FeedbacksIncreaseItemOneStar() {}
 
-  public FeedbacksIncreaseItemOneStar current(@jakarta.annotation.Nullable Integer current) {
+  public FeedbacksIncreaseItemOneStar current(@jakarta.annotation.Nullable Long current) {
     this.current = current;
     return this;
   }
@@ -64,15 +64,15 @@ public class FeedbacksIncreaseItemOneStar {
    * @return current
    */
   @jakarta.annotation.Nullable
-  public Integer getCurrent() {
+  public Long getCurrent() {
     return current;
   }
 
-  public void setCurrent(@jakarta.annotation.Nullable Integer current) {
+  public void setCurrent(@jakarta.annotation.Nullable Long current) {
     this.current = current;
   }
 
-  public FeedbacksIncreaseItemOneStar dynamics(@jakarta.annotation.Nullable Integer dynamics) {
+  public FeedbacksIncreaseItemOneStar dynamics(@jakarta.annotation.Nullable Long dynamics) {
     this.dynamics = dynamics;
     return this;
   }
@@ -83,15 +83,15 @@ public class FeedbacksIncreaseItemOneStar {
    * @return dynamics
    */
   @jakarta.annotation.Nullable
-  public Integer getDynamics() {
+  public Long getDynamics() {
     return dynamics;
   }
 
-  public void setDynamics(@jakarta.annotation.Nullable Integer dynamics) {
+  public void setDynamics(@jakarta.annotation.Nullable Long dynamics) {
     this.dynamics = dynamics;
   }
 
-  public FeedbacksIncreaseItemOneStar total(@jakarta.annotation.Nullable Integer total) {
+  public FeedbacksIncreaseItemOneStar total(@jakarta.annotation.Nullable Long total) {
     this.total = total;
     return this;
   }
@@ -102,11 +102,11 @@ public class FeedbacksIncreaseItemOneStar {
    * @return total
    */
   @jakarta.annotation.Nullable
-  public Integer getTotal() {
+  public Long getTotal() {
     return total;
   }
 
-  public void setTotal(@jakarta.annotation.Nullable Integer total) {
+  public void setTotal(@jakarta.annotation.Nullable Long total) {
     this.total = total;
   }
 

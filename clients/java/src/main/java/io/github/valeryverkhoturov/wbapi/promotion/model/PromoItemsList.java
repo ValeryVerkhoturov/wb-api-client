@@ -37,7 +37,7 @@ public class PromoItemsList {
 
   @SerializedName(SERIALIZED_NAME_ID)
   @jakarta.annotation.Nullable
-  private Integer id;
+  private Long id;
 
   public static final String SERIALIZED_NAME_IN_ACTION = "inAction";
 
@@ -67,17 +67,17 @@ public class PromoItemsList {
 
   @SerializedName(SERIALIZED_NAME_DISCOUNT)
   @jakarta.annotation.Nullable
-  private Integer discount;
+  private Long discount;
 
   public static final String SERIALIZED_NAME_PLAN_DISCOUNT = "planDiscount";
 
   @SerializedName(SERIALIZED_NAME_PLAN_DISCOUNT)
   @jakarta.annotation.Nullable
-  private Integer planDiscount;
+  private Long planDiscount;
 
   public PromoItemsList() {}
 
-  public PromoItemsList id(@jakarta.annotation.Nullable Integer id) {
+  public PromoItemsList id(@jakarta.annotation.Nullable Long id) {
     this.id = id;
     return this;
   }
@@ -88,11 +88,11 @@ public class PromoItemsList {
    * @return id
    */
   @jakarta.annotation.Nullable
-  public Integer getId() {
+  public Long getId() {
     return id;
   }
 
-  public void setId(@jakarta.annotation.Nullable Integer id) {
+  public void setId(@jakarta.annotation.Nullable Long id) {
     this.id = id;
   }
 
@@ -172,7 +172,7 @@ public class PromoItemsList {
     this.planPrice = planPrice;
   }
 
-  public PromoItemsList discount(@jakarta.annotation.Nullable Integer discount) {
+  public PromoItemsList discount(@jakarta.annotation.Nullable Long discount) {
     this.discount = discount;
     return this;
   }
@@ -183,15 +183,15 @@ public class PromoItemsList {
    * @return discount
    */
   @jakarta.annotation.Nullable
-  public Integer getDiscount() {
+  public Long getDiscount() {
     return discount;
   }
 
-  public void setDiscount(@jakarta.annotation.Nullable Integer discount) {
+  public void setDiscount(@jakarta.annotation.Nullable Long discount) {
     this.discount = discount;
   }
 
-  public PromoItemsList planDiscount(@jakarta.annotation.Nullable Integer planDiscount) {
+  public PromoItemsList planDiscount(@jakarta.annotation.Nullable Long planDiscount) {
     this.planDiscount = planDiscount;
     return this;
   }
@@ -202,11 +202,11 @@ public class PromoItemsList {
    * @return planDiscount
    */
   @jakarta.annotation.Nullable
-  public Integer getPlanDiscount() {
+  public Long getPlanDiscount() {
     return planDiscount;
   }
 
-  public void setPlanDiscount(@jakarta.annotation.Nullable Integer planDiscount) {
+  public void setPlanDiscount(@jakarta.annotation.Nullable Long planDiscount) {
     this.planDiscount = planDiscount;
   }
 

@@ -39,7 +39,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <param name="saleRate">saleRate.</param>
         /// <param name="toClientCount">В пути к клиенту, шт..</param>
         /// <param name="fromClientCount">В пути от клиента, шт..</param>
-        public TableShippingOfficeMetrics(int stockCount = default(int), int stockSum = default(int), TableCommonMetricsSaleRate saleRate = default(TableCommonMetricsSaleRate), int toClientCount = default(int), int fromClientCount = default(int))
+        public TableShippingOfficeMetrics(long stockCount = default(long), long stockSum = default(long), TableCommonMetricsSaleRate saleRate = default(TableCommonMetricsSaleRate), long toClientCount = default(long), long fromClientCount = default(long))
         {
             this.StockCount = stockCount;
             this.StockSum = stockSum;
@@ -56,7 +56,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         <example>20</example>
         */
         [DataMember(Name = "stockCount", EmitDefaultValue = false)]
-        public int StockCount { get; set; }
+        public long StockCount { get; set; }
 
         /// <summary>
         /// Остатки на текущий день, сумма
@@ -66,7 +66,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         <example>20000</example>
         */
         [DataMember(Name = "stockSum", EmitDefaultValue = false)]
-        public int StockSum { get; set; }
+        public long StockSum { get; set; }
 
         /// <summary>
         /// Gets or Sets SaleRate
@@ -82,7 +82,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         <example>30</example>
         */
         [DataMember(Name = "toClientCount", EmitDefaultValue = false)]
-        public int ToClientCount { get; set; }
+        public long ToClientCount { get; set; }
 
         /// <summary>
         /// В пути от клиента, шт.
@@ -92,7 +92,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         <example>40</example>
         */
         [DataMember(Name = "fromClientCount", EmitDefaultValue = false)]
-        public int FromClientCount { get; set; }
+        public long FromClientCount { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

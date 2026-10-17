@@ -37,7 +37,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// <param name="id">ID ярлыка.</param>
         /// <param name="name">Название ярлыка.</param>
         /// <param name="color">Цвет ярлыка. Доступные цвета: - &#x60;D1CFD7&#x60; — серый - &#x60;FEE0E0&#x60; — красный - &#x60;ECDAFF&#x60; — фиолетовый - &#x60;E4EAFF&#x60; — синий - &#x60;DEF1DD&#x60; — зеленый - &#x60;FFECC7&#x60; — желтый.</param>
-        public PostV2GetCardsListResponse200CardsInnerTagsInner(int id = default(int), string name = default(string), string color = default(string))
+        public PostV2GetCardsListResponse200CardsInnerTagsInner(long id = default(long), string name = default(string), string color = default(string))
         {
             this.Id = id;
             this.Name = name;
@@ -49,7 +49,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// </summary>
         /// <value>ID ярлыка</value>
         [DataMember(Name = "id", EmitDefaultValue = false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// Название ярлыка

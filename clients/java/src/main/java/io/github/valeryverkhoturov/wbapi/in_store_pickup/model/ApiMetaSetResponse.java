@@ -40,7 +40,7 @@ public class ApiMetaSetResponse {
 
   @SerializedName(SERIALIZED_NAME_ORDER_ID)
   @jakarta.annotation.Nullable
-  private Integer orderId;
+  private Long orderId;
 
   public static final String SERIALIZED_NAME_IS_ERROR = "isError";
 
@@ -56,7 +56,7 @@ public class ApiMetaSetResponse {
 
   public ApiMetaSetResponse() {}
 
-  public ApiMetaSetResponse orderId(@jakarta.annotation.Nullable Integer orderId) {
+  public ApiMetaSetResponse orderId(@jakarta.annotation.Nullable Long orderId) {
     this.orderId = orderId;
     return this;
   }
@@ -67,11 +67,11 @@ public class ApiMetaSetResponse {
    * @return orderId
    */
   @jakarta.annotation.Nullable
-  public Integer getOrderId() {
+  public Long getOrderId() {
     return orderId;
   }
 
-  public void setOrderId(@jakarta.annotation.Nullable Integer orderId) {
+  public void setOrderId(@jakarta.annotation.Nullable Long orderId) {
     this.orderId = orderId;
   }
 

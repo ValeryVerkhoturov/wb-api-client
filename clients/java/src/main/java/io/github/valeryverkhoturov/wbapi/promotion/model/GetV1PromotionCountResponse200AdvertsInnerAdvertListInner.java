@@ -37,7 +37,7 @@ public class GetV1PromotionCountResponse200AdvertsInnerAdvertListInner {
 
   @SerializedName(SERIALIZED_NAME_ADVERT_ID)
   @jakarta.annotation.Nullable
-  private Integer advertId;
+  private Long advertId;
 
   public static final String SERIALIZED_NAME_CHANGE_TIME = "changeTime";
 
@@ -48,7 +48,7 @@ public class GetV1PromotionCountResponse200AdvertsInnerAdvertListInner {
   public GetV1PromotionCountResponse200AdvertsInnerAdvertListInner() {}
 
   public GetV1PromotionCountResponse200AdvertsInnerAdvertListInner advertId(
-      @jakarta.annotation.Nullable Integer advertId) {
+      @jakarta.annotation.Nullable Long advertId) {
     this.advertId = advertId;
     return this;
   }
@@ -59,11 +59,11 @@ public class GetV1PromotionCountResponse200AdvertsInnerAdvertListInner {
    * @return advertId
    */
   @jakarta.annotation.Nullable
-  public Integer getAdvertId() {
+  public Long getAdvertId() {
     return advertId;
   }
 
-  public void setAdvertId(@jakarta.annotation.Nullable Integer advertId) {
+  public void setAdvertId(@jakarta.annotation.Nullable Long advertId) {
     this.advertId = advertId;
   }
 

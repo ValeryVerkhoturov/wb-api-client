@@ -52,13 +52,13 @@ public class GetV1AnalyticsGoodsLabeling200ResponseReportInner {
 
   @SerializedName(SERIALIZED_NAME_INCOME_ID)
   @jakarta.annotation.Nullable
-  private Integer incomeId;
+  private Long incomeId;
 
   public static final String SERIALIZED_NAME_NM_I_D = "nmID";
 
   @SerializedName(SERIALIZED_NAME_NM_I_D)
   @jakarta.annotation.Nullable
-  private Integer nmID;
+  private Long nmID;
 
   public static final String SERIALIZED_NAME_PHOTO_URLS = "photoUrls";
 
@@ -70,7 +70,7 @@ public class GetV1AnalyticsGoodsLabeling200ResponseReportInner {
 
   @SerializedName(SERIALIZED_NAME_SHK_I_D)
   @jakarta.annotation.Nullable
-  private Integer shkID;
+  private Long shkID;
 
   public static final String SERIALIZED_NAME_SKU = "sku";
 
@@ -121,7 +121,7 @@ public class GetV1AnalyticsGoodsLabeling200ResponseReportInner {
   }
 
   public GetV1AnalyticsGoodsLabeling200ResponseReportInner incomeId(
-      @jakarta.annotation.Nullable Integer incomeId) {
+      @jakarta.annotation.Nullable Long incomeId) {
     this.incomeId = incomeId;
     return this;
   }
@@ -132,16 +132,16 @@ public class GetV1AnalyticsGoodsLabeling200ResponseReportInner {
    * @return incomeId
    */
   @jakarta.annotation.Nullable
-  public Integer getIncomeId() {
+  public Long getIncomeId() {
     return incomeId;
   }
 
-  public void setIncomeId(@jakarta.annotation.Nullable Integer incomeId) {
+  public void setIncomeId(@jakarta.annotation.Nullable Long incomeId) {
     this.incomeId = incomeId;
   }
 
   public GetV1AnalyticsGoodsLabeling200ResponseReportInner nmID(
-      @jakarta.annotation.Nullable Integer nmID) {
+      @jakarta.annotation.Nullable Long nmID) {
     this.nmID = nmID;
     return this;
   }
@@ -152,11 +152,11 @@ public class GetV1AnalyticsGoodsLabeling200ResponseReportInner {
    * @return nmID
    */
   @jakarta.annotation.Nullable
-  public Integer getNmID() {
+  public Long getNmID() {
     return nmID;
   }
 
-  public void setNmID(@jakarta.annotation.Nullable Integer nmID) {
+  public void setNmID(@jakarta.annotation.Nullable Long nmID) {
     this.nmID = nmID;
   }
 
@@ -189,7 +189,7 @@ public class GetV1AnalyticsGoodsLabeling200ResponseReportInner {
   }
 
   public GetV1AnalyticsGoodsLabeling200ResponseReportInner shkID(
-      @jakarta.annotation.Nullable Integer shkID) {
+      @jakarta.annotation.Nullable Long shkID) {
     this.shkID = shkID;
     return this;
   }
@@ -200,11 +200,11 @@ public class GetV1AnalyticsGoodsLabeling200ResponseReportInner {
    * @return shkID
    */
   @jakarta.annotation.Nullable
-  public Integer getShkID() {
+  public Long getShkID() {
     return shkID;
   }
 
-  public void setShkID(@jakarta.annotation.Nullable Integer shkID) {
+  public void setShkID(@jakarta.annotation.Nullable Long shkID) {
     this.shkID = shkID;
   }
 

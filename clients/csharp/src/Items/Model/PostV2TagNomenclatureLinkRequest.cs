@@ -36,7 +36,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// </summary>
         /// <param name="nmID">Артикул WB.</param>
         /// <param name="tagsIDs">Массив числовых ID ярлыков. Что бы снять ярлыки с карточки товара, необходимо передать пустой массив. Чтобы добавить ярлыки к уже имеющимся в карточке товара, необходимо в запросе передать новые ярлыки и ярлыки, которые уже есть в карточке товара..</param>
-        public PostV2TagNomenclatureLinkRequest(int nmID = default(int), List<int> tagsIDs = default(List<int>))
+        public PostV2TagNomenclatureLinkRequest(long nmID = default(long), List<long> tagsIDs = default(List<long>))
         {
             this.NmID = nmID;
             this.TagsIDs = tagsIDs;
@@ -47,14 +47,14 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// </summary>
         /// <value>Артикул WB</value>
         [DataMember(Name = "nmID", EmitDefaultValue = false)]
-        public int NmID { get; set; }
+        public long NmID { get; set; }
 
         /// <summary>
         /// Массив числовых ID ярлыков. Что бы снять ярлыки с карточки товара, необходимо передать пустой массив. Чтобы добавить ярлыки к уже имеющимся в карточке товара, необходимо в запросе передать новые ярлыки и ярлыки, которые уже есть в карточке товара.
         /// </summary>
         /// <value>Массив числовых ID ярлыков. Что бы снять ярлыки с карточки товара, необходимо передать пустой массив. Чтобы добавить ярлыки к уже имеющимся в карточке товара, необходимо в запросе передать новые ярлыки и ярлыки, которые уже есть в карточке товара.</value>
         [DataMember(Name = "tagsIDs", EmitDefaultValue = false)]
-        public List<int> TagsIDs { get; set; }
+        public List<long> TagsIDs { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

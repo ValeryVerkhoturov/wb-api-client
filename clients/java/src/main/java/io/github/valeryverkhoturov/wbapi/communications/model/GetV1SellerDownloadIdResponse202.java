@@ -43,7 +43,7 @@ public class GetV1SellerDownloadIdResponse202 {
 
   @SerializedName(SERIALIZED_NAME_RETRY_SECONDS)
   @jakarta.annotation.Nullable
-  private Integer retrySeconds;
+  private Long retrySeconds;
 
   public GetV1SellerDownloadIdResponse202() {}
 
@@ -68,7 +68,7 @@ public class GetV1SellerDownloadIdResponse202 {
   }
 
   public GetV1SellerDownloadIdResponse202 retrySeconds(
-      @jakarta.annotation.Nullable Integer retrySeconds) {
+      @jakarta.annotation.Nullable Long retrySeconds) {
     this.retrySeconds = retrySeconds;
     return this;
   }
@@ -79,11 +79,11 @@ public class GetV1SellerDownloadIdResponse202 {
    * @return retrySeconds
    */
   @jakarta.annotation.Nullable
-  public Integer getRetrySeconds() {
+  public Long getRetrySeconds() {
     return retrySeconds;
   }
 
-  public void setRetrySeconds(@jakarta.annotation.Nullable Integer retrySeconds) {
+  public void setRetrySeconds(@jakarta.annotation.Nullable Long retrySeconds) {
     this.retrySeconds = retrySeconds;
   }
 

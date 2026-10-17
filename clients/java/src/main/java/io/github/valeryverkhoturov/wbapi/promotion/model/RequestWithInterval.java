@@ -37,7 +37,7 @@ public class RequestWithInterval {
 
   @SerializedName(SERIALIZED_NAME_ID)
   @jakarta.annotation.Nonnull
-  private Integer id;
+  private Long id;
 
   public static final String SERIALIZED_NAME_INTERVAL = "interval";
 
@@ -47,7 +47,7 @@ public class RequestWithInterval {
 
   public RequestWithInterval() {}
 
-  public RequestWithInterval id(@jakarta.annotation.Nonnull Integer id) {
+  public RequestWithInterval id(@jakarta.annotation.Nonnull Long id) {
     this.id = id;
     return this;
   }
@@ -58,11 +58,11 @@ public class RequestWithInterval {
    * @return id
    */
   @jakarta.annotation.Nonnull
-  public Integer getId() {
+  public Long getId() {
     return id;
   }
 
-  public void setId(@jakarta.annotation.Nonnull Integer id) {
+  public void setId(@jakarta.annotation.Nonnull Long id) {
     this.id = id;
   }
 

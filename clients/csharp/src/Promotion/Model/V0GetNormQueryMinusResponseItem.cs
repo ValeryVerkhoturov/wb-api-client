@@ -37,7 +37,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <param name="advertId">ID кампании.</param>
         /// <param name="nmId">Артикул WB.</param>
         /// <param name="normQueries">Список минус-фраз.</param>
-        public V0GetNormQueryMinusResponseItem(int advertId = default(int), int nmId = default(int), List<string> normQueries = default(List<string>))
+        public V0GetNormQueryMinusResponseItem(long advertId = default(long), long nmId = default(long), List<string> normQueries = default(List<string>))
         {
             this.AdvertId = advertId;
             this.NmId = nmId;
@@ -49,14 +49,14 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <value>ID кампании</value>
         [DataMember(Name = "advert_id", EmitDefaultValue = false)]
-        public int AdvertId { get; set; }
+        public long AdvertId { get; set; }
 
         /// <summary>
         /// Артикул WB
         /// </summary>
         /// <value>Артикул WB</value>
         [DataMember(Name = "nm_id", EmitDefaultValue = false)]
-        public int NmId { get; set; }
+        public long NmId { get; set; }
 
         /// <summary>
         /// Список минус-фраз

@@ -45,7 +45,7 @@ public class ItemHistoryRequest {
 
   @SerializedName(SERIALIZED_NAME_NM_IDS)
   @jakarta.annotation.Nonnull
-  private List<Integer> nmIds = new ArrayList<>();
+  private List<Long> nmIds = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_SKIP_DELETED_NM = "skipDeletedNm";
 
@@ -82,12 +82,12 @@ public class ItemHistoryRequest {
     this.selectedPeriod = selectedPeriod;
   }
 
-  public ItemHistoryRequest nmIds(@jakarta.annotation.Nonnull List<Integer> nmIds) {
+  public ItemHistoryRequest nmIds(@jakarta.annotation.Nonnull List<Long> nmIds) {
     this.nmIds = nmIds;
     return this;
   }
 
-  public ItemHistoryRequest addNmIdsItem(Integer nmIdsItem) {
+  public ItemHistoryRequest addNmIdsItem(Long nmIdsItem) {
     if (this.nmIds == null) {
       this.nmIds = new ArrayList<>();
     }
@@ -101,11 +101,11 @@ public class ItemHistoryRequest {
    * @return nmIds
    */
   @jakarta.annotation.Nonnull
-  public List<Integer> getNmIds() {
+  public List<Long> getNmIds() {
     return nmIds;
   }
 
-  public void setNmIds(@jakarta.annotation.Nonnull List<Integer> nmIds) {
+  public void setNmIds(@jakarta.annotation.Nonnull List<Long> nmIds) {
     this.nmIds = nmIds;
   }
 

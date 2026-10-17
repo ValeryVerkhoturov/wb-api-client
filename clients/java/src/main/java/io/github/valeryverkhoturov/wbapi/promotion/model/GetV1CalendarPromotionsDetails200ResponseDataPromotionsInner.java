@@ -41,7 +41,7 @@ public class GetV1CalendarPromotionsDetails200ResponseDataPromotionsInner {
 
   @SerializedName(SERIALIZED_NAME_ID)
   @jakarta.annotation.Nullable
-  private Integer id;
+  private Long id;
 
   public static final String SERIALIZED_NAME_NAME = "name";
 
@@ -77,32 +77,32 @@ public class GetV1CalendarPromotionsDetails200ResponseDataPromotionsInner {
 
   @SerializedName(SERIALIZED_NAME_IN_PROMO_ACTION_LEFTOVERS)
   @jakarta.annotation.Nullable
-  private Integer inPromoActionLeftovers;
+  private Long inPromoActionLeftovers;
 
   public static final String SERIALIZED_NAME_IN_PROMO_ACTION_TOTAL = "inPromoActionTotal";
 
   @SerializedName(SERIALIZED_NAME_IN_PROMO_ACTION_TOTAL)
   @jakarta.annotation.Nullable
-  private Integer inPromoActionTotal;
+  private Long inPromoActionTotal;
 
   public static final String SERIALIZED_NAME_NOT_IN_PROMO_ACTION_LEFTOVERS =
       "notInPromoActionLeftovers";
 
   @SerializedName(SERIALIZED_NAME_NOT_IN_PROMO_ACTION_LEFTOVERS)
   @jakarta.annotation.Nullable
-  private Integer notInPromoActionLeftovers;
+  private Long notInPromoActionLeftovers;
 
   public static final String SERIALIZED_NAME_NOT_IN_PROMO_ACTION_TOTAL = "notInPromoActionTotal";
 
   @SerializedName(SERIALIZED_NAME_NOT_IN_PROMO_ACTION_TOTAL)
   @jakarta.annotation.Nullable
-  private Integer notInPromoActionTotal;
+  private Long notInPromoActionTotal;
 
   public static final String SERIALIZED_NAME_PARTICIPATION_PERCENTAGE = "participationPercentage";
 
   @SerializedName(SERIALIZED_NAME_PARTICIPATION_PERCENTAGE)
   @jakarta.annotation.Nullable
-  private Integer participationPercentage;
+  private Long participationPercentage;
 
   /** Тип акции: - &#x60;regular&#x60; — акция - &#x60;auto&#x60; — автоакция */
   @JsonAdapter(TypeEnum.Adapter.class)
@@ -177,7 +177,7 @@ public class GetV1CalendarPromotionsDetails200ResponseDataPromotionsInner {
   public GetV1CalendarPromotionsDetails200ResponseDataPromotionsInner() {}
 
   public GetV1CalendarPromotionsDetails200ResponseDataPromotionsInner id(
-      @jakarta.annotation.Nullable Integer id) {
+      @jakarta.annotation.Nullable Long id) {
     this.id = id;
     return this;
   }
@@ -188,11 +188,11 @@ public class GetV1CalendarPromotionsDetails200ResponseDataPromotionsInner {
    * @return id
    */
   @jakarta.annotation.Nullable
-  public Integer getId() {
+  public Long getId() {
     return id;
   }
 
-  public void setId(@jakarta.annotation.Nullable Integer id) {
+  public void setId(@jakarta.annotation.Nullable Long id) {
     this.id = id;
   }
 
@@ -306,7 +306,7 @@ public class GetV1CalendarPromotionsDetails200ResponseDataPromotionsInner {
   }
 
   public GetV1CalendarPromotionsDetails200ResponseDataPromotionsInner inPromoActionLeftovers(
-      @jakarta.annotation.Nullable Integer inPromoActionLeftovers) {
+      @jakarta.annotation.Nullable Long inPromoActionLeftovers) {
     this.inPromoActionLeftovers = inPromoActionLeftovers;
     return this;
   }
@@ -317,17 +317,16 @@ public class GetV1CalendarPromotionsDetails200ResponseDataPromotionsInner {
    * @return inPromoActionLeftovers
    */
   @jakarta.annotation.Nullable
-  public Integer getInPromoActionLeftovers() {
+  public Long getInPromoActionLeftovers() {
     return inPromoActionLeftovers;
   }
 
-  public void setInPromoActionLeftovers(
-      @jakarta.annotation.Nullable Integer inPromoActionLeftovers) {
+  public void setInPromoActionLeftovers(@jakarta.annotation.Nullable Long inPromoActionLeftovers) {
     this.inPromoActionLeftovers = inPromoActionLeftovers;
   }
 
   public GetV1CalendarPromotionsDetails200ResponseDataPromotionsInner inPromoActionTotal(
-      @jakarta.annotation.Nullable Integer inPromoActionTotal) {
+      @jakarta.annotation.Nullable Long inPromoActionTotal) {
     this.inPromoActionTotal = inPromoActionTotal;
     return this;
   }
@@ -338,16 +337,16 @@ public class GetV1CalendarPromotionsDetails200ResponseDataPromotionsInner {
    * @return inPromoActionTotal
    */
   @jakarta.annotation.Nullable
-  public Integer getInPromoActionTotal() {
+  public Long getInPromoActionTotal() {
     return inPromoActionTotal;
   }
 
-  public void setInPromoActionTotal(@jakarta.annotation.Nullable Integer inPromoActionTotal) {
+  public void setInPromoActionTotal(@jakarta.annotation.Nullable Long inPromoActionTotal) {
     this.inPromoActionTotal = inPromoActionTotal;
   }
 
   public GetV1CalendarPromotionsDetails200ResponseDataPromotionsInner notInPromoActionLeftovers(
-      @jakarta.annotation.Nullable Integer notInPromoActionLeftovers) {
+      @jakarta.annotation.Nullable Long notInPromoActionLeftovers) {
     this.notInPromoActionLeftovers = notInPromoActionLeftovers;
     return this;
   }
@@ -358,17 +357,17 @@ public class GetV1CalendarPromotionsDetails200ResponseDataPromotionsInner {
    * @return notInPromoActionLeftovers
    */
   @jakarta.annotation.Nullable
-  public Integer getNotInPromoActionLeftovers() {
+  public Long getNotInPromoActionLeftovers() {
     return notInPromoActionLeftovers;
   }
 
   public void setNotInPromoActionLeftovers(
-      @jakarta.annotation.Nullable Integer notInPromoActionLeftovers) {
+      @jakarta.annotation.Nullable Long notInPromoActionLeftovers) {
     this.notInPromoActionLeftovers = notInPromoActionLeftovers;
   }
 
   public GetV1CalendarPromotionsDetails200ResponseDataPromotionsInner notInPromoActionTotal(
-      @jakarta.annotation.Nullable Integer notInPromoActionTotal) {
+      @jakarta.annotation.Nullable Long notInPromoActionTotal) {
     this.notInPromoActionTotal = notInPromoActionTotal;
     return this;
   }
@@ -379,16 +378,16 @@ public class GetV1CalendarPromotionsDetails200ResponseDataPromotionsInner {
    * @return notInPromoActionTotal
    */
   @jakarta.annotation.Nullable
-  public Integer getNotInPromoActionTotal() {
+  public Long getNotInPromoActionTotal() {
     return notInPromoActionTotal;
   }
 
-  public void setNotInPromoActionTotal(@jakarta.annotation.Nullable Integer notInPromoActionTotal) {
+  public void setNotInPromoActionTotal(@jakarta.annotation.Nullable Long notInPromoActionTotal) {
     this.notInPromoActionTotal = notInPromoActionTotal;
   }
 
   public GetV1CalendarPromotionsDetails200ResponseDataPromotionsInner participationPercentage(
-      @jakarta.annotation.Nullable Integer participationPercentage) {
+      @jakarta.annotation.Nullable Long participationPercentage) {
     this.participationPercentage = participationPercentage;
     return this;
   }
@@ -399,12 +398,12 @@ public class GetV1CalendarPromotionsDetails200ResponseDataPromotionsInner {
    * @return participationPercentage
    */
   @jakarta.annotation.Nullable
-  public Integer getParticipationPercentage() {
+  public Long getParticipationPercentage() {
     return participationPercentage;
   }
 
   public void setParticipationPercentage(
-      @jakarta.annotation.Nullable Integer participationPercentage) {
+      @jakarta.annotation.Nullable Long participationPercentage) {
     this.participationPercentage = participationPercentage;
   }
 

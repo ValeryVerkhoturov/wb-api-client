@@ -39,17 +39,17 @@ public class RequestMoveNmsImtConn {
 
   @SerializedName(SERIALIZED_NAME_TARGET_I_M_T)
   @jakarta.annotation.Nonnull
-  private Integer targetIMT;
+  private Long targetIMT;
 
   public static final String SERIALIZED_NAME_NM_I_DS = "nmIDs";
 
   @SerializedName(SERIALIZED_NAME_NM_I_DS)
   @jakarta.annotation.Nonnull
-  private List<Integer> nmIDs = new ArrayList<>();
+  private List<Long> nmIDs = new ArrayList<>();
 
   public RequestMoveNmsImtConn() {}
 
-  public RequestMoveNmsImtConn targetIMT(@jakarta.annotation.Nonnull Integer targetIMT) {
+  public RequestMoveNmsImtConn targetIMT(@jakarta.annotation.Nonnull Long targetIMT) {
     this.targetIMT = targetIMT;
     return this;
   }
@@ -62,20 +62,20 @@ public class RequestMoveNmsImtConn {
    * @return targetIMT
    */
   @jakarta.annotation.Nonnull
-  public Integer getTargetIMT() {
+  public Long getTargetIMT() {
     return targetIMT;
   }
 
-  public void setTargetIMT(@jakarta.annotation.Nonnull Integer targetIMT) {
+  public void setTargetIMT(@jakarta.annotation.Nonnull Long targetIMT) {
     this.targetIMT = targetIMT;
   }
 
-  public RequestMoveNmsImtConn nmIDs(@jakarta.annotation.Nonnull List<Integer> nmIDs) {
+  public RequestMoveNmsImtConn nmIDs(@jakarta.annotation.Nonnull List<Long> nmIDs) {
     this.nmIDs = nmIDs;
     return this;
   }
 
-  public RequestMoveNmsImtConn addNmIDsItem(Integer nmIDsItem) {
+  public RequestMoveNmsImtConn addNmIDsItem(Long nmIDsItem) {
     if (this.nmIDs == null) {
       this.nmIDs = new ArrayList<>();
     }
@@ -89,11 +89,11 @@ public class RequestMoveNmsImtConn {
    * @return nmIDs
    */
   @jakarta.annotation.Nonnull
-  public List<Integer> getNmIDs() {
+  public List<Long> getNmIDs() {
     return nmIDs;
   }
 
-  public void setNmIDs(@jakarta.annotation.Nonnull List<Integer> nmIDs) {
+  public void setNmIDs(@jakarta.annotation.Nonnull List<Long> nmIDs) {
     this.nmIDs = nmIDs;
   }
 

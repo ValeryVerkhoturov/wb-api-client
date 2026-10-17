@@ -37,18 +37,18 @@ public class GetV1QuestionsCountUnansweredResponse200Data {
 
   @SerializedName(SERIALIZED_NAME_COUNT_UNANSWERED)
   @jakarta.annotation.Nullable
-  private Integer countUnanswered;
+  private Long countUnanswered;
 
   public static final String SERIALIZED_NAME_COUNT_UNANSWERED_TODAY = "countUnansweredToday";
 
   @SerializedName(SERIALIZED_NAME_COUNT_UNANSWERED_TODAY)
   @jakarta.annotation.Nullable
-  private Integer countUnansweredToday;
+  private Long countUnansweredToday;
 
   public GetV1QuestionsCountUnansweredResponse200Data() {}
 
   public GetV1QuestionsCountUnansweredResponse200Data countUnanswered(
-      @jakarta.annotation.Nullable Integer countUnanswered) {
+      @jakarta.annotation.Nullable Long countUnanswered) {
     this.countUnanswered = countUnanswered;
     return this;
   }
@@ -59,16 +59,16 @@ public class GetV1QuestionsCountUnansweredResponse200Data {
    * @return countUnanswered
    */
   @jakarta.annotation.Nullable
-  public Integer getCountUnanswered() {
+  public Long getCountUnanswered() {
     return countUnanswered;
   }
 
-  public void setCountUnanswered(@jakarta.annotation.Nullable Integer countUnanswered) {
+  public void setCountUnanswered(@jakarta.annotation.Nullable Long countUnanswered) {
     this.countUnanswered = countUnanswered;
   }
 
   public GetV1QuestionsCountUnansweredResponse200Data countUnansweredToday(
-      @jakarta.annotation.Nullable Integer countUnansweredToday) {
+      @jakarta.annotation.Nullable Long countUnansweredToday) {
     this.countUnansweredToday = countUnansweredToday;
     return this;
   }
@@ -79,11 +79,11 @@ public class GetV1QuestionsCountUnansweredResponse200Data {
    * @return countUnansweredToday
    */
   @jakarta.annotation.Nullable
-  public Integer getCountUnansweredToday() {
+  public Long getCountUnansweredToday() {
     return countUnansweredToday;
   }
 
-  public void setCountUnansweredToday(@jakarta.annotation.Nullable Integer countUnansweredToday) {
+  public void setCountUnansweredToday(@jakarta.annotation.Nullable Long countUnansweredToday) {
     this.countUnansweredToday = countUnansweredToday;
   }
 

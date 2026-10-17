@@ -39,13 +39,13 @@ public class FinancialReportsDetailedReportIdReq {
 
   @SerializedName(SERIALIZED_NAME_LIMIT)
   @jakarta.annotation.Nullable
-  private Integer limit = 100000;
+  private Long limit = 100000l;
 
   public static final String SERIALIZED_NAME_RRD_ID = "rrdId";
 
   @SerializedName(SERIALIZED_NAME_RRD_ID)
   @jakarta.annotation.Nullable
-  private Integer rrdId = 0;
+  private Long rrdId = 0l;
 
   public static final String SERIALIZED_NAME_FIELDS = "fields";
 
@@ -55,7 +55,7 @@ public class FinancialReportsDetailedReportIdReq {
 
   public FinancialReportsDetailedReportIdReq() {}
 
-  public FinancialReportsDetailedReportIdReq limit(@jakarta.annotation.Nullable Integer limit) {
+  public FinancialReportsDetailedReportIdReq limit(@jakarta.annotation.Nullable Long limit) {
     this.limit = limit;
     return this;
   }
@@ -66,15 +66,15 @@ public class FinancialReportsDetailedReportIdReq {
    * @return limit
    */
   @jakarta.annotation.Nullable
-  public Integer getLimit() {
+  public Long getLimit() {
     return limit;
   }
 
-  public void setLimit(@jakarta.annotation.Nullable Integer limit) {
+  public void setLimit(@jakarta.annotation.Nullable Long limit) {
     this.limit = limit;
   }
 
-  public FinancialReportsDetailedReportIdReq rrdId(@jakarta.annotation.Nullable Integer rrdId) {
+  public FinancialReportsDetailedReportIdReq rrdId(@jakarta.annotation.Nullable Long rrdId) {
     this.rrdId = rrdId;
     return this;
   }
@@ -88,11 +88,11 @@ public class FinancialReportsDetailedReportIdReq {
    * @return rrdId
    */
   @jakarta.annotation.Nullable
-  public Integer getRrdId() {
+  public Long getRrdId() {
     return rrdId;
   }
 
-  public void setRrdId(@jakarta.annotation.Nullable Integer rrdId) {
+  public void setRrdId(@jakarta.annotation.Nullable Long rrdId) {
     this.rrdId = rrdId;
   }
 

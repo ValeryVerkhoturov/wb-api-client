@@ -37,7 +37,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         /// <param name="previewImage">Ссылка на обложку видео.</param>
         /// <param name="link">Ссылка на файл плейлиста видео (доступно по протоколу HLS).</param>
         /// <param name="durationSec">Общая продолжительность видео.</param>
-        public GetV1FeedbacksResponse200DataFeedbacksInnerVideo(string previewImage = default(string), string link = default(string), int durationSec = default(int))
+        public GetV1FeedbacksResponse200DataFeedbacksInnerVideo(string previewImage = default(string), string link = default(string), long durationSec = default(long))
         {
             this.PreviewImage = previewImage;
             this.Link = link;
@@ -63,7 +63,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         /// </summary>
         /// <value>Общая продолжительность видео</value>
         [DataMember(Name = "durationSec", EmitDefaultValue = false)]
-        public int DurationSec { get; set; }
+        public long DurationSec { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

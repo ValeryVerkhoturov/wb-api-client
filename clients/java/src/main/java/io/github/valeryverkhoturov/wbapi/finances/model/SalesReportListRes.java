@@ -74,17 +74,17 @@ public class SalesReportListRes {
   /** Тип отчёта: - &#x60;1&#x60; — основной - &#x60;2&#x60; — по выкупам */
   @JsonAdapter(ReportTypeEnum.Adapter.class)
   public enum ReportTypeEnum {
-    NUMBER_1(1),
+    NUMBER_1(1l),
 
-    NUMBER_2(2);
+    NUMBER_2(2l);
 
-    private Integer value;
+    private Long value;
 
-    ReportTypeEnum(Integer value) {
+    ReportTypeEnum(Long value) {
       this.value = value;
     }
 
-    public Integer getValue() {
+    public Long getValue() {
       return value;
     }
 
@@ -93,7 +93,7 @@ public class SalesReportListRes {
       return String.valueOf(value);
     }
 
-    public static ReportTypeEnum fromValue(Integer value) {
+    public static ReportTypeEnum fromValue(Long value) {
       for (ReportTypeEnum b : ReportTypeEnum.values()) {
         if (b.value.equals(value)) {
           return b;
@@ -111,13 +111,13 @@ public class SalesReportListRes {
 
       @Override
       public ReportTypeEnum read(final JsonReader jsonReader) throws IOException {
-        Integer value = jsonReader.nextInt();
+        Long value = jsonReader.nextLong();
         return ReportTypeEnum.fromValue(value);
       }
     }
 
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      Integer value = jsonElement.getAsInt();
+      Long value = jsonElement.getAsLong();
       ReportTypeEnum.fromValue(value);
     }
   }

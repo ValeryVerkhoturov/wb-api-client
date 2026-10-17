@@ -158,7 +158,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GetV1AnalyticsBrandShare200Response</returns>
-        GetV1AnalyticsBrandShare200Response GetV1AnalyticsBrandShare(int parentId, string brand, string dateFrom, string dateTo, int operationIndex = 0);
+        GetV1AnalyticsBrandShare200Response GetV1AnalyticsBrandShare(long parentId, string brand, string dateFrom, string dateTo, int operationIndex = 0);
 
         /// <summary>
         /// Получить отчёт
@@ -173,7 +173,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GetV1AnalyticsBrandShare200Response</returns>
-        ApiResponse<GetV1AnalyticsBrandShare200Response> GetV1AnalyticsBrandShareWithHttpInfo(int parentId, string brand, string dateFrom, string dateTo, int operationIndex = 0);
+        ApiResponse<GetV1AnalyticsBrandShare200Response> GetV1AnalyticsBrandShareWithHttpInfo(long parentId, string brand, string dateFrom, string dateTo, int operationIndex = 0);
         /// <summary>
         /// Бренды продавца
         /// </summary>
@@ -318,7 +318,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// <param name="offset">Сколько элементов пропустить. Например, для значения &#x60;10&#x60; ответ начнётся с 11 элемента (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GetV1Deductions200Response</returns>
-        GetV1Deductions200Response GetV1Deductions(string dateTo, int limit, string? dateFrom = default(string?), string? sort = default(string?), string? order = default(string?), int? offset = default(int?), int operationIndex = 0);
+        GetV1Deductions200Response GetV1Deductions(string dateTo, long limit, string? dateFrom = default(string?), string? sort = default(string?), string? order = default(string?), long? offset = default(long?), int operationIndex = 0);
 
         /// <summary>
         /// Подмены и неверные вложения
@@ -335,7 +335,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// <param name="offset">Сколько элементов пропустить. Например, для значения &#x60;10&#x60; ответ начнётся с 11 элемента (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GetV1Deductions200Response</returns>
-        ApiResponse<GetV1Deductions200Response> GetV1DeductionsWithHttpInfo(string dateTo, int limit, string? dateFrom = default(string?), string? sort = default(string?), string? order = default(string?), int? offset = default(int?), int operationIndex = 0);
+        ApiResponse<GetV1Deductions200Response> GetV1DeductionsWithHttpInfo(string dateTo, long limit, string? dateFrom = default(string?), string? sort = default(string?), string? order = default(string?), long? offset = default(long?), int operationIndex = 0);
         /// <summary>
         /// Получить отчёт
         /// </summary>
@@ -380,7 +380,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// <param name="offset">Сколько элементов пропустить. Например, для значения &#x60;10&#x60; ответ начнётся с 11 элемента (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>MeasurementPenalties</returns>
-        MeasurementPenalties GetV1MeasurementPenalties(string dateTo, int limit, string? dateFrom = default(string?), int? offset = default(int?), int operationIndex = 0);
+        MeasurementPenalties GetV1MeasurementPenalties(string dateTo, long limit, string? dateFrom = default(string?), long? offset = default(long?), int operationIndex = 0);
 
         /// <summary>
         /// Удержания за занижение габаритов упаковки
@@ -395,7 +395,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// <param name="offset">Сколько элементов пропустить. Например, для значения &#x60;10&#x60; ответ начнётся с 11 элемента (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of MeasurementPenalties</returns>
-        ApiResponse<MeasurementPenalties> GetV1MeasurementPenaltiesWithHttpInfo(string dateTo, int limit, string? dateFrom = default(string?), int? offset = default(int?), int operationIndex = 0);
+        ApiResponse<MeasurementPenalties> GetV1MeasurementPenaltiesWithHttpInfo(string dateTo, long limit, string? dateFrom = default(string?), long? offset = default(long?), int operationIndex = 0);
         /// <summary>
         /// Создать отчёт
         /// </summary>
@@ -478,7 +478,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// <param name="flag">Если параметр &#x60;flag&#x3D;0&#x60; (или не указан в строке запроса), при вызове API возвращаются данные, у которых значение поля &#x60;lastChangeDate&#x60; (дата время обновления информации в сервисе) больше переданному значению параметра &#x60;dateFrom&#x60;. При этом количество возвращенных строк данных варьируется в интервале от 0 до примерно 80000.  Если параметр &#x60;flag&#x3D;1&#x60;, то будет выгружена информация обо всех заказах или продажах с датой, равной переданному параметру &#x60;dateFrom&#x60; (в данном случае время в дате значения не имеет). При этом количество возвращенных строк данных будет равно количеству всех заказов или продаж, сделанных в указанную дату, переданную в параметре &#x60;dateFrom&#x60;. (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;OrdersItem&gt;</returns>
-        List<OrdersItem> GetV1SupplierOrders(string dateFrom, int? flag = default(int?), int operationIndex = 0);
+        List<OrdersItem> GetV1SupplierOrders(string dateFrom, long? flag = default(long?), int operationIndex = 0);
 
         /// <summary>
         /// Заказы
@@ -491,7 +491,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// <param name="flag">Если параметр &#x60;flag&#x3D;0&#x60; (или не указан в строке запроса), при вызове API возвращаются данные, у которых значение поля &#x60;lastChangeDate&#x60; (дата время обновления информации в сервисе) больше переданному значению параметра &#x60;dateFrom&#x60;. При этом количество возвращенных строк данных варьируется в интервале от 0 до примерно 80000.  Если параметр &#x60;flag&#x3D;1&#x60;, то будет выгружена информация обо всех заказах или продажах с датой, равной переданному параметру &#x60;dateFrom&#x60; (в данном случае время в дате значения не имеет). При этом количество возвращенных строк данных будет равно количеству всех заказов или продаж, сделанных в указанную дату, переданную в параметре &#x60;dateFrom&#x60;. (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;OrdersItem&gt;</returns>
-        ApiResponse<List<OrdersItem>> GetV1SupplierOrdersWithHttpInfo(string dateFrom, int? flag = default(int?), int operationIndex = 0);
+        ApiResponse<List<OrdersItem>> GetV1SupplierOrdersWithHttpInfo(string dateFrom, long? flag = default(long?), int operationIndex = 0);
         /// <summary>
         /// Продажи
         /// </summary>
@@ -503,7 +503,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// <param name="flag">Если параметр &#x60;flag&#x3D;0&#x60; (или не указан в строке запроса), при вызове API возвращаются данные, у которых значение поля &#x60;lastChangeDate&#x60; (дата время обновления информации в сервисе) больше переданному значению параметра &#x60;dateFrom&#x60;. При этом количество возвращенных строк данных варьируется в интервале от 0 до примерно 80000.  Если параметр &#x60;flag&#x3D;1&#x60;, то будет выгружена информация обо всех заказах или продажах с датой, равной переданному параметру &#x60;dateFrom&#x60; (в данном случае время в дате значения не имеет). При этом количество возвращенных строк данных будет равно количеству всех заказов или продаж, сделанных в указанную дату, переданную в параметре &#x60;dateFrom&#x60;. (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;SalesItem&gt;</returns>
-        List<SalesItem> GetV1SupplierSales(string dateFrom, int? flag = default(int?), int operationIndex = 0);
+        List<SalesItem> GetV1SupplierSales(string dateFrom, long? flag = default(long?), int operationIndex = 0);
 
         /// <summary>
         /// Продажи
@@ -516,7 +516,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// <param name="flag">Если параметр &#x60;flag&#x3D;0&#x60; (или не указан в строке запроса), при вызове API возвращаются данные, у которых значение поля &#x60;lastChangeDate&#x60; (дата время обновления информации в сервисе) больше переданному значению параметра &#x60;dateFrom&#x60;. При этом количество возвращенных строк данных варьируется в интервале от 0 до примерно 80000.  Если параметр &#x60;flag&#x3D;1&#x60;, то будет выгружена информация обо всех заказах или продажах с датой, равной переданному параметру &#x60;dateFrom&#x60; (в данном случае время в дате значения не имеет). При этом количество возвращенных строк данных будет равно количеству всех заказов или продаж, сделанных в указанную дату, переданную в параметре &#x60;dateFrom&#x60;. (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;SalesItem&gt;</returns>
-        ApiResponse<List<SalesItem>> GetV1SupplierSalesWithHttpInfo(string dateFrom, int? flag = default(int?), int operationIndex = 0);
+        ApiResponse<List<SalesItem>> GetV1SupplierSalesWithHttpInfo(string dateFrom, long? flag = default(long?), int operationIndex = 0);
         /// <summary>
         /// Замеры склада
         /// </summary>
@@ -530,7 +530,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// <param name="offset">Сколько элементов пропустить. Например, для значения &#x60;10&#x60; ответ начнётся с 11 элемента (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>WHM</returns>
-        WHM GetV1WarehouseMeasurements(string dateTo, int limit, string? dateFrom = default(string?), int? offset = default(int?), int operationIndex = 0);
+        WHM GetV1WarehouseMeasurements(string dateTo, long limit, string? dateFrom = default(string?), long? offset = default(long?), int operationIndex = 0);
 
         /// <summary>
         /// Замеры склада
@@ -545,7 +545,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// <param name="offset">Сколько элементов пропустить. Например, для значения &#x60;10&#x60; ответ начнётся с 11 элемента (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of WHM</returns>
-        ApiResponse<WHM> GetV1WarehouseMeasurementsWithHttpInfo(string dateTo, int limit, string? dateFrom = default(string?), int? offset = default(int?), int operationIndex = 0);
+        ApiResponse<WHM> GetV1WarehouseMeasurementsWithHttpInfo(string dateTo, long limit, string? dateFrom = default(string?), long? offset = default(long?), int operationIndex = 0);
         /// <summary>
         /// Создать отчёт
         /// </summary>
@@ -564,7 +564,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// <param name="filterVolume">Фильтр по объёму:   - &#x60;-1&#x60; — без габаритов   - &#x60;0&#x60; — не применять фильтр   - &#x60;3&#x60; — свыше трёх литров  (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>CreateTaskResponse</returns>
-        CreateTaskResponse GetV1WarehouseRemains(string? locale = default(string?), bool? groupByBrand = default(bool?), bool? groupBySubject = default(bool?), bool? groupBySa = default(bool?), bool? groupByNm = default(bool?), bool? groupByBarcode = default(bool?), bool? groupBySize = default(bool?), int? filterPics = default(int?), int? filterVolume = default(int?), int operationIndex = 0);
+        CreateTaskResponse GetV1WarehouseRemains(string? locale = default(string?), bool? groupByBrand = default(bool?), bool? groupBySubject = default(bool?), bool? groupBySa = default(bool?), bool? groupByNm = default(bool?), bool? groupByBarcode = default(bool?), bool? groupBySize = default(bool?), long? filterPics = default(long?), long? filterVolume = default(long?), int operationIndex = 0);
 
         /// <summary>
         /// Создать отчёт
@@ -584,7 +584,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// <param name="filterVolume">Фильтр по объёму:   - &#x60;-1&#x60; — без габаритов   - &#x60;0&#x60; — не применять фильтр   - &#x60;3&#x60; — свыше трёх литров  (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of CreateTaskResponse</returns>
-        ApiResponse<CreateTaskResponse> GetV1WarehouseRemainsWithHttpInfo(string? locale = default(string?), bool? groupByBrand = default(bool?), bool? groupBySubject = default(bool?), bool? groupBySa = default(bool?), bool? groupByNm = default(bool?), bool? groupByBarcode = default(bool?), bool? groupBySize = default(bool?), int? filterPics = default(int?), int? filterVolume = default(int?), int operationIndex = 0);
+        ApiResponse<CreateTaskResponse> GetV1WarehouseRemainsWithHttpInfo(string? locale = default(string?), bool? groupByBrand = default(bool?), bool? groupBySubject = default(bool?), bool? groupBySa = default(bool?), bool? groupByNm = default(bool?), bool? groupByBarcode = default(bool?), bool? groupBySize = default(bool?), long? filterPics = default(long?), long? filterVolume = default(long?), int operationIndex = 0);
         /// <summary>
         /// Получить отчёт
         /// </summary>
@@ -810,7 +810,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GetV1AnalyticsBrandShare200Response</returns>
-        System.Threading.Tasks.Task<GetV1AnalyticsBrandShare200Response> GetV1AnalyticsBrandShareAsync(int parentId, string brand, string dateFrom, string dateTo, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<GetV1AnalyticsBrandShare200Response> GetV1AnalyticsBrandShareAsync(long parentId, string brand, string dateFrom, string dateTo, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Получить отчёт
@@ -826,7 +826,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetV1AnalyticsBrandShare200Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetV1AnalyticsBrandShare200Response>> GetV1AnalyticsBrandShareWithHttpInfoAsync(int parentId, string brand, string dateFrom, string dateTo, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<GetV1AnalyticsBrandShare200Response>> GetV1AnalyticsBrandShareWithHttpInfoAsync(long parentId, string brand, string dateFrom, string dateTo, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Бренды продавца
         /// </summary>
@@ -982,7 +982,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GetV1Deductions200Response</returns>
-        System.Threading.Tasks.Task<GetV1Deductions200Response> GetV1DeductionsAsync(string dateTo, int limit, string? dateFrom = default(string?), string? sort = default(string?), string? order = default(string?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<GetV1Deductions200Response> GetV1DeductionsAsync(string dateTo, long limit, string? dateFrom = default(string?), string? sort = default(string?), string? order = default(string?), long? offset = default(long?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Подмены и неверные вложения
@@ -1000,7 +1000,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetV1Deductions200Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetV1Deductions200Response>> GetV1DeductionsWithHttpInfoAsync(string dateTo, int limit, string? dateFrom = default(string?), string? sort = default(string?), string? order = default(string?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<GetV1Deductions200Response>> GetV1DeductionsWithHttpInfoAsync(string dateTo, long limit, string? dateFrom = default(string?), string? sort = default(string?), string? order = default(string?), long? offset = default(long?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Получить отчёт
         /// </summary>
@@ -1048,7 +1048,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of MeasurementPenalties</returns>
-        System.Threading.Tasks.Task<MeasurementPenalties> GetV1MeasurementPenaltiesAsync(string dateTo, int limit, string? dateFrom = default(string?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<MeasurementPenalties> GetV1MeasurementPenaltiesAsync(string dateTo, long limit, string? dateFrom = default(string?), long? offset = default(long?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Удержания за занижение габаритов упаковки
@@ -1064,7 +1064,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (MeasurementPenalties)</returns>
-        System.Threading.Tasks.Task<ApiResponse<MeasurementPenalties>> GetV1MeasurementPenaltiesWithHttpInfoAsync(string dateTo, int limit, string? dateFrom = default(string?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<MeasurementPenalties>> GetV1MeasurementPenaltiesWithHttpInfoAsync(string dateTo, long limit, string? dateFrom = default(string?), long? offset = default(long?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Создать отчёт
         /// </summary>
@@ -1154,7 +1154,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;OrdersItem&gt;</returns>
-        System.Threading.Tasks.Task<List<OrdersItem>> GetV1SupplierOrdersAsync(string dateFrom, int? flag = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<OrdersItem>> GetV1SupplierOrdersAsync(string dateFrom, long? flag = default(long?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Заказы
@@ -1168,7 +1168,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;OrdersItem&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<OrdersItem>>> GetV1SupplierOrdersWithHttpInfoAsync(string dateFrom, int? flag = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<OrdersItem>>> GetV1SupplierOrdersWithHttpInfoAsync(string dateFrom, long? flag = default(long?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Продажи
         /// </summary>
@@ -1181,7 +1181,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;SalesItem&gt;</returns>
-        System.Threading.Tasks.Task<List<SalesItem>> GetV1SupplierSalesAsync(string dateFrom, int? flag = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<SalesItem>> GetV1SupplierSalesAsync(string dateFrom, long? flag = default(long?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Продажи
@@ -1195,7 +1195,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;SalesItem&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<SalesItem>>> GetV1SupplierSalesWithHttpInfoAsync(string dateFrom, int? flag = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<SalesItem>>> GetV1SupplierSalesWithHttpInfoAsync(string dateFrom, long? flag = default(long?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Замеры склада
         /// </summary>
@@ -1210,7 +1210,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of WHM</returns>
-        System.Threading.Tasks.Task<WHM> GetV1WarehouseMeasurementsAsync(string dateTo, int limit, string? dateFrom = default(string?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<WHM> GetV1WarehouseMeasurementsAsync(string dateTo, long limit, string? dateFrom = default(string?), long? offset = default(long?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Замеры склада
@@ -1226,7 +1226,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (WHM)</returns>
-        System.Threading.Tasks.Task<ApiResponse<WHM>> GetV1WarehouseMeasurementsWithHttpInfoAsync(string dateTo, int limit, string? dateFrom = default(string?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<WHM>> GetV1WarehouseMeasurementsWithHttpInfoAsync(string dateTo, long limit, string? dateFrom = default(string?), long? offset = default(long?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Создать отчёт
         /// </summary>
@@ -1246,7 +1246,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CreateTaskResponse</returns>
-        System.Threading.Tasks.Task<CreateTaskResponse> GetV1WarehouseRemainsAsync(string? locale = default(string?), bool? groupByBrand = default(bool?), bool? groupBySubject = default(bool?), bool? groupBySa = default(bool?), bool? groupByNm = default(bool?), bool? groupByBarcode = default(bool?), bool? groupBySize = default(bool?), int? filterPics = default(int?), int? filterVolume = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<CreateTaskResponse> GetV1WarehouseRemainsAsync(string? locale = default(string?), bool? groupByBrand = default(bool?), bool? groupBySubject = default(bool?), bool? groupBySa = default(bool?), bool? groupByNm = default(bool?), bool? groupByBarcode = default(bool?), bool? groupBySize = default(bool?), long? filterPics = default(long?), long? filterVolume = default(long?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Создать отчёт
@@ -1267,7 +1267,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CreateTaskResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CreateTaskResponse>> GetV1WarehouseRemainsWithHttpInfoAsync(string? locale = default(string?), bool? groupByBrand = default(bool?), bool? groupBySubject = default(bool?), bool? groupBySa = default(bool?), bool? groupByNm = default(bool?), bool? groupByBarcode = default(bool?), bool? groupBySize = default(bool?), int? filterPics = default(int?), int? filterVolume = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<CreateTaskResponse>> GetV1WarehouseRemainsWithHttpInfoAsync(string? locale = default(string?), bool? groupByBrand = default(bool?), bool? groupBySubject = default(bool?), bool? groupBySa = default(bool?), bool? groupByNm = default(bool?), bool? groupByBarcode = default(bool?), bool? groupBySize = default(bool?), long? filterPics = default(long?), long? filterVolume = default(long?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Получить отчёт
         /// </summary>
@@ -2297,7 +2297,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GetV1AnalyticsBrandShare200Response</returns>
-        public GetV1AnalyticsBrandShare200Response GetV1AnalyticsBrandShare(int parentId, string brand, string dateFrom, string dateTo, int operationIndex = 0)
+        public GetV1AnalyticsBrandShare200Response GetV1AnalyticsBrandShare(long parentId, string brand, string dateFrom, string dateTo, int operationIndex = 0)
         {
             ValeryVerkhoturov.WbApiClient.Reports.Client.ApiResponse<GetV1AnalyticsBrandShare200Response> localVarResponse = GetV1AnalyticsBrandShareWithHttpInfo(parentId, brand, dateFrom, dateTo);
             return localVarResponse.Data;
@@ -2313,7 +2313,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GetV1AnalyticsBrandShare200Response</returns>
-        public ValeryVerkhoturov.WbApiClient.Reports.Client.ApiResponse<GetV1AnalyticsBrandShare200Response> GetV1AnalyticsBrandShareWithHttpInfo(int parentId, string brand, string dateFrom, string dateTo, int operationIndex = 0)
+        public ValeryVerkhoturov.WbApiClient.Reports.Client.ApiResponse<GetV1AnalyticsBrandShare200Response> GetV1AnalyticsBrandShareWithHttpInfo(long parentId, string brand, string dateFrom, string dateTo, int operationIndex = 0)
         {
             // verify the required parameter 'brand' is set
             if (brand == null)
@@ -2396,7 +2396,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GetV1AnalyticsBrandShare200Response</returns>
-        public async System.Threading.Tasks.Task<GetV1AnalyticsBrandShare200Response> GetV1AnalyticsBrandShareAsync(int parentId, string brand, string dateFrom, string dateTo, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<GetV1AnalyticsBrandShare200Response> GetV1AnalyticsBrandShareAsync(long parentId, string brand, string dateFrom, string dateTo, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             ValeryVerkhoturov.WbApiClient.Reports.Client.ApiResponse<GetV1AnalyticsBrandShare200Response> localVarResponse = await GetV1AnalyticsBrandShareWithHttpInfoAsync(parentId, brand, dateFrom, dateTo, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -2413,7 +2413,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetV1AnalyticsBrandShare200Response)</returns>
-        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.Reports.Client.ApiResponse<GetV1AnalyticsBrandShare200Response>> GetV1AnalyticsBrandShareWithHttpInfoAsync(int parentId, string brand, string dateFrom, string dateTo, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.Reports.Client.ApiResponse<GetV1AnalyticsBrandShare200Response>> GetV1AnalyticsBrandShareWithHttpInfoAsync(long parentId, string brand, string dateFrom, string dateTo, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'brand' is set
             if (brand == null)
@@ -3381,7 +3381,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// <param name="offset">Сколько элементов пропустить. Например, для значения &#x60;10&#x60; ответ начнётся с 11 элемента (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GetV1Deductions200Response</returns>
-        public GetV1Deductions200Response GetV1Deductions(string dateTo, int limit, string? dateFrom = default(string?), string? sort = default(string?), string? order = default(string?), int? offset = default(int?), int operationIndex = 0)
+        public GetV1Deductions200Response GetV1Deductions(string dateTo, long limit, string? dateFrom = default(string?), string? sort = default(string?), string? order = default(string?), long? offset = default(long?), int operationIndex = 0)
         {
             ValeryVerkhoturov.WbApiClient.Reports.Client.ApiResponse<GetV1Deductions200Response> localVarResponse = GetV1DeductionsWithHttpInfo(dateTo, limit, dateFrom, sort, order, offset);
             return localVarResponse.Data;
@@ -3399,7 +3399,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// <param name="offset">Сколько элементов пропустить. Например, для значения &#x60;10&#x60; ответ начнётся с 11 элемента (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GetV1Deductions200Response</returns>
-        public ValeryVerkhoturov.WbApiClient.Reports.Client.ApiResponse<GetV1Deductions200Response> GetV1DeductionsWithHttpInfo(string dateTo, int limit, string? dateFrom = default(string?), string? sort = default(string?), string? order = default(string?), int? offset = default(int?), int operationIndex = 0)
+        public ValeryVerkhoturov.WbApiClient.Reports.Client.ApiResponse<GetV1Deductions200Response> GetV1DeductionsWithHttpInfo(string dateTo, long limit, string? dateFrom = default(string?), string? sort = default(string?), string? order = default(string?), long? offset = default(long?), int operationIndex = 0)
         {
             // verify the required parameter 'dateTo' is set
             if (dateTo == null)
@@ -3486,7 +3486,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GetV1Deductions200Response</returns>
-        public async System.Threading.Tasks.Task<GetV1Deductions200Response> GetV1DeductionsAsync(string dateTo, int limit, string? dateFrom = default(string?), string? sort = default(string?), string? order = default(string?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<GetV1Deductions200Response> GetV1DeductionsAsync(string dateTo, long limit, string? dateFrom = default(string?), string? sort = default(string?), string? order = default(string?), long? offset = default(long?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             ValeryVerkhoturov.WbApiClient.Reports.Client.ApiResponse<GetV1Deductions200Response> localVarResponse = await GetV1DeductionsWithHttpInfoAsync(dateTo, limit, dateFrom, sort, order, offset, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -3505,7 +3505,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetV1Deductions200Response)</returns>
-        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.Reports.Client.ApiResponse<GetV1Deductions200Response>> GetV1DeductionsWithHttpInfoAsync(string dateTo, int limit, string? dateFrom = default(string?), string? sort = default(string?), string? order = default(string?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.Reports.Client.ApiResponse<GetV1Deductions200Response>> GetV1DeductionsWithHttpInfoAsync(string dateTo, long limit, string? dateFrom = default(string?), string? sort = default(string?), string? order = default(string?), long? offset = default(long?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'dateTo' is set
             if (dateTo == null)
@@ -3803,7 +3803,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// <param name="offset">Сколько элементов пропустить. Например, для значения &#x60;10&#x60; ответ начнётся с 11 элемента (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>MeasurementPenalties</returns>
-        public MeasurementPenalties GetV1MeasurementPenalties(string dateTo, int limit, string? dateFrom = default(string?), int? offset = default(int?), int operationIndex = 0)
+        public MeasurementPenalties GetV1MeasurementPenalties(string dateTo, long limit, string? dateFrom = default(string?), long? offset = default(long?), int operationIndex = 0)
         {
             ValeryVerkhoturov.WbApiClient.Reports.Client.ApiResponse<MeasurementPenalties> localVarResponse = GetV1MeasurementPenaltiesWithHttpInfo(dateTo, limit, dateFrom, offset);
             return localVarResponse.Data;
@@ -3819,7 +3819,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// <param name="offset">Сколько элементов пропустить. Например, для значения &#x60;10&#x60; ответ начнётся с 11 элемента (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of MeasurementPenalties</returns>
-        public ValeryVerkhoturov.WbApiClient.Reports.Client.ApiResponse<MeasurementPenalties> GetV1MeasurementPenaltiesWithHttpInfo(string dateTo, int limit, string? dateFrom = default(string?), int? offset = default(int?), int operationIndex = 0)
+        public ValeryVerkhoturov.WbApiClient.Reports.Client.ApiResponse<MeasurementPenalties> GetV1MeasurementPenaltiesWithHttpInfo(string dateTo, long limit, string? dateFrom = default(string?), long? offset = default(long?), int operationIndex = 0)
         {
             // verify the required parameter 'dateTo' is set
             if (dateTo == null)
@@ -3896,7 +3896,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of MeasurementPenalties</returns>
-        public async System.Threading.Tasks.Task<MeasurementPenalties> GetV1MeasurementPenaltiesAsync(string dateTo, int limit, string? dateFrom = default(string?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<MeasurementPenalties> GetV1MeasurementPenaltiesAsync(string dateTo, long limit, string? dateFrom = default(string?), long? offset = default(long?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             ValeryVerkhoturov.WbApiClient.Reports.Client.ApiResponse<MeasurementPenalties> localVarResponse = await GetV1MeasurementPenaltiesWithHttpInfoAsync(dateTo, limit, dateFrom, offset, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -3913,7 +3913,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (MeasurementPenalties)</returns>
-        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.Reports.Client.ApiResponse<MeasurementPenalties>> GetV1MeasurementPenaltiesWithHttpInfoAsync(string dateTo, int limit, string? dateFrom = default(string?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.Reports.Client.ApiResponse<MeasurementPenalties>> GetV1MeasurementPenaltiesWithHttpInfoAsync(string dateTo, long limit, string? dateFrom = default(string?), long? offset = default(long?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'dateTo' is set
             if (dateTo == null)
@@ -4481,7 +4481,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// <param name="flag">Если параметр &#x60;flag&#x3D;0&#x60; (или не указан в строке запроса), при вызове API возвращаются данные, у которых значение поля &#x60;lastChangeDate&#x60; (дата время обновления информации в сервисе) больше переданному значению параметра &#x60;dateFrom&#x60;. При этом количество возвращенных строк данных варьируется в интервале от 0 до примерно 80000.  Если параметр &#x60;flag&#x3D;1&#x60;, то будет выгружена информация обо всех заказах или продажах с датой, равной переданному параметру &#x60;dateFrom&#x60; (в данном случае время в дате значения не имеет). При этом количество возвращенных строк данных будет равно количеству всех заказов или продаж, сделанных в указанную дату, переданную в параметре &#x60;dateFrom&#x60;. (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;OrdersItem&gt;</returns>
-        public List<OrdersItem> GetV1SupplierOrders(string dateFrom, int? flag = default(int?), int operationIndex = 0)
+        public List<OrdersItem> GetV1SupplierOrders(string dateFrom, long? flag = default(long?), int operationIndex = 0)
         {
             ValeryVerkhoturov.WbApiClient.Reports.Client.ApiResponse<List<OrdersItem>> localVarResponse = GetV1SupplierOrdersWithHttpInfo(dateFrom, flag);
             return localVarResponse.Data;
@@ -4495,7 +4495,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// <param name="flag">Если параметр &#x60;flag&#x3D;0&#x60; (или не указан в строке запроса), при вызове API возвращаются данные, у которых значение поля &#x60;lastChangeDate&#x60; (дата время обновления информации в сервисе) больше переданному значению параметра &#x60;dateFrom&#x60;. При этом количество возвращенных строк данных варьируется в интервале от 0 до примерно 80000.  Если параметр &#x60;flag&#x3D;1&#x60;, то будет выгружена информация обо всех заказах или продажах с датой, равной переданному параметру &#x60;dateFrom&#x60; (в данном случае время в дате значения не имеет). При этом количество возвращенных строк данных будет равно количеству всех заказов или продаж, сделанных в указанную дату, переданную в параметре &#x60;dateFrom&#x60;. (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;OrdersItem&gt;</returns>
-        public ValeryVerkhoturov.WbApiClient.Reports.Client.ApiResponse<List<OrdersItem>> GetV1SupplierOrdersWithHttpInfo(string dateFrom, int? flag = default(int?), int operationIndex = 0)
+        public ValeryVerkhoturov.WbApiClient.Reports.Client.ApiResponse<List<OrdersItem>> GetV1SupplierOrdersWithHttpInfo(string dateFrom, long? flag = default(long?), int operationIndex = 0)
         {
             // verify the required parameter 'dateFrom' is set
             if (dateFrom == null)
@@ -4565,7 +4565,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;OrdersItem&gt;</returns>
-        public async System.Threading.Tasks.Task<List<OrdersItem>> GetV1SupplierOrdersAsync(string dateFrom, int? flag = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<OrdersItem>> GetV1SupplierOrdersAsync(string dateFrom, long? flag = default(long?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             ValeryVerkhoturov.WbApiClient.Reports.Client.ApiResponse<List<OrdersItem>> localVarResponse = await GetV1SupplierOrdersWithHttpInfoAsync(dateFrom, flag, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -4580,7 +4580,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;OrdersItem&gt;)</returns>
-        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.Reports.Client.ApiResponse<List<OrdersItem>>> GetV1SupplierOrdersWithHttpInfoAsync(string dateFrom, int? flag = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.Reports.Client.ApiResponse<List<OrdersItem>>> GetV1SupplierOrdersWithHttpInfoAsync(string dateFrom, long? flag = default(long?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'dateFrom' is set
             if (dateFrom == null)
@@ -4651,7 +4651,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// <param name="flag">Если параметр &#x60;flag&#x3D;0&#x60; (или не указан в строке запроса), при вызове API возвращаются данные, у которых значение поля &#x60;lastChangeDate&#x60; (дата время обновления информации в сервисе) больше переданному значению параметра &#x60;dateFrom&#x60;. При этом количество возвращенных строк данных варьируется в интервале от 0 до примерно 80000.  Если параметр &#x60;flag&#x3D;1&#x60;, то будет выгружена информация обо всех заказах или продажах с датой, равной переданному параметру &#x60;dateFrom&#x60; (в данном случае время в дате значения не имеет). При этом количество возвращенных строк данных будет равно количеству всех заказов или продаж, сделанных в указанную дату, переданную в параметре &#x60;dateFrom&#x60;. (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;SalesItem&gt;</returns>
-        public List<SalesItem> GetV1SupplierSales(string dateFrom, int? flag = default(int?), int operationIndex = 0)
+        public List<SalesItem> GetV1SupplierSales(string dateFrom, long? flag = default(long?), int operationIndex = 0)
         {
             ValeryVerkhoturov.WbApiClient.Reports.Client.ApiResponse<List<SalesItem>> localVarResponse = GetV1SupplierSalesWithHttpInfo(dateFrom, flag);
             return localVarResponse.Data;
@@ -4665,7 +4665,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// <param name="flag">Если параметр &#x60;flag&#x3D;0&#x60; (или не указан в строке запроса), при вызове API возвращаются данные, у которых значение поля &#x60;lastChangeDate&#x60; (дата время обновления информации в сервисе) больше переданному значению параметра &#x60;dateFrom&#x60;. При этом количество возвращенных строк данных варьируется в интервале от 0 до примерно 80000.  Если параметр &#x60;flag&#x3D;1&#x60;, то будет выгружена информация обо всех заказах или продажах с датой, равной переданному параметру &#x60;dateFrom&#x60; (в данном случае время в дате значения не имеет). При этом количество возвращенных строк данных будет равно количеству всех заказов или продаж, сделанных в указанную дату, переданную в параметре &#x60;dateFrom&#x60;. (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;SalesItem&gt;</returns>
-        public ValeryVerkhoturov.WbApiClient.Reports.Client.ApiResponse<List<SalesItem>> GetV1SupplierSalesWithHttpInfo(string dateFrom, int? flag = default(int?), int operationIndex = 0)
+        public ValeryVerkhoturov.WbApiClient.Reports.Client.ApiResponse<List<SalesItem>> GetV1SupplierSalesWithHttpInfo(string dateFrom, long? flag = default(long?), int operationIndex = 0)
         {
             // verify the required parameter 'dateFrom' is set
             if (dateFrom == null)
@@ -4735,7 +4735,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;SalesItem&gt;</returns>
-        public async System.Threading.Tasks.Task<List<SalesItem>> GetV1SupplierSalesAsync(string dateFrom, int? flag = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<SalesItem>> GetV1SupplierSalesAsync(string dateFrom, long? flag = default(long?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             ValeryVerkhoturov.WbApiClient.Reports.Client.ApiResponse<List<SalesItem>> localVarResponse = await GetV1SupplierSalesWithHttpInfoAsync(dateFrom, flag, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -4750,7 +4750,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;SalesItem&gt;)</returns>
-        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.Reports.Client.ApiResponse<List<SalesItem>>> GetV1SupplierSalesWithHttpInfoAsync(string dateFrom, int? flag = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.Reports.Client.ApiResponse<List<SalesItem>>> GetV1SupplierSalesWithHttpInfoAsync(string dateFrom, long? flag = default(long?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'dateFrom' is set
             if (dateFrom == null)
@@ -4823,7 +4823,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// <param name="offset">Сколько элементов пропустить. Например, для значения &#x60;10&#x60; ответ начнётся с 11 элемента (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>WHM</returns>
-        public WHM GetV1WarehouseMeasurements(string dateTo, int limit, string? dateFrom = default(string?), int? offset = default(int?), int operationIndex = 0)
+        public WHM GetV1WarehouseMeasurements(string dateTo, long limit, string? dateFrom = default(string?), long? offset = default(long?), int operationIndex = 0)
         {
             ValeryVerkhoturov.WbApiClient.Reports.Client.ApiResponse<WHM> localVarResponse = GetV1WarehouseMeasurementsWithHttpInfo(dateTo, limit, dateFrom, offset);
             return localVarResponse.Data;
@@ -4839,7 +4839,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// <param name="offset">Сколько элементов пропустить. Например, для значения &#x60;10&#x60; ответ начнётся с 11 элемента (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of WHM</returns>
-        public ValeryVerkhoturov.WbApiClient.Reports.Client.ApiResponse<WHM> GetV1WarehouseMeasurementsWithHttpInfo(string dateTo, int limit, string? dateFrom = default(string?), int? offset = default(int?), int operationIndex = 0)
+        public ValeryVerkhoturov.WbApiClient.Reports.Client.ApiResponse<WHM> GetV1WarehouseMeasurementsWithHttpInfo(string dateTo, long limit, string? dateFrom = default(string?), long? offset = default(long?), int operationIndex = 0)
         {
             // verify the required parameter 'dateTo' is set
             if (dateTo == null)
@@ -4916,7 +4916,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of WHM</returns>
-        public async System.Threading.Tasks.Task<WHM> GetV1WarehouseMeasurementsAsync(string dateTo, int limit, string? dateFrom = default(string?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<WHM> GetV1WarehouseMeasurementsAsync(string dateTo, long limit, string? dateFrom = default(string?), long? offset = default(long?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             ValeryVerkhoturov.WbApiClient.Reports.Client.ApiResponse<WHM> localVarResponse = await GetV1WarehouseMeasurementsWithHttpInfoAsync(dateTo, limit, dateFrom, offset, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -4933,7 +4933,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (WHM)</returns>
-        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.Reports.Client.ApiResponse<WHM>> GetV1WarehouseMeasurementsWithHttpInfoAsync(string dateTo, int limit, string? dateFrom = default(string?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.Reports.Client.ApiResponse<WHM>> GetV1WarehouseMeasurementsWithHttpInfoAsync(string dateTo, long limit, string? dateFrom = default(string?), long? offset = default(long?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'dateTo' is set
             if (dateTo == null)
@@ -5016,7 +5016,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// <param name="filterVolume">Фильтр по объёму:   - &#x60;-1&#x60; — без габаритов   - &#x60;0&#x60; — не применять фильтр   - &#x60;3&#x60; — свыше трёх литров  (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>CreateTaskResponse</returns>
-        public CreateTaskResponse GetV1WarehouseRemains(string? locale = default(string?), bool? groupByBrand = default(bool?), bool? groupBySubject = default(bool?), bool? groupBySa = default(bool?), bool? groupByNm = default(bool?), bool? groupByBarcode = default(bool?), bool? groupBySize = default(bool?), int? filterPics = default(int?), int? filterVolume = default(int?), int operationIndex = 0)
+        public CreateTaskResponse GetV1WarehouseRemains(string? locale = default(string?), bool? groupByBrand = default(bool?), bool? groupBySubject = default(bool?), bool? groupBySa = default(bool?), bool? groupByNm = default(bool?), bool? groupByBarcode = default(bool?), bool? groupBySize = default(bool?), long? filterPics = default(long?), long? filterVolume = default(long?), int operationIndex = 0)
         {
             ValeryVerkhoturov.WbApiClient.Reports.Client.ApiResponse<CreateTaskResponse> localVarResponse = GetV1WarehouseRemainsWithHttpInfo(locale, groupByBrand, groupBySubject, groupBySa, groupByNm, groupByBarcode, groupBySize, filterPics, filterVolume);
             return localVarResponse.Data;
@@ -5037,7 +5037,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// <param name="filterVolume">Фильтр по объёму:   - &#x60;-1&#x60; — без габаритов   - &#x60;0&#x60; — не применять фильтр   - &#x60;3&#x60; — свыше трёх литров  (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of CreateTaskResponse</returns>
-        public ValeryVerkhoturov.WbApiClient.Reports.Client.ApiResponse<CreateTaskResponse> GetV1WarehouseRemainsWithHttpInfo(string? locale = default(string?), bool? groupByBrand = default(bool?), bool? groupBySubject = default(bool?), bool? groupBySa = default(bool?), bool? groupByNm = default(bool?), bool? groupByBarcode = default(bool?), bool? groupBySize = default(bool?), int? filterPics = default(int?), int? filterVolume = default(int?), int operationIndex = 0)
+        public ValeryVerkhoturov.WbApiClient.Reports.Client.ApiResponse<CreateTaskResponse> GetV1WarehouseRemainsWithHttpInfo(string? locale = default(string?), bool? groupByBrand = default(bool?), bool? groupBySubject = default(bool?), bool? groupBySa = default(bool?), bool? groupByNm = default(bool?), bool? groupByBarcode = default(bool?), bool? groupBySize = default(bool?), long? filterPics = default(long?), long? filterVolume = default(long?), int operationIndex = 0)
         {
             ValeryVerkhoturov.WbApiClient.Reports.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Reports.Client.RequestOptions();
 
@@ -5139,7 +5139,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CreateTaskResponse</returns>
-        public async System.Threading.Tasks.Task<CreateTaskResponse> GetV1WarehouseRemainsAsync(string? locale = default(string?), bool? groupByBrand = default(bool?), bool? groupBySubject = default(bool?), bool? groupBySa = default(bool?), bool? groupByNm = default(bool?), bool? groupByBarcode = default(bool?), bool? groupBySize = default(bool?), int? filterPics = default(int?), int? filterVolume = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<CreateTaskResponse> GetV1WarehouseRemainsAsync(string? locale = default(string?), bool? groupByBrand = default(bool?), bool? groupBySubject = default(bool?), bool? groupBySa = default(bool?), bool? groupByNm = default(bool?), bool? groupByBarcode = default(bool?), bool? groupBySize = default(bool?), long? filterPics = default(long?), long? filterVolume = default(long?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             ValeryVerkhoturov.WbApiClient.Reports.Client.ApiResponse<CreateTaskResponse> localVarResponse = await GetV1WarehouseRemainsWithHttpInfoAsync(locale, groupByBrand, groupBySubject, groupBySa, groupByNm, groupByBarcode, groupBySize, filterPics, filterVolume, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -5161,7 +5161,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CreateTaskResponse)</returns>
-        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.Reports.Client.ApiResponse<CreateTaskResponse>> GetV1WarehouseRemainsWithHttpInfoAsync(string? locale = default(string?), bool? groupByBrand = default(bool?), bool? groupBySubject = default(bool?), bool? groupBySa = default(bool?), bool? groupByNm = default(bool?), bool? groupByBarcode = default(bool?), bool? groupBySize = default(bool?), int? filterPics = default(int?), int? filterVolume = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.Reports.Client.ApiResponse<CreateTaskResponse>> GetV1WarehouseRemainsWithHttpInfoAsync(string? locale = default(string?), bool? groupByBrand = default(bool?), bool? groupBySubject = default(bool?), bool? groupBySa = default(bool?), bool? groupByNm = default(bool?), bool? groupByBarcode = default(bool?), bool? groupBySize = default(bool?), long? filterPics = default(long?), long? filterVolume = default(long?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             ValeryVerkhoturov.WbApiClient.Reports.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Reports.Client.RequestOptions();

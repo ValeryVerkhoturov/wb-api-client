@@ -36,7 +36,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="id">Числовой ID ярлыка</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ResponseContentError</returns>
-        ResponseContentError DeleteV2TagId(int id, int operationIndex = 0);
+        ResponseContentError DeleteV2TagId(long id, int operationIndex = 0);
 
         /// <summary>
         /// Удаление ярлыка
@@ -48,7 +48,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="id">Числовой ID ярлыка</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ResponseContentError</returns>
-        ApiResponse<ResponseContentError> DeleteV2TagIdWithHttpInfo(int id, int operationIndex = 0);
+        ApiResponse<ResponseContentError> DeleteV2TagIdWithHttpInfo(long id, int operationIndex = 0);
         /// <summary>
         /// Удалить остатки товаров
         /// </summary>
@@ -108,7 +108,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="next">Параметр пагинации. Используйте значение &#x60;next&#x60; из ответа, чтобы получить следующий пакет данных (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>BrandsResponse</returns>
-        BrandsResponse GetV1Brands(int subjectId, int? next = default(int?), int operationIndex = 0);
+        BrandsResponse GetV1Brands(long subjectId, long? next = default(long?), int operationIndex = 0);
 
         /// <summary>
         /// Бренды
@@ -121,7 +121,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="next">Параметр пагинации. Используйте значение &#x60;next&#x60; из ответа, чтобы получить следующий пакет данных (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of BrandsResponse</returns>
-        ApiResponse<BrandsResponse> GetV1BrandsWithHttpInfo(int subjectId, int? next = default(int?), int operationIndex = 0);
+        ApiResponse<BrandsResponse> GetV1BrandsWithHttpInfo(long subjectId, long? next = default(long?), int operationIndex = 0);
         /// <summary>
         /// Детализация необработанной загрузки
         /// </summary>
@@ -134,7 +134,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="offset">Сколько элементов пропустить. Например, для значения &#x60;10&#x60; ответ начнется с 11 элемента (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GetV2BufferGoodsTask200Response</returns>
-        GetV2BufferGoodsTask200Response GetV2BufferGoodsTask(int limit, int uploadID, int? offset = default(int?), int operationIndex = 0);
+        GetV2BufferGoodsTask200Response GetV2BufferGoodsTask(int limit, long uploadID, int? offset = default(int?), int operationIndex = 0);
 
         /// <summary>
         /// Детализация необработанной загрузки
@@ -148,7 +148,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="offset">Сколько элементов пропустить. Например, для значения &#x60;10&#x60; ответ начнется с 11 элемента (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GetV2BufferGoodsTask200Response</returns>
-        ApiResponse<GetV2BufferGoodsTask200Response> GetV2BufferGoodsTaskWithHttpInfo(int limit, int uploadID, int? offset = default(int?), int operationIndex = 0);
+        ApiResponse<GetV2BufferGoodsTask200Response> GetV2BufferGoodsTaskWithHttpInfo(int limit, long uploadID, int? offset = default(int?), int operationIndex = 0);
         /// <summary>
         /// Состояние необработанной загрузки
         /// </summary>
@@ -159,7 +159,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="uploadID">ID загрузки</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GetV2BufferTasks200Response</returns>
-        GetV2BufferTasks200Response GetV2BufferTasks(int uploadID, int operationIndex = 0);
+        GetV2BufferTasks200Response GetV2BufferTasks(long uploadID, int operationIndex = 0);
 
         /// <summary>
         /// Состояние необработанной загрузки
@@ -171,7 +171,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="uploadID">ID загрузки</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GetV2BufferTasks200Response</returns>
-        ApiResponse<GetV2BufferTasks200Response> GetV2BufferTasksWithHttpInfo(int uploadID, int operationIndex = 0);
+        ApiResponse<GetV2BufferTasks200Response> GetV2BufferTasksWithHttpInfo(long uploadID, int operationIndex = 0);
         /// <summary>
         /// Лимиты карточек товаров
         /// </summary>
@@ -274,7 +274,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="locale">Язык полей ответа:   - &#x60;ru&#x60; — русский  (optional, default to ru)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GetV2DirectoryOkpdResponse200</returns>
-        GetV2DirectoryOkpdResponse200 GetV2DirectoryOkpd(int subjectId, string? search = default(string?), string? locale = default(string?), int operationIndex = 0);
+        GetV2DirectoryOkpdResponse200 GetV2DirectoryOkpd(long subjectId, string? search = default(string?), string? locale = default(string?), int operationIndex = 0);
 
         /// <summary>
         /// Код ОКПД2 предмета
@@ -288,7 +288,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="locale">Язык полей ответа:   - &#x60;ru&#x60; — русский  (optional, default to ru)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GetV2DirectoryOkpdResponse200</returns>
-        ApiResponse<GetV2DirectoryOkpdResponse200> GetV2DirectoryOkpdWithHttpInfo(int subjectId, string? search = default(string?), string? locale = default(string?), int operationIndex = 0);
+        ApiResponse<GetV2DirectoryOkpdResponse200> GetV2DirectoryOkpdWithHttpInfo(long subjectId, string? search = default(string?), string? locale = default(string?), int operationIndex = 0);
         /// <summary>
         /// Список кодов ОКПД2
         /// </summary>
@@ -349,7 +349,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="locale">Язык полей ответа:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке  (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GetV2DirectoryTnvedResponse200</returns>
-        GetV2DirectoryTnvedResponse200 GetV2DirectoryTnved(int subjectID, int? search = default(int?), string? locale = default(string?), int operationIndex = 0);
+        GetV2DirectoryTnvedResponse200 GetV2DirectoryTnved(long subjectID, long? search = default(long?), string? locale = default(string?), int operationIndex = 0);
 
         /// <summary>
         /// Код ТН ВЭД предмета
@@ -363,7 +363,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="locale">Язык полей ответа:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке  (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GetV2DirectoryTnvedResponse200</returns>
-        ApiResponse<GetV2DirectoryTnvedResponse200> GetV2DirectoryTnvedWithHttpInfo(int subjectID, int? search = default(int?), string? locale = default(string?), int operationIndex = 0);
+        ApiResponse<GetV2DirectoryTnvedResponse200> GetV2DirectoryTnvedWithHttpInfo(long subjectID, long? search = default(long?), string? locale = default(string?), int operationIndex = 0);
         /// <summary>
         /// Список кодов ТН ВЭД
         /// </summary>
@@ -375,7 +375,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="locale">Язык полей ответа:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский  (optional, default to ru)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GetV2DirectoryTnvedAllResponse200</returns>
-        GetV2DirectoryTnvedAllResponse200 GetV2DirectoryTnvedAll(int? search = default(int?), string? locale = default(string?), int operationIndex = 0);
+        GetV2DirectoryTnvedAllResponse200 GetV2DirectoryTnvedAll(long? search = default(long?), string? locale = default(string?), int operationIndex = 0);
 
         /// <summary>
         /// Список кодов ТН ВЭД
@@ -388,7 +388,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="locale">Язык полей ответа:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский  (optional, default to ru)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GetV2DirectoryTnvedAllResponse200</returns>
-        ApiResponse<GetV2DirectoryTnvedAllResponse200> GetV2DirectoryTnvedAllWithHttpInfo(int? search = default(int?), string? locale = default(string?), int operationIndex = 0);
+        ApiResponse<GetV2DirectoryTnvedAllResponse200> GetV2DirectoryTnvedAllWithHttpInfo(long? search = default(long?), string? locale = default(string?), int operationIndex = 0);
         /// <summary>
         /// Ставка НДС
         /// </summary>
@@ -424,7 +424,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="offset">Сколько элементов пропустить. Например, для значения &#x60;10&#x60; ответ начнется с 11 элемента (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GetV2HistoryGoodsTask200Response</returns>
-        GetV2HistoryGoodsTask200Response GetV2HistoryGoodsTask(int limit, int uploadID, int? offset = default(int?), int operationIndex = 0);
+        GetV2HistoryGoodsTask200Response GetV2HistoryGoodsTask(int limit, long uploadID, int? offset = default(int?), int operationIndex = 0);
 
         /// <summary>
         /// Детализация обработанной загрузки
@@ -438,7 +438,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="offset">Сколько элементов пропустить. Например, для значения &#x60;10&#x60; ответ начнется с 11 элемента (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GetV2HistoryGoodsTask200Response</returns>
-        ApiResponse<GetV2HistoryGoodsTask200Response> GetV2HistoryGoodsTaskWithHttpInfo(int limit, int uploadID, int? offset = default(int?), int operationIndex = 0);
+        ApiResponse<GetV2HistoryGoodsTask200Response> GetV2HistoryGoodsTaskWithHttpInfo(int limit, long uploadID, int? offset = default(int?), int operationIndex = 0);
         /// <summary>
         /// Состояние обработанной загрузки
         /// </summary>
@@ -449,7 +449,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="uploadID">ID загрузки</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GetV2HistoryTasks200Response</returns>
-        GetV2HistoryTasks200Response GetV2HistoryTasks(int uploadID, int operationIndex = 0);
+        GetV2HistoryTasks200Response GetV2HistoryTasks(long uploadID, int operationIndex = 0);
 
         /// <summary>
         /// Состояние обработанной загрузки
@@ -461,7 +461,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="uploadID">ID загрузки</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GetV2HistoryTasks200Response</returns>
-        ApiResponse<GetV2HistoryTasks200Response> GetV2HistoryTasksWithHttpInfo(int uploadID, int operationIndex = 0);
+        ApiResponse<GetV2HistoryTasks200Response> GetV2HistoryTasksWithHttpInfo(long uploadID, int operationIndex = 0);
         /// <summary>
         /// Получить товары с ценами
         /// </summary>
@@ -474,7 +474,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="filterNmID">Артикул WB для поиска товара (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GetV2ListGoodsFilter200Response</returns>
-        GetV2ListGoodsFilter200Response GetV2ListGoodsFilter(int limit, int? offset = default(int?), int? filterNmID = default(int?), int operationIndex = 0);
+        GetV2ListGoodsFilter200Response GetV2ListGoodsFilter(int limit, int? offset = default(int?), long? filterNmID = default(long?), int operationIndex = 0);
 
         /// <summary>
         /// Получить товары с ценами
@@ -488,7 +488,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="filterNmID">Артикул WB для поиска товара (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GetV2ListGoodsFilter200Response</returns>
-        ApiResponse<GetV2ListGoodsFilter200Response> GetV2ListGoodsFilterWithHttpInfo(int limit, int? offset = default(int?), int? filterNmID = default(int?), int operationIndex = 0);
+        ApiResponse<GetV2ListGoodsFilter200Response> GetV2ListGoodsFilterWithHttpInfo(int limit, int? offset = default(int?), long? filterNmID = default(long?), int operationIndex = 0);
         /// <summary>
         /// Получить размеры товара с ценами
         /// </summary>
@@ -501,7 +501,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="offset">Сколько элементов пропустить. Например, для значения &#x60;10&#x60; ответ начнется с 11 элемента (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GetV2ListGoodsSizeNm200Response</returns>
-        GetV2ListGoodsSizeNm200Response GetV2ListGoodsSizeNm(int limit, int nmID, int? offset = default(int?), int operationIndex = 0);
+        GetV2ListGoodsSizeNm200Response GetV2ListGoodsSizeNm(int limit, long nmID, int? offset = default(int?), int operationIndex = 0);
 
         /// <summary>
         /// Получить размеры товара с ценами
@@ -515,7 +515,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="offset">Сколько элементов пропустить. Например, для значения &#x60;10&#x60; ответ начнется с 11 элемента (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GetV2ListGoodsSizeNm200Response</returns>
-        ApiResponse<GetV2ListGoodsSizeNm200Response> GetV2ListGoodsSizeNmWithHttpInfo(int limit, int nmID, int? offset = default(int?), int operationIndex = 0);
+        ApiResponse<GetV2ListGoodsSizeNm200Response> GetV2ListGoodsSizeNmWithHttpInfo(int limit, long nmID, int? offset = default(int?), int operationIndex = 0);
         /// <summary>
         /// Список предметов
         /// </summary>
@@ -530,7 +530,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="parentID">ID родительской категории предмета (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GetV2ObjectAllResponse200</returns>
-        GetV2ObjectAllResponse200 GetV2ObjectAll(string? locale = default(string?), string? name = default(string?), int? limit = default(int?), int? offset = default(int?), int? parentID = default(int?), int operationIndex = 0);
+        GetV2ObjectAllResponse200 GetV2ObjectAll(string? locale = default(string?), string? name = default(string?), long? limit = default(long?), long? offset = default(long?), long? parentID = default(long?), int operationIndex = 0);
 
         /// <summary>
         /// Список предметов
@@ -546,7 +546,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="parentID">ID родительской категории предмета (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GetV2ObjectAllResponse200</returns>
-        ApiResponse<GetV2ObjectAllResponse200> GetV2ObjectAllWithHttpInfo(string? locale = default(string?), string? name = default(string?), int? limit = default(int?), int? offset = default(int?), int? parentID = default(int?), int operationIndex = 0);
+        ApiResponse<GetV2ObjectAllResponse200> GetV2ObjectAllWithHttpInfo(string? locale = default(string?), string? name = default(string?), long? limit = default(long?), long? offset = default(long?), long? parentID = default(long?), int operationIndex = 0);
         /// <summary>
         /// Характеристики предмета
         /// </summary>
@@ -558,7 +558,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="locale">Язык полей ответа &#x60;subjectName&#x60; и &#x60;name&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке  (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GetV2ObjectCharcsSubjectIdResponse200</returns>
-        GetV2ObjectCharcsSubjectIdResponse200 GetV2ObjectCharcsSubjectId(int subjectId, string? locale = default(string?), int operationIndex = 0);
+        GetV2ObjectCharcsSubjectIdResponse200 GetV2ObjectCharcsSubjectId(long subjectId, string? locale = default(string?), int operationIndex = 0);
 
         /// <summary>
         /// Характеристики предмета
@@ -571,7 +571,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="locale">Язык полей ответа &#x60;subjectName&#x60; и &#x60;name&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке  (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GetV2ObjectCharcsSubjectIdResponse200</returns>
-        ApiResponse<GetV2ObjectCharcsSubjectIdResponse200> GetV2ObjectCharcsSubjectIdWithHttpInfo(int subjectId, string? locale = default(string?), int operationIndex = 0);
+        ApiResponse<GetV2ObjectCharcsSubjectIdResponse200> GetV2ObjectCharcsSubjectIdWithHttpInfo(long subjectId, string? locale = default(string?), int operationIndex = 0);
         /// <summary>
         /// Родительские категории товаров
         /// </summary>
@@ -717,7 +717,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="patchV2TagIdRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ResponseContentError</returns>
-        ResponseContentError PatchV2TagId(int id, PatchV2TagIdRequest patchV2TagIdRequest, int operationIndex = 0);
+        ResponseContentError PatchV2TagId(long id, PatchV2TagIdRequest patchV2TagIdRequest, int operationIndex = 0);
 
         /// <summary>
         /// Изменение ярлыка
@@ -730,7 +730,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="patchV2TagIdRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ResponseContentError</returns>
-        ApiResponse<ResponseContentError> PatchV2TagIdWithHttpInfo(int id, PatchV2TagIdRequest patchV2TagIdRequest, int operationIndex = 0);
+        ApiResponse<ResponseContentError> PatchV2TagIdWithHttpInfo(long id, PatchV2TagIdRequest patchV2TagIdRequest, int operationIndex = 0);
         /// <summary>
         /// Список рекомендаций в карточках товаров
         /// </summary>
@@ -1186,7 +1186,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="uploadfile"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>PostV3MediaFileResponse200</returns>
-        PostV3MediaFileResponse200 PostV3MediaFile(string xNmId, int xPhotoNumber, System.IO.Stream? uploadfile = default(System.IO.Stream?), int operationIndex = 0);
+        PostV3MediaFileResponse200 PostV3MediaFile(string xNmId, long xPhotoNumber, System.IO.Stream? uploadfile = default(System.IO.Stream?), int operationIndex = 0);
 
         /// <summary>
         /// Загрузить медиафайл
@@ -1200,7 +1200,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="uploadfile"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of PostV3MediaFileResponse200</returns>
-        ApiResponse<PostV3MediaFileResponse200> PostV3MediaFileWithHttpInfo(string xNmId, int xPhotoNumber, System.IO.Stream? uploadfile = default(System.IO.Stream?), int operationIndex = 0);
+        ApiResponse<PostV3MediaFileResponse200> PostV3MediaFileWithHttpInfo(string xNmId, long xPhotoNumber, System.IO.Stream? uploadfile = default(System.IO.Stream?), int operationIndex = 0);
         /// <summary>
         /// Загрузить медиафайлы по ссылкам
         /// </summary>
@@ -1367,7 +1367,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ResponseContentError</returns>
-        System.Threading.Tasks.Task<ResponseContentError> DeleteV2TagIdAsync(int id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ResponseContentError> DeleteV2TagIdAsync(long id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Удаление ярлыка
@@ -1380,7 +1380,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ResponseContentError)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResponseContentError>> DeleteV2TagIdWithHttpInfoAsync(int id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ResponseContentError>> DeleteV2TagIdWithHttpInfoAsync(long id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Удалить остатки товаров
         /// </summary>
@@ -1445,7 +1445,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of BrandsResponse</returns>
-        System.Threading.Tasks.Task<BrandsResponse> GetV1BrandsAsync(int subjectId, int? next = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<BrandsResponse> GetV1BrandsAsync(long subjectId, long? next = default(long?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Бренды
@@ -1459,7 +1459,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (BrandsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<BrandsResponse>> GetV1BrandsWithHttpInfoAsync(int subjectId, int? next = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<BrandsResponse>> GetV1BrandsWithHttpInfoAsync(long subjectId, long? next = default(long?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Детализация необработанной загрузки
         /// </summary>
@@ -1473,7 +1473,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GetV2BufferGoodsTask200Response</returns>
-        System.Threading.Tasks.Task<GetV2BufferGoodsTask200Response> GetV2BufferGoodsTaskAsync(int limit, int uploadID, int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<GetV2BufferGoodsTask200Response> GetV2BufferGoodsTaskAsync(int limit, long uploadID, int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Детализация необработанной загрузки
@@ -1488,7 +1488,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetV2BufferGoodsTask200Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetV2BufferGoodsTask200Response>> GetV2BufferGoodsTaskWithHttpInfoAsync(int limit, int uploadID, int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<GetV2BufferGoodsTask200Response>> GetV2BufferGoodsTaskWithHttpInfoAsync(int limit, long uploadID, int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Состояние необработанной загрузки
         /// </summary>
@@ -1500,7 +1500,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GetV2BufferTasks200Response</returns>
-        System.Threading.Tasks.Task<GetV2BufferTasks200Response> GetV2BufferTasksAsync(int uploadID, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<GetV2BufferTasks200Response> GetV2BufferTasksAsync(long uploadID, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Состояние необработанной загрузки
@@ -1513,7 +1513,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetV2BufferTasks200Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetV2BufferTasks200Response>> GetV2BufferTasksWithHttpInfoAsync(int uploadID, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<GetV2BufferTasks200Response>> GetV2BufferTasksWithHttpInfoAsync(long uploadID, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Лимиты карточек товаров
         /// </summary>
@@ -1625,7 +1625,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GetV2DirectoryOkpdResponse200</returns>
-        System.Threading.Tasks.Task<GetV2DirectoryOkpdResponse200> GetV2DirectoryOkpdAsync(int subjectId, string? search = default(string?), string? locale = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<GetV2DirectoryOkpdResponse200> GetV2DirectoryOkpdAsync(long subjectId, string? search = default(string?), string? locale = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Код ОКПД2 предмета
@@ -1640,7 +1640,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetV2DirectoryOkpdResponse200)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetV2DirectoryOkpdResponse200>> GetV2DirectoryOkpdWithHttpInfoAsync(int subjectId, string? search = default(string?), string? locale = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<GetV2DirectoryOkpdResponse200>> GetV2DirectoryOkpdWithHttpInfoAsync(long subjectId, string? search = default(string?), string? locale = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Список кодов ОКПД2
         /// </summary>
@@ -1706,7 +1706,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GetV2DirectoryTnvedResponse200</returns>
-        System.Threading.Tasks.Task<GetV2DirectoryTnvedResponse200> GetV2DirectoryTnvedAsync(int subjectID, int? search = default(int?), string? locale = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<GetV2DirectoryTnvedResponse200> GetV2DirectoryTnvedAsync(long subjectID, long? search = default(long?), string? locale = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Код ТН ВЭД предмета
@@ -1721,7 +1721,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetV2DirectoryTnvedResponse200)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetV2DirectoryTnvedResponse200>> GetV2DirectoryTnvedWithHttpInfoAsync(int subjectID, int? search = default(int?), string? locale = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<GetV2DirectoryTnvedResponse200>> GetV2DirectoryTnvedWithHttpInfoAsync(long subjectID, long? search = default(long?), string? locale = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Список кодов ТН ВЭД
         /// </summary>
@@ -1734,7 +1734,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GetV2DirectoryTnvedAllResponse200</returns>
-        System.Threading.Tasks.Task<GetV2DirectoryTnvedAllResponse200> GetV2DirectoryTnvedAllAsync(int? search = default(int?), string? locale = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<GetV2DirectoryTnvedAllResponse200> GetV2DirectoryTnvedAllAsync(long? search = default(long?), string? locale = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Список кодов ТН ВЭД
@@ -1748,7 +1748,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetV2DirectoryTnvedAllResponse200)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetV2DirectoryTnvedAllResponse200>> GetV2DirectoryTnvedAllWithHttpInfoAsync(int? search = default(int?), string? locale = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<GetV2DirectoryTnvedAllResponse200>> GetV2DirectoryTnvedAllWithHttpInfoAsync(long? search = default(long?), string? locale = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Ставка НДС
         /// </summary>
@@ -1787,7 +1787,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GetV2HistoryGoodsTask200Response</returns>
-        System.Threading.Tasks.Task<GetV2HistoryGoodsTask200Response> GetV2HistoryGoodsTaskAsync(int limit, int uploadID, int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<GetV2HistoryGoodsTask200Response> GetV2HistoryGoodsTaskAsync(int limit, long uploadID, int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Детализация обработанной загрузки
@@ -1802,7 +1802,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetV2HistoryGoodsTask200Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetV2HistoryGoodsTask200Response>> GetV2HistoryGoodsTaskWithHttpInfoAsync(int limit, int uploadID, int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<GetV2HistoryGoodsTask200Response>> GetV2HistoryGoodsTaskWithHttpInfoAsync(int limit, long uploadID, int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Состояние обработанной загрузки
         /// </summary>
@@ -1814,7 +1814,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GetV2HistoryTasks200Response</returns>
-        System.Threading.Tasks.Task<GetV2HistoryTasks200Response> GetV2HistoryTasksAsync(int uploadID, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<GetV2HistoryTasks200Response> GetV2HistoryTasksAsync(long uploadID, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Состояние обработанной загрузки
@@ -1827,7 +1827,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetV2HistoryTasks200Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetV2HistoryTasks200Response>> GetV2HistoryTasksWithHttpInfoAsync(int uploadID, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<GetV2HistoryTasks200Response>> GetV2HistoryTasksWithHttpInfoAsync(long uploadID, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Получить товары с ценами
         /// </summary>
@@ -1841,7 +1841,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GetV2ListGoodsFilter200Response</returns>
-        System.Threading.Tasks.Task<GetV2ListGoodsFilter200Response> GetV2ListGoodsFilterAsync(int limit, int? offset = default(int?), int? filterNmID = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<GetV2ListGoodsFilter200Response> GetV2ListGoodsFilterAsync(int limit, int? offset = default(int?), long? filterNmID = default(long?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Получить товары с ценами
@@ -1856,7 +1856,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetV2ListGoodsFilter200Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetV2ListGoodsFilter200Response>> GetV2ListGoodsFilterWithHttpInfoAsync(int limit, int? offset = default(int?), int? filterNmID = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<GetV2ListGoodsFilter200Response>> GetV2ListGoodsFilterWithHttpInfoAsync(int limit, int? offset = default(int?), long? filterNmID = default(long?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Получить размеры товара с ценами
         /// </summary>
@@ -1870,7 +1870,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GetV2ListGoodsSizeNm200Response</returns>
-        System.Threading.Tasks.Task<GetV2ListGoodsSizeNm200Response> GetV2ListGoodsSizeNmAsync(int limit, int nmID, int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<GetV2ListGoodsSizeNm200Response> GetV2ListGoodsSizeNmAsync(int limit, long nmID, int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Получить размеры товара с ценами
@@ -1885,7 +1885,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetV2ListGoodsSizeNm200Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetV2ListGoodsSizeNm200Response>> GetV2ListGoodsSizeNmWithHttpInfoAsync(int limit, int nmID, int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<GetV2ListGoodsSizeNm200Response>> GetV2ListGoodsSizeNmWithHttpInfoAsync(int limit, long nmID, int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Список предметов
         /// </summary>
@@ -1901,7 +1901,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GetV2ObjectAllResponse200</returns>
-        System.Threading.Tasks.Task<GetV2ObjectAllResponse200> GetV2ObjectAllAsync(string? locale = default(string?), string? name = default(string?), int? limit = default(int?), int? offset = default(int?), int? parentID = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<GetV2ObjectAllResponse200> GetV2ObjectAllAsync(string? locale = default(string?), string? name = default(string?), long? limit = default(long?), long? offset = default(long?), long? parentID = default(long?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Список предметов
@@ -1918,7 +1918,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetV2ObjectAllResponse200)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetV2ObjectAllResponse200>> GetV2ObjectAllWithHttpInfoAsync(string? locale = default(string?), string? name = default(string?), int? limit = default(int?), int? offset = default(int?), int? parentID = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<GetV2ObjectAllResponse200>> GetV2ObjectAllWithHttpInfoAsync(string? locale = default(string?), string? name = default(string?), long? limit = default(long?), long? offset = default(long?), long? parentID = default(long?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Характеристики предмета
         /// </summary>
@@ -1931,7 +1931,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GetV2ObjectCharcsSubjectIdResponse200</returns>
-        System.Threading.Tasks.Task<GetV2ObjectCharcsSubjectIdResponse200> GetV2ObjectCharcsSubjectIdAsync(int subjectId, string? locale = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<GetV2ObjectCharcsSubjectIdResponse200> GetV2ObjectCharcsSubjectIdAsync(long subjectId, string? locale = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Характеристики предмета
@@ -1945,7 +1945,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetV2ObjectCharcsSubjectIdResponse200)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetV2ObjectCharcsSubjectIdResponse200>> GetV2ObjectCharcsSubjectIdWithHttpInfoAsync(int subjectId, string? locale = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<GetV2ObjectCharcsSubjectIdResponse200>> GetV2ObjectCharcsSubjectIdWithHttpInfoAsync(long subjectId, string? locale = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Родительские категории товаров
         /// </summary>
@@ -2104,7 +2104,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ResponseContentError</returns>
-        System.Threading.Tasks.Task<ResponseContentError> PatchV2TagIdAsync(int id, PatchV2TagIdRequest patchV2TagIdRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ResponseContentError> PatchV2TagIdAsync(long id, PatchV2TagIdRequest patchV2TagIdRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Изменение ярлыка
@@ -2118,7 +2118,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ResponseContentError)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResponseContentError>> PatchV2TagIdWithHttpInfoAsync(int id, PatchV2TagIdRequest patchV2TagIdRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ResponseContentError>> PatchV2TagIdWithHttpInfoAsync(long id, PatchV2TagIdRequest patchV2TagIdRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Список рекомендаций в карточках товаров
         /// </summary>
@@ -2613,7 +2613,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PostV3MediaFileResponse200</returns>
-        System.Threading.Tasks.Task<PostV3MediaFileResponse200> PostV3MediaFileAsync(string xNmId, int xPhotoNumber, System.IO.Stream? uploadfile = default(System.IO.Stream?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PostV3MediaFileResponse200> PostV3MediaFileAsync(string xNmId, long xPhotoNumber, System.IO.Stream? uploadfile = default(System.IO.Stream?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Загрузить медиафайл
@@ -2628,7 +2628,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PostV3MediaFileResponse200)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PostV3MediaFileResponse200>> PostV3MediaFileWithHttpInfoAsync(string xNmId, int xPhotoNumber, System.IO.Stream? uploadfile = default(System.IO.Stream?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PostV3MediaFileResponse200>> PostV3MediaFileWithHttpInfoAsync(string xNmId, long xPhotoNumber, System.IO.Stream? uploadfile = default(System.IO.Stream?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Загрузить медиафайлы по ссылкам
         /// </summary>
@@ -2914,7 +2914,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="id">Числовой ID ярлыка</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ResponseContentError</returns>
-        public ResponseContentError DeleteV2TagId(int id, int operationIndex = 0)
+        public ResponseContentError DeleteV2TagId(long id, int operationIndex = 0)
         {
             ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<ResponseContentError> localVarResponse = DeleteV2TagIdWithHttpInfo(id);
             return localVarResponse.Data;
@@ -2927,7 +2927,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="id">Числовой ID ярлыка</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ResponseContentError</returns>
-        public ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<ResponseContentError> DeleteV2TagIdWithHttpInfo(int id, int operationIndex = 0)
+        public ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<ResponseContentError> DeleteV2TagIdWithHttpInfo(long id, int operationIndex = 0)
         {
             ValeryVerkhoturov.WbApiClient.Items.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Items.Client.RequestOptions();
 
@@ -2986,7 +2986,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ResponseContentError</returns>
-        public async System.Threading.Tasks.Task<ResponseContentError> DeleteV2TagIdAsync(int id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ResponseContentError> DeleteV2TagIdAsync(long id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<ResponseContentError> localVarResponse = await DeleteV2TagIdWithHttpInfoAsync(id, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -3000,7 +3000,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ResponseContentError)</returns>
-        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<ResponseContentError>> DeleteV2TagIdWithHttpInfoAsync(int id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<ResponseContentError>> DeleteV2TagIdWithHttpInfoAsync(long id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             ValeryVerkhoturov.WbApiClient.Items.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Items.Client.RequestOptions();
@@ -3369,7 +3369,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="next">Параметр пагинации. Используйте значение &#x60;next&#x60; из ответа, чтобы получить следующий пакет данных (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>BrandsResponse</returns>
-        public BrandsResponse GetV1Brands(int subjectId, int? next = default(int?), int operationIndex = 0)
+        public BrandsResponse GetV1Brands(long subjectId, long? next = default(long?), int operationIndex = 0)
         {
             ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<BrandsResponse> localVarResponse = GetV1BrandsWithHttpInfo(subjectId, next);
             return localVarResponse.Data;
@@ -3383,7 +3383,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="next">Параметр пагинации. Используйте значение &#x60;next&#x60; из ответа, чтобы получить следующий пакет данных (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of BrandsResponse</returns>
-        public ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<BrandsResponse> GetV1BrandsWithHttpInfo(int subjectId, int? next = default(int?), int operationIndex = 0)
+        public ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<BrandsResponse> GetV1BrandsWithHttpInfo(long subjectId, long? next = default(long?), int operationIndex = 0)
         {
             ValeryVerkhoturov.WbApiClient.Items.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Items.Client.RequestOptions();
 
@@ -3447,7 +3447,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of BrandsResponse</returns>
-        public async System.Threading.Tasks.Task<BrandsResponse> GetV1BrandsAsync(int subjectId, int? next = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<BrandsResponse> GetV1BrandsAsync(long subjectId, long? next = default(long?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<BrandsResponse> localVarResponse = await GetV1BrandsWithHttpInfoAsync(subjectId, next, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -3462,7 +3462,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (BrandsResponse)</returns>
-        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<BrandsResponse>> GetV1BrandsWithHttpInfoAsync(int subjectId, int? next = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<BrandsResponse>> GetV1BrandsWithHttpInfoAsync(long subjectId, long? next = default(long?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             ValeryVerkhoturov.WbApiClient.Items.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Items.Client.RequestOptions();
@@ -3528,7 +3528,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="offset">Сколько элементов пропустить. Например, для значения &#x60;10&#x60; ответ начнется с 11 элемента (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GetV2BufferGoodsTask200Response</returns>
-        public GetV2BufferGoodsTask200Response GetV2BufferGoodsTask(int limit, int uploadID, int? offset = default(int?), int operationIndex = 0)
+        public GetV2BufferGoodsTask200Response GetV2BufferGoodsTask(int limit, long uploadID, int? offset = default(int?), int operationIndex = 0)
         {
             ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<GetV2BufferGoodsTask200Response> localVarResponse = GetV2BufferGoodsTaskWithHttpInfo(limit, uploadID, offset);
             return localVarResponse.Data;
@@ -3543,7 +3543,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="offset">Сколько элементов пропустить. Например, для значения &#x60;10&#x60; ответ начнется с 11 элемента (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GetV2BufferGoodsTask200Response</returns>
-        public ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<GetV2BufferGoodsTask200Response> GetV2BufferGoodsTaskWithHttpInfo(int limit, int uploadID, int? offset = default(int?), int operationIndex = 0)
+        public ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<GetV2BufferGoodsTask200Response> GetV2BufferGoodsTaskWithHttpInfo(int limit, long uploadID, int? offset = default(int?), int operationIndex = 0)
         {
             ValeryVerkhoturov.WbApiClient.Items.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Items.Client.RequestOptions();
 
@@ -3609,7 +3609,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GetV2BufferGoodsTask200Response</returns>
-        public async System.Threading.Tasks.Task<GetV2BufferGoodsTask200Response> GetV2BufferGoodsTaskAsync(int limit, int uploadID, int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<GetV2BufferGoodsTask200Response> GetV2BufferGoodsTaskAsync(int limit, long uploadID, int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<GetV2BufferGoodsTask200Response> localVarResponse = await GetV2BufferGoodsTaskWithHttpInfoAsync(limit, uploadID, offset, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -3625,7 +3625,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetV2BufferGoodsTask200Response)</returns>
-        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<GetV2BufferGoodsTask200Response>> GetV2BufferGoodsTaskWithHttpInfoAsync(int limit, int uploadID, int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<GetV2BufferGoodsTask200Response>> GetV2BufferGoodsTaskWithHttpInfoAsync(int limit, long uploadID, int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             ValeryVerkhoturov.WbApiClient.Items.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Items.Client.RequestOptions();
@@ -3690,7 +3690,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="uploadID">ID загрузки</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GetV2BufferTasks200Response</returns>
-        public GetV2BufferTasks200Response GetV2BufferTasks(int uploadID, int operationIndex = 0)
+        public GetV2BufferTasks200Response GetV2BufferTasks(long uploadID, int operationIndex = 0)
         {
             ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<GetV2BufferTasks200Response> localVarResponse = GetV2BufferTasksWithHttpInfo(uploadID);
             return localVarResponse.Data;
@@ -3703,7 +3703,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="uploadID">ID загрузки</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GetV2BufferTasks200Response</returns>
-        public ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<GetV2BufferTasks200Response> GetV2BufferTasksWithHttpInfo(int uploadID, int operationIndex = 0)
+        public ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<GetV2BufferTasks200Response> GetV2BufferTasksWithHttpInfo(long uploadID, int operationIndex = 0)
         {
             ValeryVerkhoturov.WbApiClient.Items.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Items.Client.RequestOptions();
 
@@ -3762,7 +3762,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GetV2BufferTasks200Response</returns>
-        public async System.Threading.Tasks.Task<GetV2BufferTasks200Response> GetV2BufferTasksAsync(int uploadID, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<GetV2BufferTasks200Response> GetV2BufferTasksAsync(long uploadID, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<GetV2BufferTasks200Response> localVarResponse = await GetV2BufferTasksWithHttpInfoAsync(uploadID, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -3776,7 +3776,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetV2BufferTasks200Response)</returns>
-        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<GetV2BufferTasks200Response>> GetV2BufferTasksWithHttpInfoAsync(int uploadID, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<GetV2BufferTasks200Response>> GetV2BufferTasksWithHttpInfoAsync(long uploadID, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             ValeryVerkhoturov.WbApiClient.Items.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Items.Client.RequestOptions();
@@ -4434,7 +4434,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="locale">Язык полей ответа:   - &#x60;ru&#x60; — русский  (optional, default to ru)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GetV2DirectoryOkpdResponse200</returns>
-        public GetV2DirectoryOkpdResponse200 GetV2DirectoryOkpd(int subjectId, string? search = default(string?), string? locale = default(string?), int operationIndex = 0)
+        public GetV2DirectoryOkpdResponse200 GetV2DirectoryOkpd(long subjectId, string? search = default(string?), string? locale = default(string?), int operationIndex = 0)
         {
             ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<GetV2DirectoryOkpdResponse200> localVarResponse = GetV2DirectoryOkpdWithHttpInfo(subjectId, search, locale);
             return localVarResponse.Data;
@@ -4449,7 +4449,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="locale">Язык полей ответа:   - &#x60;ru&#x60; — русский  (optional, default to ru)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GetV2DirectoryOkpdResponse200</returns>
-        public ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<GetV2DirectoryOkpdResponse200> GetV2DirectoryOkpdWithHttpInfo(int subjectId, string? search = default(string?), string? locale = default(string?), int operationIndex = 0)
+        public ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<GetV2DirectoryOkpdResponse200> GetV2DirectoryOkpdWithHttpInfo(long subjectId, string? search = default(string?), string? locale = default(string?), int operationIndex = 0)
         {
             ValeryVerkhoturov.WbApiClient.Items.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Items.Client.RequestOptions();
 
@@ -4518,7 +4518,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GetV2DirectoryOkpdResponse200</returns>
-        public async System.Threading.Tasks.Task<GetV2DirectoryOkpdResponse200> GetV2DirectoryOkpdAsync(int subjectId, string? search = default(string?), string? locale = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<GetV2DirectoryOkpdResponse200> GetV2DirectoryOkpdAsync(long subjectId, string? search = default(string?), string? locale = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<GetV2DirectoryOkpdResponse200> localVarResponse = await GetV2DirectoryOkpdWithHttpInfoAsync(subjectId, search, locale, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -4534,7 +4534,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetV2DirectoryOkpdResponse200)</returns>
-        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<GetV2DirectoryOkpdResponse200>> GetV2DirectoryOkpdWithHttpInfoAsync(int subjectId, string? search = default(string?), string? locale = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<GetV2DirectoryOkpdResponse200>> GetV2DirectoryOkpdWithHttpInfoAsync(long subjectId, string? search = default(string?), string? locale = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             ValeryVerkhoturov.WbApiClient.Items.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Items.Client.RequestOptions();
@@ -4920,7 +4920,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="locale">Язык полей ответа:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке  (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GetV2DirectoryTnvedResponse200</returns>
-        public GetV2DirectoryTnvedResponse200 GetV2DirectoryTnved(int subjectID, int? search = default(int?), string? locale = default(string?), int operationIndex = 0)
+        public GetV2DirectoryTnvedResponse200 GetV2DirectoryTnved(long subjectID, long? search = default(long?), string? locale = default(string?), int operationIndex = 0)
         {
             ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<GetV2DirectoryTnvedResponse200> localVarResponse = GetV2DirectoryTnvedWithHttpInfo(subjectID, search, locale);
             return localVarResponse.Data;
@@ -4935,7 +4935,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="locale">Язык полей ответа:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке  (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GetV2DirectoryTnvedResponse200</returns>
-        public ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<GetV2DirectoryTnvedResponse200> GetV2DirectoryTnvedWithHttpInfo(int subjectID, int? search = default(int?), string? locale = default(string?), int operationIndex = 0)
+        public ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<GetV2DirectoryTnvedResponse200> GetV2DirectoryTnvedWithHttpInfo(long subjectID, long? search = default(long?), string? locale = default(string?), int operationIndex = 0)
         {
             ValeryVerkhoturov.WbApiClient.Items.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Items.Client.RequestOptions();
 
@@ -5004,7 +5004,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GetV2DirectoryTnvedResponse200</returns>
-        public async System.Threading.Tasks.Task<GetV2DirectoryTnvedResponse200> GetV2DirectoryTnvedAsync(int subjectID, int? search = default(int?), string? locale = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<GetV2DirectoryTnvedResponse200> GetV2DirectoryTnvedAsync(long subjectID, long? search = default(long?), string? locale = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<GetV2DirectoryTnvedResponse200> localVarResponse = await GetV2DirectoryTnvedWithHttpInfoAsync(subjectID, search, locale, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -5020,7 +5020,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetV2DirectoryTnvedResponse200)</returns>
-        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<GetV2DirectoryTnvedResponse200>> GetV2DirectoryTnvedWithHttpInfoAsync(int subjectID, int? search = default(int?), string? locale = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<GetV2DirectoryTnvedResponse200>> GetV2DirectoryTnvedWithHttpInfoAsync(long subjectID, long? search = default(long?), string? locale = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             ValeryVerkhoturov.WbApiClient.Items.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Items.Client.RequestOptions();
@@ -5089,7 +5089,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="locale">Язык полей ответа:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский  (optional, default to ru)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GetV2DirectoryTnvedAllResponse200</returns>
-        public GetV2DirectoryTnvedAllResponse200 GetV2DirectoryTnvedAll(int? search = default(int?), string? locale = default(string?), int operationIndex = 0)
+        public GetV2DirectoryTnvedAllResponse200 GetV2DirectoryTnvedAll(long? search = default(long?), string? locale = default(string?), int operationIndex = 0)
         {
             ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<GetV2DirectoryTnvedAllResponse200> localVarResponse = GetV2DirectoryTnvedAllWithHttpInfo(search, locale);
             return localVarResponse.Data;
@@ -5103,7 +5103,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="locale">Язык полей ответа:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский  (optional, default to ru)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GetV2DirectoryTnvedAllResponse200</returns>
-        public ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<GetV2DirectoryTnvedAllResponse200> GetV2DirectoryTnvedAllWithHttpInfo(int? search = default(int?), string? locale = default(string?), int operationIndex = 0)
+        public ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<GetV2DirectoryTnvedAllResponse200> GetV2DirectoryTnvedAllWithHttpInfo(long? search = default(long?), string? locale = default(string?), int operationIndex = 0)
         {
             ValeryVerkhoturov.WbApiClient.Items.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Items.Client.RequestOptions();
 
@@ -5170,7 +5170,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GetV2DirectoryTnvedAllResponse200</returns>
-        public async System.Threading.Tasks.Task<GetV2DirectoryTnvedAllResponse200> GetV2DirectoryTnvedAllAsync(int? search = default(int?), string? locale = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<GetV2DirectoryTnvedAllResponse200> GetV2DirectoryTnvedAllAsync(long? search = default(long?), string? locale = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<GetV2DirectoryTnvedAllResponse200> localVarResponse = await GetV2DirectoryTnvedAllWithHttpInfoAsync(search, locale, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -5185,7 +5185,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetV2DirectoryTnvedAllResponse200)</returns>
-        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<GetV2DirectoryTnvedAllResponse200>> GetV2DirectoryTnvedAllWithHttpInfoAsync(int? search = default(int?), string? locale = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<GetV2DirectoryTnvedAllResponse200>> GetV2DirectoryTnvedAllWithHttpInfoAsync(long? search = default(long?), string? locale = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             ValeryVerkhoturov.WbApiClient.Items.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Items.Client.RequestOptions();
@@ -5406,7 +5406,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="offset">Сколько элементов пропустить. Например, для значения &#x60;10&#x60; ответ начнется с 11 элемента (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GetV2HistoryGoodsTask200Response</returns>
-        public GetV2HistoryGoodsTask200Response GetV2HistoryGoodsTask(int limit, int uploadID, int? offset = default(int?), int operationIndex = 0)
+        public GetV2HistoryGoodsTask200Response GetV2HistoryGoodsTask(int limit, long uploadID, int? offset = default(int?), int operationIndex = 0)
         {
             ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<GetV2HistoryGoodsTask200Response> localVarResponse = GetV2HistoryGoodsTaskWithHttpInfo(limit, uploadID, offset);
             return localVarResponse.Data;
@@ -5421,7 +5421,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="offset">Сколько элементов пропустить. Например, для значения &#x60;10&#x60; ответ начнется с 11 элемента (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GetV2HistoryGoodsTask200Response</returns>
-        public ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<GetV2HistoryGoodsTask200Response> GetV2HistoryGoodsTaskWithHttpInfo(int limit, int uploadID, int? offset = default(int?), int operationIndex = 0)
+        public ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<GetV2HistoryGoodsTask200Response> GetV2HistoryGoodsTaskWithHttpInfo(int limit, long uploadID, int? offset = default(int?), int operationIndex = 0)
         {
             ValeryVerkhoturov.WbApiClient.Items.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Items.Client.RequestOptions();
 
@@ -5487,7 +5487,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GetV2HistoryGoodsTask200Response</returns>
-        public async System.Threading.Tasks.Task<GetV2HistoryGoodsTask200Response> GetV2HistoryGoodsTaskAsync(int limit, int uploadID, int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<GetV2HistoryGoodsTask200Response> GetV2HistoryGoodsTaskAsync(int limit, long uploadID, int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<GetV2HistoryGoodsTask200Response> localVarResponse = await GetV2HistoryGoodsTaskWithHttpInfoAsync(limit, uploadID, offset, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -5503,7 +5503,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetV2HistoryGoodsTask200Response)</returns>
-        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<GetV2HistoryGoodsTask200Response>> GetV2HistoryGoodsTaskWithHttpInfoAsync(int limit, int uploadID, int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<GetV2HistoryGoodsTask200Response>> GetV2HistoryGoodsTaskWithHttpInfoAsync(int limit, long uploadID, int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             ValeryVerkhoturov.WbApiClient.Items.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Items.Client.RequestOptions();
@@ -5568,7 +5568,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="uploadID">ID загрузки</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GetV2HistoryTasks200Response</returns>
-        public GetV2HistoryTasks200Response GetV2HistoryTasks(int uploadID, int operationIndex = 0)
+        public GetV2HistoryTasks200Response GetV2HistoryTasks(long uploadID, int operationIndex = 0)
         {
             ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<GetV2HistoryTasks200Response> localVarResponse = GetV2HistoryTasksWithHttpInfo(uploadID);
             return localVarResponse.Data;
@@ -5581,7 +5581,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="uploadID">ID загрузки</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GetV2HistoryTasks200Response</returns>
-        public ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<GetV2HistoryTasks200Response> GetV2HistoryTasksWithHttpInfo(int uploadID, int operationIndex = 0)
+        public ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<GetV2HistoryTasks200Response> GetV2HistoryTasksWithHttpInfo(long uploadID, int operationIndex = 0)
         {
             ValeryVerkhoturov.WbApiClient.Items.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Items.Client.RequestOptions();
 
@@ -5640,7 +5640,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GetV2HistoryTasks200Response</returns>
-        public async System.Threading.Tasks.Task<GetV2HistoryTasks200Response> GetV2HistoryTasksAsync(int uploadID, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<GetV2HistoryTasks200Response> GetV2HistoryTasksAsync(long uploadID, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<GetV2HistoryTasks200Response> localVarResponse = await GetV2HistoryTasksWithHttpInfoAsync(uploadID, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -5654,7 +5654,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetV2HistoryTasks200Response)</returns>
-        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<GetV2HistoryTasks200Response>> GetV2HistoryTasksWithHttpInfoAsync(int uploadID, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<GetV2HistoryTasks200Response>> GetV2HistoryTasksWithHttpInfoAsync(long uploadID, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             ValeryVerkhoturov.WbApiClient.Items.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Items.Client.RequestOptions();
@@ -5716,7 +5716,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="filterNmID">Артикул WB для поиска товара (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GetV2ListGoodsFilter200Response</returns>
-        public GetV2ListGoodsFilter200Response GetV2ListGoodsFilter(int limit, int? offset = default(int?), int? filterNmID = default(int?), int operationIndex = 0)
+        public GetV2ListGoodsFilter200Response GetV2ListGoodsFilter(int limit, int? offset = default(int?), long? filterNmID = default(long?), int operationIndex = 0)
         {
             ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<GetV2ListGoodsFilter200Response> localVarResponse = GetV2ListGoodsFilterWithHttpInfo(limit, offset, filterNmID);
             return localVarResponse.Data;
@@ -5731,7 +5731,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="filterNmID">Артикул WB для поиска товара (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GetV2ListGoodsFilter200Response</returns>
-        public ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<GetV2ListGoodsFilter200Response> GetV2ListGoodsFilterWithHttpInfo(int limit, int? offset = default(int?), int? filterNmID = default(int?), int operationIndex = 0)
+        public ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<GetV2ListGoodsFilter200Response> GetV2ListGoodsFilterWithHttpInfo(int limit, int? offset = default(int?), long? filterNmID = default(long?), int operationIndex = 0)
         {
             ValeryVerkhoturov.WbApiClient.Items.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Items.Client.RequestOptions();
 
@@ -5800,7 +5800,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GetV2ListGoodsFilter200Response</returns>
-        public async System.Threading.Tasks.Task<GetV2ListGoodsFilter200Response> GetV2ListGoodsFilterAsync(int limit, int? offset = default(int?), int? filterNmID = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<GetV2ListGoodsFilter200Response> GetV2ListGoodsFilterAsync(int limit, int? offset = default(int?), long? filterNmID = default(long?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<GetV2ListGoodsFilter200Response> localVarResponse = await GetV2ListGoodsFilterWithHttpInfoAsync(limit, offset, filterNmID, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -5816,7 +5816,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetV2ListGoodsFilter200Response)</returns>
-        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<GetV2ListGoodsFilter200Response>> GetV2ListGoodsFilterWithHttpInfoAsync(int limit, int? offset = default(int?), int? filterNmID = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<GetV2ListGoodsFilter200Response>> GetV2ListGoodsFilterWithHttpInfoAsync(int limit, int? offset = default(int?), long? filterNmID = default(long?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             ValeryVerkhoturov.WbApiClient.Items.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Items.Client.RequestOptions();
@@ -5886,7 +5886,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="offset">Сколько элементов пропустить. Например, для значения &#x60;10&#x60; ответ начнется с 11 элемента (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GetV2ListGoodsSizeNm200Response</returns>
-        public GetV2ListGoodsSizeNm200Response GetV2ListGoodsSizeNm(int limit, int nmID, int? offset = default(int?), int operationIndex = 0)
+        public GetV2ListGoodsSizeNm200Response GetV2ListGoodsSizeNm(int limit, long nmID, int? offset = default(int?), int operationIndex = 0)
         {
             ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<GetV2ListGoodsSizeNm200Response> localVarResponse = GetV2ListGoodsSizeNmWithHttpInfo(limit, nmID, offset);
             return localVarResponse.Data;
@@ -5901,7 +5901,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="offset">Сколько элементов пропустить. Например, для значения &#x60;10&#x60; ответ начнется с 11 элемента (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GetV2ListGoodsSizeNm200Response</returns>
-        public ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<GetV2ListGoodsSizeNm200Response> GetV2ListGoodsSizeNmWithHttpInfo(int limit, int nmID, int? offset = default(int?), int operationIndex = 0)
+        public ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<GetV2ListGoodsSizeNm200Response> GetV2ListGoodsSizeNmWithHttpInfo(int limit, long nmID, int? offset = default(int?), int operationIndex = 0)
         {
             ValeryVerkhoturov.WbApiClient.Items.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Items.Client.RequestOptions();
 
@@ -5967,7 +5967,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GetV2ListGoodsSizeNm200Response</returns>
-        public async System.Threading.Tasks.Task<GetV2ListGoodsSizeNm200Response> GetV2ListGoodsSizeNmAsync(int limit, int nmID, int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<GetV2ListGoodsSizeNm200Response> GetV2ListGoodsSizeNmAsync(int limit, long nmID, int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<GetV2ListGoodsSizeNm200Response> localVarResponse = await GetV2ListGoodsSizeNmWithHttpInfoAsync(limit, nmID, offset, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -5983,7 +5983,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetV2ListGoodsSizeNm200Response)</returns>
-        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<GetV2ListGoodsSizeNm200Response>> GetV2ListGoodsSizeNmWithHttpInfoAsync(int limit, int nmID, int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<GetV2ListGoodsSizeNm200Response>> GetV2ListGoodsSizeNmWithHttpInfoAsync(int limit, long nmID, int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             ValeryVerkhoturov.WbApiClient.Items.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Items.Client.RequestOptions();
@@ -6052,7 +6052,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="parentID">ID родительской категории предмета (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GetV2ObjectAllResponse200</returns>
-        public GetV2ObjectAllResponse200 GetV2ObjectAll(string? locale = default(string?), string? name = default(string?), int? limit = default(int?), int? offset = default(int?), int? parentID = default(int?), int operationIndex = 0)
+        public GetV2ObjectAllResponse200 GetV2ObjectAll(string? locale = default(string?), string? name = default(string?), long? limit = default(long?), long? offset = default(long?), long? parentID = default(long?), int operationIndex = 0)
         {
             ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<GetV2ObjectAllResponse200> localVarResponse = GetV2ObjectAllWithHttpInfo(locale, name, limit, offset, parentID);
             return localVarResponse.Data;
@@ -6069,7 +6069,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="parentID">ID родительской категории предмета (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GetV2ObjectAllResponse200</returns>
-        public ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<GetV2ObjectAllResponse200> GetV2ObjectAllWithHttpInfo(string? locale = default(string?), string? name = default(string?), int? limit = default(int?), int? offset = default(int?), int? parentID = default(int?), int operationIndex = 0)
+        public ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<GetV2ObjectAllResponse200> GetV2ObjectAllWithHttpInfo(string? locale = default(string?), string? name = default(string?), long? limit = default(long?), long? offset = default(long?), long? parentID = default(long?), int operationIndex = 0)
         {
             ValeryVerkhoturov.WbApiClient.Items.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Items.Client.RequestOptions();
 
@@ -6151,7 +6151,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GetV2ObjectAllResponse200</returns>
-        public async System.Threading.Tasks.Task<GetV2ObjectAllResponse200> GetV2ObjectAllAsync(string? locale = default(string?), string? name = default(string?), int? limit = default(int?), int? offset = default(int?), int? parentID = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<GetV2ObjectAllResponse200> GetV2ObjectAllAsync(string? locale = default(string?), string? name = default(string?), long? limit = default(long?), long? offset = default(long?), long? parentID = default(long?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<GetV2ObjectAllResponse200> localVarResponse = await GetV2ObjectAllWithHttpInfoAsync(locale, name, limit, offset, parentID, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -6169,7 +6169,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetV2ObjectAllResponse200)</returns>
-        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<GetV2ObjectAllResponse200>> GetV2ObjectAllWithHttpInfoAsync(string? locale = default(string?), string? name = default(string?), int? limit = default(int?), int? offset = default(int?), int? parentID = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<GetV2ObjectAllResponse200>> GetV2ObjectAllWithHttpInfoAsync(string? locale = default(string?), string? name = default(string?), long? limit = default(long?), long? offset = default(long?), long? parentID = default(long?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             ValeryVerkhoturov.WbApiClient.Items.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Items.Client.RequestOptions();
@@ -6249,7 +6249,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="locale">Язык полей ответа &#x60;subjectName&#x60; и &#x60;name&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке  (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GetV2ObjectCharcsSubjectIdResponse200</returns>
-        public GetV2ObjectCharcsSubjectIdResponse200 GetV2ObjectCharcsSubjectId(int subjectId, string? locale = default(string?), int operationIndex = 0)
+        public GetV2ObjectCharcsSubjectIdResponse200 GetV2ObjectCharcsSubjectId(long subjectId, string? locale = default(string?), int operationIndex = 0)
         {
             ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<GetV2ObjectCharcsSubjectIdResponse200> localVarResponse = GetV2ObjectCharcsSubjectIdWithHttpInfo(subjectId, locale);
             return localVarResponse.Data;
@@ -6263,7 +6263,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="locale">Язык полей ответа &#x60;subjectName&#x60; и &#x60;name&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке  (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GetV2ObjectCharcsSubjectIdResponse200</returns>
-        public ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<GetV2ObjectCharcsSubjectIdResponse200> GetV2ObjectCharcsSubjectIdWithHttpInfo(int subjectId, string? locale = default(string?), int operationIndex = 0)
+        public ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<GetV2ObjectCharcsSubjectIdResponse200> GetV2ObjectCharcsSubjectIdWithHttpInfo(long subjectId, string? locale = default(string?), int operationIndex = 0)
         {
             ValeryVerkhoturov.WbApiClient.Items.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Items.Client.RequestOptions();
 
@@ -6327,7 +6327,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GetV2ObjectCharcsSubjectIdResponse200</returns>
-        public async System.Threading.Tasks.Task<GetV2ObjectCharcsSubjectIdResponse200> GetV2ObjectCharcsSubjectIdAsync(int subjectId, string? locale = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<GetV2ObjectCharcsSubjectIdResponse200> GetV2ObjectCharcsSubjectIdAsync(long subjectId, string? locale = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<GetV2ObjectCharcsSubjectIdResponse200> localVarResponse = await GetV2ObjectCharcsSubjectIdWithHttpInfoAsync(subjectId, locale, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -6342,7 +6342,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetV2ObjectCharcsSubjectIdResponse200)</returns>
-        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<GetV2ObjectCharcsSubjectIdResponse200>> GetV2ObjectCharcsSubjectIdWithHttpInfoAsync(int subjectId, string? locale = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<GetV2ObjectCharcsSubjectIdResponse200>> GetV2ObjectCharcsSubjectIdWithHttpInfoAsync(long subjectId, string? locale = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             ValeryVerkhoturov.WbApiClient.Items.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Items.Client.RequestOptions();
@@ -7283,7 +7283,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="patchV2TagIdRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ResponseContentError</returns>
-        public ResponseContentError PatchV2TagId(int id, PatchV2TagIdRequest patchV2TagIdRequest, int operationIndex = 0)
+        public ResponseContentError PatchV2TagId(long id, PatchV2TagIdRequest patchV2TagIdRequest, int operationIndex = 0)
         {
             ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<ResponseContentError> localVarResponse = PatchV2TagIdWithHttpInfo(id, patchV2TagIdRequest);
             return localVarResponse.Data;
@@ -7297,7 +7297,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="patchV2TagIdRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ResponseContentError</returns>
-        public ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<ResponseContentError> PatchV2TagIdWithHttpInfo(int id, PatchV2TagIdRequest patchV2TagIdRequest, int operationIndex = 0)
+        public ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<ResponseContentError> PatchV2TagIdWithHttpInfo(long id, PatchV2TagIdRequest patchV2TagIdRequest, int operationIndex = 0)
         {
             // verify the required parameter 'patchV2TagIdRequest' is set
             if (patchV2TagIdRequest == null)
@@ -7365,7 +7365,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ResponseContentError</returns>
-        public async System.Threading.Tasks.Task<ResponseContentError> PatchV2TagIdAsync(int id, PatchV2TagIdRequest patchV2TagIdRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ResponseContentError> PatchV2TagIdAsync(long id, PatchV2TagIdRequest patchV2TagIdRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<ResponseContentError> localVarResponse = await PatchV2TagIdWithHttpInfoAsync(id, patchV2TagIdRequest, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -7380,7 +7380,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ResponseContentError)</returns>
-        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<ResponseContentError>> PatchV2TagIdWithHttpInfoAsync(int id, PatchV2TagIdRequest patchV2TagIdRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<ResponseContentError>> PatchV2TagIdWithHttpInfoAsync(long id, PatchV2TagIdRequest patchV2TagIdRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'patchV2TagIdRequest' is set
             if (patchV2TagIdRequest == null)
@@ -10470,7 +10470,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="uploadfile"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>PostV3MediaFileResponse200</returns>
-        public PostV3MediaFileResponse200 PostV3MediaFile(string xNmId, int xPhotoNumber, System.IO.Stream? uploadfile = default(System.IO.Stream?), int operationIndex = 0)
+        public PostV3MediaFileResponse200 PostV3MediaFile(string xNmId, long xPhotoNumber, System.IO.Stream? uploadfile = default(System.IO.Stream?), int operationIndex = 0)
         {
             ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<PostV3MediaFileResponse200> localVarResponse = PostV3MediaFileWithHttpInfo(xNmId, xPhotoNumber, uploadfile);
             return localVarResponse.Data;
@@ -10485,7 +10485,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="uploadfile"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of PostV3MediaFileResponse200</returns>
-        public ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<PostV3MediaFileResponse200> PostV3MediaFileWithHttpInfo(string xNmId, int xPhotoNumber, System.IO.Stream? uploadfile = default(System.IO.Stream?), int operationIndex = 0)
+        public ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<PostV3MediaFileResponse200> PostV3MediaFileWithHttpInfo(string xNmId, long xPhotoNumber, System.IO.Stream? uploadfile = default(System.IO.Stream?), int operationIndex = 0)
         {
             // verify the required parameter 'xNmId' is set
             if (xNmId == null)
@@ -10559,7 +10559,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PostV3MediaFileResponse200</returns>
-        public async System.Threading.Tasks.Task<PostV3MediaFileResponse200> PostV3MediaFileAsync(string xNmId, int xPhotoNumber, System.IO.Stream? uploadfile = default(System.IO.Stream?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PostV3MediaFileResponse200> PostV3MediaFileAsync(string xNmId, long xPhotoNumber, System.IO.Stream? uploadfile = default(System.IO.Stream?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<PostV3MediaFileResponse200> localVarResponse = await PostV3MediaFileWithHttpInfoAsync(xNmId, xPhotoNumber, uploadfile, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -10575,7 +10575,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PostV3MediaFileResponse200)</returns>
-        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<PostV3MediaFileResponse200>> PostV3MediaFileWithHttpInfoAsync(string xNmId, int xPhotoNumber, System.IO.Stream? uploadfile = default(System.IO.Stream?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<PostV3MediaFileResponse200>> PostV3MediaFileWithHttpInfoAsync(string xNmId, long xPhotoNumber, System.IO.Stream? uploadfile = default(System.IO.Stream?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'xNmId' is set
             if (xNmId == null)

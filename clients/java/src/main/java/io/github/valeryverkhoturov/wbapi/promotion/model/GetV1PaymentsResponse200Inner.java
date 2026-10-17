@@ -37,7 +37,7 @@ public class GetV1PaymentsResponse200Inner {
 
   @SerializedName(SERIALIZED_NAME_ID)
   @jakarta.annotation.Nullable
-  private Integer id;
+  private Long id;
 
   public static final String SERIALIZED_NAME_DATE = "date";
 
@@ -49,19 +49,19 @@ public class GetV1PaymentsResponse200Inner {
 
   @SerializedName(SERIALIZED_NAME_SUM)
   @jakarta.annotation.Nullable
-  private Integer sum;
+  private Long sum;
 
   public static final String SERIALIZED_NAME_TYPE = "type";
 
   @SerializedName(SERIALIZED_NAME_TYPE)
   @jakarta.annotation.Nullable
-  private Integer type;
+  private Long type;
 
   public static final String SERIALIZED_NAME_STATUS_ID = "statusId";
 
   @SerializedName(SERIALIZED_NAME_STATUS_ID)
   @jakarta.annotation.Nullable
-  private Integer statusId;
+  private Long statusId;
 
   public static final String SERIALIZED_NAME_CARD_STATUS = "cardStatus";
 
@@ -77,7 +77,7 @@ public class GetV1PaymentsResponse200Inner {
 
   public GetV1PaymentsResponse200Inner() {}
 
-  public GetV1PaymentsResponse200Inner id(@jakarta.annotation.Nullable Integer id) {
+  public GetV1PaymentsResponse200Inner id(@jakarta.annotation.Nullable Long id) {
     this.id = id;
     return this;
   }
@@ -88,11 +88,11 @@ public class GetV1PaymentsResponse200Inner {
    * @return id
    */
   @jakarta.annotation.Nullable
-  public Integer getId() {
+  public Long getId() {
     return id;
   }
 
-  public void setId(@jakarta.annotation.Nullable Integer id) {
+  public void setId(@jakarta.annotation.Nullable Long id) {
     this.id = id;
   }
 
@@ -115,7 +115,7 @@ public class GetV1PaymentsResponse200Inner {
     this.date = date;
   }
 
-  public GetV1PaymentsResponse200Inner sum(@jakarta.annotation.Nullable Integer sum) {
+  public GetV1PaymentsResponse200Inner sum(@jakarta.annotation.Nullable Long sum) {
     this.sum = sum;
     return this;
   }
@@ -126,15 +126,15 @@ public class GetV1PaymentsResponse200Inner {
    * @return sum
    */
   @jakarta.annotation.Nullable
-  public Integer getSum() {
+  public Long getSum() {
     return sum;
   }
 
-  public void setSum(@jakarta.annotation.Nullable Integer sum) {
+  public void setSum(@jakarta.annotation.Nullable Long sum) {
     this.sum = sum;
   }
 
-  public GetV1PaymentsResponse200Inner type(@jakarta.annotation.Nullable Integer type) {
+  public GetV1PaymentsResponse200Inner type(@jakarta.annotation.Nullable Long type) {
     this.type = type;
     return this;
   }
@@ -146,15 +146,15 @@ public class GetV1PaymentsResponse200Inner {
    * @return type
    */
   @jakarta.annotation.Nullable
-  public Integer getType() {
+  public Long getType() {
     return type;
   }
 
-  public void setType(@jakarta.annotation.Nullable Integer type) {
+  public void setType(@jakarta.annotation.Nullable Long type) {
     this.type = type;
   }
 
-  public GetV1PaymentsResponse200Inner statusId(@jakarta.annotation.Nullable Integer statusId) {
+  public GetV1PaymentsResponse200Inner statusId(@jakarta.annotation.Nullable Long statusId) {
     this.statusId = statusId;
     return this;
   }
@@ -165,11 +165,11 @@ public class GetV1PaymentsResponse200Inner {
    * @return statusId
    */
   @jakarta.annotation.Nullable
-  public Integer getStatusId() {
+  public Long getStatusId() {
     return statusId;
   }
 
-  public void setStatusId(@jakarta.annotation.Nullable Integer statusId) {
+  public void setStatusId(@jakarta.annotation.Nullable Long statusId) {
     this.statusId = statusId;
   }
 

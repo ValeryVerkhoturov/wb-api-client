@@ -36,7 +36,7 @@ namespace ValeryVerkhoturov.WbApiClient.General.Model
         /// </summary>
         /// <param name="userId">ID пользователя.</param>
         /// <param name="access">Настройки доступа к разделам профиля продавца.</param>
-        public UserAccess(int userId = default(int), List<CreateInviteRequestAccessInner> access = default(List<CreateInviteRequestAccessInner>))
+        public UserAccess(long userId = default(long), List<CreateInviteRequestAccessInner> access = default(List<CreateInviteRequestAccessInner>))
         {
             this.UserId = userId;
             this.Access = access;
@@ -47,7 +47,7 @@ namespace ValeryVerkhoturov.WbApiClient.General.Model
         /// </summary>
         /// <value>ID пользователя</value>
         [DataMember(Name = "userId", EmitDefaultValue = false)]
-        public int UserId { get; set; }
+        public long UserId { get; set; }
 
         /// <summary>
         /// Настройки доступа к разделам профиля продавца

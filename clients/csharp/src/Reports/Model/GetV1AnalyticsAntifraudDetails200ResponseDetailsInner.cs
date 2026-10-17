@@ -39,7 +39,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /// <param name="currency">Валюта заказа.</param>
         /// <param name="dateFrom">Начало отчётного периода.</param>
         /// <param name="dateTo">Конец отчётного периода.</param>
-        public GetV1AnalyticsAntifraudDetails200ResponseDetailsInner(int nmID = default(int), int sum = default(int), string currency = default(string), string dateFrom = default(string), string dateTo = default(string))
+        public GetV1AnalyticsAntifraudDetails200ResponseDetailsInner(long nmID = default(long), long sum = default(long), string currency = default(string), string dateFrom = default(string), string dateTo = default(string))
         {
             this.NmID = nmID;
             this.Sum = sum;
@@ -56,7 +56,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         <example>123456789</example>
         */
         [DataMember(Name = "nmID", EmitDefaultValue = false)]
-        public int NmID { get; set; }
+        public long NmID { get; set; }
 
         /// <summary>
         /// Сумма заказа
@@ -66,7 +66,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         <example>3540</example>
         */
         [DataMember(Name = "sum", EmitDefaultValue = false)]
-        public int Sum { get; set; }
+        public long Sum { get; set; }
 
         /// <summary>
         /// Валюта заказа

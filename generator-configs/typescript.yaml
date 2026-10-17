@@ -1,4 +1,4 @@
-# Per-slug npmName is injected by generate.sh so each of the 13 packages
+# Per-slug npmName is injected by generate.py so each of the 13 packages
 # gets its own name under the @valeryverkhoturov npm scope.
 generatorName: typescript-axios
 supportsES6: true

@@ -162,7 +162,7 @@ public class Order {
 
   @SerializedName(SERIALIZED_NAME_WAREHOUSE_ID)
   @jakarta.annotation.Nullable
-  private Integer warehouseId;
+  private Long warehouseId;
 
   public static final String SERIALIZED_NAME_OFFICE_ID = "officeId";
 
@@ -174,25 +174,25 @@ public class Order {
 
   @SerializedName(SERIALIZED_NAME_NM_ID)
   @jakarta.annotation.Nullable
-  private Integer nmId;
+  private Long nmId;
 
   public static final String SERIALIZED_NAME_CHRT_ID = "chrtId";
 
   @SerializedName(SERIALIZED_NAME_CHRT_ID)
   @jakarta.annotation.Nullable
-  private Integer chrtId;
+  private Long chrtId;
 
   public static final String SERIALIZED_NAME_PRICE = "price";
 
   @SerializedName(SERIALIZED_NAME_PRICE)
   @jakarta.annotation.Nullable
-  private Integer price;
+  private Long price;
 
   public static final String SERIALIZED_NAME_CONVERTED_PRICE = "convertedPrice";
 
   @SerializedName(SERIALIZED_NAME_CONVERTED_PRICE)
   @jakarta.annotation.Nullable
-  private Integer convertedPrice;
+  private Long convertedPrice;
 
   public static final String SERIALIZED_NAME_CURRENCY_CODE = "currencyCode";
 
@@ -212,19 +212,19 @@ public class Order {
    */
   @JsonAdapter(CargoTypeEnum.Adapter.class)
   public enum CargoTypeEnum {
-    NUMBER_1(1),
+    NUMBER_1(1l),
 
-    NUMBER_2(2),
+    NUMBER_2(2l),
 
-    NUMBER_3(3);
+    NUMBER_3(3l);
 
-    private Integer value;
+    private Long value;
 
-    CargoTypeEnum(Integer value) {
+    CargoTypeEnum(Long value) {
       this.value = value;
     }
 
-    public Integer getValue() {
+    public Long getValue() {
       return value;
     }
 
@@ -233,7 +233,7 @@ public class Order {
       return String.valueOf(value);
     }
 
-    public static CargoTypeEnum fromValue(Integer value) {
+    public static CargoTypeEnum fromValue(Long value) {
       for (CargoTypeEnum b : CargoTypeEnum.values()) {
         if (b.value.equals(value)) {
           return b;
@@ -251,13 +251,13 @@ public class Order {
 
       @Override
       public CargoTypeEnum read(final JsonReader jsonReader) throws IOException {
-        Integer value = jsonReader.nextInt();
+        Long value = jsonReader.nextLong();
         return CargoTypeEnum.fromValue(value);
       }
     }
 
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      Integer value = jsonElement.getAsInt();
+      Long value = jsonElement.getAsLong();
       CargoTypeEnum.fromValue(value);
     }
   }
@@ -613,7 +613,7 @@ public class Order {
     this.id = id;
   }
 
-  public Order warehouseId(@jakarta.annotation.Nullable Integer warehouseId) {
+  public Order warehouseId(@jakarta.annotation.Nullable Long warehouseId) {
     this.warehouseId = warehouseId;
     return this;
   }
@@ -624,11 +624,11 @@ public class Order {
    * @return warehouseId
    */
   @jakarta.annotation.Nullable
-  public Integer getWarehouseId() {
+  public Long getWarehouseId() {
     return warehouseId;
   }
 
-  public void setWarehouseId(@jakarta.annotation.Nullable Integer warehouseId) {
+  public void setWarehouseId(@jakarta.annotation.Nullable Long warehouseId) {
     this.warehouseId = warehouseId;
   }
 
@@ -651,7 +651,7 @@ public class Order {
     this.officeId = officeId;
   }
 
-  public Order nmId(@jakarta.annotation.Nullable Integer nmId) {
+  public Order nmId(@jakarta.annotation.Nullable Long nmId) {
     this.nmId = nmId;
     return this;
   }
@@ -662,15 +662,15 @@ public class Order {
    * @return nmId
    */
   @jakarta.annotation.Nullable
-  public Integer getNmId() {
+  public Long getNmId() {
     return nmId;
   }
 
-  public void setNmId(@jakarta.annotation.Nullable Integer nmId) {
+  public void setNmId(@jakarta.annotation.Nullable Long nmId) {
     this.nmId = nmId;
   }
 
-  public Order chrtId(@jakarta.annotation.Nullable Integer chrtId) {
+  public Order chrtId(@jakarta.annotation.Nullable Long chrtId) {
     this.chrtId = chrtId;
     return this;
   }
@@ -681,15 +681,15 @@ public class Order {
    * @return chrtId
    */
   @jakarta.annotation.Nullable
-  public Integer getChrtId() {
+  public Long getChrtId() {
     return chrtId;
   }
 
-  public void setChrtId(@jakarta.annotation.Nullable Integer chrtId) {
+  public void setChrtId(@jakarta.annotation.Nullable Long chrtId) {
     this.chrtId = chrtId;
   }
 
-  public Order price(@jakarta.annotation.Nullable Integer price) {
+  public Order price(@jakarta.annotation.Nullable Long price) {
     this.price = price;
     return this;
   }
@@ -701,15 +701,15 @@ public class Order {
    * @return price
    */
   @jakarta.annotation.Nullable
-  public Integer getPrice() {
+  public Long getPrice() {
     return price;
   }
 
-  public void setPrice(@jakarta.annotation.Nullable Integer price) {
+  public void setPrice(@jakarta.annotation.Nullable Long price) {
     this.price = price;
   }
 
-  public Order convertedPrice(@jakarta.annotation.Nullable Integer convertedPrice) {
+  public Order convertedPrice(@jakarta.annotation.Nullable Long convertedPrice) {
     this.convertedPrice = convertedPrice;
     return this;
   }
@@ -721,11 +721,11 @@ public class Order {
    * @return convertedPrice
    */
   @jakarta.annotation.Nullable
-  public Integer getConvertedPrice() {
+  public Long getConvertedPrice() {
     return convertedPrice;
   }
 
-  public void setConvertedPrice(@jakarta.annotation.Nullable Integer convertedPrice) {
+  public void setConvertedPrice(@jakarta.annotation.Nullable Long convertedPrice) {
     this.convertedPrice = convertedPrice;
   }
 

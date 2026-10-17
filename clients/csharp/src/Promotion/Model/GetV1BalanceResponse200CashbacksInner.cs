@@ -37,7 +37,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <param name="sum">Промо-бонусы в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances).</param>
         /// <param name="percent">Процент от суммы пополнения бюджета кампании, который можно оплатить промо-бонусами за один раз.</param>
         /// <param name="expirationDate">Дата окончания действия промо-бонусов.</param>
-        public GetV1BalanceResponse200CashbacksInner(int sum = default(int), int percent = default(int), string expirationDate = default(string))
+        public GetV1BalanceResponse200CashbacksInner(long sum = default(long), long percent = default(long), string expirationDate = default(string))
         {
             this.Sum = sum;
             this.Percent = percent;
@@ -49,14 +49,14 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <value>Промо-бонусы в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)</value>
         [DataMember(Name = "sum", EmitDefaultValue = false)]
-        public int Sum { get; set; }
+        public long Sum { get; set; }
 
         /// <summary>
         /// Процент от суммы пополнения бюджета кампании, который можно оплатить промо-бонусами за один раз
         /// </summary>
         /// <value>Процент от суммы пополнения бюджета кампании, который можно оплатить промо-бонусами за один раз</value>
         [DataMember(Name = "percent", EmitDefaultValue = false)]
-        public int Percent { get; set; }
+        public long Percent { get; set; }
 
         /// <summary>
         /// Дата окончания действия промо-бонусов

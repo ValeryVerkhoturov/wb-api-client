@@ -179,13 +179,13 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
             // CarrierName (string) maxLength
             if (this.CarrierName != null && this.CarrierName.Length > 1000)
             {
-                yield return new ValidationResult("Invalid value for CarrierName, length must be less than 1000.", new [] { "CarrierName" });
+                yield return new ValidationResult("Invalid value for CarrierName, length must be less than 1000.", new[] { "CarrierName" });
             }
 
             // CarrierName (string) minLength
             if (this.CarrierName != null && this.CarrierName.Length < 1)
             {
-                yield return new ValidationResult("Invalid value for CarrierName, length must be greater than 1.", new [] { "CarrierName" });
+                yield return new ValidationResult("Invalid value for CarrierName, length must be greater than 1.", new[] { "CarrierName" });
             }
 
             yield break;

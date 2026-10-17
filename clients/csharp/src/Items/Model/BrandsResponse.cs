@@ -37,7 +37,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// <param name="brands">brands.</param>
         /// <param name="next">Параметр пагинации. Укажите это значение в запросе, чтобы получить следующий пакет данных. Если поле отсутствует, вы получили все данные.</param>
         /// <param name="total">Общее количество брендов предмета.</param>
-        public BrandsResponse(List<BrandsResponseBrandsInner> brands = default(List<BrandsResponseBrandsInner>), int next = default(int), int total = default(int))
+        public BrandsResponse(List<BrandsResponseBrandsInner> brands = default(List<BrandsResponseBrandsInner>), long next = default(long), long total = default(long))
         {
             this.Brands = brands;
             this.Next = next;
@@ -58,7 +58,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         <example>1212</example>
         */
         [DataMember(Name = "next", EmitDefaultValue = false)]
-        public int Next { get; set; }
+        public long Next { get; set; }
 
         /// <summary>
         /// Общее количество брендов предмета
@@ -68,7 +68,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         <example>344534</example>
         */
         [DataMember(Name = "total", EmitDefaultValue = false)]
-        public int Total { get; set; }
+        public long Total { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

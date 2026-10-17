@@ -35,7 +35,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// Initializes a new instance of the <see cref="PostV3PassesResponse201" /> class.
         /// </summary>
         /// <param name="id">ID пропуска продавца.</param>
-        public PostV3PassesResponse201(int id = default(int))
+        public PostV3PassesResponse201(long id = default(long))
         {
             this.Id = id;
         }
@@ -48,7 +48,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         <example>2</example>
         */
         [DataMember(Name = "id", EmitDefaultValue = false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -106,7 +106,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         /// <param name="feedbackId">ID отзыва.</param>
         /// <param name="state">Закреплён ли отзыв:   - &#x60;pinned&#x60; — да   - &#x60;unpinned&#x60; — нет .</param>
         /// <param name="unpinnedCause">Причина открепления отзыва:   - &#x60;sysTariffUnpinned&#x60; — закончилась подписка или тарифная опция   - &#x60;sysLimitReached&#x60; — закончился общий лимит по подписке   - &#x60;sysNoratingUnpinned&#x60; — отзыв исключён из рейтинга. Например, удалён или забанен   - &#x60;sysAdditionalSlot&#x60; — к карточке или к группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек прикреплено максимальное количество отзывов .</param>
-        public OpenapiPinnedReviewItemResult(string changeStateAt = default(string), int imtId = default(int), int nmId = default(int), int pinId = default(int), DomainReviewPinMethod? pinMethod = default(DomainReviewPinMethod?), DomainReviewPinOn? pinOn = default(DomainReviewPinOn?), string feedbackId = default(string), DomainReviewState? state = default(DomainReviewState?), UnpinnedCauseEnum? unpinnedCause = default(UnpinnedCauseEnum?))
+        public OpenapiPinnedReviewItemResult(string changeStateAt = default(string), long imtId = default(long), long nmId = default(long), long pinId = default(long), DomainReviewPinMethod? pinMethod = default(DomainReviewPinMethod?), DomainReviewPinOn? pinOn = default(DomainReviewPinOn?), string feedbackId = default(string), DomainReviewState? state = default(DomainReviewState?), UnpinnedCauseEnum? unpinnedCause = default(UnpinnedCauseEnum?))
         {
             this.ChangeStateAt = changeStateAt;
             this.ImtId = imtId;
@@ -137,7 +137,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         <example>256971531</example>
         */
         [DataMember(Name = "imtId", EmitDefaultValue = false)]
-        public int ImtId { get; set; }
+        public long ImtId { get; set; }
 
         /// <summary>
         /// Артикул WB
@@ -147,7 +147,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         <example>177974151</example>
         */
         [DataMember(Name = "nmId", EmitDefaultValue = false)]
-        public int NmId { get; set; }
+        public long NmId { get; set; }
 
         /// <summary>
         /// ID операции закрепления отзыва
@@ -157,7 +157,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         <example>1857762</example>
         */
         [DataMember(Name = "pinId", EmitDefaultValue = false)]
-        public int PinId { get; set; }
+        public long PinId { get; set; }
 
         /// <summary>
         /// ID отзыва

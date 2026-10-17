@@ -37,7 +37,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         /// <param name="countUnanswered">Количество необработанных отзывов.</param>
         /// <param name="countArchive">Количество обработанных отзывов.</param>
         /// <param name="feedbacks">Массив отзывов.</param>
-        public GetV1FeedbacksResponse200Data(int countUnanswered = default(int), int countArchive = default(int), List<GetV1FeedbacksResponse200DataFeedbacksInner> feedbacks = default(List<GetV1FeedbacksResponse200DataFeedbacksInner>))
+        public GetV1FeedbacksResponse200Data(long countUnanswered = default(long), long countArchive = default(long), List<GetV1FeedbacksResponse200DataFeedbacksInner> feedbacks = default(List<GetV1FeedbacksResponse200DataFeedbacksInner>))
         {
             this.CountUnanswered = countUnanswered;
             this.CountArchive = countArchive;
@@ -49,14 +49,14 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         /// </summary>
         /// <value>Количество необработанных отзывов</value>
         [DataMember(Name = "countUnanswered", EmitDefaultValue = false)]
-        public int CountUnanswered { get; set; }
+        public long CountUnanswered { get; set; }
 
         /// <summary>
         /// Количество обработанных отзывов
         /// </summary>
         /// <value>Количество обработанных отзывов</value>
         [DataMember(Name = "countArchive", EmitDefaultValue = false)]
-        public int CountArchive { get; set; }
+        public long CountArchive { get; set; }
 
         /// <summary>
         /// Массив отзывов

@@ -201,6 +201,7 @@ paths:
           type: integer
           example: 1000
           default: 30
+          format: int64
         description: Количество предметов, максимум 1000
       - name: offset
         in: query
@@ -208,12 +209,14 @@ paths:
           type: integer
           example: 5000
           default: 0
+          format: int64
         description: Сколько элементов пропустить. Например, для значения `10` ответ начнется с 11 элемента
       - name: parentID
         in: query
         schema:
           type: integer
           example: 1000
+          format: int64
         description: ID родительской категории предмета
       responses:
         '200':
@@ -292,6 +295,7 @@ paths:
         schema:
           type: integer
           example: 105
+          format: int64
       - name: locale
         in: query
         description: |
@@ -787,12 +791,14 @@ paths:
         schema:
           type: integer
           example: 105
+          format: int64
       - name: search
         in: query
         description: Поиск по коду ТН ВЭД. Работает только в паре с `subjectID`
         schema:
           type: integer
           example: 6106903000
+          format: int64
       - name: locale
         in: query
         description: |
@@ -886,6 +892,7 @@ paths:
         schema:
           type: integer
           example: 6106
+          format: int64
       - name: locale
         in: query
         description: |
@@ -975,6 +982,7 @@ paths:
         schema:
           type: integer
           example: 105
+          format: int64
       - name: search
         in: query
         description: Поиск по фрагменту кода ОКПД2. Работает только в паре с `subjectId`. Укажите первые цифры кода через точку, чтобы найти код по этому фрагменту
@@ -1140,6 +1148,7 @@ paths:
         schema:
           type: integer
           example: 1234
+          format: int64
         description: ID предмета
         required: true
       - name: next
@@ -1147,6 +1156,7 @@ paths:
         schema:
           type: integer
           example: 1234
+          format: int64
         description: Параметр пагинации. Используйте значение `next` из ответа, чтобы получить следующий пакет данных
       responses:
         '200':
@@ -1396,6 +1406,7 @@ paths:
         schema:
           type: integer
           example: 1
+          format: int64
         description: Числовой ID ярлыка
         required: true
       requestBody:
@@ -1486,6 +1497,7 @@ paths:
         schema:
           type: integer
           example: 1
+          format: int64
         description: Числовой ID ярлыка
         required: true
       responses:
@@ -1574,6 +1586,7 @@ paths:
                 nmID:
                   description: Артикул WB
                   type: integer
+                  format: int64
                 tagsIDs:
                   description: |-
                     Массив числовых ID ярлыков.
@@ -1583,6 +1596,7 @@ paths:
                   items:
                     type: integer
                     description: Числовой ID ярлыка.
+                    format: int64
             example:
               nmID: 179891389
               tagsIDs:
@@ -1736,6 +1750,7 @@ paths:
                           - 2
                           description: "Фильтр по фото:\n  * `-1` — любые карточки товаров\n  * `0` — только карточки без фото. С [16 июня](https://dev.wildberries.ru/release-notes?id=531) — любые карточки товаров\n  * `1` — только карточки с фото\n  * `2` — только карточки без фото. С [16 июня](https://dev.wildberries.ru/release-notes?id=531)\n"
                           default: 0
+                          format: int64
                         textSearch:
                           type: string
                           description: Поиск по артикулу продавца, артикулу WB, баркоду
@@ -1744,6 +1759,7 @@ paths:
                           description: Поиск по ID ярлыков
                           items:
                             type: integer
+                            format: int64
                         allowedCategoriesOnly:
                           description: "Фильтр по категории:\n  - `true` — только разрешённые\n  - `false` — все\n\n  Не используется в песочнице\n"
                           type: boolean
@@ -1752,6 +1768,7 @@ paths:
                           description: Поиск по ID предметов
                           items:
                             type: integer
+                            format: int64
                         brands:
                           type: array
                           description: Поиск по брендам
@@ -1771,6 +1788,7 @@ paths:
                           maximum: 100
                           default: 10
                           description: Сколько карточек товаров выдать в ответе
+                          format: int64
                         updatedAt:
                           type: string
                           nullable: true
@@ -1778,6 +1796,7 @@ paths:
                         nmID:
                           type: integer
                           description: Артикул WB, с которого надо запрашивать следующий список карточек товаров
+                          format: int64
             example:
               settings:
                 sort:
@@ -2158,6 +2177,7 @@ paths:
                   nmID:
                     type: integer
                     description: Артикул WB
+                    format: int64
                   vendorCode:
                     type: string
                     description: Артикул продавца
@@ -2197,12 +2217,15 @@ paths:
                       length:
                         type: integer
                         description: Длина, см
+                        format: int64
                       width:
                         type: integer
                         description: Ширина, см
+                        format: int64
                       height:
                         type: integer
                         description: Высота, см
+                        format: int64
                       weightBrutto:
                         type: number
                         description: "Вес, кг\nКоличество знаков после запятой <=3"
@@ -2248,6 +2271,7 @@ paths:
                         id:
                           type: integer
                           description: ID характеристики
+                          format: int64
                         value:
                           description: |-
                             Значения характеристики.
@@ -2265,7 +2289,7 @@ paths:
                       properties:
                         chrtID:
                           type: integer
-                          format: uint64
+                          format: int64
                           description: |-
                             ID размера для данного артикула WB
                             Обязателен к заполнению для существующих размеров
@@ -2281,6 +2305,7 @@ paths:
                           description: |-
                             Цена товара, ₽
                             Указывается при добавлении размера
+                          format: int64
                         skus:
                           type: array
                           items:
@@ -2521,6 +2546,7 @@ paths:
                   type: array
                   items:
                     type: integer
+                    format: int64
             example:
               nmIDs:
               - 123456789
@@ -2609,6 +2635,7 @@ paths:
                   maximum: 1000
                   items:
                     type: integer
+                    format: int64
             example:
               nmIDs:
               - 123456789
@@ -2762,12 +2789,14 @@ paths:
                           maximum: 100
                           default: 10
                           description: Сколько карточек товаров выдать в ответе
+                          format: int64
                         trashedAt:
                           type: string
                           description: Дата и время помещения в корзину
                         nmID:
                           type: integer
                           description: Артикул WB, с которого надо запрашивать следующий список карточек товаров
+                          format: int64
                     filter:
                       description: Параметры фильтрации
                       type: object
@@ -2978,6 +3007,7 @@ paths:
                   description: Кол-во баркодов которые надо сгенерировать, максимальное доступное количество баркодов для генерации - `5 000`
                   type: integer
                   example: 100
+                  format: int64
       responses:
         '200':
           description: Успешно
@@ -3039,6 +3069,7 @@ paths:
                   subjectID:
                     type: integer
                     description: ID предмета
+                    format: int64
                   variants:
                     description: |-
                       [Объединённые](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточки товаров.
@@ -3107,12 +3138,15 @@ paths:
                             length:
                               type: integer
                               description: Длина, см
+                              format: int64
                             width:
                               type: integer
                               description: Ширина, см
+                              format: int64
                             height:
                               type: integer
                               description: Высота, см
+                              format: int64
                             weightBrutto:
                               type: number
                               description: "Вес, кг\nКоличество знаков после запятой <=3"
@@ -3133,6 +3167,7 @@ paths:
                               price:
                                 type: integer
                                 description: Цена товара
+                                format: int64
                               skus:
                                 type: array
                                 items:
@@ -3156,6 +3191,7 @@ paths:
                               id:
                                 type: integer
                                 description: ID характеристики
+                                format: int64
                               value:
                                 description: |-
                                   Значения характеристики.
@@ -3365,12 +3401,15 @@ paths:
                           length:
                             type: integer
                             description: Длина, см
+                            format: int64
                           width:
                             type: integer
                             description: Ширина, см
+                            format: int64
                           height:
                             type: integer
                             description: Высота, см
+                            format: int64
                           weightBrutto:
                             type: number
                             description: "Вес, кг\nКоличество знаков после запятой <=3"
@@ -3391,6 +3430,7 @@ paths:
                             price:
                               type: integer
                               description: Цена товара
+                              format: int64
                             skus:
                               type: array
                               items:
@@ -3411,6 +3451,7 @@ paths:
                             id:
                               type: integer
                               description: ID характеристики
+                              format: int64
                             value:
                               description: |-
                                 Значения характеристики.
@@ -3597,6 +3638,7 @@ paths:
         schema:
           type: integer
           example: 2
+          format: int64
         required: true
       requestBody:
         required: true
@@ -3677,6 +3719,7 @@ paths:
                 nmId:
                   description: Артикул WB
                   type: integer
+                  format: int64
                 data:
                   description: "Ссылки на изображения в том порядке, в котором они будут в карточке товара, и на видео, на любой позиции массива"
                   type: array
@@ -4908,7 +4951,7 @@ paths:
                     properties:
                       chrtId:
                         type: integer
-                        format: uint64
+                        format: int64
                         description: ID размера товара
                         example: 12345678
                       amount:
@@ -4916,6 +4959,7 @@ paths:
                         maximum: 100000
                         description: Остаток
                         example: 11
+                        format: int64
       responses:
         '204':
           description: Обновлено
@@ -5039,7 +5083,7 @@ paths:
                   description: Массив ID размеров товаров
                   items:
                     type: integer
-                    format: uint64
+                    format: int64
                     example: 123456789
               required:
               - chrtIds
@@ -5134,7 +5178,7 @@ paths:
                   description: Массив ID размеров товаров
                   items:
                     type: integer
-                    format: uint64
+                    format: int64
                     example: 12345678
               required:
               - chrtIds
@@ -5349,6 +5393,7 @@ paths:
                   minimum: 1
                   description: "ID [склада WB](./item-management#tag/sellerWarehouses/operation/getV3Offices).\nНельзя привязывать склад WB, который уже используется"
                   example: 15
+                  format: int64
               required:
               - name
               - officeId
@@ -5453,6 +5498,7 @@ paths:
                   minimum: 1
                   description: "ID [склада WB](./item-management#tag/sellerWarehouses/operation/getV3Offices).\nНельзя привязывать склад WB, который уже используется.\nМожно менять не чаще одного раза в сутки"
                   example: 15
+                  format: int64
               required:
               - name
               - officeId
@@ -5719,6 +5765,7 @@ components:
                 description: ID бренда
                 example: 9007199254
                 type: integer
+                format: int64
               logoUrl:
                 description: URL логотипа бренда
                 type: string
@@ -5730,10 +5777,12 @@ components:
           type: integer
           description: Параметр пагинации. Укажите это значение в запросе, чтобы получить следующий пакет данных. Если поле отсутствует, вы получили все данные
           example: 1212
+          format: int64
         total:
           type: integer
           description: Общее количество брендов предмета
           example: 344534
+          format: int64
     BrandsResponseError:
       type: object
       properties:
@@ -5828,6 +5877,7 @@ components:
           description: Существующий `imtID`, под которым необходимо [объединить](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточки товаров
           type: integer
           example: 123
+          format: int64
         nmIDs:
           description: |
             `nmID`, которые необходимо объединить
@@ -5836,6 +5886,7 @@ components:
           type: array
           items:
             type: integer
+            format: int64
           example:
           - 837459235
           - 828572090
@@ -5852,6 +5903,7 @@ components:
           type: array
           items:
             type: integer
+            format: int64
           example:
           - 837459235
           - 828572090
@@ -5969,6 +6021,7 @@ components:
           type: integer
           description: HTTP статус-код
           example: 400
+          format: int64
         title:
           type: string
           description: Заголовок ошибки
@@ -5995,6 +6048,7 @@ components:
             id:
               description: ID загрузки
               type: integer
+              format: int64
             alreadyExists:
               description: "Флаг дублирования загрузки: `true` — такая загрузка уже есть\n"
               type: boolean
@@ -6023,6 +6077,7 @@ components:
             id:
               type: integer
               description: ID загрузки
+              format: int64
             alreadyExists:
               type: boolean
               description: "Флаг дублирования загрузки: `true` — такая загрузка уже есть\n"
@@ -6044,16 +6099,19 @@ components:
           type: integer
           example: 123
           description: Артикул WB
+          format: int64
         price:
           type: integer
           nullable: true
           example: 999
           description: Цена. Валюту можно получить с помощью методов [Получить товары с ценами](./item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsFilter) и [Получить товары с ценами по артикулам](./item-management#tag/pricesAndDiscounts/operation/postV2ListGoodsFilter), поле `currencyIsoCode4217`
+          format: int64
         discount:
           type: integer
           nullable: true
           example: 30
           description: "Скидка, %"
+          format: int64
     SizeGoodReq:
       type: object
       required:
@@ -6065,14 +6123,17 @@ components:
           type: integer
           example: 123
           description: Артикул WB
+          format: int64
         sizeID:
           type: integer
           example: 98989887
           description: ID размера. Можно получить с помощью методов [Получить товары с ценами](./item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsFilter) и [Получить товары с ценами по артикулам](./item-management#tag/pricesAndDiscounts/operation/postV2ListGoodsFilter), поле `sizeID`. В методах Контента это поле `chrtID`
+          format: int64
         price:
           type: integer
           example: 999
           description: Цена. Валюту можно получить с помощью методов [Получить товары с ценами](./item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsFilter) и [Получить товары с ценами по артикулам](./item-management#tag/pricesAndDiscounts/operation/postV2ListGoodsFilter), поле `currencyIsoCode4217`
+          format: int64
     ClubDiscReq:
       type: object
       required:
@@ -6083,10 +6144,12 @@ components:
           type: integer
           example: 123
           description: Артикул WB
+          format: int64
         clubDiscount:
           type: integer
           example: 5
           description: "Скидка WB Клуба, %"
+          format: int64
     WholesaleDiscountThresholdReq:
       type: object
       required:
@@ -6098,14 +6161,17 @@ components:
           description: Минимальное количество единиц товара для скидки
           type: integer
           example: 10
+          format: int64
         wholesaleDiscount:
           description: "Скидка, %.\nЧтобы удалить скидку, укажите `0`. Такой запрос одновременно удалит скидки на этом уровне и на всех более высоких уровнях `level` — вне зависимости от указания их в запросе"
           type: integer
           example: 10
+          format: int64
         level:
           description: Уровень скидки
           type: integer
           example: 1
+          format: int64
     WholesaleDiscountThresholdRes:
       type: object
       required:
@@ -6117,14 +6183,17 @@ components:
           description: Минимальное количество единиц товара для скидки
           type: integer
           example: 10
+          format: int64
         wholesaleDiscount:
           description: Скидка, %
           type: integer
           example: 10
+          format: int64
         level:
           description: Уровень скидки
           type: integer
           example: 1
+          format: int64
     ItemsList:
       type: object
       description: Размеры товара
@@ -6133,6 +6202,7 @@ components:
           type: integer
           description: Артикул WB
           example: 98486
+          format: int64
         vendorCode:
           type: string
           description: Артикул продавца
@@ -6158,6 +6228,7 @@ components:
                 type: integer
                 description: Цена
                 example: 500
+                format: int64
               discountedPrice:
                 type: number
                 description: Цена со скидкой
@@ -6178,10 +6249,12 @@ components:
           type: integer
           description: "Скидка, %"
           example: 30
+          format: int64
         clubDiscount:
           type: integer
           example: 5
           description: "Скидка WB Клуба, %"
+          format: int64
         editableSizePrice:
           description: |
             Можно ли устанавливать цены отдельно для разных размеров (зависит от категории товара):
@@ -6202,10 +6275,12 @@ components:
           type: integer
           example: 123
           description: Артикул WB
+          format: int64
         sizeID:
           description: "ID размера. Можно получить с помощью метода [Получение списка товаров по артикулам](./item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsFilter), поле `sizeID`. В методах Контента это поле `chrtID`"
           type: integer
           example: 98989887
+          format: int64
         vendorCode:
           type: string
           example: '34552332'
@@ -6214,6 +6289,7 @@ components:
           type: integer
           example: 1000
           description: Цена
+          format: int64
         currencyIsoCode4217:
           type: string
           description: Валюта, по стандарту ISO 4217
@@ -6230,10 +6306,12 @@ components:
           description: "Скидка, %"
           type: integer
           example: 30
+          format: int64
         clubDiscount:
           type: integer
           example: 5
           description: "Скидка WB Клуба, %"
+          format: int64
         techSizeName:
           description: Размер товара
           type: string
@@ -6252,6 +6330,7 @@ components:
           type: integer
           example: 544833232
           description: Артикул WB
+          format: int64
         vendorCode:
           type: string
           example: '34552332'
@@ -6260,6 +6339,7 @@ components:
           type: integer
           example: 54483342
           description: ID размера. В методах Контента это поле `chrtID`
+          format: int64
         techSizeName:
           type: string
           example: XXL
@@ -6268,6 +6348,7 @@ components:
           type: integer
           example: 1500
           description: Цена
+          format: int64
         currencyIsoCode4217:
           type: string
           example: RUB
@@ -6276,10 +6357,12 @@ components:
           type: integer
           example: 25
           description: "Скидка, %"
+          format: int64
         clubDiscount:
           type: integer
           example: 5
           description: "Скидка WB Клуба, %"
+          format: int64
         status:
           $ref: '#/components/schemas/ItemStatusBuffer'
         errorText:
@@ -6294,6 +6377,7 @@ components:
           type: integer
           example: 544833232
           description: Артикул WB
+          format: int64
         vendorCode:
           type: string
           example: '34552332'
@@ -6303,6 +6387,7 @@ components:
           nullable: true
           example: 54483342
           description: ID размера. В методах Контента это поле `chrtID`
+          format: int64
         techSizeName:
           type: string
           example: '42'
@@ -6312,6 +6397,7 @@ components:
           nullable: true
           example: 1500
           description: Цена
+          format: int64
         currencyIsoCode4217:
           type: string
           example: RUB
@@ -6320,11 +6406,13 @@ components:
           type: integer
           example: 25
           description: "Скидка, %"
+          format: int64
         clubDiscount:
           type: integer
           example: 5
           description: "Скидка WB Клуба, %"
           nullable: true
+          format: int64
         status:
           $ref: '#/components/schemas/ItemStatus'
         errorText:
@@ -6341,6 +6429,7 @@ components:
           type: integer
           example: 395643565
           description: ID загрузки
+          format: int64
         status:
           $ref: '#/components/schemas/TaskStatus'
         uploadDate:
@@ -6350,9 +6439,11 @@ components:
         overAllGoodsNumber:
           description: Всего товаров
           type: integer
+          format: int64
         successGoodsNumber:
           description: Товаров без ошибок
           type: integer
+          format: int64
     SellerTaskMetadataBuffer:
       nullable: true
       type: object
@@ -6362,6 +6453,7 @@ components:
           type: integer
           example: 395643565
           description: ID загрузки
+          format: int64
         status:
           $ref: '#/components/schemas/TaskStatusBuffer'
         uploadDate:
@@ -6372,10 +6464,12 @@ components:
           description: Всего товаров
           type: integer
           example: 100
+          format: int64
         successGoodsNumber:
           description: Товаров без ошибок (0, потому что загрузка в обработке)
           type: integer
           example: 0
+          format: int64
     Date:
       type: string
       example: '2022-08-21T22:00:13+02:00'
@@ -6388,18 +6482,22 @@ components:
       description: "Статус загрузки:\n  * `3` — обработана, в товарах нет ошибок, цены и скидки обновились\n  * `4` — отменена\n  * `5` — обработана, но в товарах есть ошибки. Для товаров без ошибок цены и скидки обновились, а ошибки в остальных товарах можно получить с помощью метода [Детализация обработанной загрузки](./item-management#tag/pricesAndDiscounts/operation/getV2HistoryGoodsTask)\n  * `6` — обработана, но во всех товарах есть ошибки. Их тоже можно получить с помощью метода [Детализация обработанной загрузки](./item-management#tag/pricesAndDiscounts/operation/getV2HistoryGoodsTask)\n"
       type: integer
       example: 3
+      format: int64
     TaskStatusBuffer:
       description: "Статус загрузки: `1` — в обработке\n"
       type: integer
       example: 1
+      format: int64
     ItemStatus:
       description: "Статус товара:\n  * `2` — товар без ошибок, цена и/или скидка обновилась\n  * `3` — есть ошибки, данные не обновились\n"
       type: integer
       example: 1
+      format: int64
     ItemStatusBuffer:
       description: "Статус товара: `1` — в обработке\n"
       type: integer
       example: 1
+      format: int64
     Error:
       type: object
       properties:
@@ -6416,11 +6514,13 @@ components:
           type: integer
           example: 206025152
           description: Артикул WB
+          format: int64
         sizeID:
           description: Не используется
           type: integer
           example:
           nullable: true
+          format: int64
         techSizeName:
           description: Не используется
           type: string
@@ -6445,10 +6545,12 @@ components:
           example: 25
           nullable: true
           description: Новая скидка продавца, %
+          format: int64
         oldDiscount:
           type: integer
           example: 25
           description: Текущая скидка продавца, %
+          format: int64
         priceDiff:
           type: number
           format: float
@@ -6501,6 +6603,7 @@ components:
           - 1
           - 3
           example: 1
+          format: int64
         deliveryType:
           type: integer
           description: |
@@ -6517,6 +6620,7 @@ components:
           - 5
           - 6
           example: 1
+          format: int64
         federalDistrict:
           type: string
           nullable: true
@@ -6559,6 +6663,7 @@ components:
           - 2
           - 3
           example: 1
+          format: int64
         deliveryType:
           type: integer
           description: |
@@ -6575,6 +6680,7 @@ components:
           - 5
           - 6
           example: 1
+          format: int64
         isDeleting:
           type: boolean
           nullable: false
@@ -6742,11 +6848,13 @@ components:
           default: 20
           maximum: 5000
           minimum: 0
+          format: int64
         next:
           description: Курсор. Последний `nmId` в ответе
           type: integer
           default: 0
           example: 123
+          format: int64
         search:
           description: |
             Поиск:
@@ -6761,6 +6869,7 @@ components:
           maxItems: 30
           items:
             type: integer
+            format: int64
           example:
           - 123
           - 5231
@@ -6778,6 +6887,7 @@ components:
                 description: Артикул WB
                 type: integer
                 example: 5870243
+                format: int64
               imtId:
                 description: ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров
                 format: int64
@@ -6800,6 +6910,7 @@ components:
                 description: Количество изображений в карточке товара
                 type: integer
                 example: 4
+                format: int64
               title:
                 description: Название товара
                 type: string
@@ -6816,6 +6927,7 @@ components:
                 description: Количество рекомендуемых товаров
                 type: integer
                 example: 2
+                format: int64
               recomPics:
                 description: Список URL основных изображений рекомендуемых товаров
                 type: array
@@ -6829,6 +6941,7 @@ components:
                 type: array
                 items:
                   type: integer
+                  format: int64
                 example:
                 - 17405826
                 - 17420062
@@ -6836,6 +6949,7 @@ components:
           description: Курсор. Последний `nmId` в ответе
           type: integer
           example: 143
+          format: int64
     response400GetRecom:
       type: object
       properties:
@@ -6874,6 +6988,7 @@ components:
                 type: integer
                 default: 0
                 example: 5870243
+                format: int64
               recommendations:
                 description: |-
                   Рекомендуемые товары.
@@ -6892,6 +7007,7 @@ components:
                       type: integer
                       default: 0
                       example: 5870244
+                      format: int64
                     sort:
                       description: |
                         Позиция товара в списке рекомендаций.
@@ -6908,6 +7024,7 @@ components:
                       maximum: 20
                       minimum: 0
                       example: 1
+                      format: int64
         replace:
           description: |
             Действие в запросе:
@@ -7000,6 +7117,7 @@ components:
             - `7` — Данные о регистрации пестицида. Можно указать для `charcID`: 15003924, 15003925
             - `8` — Данные о регистрации агрохимиката. Можно указать для `charcID`: 15003920, 15003921
             - `9` — Регистрационное удостоверение (РУ) на лекарственные препараты. Можно указать для `charcID`: 1897013, 15004284
+          format: int64
         number:
           type: string
           description: Номер документа
@@ -7095,6 +7213,7 @@ components:
                 description: ID родительской категории
                 type: integer
                 example: 479
+                format: int64
               isVisible:
                 description: Виден на сайте
                 type: boolean
@@ -7124,9 +7243,11 @@ components:
               subjectID:
                 type: integer
                 description: ID предмета
+                format: int64
               parentID:
                 type: integer
                 description: ID родительской категории
+                format: int64
               subjectName:
                 type: string
                 description: Название предмета
@@ -7155,12 +7276,14 @@ components:
               charcID:
                 type: integer
                 description: ID характеристики
+                format: int64
               subjectName:
                 type: string
                 description: Название предмета
               subjectID:
                 type: integer
                 description: ID предмета
+                format: int64
               name:
                 type: string
                 description: Название характеристики
@@ -7182,6 +7305,7 @@ components:
                   Характеристикам с `"charcType":4` — число, можно присвоить только одно значение.
 
                   Если `"maxCount":0`, количество значений не ограничено
+                format: int64
               popular:
                 description: Характеристика популярна у пользователей (true - да, false - нет)
                 type: boolean
@@ -7192,6 +7316,7 @@ components:
                     -  `1` — массив строк
                     -  `4` — число (целое либо с десятичной дробью)
                     -  `0` — характеристика не используется
+                format: int64
               hasFilter:
                 type: boolean
                 description: |
@@ -7295,6 +7420,7 @@ components:
                 description: ID страны
                 type: integer
                 example: 15000170
+                format: int64
               name:
                 description: Значение характеристики Страны
                 type: string
@@ -7481,6 +7607,7 @@ components:
             id:
               description: Числовой ID ярлыка
               type: integer
+              format: int64
             color:
               description: Цвет ярлыка
               type: string
@@ -7512,6 +7639,7 @@ components:
               nmID:
                 type: integer
                 description: Артикул WB
+                format: int64
               imtID:
                 type: integer
                 description: "ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров.\nЕдин для всех артикулов WB группы объединённых карточек.\nУ каждой карточки товара есть `imtID`, даже если она не объединена с другими карточками"
@@ -7523,6 +7651,7 @@ components:
               subjectID:
                 type: integer
                 description: ID предмета
+                format: int64
               subjectName:
                 type: string
                 description: Название предмета
@@ -7602,12 +7731,15 @@ components:
                   length:
                     type: integer
                     description: Длина, см
+                    format: int64
                   width:
                     type: integer
                     description: Ширина, см
+                    format: int64
                   height:
                     type: integer
                     description: Высота, см
+                    format: int64
                   weightBrutto:
                     type: number
                     description: "Вес, кг\nКоличество знаков после запятой <=3"
@@ -7647,6 +7779,7 @@ components:
                               - `7` — Данные о регистрации пестицида
                               - `8` — Данные о регистрации агрохимиката
                               - `9` — Регистрационное удостоверение (РУ) на лекарственные препараты
+                          format: int64
                         number:
                           type: string
                           description: Номер документа
@@ -7686,6 +7819,7 @@ components:
                                 Результат проверки документа:
                                   - `1` — проверка пройдена
                                   - `2` — проверка не пройдена
+                              format: int64
                             reason:
                               $ref: '#/components/schemas/reasonDocument'
                             additionalData:
@@ -7715,6 +7849,7 @@ components:
                           Результат проверки карточки товара:
                             - `1` — проверка пройдена
                             - `2` — проверка не пройдена
+                        format: int64
                       reason:
                         $ref: '#/components/schemas/reasonListing'
                       createdAt:
@@ -7737,6 +7872,7 @@ components:
                     id:
                       type: integer
                       description: ID характеристики
+                      format: int64
                     name:
                       type: string
                       description: Название характеристики
@@ -7750,7 +7886,7 @@ components:
                   properties:
                     chrtID:
                       type: integer
-                      format: uint64
+                      format: int64
                       description: Числовой ID размера для данного артикула WB
                     techSize:
                       type: string
@@ -7773,6 +7909,7 @@ components:
                     id:
                       type: integer
                       description: ID ярлыка
+                      format: int64
                     name:
                       type: string
                       description: Название ярлыка
@@ -7803,9 +7940,11 @@ components:
             nmID:
               type: integer
               description: Артикул WB, с которого надо запрашивать следующий список карточек товаров
+              format: int64
             total:
               type: integer
               description: Количество возвращённых карточек товаров
+              format: int64
     PostV2CardsUpdateResponse413:
       type: object
       properties:
@@ -7874,6 +8013,7 @@ components:
               nmID:
                 type: integer
                 description: Артикул WB
+                format: int64
               vendorCode:
                 type: string
                 description: Артикул продавца
@@ -7890,6 +8030,7 @@ components:
               subjectID:
                 type: integer
                 description: ID предмета
+                format: int64
               subjectName:
                 type: string
                 description: Название предмета
@@ -7939,7 +8080,7 @@ components:
                   properties:
                     chrtID:
                       type: integer
-                      format: uint64
+                      format: int64
                       description: ID размера
                     techSize:
                       type: string
@@ -7960,12 +8101,15 @@ components:
                   length:
                     type: integer
                     description: Длина, см
+                    format: int64
                   width:
                     type: integer
                     description: Ширина, см
+                    format: int64
                   height:
                     type: integer
                     description: Высота, см
+                    format: int64
                   weightBrutto:
                     type: number
                     description: "Вес, кг\nКоличество знаков после запятой <=3"
@@ -7987,6 +8131,7 @@ components:
                     id:
                       type: integer
                       description: ID характеристики
+                      format: int64
                     name:
                       type: string
                       description: Название характеристики
@@ -8008,9 +8153,11 @@ components:
             nmID:
               type: integer
               description: Артикул WB, с которого надо запрашивать следующий список карточек товаров
+              format: int64
             total:
               type: integer
               description: Количество возвращённых карточек товаров
+              format: int64
     GetV2CardsLimitsResponse200:
       type: object
       properties:
@@ -8020,9 +8167,11 @@ components:
             freeLimits:
               description: Количество бесплатных лимитов
               type: integer
+              format: int64
             paidLimits:
               description: Количество оплаченных лимитов
               type: integer
+              format: int64
         error:
           description: Флаг ошибки
           type: boolean
@@ -8149,11 +8298,12 @@ components:
                   description: Не используется
                 chrtId:
                   type: integer
-                  format: uint64
+                  format: int64
                   description: ID размера
                 amount:
                   type: integer
                   description: Остаток
+                  format: int64
           code:
             description: Код ошибки
             type: string
@@ -8170,13 +8320,14 @@ components:
             properties:
               chrtId:
                 type: integer
-                format: uint64
+                format: int64
                 description: ID размера товара
                 example: 12345678
               amount:
                 type: integer
                 description: Остаток
                 example: 11
+                format: int64
     GetV3OfficesResponse200:
       type: array
       nullable: false
@@ -8197,6 +8348,7 @@ components:
           nullable: false
           description: ID склада продавца
           example: 2
+          format: int64
     GetV3DbwWarehousesWarehouseIdContactsResponse200:
       type: object
       nullable: false
@@ -8236,6 +8388,7 @@ components:
       schema:
         type: integer
         example: 146567
+        format: int64
     limit:
       in: query
       name: limit
@@ -8262,6 +8415,7 @@ components:
       schema:
         type: integer
         example: 1
+        format: int64
       required: true
     filterNmID:
       in: query
@@ -8269,6 +8423,7 @@ components:
       name: filterNmID
       schema:
         type: integer
+        format: int64
       example: 44589768676
   requestBodies:
     SellerTaskRequest:
@@ -8338,6 +8493,7 @@ components:
                       type: integer
                       description: Артикул WB
                       example: 694707813
+                      format: int64
                     wholesaleDiscountThreshold:
                       type: array
                       description: Оптовые скидки разных уровней для B2B
@@ -8374,6 +8530,7 @@ components:
                 maxItems: 1000
                 items:
                   type: integer
+                  format: int64
           example:
             nmList:
             - 26613989
@@ -8572,6 +8729,7 @@ components:
                     nullable: true
                     description: ID загрузки
                     example: 3235236546
+                    format: int64
                   historyGoods:
                     type: array
                     nullable: true
@@ -8594,6 +8752,7 @@ components:
                     description: ID загрузки
                     example: 3235236546
                     nullable: true
+                    format: int64
                   bufferGoods:
                     type: array
                     nullable: true
@@ -8686,6 +8845,7 @@ components:
               id:
                 type: integer
                 description: ID загрузки
+                format: int64
               alreadyExists:
                 type: boolean
                 description: "Дублирование загрузки: `true` — такая загрузка уже есть\n"
@@ -8703,6 +8863,7 @@ components:
                       type: integer
                       description: Артикул WB
                       example: 1
+                      format: int64
                     success:
                       type: boolean
                       description: |
@@ -8722,6 +8883,7 @@ components:
                           type: integer
                           description: HTTP статус-код
                           example: 400
+                          format: int64
                         title:
                           type: string
                           description: Заголовок ошибки
@@ -8806,6 +8968,7 @@ components:
                 type: integer
                 description: HTTP статус-код
                 example: 208
+                format: int64
               title:
                 type: string
                 description: Заголовок ответа

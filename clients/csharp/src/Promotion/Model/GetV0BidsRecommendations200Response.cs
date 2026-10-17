@@ -41,7 +41,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         public GetV0BidsRecommendations200Response(V0BidsRecommendationsCpmResponse1 actualInstance)
         {
             this.IsNullable = false;
-            this.SchemaType= "oneOf";
+            this.SchemaType = "oneOf";
             this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
         }
 
@@ -53,7 +53,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         public GetV0BidsRecommendations200Response(V0BidsRecommendationsCpcResponse2 actualInstance)
         {
             this.IsNullable = false;
-            this.SchemaType= "oneOf";
+            this.SchemaType = "oneOf";
             this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
         }
 
@@ -235,7 +235,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <returns>The object converted from the JSON string</returns>
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
-            switch(reader.TokenType) 
+            switch (reader.TokenType)
             {
                 case JsonToken.StartObject:
                     return GetV0BidsRecommendations200Response.FromJson(JObject.Load(reader).ToString(Formatting.None));

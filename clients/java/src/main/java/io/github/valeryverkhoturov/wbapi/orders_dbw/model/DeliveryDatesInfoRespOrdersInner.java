@@ -73,7 +73,7 @@ public class DeliveryDatesInfoRespOrdersInner {
 
   @SerializedName(SERIALIZED_NAME_ID)
   @jakarta.annotation.Nullable
-  private Integer id;
+  private Long id;
 
   public DeliveryDatesInfoRespOrdersInner() {}
 
@@ -193,7 +193,7 @@ public class DeliveryDatesInfoRespOrdersInner {
     this.dDate = dDate;
   }
 
-  public DeliveryDatesInfoRespOrdersInner id(@jakarta.annotation.Nullable Integer id) {
+  public DeliveryDatesInfoRespOrdersInner id(@jakarta.annotation.Nullable Long id) {
     this.id = id;
     return this;
   }
@@ -204,11 +204,11 @@ public class DeliveryDatesInfoRespOrdersInner {
    * @return id
    */
   @jakarta.annotation.Nullable
-  public Integer getId() {
+  public Long getId() {
     return id;
   }
 
-  public void setId(@jakarta.annotation.Nullable Integer id) {
+  public void setId(@jakarta.annotation.Nullable Long id) {
     this.id = id;
   }
 

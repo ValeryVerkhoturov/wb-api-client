@@ -50,7 +50,7 @@ public class GetV1PaidStorageTasksTaskIdDownloadResponse200Inner {
 
   @SerializedName(SERIALIZED_NAME_OFFICE_ID)
   @jakarta.annotation.Nullable
-  private Integer officeId;
+  private Long officeId;
 
   public static final String SERIALIZED_NAME_WAREHOUSE = "warehouse";
 
@@ -68,13 +68,13 @@ public class GetV1PaidStorageTasksTaskIdDownloadResponse200Inner {
 
   @SerializedName(SERIALIZED_NAME_GI_ID)
   @jakarta.annotation.Nullable
-  private Integer giId;
+  private Long giId;
 
   public static final String SERIALIZED_NAME_CHRT_ID = "chrtId";
 
   @SerializedName(SERIALIZED_NAME_CHRT_ID)
   @jakarta.annotation.Nullable
-  private Integer chrtId;
+  private Long chrtId;
 
   public static final String SERIALIZED_NAME_SIZE = "size";
 
@@ -110,7 +110,7 @@ public class GetV1PaidStorageTasksTaskIdDownloadResponse200Inner {
 
   @SerializedName(SERIALIZED_NAME_NM_ID)
   @jakarta.annotation.Nullable
-  private Integer nmId;
+  private Long nmId;
 
   public static final String SERIALIZED_NAME_VOLUME = "volume";
 
@@ -134,13 +134,13 @@ public class GetV1PaidStorageTasksTaskIdDownloadResponse200Inner {
 
   @SerializedName(SERIALIZED_NAME_BARCODES_COUNT)
   @jakarta.annotation.Nullable
-  private Integer barcodesCount;
+  private Long barcodesCount;
 
   public static final String SERIALIZED_NAME_PALLET_PLACE_CODE = "palletPlaceCode";
 
   @SerializedName(SERIALIZED_NAME_PALLET_PLACE_CODE)
   @jakarta.annotation.Nullable
-  private Integer palletPlaceCode;
+  private Long palletPlaceCode;
 
   public static final String SERIALIZED_NAME_PALLET_COUNT = "palletCount";
 
@@ -216,7 +216,7 @@ public class GetV1PaidStorageTasksTaskIdDownloadResponse200Inner {
   }
 
   public GetV1PaidStorageTasksTaskIdDownloadResponse200Inner officeId(
-      @jakarta.annotation.Nullable Integer officeId) {
+      @jakarta.annotation.Nullable Long officeId) {
     this.officeId = officeId;
     return this;
   }
@@ -228,11 +228,11 @@ public class GetV1PaidStorageTasksTaskIdDownloadResponse200Inner {
    * @return officeId
    */
   @jakarta.annotation.Nullable
-  public Integer getOfficeId() {
+  public Long getOfficeId() {
     return officeId;
   }
 
-  public void setOfficeId(@jakarta.annotation.Nullable Integer officeId) {
+  public void setOfficeId(@jakarta.annotation.Nullable Long officeId) {
     this.officeId = officeId;
   }
 
@@ -278,7 +278,7 @@ public class GetV1PaidStorageTasksTaskIdDownloadResponse200Inner {
   }
 
   public GetV1PaidStorageTasksTaskIdDownloadResponse200Inner giId(
-      @jakarta.annotation.Nullable Integer giId) {
+      @jakarta.annotation.Nullable Long giId) {
     this.giId = giId;
     return this;
   }
@@ -289,16 +289,16 @@ public class GetV1PaidStorageTasksTaskIdDownloadResponse200Inner {
    * @return giId
    */
   @jakarta.annotation.Nullable
-  public Integer getGiId() {
+  public Long getGiId() {
     return giId;
   }
 
-  public void setGiId(@jakarta.annotation.Nullable Integer giId) {
+  public void setGiId(@jakarta.annotation.Nullable Long giId) {
     this.giId = giId;
   }
 
   public GetV1PaidStorageTasksTaskIdDownloadResponse200Inner chrtId(
-      @jakarta.annotation.Nullable Integer chrtId) {
+      @jakarta.annotation.Nullable Long chrtId) {
     this.chrtId = chrtId;
     return this;
   }
@@ -309,11 +309,11 @@ public class GetV1PaidStorageTasksTaskIdDownloadResponse200Inner {
    * @return chrtId
    */
   @jakarta.annotation.Nullable
-  public Integer getChrtId() {
+  public Long getChrtId() {
     return chrtId;
   }
 
-  public void setChrtId(@jakarta.annotation.Nullable Integer chrtId) {
+  public void setChrtId(@jakarta.annotation.Nullable Long chrtId) {
     this.chrtId = chrtId;
   }
 
@@ -418,7 +418,7 @@ public class GetV1PaidStorageTasksTaskIdDownloadResponse200Inner {
   }
 
   public GetV1PaidStorageTasksTaskIdDownloadResponse200Inner nmId(
-      @jakarta.annotation.Nullable Integer nmId) {
+      @jakarta.annotation.Nullable Long nmId) {
     this.nmId = nmId;
     return this;
   }
@@ -429,11 +429,11 @@ public class GetV1PaidStorageTasksTaskIdDownloadResponse200Inner {
    * @return nmId
    */
   @jakarta.annotation.Nullable
-  public Integer getNmId() {
+  public Long getNmId() {
     return nmId;
   }
 
-  public void setNmId(@jakarta.annotation.Nullable Integer nmId) {
+  public void setNmId(@jakarta.annotation.Nullable Long nmId) {
     this.nmId = nmId;
   }
 
@@ -498,7 +498,7 @@ public class GetV1PaidStorageTasksTaskIdDownloadResponse200Inner {
   }
 
   public GetV1PaidStorageTasksTaskIdDownloadResponse200Inner barcodesCount(
-      @jakarta.annotation.Nullable Integer barcodesCount) {
+      @jakarta.annotation.Nullable Long barcodesCount) {
     this.barcodesCount = barcodesCount;
     return this;
   }
@@ -509,16 +509,16 @@ public class GetV1PaidStorageTasksTaskIdDownloadResponse200Inner {
    * @return barcodesCount
    */
   @jakarta.annotation.Nullable
-  public Integer getBarcodesCount() {
+  public Long getBarcodesCount() {
     return barcodesCount;
   }
 
-  public void setBarcodesCount(@jakarta.annotation.Nullable Integer barcodesCount) {
+  public void setBarcodesCount(@jakarta.annotation.Nullable Long barcodesCount) {
     this.barcodesCount = barcodesCount;
   }
 
   public GetV1PaidStorageTasksTaskIdDownloadResponse200Inner palletPlaceCode(
-      @jakarta.annotation.Nullable Integer palletPlaceCode) {
+      @jakarta.annotation.Nullable Long palletPlaceCode) {
     this.palletPlaceCode = palletPlaceCode;
     return this;
   }
@@ -530,11 +530,11 @@ public class GetV1PaidStorageTasksTaskIdDownloadResponse200Inner {
    * @return palletPlaceCode
    */
   @jakarta.annotation.Nullable
-  public Integer getPalletPlaceCode() {
+  public Long getPalletPlaceCode() {
     return palletPlaceCode;
   }
 
-  public void setPalletPlaceCode(@jakarta.annotation.Nullable Integer palletPlaceCode) {
+  public void setPalletPlaceCode(@jakarta.annotation.Nullable Long palletPlaceCode) {
     this.palletPlaceCode = palletPlaceCode;
   }
 

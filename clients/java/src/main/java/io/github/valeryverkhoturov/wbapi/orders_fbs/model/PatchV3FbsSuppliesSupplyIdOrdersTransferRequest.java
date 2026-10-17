@@ -39,7 +39,7 @@ public class PatchV3FbsSuppliesSupplyIdOrdersTransferRequest {
 
   @SerializedName(SERIALIZED_NAME_ORDER_IDS)
   @jakarta.annotation.Nonnull
-  private List<Integer> orderIds = new ArrayList<>();
+  private List<Long> orderIds = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_NEW_SUPPLY_ID = "newSupplyId";
 
@@ -50,12 +50,12 @@ public class PatchV3FbsSuppliesSupplyIdOrdersTransferRequest {
   public PatchV3FbsSuppliesSupplyIdOrdersTransferRequest() {}
 
   public PatchV3FbsSuppliesSupplyIdOrdersTransferRequest orderIds(
-      @jakarta.annotation.Nonnull List<Integer> orderIds) {
+      @jakarta.annotation.Nonnull List<Long> orderIds) {
     this.orderIds = orderIds;
     return this;
   }
 
-  public PatchV3FbsSuppliesSupplyIdOrdersTransferRequest addOrderIdsItem(Integer orderIdsItem) {
+  public PatchV3FbsSuppliesSupplyIdOrdersTransferRequest addOrderIdsItem(Long orderIdsItem) {
     if (this.orderIds == null) {
       this.orderIds = new ArrayList<>();
     }
@@ -69,11 +69,11 @@ public class PatchV3FbsSuppliesSupplyIdOrdersTransferRequest {
    * @return orderIds
    */
   @jakarta.annotation.Nonnull
-  public List<Integer> getOrderIds() {
+  public List<Long> getOrderIds() {
     return orderIds;
   }
 
-  public void setOrderIds(@jakarta.annotation.Nonnull List<Integer> orderIds) {
+  public void setOrderIds(@jakarta.annotation.Nonnull List<Long> orderIds) {
     this.orderIds = orderIds;
   }
 

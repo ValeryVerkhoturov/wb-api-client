@@ -46,7 +46,7 @@ public class MeasurementPenaltiesData {
 
   @SerializedName(SERIALIZED_NAME_TOTAL)
   @jakarta.annotation.Nullable
-  private Integer total;
+  private Long total;
 
   public MeasurementPenaltiesData() {}
 
@@ -79,7 +79,7 @@ public class MeasurementPenaltiesData {
     this.reports = reports;
   }
 
-  public MeasurementPenaltiesData total(@jakarta.annotation.Nullable Integer total) {
+  public MeasurementPenaltiesData total(@jakarta.annotation.Nullable Long total) {
     this.total = total;
     return this;
   }
@@ -90,11 +90,11 @@ public class MeasurementPenaltiesData {
    * @return total
    */
   @jakarta.annotation.Nullable
-  public Integer getTotal() {
+  public Long getTotal() {
     return total;
   }
 
-  public void setTotal(@jakarta.annotation.Nullable Integer total) {
+  public void setTotal(@jakarta.annotation.Nullable Long total) {
     this.total = total;
   }
 

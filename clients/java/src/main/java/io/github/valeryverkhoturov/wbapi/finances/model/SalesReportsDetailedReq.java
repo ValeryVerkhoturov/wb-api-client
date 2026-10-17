@@ -52,13 +52,13 @@ public class SalesReportsDetailedReq {
 
   @SerializedName(SERIALIZED_NAME_LIMIT)
   @jakarta.annotation.Nullable
-  private Integer limit = 100000;
+  private Long limit = 100000l;
 
   public static final String SERIALIZED_NAME_RRD_ID = "rrdId";
 
   @SerializedName(SERIALIZED_NAME_RRD_ID)
   @jakarta.annotation.Nullable
-  private Integer rrdId = 0;
+  private Long rrdId = 0l;
 
   /** Периодичность отчётов: - &#x60;weekly&#x60; — еженедельные - &#x60;daily&#x60; — ежедневные */
   @JsonAdapter(PeriodEnum.Adapter.class)
@@ -171,7 +171,7 @@ public class SalesReportsDetailedReq {
     this.dateTo = dateTo;
   }
 
-  public SalesReportsDetailedReq limit(@jakarta.annotation.Nullable Integer limit) {
+  public SalesReportsDetailedReq limit(@jakarta.annotation.Nullable Long limit) {
     this.limit = limit;
     return this;
   }
@@ -182,15 +182,15 @@ public class SalesReportsDetailedReq {
    * @return limit
    */
   @jakarta.annotation.Nullable
-  public Integer getLimit() {
+  public Long getLimit() {
     return limit;
   }
 
-  public void setLimit(@jakarta.annotation.Nullable Integer limit) {
+  public void setLimit(@jakarta.annotation.Nullable Long limit) {
     this.limit = limit;
   }
 
-  public SalesReportsDetailedReq rrdId(@jakarta.annotation.Nullable Integer rrdId) {
+  public SalesReportsDetailedReq rrdId(@jakarta.annotation.Nullable Long rrdId) {
     this.rrdId = rrdId;
     return this;
   }
@@ -204,11 +204,11 @@ public class SalesReportsDetailedReq {
    * @return rrdId
    */
   @jakarta.annotation.Nullable
-  public Integer getRrdId() {
+  public Long getRrdId() {
     return rrdId;
   }
 
-  public void setRrdId(@jakarta.annotation.Nullable Integer rrdId) {
+  public void setRrdId(@jakarta.annotation.Nullable Long rrdId) {
     this.rrdId = rrdId;
   }
 

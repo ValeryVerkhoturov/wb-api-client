@@ -43,7 +43,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /// <param name="height">Высота, см.</param>
         /// <param name="photoUrls">Фото замеров.</param>
         /// <param name="dt">Дата и время.</param>
-        public WHMDataReportsInner(int nmId = default(int), string subjectName = default(string), int dimId = default(int), decimal volume = default(decimal), int width = default(int), int length = default(int), int height = default(int), List<string> photoUrls = default(List<string>), string dt = default(string))
+        public WHMDataReportsInner(long nmId = default(long), string subjectName = default(string), long dimId = default(long), decimal volume = default(decimal), long width = default(long), long length = default(long), long height = default(long), List<string> photoUrls = default(List<string>), string dt = default(string))
         {
             this.NmId = nmId;
             this.SubjectName = subjectName;
@@ -64,7 +64,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         <example>123456789</example>
         */
         [DataMember(Name = "nmId", EmitDefaultValue = false)]
-        public int NmId { get; set; }
+        public long NmId { get; set; }
 
         /// <summary>
         /// Предмет
@@ -81,7 +81,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         <example>123456789</example>
         */
         [DataMember(Name = "dimId", EmitDefaultValue = false)]
-        public int DimId { get; set; }
+        public long DimId { get; set; }
 
         /// <summary>
         /// Объём, л
@@ -98,7 +98,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         <example>66</example>
         */
         [DataMember(Name = "width", EmitDefaultValue = false)]
-        public int Width { get; set; }
+        public long Width { get; set; }
 
         /// <summary>
         /// Длина, см
@@ -108,7 +108,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         <example>54</example>
         */
         [DataMember(Name = "length", EmitDefaultValue = false)]
-        public int Length { get; set; }
+        public long Length { get; set; }
 
         /// <summary>
         /// Высота, см
@@ -118,7 +118,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         <example>11</example>
         */
         [DataMember(Name = "height", EmitDefaultValue = false)]
-        public int Height { get; set; }
+        public long Height { get; set; }
 
         /// <summary>
         /// Фото замеров

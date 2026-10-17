@@ -44,7 +44,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Model
         /// <param name="techSize">Размер товара.</param>
         /// <param name="title">Название товара.</param>
         /// <param name="vendorCode">Артикул продавца.</param>
-        public ModelsDraftItemItem(string sku = default(string), string color = default(string), int quantity = default(int), string brandName = default(string), string imgSrc = default(string), int nmId = default(int), string subjectName = default(string), string techSize = default(string), string title = default(string), string vendorCode = default(string))
+        public ModelsDraftItemItem(string sku = default(string), string color = default(string), long quantity = default(long), string brandName = default(string), string imgSrc = default(string), long nmId = default(long), string subjectName = default(string), string techSize = default(string), string title = default(string), string vendorCode = default(string))
         {
             this.Sku = sku;
             this.Color = color;
@@ -77,7 +77,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Model
         /// </summary>
         /// <value>Количество единиц товара</value>
         [DataMember(Name = "quantity", EmitDefaultValue = false)]
-        public int Quantity { get; set; }
+        public long Quantity { get; set; }
 
         /// <summary>
         /// Бренд
@@ -98,7 +98,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Model
         /// </summary>
         /// <value>Артикул WB</value>
         [DataMember(Name = "nmId", EmitDefaultValue = false)]
-        public int NmId { get; set; }
+        public long NmId { get; set; }
 
         /// <summary>
         /// Предмет

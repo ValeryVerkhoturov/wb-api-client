@@ -40,7 +40,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         /// <param name="supplierArticle">Артикул продавца.</param>
         /// <param name="supplierName">Имя продавца.</param>
         /// <param name="brandName">Название бренда.</param>
-        public GetV1QuestionResponse200DataProductDetails(int nmId = default(int), int imtId = default(int), string productName = default(string), string supplierArticle = default(string), string supplierName = default(string), string brandName = default(string))
+        public GetV1QuestionResponse200DataProductDetails(long nmId = default(long), long imtId = default(long), string productName = default(string), string supplierArticle = default(string), string supplierName = default(string), string brandName = default(string))
         {
             this.NmId = nmId;
             this.ImtId = imtId;
@@ -55,14 +55,14 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         /// </summary>
         /// <value>Артикул WB</value>
         [DataMember(Name = "nmId", EmitDefaultValue = false)]
-        public int NmId { get; set; }
+        public long NmId { get; set; }
 
         /// <summary>
         /// ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров
         /// </summary>
         /// <value>ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров</value>
         [DataMember(Name = "imtId", EmitDefaultValue = false)]
-        public int ImtId { get; set; }
+        public long ImtId { get; set; }
 
         /// <summary>
         /// Название товара

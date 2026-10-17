@@ -36,7 +36,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Model
         /// </summary>
         /// <param name="code">Код подтверждения.  Отображается у покупателя на сайте и в приложении Wildberries.</param>
         /// <param name="orderId">ID сборочного задания.</param>
-        public ApiOrderCodeRequest(string code = default(string), int orderId = default(int))
+        public ApiOrderCodeRequest(string code = default(string), long orderId = default(long))
         {
             this.Code = code;
             this.OrderId = orderId;
@@ -60,7 +60,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Model
         <example>123456</example>
         */
         [DataMember(Name = "orderId", EmitDefaultValue = false)]
-        public int OrderId { get; set; }
+        public long OrderId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

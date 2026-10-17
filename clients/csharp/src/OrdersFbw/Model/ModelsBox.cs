@@ -37,7 +37,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Model
         /// <param name="packageCode">Штрих-код упаковки.</param>
         /// <param name="quantity">Суммарное количество товара в упаковке, шт.</param>
         /// <param name="barcodes">Список упакованных товаров.</param>
-        public ModelsBox(string packageCode = default(string), int quantity = default(int), List<ModelsGoodInBox> barcodes = default(List<ModelsGoodInBox>))
+        public ModelsBox(string packageCode = default(string), long quantity = default(long), List<ModelsGoodInBox> barcodes = default(List<ModelsGoodInBox>))
         {
             this.PackageCode = packageCode;
             this.Quantity = quantity;
@@ -56,7 +56,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Model
         /// </summary>
         /// <value>Суммарное количество товара в упаковке, шт</value>
         [DataMember(Name = "quantity", EmitDefaultValue = false)]
-        public int Quantity { get; set; }
+        public long Quantity { get; set; }
 
         /// <summary>
         /// Список упакованных товаров

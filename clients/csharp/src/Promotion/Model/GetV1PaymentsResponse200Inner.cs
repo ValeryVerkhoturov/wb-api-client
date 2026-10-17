@@ -41,7 +41,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <param name="statusId">Статус: - &#x60;0&#x60; — ошибка - &#x60;1&#x60; — обработано .</param>
         /// <param name="cardStatus">Статус операции при оплате картой: - &#x60;success&#x60; — успех - &#x60;fail&#x60; — неуспех - &#x60;pending&#x60; — в ожидании ответа - &#x60;unknown&#x60; — неизвестно .</param>
         /// <param name="currency">Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances).</param>
-        public GetV1PaymentsResponse200Inner(int id = default(int), string date = default(string), int sum = default(int), int type = default(int), int statusId = default(int), string cardStatus = default(string), string currency = default(string))
+        public GetV1PaymentsResponse200Inner(long id = default(long), string date = default(string), long sum = default(long), long type = default(long), long statusId = default(long), string cardStatus = default(string), string currency = default(string))
         {
             this.Id = id;
             this.Date = date;
@@ -57,7 +57,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <value>ID платежа</value>
         [DataMember(Name = "id", EmitDefaultValue = false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// Дата платежа
@@ -71,21 +71,21 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <value>Сумма платежа</value>
         [DataMember(Name = "sum", EmitDefaultValue = false)]
-        public int Sum { get; set; }
+        public long Sum { get; set; }
 
         /// <summary>
         /// Тип источника списания: - &#x60;0&#x60; — Счёт - &#x60;1&#x60; — Баланс - &#x60;3&#x60; — Картой 
         /// </summary>
         /// <value>Тип источника списания: - &#x60;0&#x60; — Счёт - &#x60;1&#x60; — Баланс - &#x60;3&#x60; — Картой </value>
         [DataMember(Name = "type", EmitDefaultValue = false)]
-        public int Type { get; set; }
+        public long Type { get; set; }
 
         /// <summary>
         /// Статус: - &#x60;0&#x60; — ошибка - &#x60;1&#x60; — обработано 
         /// </summary>
         /// <value>Статус: - &#x60;0&#x60; — ошибка - &#x60;1&#x60; — обработано </value>
         [DataMember(Name = "statusId", EmitDefaultValue = false)]
-        public int StatusId { get; set; }
+        public long StatusId { get; set; }
 
         /// <summary>
         /// Статус операции при оплате картой: - &#x60;success&#x60; — успех - &#x60;fail&#x60; — неуспех - &#x60;pending&#x60; — в ожидании ответа - &#x60;unknown&#x60; — неизвестно 

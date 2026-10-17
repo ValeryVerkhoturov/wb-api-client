@@ -37,7 +37,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <param name="dt">Дата.</param>
         /// <param name="visibility">Видимость карточки в результатах поиска, %.</param>
         /// <param name="open">Количество переходов в карточку.</param>
-        public VisibilityInfoByDayInner(string dt = default(string), int visibility = default(int), int open = default(int))
+        public VisibilityInfoByDayInner(string dt = default(string), long visibility = default(long), long open = default(long))
         {
             this.Dt = dt;
             this.Visibility = visibility;
@@ -62,7 +62,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         <example>100</example>
         */
         [DataMember(Name = "visibility", EmitDefaultValue = false)]
-        public int Visibility { get; set; }
+        public long Visibility { get; set; }
 
         /// <summary>
         /// Количество переходов в карточку
@@ -72,7 +72,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         <example>124</example>
         */
         [DataMember(Name = "open", EmitDefaultValue = false)]
-        public int Open { get; set; }
+        public long Open { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

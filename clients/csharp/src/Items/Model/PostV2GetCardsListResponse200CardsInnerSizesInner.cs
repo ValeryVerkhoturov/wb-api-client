@@ -38,7 +38,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// <param name="techSize">Размер товара (А, XXL, 57 и др.).</param>
         /// <param name="wbSize">Российский размер товара.</param>
         /// <param name="skus">Баркод товара.</param>
-        public PostV2GetCardsListResponse200CardsInnerSizesInner(int chrtID = default(int), string techSize = default(string), string wbSize = default(string), List<string> skus = default(List<string>))
+        public PostV2GetCardsListResponse200CardsInnerSizesInner(long chrtID = default(long), string techSize = default(string), string wbSize = default(string), List<string> skus = default(List<string>))
         {
             this.ChrtID = chrtID;
             this.TechSize = techSize;
@@ -51,7 +51,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// </summary>
         /// <value>Числовой ID размера для данного артикула WB</value>
         [DataMember(Name = "chrtID", EmitDefaultValue = false)]
-        public int ChrtID { get; set; }
+        public long ChrtID { get; set; }
 
         /// <summary>
         /// Размер товара (А, XXL, 57 и др.)

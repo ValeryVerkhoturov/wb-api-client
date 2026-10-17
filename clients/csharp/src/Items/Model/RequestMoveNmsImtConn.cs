@@ -41,7 +41,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// </summary>
         /// <param name="targetIMT">Существующий &#x60;imtID&#x60;, под которым необходимо [объединить](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточки товаров (required).</param>
         /// <param name="nmIDs">&#x60;nmID&#x60;, которые необходимо объединить  (required).</param>
-        public RequestMoveNmsImtConn(int targetIMT = default(int), List<int> nmIDs = default(List<int>))
+        public RequestMoveNmsImtConn(long targetIMT = default(long), List<long> nmIDs = default(List<long>))
         {
             this.TargetIMT = targetIMT;
             // to ensure "nmIDs" is required (not null)
@@ -60,7 +60,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         <example>123</example>
         */
         [DataMember(Name = "targetIMT", IsRequired = true, EmitDefaultValue = true)]
-        public int TargetIMT { get; set; }
+        public long TargetIMT { get; set; }
 
         /// <summary>
         /// &#x60;nmID&#x60;, которые необходимо объединить 
@@ -70,7 +70,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         <example>[837459235,828572090]</example>
         */
         [DataMember(Name = "nmIDs", IsRequired = true, EmitDefaultValue = true)]
-        public List<int> NmIDs { get; set; }
+        public List<long> NmIDs { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -39,7 +39,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <param name="requestId">Уникальный ID запроса.</param>
         /// <param name="status">HTTP статус-код.</param>
         /// <param name="title">Заголовок ошибки.</param>
-        public StandardizedBatchError(string detail = default(string), string origin = default(string), string requestId = default(string), int status = default(int), string title = default(string))
+        public StandardizedBatchError(string detail = default(string), string origin = default(string), string requestId = default(string), long status = default(long), string title = default(string))
         {
             this.Detail = detail;
             this.Origin = origin;
@@ -86,7 +86,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         <example>400</example>
         */
         [DataMember(Name = "status", EmitDefaultValue = false)]
-        public int Status { get; set; }
+        public long Status { get; set; }
 
         /// <summary>
         /// Заголовок ошибки

@@ -37,18 +37,17 @@ public class TableItemStMetricsAllOfCurrentPrice {
 
   @SerializedName(SERIALIZED_NAME_MIN_PRICE)
   @jakarta.annotation.Nullable
-  private Integer minPrice;
+  private Long minPrice;
 
   public static final String SERIALIZED_NAME_MAX_PRICE = "maxPrice";
 
   @SerializedName(SERIALIZED_NAME_MAX_PRICE)
   @jakarta.annotation.Nullable
-  private Integer maxPrice;
+  private Long maxPrice;
 
   public TableItemStMetricsAllOfCurrentPrice() {}
 
-  public TableItemStMetricsAllOfCurrentPrice minPrice(
-      @jakarta.annotation.Nullable Integer minPrice) {
+  public TableItemStMetricsAllOfCurrentPrice minPrice(@jakarta.annotation.Nullable Long minPrice) {
     this.minPrice = minPrice;
     return this;
   }
@@ -59,16 +58,15 @@ public class TableItemStMetricsAllOfCurrentPrice {
    * @return minPrice
    */
   @jakarta.annotation.Nullable
-  public Integer getMinPrice() {
+  public Long getMinPrice() {
     return minPrice;
   }
 
-  public void setMinPrice(@jakarta.annotation.Nullable Integer minPrice) {
+  public void setMinPrice(@jakarta.annotation.Nullable Long minPrice) {
     this.minPrice = minPrice;
   }
 
-  public TableItemStMetricsAllOfCurrentPrice maxPrice(
-      @jakarta.annotation.Nullable Integer maxPrice) {
+  public TableItemStMetricsAllOfCurrentPrice maxPrice(@jakarta.annotation.Nullable Long maxPrice) {
     this.maxPrice = maxPrice;
     return this;
   }
@@ -79,11 +77,11 @@ public class TableItemStMetricsAllOfCurrentPrice {
    * @return maxPrice
    */
   @jakarta.annotation.Nullable
-  public Integer getMaxPrice() {
+  public Long getMaxPrice() {
     return maxPrice;
   }
 
-  public void setMaxPrice(@jakarta.annotation.Nullable Integer maxPrice) {
+  public void setMaxPrice(@jakarta.annotation.Nullable Long maxPrice) {
     this.maxPrice = maxPrice;
   }
 

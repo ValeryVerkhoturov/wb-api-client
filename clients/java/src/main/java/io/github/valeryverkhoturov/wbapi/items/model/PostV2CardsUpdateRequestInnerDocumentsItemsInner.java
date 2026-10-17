@@ -37,7 +37,7 @@ public class PostV2CardsUpdateRequestInnerDocumentsItemsInner {
 
   @SerializedName(SERIALIZED_NAME_TYPE)
   @jakarta.annotation.Nullable
-  private Integer type;
+  private Long type;
 
   public static final String SERIALIZED_NAME_NUMBER = "number";
 
@@ -90,7 +90,7 @@ public class PostV2CardsUpdateRequestInnerDocumentsItemsInner {
   public PostV2CardsUpdateRequestInnerDocumentsItemsInner() {}
 
   public PostV2CardsUpdateRequestInnerDocumentsItemsInner type(
-      @jakarta.annotation.Nullable Integer type) {
+      @jakarta.annotation.Nullable Long type) {
     this.type = type;
     return this;
   }
@@ -115,11 +115,11 @@ public class PostV2CardsUpdateRequestInnerDocumentsItemsInner {
    * @return type
    */
   @jakarta.annotation.Nullable
-  public Integer getType() {
+  public Long getType() {
     return type;
   }
 
-  public void setType(@jakarta.annotation.Nullable Integer type) {
+  public void setType(@jakarta.annotation.Nullable Long type) {
     this.type = type;
   }
 

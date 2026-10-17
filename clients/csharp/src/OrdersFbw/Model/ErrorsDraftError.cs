@@ -39,7 +39,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Model
         /// <param name="detail">Детали ошибки.</param>
         /// <param name="requestId">Уникальный ID запроса.</param>
         /// <param name="origin">ID внутреннего сервиса WB.</param>
-        public ErrorsDraftError(int status = default(int), string title = default(string), string detail = default(string), string requestId = default(string), string origin = default(string))
+        public ErrorsDraftError(long status = default(long), string title = default(string), string detail = default(string), string requestId = default(string), string origin = default(string))
         {
             this.Status = status;
             this.Title = title;
@@ -53,7 +53,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Model
         /// </summary>
         /// <value>HTTP статус-код</value>
         [DataMember(Name = "status", EmitDefaultValue = false)]
-        public int Status { get; set; }
+        public long Status { get; set; }
 
         /// <summary>
         /// Заголовок ошибки

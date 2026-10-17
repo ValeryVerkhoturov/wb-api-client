@@ -38,7 +38,7 @@ public class ModelsItemScans {
 
   @SerializedName(SERIALIZED_NAME_SCAN_ID)
   @jakarta.annotation.Nullable
-  private Integer scanId;
+  private Long scanId;
 
   public static final String SERIALIZED_NAME_DECLARED_SKU = "declaredSku";
 
@@ -123,7 +123,7 @@ public class ModelsItemScans {
 
   public ModelsItemScans() {}
 
-  public ModelsItemScans scanId(@jakarta.annotation.Nullable Integer scanId) {
+  public ModelsItemScans scanId(@jakarta.annotation.Nullable Long scanId) {
     this.scanId = scanId;
     return this;
   }
@@ -134,11 +134,11 @@ public class ModelsItemScans {
    * @return scanId
    */
   @jakarta.annotation.Nullable
-  public Integer getScanId() {
+  public Long getScanId() {
     return scanId;
   }
 
-  public void setScanId(@jakarta.annotation.Nullable Integer scanId) {
+  public void setScanId(@jakarta.annotation.Nullable Long scanId) {
     this.scanId = scanId;
   }
 

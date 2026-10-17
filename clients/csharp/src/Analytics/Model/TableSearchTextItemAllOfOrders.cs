@@ -37,7 +37,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <param name="current">Текущее количество.</param>
         /// <param name="dynamics">Динамика по сравнению с предыдущим периодом, %.</param>
         /// <param name="percentile">Процент, на который показатель заказов выше, чем у карточек других продавцов по поисковому запросу.</param>
-        public TableSearchTextItemAllOfOrders(int current = default(int), int dynamics = default(int), int percentile = default(int))
+        public TableSearchTextItemAllOfOrders(long current = default(long), long dynamics = default(long), long percentile = default(long))
         {
             this.Current = current;
             this.Dynamics = dynamics;
@@ -52,7 +52,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         <example>5</example>
         */
         [DataMember(Name = "current", EmitDefaultValue = false)]
-        public int Current { get; set; }
+        public long Current { get; set; }
 
         /// <summary>
         /// Динамика по сравнению с предыдущим периодом, %
@@ -62,7 +62,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         <example>50</example>
         */
         [DataMember(Name = "dynamics", EmitDefaultValue = false)]
-        public int Dynamics { get; set; }
+        public long Dynamics { get; set; }
 
         /// <summary>
         /// Процент, на который показатель заказов выше, чем у карточек других продавцов по поисковому запросу
@@ -72,7 +72,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         <example>50</example>
         */
         [DataMember(Name = "percentile", EmitDefaultValue = false)]
-        public int Percentile { get; set; }
+        public long Percentile { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

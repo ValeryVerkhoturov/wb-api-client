@@ -41,7 +41,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// </summary>
         /// <param name="name">Имя склада продавца (required).</param>
         /// <param name="officeId">ID [склада WB](./item-management#tag/sellerWarehouses/operation/getV3Offices). Нельзя привязывать склад WB, который уже используется. Можно менять не чаще одного раза в сутки (required).</param>
-        public PutV3WarehousesWarehouseIdRequest(string name = default(string), int officeId = default(int))
+        public PutV3WarehousesWarehouseIdRequest(string name = default(string), long officeId = default(long))
         {
             // to ensure "name" is required (not null)
             if (name == null)
@@ -70,7 +70,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         <example>15</example>
         */
         [DataMember(Name = "officeId", IsRequired = true, EmitDefaultValue = true)]
-        public int OfficeId { get; set; }
+        public long OfficeId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -105,19 +105,19 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
             // Name (string) maxLength
             if (this.Name != null && this.Name.Length > 200)
             {
-                yield return new ValidationResult("Invalid value for Name, length must be less than 200.", new [] { "Name" });
+                yield return new ValidationResult("Invalid value for Name, length must be less than 200.", new[] { "Name" });
             }
 
             // Name (string) minLength
             if (this.Name != null && this.Name.Length < 1)
             {
-                yield return new ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
+                yield return new ValidationResult("Invalid value for Name, length must be greater than 1.", new[] { "Name" });
             }
 
-            // OfficeId (int) minimum
-            if (this.OfficeId < (int)1)
+            // OfficeId (long) minimum
+            if (this.OfficeId < (long)1)
             {
-                yield return new ValidationResult("Invalid value for OfficeId, must be a value greater than or equal to 1.", new [] { "OfficeId" });
+                yield return new ValidationResult("Invalid value for OfficeId, must be a value greater than or equal to 1.", new[] { "OfficeId" });
             }
 
             yield break;

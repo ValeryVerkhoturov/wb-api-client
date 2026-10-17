@@ -38,7 +38,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// <param name="convertedPrice">Цена в валюте страны продавца с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100.</param>
         /// <param name="currencyCode">Код валюты продажи.</param>
         /// <param name="price">Цена в валюте продажи с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100.</param>
-        public V3ArchiveOrderPriceInfo(int convertedCurrencyCode = default(int), int convertedPrice = default(int), int currencyCode = default(int), int price = default(int))
+        public V3ArchiveOrderPriceInfo(long convertedCurrencyCode = default(long), long convertedPrice = default(long), long currencyCode = default(long), long price = default(long))
         {
             this.ConvertedCurrencyCode = convertedCurrencyCode;
             this.ConvertedPrice = convertedPrice;
@@ -54,7 +54,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         <example>643</example>
         */
         [DataMember(Name = "convertedCurrencyCode", EmitDefaultValue = false)]
-        public int ConvertedCurrencyCode { get; set; }
+        public long ConvertedCurrencyCode { get; set; }
 
         /// <summary>
         /// Цена в валюте страны продавца с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100
@@ -64,7 +64,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         <example>1020</example>
         */
         [DataMember(Name = "convertedPrice", EmitDefaultValue = false)]
-        public int ConvertedPrice { get; set; }
+        public long ConvertedPrice { get; set; }
 
         /// <summary>
         /// Код валюты продажи
@@ -74,7 +74,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         <example>643</example>
         */
         [DataMember(Name = "currencyCode", EmitDefaultValue = false)]
-        public int CurrencyCode { get; set; }
+        public long CurrencyCode { get; set; }
 
         /// <summary>
         /// Цена в валюте продажи с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100
@@ -84,7 +84,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         <example>1020</example>
         */
         [DataMember(Name = "price", EmitDefaultValue = false)]
-        public int Price { get; set; }
+        public long Price { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

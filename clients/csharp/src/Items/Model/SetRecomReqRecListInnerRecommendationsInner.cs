@@ -36,7 +36,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// </summary>
         /// <param name="recomNm">Артикул WB рекомендуемого товара (default to 0).</param>
         /// <param name="sort">Позиция товара в списке рекомендаций.   Допустимые значения:  - &#x60;1&#x60;–&#x60;20&#x60; — фиксированная позиция:    - при создании или замене (&#x60;replace: true&#x60;) задаёт порядок отображения    - при добавлении (&#x60;replace: false&#x60;) вставляет товар на указанную позицию, существующие сдвигаются  - &#x60;0&#x60; — автоматическая сортировка товаров:    - при создании или замене (&#x60;replace: true&#x60;) — в порядке расположения товаров в массиве &#x60;recommendations&#x60;    - при добавлении (&#x60;replace: false&#x60;) — в конец списка существующих рекомендаций, сохраняя порядок из массива &#x60;recommendations&#x60;  (default to 20).</param>
-        public SetRecomReqRecListInnerRecommendationsInner(int recomNm = 0, int sort = 20)
+        public SetRecomReqRecListInnerRecommendationsInner(long recomNm = 0, long sort = 20)
         {
             this.RecomNm = recomNm;
             this.Sort = sort;
@@ -50,7 +50,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         <example>5870244</example>
         */
         [DataMember(Name = "recomNm", EmitDefaultValue = false)]
-        public int RecomNm { get; set; }
+        public long RecomNm { get; set; }
 
         /// <summary>
         /// Позиция товара в списке рекомендаций.   Допустимые значения:  - &#x60;1&#x60;–&#x60;20&#x60; — фиксированная позиция:    - при создании или замене (&#x60;replace: true&#x60;) задаёт порядок отображения    - при добавлении (&#x60;replace: false&#x60;) вставляет товар на указанную позицию, существующие сдвигаются  - &#x60;0&#x60; — автоматическая сортировка товаров:    - при создании или замене (&#x60;replace: true&#x60;) — в порядке расположения товаров в массиве &#x60;recommendations&#x60;    - при добавлении (&#x60;replace: false&#x60;) — в конец списка существующих рекомендаций, сохраняя порядок из массива &#x60;recommendations&#x60; 
@@ -60,7 +60,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         <example>1</example>
         */
         [DataMember(Name = "sort", EmitDefaultValue = false)]
-        public int Sort { get; set; }
+        public long Sort { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -92,16 +92,16 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// <returns>Validation Result</returns>
         IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Sort (int) maximum
-            if (this.Sort > (int)20)
+            // Sort (long) maximum
+            if (this.Sort > (long)20)
             {
-                yield return new ValidationResult("Invalid value for Sort, must be a value less than or equal to 20.", new [] { "Sort" });
+                yield return new ValidationResult("Invalid value for Sort, must be a value less than or equal to 20.", new[] { "Sort" });
             }
 
-            // Sort (int) minimum
-            if (this.Sort < (int)0)
+            // Sort (long) minimum
+            if (this.Sort < (long)0)
             {
-                yield return new ValidationResult("Invalid value for Sort, must be a value greater than or equal to 0.", new [] { "Sort" });
+                yield return new ValidationResult("Invalid value for Sort, must be a value greater than or equal to 0.", new[] { "Sort" });
             }
 
             yield break;

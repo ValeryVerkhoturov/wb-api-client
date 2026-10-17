@@ -40,7 +40,7 @@ public class SetRecomReqRecListInner {
 
   @SerializedName(SERIALIZED_NAME_NM_ID)
   @jakarta.annotation.Nullable
-  private Integer nmId = 0;
+  private Long nmId = 0l;
 
   public static final String SERIALIZED_NAME_RECOMMENDATIONS = "recommendations";
 
@@ -50,7 +50,7 @@ public class SetRecomReqRecListInner {
 
   public SetRecomReqRecListInner() {}
 
-  public SetRecomReqRecListInner nmId(@jakarta.annotation.Nullable Integer nmId) {
+  public SetRecomReqRecListInner nmId(@jakarta.annotation.Nullable Long nmId) {
     this.nmId = nmId;
     return this;
   }
@@ -61,11 +61,11 @@ public class SetRecomReqRecListInner {
    * @return nmId
    */
   @jakarta.annotation.Nullable
-  public Integer getNmId() {
+  public Long getNmId() {
     return nmId;
   }
 
-  public void setNmId(@jakarta.annotation.Nullable Integer nmId) {
+  public void setNmId(@jakarta.annotation.Nullable Long nmId) {
     this.nmId = nmId;
   }
 

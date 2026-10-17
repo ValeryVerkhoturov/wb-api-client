@@ -35,7 +35,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// Initializes a new instance of the <see cref="PostV2BarcodesRequest" /> class.
         /// </summary>
         /// <param name="count">Кол-во баркодов которые надо сгенерировать, максимальное доступное количество баркодов для генерации - &#x60;5 000&#x60;.</param>
-        public PostV2BarcodesRequest(int count = default(int))
+        public PostV2BarcodesRequest(long count = default(long))
         {
             this.Count = count;
         }
@@ -48,7 +48,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         <example>100</example>
         */
         [DataMember(Name = "count", EmitDefaultValue = false)]
-        public int Count { get; set; }
+        public long Count { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

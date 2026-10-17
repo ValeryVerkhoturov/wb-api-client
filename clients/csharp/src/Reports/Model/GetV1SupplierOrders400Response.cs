@@ -41,7 +41,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         public GetV1SupplierOrders400Response(ResponseErrorStatistics actualInstance)
         {
             this.IsNullable = false;
-            this.SchemaType= "oneOf";
+            this.SchemaType = "oneOf";
             this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
         }
 
@@ -53,7 +53,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         public GetV1SupplierOrders400Response(ResponseErrorStatistics2 actualInstance)
         {
             this.IsNullable = false;
-            this.SchemaType= "oneOf";
+            this.SchemaType = "oneOf";
             this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
         }
 
@@ -235,7 +235,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /// <returns>The object converted from the JSON string</returns>
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
-            switch(reader.TokenType) 
+            switch (reader.TokenType)
             {
                 case JsonToken.StartObject:
                     return GetV1SupplierOrders400Response.FromJson(JObject.Load(reader).ToString(Formatting.None));

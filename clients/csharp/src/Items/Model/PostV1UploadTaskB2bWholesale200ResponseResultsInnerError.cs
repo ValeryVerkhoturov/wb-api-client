@@ -42,7 +42,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// <param name="status">HTTP статус-код (required).</param>
         /// <param name="title">Заголовок ошибки (required).</param>
         /// <param name="detail">Детали ошибки (required).</param>
-        public PostV1UploadTaskB2bWholesale200ResponseResultsInnerError(int status = default(int), string title = default(string), string detail = default(string))
+        public PostV1UploadTaskB2bWholesale200ResponseResultsInnerError(long status = default(long), string title = default(string), string detail = default(string))
         {
             this.Status = status;
             // to ensure "title" is required (not null)
@@ -67,7 +67,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         <example>400</example>
         */
         [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = true)]
-        public int Status { get; set; }
+        public long Status { get; set; }
 
         /// <summary>
         /// Заголовок ошибки

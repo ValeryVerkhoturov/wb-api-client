@@ -53,7 +53,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <param name="oneStar">oneStar.</param>
         /// <param name="disqualified">Отзывы, исключённые из рейтинга.</param>
         /// <param name="isShadowed">Является ли товар скрытым из каталога:   - &#x60;true&#x60; — товар скрыт из каталога   - &#x60;false&#x60; — товар не скрыт из каталога .</param>
-        public DistributionTableItem(long nmId = default(long), string title = default(string), string vendorCode = default(string), int subjectId = default(int), string subjectName = default(string), string brandName = default(string), string tagName = default(string), long tagId = default(long), bool pinnedFeedback = default(bool), decimal rating = default(decimal), DistributionTableItemFeedbackRating feedbackRating = default(DistributionTableItemFeedbackRating), DistributionTableItemFeedbackCount feedbackCount = default(DistributionTableItemFeedbackCount), DistributionTableItemFiveStar fiveStar = default(DistributionTableItemFiveStar), DistributionTableItemFourStar fourStar = default(DistributionTableItemFourStar), DistributionTableItemThreeStar threeStar = default(DistributionTableItemThreeStar), DistributionTableItemTwoStar twoStar = default(DistributionTableItemTwoStar), DistributionTableItemOneStar oneStar = default(DistributionTableItemOneStar), int disqualified = default(int), bool isShadowed = default(bool))
+        public DistributionTableItem(long nmId = default(long), string title = default(string), string vendorCode = default(string), long subjectId = default(long), string subjectName = default(string), string brandName = default(string), string tagName = default(string), long tagId = default(long), bool pinnedFeedback = default(bool), decimal rating = default(decimal), DistributionTableItemFeedbackRating feedbackRating = default(DistributionTableItemFeedbackRating), DistributionTableItemFeedbackCount feedbackCount = default(DistributionTableItemFeedbackCount), DistributionTableItemFiveStar fiveStar = default(DistributionTableItemFiveStar), DistributionTableItemFourStar fourStar = default(DistributionTableItemFourStar), DistributionTableItemThreeStar threeStar = default(DistributionTableItemThreeStar), DistributionTableItemTwoStar twoStar = default(DistributionTableItemTwoStar), DistributionTableItemOneStar oneStar = default(DistributionTableItemOneStar), long disqualified = default(long), bool isShadowed = default(bool))
         {
             this.NmId = nmId;
             this.Title = title;
@@ -114,7 +114,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         <example>50</example>
         */
         [DataMember(Name = "subjectId", EmitDefaultValue = false)]
-        public int SubjectId { get; set; }
+        public long SubjectId { get; set; }
 
         /// <summary>
         /// Название предмета
@@ -226,7 +226,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         <example>7</example>
         */
         [DataMember(Name = "disqualified", EmitDefaultValue = false)]
-        public int Disqualified { get; set; }
+        public long Disqualified { get; set; }
 
         /// <summary>
         /// Является ли товар скрытым из каталога:   - &#x60;true&#x60; — товар скрыт из каталога   - &#x60;false&#x60; — товар не скрыт из каталога 

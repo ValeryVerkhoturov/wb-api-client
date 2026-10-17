@@ -41,7 +41,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /// <param name="photoUrls">URL фото товара.</param>
         /// <param name="shkID">Штрихкод товара в WB.</param>
         /// <param name="sku">Баркод из карточки товара.</param>
-        public GetV1AnalyticsGoodsLabeling200ResponseReportInner(decimal amount = default(decimal), string date = default(string), int incomeId = default(int), int nmID = default(int), List<string> photoUrls = default(List<string>), int shkID = default(int), string sku = default(string))
+        public GetV1AnalyticsGoodsLabeling200ResponseReportInner(decimal amount = default(decimal), string date = default(string), long incomeId = default(long), long nmID = default(long), List<string> photoUrls = default(List<string>), long shkID = default(long), string sku = default(string))
         {
             this.Amount = amount;
             this.Date = date;
@@ -71,14 +71,14 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /// </summary>
         /// <value>Номер поставки</value>
         [DataMember(Name = "incomeId", EmitDefaultValue = false)]
-        public int IncomeId { get; set; }
+        public long IncomeId { get; set; }
 
         /// <summary>
         /// Артикул WB
         /// </summary>
         /// <value>Артикул WB</value>
         [DataMember(Name = "nmID", EmitDefaultValue = false)]
-        public int NmID { get; set; }
+        public long NmID { get; set; }
 
         /// <summary>
         /// URL фото товара
@@ -92,7 +92,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /// </summary>
         /// <value>Штрихкод товара в WB</value>
         [DataMember(Name = "shkID", EmitDefaultValue = false)]
-        public int ShkID { get; set; }
+        public long ShkID { get; set; }
 
         /// <summary>
         /// Баркод из карточки товара

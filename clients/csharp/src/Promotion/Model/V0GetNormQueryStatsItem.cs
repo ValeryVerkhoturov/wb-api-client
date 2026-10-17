@@ -37,7 +37,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <param name="advertId">ID кампании.</param>
         /// <param name="nmId">Артикул WB.</param>
         /// <param name="stats">stats.</param>
-        public V0GetNormQueryStatsItem(int advertId = default(int), int nmId = default(int), List<V0GetNormQueryStatsItemStat> stats = default(List<V0GetNormQueryStatsItemStat>))
+        public V0GetNormQueryStatsItem(long advertId = default(long), long nmId = default(long), List<V0GetNormQueryStatsItemStat> stats = default(List<V0GetNormQueryStatsItemStat>))
         {
             this.AdvertId = advertId;
             this.NmId = nmId;
@@ -49,14 +49,14 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <value>ID кампании</value>
         [DataMember(Name = "advert_id", EmitDefaultValue = false)]
-        public int AdvertId { get; set; }
+        public long AdvertId { get; set; }
 
         /// <summary>
         /// Артикул WB
         /// </summary>
         /// <value>Артикул WB</value>
         [DataMember(Name = "nm_id", EmitDefaultValue = false)]
-        public int NmId { get; set; }
+        public long NmId { get; set; }
 
         /// <summary>
         /// Gets or Sets Stats

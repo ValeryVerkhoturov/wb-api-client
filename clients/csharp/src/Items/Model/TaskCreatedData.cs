@@ -36,7 +36,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// </summary>
         /// <param name="id">ID загрузки.</param>
         /// <param name="alreadyExists">Флаг дублирования загрузки: &#x60;true&#x60; — такая загрузка уже есть .</param>
-        public TaskCreatedData(int id = default(int), bool alreadyExists = default(bool))
+        public TaskCreatedData(long id = default(long), bool alreadyExists = default(bool))
         {
             this.Id = id;
             this.AlreadyExists = alreadyExists;
@@ -47,7 +47,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// </summary>
         /// <value>ID загрузки</value>
         [DataMember(Name = "id", EmitDefaultValue = false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// Флаг дублирования загрузки: &#x60;true&#x60; — такая загрузка уже есть 

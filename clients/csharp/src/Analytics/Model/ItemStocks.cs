@@ -37,7 +37,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <param name="wb">Общее количество остатков на складах WB на текущий день, шт..</param>
         /// <param name="mp">Общее количество остатков на складах продавца на текущий день, шт..</param>
         /// <param name="balanceSum">Сумма остатков на складах на текущий день, шт..</param>
-        public ItemStocks(int wb = default(int), int mp = default(int), int balanceSum = default(int))
+        public ItemStocks(long wb = default(long), long mp = default(long), long balanceSum = default(long))
         {
             this.Wb = wb;
             this.Mp = mp;
@@ -52,7 +52,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         <example>0</example>
         */
         [DataMember(Name = "wb", EmitDefaultValue = false)]
-        public int Wb { get; set; }
+        public long Wb { get; set; }
 
         /// <summary>
         /// Общее количество остатков на складах продавца на текущий день, шт.
@@ -62,7 +62,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         <example>0</example>
         */
         [DataMember(Name = "mp", EmitDefaultValue = false)]
-        public int Mp { get; set; }
+        public long Mp { get; set; }
 
         /// <summary>
         /// Сумма остатков на складах на текущий день, шт.
@@ -72,7 +72,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         <example>0</example>
         */
         [DataMember(Name = "balanceSum", EmitDefaultValue = false)]
-        public int BalanceSum { get; set; }
+        public long BalanceSum { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

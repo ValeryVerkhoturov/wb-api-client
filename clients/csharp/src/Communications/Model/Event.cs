@@ -57,7 +57,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         /// <param name="replySign">Подпись чата. Доступна только при &#x60;\&quot;isNewChat\&quot;: true&#x60;. Требуется при [отправке сообщения](./customer-communication#tag/buyersChat/operation/postV1SellerMessage) .</param>
         /// <param name="sender">sender.</param>
         /// <param name="clientName">Имя покупателя.</param>
-        public Event(string chatID = default(string), string eventID = default(string), EventType? eventType = default(EventType?), bool isNewChat = default(bool), EventMessage message = default(EventMessage), string source = default(string), int addTimestamp = default(int), string addTime = default(string), string replySign = default(string), Sender? sender = default(Sender?), string clientName = default(string))
+        public Event(string chatID = default(string), string eventID = default(string), EventType? eventType = default(EventType?), bool isNewChat = default(bool), EventMessage message = default(EventMessage), string source = default(string), long addTimestamp = default(long), string addTime = default(string), string replySign = default(string), Sender? sender = default(Sender?), string clientName = default(string))
         {
             this.ChatID = chatID;
             this.EventID = eventID;
@@ -111,7 +111,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         /// </summary>
         /// <value>Время появления события на сервере. Формат Unix timestamp</value>
         [DataMember(Name = "addTimestamp", EmitDefaultValue = false)]
-        public int AddTimestamp { get; set; }
+        public long AddTimestamp { get; set; }
 
         /// <summary>
         /// Время появления события на сервере в UTC

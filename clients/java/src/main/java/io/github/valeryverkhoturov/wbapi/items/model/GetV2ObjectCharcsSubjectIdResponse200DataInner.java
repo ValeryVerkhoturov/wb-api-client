@@ -37,7 +37,7 @@ public class GetV2ObjectCharcsSubjectIdResponse200DataInner {
 
   @SerializedName(SERIALIZED_NAME_CHARC_I_D)
   @jakarta.annotation.Nullable
-  private Integer charcID;
+  private Long charcID;
 
   public static final String SERIALIZED_NAME_SUBJECT_NAME = "subjectName";
 
@@ -49,7 +49,7 @@ public class GetV2ObjectCharcsSubjectIdResponse200DataInner {
 
   @SerializedName(SERIALIZED_NAME_SUBJECT_I_D)
   @jakarta.annotation.Nullable
-  private Integer subjectID;
+  private Long subjectID;
 
   public static final String SERIALIZED_NAME_NAME = "name";
 
@@ -73,7 +73,7 @@ public class GetV2ObjectCharcsSubjectIdResponse200DataInner {
 
   @SerializedName(SERIALIZED_NAME_MAX_COUNT)
   @jakarta.annotation.Nullable
-  private Integer maxCount;
+  private Long maxCount;
 
   public static final String SERIALIZED_NAME_POPULAR = "popular";
 
@@ -85,7 +85,7 @@ public class GetV2ObjectCharcsSubjectIdResponse200DataInner {
 
   @SerializedName(SERIALIZED_NAME_CHARC_TYPE)
   @jakarta.annotation.Nullable
-  private Integer charcType;
+  private Long charcType;
 
   public static final String SERIALIZED_NAME_HAS_FILTER = "hasFilter";
 
@@ -108,7 +108,7 @@ public class GetV2ObjectCharcsSubjectIdResponse200DataInner {
   public GetV2ObjectCharcsSubjectIdResponse200DataInner() {}
 
   public GetV2ObjectCharcsSubjectIdResponse200DataInner charcID(
-      @jakarta.annotation.Nullable Integer charcID) {
+      @jakarta.annotation.Nullable Long charcID) {
     this.charcID = charcID;
     return this;
   }
@@ -119,11 +119,11 @@ public class GetV2ObjectCharcsSubjectIdResponse200DataInner {
    * @return charcID
    */
   @jakarta.annotation.Nullable
-  public Integer getCharcID() {
+  public Long getCharcID() {
     return charcID;
   }
 
-  public void setCharcID(@jakarta.annotation.Nullable Integer charcID) {
+  public void setCharcID(@jakarta.annotation.Nullable Long charcID) {
     this.charcID = charcID;
   }
 
@@ -148,7 +148,7 @@ public class GetV2ObjectCharcsSubjectIdResponse200DataInner {
   }
 
   public GetV2ObjectCharcsSubjectIdResponse200DataInner subjectID(
-      @jakarta.annotation.Nullable Integer subjectID) {
+      @jakarta.annotation.Nullable Long subjectID) {
     this.subjectID = subjectID;
     return this;
   }
@@ -159,11 +159,11 @@ public class GetV2ObjectCharcsSubjectIdResponse200DataInner {
    * @return subjectID
    */
   @jakarta.annotation.Nullable
-  public Integer getSubjectID() {
+  public Long getSubjectID() {
     return subjectID;
   }
 
-  public void setSubjectID(@jakarta.annotation.Nullable Integer subjectID) {
+  public void setSubjectID(@jakarta.annotation.Nullable Long subjectID) {
     this.subjectID = subjectID;
   }
 
@@ -229,7 +229,7 @@ public class GetV2ObjectCharcsSubjectIdResponse200DataInner {
   }
 
   public GetV2ObjectCharcsSubjectIdResponse200DataInner maxCount(
-      @jakarta.annotation.Nullable Integer maxCount) {
+      @jakarta.annotation.Nullable Long maxCount) {
     this.maxCount = maxCount;
     return this;
   }
@@ -245,11 +245,11 @@ public class GetV2ObjectCharcsSubjectIdResponse200DataInner {
    * @return maxCount
    */
   @jakarta.annotation.Nullable
-  public Integer getMaxCount() {
+  public Long getMaxCount() {
     return maxCount;
   }
 
-  public void setMaxCount(@jakarta.annotation.Nullable Integer maxCount) {
+  public void setMaxCount(@jakarta.annotation.Nullable Long maxCount) {
     this.maxCount = maxCount;
   }
 
@@ -274,7 +274,7 @@ public class GetV2ObjectCharcsSubjectIdResponse200DataInner {
   }
 
   public GetV2ObjectCharcsSubjectIdResponse200DataInner charcType(
-      @jakarta.annotation.Nullable Integer charcType) {
+      @jakarta.annotation.Nullable Long charcType) {
     this.charcType = charcType;
     return this;
   }
@@ -289,11 +289,11 @@ public class GetV2ObjectCharcsSubjectIdResponse200DataInner {
    * @return charcType
    */
   @jakarta.annotation.Nullable
-  public Integer getCharcType() {
+  public Long getCharcType() {
     return charcType;
   }
 
-  public void setCharcType(@jakarta.annotation.Nullable Integer charcType) {
+  public void setCharcType(@jakarta.annotation.Nullable Long charcType) {
     this.charcType = charcType;
   }
 

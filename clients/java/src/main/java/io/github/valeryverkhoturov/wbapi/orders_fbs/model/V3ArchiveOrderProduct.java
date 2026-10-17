@@ -45,13 +45,13 @@ public class V3ArchiveOrderProduct {
 
   @SerializedName(SERIALIZED_NAME_CHRT_ID)
   @jakarta.annotation.Nullable
-  private Integer chrtId;
+  private Long chrtId;
 
   public static final String SERIALIZED_NAME_NM_ID = "nmId";
 
   @SerializedName(SERIALIZED_NAME_NM_ID)
   @jakarta.annotation.Nullable
-  private Integer nmId;
+  private Long nmId;
 
   public static final String SERIALIZED_NAME_SKUS = "skus";
 
@@ -80,7 +80,7 @@ public class V3ArchiveOrderProduct {
     this.article = article;
   }
 
-  public V3ArchiveOrderProduct chrtId(@jakarta.annotation.Nullable Integer chrtId) {
+  public V3ArchiveOrderProduct chrtId(@jakarta.annotation.Nullable Long chrtId) {
     this.chrtId = chrtId;
     return this;
   }
@@ -91,15 +91,15 @@ public class V3ArchiveOrderProduct {
    * @return chrtId
    */
   @jakarta.annotation.Nullable
-  public Integer getChrtId() {
+  public Long getChrtId() {
     return chrtId;
   }
 
-  public void setChrtId(@jakarta.annotation.Nullable Integer chrtId) {
+  public void setChrtId(@jakarta.annotation.Nullable Long chrtId) {
     this.chrtId = chrtId;
   }
 
-  public V3ArchiveOrderProduct nmId(@jakarta.annotation.Nullable Integer nmId) {
+  public V3ArchiveOrderProduct nmId(@jakarta.annotation.Nullable Long nmId) {
     this.nmId = nmId;
     return this;
   }
@@ -110,11 +110,11 @@ public class V3ArchiveOrderProduct {
    * @return nmId
    */
   @jakarta.annotation.Nullable
-  public Integer getNmId() {
+  public Long getNmId() {
     return nmId;
   }
 
-  public void setNmId(@jakarta.annotation.Nullable Integer nmId) {
+  public void setNmId(@jakarta.annotation.Nullable Long nmId) {
     this.nmId = nmId;
   }
 

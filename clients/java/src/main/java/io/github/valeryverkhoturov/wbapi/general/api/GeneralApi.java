@@ -1432,7 +1432,7 @@ public class GeneralApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public okhttp3.Call getV2NewsCall(String from, Integer fromID, final ApiCallback _callback)
+  public okhttp3.Call getV2NewsCall(String from, Long fromID, final ApiCallback _callback)
       throws ApiException {
     String basePath = null;
     // Operation Servers
@@ -1496,7 +1496,7 @@ public class GeneralApi {
 
   @SuppressWarnings("rawtypes")
   private okhttp3.Call getV2NewsValidateBeforeCall(
-      String from, Integer fromID, final ApiCallback _callback) throws ApiException {
+      String from, Long fromID, final ApiCallback _callback) throws ApiException {
     return getV2NewsCall(from, fromID, _callback);
   }
 
@@ -1527,7 +1527,7 @@ public class GeneralApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public GetV2NewsResponse200 getV2News(String from, Integer fromID) throws ApiException {
+  public GetV2NewsResponse200 getV2News(String from, Long fromID) throws ApiException {
     ApiResponse<GetV2NewsResponse200> localVarResp = getV2NewsWithHttpInfo(from, fromID);
     return localVarResp.getData();
   }
@@ -1559,7 +1559,7 @@ public class GeneralApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public ApiResponse<GetV2NewsResponse200> getV2NewsWithHttpInfo(String from, Integer fromID)
+  public ApiResponse<GetV2NewsResponse200> getV2NewsWithHttpInfo(String from, Long fromID)
       throws ApiException {
     okhttp3.Call localVarCall = getV2NewsValidateBeforeCall(from, fromID, null);
     Type localVarReturnType = new TypeToken<GetV2NewsResponse200>() {}.getType();
@@ -1595,7 +1595,7 @@ public class GeneralApi {
    * </table>
    */
   public okhttp3.Call getV2NewsAsync(
-      String from, Integer fromID, final ApiCallback<GetV2NewsResponse200> _callback)
+      String from, Long fromID, final ApiCallback<GetV2NewsResponse200> _callback)
       throws ApiException {
 
     okhttp3.Call localVarCall = getV2NewsValidateBeforeCall(from, fromID, _callback);

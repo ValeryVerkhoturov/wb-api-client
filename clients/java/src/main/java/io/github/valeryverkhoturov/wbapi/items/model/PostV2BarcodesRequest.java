@@ -37,11 +37,11 @@ public class PostV2BarcodesRequest {
 
   @SerializedName(SERIALIZED_NAME_COUNT)
   @jakarta.annotation.Nullable
-  private Integer count;
+  private Long count;
 
   public PostV2BarcodesRequest() {}
 
-  public PostV2BarcodesRequest count(@jakarta.annotation.Nullable Integer count) {
+  public PostV2BarcodesRequest count(@jakarta.annotation.Nullable Long count) {
     this.count = count;
     return this;
   }
@@ -53,11 +53,11 @@ public class PostV2BarcodesRequest {
    * @return count
    */
   @jakarta.annotation.Nullable
-  public Integer getCount() {
+  public Long getCount() {
     return count;
   }
 
-  public void setCount(@jakarta.annotation.Nullable Integer count) {
+  public void setCount(@jakarta.annotation.Nullable Long count) {
     this.count = count;
   }
 

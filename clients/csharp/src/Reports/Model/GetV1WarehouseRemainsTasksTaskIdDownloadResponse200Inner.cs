@@ -42,7 +42,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /// <param name="techSize">Размер.</param>
         /// <param name="volume">Объём, л.</param>
         /// <param name="warehouses">Остатки на складах и товары в пути. Будут в ответе только при ненулевом &#x60;quantity&#x60;.</param>
-        public GetV1WarehouseRemainsTasksTaskIdDownloadResponse200Inner(string brand = default(string), string subjectName = default(string), string vendorCode = default(string), int nmId = default(int), string barcode = default(string), string techSize = default(string), decimal volume = default(decimal), List<GetV1WarehouseRemainsTasksTaskIdDownloadResponse200InnerWarehousesInner> warehouses = default(List<GetV1WarehouseRemainsTasksTaskIdDownloadResponse200InnerWarehousesInner>))
+        public GetV1WarehouseRemainsTasksTaskIdDownloadResponse200Inner(string brand = default(string), string subjectName = default(string), string vendorCode = default(string), long nmId = default(long), string barcode = default(string), string techSize = default(string), decimal volume = default(decimal), List<GetV1WarehouseRemainsTasksTaskIdDownloadResponse200InnerWarehousesInner> warehouses = default(List<GetV1WarehouseRemainsTasksTaskIdDownloadResponse200InnerWarehousesInner>))
         {
             this.Brand = brand;
             this.SubjectName = subjectName;
@@ -92,7 +92,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         <example>183804172</example>
         */
         [DataMember(Name = "nmId", EmitDefaultValue = false)]
-        public int NmId { get; set; }
+        public long NmId { get; set; }
 
         /// <summary>
         /// Баркод

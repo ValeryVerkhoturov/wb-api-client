@@ -39,16 +39,16 @@ public class V3SupplyOrderIDsAPI {
 
   @SerializedName(SERIALIZED_NAME_ORDER_IDS)
   @jakarta.annotation.Nullable
-  private List<Integer> orderIds;
+  private List<Long> orderIds;
 
   public V3SupplyOrderIDsAPI() {}
 
-  public V3SupplyOrderIDsAPI orderIds(@jakarta.annotation.Nullable List<Integer> orderIds) {
+  public V3SupplyOrderIDsAPI orderIds(@jakarta.annotation.Nullable List<Long> orderIds) {
     this.orderIds = orderIds;
     return this;
   }
 
-  public V3SupplyOrderIDsAPI addOrderIdsItem(Integer orderIdsItem) {
+  public V3SupplyOrderIDsAPI addOrderIdsItem(Long orderIdsItem) {
     if (this.orderIds == null) {
       this.orderIds = new ArrayList<>();
     }
@@ -62,11 +62,11 @@ public class V3SupplyOrderIDsAPI {
    * @return orderIds
    */
   @jakarta.annotation.Nullable
-  public List<Integer> getOrderIds() {
+  public List<Long> getOrderIds() {
     return orderIds;
   }
 
-  public void setOrderIds(@jakarta.annotation.Nullable List<Integer> orderIds) {
+  public void setOrderIds(@jakarta.annotation.Nullable List<Long> orderIds) {
     this.orderIds = orderIds;
   }
 

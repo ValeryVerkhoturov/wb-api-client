@@ -37,7 +37,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <param name="type">Тип медиакампании: - &#x60;1&#x60; — размещение по дням - &#x60;2&#x60; — размещение по просмотрам .</param>
         /// <param name="status">Статус медиакампании:   - &#x60;1&#x60; — черновик   - &#x60;2&#x60; — модерация   - &#x60;3&#x60; — отклонена (с возможностью вернуть на модерацию)   - &#x60;4&#x60; — готова к запуску   - &#x60;5&#x60; — запланирована   - &#x60;6&#x60; — на показах   - &#x60;7&#x60; — завершена   - &#x60;8&#x60; — отменена   - &#x60;9&#x60; — приостановлена продавцом   - &#x60;10&#x60; — пауза по дневному лимиту   - &#x60;11&#x60; — пауза .</param>
         /// <param name="count">Количество медиакампаний.</param>
-        public GetV1CountResponse200Adverts(int type = default(int), int status = default(int), int count = default(int))
+        public GetV1CountResponse200Adverts(long type = default(long), long status = default(long), long count = default(long))
         {
             this.Type = type;
             this.Status = status;
@@ -49,21 +49,21 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <value>Тип медиакампании: - &#x60;1&#x60; — размещение по дням - &#x60;2&#x60; — размещение по просмотрам </value>
         [DataMember(Name = "type", EmitDefaultValue = false)]
-        public int Type { get; set; }
+        public long Type { get; set; }
 
         /// <summary>
         /// Статус медиакампании:   - &#x60;1&#x60; — черновик   - &#x60;2&#x60; — модерация   - &#x60;3&#x60; — отклонена (с возможностью вернуть на модерацию)   - &#x60;4&#x60; — готова к запуску   - &#x60;5&#x60; — запланирована   - &#x60;6&#x60; — на показах   - &#x60;7&#x60; — завершена   - &#x60;8&#x60; — отменена   - &#x60;9&#x60; — приостановлена продавцом   - &#x60;10&#x60; — пауза по дневному лимиту   - &#x60;11&#x60; — пауза 
         /// </summary>
         /// <value>Статус медиакампании:   - &#x60;1&#x60; — черновик   - &#x60;2&#x60; — модерация   - &#x60;3&#x60; — отклонена (с возможностью вернуть на модерацию)   - &#x60;4&#x60; — готова к запуску   - &#x60;5&#x60; — запланирована   - &#x60;6&#x60; — на показах   - &#x60;7&#x60; — завершена   - &#x60;8&#x60; — отменена   - &#x60;9&#x60; — приостановлена продавцом   - &#x60;10&#x60; — пауза по дневному лимиту   - &#x60;11&#x60; — пауза </value>
         [DataMember(Name = "status", EmitDefaultValue = false)]
-        public int Status { get; set; }
+        public long Status { get; set; }
 
         /// <summary>
         /// Количество медиакампаний
         /// </summary>
         /// <value>Количество медиакампаний</value>
         [DataMember(Name = "count", EmitDefaultValue = false)]
-        public int Count { get; set; }
+        public long Count { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

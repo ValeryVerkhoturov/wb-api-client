@@ -39,7 +39,7 @@ namespace ValeryVerkhoturov.WbApiClient.Rates.Model
         /// <param name="parentName">Название родительской категории.</param>
         /// <param name="subjectID">ID предмета.</param>
         /// <param name="subjectName">Название предмета.</param>
-        public FeeUAEReportInner(decimal kgvpUAE = default(decimal), int parentID = default(int), string parentName = default(string), int subjectID = default(int), string subjectName = default(string))
+        public FeeUAEReportInner(decimal kgvpUAE = default(decimal), long parentID = default(long), string parentName = default(string), long subjectID = default(long), string subjectName = default(string))
         {
             this.KgvpUAE = kgvpUAE;
             this.ParentID = parentID;
@@ -60,7 +60,7 @@ namespace ValeryVerkhoturov.WbApiClient.Rates.Model
         /// </summary>
         /// <value>ID родительской категории</value>
         [DataMember(Name = "parentID", EmitDefaultValue = false)]
-        public int ParentID { get; set; }
+        public long ParentID { get; set; }
 
         /// <summary>
         /// Название родительской категории
@@ -74,7 +74,7 @@ namespace ValeryVerkhoturov.WbApiClient.Rates.Model
         /// </summary>
         /// <value>ID предмета</value>
         [DataMember(Name = "subjectID", EmitDefaultValue = false)]
-        public int SubjectID { get; set; }
+        public long SubjectID { get; set; }
 
         /// <summary>
         /// Название предмета

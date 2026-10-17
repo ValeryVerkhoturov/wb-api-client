@@ -94,13 +94,13 @@ public class ItemRatingRequest {
 
   @SerializedName(SERIALIZED_NAME_LIMIT)
   @jakarta.annotation.Nullable
-  private Integer limit = 100;
+  private Long limit = 100l;
 
   public static final String SERIALIZED_NAME_OFFSET = "offset";
 
   @SerializedName(SERIALIZED_NAME_OFFSET)
   @jakarta.annotation.Nonnull
-  private Integer offset;
+  private Long offset;
 
   public ItemRatingRequest() {}
 
@@ -315,7 +315,7 @@ public class ItemRatingRequest {
     this.orderBy = orderBy;
   }
 
-  public ItemRatingRequest limit(@jakarta.annotation.Nullable Integer limit) {
+  public ItemRatingRequest limit(@jakarta.annotation.Nullable Long limit) {
     this.limit = limit;
     return this;
   }
@@ -326,15 +326,15 @@ public class ItemRatingRequest {
    * @return limit
    */
   @jakarta.annotation.Nullable
-  public Integer getLimit() {
+  public Long getLimit() {
     return limit;
   }
 
-  public void setLimit(@jakarta.annotation.Nullable Integer limit) {
+  public void setLimit(@jakarta.annotation.Nullable Long limit) {
     this.limit = limit;
   }
 
-  public ItemRatingRequest offset(@jakarta.annotation.Nonnull Integer offset) {
+  public ItemRatingRequest offset(@jakarta.annotation.Nonnull Long offset) {
     this.offset = offset;
     return this;
   }
@@ -346,11 +346,11 @@ public class ItemRatingRequest {
    * @return offset
    */
   @jakarta.annotation.Nonnull
-  public Integer getOffset() {
+  public Long getOffset() {
     return offset;
   }
 
-  public void setOffset(@jakarta.annotation.Nonnull Integer offset) {
+  public void setOffset(@jakarta.annotation.Nonnull Long offset) {
     this.offset = offset;
   }
 

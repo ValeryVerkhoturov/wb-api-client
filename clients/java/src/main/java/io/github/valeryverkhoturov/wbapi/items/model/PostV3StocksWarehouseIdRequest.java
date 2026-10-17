@@ -39,16 +39,16 @@ public class PostV3StocksWarehouseIdRequest {
 
   @SerializedName(SERIALIZED_NAME_CHRT_IDS)
   @jakarta.annotation.Nonnull
-  private List<Integer> chrtIds = new ArrayList<>();
+  private List<Long> chrtIds = new ArrayList<>();
 
   public PostV3StocksWarehouseIdRequest() {}
 
-  public PostV3StocksWarehouseIdRequest chrtIds(@jakarta.annotation.Nonnull List<Integer> chrtIds) {
+  public PostV3StocksWarehouseIdRequest chrtIds(@jakarta.annotation.Nonnull List<Long> chrtIds) {
     this.chrtIds = chrtIds;
     return this;
   }
 
-  public PostV3StocksWarehouseIdRequest addChrtIdsItem(Integer chrtIdsItem) {
+  public PostV3StocksWarehouseIdRequest addChrtIdsItem(Long chrtIdsItem) {
     if (this.chrtIds == null) {
       this.chrtIds = new ArrayList<>();
     }
@@ -62,11 +62,11 @@ public class PostV3StocksWarehouseIdRequest {
    * @return chrtIds
    */
   @jakarta.annotation.Nonnull
-  public List<Integer> getChrtIds() {
+  public List<Long> getChrtIds() {
     return chrtIds;
   }
 
-  public void setChrtIds(@jakarta.annotation.Nonnull List<Integer> chrtIds) {
+  public void setChrtIds(@jakarta.annotation.Nonnull List<Long> chrtIds) {
     this.chrtIds = chrtIds;
   }
 

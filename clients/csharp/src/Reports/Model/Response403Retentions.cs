@@ -39,7 +39,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /// <param name="detail">Детали ошибки.</param>
         /// <param name="requestId">Уникальный ID запроса.</param>
         /// <param name="origin">ID внутреннего сервиса WB.</param>
-        public Response403Retentions(string title = default(string), int status = default(int), string detail = default(string), string requestId = default(string), string origin = default(string))
+        public Response403Retentions(string title = default(string), long status = default(long), string detail = default(string), string requestId = default(string), string origin = default(string))
         {
             this.Title = title;
             this.Status = status;
@@ -66,7 +66,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         <example>403</example>
         */
         [DataMember(Name = "status", EmitDefaultValue = false)]
-        public int Status { get; set; }
+        public long Status { get; set; }
 
         /// <summary>
         /// Детали ошибки

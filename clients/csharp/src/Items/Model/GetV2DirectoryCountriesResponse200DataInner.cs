@@ -37,7 +37,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// <param name="id">ID страны.</param>
         /// <param name="name">Значение характеристики Страны.</param>
         /// <param name="fullName">Полное название страны.</param>
-        public GetV2DirectoryCountriesResponse200DataInner(int id = default(int), string name = default(string), string fullName = default(string))
+        public GetV2DirectoryCountriesResponse200DataInner(long id = default(long), string name = default(string), string fullName = default(string))
         {
             this.Id = id;
             this.Name = name;
@@ -52,7 +52,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         <example>15000170</example>
         */
         [DataMember(Name = "id", EmitDefaultValue = false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// Значение характеристики Страны

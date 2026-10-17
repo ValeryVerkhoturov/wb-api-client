@@ -36,7 +36,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersDbw.Model
         /// </summary>
         /// <param name="code">Код ошибки:   - &#x60;404&#x60;   - &#x60;409&#x60; .</param>
         /// <param name="detail">- &#x60;NotFound&#x60; — сборочное задание не найдено - &#x60;StatusMismatch&#x60; — операция невозможна для этого статуса сборочного задания - &#x60;ImeiIsNotFilled&#x60; — не заполнен IMEI .</param>
-        public ApiMetaDeleteResponsesResultsInnerErrorsInner(int code = default(int), string detail = default(string))
+        public ApiMetaDeleteResponsesResultsInnerErrorsInner(long code = default(long), string detail = default(string))
         {
             this.Code = code;
             this.Detail = detail;
@@ -47,7 +47,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersDbw.Model
         /// </summary>
         /// <value>Код ошибки:   - &#x60;404&#x60;   - &#x60;409&#x60; </value>
         [DataMember(Name = "code", EmitDefaultValue = false)]
-        public int Code { get; set; }
+        public long Code { get; set; }
 
         /// <summary>
         /// - &#x60;NotFound&#x60; — сборочное задание не найдено - &#x60;StatusMismatch&#x60; — операция невозможна для этого статуса сборочного задания - &#x60;ImeiIsNotFilled&#x60; — не заполнен IMEI 

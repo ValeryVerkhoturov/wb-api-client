@@ -95,7 +95,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
             // Comment (string) maxLength
             if (this.Comment != null && this.Comment.Length > 1000)
             {
-                yield return new ValidationResult("Invalid value for Comment, length must be less than 1000.", new [] { "Comment" });
+                yield return new ValidationResult("Invalid value for Comment, length must be less than 1000.", new[] { "Comment" });
             }
 
             yield break;

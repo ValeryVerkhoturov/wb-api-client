@@ -39,7 +39,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /// <param name="title">Наименование товара.</param>
         /// <param name="vendorCode">Артикул продавца.</param>
         /// <param name="reason">Причина блокировки.</param>
-        public GetV1AnalyticsBannedProducsBlockedResponse200ReportInner(string brand = default(string), int nmId = default(int), string title = default(string), string vendorCode = default(string), string reason = default(string))
+        public GetV1AnalyticsBannedProducsBlockedResponse200ReportInner(string brand = default(string), long nmId = default(long), string title = default(string), string vendorCode = default(string), string reason = default(string))
         {
             this.Brand = brand;
             this.NmId = nmId;
@@ -66,7 +66,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         <example>82722944</example>
         */
         [DataMember(Name = "nmId", EmitDefaultValue = false)]
-        public int NmId { get; set; }
+        public long NmId { get; set; }
 
         /// <summary>
         /// Наименование товара

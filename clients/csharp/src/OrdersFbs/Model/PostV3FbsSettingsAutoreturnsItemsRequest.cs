@@ -40,7 +40,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// Initializes a new instance of the <see cref="PostV3FbsSettingsAutoreturnsItemsRequest" /> class.
         /// </summary>
         /// <param name="chrtIds">Список ID размеров товаров в системе WB (required).</param>
-        public PostV3FbsSettingsAutoreturnsItemsRequest(List<int> chrtIds = default(List<int>))
+        public PostV3FbsSettingsAutoreturnsItemsRequest(List<long> chrtIds = default(List<long>))
         {
             // to ensure "chrtIds" is required (not null)
             if (chrtIds == null)
@@ -58,7 +58,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         <example>[111111,222222]</example>
         */
         [DataMember(Name = "chrtIds", IsRequired = true, EmitDefaultValue = true)]
-        public List<int> ChrtIds { get; set; }
+        public List<long> ChrtIds { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

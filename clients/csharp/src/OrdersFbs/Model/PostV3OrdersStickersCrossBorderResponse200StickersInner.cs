@@ -71,7 +71,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// <param name="partA">Первая часть ID стикера для печати подписи.</param>
         /// <param name="partB">Вторая часть ID стикера для печати подписи.</param>
         /// <param name="barcode">Закодированное значение стикера.</param>
-        public PostV3OrdersStickersCrossBorderResponse200StickersInner(int orderId = default(int), StatusEnum? status = default(StatusEnum?), string parcelId = default(string), byte[] file = default(byte[]), string partA = default(string), string partB = default(string), string barcode = default(string))
+        public PostV3OrdersStickersCrossBorderResponse200StickersInner(long orderId = default(long), StatusEnum? status = default(StatusEnum?), string parcelId = default(string), byte[] file = default(byte[]), string partA = default(string), string partB = default(string), string barcode = default(string))
         {
             this.OrderId = orderId;
             this.Status = status;
@@ -90,7 +90,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         <example>3869227998</example>
         */
         [DataMember(Name = "orderId", EmitDefaultValue = false)]
-        public int OrderId { get; set; }
+        public long OrderId { get; set; }
 
         /// <summary>
         /// Трек-номер в стикере для отслеживания сборочного задания
@@ -106,9 +106,6 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// Стикер в формате PDF, кодировка base64
         /// </summary>
         /// <value>Стикер в формате PDF, кодировка base64</value>
-        /*
-        <example>[B@1a4930cf</example>
-        */
         [DataMember(Name = "file", EmitDefaultValue = false)]
         public byte[] File { get; set; }
 

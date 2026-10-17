@@ -41,7 +41,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <param name="id">ID кампании (required).</param>
         /// <param name="interval">interval (required).</param>
-        public RequestWithInterval(int id = default(int), RequestWithIntervalInterval interval = default(RequestWithIntervalInterval))
+        public RequestWithInterval(long id = default(long), RequestWithIntervalInterval interval = default(RequestWithIntervalInterval))
         {
             this.Id = id;
             // to ensure "interval" is required (not null)
@@ -57,7 +57,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <value>ID кампании</value>
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// Gets or Sets Interval

@@ -44,13 +44,13 @@ public class ModelsSupply {
 
   @SerializedName(SERIALIZED_NAME_SUPPLY_I_D)
   @jakarta.annotation.Nullable
-  private Integer supplyID;
+  private Long supplyID;
 
   public static final String SERIALIZED_NAME_PREORDER_I_D = "preorderID";
 
   @SerializedName(SERIALIZED_NAME_PREORDER_I_D)
   @jakarta.annotation.Nullable
-  private Integer preorderID;
+  private Long preorderID;
 
   public static final String SERIALIZED_NAME_CREATE_DATE = "createDate";
 
@@ -83,25 +83,25 @@ public class ModelsSupply {
    */
   @JsonAdapter(StatusIDEnum.Adapter.class)
   public enum StatusIDEnum {
-    NUMBER_1(1),
+    NUMBER_1(1l),
 
-    NUMBER_2(2),
+    NUMBER_2(2l),
 
-    NUMBER_3(3),
+    NUMBER_3(3l),
 
-    NUMBER_4(4),
+    NUMBER_4(4l),
 
-    NUMBER_5(5),
+    NUMBER_5(5l),
 
-    NUMBER_6(6);
+    NUMBER_6(6l);
 
-    private Integer value;
+    private Long value;
 
-    StatusIDEnum(Integer value) {
+    StatusIDEnum(Long value) {
       this.value = value;
     }
 
-    public Integer getValue() {
+    public Long getValue() {
       return value;
     }
 
@@ -110,7 +110,7 @@ public class ModelsSupply {
       return String.valueOf(value);
     }
 
-    public static StatusIDEnum fromValue(Integer value) {
+    public static StatusIDEnum fromValue(Long value) {
       for (StatusIDEnum b : StatusIDEnum.values()) {
         if (b.value.equals(value)) {
           return b;
@@ -128,13 +128,13 @@ public class ModelsSupply {
 
       @Override
       public StatusIDEnum read(final JsonReader jsonReader) throws IOException {
-        Integer value = jsonReader.nextInt();
+        Long value = jsonReader.nextLong();
         return StatusIDEnum.fromValue(value);
       }
     }
 
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      Integer value = jsonElement.getAsInt();
+      Long value = jsonElement.getAsLong();
       StatusIDEnum.fromValue(value);
     }
   }
@@ -178,7 +178,7 @@ public class ModelsSupply {
     this.phone = phone;
   }
 
-  public ModelsSupply supplyID(@jakarta.annotation.Nullable Integer supplyID) {
+  public ModelsSupply supplyID(@jakarta.annotation.Nullable Long supplyID) {
     this.supplyID = supplyID;
     return this;
   }
@@ -190,15 +190,15 @@ public class ModelsSupply {
    * @return supplyID
    */
   @jakarta.annotation.Nullable
-  public Integer getSupplyID() {
+  public Long getSupplyID() {
     return supplyID;
   }
 
-  public void setSupplyID(@jakarta.annotation.Nullable Integer supplyID) {
+  public void setSupplyID(@jakarta.annotation.Nullable Long supplyID) {
     this.supplyID = supplyID;
   }
 
-  public ModelsSupply preorderID(@jakarta.annotation.Nullable Integer preorderID) {
+  public ModelsSupply preorderID(@jakarta.annotation.Nullable Long preorderID) {
     this.preorderID = preorderID;
     return this;
   }
@@ -209,11 +209,11 @@ public class ModelsSupply {
    * @return preorderID
    */
   @jakarta.annotation.Nullable
-  public Integer getPreorderID() {
+  public Long getPreorderID() {
     return preorderID;
   }
 
-  public void setPreorderID(@jakarta.annotation.Nullable Integer preorderID) {
+  public void setPreorderID(@jakarta.annotation.Nullable Long preorderID) {
     this.preorderID = preorderID;
   }
 

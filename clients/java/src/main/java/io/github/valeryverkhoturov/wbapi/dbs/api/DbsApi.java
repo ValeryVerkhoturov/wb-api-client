@@ -114,7 +114,7 @@ public class DbsApi {
    * </table>
    */
   public okhttp3.Call getV3DbsOrdersCall(
-      Integer limit, Long next, Integer dateFrom, Integer dateTo, final ApiCallback _callback)
+      Long limit, Long next, Long dateFrom, Long dateTo, final ApiCallback _callback)
       throws ApiException {
     String basePath = null;
     // Operation Servers
@@ -189,7 +189,7 @@ public class DbsApi {
 
   @SuppressWarnings("rawtypes")
   private okhttp3.Call getV3DbsOrdersValidateBeforeCall(
-      Integer limit, Long next, Integer dateFrom, Integer dateTo, final ApiCallback _callback)
+      Long limit, Long next, Long dateFrom, Long dateTo, final ApiCallback _callback)
       throws ApiException {
     // verify the required parameter 'limit' is set
     if (limit == null) {
@@ -254,8 +254,8 @@ public class DbsApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public GetV3DbsOrdersResponse200 getV3DbsOrders(
-      Integer limit, Long next, Integer dateFrom, Integer dateTo) throws ApiException {
+  public GetV3DbsOrdersResponse200 getV3DbsOrders(Long limit, Long next, Long dateFrom, Long dateTo)
+      throws ApiException {
     ApiResponse<GetV3DbsOrdersResponse200> localVarResp =
         getV3DbsOrdersWithHttpInfo(limit, next, dateFrom, dateTo);
     return localVarResp.getData();
@@ -298,7 +298,7 @@ public class DbsApi {
    * </table>
    */
   public ApiResponse<GetV3DbsOrdersResponse200> getV3DbsOrdersWithHttpInfo(
-      Integer limit, Long next, Integer dateFrom, Integer dateTo) throws ApiException {
+      Long limit, Long next, Long dateFrom, Long dateTo) throws ApiException {
     okhttp3.Call localVarCall =
         getV3DbsOrdersValidateBeforeCall(limit, next, dateFrom, dateTo, null);
     Type localVarReturnType = new TypeToken<GetV3DbsOrdersResponse200>() {}.getType();
@@ -343,10 +343,10 @@ public class DbsApi {
    * </table>
    */
   public okhttp3.Call getV3DbsOrdersAsync(
-      Integer limit,
+      Long limit,
       Long next,
-      Integer dateFrom,
-      Integer dateTo,
+      Long dateFrom,
+      Long dateTo,
       final ApiCallback<GetV3DbsOrdersResponse200> _callback)
       throws ApiException {
 
@@ -4419,8 +4419,8 @@ public class DbsApi {
    */
   public okhttp3.Call postV3DbsOrdersStickersCall(
       String type,
-      Integer width,
-      Integer height,
+      Long width,
+      Long height,
       PostV3DbsOrdersStickersRequest postV3DbsOrdersStickersRequest,
       final ApiCallback _callback)
       throws ApiException {
@@ -4491,8 +4491,8 @@ public class DbsApi {
   @SuppressWarnings("rawtypes")
   private okhttp3.Call postV3DbsOrdersStickersValidateBeforeCall(
       String type,
-      Integer width,
-      Integer height,
+      Long width,
+      Long height,
       PostV3DbsOrdersStickersRequest postV3DbsOrdersStickersRequest,
       final ApiCallback _callback)
       throws ApiException {
@@ -4553,8 +4553,8 @@ public class DbsApi {
    */
   public PostV3DbsOrdersStickersResponse200 postV3DbsOrdersStickers(
       String type,
-      Integer width,
-      Integer height,
+      Long width,
+      Long height,
       PostV3DbsOrdersStickersRequest postV3DbsOrdersStickersRequest)
       throws ApiException {
     ApiResponse<PostV3DbsOrdersStickersResponse200> localVarResp =
@@ -4597,8 +4597,8 @@ public class DbsApi {
    */
   public ApiResponse<PostV3DbsOrdersStickersResponse200> postV3DbsOrdersStickersWithHttpInfo(
       String type,
-      Integer width,
-      Integer height,
+      Long width,
+      Long height,
       PostV3DbsOrdersStickersRequest postV3DbsOrdersStickersRequest)
       throws ApiException {
     okhttp3.Call localVarCall =
@@ -4643,8 +4643,8 @@ public class DbsApi {
    */
   public okhttp3.Call postV3DbsOrdersStickersAsync(
       String type,
-      Integer width,
-      Integer height,
+      Long width,
+      Long height,
       PostV3DbsOrdersStickersRequest postV3DbsOrdersStickersRequest,
       final ApiCallback<PostV3DbsOrdersStickersResponse200> _callback)
       throws ApiException {

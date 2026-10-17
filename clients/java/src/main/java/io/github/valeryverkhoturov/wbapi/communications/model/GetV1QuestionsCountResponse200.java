@@ -39,7 +39,7 @@ public class GetV1QuestionsCountResponse200 {
 
   @SerializedName(SERIALIZED_NAME_DATA)
   @jakarta.annotation.Nullable
-  private Integer data;
+  private Long data;
 
   public static final String SERIALIZED_NAME_ERROR = "error";
 
@@ -61,7 +61,7 @@ public class GetV1QuestionsCountResponse200 {
 
   public GetV1QuestionsCountResponse200() {}
 
-  public GetV1QuestionsCountResponse200 data(@jakarta.annotation.Nullable Integer data) {
+  public GetV1QuestionsCountResponse200 data(@jakarta.annotation.Nullable Long data) {
     this.data = data;
     return this;
   }
@@ -72,11 +72,11 @@ public class GetV1QuestionsCountResponse200 {
    * @return data
    */
   @jakarta.annotation.Nullable
-  public Integer getData() {
+  public Long getData() {
     return data;
   }
 
-  public void setData(@jakarta.annotation.Nullable Integer data) {
+  public void setData(@jakarta.annotation.Nullable Long data) {
     this.data = data;
   }
 

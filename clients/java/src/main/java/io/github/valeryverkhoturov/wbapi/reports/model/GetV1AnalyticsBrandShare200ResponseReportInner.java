@@ -43,7 +43,7 @@ public class GetV1AnalyticsBrandShare200ResponseReportInner {
 
   @SerializedName(SERIALIZED_NAME_BRAND_RATING)
   @jakarta.annotation.Nullable
-  private Integer brandRating;
+  private Long brandRating;
 
   public static final String SERIALIZED_NAME_PRICE_PERCENT = "pricePercent";
 
@@ -80,7 +80,7 @@ public class GetV1AnalyticsBrandShare200ResponseReportInner {
   }
 
   public GetV1AnalyticsBrandShare200ResponseReportInner brandRating(
-      @jakarta.annotation.Nullable Integer brandRating) {
+      @jakarta.annotation.Nullable Long brandRating) {
     this.brandRating = brandRating;
     return this;
   }
@@ -91,11 +91,11 @@ public class GetV1AnalyticsBrandShare200ResponseReportInner {
    * @return brandRating
    */
   @jakarta.annotation.Nullable
-  public Integer getBrandRating() {
+  public Long getBrandRating() {
     return brandRating;
   }
 
-  public void setBrandRating(@jakarta.annotation.Nullable Integer brandRating) {
+  public void setBrandRating(@jakarta.annotation.Nullable Long brandRating) {
     this.brandRating = brandRating;
   }
 

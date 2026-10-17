@@ -36,7 +36,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <param name="add">Карточки товаров, которые необходимо добавить.</param>
         /// <param name="delete">Карточки товаров, которые необходимо удалить.</param>
-        public PatchV0AuctionNmsRequestNmsInnerNms(List<int> add = default(List<int>), List<int> delete = default(List<int>))
+        public PatchV0AuctionNmsRequestNmsInnerNms(List<long> add = default(List<long>), List<long> delete = default(List<long>))
         {
             this.Add = add;
             this.Delete = delete;
@@ -47,14 +47,14 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <value>Карточки товаров, которые необходимо добавить</value>
         [DataMember(Name = "add", EmitDefaultValue = false)]
-        public List<int> Add { get; set; }
+        public List<long> Add { get; set; }
 
         /// <summary>
         /// Карточки товаров, которые необходимо удалить
         /// </summary>
         /// <value>Карточки товаров, которые необходимо удалить</value>
         [DataMember(Name = "delete", EmitDefaultValue = false)]
-        public List<int> Delete { get; set; }
+        public List<long> Delete { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

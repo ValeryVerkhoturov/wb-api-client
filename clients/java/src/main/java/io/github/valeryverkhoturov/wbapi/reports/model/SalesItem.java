@@ -138,7 +138,7 @@ public class SalesItem {
 
   @SerializedName(SERIALIZED_NAME_NM_ID)
   @jakarta.annotation.Nullable
-  private Integer nmId;
+  private Long nmId;
 
   public static final String SERIALIZED_NAME_BARCODE = "barcode";
 
@@ -174,7 +174,7 @@ public class SalesItem {
 
   @SerializedName(SERIALIZED_NAME_INCOME_I_D)
   @jakarta.annotation.Nullable
-  private Integer incomeID;
+  private Long incomeID;
 
   public static final String SERIALIZED_NAME_IS_SUPPLY = "isSupply";
 
@@ -198,7 +198,7 @@ public class SalesItem {
 
   @SerializedName(SERIALIZED_NAME_DISCOUNT_PERCENT)
   @jakarta.annotation.Nullable
-  private Integer discountPercent;
+  private Long discountPercent;
 
   public static final String SERIALIZED_NAME_SPP = "spp";
 
@@ -210,7 +210,7 @@ public class SalesItem {
 
   @SerializedName(SERIALIZED_NAME_PAYMENT_SALE_AMOUNT)
   @jakarta.annotation.Nullable
-  private Integer paymentSaleAmount;
+  private Long paymentSaleAmount;
 
   public static final String SERIALIZED_NAME_FOR_PAY = "forPay";
 
@@ -412,7 +412,7 @@ public class SalesItem {
     this.supplierArticle = supplierArticle;
   }
 
-  public SalesItem nmId(@jakarta.annotation.Nullable Integer nmId) {
+  public SalesItem nmId(@jakarta.annotation.Nullable Long nmId) {
     this.nmId = nmId;
     return this;
   }
@@ -423,11 +423,11 @@ public class SalesItem {
    * @return nmId
    */
   @jakarta.annotation.Nullable
-  public Integer getNmId() {
+  public Long getNmId() {
     return nmId;
   }
 
-  public void setNmId(@jakarta.annotation.Nullable Integer nmId) {
+  public void setNmId(@jakarta.annotation.Nullable Long nmId) {
     this.nmId = nmId;
   }
 
@@ -526,7 +526,7 @@ public class SalesItem {
     this.techSize = techSize;
   }
 
-  public SalesItem incomeID(@jakarta.annotation.Nullable Integer incomeID) {
+  public SalesItem incomeID(@jakarta.annotation.Nullable Long incomeID) {
     this.incomeID = incomeID;
     return this;
   }
@@ -537,11 +537,11 @@ public class SalesItem {
    * @return incomeID
    */
   @jakarta.annotation.Nullable
-  public Integer getIncomeID() {
+  public Long getIncomeID() {
     return incomeID;
   }
 
-  public void setIncomeID(@jakarta.annotation.Nullable Integer incomeID) {
+  public void setIncomeID(@jakarta.annotation.Nullable Long incomeID) {
     this.incomeID = incomeID;
   }
 
@@ -602,7 +602,7 @@ public class SalesItem {
     this.totalPrice = totalPrice;
   }
 
-  public SalesItem discountPercent(@jakarta.annotation.Nullable Integer discountPercent) {
+  public SalesItem discountPercent(@jakarta.annotation.Nullable Long discountPercent) {
     this.discountPercent = discountPercent;
     return this;
   }
@@ -613,11 +613,11 @@ public class SalesItem {
    * @return discountPercent
    */
   @jakarta.annotation.Nullable
-  public Integer getDiscountPercent() {
+  public Long getDiscountPercent() {
     return discountPercent;
   }
 
-  public void setDiscountPercent(@jakarta.annotation.Nullable Integer discountPercent) {
+  public void setDiscountPercent(@jakarta.annotation.Nullable Long discountPercent) {
     this.discountPercent = discountPercent;
   }
 
@@ -640,7 +640,7 @@ public class SalesItem {
     this.spp = spp;
   }
 
-  public SalesItem paymentSaleAmount(@jakarta.annotation.Nullable Integer paymentSaleAmount) {
+  public SalesItem paymentSaleAmount(@jakarta.annotation.Nullable Long paymentSaleAmount) {
     this.paymentSaleAmount = paymentSaleAmount;
     return this;
   }
@@ -651,11 +651,11 @@ public class SalesItem {
    * @return paymentSaleAmount
    */
   @jakarta.annotation.Nullable
-  public Integer getPaymentSaleAmount() {
+  public Long getPaymentSaleAmount() {
     return paymentSaleAmount;
   }
 
-  public void setPaymentSaleAmount(@jakarta.annotation.Nullable Integer paymentSaleAmount) {
+  public void setPaymentSaleAmount(@jakarta.annotation.Nullable Long paymentSaleAmount) {
     this.paymentSaleAmount = paymentSaleAmount;
   }
 

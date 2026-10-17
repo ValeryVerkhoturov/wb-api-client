@@ -39,7 +39,7 @@ namespace ValeryVerkhoturov.WbApiClient.InStorePickup.Api
         /// <param name="dateTo">Дата конца периода в формате Unix timestamp</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiOrders</returns>
-        ApiOrders GetV3ClickCollectOrders(int limit, int next, int dateFrom, int dateTo, int operationIndex = 0);
+        ApiOrders GetV3ClickCollectOrders(long limit, long next, long dateFrom, long dateTo, int operationIndex = 0);
 
         /// <summary>
         /// Получить информацию о завершённых сборочных заданиях
@@ -54,7 +54,7 @@ namespace ValeryVerkhoturov.WbApiClient.InStorePickup.Api
         /// <param name="dateTo">Дата конца периода в формате Unix timestamp</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ApiOrders</returns>
-        ApiResponse<ApiOrders> GetV3ClickCollectOrdersWithHttpInfo(int limit, int next, int dateFrom, int dateTo, int operationIndex = 0);
+        ApiResponse<ApiOrders> GetV3ClickCollectOrdersWithHttpInfo(long limit, long next, long dateFrom, long dateTo, int operationIndex = 0);
         /// <summary>
         /// Получить список новых сборочных заданий
         /// </summary>
@@ -467,7 +467,7 @@ namespace ValeryVerkhoturov.WbApiClient.InStorePickup.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiOrders</returns>
-        System.Threading.Tasks.Task<ApiOrders> GetV3ClickCollectOrdersAsync(int limit, int next, int dateFrom, int dateTo, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiOrders> GetV3ClickCollectOrdersAsync(long limit, long next, long dateFrom, long dateTo, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Получить информацию о завершённых сборочных заданиях
@@ -483,7 +483,7 @@ namespace ValeryVerkhoturov.WbApiClient.InStorePickup.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ApiOrders)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiOrders>> GetV3ClickCollectOrdersWithHttpInfoAsync(int limit, int next, int dateFrom, int dateTo, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ApiOrders>> GetV3ClickCollectOrdersWithHttpInfoAsync(long limit, long next, long dateFrom, long dateTo, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Получить список новых сборочных заданий
         /// </summary>
@@ -1037,7 +1037,7 @@ namespace ValeryVerkhoturov.WbApiClient.InStorePickup.Api
         /// <param name="dateTo">Дата конца периода в формате Unix timestamp</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiOrders</returns>
-        public ApiOrders GetV3ClickCollectOrders(int limit, int next, int dateFrom, int dateTo, int operationIndex = 0)
+        public ApiOrders GetV3ClickCollectOrders(long limit, long next, long dateFrom, long dateTo, int operationIndex = 0)
         {
             ValeryVerkhoturov.WbApiClient.InStorePickup.Client.ApiResponse<ApiOrders> localVarResponse = GetV3ClickCollectOrdersWithHttpInfo(limit, next, dateFrom, dateTo);
             return localVarResponse.Data;
@@ -1053,7 +1053,7 @@ namespace ValeryVerkhoturov.WbApiClient.InStorePickup.Api
         /// <param name="dateTo">Дата конца периода в формате Unix timestamp</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ApiOrders</returns>
-        public ValeryVerkhoturov.WbApiClient.InStorePickup.Client.ApiResponse<ApiOrders> GetV3ClickCollectOrdersWithHttpInfo(int limit, int next, int dateFrom, int dateTo, int operationIndex = 0)
+        public ValeryVerkhoturov.WbApiClient.InStorePickup.Client.ApiResponse<ApiOrders> GetV3ClickCollectOrdersWithHttpInfo(long limit, long next, long dateFrom, long dateTo, int operationIndex = 0)
         {
             ValeryVerkhoturov.WbApiClient.InStorePickup.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.InStorePickup.Client.RequestOptions();
 
@@ -1118,7 +1118,7 @@ namespace ValeryVerkhoturov.WbApiClient.InStorePickup.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiOrders</returns>
-        public async System.Threading.Tasks.Task<ApiOrders> GetV3ClickCollectOrdersAsync(int limit, int next, int dateFrom, int dateTo, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiOrders> GetV3ClickCollectOrdersAsync(long limit, long next, long dateFrom, long dateTo, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             ValeryVerkhoturov.WbApiClient.InStorePickup.Client.ApiResponse<ApiOrders> localVarResponse = await GetV3ClickCollectOrdersWithHttpInfoAsync(limit, next, dateFrom, dateTo, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1135,7 +1135,7 @@ namespace ValeryVerkhoturov.WbApiClient.InStorePickup.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ApiOrders)</returns>
-        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.InStorePickup.Client.ApiResponse<ApiOrders>> GetV3ClickCollectOrdersWithHttpInfoAsync(int limit, int next, int dateFrom, int dateTo, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.InStorePickup.Client.ApiResponse<ApiOrders>> GetV3ClickCollectOrdersWithHttpInfoAsync(long limit, long next, long dateFrom, long dateTo, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             ValeryVerkhoturov.WbApiClient.InStorePickup.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.InStorePickup.Client.RequestOptions();

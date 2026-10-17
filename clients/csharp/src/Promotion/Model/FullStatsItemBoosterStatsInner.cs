@@ -37,7 +37,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <param name="avgPosition">Средняя позиция товара.</param>
         /// <param name="date">Дата, за которую предоставлены данные.</param>
         /// <param name="nm">Артикул WB.</param>
-        public FullStatsItemBoosterStatsInner(int avgPosition = default(int), string date = default(string), int nm = default(int))
+        public FullStatsItemBoosterStatsInner(long avgPosition = default(long), string date = default(string), long nm = default(long))
         {
             this.AvgPosition = avgPosition;
             this.Date = date;
@@ -49,7 +49,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <value>Средняя позиция товара</value>
         [DataMember(Name = "avg_position", EmitDefaultValue = false)]
-        public int AvgPosition { get; set; }
+        public long AvgPosition { get; set; }
 
         /// <summary>
         /// Дата, за которую предоставлены данные
@@ -63,7 +63,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <value>Артикул WB</value>
         [DataMember(Name = "nm", EmitDefaultValue = false)]
-        public int Nm { get; set; }
+        public long Nm { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

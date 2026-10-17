@@ -36,7 +36,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /// </summary>
         /// <param name="reports">Удержания.</param>
         /// <param name="total">Количество удержаний в отчёте. Без учёта &#x60;limit&#x60; и &#x60;offset&#x60;.</param>
-        public MeasurementPenaltiesData(List<MeasurementPenaltiesDataReportsInner> reports = default(List<MeasurementPenaltiesDataReportsInner>), int total = default(int))
+        public MeasurementPenaltiesData(List<MeasurementPenaltiesDataReportsInner> reports = default(List<MeasurementPenaltiesDataReportsInner>), long total = default(long))
         {
             this.Reports = reports;
             this.Total = total;
@@ -57,7 +57,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         <example>11</example>
         */
         [DataMember(Name = "total", EmitDefaultValue = false)]
-        public int Total { get; set; }
+        public long Total { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

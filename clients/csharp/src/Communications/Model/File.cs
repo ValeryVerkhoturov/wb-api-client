@@ -40,7 +40,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         /// <param name="name">Название файла.</param>
         /// <param name="url">URL для получения файла.</param>
         /// <param name="size">Размер файла в байтах.</param>
-        public File(string contentType = default(string), string date = default(string), string downloadID = default(string), string name = default(string), string url = default(string), int size = default(int))
+        public File(string contentType = default(string), string date = default(string), string downloadID = default(string), string name = default(string), string url = default(string), long size = default(long))
         {
             this.ContentType = contentType;
             this.Date = date;
@@ -90,7 +90,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         /// </summary>
         /// <value>Размер файла в байтах</value>
         [DataMember(Name = "size", EmitDefaultValue = false)]
-        public int Size { get; set; }
+        public long Size { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

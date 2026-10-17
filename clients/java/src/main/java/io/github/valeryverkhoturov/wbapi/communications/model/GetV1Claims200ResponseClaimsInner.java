@@ -47,25 +47,25 @@ public class GetV1Claims200ResponseClaimsInner {
 
   @SerializedName(SERIALIZED_NAME_CLAIM_TYPE)
   @jakarta.annotation.Nullable
-  private Integer claimType;
+  private Long claimType;
 
   public static final String SERIALIZED_NAME_STATUS = "status";
 
   @SerializedName(SERIALIZED_NAME_STATUS)
   @jakarta.annotation.Nullable
-  private Integer status;
+  private Long status;
 
   public static final String SERIALIZED_NAME_STATUS_EX = "status_ex";
 
   @SerializedName(SERIALIZED_NAME_STATUS_EX)
   @jakarta.annotation.Nullable
-  private Integer statusEx;
+  private Long statusEx;
 
   public static final String SERIALIZED_NAME_NM_ID = "nm_id";
 
   @SerializedName(SERIALIZED_NAME_NM_ID)
   @jakarta.annotation.Nullable
-  private Integer nmId;
+  private Long nmId;
 
   public static final String SERIALIZED_NAME_USER_COMMENT = "user_comment";
 
@@ -172,8 +172,7 @@ public class GetV1Claims200ResponseClaimsInner {
     this.id = id;
   }
 
-  public GetV1Claims200ResponseClaimsInner claimType(
-      @jakarta.annotation.Nullable Integer claimType) {
+  public GetV1Claims200ResponseClaimsInner claimType(@jakarta.annotation.Nullable Long claimType) {
     this.claimType = claimType;
     return this;
   }
@@ -184,15 +183,15 @@ public class GetV1Claims200ResponseClaimsInner {
    * @return claimType
    */
   @jakarta.annotation.Nullable
-  public Integer getClaimType() {
+  public Long getClaimType() {
     return claimType;
   }
 
-  public void setClaimType(@jakarta.annotation.Nullable Integer claimType) {
+  public void setClaimType(@jakarta.annotation.Nullable Long claimType) {
     this.claimType = claimType;
   }
 
-  public GetV1Claims200ResponseClaimsInner status(@jakarta.annotation.Nullable Integer status) {
+  public GetV1Claims200ResponseClaimsInner status(@jakarta.annotation.Nullable Long status) {
     this.status = status;
     return this;
   }
@@ -204,15 +203,15 @@ public class GetV1Claims200ResponseClaimsInner {
    * @return status
    */
   @jakarta.annotation.Nullable
-  public Integer getStatus() {
+  public Long getStatus() {
     return status;
   }
 
-  public void setStatus(@jakarta.annotation.Nullable Integer status) {
+  public void setStatus(@jakarta.annotation.Nullable Long status) {
     this.status = status;
   }
 
-  public GetV1Claims200ResponseClaimsInner statusEx(@jakarta.annotation.Nullable Integer statusEx) {
+  public GetV1Claims200ResponseClaimsInner statusEx(@jakarta.annotation.Nullable Long statusEx) {
     this.statusEx = statusEx;
     return this;
   }
@@ -227,15 +226,15 @@ public class GetV1Claims200ResponseClaimsInner {
    * @return statusEx
    */
   @jakarta.annotation.Nullable
-  public Integer getStatusEx() {
+  public Long getStatusEx() {
     return statusEx;
   }
 
-  public void setStatusEx(@jakarta.annotation.Nullable Integer statusEx) {
+  public void setStatusEx(@jakarta.annotation.Nullable Long statusEx) {
     this.statusEx = statusEx;
   }
 
-  public GetV1Claims200ResponseClaimsInner nmId(@jakarta.annotation.Nullable Integer nmId) {
+  public GetV1Claims200ResponseClaimsInner nmId(@jakarta.annotation.Nullable Long nmId) {
     this.nmId = nmId;
     return this;
   }
@@ -246,11 +245,11 @@ public class GetV1Claims200ResponseClaimsInner {
    * @return nmId
    */
   @jakarta.annotation.Nullable
-  public Integer getNmId() {
+  public Long getNmId() {
     return nmId;
   }
 
-  public void setNmId(@jakarta.annotation.Nullable Integer nmId) {
+  public void setNmId(@jakarta.annotation.Nullable Long nmId) {
     this.nmId = nmId;
   }
 

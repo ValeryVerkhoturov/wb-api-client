@@ -39,16 +39,16 @@ public class V2BudgetRequest {
 
   @SerializedName(SERIALIZED_NAME_ADVERT_IDS)
   @jakarta.annotation.Nonnull
-  private List<Integer> advertIds = new ArrayList<>();
+  private List<Long> advertIds = new ArrayList<>();
 
   public V2BudgetRequest() {}
 
-  public V2BudgetRequest advertIds(@jakarta.annotation.Nonnull List<Integer> advertIds) {
+  public V2BudgetRequest advertIds(@jakarta.annotation.Nonnull List<Long> advertIds) {
     this.advertIds = advertIds;
     return this;
   }
 
-  public V2BudgetRequest addAdvertIdsItem(Integer advertIdsItem) {
+  public V2BudgetRequest addAdvertIdsItem(Long advertIdsItem) {
     if (this.advertIds == null) {
       this.advertIds = new ArrayList<>();
     }
@@ -62,11 +62,11 @@ public class V2BudgetRequest {
    * @return advertIds
    */
   @jakarta.annotation.Nonnull
-  public List<Integer> getAdvertIds() {
+  public List<Long> getAdvertIds() {
     return advertIds;
   }
 
-  public void setAdvertIds(@jakarta.annotation.Nonnull List<Integer> advertIds) {
+  public void setAdvertIds(@jakarta.annotation.Nonnull List<Long> advertIds) {
     this.advertIds = advertIds;
   }
 

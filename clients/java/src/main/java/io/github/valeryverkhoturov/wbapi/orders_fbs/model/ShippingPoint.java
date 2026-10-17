@@ -126,19 +126,19 @@ public class ShippingPoint {
   /** Gets or Sets cargoTypes */
   @JsonAdapter(CargoTypesEnum.Adapter.class)
   public enum CargoTypesEnum {
-    NUMBER_1(1),
+    NUMBER_1(1l),
 
-    NUMBER_2(2),
+    NUMBER_2(2l),
 
-    NUMBER_3(3);
+    NUMBER_3(3l);
 
-    private Integer value;
+    private Long value;
 
-    CargoTypesEnum(Integer value) {
+    CargoTypesEnum(Long value) {
       this.value = value;
     }
 
-    public Integer getValue() {
+    public Long getValue() {
       return value;
     }
 
@@ -147,7 +147,7 @@ public class ShippingPoint {
       return String.valueOf(value);
     }
 
-    public static CargoTypesEnum fromValue(Integer value) {
+    public static CargoTypesEnum fromValue(Long value) {
       for (CargoTypesEnum b : CargoTypesEnum.values()) {
         if (b.value.equals(value)) {
           return b;
@@ -165,13 +165,13 @@ public class ShippingPoint {
 
       @Override
       public CargoTypesEnum read(final JsonReader jsonReader) throws IOException {
-        Integer value = jsonReader.nextInt();
+        Long value = jsonReader.nextLong();
         return CargoTypesEnum.fromValue(value);
       }
     }
 
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      Integer value = jsonElement.getAsInt();
+      Long value = jsonElement.getAsLong();
       CargoTypesEnum.fromValue(value);
     }
   }

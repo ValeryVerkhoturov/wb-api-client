@@ -51,7 +51,7 @@ public class ItemsRequest {
 
   @SerializedName(SERIALIZED_NAME_NM_IDS)
   @jakarta.annotation.Nullable
-  private List<Integer> nmIds = new ArrayList<>();
+  private List<Long> nmIds = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_BRAND_NAMES = "brandNames";
 
@@ -63,13 +63,13 @@ public class ItemsRequest {
 
   @SerializedName(SERIALIZED_NAME_SUBJECT_IDS)
   @jakarta.annotation.Nullable
-  private List<Integer> subjectIds = new ArrayList<>();
+  private List<Long> subjectIds = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_TAG_IDS = "tagIds";
 
   @SerializedName(SERIALIZED_NAME_TAG_IDS)
   @jakarta.annotation.Nullable
-  private List<Integer> tagIds = new ArrayList<>();
+  private List<Long> tagIds = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_SKIP_DELETED_NM = "skipDeletedNm";
 
@@ -87,13 +87,13 @@ public class ItemsRequest {
 
   @SerializedName(SERIALIZED_NAME_LIMIT)
   @jakarta.annotation.Nullable
-  private Integer limit = 50;
+  private Long limit = 50l;
 
   public static final String SERIALIZED_NAME_OFFSET = "offset";
 
   @SerializedName(SERIALIZED_NAME_OFFSET)
   @jakarta.annotation.Nullable
-  private Integer offset = 0;
+  private Long offset = 0l;
 
   public ItemsRequest() {}
 
@@ -137,12 +137,12 @@ public class ItemsRequest {
     this.pastPeriod = pastPeriod;
   }
 
-  public ItemsRequest nmIds(@jakarta.annotation.Nullable List<Integer> nmIds) {
+  public ItemsRequest nmIds(@jakarta.annotation.Nullable List<Long> nmIds) {
     this.nmIds = nmIds;
     return this;
   }
 
-  public ItemsRequest addNmIdsItem(Integer nmIdsItem) {
+  public ItemsRequest addNmIdsItem(Long nmIdsItem) {
     if (this.nmIds == null) {
       this.nmIds = new ArrayList<>();
     }
@@ -157,11 +157,11 @@ public class ItemsRequest {
    * @return nmIds
    */
   @jakarta.annotation.Nullable
-  public List<Integer> getNmIds() {
+  public List<Long> getNmIds() {
     return nmIds;
   }
 
-  public void setNmIds(@jakarta.annotation.Nullable List<Integer> nmIds) {
+  public void setNmIds(@jakarta.annotation.Nullable List<Long> nmIds) {
     this.nmIds = nmIds;
   }
 
@@ -192,12 +192,12 @@ public class ItemsRequest {
     this.brandNames = brandNames;
   }
 
-  public ItemsRequest subjectIds(@jakarta.annotation.Nullable List<Integer> subjectIds) {
+  public ItemsRequest subjectIds(@jakarta.annotation.Nullable List<Long> subjectIds) {
     this.subjectIds = subjectIds;
     return this;
   }
 
-  public ItemsRequest addSubjectIdsItem(Integer subjectIdsItem) {
+  public ItemsRequest addSubjectIdsItem(Long subjectIdsItem) {
     if (this.subjectIds == null) {
       this.subjectIds = new ArrayList<>();
     }
@@ -211,20 +211,20 @@ public class ItemsRequest {
    * @return subjectIds
    */
   @jakarta.annotation.Nullable
-  public List<Integer> getSubjectIds() {
+  public List<Long> getSubjectIds() {
     return subjectIds;
   }
 
-  public void setSubjectIds(@jakarta.annotation.Nullable List<Integer> subjectIds) {
+  public void setSubjectIds(@jakarta.annotation.Nullable List<Long> subjectIds) {
     this.subjectIds = subjectIds;
   }
 
-  public ItemsRequest tagIds(@jakarta.annotation.Nullable List<Integer> tagIds) {
+  public ItemsRequest tagIds(@jakarta.annotation.Nullable List<Long> tagIds) {
     this.tagIds = tagIds;
     return this;
   }
 
-  public ItemsRequest addTagIdsItem(Integer tagIdsItem) {
+  public ItemsRequest addTagIdsItem(Long tagIdsItem) {
     if (this.tagIds == null) {
       this.tagIds = new ArrayList<>();
     }
@@ -238,11 +238,11 @@ public class ItemsRequest {
    * @return tagIds
    */
   @jakarta.annotation.Nullable
-  public List<Integer> getTagIds() {
+  public List<Long> getTagIds() {
     return tagIds;
   }
 
-  public void setTagIds(@jakarta.annotation.Nullable List<Integer> tagIds) {
+  public void setTagIds(@jakarta.annotation.Nullable List<Long> tagIds) {
     this.tagIds = tagIds;
   }
 
@@ -284,7 +284,7 @@ public class ItemsRequest {
     this.orderBy = orderBy;
   }
 
-  public ItemsRequest limit(@jakarta.annotation.Nullable Integer limit) {
+  public ItemsRequest limit(@jakarta.annotation.Nullable Long limit) {
     this.limit = limit;
     return this;
   }
@@ -295,15 +295,15 @@ public class ItemsRequest {
    * @return limit
    */
   @jakarta.annotation.Nullable
-  public Integer getLimit() {
+  public Long getLimit() {
     return limit;
   }
 
-  public void setLimit(@jakarta.annotation.Nullable Integer limit) {
+  public void setLimit(@jakarta.annotation.Nullable Long limit) {
     this.limit = limit;
   }
 
-  public ItemsRequest offset(@jakarta.annotation.Nullable Integer offset) {
+  public ItemsRequest offset(@jakarta.annotation.Nullable Long offset) {
     this.offset = offset;
     return this;
   }
@@ -315,11 +315,11 @@ public class ItemsRequest {
    * @return offset
    */
   @jakarta.annotation.Nullable
-  public Integer getOffset() {
+  public Long getOffset() {
     return offset;
   }
 
-  public void setOffset(@jakarta.annotation.Nullable Integer offset) {
+  public void setOffset(@jakarta.annotation.Nullable Long offset) {
     this.offset = offset;
   }
 

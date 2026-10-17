@@ -49,7 +49,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <param name="nmIds">Артикулы WB, по которым нужно составить отчёт  (required).</param>
         /// <param name="skipDeletedNm">Скрыть удалённые товары.</param>
         /// <param name="aggregationLevel">aggregationLevel.</param>
-        public ItemHistoryRequest(ItemsRequestSelectedPeriod selectedPeriod = default(ItemsRequestSelectedPeriod), List<int> nmIds = default(List<int>), bool skipDeletedNm = default(bool), Level? aggregationLevel = default(Level?))
+        public ItemHistoryRequest(ItemsRequestSelectedPeriod selectedPeriod = default(ItemsRequestSelectedPeriod), List<long> nmIds = default(List<long>), bool skipDeletedNm = default(bool), Level? aggregationLevel = default(Level?))
         {
             // to ensure "selectedPeriod" is required (not null)
             if (selectedPeriod == null)
@@ -78,7 +78,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// </summary>
         /// <value>Артикулы WB, по которым нужно составить отчёт </value>
         [DataMember(Name = "nmIds", IsRequired = true, EmitDefaultValue = true)]
-        public List<int> NmIds { get; set; }
+        public List<long> NmIds { get; set; }
 
         /// <summary>
         /// Скрыть удалённые товары

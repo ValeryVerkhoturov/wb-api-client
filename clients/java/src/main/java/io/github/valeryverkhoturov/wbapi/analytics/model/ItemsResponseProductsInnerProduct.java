@@ -65,7 +65,7 @@ public class ItemsResponseProductsInnerProduct {
 
   @SerializedName(SERIALIZED_NAME_SUBJECT_ID)
   @jakarta.annotation.Nullable
-  private Integer subjectId;
+  private Long subjectId;
 
   public static final String SERIALIZED_NAME_SUBJECT_NAME = "subjectName";
 
@@ -177,8 +177,7 @@ public class ItemsResponseProductsInnerProduct {
     this.brandName = brandName;
   }
 
-  public ItemsResponseProductsInnerProduct subjectId(
-      @jakarta.annotation.Nullable Integer subjectId) {
+  public ItemsResponseProductsInnerProduct subjectId(@jakarta.annotation.Nullable Long subjectId) {
     this.subjectId = subjectId;
     return this;
   }
@@ -189,11 +188,11 @@ public class ItemsResponseProductsInnerProduct {
    * @return subjectId
    */
   @jakarta.annotation.Nullable
-  public Integer getSubjectId() {
+  public Long getSubjectId() {
     return subjectId;
   }
 
-  public void setSubjectId(@jakarta.annotation.Nullable Integer subjectId) {
+  public void setSubjectId(@jakarta.annotation.Nullable Long subjectId) {
     this.subjectId = subjectId;
   }
 

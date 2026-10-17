@@ -40,7 +40,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <param name="warehouseName">Название склада.</param>
         /// <param name="regionName">Регион отгрузки.</param>
         /// <param name="quantity">Количество товара на складе, доступное клиентам для добавления в корзину.</param>
-        public InventorySellerResponseItemsInner(long nmId = default(long), int chrtId = default(int), long warehouseId = default(long), string warehouseName = default(string), string regionName = default(string), int quantity = default(int))
+        public InventorySellerResponseItemsInner(long nmId = default(long), long chrtId = default(long), long warehouseId = default(long), string warehouseName = default(string), string regionName = default(string), long quantity = default(long))
         {
             this.NmId = nmId;
             this.ChrtId = chrtId;
@@ -68,7 +68,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         <example>91663228</example>
         */
         [DataMember(Name = "chrtId", EmitDefaultValue = false)]
-        public int ChrtId { get; set; }
+        public long ChrtId { get; set; }
 
         /// <summary>
         /// ID склада
@@ -108,7 +108,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         <example>43</example>
         */
         [DataMember(Name = "quantity", EmitDefaultValue = false)]
-        public int Quantity { get; set; }
+        public long Quantity { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -109,7 +109,7 @@ public class OrdersDbwApi {
    * </table>
    */
   public okhttp3.Call getV3DbwOrdersCall(
-      Integer limit, Long next, Integer dateFrom, Integer dateTo, final ApiCallback _callback)
+      Long limit, Long next, Long dateFrom, Long dateTo, final ApiCallback _callback)
       throws ApiException {
     String basePath = null;
     // Operation Servers
@@ -181,7 +181,7 @@ public class OrdersDbwApi {
 
   @SuppressWarnings("rawtypes")
   private okhttp3.Call getV3DbwOrdersValidateBeforeCall(
-      Integer limit, Long next, Integer dateFrom, Integer dateTo, final ApiCallback _callback)
+      Long limit, Long next, Long dateFrom, Long dateTo, final ApiCallback _callback)
       throws ApiException {
     // verify the required parameter 'limit' is set
     if (limit == null) {
@@ -244,8 +244,8 @@ public class OrdersDbwApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public GetV3DbwOrdersResponse200 getV3DbwOrders(
-      Integer limit, Long next, Integer dateFrom, Integer dateTo) throws ApiException {
+  public GetV3DbwOrdersResponse200 getV3DbwOrders(Long limit, Long next, Long dateFrom, Long dateTo)
+      throws ApiException {
     ApiResponse<GetV3DbwOrdersResponse200> localVarResp =
         getV3DbwOrdersWithHttpInfo(limit, next, dateFrom, dateTo);
     return localVarResp.getData();
@@ -286,7 +286,7 @@ public class OrdersDbwApi {
    * </table>
    */
   public ApiResponse<GetV3DbwOrdersResponse200> getV3DbwOrdersWithHttpInfo(
-      Integer limit, Long next, Integer dateFrom, Integer dateTo) throws ApiException {
+      Long limit, Long next, Long dateFrom, Long dateTo) throws ApiException {
     okhttp3.Call localVarCall =
         getV3DbwOrdersValidateBeforeCall(limit, next, dateFrom, dateTo, null);
     Type localVarReturnType = new TypeToken<GetV3DbwOrdersResponse200>() {}.getType();
@@ -329,10 +329,10 @@ public class OrdersDbwApi {
    * </table>
    */
   public okhttp3.Call getV3DbwOrdersAsync(
-      Integer limit,
+      Long limit,
       Long next,
-      Integer dateFrom,
-      Integer dateTo,
+      Long dateFrom,
+      Long dateTo,
       final ApiCallback<GetV3DbwOrdersResponse200> _callback)
       throws ApiException {
 
@@ -2644,8 +2644,8 @@ public class OrdersDbwApi {
    */
   public okhttp3.Call postV3DbwOrdersStickersCall(
       String type,
-      Integer width,
-      Integer height,
+      Long width,
+      Long height,
       PostV3DbwOrdersStickersRequest postV3DbwOrdersStickersRequest,
       final ApiCallback _callback)
       throws ApiException {
@@ -2716,8 +2716,8 @@ public class OrdersDbwApi {
   @SuppressWarnings("rawtypes")
   private okhttp3.Call postV3DbwOrdersStickersValidateBeforeCall(
       String type,
-      Integer width,
-      Integer height,
+      Long width,
+      Long height,
       PostV3DbwOrdersStickersRequest postV3DbwOrdersStickersRequest,
       final ApiCallback _callback)
       throws ApiException {
@@ -2781,8 +2781,8 @@ public class OrdersDbwApi {
    */
   public PostV3DbwOrdersStickersResponse200 postV3DbwOrdersStickers(
       String type,
-      Integer width,
-      Integer height,
+      Long width,
+      Long height,
       PostV3DbwOrdersStickersRequest postV3DbwOrdersStickersRequest)
       throws ApiException {
     ApiResponse<PostV3DbwOrdersStickersResponse200> localVarResp =
@@ -2828,8 +2828,8 @@ public class OrdersDbwApi {
    */
   public ApiResponse<PostV3DbwOrdersStickersResponse200> postV3DbwOrdersStickersWithHttpInfo(
       String type,
-      Integer width,
-      Integer height,
+      Long width,
+      Long height,
       PostV3DbwOrdersStickersRequest postV3DbwOrdersStickersRequest)
       throws ApiException {
     okhttp3.Call localVarCall =
@@ -2878,8 +2878,8 @@ public class OrdersDbwApi {
    */
   public okhttp3.Call postV3DbwOrdersStickersAsync(
       String type,
-      Integer width,
-      Integer height,
+      Long width,
+      Long height,
       PostV3DbwOrdersStickersRequest postV3DbwOrdersStickersRequest,
       final ApiCallback<PostV3DbwOrdersStickersResponse200> _callback)
       throws ApiException {

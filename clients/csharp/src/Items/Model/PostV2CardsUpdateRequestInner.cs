@@ -50,7 +50,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// <param name="documents">documents.</param>
         /// <param name="characteristics">Характеристики товара.  Можно получить методом [Характеристики предмета](./item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId).</param>
         /// <param name="sizes">Массив размеров Для безразмерного товара всё равно нужно передавать данный массив без параметров (wbSize и techSize), но с баркодом (required).</param>
-        public PostV2CardsUpdateRequestInner(int nmID = default(int), string vendorCode = default(string), bool kizMarked = false, string brand = default(string), string title = default(string), string gtin = default(string), string description = default(string), PostV2CardsUpdateRequestInnerDimensions dimensions = default(PostV2CardsUpdateRequestInnerDimensions), PostV2CardsUpdateRequestInnerDocuments documents = default(PostV2CardsUpdateRequestInnerDocuments), List<PostV2CardsUpdateRequestInnerCharacteristicsInner> characteristics = default(List<PostV2CardsUpdateRequestInnerCharacteristicsInner>), List<PostV2CardsUpdateRequestInnerSizesInner> sizes = default(List<PostV2CardsUpdateRequestInnerSizesInner>))
+        public PostV2CardsUpdateRequestInner(long nmID = default(long), string vendorCode = default(string), bool kizMarked = false, string brand = default(string), string title = default(string), string gtin = default(string), string description = default(string), PostV2CardsUpdateRequestInnerDimensions dimensions = default(PostV2CardsUpdateRequestInnerDimensions), PostV2CardsUpdateRequestInnerDocuments documents = default(PostV2CardsUpdateRequestInnerDocuments), List<PostV2CardsUpdateRequestInnerCharacteristicsInner> characteristics = default(List<PostV2CardsUpdateRequestInnerCharacteristicsInner>), List<PostV2CardsUpdateRequestInnerSizesInner> sizes = default(List<PostV2CardsUpdateRequestInnerSizesInner>))
         {
             this.NmID = nmID;
             // to ensure "vendorCode" is required (not null)
@@ -80,7 +80,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// </summary>
         /// <value>Артикул WB</value>
         [DataMember(Name = "nmID", IsRequired = true, EmitDefaultValue = true)]
-        public int NmID { get; set; }
+        public long NmID { get; set; }
 
         /// <summary>
         /// Артикул продавца
@@ -192,7 +192,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
             // Title (string) maxLength
             if (this.Title != null && this.Title.Length > 60)
             {
-                yield return new ValidationResult("Invalid value for Title, length must be less than 60.", new [] { "Title" });
+                yield return new ValidationResult("Invalid value for Title, length must be less than 60.", new[] { "Title" });
             }
 
             yield break;

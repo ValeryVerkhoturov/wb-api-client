@@ -40,7 +40,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// Initializes a new instance of the <see cref="PostV2ListGoodsFilterRequest" /> class.
         /// </summary>
         /// <param name="nmList">Артикулы WB для поиска товара (required).</param>
-        public PostV2ListGoodsFilterRequest(List<int> nmList = default(List<int>))
+        public PostV2ListGoodsFilterRequest(List<long> nmList = default(List<long>))
         {
             // to ensure "nmList" is required (not null)
             if (nmList == null)
@@ -55,7 +55,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// </summary>
         /// <value>Артикулы WB для поиска товара</value>
         [DataMember(Name = "nmList", IsRequired = true, EmitDefaultValue = true)]
-        public List<int> NmList { get; set; }
+        public List<long> NmList { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

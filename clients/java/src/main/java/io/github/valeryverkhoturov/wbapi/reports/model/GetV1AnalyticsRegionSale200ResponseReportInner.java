@@ -55,7 +55,7 @@ public class GetV1AnalyticsRegionSale200ResponseReportInner {
 
   @SerializedName(SERIALIZED_NAME_NM_I_D)
   @jakarta.annotation.Nullable
-  private Integer nmID;
+  private Long nmID;
 
   public static final String SERIALIZED_NAME_REGION_NAME = "regionName";
 
@@ -86,7 +86,7 @@ public class GetV1AnalyticsRegionSale200ResponseReportInner {
 
   @SerializedName(SERIALIZED_NAME_SALE_ITEM_INVOICE_QTY)
   @jakarta.annotation.Nullable
-  private Integer saleItemInvoiceQty;
+  private Long saleItemInvoiceQty;
 
   public GetV1AnalyticsRegionSale200ResponseReportInner() {}
 
@@ -151,7 +151,7 @@ public class GetV1AnalyticsRegionSale200ResponseReportInner {
   }
 
   public GetV1AnalyticsRegionSale200ResponseReportInner nmID(
-      @jakarta.annotation.Nullable Integer nmID) {
+      @jakarta.annotation.Nullable Long nmID) {
     this.nmID = nmID;
     return this;
   }
@@ -162,11 +162,11 @@ public class GetV1AnalyticsRegionSale200ResponseReportInner {
    * @return nmID
    */
   @jakarta.annotation.Nullable
-  public Integer getNmID() {
+  public Long getNmID() {
     return nmID;
   }
 
-  public void setNmID(@jakarta.annotation.Nullable Integer nmID) {
+  public void setNmID(@jakarta.annotation.Nullable Long nmID) {
     this.nmID = nmID;
   }
 
@@ -251,7 +251,7 @@ public class GetV1AnalyticsRegionSale200ResponseReportInner {
   }
 
   public GetV1AnalyticsRegionSale200ResponseReportInner saleItemInvoiceQty(
-      @jakarta.annotation.Nullable Integer saleItemInvoiceQty) {
+      @jakarta.annotation.Nullable Long saleItemInvoiceQty) {
     this.saleItemInvoiceQty = saleItemInvoiceQty;
     return this;
   }
@@ -262,11 +262,11 @@ public class GetV1AnalyticsRegionSale200ResponseReportInner {
    * @return saleItemInvoiceQty
    */
   @jakarta.annotation.Nullable
-  public Integer getSaleItemInvoiceQty() {
+  public Long getSaleItemInvoiceQty() {
     return saleItemInvoiceQty;
   }
 
-  public void setSaleItemInvoiceQty(@jakarta.annotation.Nullable Integer saleItemInvoiceQty) {
+  public void setSaleItemInvoiceQty(@jakarta.annotation.Nullable Long saleItemInvoiceQty) {
     this.saleItemInvoiceQty = saleItemInvoiceQty;
   }
 

@@ -57,7 +57,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <param name="includeSearchTexts">Показать данные по поисковым запросам без учёта подменного артикула (default to true).</param>
         /// <param name="limit">Количество групп товаров в ответе (required).</param>
         /// <param name="offset">После какого элемента выдавать данные (required).</param>
-        public MainRequest(Period currentPeriod = default(Period), PastPeriod pastPeriod = default(PastPeriod), List<int> nmIds = default(List<int>), List<int> subjectIds = default(List<int>), List<string> brandNames = default(List<string>), List<long> tagIds = default(List<long>), PositionCluster positionCluster = default(PositionCluster), OrderByMainAndDetails orderBy = default(OrderByMainAndDetails), bool includeSubstitutedSKUs = true, bool includeSearchTexts = true, int limit = default(int), int offset = default(int))
+        public MainRequest(Period currentPeriod = default(Period), PastPeriod pastPeriod = default(PastPeriod), List<int> nmIds = default(List<int>), List<int> subjectIds = default(List<int>), List<string> brandNames = default(List<string>), List<long> tagIds = default(List<long>), PositionCluster positionCluster = default(PositionCluster), OrderByMainAndDetails orderBy = default(OrderByMainAndDetails), bool includeSubstitutedSKUs = true, bool includeSearchTexts = true, long limit = default(long), long offset = default(long))
         {
             // to ensure "currentPeriod" is required (not null)
             if (currentPeriod == null)
@@ -169,7 +169,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         <example>130</example>
         */
         [DataMember(Name = "limit", IsRequired = true, EmitDefaultValue = true)]
-        public int Limit { get; set; }
+        public long Limit { get; set; }
 
         /// <summary>
         /// После какого элемента выдавать данные
@@ -179,7 +179,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         <example>50</example>
         */
         [DataMember(Name = "offset", IsRequired = true, EmitDefaultValue = true)]
-        public int Offset { get; set; }
+        public long Offset { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -221,10 +221,10 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <returns>Validation Result</returns>
         IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Limit (int) maximum
-            if (this.Limit > (int)1000)
+            // Limit (long) maximum
+            if (this.Limit > (long)1000)
             {
-                yield return new ValidationResult("Invalid value for Limit, must be a value less than or equal to 1000.", new [] { "Limit" });
+                yield return new ValidationResult("Invalid value for Limit, must be a value less than or equal to 1000.", new[] { "Limit" });
             }
 
             yield break;

@@ -43,7 +43,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Model
         /// <param name="orderID">ID сборочного задания.</param>
         /// <param name="phoneCode">Добавочный код. Пустое значение &#x60;\&quot;\&quot;&#x60; указывает, что код ещё не назначен.</param>
         /// <param name="additionalPhoneCodes">Дополнительные добавочные коды. Используйте, если не получилось дозвониться по добавочному коду из &#x60;phoneCode&#x60;. Пустое значение &#x60;\&quot;\&quot;&#x60; указывает, что код ещё не назначен.</param>
-        public DbsOnlyClientInfo(string replacementPhone = default(string), string phone = default(string), string firstName = default(string), string fullName = default(string), List<string> additionalPhones = default(List<string>), List<string> replacementAdditionalPhones = default(List<string>), int orderID = default(int), int phoneCode = default(int), List<string> additionalPhoneCodes = default(List<string>))
+        public DbsOnlyClientInfo(string replacementPhone = default(string), string phone = default(string), string firstName = default(string), string fullName = default(string), List<string> additionalPhones = default(List<string>), List<string> replacementAdditionalPhones = default(List<string>), long orderID = default(long), long phoneCode = default(long), List<string> additionalPhoneCodes = default(List<string>))
         {
             this.ReplacementPhone = replacementPhone;
             this.Phone = phone;
@@ -115,7 +115,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Model
         <example>134567</example>
         */
         [DataMember(Name = "orderID", EmitDefaultValue = false)]
-        public int OrderID { get; set; }
+        public long OrderID { get; set; }
 
         /// <summary>
         /// Добавочный код. Пустое значение &#x60;\&quot;\&quot;&#x60; указывает, что код ещё не назначен
@@ -125,7 +125,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Model
         <example>1234567</example>
         */
         [DataMember(Name = "phoneCode", EmitDefaultValue = false)]
-        public int PhoneCode { get; set; }
+        public long PhoneCode { get; set; }
 
         /// <summary>
         /// Дополнительные добавочные коды. Используйте, если не получилось дозвониться по добавочному коду из &#x60;phoneCode&#x60;. Пустое значение &#x60;\&quot;\&quot;&#x60; указывает, что код ещё не назначен

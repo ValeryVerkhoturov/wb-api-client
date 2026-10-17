@@ -37,7 +37,7 @@ public class PostV2GetCardsListRequestSettingsCursor {
 
   @SerializedName(SERIALIZED_NAME_LIMIT)
   @jakarta.annotation.Nullable
-  private Integer limit = 10;
+  private Long limit = 10l;
 
   public static final String SERIALIZED_NAME_UPDATED_AT = "updatedAt";
 
@@ -49,11 +49,11 @@ public class PostV2GetCardsListRequestSettingsCursor {
 
   @SerializedName(SERIALIZED_NAME_NM_I_D)
   @jakarta.annotation.Nullable
-  private Integer nmID;
+  private Long nmID;
 
   public PostV2GetCardsListRequestSettingsCursor() {}
 
-  public PostV2GetCardsListRequestSettingsCursor limit(@jakarta.annotation.Nullable Integer limit) {
+  public PostV2GetCardsListRequestSettingsCursor limit(@jakarta.annotation.Nullable Long limit) {
     this.limit = limit;
     return this;
   }
@@ -64,11 +64,11 @@ public class PostV2GetCardsListRequestSettingsCursor {
    * @return limit
    */
   @jakarta.annotation.Nullable
-  public Integer getLimit() {
+  public Long getLimit() {
     return limit;
   }
 
-  public void setLimit(@jakarta.annotation.Nullable Integer limit) {
+  public void setLimit(@jakarta.annotation.Nullable Long limit) {
     this.limit = limit;
   }
 
@@ -92,7 +92,7 @@ public class PostV2GetCardsListRequestSettingsCursor {
     this.updatedAt = updatedAt;
   }
 
-  public PostV2GetCardsListRequestSettingsCursor nmID(@jakarta.annotation.Nullable Integer nmID) {
+  public PostV2GetCardsListRequestSettingsCursor nmID(@jakarta.annotation.Nullable Long nmID) {
     this.nmID = nmID;
     return this;
   }
@@ -103,11 +103,11 @@ public class PostV2GetCardsListRequestSettingsCursor {
    * @return nmID
    */
   @jakarta.annotation.Nullable
-  public Integer getNmID() {
+  public Long getNmID() {
     return nmID;
   }
 
-  public void setNmID(@jakarta.annotation.Nullable Integer nmID) {
+  public void setNmID(@jakarta.annotation.Nullable Long nmID) {
     this.nmID = nmID;
   }
 

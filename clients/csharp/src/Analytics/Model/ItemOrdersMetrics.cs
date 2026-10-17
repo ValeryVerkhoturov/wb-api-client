@@ -37,7 +37,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <param name="dt">Дата сбора статистики.</param>
         /// <param name="avgPosition">Средняя позиция товара в результатах поиска.</param>
         /// <param name="orders">Сколько раз товары из поиска заказали.</param>
-        public ItemOrdersMetrics(string dt = default(string), int avgPosition = default(int), int orders = default(int))
+        public ItemOrdersMetrics(string dt = default(string), long avgPosition = default(long), long orders = default(long))
         {
             this.Dt = dt;
             this.AvgPosition = avgPosition;
@@ -62,7 +62,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         <example>10</example>
         */
         [DataMember(Name = "avgPosition", EmitDefaultValue = false)]
-        public int AvgPosition { get; set; }
+        public long AvgPosition { get; set; }
 
         /// <summary>
         /// Сколько раз товары из поиска заказали
@@ -72,7 +72,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         <example>20</example>
         */
         [DataMember(Name = "orders", EmitDefaultValue = false)]
-        public int Orders { get; set; }
+        public long Orders { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -42,7 +42,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// <param name="id">ID загрузки (required).</param>
         /// <param name="alreadyExists">Дублирование загрузки: &#x60;true&#x60; — такая загрузка уже есть  (required).</param>
         /// <param name="results">Результаты обработки запроса (required).</param>
-        public PostV1UploadTaskB2bWholesale200Response(int id = default(int), bool alreadyExists = default(bool), List<PostV1UploadTaskB2bWholesale200ResponseResultsInner> results = default(List<PostV1UploadTaskB2bWholesale200ResponseResultsInner>))
+        public PostV1UploadTaskB2bWholesale200Response(long id = default(long), bool alreadyExists = default(bool), List<PostV1UploadTaskB2bWholesale200ResponseResultsInner> results = default(List<PostV1UploadTaskB2bWholesale200ResponseResultsInner>))
         {
             this.Id = id;
             this.AlreadyExists = alreadyExists;
@@ -59,7 +59,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// </summary>
         /// <value>ID загрузки</value>
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// Дублирование загрузки: &#x60;true&#x60; — такая загрузка уже есть 

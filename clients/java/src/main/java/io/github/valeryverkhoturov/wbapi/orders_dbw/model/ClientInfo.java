@@ -69,19 +69,19 @@ public class ClientInfo {
 
   @SerializedName(SERIALIZED_NAME_ADDITIONAL_PHONE_CODES)
   @jakarta.annotation.Nullable
-  private List<Integer> additionalPhoneCodes = new ArrayList<>();
+  private List<Long> additionalPhoneCodes = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_ORDER_ID = "orderId";
 
   @SerializedName(SERIALIZED_NAME_ORDER_ID)
   @jakarta.annotation.Nullable
-  private Integer orderId;
+  private Long orderId;
 
   public static final String SERIALIZED_NAME_PHONE_CODE = "phoneCode";
 
   @SerializedName(SERIALIZED_NAME_PHONE_CODE)
   @jakarta.annotation.Nullable
-  private Integer phoneCode;
+  private Long phoneCode;
 
   public ClientInfo() {}
 
@@ -196,12 +196,12 @@ public class ClientInfo {
   }
 
   public ClientInfo additionalPhoneCodes(
-      @jakarta.annotation.Nullable List<Integer> additionalPhoneCodes) {
+      @jakarta.annotation.Nullable List<Long> additionalPhoneCodes) {
     this.additionalPhoneCodes = additionalPhoneCodes;
     return this;
   }
 
-  public ClientInfo addAdditionalPhoneCodesItem(Integer additionalPhoneCodesItem) {
+  public ClientInfo addAdditionalPhoneCodesItem(Long additionalPhoneCodesItem) {
     if (this.additionalPhoneCodes == null) {
       this.additionalPhoneCodes = new ArrayList<>();
     }
@@ -216,16 +216,16 @@ public class ClientInfo {
    * @return additionalPhoneCodes
    */
   @jakarta.annotation.Nullable
-  public List<Integer> getAdditionalPhoneCodes() {
+  public List<Long> getAdditionalPhoneCodes() {
     return additionalPhoneCodes;
   }
 
   public void setAdditionalPhoneCodes(
-      @jakarta.annotation.Nullable List<Integer> additionalPhoneCodes) {
+      @jakarta.annotation.Nullable List<Long> additionalPhoneCodes) {
     this.additionalPhoneCodes = additionalPhoneCodes;
   }
 
-  public ClientInfo orderId(@jakarta.annotation.Nullable Integer orderId) {
+  public ClientInfo orderId(@jakarta.annotation.Nullable Long orderId) {
     this.orderId = orderId;
     return this;
   }
@@ -236,15 +236,15 @@ public class ClientInfo {
    * @return orderId
    */
   @jakarta.annotation.Nullable
-  public Integer getOrderId() {
+  public Long getOrderId() {
     return orderId;
   }
 
-  public void setOrderId(@jakarta.annotation.Nullable Integer orderId) {
+  public void setOrderId(@jakarta.annotation.Nullable Long orderId) {
     this.orderId = orderId;
   }
 
-  public ClientInfo phoneCode(@jakarta.annotation.Nullable Integer phoneCode) {
+  public ClientInfo phoneCode(@jakarta.annotation.Nullable Long phoneCode) {
     this.phoneCode = phoneCode;
     return this;
   }
@@ -256,11 +256,11 @@ public class ClientInfo {
    * @return phoneCode
    */
   @jakarta.annotation.Nullable
-  public Integer getPhoneCode() {
+  public Long getPhoneCode() {
     return phoneCode;
   }
 
-  public void setPhoneCode(@jakarta.annotation.Nullable Integer phoneCode) {
+  public void setPhoneCode(@jakarta.annotation.Nullable Long phoneCode) {
     this.phoneCode = phoneCode;
   }
 

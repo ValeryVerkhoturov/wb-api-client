@@ -36,7 +36,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /// </summary>
         /// <param name="warehouseName">Название склада.</param>
         /// <param name="quantity">Количество, шт. .</param>
-        public GetV1WarehouseRemainsTasksTaskIdDownloadResponse200InnerWarehousesInner(string warehouseName = default(string), int quantity = default(int))
+        public GetV1WarehouseRemainsTasksTaskIdDownloadResponse200InnerWarehousesInner(string warehouseName = default(string), long quantity = default(long))
         {
             this.WarehouseName = warehouseName;
             this.Quantity = quantity;
@@ -60,7 +60,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         <example>134</example>
         */
         [DataMember(Name = "quantity", EmitDefaultValue = false)]
-        public int Quantity { get; set; }
+        public long Quantity { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

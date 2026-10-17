@@ -47,7 +47,7 @@ public class PostV2SeacatSaveAdRequest {
 
   @SerializedName(SERIALIZED_NAME_NMS)
   @jakarta.annotation.Nullable
-  private List<Integer> nms = new ArrayList<>();
+  private List<Long> nms = new ArrayList<>();
 
   /** Тип ставки: - &#x60;manual&#x60; — ручная - &#x60;unified&#x60; — единая */
   @JsonAdapter(BidTypeEnum.Adapter.class)
@@ -245,12 +245,12 @@ public class PostV2SeacatSaveAdRequest {
     this.name = name;
   }
 
-  public PostV2SeacatSaveAdRequest nms(@jakarta.annotation.Nullable List<Integer> nms) {
+  public PostV2SeacatSaveAdRequest nms(@jakarta.annotation.Nullable List<Long> nms) {
     this.nms = nms;
     return this;
   }
 
-  public PostV2SeacatSaveAdRequest addNmsItem(Integer nmsItem) {
+  public PostV2SeacatSaveAdRequest addNmsItem(Long nmsItem) {
     if (this.nms == null) {
       this.nms = new ArrayList<>();
     }
@@ -266,11 +266,11 @@ public class PostV2SeacatSaveAdRequest {
    * @return nms
    */
   @jakarta.annotation.Nullable
-  public List<Integer> getNms() {
+  public List<Long> getNms() {
     return nms;
   }
 
-  public void setNms(@jakarta.annotation.Nullable List<Integer> nms) {
+  public void setNms(@jakarta.annotation.Nullable List<Long> nms) {
     this.nms = nms;
   }
 

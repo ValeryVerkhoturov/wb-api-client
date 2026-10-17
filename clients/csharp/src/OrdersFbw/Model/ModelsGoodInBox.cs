@@ -36,7 +36,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Model
         /// </summary>
         /// <param name="barcode">Баркод.</param>
         /// <param name="quantity">Количество, шт.</param>
-        public ModelsGoodInBox(string barcode = default(string), int quantity = default(int))
+        public ModelsGoodInBox(string barcode = default(string), long quantity = default(long))
         {
             this.Barcode = barcode;
             this.Quantity = quantity;
@@ -54,7 +54,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Model
         /// </summary>
         /// <value>Количество, шт</value>
         [DataMember(Name = "quantity", EmitDefaultValue = false)]
-        public int Quantity { get; set; }
+        public long Quantity { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

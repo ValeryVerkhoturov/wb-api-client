@@ -46,7 +46,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// <param name="hasFilter">Ключевая характеристика. Является ли характеристика значимой для покупателей:   - &#x60;true&#x60; — да   - &#x60;false&#x60; — нет .</param>
         /// <param name="isVariable">Признак [меняющейся характеристики](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov). Значение размечает характеристики, по которым варианты отличаются друг от друга:   -  &#x60;true&#x60; — варианты товара отличаются по этой характеристике   -  &#x60;false&#x60; — варианты товара не отличаются по этой характеристике .</param>
         /// <param name="existNamedField">Как передать характеристику в запросах на [cоздание](./item-management#tag/listingItems/operation/postV2CardsUpload), [создание с присоединением](./item-management#tag/listingItems/operation/postV2CardsUploadAdd) и [редактирование](./item-management#tag/listings/operation/postV2CardsUpdate) карточек товара:   -  &#x60;true&#x60; — в соответствующем параметре запроса   -  &#x60;false&#x60; — внутри массива &#x60;characteristics&#x60; .</param>
-        public GetV2ObjectCharcsSubjectIdResponse200DataInner(int charcID = default(int), string subjectName = default(string), int subjectID = default(int), string name = default(string), bool required = default(bool), string unitName = default(string), int maxCount = default(int), bool popular = default(bool), int charcType = default(int), bool hasFilter = default(bool), bool isVariable = default(bool), bool existNamedField = default(bool))
+        public GetV2ObjectCharcsSubjectIdResponse200DataInner(long charcID = default(long), string subjectName = default(string), long subjectID = default(long), string name = default(string), bool required = default(bool), string unitName = default(string), long maxCount = default(long), bool popular = default(bool), long charcType = default(long), bool hasFilter = default(bool), bool isVariable = default(bool), bool existNamedField = default(bool))
         {
             this.CharcID = charcID;
             this.SubjectName = subjectName;
@@ -67,7 +67,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// </summary>
         /// <value>ID характеристики</value>
         [DataMember(Name = "charcID", EmitDefaultValue = false)]
-        public int CharcID { get; set; }
+        public long CharcID { get; set; }
 
         /// <summary>
         /// Название предмета
@@ -81,7 +81,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// </summary>
         /// <value>ID предмета</value>
         [DataMember(Name = "subjectID", EmitDefaultValue = false)]
-        public int SubjectID { get; set; }
+        public long SubjectID { get; set; }
 
         /// <summary>
         /// Название характеристики
@@ -109,7 +109,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// </summary>
         /// <value>Максимальное количество значений, которое можно присвоить характеристике при [создании](./item-management#tag/listingItems) или [редактировании](./item-management#tag/listings/operation/postV2CardsUpdate) карточек товаров.  Используется только для характеристик с &#x60;\&quot;charcType\&quot;:1&#x60; — массив строк.  Характеристикам с &#x60;\&quot;charcType\&quot;:4&#x60; — число, можно присвоить только одно значение.  Если &#x60;\&quot;maxCount\&quot;:0&#x60;, количество значений не ограничено</value>
         [DataMember(Name = "maxCount", EmitDefaultValue = false)]
-        public int MaxCount { get; set; }
+        public long MaxCount { get; set; }
 
         /// <summary>
         /// Характеристика популярна у пользователей (true - да, false - нет)
@@ -123,7 +123,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// </summary>
         /// <value>Тип данных характеристики, который необходимо использовать при [создании](./item-management#tag/listingItems) или [редактировании](./item-management#tag/listings/operation/postV2CardsUpdate) карточек товаров:   -  &#x60;1&#x60; — массив строк   -  &#x60;4&#x60; — число (целое либо с десятичной дробью)   -  &#x60;0&#x60; — характеристика не используется </value>
         [DataMember(Name = "charcType", EmitDefaultValue = false)]
-        public int CharcType { get; set; }
+        public long CharcType { get; set; }
 
         /// <summary>
         /// Ключевая характеристика. Является ли характеристика значимой для покупателей:   - &#x60;true&#x60; — да   - &#x60;false&#x60; — нет 

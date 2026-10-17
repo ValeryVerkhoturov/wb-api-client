@@ -37,13 +37,13 @@ public class QuarantineItems {
 
   @SerializedName(SERIALIZED_NAME_NM_I_D)
   @jakarta.annotation.Nullable
-  private Integer nmID;
+  private Long nmID;
 
   public static final String SERIALIZED_NAME_SIZE_I_D = "sizeID";
 
   @SerializedName(SERIALIZED_NAME_SIZE_I_D)
   @jakarta.annotation.Nullable
-  private Integer sizeID;
+  private Long sizeID;
 
   public static final String SERIALIZED_NAME_TECH_SIZE_NAME = "techSizeName";
 
@@ -73,13 +73,13 @@ public class QuarantineItems {
 
   @SerializedName(SERIALIZED_NAME_NEW_DISCOUNT)
   @jakarta.annotation.Nullable
-  private Integer newDiscount;
+  private Long newDiscount;
 
   public static final String SERIALIZED_NAME_OLD_DISCOUNT = "oldDiscount";
 
   @SerializedName(SERIALIZED_NAME_OLD_DISCOUNT)
   @jakarta.annotation.Nullable
-  private Integer oldDiscount;
+  private Long oldDiscount;
 
   public static final String SERIALIZED_NAME_PRICE_DIFF = "priceDiff";
 
@@ -89,7 +89,7 @@ public class QuarantineItems {
 
   public QuarantineItems() {}
 
-  public QuarantineItems nmID(@jakarta.annotation.Nullable Integer nmID) {
+  public QuarantineItems nmID(@jakarta.annotation.Nullable Long nmID) {
     this.nmID = nmID;
     return this;
   }
@@ -100,15 +100,15 @@ public class QuarantineItems {
    * @return nmID
    */
   @jakarta.annotation.Nullable
-  public Integer getNmID() {
+  public Long getNmID() {
     return nmID;
   }
 
-  public void setNmID(@jakarta.annotation.Nullable Integer nmID) {
+  public void setNmID(@jakarta.annotation.Nullable Long nmID) {
     this.nmID = nmID;
   }
 
-  public QuarantineItems sizeID(@jakarta.annotation.Nullable Integer sizeID) {
+  public QuarantineItems sizeID(@jakarta.annotation.Nullable Long sizeID) {
     this.sizeID = sizeID;
     return this;
   }
@@ -119,11 +119,11 @@ public class QuarantineItems {
    * @return sizeID
    */
   @jakarta.annotation.Nullable
-  public Integer getSizeID() {
+  public Long getSizeID() {
     return sizeID;
   }
 
-  public void setSizeID(@jakarta.annotation.Nullable Integer sizeID) {
+  public void setSizeID(@jakarta.annotation.Nullable Long sizeID) {
     this.sizeID = sizeID;
   }
 
@@ -204,7 +204,7 @@ public class QuarantineItems {
     this.oldPrice = oldPrice;
   }
 
-  public QuarantineItems newDiscount(@jakarta.annotation.Nullable Integer newDiscount) {
+  public QuarantineItems newDiscount(@jakarta.annotation.Nullable Long newDiscount) {
     this.newDiscount = newDiscount;
     return this;
   }
@@ -215,15 +215,15 @@ public class QuarantineItems {
    * @return newDiscount
    */
   @jakarta.annotation.Nullable
-  public Integer getNewDiscount() {
+  public Long getNewDiscount() {
     return newDiscount;
   }
 
-  public void setNewDiscount(@jakarta.annotation.Nullable Integer newDiscount) {
+  public void setNewDiscount(@jakarta.annotation.Nullable Long newDiscount) {
     this.newDiscount = newDiscount;
   }
 
-  public QuarantineItems oldDiscount(@jakarta.annotation.Nullable Integer oldDiscount) {
+  public QuarantineItems oldDiscount(@jakarta.annotation.Nullable Long oldDiscount) {
     this.oldDiscount = oldDiscount;
     return this;
   }
@@ -234,11 +234,11 @@ public class QuarantineItems {
    * @return oldDiscount
    */
   @jakarta.annotation.Nullable
-  public Integer getOldDiscount() {
+  public Long getOldDiscount() {
     return oldDiscount;
   }
 
-  public void setOldDiscount(@jakarta.annotation.Nullable Integer oldDiscount) {
+  public void setOldDiscount(@jakarta.annotation.Nullable Long oldDiscount) {
     this.oldDiscount = oldDiscount;
   }
 

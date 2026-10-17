@@ -36,7 +36,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         /// </summary>
         /// <param name="claims">Заявки.</param>
         /// <param name="total">Количество заявок, соответствующих параметрам запроса. Без учёта &#x60;limit&#x60; и &#x60;offset&#x60;.</param>
-        public GetV1Claims200Response(List<GetV1Claims200ResponseClaimsInner> claims = default(List<GetV1Claims200ResponseClaimsInner>), int total = default(int))
+        public GetV1Claims200Response(List<GetV1Claims200ResponseClaimsInner> claims = default(List<GetV1Claims200ResponseClaimsInner>), long total = default(long))
         {
             this.Claims = claims;
             this.Total = total;
@@ -54,7 +54,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         /// </summary>
         /// <value>Количество заявок, соответствующих параметрам запроса. Без учёта &#x60;limit&#x60; и &#x60;offset&#x60;</value>
         [DataMember(Name = "total", EmitDefaultValue = false)]
-        public int Total { get; set; }
+        public long Total { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

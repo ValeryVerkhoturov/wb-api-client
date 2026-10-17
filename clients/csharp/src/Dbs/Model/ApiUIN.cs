@@ -41,7 +41,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Model
         /// </summary>
         /// <param name="orderId">ID сборочного задания (required).</param>
         /// <param name="uin">УИН (required).</param>
-        public ApiUIN(int orderId = default(int), string uin = default(string))
+        public ApiUIN(long orderId = default(long), string uin = default(string))
         {
             this.OrderId = orderId;
             // to ensure "uin" is required (not null)
@@ -60,7 +60,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Model
         <example>123456</example>
         */
         [DataMember(Name = "orderId", IsRequired = true, EmitDefaultValue = true)]
-        public int OrderId { get; set; }
+        public long OrderId { get; set; }
 
         /// <summary>
         /// УИН
@@ -105,13 +105,13 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Model
             // Uin (string) maxLength
             if (this.Uin != null && this.Uin.Length > 16)
             {
-                yield return new ValidationResult("Invalid value for Uin, length must be less than 16.", new [] { "Uin" });
+                yield return new ValidationResult("Invalid value for Uin, length must be less than 16.", new[] { "Uin" });
             }
 
             // Uin (string) minLength
             if (this.Uin != null && this.Uin.Length < 16)
             {
-                yield return new ValidationResult("Invalid value for Uin, length must be greater than 16.", new [] { "Uin" });
+                yield return new ValidationResult("Invalid value for Uin, length must be greater than 16.", new[] { "Uin" });
             }
 
             yield break;

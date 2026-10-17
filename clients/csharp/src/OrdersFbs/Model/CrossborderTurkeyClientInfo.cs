@@ -41,7 +41,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// <param name="orderID">Номер заказа.</param>
         /// <param name="phone">Телефон для связи с клиентом.</param>
         /// <param name="phoneCode">Не используется.</param>
-        public CrossborderTurkeyClientInfo(string firstName = default(string), string fullName = default(string), string lastName = default(string), string middleName = default(string), int orderID = default(int), string phone = default(string), string phoneCode = default(string))
+        public CrossborderTurkeyClientInfo(string firstName = default(string), string fullName = default(string), string lastName = default(string), string middleName = default(string), long orderID = default(long), string phone = default(string), string phoneCode = default(string))
         {
             this.FirstName = firstName;
             this.FullName = fullName;
@@ -100,7 +100,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         <example>134567</example>
         */
         [DataMember(Name = "orderID", EmitDefaultValue = false)]
-        public int OrderID { get; set; }
+        public long OrderID { get; set; }
 
         /// <summary>
         /// Телефон для связи с клиентом

@@ -37,7 +37,7 @@ namespace ValeryVerkhoturov.WbApiClient.InStorePickup.Model
         /// <param name="code">Код ошибки.</param>
         /// <param name="detail">- &#x60;NotFound&#x60; — сборочное задание не найдено - &#x60;StatusMismatch&#x60; — операция невозможна для этого статуса сборочного задания - &#x60;MetaValidationFail&#x60; — идентификаторы маркировки не прошли проверку .</param>
         /// <param name="metaDetails">Ошибки проверки идентификаторов маркировки.</param>
-        public ApiMetaDetailsResponseResultsInnerErrorsInner(int code = default(int), string detail = default(string), List<ApiMetaDetailsResponseResultsInnerErrorsInnerMetaDetailsInner> metaDetails = default(List<ApiMetaDetailsResponseResultsInnerErrorsInnerMetaDetailsInner>))
+        public ApiMetaDetailsResponseResultsInnerErrorsInner(long code = default(long), string detail = default(string), List<ApiMetaDetailsResponseResultsInnerErrorsInnerMetaDetailsInner> metaDetails = default(List<ApiMetaDetailsResponseResultsInnerErrorsInnerMetaDetailsInner>))
         {
             this.Code = code;
             this.Detail = detail;
@@ -49,7 +49,7 @@ namespace ValeryVerkhoturov.WbApiClient.InStorePickup.Model
         /// </summary>
         /// <value>Код ошибки</value>
         [DataMember(Name = "code", EmitDefaultValue = false)]
-        public int Code { get; set; }
+        public long Code { get; set; }
 
         /// <summary>
         /// - &#x60;NotFound&#x60; — сборочное задание не найдено - &#x60;StatusMismatch&#x60; — операция невозможна для этого статуса сборочного задания - &#x60;MetaValidationFail&#x60; — идентификаторы маркировки не прошли проверку 

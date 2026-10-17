@@ -42,7 +42,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// <param name="minQuantity">Минимальное количество единиц товара для скидки (required).</param>
         /// <param name="wholesaleDiscount">Скидка, % (required).</param>
         /// <param name="level">Уровень скидки (required).</param>
-        public WholesaleDiscountThresholdRes(int minQuantity = default(int), int wholesaleDiscount = default(int), int level = default(int))
+        public WholesaleDiscountThresholdRes(long minQuantity = default(long), long wholesaleDiscount = default(long), long level = default(long))
         {
             this.MinQuantity = minQuantity;
             this.WholesaleDiscount = wholesaleDiscount;
@@ -57,7 +57,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         <example>10</example>
         */
         [DataMember(Name = "minQuantity", IsRequired = true, EmitDefaultValue = true)]
-        public int MinQuantity { get; set; }
+        public long MinQuantity { get; set; }
 
         /// <summary>
         /// Скидка, %
@@ -67,7 +67,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         <example>10</example>
         */
         [DataMember(Name = "wholesaleDiscount", IsRequired = true, EmitDefaultValue = true)]
-        public int WholesaleDiscount { get; set; }
+        public long WholesaleDiscount { get; set; }
 
         /// <summary>
         /// Уровень скидки
@@ -77,7 +77,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         <example>1</example>
         */
         [DataMember(Name = "level", IsRequired = true, EmitDefaultValue = true)]
-        public int Level { get; set; }
+        public long Level { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

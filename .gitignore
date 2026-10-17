@@ -21,7 +21,7 @@ clients/**/*.ospx
 # Local generator scratch
 clients/.tmp/
 # Pinned toolchain downloads: the OneScript runtime and the built codegen
-# plugin jar. Both are reproducible from scripts/onescript-toolchain.sh.
+# plugin jar. Both are reproducible from scripts/onescript_toolchain.py.
 .cache/
 .openapi-generator/
 .openapi-generator-cli.jar

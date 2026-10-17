@@ -597,6 +597,7 @@ paths:
           default: 50
           maximum: 50
           example: 10
+          format: int64
         description: Максимальное количество строк ответа
       - in: query
         name: offset
@@ -604,6 +605,7 @@ paths:
           type: integer
           default: 0
           example: 90
+          format: int64
         description: После какой строки выдавать данные
       responses:
         '200':
@@ -909,11 +911,13 @@ components:
           default: 1000
           description: Количество отчётов в ответе
           example: 211
+          format: int64
         offset:
           type: integer
           default: 0
           description: Сколько элементов пропустить. Например, для значения `10` ответ начнётся с 11 элемента
           example: 345
+          format: int64
         period:
           type: string
           enum:
@@ -961,6 +965,7 @@ components:
           - 2
           description: "Тип отчёта:\n  - `1` — основной\n  - `2` — по выкупам\n"
           example: 1
+          format: int64
         retailAmountSum:
           type: string
           description: Продажа
@@ -1027,6 +1032,7 @@ components:
           default: 100000
           description: Количество строк в ответе
           example: 21100
+          format: int64
         rrdId:
           type: integer
           default: 0
@@ -1034,6 +1040,7 @@ components:
             ID строки ответа. Необходим для получения отчёта частями.
             Начинайте загрузку отчёта с `"rrdid":0`. В последующих запросах передавайте значение `rrdId` из последней строки предыдущего ответа.
             Повторяйте запрос, пока не получите ответ `204`
+          format: int64
         fields:
           type: array
           items:
@@ -1083,6 +1090,7 @@ components:
           default: 100000
           description: Количество строк в ответе
           example: 21100
+          format: int64
         rrdId:
           type: integer
           default: 0
@@ -1090,6 +1098,7 @@ components:
             ID строки ответа. Необходим для получения отчёта частями.
             Начинайте загрузку отчёта с `"rrdid":0`. В последующих запросах передавайте значение `rrdId` из последней строки предыдущего ответа.
             Повторяйте запрос, пока не получите ответ `204`
+          format: int64
         period:
           type: string
           enum:
@@ -1145,14 +1154,17 @@ components:
           - 2
           description: "Тип отчёта:\n  - `1` — основной\n  - `2` — по выкупам\n"
           example: 1
+          format: int64
         rrdId:
           example: 1232610467
           type: integer
           description: ID строки
+          format: int64
         giId:
           example: 123456
           type: integer
           description: ID поставки
+          format: int64
         dlvPrc:
           example: 1.8
           type: number
@@ -1173,6 +1185,7 @@ components:
           example: 1234567
           type: integer
           description: Артикул WB
+          format: int64
         brandName:
           example: BlahBlah
           type: string
@@ -1201,6 +1214,7 @@ components:
           type: integer
           example: 1
           description: Количество
+          format: int64
         retailPrice:
           example: '1249'
           type: string
@@ -1213,6 +1227,7 @@ components:
           example: 0
           type: integer
           description: Согласованный продуктовый дисконт, %
+          format: int64
         commissionPercent:
           example: 24
           type: number
@@ -1241,6 +1256,7 @@ components:
           example: 1239159661
           type: integer
           description: Штрихкод
+          format: int64
         retailPriceWithDisc:
           example: '399.68'
           type: string
@@ -1249,10 +1265,12 @@ components:
           example: 0
           type: integer
           description: Количество доставок
+          format: int64
         returnAmount:
           example: 0
           type: integer
           description: Количество возврата
+          format: int64
         deliveryService:
           example: '0'
           type: string
@@ -1331,6 +1349,7 @@ components:
           example: 105383
           type: integer
           description: ID офиса доставки
+          format: int64
         ppvzSupplierName:
           example: ИП Жасмин
           type: string
@@ -1391,6 +1410,7 @@ components:
           type: integer
           description: ID сборочного задания
           example: 2816993144
+          format: int64
         kiz:
           type: string
           description: Код маркировки [Честного знака](https://честныйзнак.рф)
@@ -1435,6 +1455,7 @@ components:
           type: integer
           description: ID собственной акции продавца с дополнительной скидкой
           example: 14350
+          format: int64
         sellerPromoDiscount:
           type: number
           description: Размер дополнительной скидки по собственной акции продавца, %
@@ -1443,6 +1464,7 @@ components:
           type: integer
           description: ID скидки лояльности от продавца
           example: 0
+          format: int64
         loyaltyDiscount:
           type: number
           description: Размер скидки лояльности от продавца, %
@@ -1544,11 +1566,13 @@ components:
           default: 1000
           description: Количество отчётов в ответе
           example: 211
+          format: int64
         offset:
           type: integer
           default: 0
           description: Сколько элементов пропустить. Например, для значения `10` ответ начнётся с 11 элемента
           example: 345
+          format: int64
     AcquiringReportListRes:
       type: object
       description: Список отчётов об издержках на приём платежей
@@ -1623,6 +1647,7 @@ components:
           default: 100000
           description: Количество строк в ответе
           example: 21100
+          format: int64
         rrdId:
           type: integer
           default: 0
@@ -1630,6 +1655,7 @@ components:
             ID строки ответа. Необходим для получения отчёта частями.
             Начинайте загрузку отчёта с `"rrdid":0`. В последующих запросах передавайте значение `rrdId` из последней строки предыдущего ответа.
             Повторяйте запрос, пока не получите ответ `204`
+          format: int64
         fields:
           type: array
           items:
@@ -1650,6 +1676,7 @@ components:
           example: 1232610467
           type: integer
           description: ID строки
+          format: int64
         reportId:
           example: 1234567
           type: integer
@@ -1689,6 +1716,7 @@ components:
           example: 1234567
           type: integer
           description: Артикул WB
+          format: int64
         retailAmount:
           example: '367'
           type: string
@@ -1713,6 +1741,7 @@ components:
           example: 1239159661
           type: integer
           description: Штрихкод
+          format: int64
         currency:
           type: string
           description: Валюта отчёта
@@ -1939,6 +1968,7 @@ components:
                 type: integer
                 description: HTTP статус-код
                 example: 400
+                format: int64
               title:
                 type: string
                 description: Заголовок ошибки
@@ -1972,6 +2002,7 @@ components:
                 type: integer
                 description: HTTP статус-код
                 example: 400
+                format: int64
               title:
                 type: string
                 description: Заголовок ошибки
@@ -2005,6 +2036,7 @@ components:
                 type: integer
                 description: HTTP статус-код
                 example: 404
+                format: int64
               title:
                 type: string
                 description: Заголовок ошибки
@@ -2038,6 +2070,7 @@ components:
                 type: integer
                 description: HTTP статус-код
                 example: 404
+                format: int64
               title:
                 type: string
                 description: Заголовок ошибки

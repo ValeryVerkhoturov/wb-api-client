@@ -49,7 +49,7 @@ public class ModelsDraftItemItem {
 
   @SerializedName(SERIALIZED_NAME_QUANTITY)
   @jakarta.annotation.Nullable
-  private Integer quantity;
+  private Long quantity;
 
   public static final String SERIALIZED_NAME_BRAND_NAME = "brandName";
 
@@ -67,7 +67,7 @@ public class ModelsDraftItemItem {
 
   @SerializedName(SERIALIZED_NAME_NM_ID)
   @jakarta.annotation.Nullable
-  private Integer nmId;
+  private Long nmId;
 
   public static final String SERIALIZED_NAME_SUBJECT_NAME = "subjectName";
 
@@ -133,7 +133,7 @@ public class ModelsDraftItemItem {
     this.color = color;
   }
 
-  public ModelsDraftItemItem quantity(@jakarta.annotation.Nullable Integer quantity) {
+  public ModelsDraftItemItem quantity(@jakarta.annotation.Nullable Long quantity) {
     this.quantity = quantity;
     return this;
   }
@@ -144,11 +144,11 @@ public class ModelsDraftItemItem {
    * @return quantity
    */
   @jakarta.annotation.Nullable
-  public Integer getQuantity() {
+  public Long getQuantity() {
     return quantity;
   }
 
-  public void setQuantity(@jakarta.annotation.Nullable Integer quantity) {
+  public void setQuantity(@jakarta.annotation.Nullable Long quantity) {
     this.quantity = quantity;
   }
 
@@ -190,7 +190,7 @@ public class ModelsDraftItemItem {
     this.imgSrc = imgSrc;
   }
 
-  public ModelsDraftItemItem nmId(@jakarta.annotation.Nullable Integer nmId) {
+  public ModelsDraftItemItem nmId(@jakarta.annotation.Nullable Long nmId) {
     this.nmId = nmId;
     return this;
   }
@@ -201,11 +201,11 @@ public class ModelsDraftItemItem {
    * @return nmId
    */
   @jakarta.annotation.Nullable
-  public Integer getNmId() {
+  public Long getNmId() {
     return nmId;
   }
 
-  public void setNmId(@jakarta.annotation.Nullable Integer nmId) {
+  public void setNmId(@jakarta.annotation.Nullable Long nmId) {
     this.nmId = nmId;
   }
 

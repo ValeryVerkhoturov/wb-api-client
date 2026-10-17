@@ -1,5 +1,5 @@
 # The Go template emits one package per output directory. Per-slug
-# packageName is injected by generate.sh (e.g. `wbapi_items`). The client
+# packageName is injected by generate.py (e.g. `wbapi_items`). The client
 # lives in the sibling wb-api-client-go repo (mounted at clients/go) with
 # go.mod at its root, so daily-check's plain `vX.Y.Z` tags there make
 # `go get github.com/ValeryVerkhoturov/wb-api-client-go@vX.Y.Z` resolve.

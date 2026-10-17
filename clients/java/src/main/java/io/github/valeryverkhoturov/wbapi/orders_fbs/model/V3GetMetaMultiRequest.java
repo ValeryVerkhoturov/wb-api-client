@@ -39,16 +39,16 @@ public class V3GetMetaMultiRequest {
 
   @SerializedName(SERIALIZED_NAME_ORDERS)
   @jakarta.annotation.Nonnull
-  private List<Integer> orders = new ArrayList<>();
+  private List<Long> orders = new ArrayList<>();
 
   public V3GetMetaMultiRequest() {}
 
-  public V3GetMetaMultiRequest orders(@jakarta.annotation.Nonnull List<Integer> orders) {
+  public V3GetMetaMultiRequest orders(@jakarta.annotation.Nonnull List<Long> orders) {
     this.orders = orders;
     return this;
   }
 
-  public V3GetMetaMultiRequest addOrdersItem(Integer ordersItem) {
+  public V3GetMetaMultiRequest addOrdersItem(Long ordersItem) {
     if (this.orders == null) {
       this.orders = new ArrayList<>();
     }
@@ -62,11 +62,11 @@ public class V3GetMetaMultiRequest {
    * @return orders
    */
   @jakarta.annotation.Nonnull
-  public List<Integer> getOrders() {
+  public List<Long> getOrders() {
     return orders;
   }
 
-  public void setOrders(@jakarta.annotation.Nonnull List<Integer> orders) {
+  public void setOrders(@jakarta.annotation.Nonnull List<Long> orders) {
     this.orders = orders;
   }
 

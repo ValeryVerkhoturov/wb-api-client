@@ -56,7 +56,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// <param name="tags">Ярлыки.</param>
         /// <param name="createdAt">Дата и время создания.</param>
         /// <param name="updatedAt">Дата и время изменения.</param>
-        public PostV2GetCardsListResponse200CardsInner(int nmID = default(int), long imtID = default(long), Guid nmUUID = default(Guid), int subjectID = default(int), string subjectName = default(string), string vendorCode = default(string), string brand = default(string), string title = default(string), string gtin = default(string), string description = default(string), bool needKiz = default(bool), bool kizMarked = false, List<PostV2GetCardsListResponse200CardsInnerPhotosInner> photos = default(List<PostV2GetCardsListResponse200CardsInnerPhotosInner>), string video = default(string), PostV2GetCardsListResponse200CardsInnerWholesale wholesale = default(PostV2GetCardsListResponse200CardsInnerWholesale), PostV2GetCardsListResponse200CardsInnerDimensions dimensions = default(PostV2GetCardsListResponse200CardsInnerDimensions), PostV2GetCardsListResponse200CardsInnerDocuments documents = default(PostV2GetCardsListResponse200CardsInnerDocuments), List<PostV2GetCardsListResponse200CardsInnerCharacteristicsInner> characteristics = default(List<PostV2GetCardsListResponse200CardsInnerCharacteristicsInner>), List<PostV2GetCardsListResponse200CardsInnerSizesInner> sizes = default(List<PostV2GetCardsListResponse200CardsInnerSizesInner>), List<PostV2GetCardsListResponse200CardsInnerTagsInner> tags = default(List<PostV2GetCardsListResponse200CardsInnerTagsInner>), string createdAt = default(string), string updatedAt = default(string))
+        public PostV2GetCardsListResponse200CardsInner(long nmID = default(long), long imtID = default(long), Guid nmUUID = default(Guid), long subjectID = default(long), string subjectName = default(string), string vendorCode = default(string), string brand = default(string), string title = default(string), string gtin = default(string), string description = default(string), bool needKiz = default(bool), bool kizMarked = false, List<PostV2GetCardsListResponse200CardsInnerPhotosInner> photos = default(List<PostV2GetCardsListResponse200CardsInnerPhotosInner>), string video = default(string), PostV2GetCardsListResponse200CardsInnerWholesale wholesale = default(PostV2GetCardsListResponse200CardsInnerWholesale), PostV2GetCardsListResponse200CardsInnerDimensions dimensions = default(PostV2GetCardsListResponse200CardsInnerDimensions), PostV2GetCardsListResponse200CardsInnerDocuments documents = default(PostV2GetCardsListResponse200CardsInnerDocuments), List<PostV2GetCardsListResponse200CardsInnerCharacteristicsInner> characteristics = default(List<PostV2GetCardsListResponse200CardsInnerCharacteristicsInner>), List<PostV2GetCardsListResponse200CardsInnerSizesInner> sizes = default(List<PostV2GetCardsListResponse200CardsInnerSizesInner>), List<PostV2GetCardsListResponse200CardsInnerTagsInner> tags = default(List<PostV2GetCardsListResponse200CardsInnerTagsInner>), string createdAt = default(string), string updatedAt = default(string))
         {
             this.NmID = nmID;
             this.ImtID = imtID;
@@ -87,7 +87,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// </summary>
         /// <value>Артикул WB</value>
         [DataMember(Name = "nmID", EmitDefaultValue = false)]
-        public int NmID { get; set; }
+        public long NmID { get; set; }
 
         /// <summary>
         /// ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой карточки товара есть &#x60;imtID&#x60;, даже если она не объединена с другими карточками
@@ -108,7 +108,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// </summary>
         /// <value>ID предмета</value>
         [DataMember(Name = "subjectID", EmitDefaultValue = false)]
-        public int SubjectID { get; set; }
+        public long SubjectID { get; set; }
 
         /// <summary>
         /// Название предмета

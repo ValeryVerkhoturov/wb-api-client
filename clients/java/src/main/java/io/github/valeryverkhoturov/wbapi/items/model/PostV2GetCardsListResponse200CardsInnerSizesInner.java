@@ -39,7 +39,7 @@ public class PostV2GetCardsListResponse200CardsInnerSizesInner {
 
   @SerializedName(SERIALIZED_NAME_CHRT_I_D)
   @jakarta.annotation.Nullable
-  private Integer chrtID;
+  private Long chrtID;
 
   public static final String SERIALIZED_NAME_TECH_SIZE = "techSize";
 
@@ -62,7 +62,7 @@ public class PostV2GetCardsListResponse200CardsInnerSizesInner {
   public PostV2GetCardsListResponse200CardsInnerSizesInner() {}
 
   public PostV2GetCardsListResponse200CardsInnerSizesInner chrtID(
-      @jakarta.annotation.Nullable Integer chrtID) {
+      @jakarta.annotation.Nullable Long chrtID) {
     this.chrtID = chrtID;
     return this;
   }
@@ -73,11 +73,11 @@ public class PostV2GetCardsListResponse200CardsInnerSizesInner {
    * @return chrtID
    */
   @jakarta.annotation.Nullable
-  public Integer getChrtID() {
+  public Long getChrtID() {
     return chrtID;
   }
 
-  public void setChrtID(@jakarta.annotation.Nullable Integer chrtID) {
+  public void setChrtID(@jakarta.annotation.Nullable Long chrtID) {
     this.chrtID = chrtID;
   }
 

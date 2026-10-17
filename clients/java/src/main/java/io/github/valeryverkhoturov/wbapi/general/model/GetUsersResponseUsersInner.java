@@ -41,7 +41,7 @@ public class GetUsersResponseUsersInner {
 
   @SerializedName(SERIALIZED_NAME_ID)
   @jakarta.annotation.Nullable
-  private Integer id;
+  private Long id;
 
   /**
    * Роль пользователя: * &#x60;user&#x60; — пользователь, который активировал доступ * &#x60;
@@ -171,7 +171,7 @@ public class GetUsersResponseUsersInner {
 
   public GetUsersResponseUsersInner() {}
 
-  public GetUsersResponseUsersInner id(@jakarta.annotation.Nullable Integer id) {
+  public GetUsersResponseUsersInner id(@jakarta.annotation.Nullable Long id) {
     this.id = id;
     return this;
   }
@@ -182,11 +182,11 @@ public class GetUsersResponseUsersInner {
    * @return id
    */
   @jakarta.annotation.Nullable
-  public Integer getId() {
+  public Long getId() {
     return id;
   }
 
-  public void setId(@jakarta.annotation.Nullable Integer id) {
+  public void setId(@jakarta.annotation.Nullable Long id) {
     this.id = id;
   }
 

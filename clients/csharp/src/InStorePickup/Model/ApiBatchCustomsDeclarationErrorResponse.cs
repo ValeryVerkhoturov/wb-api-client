@@ -36,7 +36,7 @@ namespace ValeryVerkhoturov.WbApiClient.InStorePickup.Model
         /// </summary>
         /// <param name="code">Код ошибки:   - &#x60;404&#x60;   - &#x60;409&#x60;   - &#x60;400&#x60; .</param>
         /// <param name="detail">- &#x60;NotFound&#x60; — сборочное задание не найдено - &#x60;StatusMismatch&#x60; — операция невозможна для этого статуса сборочного задания - &#x60;OrderNotB2B&#x60; — операция доступна только для сборочных заданий с признаком B2B-продажи &#x60;\&quot;isB2b\&quot;:true&#x60; - &#x60;InvalidOriginCountryCode&#x60; — некорректный код страны происхождения товара .</param>
-        public ApiBatchCustomsDeclarationErrorResponse(int code = default(int), string detail = default(string))
+        public ApiBatchCustomsDeclarationErrorResponse(long code = default(long), string detail = default(string))
         {
             this.Code = code;
             this.Detail = detail;
@@ -50,7 +50,7 @@ namespace ValeryVerkhoturov.WbApiClient.InStorePickup.Model
         <example>404</example>
         */
         [DataMember(Name = "code", EmitDefaultValue = false)]
-        public int Code { get; set; }
+        public long Code { get; set; }
 
         /// <summary>
         /// - &#x60;NotFound&#x60; — сборочное задание не найдено - &#x60;StatusMismatch&#x60; — операция невозможна для этого статуса сборочного задания - &#x60;OrderNotB2B&#x60; — операция доступна только для сборочных заданий с признаком B2B-продажи &#x60;\&quot;isB2b\&quot;:true&#x60; - &#x60;InvalidOriginCountryCode&#x60; — некорректный код страны происхождения товара 

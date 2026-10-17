@@ -39,7 +39,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Model
         /// <param name="detail">Подробное описание ошибки.</param>
         /// <param name="requestId">ID запроса.</param>
         /// <param name="origin">Сервис, в котором произошла ошибка.</param>
-        public ModelsSupplyAcceptedMoreThanYearAgo(int status = default(int), string title = default(string), string detail = default(string), string requestId = default(string), string origin = default(string))
+        public ModelsSupplyAcceptedMoreThanYearAgo(long status = default(long), string title = default(string), string detail = default(string), string requestId = default(string), string origin = default(string))
         {
             this.Status = status;
             this.Title = title;
@@ -53,7 +53,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Model
         /// </summary>
         /// <value>HTTP-статус код</value>
         [DataMember(Name = "status", EmitDefaultValue = false)]
-        public int Status { get; set; }
+        public long Status { get; set; }
 
         /// <summary>
         /// Краткое описание ошибки

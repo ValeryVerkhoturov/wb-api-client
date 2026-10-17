@@ -75,7 +75,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /// <param name="rrdId">ID строки ответа. Необходим для получения отчёта частями. Начинайте загрузку отчёта с &#x60;\&quot;rrdid\&quot;:0&#x60;. В последующих запросах передавайте значение &#x60;rrdId&#x60; из последней строки предыдущего ответа. Повторяйте запрос, пока не получите ответ &#x60;204&#x60; (default to 0).</param>
         /// <param name="period">Периодичность отчётов:   - &#x60;weekly&#x60; — еженедельные   - &#x60;daily&#x60; — ежедневные  (default to PeriodEnum.Weekly).</param>
         /// <param name="fields">Список полей, которые вернутся в ответе. Если параметр не указан, возвращаются все поля.</param>
-        public SalesReportsDetailedReq(string dateFrom = default(string), string dateTo = default(string), int limit = 100000, int rrdId = 0, PeriodEnum? period = PeriodEnum.Weekly, List<string> fields = default(List<string>))
+        public SalesReportsDetailedReq(string dateFrom = default(string), string dateTo = default(string), long limit = 100000, long rrdId = 0, PeriodEnum? period = PeriodEnum.Weekly, List<string> fields = default(List<string>))
         {
             // to ensure "dateFrom" is required (not null)
             if (dateFrom == null)
@@ -123,14 +123,14 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         <example>21100</example>
         */
         [DataMember(Name = "limit", EmitDefaultValue = false)]
-        public int Limit { get; set; }
+        public long Limit { get; set; }
 
         /// <summary>
         /// ID строки ответа. Необходим для получения отчёта частями. Начинайте загрузку отчёта с &#x60;\&quot;rrdid\&quot;:0&#x60;. В последующих запросах передавайте значение &#x60;rrdId&#x60; из последней строки предыдущего ответа. Повторяйте запрос, пока не получите ответ &#x60;204&#x60;
         /// </summary>
         /// <value>ID строки ответа. Необходим для получения отчёта частями. Начинайте загрузку отчёта с &#x60;\&quot;rrdid\&quot;:0&#x60;. В последующих запросах передавайте значение &#x60;rrdId&#x60; из последней строки предыдущего ответа. Повторяйте запрос, пока не получите ответ &#x60;204&#x60;</value>
         [DataMember(Name = "rrdId", EmitDefaultValue = false)]
-        public int RrdId { get; set; }
+        public long RrdId { get; set; }
 
         /// <summary>
         /// Список полей, которые вернутся в ответе. Если параметр не указан, возвращаются все поля
@@ -176,10 +176,10 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /// <returns>Validation Result</returns>
         IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Limit (int) maximum
-            if (this.Limit > (int)100000)
+            // Limit (long) maximum
+            if (this.Limit > (long)100000)
             {
-                yield return new ValidationResult("Invalid value for Limit, must be a value less than or equal to 100000.", new [] { "Limit" });
+                yield return new ValidationResult("Invalid value for Limit, must be a value less than or equal to 100000.", new[] { "Limit" });
             }
 
             yield break;

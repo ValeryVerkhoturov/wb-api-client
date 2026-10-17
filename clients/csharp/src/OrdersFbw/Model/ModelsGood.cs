@@ -36,7 +36,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Model
         /// </summary>
         /// <param name="quantity">Суммарное количество товаров, планируемых для поставки.  \\*\\*Максимум 999999\\*\\*.</param>
         /// <param name="barcode">Баркод из карточки товара.</param>
-        public ModelsGood(int quantity = default(int), string barcode = default(string))
+        public ModelsGood(long quantity = default(long), string barcode = default(string))
         {
             this.Quantity = quantity;
             this.Barcode = barcode;
@@ -47,7 +47,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Model
         /// </summary>
         /// <value>Суммарное количество товаров, планируемых для поставки.  \\*\\*Максимум 999999\\*\\*</value>
         [DataMember(Name = "quantity", EmitDefaultValue = false)]
-        public int Quantity { get; set; }
+        public long Quantity { get; set; }
 
         /// <summary>
         /// Баркод из карточки товара
@@ -86,16 +86,16 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Model
         /// <returns>Validation Result</returns>
         IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Quantity (int) maximum
-            if (this.Quantity > (int)999999)
+            // Quantity (long) maximum
+            if (this.Quantity > (long)999999)
             {
-                yield return new ValidationResult("Invalid value for Quantity, must be a value less than or equal to 999999.", new [] { "Quantity" });
+                yield return new ValidationResult("Invalid value for Quantity, must be a value less than or equal to 999999.", new[] { "Quantity" });
             }
 
-            // Quantity (int) minimum
-            if (this.Quantity < (int)1)
+            // Quantity (long) minimum
+            if (this.Quantity < (long)1)
             {
-                yield return new ValidationResult("Invalid value for Quantity, must be a value greater than or equal to 1.", new [] { "Quantity" });
+                yield return new ValidationResult("Invalid value for Quantity, must be a value greater than or equal to 1.", new[] { "Quantity" });
             }
 
             yield break;

@@ -37,7 +37,7 @@ public class ModelsOptionsResultModelResultInnerWarehousesInner {
 
   @SerializedName(SERIALIZED_NAME_WAREHOUSE_I_D)
   @jakarta.annotation.Nullable
-  private Integer warehouseID;
+  private Long warehouseID;
 
   public static final String SERIALIZED_NAME_CAN_BOX = "canBox";
 
@@ -66,7 +66,7 @@ public class ModelsOptionsResultModelResultInnerWarehousesInner {
   public ModelsOptionsResultModelResultInnerWarehousesInner() {}
 
   public ModelsOptionsResultModelResultInnerWarehousesInner warehouseID(
-      @jakarta.annotation.Nullable Integer warehouseID) {
+      @jakarta.annotation.Nullable Long warehouseID) {
     this.warehouseID = warehouseID;
     return this;
   }
@@ -78,11 +78,11 @@ public class ModelsOptionsResultModelResultInnerWarehousesInner {
    * @return warehouseID
    */
   @jakarta.annotation.Nullable
-  public Integer getWarehouseID() {
+  public Long getWarehouseID() {
     return warehouseID;
   }
 
-  public void setWarehouseID(@jakarta.annotation.Nullable Integer warehouseID) {
+  public void setWarehouseID(@jakarta.annotation.Nullable Long warehouseID) {
     this.warehouseID = warehouseID;
   }
 

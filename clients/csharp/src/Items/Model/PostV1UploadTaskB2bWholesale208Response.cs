@@ -44,7 +44,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// <param name="detail">Детали ответа (required).</param>
         /// <param name="requestId">ID запроса (required).</param>
         /// <param name="origin">ID внутреннего сервиса WB (required).</param>
-        public PostV1UploadTaskB2bWholesale208Response(int status = default(int), string title = default(string), string detail = default(string), string requestId = default(string), string origin = default(string))
+        public PostV1UploadTaskB2bWholesale208Response(long status = default(long), string title = default(string), string detail = default(string), string requestId = default(string), string origin = default(string))
         {
             this.Status = status;
             // to ensure "title" is required (not null)
@@ -81,7 +81,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         <example>208</example>
         */
         [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = true)]
-        public int Status { get; set; }
+        public long Status { get; set; }
 
         /// <summary>
         /// Заголовок ответа

@@ -37,19 +37,19 @@ public class OpenapiSellerLimit {
 
   @SerializedName(SERIALIZED_NAME_PER_UNIT_LIMIT)
   @jakarta.annotation.Nullable
-  private Integer perUnitLimit;
+  private Long perUnitLimit;
 
   public static final String SERIALIZED_NAME_REMAINING = "remaining";
 
   @SerializedName(SERIALIZED_NAME_REMAINING)
   @jakarta.annotation.Nullable
-  private Integer remaining;
+  private Long remaining;
 
   public static final String SERIALIZED_NAME_TOTAL_LIMIT = "totalLimit";
 
   @SerializedName(SERIALIZED_NAME_TOTAL_LIMIT)
   @jakarta.annotation.Nullable
-  private Integer totalLimit;
+  private Long totalLimit;
 
   public static final String SERIALIZED_NAME_UNLIMITED = "unlimited";
 
@@ -61,11 +61,11 @@ public class OpenapiSellerLimit {
 
   @SerializedName(SERIALIZED_NAME_USED)
   @jakarta.annotation.Nullable
-  private Integer used;
+  private Long used;
 
   public OpenapiSellerLimit() {}
 
-  public OpenapiSellerLimit perUnitLimit(@jakarta.annotation.Nullable Integer perUnitLimit) {
+  public OpenapiSellerLimit perUnitLimit(@jakarta.annotation.Nullable Long perUnitLimit) {
     this.perUnitLimit = perUnitLimit;
     return this;
   }
@@ -78,15 +78,15 @@ public class OpenapiSellerLimit {
    * @return perUnitLimit
    */
   @jakarta.annotation.Nullable
-  public Integer getPerUnitLimit() {
+  public Long getPerUnitLimit() {
     return perUnitLimit;
   }
 
-  public void setPerUnitLimit(@jakarta.annotation.Nullable Integer perUnitLimit) {
+  public void setPerUnitLimit(@jakarta.annotation.Nullable Long perUnitLimit) {
     this.perUnitLimit = perUnitLimit;
   }
 
-  public OpenapiSellerLimit remaining(@jakarta.annotation.Nullable Integer remaining) {
+  public OpenapiSellerLimit remaining(@jakarta.annotation.Nullable Long remaining) {
     this.remaining = remaining;
     return this;
   }
@@ -97,15 +97,15 @@ public class OpenapiSellerLimit {
    * @return remaining
    */
   @jakarta.annotation.Nullable
-  public Integer getRemaining() {
+  public Long getRemaining() {
     return remaining;
   }
 
-  public void setRemaining(@jakarta.annotation.Nullable Integer remaining) {
+  public void setRemaining(@jakarta.annotation.Nullable Long remaining) {
     this.remaining = remaining;
   }
 
-  public OpenapiSellerLimit totalLimit(@jakarta.annotation.Nullable Integer totalLimit) {
+  public OpenapiSellerLimit totalLimit(@jakarta.annotation.Nullable Long totalLimit) {
     this.totalLimit = totalLimit;
     return this;
   }
@@ -116,11 +116,11 @@ public class OpenapiSellerLimit {
    * @return totalLimit
    */
   @jakarta.annotation.Nullable
-  public Integer getTotalLimit() {
+  public Long getTotalLimit() {
     return totalLimit;
   }
 
-  public void setTotalLimit(@jakarta.annotation.Nullable Integer totalLimit) {
+  public void setTotalLimit(@jakarta.annotation.Nullable Long totalLimit) {
     this.totalLimit = totalLimit;
   }
 
@@ -144,7 +144,7 @@ public class OpenapiSellerLimit {
     this.unlimited = unlimited;
   }
 
-  public OpenapiSellerLimit used(@jakarta.annotation.Nullable Integer used) {
+  public OpenapiSellerLimit used(@jakarta.annotation.Nullable Long used) {
     this.used = used;
     return this;
   }
@@ -155,11 +155,11 @@ public class OpenapiSellerLimit {
    * @return used
    */
   @jakarta.annotation.Nullable
-  public Integer getUsed() {
+  public Long getUsed() {
     return used;
   }
 
-  public void setUsed(@jakarta.annotation.Nullable Integer used) {
+  public void setUsed(@jakarta.annotation.Nullable Long used) {
     this.used = used;
   }
 

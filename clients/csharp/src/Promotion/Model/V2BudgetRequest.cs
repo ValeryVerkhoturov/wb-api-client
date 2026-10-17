@@ -40,7 +40,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// Initializes a new instance of the <see cref="V2BudgetRequest" /> class.
         /// </summary>
         /// <param name="advertIds">Список ID кампаний (required).</param>
-        public V2BudgetRequest(List<int> advertIds = default(List<int>))
+        public V2BudgetRequest(List<long> advertIds = default(List<long>))
         {
             // to ensure "advertIds" is required (not null)
             if (advertIds == null)
@@ -58,7 +58,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         <example>[1234567,63453471]</example>
         */
         [DataMember(Name = "advertIds", IsRequired = true, EmitDefaultValue = true)]
-        public List<int> AdvertIds { get; set; }
+        public List<long> AdvertIds { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

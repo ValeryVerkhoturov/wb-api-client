@@ -39,7 +39,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// <param name="newStickerId">Новый ID стикера.</param>
         /// <param name="oldStickerId">Старый ID стикера.</param>
         /// <param name="orderId">ID сборочного задания.</param>
-        public V3TransferOrderToAssembly(V3TransferOrderToAssemblyError error = default(V3TransferOrderToAssemblyError), bool success = default(bool), int newStickerId = default(int), int oldStickerId = default(int), int orderId = default(int))
+        public V3TransferOrderToAssembly(V3TransferOrderToAssemblyError error = default(V3TransferOrderToAssemblyError), bool success = default(bool), long newStickerId = default(long), long oldStickerId = default(long), long orderId = default(long))
         {
             this.Error = error;
             this.Success = success;
@@ -66,21 +66,21 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// </summary>
         /// <value>Новый ID стикера</value>
         [DataMember(Name = "newStickerId", EmitDefaultValue = false)]
-        public int NewStickerId { get; set; }
+        public long NewStickerId { get; set; }
 
         /// <summary>
         /// Старый ID стикера
         /// </summary>
         /// <value>Старый ID стикера</value>
         [DataMember(Name = "oldStickerId", EmitDefaultValue = false)]
-        public int OldStickerId { get; set; }
+        public long OldStickerId { get; set; }
 
         /// <summary>
         /// ID сборочного задания
         /// </summary>
         /// <value>ID сборочного задания</value>
         [DataMember(Name = "orderId", EmitDefaultValue = false)]
-        public int OrderId { get; set; }
+        public long OrderId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -46,7 +46,7 @@ public class ItemOrdersTextItem {
 
   @SerializedName(SERIALIZED_NAME_FREQUENCY)
   @jakarta.annotation.Nullable
-  private Integer frequency;
+  private Long frequency;
 
   public static final String SERIALIZED_NAME_DATE_ITEMS = "dateItems";
 
@@ -75,7 +75,7 @@ public class ItemOrdersTextItem {
     this.text = text;
   }
 
-  public ItemOrdersTextItem frequency(@jakarta.annotation.Nullable Integer frequency) {
+  public ItemOrdersTextItem frequency(@jakarta.annotation.Nullable Long frequency) {
     this.frequency = frequency;
     return this;
   }
@@ -86,11 +86,11 @@ public class ItemOrdersTextItem {
    * @return frequency
    */
   @jakarta.annotation.Nullable
-  public Integer getFrequency() {
+  public Long getFrequency() {
     return frequency;
   }
 
-  public void setFrequency(@jakarta.annotation.Nullable Integer frequency) {
+  public void setFrequency(@jakarta.annotation.Nullable Long frequency) {
     this.frequency = frequency;
   }
 

@@ -38,7 +38,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// <param name="width">Ширина, см.</param>
         /// <param name="height">Высота, см.</param>
         /// <param name="weightBrutto">Вес, кг Количество знаков после запятой &lt;&#x3D;3.</param>
-        public PostV2CardsUploadAddRequestCardsToAddInnerDimensions(int length = default(int), int width = default(int), int height = default(int), decimal weightBrutto = default(decimal))
+        public PostV2CardsUploadAddRequestCardsToAddInnerDimensions(long length = default(long), long width = default(long), long height = default(long), decimal weightBrutto = default(decimal))
         {
             this.Length = length;
             this.Width = width;
@@ -51,21 +51,21 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// </summary>
         /// <value>Длина, см</value>
         [DataMember(Name = "length", EmitDefaultValue = false)]
-        public int Length { get; set; }
+        public long Length { get; set; }
 
         /// <summary>
         /// Ширина, см
         /// </summary>
         /// <value>Ширина, см</value>
         [DataMember(Name = "width", EmitDefaultValue = false)]
-        public int Width { get; set; }
+        public long Width { get; set; }
 
         /// <summary>
         /// Высота, см
         /// </summary>
         /// <value>Высота, см</value>
         [DataMember(Name = "height", EmitDefaultValue = false)]
-        public int Height { get; set; }
+        public long Height { get; set; }
 
         /// <summary>
         /// Вес, кг Количество знаков после запятой &lt;&#x3D;3

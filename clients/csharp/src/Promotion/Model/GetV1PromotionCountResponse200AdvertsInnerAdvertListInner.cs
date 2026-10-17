@@ -36,7 +36,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <param name="advertId">ID кампании.</param>
         /// <param name="changeTime">Дата и время последнего изменения кампании.</param>
-        public GetV1PromotionCountResponse200AdvertsInnerAdvertListInner(int advertId = default(int), string changeTime = default(string))
+        public GetV1PromotionCountResponse200AdvertsInnerAdvertListInner(long advertId = default(long), string changeTime = default(string))
         {
             this.AdvertId = advertId;
             this.ChangeTime = changeTime;
@@ -47,7 +47,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <value>ID кампании</value>
         [DataMember(Name = "advertId", EmitDefaultValue = false)]
-        public int AdvertId { get; set; }
+        public long AdvertId { get; set; }
 
         /// <summary>
         /// Дата и время последнего изменения кампании

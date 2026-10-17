@@ -36,7 +36,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// </summary>
         /// <param name="code">Код ошибки.</param>
         /// <param name="detail">Дополнительная информация об ошибке .</param>
-        public PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner(int code = default(int), string detail = default(string))
+        public PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner(long code = default(long), string detail = default(string))
         {
             this.Code = code;
             this.Detail = detail;
@@ -47,7 +47,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// </summary>
         /// <value>Код ошибки</value>
         [DataMember(Name = "code", EmitDefaultValue = false)]
-        public int Code { get; set; }
+        public long Code { get; set; }
 
         /// <summary>
         /// Дополнительная информация об ошибке 

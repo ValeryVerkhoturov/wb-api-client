@@ -37,7 +37,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Model
         /// <param name="skuQuantity">Количество баркодов.</param>
         /// <param name="itemQuantity">Количество единиц товара.</param>
         /// <param name="items">Список товаров.</param>
-        public ModelsListDraftItemsResponse(int skuQuantity = default(int), int itemQuantity = default(int), List<ModelsDraftItemItem> items = default(List<ModelsDraftItemItem>))
+        public ModelsListDraftItemsResponse(long skuQuantity = default(long), long itemQuantity = default(long), List<ModelsDraftItemItem> items = default(List<ModelsDraftItemItem>))
         {
             this.SkuQuantity = skuQuantity;
             this.ItemQuantity = itemQuantity;
@@ -49,14 +49,14 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Model
         /// </summary>
         /// <value>Количество баркодов</value>
         [DataMember(Name = "skuQuantity", EmitDefaultValue = false)]
-        public int SkuQuantity { get; set; }
+        public long SkuQuantity { get; set; }
 
         /// <summary>
         /// Количество единиц товара
         /// </summary>
         /// <value>Количество единиц товара</value>
         [DataMember(Name = "itemQuantity", EmitDefaultValue = false)]
-        public int ItemQuantity { get; set; }
+        public long ItemQuantity { get; set; }
 
         /// <summary>
         /// Список товаров

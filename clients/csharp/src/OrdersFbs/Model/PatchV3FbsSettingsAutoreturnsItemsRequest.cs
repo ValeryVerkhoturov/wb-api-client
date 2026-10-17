@@ -71,7 +71,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// </summary>
         /// <param name="chrtIds">Список ID размеров товаров в системе WB  (required).</param>
         /// <param name="type">Тип автовозврата малогабаритных товаров:   - &#x60;byWarehouse&#x60; — все товары отправляются на склад WB   - &#x60;byPickupPoint&#x60; — все товары отправляются на пункт выдачи заказов  (required).</param>
-        public PatchV3FbsSettingsAutoreturnsItemsRequest(List<int> chrtIds = default(List<int>), TypeEnum type = default(TypeEnum))
+        public PatchV3FbsSettingsAutoreturnsItemsRequest(List<long> chrtIds = default(List<long>), TypeEnum type = default(TypeEnum))
         {
             // to ensure "chrtIds" is required (not null)
             if (chrtIds == null)
@@ -90,7 +90,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         <example>[111111,222222]</example>
         */
         [DataMember(Name = "chrtIds", IsRequired = true, EmitDefaultValue = true)]
-        public List<int> ChrtIds { get; set; }
+        public List<long> ChrtIds { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

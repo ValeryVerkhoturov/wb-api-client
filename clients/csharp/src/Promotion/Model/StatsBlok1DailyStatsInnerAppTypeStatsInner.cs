@@ -36,7 +36,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <param name="appType">Тип платформы: - &#x60;1&#x60; — сайт - &#x60;32&#x60; — Android - &#x60;64&#x60; — IOS .</param>
         /// <param name="stats">stats.</param>
-        public StatsBlok1DailyStatsInnerAppTypeStatsInner(int appType = default(int), List<StatsBlok1DailyStatsInnerAppTypeStatsInnerStatsInner> stats = default(List<StatsBlok1DailyStatsInnerAppTypeStatsInnerStatsInner>))
+        public StatsBlok1DailyStatsInnerAppTypeStatsInner(long appType = default(long), List<StatsBlok1DailyStatsInnerAppTypeStatsInnerStatsInner> stats = default(List<StatsBlok1DailyStatsInnerAppTypeStatsInnerStatsInner>))
         {
             this.AppType = appType;
             this.Stats = stats;
@@ -47,7 +47,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <value>Тип платформы: - &#x60;1&#x60; — сайт - &#x60;32&#x60; — Android - &#x60;64&#x60; — IOS </value>
         [DataMember(Name = "app_type", EmitDefaultValue = false)]
-        public int AppType { get; set; }
+        public long AppType { get; set; }
 
         /// <summary>
         /// Gets or Sets Stats
