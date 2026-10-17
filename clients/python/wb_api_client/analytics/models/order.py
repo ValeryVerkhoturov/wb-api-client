@@ -63,12 +63,12 @@ class Order(BaseModel):
     )
     warehouse_name: Optional[StrictStr] = Field(
         default=None,
-        description="Название склада. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) для складов WB может быть только `Склад WB`",
+        description="Название склада. ]На данный момент](https://dev.wildberries.ru/release-notes?id=570) для складов WB может быть только `Склад WB`",
         alias="warehouseName",
     )
     warehouse_region: Optional[StrictStr] = Field(
         default=None,
-        description='Федеральный округ склада. Если склад не в России, возвращается страна. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) для складов WB может быть только `""`',
+        description='Федеральный округ склада. Если склад не в России, возвращается страна. ]На данный момент](https://dev.wildberries.ru/release-notes?id=570) для складов WB может быть только `""`',
         alias="warehouseRegion",
     )
     is_mp: Optional[StrictBool] = Field(

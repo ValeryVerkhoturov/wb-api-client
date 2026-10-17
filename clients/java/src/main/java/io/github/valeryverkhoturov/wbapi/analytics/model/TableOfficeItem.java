@@ -65,7 +65,7 @@ public class TableOfficeItem {
   }
 
   /**
-   * Регион отгрузки. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) для
+   * Регион отгрузки. ]На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) для
    * складов WB может быть только &#x60;Склад WB&#x60;
    *
    * @return regionName
@@ -85,7 +85,7 @@ public class TableOfficeItem {
   }
 
   /**
-   * ID склада. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) для складов
+   * ID склада. ]На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) для складов
    * WB может быть только &#x60;-999999&#x60;
    *
    * @return officeID
@@ -105,7 +105,7 @@ public class TableOfficeItem {
   }
 
   /**
-   * Название склада. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) для
+   * Название склада. ]На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) для
    * складов WB может быть только &#x60;\&quot;\&quot;&#x60;
    *
    * @return officeName

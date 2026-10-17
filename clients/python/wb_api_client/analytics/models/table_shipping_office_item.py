@@ -36,7 +36,7 @@ class TableShippingOfficeItem(BaseModel):
 
     region_name: Optional[StrictStr] = Field(
         default=None,
-        description="Регион отгрузки. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) для складов WB может быть только `Склад WB`",
+        description="Регион отгрузки. ]На данный момент](https://dev.wildberries.ru/release-notes?id=570) для складов WB может быть только `Склад WB`",
         alias="regionName",
     )
     metrics: Optional[TableShippingOfficeMetrics] = Field(
@@ -44,7 +44,7 @@ class TableShippingOfficeItem(BaseModel):
     )
     offices: Optional[List[TableShippingOfficeItemOfficesInner]] = Field(
         default=None,
-        description="Данные по складам. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `[]`",
+        description="Данные по складам. ]На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `[]`",
     )
     __properties: ClassVar[List[str]] = ["regionName", "metrics", "offices"]
 

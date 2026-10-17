@@ -201,7 +201,7 @@ public class GetV1PaidStorageTasksTaskIdDownloadResponse200Inner {
   }
 
   /**
-   * Коэффициент логистики и хранения. [На данный
+   * Коэффициент логистики и хранения. ]На данный
    * момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может быть только &#x60;0&#x60;
    *
    * @return logWarehouseCoef
@@ -222,7 +222,7 @@ public class GetV1PaidStorageTasksTaskIdDownloadResponse200Inner {
   }
 
   /**
-   * ID склада. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может быть
+   * ID склада. ]На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может быть
    * только &#x60;0&#x60;
    *
    * @return officeId
@@ -243,7 +243,7 @@ public class GetV1PaidStorageTasksTaskIdDownloadResponse200Inner {
   }
 
   /**
-   * Название склада. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может
+   * Название склада. ]На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может
    * быть только &#x60;Склад WB РФ&#x60;
    *
    * @return warehouse
@@ -524,7 +524,7 @@ public class GetV1PaidStorageTasksTaskIdDownloadResponse200Inner {
   }
 
   /**
-   * Код паллетоместа. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570)
+   * Код паллетоместа. ]На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570)
    * может быть только &#x60;0&#x60;
    *
    * @return palletPlaceCode

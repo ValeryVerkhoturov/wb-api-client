@@ -4044,7 +4044,7 @@ components:
           minimum: 1000
           description: |
             Сумма дневного лимита. Параметр обязателен при `"enabled": true`.
-            Минимально допустимая сумма указана в поле `minDailyLimit` метода [GET /api/advert/v1/config]()
+            Минимально допустимая сумма указана в поле `minDailyLimit` метода [GET /api/advert/v1/config](./promotion#tag/campaignManagement/operation/getV1Config)
           example: 1000
         carryOverEnabled:
           type: boolean

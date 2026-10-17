@@ -131,8 +131,8 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <param name="updatedAt">Дата и время текущего статуса. При &#x60;\&quot;status\&quot;:\&quot;created\&quot;&#x60; возвращается значение поля &#x60;createdAt&#x60;.</param>
         /// <param name="status">Статус заказа:   - &#x60;created&#x60; — оформлен   - &#x60;buyout&#x60; — продан   - &#x60;cancel&#x60; — отменён   - &#x60;return&#x60; — возвращён   - &#x60;returnDefective&#x60; — возвращён по причине брака .</param>
         /// <param name="cancelType">Тип отмены (при &#x60;\&quot;status\&quot;:\&quot;cancel\&quot;&#x60;):   - &#x60;app&#x60; — отказ до получения   - &#x60;receipt&#x60; — отказ при получении   - &#x60;expire&#x60; — истёк срок получения   - &#x60;other&#x60; — техническая отмена .</param>
-        /// <param name="warehouseName">Название склада. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) для складов WB может быть только &#x60;Склад WB&#x60;.</param>
-        /// <param name="warehouseRegion">Федеральный округ склада. Если склад не в России, возвращается страна. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) для складов WB может быть только &#x60;\&quot;\&quot;&#x60;.</param>
+        /// <param name="warehouseName">Название склада. ]На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) для складов WB может быть только &#x60;Склад WB&#x60;.</param>
+        /// <param name="warehouseRegion">Федеральный округ склада. Если склад не в России, возвращается страна. ]На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) для складов WB может быть только &#x60;\&quot;\&quot;&#x60;.</param>
         /// <param name="isMp">Тип склада:   - &#x60;true&#x60; — склад продавца   - &#x60;false&#x60; — склад WB .</param>
         /// <param name="destinationCity">Населённый пункт доставки.</param>
         /// <param name="destinationDistrict">Федеральный округ доставки. Если доставка не по России, возвращается страна.</param>
@@ -207,9 +207,9 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         public string UpdatedAt { get; set; }
 
         /// <summary>
-        /// Название склада. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) для складов WB может быть только &#x60;Склад WB&#x60;
+        /// Название склада. ]На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) для складов WB может быть только &#x60;Склад WB&#x60;
         /// </summary>
-        /// <value>Название склада. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) для складов WB может быть только &#x60;Склад WB&#x60;</value>
+        /// <value>Название склада. ]На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) для складов WB может быть только &#x60;Склад WB&#x60;</value>
         /*
         <example>Склад WB</example>
         */
@@ -217,9 +217,9 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         public string WarehouseName { get; set; }
 
         /// <summary>
-        /// Федеральный округ склада. Если склад не в России, возвращается страна. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) для складов WB может быть только &#x60;\&quot;\&quot;&#x60;
+        /// Федеральный округ склада. Если склад не в России, возвращается страна. ]На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) для складов WB может быть только &#x60;\&quot;\&quot;&#x60;
         /// </summary>
-        /// <value>Федеральный округ склада. Если склад не в России, возвращается страна. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) для складов WB может быть только &#x60;\&quot;\&quot;&#x60;</value>
+        /// <value>Федеральный округ склада. Если склад не в России, возвращается страна. ]На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) для складов WB может быть только &#x60;\&quot;\&quot;&#x60;</value>
         [DataMember(Name = "warehouseRegion", EmitDefaultValue = false)]
         public string WarehouseRegion { get; set; }
 

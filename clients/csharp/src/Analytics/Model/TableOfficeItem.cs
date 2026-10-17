@@ -34,9 +34,9 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TableOfficeItem" /> class.
         /// </summary>
-        /// <param name="regionName">Регион отгрузки. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) для складов WB может быть только &#x60;Склад WB&#x60;.</param>
-        /// <param name="officeID">ID склада. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) для складов WB может быть только &#x60;-999999&#x60;.</param>
-        /// <param name="officeName">Название склада. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) для складов WB может быть только &#x60;\&quot;\&quot;&#x60;.</param>
+        /// <param name="regionName">Регион отгрузки. ]На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) для складов WB может быть только &#x60;Склад WB&#x60;.</param>
+        /// <param name="officeID">ID склада. ]На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) для складов WB может быть только &#x60;-999999&#x60;.</param>
+        /// <param name="officeName">Название склада. ]На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) для складов WB может быть только &#x60;\&quot;\&quot;&#x60;.</param>
         /// <param name="metrics">Метрики склада.</param>
         public TableOfficeItem(string regionName = default(string), long officeID = default(long), string officeName = default(string), TableCommonMetrics metrics = default(TableCommonMetrics))
         {
@@ -47,9 +47,9 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         }
 
         /// <summary>
-        /// Регион отгрузки. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) для складов WB может быть только &#x60;Склад WB&#x60;
+        /// Регион отгрузки. ]На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) для складов WB может быть только &#x60;Склад WB&#x60;
         /// </summary>
-        /// <value>Регион отгрузки. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) для складов WB может быть только &#x60;Склад WB&#x60;</value>
+        /// <value>Регион отгрузки. ]На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) для складов WB может быть только &#x60;Склад WB&#x60;</value>
         /*
         <example>Склад WB</example>
         */
@@ -57,9 +57,9 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         public string RegionName { get; set; }
 
         /// <summary>
-        /// ID склада. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) для складов WB может быть только &#x60;-999999&#x60;
+        /// ID склада. ]На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) для складов WB может быть только &#x60;-999999&#x60;
         /// </summary>
-        /// <value>ID склада. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) для складов WB может быть только &#x60;-999999&#x60;</value>
+        /// <value>ID склада. ]На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) для складов WB может быть только &#x60;-999999&#x60;</value>
         /*
         <example>-999999</example>
         */
@@ -67,9 +67,9 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         public long OfficeID { get; set; }
 
         /// <summary>
-        /// Название склада. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) для складов WB может быть только &#x60;\&quot;\&quot;&#x60;
+        /// Название склада. ]На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) для складов WB может быть только &#x60;\&quot;\&quot;&#x60;
         /// </summary>
-        /// <value>Название склада. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) для складов WB может быть только &#x60;\&quot;\&quot;&#x60;</value>
+        /// <value>Название склада. ]На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) для складов WB может быть только &#x60;\&quot;\&quot;&#x60;</value>
         [DataMember(Name = "officeName", EmitDefaultValue = false)]
         public string OfficeName { get; set; }
 

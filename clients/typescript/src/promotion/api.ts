@@ -4154,7 +4154,7 @@ export interface V0PutDailyLimitsRequest {
    */
   enabled: boolean;
   /**
-   * Сумма дневного лимита. Параметр обязателен при `\"enabled\": true`. Минимально допустимая сумма указана в поле `minDailyLimit` метода [GET /api/advert/v1/config]()
+   * Сумма дневного лимита. Параметр обязателен при `\"enabled\": true`. Минимально допустимая сумма указана в поле `minDailyLimit` метода [GET /api/advert/v1/config](./promotion#tag/campaignManagement/operation/getV1Config)
    * @type {number}
    * @memberof V0PutDailyLimitsRequest
    */

@@ -152,7 +152,7 @@ public class RatesApi {
   }
 
   /**
-   * Тарифы на поставку Метод [временно
+   * Тарифы на поставку Метод ]временно
    * отключён](https://dev.wildberries.ru/release-notes?id&#x3D;570) [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
@@ -186,7 +186,7 @@ public class RatesApi {
   }
 
   /**
-   * Тарифы на поставку Метод [временно
+   * Тарифы на поставку Метод ]временно
    * отключён](https://dev.wildberries.ru/release-notes?id&#x3D;570) [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
@@ -220,7 +220,7 @@ public class RatesApi {
   }
 
   /**
-   * Тарифы на поставку (asynchronously) Метод [временно
+   * Тарифы на поставку (asynchronously) Метод ]временно
    * отключён](https://dev.wildberries.ru/release-notes?id&#x3D;570) [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---

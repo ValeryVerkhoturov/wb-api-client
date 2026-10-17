@@ -833,19 +833,19 @@ export interface GetV1PaidStorageTasksTaskIdDownloadResponse200Inner {
    */
   date?: string;
   /**
-   * Коэффициент логистики и хранения. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `0`
+   * Коэффициент логистики и хранения. ]На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `0`
    * @type {number}
    * @memberof GetV1PaidStorageTasksTaskIdDownloadResponse200Inner
    */
   logWarehouseCoef?: number;
   /**
-   * ID склада. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `0`
+   * ID склада. ]На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `0`
    * @type {number}
    * @memberof GetV1PaidStorageTasksTaskIdDownloadResponse200Inner
    */
   officeId?: number;
   /**
-   * Название склада. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `Склад WB РФ`
+   * Название склада. ]На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `Склад WB РФ`
    * @type {string}
    * @memberof GetV1PaidStorageTasksTaskIdDownloadResponse200Inner
    */
@@ -929,7 +929,7 @@ export interface GetV1PaidStorageTasksTaskIdDownloadResponse200Inner {
    */
   barcodesCount?: number;
   /**
-   * Код паллетоместа. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `0`
+   * Код паллетоместа. ]На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `0`
    * @type {number}
    * @memberof GetV1PaidStorageTasksTaskIdDownloadResponse200Inner
    */

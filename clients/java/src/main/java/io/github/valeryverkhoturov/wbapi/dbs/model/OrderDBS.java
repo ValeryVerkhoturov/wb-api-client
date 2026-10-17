@@ -642,10 +642,10 @@ public class OrderDBS {
   /**
    * Сумма к оплате покупателем в валюте страны продавца с учетом всех скидок, умноженная на 100.
    * Предоставляется в информационных целях. Используйте значение поля
-   * &#x60;convertedFinalPrice&#x60;, только если в ответе метода [POST
-   * /api/marketplace/v3/dbs/orders/final-price](./docs/openapi/dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersFinalPrice)
-   * вернулось &#x60;\&quot;data\&quot;: null&#x60;. Во всех остальных случаях используйте значение
-   * поля &#x60;convertedOriginalFinalPrice&#x60; из ответа того же метода
+   * &#x60;convertedFinalPrice&#x60;, только если в ответе метода получения [цен продавца и сумм к
+   * оплате](./dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersFinalPrice) вернулось
+   * &#x60;\&quot;data\&quot;: null&#x60;. Во всех остальных случаях используйте значение поля
+   * &#x60;convertedOriginalFinalPrice&#x60; из ответа того же метода
    *
    * @return convertedFinalPrice
    */
@@ -666,8 +666,8 @@ public class OrderDBS {
   /**
    * Сумма к оплате покупателем в валюте продажи с учётом всех скидок, умноженная на 100. Код валюты
    * продажи указан в поле &#x60;currencyCode&#x60;. Предоставляется в информационных целях.
-   * Используйте значение поля &#x60;finalPrice&#x60;, только если в ответе метода [POST
-   * /api/marketplace/v3/dbs/orders/final-price](./docs/openapi/dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersFinalPrice)
+   * Используйте значение поля &#x60;finalPrice&#x60;, только если в ответе метода получения [цен
+   * продавца и сумм к оплате](./dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersFinalPrice)
    * вернулось &#x60;\&quot;data\&quot;: null&#x60;. Во всех остальных случаях используйте значение
    * поля &#x60;originalFinalPrice&#x60; из ответа того же метода
    *

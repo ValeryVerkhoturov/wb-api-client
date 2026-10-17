@@ -238,7 +238,7 @@ public class PostV3OrdersStatusResponse200OrdersInner {
 
   /**
    * Можно ли [перевести сборочное
-   * задание](./orders-fbs#tag/fbsSupplies/operation/patchV3PortalSuppliesSupplyOrdersTransfer) из
+   * задание](./orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesSupplyIdOrdersTransfer) из
    * доставки на сборку: - &#x60;false&#x60; — нет - &#x60;true&#x60; — да Сборочное задание можно
    * перенести из доставки на сборку, если выполняются все условия: - сборочное задание находится в
    * статусе &#x60;complete&#x60; — в доставке - поставка, в которую нужно перенести сборочное

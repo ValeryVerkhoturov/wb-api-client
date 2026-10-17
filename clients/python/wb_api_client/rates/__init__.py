@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "1.20261016.0"
+__version__ = "1.20261017.0"
 
 # import apis into sdk package
 from wb_api_client.rates.api.rates_api import RatesApi

@@ -395,7 +395,7 @@ public class Comparison {
   }
 
   /**
-   * Динамика локальных заказов в рамках одного региона. [На данный
+   * Динамика локальных заказов в рамках одного региона. ]На данный
    * момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может быть только &#x60;0&#x60;
    *
    * @return localizationPercentDynamic

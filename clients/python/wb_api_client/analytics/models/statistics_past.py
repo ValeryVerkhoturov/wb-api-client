@@ -78,7 +78,7 @@ class StatisticsPast(BaseModel):
     )
     localization_percent: Optional[StrictInt] = Field(
         default=None,
-        description="Локальные заказы в рамках одного региона. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `100`",
+        description="Локальные заказы в рамках одного региона. ]На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `100`",
         alias="localizationPercent",
     )
     wb_club: Optional[StatisticWbClub] = Field(default=None, alias="wbClub")

@@ -36,9 +36,9 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// </summary>
         /// <param name="nmId">Артикул WB.</param>
         /// <param name="chrtId">ID размера.</param>
-        /// <param name="warehouseId">ID склада. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может быть только &#x60;-999999&#x60;.</param>
-        /// <param name="warehouseName">Название склада. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может быть только &#x60;Склад WB&#x60;.</param>
-        /// <param name="regionName">Регион отгрузки. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может быть только &#x60;Склад WB&#x60;.</param>
+        /// <param name="warehouseId">ID склада. ]На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может быть только &#x60;-999999&#x60;.</param>
+        /// <param name="warehouseName">Название склада. ]На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может быть только &#x60;Склад WB&#x60;.</param>
+        /// <param name="regionName">Регион отгрузки. ]На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может быть только &#x60;Склад WB&#x60;.</param>
         /// <param name="quantity">Количество товара на складе, доступное клиентам для добавления в корзину.</param>
         /// <param name="inWayToClient">В пути к клиенту.</param>
         /// <param name="inWayFromClient">В пути от клиента.</param>
@@ -75,9 +75,9 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         public long ChrtId { get; set; }
 
         /// <summary>
-        /// ID склада. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может быть только &#x60;-999999&#x60;
+        /// ID склада. ]На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может быть только &#x60;-999999&#x60;
         /// </summary>
-        /// <value>ID склада. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может быть только &#x60;-999999&#x60;</value>
+        /// <value>ID склада. ]На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может быть только &#x60;-999999&#x60;</value>
         /*
         <example>-999999</example>
         */
@@ -85,9 +85,9 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         public long WarehouseId { get; set; }
 
         /// <summary>
-        /// Название склада. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может быть только &#x60;Склад WB&#x60;
+        /// Название склада. ]На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может быть только &#x60;Склад WB&#x60;
         /// </summary>
-        /// <value>Название склада. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может быть только &#x60;Склад WB&#x60;</value>
+        /// <value>Название склада. ]На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может быть только &#x60;Склад WB&#x60;</value>
         /*
         <example>Склад WB</example>
         */
@@ -95,9 +95,9 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         public string WarehouseName { get; set; }
 
         /// <summary>
-        /// Регион отгрузки. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может быть только &#x60;Склад WB&#x60;
+        /// Регион отгрузки. ]На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может быть только &#x60;Склад WB&#x60;
         /// </summary>
-        /// <value>Регион отгрузки. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может быть только &#x60;Склад WB&#x60;</value>
+        /// <value>Регион отгрузки. ]На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может быть только &#x60;Склад WB&#x60;</value>
         /*
         <example>Склад WB</example>
         */

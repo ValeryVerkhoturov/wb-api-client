@@ -47,7 +47,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <param name="shareOrderPercentDynamic">Динамика доли в выручке.</param>
         /// <param name="addToWishlistDynamic">Динамика добавлений товара в избранное.</param>
         /// <param name="timeToReadyDynamic">timeToReadyDynamic.</param>
-        /// <param name="localizationPercentDynamic">Динамика локальных заказов в рамках одного региона. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может быть только &#x60;0&#x60;.</param>
+        /// <param name="localizationPercentDynamic">Динамика локальных заказов в рамках одного региона. ]На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может быть только &#x60;0&#x60;.</param>
         /// <param name="wbClubDynamic">wbClubDynamic.</param>
         /// <param name="conversions">conversions.</param>
         public Comparison(int openCountDynamic = default(int), int cartCountDynamic = default(int), int orderCountDynamic = default(int), int orderSumDynamic = default(int), int buyoutCountDynamic = default(int), int buyoutSumDynamic = default(int), int cancelCountDynamic = default(int), int cancelSumDynamic = default(int), int avgOrdersCountPerDayDynamic = default(int), int avgPriceDynamic = default(int), int shareOrderPercentDynamic = default(int), int addToWishlistDynamic = default(int), ComparisonTimeToReadyDynamic timeToReadyDynamic = default(ComparisonTimeToReadyDynamic), int localizationPercentDynamic = default(int), ComparisonWbClubDynamic wbClubDynamic = default(ComparisonWbClubDynamic), StatisticConversions conversions = default(StatisticConversions))
@@ -197,9 +197,9 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         public ComparisonTimeToReadyDynamic TimeToReadyDynamic { get; set; }
 
         /// <summary>
-        /// Динамика локальных заказов в рамках одного региона. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может быть только &#x60;0&#x60;
+        /// Динамика локальных заказов в рамках одного региона. ]На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может быть только &#x60;0&#x60;
         /// </summary>
-        /// <value>Динамика локальных заказов в рамках одного региона. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может быть только &#x60;0&#x60;</value>
+        /// <value>Динамика локальных заказов в рамках одного региона. ]На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может быть только &#x60;0&#x60;</value>
         /*
         <example>0</example>
         */

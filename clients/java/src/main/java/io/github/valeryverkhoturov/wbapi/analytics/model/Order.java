@@ -385,7 +385,7 @@ public class Order {
   }
 
   /**
-   * Название склада. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) для
+   * Название склада. ]На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) для
    * складов WB может быть только &#x60;Склад WB&#x60;
    *
    * @return warehouseName
@@ -405,7 +405,7 @@ public class Order {
   }
 
   /**
-   * Федеральный округ склада. Если склад не в России, возвращается страна. [На данный
+   * Федеральный округ склада. Если склад не в России, возвращается страна. ]На данный
    * момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) для складов WB может быть только
    * &#x60;\&quot;\&quot;&#x60;
    *

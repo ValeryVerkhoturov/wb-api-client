@@ -35,17 +35,17 @@ class GetV1PaidStorageTasksTaskIdDownloadResponse200Inner(BaseModel):
     )
     log_warehouse_coef: Optional[Union[StrictFloat, StrictInt]] = Field(
         default=None,
-        description="Коэффициент логистики и хранения. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `0`",
+        description="Коэффициент логистики и хранения. ]На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `0`",
         alias="logWarehouseCoef",
     )
     office_id: Optional[StrictInt] = Field(
         default=None,
-        description="ID склада. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `0`",
+        description="ID склада. ]На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `0`",
         alias="officeId",
     )
     warehouse: Optional[StrictStr] = Field(
         default=None,
-        description="Название склада. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `Склад WB РФ`",
+        description="Название склада. ]На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `Склад WB РФ`",
     )
     warehouse_coef: Optional[Union[StrictFloat, StrictInt]] = Field(
         default=None, description="Коэффициент хранения", alias="warehouseCoef"
@@ -84,7 +84,7 @@ class GetV1PaidStorageTasksTaskIdDownloadResponse200Inner(BaseModel):
     )
     pallet_place_code: Optional[StrictInt] = Field(
         default=None,
-        description="Код паллетоместа. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `0`",
+        description="Код паллетоместа. ]На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `0`",
         alias="palletPlaceCode",
     )
     pallet_count: Optional[Union[StrictFloat, StrictInt]] = Field(

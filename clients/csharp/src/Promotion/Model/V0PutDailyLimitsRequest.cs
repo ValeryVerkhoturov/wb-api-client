@@ -41,7 +41,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <param name="advertIds">ID кампаний (required).</param>
         /// <param name="enabled">Включить лимит:   - &#x60;true&#x60; — да   - &#x60;false&#x60; — нет  (required).</param>
-        /// <param name="dailyLimit">Сумма дневного лимита. Параметр обязателен при &#x60;\&quot;enabled\&quot;: true&#x60;. Минимально допустимая сумма указана в поле &#x60;minDailyLimit&#x60; метода [GET /api/advert/v1/config]() .</param>
+        /// <param name="dailyLimit">Сумма дневного лимита. Параметр обязателен при &#x60;\&quot;enabled\&quot;: true&#x60;. Минимально допустимая сумма указана в поле &#x60;minDailyLimit&#x60; метода [GET /api/advert/v1/config](./promotion#tag/campaignManagement/operation/getV1Config) .</param>
         /// <param name="carryOverEnabled">Переносить неиспользованный остаток лимита на следующий день:   - &#x60;true&#x60; — да   - &#x60;false&#x60; — нет  Параметр обязателен при &#x60;\&quot;enabled\&quot;: true&#x60; .</param>
         public V0PutDailyLimitsRequest(List<long> advertIds = default(List<long>), bool enabled = default(bool), long dailyLimit = default(long), bool carryOverEnabled = default(bool))
         {
@@ -77,9 +77,9 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         public bool Enabled { get; set; }
 
         /// <summary>
-        /// Сумма дневного лимита. Параметр обязателен при &#x60;\&quot;enabled\&quot;: true&#x60;. Минимально допустимая сумма указана в поле &#x60;minDailyLimit&#x60; метода [GET /api/advert/v1/config]() 
+        /// Сумма дневного лимита. Параметр обязателен при &#x60;\&quot;enabled\&quot;: true&#x60;. Минимально допустимая сумма указана в поле &#x60;minDailyLimit&#x60; метода [GET /api/advert/v1/config](./promotion#tag/campaignManagement/operation/getV1Config) 
         /// </summary>
-        /// <value>Сумма дневного лимита. Параметр обязателен при &#x60;\&quot;enabled\&quot;: true&#x60;. Минимально допустимая сумма указана в поле &#x60;minDailyLimit&#x60; метода [GET /api/advert/v1/config]() </value>
+        /// <value>Сумма дневного лимита. Параметр обязателен при &#x60;\&quot;enabled\&quot;: true&#x60;. Минимально допустимая сумма указана в поле &#x60;minDailyLimit&#x60; метода [GET /api/advert/v1/config](./promotion#tag/campaignManagement/operation/getV1Config) </value>
         /*
         <example>1000</example>
         */

@@ -436,7 +436,7 @@ export interface Comparison {
    */
   timeToReadyDynamic?: ComparisonTimeToReadyDynamic;
   /**
-   * Динамика локальных заказов в рамках одного региона. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `0`
+   * Динамика локальных заказов в рамках одного региона. ]На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `0`
    * @type {number}
    * @memberof Comparison
    */
@@ -1595,19 +1595,19 @@ export interface InventoryWbResponseItemsInner {
    */
   chrtId?: number;
   /**
-   * ID склада. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `-999999`
+   * ID склада. ]На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `-999999`
    * @type {number}
    * @memberof InventoryWbResponseItemsInner
    */
   warehouseId?: number;
   /**
-   * Название склада. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `Склад WB`
+   * Название склада. ]На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `Склад WB`
    * @type {string}
    * @memberof InventoryWbResponseItemsInner
    */
   warehouseName?: string;
   /**
-   * Регион отгрузки. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `Склад WB`
+   * Регион отгрузки. ]На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `Склад WB`
    * @type {string}
    * @memberof InventoryWbResponseItemsInner
    */
@@ -2548,13 +2548,13 @@ export interface Order {
    */
   cancelType?: OrderCancelTypeEnum;
   /**
-   * Название склада. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) для складов WB может быть только `Склад WB`
+   * Название склада. ]На данный момент](https://dev.wildberries.ru/release-notes?id=570) для складов WB может быть только `Склад WB`
    * @type {string}
    * @memberof Order
    */
   warehouseName?: string;
   /**
-   * Федеральный округ склада. Если склад не в России, возвращается страна. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) для складов WB может быть только `\"\"`
+   * Федеральный округ склада. Если склад не в России, возвращается страна. ]На данный момент](https://dev.wildberries.ru/release-notes?id=570) для складов WB может быть только `\"\"`
    * @type {string}
    * @memberof Order
    */
@@ -4399,7 +4399,7 @@ export interface Statistic {
    */
   timeToReady?: StatisticTimeToReady;
   /**
-   * Локальные заказы в рамках одного региона. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `100`
+   * Локальные заказы в рамках одного региона. ]На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `100`
    * @type {number}
    * @memberof Statistic
    */
@@ -4657,7 +4657,7 @@ export interface StatisticsComparison {
    */
   timeToReadyDynamic?: ComparisonTimeToReadyDynamic;
   /**
-   * Динамика локальных заказов в рамках одного региона. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `0`
+   * Динамика локальных заказов в рамках одного региона. ]На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `0`
    * @type {number}
    * @memberof StatisticsComparison
    */
@@ -4766,7 +4766,7 @@ export interface StatisticsPast {
    */
   timeToReady?: StatisticTimeToReady;
   /**
-   * Локальные заказы в рамках одного региона. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `100`
+   * Локальные заказы в рамках одного региона. ]На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `100`
    * @type {number}
    * @memberof StatisticsPast
    */
@@ -4875,7 +4875,7 @@ export interface StatisticsSelected {
    */
   timeToReady?: StatisticTimeToReady;
   /**
-   * Локальные заказы в рамках одного региона. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `100`
+   * Локальные заказы в рамках одного региона. ]На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `100`
    * @type {number}
    * @memberof StatisticsSelected
    */
@@ -6175,19 +6175,19 @@ export interface TableItemStMetricsAllOfCurrentPrice {
  */
 export interface TableOfficeItem {
   /**
-   * Регион отгрузки. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) для складов WB может быть только `Склад WB`
+   * Регион отгрузки. ]На данный момент](https://dev.wildberries.ru/release-notes?id=570) для складов WB может быть только `Склад WB`
    * @type {string}
    * @memberof TableOfficeItem
    */
   regionName?: string;
   /**
-   * ID склада. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) для складов WB может быть только `-999999`
+   * ID склада. ]На данный момент](https://dev.wildberries.ru/release-notes?id=570) для складов WB может быть только `-999999`
    * @type {number}
    * @memberof TableOfficeItem
    */
   officeID?: number;
   /**
-   * Название склада. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) для складов WB может быть только `\"\"`
+   * Название склада. ]На данный момент](https://dev.wildberries.ru/release-notes?id=570) для складов WB может быть только `\"\"`
    * @type {string}
    * @memberof TableOfficeItem
    */
@@ -6535,7 +6535,7 @@ export interface TableSearchTextItemAllOfVisibility {
  */
 export interface TableShippingOfficeItem {
   /**
-   * Регион отгрузки. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) для складов WB может быть только `Склад WB`
+   * Регион отгрузки. ]На данный момент](https://dev.wildberries.ru/release-notes?id=570) для складов WB может быть только `Склад WB`
    * @type {string}
    * @memberof TableShippingOfficeItem
    */
@@ -6547,7 +6547,7 @@ export interface TableShippingOfficeItem {
    */
   metrics?: TableShippingOfficeMetrics;
   /**
-   * Данные по складам. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `[]`
+   * Данные по складам. ]На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `[]`
    * @type {Array<TableShippingOfficeItemOfficesInner>}
    * @memberof TableShippingOfficeItem
    */
