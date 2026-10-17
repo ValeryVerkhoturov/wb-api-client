@@ -3,7 +3,7 @@ name: PR — generated code in sync
 # Regenerate every client from scratch inside a PR and fail if the tree
 # differs from what's committed. Catches:
 #   - swaggers/*.yaml edited without regenerating post-processed + clients
-#   - post-process.py / generate.sh / generator-configs/ / templates/
+#   - post-process.py / generate.py / generator-configs/ / templates/
 #     changed without regenerating
 #   - hand-edits to clients/** that don't survive a clean generate
 #
@@ -74,12 +74,12 @@ jobs:
 
       - name: Regenerate all seven language clients
         # openapi-generator runs inside Docker, which ubuntu-latest ships.
-        # generate.sh also runs `go mod tidy` in a Go container to refresh
+        # generate.py also runs `go mod tidy` in a Go container to refresh
         # clients/go/go.sum and `gofmt -w` to keep the Go tree canonical.
-        run: ./scripts/generate.sh "${{ steps.ver.outputs.version }}"
+        run: ./scripts/generate.py "${{ steps.ver.outputs.version }}"
 
       - name: gofmt is clean
-        # Belt-and-braces: even if generate.sh's gofmt step ever regresses,
+        # Belt-and-braces: even if generate.py's gofmt step ever regresses,
         # the diff check below would catch it — but this gives a clearer
         # failure message pointing at the actual files.
         run: |
@@ -134,7 +134,7 @@ jobs:
         # own canonical layout — so the equivalent gate is that every module
         # still compiles and the package's lib.config still resolves. The
         # toolchain script downloads a pinned OneScript into .cache/.
-        run: ./scripts/verify-onescript.sh
+        run: ./scripts/verify-onescript.py
 
       - name: Diff against committed tree (main repo + all submodules)
         id: diff
@@ -178,7 +178,7 @@ jobs:
               echo "### To fix"
               echo '```bash'
               echo "python scripts/post-process.py"
-              echo "./scripts/generate.sh ${{ steps.ver.outputs.version }}"
+              echo "./scripts/generate.py ${{ steps.ver.outputs.version }}"
               echo "git add swaggers/ clients/ && git commit"
               echo '```'
             } >> "$GITHUB_STEP_SUMMARY"

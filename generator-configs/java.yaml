@@ -1,5 +1,5 @@
 # Per-slug artifactId / invokerPackage / apiPackage / modelPackage are
-# injected by generate.sh so each of the 13 packages is a separate Maven
+# injected by generate.py so each of the 13 packages is a separate Maven
 # Central artifact with its own Java package tree. The publish workflow
 # signs and stages via Sonatype using the shared groupId below.
 generatorName: java

@@ -150,7 +150,7 @@
       </plugin>
       <!-- spotless drives google-java-format across every generated .java
            file. Not bound to a phase so `mvn compile` stays fast for
-           day-to-day builds; formatting runs explicitly from generate.sh
+           day-to-day builds; formatting runs explicitly from generate.py
            (`spotless:apply`) and from CI / Makefile (`spotless:check`). -->
       <plugin>
         <groupId>com.diffplug.spotless</groupId>

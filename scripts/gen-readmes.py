@@ -2,7 +2,7 @@
 """Generate a README.md under each generated client (Python, TypeScript,
 Go, Java). Each README shows install + shared auth setup once, then a
 per-module section with import snippet and a link to the WB dev-portal
-docs. Runs from generate.sh after the four language trees are laid down.
+docs. Runs from generate.py after the four language trees are laid down.
 
 The content is derived from:
   - swaggers/processed/*.yaml     — title + first-para description per slug

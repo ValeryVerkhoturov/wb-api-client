@@ -52,8 +52,15 @@ jobs:
             : > /tmp/checksums.prev.txt
           fi
 
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install Python dependencies
+        run: pip install -r scripts/requirements.txt
+
       - name: Download upstream specs
-        run: ./scripts/download-swaggers.sh
+        run: ./scripts/download-swaggers.py
 
       - name: Detect changes
         id: diff
@@ -86,26 +93,17 @@ jobs:
           echo "version=${version}" >> "$GITHUB_OUTPUT"
           echo "tag=v${version}" >> "$GITHUB_OUTPUT"
 
-      - name: Set up Python (post-processor)
-        if: steps.diff.outputs.changed == 'true' || inputs.force
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
-      - name: Install post-processor deps
-        if: steps.diff.outputs.changed == 'true' || inputs.force
-        run: pip install -r scripts/requirements.txt
-
       - name: Post-process specs
         if: steps.diff.outputs.changed == 'true' || inputs.force
         run: python scripts/post-process.py
 
       - name: Regenerate all seven language clients
         if: steps.diff.outputs.changed == 'true' || inputs.force
-        # generate.sh uses openapi-generator-cli inside Docker; runners
-        # ship Docker preinstalled, and generate.sh also runs `go mod tidy`
+        # generate.py uses openapi-generator-cli inside Docker; runners
+        # ship Docker preinstalled, and generate.py also runs `go mod tidy`
         # inside its own Go container so clients/go/go.sum is accurate
         # before commit.
-        run: ./scripts/generate.sh "${{ steps.version.outputs.version }}"
+        run: ./scripts/generate.py "${{ steps.version.outputs.version }}"
 
       - name: Commit PHP submodule (separate repo)
         if: steps.diff.outputs.changed == 'true' || inputs.force

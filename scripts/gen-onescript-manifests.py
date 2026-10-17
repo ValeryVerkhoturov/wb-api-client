@@ -2,7 +2,7 @@
 """Build the unified OneScript package manifests.
 
 openapi-generator emits a standalone opm package per spec, each with its own
-``packagedef`` and ``lib.config``. generate.sh splices the 13 trees into one
+``packagedef`` and ``lib.config``. generate.py splices the 13 trees into one
 package, so those per-spec manifests are discarded and replaced by a single
 pair built here from ``templates/onescript/``.
 
