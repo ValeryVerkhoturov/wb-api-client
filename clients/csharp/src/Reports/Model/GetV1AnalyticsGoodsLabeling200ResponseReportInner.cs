@@ -39,7 +39,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /// <param name="incomeId">Номер поставки.</param>
         /// <param name="nmID">Артикул WB.</param>
         /// <param name="photoUrls">URL фото товара.</param>
-        /// <param name="shkID">Штрихкод товара в WB.</param>
+        /// <param name="shkID">Штрихкод.</param>
         /// <param name="sku">Баркод из карточки товара.</param>
         public GetV1AnalyticsGoodsLabeling200ResponseReportInner(decimal amount = default(decimal), string date = default(string), long incomeId = default(long), long nmID = default(long), List<string> photoUrls = default(List<string>), long shkID = default(long), string sku = default(string))
         {
@@ -88,9 +88,9 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         public List<string> PhotoUrls { get; set; }
 
         /// <summary>
-        /// Штрихкод товара в WB
+        /// Штрихкод
         /// </summary>
-        /// <value>Штрихкод товара в WB</value>
+        /// <value>Штрихкод</value>
         [DataMember(Name = "shkID", EmitDefaultValue = false)]
         public long ShkID { get; set; }
 

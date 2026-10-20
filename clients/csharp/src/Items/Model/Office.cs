@@ -103,6 +103,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Office" /> class.
         /// </summary>
+        /// <param name="federalDistrict">Федеральный округ склада WB. Если &#x60;null&#x60;, склад находится за пределами РФ или федеральный округ не указан.</param>
         /// <param name="address">Адрес.</param>
         /// <param name="name">Название.</param>
         /// <param name="city">Город.</param>
@@ -111,10 +112,10 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// <param name="latitude">Широта.</param>
         /// <param name="cargoType">Тип товара, который принимает склад:   - &#x60;1&#x60; — малогабаритный товар (МГТ)   - &#x60;3&#x60; — крупногабаритный товар (КГТ+) .</param>
         /// <param name="deliveryType">Тип доставки, который принимает склад:   - &#x60;1&#x60; — доставка на склад WB (FBS)   - &#x60;2&#x60; — доставка силами продавца (DBS)   - &#x60;3&#x60; — Деливери WB (DBW)   - &#x60;5&#x60; — самовывоз (C&amp;C)   - &#x60;6&#x60; — экспресс-доставка силами продавца (ЕDBS) .</param>
-        /// <param name="federalDistrict">Федеральный округ склада WB. Если &#x60;null&#x60;, склад находится за пределами РФ или федеральный округ не указан.</param>
         /// <param name="selected">Признак того, что склад уже выбран продавцом.</param>
-        public Office(string address = default(string), string name = default(string), string city = default(string), long id = default(long), decimal longitude = default(decimal), decimal latitude = default(decimal), CargoTypeEnum? cargoType = default(CargoTypeEnum?), DeliveryTypeEnum? deliveryType = default(DeliveryTypeEnum?), string federalDistrict = default(string), bool selected = default(bool))
+        public Office(string federalDistrict = default(string), string address = default(string), string name = default(string), string city = default(string), long id = default(long), decimal longitude = default(decimal), decimal latitude = default(decimal), CargoTypeEnum? cargoType = default(CargoTypeEnum?), DeliveryTypeEnum? deliveryType = default(DeliveryTypeEnum?), bool selected = default(bool))
         {
+            this.FederalDistrict = federalDistrict;
             this.Address = address;
             this.Name = name;
             this.City = city;
@@ -123,9 +124,18 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
             this.Latitude = latitude;
             this.CargoType = cargoType;
             this.DeliveryType = deliveryType;
-            this.FederalDistrict = federalDistrict;
             this.Selected = selected;
         }
+
+        /// <summary>
+        /// Федеральный округ склада WB. Если &#x60;null&#x60;, склад находится за пределами РФ или федеральный округ не указан
+        /// </summary>
+        /// <value>Федеральный округ склада WB. Если &#x60;null&#x60;, склад находится за пределами РФ или федеральный округ не указан</value>
+        /*
+        <example>Центральный</example>
+        */
+        [DataMember(Name = "federalDistrict", EmitDefaultValue = true)]
+        public string FederalDistrict { get; set; }
 
         /// <summary>
         /// Адрес
@@ -188,16 +198,6 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         public decimal Latitude { get; set; }
 
         /// <summary>
-        /// Федеральный округ склада WB. Если &#x60;null&#x60;, склад находится за пределами РФ или федеральный округ не указан
-        /// </summary>
-        /// <value>Федеральный округ склада WB. Если &#x60;null&#x60;, склад находится за пределами РФ или федеральный округ не указан</value>
-        /*
-        <example>Центральный</example>
-        */
-        [DataMember(Name = "federalDistrict", EmitDefaultValue = true)]
-        public string FederalDistrict { get; set; }
-
-        /// <summary>
         /// Признак того, что склад уже выбран продавцом
         /// </summary>
         /// <value>Признак того, что склад уже выбран продавцом</value>
@@ -212,6 +212,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class Office {\n");
+            sb.Append("  FederalDistrict: ").Append(FederalDistrict).Append("\n");
             sb.Append("  Address: ").Append(Address).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  City: ").Append(City).Append("\n");
@@ -220,7 +221,6 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
             sb.Append("  Latitude: ").Append(Latitude).Append("\n");
             sb.Append("  CargoType: ").Append(CargoType).Append("\n");
             sb.Append("  DeliveryType: ").Append(DeliveryType).Append("\n");
-            sb.Append("  FederalDistrict: ").Append(FederalDistrict).Append("\n");
             sb.Append("  Selected: ").Append(Selected).Append("\n");
             sb.Append("}\n");
             return sb.ToString();

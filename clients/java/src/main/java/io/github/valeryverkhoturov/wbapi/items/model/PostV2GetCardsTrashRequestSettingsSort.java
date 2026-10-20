@@ -28,7 +28,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** Параметр сортировки */
+/** Сортировка по дате и времени помещения карточек товаров в корзину &#x60;trashedAt&#x60; */
 @jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     comments = "Generator version: 7.10.0")
@@ -48,8 +48,7 @@ public class PostV2GetCardsTrashRequestSettingsSort {
   }
 
   /**
-   * Сортировать по &#x60;trashedAt&#x60;: - &#x60;false&#x60; — по убыванию - &#x60;true&#x60; — по
-   * возрастанию
+   * Порядок сортировки: - &#x60;false&#x60; — по убыванию - &#x60;true&#x60; — по возрастанию
    *
    * @return ascending
    */

@@ -33,8 +33,8 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// Метод создаёт [задание на генерацию](https://dev.wildberries.ru/openapi/reports#tag/acceptanceExpenses/operation/getV1AcceptanceReportTasksTaskIdStatus) отчёта об [операциях при приёмке](https://dev.wildberries.ru/openapi/reports#tag/acceptanceExpenses/operation/getV1AcceptanceReportTasksTaskIdDownload).  Можно получить отчёт максимум за 31 день.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 3 ч | 1 запрос | 3 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-acceptance-report
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
-        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
+        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
+        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>CreateTaskResponse</returns>
         CreateTaskResponse GetV1AcceptanceReport(string dateFrom, string dateTo, int operationIndex = 0);
@@ -46,8 +46,8 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// Метод создаёт [задание на генерацию](https://dev.wildberries.ru/openapi/reports#tag/acceptanceExpenses/operation/getV1AcceptanceReportTasksTaskIdStatus) отчёта об [операциях при приёмке](https://dev.wildberries.ru/openapi/reports#tag/acceptanceExpenses/operation/getV1AcceptanceReportTasksTaskIdDownload).  Можно получить отчёт максимум за 31 день.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 3 ч | 1 запрос | 3 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-acceptance-report
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
-        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
+        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
+        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of CreateTaskResponse</returns>
         ApiResponse<CreateTaskResponse> GetV1AcceptanceReportWithHttpInfo(string dateFrom, string dateTo, int operationIndex = 0);
@@ -104,7 +104,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// Метод возвращает отчёт об удержаниях за самовыкупы. Отчёт формируется каждую неделю по средам, до 7:00 по московскому времени, и содержит данные за одну неделю.  Удержание за самовыкуп — 30% от стоимости товаров. Минимальная сумма всех удержаний — 100 000 ₽, если за неделю в ПВЗ привезли ваших товаров больше, чем на сумму 100 000 ₽.  Данные доступны с августа 2023.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 10 мин | 1 запрос | 10 мин | 10 запросов | | Сервисный | 10 мин | 1 запрос | 10 мин | 10 запросов | | Базовый с секретом | 10 мин | 1 запрос | 10 мин | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-antifraud-details
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="date">Дата, которая входит в отчётный период, &#x60;ГГГГ-ММ-ДД&#x60;.  Чтобы получить данные за всё время с августа 2023, не указывайте этот параметр (optional)</param>
+        /// <param name="date">Дата, которая входит в отчётный период, &#x60;ГГГГ-ММ-ДД&#x60;. Чтобы получить данные за всё время с августа 2023, не указывайте этот параметр (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GetV1AnalyticsAntifraudDetails200Response</returns>
         GetV1AnalyticsAntifraudDetails200Response GetV1AnalyticsAntifraudDetails(string? date = default(string?), int operationIndex = 0);
@@ -116,7 +116,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// Метод возвращает отчёт об удержаниях за самовыкупы. Отчёт формируется каждую неделю по средам, до 7:00 по московскому времени, и содержит данные за одну неделю.  Удержание за самовыкуп — 30% от стоимости товаров. Минимальная сумма всех удержаний — 100 000 ₽, если за неделю в ПВЗ привезли ваших товаров больше, чем на сумму 100 000 ₽.  Данные доступны с августа 2023.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 10 мин | 1 запрос | 10 мин | 10 запросов | | Сервисный | 10 мин | 1 запрос | 10 мин | 10 запросов | | Базовый с секретом | 10 мин | 1 запрос | 10 мин | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-antifraud-details
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="date">Дата, которая входит в отчётный период, &#x60;ГГГГ-ММ-ДД&#x60;.  Чтобы получить данные за всё время с августа 2023, не указывайте этот параметр (optional)</param>
+        /// <param name="date">Дата, которая входит в отчётный период, &#x60;ГГГГ-ММ-ДД&#x60;. Чтобы получить данные за всё время с августа 2023, не указывайте этот параметр (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GetV1AnalyticsAntifraudDetails200Response</returns>
         ApiResponse<GetV1AnalyticsAntifraudDetails200Response> GetV1AnalyticsAntifraudDetailsWithHttpInfo(string? date = default(string?), int operationIndex = 0);
@@ -154,8 +154,8 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="parentId">ID родительской категории</param>
         /// <param name="brand">Бренд</param>
-        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
-        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
+        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
+        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GetV1AnalyticsBrandShare200Response</returns>
         GetV1AnalyticsBrandShare200Response GetV1AnalyticsBrandShare(long parentId, string brand, string dateFrom, string dateTo, int operationIndex = 0);
@@ -169,8 +169,8 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="parentId">ID родительской категории</param>
         /// <param name="brand">Бренд</param>
-        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
-        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
+        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
+        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GetV1AnalyticsBrandShare200Response</returns>
         ApiResponse<GetV1AnalyticsBrandShare200Response> GetV1AnalyticsBrandShareWithHttpInfo(long parentId, string brand, string dateFrom, string dateTo, int operationIndex = 0);
@@ -203,8 +203,8 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brand">Бренд</param>
-        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
-        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
+        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
+        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
         /// <param name="locale">Язык поля ответа &#x60;parentName&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  (optional, default to &quot;ru&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GetV1AnalyticsBrandShareParentSubjects200Response</returns>
@@ -218,8 +218,8 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brand">Бренд</param>
-        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
-        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
+        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
+        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
         /// <param name="locale">Язык поля ответа &#x60;parentName&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  (optional, default to &quot;ru&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GetV1AnalyticsBrandShareParentSubjects200Response</returns>
@@ -231,8 +231,8 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// Метод возвращает отчёт о штрафах за отсутствие обязательной маркировки товаров. В отчёте представлены фотографии товаров, на которых маркировка отсутствует либо не считывается.  Можно получить данные максимум за 31 день. Данные доступны с марта 2024.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-goods-labeling
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
-        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
+        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
+        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GetV1AnalyticsGoodsLabeling200Response</returns>
         GetV1AnalyticsGoodsLabeling200Response GetV1AnalyticsGoodsLabeling(string dateFrom, string dateTo, int operationIndex = 0);
@@ -244,8 +244,8 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// Метод возвращает отчёт о штрафах за отсутствие обязательной маркировки товаров. В отчёте представлены фотографии товаров, на которых маркировка отсутствует либо не считывается.  Можно получить данные максимум за 31 день. Данные доступны с марта 2024.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-goods-labeling
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
-        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
+        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
+        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GetV1AnalyticsGoodsLabeling200Response</returns>
         ApiResponse<GetV1AnalyticsGoodsLabeling200Response> GetV1AnalyticsGoodsLabelingWithHttpInfo(string dateFrom, string dateTo, int operationIndex = 0);
@@ -283,8 +283,8 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// Метод будет отключен [3 ноября](https://dev.wildberries.ru/release-notes?id&#x3D;590).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-region-sale
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
-        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
+        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
+        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GetV1AnalyticsRegionSale200Response</returns>
         [Obsolete]
@@ -297,8 +297,8 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// Метод будет отключен [3 ноября](https://dev.wildberries.ru/release-notes?id&#x3D;590).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-region-sale
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
-        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
+        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
+        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GetV1AnalyticsRegionSale200Response</returns>
         [Obsolete]
@@ -475,7 +475,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dateFrom">Дата и время последнего изменения по заказу. Дата в формате RFC3339. Можно передать дату или дату со временем. Время можно указывать с точностью до [секунд](./api-information#tag/introduction/Limity-zaprosov) или миллисекунд. Время передаётся в часовом поясе Москва (UTC+3).  Примеры: - &#x60;2019-06-20&#x60; - &#x60;2019-06-20T23:59:59&#x60; - &#x60;2019-06-20T00:00:00.12345&#x60; - &#x60;2017-03-25T00:00:00&#x60;</param>
-        /// <param name="flag">Если параметр &#x60;flag&#x3D;0&#x60; (или не указан в строке запроса), при вызове API возвращаются данные, у которых значение поля &#x60;lastChangeDate&#x60; (дата время обновления информации в сервисе) больше переданному значению параметра &#x60;dateFrom&#x60;. При этом количество возвращенных строк данных варьируется в интервале от 0 до примерно 80000.  Если параметр &#x60;flag&#x3D;1&#x60;, то будет выгружена информация обо всех заказах или продажах с датой, равной переданному параметру &#x60;dateFrom&#x60; (в данном случае время в дате значения не имеет). При этом количество возвращенных строк данных будет равно количеству всех заказов или продаж, сделанных в указанную дату, переданную в параметре &#x60;dateFrom&#x60;. (optional, default to 0)</param>
+        /// <param name="flag">Чтобы получить заказы с датой и временем обновления информации &#x60;lastChangeDate&#x60; позднее даты, указанной в &#x60;dateFrom&#x60;, отправьте запрос без &#x60;flag&#x60; или с &#x60;flag&#x3D;0&#x60;. При этом количество строк в ответе условно ограничено 80000. Чтобы получить заказы с датой заказа &#x60;date&#x60;, указанной в &#x60;dateFrom&#x60;, отправьте запрос с &#x60;flag&#x3D;1&#x60;, время в &#x60;dateFrom&#x60; значения не имеет. При этом количество строк в ответе будет равно количеству заказов за дату &#x60;dateFrom&#x60; (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;OrdersItem&gt;</returns>
         List<OrdersItem> GetV1SupplierOrders(string dateFrom, long? flag = default(long?), int operationIndex = 0);
@@ -488,7 +488,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dateFrom">Дата и время последнего изменения по заказу. Дата в формате RFC3339. Можно передать дату или дату со временем. Время можно указывать с точностью до [секунд](./api-information#tag/introduction/Limity-zaprosov) или миллисекунд. Время передаётся в часовом поясе Москва (UTC+3).  Примеры: - &#x60;2019-06-20&#x60; - &#x60;2019-06-20T23:59:59&#x60; - &#x60;2019-06-20T00:00:00.12345&#x60; - &#x60;2017-03-25T00:00:00&#x60;</param>
-        /// <param name="flag">Если параметр &#x60;flag&#x3D;0&#x60; (или не указан в строке запроса), при вызове API возвращаются данные, у которых значение поля &#x60;lastChangeDate&#x60; (дата время обновления информации в сервисе) больше переданному значению параметра &#x60;dateFrom&#x60;. При этом количество возвращенных строк данных варьируется в интервале от 0 до примерно 80000.  Если параметр &#x60;flag&#x3D;1&#x60;, то будет выгружена информация обо всех заказах или продажах с датой, равной переданному параметру &#x60;dateFrom&#x60; (в данном случае время в дате значения не имеет). При этом количество возвращенных строк данных будет равно количеству всех заказов или продаж, сделанных в указанную дату, переданную в параметре &#x60;dateFrom&#x60;. (optional, default to 0)</param>
+        /// <param name="flag">Чтобы получить заказы с датой и временем обновления информации &#x60;lastChangeDate&#x60; позднее даты, указанной в &#x60;dateFrom&#x60;, отправьте запрос без &#x60;flag&#x60; или с &#x60;flag&#x3D;0&#x60;. При этом количество строк в ответе условно ограничено 80000. Чтобы получить заказы с датой заказа &#x60;date&#x60;, указанной в &#x60;dateFrom&#x60;, отправьте запрос с &#x60;flag&#x3D;1&#x60;, время в &#x60;dateFrom&#x60; значения не имеет. При этом количество строк в ответе будет равно количеству заказов за дату &#x60;dateFrom&#x60; (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;OrdersItem&gt;</returns>
         ApiResponse<List<OrdersItem>> GetV1SupplierOrdersWithHttpInfo(string dateFrom, long? flag = default(long?), int operationIndex = 0);
@@ -500,7 +500,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dateFrom">Дата и время последнего изменения по продаже/возврату. Дата в формате RFC3339. Можно передать дату или дату со временем. Время можно указывать с точностью до [секунд](./api-information#tag/introduction/Limity-zaprosov) или миллисекунд. Время передаётся в часовом поясе Москва (UTC+3).  Примеры: - &#x60;2019-06-20&#x60; - &#x60;2019-06-20T23:59:59&#x60; - &#x60;2019-06-20T00:00:00.12345&#x60; - &#x60;2017-03-25T00:00:00&#x60;</param>
-        /// <param name="flag">Если параметр &#x60;flag&#x3D;0&#x60; (или не указан в строке запроса), при вызове API возвращаются данные, у которых значение поля &#x60;lastChangeDate&#x60; (дата время обновления информации в сервисе) больше переданному значению параметра &#x60;dateFrom&#x60;. При этом количество возвращенных строк данных варьируется в интервале от 0 до примерно 80000.  Если параметр &#x60;flag&#x3D;1&#x60;, то будет выгружена информация обо всех заказах или продажах с датой, равной переданному параметру &#x60;dateFrom&#x60; (в данном случае время в дате значения не имеет). При этом количество возвращенных строк данных будет равно количеству всех заказов или продаж, сделанных в указанную дату, переданную в параметре &#x60;dateFrom&#x60;. (optional, default to 0)</param>
+        /// <param name="flag">Чтобы получить продажи с датой и временем обновления информации &#x60;lastChangeDate&#x60; позднее даты, указанной в &#x60;dateFrom&#x60;, отправьте запрос без &#x60;flag&#x60; или с &#x60;flag&#x3D;0&#x60;. При этом количество строк в ответе условно ограничено 80000. Чтобы получить продажи с датой заказа &#x60;date&#x60;, указанной в &#x60;dateFrom&#x60;, отправьте запрос с &#x60;flag&#x3D;1&#x60;, время в &#x60;dateFrom&#x60; значения не имеет. При этом количество строк в ответе будет равно количеству продаж за дату &#x60;dateFrom&#x60; (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;SalesItem&gt;</returns>
         List<SalesItem> GetV1SupplierSales(string dateFrom, long? flag = default(long?), int operationIndex = 0);
@@ -513,7 +513,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dateFrom">Дата и время последнего изменения по продаже/возврату. Дата в формате RFC3339. Можно передать дату или дату со временем. Время можно указывать с точностью до [секунд](./api-information#tag/introduction/Limity-zaprosov) или миллисекунд. Время передаётся в часовом поясе Москва (UTC+3).  Примеры: - &#x60;2019-06-20&#x60; - &#x60;2019-06-20T23:59:59&#x60; - &#x60;2019-06-20T00:00:00.12345&#x60; - &#x60;2017-03-25T00:00:00&#x60;</param>
-        /// <param name="flag">Если параметр &#x60;flag&#x3D;0&#x60; (или не указан в строке запроса), при вызове API возвращаются данные, у которых значение поля &#x60;lastChangeDate&#x60; (дата время обновления информации в сервисе) больше переданному значению параметра &#x60;dateFrom&#x60;. При этом количество возвращенных строк данных варьируется в интервале от 0 до примерно 80000.  Если параметр &#x60;flag&#x3D;1&#x60;, то будет выгружена информация обо всех заказах или продажах с датой, равной переданному параметру &#x60;dateFrom&#x60; (в данном случае время в дате значения не имеет). При этом количество возвращенных строк данных будет равно количеству всех заказов или продаж, сделанных в указанную дату, переданную в параметре &#x60;dateFrom&#x60;. (optional, default to 0)</param>
+        /// <param name="flag">Чтобы получить продажи с датой и временем обновления информации &#x60;lastChangeDate&#x60; позднее даты, указанной в &#x60;dateFrom&#x60;, отправьте запрос без &#x60;flag&#x60; или с &#x60;flag&#x3D;0&#x60;. При этом количество строк в ответе условно ограничено 80000. Чтобы получить продажи с датой заказа &#x60;date&#x60;, указанной в &#x60;dateFrom&#x60;, отправьте запрос с &#x60;flag&#x3D;1&#x60;, время в &#x60;dateFrom&#x60; значения не имеет. При этом количество строк в ответе будет равно количеству продаж за дату &#x60;dateFrom&#x60; (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;SalesItem&gt;</returns>
         ApiResponse<List<SalesItem>> GetV1SupplierSalesWithHttpInfo(string dateFrom, long? flag = default(long?), int operationIndex = 0);
@@ -638,8 +638,8 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// Метод возвращает отчёт с [операциями по товарам с обязательной маркировкой](https://seller.wildberries.ru/analytics-reports/excise-report).  Данный отчёт можно сохранить в [формате таблиц](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-650c-7b04-9596-ba441936f9d3).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 5 ч | 10 запросов | 30 мин | 10 запросов | | Сервисный | 5 ч | 10 запросов | 30 мин | 10 запросов | | Базовый с секретом | 5 ч | 10 запросов | 30 мин | 10 запросов | | Базовый | 24 ч | 2 запроса | 12 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/post-api-v1-analytics-excise-report
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
-        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
+        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
+        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
         /// <param name="exciseReportRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ExciseReportResponse</returns>
@@ -652,8 +652,8 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// Метод возвращает отчёт с [операциями по товарам с обязательной маркировкой](https://seller.wildberries.ru/analytics-reports/excise-report).  Данный отчёт можно сохранить в [формате таблиц](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-650c-7b04-9596-ba441936f9d3).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 5 ч | 10 запросов | 30 мин | 10 запросов | | Сервисный | 5 ч | 10 запросов | 30 мин | 10 запросов | | Базовый с секретом | 5 ч | 10 запросов | 30 мин | 10 запросов | | Базовый | 24 ч | 2 запроса | 12 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/post-api-v1-analytics-excise-report
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
-        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
+        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
+        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
         /// <param name="exciseReportRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ExciseReportResponse</returns>
@@ -674,8 +674,8 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// Метод создаёт [задание на генерацию](https://dev.wildberries.ru/openapi/reports#tag/acceptanceExpenses/operation/getV1AcceptanceReportTasksTaskIdStatus) отчёта об [операциях при приёмке](https://dev.wildberries.ru/openapi/reports#tag/acceptanceExpenses/operation/getV1AcceptanceReportTasksTaskIdDownload).  Можно получить отчёт максимум за 31 день.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 3 ч | 1 запрос | 3 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-acceptance-report
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
-        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
+        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
+        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CreateTaskResponse</returns>
@@ -688,8 +688,8 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// Метод создаёт [задание на генерацию](https://dev.wildberries.ru/openapi/reports#tag/acceptanceExpenses/operation/getV1AcceptanceReportTasksTaskIdStatus) отчёта об [операциях при приёмке](https://dev.wildberries.ru/openapi/reports#tag/acceptanceExpenses/operation/getV1AcceptanceReportTasksTaskIdDownload).  Можно получить отчёт максимум за 31 день.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 3 ч | 1 запрос | 3 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-acceptance-report
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
-        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
+        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
+        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CreateTaskResponse)</returns>
@@ -751,7 +751,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// Метод возвращает отчёт об удержаниях за самовыкупы. Отчёт формируется каждую неделю по средам, до 7:00 по московскому времени, и содержит данные за одну неделю.  Удержание за самовыкуп — 30% от стоимости товаров. Минимальная сумма всех удержаний — 100 000 ₽, если за неделю в ПВЗ привезли ваших товаров больше, чем на сумму 100 000 ₽.  Данные доступны с августа 2023.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 10 мин | 1 запрос | 10 мин | 10 запросов | | Сервисный | 10 мин | 1 запрос | 10 мин | 10 запросов | | Базовый с секретом | 10 мин | 1 запрос | 10 мин | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-antifraud-details
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="date">Дата, которая входит в отчётный период, &#x60;ГГГГ-ММ-ДД&#x60;.  Чтобы получить данные за всё время с августа 2023, не указывайте этот параметр (optional)</param>
+        /// <param name="date">Дата, которая входит в отчётный период, &#x60;ГГГГ-ММ-ДД&#x60;. Чтобы получить данные за всё время с августа 2023, не указывайте этот параметр (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GetV1AnalyticsAntifraudDetails200Response</returns>
@@ -764,7 +764,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// Метод возвращает отчёт об удержаниях за самовыкупы. Отчёт формируется каждую неделю по средам, до 7:00 по московскому времени, и содержит данные за одну неделю.  Удержание за самовыкуп — 30% от стоимости товаров. Минимальная сумма всех удержаний — 100 000 ₽, если за неделю в ПВЗ привезли ваших товаров больше, чем на сумму 100 000 ₽.  Данные доступны с августа 2023.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 10 мин | 1 запрос | 10 мин | 10 запросов | | Сервисный | 10 мин | 1 запрос | 10 мин | 10 запросов | | Базовый с секретом | 10 мин | 1 запрос | 10 мин | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-antifraud-details
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="date">Дата, которая входит в отчётный период, &#x60;ГГГГ-ММ-ДД&#x60;.  Чтобы получить данные за всё время с августа 2023, не указывайте этот параметр (optional)</param>
+        /// <param name="date">Дата, которая входит в отчётный период, &#x60;ГГГГ-ММ-ДД&#x60;. Чтобы получить данные за всё время с августа 2023, не указывайте этот параметр (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetV1AnalyticsAntifraudDetails200Response)</returns>
@@ -805,8 +805,8 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="parentId">ID родительской категории</param>
         /// <param name="brand">Бренд</param>
-        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
-        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
+        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
+        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GetV1AnalyticsBrandShare200Response</returns>
@@ -821,8 +821,8 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="parentId">ID родительской категории</param>
         /// <param name="brand">Бренд</param>
-        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
-        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
+        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
+        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetV1AnalyticsBrandShare200Response)</returns>
@@ -858,8 +858,8 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brand">Бренд</param>
-        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
-        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
+        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
+        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
         /// <param name="locale">Язык поля ответа &#x60;parentName&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  (optional, default to &quot;ru&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -874,8 +874,8 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brand">Бренд</param>
-        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
-        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
+        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
+        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
         /// <param name="locale">Язык поля ответа &#x60;parentName&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  (optional, default to &quot;ru&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -888,8 +888,8 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// Метод возвращает отчёт о штрафах за отсутствие обязательной маркировки товаров. В отчёте представлены фотографии товаров, на которых маркировка отсутствует либо не считывается.  Можно получить данные максимум за 31 день. Данные доступны с марта 2024.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-goods-labeling
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
-        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
+        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
+        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GetV1AnalyticsGoodsLabeling200Response</returns>
@@ -902,8 +902,8 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// Метод возвращает отчёт о штрафах за отсутствие обязательной маркировки товаров. В отчёте представлены фотографии товаров, на которых маркировка отсутствует либо не считывается.  Можно получить данные максимум за 31 день. Данные доступны с марта 2024.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-goods-labeling
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
-        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
+        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
+        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetV1AnalyticsGoodsLabeling200Response)</returns>
@@ -944,8 +944,8 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// Метод будет отключен [3 ноября](https://dev.wildberries.ru/release-notes?id&#x3D;590).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-region-sale
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
-        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
+        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
+        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GetV1AnalyticsRegionSale200Response</returns>
@@ -959,8 +959,8 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// Метод будет отключен [3 ноября](https://dev.wildberries.ru/release-notes?id&#x3D;590).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-region-sale
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
-        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
+        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
+        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetV1AnalyticsRegionSale200Response)</returns>
@@ -1150,7 +1150,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dateFrom">Дата и время последнего изменения по заказу. Дата в формате RFC3339. Можно передать дату или дату со временем. Время можно указывать с точностью до [секунд](./api-information#tag/introduction/Limity-zaprosov) или миллисекунд. Время передаётся в часовом поясе Москва (UTC+3).  Примеры: - &#x60;2019-06-20&#x60; - &#x60;2019-06-20T23:59:59&#x60; - &#x60;2019-06-20T00:00:00.12345&#x60; - &#x60;2017-03-25T00:00:00&#x60;</param>
-        /// <param name="flag">Если параметр &#x60;flag&#x3D;0&#x60; (или не указан в строке запроса), при вызове API возвращаются данные, у которых значение поля &#x60;lastChangeDate&#x60; (дата время обновления информации в сервисе) больше переданному значению параметра &#x60;dateFrom&#x60;. При этом количество возвращенных строк данных варьируется в интервале от 0 до примерно 80000.  Если параметр &#x60;flag&#x3D;1&#x60;, то будет выгружена информация обо всех заказах или продажах с датой, равной переданному параметру &#x60;dateFrom&#x60; (в данном случае время в дате значения не имеет). При этом количество возвращенных строк данных будет равно количеству всех заказов или продаж, сделанных в указанную дату, переданную в параметре &#x60;dateFrom&#x60;. (optional, default to 0)</param>
+        /// <param name="flag">Чтобы получить заказы с датой и временем обновления информации &#x60;lastChangeDate&#x60; позднее даты, указанной в &#x60;dateFrom&#x60;, отправьте запрос без &#x60;flag&#x60; или с &#x60;flag&#x3D;0&#x60;. При этом количество строк в ответе условно ограничено 80000. Чтобы получить заказы с датой заказа &#x60;date&#x60;, указанной в &#x60;dateFrom&#x60;, отправьте запрос с &#x60;flag&#x3D;1&#x60;, время в &#x60;dateFrom&#x60; значения не имеет. При этом количество строк в ответе будет равно количеству заказов за дату &#x60;dateFrom&#x60; (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;OrdersItem&gt;</returns>
@@ -1164,7 +1164,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dateFrom">Дата и время последнего изменения по заказу. Дата в формате RFC3339. Можно передать дату или дату со временем. Время можно указывать с точностью до [секунд](./api-information#tag/introduction/Limity-zaprosov) или миллисекунд. Время передаётся в часовом поясе Москва (UTC+3).  Примеры: - &#x60;2019-06-20&#x60; - &#x60;2019-06-20T23:59:59&#x60; - &#x60;2019-06-20T00:00:00.12345&#x60; - &#x60;2017-03-25T00:00:00&#x60;</param>
-        /// <param name="flag">Если параметр &#x60;flag&#x3D;0&#x60; (или не указан в строке запроса), при вызове API возвращаются данные, у которых значение поля &#x60;lastChangeDate&#x60; (дата время обновления информации в сервисе) больше переданному значению параметра &#x60;dateFrom&#x60;. При этом количество возвращенных строк данных варьируется в интервале от 0 до примерно 80000.  Если параметр &#x60;flag&#x3D;1&#x60;, то будет выгружена информация обо всех заказах или продажах с датой, равной переданному параметру &#x60;dateFrom&#x60; (в данном случае время в дате значения не имеет). При этом количество возвращенных строк данных будет равно количеству всех заказов или продаж, сделанных в указанную дату, переданную в параметре &#x60;dateFrom&#x60;. (optional, default to 0)</param>
+        /// <param name="flag">Чтобы получить заказы с датой и временем обновления информации &#x60;lastChangeDate&#x60; позднее даты, указанной в &#x60;dateFrom&#x60;, отправьте запрос без &#x60;flag&#x60; или с &#x60;flag&#x3D;0&#x60;. При этом количество строк в ответе условно ограничено 80000. Чтобы получить заказы с датой заказа &#x60;date&#x60;, указанной в &#x60;dateFrom&#x60;, отправьте запрос с &#x60;flag&#x3D;1&#x60;, время в &#x60;dateFrom&#x60; значения не имеет. При этом количество строк в ответе будет равно количеству заказов за дату &#x60;dateFrom&#x60; (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;OrdersItem&gt;)</returns>
@@ -1177,7 +1177,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dateFrom">Дата и время последнего изменения по продаже/возврату. Дата в формате RFC3339. Можно передать дату или дату со временем. Время можно указывать с точностью до [секунд](./api-information#tag/introduction/Limity-zaprosov) или миллисекунд. Время передаётся в часовом поясе Москва (UTC+3).  Примеры: - &#x60;2019-06-20&#x60; - &#x60;2019-06-20T23:59:59&#x60; - &#x60;2019-06-20T00:00:00.12345&#x60; - &#x60;2017-03-25T00:00:00&#x60;</param>
-        /// <param name="flag">Если параметр &#x60;flag&#x3D;0&#x60; (или не указан в строке запроса), при вызове API возвращаются данные, у которых значение поля &#x60;lastChangeDate&#x60; (дата время обновления информации в сервисе) больше переданному значению параметра &#x60;dateFrom&#x60;. При этом количество возвращенных строк данных варьируется в интервале от 0 до примерно 80000.  Если параметр &#x60;flag&#x3D;1&#x60;, то будет выгружена информация обо всех заказах или продажах с датой, равной переданному параметру &#x60;dateFrom&#x60; (в данном случае время в дате значения не имеет). При этом количество возвращенных строк данных будет равно количеству всех заказов или продаж, сделанных в указанную дату, переданную в параметре &#x60;dateFrom&#x60;. (optional, default to 0)</param>
+        /// <param name="flag">Чтобы получить продажи с датой и временем обновления информации &#x60;lastChangeDate&#x60; позднее даты, указанной в &#x60;dateFrom&#x60;, отправьте запрос без &#x60;flag&#x60; или с &#x60;flag&#x3D;0&#x60;. При этом количество строк в ответе условно ограничено 80000. Чтобы получить продажи с датой заказа &#x60;date&#x60;, указанной в &#x60;dateFrom&#x60;, отправьте запрос с &#x60;flag&#x3D;1&#x60;, время в &#x60;dateFrom&#x60; значения не имеет. При этом количество строк в ответе будет равно количеству продаж за дату &#x60;dateFrom&#x60; (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;SalesItem&gt;</returns>
@@ -1191,7 +1191,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dateFrom">Дата и время последнего изменения по продаже/возврату. Дата в формате RFC3339. Можно передать дату или дату со временем. Время можно указывать с точностью до [секунд](./api-information#tag/introduction/Limity-zaprosov) или миллисекунд. Время передаётся в часовом поясе Москва (UTC+3).  Примеры: - &#x60;2019-06-20&#x60; - &#x60;2019-06-20T23:59:59&#x60; - &#x60;2019-06-20T00:00:00.12345&#x60; - &#x60;2017-03-25T00:00:00&#x60;</param>
-        /// <param name="flag">Если параметр &#x60;flag&#x3D;0&#x60; (или не указан в строке запроса), при вызове API возвращаются данные, у которых значение поля &#x60;lastChangeDate&#x60; (дата время обновления информации в сервисе) больше переданному значению параметра &#x60;dateFrom&#x60;. При этом количество возвращенных строк данных варьируется в интервале от 0 до примерно 80000.  Если параметр &#x60;flag&#x3D;1&#x60;, то будет выгружена информация обо всех заказах или продажах с датой, равной переданному параметру &#x60;dateFrom&#x60; (в данном случае время в дате значения не имеет). При этом количество возвращенных строк данных будет равно количеству всех заказов или продаж, сделанных в указанную дату, переданную в параметре &#x60;dateFrom&#x60;. (optional, default to 0)</param>
+        /// <param name="flag">Чтобы получить продажи с датой и временем обновления информации &#x60;lastChangeDate&#x60; позднее даты, указанной в &#x60;dateFrom&#x60;, отправьте запрос без &#x60;flag&#x60; или с &#x60;flag&#x3D;0&#x60;. При этом количество строк в ответе условно ограничено 80000. Чтобы получить продажи с датой заказа &#x60;date&#x60;, указанной в &#x60;dateFrom&#x60;, отправьте запрос с &#x60;flag&#x3D;1&#x60;, время в &#x60;dateFrom&#x60; значения не имеет. При этом количество строк в ответе будет равно количеству продаж за дату &#x60;dateFrom&#x60; (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;SalesItem&gt;)</returns>
@@ -1325,8 +1325,8 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// Метод возвращает отчёт с [операциями по товарам с обязательной маркировкой](https://seller.wildberries.ru/analytics-reports/excise-report).  Данный отчёт можно сохранить в [формате таблиц](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-650c-7b04-9596-ba441936f9d3).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 5 ч | 10 запросов | 30 мин | 10 запросов | | Сервисный | 5 ч | 10 запросов | 30 мин | 10 запросов | | Базовый с секретом | 5 ч | 10 запросов | 30 мин | 10 запросов | | Базовый | 24 ч | 2 запроса | 12 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/post-api-v1-analytics-excise-report
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
-        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
+        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
+        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
         /// <param name="exciseReportRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1340,8 +1340,8 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// Метод возвращает отчёт с [операциями по товарам с обязательной маркировкой](https://seller.wildberries.ru/analytics-reports/excise-report).  Данный отчёт можно сохранить в [формате таблиц](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-650c-7b04-9596-ba441936f9d3).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 5 ч | 10 запросов | 30 мин | 10 запросов | | Сервисный | 5 ч | 10 запросов | 30 мин | 10 запросов | | Базовый с секретом | 5 ч | 10 запросов | 30 мин | 10 запросов | | Базовый | 24 ч | 2 запроса | 12 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/post-api-v1-analytics-excise-report
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
-        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
+        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
+        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
         /// <param name="exciseReportRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1471,8 +1471,8 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// Создать отчёт Метод создаёт [задание на генерацию](https://dev.wildberries.ru/openapi/reports#tag/acceptanceExpenses/operation/getV1AcceptanceReportTasksTaskIdStatus) отчёта об [операциях при приёмке](https://dev.wildberries.ru/openapi/reports#tag/acceptanceExpenses/operation/getV1AcceptanceReportTasksTaskIdDownload).  Можно получить отчёт максимум за 31 день.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 3 ч | 1 запрос | 3 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-acceptance-report
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
-        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
+        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
+        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>CreateTaskResponse</returns>
         public CreateTaskResponse GetV1AcceptanceReport(string dateFrom, string dateTo, int operationIndex = 0)
@@ -1485,8 +1485,8 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// Создать отчёт Метод создаёт [задание на генерацию](https://dev.wildberries.ru/openapi/reports#tag/acceptanceExpenses/operation/getV1AcceptanceReportTasksTaskIdStatus) отчёта об [операциях при приёмке](https://dev.wildberries.ru/openapi/reports#tag/acceptanceExpenses/operation/getV1AcceptanceReportTasksTaskIdDownload).  Можно получить отчёт максимум за 31 день.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 3 ч | 1 запрос | 3 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-acceptance-report
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
-        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
+        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
+        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of CreateTaskResponse</returns>
         public ValeryVerkhoturov.WbApiClient.Reports.Client.ApiResponse<CreateTaskResponse> GetV1AcceptanceReportWithHttpInfo(string dateFrom, string dateTo, int operationIndex = 0)
@@ -1557,8 +1557,8 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// Создать отчёт Метод создаёт [задание на генерацию](https://dev.wildberries.ru/openapi/reports#tag/acceptanceExpenses/operation/getV1AcceptanceReportTasksTaskIdStatus) отчёта об [операциях при приёмке](https://dev.wildberries.ru/openapi/reports#tag/acceptanceExpenses/operation/getV1AcceptanceReportTasksTaskIdDownload).  Можно получить отчёт максимум за 31 день.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 3 ч | 1 запрос | 3 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-acceptance-report
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
-        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
+        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
+        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CreateTaskResponse</returns>
@@ -1572,8 +1572,8 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// Создать отчёт Метод создаёт [задание на генерацию](https://dev.wildberries.ru/openapi/reports#tag/acceptanceExpenses/operation/getV1AcceptanceReportTasksTaskIdStatus) отчёта об [операциях при приёмке](https://dev.wildberries.ru/openapi/reports#tag/acceptanceExpenses/operation/getV1AcceptanceReportTasksTaskIdDownload).  Можно получить отчёт максимум за 31 день.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 3 ч | 1 запрос | 3 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-acceptance-report
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
-        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
+        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
+        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CreateTaskResponse)</returns>
@@ -1963,7 +1963,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// Самовыкупы Метод возвращает отчёт об удержаниях за самовыкупы. Отчёт формируется каждую неделю по средам, до 7:00 по московскому времени, и содержит данные за одну неделю.  Удержание за самовыкуп — 30% от стоимости товаров. Минимальная сумма всех удержаний — 100 000 ₽, если за неделю в ПВЗ привезли ваших товаров больше, чем на сумму 100 000 ₽.  Данные доступны с августа 2023.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 10 мин | 1 запрос | 10 мин | 10 запросов | | Сервисный | 10 мин | 1 запрос | 10 мин | 10 запросов | | Базовый с секретом | 10 мин | 1 запрос | 10 мин | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-antifraud-details
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="date">Дата, которая входит в отчётный период, &#x60;ГГГГ-ММ-ДД&#x60;.  Чтобы получить данные за всё время с августа 2023, не указывайте этот параметр (optional)</param>
+        /// <param name="date">Дата, которая входит в отчётный период, &#x60;ГГГГ-ММ-ДД&#x60;. Чтобы получить данные за всё время с августа 2023, не указывайте этот параметр (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GetV1AnalyticsAntifraudDetails200Response</returns>
         public GetV1AnalyticsAntifraudDetails200Response GetV1AnalyticsAntifraudDetails(string? date = default(string?), int operationIndex = 0)
@@ -1976,7 +1976,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// Самовыкупы Метод возвращает отчёт об удержаниях за самовыкупы. Отчёт формируется каждую неделю по средам, до 7:00 по московскому времени, и содержит данные за одну неделю.  Удержание за самовыкуп — 30% от стоимости товаров. Минимальная сумма всех удержаний — 100 000 ₽, если за неделю в ПВЗ привезли ваших товаров больше, чем на сумму 100 000 ₽.  Данные доступны с августа 2023.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 10 мин | 1 запрос | 10 мин | 10 запросов | | Сервисный | 10 мин | 1 запрос | 10 мин | 10 запросов | | Базовый с секретом | 10 мин | 1 запрос | 10 мин | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-antifraud-details
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="date">Дата, которая входит в отчётный период, &#x60;ГГГГ-ММ-ДД&#x60;.  Чтобы получить данные за всё время с августа 2023, не указывайте этот параметр (optional)</param>
+        /// <param name="date">Дата, которая входит в отчётный период, &#x60;ГГГГ-ММ-ДД&#x60;. Чтобы получить данные за всё время с августа 2023, не указывайте этот параметр (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GetV1AnalyticsAntifraudDetails200Response</returns>
         public ValeryVerkhoturov.WbApiClient.Reports.Client.ApiResponse<GetV1AnalyticsAntifraudDetails200Response> GetV1AnalyticsAntifraudDetailsWithHttpInfo(string? date = default(string?), int operationIndex = 0)
@@ -2037,7 +2037,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// Самовыкупы Метод возвращает отчёт об удержаниях за самовыкупы. Отчёт формируется каждую неделю по средам, до 7:00 по московскому времени, и содержит данные за одну неделю.  Удержание за самовыкуп — 30% от стоимости товаров. Минимальная сумма всех удержаний — 100 000 ₽, если за неделю в ПВЗ привезли ваших товаров больше, чем на сумму 100 000 ₽.  Данные доступны с августа 2023.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 10 мин | 1 запрос | 10 мин | 10 запросов | | Сервисный | 10 мин | 1 запрос | 10 мин | 10 запросов | | Базовый с секретом | 10 мин | 1 запрос | 10 мин | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-antifraud-details
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="date">Дата, которая входит в отчётный период, &#x60;ГГГГ-ММ-ДД&#x60;.  Чтобы получить данные за всё время с августа 2023, не указывайте этот параметр (optional)</param>
+        /// <param name="date">Дата, которая входит в отчётный период, &#x60;ГГГГ-ММ-ДД&#x60;. Чтобы получить данные за всё время с августа 2023, не указывайте этот параметр (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GetV1AnalyticsAntifraudDetails200Response</returns>
@@ -2051,7 +2051,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// Самовыкупы Метод возвращает отчёт об удержаниях за самовыкупы. Отчёт формируется каждую неделю по средам, до 7:00 по московскому времени, и содержит данные за одну неделю.  Удержание за самовыкуп — 30% от стоимости товаров. Минимальная сумма всех удержаний — 100 000 ₽, если за неделю в ПВЗ привезли ваших товаров больше, чем на сумму 100 000 ₽.  Данные доступны с августа 2023.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 10 мин | 1 запрос | 10 мин | 10 запросов | | Сервисный | 10 мин | 1 запрос | 10 мин | 10 запросов | | Базовый с секретом | 10 мин | 1 запрос | 10 мин | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-antifraud-details
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="date">Дата, которая входит в отчётный период, &#x60;ГГГГ-ММ-ДД&#x60;.  Чтобы получить данные за всё время с августа 2023, не указывайте этот параметр (optional)</param>
+        /// <param name="date">Дата, которая входит в отчётный период, &#x60;ГГГГ-ММ-ДД&#x60;. Чтобы получить данные за всё время с августа 2023, не указывайте этот параметр (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetV1AnalyticsAntifraudDetails200Response)</returns>
@@ -2293,8 +2293,8 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="parentId">ID родительской категории</param>
         /// <param name="brand">Бренд</param>
-        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
-        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
+        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
+        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GetV1AnalyticsBrandShare200Response</returns>
         public GetV1AnalyticsBrandShare200Response GetV1AnalyticsBrandShare(long parentId, string brand, string dateFrom, string dateTo, int operationIndex = 0)
@@ -2309,8 +2309,8 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="parentId">ID родительской категории</param>
         /// <param name="brand">Бренд</param>
-        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
-        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
+        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
+        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GetV1AnalyticsBrandShare200Response</returns>
         public ValeryVerkhoturov.WbApiClient.Reports.Client.ApiResponse<GetV1AnalyticsBrandShare200Response> GetV1AnalyticsBrandShareWithHttpInfo(long parentId, string brand, string dateFrom, string dateTo, int operationIndex = 0)
@@ -2391,8 +2391,8 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="parentId">ID родительской категории</param>
         /// <param name="brand">Бренд</param>
-        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
-        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
+        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
+        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GetV1AnalyticsBrandShare200Response</returns>
@@ -2408,8 +2408,8 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="parentId">ID родительской категории</param>
         /// <param name="brand">Бренд</param>
-        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
-        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
+        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
+        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetV1AnalyticsBrandShare200Response)</returns>
@@ -2632,8 +2632,8 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brand">Бренд</param>
-        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
-        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
+        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
+        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
         /// <param name="locale">Язык поля ответа &#x60;parentName&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  (optional, default to &quot;ru&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GetV1AnalyticsBrandShareParentSubjects200Response</returns>
@@ -2648,8 +2648,8 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brand">Бренд</param>
-        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
-        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
+        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
+        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
         /// <param name="locale">Язык поля ответа &#x60;parentName&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  (optional, default to &quot;ru&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GetV1AnalyticsBrandShareParentSubjects200Response</returns>
@@ -2733,8 +2733,8 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brand">Бренд</param>
-        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
-        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
+        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
+        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
         /// <param name="locale">Язык поля ответа &#x60;parentName&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  (optional, default to &quot;ru&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2750,8 +2750,8 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brand">Бренд</param>
-        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
-        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
+        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
+        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
         /// <param name="locale">Язык поля ответа &#x60;parentName&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  (optional, default to &quot;ru&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2837,8 +2837,8 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// Маркировка товара Метод возвращает отчёт о штрафах за отсутствие обязательной маркировки товаров. В отчёте представлены фотографии товаров, на которых маркировка отсутствует либо не считывается.  Можно получить данные максимум за 31 день. Данные доступны с марта 2024.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-goods-labeling
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
-        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
+        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
+        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GetV1AnalyticsGoodsLabeling200Response</returns>
         public GetV1AnalyticsGoodsLabeling200Response GetV1AnalyticsGoodsLabeling(string dateFrom, string dateTo, int operationIndex = 0)
@@ -2851,8 +2851,8 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// Маркировка товара Метод возвращает отчёт о штрафах за отсутствие обязательной маркировки товаров. В отчёте представлены фотографии товаров, на которых маркировка отсутствует либо не считывается.  Можно получить данные максимум за 31 день. Данные доступны с марта 2024.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-goods-labeling
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
-        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
+        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
+        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GetV1AnalyticsGoodsLabeling200Response</returns>
         public ValeryVerkhoturov.WbApiClient.Reports.Client.ApiResponse<GetV1AnalyticsGoodsLabeling200Response> GetV1AnalyticsGoodsLabelingWithHttpInfo(string dateFrom, string dateTo, int operationIndex = 0)
@@ -2923,8 +2923,8 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// Маркировка товара Метод возвращает отчёт о штрафах за отсутствие обязательной маркировки товаров. В отчёте представлены фотографии товаров, на которых маркировка отсутствует либо не считывается.  Можно получить данные максимум за 31 день. Данные доступны с марта 2024.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-goods-labeling
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
-        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
+        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
+        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GetV1AnalyticsGoodsLabeling200Response</returns>
@@ -2938,8 +2938,8 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// Маркировка товара Метод возвращает отчёт о штрафах за отсутствие обязательной маркировки товаров. В отчёте представлены фотографии товаров, на которых маркировка отсутствует либо не считывается.  Можно получить данные максимум за 31 день. Данные доступны с марта 2024.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-goods-labeling
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
-        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
+        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
+        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetV1AnalyticsGoodsLabeling200Response)</returns>
@@ -3193,8 +3193,8 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// Получить отчёт Метод будет отключен [3 ноября](https://dev.wildberries.ru/release-notes?id&#x3D;590).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-region-sale
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
-        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
+        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
+        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GetV1AnalyticsRegionSale200Response</returns>
         [Obsolete]
@@ -3208,8 +3208,8 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// Получить отчёт Метод будет отключен [3 ноября](https://dev.wildberries.ru/release-notes?id&#x3D;590).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-region-sale
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
-        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
+        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
+        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GetV1AnalyticsRegionSale200Response</returns>
         [Obsolete]
@@ -3281,8 +3281,8 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// Получить отчёт Метод будет отключен [3 ноября](https://dev.wildberries.ru/release-notes?id&#x3D;590).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-region-sale
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
-        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
+        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
+        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GetV1AnalyticsRegionSale200Response</returns>
@@ -3297,8 +3297,8 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// Получить отчёт Метод будет отключен [3 ноября](https://dev.wildberries.ru/release-notes?id&#x3D;590).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-region-sale
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
-        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
+        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
+        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetV1AnalyticsRegionSale200Response)</returns>
@@ -4478,7 +4478,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dateFrom">Дата и время последнего изменения по заказу. Дата в формате RFC3339. Можно передать дату или дату со временем. Время можно указывать с точностью до [секунд](./api-information#tag/introduction/Limity-zaprosov) или миллисекунд. Время передаётся в часовом поясе Москва (UTC+3).  Примеры: - &#x60;2019-06-20&#x60; - &#x60;2019-06-20T23:59:59&#x60; - &#x60;2019-06-20T00:00:00.12345&#x60; - &#x60;2017-03-25T00:00:00&#x60;</param>
-        /// <param name="flag">Если параметр &#x60;flag&#x3D;0&#x60; (или не указан в строке запроса), при вызове API возвращаются данные, у которых значение поля &#x60;lastChangeDate&#x60; (дата время обновления информации в сервисе) больше переданному значению параметра &#x60;dateFrom&#x60;. При этом количество возвращенных строк данных варьируется в интервале от 0 до примерно 80000.  Если параметр &#x60;flag&#x3D;1&#x60;, то будет выгружена информация обо всех заказах или продажах с датой, равной переданному параметру &#x60;dateFrom&#x60; (в данном случае время в дате значения не имеет). При этом количество возвращенных строк данных будет равно количеству всех заказов или продаж, сделанных в указанную дату, переданную в параметре &#x60;dateFrom&#x60;. (optional, default to 0)</param>
+        /// <param name="flag">Чтобы получить заказы с датой и временем обновления информации &#x60;lastChangeDate&#x60; позднее даты, указанной в &#x60;dateFrom&#x60;, отправьте запрос без &#x60;flag&#x60; или с &#x60;flag&#x3D;0&#x60;. При этом количество строк в ответе условно ограничено 80000. Чтобы получить заказы с датой заказа &#x60;date&#x60;, указанной в &#x60;dateFrom&#x60;, отправьте запрос с &#x60;flag&#x3D;1&#x60;, время в &#x60;dateFrom&#x60; значения не имеет. При этом количество строк в ответе будет равно количеству заказов за дату &#x60;dateFrom&#x60; (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;OrdersItem&gt;</returns>
         public List<OrdersItem> GetV1SupplierOrders(string dateFrom, long? flag = default(long?), int operationIndex = 0)
@@ -4492,7 +4492,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dateFrom">Дата и время последнего изменения по заказу. Дата в формате RFC3339. Можно передать дату или дату со временем. Время можно указывать с точностью до [секунд](./api-information#tag/introduction/Limity-zaprosov) или миллисекунд. Время передаётся в часовом поясе Москва (UTC+3).  Примеры: - &#x60;2019-06-20&#x60; - &#x60;2019-06-20T23:59:59&#x60; - &#x60;2019-06-20T00:00:00.12345&#x60; - &#x60;2017-03-25T00:00:00&#x60;</param>
-        /// <param name="flag">Если параметр &#x60;flag&#x3D;0&#x60; (или не указан в строке запроса), при вызове API возвращаются данные, у которых значение поля &#x60;lastChangeDate&#x60; (дата время обновления информации в сервисе) больше переданному значению параметра &#x60;dateFrom&#x60;. При этом количество возвращенных строк данных варьируется в интервале от 0 до примерно 80000.  Если параметр &#x60;flag&#x3D;1&#x60;, то будет выгружена информация обо всех заказах или продажах с датой, равной переданному параметру &#x60;dateFrom&#x60; (в данном случае время в дате значения не имеет). При этом количество возвращенных строк данных будет равно количеству всех заказов или продаж, сделанных в указанную дату, переданную в параметре &#x60;dateFrom&#x60;. (optional, default to 0)</param>
+        /// <param name="flag">Чтобы получить заказы с датой и временем обновления информации &#x60;lastChangeDate&#x60; позднее даты, указанной в &#x60;dateFrom&#x60;, отправьте запрос без &#x60;flag&#x60; или с &#x60;flag&#x3D;0&#x60;. При этом количество строк в ответе условно ограничено 80000. Чтобы получить заказы с датой заказа &#x60;date&#x60;, указанной в &#x60;dateFrom&#x60;, отправьте запрос с &#x60;flag&#x3D;1&#x60;, время в &#x60;dateFrom&#x60; значения не имеет. При этом количество строк в ответе будет равно количеству заказов за дату &#x60;dateFrom&#x60; (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;OrdersItem&gt;</returns>
         public ValeryVerkhoturov.WbApiClient.Reports.Client.ApiResponse<List<OrdersItem>> GetV1SupplierOrdersWithHttpInfo(string dateFrom, long? flag = default(long?), int operationIndex = 0)
@@ -4561,7 +4561,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dateFrom">Дата и время последнего изменения по заказу. Дата в формате RFC3339. Можно передать дату или дату со временем. Время можно указывать с точностью до [секунд](./api-information#tag/introduction/Limity-zaprosov) или миллисекунд. Время передаётся в часовом поясе Москва (UTC+3).  Примеры: - &#x60;2019-06-20&#x60; - &#x60;2019-06-20T23:59:59&#x60; - &#x60;2019-06-20T00:00:00.12345&#x60; - &#x60;2017-03-25T00:00:00&#x60;</param>
-        /// <param name="flag">Если параметр &#x60;flag&#x3D;0&#x60; (или не указан в строке запроса), при вызове API возвращаются данные, у которых значение поля &#x60;lastChangeDate&#x60; (дата время обновления информации в сервисе) больше переданному значению параметра &#x60;dateFrom&#x60;. При этом количество возвращенных строк данных варьируется в интервале от 0 до примерно 80000.  Если параметр &#x60;flag&#x3D;1&#x60;, то будет выгружена информация обо всех заказах или продажах с датой, равной переданному параметру &#x60;dateFrom&#x60; (в данном случае время в дате значения не имеет). При этом количество возвращенных строк данных будет равно количеству всех заказов или продаж, сделанных в указанную дату, переданную в параметре &#x60;dateFrom&#x60;. (optional, default to 0)</param>
+        /// <param name="flag">Чтобы получить заказы с датой и временем обновления информации &#x60;lastChangeDate&#x60; позднее даты, указанной в &#x60;dateFrom&#x60;, отправьте запрос без &#x60;flag&#x60; или с &#x60;flag&#x3D;0&#x60;. При этом количество строк в ответе условно ограничено 80000. Чтобы получить заказы с датой заказа &#x60;date&#x60;, указанной в &#x60;dateFrom&#x60;, отправьте запрос с &#x60;flag&#x3D;1&#x60;, время в &#x60;dateFrom&#x60; значения не имеет. При этом количество строк в ответе будет равно количеству заказов за дату &#x60;dateFrom&#x60; (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;OrdersItem&gt;</returns>
@@ -4576,7 +4576,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dateFrom">Дата и время последнего изменения по заказу. Дата в формате RFC3339. Можно передать дату или дату со временем. Время можно указывать с точностью до [секунд](./api-information#tag/introduction/Limity-zaprosov) или миллисекунд. Время передаётся в часовом поясе Москва (UTC+3).  Примеры: - &#x60;2019-06-20&#x60; - &#x60;2019-06-20T23:59:59&#x60; - &#x60;2019-06-20T00:00:00.12345&#x60; - &#x60;2017-03-25T00:00:00&#x60;</param>
-        /// <param name="flag">Если параметр &#x60;flag&#x3D;0&#x60; (или не указан в строке запроса), при вызове API возвращаются данные, у которых значение поля &#x60;lastChangeDate&#x60; (дата время обновления информации в сервисе) больше переданному значению параметра &#x60;dateFrom&#x60;. При этом количество возвращенных строк данных варьируется в интервале от 0 до примерно 80000.  Если параметр &#x60;flag&#x3D;1&#x60;, то будет выгружена информация обо всех заказах или продажах с датой, равной переданному параметру &#x60;dateFrom&#x60; (в данном случае время в дате значения не имеет). При этом количество возвращенных строк данных будет равно количеству всех заказов или продаж, сделанных в указанную дату, переданную в параметре &#x60;dateFrom&#x60;. (optional, default to 0)</param>
+        /// <param name="flag">Чтобы получить заказы с датой и временем обновления информации &#x60;lastChangeDate&#x60; позднее даты, указанной в &#x60;dateFrom&#x60;, отправьте запрос без &#x60;flag&#x60; или с &#x60;flag&#x3D;0&#x60;. При этом количество строк в ответе условно ограничено 80000. Чтобы получить заказы с датой заказа &#x60;date&#x60;, указанной в &#x60;dateFrom&#x60;, отправьте запрос с &#x60;flag&#x3D;1&#x60;, время в &#x60;dateFrom&#x60; значения не имеет. При этом количество строк в ответе будет равно количеству заказов за дату &#x60;dateFrom&#x60; (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;OrdersItem&gt;)</returns>
@@ -4648,7 +4648,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dateFrom">Дата и время последнего изменения по продаже/возврату. Дата в формате RFC3339. Можно передать дату или дату со временем. Время можно указывать с точностью до [секунд](./api-information#tag/introduction/Limity-zaprosov) или миллисекунд. Время передаётся в часовом поясе Москва (UTC+3).  Примеры: - &#x60;2019-06-20&#x60; - &#x60;2019-06-20T23:59:59&#x60; - &#x60;2019-06-20T00:00:00.12345&#x60; - &#x60;2017-03-25T00:00:00&#x60;</param>
-        /// <param name="flag">Если параметр &#x60;flag&#x3D;0&#x60; (или не указан в строке запроса), при вызове API возвращаются данные, у которых значение поля &#x60;lastChangeDate&#x60; (дата время обновления информации в сервисе) больше переданному значению параметра &#x60;dateFrom&#x60;. При этом количество возвращенных строк данных варьируется в интервале от 0 до примерно 80000.  Если параметр &#x60;flag&#x3D;1&#x60;, то будет выгружена информация обо всех заказах или продажах с датой, равной переданному параметру &#x60;dateFrom&#x60; (в данном случае время в дате значения не имеет). При этом количество возвращенных строк данных будет равно количеству всех заказов или продаж, сделанных в указанную дату, переданную в параметре &#x60;dateFrom&#x60;. (optional, default to 0)</param>
+        /// <param name="flag">Чтобы получить продажи с датой и временем обновления информации &#x60;lastChangeDate&#x60; позднее даты, указанной в &#x60;dateFrom&#x60;, отправьте запрос без &#x60;flag&#x60; или с &#x60;flag&#x3D;0&#x60;. При этом количество строк в ответе условно ограничено 80000. Чтобы получить продажи с датой заказа &#x60;date&#x60;, указанной в &#x60;dateFrom&#x60;, отправьте запрос с &#x60;flag&#x3D;1&#x60;, время в &#x60;dateFrom&#x60; значения не имеет. При этом количество строк в ответе будет равно количеству продаж за дату &#x60;dateFrom&#x60; (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;SalesItem&gt;</returns>
         public List<SalesItem> GetV1SupplierSales(string dateFrom, long? flag = default(long?), int operationIndex = 0)
@@ -4662,7 +4662,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dateFrom">Дата и время последнего изменения по продаже/возврату. Дата в формате RFC3339. Можно передать дату или дату со временем. Время можно указывать с точностью до [секунд](./api-information#tag/introduction/Limity-zaprosov) или миллисекунд. Время передаётся в часовом поясе Москва (UTC+3).  Примеры: - &#x60;2019-06-20&#x60; - &#x60;2019-06-20T23:59:59&#x60; - &#x60;2019-06-20T00:00:00.12345&#x60; - &#x60;2017-03-25T00:00:00&#x60;</param>
-        /// <param name="flag">Если параметр &#x60;flag&#x3D;0&#x60; (или не указан в строке запроса), при вызове API возвращаются данные, у которых значение поля &#x60;lastChangeDate&#x60; (дата время обновления информации в сервисе) больше переданному значению параметра &#x60;dateFrom&#x60;. При этом количество возвращенных строк данных варьируется в интервале от 0 до примерно 80000.  Если параметр &#x60;flag&#x3D;1&#x60;, то будет выгружена информация обо всех заказах или продажах с датой, равной переданному параметру &#x60;dateFrom&#x60; (в данном случае время в дате значения не имеет). При этом количество возвращенных строк данных будет равно количеству всех заказов или продаж, сделанных в указанную дату, переданную в параметре &#x60;dateFrom&#x60;. (optional, default to 0)</param>
+        /// <param name="flag">Чтобы получить продажи с датой и временем обновления информации &#x60;lastChangeDate&#x60; позднее даты, указанной в &#x60;dateFrom&#x60;, отправьте запрос без &#x60;flag&#x60; или с &#x60;flag&#x3D;0&#x60;. При этом количество строк в ответе условно ограничено 80000. Чтобы получить продажи с датой заказа &#x60;date&#x60;, указанной в &#x60;dateFrom&#x60;, отправьте запрос с &#x60;flag&#x3D;1&#x60;, время в &#x60;dateFrom&#x60; значения не имеет. При этом количество строк в ответе будет равно количеству продаж за дату &#x60;dateFrom&#x60; (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;SalesItem&gt;</returns>
         public ValeryVerkhoturov.WbApiClient.Reports.Client.ApiResponse<List<SalesItem>> GetV1SupplierSalesWithHttpInfo(string dateFrom, long? flag = default(long?), int operationIndex = 0)
@@ -4731,7 +4731,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dateFrom">Дата и время последнего изменения по продаже/возврату. Дата в формате RFC3339. Можно передать дату или дату со временем. Время можно указывать с точностью до [секунд](./api-information#tag/introduction/Limity-zaprosov) или миллисекунд. Время передаётся в часовом поясе Москва (UTC+3).  Примеры: - &#x60;2019-06-20&#x60; - &#x60;2019-06-20T23:59:59&#x60; - &#x60;2019-06-20T00:00:00.12345&#x60; - &#x60;2017-03-25T00:00:00&#x60;</param>
-        /// <param name="flag">Если параметр &#x60;flag&#x3D;0&#x60; (или не указан в строке запроса), при вызове API возвращаются данные, у которых значение поля &#x60;lastChangeDate&#x60; (дата время обновления информации в сервисе) больше переданному значению параметра &#x60;dateFrom&#x60;. При этом количество возвращенных строк данных варьируется в интервале от 0 до примерно 80000.  Если параметр &#x60;flag&#x3D;1&#x60;, то будет выгружена информация обо всех заказах или продажах с датой, равной переданному параметру &#x60;dateFrom&#x60; (в данном случае время в дате значения не имеет). При этом количество возвращенных строк данных будет равно количеству всех заказов или продаж, сделанных в указанную дату, переданную в параметре &#x60;dateFrom&#x60;. (optional, default to 0)</param>
+        /// <param name="flag">Чтобы получить продажи с датой и временем обновления информации &#x60;lastChangeDate&#x60; позднее даты, указанной в &#x60;dateFrom&#x60;, отправьте запрос без &#x60;flag&#x60; или с &#x60;flag&#x3D;0&#x60;. При этом количество строк в ответе условно ограничено 80000. Чтобы получить продажи с датой заказа &#x60;date&#x60;, указанной в &#x60;dateFrom&#x60;, отправьте запрос с &#x60;flag&#x3D;1&#x60;, время в &#x60;dateFrom&#x60; значения не имеет. При этом количество строк в ответе будет равно количеству продаж за дату &#x60;dateFrom&#x60; (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;SalesItem&gt;</returns>
@@ -4746,7 +4746,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dateFrom">Дата и время последнего изменения по продаже/возврату. Дата в формате RFC3339. Можно передать дату или дату со временем. Время можно указывать с точностью до [секунд](./api-information#tag/introduction/Limity-zaprosov) или миллисекунд. Время передаётся в часовом поясе Москва (UTC+3).  Примеры: - &#x60;2019-06-20&#x60; - &#x60;2019-06-20T23:59:59&#x60; - &#x60;2019-06-20T00:00:00.12345&#x60; - &#x60;2017-03-25T00:00:00&#x60;</param>
-        /// <param name="flag">Если параметр &#x60;flag&#x3D;0&#x60; (или не указан в строке запроса), при вызове API возвращаются данные, у которых значение поля &#x60;lastChangeDate&#x60; (дата время обновления информации в сервисе) больше переданному значению параметра &#x60;dateFrom&#x60;. При этом количество возвращенных строк данных варьируется в интервале от 0 до примерно 80000.  Если параметр &#x60;flag&#x3D;1&#x60;, то будет выгружена информация обо всех заказах или продажах с датой, равной переданному параметру &#x60;dateFrom&#x60; (в данном случае время в дате значения не имеет). При этом количество возвращенных строк данных будет равно количеству всех заказов или продаж, сделанных в указанную дату, переданную в параметре &#x60;dateFrom&#x60;. (optional, default to 0)</param>
+        /// <param name="flag">Чтобы получить продажи с датой и временем обновления информации &#x60;lastChangeDate&#x60; позднее даты, указанной в &#x60;dateFrom&#x60;, отправьте запрос без &#x60;flag&#x60; или с &#x60;flag&#x3D;0&#x60;. При этом количество строк в ответе условно ограничено 80000. Чтобы получить продажи с датой заказа &#x60;date&#x60;, указанной в &#x60;dateFrom&#x60;, отправьте запрос с &#x60;flag&#x3D;1&#x60;, время в &#x60;dateFrom&#x60; значения не имеет. При этом количество строк в ответе будет равно количеству продаж за дату &#x60;dateFrom&#x60; (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;SalesItem&gt;)</returns>
@@ -5569,8 +5569,8 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// Получить отчёт Метод возвращает отчёт с [операциями по товарам с обязательной маркировкой](https://seller.wildberries.ru/analytics-reports/excise-report).  Данный отчёт можно сохранить в [формате таблиц](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-650c-7b04-9596-ba441936f9d3).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 5 ч | 10 запросов | 30 мин | 10 запросов | | Сервисный | 5 ч | 10 запросов | 30 мин | 10 запросов | | Базовый с секретом | 5 ч | 10 запросов | 30 мин | 10 запросов | | Базовый | 24 ч | 2 запроса | 12 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/post-api-v1-analytics-excise-report
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
-        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
+        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
+        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
         /// <param name="exciseReportRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ExciseReportResponse</returns>
@@ -5584,8 +5584,8 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// Получить отчёт Метод возвращает отчёт с [операциями по товарам с обязательной маркировкой](https://seller.wildberries.ru/analytics-reports/excise-report).  Данный отчёт можно сохранить в [формате таблиц](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-650c-7b04-9596-ba441936f9d3).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 5 ч | 10 запросов | 30 мин | 10 запросов | | Сервисный | 5 ч | 10 запросов | 30 мин | 10 запросов | | Базовый с секретом | 5 ч | 10 запросов | 30 мин | 10 запросов | | Базовый | 24 ч | 2 запроса | 12 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/post-api-v1-analytics-excise-report
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
-        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
+        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
+        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
         /// <param name="exciseReportRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ExciseReportResponse</returns>
@@ -5659,8 +5659,8 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// Получить отчёт Метод возвращает отчёт с [операциями по товарам с обязательной маркировкой](https://seller.wildberries.ru/analytics-reports/excise-report).  Данный отчёт можно сохранить в [формате таблиц](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-650c-7b04-9596-ba441936f9d3).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 5 ч | 10 запросов | 30 мин | 10 запросов | | Сервисный | 5 ч | 10 запросов | 30 мин | 10 запросов | | Базовый с секретом | 5 ч | 10 запросов | 30 мин | 10 запросов | | Базовый | 24 ч | 2 запроса | 12 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/post-api-v1-analytics-excise-report
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
-        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
+        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
+        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
         /// <param name="exciseReportRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -5675,8 +5675,8 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// Получить отчёт Метод возвращает отчёт с [операциями по товарам с обязательной маркировкой](https://seller.wildberries.ru/analytics-reports/excise-report).  Данный отчёт можно сохранить в [формате таблиц](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-650c-7b04-9596-ba441936f9d3).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 5 ч | 10 запросов | 30 мин | 10 запросов | | Сервисный | 5 ч | 10 запросов | 30 мин | 10 запросов | | Базовый с секретом | 5 ч | 10 запросов | 30 мин | 10 запросов | | Базовый | 24 ч | 2 запроса | 12 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/post-api-v1-analytics-excise-report
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
-        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
+        /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
+        /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;</param>
         /// <param name="exciseReportRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>

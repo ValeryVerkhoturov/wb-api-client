@@ -44,7 +44,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// Поиск по артикулу продавца, артикулу WB, баркоду
         /// </summary>
         /// <value>Поиск по артикулу продавца, артикулу WB, баркоду</value>
-        [DataMember(Name = "textSearch", EmitDefaultValue = false)]
+        [DataMember(Name = "textSearch", EmitDefaultValue = true)]
         public string TextSearch { get; set; }
 
         /// <summary>

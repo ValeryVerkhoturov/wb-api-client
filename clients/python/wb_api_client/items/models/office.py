@@ -37,6 +37,11 @@ class Office(BaseModel):
     Данные о складе WB
     """  # noqa: E501
 
+    federal_district: Optional[StrictStr] = Field(
+        default=None,
+        description="Федеральный округ склада WB. Если `null`, склад находится за пределами РФ или федеральный округ не указан",
+        alias="federalDistrict",
+    )
     address: Optional[StrictStr] = Field(default=None, description="Адрес")
     name: Optional[StrictStr] = Field(default=None, description="Название")
     city: Optional[StrictStr] = Field(default=None, description="Город")
@@ -57,15 +62,11 @@ class Office(BaseModel):
         description="Тип доставки, который принимает склад:   - `1` — доставка на склад WB (FBS)   - `2` — доставка силами продавца (DBS)   - `3` — Деливери WB (DBW)   - `5` — самовывоз (C&C)   - `6` — экспресс-доставка силами продавца (ЕDBS) ",
         alias="deliveryType",
     )
-    federal_district: Optional[StrictStr] = Field(
-        default=None,
-        description="Федеральный округ склада WB. Если `null`, склад находится за пределами РФ или федеральный округ не указан",
-        alias="federalDistrict",
-    )
     selected: Optional[StrictBool] = Field(
         default=None, description="Признак того, что склад уже выбран продавцом"
     )
     __properties: ClassVar[List[str]] = [
+        "federalDistrict",
         "address",
         "name",
         "city",
@@ -74,7 +75,6 @@ class Office(BaseModel):
         "latitude",
         "cargoType",
         "deliveryType",
-        "federalDistrict",
         "selected",
     ]
 
@@ -156,6 +156,7 @@ class Office(BaseModel):
 
         _obj = cls.model_validate(
             {
+                "federalDistrict": obj.get("federalDistrict"),
                 "address": obj.get("address"),
                 "name": obj.get("name"),
                 "city": obj.get("city"),
@@ -164,7 +165,6 @@ class Office(BaseModel):
                 "latitude": obj.get("latitude"),
                 "cargoType": obj.get("cargoType"),
                 "deliveryType": obj.get("deliveryType"),
-                "federalDistrict": obj.get("federalDistrict"),
                 "selected": obj.get("selected"),
             }
         )

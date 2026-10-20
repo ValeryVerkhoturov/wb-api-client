@@ -320,7 +320,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/responseBodyContentError400'
+                oneOf:
+                - $ref: '#/components/schemas/responseBodyContentError400'
+                - $ref: '#/components/schemas/responseBodyContentError400InvalidSyntax'
         '401':
           $ref: '#/components/responses/401'
         '403':
@@ -1727,29 +1729,34 @@ paths:
                   description: Настройки
                   properties:
                     sort:
-                      description: Параметр сортировки
+                      description: Сортировка по дате и времени изменения карточек товаров `updatedAt`
                       type: object
                       properties:
                         ascending:
                           type: boolean
                           default: false
                           description: |
-                            Сортировать по полю `updatedAt`:
+                            Порядок сортировки:
                               - `false` — по убыванию
-                              -  `true` — по возрастанию
+                              - `true` — по возрастанию
                     filter:
                       description: Параметры фильтрации
                       type: object
                       properties:
                         withPhoto:
                           type: integer
+                          default: 0
                           enum:
                           - -1
                           - 0
                           - 1
                           - 2
-                          description: "Фильтр по фото:\n  * `-1` — любые карточки товаров\n  * `0` — только карточки без фото. С [16 июня](https://dev.wildberries.ru/release-notes?id=531) — любые карточки товаров\n  * `1` — только карточки с фото\n  * `2` — только карточки без фото. С [16 июня](https://dev.wildberries.ru/release-notes?id=531)\n"
-                          default: 0
+                          description: |
+                            Фильтр по фото:
+                              * `-1` — любые карточки товаров
+                              * `0` — любые карточки товаров
+                              * `1` — только карточки с фото
+                              * `2` — только карточки без фото
                           format: int64
                         textSearch:
                           type: string
@@ -2770,14 +2777,15 @@ paths:
                   description: Настройки
                   properties:
                     sort:
-                      description: Параметр сортировки
                       type: object
+                      nullable: true
+                      description: Сортировка по дате и времени помещения карточек товаров в корзину `trashedAt`
                       properties:
                         ascending:
                           type: boolean
                           default: false
                           description: |
-                            Сортировать по `trashedAt`:
+                            Порядок сортировки:
                               - `false` — по убыванию
                               - `true` — по возрастанию
                     cursor:
@@ -2792,17 +2800,21 @@ paths:
                           format: int64
                         trashedAt:
                           type: string
+                          nullable: true
                           description: Дата и время помещения в корзину
                         nmID:
                           type: integer
+                          nullable: true
                           description: Артикул WB, с которого надо запрашивать следующий список карточек товаров
                           format: int64
                     filter:
-                      description: Параметры фильтрации
                       type: object
+                      nullable: true
+                      description: Параметры фильтрации
                       properties:
                         textSearch:
                           type: string
+                          nullable: true
                           description: Поиск по артикулу продавца, артикулу WB, баркоду
             example:
               settings:
@@ -4977,7 +4989,7 @@ paths:
                 IncorrectParameter:
                   $ref: '#/components/examples/IncorrectParameter'
                 SKUUploadDisabled:
-                  $ref: '#/components/examples/SKUUploadDisabled'
+                  $ref: '#/components/examples/SKUUploadDisabledPut'
         '401':
           $ref: '#/components/responses/401'
         '402':
@@ -5104,7 +5116,7 @@ paths:
                 IncorrectParameter:
                   $ref: '#/components/examples/IncorrectParameter'
                 SKUUploadDisabled:
-                  $ref: '#/components/examples/SKUUploadDisabled'
+                  $ref: '#/components/examples/SKUUploadDisabledDelete'
         '401':
           $ref: '#/components/responses/401'
         '402':
@@ -5203,7 +5215,7 @@ paths:
                 IncorrectParameter:
                   $ref: '#/components/examples/IncorrectParameter'
                 SKUUploadDisabled:
-                  $ref: '#/components/examples/SKUUploadDisabled'
+                  $ref: '#/components/examples/SKUUploadDisabledPost'
         '401':
           $ref: '#/components/responses/401'
         '402':
@@ -5685,9 +5697,9 @@ paths:
       description: |-
         Метод обновляет список контактов [склада продавца](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehouses/operation/getV3Warehouses).
 
-        Список контактов перезаписывается при обновлении. Поэтому в запросе нужно передать **все** параметры списка контактов, в том числе те, которые вы не собираетесь обновлять.
+        Список контактов перезаписывается при обновлении. Поэтому в запросе нужно передать **все** параметры списка контактов, в том числе те, которые вы не собираетесь обновлять
 
-        Только для складов с типом доставки `3` — Деливери WB (DBW).
+        Только для складов с типом доставки `3` — Деливери WB ([DBW](https://dev.wildberries.ru/openapi/orders-dbw)).
 
         К складу можно добавить максимум 5 контактов. Чтобы удалить контакты, отправьте пустой массив `contacts`.
 
@@ -5719,14 +5731,14 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
               examples:
-                IncorrectParameter:
-                  $ref: '#/components/examples/IncorrectParameter'
                 IncorrectRequestBody:
                   $ref: '#/components/examples/IncorrectRequestBody'
-                UploadDataLimitDbw:
-                  $ref: '#/components/examples/UploadDataLimitDbw'
                 IncorrectRequest:
                   $ref: '#/components/examples/IncorrectRequest'
+                IncorrectParameter:
+                  $ref: '#/components/examples/IncorrectParameter'
+                UploadDataLimitDbw:
+                  $ref: '#/components/examples/UploadDataLimitDbw'
         '401':
           $ref: '#/components/responses/401'
         '402':
@@ -5935,6 +5947,9 @@ components:
           description: Дополнительные ошибки
           type: object
           example: {}
+    responseBodyContentError400InvalidSyntax:
+      type: string
+      example: 'path arguments could not be decoded: strconv.Atoi: parsing "%D1%82": invalid syntax'
     responseBodyContentError403:
       type: object
       properties:
@@ -6560,6 +6575,11 @@ components:
       type: object
       description: Данные о складе WB
       properties:
+        federalDistrict:
+          type: string
+          nullable: true
+          example: Центральный
+          description: Федеральный округ склада WB. Если `null`, склад находится за пределами РФ или федеральный округ не указан
         address:
           type: string
           nullable: false
@@ -6621,11 +6641,6 @@ components:
           - 6
           example: 1
           format: int64
-        federalDistrict:
-          type: string
-          nullable: true
-          example: Центральный
-          description: Федеральный округ склада WB. Если `null`, склад находится за пределами РФ или федеральный округ не указан
         selected:
           type: boolean
           nullable: false
@@ -9001,8 +9016,18 @@ components:
       value:
         code: IncorrectParameter
         message: Incorrect parameter
-    SKUUploadDisabled:
+    SKUUploadDisabledPut:
       description: Обновление остатков по баркодам невозможно. Используйте `chrtId`
+      value:
+        code: SKUUploadDisabled
+        message: Uploading stock is not allowed by 'sku'. Please use the 'chrtId' key
+    SKUUploadDisabledDelete:
+      description: Удаление остатков по баркодам невозможно. Используйте `chrtId`
+      value:
+        code: SKUUploadDisabled
+        message: Uploading stock is not allowed by 'sku'. Please use the 'chrtId' key
+    SKUUploadDisabledPost:
+      description: Получение остатков по баркодам невозможно. Используйте `chrtId`
       value:
         code: SKUUploadDisabled
         message: Uploading stock is not allowed by 'sku'. Please use the 'chrtId' key

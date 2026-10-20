@@ -35,6 +35,12 @@ import java.util.Set;
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     comments = "Generator version: 7.10.0")
 public class Office {
+  public static final String SERIALIZED_NAME_FEDERAL_DISTRICT = "federalDistrict";
+
+  @SerializedName(SERIALIZED_NAME_FEDERAL_DISTRICT)
+  @jakarta.annotation.Nullable
+  private String federalDistrict;
+
   public static final String SERIALIZED_NAME_ADDRESS = "address";
 
   @SerializedName(SERIALIZED_NAME_ADDRESS)
@@ -198,12 +204,6 @@ public class Office {
   @jakarta.annotation.Nullable
   private DeliveryTypeEnum deliveryType;
 
-  public static final String SERIALIZED_NAME_FEDERAL_DISTRICT = "federalDistrict";
-
-  @SerializedName(SERIALIZED_NAME_FEDERAL_DISTRICT)
-  @jakarta.annotation.Nullable
-  private String federalDistrict;
-
   public static final String SERIALIZED_NAME_SELECTED = "selected";
 
   @SerializedName(SERIALIZED_NAME_SELECTED)
@@ -211,6 +211,26 @@ public class Office {
   private Boolean selected;
 
   public Office() {}
+
+  public Office federalDistrict(@jakarta.annotation.Nullable String federalDistrict) {
+    this.federalDistrict = federalDistrict;
+    return this;
+  }
+
+  /**
+   * Федеральный округ склада WB. Если &#x60;null&#x60;, склад находится за пределами РФ или
+   * федеральный округ не указан
+   *
+   * @return federalDistrict
+   */
+  @jakarta.annotation.Nullable
+  public String getFederalDistrict() {
+    return federalDistrict;
+  }
+
+  public void setFederalDistrict(@jakarta.annotation.Nullable String federalDistrict) {
+    this.federalDistrict = federalDistrict;
+  }
 
   public Office address(@jakarta.annotation.Nullable String address) {
     this.address = address;
@@ -367,26 +387,6 @@ public class Office {
     this.deliveryType = deliveryType;
   }
 
-  public Office federalDistrict(@jakarta.annotation.Nullable String federalDistrict) {
-    this.federalDistrict = federalDistrict;
-    return this;
-  }
-
-  /**
-   * Федеральный округ склада WB. Если &#x60;null&#x60;, склад находится за пределами РФ или
-   * федеральный округ не указан
-   *
-   * @return federalDistrict
-   */
-  @jakarta.annotation.Nullable
-  public String getFederalDistrict() {
-    return federalDistrict;
-  }
-
-  public void setFederalDistrict(@jakarta.annotation.Nullable String federalDistrict) {
-    this.federalDistrict = federalDistrict;
-  }
-
   public Office selected(@jakarta.annotation.Nullable Boolean selected) {
     this.selected = selected;
     return this;
@@ -415,7 +415,8 @@ public class Office {
       return false;
     }
     Office office = (Office) o;
-    return Objects.equals(this.address, office.address)
+    return Objects.equals(this.federalDistrict, office.federalDistrict)
+        && Objects.equals(this.address, office.address)
         && Objects.equals(this.name, office.name)
         && Objects.equals(this.city, office.city)
         && Objects.equals(this.id, office.id)
@@ -423,13 +424,13 @@ public class Office {
         && Objects.equals(this.latitude, office.latitude)
         && Objects.equals(this.cargoType, office.cargoType)
         && Objects.equals(this.deliveryType, office.deliveryType)
-        && Objects.equals(this.federalDistrict, office.federalDistrict)
         && Objects.equals(this.selected, office.selected);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
+        federalDistrict,
         address,
         name,
         city,
@@ -438,7 +439,6 @@ public class Office {
         latitude,
         cargoType,
         deliveryType,
-        federalDistrict,
         selected);
   }
 
@@ -446,6 +446,7 @@ public class Office {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Office {\n");
+    sb.append("    federalDistrict: ").append(toIndentedString(federalDistrict)).append("\n");
     sb.append("    address: ").append(toIndentedString(address)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    city: ").append(toIndentedString(city)).append("\n");
@@ -454,7 +455,6 @@ public class Office {
     sb.append("    latitude: ").append(toIndentedString(latitude)).append("\n");
     sb.append("    cargoType: ").append(toIndentedString(cargoType)).append("\n");
     sb.append("    deliveryType: ").append(toIndentedString(deliveryType)).append("\n");
-    sb.append("    federalDistrict: ").append(toIndentedString(federalDistrict)).append("\n");
     sb.append("    selected: ").append(toIndentedString(selected)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -476,6 +476,7 @@ public class Office {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("federalDistrict");
     openapiFields.add("address");
     openapiFields.add("name");
     openapiFields.add("city");
@@ -484,7 +485,6 @@ public class Office {
     openapiFields.add("latitude");
     openapiFields.add("cargoType");
     openapiFields.add("deliveryType");
-    openapiFields.add("federalDistrict");
     openapiFields.add("selected");
 
     // a set of required properties/fields (JSON key names)
@@ -518,6 +518,13 @@ public class Office {
       }
     }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
+    if ((jsonObj.get("federalDistrict") != null && !jsonObj.get("federalDistrict").isJsonNull())
+        && !jsonObj.get("federalDistrict").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `federalDistrict` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("federalDistrict").toString()));
+    }
     if ((jsonObj.get("address") != null && !jsonObj.get("address").isJsonNull())
         && !jsonObj.get("address").isJsonPrimitive()) {
       throw new IllegalArgumentException(
@@ -546,13 +553,6 @@ public class Office {
     // validate the optional field `deliveryType`
     if (jsonObj.get("deliveryType") != null && !jsonObj.get("deliveryType").isJsonNull()) {
       DeliveryTypeEnum.validateJsonElement(jsonObj.get("deliveryType"));
-    }
-    if ((jsonObj.get("federalDistrict") != null && !jsonObj.get("federalDistrict").isJsonNull())
-        && !jsonObj.get("federalDistrict").isJsonPrimitive()) {
-      throw new IllegalArgumentException(
-          String.format(
-              "Expected the field `federalDistrict` to be a primitive type in the JSON string but got `%s`",
-              jsonObj.get("federalDistrict").toString()));
     }
   }
 

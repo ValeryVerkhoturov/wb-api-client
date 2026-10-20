@@ -413,7 +413,7 @@ public class StatisticsPast {
   }
 
   /**
-   * Локальные заказы в рамках одного региона. ]На данный
+   * Локальные заказы в рамках одного региона. [На данный
    * момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может быть только &#x60;100&#x60;
    *
    * @return localizationPercent

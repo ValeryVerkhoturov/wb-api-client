@@ -26,7 +26,7 @@ using OpenAPIDateConverter = ValeryVerkhoturov.WbApiClient.Items.Client.OpenAPID
 namespace ValeryVerkhoturov.WbApiClient.Items.Model
 {
     /// <summary>
-    /// Параметр сортировки
+    /// Сортировка по дате и времени изменения карточек товаров &#x60;updatedAt&#x60;
     /// </summary>
     [DataContract(Name = "postV2GetCardsList_request_settings_sort")]
     public partial class PostV2GetCardsListRequestSettingsSort : IValidatableObject
@@ -34,16 +34,16 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PostV2GetCardsListRequestSettingsSort" /> class.
         /// </summary>
-        /// <param name="ascending">Сортировать по полю &#x60;updatedAt&#x60;:   - &#x60;false&#x60; — по убыванию   -  &#x60;true&#x60; — по возрастанию  (default to false).</param>
+        /// <param name="ascending">Порядок сортировки:   - &#x60;false&#x60; — по убыванию   - &#x60;true&#x60; — по возрастанию  (default to false).</param>
         public PostV2GetCardsListRequestSettingsSort(bool ascending = false)
         {
             this.Ascending = ascending;
         }
 
         /// <summary>
-        /// Сортировать по полю &#x60;updatedAt&#x60;:   - &#x60;false&#x60; — по убыванию   -  &#x60;true&#x60; — по возрастанию 
+        /// Порядок сортировки:   - &#x60;false&#x60; — по убыванию   - &#x60;true&#x60; — по возрастанию 
         /// </summary>
-        /// <value>Сортировать по полю &#x60;updatedAt&#x60;:   - &#x60;false&#x60; — по убыванию   -  &#x60;true&#x60; — по возрастанию </value>
+        /// <value>Порядок сортировки:   - &#x60;false&#x60; — по убыванию   - &#x60;true&#x60; — по возрастанию </value>
         [DataMember(Name = "ascending", EmitDefaultValue = true)]
         public bool Ascending { get; set; }
 

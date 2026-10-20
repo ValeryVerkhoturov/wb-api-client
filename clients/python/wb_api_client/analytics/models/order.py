@@ -54,21 +54,21 @@ class Order(BaseModel):
     )
     status: Optional[StrictStr] = Field(
         default=None,
-        description="Статус заказа:   - `created` — оформлен   - `buyout` — продан   - `cancel` — отменён   - `return` — возвращён   - `returnDefective` — возвращён по причине брака ",
+        description="[Статус заказа](https://seller.wildberries.ru/instructions/ru/ru/material/order-feed-report#a92fa9b0-86ab-4990-b905-33f6c38b385c):   - `created` — оформлен   - `buyout` — продан   - `cancel` — отменён   - `return` — возвращён   - `returnDefective` — возвращён по причине брака ",
     )
     cancel_type: Optional[StrictStr] = Field(
         default=None,
-        description='Тип отмены (при `"status":"cancel"`):   - `app` — отказ до получения   - `receipt` — отказ при получении   - `expire` — истёк срок получения   - `other` — техническая отмена ',
+        description='[Тип отмены](https://seller.wildberries.ru/instructions/ru/ru/material/order-feed-report#a92fa9b0-86ab-4990-b905-33f6c38b385c) (при `"status":"cancel"`):   - `app` — отказ до получения   - `receipt` — отказ при получении   - `expire` — истёк срок получения   - `other` — иное ',
         alias="cancelType",
     )
     warehouse_name: Optional[StrictStr] = Field(
         default=None,
-        description="Название склада. ]На данный момент](https://dev.wildberries.ru/release-notes?id=570) для складов WB может быть только `Склад WB`",
+        description="Название склада. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) для складов WB может быть только `Склад WB`",
         alias="warehouseName",
     )
     warehouse_region: Optional[StrictStr] = Field(
         default=None,
-        description='Федеральный округ склада. Если склад не в России, возвращается страна. ]На данный момент](https://dev.wildberries.ru/release-notes?id=570) для складов WB может быть только `""`',
+        description='Федеральный округ склада. Если склад не в России, возвращается страна. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) для складов WB может быть только `""`',
         alias="warehouseRegion",
     )
     is_mp: Optional[StrictBool] = Field(

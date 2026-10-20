@@ -208,6 +208,9 @@ public class JSON {
         new io.github.valeryverkhoturov.wbapi.items.model.GetV2ObjectAllResponse200DataInner
             .CustomTypeAdapterFactory());
     gsonBuilder.registerTypeAdapterFactory(
+        new io.github.valeryverkhoturov.wbapi.items.model.GetV2ObjectCharcsSubjectId400Response
+            .CustomTypeAdapterFactory());
+    gsonBuilder.registerTypeAdapterFactory(
         new io.github.valeryverkhoturov.wbapi.items.model.GetV2ObjectCharcsSubjectIdResponse200
             .CustomTypeAdapterFactory());
     gsonBuilder.registerTypeAdapterFactory(

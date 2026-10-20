@@ -1516,7 +1516,7 @@ components:
         utdUcdDate:
           type: string
           description: Дата УПД или УКД
-          example: '2006-01-02'
+          example: '2026-10-12'
         orderUid:
           type: string
           description: |-

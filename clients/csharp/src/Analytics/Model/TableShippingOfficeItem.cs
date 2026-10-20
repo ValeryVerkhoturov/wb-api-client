@@ -34,9 +34,9 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TableShippingOfficeItem" /> class.
         /// </summary>
-        /// <param name="regionName">Регион отгрузки. ]На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) для складов WB может быть только &#x60;Склад WB&#x60;.</param>
+        /// <param name="regionName">Регион отгрузки. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) для складов WB может быть только &#x60;Склад WB&#x60;.</param>
         /// <param name="metrics">Метрики по региону.</param>
-        /// <param name="offices">Данные по складам. ]На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может быть только &#x60;[]&#x60;.</param>
+        /// <param name="offices">Данные по складам. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может быть только &#x60;[]&#x60;.</param>
         public TableShippingOfficeItem(string regionName = default(string), TableShippingOfficeMetrics metrics = default(TableShippingOfficeMetrics), List<TableShippingOfficeItemOfficesInner> offices = default(List<TableShippingOfficeItemOfficesInner>))
         {
             this.RegionName = regionName;
@@ -45,9 +45,9 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         }
 
         /// <summary>
-        /// Регион отгрузки. ]На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) для складов WB может быть только &#x60;Склад WB&#x60;
+        /// Регион отгрузки. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) для складов WB может быть только &#x60;Склад WB&#x60;
         /// </summary>
-        /// <value>Регион отгрузки. ]На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) для складов WB может быть только &#x60;Склад WB&#x60;</value>
+        /// <value>Регион отгрузки. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) для складов WB может быть только &#x60;Склад WB&#x60;</value>
         /*
         <example>Склад WB</example>
         */
@@ -62,9 +62,9 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         public TableShippingOfficeMetrics Metrics { get; set; }
 
         /// <summary>
-        /// Данные по складам. ]На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может быть только &#x60;[]&#x60;
+        /// Данные по складам. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может быть только &#x60;[]&#x60;
         /// </summary>
-        /// <value>Данные по складам. ]На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может быть только &#x60;[]&#x60;</value>
+        /// <value>Данные по складам. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может быть только &#x60;[]&#x60;</value>
         /*
         <example>[]</example>
         */

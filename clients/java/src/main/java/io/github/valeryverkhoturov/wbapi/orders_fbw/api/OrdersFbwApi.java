@@ -1803,7 +1803,7 @@ public class OrdersFbwApi {
   }
 
   /**
-   * Транзитные направления Метод ]временно
+   * Транзитные направления Метод [временно
    * отключён](https://dev.wildberries.ru/release-notes?id&#x3D;570) [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
@@ -1831,7 +1831,7 @@ public class OrdersFbwApi {
   }
 
   /**
-   * Транзитные направления Метод ]временно
+   * Транзитные направления Метод [временно
    * отключён](https://dev.wildberries.ru/release-notes?id&#x3D;570) [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
@@ -1861,7 +1861,7 @@ public class OrdersFbwApi {
   }
 
   /**
-   * Транзитные направления (asynchronously) Метод ]временно
+   * Транзитные направления (asynchronously) Метод [временно
    * отключён](https://dev.wildberries.ru/release-notes?id&#x3D;570) [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
@@ -1972,7 +1972,7 @@ public class OrdersFbwApi {
   }
 
   /**
-   * Список складов Метод ]временно отключён](https://dev.wildberries.ru/release-notes?id&#x3D;570)
+   * Список складов Метод [временно отключён](https://dev.wildberries.ru/release-notes?id&#x3D;570)
    * [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
@@ -2002,7 +2002,7 @@ public class OrdersFbwApi {
   }
 
   /**
-   * Список складов Метод ]временно отключён](https://dev.wildberries.ru/release-notes?id&#x3D;570)
+   * Список складов Метод [временно отключён](https://dev.wildberries.ru/release-notes?id&#x3D;570)
    * [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
@@ -2034,7 +2034,7 @@ public class OrdersFbwApi {
   }
 
   /**
-   * Список складов (asynchronously) Метод ]временно
+   * Список складов (asynchronously) Метод [временно
    * отключён](https://dev.wildberries.ru/release-notes?id&#x3D;570) [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
@@ -2165,7 +2165,7 @@ public class OrdersFbwApi {
   }
 
   /**
-   * Опции приёмки Метод ]временно отключён](https://dev.wildberries.ru/release-notes?id&#x3D;570)
+   * Опции приёмки Метод [временно отключён](https://dev.wildberries.ru/release-notes?id&#x3D;570)
    * [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
@@ -2202,7 +2202,7 @@ public class OrdersFbwApi {
   }
 
   /**
-   * Опции приёмки Метод ]временно отключён](https://dev.wildberries.ru/release-notes?id&#x3D;570)
+   * Опции приёмки Метод [временно отключён](https://dev.wildberries.ru/release-notes?id&#x3D;570)
    * [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
@@ -2240,7 +2240,7 @@ public class OrdersFbwApi {
   }
 
   /**
-   * Опции приёмки (asynchronously) Метод ]временно
+   * Опции приёмки (asynchronously) Метод [временно
    * отключён](https://dev.wildberries.ru/release-notes?id&#x3D;570) [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---

@@ -35,9 +35,9 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /// Initializes a new instance of the <see cref="GetV1PaidStorageTasksTaskIdDownloadResponse200Inner" /> class.
         /// </summary>
         /// <param name="date">Дата, за которую был расчёт или перерасчёт.</param>
-        /// <param name="logWarehouseCoef">Коэффициент логистики и хранения. ]На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может быть только &#x60;0&#x60;.</param>
-        /// <param name="officeId">ID склада. ]На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может быть только &#x60;0&#x60;.</param>
-        /// <param name="warehouse">Название склада. ]На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может быть только &#x60;Склад WB РФ&#x60;.</param>
+        /// <param name="logWarehouseCoef">Коэффициент логистики и хранения. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может быть только &#x60;0&#x60;.</param>
+        /// <param name="officeId">ID склада. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может быть только &#x60;0&#x60;.</param>
+        /// <param name="warehouse">Название склада. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может быть только &#x60;Склад WB РФ&#x60;.</param>
         /// <param name="warehouseCoef">Коэффициент хранения.</param>
         /// <param name="giId">ID поставки.</param>
         /// <param name="chrtId">ID размера для этого артикула WB.</param>
@@ -51,7 +51,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /// <param name="calcType">Способ расчёта.</param>
         /// <param name="warehousePrice">Сумма хранения.</param>
         /// <param name="barcodesCount">Количество единиц товара (штук), подлежащих тарифицированию за расчётные сутки.</param>
-        /// <param name="palletPlaceCode">Код паллетоместа. ]На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может быть только &#x60;0&#x60;.</param>
+        /// <param name="palletPlaceCode">Код паллетоместа. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может быть только &#x60;0&#x60;.</param>
         /// <param name="palletCount">Количество паллет.</param>
         /// <param name="originalDate">Если был перерасчёт, это дата первоначального расчёта. Если перерасчёта не было, совпадает с &#x60;date&#x60;.</param>
         /// <param name="loyaltyDiscount">Скидка программы лояльности, ₽.</param>
@@ -92,23 +92,23 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         public string Date { get; set; }
 
         /// <summary>
-        /// Коэффициент логистики и хранения. ]На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может быть только &#x60;0&#x60;
+        /// Коэффициент логистики и хранения. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может быть только &#x60;0&#x60;
         /// </summary>
-        /// <value>Коэффициент логистики и хранения. ]На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может быть только &#x60;0&#x60;</value>
+        /// <value>Коэффициент логистики и хранения. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может быть только &#x60;0&#x60;</value>
         [DataMember(Name = "logWarehouseCoef", EmitDefaultValue = false)]
         public decimal LogWarehouseCoef { get; set; }
 
         /// <summary>
-        /// ID склада. ]На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может быть только &#x60;0&#x60;
+        /// ID склада. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может быть только &#x60;0&#x60;
         /// </summary>
-        /// <value>ID склада. ]На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может быть только &#x60;0&#x60;</value>
+        /// <value>ID склада. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может быть только &#x60;0&#x60;</value>
         [DataMember(Name = "officeId", EmitDefaultValue = false)]
         public long OfficeId { get; set; }
 
         /// <summary>
-        /// Название склада. ]На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может быть только &#x60;Склад WB РФ&#x60;
+        /// Название склада. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может быть только &#x60;Склад WB РФ&#x60;
         /// </summary>
-        /// <value>Название склада. ]На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может быть только &#x60;Склад WB РФ&#x60;</value>
+        /// <value>Название склада. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может быть только &#x60;Склад WB РФ&#x60;</value>
         [DataMember(Name = "warehouse", EmitDefaultValue = false)]
         public string Warehouse { get; set; }
 
@@ -204,9 +204,9 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         public long BarcodesCount { get; set; }
 
         /// <summary>
-        /// Код паллетоместа. ]На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может быть только &#x60;0&#x60;
+        /// Код паллетоместа. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может быть только &#x60;0&#x60;
         /// </summary>
-        /// <value>Код паллетоместа. ]На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может быть только &#x60;0&#x60;</value>
+        /// <value>Код паллетоместа. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может быть только &#x60;0&#x60;</value>
         [DataMember(Name = "palletPlaceCode", EmitDefaultValue = false)]
         public long PalletPlaceCode { get; set; }
 

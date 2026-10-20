@@ -37,10 +37,8 @@ import java.util.Set;
     comments = "Generator version: 7.10.0")
 public class PostV2GetCardsListRequestSettingsFilter {
   /**
-   * Фильтр по фото: * &#x60;-1&#x60; — любые карточки товаров * &#x60;0&#x60; — только карточки без
-   * фото. С [16 июня](https://dev.wildberries.ru/release-notes?id&#x3D;531) — любые карточки
-   * товаров * &#x60;1&#x60; — только карточки с фото * &#x60;2&#x60; — только карточки без фото. С
-   * [16 июня](https://dev.wildberries.ru/release-notes?id&#x3D;531)
+   * Фильтр по фото: * &#x60;-1&#x60; — любые карточки товаров * &#x60;0&#x60; — любые карточки
+   * товаров * &#x60;1&#x60; — только карточки с фото * &#x60;2&#x60; — только карточки без фото
    */
   @JsonAdapter(WithPhotoEnum.Adapter.class)
   public enum WithPhotoEnum {
@@ -147,10 +145,8 @@ public class PostV2GetCardsListRequestSettingsFilter {
   }
 
   /**
-   * Фильтр по фото: * &#x60;-1&#x60; — любые карточки товаров * &#x60;0&#x60; — только карточки без
-   * фото. С [16 июня](https://dev.wildberries.ru/release-notes?id&#x3D;531) — любые карточки
-   * товаров * &#x60;1&#x60; — только карточки с фото * &#x60;2&#x60; — только карточки без фото. С
-   * [16 июня](https://dev.wildberries.ru/release-notes?id&#x3D;531)
+   * Фильтр по фото: * &#x60;-1&#x60; — любые карточки товаров * &#x60;0&#x60; — любые карточки
+   * товаров * &#x60;1&#x60; — только карточки с фото * &#x60;2&#x60; — только карточки без фото
    *
    * @return withPhoto
    */

@@ -94,7 +94,7 @@ class StatisticsComparison(BaseModel):
     )
     localization_percent_dynamic: Optional[StrictInt] = Field(
         default=None,
-        description="Динамика локальных заказов в рамках одного региона. ]На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `0`",
+        description="Динамика локальных заказов в рамках одного региона. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `0`",
         alias="localizationPercentDynamic",
     )
     wb_club_dynamic: Optional[ComparisonWbClubDynamic] = Field(

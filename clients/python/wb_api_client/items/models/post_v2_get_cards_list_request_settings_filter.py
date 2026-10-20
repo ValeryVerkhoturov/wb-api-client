@@ -38,7 +38,7 @@ class PostV2GetCardsListRequestSettingsFilter(BaseModel):
 
     with_photo: Optional[StrictInt] = Field(
         default=0,
-        description="Фильтр по фото:   * `-1` — любые карточки товаров   * `0` — только карточки без фото. С [16 июня](https://dev.wildberries.ru/release-notes?id=531) — любые карточки товаров   * `1` — только карточки с фото   * `2` — только карточки без фото. С [16 июня](https://dev.wildberries.ru/release-notes?id=531) ",
+        description="Фильтр по фото:   * `-1` — любые карточки товаров   * `0` — любые карточки товаров   * `1` — только карточки с фото   * `2` — только карточки без фото ",
         alias="withPhoto",
     )
     text_search: Optional[StrictStr] = Field(

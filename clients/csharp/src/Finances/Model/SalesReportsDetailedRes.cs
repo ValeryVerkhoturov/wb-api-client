@@ -1167,7 +1167,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /// </summary>
         /// <value>Дата УПД или УКД</value>
         /*
-        <example>2006-01-02</example>
+        <example>2026-10-12</example>
         */
         [DataMember(Name = "utdUcdDate", EmitDefaultValue = false)]
         public string UtdUcdDate { get; set; }

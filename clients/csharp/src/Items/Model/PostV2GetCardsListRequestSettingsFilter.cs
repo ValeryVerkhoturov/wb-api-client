@@ -32,9 +32,9 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
     public partial class PostV2GetCardsListRequestSettingsFilter : IValidatableObject
     {
         /// <summary>
-        /// Фильтр по фото:   * &#x60;-1&#x60; — любые карточки товаров   * &#x60;0&#x60; — только карточки без фото. С [16 июня](https://dev.wildberries.ru/release-notes?id&#x3D;531) — любые карточки товаров   * &#x60;1&#x60; — только карточки с фото   * &#x60;2&#x60; — только карточки без фото. С [16 июня](https://dev.wildberries.ru/release-notes?id&#x3D;531) 
+        /// Фильтр по фото:   * &#x60;-1&#x60; — любые карточки товаров   * &#x60;0&#x60; — любые карточки товаров   * &#x60;1&#x60; — только карточки с фото   * &#x60;2&#x60; — только карточки без фото 
         /// </summary>
-        /// <value>Фильтр по фото:   * &#x60;-1&#x60; — любые карточки товаров   * &#x60;0&#x60; — только карточки без фото. С [16 июня](https://dev.wildberries.ru/release-notes?id&#x3D;531) — любые карточки товаров   * &#x60;1&#x60; — только карточки с фото   * &#x60;2&#x60; — только карточки без фото. С [16 июня](https://dev.wildberries.ru/release-notes?id&#x3D;531) </value>
+        /// <value>Фильтр по фото:   * &#x60;-1&#x60; — любые карточки товаров   * &#x60;0&#x60; — любые карточки товаров   * &#x60;1&#x60; — только карточки с фото   * &#x60;2&#x60; — только карточки без фото </value>
         public enum WithPhotoEnum
         {
             /// <summary>
@@ -60,15 +60,15 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
 
 
         /// <summary>
-        /// Фильтр по фото:   * &#x60;-1&#x60; — любые карточки товаров   * &#x60;0&#x60; — только карточки без фото. С [16 июня](https://dev.wildberries.ru/release-notes?id&#x3D;531) — любые карточки товаров   * &#x60;1&#x60; — только карточки с фото   * &#x60;2&#x60; — только карточки без фото. С [16 июня](https://dev.wildberries.ru/release-notes?id&#x3D;531) 
+        /// Фильтр по фото:   * &#x60;-1&#x60; — любые карточки товаров   * &#x60;0&#x60; — любые карточки товаров   * &#x60;1&#x60; — только карточки с фото   * &#x60;2&#x60; — только карточки без фото 
         /// </summary>
-        /// <value>Фильтр по фото:   * &#x60;-1&#x60; — любые карточки товаров   * &#x60;0&#x60; — только карточки без фото. С [16 июня](https://dev.wildberries.ru/release-notes?id&#x3D;531) — любые карточки товаров   * &#x60;1&#x60; — только карточки с фото   * &#x60;2&#x60; — только карточки без фото. С [16 июня](https://dev.wildberries.ru/release-notes?id&#x3D;531) </value>
+        /// <value>Фильтр по фото:   * &#x60;-1&#x60; — любые карточки товаров   * &#x60;0&#x60; — любые карточки товаров   * &#x60;1&#x60; — только карточки с фото   * &#x60;2&#x60; — только карточки без фото </value>
         [DataMember(Name = "withPhoto", EmitDefaultValue = false)]
         public WithPhotoEnum? WithPhoto { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="PostV2GetCardsListRequestSettingsFilter" /> class.
         /// </summary>
-        /// <param name="withPhoto">Фильтр по фото:   * &#x60;-1&#x60; — любые карточки товаров   * &#x60;0&#x60; — только карточки без фото. С [16 июня](https://dev.wildberries.ru/release-notes?id&#x3D;531) — любые карточки товаров   * &#x60;1&#x60; — только карточки с фото   * &#x60;2&#x60; — только карточки без фото. С [16 июня](https://dev.wildberries.ru/release-notes?id&#x3D;531)  (default to WithPhotoEnum.NUMBER_0).</param>
+        /// <param name="withPhoto">Фильтр по фото:   * &#x60;-1&#x60; — любые карточки товаров   * &#x60;0&#x60; — любые карточки товаров   * &#x60;1&#x60; — только карточки с фото   * &#x60;2&#x60; — только карточки без фото  (default to WithPhotoEnum.NUMBER_0).</param>
         /// <param name="textSearch">Поиск по артикулу продавца, артикулу WB, баркоду.</param>
         /// <param name="tagIDs">Поиск по ID ярлыков.</param>
         /// <param name="allowedCategoriesOnly">Фильтр по категории:   - &#x60;true&#x60; — только разрешённые   - &#x60;false&#x60; — все    Не используется в песочнице .</param>

@@ -47,7 +47,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// <summary>
         /// Gets or Sets Sort
         /// </summary>
-        [DataMember(Name = "sort", EmitDefaultValue = false)]
+        [DataMember(Name = "sort", EmitDefaultValue = true)]
         public PostV2GetCardsTrashRequestSettingsSort Sort { get; set; }
 
         /// <summary>
@@ -59,7 +59,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// <summary>
         /// Gets or Sets Filter
         /// </summary>
-        [DataMember(Name = "filter", EmitDefaultValue = false)]
+        [DataMember(Name = "filter", EmitDefaultValue = true)]
         public PostV2GetCardsTrashRequestSettingsFilter Filter { get; set; }
 
         /// <summary>

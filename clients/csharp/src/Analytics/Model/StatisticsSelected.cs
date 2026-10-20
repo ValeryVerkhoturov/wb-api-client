@@ -48,7 +48,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <param name="shareOrderPercent">Доля в выручке.</param>
         /// <param name="addToWishlist">Добавили в **Отложенные**.</param>
         /// <param name="timeToReady">timeToReady.</param>
-        /// <param name="localizationPercent">Локальные заказы в рамках одного региона. ]На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может быть только &#x60;100&#x60;.</param>
+        /// <param name="localizationPercent">Локальные заказы в рамках одного региона. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может быть только &#x60;100&#x60;.</param>
         /// <param name="wbClub">wbClub.</param>
         /// <param name="conversions">conversions.</param>
         public StatisticsSelected(StatisticPeriod period = default(StatisticPeriod), long openCount = default(long), int cartCount = default(int), long orderCount = default(long), long orderSum = default(long), long buyoutCount = default(long), long buyoutSum = default(long), long cancelCount = default(long), long cancelSum = default(long), long avgPrice = default(long), decimal avgOrdersCountPerDay = default(decimal), decimal shareOrderPercent = default(decimal), long addToWishlist = default(long), StatisticTimeToReady timeToReady = default(StatisticTimeToReady), long localizationPercent = default(long), StatisticWbClub wbClub = default(StatisticWbClub), StatisticConversions conversions = default(StatisticConversions))
@@ -205,9 +205,9 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         public StatisticTimeToReady TimeToReady { get; set; }
 
         /// <summary>
-        /// Локальные заказы в рамках одного региона. ]На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может быть только &#x60;100&#x60;
+        /// Локальные заказы в рамках одного региона. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может быть только &#x60;100&#x60;
         /// </summary>
-        /// <value>Локальные заказы в рамках одного региона. ]На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может быть только &#x60;100&#x60;</value>
+        /// <value>Локальные заказы в рамках одного региона. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может быть только &#x60;100&#x60;</value>
         /*
         <example>100</example>
         */

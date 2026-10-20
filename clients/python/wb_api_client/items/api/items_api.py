@@ -6477,7 +6477,7 @@ class ItemsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             "200": "GetV2ObjectCharcsSubjectIdResponse200",
-            "400": "ResponseBodyContentError400",
+            "400": "GetV2ObjectCharcsSubjectId400Response",
             "401": "GetV2ObjectParentAll401Response",
             "403": "ResponseBodyContentError403",
             "429": "GetV2ObjectParentAll401Response",
@@ -6554,7 +6554,7 @@ class ItemsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             "200": "GetV2ObjectCharcsSubjectIdResponse200",
-            "400": "ResponseBodyContentError400",
+            "400": "GetV2ObjectCharcsSubjectId400Response",
             "401": "GetV2ObjectParentAll401Response",
             "403": "ResponseBodyContentError403",
             "429": "GetV2ObjectParentAll401Response",
@@ -6631,7 +6631,7 @@ class ItemsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             "200": "GetV2ObjectCharcsSubjectIdResponse200",
-            "400": "ResponseBodyContentError400",
+            "400": "GetV2ObjectCharcsSubjectId400Response",
             "401": "GetV2ObjectParentAll401Response",
             "403": "ResponseBodyContentError403",
             "429": "GetV2ObjectParentAll401Response",
@@ -15040,7 +15040,7 @@ class ItemsApi:
     ) -> None:
         """Обновить список контактов
 
-        Метод обновляет список контактов [склада продавца](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehouses/operation/getV3Warehouses).  Список контактов перезаписывается при обновлении. Поэтому в запросе нужно передать **все** параметры списка контактов, в том числе те, которые вы не собираетесь обновлять.  Только для складов с типом доставки `3` — Деливери WB (DBW).  К складу можно добавить максимум 5 контактов. Чтобы удалить контакты, отправьте пустой массив `contacts`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для следующих методов DBW:  * получение и обновление списка контактов * получение и удаление идентификаторов маркировки * методы сборочных заданий  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/put-api-v3-dbw-warehouses-warehouseid-contacts
+        Метод обновляет список контактов [склада продавца](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehouses/operation/getV3Warehouses).  Список контактов перезаписывается при обновлении. Поэтому в запросе нужно передать **все** параметры списка контактов, в том числе те, которые вы не собираетесь обновлять  Только для складов с типом доставки `3` — Деливери WB ([DBW](https://dev.wildberries.ru/openapi/orders-dbw)).  К складу можно добавить максимум 5 контактов. Чтобы удалить контакты, отправьте пустой массив `contacts`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для следующих методов DBW:  * получение и обновление списка контактов * получение и удаление идентификаторов маркировки * методы сборочных заданий  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/put-api-v3-dbw-warehouses-warehouseid-contacts
 
         :param warehouse_id: ID склада продавца (required)
         :type warehouse_id: int
@@ -15113,7 +15113,7 @@ class ItemsApi:
     ) -> ApiResponse[None]:
         """Обновить список контактов
 
-        Метод обновляет список контактов [склада продавца](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehouses/operation/getV3Warehouses).  Список контактов перезаписывается при обновлении. Поэтому в запросе нужно передать **все** параметры списка контактов, в том числе те, которые вы не собираетесь обновлять.  Только для складов с типом доставки `3` — Деливери WB (DBW).  К складу можно добавить максимум 5 контактов. Чтобы удалить контакты, отправьте пустой массив `contacts`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для следующих методов DBW:  * получение и обновление списка контактов * получение и удаление идентификаторов маркировки * методы сборочных заданий  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/put-api-v3-dbw-warehouses-warehouseid-contacts
+        Метод обновляет список контактов [склада продавца](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehouses/operation/getV3Warehouses).  Список контактов перезаписывается при обновлении. Поэтому в запросе нужно передать **все** параметры списка контактов, в том числе те, которые вы не собираетесь обновлять  Только для складов с типом доставки `3` — Деливери WB ([DBW](https://dev.wildberries.ru/openapi/orders-dbw)).  К складу можно добавить максимум 5 контактов. Чтобы удалить контакты, отправьте пустой массив `contacts`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для следующих методов DBW:  * получение и обновление списка контактов * получение и удаление идентификаторов маркировки * методы сборочных заданий  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/put-api-v3-dbw-warehouses-warehouseid-contacts
 
         :param warehouse_id: ID склада продавца (required)
         :type warehouse_id: int
@@ -15186,7 +15186,7 @@ class ItemsApi:
     ) -> RESTResponseType:
         """Обновить список контактов
 
-        Метод обновляет список контактов [склада продавца](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehouses/operation/getV3Warehouses).  Список контактов перезаписывается при обновлении. Поэтому в запросе нужно передать **все** параметры списка контактов, в том числе те, которые вы не собираетесь обновлять.  Только для складов с типом доставки `3` — Деливери WB (DBW).  К складу можно добавить максимум 5 контактов. Чтобы удалить контакты, отправьте пустой массив `contacts`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для следующих методов DBW:  * получение и обновление списка контактов * получение и удаление идентификаторов маркировки * методы сборочных заданий  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/put-api-v3-dbw-warehouses-warehouseid-contacts
+        Метод обновляет список контактов [склада продавца](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehouses/operation/getV3Warehouses).  Список контактов перезаписывается при обновлении. Поэтому в запросе нужно передать **все** параметры списка контактов, в том числе те, которые вы не собираетесь обновлять  Только для складов с типом доставки `3` — Деливери WB ([DBW](https://dev.wildberries.ru/openapi/orders-dbw)).  К складу можно добавить максимум 5 контактов. Чтобы удалить контакты, отправьте пустой массив `contacts`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для следующих методов DBW:  * получение и обновление списка контактов * получение и удаление идентификаторов маркировки * методы сборочных заданий  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/put-api-v3-dbw-warehouses-warehouseid-contacts
 
         :param warehouse_id: ID склада продавца (required)
         :type warehouse_id: int

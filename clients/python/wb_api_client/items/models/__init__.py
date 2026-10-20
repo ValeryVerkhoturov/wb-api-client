@@ -118,6 +118,9 @@ from wb_api_client.items.models.get_v2_object_all_response200 import (
 from wb_api_client.items.models.get_v2_object_all_response200_data_inner import (
     GetV2ObjectAllResponse200DataInner,
 )
+from wb_api_client.items.models.get_v2_object_charcs_subject_id400_response import (
+    GetV2ObjectCharcsSubjectId400Response,
+)
 from wb_api_client.items.models.get_v2_object_charcs_subject_id_response200 import (
     GetV2ObjectCharcsSubjectIdResponse200,
 )

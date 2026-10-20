@@ -25,12 +25,12 @@ from typing_extensions import Self
 
 class PostV2GetCardsTrashRequestSettingsSort(BaseModel):
     """
-    Параметр сортировки
+    Сортировка по дате и времени помещения карточек товаров в корзину `trashedAt`
     """  # noqa: E501
 
     ascending: Optional[StrictBool] = Field(
         default=False,
-        description="Сортировать по `trashedAt`:   - `false` — по убыванию   - `true` — по возрастанию ",
+        description="Порядок сортировки:   - `false` — по убыванию   - `true` — по возрастанию ",
     )
     __properties: ClassVar[List[str]] = ["ascending"]
 

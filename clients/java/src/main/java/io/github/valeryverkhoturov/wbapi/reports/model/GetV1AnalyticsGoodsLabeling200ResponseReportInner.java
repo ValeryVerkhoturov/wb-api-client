@@ -195,7 +195,7 @@ public class GetV1AnalyticsGoodsLabeling200ResponseReportInner {
   }
 
   /**
-   * Штрихкод товара в WB
+   * Штрихкод
    *
    * @return shkID
    */

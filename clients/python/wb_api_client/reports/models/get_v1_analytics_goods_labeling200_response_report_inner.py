@@ -44,7 +44,7 @@ class GetV1AnalyticsGoodsLabeling200ResponseReportInner(BaseModel):
         default=None, description="URL фото товара", alias="photoUrls"
     )
     shk_id: Optional[StrictInt] = Field(
-        default=None, description="Штрихкод товара в WB", alias="shkID"
+        default=None, description="Штрихкод", alias="shkID"
     )
     sku: Optional[StrictStr] = Field(
         default=None, description="Баркод из карточки товара"
