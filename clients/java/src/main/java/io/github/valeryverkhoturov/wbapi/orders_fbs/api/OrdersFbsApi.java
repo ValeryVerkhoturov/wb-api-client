@@ -68,6 +68,7 @@ import io.github.valeryverkhoturov.wbapi.orders_fbs.model.PutV3OrdersOrderIdMeta
 import io.github.valeryverkhoturov.wbapi.orders_fbs.model.PutV3PassesPassIdRequest;
 import io.github.valeryverkhoturov.wbapi.orders_fbs.model.ShippingPointsResponse;
 import io.github.valeryverkhoturov.wbapi.orders_fbs.model.Supply;
+import io.github.valeryverkhoturov.wbapi.orders_fbs.model.SupplyShippingPointsResponse;
 import io.github.valeryverkhoturov.wbapi.orders_fbs.model.SupplySpotDataResponse;
 import io.github.valeryverkhoturov.wbapi.orders_fbs.model.SupplySpotQRCode;
 import io.github.valeryverkhoturov.wbapi.orders_fbs.model.UpdateSuppliesShippingMethodResponse;
@@ -1826,7 +1827,10 @@ public class OrdersFbsApi {
    * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public okhttp3.Call getV3FbsShippingPointsCall(
       String city, Long cargoType, final ApiCallback _callback) throws ApiException {
     String basePath = null;
@@ -1889,6 +1893,7 @@ public class OrdersFbsApi {
         _callback);
   }
 
+  @Deprecated
   @SuppressWarnings("rawtypes")
   private okhttp3.Call getV3FbsShippingPointsValidateBeforeCall(
       String city, Long cargoType, final ApiCallback _callback) throws ApiException {
@@ -1908,11 +1913,8 @@ public class OrdersFbsApi {
   }
 
   /**
-   * Получить список пунктов отгрузки поставок Метод возвращает доступные пункты отгрузки поставок с
-   * фильтрами: - по населённым пунктам России - по типам товаров, которые принимает пункт отгрузки
-   * Используйте данные из этого метода, чтобы устанавливать [параметры отгрузки
-   * поставок](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod).
-   * Доступно только для продавцов из РФ. [Лимит
+   * Получить список пунктов отгрузки поставок Метод будет отключен [20
+   * ноября](https://dev.wildberries.ru/release-notes?id&#x3D;585). [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
@@ -1937,7 +1939,10 @@ public class OrdersFbsApi {
    * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ShippingPointsResponse getV3FbsShippingPoints(String city, Long cargoType)
       throws ApiException {
     ApiResponse<ShippingPointsResponse> localVarResp =
@@ -1946,11 +1951,8 @@ public class OrdersFbsApi {
   }
 
   /**
-   * Получить список пунктов отгрузки поставок Метод возвращает доступные пункты отгрузки поставок с
-   * фильтрами: - по населённым пунктам России - по типам товаров, которые принимает пункт отгрузки
-   * Используйте данные из этого метода, чтобы устанавливать [параметры отгрузки
-   * поставок](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod).
-   * Доступно только для продавцов из РФ. [Лимит
+   * Получить список пунктов отгрузки поставок Метод будет отключен [20
+   * ноября](https://dev.wildberries.ru/release-notes?id&#x3D;585). [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
@@ -1975,7 +1977,10 @@ public class OrdersFbsApi {
    * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<ShippingPointsResponse> getV3FbsShippingPointsWithHttpInfo(
       String city, Long cargoType) throws ApiException {
     okhttp3.Call localVarCall = getV3FbsShippingPointsValidateBeforeCall(city, cargoType, null);
@@ -1984,12 +1989,8 @@ public class OrdersFbsApi {
   }
 
   /**
-   * Получить список пунктов отгрузки поставок (asynchronously) Метод возвращает доступные пункты
-   * отгрузки поставок с фильтрами: - по населённым пунктам России - по типам товаров, которые
-   * принимает пункт отгрузки Используйте данные из этого метода, чтобы устанавливать [параметры
-   * отгрузки
-   * поставок](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod).
-   * Доступно только для продавцов из РФ. [Лимит
+   * Получить список пунктов отгрузки поставок (asynchronously) Метод будет отключен [20
+   * ноября](https://dev.wildberries.ru/release-notes?id&#x3D;585). [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
@@ -2014,7 +2015,10 @@ public class OrdersFbsApi {
    * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public okhttp3.Call getV3FbsShippingPointsAsync(
       String city, Long cargoType, final ApiCallback<ShippingPointsResponse> _callback)
       throws ApiException {
@@ -2022,6 +2026,286 @@ public class OrdersFbsApi {
     okhttp3.Call localVarCall =
         getV3FbsShippingPointsValidateBeforeCall(city, cargoType, _callback);
     Type localVarReturnType = new TypeToken<ShippingPointsResponse>() {}.getType();
+    localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+    return localVarCall;
+  }
+
+  /**
+   * Build call for getV3FbsSuppliesSupplyIdShippingPoints
+   *
+   * @param supplyId ID поставки (required)
+   * @param city Населённый пункт отгрузки поставки, кириллица (required)
+   * @param officeType Тип пункта отгрузки. Укажите значения через запятую: - &#x60;sc&#x60; —
+   *     сортировочный центр - &#x60;sw&#x60; — склад - &#x60;pp&#x60; — пункт выдачи заказов (ПВЗ)
+   *     - &#x60;pfc&#x60; — партнёрский фулфилмент-центр (ПФЦ) - &#x60;gpp&#x60; — пункт приёма
+   *     товаров (ППТ) (required)
+   * @param shippingDt Планируемая дата отгрузки поставки в формате &#x60;YYYY-MM-DD&#x60;.
+   *     Обязательно для заказов МГТ (&#x60;\&quot;cargoType\&quot;:1&#x60;) и КГТ+
+   *     (&#x60;\&quot;cargoType\&quot;:3&#x60;). Если значение передано, в ответе возвращаются
+   *     только пункты отгрузки, в которые можно отгрузить поставку в указанную дату (optional)
+   * @param _callback Callback for upload/download progress
+   * @return Call to execute
+   * @throws ApiException If fail to serialize the request body object
+   * @http.response.details
+   *     <table border="1">
+   * <caption>Response Details</caption>
+   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
+   * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
+   * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
+   * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
+   * <tr><td> 404 </td><td> Поставка не найдена </td><td>  -  </td></tr>
+   * <tr><td> 409 </td><td> В поставке нет сборочных заданий </td><td>  -  </td></tr>
+   * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
+   * </table>
+   */
+  public okhttp3.Call getV3FbsSuppliesSupplyIdShippingPointsCall(
+      String supplyId,
+      String city,
+      String officeType,
+      String shippingDt,
+      final ApiCallback _callback)
+      throws ApiException {
+    String basePath = null;
+    // Operation Servers
+    String[] localBasePaths = new String[] {"https://marketplace-api.wildberries.ru"};
+
+    // Determine Base Path to Use
+    if (localCustomBaseUrl != null) {
+      basePath = localCustomBaseUrl;
+    } else if (localBasePaths.length > 0) {
+      basePath = localBasePaths[localHostIndex];
+    } else {
+      basePath = null;
+    }
+
+    Object localVarPostBody = null;
+
+    // create path and map variables
+    String localVarPath =
+        "/api/marketplace/v3/fbs/supplies/{supplyId}/shipping-points"
+            .replace("{" + "supplyId" + "}", localVarApiClient.escapeString(supplyId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    if (city != null) {
+      localVarQueryParams.addAll(localVarApiClient.parameterToPair("city", city));
+    }
+
+    if (officeType != null) {
+      localVarQueryParams.addAll(localVarApiClient.parameterToPair("officeType", officeType));
+    }
+
+    if (shippingDt != null) {
+      localVarQueryParams.addAll(localVarApiClient.parameterToPair("shippingDt", shippingDt));
+    }
+
+    final String[] localVarAccepts = {"application/json", "application/problem+json"};
+    final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+    if (localVarAccept != null) {
+      localVarHeaderParams.put("Accept", localVarAccept);
+    }
+
+    final String[] localVarContentTypes = {};
+    final String localVarContentType =
+        localVarApiClient.selectHeaderContentType(localVarContentTypes);
+    if (localVarContentType != null) {
+      localVarHeaderParams.put("Content-Type", localVarContentType);
+    }
+
+    String[] localVarAuthNames = new String[] {"BearerAuth"};
+    return localVarApiClient.buildCall(
+        basePath,
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAuthNames,
+        _callback);
+  }
+
+  @SuppressWarnings("rawtypes")
+  private okhttp3.Call getV3FbsSuppliesSupplyIdShippingPointsValidateBeforeCall(
+      String supplyId,
+      String city,
+      String officeType,
+      String shippingDt,
+      final ApiCallback _callback)
+      throws ApiException {
+    // verify the required parameter 'supplyId' is set
+    if (supplyId == null) {
+      throw new ApiException(
+          "Missing the required parameter 'supplyId' when calling getV3FbsSuppliesSupplyIdShippingPoints(Async)");
+    }
+
+    // verify the required parameter 'city' is set
+    if (city == null) {
+      throw new ApiException(
+          "Missing the required parameter 'city' when calling getV3FbsSuppliesSupplyIdShippingPoints(Async)");
+    }
+
+    // verify the required parameter 'officeType' is set
+    if (officeType == null) {
+      throw new ApiException(
+          "Missing the required parameter 'officeType' when calling getV3FbsSuppliesSupplyIdShippingPoints(Async)");
+    }
+
+    return getV3FbsSuppliesSupplyIdShippingPointsCall(
+        supplyId, city, officeType, shippingDt, _callback);
+  }
+
+  /**
+   * Получить список пунктов отгрузки поставки Метод возвращает доступные пункты отгрузки для
+   * указанной поставки. Используйте данные этого метода, чтобы устанавливать [параметры отгрузки
+   * поставок](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod).
+   * [Лимит
+   * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
+   * на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек
+   * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
+   * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
+   * как 10 запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-supplies-supplyid-shipping-points
+   *
+   * @param supplyId ID поставки (required)
+   * @param city Населённый пункт отгрузки поставки, кириллица (required)
+   * @param officeType Тип пункта отгрузки. Укажите значения через запятую: - &#x60;sc&#x60; —
+   *     сортировочный центр - &#x60;sw&#x60; — склад - &#x60;pp&#x60; — пункт выдачи заказов (ПВЗ)
+   *     - &#x60;pfc&#x60; — партнёрский фулфилмент-центр (ПФЦ) - &#x60;gpp&#x60; — пункт приёма
+   *     товаров (ППТ) (required)
+   * @param shippingDt Планируемая дата отгрузки поставки в формате &#x60;YYYY-MM-DD&#x60;.
+   *     Обязательно для заказов МГТ (&#x60;\&quot;cargoType\&quot;:1&#x60;) и КГТ+
+   *     (&#x60;\&quot;cargoType\&quot;:3&#x60;). Если значение передано, в ответе возвращаются
+   *     только пункты отгрузки, в которые можно отгрузить поставку в указанную дату (optional)
+   * @return SupplyShippingPointsResponse
+   * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+   *     response body
+   * @http.response.details
+   *     <table border="1">
+   * <caption>Response Details</caption>
+   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
+   * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
+   * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
+   * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
+   * <tr><td> 404 </td><td> Поставка не найдена </td><td>  -  </td></tr>
+   * <tr><td> 409 </td><td> В поставке нет сборочных заданий </td><td>  -  </td></tr>
+   * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
+   * </table>
+   */
+  public SupplyShippingPointsResponse getV3FbsSuppliesSupplyIdShippingPoints(
+      String supplyId, String city, String officeType, String shippingDt) throws ApiException {
+    ApiResponse<SupplyShippingPointsResponse> localVarResp =
+        getV3FbsSuppliesSupplyIdShippingPointsWithHttpInfo(supplyId, city, officeType, shippingDt);
+    return localVarResp.getData();
+  }
+
+  /**
+   * Получить список пунктов отгрузки поставки Метод возвращает доступные пункты отгрузки для
+   * указанной поставки. Используйте данные этого метода, чтобы устанавливать [параметры отгрузки
+   * поставок](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod).
+   * [Лимит
+   * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
+   * на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек
+   * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
+   * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
+   * как 10 запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-supplies-supplyid-shipping-points
+   *
+   * @param supplyId ID поставки (required)
+   * @param city Населённый пункт отгрузки поставки, кириллица (required)
+   * @param officeType Тип пункта отгрузки. Укажите значения через запятую: - &#x60;sc&#x60; —
+   *     сортировочный центр - &#x60;sw&#x60; — склад - &#x60;pp&#x60; — пункт выдачи заказов (ПВЗ)
+   *     - &#x60;pfc&#x60; — партнёрский фулфилмент-центр (ПФЦ) - &#x60;gpp&#x60; — пункт приёма
+   *     товаров (ППТ) (required)
+   * @param shippingDt Планируемая дата отгрузки поставки в формате &#x60;YYYY-MM-DD&#x60;.
+   *     Обязательно для заказов МГТ (&#x60;\&quot;cargoType\&quot;:1&#x60;) и КГТ+
+   *     (&#x60;\&quot;cargoType\&quot;:3&#x60;). Если значение передано, в ответе возвращаются
+   *     только пункты отгрузки, в которые можно отгрузить поставку в указанную дату (optional)
+   * @return ApiResponse&lt;SupplyShippingPointsResponse&gt;
+   * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+   *     response body
+   * @http.response.details
+   *     <table border="1">
+   * <caption>Response Details</caption>
+   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
+   * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
+   * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
+   * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
+   * <tr><td> 404 </td><td> Поставка не найдена </td><td>  -  </td></tr>
+   * <tr><td> 409 </td><td> В поставке нет сборочных заданий </td><td>  -  </td></tr>
+   * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
+   * </table>
+   */
+  public ApiResponse<SupplyShippingPointsResponse>
+      getV3FbsSuppliesSupplyIdShippingPointsWithHttpInfo(
+          String supplyId, String city, String officeType, String shippingDt) throws ApiException {
+    okhttp3.Call localVarCall =
+        getV3FbsSuppliesSupplyIdShippingPointsValidateBeforeCall(
+            supplyId, city, officeType, shippingDt, null);
+    Type localVarReturnType = new TypeToken<SupplyShippingPointsResponse>() {}.getType();
+    return localVarApiClient.execute(localVarCall, localVarReturnType);
+  }
+
+  /**
+   * Получить список пунктов отгрузки поставки (asynchronously) Метод возвращает доступные пункты
+   * отгрузки для указанной поставки. Используйте данные этого метода, чтобы устанавливать
+   * [параметры отгрузки
+   * поставок](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod).
+   * [Лимит
+   * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
+   * на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек
+   * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
+   * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
+   * как 10 запросов Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-supplies-supplyid-shipping-points
+   *
+   * @param supplyId ID поставки (required)
+   * @param city Населённый пункт отгрузки поставки, кириллица (required)
+   * @param officeType Тип пункта отгрузки. Укажите значения через запятую: - &#x60;sc&#x60; —
+   *     сортировочный центр - &#x60;sw&#x60; — склад - &#x60;pp&#x60; — пункт выдачи заказов (ПВЗ)
+   *     - &#x60;pfc&#x60; — партнёрский фулфилмент-центр (ПФЦ) - &#x60;gpp&#x60; — пункт приёма
+   *     товаров (ППТ) (required)
+   * @param shippingDt Планируемая дата отгрузки поставки в формате &#x60;YYYY-MM-DD&#x60;.
+   *     Обязательно для заказов МГТ (&#x60;\&quot;cargoType\&quot;:1&#x60;) и КГТ+
+   *     (&#x60;\&quot;cargoType\&quot;:3&#x60;). Если значение передано, в ответе возвращаются
+   *     только пункты отгрузки, в которые можно отгрузить поставку в указанную дату (optional)
+   * @param _callback The callback to be executed when the API call finishes
+   * @return The request call
+   * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+   * @http.response.details
+   *     <table border="1">
+   * <caption>Response Details</caption>
+   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
+   * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
+   * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
+   * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
+   * <tr><td> 404 </td><td> Поставка не найдена </td><td>  -  </td></tr>
+   * <tr><td> 409 </td><td> В поставке нет сборочных заданий </td><td>  -  </td></tr>
+   * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
+   * </table>
+   */
+  public okhttp3.Call getV3FbsSuppliesSupplyIdShippingPointsAsync(
+      String supplyId,
+      String city,
+      String officeType,
+      String shippingDt,
+      final ApiCallback<SupplyShippingPointsResponse> _callback)
+      throws ApiException {
+
+    okhttp3.Call localVarCall =
+        getV3FbsSuppliesSupplyIdShippingPointsValidateBeforeCall(
+            supplyId, city, officeType, shippingDt, _callback);
+    Type localVarReturnType = new TypeToken<SupplyShippingPointsResponse>() {}.getType();
     localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
     return localVarCall;
   }

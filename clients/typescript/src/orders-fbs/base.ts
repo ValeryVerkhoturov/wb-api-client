@@ -159,6 +159,12 @@ export const operationServerMap: ServerMap = {
       description: "No description provided",
     },
   ],
+  "OrdersFbsApi.getV3FbsSuppliesSupplyIdShippingPoints": [
+    {
+      url: "https://marketplace-api.wildberries.ru",
+      description: "No description provided",
+    },
+  ],
   "OrdersFbsApi.getV3FbsSuppliesSupplyIdStickersSpot": [
     {
       url: "https://marketplace-api.wildberries.ru",

@@ -200,6 +200,12 @@ public class ShippingPoint {
   @jakarta.annotation.Nullable
   private Boolean fulfillment;
 
+  public static final String SERIALIZED_NAME_AVAILABLE = "available";
+
+  @SerializedName(SERIALIZED_NAME_AVAILABLE)
+  @jakarta.annotation.Nullable
+  private Boolean available;
+
   public ShippingPoint() {}
 
   public ShippingPoint id(@jakarta.annotation.Nullable Long id) {
@@ -384,6 +390,26 @@ public class ShippingPoint {
     this.fulfillment = fulfillment;
   }
 
+  public ShippingPoint available(@jakarta.annotation.Nullable Boolean available) {
+    this.available = available;
+    return this;
+  }
+
+  /**
+   * Доступен ли пункт для отгрузки поставки: - &#x60;true&#x60; — доступен - &#x60;false&#x60; —
+   * недоступен. Возвращается для ПВЗ, если ПВЗ перегружен в планируемую дату отгрузки
+   *
+   * @return available
+   */
+  @jakarta.annotation.Nullable
+  public Boolean getAvailable() {
+    return available;
+  }
+
+  public void setAvailable(@jakarta.annotation.Nullable Boolean available) {
+    this.available = available;
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -401,13 +427,23 @@ public class ShippingPoint {
         && Objects.equals(this.cargoTypes, shippingPoint.cargoTypes)
         && Objects.equals(this.latitude, shippingPoint.latitude)
         && Objects.equals(this.longitude, shippingPoint.longitude)
-        && Objects.equals(this.fulfillment, shippingPoint.fulfillment);
+        && Objects.equals(this.fulfillment, shippingPoint.fulfillment)
+        && Objects.equals(this.available, shippingPoint.available);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
-        id, name, address, city, officeType, cargoTypes, latitude, longitude, fulfillment);
+        id,
+        name,
+        address,
+        city,
+        officeType,
+        cargoTypes,
+        latitude,
+        longitude,
+        fulfillment,
+        available);
   }
 
   @Override
@@ -423,6 +459,7 @@ public class ShippingPoint {
     sb.append("    latitude: ").append(toIndentedString(latitude)).append("\n");
     sb.append("    longitude: ").append(toIndentedString(longitude)).append("\n");
     sb.append("    fulfillment: ").append(toIndentedString(fulfillment)).append("\n");
+    sb.append("    available: ").append(toIndentedString(available)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -452,6 +489,7 @@ public class ShippingPoint {
     openapiFields.add("latitude");
     openapiFields.add("longitude");
     openapiFields.add("fulfillment");
+    openapiFields.add("available");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

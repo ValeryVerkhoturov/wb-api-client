@@ -45,8 +45,8 @@ from wb_api_client.orders_fbs.models.get_v3_fbs_settings_autoreturns_subcategori
 from wb_api_client.orders_fbs.models.get_v3_fbs_settings_autoreturns_subcategories_restricted_response200_data_inner import (
     GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataInner,
 )
-from wb_api_client.orders_fbs.models.get_v3_fbs_shipping_points403_response import (
-    GetV3FbsShippingPoints403Response,
+from wb_api_client.orders_fbs.models.get_v3_fbs_supplies_supply_id_shipping_points403_response import (
+    GetV3FbsSuppliesSupplyIdShippingPoints403Response,
 )
 from wb_api_client.orders_fbs.models.get_v3_orders_new_response200 import (
     GetV3OrdersNewResponse200,
@@ -224,6 +224,10 @@ from wb_api_client.orders_fbs.models.shipping_points_response import (
     ShippingPointsResponse,
 )
 from wb_api_client.orders_fbs.models.supply import Supply
+from wb_api_client.orders_fbs.models.supply_shipping_point import SupplyShippingPoint
+from wb_api_client.orders_fbs.models.supply_shipping_points_response import (
+    SupplyShippingPointsResponse,
+)
 from wb_api_client.orders_fbs.models.supply_spot_data import SupplySpotData
 from wb_api_client.orders_fbs.models.supply_spot_data_response import (
     SupplySpotDataResponse,

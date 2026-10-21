@@ -29,11 +29,11 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** GetV3FbsShippingPoints403Response */
+/** GetV3FbsSuppliesSupplyIdShippingPoints403Response */
 @jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     comments = "Generator version: 7.10.0")
-public class GetV3FbsShippingPoints403Response {
+public class GetV3FbsSuppliesSupplyIdShippingPoints403Response {
   public static final String SERIALIZED_NAME_TITLE = "title";
 
   @SerializedName(SERIALIZED_NAME_TITLE)
@@ -82,9 +82,10 @@ public class GetV3FbsShippingPoints403Response {
   @jakarta.annotation.Nullable
   private String timestamp;
 
-  public GetV3FbsShippingPoints403Response() {}
+  public GetV3FbsSuppliesSupplyIdShippingPoints403Response() {}
 
-  public GetV3FbsShippingPoints403Response title(@jakarta.annotation.Nullable String title) {
+  public GetV3FbsSuppliesSupplyIdShippingPoints403Response title(
+      @jakarta.annotation.Nullable String title) {
     this.title = title;
     return this;
   }
@@ -103,7 +104,8 @@ public class GetV3FbsShippingPoints403Response {
     this.title = title;
   }
 
-  public GetV3FbsShippingPoints403Response detail(@jakarta.annotation.Nullable String detail) {
+  public GetV3FbsSuppliesSupplyIdShippingPoints403Response detail(
+      @jakarta.annotation.Nullable String detail) {
     this.detail = detail;
     return this;
   }
@@ -122,7 +124,8 @@ public class GetV3FbsShippingPoints403Response {
     this.detail = detail;
   }
 
-  public GetV3FbsShippingPoints403Response code(@jakarta.annotation.Nullable String code) {
+  public GetV3FbsSuppliesSupplyIdShippingPoints403Response code(
+      @jakarta.annotation.Nullable String code) {
     this.code = code;
     return this;
   }
@@ -141,7 +144,7 @@ public class GetV3FbsShippingPoints403Response {
     this.code = code;
   }
 
-  public GetV3FbsShippingPoints403Response requestId(
+  public GetV3FbsSuppliesSupplyIdShippingPoints403Response requestId(
       @jakarta.annotation.Nullable String requestId) {
     this.requestId = requestId;
     return this;
@@ -161,7 +164,8 @@ public class GetV3FbsShippingPoints403Response {
     this.requestId = requestId;
   }
 
-  public GetV3FbsShippingPoints403Response origin(@jakarta.annotation.Nullable String origin) {
+  public GetV3FbsSuppliesSupplyIdShippingPoints403Response origin(
+      @jakarta.annotation.Nullable String origin) {
     this.origin = origin;
     return this;
   }
@@ -180,7 +184,8 @@ public class GetV3FbsShippingPoints403Response {
     this.origin = origin;
   }
 
-  public GetV3FbsShippingPoints403Response status(@jakarta.annotation.Nullable BigDecimal status) {
+  public GetV3FbsSuppliesSupplyIdShippingPoints403Response status(
+      @jakarta.annotation.Nullable BigDecimal status) {
     this.status = status;
     return this;
   }
@@ -199,7 +204,7 @@ public class GetV3FbsShippingPoints403Response {
     this.status = status;
   }
 
-  public GetV3FbsShippingPoints403Response statusText(
+  public GetV3FbsSuppliesSupplyIdShippingPoints403Response statusText(
       @jakarta.annotation.Nullable String statusText) {
     this.statusText = statusText;
     return this;
@@ -219,7 +224,7 @@ public class GetV3FbsShippingPoints403Response {
     this.statusText = statusText;
   }
 
-  public GetV3FbsShippingPoints403Response timestamp(
+  public GetV3FbsSuppliesSupplyIdShippingPoints403Response timestamp(
       @jakarta.annotation.Nullable String timestamp) {
     this.timestamp = timestamp;
     return this;
@@ -247,16 +252,20 @@ public class GetV3FbsShippingPoints403Response {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GetV3FbsShippingPoints403Response getV3FbsShippingPoints403Response =
-        (GetV3FbsShippingPoints403Response) o;
-    return Objects.equals(this.title, getV3FbsShippingPoints403Response.title)
-        && Objects.equals(this.detail, getV3FbsShippingPoints403Response.detail)
-        && Objects.equals(this.code, getV3FbsShippingPoints403Response.code)
-        && Objects.equals(this.requestId, getV3FbsShippingPoints403Response.requestId)
-        && Objects.equals(this.origin, getV3FbsShippingPoints403Response.origin)
-        && Objects.equals(this.status, getV3FbsShippingPoints403Response.status)
-        && Objects.equals(this.statusText, getV3FbsShippingPoints403Response.statusText)
-        && Objects.equals(this.timestamp, getV3FbsShippingPoints403Response.timestamp);
+    GetV3FbsSuppliesSupplyIdShippingPoints403Response
+        getV3FbsSuppliesSupplyIdShippingPoints403Response =
+            (GetV3FbsSuppliesSupplyIdShippingPoints403Response) o;
+    return Objects.equals(this.title, getV3FbsSuppliesSupplyIdShippingPoints403Response.title)
+        && Objects.equals(this.detail, getV3FbsSuppliesSupplyIdShippingPoints403Response.detail)
+        && Objects.equals(this.code, getV3FbsSuppliesSupplyIdShippingPoints403Response.code)
+        && Objects.equals(
+            this.requestId, getV3FbsSuppliesSupplyIdShippingPoints403Response.requestId)
+        && Objects.equals(this.origin, getV3FbsSuppliesSupplyIdShippingPoints403Response.origin)
+        && Objects.equals(this.status, getV3FbsSuppliesSupplyIdShippingPoints403Response.status)
+        && Objects.equals(
+            this.statusText, getV3FbsSuppliesSupplyIdShippingPoints403Response.statusText)
+        && Objects.equals(
+            this.timestamp, getV3FbsSuppliesSupplyIdShippingPoints403Response.timestamp);
   }
 
   @Override
@@ -267,7 +276,7 @@ public class GetV3FbsShippingPoints403Response {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GetV3FbsShippingPoints403Response {\n");
+    sb.append("class GetV3FbsSuppliesSupplyIdShippingPoints403Response {\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    detail: ").append(toIndentedString(detail)).append("\n");
     sb.append("    code: ").append(toIndentedString(code)).append("\n");
@@ -314,26 +323,28 @@ public class GetV3FbsShippingPoints403Response {
    *
    * @param jsonElement JSON Element
    * @throws IOException if the JSON Element is invalid with respect to
-   *     GetV3FbsShippingPoints403Response
+   *     GetV3FbsSuppliesSupplyIdShippingPoints403Response
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
     if (jsonElement == null) {
-      if (!GetV3FbsShippingPoints403Response.openapiRequiredFields
+      if (!GetV3FbsSuppliesSupplyIdShippingPoints403Response.openapiRequiredFields
           .isEmpty()) { // has required fields but JSON element is null
         throw new IllegalArgumentException(
             String.format(
-                "The required field(s) %s in GetV3FbsShippingPoints403Response is not found in the empty JSON string",
-                GetV3FbsShippingPoints403Response.openapiRequiredFields.toString()));
+                "The required field(s) %s in GetV3FbsSuppliesSupplyIdShippingPoints403Response is not found in the empty JSON string",
+                GetV3FbsSuppliesSupplyIdShippingPoints403Response.openapiRequiredFields
+                    .toString()));
       }
     }
 
     Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
     // check to see if the JSON string contains additional fields
     for (Map.Entry<String, JsonElement> entry : entries) {
-      if (!GetV3FbsShippingPoints403Response.openapiFields.contains(entry.getKey())) {
+      if (!GetV3FbsSuppliesSupplyIdShippingPoints403Response.openapiFields.contains(
+          entry.getKey())) {
         throw new IllegalArgumentException(
             String.format(
-                "The field `%s` in the JSON string is not defined in the `GetV3FbsShippingPoints403Response` properties. JSON: %s",
+                "The field `%s` in the JSON string is not defined in the `GetV3FbsSuppliesSupplyIdShippingPoints403Response` properties. JSON: %s",
                 entry.getKey(), jsonElement.toString()));
       }
     }
@@ -393,25 +404,29 @@ public class GetV3FbsShippingPoints403Response {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-      if (!GetV3FbsShippingPoints403Response.class.isAssignableFrom(type.getRawType())) {
-        return null; // this class only serializes 'GetV3FbsShippingPoints403Response' and its
-        // subtypes
+      if (!GetV3FbsSuppliesSupplyIdShippingPoints403Response.class.isAssignableFrom(
+          type.getRawType())) {
+        return null; // this class only serializes
+        // 'GetV3FbsSuppliesSupplyIdShippingPoints403Response' and its subtypes
       }
       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-      final TypeAdapter<GetV3FbsShippingPoints403Response> thisAdapter =
-          gson.getDelegateAdapter(this, TypeToken.get(GetV3FbsShippingPoints403Response.class));
+      final TypeAdapter<GetV3FbsSuppliesSupplyIdShippingPoints403Response> thisAdapter =
+          gson.getDelegateAdapter(
+              this, TypeToken.get(GetV3FbsSuppliesSupplyIdShippingPoints403Response.class));
 
       return (TypeAdapter<T>)
-          new TypeAdapter<GetV3FbsShippingPoints403Response>() {
+          new TypeAdapter<GetV3FbsSuppliesSupplyIdShippingPoints403Response>() {
             @Override
-            public void write(JsonWriter out, GetV3FbsShippingPoints403Response value)
+            public void write(
+                JsonWriter out, GetV3FbsSuppliesSupplyIdShippingPoints403Response value)
                 throws IOException {
               JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
               elementAdapter.write(out, obj);
             }
 
             @Override
-            public GetV3FbsShippingPoints403Response read(JsonReader in) throws IOException {
+            public GetV3FbsSuppliesSupplyIdShippingPoints403Response read(JsonReader in)
+                throws IOException {
               JsonElement jsonElement = elementAdapter.read(in);
               validateJsonElement(jsonElement);
               return thisAdapter.fromJsonTree(jsonElement);
@@ -421,19 +436,21 @@ public class GetV3FbsShippingPoints403Response {
   }
 
   /**
-   * Create an instance of GetV3FbsShippingPoints403Response given an JSON string
+   * Create an instance of GetV3FbsSuppliesSupplyIdShippingPoints403Response given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of GetV3FbsShippingPoints403Response
+   * @return An instance of GetV3FbsSuppliesSupplyIdShippingPoints403Response
    * @throws IOException if the JSON string is invalid with respect to
-   *     GetV3FbsShippingPoints403Response
+   *     GetV3FbsSuppliesSupplyIdShippingPoints403Response
    */
-  public static GetV3FbsShippingPoints403Response fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, GetV3FbsShippingPoints403Response.class);
+  public static GetV3FbsSuppliesSupplyIdShippingPoints403Response fromJson(String jsonString)
+      throws IOException {
+    return JSON.getGson()
+        .fromJson(jsonString, GetV3FbsSuppliesSupplyIdShippingPoints403Response.class);
   }
 
   /**
-   * Convert an instance of GetV3FbsShippingPoints403Response to an JSON string
+   * Convert an instance of GetV3FbsSuppliesSupplyIdShippingPoints403Response to an JSON string
    *
    * @return JSON string
    */

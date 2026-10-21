@@ -17,44 +17,58 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
+from pydantic import (
+    BaseModel,
+    ConfigDict,
+    Field,
+    StrictBool,
+    StrictFloat,
+    StrictInt,
+    StrictStr,
+)
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing import Optional, Set
 from typing_extensions import Self
 
 
-class GetV3FbsShippingPoints403Response(BaseModel):
+class SupplyShippingPoint(BaseModel):
     """
-    GetV3FbsShippingPoints403Response
+    Данные пункта отгрузки
     """  # noqa: E501
 
-    title: Optional[StrictStr] = Field(default=None, description="Заголовок ошибки")
-    detail: Optional[StrictStr] = Field(default=None, description="Детали ошибки")
-    code: Optional[StrictStr] = Field(default=None, description="Внутренний код ошибки")
-    request_id: Optional[StrictStr] = Field(
-        default=None, description="ID запроса", alias="requestId"
+    id: Optional[StrictInt] = Field(default=None, description="ID пункта отгрузки")
+    name: Optional[StrictStr] = Field(default=None, description="Название")
+    address: Optional[StrictStr] = Field(default=None, description="Адрес")
+    city: Optional[StrictStr] = Field(default=None, description="Населённый пункт")
+    office_type: Optional[StrictStr] = Field(
+        default=None,
+        description="Тип пункта отгрузки:   - `sc` — сортировочный центр   - `sw` — склад   - `pp` — пункт выдачи заказов (ПВЗ)   - `pfc` — партнёрский фулфилмент-центр (ПФЦ)   - `gpp` — пункт приёма товаров (ППТ) ",
+        alias="officeType",
     )
-    origin: Optional[StrictStr] = Field(
-        default=None, description="ID внутреннего сервиса WB"
+    latitude: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None, description="Широта"
     )
-    status: Optional[Union[StrictFloat, StrictInt]] = Field(
-        default=None, description="HTTP статус-код"
+    longitude: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None, description="Долгота"
     )
-    status_text: Optional[StrictStr] = Field(
-        default=None, description="Расшифровка HTTP статус-кода", alias="statusText"
+    fulfillment: Optional[StrictBool] = Field(
+        default=None,
+        description="Услуга **Фулфилмент в СЦ** для поставки по модели FBS:   - `true` — доступна   - `false` — недоступна ",
     )
-    timestamp: Optional[StrictStr] = Field(
-        default=None, description="Дата и время запроса"
+    available: Optional[StrictBool] = Field(
+        default=None,
+        description="Доступен ли пункт для отгрузки поставки:   - `true` — доступен   - `false` — недоступен. Возвращается для ПВЗ, если ПВЗ перегружен в планируемую дату отгрузки ",
     )
     __properties: ClassVar[List[str]] = [
-        "title",
-        "detail",
-        "code",
-        "requestId",
-        "origin",
-        "status",
-        "statusText",
-        "timestamp",
+        "id",
+        "name",
+        "address",
+        "city",
+        "officeType",
+        "latitude",
+        "longitude",
+        "fulfillment",
+        "available",
     ]
 
     model_config = ConfigDict(
@@ -74,7 +88,7 @@ class GetV3FbsShippingPoints403Response(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of GetV3FbsShippingPoints403Response from a JSON string"""
+        """Create an instance of SupplyShippingPoint from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -98,7 +112,7 @@ class GetV3FbsShippingPoints403Response(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of GetV3FbsShippingPoints403Response from a dict"""
+        """Create an instance of SupplyShippingPoint from a dict"""
         if obj is None:
             return None
 
@@ -107,14 +121,15 @@ class GetV3FbsShippingPoints403Response(BaseModel):
 
         _obj = cls.model_validate(
             {
-                "title": obj.get("title"),
-                "detail": obj.get("detail"),
-                "code": obj.get("code"),
-                "requestId": obj.get("requestId"),
-                "origin": obj.get("origin"),
-                "status": obj.get("status"),
-                "statusText": obj.get("statusText"),
-                "timestamp": obj.get("timestamp"),
+                "id": obj.get("id"),
+                "name": obj.get("name"),
+                "address": obj.get("address"),
+                "city": obj.get("city"),
+                "officeType": obj.get("officeType"),
+                "latitude": obj.get("latitude"),
+                "longitude": obj.get("longitude"),
+                "fulfillment": obj.get("fulfillment"),
+                "available": obj.get("available"),
             }
         )
         return _obj

@@ -33,7 +33,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "1.20261020.0";
+        public const string Version = "1.20261021.0";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -259,6 +259,18 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Client
                 },
                 {
                     "OrdersFbsApi.GetV3FbsShippingPoints", new List<IReadOnlyDictionary<string, object>>
+                    {
+                        {
+                            new Dictionary<string, object>
+                            {
+                                {"url", "https://marketplace-api.wildberries.ru"},
+                                {"description", "No description provided"}
+                            }
+                        },
+                    }
+                },
+                {
+                    "OrdersFbsApi.GetV3FbsSuppliesSupplyIdShippingPoints", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -1358,7 +1370,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version + "\n";
             report += "    Version of the API: order\n";
-            report += "    SDK Package Version: 1.20261020.0\n";
+            report += "    SDK Package Version: 1.20261021.0\n";
 
             return report;
         }

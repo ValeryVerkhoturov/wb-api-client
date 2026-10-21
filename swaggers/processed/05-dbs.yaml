@@ -3293,17 +3293,14 @@ components:
           description: Дата и время запроса
     GetV3DbsOrdersNewResponse200:
       type: object
-      nullable: false
       properties:
         orders:
           type: array
-          nullable: false
           description: Список новых сборочных заданий
           items:
             $ref: '#/components/schemas/OrderNewDBS'
     GetV3DbsOrdersResponse200:
       type: object
-      nullable: false
       properties:
         next:
           $ref: '#/components/schemas/Next'

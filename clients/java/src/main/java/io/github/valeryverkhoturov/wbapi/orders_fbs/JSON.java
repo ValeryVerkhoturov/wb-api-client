@@ -132,8 +132,8 @@ public class JSON {
             .GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataInner
             .CustomTypeAdapterFactory());
     gsonBuilder.registerTypeAdapterFactory(
-        new io.github.valeryverkhoturov.wbapi.orders_fbs.model.GetV3FbsShippingPoints403Response
-            .CustomTypeAdapterFactory());
+        new io.github.valeryverkhoturov.wbapi.orders_fbs.model
+            .GetV3FbsSuppliesSupplyIdShippingPoints403Response.CustomTypeAdapterFactory());
     gsonBuilder.registerTypeAdapterFactory(
         new io.github.valeryverkhoturov.wbapi.orders_fbs.model.GetV3OrdersNewResponse200
             .CustomTypeAdapterFactory());
@@ -331,6 +331,12 @@ public class JSON {
             .CustomTypeAdapterFactory());
     gsonBuilder.registerTypeAdapterFactory(
         new io.github.valeryverkhoturov.wbapi.orders_fbs.model.Supply.CustomTypeAdapterFactory());
+    gsonBuilder.registerTypeAdapterFactory(
+        new io.github.valeryverkhoturov.wbapi.orders_fbs.model.SupplyShippingPoint
+            .CustomTypeAdapterFactory());
+    gsonBuilder.registerTypeAdapterFactory(
+        new io.github.valeryverkhoturov.wbapi.orders_fbs.model.SupplyShippingPointsResponse
+            .CustomTypeAdapterFactory());
     gsonBuilder.registerTypeAdapterFactory(
         new io.github.valeryverkhoturov.wbapi.orders_fbs.model.SupplySpotData
             .CustomTypeAdapterFactory());

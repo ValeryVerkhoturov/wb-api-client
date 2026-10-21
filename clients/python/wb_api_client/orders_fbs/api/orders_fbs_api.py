@@ -154,6 +154,9 @@ from wb_api_client.orders_fbs.models.shipping_points_response import (
     ShippingPointsResponse,
 )
 from wb_api_client.orders_fbs.models.supply import Supply
+from wb_api_client.orders_fbs.models.supply_shipping_points_response import (
+    SupplyShippingPointsResponse,
+)
 from wb_api_client.orders_fbs.models.supply_spot_data_response import (
     SupplySpotDataResponse,
 )
@@ -1358,7 +1361,7 @@ class OrdersFbsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             "200": "CountriesOKSMList",
             "401": "GetV3PassesOffices401Response",
-            "403": "GetV3FbsShippingPoints403Response",
+            "403": "GetV3FbsSuppliesSupplyIdShippingPoints403Response",
             "429": "GetV3PassesOffices401Response",
         }
         response_data = self.api_client.call_api(
@@ -1421,7 +1424,7 @@ class OrdersFbsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             "200": "CountriesOKSMList",
             "401": "GetV3PassesOffices401Response",
-            "403": "GetV3FbsShippingPoints403Response",
+            "403": "GetV3FbsSuppliesSupplyIdShippingPoints403Response",
             "429": "GetV3PassesOffices401Response",
         }
         response_data = self.api_client.call_api(
@@ -1484,7 +1487,7 @@ class OrdersFbsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             "200": "CountriesOKSMList",
             "401": "GetV3PassesOffices401Response",
-            "403": "GetV3FbsShippingPoints403Response",
+            "403": "GetV3FbsSuppliesSupplyIdShippingPoints403Response",
             "429": "GetV3PassesOffices401Response",
         }
         response_data = self.api_client.call_api(
@@ -2484,9 +2487,9 @@ class OrdersFbsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
     ) -> ShippingPointsResponse:
-        """Получить список пунктов отгрузки поставок
+        """(Deprecated) Получить список пунктов отгрузки поставок
 
-        Метод возвращает доступные пункты отгрузки поставок с фильтрами: - по населённым пунктам России - по типам товаров, которые принимает пункт отгрузки Используйте данные из этого метода, чтобы устанавливать [параметры отгрузки поставок](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod).  Доступно только для продавцов из РФ.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-shipping-points
+        Метод будет отключен [20 ноября](https://dev.wildberries.ru/release-notes?id=585).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-shipping-points
 
         :param city: Населённый пункт отгрузки поставки, кириллица (required)
         :type city: str
@@ -2513,6 +2516,10 @@ class OrdersFbsApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """  # noqa: E501
+        warnings.warn(
+            "GET /api/marketplace/v3/fbs/shipping-points is deprecated.",
+            DeprecationWarning,
+        )
 
         _param = self._get_v3_fbs_shipping_points_serialize(
             city=city,
@@ -2527,7 +2534,7 @@ class OrdersFbsApi:
             "200": "ShippingPointsResponse",
             "400": "Error",
             "401": "GetV3PassesOffices401Response",
-            "403": "GetV3FbsShippingPoints403Response",
+            "403": "GetV3FbsSuppliesSupplyIdShippingPoints403Response",
             "429": "GetV3PassesOffices401Response",
         }
         response_data = self.api_client.call_api(
@@ -2564,9 +2571,9 @@ class OrdersFbsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
     ) -> ApiResponse[ShippingPointsResponse]:
-        """Получить список пунктов отгрузки поставок
+        """(Deprecated) Получить список пунктов отгрузки поставок
 
-        Метод возвращает доступные пункты отгрузки поставок с фильтрами: - по населённым пунктам России - по типам товаров, которые принимает пункт отгрузки Используйте данные из этого метода, чтобы устанавливать [параметры отгрузки поставок](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod).  Доступно только для продавцов из РФ.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-shipping-points
+        Метод будет отключен [20 ноября](https://dev.wildberries.ru/release-notes?id=585).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-shipping-points
 
         :param city: Населённый пункт отгрузки поставки, кириллица (required)
         :type city: str
@@ -2593,6 +2600,10 @@ class OrdersFbsApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """  # noqa: E501
+        warnings.warn(
+            "GET /api/marketplace/v3/fbs/shipping-points is deprecated.",
+            DeprecationWarning,
+        )
 
         _param = self._get_v3_fbs_shipping_points_serialize(
             city=city,
@@ -2607,7 +2618,7 @@ class OrdersFbsApi:
             "200": "ShippingPointsResponse",
             "400": "Error",
             "401": "GetV3PassesOffices401Response",
-            "403": "GetV3FbsShippingPoints403Response",
+            "403": "GetV3FbsSuppliesSupplyIdShippingPoints403Response",
             "429": "GetV3PassesOffices401Response",
         }
         response_data = self.api_client.call_api(
@@ -2644,9 +2655,9 @@ class OrdersFbsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
     ) -> RESTResponseType:
-        """Получить список пунктов отгрузки поставок
+        """(Deprecated) Получить список пунктов отгрузки поставок
 
-        Метод возвращает доступные пункты отгрузки поставок с фильтрами: - по населённым пунктам России - по типам товаров, которые принимает пункт отгрузки Используйте данные из этого метода, чтобы устанавливать [параметры отгрузки поставок](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod).  Доступно только для продавцов из РФ.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-shipping-points
+        Метод будет отключен [20 ноября](https://dev.wildberries.ru/release-notes?id=585).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-shipping-points
 
         :param city: Населённый пункт отгрузки поставки, кириллица (required)
         :type city: str
@@ -2673,6 +2684,10 @@ class OrdersFbsApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """  # noqa: E501
+        warnings.warn(
+            "GET /api/marketplace/v3/fbs/shipping-points is deprecated.",
+            DeprecationWarning,
+        )
 
         _param = self._get_v3_fbs_shipping_points_serialize(
             city=city,
@@ -2687,7 +2702,7 @@ class OrdersFbsApi:
             "200": "ShippingPointsResponse",
             "400": "Error",
             "401": "GetV3PassesOffices401Response",
-            "403": "GetV3FbsShippingPoints403Response",
+            "403": "GetV3FbsSuppliesSupplyIdShippingPoints403Response",
             "429": "GetV3PassesOffices401Response",
         }
         response_data = self.api_client.call_api(
@@ -2758,6 +2773,357 @@ class OrdersFbsApi:
         )
 
     @validate_call
+    def get_v3_fbs_supplies_supply_id_shipping_points(
+        self,
+        supply_id: Annotated[StrictStr, Field(description="ID поставки")],
+        city: Annotated[
+            StrictStr,
+            Field(description="Населённый пункт отгрузки поставки, кириллица"),
+        ],
+        office_type: Annotated[
+            StrictStr,
+            Field(
+                description="Тип пункта отгрузки. Укажите значения через запятую:   - `sc` — сортировочный центр   - `sw` — склад   - `pp` — пункт выдачи заказов (ПВЗ)   - `pfc` — партнёрский фулфилмент-центр (ПФЦ)   - `gpp` — пункт приёма товаров (ППТ) "
+            ),
+        ],
+        shipping_dt: Annotated[
+            Optional[StrictStr],
+            Field(
+                description='Планируемая дата отгрузки поставки в формате `YYYY-MM-DD`. Обязательно для заказов МГТ (`"cargoType":1`) и КГТ+ (`"cargoType":3`). Если значение передано, в ответе возвращаются только пункты отгрузки, в которые можно отгрузить поставку в указанную дату'
+            ),
+        ] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+    ) -> SupplyShippingPointsResponse:
+        """Получить список пунктов отгрузки поставки
+
+        Метод возвращает доступные пункты отгрузки для указанной поставки. Используйте данные этого метода, чтобы устанавливать [параметры отгрузки поставок](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-supplies-supplyid-shipping-points
+
+        :param supply_id: ID поставки (required)
+        :type supply_id: str
+        :param city: Населённый пункт отгрузки поставки, кириллица (required)
+        :type city: str
+        :param office_type: Тип пункта отгрузки. Укажите значения через запятую:   - `sc` — сортировочный центр   - `sw` — склад   - `pp` — пункт выдачи заказов (ПВЗ)   - `pfc` — партнёрский фулфилмент-центр (ПФЦ)   - `gpp` — пункт приёма товаров (ППТ)  (required)
+        :type office_type: str
+        :param shipping_dt: Планируемая дата отгрузки поставки в формате `YYYY-MM-DD`. Обязательно для заказов МГТ (`\"cargoType\":1`) и КГТ+ (`\"cargoType\":3`). Если значение передано, в ответе возвращаются только пункты отгрузки, в которые можно отгрузить поставку в указанную дату
+        :type shipping_dt: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """  # noqa: E501
+
+        _param = self._get_v3_fbs_supplies_supply_id_shipping_points_serialize(
+            supply_id=supply_id,
+            city=city,
+            office_type=office_type,
+            shipping_dt=shipping_dt,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index,
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            "200": "SupplyShippingPointsResponse",
+            "400": "Error",
+            "401": "GetV3PassesOffices401Response",
+            "403": "GetV3FbsSuppliesSupplyIdShippingPoints403Response",
+            "404": "Error",
+            "409": "Error",
+            "429": "GetV3PassesOffices401Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param, _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+    @validate_call
+    def get_v3_fbs_supplies_supply_id_shipping_points_with_http_info(
+        self,
+        supply_id: Annotated[StrictStr, Field(description="ID поставки")],
+        city: Annotated[
+            StrictStr,
+            Field(description="Населённый пункт отгрузки поставки, кириллица"),
+        ],
+        office_type: Annotated[
+            StrictStr,
+            Field(
+                description="Тип пункта отгрузки. Укажите значения через запятую:   - `sc` — сортировочный центр   - `sw` — склад   - `pp` — пункт выдачи заказов (ПВЗ)   - `pfc` — партнёрский фулфилмент-центр (ПФЦ)   - `gpp` — пункт приёма товаров (ППТ) "
+            ),
+        ],
+        shipping_dt: Annotated[
+            Optional[StrictStr],
+            Field(
+                description='Планируемая дата отгрузки поставки в формате `YYYY-MM-DD`. Обязательно для заказов МГТ (`"cargoType":1`) и КГТ+ (`"cargoType":3`). Если значение передано, в ответе возвращаются только пункты отгрузки, в которые можно отгрузить поставку в указанную дату'
+            ),
+        ] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+    ) -> ApiResponse[SupplyShippingPointsResponse]:
+        """Получить список пунктов отгрузки поставки
+
+        Метод возвращает доступные пункты отгрузки для указанной поставки. Используйте данные этого метода, чтобы устанавливать [параметры отгрузки поставок](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-supplies-supplyid-shipping-points
+
+        :param supply_id: ID поставки (required)
+        :type supply_id: str
+        :param city: Населённый пункт отгрузки поставки, кириллица (required)
+        :type city: str
+        :param office_type: Тип пункта отгрузки. Укажите значения через запятую:   - `sc` — сортировочный центр   - `sw` — склад   - `pp` — пункт выдачи заказов (ПВЗ)   - `pfc` — партнёрский фулфилмент-центр (ПФЦ)   - `gpp` — пункт приёма товаров (ППТ)  (required)
+        :type office_type: str
+        :param shipping_dt: Планируемая дата отгрузки поставки в формате `YYYY-MM-DD`. Обязательно для заказов МГТ (`\"cargoType\":1`) и КГТ+ (`\"cargoType\":3`). Если значение передано, в ответе возвращаются только пункты отгрузки, в которые можно отгрузить поставку в указанную дату
+        :type shipping_dt: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """  # noqa: E501
+
+        _param = self._get_v3_fbs_supplies_supply_id_shipping_points_serialize(
+            supply_id=supply_id,
+            city=city,
+            office_type=office_type,
+            shipping_dt=shipping_dt,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index,
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            "200": "SupplyShippingPointsResponse",
+            "400": "Error",
+            "401": "GetV3PassesOffices401Response",
+            "403": "GetV3FbsSuppliesSupplyIdShippingPoints403Response",
+            "404": "Error",
+            "409": "Error",
+            "429": "GetV3PassesOffices401Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param, _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+    @validate_call
+    def get_v3_fbs_supplies_supply_id_shipping_points_without_preload_content(
+        self,
+        supply_id: Annotated[StrictStr, Field(description="ID поставки")],
+        city: Annotated[
+            StrictStr,
+            Field(description="Населённый пункт отгрузки поставки, кириллица"),
+        ],
+        office_type: Annotated[
+            StrictStr,
+            Field(
+                description="Тип пункта отгрузки. Укажите значения через запятую:   - `sc` — сортировочный центр   - `sw` — склад   - `pp` — пункт выдачи заказов (ПВЗ)   - `pfc` — партнёрский фулфилмент-центр (ПФЦ)   - `gpp` — пункт приёма товаров (ППТ) "
+            ),
+        ],
+        shipping_dt: Annotated[
+            Optional[StrictStr],
+            Field(
+                description='Планируемая дата отгрузки поставки в формате `YYYY-MM-DD`. Обязательно для заказов МГТ (`"cargoType":1`) и КГТ+ (`"cargoType":3`). Если значение передано, в ответе возвращаются только пункты отгрузки, в которые можно отгрузить поставку в указанную дату'
+            ),
+        ] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+    ) -> RESTResponseType:
+        """Получить список пунктов отгрузки поставки
+
+        Метод возвращает доступные пункты отгрузки для указанной поставки. Используйте данные этого метода, чтобы устанавливать [параметры отгрузки поставок](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-supplies-supplyid-shipping-points
+
+        :param supply_id: ID поставки (required)
+        :type supply_id: str
+        :param city: Населённый пункт отгрузки поставки, кириллица (required)
+        :type city: str
+        :param office_type: Тип пункта отгрузки. Укажите значения через запятую:   - `sc` — сортировочный центр   - `sw` — склад   - `pp` — пункт выдачи заказов (ПВЗ)   - `pfc` — партнёрский фулфилмент-центр (ПФЦ)   - `gpp` — пункт приёма товаров (ППТ)  (required)
+        :type office_type: str
+        :param shipping_dt: Планируемая дата отгрузки поставки в формате `YYYY-MM-DD`. Обязательно для заказов МГТ (`\"cargoType\":1`) и КГТ+ (`\"cargoType\":3`). Если значение передано, в ответе возвращаются только пункты отгрузки, в которые можно отгрузить поставку в указанную дату
+        :type shipping_dt: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """  # noqa: E501
+
+        _param = self._get_v3_fbs_supplies_supply_id_shipping_points_serialize(
+            supply_id=supply_id,
+            city=city,
+            office_type=office_type,
+            shipping_dt=shipping_dt,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index,
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            "200": "SupplyShippingPointsResponse",
+            "400": "Error",
+            "401": "GetV3PassesOffices401Response",
+            "403": "GetV3FbsSuppliesSupplyIdShippingPoints403Response",
+            "404": "Error",
+            "409": "Error",
+            "429": "GetV3PassesOffices401Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param, _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+    def _get_v3_fbs_supplies_supply_id_shipping_points_serialize(
+        self,
+        supply_id,
+        city,
+        office_type,
+        shipping_dt,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _hosts = ["https://marketplace-api.wildberries.ru"]
+        _host = _hosts[_host_index]
+
+        _collection_formats: Dict[str, str] = {}
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if supply_id is not None:
+            _path_params["supplyId"] = supply_id
+        # process the query parameters
+        if city is not None:
+
+            _query_params.append(("city", city))
+
+        if office_type is not None:
+
+            _query_params.append(("officeType", office_type))
+
+        if shipping_dt is not None:
+
+            _query_params.append(("shippingDt", shipping_dt))
+
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+        # set the HTTP header `Accept`
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
+            )
+
+        # authentication setting
+        _auth_settings: List[str] = ["BearerAuth"]
+
+        return self.api_client.param_serialize(
+            method="GET",
+            resource_path="/api/marketplace/v3/fbs/supplies/{supplyId}/shipping-points",
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth,
+        )
+
+    @validate_call
     def get_v3_fbs_supplies_supply_id_stickers_spot(
         self,
         supply_id: Annotated[StrictStr, Field(description="ID поставки")],
@@ -2813,7 +3179,7 @@ class OrdersFbsApi:
             "200": "SupplySpotQRCode",
             "400": "ApiErrorV3",
             "401": "GetV3PassesOffices401Response",
-            "403": "GetV3FbsShippingPoints403Response",
+            "403": "GetV3FbsSuppliesSupplyIdShippingPoints403Response",
             "404": "ApiErrorV3",
             "429": "GetV3PassesOffices401Response",
         }
@@ -2882,7 +3248,7 @@ class OrdersFbsApi:
             "200": "SupplySpotQRCode",
             "400": "ApiErrorV3",
             "401": "GetV3PassesOffices401Response",
-            "403": "GetV3FbsShippingPoints403Response",
+            "403": "GetV3FbsSuppliesSupplyIdShippingPoints403Response",
             "404": "ApiErrorV3",
             "429": "GetV3PassesOffices401Response",
         }
@@ -2951,7 +3317,7 @@ class OrdersFbsApi:
             "200": "SupplySpotQRCode",
             "400": "ApiErrorV3",
             "401": "GetV3PassesOffices401Response",
-            "403": "GetV3FbsShippingPoints403Response",
+            "403": "GetV3FbsSuppliesSupplyIdShippingPoints403Response",
             "404": "ApiErrorV3",
             "429": "GetV3PassesOffices401Response",
         }
@@ -8017,7 +8383,7 @@ class OrdersFbsApi:
             "200": "SupplySpotDataResponse",
             "400": "ApiErrorV3",
             "401": "GetV3PassesOffices401Response",
-            "403": "GetV3FbsShippingPoints403Response",
+            "403": "GetV3FbsSuppliesSupplyIdShippingPoints403Response",
             "429": "GetV3PassesOffices401Response",
         }
         response_data = self.api_client.call_api(
@@ -8085,7 +8451,7 @@ class OrdersFbsApi:
             "200": "SupplySpotDataResponse",
             "400": "ApiErrorV3",
             "401": "GetV3PassesOffices401Response",
-            "403": "GetV3FbsShippingPoints403Response",
+            "403": "GetV3FbsSuppliesSupplyIdShippingPoints403Response",
             "429": "GetV3PassesOffices401Response",
         }
         response_data = self.api_client.call_api(
@@ -8153,7 +8519,7 @@ class OrdersFbsApi:
             "200": "SupplySpotDataResponse",
             "400": "ApiErrorV3",
             "401": "GetV3PassesOffices401Response",
-            "403": "GetV3FbsShippingPoints403Response",
+            "403": "GetV3FbsSuppliesSupplyIdShippingPoints403Response",
             "429": "GetV3PassesOffices401Response",
         }
         response_data = self.api_client.call_api(
@@ -11151,7 +11517,7 @@ class OrdersFbsApi:
             "204": None,
             "400": "ApiErrorV3",
             "401": "GetV3PassesOffices401Response",
-            "403": "GetV3FbsShippingPoints403Response",
+            "403": "GetV3FbsSuppliesSupplyIdShippingPoints403Response",
             "404": "ApiErrorV3",
             "409": "ApiErrorV3",
             "429": "GetV3PassesOffices401Response",
@@ -11225,7 +11591,7 @@ class OrdersFbsApi:
             "204": None,
             "400": "ApiErrorV3",
             "401": "GetV3PassesOffices401Response",
-            "403": "GetV3FbsShippingPoints403Response",
+            "403": "GetV3FbsSuppliesSupplyIdShippingPoints403Response",
             "404": "ApiErrorV3",
             "409": "ApiErrorV3",
             "429": "GetV3PassesOffices401Response",
@@ -11299,7 +11665,7 @@ class OrdersFbsApi:
             "204": None,
             "400": "ApiErrorV3",
             "401": "GetV3PassesOffices401Response",
-            "403": "GetV3FbsShippingPoints403Response",
+            "403": "GetV3FbsSuppliesSupplyIdShippingPoints403Response",
             "404": "ApiErrorV3",
             "409": "ApiErrorV3",
             "429": "GetV3PassesOffices401Response",

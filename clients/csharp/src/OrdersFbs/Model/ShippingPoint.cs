@@ -100,7 +100,8 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// <param name="latitude">Широта.</param>
         /// <param name="longitude">Долгота.</param>
         /// <param name="fulfillment">Услуга **Фулфилмент в СЦ** для поставки по модели FBS:   - &#x60;true&#x60; — доступна   - &#x60;false&#x60; — недоступна .</param>
-        public ShippingPoint(long id = default(long), string name = default(string), string address = default(string), string city = default(string), OfficeTypeEnum? officeType = default(OfficeTypeEnum?), List<CargoTypesEnum> cargoTypes = default(List<CargoTypesEnum>), decimal latitude = default(decimal), decimal longitude = default(decimal), bool fulfillment = default(bool))
+        /// <param name="available">Доступен ли пункт для отгрузки поставки:   - &#x60;true&#x60; — доступен   - &#x60;false&#x60; — недоступен. Возвращается для ПВЗ, если ПВЗ перегружен в планируемую дату отгрузки .</param>
+        public ShippingPoint(long id = default(long), string name = default(string), string address = default(string), string city = default(string), OfficeTypeEnum? officeType = default(OfficeTypeEnum?), List<CargoTypesEnum> cargoTypes = default(List<CargoTypesEnum>), decimal latitude = default(decimal), decimal longitude = default(decimal), bool fulfillment = default(bool), bool available = default(bool))
         {
             this.Id = id;
             this.Name = name;
@@ -111,6 +112,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
             this.Latitude = latitude;
             this.Longitude = longitude;
             this.Fulfillment = fulfillment;
+            this.Available = available;
         }
 
         /// <summary>
@@ -188,10 +190,20 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// </summary>
         /// <value>Услуга **Фулфилмент в СЦ** для поставки по модели FBS:   - &#x60;true&#x60; — доступна   - &#x60;false&#x60; — недоступна </value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "fulfillment", EmitDefaultValue = true)]
         public bool Fulfillment { get; set; }
+
+        /// <summary>
+        /// Доступен ли пункт для отгрузки поставки:   - &#x60;true&#x60; — доступен   - &#x60;false&#x60; — недоступен. Возвращается для ПВЗ, если ПВЗ перегружен в планируемую дату отгрузки 
+        /// </summary>
+        /// <value>Доступен ли пункт для отгрузки поставки:   - &#x60;true&#x60; — доступен   - &#x60;false&#x60; — недоступен. Возвращается для ПВЗ, если ПВЗ перегружен в планируемую дату отгрузки </value>
+        /*
+        <example>true</example>
+        */
+        [DataMember(Name = "available", EmitDefaultValue = true)]
+        public bool Available { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -210,6 +222,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
             sb.Append("  Latitude: ").Append(Latitude).Append("\n");
             sb.Append("  Longitude: ").Append(Longitude).Append("\n");
             sb.Append("  Fulfillment: ").Append(Fulfillment).Append("\n");
+            sb.Append("  Available: ").Append(Available).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

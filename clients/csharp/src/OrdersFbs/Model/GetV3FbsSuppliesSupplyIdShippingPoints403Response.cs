@@ -26,13 +26,13 @@ using OpenAPIDateConverter = ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.Open
 namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
 {
     /// <summary>
-    /// GetV3FbsShippingPoints403Response
+    /// GetV3FbsSuppliesSupplyIdShippingPoints403Response
     /// </summary>
-    [DataContract(Name = "getV3FbsShippingPoints_403_response")]
-    public partial class GetV3FbsShippingPoints403Response : IValidatableObject
+    [DataContract(Name = "getV3FbsSuppliesSupplyIdShippingPoints_403_response")]
+    public partial class GetV3FbsSuppliesSupplyIdShippingPoints403Response : IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="GetV3FbsShippingPoints403Response" /> class.
+        /// Initializes a new instance of the <see cref="GetV3FbsSuppliesSupplyIdShippingPoints403Response" /> class.
         /// </summary>
         /// <param name="title">Заголовок ошибки.</param>
         /// <param name="detail">Детали ошибки.</param>
@@ -42,7 +42,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// <param name="status">HTTP статус-код.</param>
         /// <param name="statusText">Расшифровка HTTP статус-кода.</param>
         /// <param name="timestamp">Дата и время запроса.</param>
-        public GetV3FbsShippingPoints403Response(string title = default(string), string detail = default(string), string code = default(string), string requestId = default(string), string origin = default(string), decimal status = default(decimal), string statusText = default(string), string timestamp = default(string))
+        public GetV3FbsSuppliesSupplyIdShippingPoints403Response(string title = default(string), string detail = default(string), string code = default(string), string requestId = default(string), string origin = default(string), decimal status = default(decimal), string statusText = default(string), string timestamp = default(string))
         {
             this.Title = title;
             this.Detail = detail;
@@ -117,7 +117,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class GetV3FbsShippingPoints403Response {\n");
+            sb.Append("class GetV3FbsSuppliesSupplyIdShippingPoints403Response {\n");
             sb.Append("  Title: ").Append(Title).Append("\n");
             sb.Append("  Detail: ").Append(Detail).Append("\n");
             sb.Append("  Code: ").Append(Code).Append("\n");

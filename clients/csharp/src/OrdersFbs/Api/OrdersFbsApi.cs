@@ -222,27 +222,58 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         /// Получить список пунктов отгрузки поставок
         /// </summary>
         /// <remarks>
-        /// Метод возвращает доступные пункты отгрузки поставок с фильтрами: - по населённым пунктам России - по типам товаров, которые принимает пункт отгрузки Используйте данные из этого метода, чтобы устанавливать [параметры отгрузки поставок](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod).  Доступно только для продавцов из РФ.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-shipping-points
+        /// Метод будет отключен [20 ноября](https://dev.wildberries.ru/release-notes?id&#x3D;585).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-shipping-points
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="city">Населённый пункт отгрузки поставки, кириллица</param>
         /// <param name="cargoType">Тип товара, который принимает пункт отгрузки:   - &#x60;1&#x60; — малогабаритный товар (МГТ)   - &#x60;2&#x60; — сверхгабаритный товар (СГТ)   - &#x60;3&#x60; — крупногабаритный товар (КГТ+) </param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ShippingPointsResponse</returns>
+        [Obsolete]
         ShippingPointsResponse GetV3FbsShippingPoints(string city, long cargoType, int operationIndex = 0);
 
         /// <summary>
         /// Получить список пунктов отгрузки поставок
         /// </summary>
         /// <remarks>
-        /// Метод возвращает доступные пункты отгрузки поставок с фильтрами: - по населённым пунктам России - по типам товаров, которые принимает пункт отгрузки Используйте данные из этого метода, чтобы устанавливать [параметры отгрузки поставок](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod).  Доступно только для продавцов из РФ.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-shipping-points
+        /// Метод будет отключен [20 ноября](https://dev.wildberries.ru/release-notes?id&#x3D;585).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-shipping-points
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="city">Населённый пункт отгрузки поставки, кириллица</param>
         /// <param name="cargoType">Тип товара, который принимает пункт отгрузки:   - &#x60;1&#x60; — малогабаритный товар (МГТ)   - &#x60;2&#x60; — сверхгабаритный товар (СГТ)   - &#x60;3&#x60; — крупногабаритный товар (КГТ+) </param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ShippingPointsResponse</returns>
+        [Obsolete]
         ApiResponse<ShippingPointsResponse> GetV3FbsShippingPointsWithHttpInfo(string city, long cargoType, int operationIndex = 0);
+        /// <summary>
+        /// Получить список пунктов отгрузки поставки
+        /// </summary>
+        /// <remarks>
+        /// Метод возвращает доступные пункты отгрузки для указанной поставки. Используйте данные этого метода, чтобы устанавливать [параметры отгрузки поставок](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-supplies-supplyid-shipping-points
+        /// </remarks>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="supplyId">ID поставки</param>
+        /// <param name="city">Населённый пункт отгрузки поставки, кириллица</param>
+        /// <param name="officeType">Тип пункта отгрузки. Укажите значения через запятую:   - &#x60;sc&#x60; — сортировочный центр   - &#x60;sw&#x60; — склад   - &#x60;pp&#x60; — пункт выдачи заказов (ПВЗ)   - &#x60;pfc&#x60; — партнёрский фулфилмент-центр (ПФЦ)   - &#x60;gpp&#x60; — пункт приёма товаров (ППТ) </param>
+        /// <param name="shippingDt">Планируемая дата отгрузки поставки в формате &#x60;YYYY-MM-DD&#x60;. Обязательно для заказов МГТ (&#x60;\&quot;cargoType\&quot;:1&#x60;) и КГТ+ (&#x60;\&quot;cargoType\&quot;:3&#x60;). Если значение передано, в ответе возвращаются только пункты отгрузки, в которые можно отгрузить поставку в указанную дату (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>SupplyShippingPointsResponse</returns>
+        SupplyShippingPointsResponse GetV3FbsSuppliesSupplyIdShippingPoints(string supplyId, string city, string officeType, string? shippingDt = default(string?), int operationIndex = 0);
+
+        /// <summary>
+        /// Получить список пунктов отгрузки поставки
+        /// </summary>
+        /// <remarks>
+        /// Метод возвращает доступные пункты отгрузки для указанной поставки. Используйте данные этого метода, чтобы устанавливать [параметры отгрузки поставок](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-supplies-supplyid-shipping-points
+        /// </remarks>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="supplyId">ID поставки</param>
+        /// <param name="city">Населённый пункт отгрузки поставки, кириллица</param>
+        /// <param name="officeType">Тип пункта отгрузки. Укажите значения через запятую:   - &#x60;sc&#x60; — сортировочный центр   - &#x60;sw&#x60; — склад   - &#x60;pp&#x60; — пункт выдачи заказов (ПВЗ)   - &#x60;pfc&#x60; — партнёрский фулфилмент-центр (ПФЦ)   - &#x60;gpp&#x60; — пункт приёма товаров (ППТ) </param>
+        /// <param name="shippingDt">Планируемая дата отгрузки поставки в формате &#x60;YYYY-MM-DD&#x60;. Обязательно для заказов МГТ (&#x60;\&quot;cargoType\&quot;:1&#x60;) и КГТ+ (&#x60;\&quot;cargoType\&quot;:3&#x60;). Если значение передано, в ответе возвращаются только пункты отгрузки, в которые можно отгрузить поставку в указанную дату (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of SupplyShippingPointsResponse</returns>
+        ApiResponse<SupplyShippingPointsResponse> GetV3FbsSuppliesSupplyIdShippingPointsWithHttpInfo(string supplyId, string city, string officeType, string? shippingDt = default(string?), int operationIndex = 0);
         /// <summary>
         /// Получить QR-код СПОТ
         /// </summary>
@@ -1372,7 +1403,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         /// Получить список пунктов отгрузки поставок
         /// </summary>
         /// <remarks>
-        /// Метод возвращает доступные пункты отгрузки поставок с фильтрами: - по населённым пунктам России - по типам товаров, которые принимает пункт отгрузки Используйте данные из этого метода, чтобы устанавливать [параметры отгрузки поставок](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod).  Доступно только для продавцов из РФ.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-shipping-points
+        /// Метод будет отключен [20 ноября](https://dev.wildberries.ru/release-notes?id&#x3D;585).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-shipping-points
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="city">Населённый пункт отгрузки поставки, кириллица</param>
@@ -1380,13 +1411,14 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ShippingPointsResponse</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<ShippingPointsResponse> GetV3FbsShippingPointsAsync(string city, long cargoType, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Получить список пунктов отгрузки поставок
         /// </summary>
         /// <remarks>
-        /// Метод возвращает доступные пункты отгрузки поставок с фильтрами: - по населённым пунктам России - по типам товаров, которые принимает пункт отгрузки Используйте данные из этого метода, чтобы устанавливать [параметры отгрузки поставок](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod).  Доступно только для продавцов из РФ.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-shipping-points
+        /// Метод будет отключен [20 ноября](https://dev.wildberries.ru/release-notes?id&#x3D;585).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-shipping-points
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="city">Населённый пункт отгрузки поставки, кириллица</param>
@@ -1394,7 +1426,39 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ShippingPointsResponse)</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<ApiResponse<ShippingPointsResponse>> GetV3FbsShippingPointsWithHttpInfoAsync(string city, long cargoType, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <summary>
+        /// Получить список пунктов отгрузки поставки
+        /// </summary>
+        /// <remarks>
+        /// Метод возвращает доступные пункты отгрузки для указанной поставки. Используйте данные этого метода, чтобы устанавливать [параметры отгрузки поставок](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-supplies-supplyid-shipping-points
+        /// </remarks>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="supplyId">ID поставки</param>
+        /// <param name="city">Населённый пункт отгрузки поставки, кириллица</param>
+        /// <param name="officeType">Тип пункта отгрузки. Укажите значения через запятую:   - &#x60;sc&#x60; — сортировочный центр   - &#x60;sw&#x60; — склад   - &#x60;pp&#x60; — пункт выдачи заказов (ПВЗ)   - &#x60;pfc&#x60; — партнёрский фулфилмент-центр (ПФЦ)   - &#x60;gpp&#x60; — пункт приёма товаров (ППТ) </param>
+        /// <param name="shippingDt">Планируемая дата отгрузки поставки в формате &#x60;YYYY-MM-DD&#x60;. Обязательно для заказов МГТ (&#x60;\&quot;cargoType\&quot;:1&#x60;) и КГТ+ (&#x60;\&quot;cargoType\&quot;:3&#x60;). Если значение передано, в ответе возвращаются только пункты отгрузки, в которые можно отгрузить поставку в указанную дату (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of SupplyShippingPointsResponse</returns>
+        System.Threading.Tasks.Task<SupplyShippingPointsResponse> GetV3FbsSuppliesSupplyIdShippingPointsAsync(string supplyId, string city, string officeType, string? shippingDt = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Получить список пунктов отгрузки поставки
+        /// </summary>
+        /// <remarks>
+        /// Метод возвращает доступные пункты отгрузки для указанной поставки. Используйте данные этого метода, чтобы устанавливать [параметры отгрузки поставок](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-supplies-supplyid-shipping-points
+        /// </remarks>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="supplyId">ID поставки</param>
+        /// <param name="city">Населённый пункт отгрузки поставки, кириллица</param>
+        /// <param name="officeType">Тип пункта отгрузки. Укажите значения через запятую:   - &#x60;sc&#x60; — сортировочный центр   - &#x60;sw&#x60; — склад   - &#x60;pp&#x60; — пункт выдачи заказов (ПВЗ)   - &#x60;pfc&#x60; — партнёрский фулфилмент-центр (ПФЦ)   - &#x60;gpp&#x60; — пункт приёма товаров (ППТ) </param>
+        /// <param name="shippingDt">Планируемая дата отгрузки поставки в формате &#x60;YYYY-MM-DD&#x60;. Обязательно для заказов МГТ (&#x60;\&quot;cargoType\&quot;:1&#x60;) и КГТ+ (&#x60;\&quot;cargoType\&quot;:3&#x60;). Если значение передано, в ответе возвращаются только пункты отгрузки, в которые можно отгрузить поставку в указанную дату (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (SupplyShippingPointsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SupplyShippingPointsResponse>> GetV3FbsSuppliesSupplyIdShippingPointsWithHttpInfoAsync(string supplyId, string city, string officeType, string? shippingDt = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Получить QR-код СПОТ
         /// </summary>
@@ -3722,13 +3786,14 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         }
 
         /// <summary>
-        /// Получить список пунктов отгрузки поставок Метод возвращает доступные пункты отгрузки поставок с фильтрами: - по населённым пунктам России - по типам товаров, которые принимает пункт отгрузки Используйте данные из этого метода, чтобы устанавливать [параметры отгрузки поставок](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod).  Доступно только для продавцов из РФ.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-shipping-points
+        /// Получить список пунктов отгрузки поставок Метод будет отключен [20 ноября](https://dev.wildberries.ru/release-notes?id&#x3D;585).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-shipping-points
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="city">Населённый пункт отгрузки поставки, кириллица</param>
         /// <param name="cargoType">Тип товара, который принимает пункт отгрузки:   - &#x60;1&#x60; — малогабаритный товар (МГТ)   - &#x60;2&#x60; — сверхгабаритный товар (СГТ)   - &#x60;3&#x60; — крупногабаритный товар (КГТ+) </param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ShippingPointsResponse</returns>
+        [Obsolete]
         public ShippingPointsResponse GetV3FbsShippingPoints(string city, long cargoType, int operationIndex = 0)
         {
             ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<ShippingPointsResponse> localVarResponse = GetV3FbsShippingPointsWithHttpInfo(city, cargoType);
@@ -3736,13 +3801,14 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         }
 
         /// <summary>
-        /// Получить список пунктов отгрузки поставок Метод возвращает доступные пункты отгрузки поставок с фильтрами: - по населённым пунктам России - по типам товаров, которые принимает пункт отгрузки Используйте данные из этого метода, чтобы устанавливать [параметры отгрузки поставок](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod).  Доступно только для продавцов из РФ.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-shipping-points
+        /// Получить список пунктов отгрузки поставок Метод будет отключен [20 ноября](https://dev.wildberries.ru/release-notes?id&#x3D;585).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-shipping-points
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="city">Населённый пункт отгрузки поставки, кириллица</param>
         /// <param name="cargoType">Тип товара, который принимает пункт отгрузки:   - &#x60;1&#x60; — малогабаритный товар (МГТ)   - &#x60;2&#x60; — сверхгабаритный товар (СГТ)   - &#x60;3&#x60; — крупногабаритный товар (КГТ+) </param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ShippingPointsResponse</returns>
+        [Obsolete]
         public ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<ShippingPointsResponse> GetV3FbsShippingPointsWithHttpInfo(string city, long cargoType, int operationIndex = 0)
         {
             // verify the required parameter 'city' is set
@@ -3802,7 +3868,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         }
 
         /// <summary>
-        /// Получить список пунктов отгрузки поставок Метод возвращает доступные пункты отгрузки поставок с фильтрами: - по населённым пунктам России - по типам товаров, которые принимает пункт отгрузки Используйте данные из этого метода, чтобы устанавливать [параметры отгрузки поставок](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod).  Доступно только для продавцов из РФ.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-shipping-points
+        /// Получить список пунктов отгрузки поставок Метод будет отключен [20 ноября](https://dev.wildberries.ru/release-notes?id&#x3D;585).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-shipping-points
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="city">Населённый пункт отгрузки поставки, кириллица</param>
@@ -3810,6 +3876,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ShippingPointsResponse</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<ShippingPointsResponse> GetV3FbsShippingPointsAsync(string city, long cargoType, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<ShippingPointsResponse> localVarResponse = await GetV3FbsShippingPointsWithHttpInfoAsync(city, cargoType, operationIndex, cancellationToken).ConfigureAwait(false);
@@ -3817,7 +3884,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         }
 
         /// <summary>
-        /// Получить список пунктов отгрузки поставок Метод возвращает доступные пункты отгрузки поставок с фильтрами: - по населённым пунктам России - по типам товаров, которые принимает пункт отгрузки Используйте данные из этого метода, чтобы устанавливать [параметры отгрузки поставок](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod).  Доступно только для продавцов из РФ.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-shipping-points
+        /// Получить список пунктов отгрузки поставок Метод будет отключен [20 ноября](https://dev.wildberries.ru/release-notes?id&#x3D;585).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-shipping-points
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="city">Населённый пункт отгрузки поставки, кириллица</param>
@@ -3825,6 +3892,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ShippingPointsResponse)</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<ShippingPointsResponse>> GetV3FbsShippingPointsWithHttpInfoAsync(string city, long cargoType, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'city' is set
@@ -3876,6 +3944,212 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetV3FbsShippingPoints", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Получить список пунктов отгрузки поставки Метод возвращает доступные пункты отгрузки для указанной поставки. Используйте данные этого метода, чтобы устанавливать [параметры отгрузки поставок](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-supplies-supplyid-shipping-points
+        /// </summary>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="supplyId">ID поставки</param>
+        /// <param name="city">Населённый пункт отгрузки поставки, кириллица</param>
+        /// <param name="officeType">Тип пункта отгрузки. Укажите значения через запятую:   - &#x60;sc&#x60; — сортировочный центр   - &#x60;sw&#x60; — склад   - &#x60;pp&#x60; — пункт выдачи заказов (ПВЗ)   - &#x60;pfc&#x60; — партнёрский фулфилмент-центр (ПФЦ)   - &#x60;gpp&#x60; — пункт приёма товаров (ППТ) </param>
+        /// <param name="shippingDt">Планируемая дата отгрузки поставки в формате &#x60;YYYY-MM-DD&#x60;. Обязательно для заказов МГТ (&#x60;\&quot;cargoType\&quot;:1&#x60;) и КГТ+ (&#x60;\&quot;cargoType\&quot;:3&#x60;). Если значение передано, в ответе возвращаются только пункты отгрузки, в которые можно отгрузить поставку в указанную дату (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>SupplyShippingPointsResponse</returns>
+        public SupplyShippingPointsResponse GetV3FbsSuppliesSupplyIdShippingPoints(string supplyId, string city, string officeType, string? shippingDt = default(string?), int operationIndex = 0)
+        {
+            ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<SupplyShippingPointsResponse> localVarResponse = GetV3FbsSuppliesSupplyIdShippingPointsWithHttpInfo(supplyId, city, officeType, shippingDt);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Получить список пунктов отгрузки поставки Метод возвращает доступные пункты отгрузки для указанной поставки. Используйте данные этого метода, чтобы устанавливать [параметры отгрузки поставок](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-supplies-supplyid-shipping-points
+        /// </summary>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="supplyId">ID поставки</param>
+        /// <param name="city">Населённый пункт отгрузки поставки, кириллица</param>
+        /// <param name="officeType">Тип пункта отгрузки. Укажите значения через запятую:   - &#x60;sc&#x60; — сортировочный центр   - &#x60;sw&#x60; — склад   - &#x60;pp&#x60; — пункт выдачи заказов (ПВЗ)   - &#x60;pfc&#x60; — партнёрский фулфилмент-центр (ПФЦ)   - &#x60;gpp&#x60; — пункт приёма товаров (ППТ) </param>
+        /// <param name="shippingDt">Планируемая дата отгрузки поставки в формате &#x60;YYYY-MM-DD&#x60;. Обязательно для заказов МГТ (&#x60;\&quot;cargoType\&quot;:1&#x60;) и КГТ+ (&#x60;\&quot;cargoType\&quot;:3&#x60;). Если значение передано, в ответе возвращаются только пункты отгрузки, в которые можно отгрузить поставку в указанную дату (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of SupplyShippingPointsResponse</returns>
+        public ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<SupplyShippingPointsResponse> GetV3FbsSuppliesSupplyIdShippingPointsWithHttpInfo(string supplyId, string city, string officeType, string? shippingDt = default(string?), int operationIndex = 0)
+        {
+            // verify the required parameter 'supplyId' is set
+            if (supplyId == null)
+            {
+                throw new ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException(400, "Missing required parameter 'supplyId' when calling OrdersFbsApi->GetV3FbsSuppliesSupplyIdShippingPoints");
+            }
+
+            // verify the required parameter 'city' is set
+            if (city == null)
+            {
+                throw new ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException(400, "Missing required parameter 'city' when calling OrdersFbsApi->GetV3FbsSuppliesSupplyIdShippingPoints");
+            }
+
+            // verify the required parameter 'officeType' is set
+            if (officeType == null)
+            {
+                throw new ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException(400, "Missing required parameter 'officeType' when calling OrdersFbsApi->GetV3FbsSuppliesSupplyIdShippingPoints");
+            }
+
+            ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json",
+                "application/problem+json"
+            };
+
+            var localVarContentType = ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("supplyId", ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ClientUtils.ParameterToString(supplyId)); // path parameter
+            localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ClientUtils.ParameterToMultiMap("", "city", city));
+            localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ClientUtils.ParameterToMultiMap("", "officeType", officeType));
+            if (shippingDt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ClientUtils.ParameterToMultiMap("", "shippingDt", shippingDt));
+            }
+
+            localVarRequestOptions.Operation = "OrdersFbsApi.GetV3FbsSuppliesSupplyIdShippingPoints";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (BearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<SupplyShippingPointsResponse>("/api/marketplace/v3/fbs/supplies/{supplyId}/shipping-points", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetV3FbsSuppliesSupplyIdShippingPoints", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Получить список пунктов отгрузки поставки Метод возвращает доступные пункты отгрузки для указанной поставки. Используйте данные этого метода, чтобы устанавливать [параметры отгрузки поставок](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-supplies-supplyid-shipping-points
+        /// </summary>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="supplyId">ID поставки</param>
+        /// <param name="city">Населённый пункт отгрузки поставки, кириллица</param>
+        /// <param name="officeType">Тип пункта отгрузки. Укажите значения через запятую:   - &#x60;sc&#x60; — сортировочный центр   - &#x60;sw&#x60; — склад   - &#x60;pp&#x60; — пункт выдачи заказов (ПВЗ)   - &#x60;pfc&#x60; — партнёрский фулфилмент-центр (ПФЦ)   - &#x60;gpp&#x60; — пункт приёма товаров (ППТ) </param>
+        /// <param name="shippingDt">Планируемая дата отгрузки поставки в формате &#x60;YYYY-MM-DD&#x60;. Обязательно для заказов МГТ (&#x60;\&quot;cargoType\&quot;:1&#x60;) и КГТ+ (&#x60;\&quot;cargoType\&quot;:3&#x60;). Если значение передано, в ответе возвращаются только пункты отгрузки, в которые можно отгрузить поставку в указанную дату (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of SupplyShippingPointsResponse</returns>
+        public async System.Threading.Tasks.Task<SupplyShippingPointsResponse> GetV3FbsSuppliesSupplyIdShippingPointsAsync(string supplyId, string city, string officeType, string? shippingDt = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<SupplyShippingPointsResponse> localVarResponse = await GetV3FbsSuppliesSupplyIdShippingPointsWithHttpInfoAsync(supplyId, city, officeType, shippingDt, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Получить список пунктов отгрузки поставки Метод возвращает доступные пункты отгрузки для указанной поставки. Используйте данные этого метода, чтобы устанавливать [параметры отгрузки поставок](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-supplies-supplyid-shipping-points
+        /// </summary>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="supplyId">ID поставки</param>
+        /// <param name="city">Населённый пункт отгрузки поставки, кириллица</param>
+        /// <param name="officeType">Тип пункта отгрузки. Укажите значения через запятую:   - &#x60;sc&#x60; — сортировочный центр   - &#x60;sw&#x60; — склад   - &#x60;pp&#x60; — пункт выдачи заказов (ПВЗ)   - &#x60;pfc&#x60; — партнёрский фулфилмент-центр (ПФЦ)   - &#x60;gpp&#x60; — пункт приёма товаров (ППТ) </param>
+        /// <param name="shippingDt">Планируемая дата отгрузки поставки в формате &#x60;YYYY-MM-DD&#x60;. Обязательно для заказов МГТ (&#x60;\&quot;cargoType\&quot;:1&#x60;) и КГТ+ (&#x60;\&quot;cargoType\&quot;:3&#x60;). Если значение передано, в ответе возвращаются только пункты отгрузки, в которые можно отгрузить поставку в указанную дату (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (SupplyShippingPointsResponse)</returns>
+        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<SupplyShippingPointsResponse>> GetV3FbsSuppliesSupplyIdShippingPointsWithHttpInfoAsync(string supplyId, string city, string officeType, string? shippingDt = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'supplyId' is set
+            if (supplyId == null)
+            {
+                throw new ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException(400, "Missing required parameter 'supplyId' when calling OrdersFbsApi->GetV3FbsSuppliesSupplyIdShippingPoints");
+            }
+
+            // verify the required parameter 'city' is set
+            if (city == null)
+            {
+                throw new ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException(400, "Missing required parameter 'city' when calling OrdersFbsApi->GetV3FbsSuppliesSupplyIdShippingPoints");
+            }
+
+            // verify the required parameter 'officeType' is set
+            if (officeType == null)
+            {
+                throw new ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException(400, "Missing required parameter 'officeType' when calling OrdersFbsApi->GetV3FbsSuppliesSupplyIdShippingPoints");
+            }
+
+
+            ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json",
+                "application/problem+json"
+            };
+
+            var localVarContentType = ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("supplyId", ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ClientUtils.ParameterToString(supplyId)); // path parameter
+            localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ClientUtils.ParameterToMultiMap("", "city", city));
+            localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ClientUtils.ParameterToMultiMap("", "officeType", officeType));
+            if (shippingDt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ClientUtils.ParameterToMultiMap("", "shippingDt", shippingDt));
+            }
+
+            localVarRequestOptions.Operation = "OrdersFbsApi.GetV3FbsSuppliesSupplyIdShippingPoints";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (BearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<SupplyShippingPointsResponse>("/api/marketplace/v3/fbs/supplies/{supplyId}/shipping-points", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetV3FbsSuppliesSupplyIdShippingPoints", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

@@ -61,6 +61,10 @@ class ShippingPoint(BaseModel):
         default=None,
         description="Услуга **Фулфилмент в СЦ** для поставки по модели FBS:   - `true` — доступна   - `false` — недоступна ",
     )
+    available: Optional[StrictBool] = Field(
+        default=None,
+        description="Доступен ли пункт для отгрузки поставки:   - `true` — доступен   - `false` — недоступен. Возвращается для ПВЗ, если ПВЗ перегружен в планируемую дату отгрузки ",
+    )
     __properties: ClassVar[List[str]] = [
         "id",
         "name",
@@ -71,6 +75,7 @@ class ShippingPoint(BaseModel):
         "latitude",
         "longitude",
         "fulfillment",
+        "available",
     ]
 
     @field_validator("office_type")
@@ -153,6 +158,7 @@ class ShippingPoint(BaseModel):
                 "latitude": obj.get("latitude"),
                 "longitude": obj.get("longitude"),
                 "fulfillment": obj.get("fulfillment"),
+                "available": obj.get("available"),
             }
         )
         return _obj
