@@ -133,16 +133,8 @@ export const operationServerMap: ServerMap = {
       description: "**Статистика** ",
     },
     {
-      url: "https://statistics-api-sandbox.wildberries.ru",
-      description: "**Песочница Статистика** ",
-    },
-    {
       url: "https://advert-api.wildberries.ru",
       description: "**Продвижение** ",
-    },
-    {
-      url: "https://advert-api-sandbox.wildberries.ru",
-      description: "**Песочница Продвижение** ",
     },
     {
       url: "https://feedbacks-api.wildberries.ru",

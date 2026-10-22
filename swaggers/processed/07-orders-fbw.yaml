@@ -8,7 +8,6 @@ info:
     В разделе описаны методы получения:
     - [информации для формирования поставок](https://dev.wildberries.ru/openapi/orders-fbw#tag/informationForFormingSupplies)
     - [информации о поставках](https://dev.wildberries.ru/openapi/orders-fbw#tag/suppliesInformation)
-    Вы можете создавать карточки товара в песочнице [Контента](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Kategorii-tokenov), а потом использовать баркоды товаров в [песочнице](https://dev.wildberries.ru/sandbox) Поставок
   x-file-name: orders-fbw
 security:
 - BearerAuth: []
@@ -29,11 +28,6 @@ paths:
   /api/v1/acceptance/options:
     servers:
     - url: https://supplies-api.wildberries.ru
-      description: |
-        **Prod**
-    - url: https://supplies-api-sandbox.wildberries.ru
-      description: |
-        **Sandbox**
     post:
       operationId: postV1AcceptanceOptions
       x-readonly-method: true
@@ -53,10 +47,6 @@ paths:
         | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов |
         | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов |
         | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
-
-        ---
-
-        В песочнице — максимум 1 запрос в секунду суммарно для всех методов.
 
         Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/post-api-v1-acceptance-options
       parameters:
@@ -114,11 +104,6 @@ paths:
   /api/v1/warehouses:
     servers:
     - url: https://supplies-api.wildberries.ru
-      description: |
-        **Prod**
-    - url: https://supplies-api-sandbox.wildberries.ru
-      description: |
-        **Sandbox**
     get:
       operationId: getV1Warehouses
       x-readonly-method: true
@@ -138,10 +123,6 @@ paths:
         | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов |
         | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов |
         | Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос |
-
-        ---
-
-        В песочнице — максимум 1 запрос в секунду суммарно для всех методов.
 
         Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/get-api-v1-warehouses
       responses:

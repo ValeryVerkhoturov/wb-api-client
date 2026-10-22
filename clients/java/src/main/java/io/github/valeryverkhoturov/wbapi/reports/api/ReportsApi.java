@@ -2869,7 +2869,12 @@ public class ReportsApi {
 
   /**
    * Получить отчёт Метод возвращает отчёт о [возвратах товаров
-   * продавцу](https://seller.wildberries.ru/return-transfer-reports). Library doc:
+   * продавцу](https://seller.wildberries.ru/return-transfer-reports). [Лимит
+   * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
+   * на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
+   * | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1
+   * запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов |
+   * | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-analytics-v1-item-returns
    *
    * @param dateFrom Дата начала отчётного периода (required)
@@ -2903,7 +2908,12 @@ public class ReportsApi {
 
   /**
    * Получить отчёт Метод возвращает отчёт о [возвратах товаров
-   * продавцу](https://seller.wildberries.ru/return-transfer-reports). Library doc:
+   * продавцу](https://seller.wildberries.ru/return-transfer-reports). [Лимит
+   * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
+   * на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
+   * | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1
+   * запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов |
+   * | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-analytics-v1-item-returns
    *
    * @param dateFrom Дата начала отчётного периода (required)
@@ -2938,7 +2948,12 @@ public class ReportsApi {
 
   /**
    * Получить отчёт (asynchronously) Метод возвращает отчёт о [возвратах товаров
-   * продавцу](https://seller.wildberries.ru/return-transfer-reports). Library doc:
+   * продавцу](https://seller.wildberries.ru/return-transfer-reports). [Лимит
+   * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
+   * на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
+   * | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1
+   * запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов |
+   * | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-analytics-v1-item-returns
    *
    * @param dateFrom Дата начала отчётного периода (required)
@@ -3888,10 +3903,7 @@ public class ReportsApi {
       String dateFrom, Long flag, final ApiCallback _callback) throws ApiException {
     String basePath = null;
     // Operation Servers
-    String[] localBasePaths =
-        new String[] {
-          "https://statistics-api.wildberries.ru", "https://statistics-api-sandbox.wildberries.ru"
-        };
+    String[] localBasePaths = new String[] {"https://statistics-api.wildberries.ru"};
 
     // Determine Base Path to Use
     if (localCustomBaseUrl != null) {
@@ -3976,9 +3988,7 @@ public class ReportsApi {
    * 80000 строк. Поэтому, чтобы получить все заказы, может потребоваться более, чем один запрос. Во
    * втором и далее запросе в параметре &#x60;dateFrom&#x60; используйте полное значение поля
    * &#x60;lastChangeDate&#x60; из последней строки ответа на предыдущий запрос. Если в ответе
-   * отдаётся пустой массив &#x60;[]&#x60;, все заказы уже выгружены. В песочнице для параметров
-   * &#x60;dateFrom&#x60; и &#x60;dateTo&#x60; можно задать диапазон только за последние 4 месяца от
-   * текущей даты. [Лимит
+   * отдаётся пустой массив &#x60;[]&#x60;, все заказы уже выгружены. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1
@@ -4034,9 +4044,7 @@ public class ReportsApi {
    * 80000 строк. Поэтому, чтобы получить все заказы, может потребоваться более, чем один запрос. Во
    * втором и далее запросе в параметре &#x60;dateFrom&#x60; используйте полное значение поля
    * &#x60;lastChangeDate&#x60; из последней строки ответа на предыдущий запрос. Если в ответе
-   * отдаётся пустой массив &#x60;[]&#x60;, все заказы уже выгружены. В песочнице для параметров
-   * &#x60;dateFrom&#x60; и &#x60;dateTo&#x60; можно задать диапазон только за последние 4 месяца от
-   * текущей даты. [Лимит
+   * отдаётся пустой массив &#x60;[]&#x60;, все заказы уже выгружены. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1
@@ -4094,9 +4102,7 @@ public class ReportsApi {
    * 80000 строк. Поэтому, чтобы получить все заказы, может потребоваться более, чем один запрос. Во
    * втором и далее запросе в параметре &#x60;dateFrom&#x60; используйте полное значение поля
    * &#x60;lastChangeDate&#x60; из последней строки ответа на предыдущий запрос. Если в ответе
-   * отдаётся пустой массив &#x60;[]&#x60;, все заказы уже выгружены. В песочнице для параметров
-   * &#x60;dateFrom&#x60; и &#x60;dateTo&#x60; можно задать диапазон только за последние 4 месяца от
-   * текущей даты. [Лимит
+   * отдаётся пустой массив &#x60;[]&#x60;, все заказы уже выгружены. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1
@@ -4177,10 +4183,7 @@ public class ReportsApi {
       String dateFrom, Long flag, final ApiCallback _callback) throws ApiException {
     String basePath = null;
     // Operation Servers
-    String[] localBasePaths =
-        new String[] {
-          "https://statistics-api.wildberries.ru", "https://statistics-api-sandbox.wildberries.ru"
-        };
+    String[] localBasePaths = new String[] {"https://statistics-api.wildberries.ru"};
 
     // Determine Base Path to Use
     if (localCustomBaseUrl != null) {
@@ -4271,8 +4274,7 @@ public class ReportsApi {
    * может потребоваться более, чем один запрос. Во втором и далее запросе в параметре
    * &#x60;dateFrom &#x60;используйте полное значение поля &#x60;lastChangeDate&#x60; из последней
    * строки ответа на предыдущий запрос. Если в ответе отдаётся пустой массив &#x60;[]&#x60;, все
-   * продажи и возвраты уже выгружены. В песочнице для параметров &#x60;dateFrom&#x60; и
-   * &#x60;dateTo&#x60; можно задать диапазон только за последние 4 месяца от текущей даты. [Лимит
+   * продажи и возвраты уже выгружены. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос |
@@ -4334,8 +4336,7 @@ public class ReportsApi {
    * может потребоваться более, чем один запрос. Во втором и далее запросе в параметре
    * &#x60;dateFrom &#x60;используйте полное значение поля &#x60;lastChangeDate&#x60; из последней
    * строки ответа на предыдущий запрос. Если в ответе отдаётся пустой массив &#x60;[]&#x60;, все
-   * продажи и возвраты уже выгружены. В песочнице для параметров &#x60;dateFrom&#x60; и
-   * &#x60;dateTo&#x60; можно задать диапазон только за последние 4 месяца от текущей даты. [Лимит
+   * продажи и возвраты уже выгружены. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос |
@@ -4399,8 +4400,7 @@ public class ReportsApi {
    * может потребоваться более, чем один запрос. Во втором и далее запросе в параметре
    * &#x60;dateFrom &#x60;используйте полное значение поля &#x60;lastChangeDate&#x60; из последней
    * строки ответа на предыдущий запрос. Если в ответе отдаётся пустой массив &#x60;[]&#x60;, все
-   * продажи и возвраты уже выгружены. В песочнице для параметров &#x60;dateFrom&#x60; и
-   * &#x60;dateTo&#x60; можно задать диапазон только за последние 4 месяца от текущей даты. [Лимит
+   * продажи и возвраты уже выгружены. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос |

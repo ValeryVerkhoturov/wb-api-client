@@ -194,21 +194,13 @@ export const operationServerMap: ServerMap = {
   "ReportsApi.getV1SupplierOrders": [
     {
       url: "https://statistics-api.wildberries.ru",
-      description: "**Prod** ",
-    },
-    {
-      url: "https://statistics-api-sandbox.wildberries.ru",
-      description: "**Sandbox** ",
+      description: "No description provided",
     },
   ],
   "ReportsApi.getV1SupplierSales": [
     {
       url: "https://statistics-api.wildberries.ru",
-      description: "**Prod** ",
-    },
-    {
-      url: "https://statistics-api-sandbox.wildberries.ru",
-      description: "**Sandbox** ",
+      description: "No description provided",
     },
   ],
   "ReportsApi.getV1WarehouseMeasurements": [

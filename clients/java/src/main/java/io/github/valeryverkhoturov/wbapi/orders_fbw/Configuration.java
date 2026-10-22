@@ -1,6 +1,6 @@
 /*
  * Поставки FBW
- * Узнать больше о поставках FBW можно в [справочном центре](https://seller.wildberries.ru/instructions/subcategory/5a8e1202-0865-45b7-acae-5d0afc7add56?goBackOption=prevRoute&categoryId=479385c6-de01-4b4d-ad4e-ed941e65582e)  В разделе описаны методы получения: - [информации для формирования поставок](https://dev.wildberries.ru/openapi/orders-fbw#tag/informationForFormingSupplies) - [информации о поставках](https://dev.wildberries.ru/openapi/orders-fbw#tag/suppliesInformation) Вы можете создавать карточки товара в песочнице [Контента](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Kategorii-tokenov), а потом использовать баркоды товаров в [песочнице](https://dev.wildberries.ru/sandbox) Поставок
+ * Узнать больше о поставках FBW можно в [справочном центре](https://seller.wildberries.ru/instructions/subcategory/5a8e1202-0865-45b7-acae-5d0afc7add56?goBackOption=prevRoute&categoryId=479385c6-de01-4b4d-ad4e-ed941e65582e)  В разделе описаны методы получения: - [информации для формирования поставок](https://dev.wildberries.ru/openapi/orders-fbw#tag/informationForFormingSupplies) - [информации о поставках](https://dev.wildberries.ru/openapi/orders-fbw#tag/suppliesInformation)
  *
  * The version of the OpenAPI document: ordersfbw
  *
@@ -16,7 +16,7 @@ package io.github.valeryverkhoturov.wbapi.orders_fbw;
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     comments = "Generator version: 7.10.0")
 public class Configuration {
-  public static final String VERSION = "1.20261021.0";
+  public static final String VERSION = "1.20261022.0";
 
   private static ApiClient defaultApiClient = new ApiClient();
 

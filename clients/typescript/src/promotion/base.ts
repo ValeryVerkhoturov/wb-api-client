@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Маркетинг и продвижение
- * Узнать больше о маркетинге и продвижении можно в [справочном центре](https://seller.wildberries.ru/instructions/category/59d92bd3-6ea0-40f2-b762-ca8835d7d42e?goBackOption=prevRoute&categoryId=479385c6-de01-4b4d-ad4e-ed941e65582e)  Методы маркетинга и продвижения позволяют: 1. Получать информацию о кампаниях [продвижения](https://dev.wildberries.ru/openapi/promotion#tag/campaigns) и [медиакампаниях](https://dev.wildberries.ru/openapi/promotion#tag/media) 2. [Создавать](https://dev.wildberries.ru/openapi/promotion#tag/creatingCampaigns) и [управлять](https://dev.wildberries.ru/openapi/promotion#tag/campaignManagement) кампаниями 3. Управлять [финансами](https://dev.wildberries.ru/openapi/promotion#tag/finances) кампаний 4. Выгружать [статистику](https://dev.wildberries.ru/openapi/promotion#tag/statistics) кампаний продвижения и медиакампаний 5. Работать с [календарём акций](https://dev.wildberries.ru/openapi/promotion#tag/promoCalendar) Данные синхронизируются с базой раз в 3 минуты. Статусы кампаний меняются раз в минуту. Ставки кампаний меняются раз в 30 секунд.  Вы можете протестировать методы продвижения в [песочнице](https://dev.wildberries.ru/sandbox). Также в песочнице доступны [специальные методы](https://dev.wildberries.ru/docs/openapi-other/sandbox-environment#tag/promotion) для управления тестовым балансом
+ * Узнать больше о маркетинге и продвижении можно в [справочном центре](https://seller.wildberries.ru/instructions/category/59d92bd3-6ea0-40f2-b762-ca8835d7d42e?goBackOption=prevRoute&categoryId=479385c6-de01-4b4d-ad4e-ed941e65582e)  Методы маркетинга и продвижения позволяют: 1. Получать информацию о кампаниях [продвижения](https://dev.wildberries.ru/openapi/promotion#tag/campaigns) и [медиакампаниях](https://dev.wildberries.ru/openapi/promotion#tag/media) 2. [Создавать](https://dev.wildberries.ru/openapi/promotion#tag/creatingCampaigns) и [управлять](https://dev.wildberries.ru/openapi/promotion#tag/campaignManagement) кампаниями 3. Управлять [финансами](https://dev.wildberries.ru/openapi/promotion#tag/finances) кампаний 4. Выгружать [статистику](https://dev.wildberries.ru/openapi/promotion#tag/statistics) кампаний продвижения и медиакампаний 5. Работать с [календарём акций](https://dev.wildberries.ru/openapi/promotion#tag/promoCalendar) Данные синхронизируются с базой раз в 3 минуты. Статусы кампаний меняются раз в минуту. Ставки кампаний меняются раз в 30 секунд.
  *
  * The version of the OpenAPI document: promotion
  *
@@ -104,47 +104,31 @@ export const operationServerMap: ServerMap = {
   "PromotionApi.getV0DailyLimits": [
     {
       url: "https://advert-api.wildberries.ru",
-      description: "**Prod** ",
+      description: "No description provided",
     },
   ],
   "PromotionApi.getV0Delete": [
     {
       url: "https://advert-api.wildberries.ru",
-      description: "**Prod** ",
-    },
-    {
-      url: "https://advert-api-sandbox.wildberries.ru",
-      description: "**Sandbox** ",
+      description: "No description provided",
     },
   ],
   "PromotionApi.getV0Pause": [
     {
       url: "https://advert-api.wildberries.ru",
-      description: "**Prod** ",
-    },
-    {
-      url: "https://advert-api-sandbox.wildberries.ru",
-      description: "**Sandbox** ",
+      description: "No description provided",
     },
   ],
   "PromotionApi.getV0Start": [
     {
       url: "https://advert-api.wildberries.ru",
-      description: "**Prod** ",
-    },
-    {
-      url: "https://advert-api-sandbox.wildberries.ru",
-      description: "**Sandbox** ",
+      description: "No description provided",
     },
   ],
   "PromotionApi.getV0Stop": [
     {
       url: "https://advert-api.wildberries.ru",
-      description: "**Prod** ",
-    },
-    {
-      url: "https://advert-api-sandbox.wildberries.ru",
-      description: "**Sandbox** ",
+      description: "No description provided",
     },
   ],
   "PromotionApi.getV1Advert": [
@@ -162,21 +146,13 @@ export const operationServerMap: ServerMap = {
   "PromotionApi.getV1Balance": [
     {
       url: "https://advert-api.wildberries.ru",
-      description: "**Prod** ",
-    },
-    {
-      url: "https://advert-api-sandbox.wildberries.ru",
-      description: "**Sandbox** ",
+      description: "No description provided",
     },
   ],
   "PromotionApi.getV1Budget": [
     {
       url: "https://advert-api.wildberries.ru",
-      description: "**Prod** ",
-    },
-    {
-      url: "https://advert-api-sandbox.wildberries.ru",
-      description: "**Sandbox** ",
+      description: "No description provided",
     },
   ],
   "PromotionApi.getV1CalendarPromotions": [
@@ -212,41 +188,25 @@ export const operationServerMap: ServerMap = {
   "PromotionApi.getV1Payments": [
     {
       url: "https://advert-api.wildberries.ru",
-      description: "**Prod** ",
-    },
-    {
-      url: "https://advert-api-sandbox.wildberries.ru",
-      description: "**Sandbox** ",
+      description: "No description provided",
     },
   ],
   "PromotionApi.getV1PromotionCount": [
     {
       url: "https://advert-api.wildberries.ru",
-      description: "**Prod** ",
-    },
-    {
-      url: "https://advert-api-sandbox.wildberries.ru",
-      description: "**Sandbox** ",
+      description: "No description provided",
     },
   ],
   "PromotionApi.getV1SupplierSubjects": [
     {
       url: "https://advert-api.wildberries.ru",
-      description: "**Prod** ",
-    },
-    {
-      url: "https://advert-api-sandbox.wildberries.ru",
-      description: "**Sandbox** ",
+      description: "No description provided",
     },
   ],
   "PromotionApi.getV1Upd": [
     {
       url: "https://advert-api.wildberries.ru",
-      description: "**Prod** ",
-    },
-    {
-      url: "https://advert-api-sandbox.wildberries.ru",
-      description: "**Sandbox** ",
+      description: "No description provided",
     },
   ],
   "PromotionApi.getV2Adverts": [
@@ -312,11 +272,7 @@ export const operationServerMap: ServerMap = {
   "PromotionApi.postV0Rename": [
     {
       url: "https://advert-api.wildberries.ru",
-      description: "**Prod** ",
-    },
-    {
-      url: "https://advert-api-sandbox.wildberries.ru",
-      description: "**Sandbox** ",
+      description: "No description provided",
     },
   ],
   "PromotionApi.postV1BidsMin": [
@@ -328,11 +284,7 @@ export const operationServerMap: ServerMap = {
   "PromotionApi.postV1BudgetDeposit": [
     {
       url: "https://advert-api.wildberries.ru",
-      description: "**Prod** ",
-    },
-    {
-      url: "https://advert-api-sandbox.wildberries.ru",
-      description: "**Sandbox** ",
+      description: "No description provided",
     },
   ],
   "PromotionApi.postV1CalendarPromotionsUpload": [
@@ -362,27 +314,19 @@ export const operationServerMap: ServerMap = {
   "PromotionApi.postV2Budget": [
     {
       url: "https://advert-api.wildberries.ru",
-      description: "**Prod** ",
+      description: "No description provided",
     },
   ],
   "PromotionApi.postV2SeacatSaveAd": [
     {
       url: "https://advert-api.wildberries.ru",
-      description: "**Prod** ",
-    },
-    {
-      url: "https://advert-api-sandbox.wildberries.ru",
-      description: "**Sandbox** ",
+      description: "No description provided",
     },
   ],
   "PromotionApi.postV2SupplierNms": [
     {
       url: "https://advert-api.wildberries.ru",
-      description: "**Prod** ",
-    },
-    {
-      url: "https://advert-api-sandbox.wildberries.ru",
-      description: "**Sandbox** ",
+      description: "No description provided",
     },
   ],
   "PromotionApi.putV0AuctionPlacements": [
@@ -394,7 +338,7 @@ export const operationServerMap: ServerMap = {
   "PromotionApi.putV0DailyLimits": [
     {
       url: "https://advert-api.wildberries.ru",
-      description: "**Prod** ",
+      description: "No description provided",
     },
   ],
 };

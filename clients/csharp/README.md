@@ -190,7 +190,6 @@ var api = new InStorePickupApi(config);
 В разделе описаны методы получения:
 - [информации для формирования поставок](https://dev.wildberries.ru/openapi/orders-fbw#tag/informationForFormingSupplies)
 - [информации о поставках](https://dev.wildberries.ru/openapi/orders-fbw#tag/suppliesInformation)
-Вы можете создавать карточки товара в песочнице [Контента](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Kategorii-tokenov), а потом использовать баркоды товаров в [песочнице](https://dev.wildberries.ru/sandbox) Поставок
 
 **Reference:** https://dev.wildberries.ru/openapi/orders-fbw
 
@@ -216,8 +215,6 @@ var api = new OrdersFbwApi(config);
 4. Выгружать [статистику](https://dev.wildberries.ru/openapi/promotion#tag/statistics) кампаний продвижения и медиакампаний
 5. Работать с [календарём акций](https://dev.wildberries.ru/openapi/promotion#tag/promoCalendar)
 Данные синхронизируются с базой раз в 3 минуты. Статусы кампаний меняются раз в минуту. Ставки кампаний меняются раз в 30 секунд.
-
-Вы можете протестировать методы продвижения в [песочнице](https://dev.wildberries.ru/sandbox). Также в песочнице доступны [специальные методы](https://dev.wildberries.ru/docs/openapi-other/sandbox-environment#tag/promotion) для управления тестовым балансом
 
 **Reference:** https://dev.wildberries.ru/openapi/promotion
 

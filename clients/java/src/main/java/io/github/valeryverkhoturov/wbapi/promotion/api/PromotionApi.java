@@ -1,6 +1,6 @@
 /*
  * Маркетинг и продвижение
- * Узнать больше о маркетинге и продвижении можно в [справочном центре](https://seller.wildberries.ru/instructions/category/59d92bd3-6ea0-40f2-b762-ca8835d7d42e?goBackOption=prevRoute&categoryId=479385c6-de01-4b4d-ad4e-ed941e65582e)  Методы маркетинга и продвижения позволяют: 1. Получать информацию о кампаниях [продвижения](https://dev.wildberries.ru/openapi/promotion#tag/campaigns) и [медиакампаниях](https://dev.wildberries.ru/openapi/promotion#tag/media) 2. [Создавать](https://dev.wildberries.ru/openapi/promotion#tag/creatingCampaigns) и [управлять](https://dev.wildberries.ru/openapi/promotion#tag/campaignManagement) кампаниями 3. Управлять [финансами](https://dev.wildberries.ru/openapi/promotion#tag/finances) кампаний 4. Выгружать [статистику](https://dev.wildberries.ru/openapi/promotion#tag/statistics) кампаний продвижения и медиакампаний 5. Работать с [календарём акций](https://dev.wildberries.ru/openapi/promotion#tag/promoCalendar) Данные синхронизируются с базой раз в 3 минуты. Статусы кампаний меняются раз в минуту. Ставки кампаний меняются раз в 30 секунд.  Вы можете протестировать методы продвижения в [песочнице](https://dev.wildberries.ru/sandbox). Также в песочнице доступны [специальные методы](https://dev.wildberries.ru/docs/openapi-other/sandbox-environment#tag/promotion) для управления тестовым балансом
+ * Узнать больше о маркетинге и продвижении можно в [справочном центре](https://seller.wildberries.ru/instructions/category/59d92bd3-6ea0-40f2-b762-ca8835d7d42e?goBackOption=prevRoute&categoryId=479385c6-de01-4b4d-ad4e-ed941e65582e)  Методы маркетинга и продвижения позволяют: 1. Получать информацию о кампаниях [продвижения](https://dev.wildberries.ru/openapi/promotion#tag/campaigns) и [медиакампаниях](https://dev.wildberries.ru/openapi/promotion#tag/media) 2. [Создавать](https://dev.wildberries.ru/openapi/promotion#tag/creatingCampaigns) и [управлять](https://dev.wildberries.ru/openapi/promotion#tag/campaignManagement) кампаниями 3. Управлять [финансами](https://dev.wildberries.ru/openapi/promotion#tag/finances) кампаний 4. Выгружать [статистику](https://dev.wildberries.ru/openapi/promotion#tag/statistics) кампаний продвижения и медиакампаний 5. Работать с [календарём акций](https://dev.wildberries.ru/openapi/promotion#tag/promoCalendar) Данные синхронизируются с базой раз в 3 минуты. Статусы кампаний меняются раз в минуту. Ставки кампаний меняются раз в 30 секунд.
  *
  * The version of the OpenAPI document: promotion
  *
@@ -720,10 +720,7 @@ public class PromotionApi {
   public okhttp3.Call getV0DeleteCall(Long id, final ApiCallback _callback) throws ApiException {
     String basePath = null;
     // Operation Servers
-    String[] localBasePaths =
-        new String[] {
-          "https://advert-api.wildberries.ru", "https://advert-api-sandbox.wildberries.ru"
-        };
+    String[] localBasePaths = new String[] {"https://advert-api.wildberries.ru"};
 
     // Determine Base Path to Use
     if (localCustomBaseUrl != null) {
@@ -910,10 +907,7 @@ public class PromotionApi {
   public okhttp3.Call getV0PauseCall(Long id, final ApiCallback _callback) throws ApiException {
     String basePath = null;
     // Operation Servers
-    String[] localBasePaths =
-        new String[] {
-          "https://advert-api.wildberries.ru", "https://advert-api-sandbox.wildberries.ru"
-        };
+    String[] localBasePaths = new String[] {"https://advert-api.wildberries.ru"};
 
     // Determine Base Path to Use
     if (localCustomBaseUrl != null) {
@@ -1097,10 +1091,7 @@ public class PromotionApi {
   public okhttp3.Call getV0StartCall(Long id, final ApiCallback _callback) throws ApiException {
     String basePath = null;
     // Operation Servers
-    String[] localBasePaths =
-        new String[] {
-          "https://advert-api.wildberries.ru", "https://advert-api-sandbox.wildberries.ru"
-        };
+    String[] localBasePaths = new String[] {"https://advert-api.wildberries.ru"};
 
     // Determine Base Path to Use
     if (localCustomBaseUrl != null) {
@@ -1293,10 +1284,7 @@ public class PromotionApi {
   public okhttp3.Call getV0StopCall(Long id, final ApiCallback _callback) throws ApiException {
     String basePath = null;
     // Operation Servers
-    String[] localBasePaths =
-        new String[] {
-          "https://advert-api.wildberries.ru", "https://advert-api-sandbox.wildberries.ru"
-        };
+    String[] localBasePaths = new String[] {"https://advert-api.wildberries.ru"};
 
     // Determine Base Path to Use
     if (localCustomBaseUrl != null) {
@@ -1942,10 +1930,7 @@ public class PromotionApi {
   public okhttp3.Call getV1BalanceCall(final ApiCallback _callback) throws ApiException {
     String basePath = null;
     // Operation Servers
-    String[] localBasePaths =
-        new String[] {
-          "https://advert-api.wildberries.ru", "https://advert-api-sandbox.wildberries.ru"
-        };
+    String[] localBasePaths = new String[] {"https://advert-api.wildberries.ru"};
 
     // Determine Base Path to Use
     if (localCustomBaseUrl != null) {
@@ -2132,10 +2117,7 @@ public class PromotionApi {
   public okhttp3.Call getV1BudgetCall(Long id, final ApiCallback _callback) throws ApiException {
     String basePath = null;
     // Operation Servers
-    String[] localBasePaths =
-        new String[] {
-          "https://advert-api.wildberries.ru", "https://advert-api-sandbox.wildberries.ru"
-        };
+    String[] localBasePaths = new String[] {"https://advert-api.wildberries.ru"};
 
     // Determine Base Path to Use
     if (localCustomBaseUrl != null) {
@@ -3395,10 +3377,7 @@ public class PromotionApi {
       throws ApiException {
     String basePath = null;
     // Operation Servers
-    String[] localBasePaths =
-        new String[] {
-          "https://advert-api.wildberries.ru", "https://advert-api-sandbox.wildberries.ru"
-        };
+    String[] localBasePaths = new String[] {"https://advert-api.wildberries.ru"};
 
     // Determine Base Path to Use
     if (localCustomBaseUrl != null) {
@@ -3586,10 +3565,7 @@ public class PromotionApi {
   public okhttp3.Call getV1PromotionCountCall(final ApiCallback _callback) throws ApiException {
     String basePath = null;
     // Operation Servers
-    String[] localBasePaths =
-        new String[] {
-          "https://advert-api.wildberries.ru", "https://advert-api-sandbox.wildberries.ru"
-        };
+    String[] localBasePaths = new String[] {"https://advert-api.wildberries.ru"};
 
     // Determine Base Path to Use
     if (localCustomBaseUrl != null) {
@@ -3764,10 +3740,7 @@ public class PromotionApi {
       throws ApiException {
     String basePath = null;
     // Operation Servers
-    String[] localBasePaths =
-        new String[] {
-          "https://advert-api.wildberries.ru", "https://advert-api-sandbox.wildberries.ru"
-        };
+    String[] localBasePaths = new String[] {"https://advert-api.wildberries.ru"};
 
     // Determine Base Path to Use
     if (localCustomBaseUrl != null) {
@@ -3963,10 +3936,7 @@ public class PromotionApi {
       throws ApiException {
     String basePath = null;
     // Operation Servers
-    String[] localBasePaths =
-        new String[] {
-          "https://advert-api.wildberries.ru", "https://advert-api-sandbox.wildberries.ru"
-        };
+    String[] localBasePaths = new String[] {"https://advert-api.wildberries.ru"};
 
     // Determine Base Path to Use
     if (localCustomBaseUrl != null) {
@@ -4466,8 +4436,7 @@ public class PromotionApi {
   /**
    * Статистика кампаний Метод формирует статистику для кампаний независимо от типа. Максимальный
    * период в запросе — 31 день. Для кампаний в статусах &#x60;7&#x60;, &#x60;9&#x60; и
-   * &#x60;11&#x60;. В песочнице статистика кампаний доступна за последние 30 дней. Генерируется
-   * только для компаний в статусе &#x60;9&#x60;, тип &#x60;8&#x60;, 9 раз в сутки [Лимит
+   * &#x60;11&#x60;. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 1 запрос | | Сервисный | 1 мин | 3
@@ -4502,8 +4471,7 @@ public class PromotionApi {
   /**
    * Статистика кампаний Метод формирует статистику для кампаний независимо от типа. Максимальный
    * период в запросе — 31 день. Для кампаний в статусах &#x60;7&#x60;, &#x60;9&#x60; и
-   * &#x60;11&#x60;. В песочнице статистика кампаний доступна за последние 30 дней. Генерируется
-   * только для компаний в статусе &#x60;9&#x60;, тип &#x60;8&#x60;, 9 раз в сутки [Лимит
+   * &#x60;11&#x60;. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 1 запрос | | Сервисный | 1 мин | 3
@@ -4538,9 +4506,7 @@ public class PromotionApi {
   /**
    * Статистика кампаний (asynchronously) Метод формирует статистику для кампаний независимо от
    * типа. Максимальный период в запросе — 31 день. Для кампаний в статусах &#x60;7&#x60;,
-   * &#x60;9&#x60; и &#x60;11&#x60;. В песочнице статистика кампаний доступна за последние 30 дней.
-   * Генерируется только для компаний в статусе &#x60;9&#x60;, тип &#x60;8&#x60;, 9 раз в сутки
-   * [Лимит
+   * &#x60;9&#x60; и &#x60;11&#x60;. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 1 запрос | | Сервисный | 1 мин | 3
@@ -6108,10 +6074,7 @@ public class PromotionApi {
       PostV0RenameRequest postV0RenameRequest, final ApiCallback _callback) throws ApiException {
     String basePath = null;
     // Operation Servers
-    String[] localBasePaths =
-        new String[] {
-          "https://advert-api.wildberries.ru", "https://advert-api-sandbox.wildberries.ru"
-        };
+    String[] localBasePaths = new String[] {"https://advert-api.wildberries.ru"};
 
     // Determine Base Path to Use
     if (localCustomBaseUrl != null) {
@@ -6480,10 +6443,7 @@ public class PromotionApi {
       throws ApiException {
     String basePath = null;
     // Operation Servers
-    String[] localBasePaths =
-        new String[] {
-          "https://advert-api.wildberries.ru", "https://advert-api-sandbox.wildberries.ru"
-        };
+    String[] localBasePaths = new String[] {"https://advert-api.wildberries.ru"};
 
     // Determine Base Path to Use
     if (localCustomBaseUrl != null) {
@@ -7679,10 +7639,7 @@ public class PromotionApi {
       throws ApiException {
     String basePath = null;
     // Operation Servers
-    String[] localBasePaths =
-        new String[] {
-          "https://advert-api.wildberries.ru", "https://advert-api-sandbox.wildberries.ru"
-        };
+    String[] localBasePaths = new String[] {"https://advert-api.wildberries.ru"};
 
     // Determine Base Path to Use
     if (localCustomBaseUrl != null) {
@@ -7864,10 +7821,7 @@ public class PromotionApi {
       throws ApiException {
     String basePath = null;
     // Operation Servers
-    String[] localBasePaths =
-        new String[] {
-          "https://advert-api.wildberries.ru", "https://advert-api-sandbox.wildberries.ru"
-        };
+    String[] localBasePaths = new String[] {"https://advert-api.wildberries.ru"};
 
     // Determine Base Path to Use
     if (localCustomBaseUrl != null) {
