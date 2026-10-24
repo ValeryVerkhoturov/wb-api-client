@@ -171,10 +171,9 @@ def _javasnippet(snake: str, apis: list[str]) -> str:
     pkg = f"{JAVA_ROOT_PKG}.{snake}"
     return (
         f"import {pkg}.ApiClient;\n"
-        f"import {pkg}.SecretString;\n"
         f"import {pkg}.api.{api};\n\n"
         f"ApiClient client = new ApiClient();\n"
-        f'client.setBearerToken(new SecretString("<your WB JWT>"));\n'
+        f'client.setBearerToken("<your WB JWT>");\n'
         f"{api} api = new {api}(client);"
     )
 
@@ -184,11 +183,10 @@ def _phpsnippet(pascal: str, apis: list[str]) -> str:
     ns = f"ValeryVerkhoturov\\WbApiClient\\{pascal}"
     return (
         f"use {ns}\\Configuration;\n"
-        f"use {ns}\\SecretString;\n"
         f"use {ns}\\Api\\{api};\n"
         f"use GuzzleHttp\\Client;\n\n"
         f"$config = (new Configuration())\n"
-        f"    ->setAccessTokenSecret(new SecretString('<your WB JWT>'));\n"
+        f"    ->setAccessToken('<your WB JWT>');\n"
         f"$api = new {api}(new Client(), $config);"
     )
 
@@ -200,7 +198,7 @@ def _cssnippet(pascal: str, apis: list[str]) -> str:
         f"using {ns}.Api;\n"
         f"using {ns}.Client;\n\n"
         f"var config = new Configuration();\n"
-        f'config.AccessTokenSecret = new SecretString("<your WB JWT>");\n'
+        f'config.SetAccessToken("<your WB JWT>");\n'
         f"var api = new {api}(config);"
     )
 
@@ -359,10 +357,9 @@ def main() -> int:
             "expose_call": ".exposeSecret()",
             "lang_code": "java",
             "auth_snippet": (
-                "import io.github.valeryverkhoturov.wbapi.items.ApiClient;\n"
-                "import io.github.valeryverkhoturov.wbapi.items.SecretString;\n\n"
+                "import io.github.valeryverkhoturov.wbapi.items.ApiClient;\n\n"
                 "ApiClient client = new ApiClient();\n"
-                'client.setBearerToken(new SecretString("<your WB JWT>"));'
+                'client.setBearerToken("<your WB JWT>");'
             ),
             "import_prefix": f"{JAVA_ROOT_PKG}.",
         },
@@ -386,10 +383,9 @@ def main() -> int:
             "expose_call": "->exposeSecret()",
             "lang_code": "php",
             "auth_snippet": (
-                "use ValeryVerkhoturov\\WbApiClient\\Items\\Configuration;\n"
-                "use ValeryVerkhoturov\\WbApiClient\\Items\\SecretString;\n\n"
+                "use ValeryVerkhoturov\\WbApiClient\\Items\\Configuration;\n\n"
                 "$config = (new Configuration())\n"
-                "    ->setAccessTokenSecret(new SecretString('<your WB JWT>'));"
+                "    ->setAccessToken('<your WB JWT>');"
             ),
             "import_prefix": "ValeryVerkhoturov\\\\WbApiClient\\\\",
         },
@@ -413,7 +409,7 @@ def main() -> int:
             "auth_snippet": (
                 "using ValeryVerkhoturov.WbApiClient.Items.Client;\n\n"
                 "var config = new Configuration();\n"
-                'config.AccessTokenSecret = new SecretString("<your WB JWT>");'
+                'config.SetAccessToken("<your WB JWT>");'
             ),
             "import_prefix": "ValeryVerkhoturov.WbApiClient.",
         },

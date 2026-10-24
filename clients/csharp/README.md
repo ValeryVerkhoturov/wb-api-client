@@ -16,7 +16,7 @@ Every module accepts the same WB bearer JWT. The token is stored in a redacting 
 using ValeryVerkhoturov.WbApiClient.Items.Client;
 
 var config = new Configuration();
-config.AccessTokenSecret = new SecretString("<your WB JWT>");
+config.SetAccessToken("<your WB JWT>");
 ```
 
 ## Modules
@@ -65,7 +65,7 @@ using ValeryVerkhoturov.WbApiClient.General.Api;
 using ValeryVerkhoturov.WbApiClient.General.Client;
 
 var config = new Configuration();
-config.AccessTokenSecret = new SecretString("<your WB JWT>");
+config.SetAccessToken("<your WB JWT>");
 var api = new GeneralApi(config);
 ```
 
@@ -92,7 +92,7 @@ using ValeryVerkhoturov.WbApiClient.Items.Api;
 using ValeryVerkhoturov.WbApiClient.Items.Client;
 
 var config = new Configuration();
-config.AccessTokenSecret = new SecretString("<your WB JWT>");
+config.SetAccessToken("<your WB JWT>");
 var api = new ItemsApi(config);
 ```
 
@@ -118,7 +118,7 @@ using ValeryVerkhoturov.WbApiClient.OrdersFbs.Api;
 using ValeryVerkhoturov.WbApiClient.OrdersFbs.Client;
 
 var config = new Configuration();
-config.AccessTokenSecret = new SecretString("<your WB JWT>");
+config.SetAccessToken("<your WB JWT>");
 var api = new OrdersFbsApi(config);
 ```
 
@@ -139,7 +139,7 @@ using ValeryVerkhoturov.WbApiClient.OrdersDbw.Api;
 using ValeryVerkhoturov.WbApiClient.OrdersDbw.Client;
 
 var config = new Configuration();
-config.AccessTokenSecret = new SecretString("<your WB JWT>");
+config.SetAccessToken("<your WB JWT>");
 var api = new OrdersDbwApi(config);
 ```
 
@@ -160,7 +160,7 @@ using ValeryVerkhoturov.WbApiClient.Dbs.Api;
 using ValeryVerkhoturov.WbApiClient.Dbs.Client;
 
 var config = new Configuration();
-config.AccessTokenSecret = new SecretString("<your WB JWT>");
+config.SetAccessToken("<your WB JWT>");
 var api = new DbsApi(config);
 ```
 
@@ -179,7 +179,7 @@ using ValeryVerkhoturov.WbApiClient.InStorePickup.Api;
 using ValeryVerkhoturov.WbApiClient.InStorePickup.Client;
 
 var config = new Configuration();
-config.AccessTokenSecret = new SecretString("<your WB JWT>");
+config.SetAccessToken("<your WB JWT>");
 var api = new InStorePickupApi(config);
 ```
 
@@ -200,7 +200,7 @@ using ValeryVerkhoturov.WbApiClient.OrdersFbw.Api;
 using ValeryVerkhoturov.WbApiClient.OrdersFbw.Client;
 
 var config = new Configuration();
-config.AccessTokenSecret = new SecretString("<your WB JWT>");
+config.SetAccessToken("<your WB JWT>");
 var api = new OrdersFbwApi(config);
 ```
 
@@ -225,7 +225,7 @@ using ValeryVerkhoturov.WbApiClient.Promotion.Api;
 using ValeryVerkhoturov.WbApiClient.Promotion.Client;
 
 var config = new Configuration();
-config.AccessTokenSecret = new SecretString("<your WB JWT>");
+config.SetAccessToken("<your WB JWT>");
 var api = new PromotionApi(config);
 ```
 
@@ -251,7 +251,7 @@ using ValeryVerkhoturov.WbApiClient.Communications.Api;
 using ValeryVerkhoturov.WbApiClient.Communications.Client;
 
 var config = new Configuration();
-config.AccessTokenSecret = new SecretString("<your WB JWT>");
+config.SetAccessToken("<your WB JWT>");
 var api = new CommunicationsApi(config);
 ```
 
@@ -274,7 +274,7 @@ using ValeryVerkhoturov.WbApiClient.Rates.Api;
 using ValeryVerkhoturov.WbApiClient.Rates.Client;
 
 var config = new Configuration();
-config.AccessTokenSecret = new SecretString("<your WB JWT>");
+config.SetAccessToken("<your WB JWT>");
 var api = new RatesApi(config);
 ```
 
@@ -299,7 +299,7 @@ using ValeryVerkhoturov.WbApiClient.Analytics.Api;
 using ValeryVerkhoturov.WbApiClient.Analytics.Client;
 
 var config = new Configuration();
-config.AccessTokenSecret = new SecretString("<your WB JWT>");
+config.SetAccessToken("<your WB JWT>");
 var api = new AnalyticsApi(config);
 ```
 
@@ -327,7 +327,7 @@ using ValeryVerkhoturov.WbApiClient.Reports.Api;
 using ValeryVerkhoturov.WbApiClient.Reports.Client;
 
 var config = new Configuration();
-config.AccessTokenSecret = new SecretString("<your WB JWT>");
+config.SetAccessToken("<your WB JWT>");
 var api = new ReportsApi(config);
 ```
 
@@ -346,7 +346,7 @@ using ValeryVerkhoturov.WbApiClient.Finances.Api;
 using ValeryVerkhoturov.WbApiClient.Finances.Client;
 
 var config = new Configuration();
-config.AccessTokenSecret = new SecretString("<your WB JWT>");
+config.SetAccessToken("<your WB JWT>");
 var api = new FinancesApi(config);
 ```
 

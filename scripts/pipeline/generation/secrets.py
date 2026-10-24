@@ -246,31 +246,24 @@ def _java_secret_string(pkg: str) -> str:
     )
 
 
-_JAVA_APICLIENT_INSERT = (
-    "\n"
-    "    /**\n"
-    "     * Store the WB bearer JWT wrapped in a {@link SecretString} so it\n"
-    "     * redacts under toString(). Internally binds to the existing\n"
-    "     * Supplier&lt;String&gt; path via secret::exposeSecret.\n"
-    "     */\n"
-    "    public void setBearerToken(SecretString bearerToken) {\n"
-    "        setBearerToken(bearerToken::exposeSecret);\n"
+_JAVA_BEARER_DECL = (
+    "    public void setBearerToken(String bearerToken) {\n"
+    "        setBearerToken(() -> bearerToken);\n"
+    "    }\n"
+)
+
+_JAVA_BEARER_REPLACEMENT = (
+    "    public void setBearerToken(String bearerToken) {\n"
+    "        SecretString secret = new SecretString(bearerToken);\n"
+    "        setBearerToken(secret::exposeSecret);\n"
     "    }\n"
 )
 
 
 def patch_java_apiclient(text: str) -> str:
-    if "setBearerToken(SecretString" in text:
+    if "new SecretString(bearerToken)" in text:
         return text
-    text = re.sub(
-        r"(public void setBearerToken\(String bearerToken\) \{\n"
-        r"        setBearerToken\(\(\) -> bearerToken\);\n"
-        r"    \}\n)",
-        r"\1" + _JAVA_APICLIENT_INSERT,
-        text,
-        count=1,
-    )
-    return text
+    return text.replace(_JAVA_BEARER_DECL, _JAVA_BEARER_REPLACEMENT, 1)
 
 
 def patch_java(root: Path) -> int:
@@ -329,18 +322,14 @@ def _php_secret_string(ns: str) -> str:
     )
 
 
-_PHP_SETTER_METHOD = """
-    /**
-     * Store the WB bearer JWT wrapped in a {@link SecretString} so it
-     * redacts under __toString/var_dump. Internally forwards to
-     * setAccessToken() with the exposed value.
-     */
-    public function setAccessTokenSecret(SecretString $secret): self
-    {
-        $this->setAccessToken($secret->exposeSecret());
-        return $this;
-    }
-"""
+_PHP_ACCESS_TOKEN_PROPERTY = "    protected $accessToken = '';"
+_PHP_ACCESS_TOKEN_PROPERTY_PATCHED = "    protected $accessToken;"
+_PHP_ACCESS_TOKEN_SETTER = "        $this->accessToken = $accessToken;"
+_PHP_ACCESS_TOKEN_SETTER_PATCHED = (
+    "        $this->accessToken = new SecretString($accessToken);"
+)
+_PHP_ACCESS_TOKEN_GETTER = "        return $this->accessToken;"
+_PHP_ACCESS_TOKEN_GETTER_PATCHED = "        return $this->accessToken?->exposeSecret();"
 
 
 def patch_php_configuration(text: str) -> str:
@@ -358,11 +347,23 @@ def patch_php_configuration(text: str) -> str:
         count=1,
     )
 
-    if "setAccessTokenSecret" not in text:
-        text = re.sub(
-            r"(\n})\s*\Z",
-            _PHP_SETTER_METHOD + r"\1",
-            text,
+    if _PHP_ACCESS_TOKEN_SETTER_PATCHED.strip() not in text:
+        text = text.replace(
+            "     * @var string\n     */\n" + _PHP_ACCESS_TOKEN_PROPERTY,
+            "     * @var SecretString|null\n     */\n"
+            + _PHP_ACCESS_TOKEN_PROPERTY_PATCHED,
+            1,
+        )
+        text = text.replace(
+            _PHP_ACCESS_TOKEN_SETTER, _PHP_ACCESS_TOKEN_SETTER_PATCHED, 1
+        )
+        text = text.replace(
+            "     * @return string Access token for OAuth",
+            "     * @return string|null Access token for OAuth",
+            1,
+        )
+        text = text.replace(
+            _PHP_ACCESS_TOKEN_GETTER, _PHP_ACCESS_TOKEN_GETTER_PATCHED, 1
         )
     return text
 
@@ -424,32 +425,40 @@ _CS_ACCESS_TOKEN_DECL = "        public virtual string AccessToken { get; set; }
 _CS_ACCESS_TOKEN_REPLACEMENT = """        private SecretString _accessToken = new SecretString(string.Empty);
 
         /// <summary>
-        /// Gets or sets the access token in a redacting wrapper.
+        /// Stores the WB bearer JWT in a redacting wrapper.
         /// </summary>
         /// <remarks>
-        /// Prefer this over <see cref="AccessToken"/>: printing a SecretString
-        /// yields "&lt;REDACTED&gt;" rather than the token.
+        /// There is deliberately no getter on Configuration: the token leaves
+        /// the wrapper only through the explicit IReadableConfiguration member
+        /// that the generated Api classes consume internally.
         /// </remarks>
-        public virtual SecretString AccessTokenSecret
+        /// <param name="token">The access token.</param>
+        public virtual void SetAccessToken(string token)
         {
-            get => _accessToken;
-            set => _accessToken = value ?? new SecretString(string.Empty);
+            _accessToken = new SecretString(token ?? string.Empty);
         }
 
-        /// <summary>
-        /// Gets or sets the access token as a raw string.
-        /// </summary>
-        /// <value>The access token.</value>
-        public virtual string AccessToken
-        {
-            get => _accessToken.ExposeSecret();
-            set => _accessToken = new SecretString(value);
-        }"""
+        string IReadableConfiguration.AccessToken => _accessToken.ExposeSecret();"""
+
+_CS_MERGE_TOKEN_LINE = (
+    "                AccessToken = second.AccessToken ?? first.AccessToken,\n"
+)
+_CS_MERGE_RETURN = "            };\n            return config;"
+_CS_MERGE_RETURN_PATCHED = (
+    "            };\n"
+    "            config.SetAccessToken(second.AccessToken ?? first.AccessToken);\n"
+    "            return config;"
+)
 
 
 def patch_csharp_configuration(text: str) -> str:
-    if _CS_ACCESS_TOKEN_DECL in text:
+    if (
+        "public virtual void SetAccessToken(" not in text
+        and _CS_ACCESS_TOKEN_DECL in text
+    ):
         text = text.replace(_CS_ACCESS_TOKEN_DECL, _CS_ACCESS_TOKEN_REPLACEMENT, 1)
+        text = text.replace(_CS_MERGE_TOKEN_LINE, "", 1)
+        text = text.replace(_CS_MERGE_RETURN, _CS_MERGE_RETURN_PATCHED, 1)
 
     text = re.sub(
         r'UserAgent = WebUtility\.UrlEncode\("[^"]*"\);',

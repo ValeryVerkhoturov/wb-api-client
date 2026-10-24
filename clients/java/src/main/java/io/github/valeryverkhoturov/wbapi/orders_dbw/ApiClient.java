@@ -380,15 +380,8 @@ public class ApiClient {
    * @param bearerToken Bearer token
    */
   public void setBearerToken(String bearerToken) {
-    setBearerToken(() -> bearerToken);
-  }
-
-  /**
-   * Store the WB bearer JWT wrapped in a {@link SecretString} so it redacts under toString().
-   * Internally binds to the existing Supplier&lt;String&gt; path via secret::exposeSecret.
-   */
-  public void setBearerToken(SecretString bearerToken) {
-    setBearerToken(bearerToken::exposeSecret);
+    SecretString secret = new SecretString(bearerToken);
+    setBearerToken(secret::exposeSecret);
   }
 
   /**

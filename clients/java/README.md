@@ -18,10 +18,9 @@ Every module accepts the same WB bearer JWT. The token is stored in a redacting 
 
 ```java
 import io.github.valeryverkhoturov.wbapi.items.ApiClient;
-import io.github.valeryverkhoturov.wbapi.items.SecretString;
 
 ApiClient client = new ApiClient();
-client.setBearerToken(new SecretString("<your WB JWT>"));
+client.setBearerToken("<your WB JWT>");
 ```
 
 ## Modules
@@ -67,11 +66,10 @@ Each row below is a sub-module you can import independently. Import path is `io.
 
 ```java
 import io.github.valeryverkhoturov.wbapi.general.ApiClient;
-import io.github.valeryverkhoturov.wbapi.general.SecretString;
 import io.github.valeryverkhoturov.wbapi.general.api.GeneralApi;
 
 ApiClient client = new ApiClient();
-client.setBearerToken(new SecretString("<your WB JWT>"));
+client.setBearerToken("<your WB JWT>");
 GeneralApi api = new GeneralApi(client);
 ```
 
@@ -95,11 +93,10 @@ GeneralApi api = new GeneralApi(client);
 
 ```java
 import io.github.valeryverkhoturov.wbapi.items.ApiClient;
-import io.github.valeryverkhoturov.wbapi.items.SecretString;
 import io.github.valeryverkhoturov.wbapi.items.api.ItemsApi;
 
 ApiClient client = new ApiClient();
-client.setBearerToken(new SecretString("<your WB JWT>"));
+client.setBearerToken("<your WB JWT>");
 ItemsApi api = new ItemsApi(client);
 ```
 
@@ -122,11 +119,10 @@ ItemsApi api = new ItemsApi(client);
 
 ```java
 import io.github.valeryverkhoturov.wbapi.orders_fbs.ApiClient;
-import io.github.valeryverkhoturov.wbapi.orders_fbs.SecretString;
 import io.github.valeryverkhoturov.wbapi.orders_fbs.api.OrdersFbsApi;
 
 ApiClient client = new ApiClient();
-client.setBearerToken(new SecretString("<your WB JWT>"));
+client.setBearerToken("<your WB JWT>");
 OrdersFbsApi api = new OrdersFbsApi(client);
 ```
 
@@ -144,11 +140,10 @@ OrdersFbsApi api = new OrdersFbsApi(client);
 
 ```java
 import io.github.valeryverkhoturov.wbapi.orders_dbw.ApiClient;
-import io.github.valeryverkhoturov.wbapi.orders_dbw.SecretString;
 import io.github.valeryverkhoturov.wbapi.orders_dbw.api.OrdersDbwApi;
 
 ApiClient client = new ApiClient();
-client.setBearerToken(new SecretString("<your WB JWT>"));
+client.setBearerToken("<your WB JWT>");
 OrdersDbwApi api = new OrdersDbwApi(client);
 ```
 
@@ -166,11 +161,10 @@ OrdersDbwApi api = new OrdersDbwApi(client);
 
 ```java
 import io.github.valeryverkhoturov.wbapi.dbs.ApiClient;
-import io.github.valeryverkhoturov.wbapi.dbs.SecretString;
 import io.github.valeryverkhoturov.wbapi.dbs.api.DbsApi;
 
 ApiClient client = new ApiClient();
-client.setBearerToken(new SecretString("<your WB JWT>"));
+client.setBearerToken("<your WB JWT>");
 DbsApi api = new DbsApi(client);
 ```
 
@@ -186,11 +180,10 @@ DbsApi api = new DbsApi(client);
 
 ```java
 import io.github.valeryverkhoturov.wbapi.in_store_pickup.ApiClient;
-import io.github.valeryverkhoturov.wbapi.in_store_pickup.SecretString;
 import io.github.valeryverkhoturov.wbapi.in_store_pickup.api.InStorePickupApi;
 
 ApiClient client = new ApiClient();
-client.setBearerToken(new SecretString("<your WB JWT>"));
+client.setBearerToken("<your WB JWT>");
 InStorePickupApi api = new InStorePickupApi(client);
 ```
 
@@ -208,11 +201,10 @@ InStorePickupApi api = new InStorePickupApi(client);
 
 ```java
 import io.github.valeryverkhoturov.wbapi.orders_fbw.ApiClient;
-import io.github.valeryverkhoturov.wbapi.orders_fbw.SecretString;
 import io.github.valeryverkhoturov.wbapi.orders_fbw.api.OrdersFbwApi;
 
 ApiClient client = new ApiClient();
-client.setBearerToken(new SecretString("<your WB JWT>"));
+client.setBearerToken("<your WB JWT>");
 OrdersFbwApi api = new OrdersFbwApi(client);
 ```
 
@@ -234,11 +226,10 @@ OrdersFbwApi api = new OrdersFbwApi(client);
 
 ```java
 import io.github.valeryverkhoturov.wbapi.promotion.ApiClient;
-import io.github.valeryverkhoturov.wbapi.promotion.SecretString;
 import io.github.valeryverkhoturov.wbapi.promotion.api.PromotionApi;
 
 ApiClient client = new ApiClient();
-client.setBearerToken(new SecretString("<your WB JWT>"));
+client.setBearerToken("<your WB JWT>");
 PromotionApi api = new PromotionApi(client);
 ```
 
@@ -261,11 +252,10 @@ PromotionApi api = new PromotionApi(client);
 
 ```java
 import io.github.valeryverkhoturov.wbapi.communications.ApiClient;
-import io.github.valeryverkhoturov.wbapi.communications.SecretString;
 import io.github.valeryverkhoturov.wbapi.communications.api.CommunicationsApi;
 
 ApiClient client = new ApiClient();
-client.setBearerToken(new SecretString("<your WB JWT>"));
+client.setBearerToken("<your WB JWT>");
 CommunicationsApi api = new CommunicationsApi(client);
 ```
 
@@ -285,11 +275,10 @@ CommunicationsApi api = new CommunicationsApi(client);
 
 ```java
 import io.github.valeryverkhoturov.wbapi.rates.ApiClient;
-import io.github.valeryverkhoturov.wbapi.rates.SecretString;
 import io.github.valeryverkhoturov.wbapi.rates.api.RatesApi;
 
 ApiClient client = new ApiClient();
-client.setBearerToken(new SecretString("<your WB JWT>"));
+client.setBearerToken("<your WB JWT>");
 RatesApi api = new RatesApi(client);
 ```
 
@@ -311,11 +300,10 @@ RatesApi api = new RatesApi(client);
 
 ```java
 import io.github.valeryverkhoturov.wbapi.analytics.ApiClient;
-import io.github.valeryverkhoturov.wbapi.analytics.SecretString;
 import io.github.valeryverkhoturov.wbapi.analytics.api.AnalyticsApi;
 
 ApiClient client = new ApiClient();
-client.setBearerToken(new SecretString("<your WB JWT>"));
+client.setBearerToken("<your WB JWT>");
 AnalyticsApi api = new AnalyticsApi(client);
 ```
 
@@ -340,11 +328,10 @@ AnalyticsApi api = new AnalyticsApi(client);
 
 ```java
 import io.github.valeryverkhoturov.wbapi.reports.ApiClient;
-import io.github.valeryverkhoturov.wbapi.reports.SecretString;
 import io.github.valeryverkhoturov.wbapi.reports.api.ReportsApi;
 
 ApiClient client = new ApiClient();
-client.setBearerToken(new SecretString("<your WB JWT>"));
+client.setBearerToken("<your WB JWT>");
 ReportsApi api = new ReportsApi(client);
 ```
 
@@ -360,11 +347,10 @@ ReportsApi api = new ReportsApi(client);
 
 ```java
 import io.github.valeryverkhoturov.wbapi.finances.ApiClient;
-import io.github.valeryverkhoturov.wbapi.finances.SecretString;
 import io.github.valeryverkhoturov.wbapi.finances.api.FinancesApi;
 
 ApiClient client = new ApiClient();
-client.setBearerToken(new SecretString("<your WB JWT>"));
+client.setBearerToken("<your WB JWT>");
 FinancesApi api = new FinancesApi(client);
 ```
 

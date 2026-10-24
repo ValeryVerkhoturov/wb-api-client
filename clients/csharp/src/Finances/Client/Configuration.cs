@@ -413,27 +413,20 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Client
         private SecretString _accessToken = new SecretString(string.Empty);
 
         /// <summary>
-        /// Gets or sets the access token in a redacting wrapper.
+        /// Stores the WB bearer JWT in a redacting wrapper.
         /// </summary>
         /// <remarks>
-        /// Prefer this over <see cref="AccessToken"/>: printing a SecretString
-        /// yields "&lt;REDACTED&gt;" rather than the token.
+        /// There is deliberately no getter on Configuration: the token leaves
+        /// the wrapper only through the explicit IReadableConfiguration member
+        /// that the generated Api classes consume internally.
         /// </remarks>
-        public virtual SecretString AccessTokenSecret
+        /// <param name="token">The access token.</param>
+        public virtual void SetAccessToken(string token)
         {
-            get => _accessToken;
-            set => _accessToken = value ?? new SecretString(string.Empty);
+            _accessToken = new SecretString(token ?? string.Empty);
         }
 
-        /// <summary>
-        /// Gets or sets the access token as a raw string.
-        /// </summary>
-        /// <value>The access token.</value>
-        public virtual string AccessToken
-        {
-            get => _accessToken.ExposeSecret();
-            set => _accessToken = new SecretString(value);
-        }
+        string IReadableConfiguration.AccessToken => _accessToken.ExposeSecret();
 
         /// <summary>
         /// Gets or sets the temporary folder path to store the files downloaded from the server.
@@ -753,13 +746,13 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Client
                 UserAgent = second.UserAgent ?? first.UserAgent,
                 Username = second.Username ?? first.Username,
                 Password = second.Password ?? first.Password,
-                AccessToken = second.AccessToken ?? first.AccessToken,
                 TempFolderPath = second.TempFolderPath ?? first.TempFolderPath,
                 DateTimeFormat = second.DateTimeFormat ?? first.DateTimeFormat,
                 ClientCertificates = second.ClientCertificates ?? first.ClientCertificates,
                 UseDefaultCredentials = second.UseDefaultCredentials,
                 RemoteCertificateValidationCallback = second.RemoteCertificateValidationCallback ?? first.RemoteCertificateValidationCallback,
             };
+            config.SetAccessToken(second.AccessToken ?? first.AccessToken);
             return config;
         }
         #endregion Static Members

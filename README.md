@@ -83,11 +83,10 @@ client := wbitems.NewAPIClient(cfg)
 ```
 ```java
 import io.github.valeryverkhoturov.wbapi.items.ApiClient;
-import io.github.valeryverkhoturov.wbapi.items.SecretString;
 import io.github.valeryverkhoturov.wbapi.items.api.ItemsApi;
 
 ApiClient client = new ApiClient();
-client.setBearerToken(new SecretString("<your WB JWT>"));
+client.setBearerToken("<your WB JWT>");
 ItemsApi api = new ItemsApi(client);
 ```
 
@@ -97,12 +96,11 @@ composer require valeryverkhoturov/wb-api-client
 ```
 ```php
 use ValeryVerkhoturov\WbApiClient\Items\Configuration;
-use ValeryVerkhoturov\WbApiClient\Items\SecretString;
 use ValeryVerkhoturov\WbApiClient\Items\Api\ItemsApi;
 use GuzzleHttp\Client;
 
 $config = (new Configuration())
-    ->setAccessTokenSecret(new SecretString('<your WB JWT>'));
+    ->setAccessToken('<your WB JWT>');
 $api = new ItemsApi(new Client(), $config);
 ```
 
@@ -115,7 +113,7 @@ using ValeryVerkhoturov.WbApiClient.Items.Api;
 using ValeryVerkhoturov.WbApiClient.Items.Client;
 
 var config = new Configuration();
-config.AccessTokenSecret = new SecretString("<your WB JWT>");
+config.SetAccessToken("<your WB JWT>");
 var api = new ItemsApi(config);
 ```
 
@@ -159,9 +157,9 @@ In every language the bearer JWT is stored inside a "secret-string" wrapper so i
 | Python | [`pydantic.SecretStr`](https://docs.pydantic.dev/latest/api/types/#pydantic.types.SecretStr) | `print(cfg.access_token)` → `**********` | `.get_secret_value()` |
 | TypeScript | `SecretString` class (internal, exposed) | `console.log(new SecretString("…"))` → `<REDACTED>` | `.exposeSecret()` |
 | Go | [`secrecy.SecretString`](https://github.com/negrel/secrecy) | `fmt.Printf("%v", cfg.AccessToken)` → `<!SECRET_LEAKED!>` | `.ExposeSecret()` |
-| Java | `SecretString` class (per sub-module) | `System.out.println(s)` → `<REDACTED>` | `.exposeSecret()` |
-| PHP | `SecretString` class (per sub-module) | `var_dump($secret)` → `'<REDACTED>'` | `->exposeSecret()` |
-| C# | `SecretString` class (per namespace) | `Console.WriteLine(cfg.AccessTokenSecret)` → `<REDACTED>` | `.ExposeSecret()` |
+| Java | `SecretString` class (internal, per sub-module) | the token never prints with the client | not exposed |
+| PHP | `SecretString` class (internal, per sub-module) | `var_dump($config)` → `'<REDACTED>'` | `->getAccessToken()` |
+| C# | `SecretString` class (per namespace, private field) | no getter on `Configuration` — set via `SetAccessToken()` only | not exposed |
 | OneScript | `СекретнаяСтрока` class | `Сообщить(Настройки.Токен())` → `СекретнаяСтрока` | `.Раскрыть()` |
 
 Passing the token through the wrapper is the only supported path.
@@ -195,17 +193,6 @@ otherwise a fresh `git clone --recurse-submodules` fails on a ref the sibling ha
 never seen.
 
 Each language branch in `publish.yml` regenerates its clients from the just-updated specs and pushes to its registry. Publish credentials live in GitHub Environments (`pypi`, `npm`, `maven-central`) and Actions secrets:
-
-| Environment | Required secrets |
-|---|---|
-| `pypi` | none — set up [PyPI trusted publishing](https://docs.pypi.org/trusted-publishers/) for the `valeryverkhoturov-wb-api-client` project |
-| `npm` | `NPM_TOKEN` (automation token) |
-| `maven-central` | `MAVEN_USERNAME`, `MAVEN_PASSWORD`, `MAVEN_GPG_PRIVATE_KEY`, `MAVEN_GPG_PASSPHRASE` |
-| `packagist` | `PACKAGIST_USERNAME`, `PACKAGIST_API_TOKEN` — package must be pre-registered at [packagist.org/packages/submit](https://packagist.org/packages/submit) |
-| Go | none — tags in this repo are the release mechanism |
-| `nuget` | `NUGET_API_KEY` — API key from nuget.org for `ValeryVerkhoturov.WbApiClient` |
-| `onescript` | `OSCRIPT_HUB_TOKEN` — a GitHub token; [hub.oscript.io](https://hub.oscript.io) uses it to verify the pusher (no scopes needed), and the package must be pre-registered there |
-| — (repo-level) | `SIBLING_REPO_TOKEN` — PAT with `repo` scope on **both** `wb-api-client-php` and `wb-api-client-1c`, used to push their commits and tags |
 
 ## License
 
