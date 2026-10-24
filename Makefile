@@ -1,5 +1,5 @@
 VERSION ?= 0.0.0.dev0
-SUBMODULES := php onescript go
+SUBMODULES := php onescript go rust
 DOCS ?= ../wb-api-client-docs
 PY := $(shell test -x .venv/bin/python && echo .venv/bin/python || echo python3)
 GO_DOCKER   = docker run --rm -u $$(id -u):$$(id -g) \
@@ -22,13 +22,21 @@ DOTNET_DOCKER = docker run --rm -u $$(id -u):$$(id -g) \
                 -e HOME=/tmp -e DOTNET_CLI_TELEMETRY_OPTOUT=1 -e DOTNET_NOLOGO=1 \
                 -e NUGET_PACKAGES=/tmp/.nuget \
                 mcr.microsoft.com/dotnet/sdk:8.0
+RUST_DOCKER = docker run --rm -u $$(id -u):$$(id -g) \
+                -v $(CURDIR)/clients/rust:/app -w /app \
+                -e HOME=/tmp -e CARGO_HOME=/tmp/.cargo \
+                -e CARGO_TARGET_DIR=/tmp/.cargo-target \
+                rust:1.98-slim
+RUSTFMT_DOCKER = docker run --rm \
+                -v $(CURDIR)/clients/rust:/app -w /app \
+                rust:1.98-slim sh -c
 
 .DEFAULT_GOAL := help
 .PHONY: help venv download post-process generate regen reference \
         verify verify-python verify-ts verify-go verify-java verify-php \
         verify-csharp \
-        verify-onescript \
-        gofmt black prettier spotless php-cs-fixer dotnet-format clean \
+        verify-onescript verify-rust \
+        gofmt black prettier spotless php-cs-fixer dotnet-format rustfmt clean \
         git-status git-commit git-push git-pull check-submodules
 
 # ── help ──────────────────────────────────────────────────────────────────
@@ -70,7 +78,7 @@ scripts-check: ## Smoke-check the pipeline kernel and ban `#` comments under scr
 	PYTHONPATH=scripts $(PY) -m pipeline.core.selfcheck
 	PYTHONPATH=scripts $(PY) -m pipeline.core.commentcheck
 
-verify: scripts-check verify-python verify-ts verify-go verify-java verify-php verify-csharp verify-onescript gofmt black prettier spotless php-cs-fixer dotnet-format ## Build every language + fmt checks
+verify: scripts-check verify-python verify-ts verify-go verify-java verify-php verify-csharp verify-onescript verify-rust gofmt black prettier spotless php-cs-fixer dotnet-format rustfmt ## Build every language + fmt checks
 
 verify-python: ## Build the Python wheel and import every sub-module
 	@echo "── Python ─────────────────────────────────────"
@@ -118,6 +126,18 @@ verify-onescript: ## Compile-check every OneScript module + load the package
 	@# No formatter step: the generator emits its own canonical layout and
 	@# OneScript has no community formatter to canonicalize against.
 	$(PY) scripts/verify-onescript.py
+
+verify-rust: ## cargo build the whole crate
+	@echo "── Rust ───────────────────────────────────────"
+	$(RUST_DOCKER) cargo build
+	@echo "  ✓ cargo build OK"
+
+rustfmt: ## Fail if any Rust file needs `cargo fmt`
+	@# Runs as root inside the container: rustup component add needs write
+	@# access to /usr/local/rustup, which the -u flag would deny. The slim
+	@# image ships no rustfmt, so it is installed on each run.
+	@$(RUSTFMT_DOCKER) "rustup component add rustfmt >/dev/null 2>&1 && cargo fmt -- --check" \
+	  && echo "  ✓ rustfmt clean"
 
 dotnet-format: ## Fail if any C# file needs `dotnet format`
 	@# Whitespace only: the generator's own output does not follow every
@@ -237,4 +257,6 @@ clean: ## Remove generated clients/, processed swaggers, local scratch
 	@# go.sum (go.mod is overwritten from templates/, README.md by
 	@# generate-readmes.py). The mount's .git gitfile and LICENSE survive.
 	rm -rf clients/go/*/ clients/go/go.sum
+	@# Rust: single crate — src/ (covered by the loop above) + manifests.
+	rm -f clients/rust/Cargo.toml clients/rust/Cargo.lock
 	rm -rf swaggers/processed/ .venv/ .cache/

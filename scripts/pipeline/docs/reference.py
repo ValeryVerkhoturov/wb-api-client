@@ -29,7 +29,7 @@ yaml = safe_yaml()
 
 HTTP_METHODS = ("get", "post", "put", "patch", "delete")
 
-LANGS = ("python", "typescript", "go", "java", "php", "onescript", "csharp")
+LANGS = ("python", "typescript", "go", "java", "php", "onescript", "csharp", "rust")
 
 LANG_LABELS = {
     "python": ("Python", "python"),
@@ -39,6 +39,7 @@ LANG_LABELS = {
     "php": ("PHP", "php"),
     "onescript": ("OneScript", "bsl"),
     "csharp": ("C#", "csharp"),
+    "rust": ("Rust", "rust"),
 }
 
 WB_DOCS = "https://dev.wildberries.ru/en/docs/openapi"
@@ -461,6 +462,24 @@ def bind_onescript(root: Path, slug: str) -> dict[str, Binding]:
     return out
 
 
+def bind_rust(root: Path, slug: str) -> dict[str, Binding]:
+    out: dict[str, Binding] = {}
+    api_dir = root / "clients/rust" / "src" / snake_slug(slug) / "apis"
+    for f in sorted(api_dir.glob("*.rs")):
+        if f.stem in ("mod", "configuration"):
+            continue
+        text = _read(f)
+        for m in re.finditer(r"^pub async fn (\w+)\(", text, re.M):
+            sig, _ = _signature(text, m.end() - 1)
+            args = []
+            for p in _split_params(sig):
+                name = p.split(":", 1)[0].strip()
+                if name and name != "configuration":
+                    args.append(name)
+            out.setdefault(m.group(1), Binding(f.stem, m.group(1), args))
+    return out
+
+
 BINDERS = {
     "python": (bind_python, snake_case),
     "typescript": (bind_typescript, camel_case),
@@ -469,6 +488,7 @@ BINDERS = {
     "php": (bind_php, camel_case),
     "onescript": (bind_onescript, pascal_case),
     "csharp": (bind_csharp, pascal_case),
+    "rust": (bind_rust, snake_case),
 }
 
 
@@ -582,6 +602,21 @@ def snippet_csharp(op: Operation, b: Binding, locale: str) -> str:
     )
 
 
+def snippet_rust(op: Operation, b: Binding, locale: str) -> str:
+    module = f"wb_api_client::{snake_slug(op.module)}"
+    call = "".join(f", {a}" for a in b.args)
+    return (
+        f"use {module}::apis::{{configuration::Configuration, {b.cls}}};\n\n"
+        f"#[tokio::main]\n"
+        f"async fn main() {{\n"
+        f"    let mut cfg = Configuration::new();\n"
+        f'    cfg.set_access_token("{TOKEN[locale]}");\n\n'
+        f"    let result = {b.cls}::{b.method}(&cfg{call}).await;\n"
+        f'    println!("{{:#?}}", result);\n'
+        f"}}"
+    )
+
+
 def render_examples(
     root: Path,
     op: Operation,
@@ -618,6 +653,8 @@ def render_examples(
             code = snippet_php(op, binding, locale)
         elif lang == "onescript":
             code = snippet_onescript(op, binding, locale)
+        elif lang == "rust":
+            code = snippet_rust(op, binding, locale)
         else:
             code = snippet_csharp(op, binding, locale)
 

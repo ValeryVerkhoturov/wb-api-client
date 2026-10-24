@@ -238,6 +238,33 @@ jobs:
             git push origin "${{ steps.version.outputs.tag }}"
           fi
 
+      - name: Commit Rust submodule (separate repo)
+        if: steps.diff.outputs.changed == 'true' || inputs.force
+        working-directory: clients/rust
+        run: |
+          git config user.name "wb-api-client-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git fetch origin main
+          if ! git diff --quiet || [ -n "$(git ls-files --others --exclude-standard)" ]; then
+            git stash push -u -m "regen"
+            git checkout -B main origin/main
+            git stash pop
+          else
+            git checkout -B main origin/main
+          fi
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No Rust changes to commit"
+          else
+            git commit -m "chore(release): regenerate at ${{ steps.version.outputs.version }}"
+            git push origin main
+          fi
+          # Idempotent tag: skip if identical tag already exists.
+          if ! git rev-parse "${{ steps.version.outputs.tag }}" >/dev/null 2>&1; then
+            git tag -a "${{ steps.version.outputs.tag }}" -m "Release ${{ steps.version.outputs.tag }}"
+            git push origin "${{ steps.version.outputs.tag }}"
+          fi
+
       - name: Commit specs + generated clients + submodule pointer, push tag
         if: steps.diff.outputs.changed == 'true' || inputs.force
         run: |
@@ -317,6 +344,7 @@ jobs:
           composer require valeryverkhoturov/wb-api-client:__VERSION__
           dotnet add package ValeryVerkhoturov.WbApiClient --version __VERSION__
           opm install wb-api-client@__VERSION__
+          cargo add wb-api-client@__VERSION__
           ```
 
           Java (Maven):
@@ -337,6 +365,7 @@ jobs:
           - [Packagist](https://packagist.org/packages/valeryverkhoturov/wb-api-client#__VERSION__)
           - [NuGet](https://www.nuget.org/packages/ValeryVerkhoturov.WbApiClient/__VERSION__)
           - [hub.oscript.io](https://hub.oscript.io/pools/default/packages/wb-api-client)
+          - [crates.io](https://crates.io/crates/wb-api-client/__VERSION__)
 
           ## Документация
 
@@ -370,7 +399,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        lang: [python, typescript, go, java, php, onescript, csharp]
+        lang: [python, typescript, go, java, php, onescript, csharp, rust]
     steps:
       - name: Dispatch publish.yml for ${{ matrix.lang }}
         env:

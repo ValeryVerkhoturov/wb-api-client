@@ -539,6 +539,105 @@ def patch_csharp(root: Path) -> int:
     return n
 
 
+_RUST_SECRET_STRING = """/// Wrapper around a bearer JWT that redacts under Debug and Display.
+/// Call [`SecretString::expose_secret`] to get the raw value — deliberately
+/// awkward so accidental leaks (logs, `println!("{:?}", config)`) become explicit.
+#[derive(Clone)]
+pub struct SecretString(String);
+
+impl SecretString {
+    pub fn new<S: Into<String>>(value: S) -> Self {
+        SecretString(value.into())
+    }
+
+    pub fn expose_secret(&self) -> &str {
+        &self.0
+    }
+}
+
+impl std::fmt::Debug for SecretString {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.write_str("<REDACTED>")
+    }
+}
+
+impl std::fmt::Display for SecretString {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.write_str("<REDACTED>")
+    }
+}
+
+"""
+
+_RUST_SETTER = """
+    /// Store the WB bearer JWT wrapped in a [`SecretString`] so it redacts
+    /// under Debug/Display; the raw value leaves only via `expose_secret()`.
+    pub fn set_access_token(&mut self, token: &str) {
+        self.bearer_access_token = Some(SecretString::new(token));
+    }
+"""
+
+
+def patch_rust_configuration(text: str) -> str:
+    if "pub struct SecretString" not in text:
+        text = re.sub(
+            r"(#\[derive\(Debug, Clone\)\]\npub struct Configuration \{)",
+            _RUST_SECRET_STRING + r"\1",
+            text,
+            count=1,
+        )
+        text = text.replace(
+            "pub bearer_access_token: Option<String>,",
+            "pub bearer_access_token: Option<SecretString>,",
+            1,
+        )
+        text = re.sub(
+            r"(impl Configuration \{\n    pub fn new\(\) -> Configuration \{\n"
+            r"        Configuration::default\(\)\n    \}\n)",
+            r"\1" + _RUST_SETTER,
+            text,
+            count=1,
+        )
+
+    text = re.sub(
+        r'user_agent: Some\("OpenAPI-Generator/[^"]*"\.to_owned\(\)\)',
+        'user_agent: Some("ValeryVerkhoturov/wb-api-client/rust".to_owned())',
+        text,
+        count=1,
+    )
+    return text
+
+
+def patch_rust_api(text: str) -> str:
+    return text.replace(
+        ".bearer_auth(local_var_token.to_owned())",
+        ".bearer_auth(local_var_token.expose_secret())",
+    )
+
+
+def patch_rust(root: Path) -> int:
+    src = root / "src"
+    if not src.is_dir():
+        return 0
+    n = 0
+    for sub in sorted(p for p in src.iterdir() if p.is_dir()):
+        apis = sub / "apis"
+        if not apis.is_dir():
+            continue
+        cfg = apis / "configuration.rs"
+        if cfg.exists():
+            cfg.write_text(patch_rust_configuration(cfg.read_text()))
+        for source in sorted(apis.glob("*.rs")):
+            if source.name in ("configuration.rs", "mod.rs"):
+                continue
+            text = source.read_text()
+            patched = patch_rust_api(text)
+            if patched != text:
+                source.write_text(patched)
+        n += 1
+    return n
+
+
 def main() -> int:
     if len(sys.argv) != 2:
         sys.stderr.write("usage: inject-secrets.py <clients dir>\n")
@@ -560,6 +659,8 @@ def main() -> int:
     print(f"  patched {ph} PHP sub-modules       (SecretString class)")
     cs = patch_csharp(clients / "csharp")
     print(f"  patched {cs} C# sub-namespaces    (SecretString class)")
+    rs = patch_rust(clients / "rust")
+    print(f"  patched {rs} Rust modules         (SecretString struct)")
     return 0
 
 

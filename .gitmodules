@@ -10,3 +10,7 @@
 	path = clients/go
 	url = https://github.com/ValeryVerkhoturov/wb-api-client-go.git
 	branch = main
+[submodule "clients/rust"]
+	path = clients/rust
+	url = https://github.com/ValeryVerkhoturov/wb-api-client-rust.git
+	branch = main

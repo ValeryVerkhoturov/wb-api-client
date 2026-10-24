@@ -92,6 +92,17 @@ jobs:
           dotnet build -v q --nologo
           dotnet format whitespace --verify-no-changes --no-restore -v q
 
+      - name: rustfmt is clean
+        run: |
+          docker run --rm -v "$PWD/clients/rust:/app" -w /app rust:1.98-slim \
+            sh -c "rustup component add rustfmt >/dev/null 2>&1 && cargo fmt -- --check"
+
+      - name: Rust crate builds
+        run: |
+          docker run --rm -u $(id -u):$(id -g) -v "$PWD/clients/rust:/app" -w /app \
+            -e CARGO_HOME=/tmp/.cargo -e CARGO_TARGET_DIR=/tmp/.cargo-target \
+            rust:1.98-slim cargo build
+
       - name: OneScript compiles
         run: ./scripts/verify-onescript.py
 
@@ -104,7 +115,7 @@ jobs:
           # Also capture drift inside each submodule. `git add -AN` records
           # intent-to-add so brand-new files (e.g. a new API category) show up
           # in `git diff`, which otherwise only reports tracked files.
-          for sub in php onescript go; do
+          for sub in php onescript go rust; do
             (cd "clients/${sub}" && git add -AN && git diff --stat) >> /tmp/diff.stat
             (cd "clients/${sub}" && git diff) >> /tmp/diff.full
           done

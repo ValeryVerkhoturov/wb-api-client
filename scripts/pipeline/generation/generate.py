@@ -1,4 +1,5 @@
 import os
+import re
 import shutil
 import subprocess
 import sys
@@ -75,8 +76,9 @@ def prepare_clients() -> None:
         "php": "wb-api-client-php",
         "onescript": "wb-api-client-1c",
         "go": "wb-api-client-go",
+        "rust": "wb-api-client-rust",
     }
-    for submodule in ("php", "onescript", "go"):
+    for submodule in siblings:
         root = CLIENTS_DIR / submodule
         if (root / ".git").exists():
             if submodule in ("php", "onescript"):
@@ -85,7 +87,8 @@ def prepare_clients() -> None:
                 for child in root.iterdir():
                     if child.is_dir() and not child.name.startswith("."):
                         shutil.rmtree(child)
-                (root / "go.sum").unlink(missing_ok=True)
+                for manifest in ("go.sum", "Cargo.toml", "Cargo.lock"):
+                    (root / manifest).unlink(missing_ok=True)
             continue
 
         sys.stderr.write(
@@ -181,6 +184,14 @@ def queue_specs(specs: list[Path], version: str) -> list[str]:
             "skipFormModel=false",
         )
         queue_generation(
+            f"rs-{snake}",
+            CONFIG_DIR / "rust.yaml",
+            "rust",
+            spec,
+            SCRATCH / f"rs-{snake}",
+            f"packageName=wb-api-client-{slug},packageVersion={version}",
+        )
+        queue_generation(
             f"os-{snake}",
             CONFIG_DIR / "onescript.yaml",
             "onescript",
@@ -216,6 +227,33 @@ def run_batch(plugin: Path) -> None:
         check=True,
         stdout=subprocess.DEVNULL,
     )
+
+
+_RUST_UPLOAD_TODO_RE = re.compile(
+    r"([ ]+)// TODO: support file upload for '(\w+)' parameter\n"
+)
+
+
+def _rust_fix_file_uploads(text: str) -> str:
+    def replace(m: re.Match) -> str:
+        indent, name = m.group(1), m.group(2)
+        if re.search(rf"\b{name}: Option<Vec<std::path::PathBuf>>", text):
+            return (
+                f"{indent}if let Some(local_var_files) = {name} {{\n"
+                f"{indent}    for local_var_file in local_var_files {{\n"
+                f"{indent}        let local_var_part = reqwest::multipart::Part::file(local_var_file).await?;\n"
+                f'{indent}        local_var_form = local_var_form.part("{name}", local_var_part);\n'
+                f"{indent}    }}\n"
+                f"{indent}}}\n"
+            )
+        return (
+            f"{indent}if let Some(local_var_file) = {name} {{\n"
+            f"{indent}    let local_var_part = reqwest::multipart::Part::file(local_var_file).await?;\n"
+            f'{indent}    local_var_form = local_var_form.part("{name}", local_var_part);\n'
+            f"{indent}}}\n"
+        )
+
+    return _RUST_UPLOAD_TODO_RE.sub(replace, text)
 
 
 def splice_spec(spec: Path) -> None:
@@ -274,6 +312,26 @@ def splice_spec(spec: Path) -> None:
         source = cs_tmp / "src" / cs_ns / sub
         if source.is_dir():
             shutil.move(source, cs_dest / sub)
+
+    rs_tmp = SCRATCH / f"rs-{snake}"
+    rs_dest = CLIENTS_DIR / "rust" / "src" / snake
+    rs_dest.mkdir(parents=True, exist_ok=True)
+    shutil.move(rs_tmp / "src" / "apis", rs_dest / "apis")
+    shutil.move(rs_tmp / "src" / "models", rs_dest / "models")
+    (rs_dest / "mod.rs").write_text(
+        "pub mod apis;\npub mod models;\n", encoding="utf-8"
+    )
+    for source in rs_dest.rglob("*.rs"):
+        text = source.read_text(encoding="utf-8")
+        text = text.replace(
+            "crate::{apis::ResponseContent, models}",
+            f"crate::{snake}::{{apis::ResponseContent, models}}",
+        )
+        text = text.replace("crate::apis", f"crate::{snake}::apis")
+        text = text.replace("crate::models", f"crate::{snake}::models")
+        if source.parent.name == "apis":
+            text = _rust_fix_file_uploads(text)
+        source.write_text(text, encoding="utf-8")
 
     os_tmp = SCRATCH / f"os-{snake}"
     os_api_dest = CLIENTS_DIR / "onescript/src/Классы" / pascal
@@ -358,6 +416,21 @@ def finish_packages(slugs: list[str], version: str) -> None:
         TEMPLATE_DIR / "csharp/WbApiClient.csproj",
         CLIENTS_DIR / "csharp/WbApiClient.csproj",
         ("__VERSION__", version),
+    )
+    write_template(
+        TEMPLATE_DIR / "rust/Cargo.toml",
+        CLIENTS_DIR / "rust/Cargo.toml",
+        ("__VERSION__", version),
+    )
+    modules = "\n".join(f"pub mod {s.replace('-', '_')};" for s in slugs)
+    write_template(
+        TEMPLATE_DIR / "rust/lib.rs",
+        CLIENTS_DIR / "rust/src/lib.rs",
+        ("__MODULES__", modules),
+    )
+    shutil.copy(
+        TEMPLATE_DIR / "rust/.gitignore",
+        CLIENTS_DIR / "rust/.gitignore",
     )
     run_script(
         PYTHON,
@@ -506,6 +579,33 @@ def format_csharp() -> None:
         )
 
 
+def format_rust() -> None:
+    if not shutil.which("docker"):
+        return
+    warning = "  ! cargo fmt failed — run manually in clients/rust before publish"
+    warn_formatter(
+        warning,
+        lambda: run(
+            [
+                "docker",
+                "run",
+                "--rm",
+                "-v",
+                f"{CLIENTS_DIR / 'rust'}:/app",
+                "-w",
+                "/app",
+                "rust:1.98-slim",
+                "sh",
+                "-c",
+                "rustup component add rustfmt >/dev/null 2>&1 && cargo fmt --all",
+            ],
+            check=True,
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+        ),
+    )
+
+
 def format_clients() -> None:
     formatters = (
         format_go,
@@ -514,6 +614,7 @@ def format_clients() -> None:
         format_java,
         format_php,
         format_csharp,
+        format_rust,
     )
     with ThreadPoolExecutor(max_workers=len(formatters)) as executor:
         futures = [executor.submit(formatter) for formatter in formatters]
@@ -545,7 +646,7 @@ def main() -> None:
     format_clients()
     run_script(PYTHON, REPO_ROOT / "scripts/generate-readmes.py", REPO_ROOT, check=True)
     shutil.rmtree(SCRATCH)
-    print(f"Generated 7 unified client libraries at version {version}")
+    print(f"Generated 8 unified client libraries at version {version}")
 
 
 if __name__ == "__main__":

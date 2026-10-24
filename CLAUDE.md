@@ -20,13 +20,13 @@ download-specs.py          →  swaggers/ru/*.yaml      (raw upstream ru, checks
                            →  swaggers/en/*.yaml      (raw upstream en — docs only)
 process-specs.py           →  swaggers/processed/ru/  (13 passes; see below)
                            →  swaggers/processed/en/  (same passes, docs only)
-generate-clients.py <ver>  →  clients/<lang>/…        (openapi-generator-cli, 7 langs)
+generate-clients.py <ver>  →  clients/<lang>/…        (openapi-generator-cli, 8 langs)
     ├── inject-secrets.py               (SecretString wrapper per lang; OneScript ships its own)
     ├── {black|prettier|gofmt|spotless|php-cs-fixer}   (canonicalize formatting)
     ├── generate-onescript-manifests.py (unified packagedef + lib.config)
     └── generate-readmes.py             (per-language README.md)
      ↓ committed at v<version>, single tag covers all 7 languages
-publish.yml                →  PyPI / npm / Go tag / Maven Central / Packagist / hub.oscript.io / NuGet
+publish.yml                →  PyPI / npm / Go tag / Maven Central / Packagist / hub.oscript.io / NuGet / crates.io
 generate-docs.py           →  wb-api-client-docs/docs/**    (endpoint reference, pushed cross-repo)
 ```
 
@@ -58,17 +58,18 @@ Coverage is printed per language on every run. All clients expose all 307
 operations — `process-specs.py`'s `rename_tags_to_module` gives every module a
 single ASCII tag, so no operations are dropped to tag-name collisions.
 
-`swaggers/`, `clients/python/`, `clients/typescript/`, `clients/java/`, `clients/csharp/` are committed here at each release tag. Three languages live in **sibling repos mounted as git submodules**:
+`swaggers/`, `clients/python/`, `clients/typescript/`, `clients/java/`, `clients/csharp/` are committed here at each release tag. Four languages live in **sibling repos mounted as git submodules**:
 
 | Mount | Sibling repo | Why it can't live under `clients/` |
 |---|---|---|
 | `clients/php` | [`wb-api-client-php`](https://github.com/ValeryVerkhoturov/wb-api-client-php) | Packagist requires `composer.json` at the ROOT of the crawled repo |
 | `clients/onescript` | [`wb-api-client-1c`](https://github.com/ValeryVerkhoturov/wb-api-client-1c) | so 1C/OneScript users can clone just the client and `opm install` straight from a tag, without the rest of the pipeline |
 | `clients/go` | [`wb-api-client-go`](https://github.com/ValeryVerkhoturov/wb-api-client-go) | Go modules resolve versions from git tags; a dedicated repo keeps `go get github.com/ValeryVerkhoturov/wb-api-client-go@vX.Y.Z` short and lets Go users watch/fork just the client |
+| `clients/rust` | [`wb-api-client-rust`](https://github.com/ValeryVerkhoturov/wb-api-client-rust) | crates.io links the crate to a dedicated repo, and git dependencies (`wb-api-client = { git = …, tag = … }`) resolve from the repo root |
 
-daily-check.yml regenerates everything, commits and tags ALL THREE sibling repos FIRST, then commits + tags the main repo (which now includes the bumped submodule pointers), then dispatches publish per language. `publish.yml` is a pure publish step — it does not regenerate; it checks out the tag and pushes to the registry. Rationale: consumers can browse and pin exact source; Go modules resolve directly from the sibling repo's tag (go.mod sits at its root, so plain `vX.Y.Z` tags work); Packagist crawls the sibling repo's tag; audits diff cleanly between releases.
+daily-check.yml regenerates everything, commits and tags ALL FOUR sibling repos FIRST, then commits + tags the main repo (which now includes the bumped submodule pointers), then dispatches publish per language. `publish.yml` is a pure publish step — it does not regenerate; it checks out the tag and pushes to the registry. Rationale: consumers can browse and pin exact source; Go modules resolve directly from the sibling repo's tag (go.mod sits at its root, so plain `vX.Y.Z` tags work); Packagist crawls the sibling repo's tag; audits diff cleanly between releases.
 
-**Submodule mechanics for local dev**: `git clone --recurse-submodules` clones all four repos. If you already cloned without: `git submodule update --init --recursive`. The tracked URLs in `.gitmodules` are the GitHub HTTPS ones; local iteration can override any of them to a `file://` path:
+**Submodule mechanics for local dev**: `git clone --recurse-submodules` clones all five repos. If you already cloned without: `git submodule update --init --recursive`. The tracked URLs in `.gitmodules` are the GitHub HTTPS ones; local iteration can override any of them to a `file://` path:
 
 ```bash
 git config -f .git/config submodule.clients/onescript.url file:///path/to/wb-api-client-1c
@@ -100,6 +101,7 @@ The bearer JWT is stored inside a **secret-string wrapper** per language so it r
 | PHP | per-sub-module `SecretString` | `Configuration::setAccessTokenSecret(SecretString)` | `->exposeSecret()` |
 | C# | per-namespace `SecretString` | `Configuration.AccessTokenSecret = new SecretString(...)` | `.ExposeSecret()` |
 | OneScript | `СекретнаяСтрока` | `Конфигурация.УстановитьТокен(строка или СекретнаяСтрока)` | `.Раскрыть()` |
+| Rust | per-crate `SecretString` struct | `Configuration::set_access_token(&str)` | `.expose_secret()` |
 
 For Go we additionally strip the openapi-generator-default `ContextAccessToken` context-value channel — `cfg.SetAccessToken` is the only auth path, so no accidental bypass is possible.
 
@@ -115,7 +117,7 @@ Computed in `daily-check.yml`: `n=$(git tag --list "v1.$(date -u +%Y%m%d).*" | w
 
 ## Package layout — one library per language, 13 sub-modules inside
 
-7 published packages per release (one per language), each bundling all 13 WB API categories as isolated sub-namespaces. `openapi-generator` still emits a standalone SDK per spec (own `ApiClient`, own model namespace); `generate-clients.py` splices those 13 outputs into a single unified tree with no cross-category name clashes:
+8 published packages per release (one per language), each bundling all 13 WB API categories as isolated sub-namespaces. `openapi-generator` still emits a standalone SDK per spec (own `ApiClient`, own model namespace); `generate-clients.py` splices those 13 outputs into a single unified tree with no cross-category name clashes:
 
 ```
 clients/python/wb_api_client/<slug>/…           (packageName=wb_api_client.<slug>)
@@ -125,6 +127,7 @@ clients/java/src/main/java/io/github/valeryverkhoturov/wbapi/<slug>/…
 clients/php/src/<Slug>/…                        (PSR-4 ValeryVerkhoturov\WbApiClient\<Slug>)
 clients/onescript/src/{Классы,Модели}/<Slug>/…   (no namespaces — see below)
 clients/csharp/src/<Slug>/…                     (namespace ValeryVerkhoturov.WbApiClient.<Slug>)
+clients/rust/src/<snake>/…                      (single crate `wb-api-client`, module `wb_api_client::<snake>`)
 ```
 
 Package names on each registry (some diverge from the natural `wb-api-client` because that name is taken):
@@ -137,6 +140,7 @@ Package names on each registry (some diverge from the natural `wb-api-client` be
 | Go (git tag) | `github.com/ValeryVerkhoturov/wb-api-client-go` |
 | Packagist | `valeryverkhoturov/wb-api-client` |
 | hub.oscript.io | `wb-api-client` |
+| crates.io | `wb-api-client` |
 | NuGet | `ValeryVerkhoturov.WbApiClient` |
 
 Top-level manifests come from `templates/{python,typescript,go,java,php,onescript,csharp}/`. `__VERSION__` (and `__EXPORTS__` for TS) is substituted at generate time — do not hand-edit `clients/*/package.json` etc., they're regenerated on every run.
@@ -154,6 +158,7 @@ Every generated client sends `ValeryVerkhoturov/wb-api-client/<lang>` on every r
 - PHP: `Configuration::$userAgent` default is replaced by inject-secrets.py (php generator doesn't accept `httpUserAgent` either)
 - OneScript: the `userAgent` generator option in `generator-configs/onescript.yaml`
 - C#: `Configuration.UserAgent`'s default is rewritten by inject-secrets.py (the csharp generator accepts no `httpUserAgent` either)
+- Rust: the `user_agent` default in `Configuration::default()` is rewritten by inject-secrets.py (the rust generator has no `httpUserAgent` option either)
 
 ## process-specs.py passes (in order)
 
@@ -187,7 +192,7 @@ python  scripts/process-specs.py                    # -> swaggers/processed/{ru,
 make verify                                         # build + format check every language
 ```
 
-`generate-clients.py` always regenerates all seven languages; for per-language debugging, comment out the other `queue_generation` calls rather than adding a flag. Set `OPENAPI_GENERATOR_THREADS` to change batch concurrency (default: 2).
+`generate-clients.py` always regenerates all eight languages; for per-language debugging, comment out the other `queue_generation` calls rather than adding a flag. Set `OPENAPI_GENERATOR_THREADS` to change batch concurrency (default: 2).
 
 Formatting runs inside Docker so contributors don't need language runtimes installed. `make verify-<lang>` and `make {black,prettier,gofmt,spotless,php-cs-fixer}` are individual targets. `make help` lists all.
 
@@ -204,6 +209,7 @@ Configured in GitHub Environments referenced by `publish.yml`:
 | `onescript` | `opm push` to hub.oscript.io | `OSCRIPT_HUB_TOKEN` — a GitHub token used only to verify the pusher's identity; package pre-registered on the hub |
 | `nuget` | API key | `NUGET_API_KEY` — from nuget.org, scoped to `ValeryVerkhoturov.WbApiClient` |
 | Go (no env) | git tags only | none — `proxy.golang.org` fetches from the pushed tag |
+| `crates-io` | API token | `CARGO_REGISTRY_TOKEN` — from crates.io, scoped to `wb-api-client` (or unscoped for the first publish, which claims the name) |
 | — (repo-level) | `SIBLING_REPO_TOKEN` PAT (repo scope) covering BOTH `wb-api-client-php` and `wb-api-client-1c`, for pushing their commits/tags/releases in daily-check. Falls back to the older `PHP_REPO_TOKEN`, then to `GITHUB_TOKEN` (fine for read-only PR checks, but cross-repo pushes will fail) |
 
 PyPI + npm trusted publishing: **the "Workflow filename" on pypi.org and npmjs.com must be `publish.yml`**, and daily-check must dispatch it via `gh workflow run publish.yml` (workflow_dispatch), NOT `uses: ./.github/workflows/publish.yml` (workflow_call). Reason: trusted publishing verifies both the OIDC `job_workflow_ref` claim and the Sigstore attestation cert's `workflow_ref` extension. With workflow_call those two claims point at *different* files (callee vs caller) and no TP config can satisfy both — PyPI explicitly does not support reusable workflows. Dispatching makes publish.yml a top-level workflow so both claims resolve to it. Environment names on the TP page must match the `environment:` value on the publish job (`pypi` / `npm`).
@@ -284,3 +290,13 @@ PyPI + npm trusted publishing: **the "Workflow filename" on pypi.org and npmjs.c
 - `composer.json` keeps the `version` field even though Packagist prefers to derive it from git tags — the field is how the pipeline stamps a uniform version across every language manifest. `composer validate --strict` therefore fails; `make verify-php` runs plain `composer validate --no-check-publish`
 - openapi-generator's PHP template writes `src/{Api,Model,Configuration.php,ApiException.php,HeaderSelector.php,ObjectSerializer.php}` at a flat root with the invoker namespace declared inside the files. `generate-clients.py` splices the whole `src/` contents into `clients/php/src/<Slug>/` (which resolves through the submodule mount to `wb-api-client-php/src/<Slug>/`), so PSR-4 resolves `\ValeryVerkhoturov\WbApiClient\<Slug>\Configuration` to `src/<Slug>/Configuration.php`
 - `SecretString` lives per sub-module (not consolidated) because PHP autoload is namespace-scoped and each sub-module already has its own namespace root — no reason to force consumers to cross namespace boundaries
+
+## Rust-specific quirks
+
+- **Lives in a separate git repo** ([`ValeryVerkhoturov/wb-api-client-rust`](https://github.com/ValeryVerkhoturov/wb-api-client-rust)), mounted here as the `clients/rust` submodule — same arrangement as Go. The sibling repo is a single crate `wb-api-client` whose 13 categories live under `wb_api_client::<snake>` (`src/<snake>/{apis,models}`); consumers `cargo add wb-api-client`, or pin a git dependency to a release tag: `wb-api-client = { git = "https://github.com/ValeryVerkhoturov/wb-api-client-rust", tag = "vX.Y.Z" }`.
+- **One crate, not thirteen.** Each generated per-spec crate is spliced into `src/<snake>/{apis,models}` of a single `wb-api-client` crate, with `crate::apis`/`crate::models` references rewritten to `crate::<snake>::…`; per-category modules are what keep cross-spec model name collisions (`Response4XX` exists in 12 specs) from clashing. The manifest and root `lib.rs` come from `templates/rust/`, not the generator. `cargo publish` has no skip-existing, so the publish job detects an already-uploaded version from the error text and skips, matching the idempotence of the other jobs.
+- **rustls, not native-tls.** The manifest pins reqwest to `default-features = false, features = ["json", "multipart", "rustls-tls", "stream"]` so the crate builds without system OpenSSL and `multipart::Part::file` is available for uploads (the slim verify image has none, and neither do many consumer environments).
+- **File uploads are patched in.** The v7.10.0 rust generator emits `// TODO: support file upload` and silently drops file parameters (media upload in `items`, chat attachments in `communications`); `generate-clients.py`'s `_rust_fix_file_uploads` replaces the TODO with real `multipart::Form::file` calls. When bumping `OPENAPI_GENERATOR_VERSION`, check whether upstream fixed this and drop the patch.
+- **The bearer token is a house `SecretString`** injected by inject-secrets.py into every module's `apis/configuration.rs` (no external secrecy dependency): redacting `Debug`/`Display`, `Configuration::set_access_token(&str)`, and every api module is rewritten from `.bearer_auth(local_var_token.to_owned())` to `.expose_secret()`.
+- **`rustfmt` runs as root in the container** — the `rust:1.98-slim` image ships no rustfmt and `rustup component add` needs write access to `/usr/local/rustup`, which the usual `-u` flag would deny. Formatting is the only step that writes, so this is safe on the bind mount.
+- **`Cargo.lock` and `target/` are gitignored** in the sibling repo — a committed lock file would go stale against floating `^`-ranges and make pr-check flap; dependency freshness is checked at build time instead.

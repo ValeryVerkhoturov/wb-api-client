@@ -106,6 +106,15 @@ def onescript_apis(root: Path, pascal: str) -> list[str]:
     return sorted(p.stem for p in api_dir.glob("*.os"))
 
 
+def rust_apis(root: Path, snake: str) -> list[str]:
+    api_dir = root / "src" / snake / "apis"
+    if not api_dir.is_dir():
+        return []
+    return sorted(
+        p.stem for p in api_dir.glob("*.rs") if p.stem not in ("mod", "configuration")
+    )
+
+
 _HEADER = """# wb-api-client — {lang_display}
 
 Auto-generated {lang_display} client for the [Wildberries Seller API](https://dev.wildberries.ru/). One package, thirteen sub-modules — one per API category. This README is regenerated on every release, so it always matches the code in this tree.
@@ -210,6 +219,15 @@ def _ossnippet(pascal: str, apis: list[str]) -> str:
         f"Настройки = Новый Конфигурация();\n"
         f'Настройки.УстановитьТокен("<your WB JWT>");\n\n'
         f"Клиент = Новый {api}(Настройки);"
+    )
+
+
+def _rustsnippet(snake: str, apis: list[str]) -> str:
+    api = apis[0] if apis else "apis"
+    return (
+        f"use wb_api_client::{snake}::apis::{{configuration::Configuration, {api}}};\n\n"
+        f"let mut cfg = Configuration::new();\n"
+        f'cfg.set_access_token("<your WB JWT>");'
     )
 
 
@@ -452,7 +470,36 @@ def main() -> int:
         docs_url=docs_url_for,
     )
 
-    print(f"  wrote 7 per-language READMEs covering {len(specs)} modules each")
+    rs_root = root / "clients" / "rust"
+    write_readme(
+        rs_root / "README.md",
+        header_ctx={
+            "lang_display": "Rust",
+            "install": "cargo add wb-api-client",
+            "wrapper_note": "an internal `SecretString` struct",
+            "log_call": 'println!("{:?}")',
+            "expose_call": ".expose_secret()",
+            "lang_code": "rust",
+            "auth_snippet": (
+                "use wb_api_client::items::apis::configuration::Configuration;\n\n"
+                "let mut cfg = Configuration::new();\n"
+                'cfg.set_access_token("<your WB JWT>");'
+            ),
+            "import_prefix": "wb_api_client::",
+            "module_intro": (
+                "Each row below is a module of the single `wb-api-client` crate. "
+                "Categories live under `wb_api_client::<snake_slug>` — e.g. "
+                "`wb_api_client::orders_fbs::apis::orders_fbs_api`."
+            ),
+        },
+        specs=specs,
+        apis_fn=lambda s: rust_apis(rs_root, s["snake"]),
+        snippet_fn=lambda s, apis: _rustsnippet(s["snake"], apis),
+        code_fence="rust",
+        docs_url=docs_url_for,
+    )
+
+    print(f"  wrote 8 per-language READMEs covering {len(specs)} modules each")
     return 0
 
 
