@@ -1,0 +1,2221 @@
+openapi: 3.0.1
+info:
+  version: finances
+  title: Documents and Accounting
+  description: |-
+    View seller [balance](https://dev.wildberries.ru/openapi/documents-and-accounting#tag/balance), [financial reports](https://dev.wildberries.ru/openapi/documents-and-accounting#tag/financialReports), and [documents](https://dev.wildberries.ru/openapi/documents-and-accounting#tag/documents).
+  x-file-name: finances
+security:
+- BearerAuth: []
+tags:
+- name: Balance
+  x-displayName: Balance
+  description: ''
+  x-tagKey: balance
+- name: Financial Reports
+  x-displayName: Financial Reports
+  description: ''
+  x-tagKey: financialReports
+- name: Documents
+  x-displayName: Documents
+  description: ''
+  x-tagKey: documents
+paths:
+  /api/v1/account/balance:
+    servers:
+    - url: https://finance-api.wildberries.ru
+    get:
+      operationId: getV1AccountBalance
+      x-readonly-method: true
+      x-category: finance
+      security:
+      - BearerAuth: []
+      summary: Get Seller Balance
+      description: |-
+        Balance widget data on [the main page](https://seller.wildberries.ru) of the sellers portal.
+
+        [Request limit](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Rate-Limits) per one seller account:
+        | Type | Period | Limit | Interval | Burst |
+        | --- | --- | --- | --- | --- |
+        | Personal | 1 min | 1 request | 1 min | 1 request |
+        | Service | 1 min | 1 request | 1 min | 1 request |
+        | Base with secret | 1 min | 1 request | 1 min | 1 request |
+        | Base | 24 h | 1 request | 24 h | 1 request |
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/get-api-v1-account-balance
+      tags:
+      - Finances
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetV1AccountBalanceResponse200'
+        '401':
+          $ref: '#/components/responses/401'
+        '402':
+          $ref: '#/components/responses/402'
+        '403':
+          $ref: '#/components/responses/403'
+        '429':
+          $ref: '#/components/responses/429'
+      x-tagKey: balance
+      x-original-tags:
+      - Balance
+  /api/finance/v1/sales-reports/list:
+    servers:
+    - url: https://finance-api.wildberries.ru
+    post:
+      x-readonly-method: true
+      x-category: finance
+      x-token-types:
+      - personal
+      - service
+      security:
+      - BearerAuth: []
+      tags:
+      - Finances
+      summary: Sales Reports List
+      operationId: postV1SalesReportsList
+      description: |-
+        Method is [available](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Rules-for-using-API-access-tokens) by
+        **Personal** token,
+        **Service** token
+
+        The method returns sales reports list in the [report table](https://seller.wildberries.ru/suppliers-mutual-settlements) format.
+
+        The list contains data since January 29, 2024.
+
+        [Request limit](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Rate-Limits) per one seller account:
+        | Period | Limit | Interval | Burst |
+        | --- | --- | --- | --- |
+        | 1 min | 1 request | 1 min | 1 request |
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/post-api-finance-v1-sales-reports-list
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SalesReportListReq'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostV1SalesReportsListResponse200'
+        '204':
+          description: No data
+        '400':
+          $ref: '#/components/responses/response400SalesReports'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          description: Access denied
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
+                Response403TokenType:
+                  $ref: '#/components/examples/Response403TokenType'
+        '429':
+          $ref: '#/components/responses/429'
+      x-tagKey: financialReports
+      x-original-tags:
+      - Financial Reports
+  /api/finance/v1/sales-reports/detailed/{reportId}:
+    servers:
+    - url: https://finance-api.wildberries.ru
+    post:
+      x-readonly-method: true
+      x-category: finance
+      x-token-types:
+      - personal
+      - service
+      security:
+      - BearerAuth: []
+      tags:
+      - Finances
+      summary: Details for the Sales Reports by Report ID
+      operationId: postV1SalesReportsDetailedReportId
+      description: |-
+        Method is [available](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Rules-for-using-API-access-tokens) by
+        **Personal** token,
+        **Service** token
+
+        The method returns details for the [sales reports](https://seller.wildberries.ru/suppliers-mutual-settlements) by report IDs.
+
+        The data is available since January 29, 2024.
+
+        [Request limit](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Rate-Limits) per one seller account:
+        | Period | Limit | Interval | Burst |
+        | --- | --- | --- | --- |
+        | 1 min | 1 request | 1 min | 1 request |
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/post-api-finance-v1-sales-reports-detailed-reportid
+      parameters:
+      - name: reportId
+        in: path
+        description: "Report ID.\nFor daily reports, we recommend using non-standard libraries with [BigInt](https://www.npmjs.com/package/json-bigint) support, instead of standard deserialization"
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FinancialReportsDetailedReportIdReq'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostV1SalesReportsDetailedReportIdResponse200'
+        '204':
+          description: No data
+        '400':
+          $ref: '#/components/responses/response400SalesReports'
+        '401':
+          $ref: '#/components/responses/401'
+        '402':
+          $ref: '#/components/responses/402'
+        '403':
+          description: Access denied
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
+                Response403TokenType:
+                  $ref: '#/components/examples/Response403TokenType'
+        '404':
+          $ref: '#/components/responses/response404SalesReports'
+        '429':
+          $ref: '#/components/responses/429'
+      x-tagKey: financialReports
+      x-original-tags:
+      - Financial Reports
+  /api/finance/v1/sales-reports/detailed:
+    servers:
+    - url: https://finance-api.wildberries.ru
+    post:
+      x-readonly-method: true
+      x-category: finance
+      security:
+      - BearerAuth: []
+      tags:
+      - Finances
+      summary: Details for the Sales Reports by Period
+      operationId: postV1SalesReportsDetailed
+      description: |-
+        The method returns details for the [sales reports](https://seller.wildberries.ru/suppliers-mutual-settlements) by specified period.
+
+        The data is available since January 29, 2024.
+
+        You can save the report in [Google Sheets](https://dev.wildberries.ru/en/knowledge-base/articles/019d49a4-650c-7b04-9596-ba441936f9d3)
+
+        [Request limit](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Rate-Limits) per one seller account:
+        | Type | Period | Limit | Interval | Burst |
+        | --- | --- | --- | --- | --- |
+        | Personal | 1 min | 1 request | 1 min | 1 request |
+        | Service | 1 min | 1 request | 1 min | 1 request |
+        | Base with secret | 1 min | 1 request | 1 min | 1 request |
+        | Base | 24 h | 2 requests | 12 h | 1 request |
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/post-api-finance-v1-sales-reports-detailed
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SalesReportsDetailedReq'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostV1SalesReportsDetailedResponse200'
+        '204':
+          description: No data
+        '400':
+          $ref: '#/components/responses/response400SalesReports'
+        '401':
+          $ref: '#/components/responses/401'
+        '402':
+          $ref: '#/components/responses/402'
+        '403':
+          $ref: '#/components/responses/403'
+        '429':
+          $ref: '#/components/responses/429'
+      x-tagKey: financialReports
+      x-original-tags:
+      - Financial Reports
+  /api/finance/v1/acquiring/list:
+    servers:
+    - url: https://finance-api.wildberries.ru
+    post:
+      x-readonly-method: true
+      x-category: finance
+      x-token-types:
+      - personal
+      - service
+      security:
+      - BearerAuth: []
+      tags:
+      - Finances
+      summary: Acquiring Expenses Reports List
+      operationId: postV1AcquiringList
+      description: |-
+        Method is [available](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Rules-for-using-API-access-tokens) by
+        **Personal** token,
+        **Service** token
+
+        The method returns acquiring expenses reports list in the [the report table](https://seller.wildberries.ru/suppliers-mutual-settlements/reports-implementations/acquiring-reports) format.
+
+        [Request limit](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Rate-Limits) per one seller account:
+        | Period | Limit | Interval | Burst |
+        | --- | --- | --- | --- |
+        | 1 min | 1 request | 1 min | 1 request |
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/post-api-finance-v1-acquiring-list
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AcquiringReportListReq'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostV1AcquiringListResponse200'
+        '204':
+          description: No data
+        '400':
+          $ref: '#/components/responses/response400AcquiringReports'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          description: Access denied
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
+                Response403TokenType:
+                  $ref: '#/components/examples/Response403TokenType'
+        '429':
+          $ref: '#/components/responses/429'
+      x-tagKey: financialReports
+      x-original-tags:
+      - Financial Reports
+  /api/finance/v1/acquiring/detailed/{reportId}:
+    servers:
+    - url: https://finance-api.wildberries.ru
+    post:
+      x-readonly-method: true
+      x-category: finance
+      x-token-types:
+      - personal
+      - service
+      security:
+      - BearerAuth: []
+      tags:
+      - Finances
+      summary: Details for the Acquiring Expenses Reports by Report ID
+      operationId: postV1AcquiringDetailedReportId
+      description: |-
+        Method is [available](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Rules-for-using-API-access-tokens) by
+        **Personal** token,
+        **Service** token
+
+        The method returns details for the [acquiring expenses reports](https://seller.wildberries.ru/suppliers-mutual-settlements/reports-implementations/acquiring-reports) by report IDs.
+
+        [Request limit](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Rate-Limits) per one seller account:
+        | Period | Limit | Interval | Burst |
+        | --- | --- | --- | --- |
+        | 1 min | 1 request | 1 min | 1 request |
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/post-api-finance-v1-acquiring-detailed-reportid
+      parameters:
+      - name: reportId
+        in: path
+        description: Report ID
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FinancialReportsDetailedReportIdReq'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostV1AcquiringDetailedReportIdResponse200'
+        '204':
+          description: No data
+        '400':
+          $ref: '#/components/responses/response400AcquiringReports'
+        '401':
+          $ref: '#/components/responses/401'
+        '402':
+          $ref: '#/components/responses/402'
+        '403':
+          description: Access denied
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
+                Response403TokenType:
+                  $ref: '#/components/examples/Response403TokenType'
+        '404':
+          $ref: '#/components/responses/response404AcquiringReports'
+        '429':
+          $ref: '#/components/responses/429'
+      x-tagKey: financialReports
+      x-original-tags:
+      - Financial Reports
+  /api/finance/v1/acquiring/detailed:
+    servers:
+    - url: https://finance-api.wildberries.ru
+    post:
+      x-readonly-method: true
+      x-category: finance
+      x-token-types:
+      - personal
+      - service
+      security:
+      - BearerAuth: []
+      tags:
+      - Finances
+      summary: Details for the Acquiring Expenses Reports by Period
+      operationId: postV1AcquiringDetailed
+      description: |-
+        Method is [available](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Rules-for-using-API-access-tokens) by
+        **Personal** token,
+        **Service** token
+
+        The method returns details for the [acquiring expenses reports](https://seller.wildberries.ru/suppliers-mutual-settlements/reports-implementations/acquiring-reports) by specified period.
+
+        [Request limit](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Rate-Limits) per one seller account:
+        | Period | Limit | Interval | Burst |
+        | --- | --- | --- | --- |
+        | 1 min | 1 request | 1 min | 1 request |
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/post-api-finance-v1-acquiring-detailed
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AcquiringReportsDetailedReq'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostV1AcquiringDetailedResponse200'
+        '204':
+          description: No data
+        '400':
+          $ref: '#/components/responses/response400AcquiringReports'
+        '401':
+          $ref: '#/components/responses/401'
+        '402':
+          $ref: '#/components/responses/402'
+        '403':
+          description: Access denied
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
+                Response403TokenType:
+                  $ref: '#/components/examples/Response403TokenType'
+        '429':
+          $ref: '#/components/responses/429'
+      x-tagKey: financialReports
+      x-original-tags:
+      - Financial Reports
+  /api/v1/documents/categories:
+    servers:
+    - url: https://documents-api.wildberries.ru
+    get:
+      operationId: getV1DocumentsCategories
+      x-readonly-method: true
+      x-category: documents
+      tags:
+      - Finances
+      security:
+      - BearerAuth: []
+      summary: Documents Categories
+      description: |-
+        Returns documents categories
+
+        [Request limit](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Rate-Limits) per one seller account:
+        | Type | Period | Limit | Interval | Burst |
+        | --- | --- | --- | --- | --- |
+        | Personal | 10 s | 1 request | 10 s | 5 requests |
+        | Service | 10 s | 1 request | 10 s | 5 requests |
+        | Base with secret | 10 s | 1 request | 10 s | 5 requests |
+        | Base | 24 h | 1 request | 24 h | 1 request |
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/get-api-v1-documents-categories
+      parameters:
+      - $ref: '#/components/parameters/LocaleCat'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetCategories'
+        '401':
+          $ref: '#/components/responses/401'
+        '402':
+          $ref: '#/components/responses/402'
+        '403':
+          $ref: '#/components/responses/403'
+        '429':
+          $ref: '#/components/responses/429'
+      x-tagKey: documents
+      x-original-tags:
+      - Documents
+  /api/v1/documents/list:
+    servers:
+    - url: https://documents-api.wildberries.ru
+    get:
+      operationId: getV1DocumentsList
+      x-readonly-method: true
+      x-category: documents
+      security:
+      - BearerAuth: []
+      tags:
+      - Finances
+      summary: Documents List
+      description: |-
+        Returns seller documents list
+
+        [Request limit](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Rate-Limits) per one seller account:
+        | Type | Period | Limit | Interval | Burst |
+        | --- | --- | --- | --- | --- |
+        | Personal | 10 s | 1 request | 10 s | 5 requests |
+        | Service | 10 s | 1 request | 10 s | 5 requests |
+        | Base with secret | 10 s | 1 request | 10 s | 5 requests |
+        | Base | 24 h | 1 request | 24 h | 1 request |
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/get-api-v1-documents-list
+      parameters:
+      - $ref: '#/components/parameters/LocaleList'
+      - in: query
+        name: beginTime
+        schema:
+          type: string
+          example: '2024-07-09'
+        description: Period start. Only with `endTime`
+      - in: query
+        name: endTime
+        schema:
+          type: string
+          example: '2024-07-15'
+        description: Period end. Only with `beginTime`
+      - in: query
+        name: sort
+        schema:
+          type: string
+          enum:
+          - date
+          - category
+          default: date
+          example: category
+        description: |
+          Sorting:
+            - `date` — by the document creation date
+            - `category` — by category (only when `locale=ru`)
+
+          Only with `order`
+      - in: query
+        name: order
+        schema:
+          type: string
+          enum:
+          - desc
+          - asc
+          default: desc
+          example: asc
+        description: |
+          Data order:
+            - `desc` — descending
+            - `asc` — ascending
+
+          Only with `sort`
+      - in: query
+        name: category
+        schema:
+          type: string
+          example: redeem-notification
+        description: '[Document category](./documents-and-accounting#tag/documents/operation/getV1DocumentsCategories) ID from the `name` field'
+      - in: query
+        name: serviceName
+        schema:
+          type: string
+          example: redeem-notification-44841941
+        description: Unique document ID
+      - in: query
+        name: limit
+        schema:
+          type: integer
+          default: 50
+          maximum: 50
+          example: 10
+          format: int64
+        description: The maximum number of response rows
+      - in: query
+        name: offset
+        schema:
+          type: integer
+          default: 0
+          example: 90
+          format: int64
+        description: From which row to start outputting data
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetList'
+        '400':
+          $ref: '#/components/responses/Responses400List'
+        '401':
+          $ref: '#/components/responses/401'
+        '402':
+          $ref: '#/components/responses/402'
+        '403':
+          $ref: '#/components/responses/403'
+        '429':
+          $ref: '#/components/responses/429'
+      x-tagKey: documents
+      x-original-tags:
+      - Documents
+  /api/v1/documents/download:
+    servers:
+    - url: https://documents-api.wildberries.ru
+    get:
+      operationId: getV1DocumentsDownload
+      x-readonly-method: true
+      x-category: documents
+      security:
+      - BearerAuth: []
+      tags:
+      - Finances
+      summary: Get Document
+      description: |-
+        Returns one document
+
+        [Request limit](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Rate-Limits) per one seller account:
+        | Type | Period | Limit | Interval | Burst |
+        | --- | --- | --- | --- | --- |
+        | Personal | 10 s | 1 request | 10 s | 5 requests |
+        | Service | 10 s | 1 request | 10 s | 5 requests |
+        | Base with secret | 10 s | 1 request | 10 s | 5 requests |
+        | Base | 24 h | 1 request | 24 h | 1 request |
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/get-api-v1-documents-download
+      parameters:
+      - in: query
+        required: true
+        name: serviceName
+        schema:
+          type: string
+          example: redeem-notification-44841941
+        description: Unique document ID
+      - in: query
+        required: true
+        name: extension
+        schema:
+          type: string
+          example: zip
+        description: Document format
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetDoc'
+        '400':
+          $ref: '#/components/responses/Responses400Download'
+        '401':
+          $ref: '#/components/responses/401'
+        '402':
+          $ref: '#/components/responses/402'
+        '403':
+          $ref: '#/components/responses/403'
+        '429':
+          $ref: '#/components/responses/429'
+      x-tagKey: documents
+      x-original-tags:
+      - Documents
+  /api/v1/documents/download/all:
+    servers:
+    - url: https://documents-api.wildberries.ru
+    post:
+      operationId: postV1DocumentsDownloadAll
+      x-readonly-method: true
+      x-category: documents
+      security:
+      - BearerAuth: []
+      tags:
+      - Finances
+      summary: Get Documents
+      description: |-
+        Returns more than one document.
+
+        [Request limit](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Rate-Limits) per one seller account:
+        | Type | Period | Limit | Interval | Burst |
+        | --- | --- | --- | --- | --- |
+        | Personal | 5 min | 1 request | 5 min | 5 requests |
+        | Service | 5 min | 1 request | 5 min | 5 requests |
+        | Base with secret | 5 min | 1 request | 5 min | 5 requests |
+        | Base | 24 h | 1 request | 24 h | 1 request |
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/post-api-v1-documents-download-all
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/requestDownload'
+            example:
+              params:
+              - extension: zip
+                serviceName: redeem-notification-44841941
+              - extension: xlsx
+                serviceName: act-income-mp-392460936
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetDocs'
+        '400':
+          $ref: '#/components/responses/Responses400DownloadAll'
+        '401':
+          $ref: '#/components/responses/401'
+        '402':
+          $ref: '#/components/responses/402'
+        '403':
+          $ref: '#/components/responses/403'
+        '429':
+          $ref: '#/components/responses/429'
+      x-tagKey: documents
+      x-original-tags:
+      - Documents
+components:
+  parameters:
+    LocaleCat:
+      name: locale
+      in: query
+      schema:
+        type: string
+        example: ru
+        default: en
+      description: |
+        `title` field language:
+          - `ru` — Russian
+          - `en` — English
+          - `zh` — Chinese
+    LocaleList:
+      name: locale
+      in: query
+      schema:
+        type: string
+        example: ru
+        default: en
+      description: |
+        `category` field language:
+          - `ru` — Russian
+          - `en` — English
+          - `zh` — Chinese
+  schemas:
+    requestDownload:
+      type: object
+      properties:
+        params:
+          type: array
+          maxItems: 50
+          minItems: 1
+          items:
+            type: object
+            properties:
+              extension:
+                type: string
+                description: Document format
+              serviceName:
+                type: string
+                description: Unique document ID
+    GetCategories:
+      properties:
+        data:
+          type: object
+          properties:
+            categories:
+              description: Documents categories
+              type: array
+              items:
+                type: object
+                properties:
+                  name:
+                    type: string
+                    example: redeem-notification
+                    description: Document category ID from the [request](./documents-and-accounting#tag/documents/operation/getV1DocumentsList) parameter `category`
+                  title:
+                    type: string
+                    example: Уведомление о выкупе
+                    description: Document category name from the [response](./documents-and-accounting#tag/documents/operation/getV1DocumentsList) field `category`
+    GetList:
+      properties:
+        data:
+          type: object
+          properties:
+            documents:
+              description: Documents categories
+              type: array
+              items:
+                type: object
+                properties:
+                  serviceName:
+                    type: string
+                    example: redeem-notification-44841941
+                    description: Unique document ID
+                  name:
+                    type: string
+                    example: redeem-notification
+                    description: Document name
+                  category:
+                    type: string
+                    example: Уведомление о выкупе
+                    description: '[Document category](./documents-and-accounting#tag/documents/operation/getV1DocumentsCategories) name from the response field `title`'
+                  extensions:
+                    type: array
+                    items:
+                      type: string
+                      example: zip
+                    description: Document formats
+                  creationTime:
+                    type: string
+                    example: '2023-10-03T00:18:06.879Z'
+                    description: Date and time of document creation
+                  viewed:
+                    type: boolean
+                    example: false
+                    description: Whether the document has been downloaded from the personal account
+    GetDoc:
+      properties:
+        data:
+          type: object
+          properties:
+            fileName:
+              type: string
+              example: Notice of redemption 44841941.zip
+              description: Document name
+            extension:
+              type: string
+              example: zip
+              description: Document format
+            document:
+              type: string
+              example: UEsDBBQACAgIAAAAAAAAAAAAAAAAAAAAAABHAAAA0KPQstC10LTQvtC80LvQtdC90LjQtSDQviDQstGL0LrRg9C/0LUg4oSWNDQ4NDE5NDEg0L7RgiAyNS4wOS4yMDIzLnhsc3jsnQk0lP3f/0dEUiRkNwmVECI7o0WS7EklxprdkH2bKVkqISRkGSlkaxRlN2TPnmzJvu/Gzmz/Uz33fY/L8/Q8zrn/x/07565zcjrn9f1cn/V6f69v53zTVCWnYATtA+0DAX/Rg0AgM5ip5l2Yg5OwKeyu+Wl3O1vbcA3YV5FDVfPej2vXKptOK1V9LjycmPDG72uW4vcG9xdsOI1V2wj86sk6+4nHJeZ92NFgC/He3gmDlccFXSyumXYUGSKK4hLLsqu5aBTspu5lqlcGB/JNlQVn1Eumj6o8ZEWPRotEVGkH9/kf457totEKj2N2P4dSZWAIaC0ajy5J+VL5fen1YOhcGMxvvUw+XOKFOHL...LSL/tC77s0GzTi2iBuHorbMpcOaw0Hmsc/gpk7ty3/cdDYRmhkRUPAIC37P94CA8oiP/fIvpPK8n9l43YARWRgH/tI6E3ntD/nfOfPyj9jxxDwn+b8/8dZqBDQPjPNSAACJgBAAD21P9s/y8AAP//UEsHCFHrudyQEwAASxQAAFBLAQIUABQACAgIAAAAAACH4v2BaSgAAGNjAABHAAAAAAAAAAAAAAAAAAAAAADQo9Cy0LXQtNC+0LzQu9C10L3QuNC1INC+INCy0YvQutGD0L/QtSDihJY0NDg0MTk0MSDQvtGCIDI1LjA5LjIwMjMueGxzeFBLAQIUABQACAgIAAAAAADTmLxwRQcAAGAPAABLAAAAAAAAAAAAAAAAAN4oAADQo9Cy0LXQtNC+0LzQu9C10L3QuNC1INC+INCy0YvQutGD0L/QtSDihJY0NDg0MTk0MSDQvtGCIDI1LjA5LjIwMjMueGxzeC5zaWdQSwECFAAUAAgACAAAAAAAUeu53JATAABLFAAACAAAAAAAAAAAAAAAAACcMAAAbWNoZC56aXBQSwUGAAAAAAMAAwAkAQAAYkQAAAAA
+              description: Document in base64 encoding
+    GetDocs:
+      properties:
+        data:
+          type: object
+          properties:
+            fileName:
+              type: string
+              example: documents.zip
+              description: Document name
+            extension:
+              type: string
+              example: zip
+              description: Document format
+            document:
+              type: string
+              example: UEsDBBQACAgIAAAAAAAAAAAAAAAAAAAAAABHAAAA0KPQstC10LTQvtC80LvQtdC90LjQtSDQviDQstGL0LrRg9C/0LUg4oSWNDQ4NDE5NDEg0L7RgiAyNS4wOS4yMDIzLnhsc3jsnQk0lP3f/0dEUiRkNwmVECI7o0WS7EklxprdkH2bKVkqISRkGSlkaxRlN2TPnmzJvu/Gzmz/Uz33fY/L8/Q8zrn/x/07565zcjrn9f1cn/V6f69v53zTVCWnYATtA+0DAX/Rg0AgM5ip5l2Yg5OwKeyu+Wl3O1vbcA3YV5FDVfPej2vXKptOK1V9LjycmPDG72uW4vcG9xdsOI1V2wj86sk6+4nHJeZ92NFgC/He3gmDlccFXSyumXYUGSKK4hLLsqu5aBTspu5lqlcGB/JNlQVn1Eumj6o8ZEWPRotEVGkH9/kf457totEKj2N2P4dSZWAIaC0ajy5J+VL5fen1YOhcGMxvvUw+XOKFOHL...LSL/tC77s0GzTi2iBuHorbMpcOaw0Hmsc/gpk7ty3/cdDYRmhkRUPAIC37P94CA8oiP/fIvpPK8n9l43YARWRgH/tI6E3ntD/nfOfPyj9jxxDwn+b8/8dZqBDQPjPNSAACJgBAAD21P9s/y8AAP//UEsHCFHrudyQEwAASxQAAFBLAQIUABQACAgIAAAAAACH4v2BaSgAAGNjAABHAAAAAAAAAAAAAAAAAAAAAADQo9Cy0LXQtNC+0LzQu9C10L3QuNC1INC+INCy0YvQutGD0L/QtSDihJY0NDg0MTk0MSDQvtGCIDI1LjA5LjIwMjMueGxzeFBLAQIUABQACAgIAAAAAADTmLxwRQcAAGAPAABLAAAAAAAAAAAAAAAAAN4oAADQo9Cy0LXQtNC+0LzQu9C10L3QuNC1INC+INCy0YvQutGD0L/QtSDihJY0NDg0MTk0MSDQvtGCIDI1LjA5LjIwMjMueGxzeC5zaWdQSwECFAAUAAgACAAAAAAAUeu53JATAABLFAAACAAAAAAAAAAAAAAAAACcMAAAbWNoZC56aXBQSwUGAAAAAAMAAwAkAQAAYkQAAAAA
+              description: Document in base64 encoding
+    SalesReportListReq:
+      type: object
+      description: Request parameters
+      required:
+      - dateFrom
+      - dateTo
+      properties:
+        dateFrom:
+          type: string
+          description: |-
+            Report start date.
+            Date in the [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339) format. You may send date or date with time. Time could be specified in seconds or milliseconds.
+             The time stands in Moscow time zone `UTC+3`.
+            Examples:
+            - `2025-06-20`
+            - `2025-06-20T23:59:59`
+            - `2025-06-20T00:00:00.12345`
+            - `2025-06-25T00:00:00`
+          example: '2026-03-17'
+        dateTo:
+          type: string
+          description: |-
+            Report end date.
+            Date in the [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339) format. You may send date or date with time. Time could be specified in seconds or milliseconds.
+             The time stands in Moscow time zone `UTC+3`.
+            Examples:
+            - `2025-06-20`
+            - `2025-06-20T23:59:59`
+            - `2025-06-20T00:00:00.12345`
+            - `2025-06-20T00:00:00`
+          example: '2026-03-20'
+        limit:
+          type: integer
+          maximum: 1000
+          default: 1000
+          description: Number of reports in the response
+          example: 211
+          format: int64
+        offset:
+          type: integer
+          default: 0
+          description: How many results to skip. For example, with value `10`, the response will start with the 11 element
+          example: 345
+          format: int64
+        period:
+          type: string
+          enum:
+          - daily
+          - weekly
+          description: |
+            Report periodicity:
+              - `weekly`
+              - `daily`
+          default: weekly
+          example: daily
+    SalesReportListRes:
+      type: object
+      description: Sales reports list
+      properties:
+        reportId:
+          type: integer
+          format: int64
+          description: Report ID
+          example: 307401554
+        sellerFinanceName:
+          type: string
+          description: Seller name
+          example: ИП Кружинин В. Р.
+        dateFrom:
+          type: string
+          description: Reporting period start date
+          example: '2026-03-16'
+        dateTo:
+          type: string
+          description: Reporting period end date
+          example: '2026-03-22'
+        createDate:
+          type: string
+          description: Report date
+          example: '2026-03-23'
+        currency:
+          type: string
+          description: Report currency
+          example: RUB
+        reportType:
+          type: integer
+          enum:
+          - 1
+          - 2
+          description: "Report type:\n  - `1` — general\n  - `2` — by purchase\n"
+          example: 1
+          format: int64
+        retailAmountSum:
+          type: string
+          description: Sales
+          example: '258'
+        forPaySum:
+          type: string
+          description: Net revenue
+          example: '183.79'
+        avgSalePercent:
+          type: number
+          description: Agreed discount (%)
+          example: 0
+        deliveryServiceSum:
+          type: string
+          description: Logistics cost
+          example: '2558.47'
+        paidStorageSum:
+          type: string
+          description: Storage cost
+          example: '626.84'
+        paidAcceptanceSum:
+          type: string
+          description: Acceptance cost
+          example: '243.81'
+        deductionSum:
+          type: string
+          description: Other deductions and payments
+          example: '150'
+        penaltySum:
+          type: string
+          description: Total penalties
+          example: '1457.61'
+        additionalPaymentSum:
+          type: string
+          description: WB fee adjustment
+          example: '9509.71'
+        cashbackAmountSum:
+          type: string
+          description: Amount of rewards deducted for Loyalty Program
+          example: '2'
+        cashbackDiscountSum:
+          type: string
+          description: Loyalty Program discount compensation
+          example: '19'
+        cashbackCommissionChangeSum:
+          type: string
+          description: Loyalty Program participation cost
+          example: '0.2'
+        paymentSchedule:
+          type: string
+          description: One-time payment period change
+          example: '-1'
+        bankPaymentSum:
+          type: string
+          description: Total
+          example: '5172.94'
+    FinancialReportsDetailedReportIdReq:
+      type: object
+      description: Request parameters
+      properties:
+        limit:
+          type: integer
+          maximum: 100000
+          default: 100000
+          description: Number of rows in the response
+          example: 21100
+          format: int64
+        rrdId:
+          type: integer
+          default: 0
+          description: |-
+            Response row ID. Required to get the report in parts.
+            Start report uploading with `"rrdid":0`. In subsequent requests, specify the `rrdId` value from the last row of the previous response.
+            Repeat the request until you get `204` response
+          format: int64
+        fields:
+          type: array
+          items:
+            type: string
+          description: List of fields that will be returned in response. If the parameter is not specified, all fields are returned
+          example:
+          - rrdId
+          - nmId
+          - currency
+          - retailAmount
+          - acquiringFee
+          - srid
+    SalesReportsDetailedReq:
+      type: object
+      description: Request parameters
+      required:
+      - dateFrom
+      - dateTo
+      properties:
+        dateFrom:
+          type: string
+          description: |-
+            Report start date.
+            Date in the [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339) format. You may send date or date with time. Time could be specified in seconds or milliseconds.
+             The time stands in Moscow time zone `UTC+3`.
+            Examples:
+            - `2025-06-20`
+            - `2025-06-20T23:59:59`
+            - `2025-06-20T00:00:00.12345`
+            - `2025-06-25T00:00:00`
+          example: '2026-03-17'
+        dateTo:
+          type: string
+          description: |-
+            Report end date.
+            Date in the [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339) format. You may send date or date with time. Time could be specified in seconds or milliseconds.
+             The time stands in Moscow time zone `UTC+3`.
+            Examples:
+            - `2025-06-20`
+            - `2025-06-20T23:59:59`
+            - `2025-06-20T00:00:00.12345`
+            - `2025-06-20T00:00:00`
+          example: '2026-03-20'
+        limit:
+          type: integer
+          maximum: 100000
+          default: 100000
+          description: Number of rows in the response
+          example: 21100
+          format: int64
+        rrdId:
+          type: integer
+          default: 0
+          description: |-
+            Response row ID. Required to get the report in parts.
+            Start report uploading with `"rrdid":0`. In subsequent requests, specify the `rrdId` value from the last row of the previous response.
+            Repeat the request until you get `204` response
+          format: int64
+        period:
+          type: string
+          enum:
+          - daily
+          - weekly
+          description: |
+            Report periodicity:
+              - `weekly`
+              - `daily`
+          default: weekly
+          example: daily
+        fields:
+          type: array
+          items:
+            type: string
+          description: List of fields that will be returned in response. If the parameter is not specified, all fields are returned
+          example:
+          - rrdId
+          - nmId
+          - docTypeName
+          - retailAmount
+          - acquiringFee
+          - srid
+    SalesReportsDetailedRes:
+      type: object
+      description: Details for sales reports
+      properties:
+        reportId:
+          example: 1234567
+          type: integer
+          format: int64
+          description: Report ID
+        dateFrom:
+          type: string
+          description: Reporting period start date
+          example: '2026-03-16'
+        dateTo:
+          type: string
+          description: Reporting period end date
+          example: '2026-03-22'
+        createDate:
+          type: string
+          description: Report date
+          example: '2026-03-23'
+        currency:
+          type: string
+          description: Report currency
+          example: RUB
+        reportType:
+          type: integer
+          enum:
+          - 1
+          - 2
+          description: "Report type:\n  - `1` — general\n  - `2` — purchase\n"
+          example: 1
+          format: int64
+        rrdId:
+          example: 1232610467
+          type: integer
+          description: Row ID
+          format: int64
+        giId:
+          example: 123456
+          type: integer
+          description: Shipment ID
+          format: int64
+        dlvPrc:
+          example: 1.8
+          type: number
+          description: Fixed warehouse multiplier for shipments
+        fixTariffDateFrom:
+          example: '2026-03-18'
+          type: string
+          description: Warehouse multiplier fixed on
+        fixTariffDateTo:
+          example: '2026-03-19'
+          type: string
+          description: Warehouse multiplier fixed until
+        subjectName:
+          example: Mini ovens
+          type: string
+          description: Subcategory
+        nmId:
+          example: 1234567
+          type: integer
+          description: WB item number
+          format: int64
+        brandName:
+          example: BlahBlah
+          type: string
+          description: Brand
+        vendorCode:
+          example: MAB123
+          type: string
+          description: Seller item number
+        title:
+          example: ДС тарелка
+          type: string
+          description: Item name
+        techSize:
+          example: '0'
+          type: string
+          description: Size
+        sku:
+          example: '1231312352310'
+          type: string
+          description: SKU
+        docTypeName:
+          example: Продажа
+          type: string
+          description: Purchased or returned
+        quantity:
+          type: integer
+          example: 1
+          description: Number of purchases and returns
+          format: int64
+        retailPrice:
+          example: '1249'
+          type: string
+          description: Retail price
+        retailAmount:
+          example: '367'
+          type: string
+          description: Sales on WB
+        salePercent:
+          example: 0
+          type: integer
+          description: Agreed seller discount (%)
+          format: int64
+        commissionPercent:
+          example: 24
+          type: number
+          description: WB fee rate (%)
+        officeName:
+          example: Склад WB
+          type: string
+          description: Warehouse
+        sellerOperName:
+          example: Продажа
+          type: string
+          description: Deduction reason
+        orderDt:
+          example: '2026-03-14T00:00:00Z'
+          type: string
+          description: Ordered on
+        saleDt:
+          example: '2026-03-21T00:00:00Z'
+          type: string
+          description: Purchased on
+        rrDate:
+          example: '2025-10-20'
+          type: string
+          description: Operation date
+        shkId:
+          example: 1239159661
+          type: integer
+          description: Item No.
+          format: int64
+        retailPriceWithDisc:
+          example: '399.68'
+          type: string
+          description: Price with applied agreed discount
+        deliveryAmount:
+          example: 0
+          type: integer
+          description: Number of deliveries
+          format: int64
+        returnAmount:
+          example: 0
+          type: integer
+          description: Number of returns
+          format: int64
+        deliveryService:
+          example: '0'
+          type: string
+          description: Delivery to user
+        giBoxTypeName:
+          example: Монопаллета
+          type: string
+          description: Type of boxes
+        productDiscountForReport:
+          example: 0
+          type: number
+          description: Final agreed discount (%)
+        sellerPromo:
+          example: 0
+          type: number
+          description: Promo code (%)
+        spp:
+          example: 25.31
+          type: number
+          description: WB discount (%)
+        kvwBase:
+          example: 24.15
+          type: number
+          description: VAT-exempt WB fee rate (%)
+        kvw:
+          example: 1.81
+          type: number
+          description: Final VAT-exempt WB fee rate (%)
+        supRatingUp:
+          type: number
+          description: WB fee rate reduction due to rating (%)
+        isKgvpV2:
+          type: number
+          description: WB fee rate reduction due to promos (%)
+        ppvzSalesCommission:
+          example: '23.74'
+          type: string
+          description: VAT-exempt WB fee excluding attorney service cost
+        forPay:
+          example: '376.99'
+          type: string
+          description: Net revenue for sold items
+        ppvzReward:
+          example: '0'
+          type: string
+          description: Pickup point handover and return fee
+        acquiringFee:
+          example: '14.89'
+          type: string
+          description: Compensation for payment services/payment services integration fee
+        acquiringPercent:
+          example: 4.06
+          type: number
+          description: Compensation amount for payment services/payment services integration fee amount (%)
+        paymentProcessing:
+          example: Комиссия за организацию платежа с НДС
+          type: string
+          description: 'Payment type: Compensation for payment services/payment services integration fee'
+        acquiringBank:
+          example: Вайлдберриз Банк
+          type: string
+          description: Acquiring bank
+        vw:
+          example: '22.25'
+          type: string
+          description: VAT-exempt WB fee
+        vwNds:
+          example: '4.45'
+          type: string
+          description: VAT on WB fee
+        ppvzOfficeName:
+          example: Москва Москва Очаковское шоссе 6к2
+          type: string
+          description: Pickup point details
+        ppvzOfficeId:
+          example: 105383
+          type: integer
+          description: Pickup point ID
+          format: int64
+        ppvzSupplierName:
+          example: ИП Жасмин
+          type: string
+          description: Pickup point name
+        ppvzSupplierInn:
+          example: '010101010101'
+          type: string
+          description: Pickup point TIN
+        declarationNumber:
+          example: ''
+          type: string
+          description: Cargo Customs Declaration No.
+        bonusTypeName:
+          example: Штраф МП. Невыполненный заказ (отмена клиентом после недовоза)
+          type: string
+          description: Deduction reason
+        stickerId:
+          example: '1964038895'
+          type: string
+          description: FBS sticker
+        country:
+          example: Россия
+          type: string
+          description: Delivery country
+        srvDbs:
+          example: true
+          type: boolean
+          description: Paid delivery
+        penalty:
+          example: '231.35'
+          type: string
+          description: Total penalties
+        additionalPayment:
+          example: '0'
+          type: string
+          description: WB fee adjustment
+        rebillLogisticCost:
+          example: '1.349'
+          type: string
+          description: Delivery and warehouse fee
+        rebillLogisticOrg:
+          example: ИП Иванов Иван Иванович(123456789012)
+          type: string
+          description: Carrier
+        paidStorage:
+          type: string
+          description: Storage
+          example: '12647.29'
+        deduction:
+          type: string
+          description: Deductions/payments
+          example: '6354'
+        paidAcceptance:
+          type: string
+          description: Acceptance expenses
+          example: '865'
+        orderId:
+          type: integer
+          description: Assembly order ID
+          example: 2816993144
+          format: int64
+        kiz:
+          type: string
+          description: Labeling code [Chestny ZNAK](https://chestnyznak.ru/en)
+          example: "0102900000376311210G2CIS?ehge)S\x1D91002A\x1D92F9Qof4FDo/31Icm14kmtuVYQzLypxm3HWkC1vQ/+pVVjm1dNAth1laFMoAGn7yEMWlTjxIe7lQnJqZ7TRZhlHQ=="
+        isB2b:
+          type: boolean
+          description: B2B sale
+          example: false
+        trbxId:
+          type: string
+          description: Master case ID
+          example: WB-TRBX-1234567
+        installmentCofinancingAmount:
+          type: string
+          description: Co-financing discount
+          example: '0'
+        wibesDiscountPercent:
+          type: number
+          description: Wibes discount (%)
+          example: 1
+        cashbackAmount:
+          type: string
+          description: Amount of rewards deducted for Loyalty Program
+          example: '2'
+        cashbackDiscount:
+          type: string
+          description: Loyalty Program discount compensation
+          example: '19'
+        cashbackCommissionChange:
+          type: string
+          description: Loyalty program participation cost
+          example: '0.2'
+        paymentSchedule:
+          type: string
+          description: One-time payment period change
+          example: '-1'
+        deliveryMethod:
+          type: string
+          description: Sales model and item type
+          example: FBS, (МГТ)
+        sellerPromoId:
+          type: integer
+          description: Custom promo discount ID
+          example: 14350
+          format: int64
+        sellerPromoDiscount:
+          type: number
+          description: Custom promo discount (%)
+          example: 3
+        loyaltyId:
+          type: integer
+          description: Loyalty discount ID
+          example: 0
+          format: int64
+        loyaltyDiscount:
+          type: number
+          description: Loyalty discount (%)
+          example: 0
+        uuidPromocode:
+          type: string
+          description: Promo code ID
+          example: ''
+        salePricePromocodeDiscountPrc:
+          type: number
+          description: Promo code discount (%)
+          example: 0
+        articleSubstitution:
+          type: string
+          description: Promo item number ID
+          example: ''
+        salePriceAffiliatedDiscountPrc:
+          type: number
+          description: Promo item number discount (%)
+          example: 0
+        agencyVat:
+          type: number
+          description: "Tax agent VAT withholding (%).\nOnly for sellers from Kyrgyzstan"
+          example: 0
+        salePriceWholesaleDiscountPrc:
+          type: number
+          description: Wholesale discount for businesses (%)
+          example: 0
+        b2bCustomerTin:
+          type: string
+          description: Taxpayer identification number of B2B buyer
+          example: '010101010101'
+        paidWithSocialCertificate:
+          type: boolean
+          description: Paid with social voucher
+          example: false
+        warehouseLogisticsCoeff:
+          type: number
+          description: Logistics multiplier
+          example: 0
+        buyerTaxRegistrationReasonCode:
+          type: string
+          description: Tax registration reason code of B2B-buyer
+          example: '7701123301'
+        utdUcdNumber:
+          type: string
+          description: Universal transfer or adjustment document number
+          example: '12356856523'
+        utdUcdDate:
+          type: string
+          description: Universal transfer or adjustment document date
+          example: '2026-10-12'
+        orderUid:
+          type: string
+          description: |-
+            Cart ID.
+            Orders in the same buyer's cart will have the same `orderUid`
+          example: id375f16c4bec295d9995393af803ff7b
+        srid:
+          example: 0f1c3999172603062979867564654dac5b702849
+          type: string
+          description: |-
+            Order ID.
+            In the responses of the [FBS](./orders-fbs#tag/fbsAssemblyOrders), [DBW](./orders-dbw#tag/dbwAssemblyOrders), [DBS](./dbs#tag/dbsAssemblyOrders), and [In-Store Pickup](./in-store-pickup#tag/inStorePickupAssemblyOrders) assembly order methods, `srid` is `rid`
+    AcquiringReportListReq:
+      type: object
+      description: Request parameters
+      required:
+      - dateFrom
+      - dateTo
+      properties:
+        dateFrom:
+          type: string
+          description: |-
+            Report start date.
+            Date in the [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339) format. You may send date or date with time. Time could be specified in seconds or milliseconds.
+             The time stands in Moscow time zone `UTC+3`.
+            Examples:
+            - `2025-06-20`
+            - `2025-06-20T23:59:59`
+            - `2025-06-20T00:00:00.12345`
+            - `2025-06-25T00:00:00`
+          example: '2026-03-17'
+        dateTo:
+          type: string
+          description: |-
+            Report end date.
+            Date in the [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339) format. You may send date or date with time. Time could be specified in seconds or milliseconds.
+             The time stands in Moscow time zone `UTC+3`.
+            Examples:
+            - `2025-06-20`
+            - `2025-06-20T23:59:59`
+            - `2025-06-20T00:00:00.12345`
+            - `2025-06-20T00:00:00`
+          example: '2026-03-20'
+        limit:
+          type: integer
+          maximum: 1000
+          default: 1000
+          description: Number of reports in the response
+          example: 211
+          format: int64
+        offset:
+          type: integer
+          default: 0
+          description: How many results to skip. For example, with value `10`, the response will start with the 11 element
+          example: 345
+          format: int64
+    AcquiringReportListRes:
+      type: object
+      description: Acquiring expenses reports list
+      properties:
+        reportId:
+          type: integer
+          format: int64
+          description: Report ID
+          example: 307401554
+        sellerFinanceName:
+          type: string
+          description: Seller name
+          example: ИП Кружинин В. Р.
+        dateFrom:
+          type: string
+          description: Reporting period start date
+          example: '2026-03-16'
+        dateTo:
+          type: string
+          description: Reporting period end date
+          example: '2026-03-22'
+        createDate:
+          type: string
+          description: Report date
+          example: '2026-03-31'
+        currency:
+          type: string
+          description: Report currency
+          example: RUB
+        acquiringFeeSum:
+          type: string
+          description: Acquiring expenses
+          example: '258'
+        acquiringFeeVatSum:
+          type: string
+          description: VAT included
+          example: '83.79'
+    AcquiringReportsDetailedReq:
+      type: object
+      description: Request parameters
+      required:
+      - dateFrom
+      - dateTo
+      properties:
+        dateFrom:
+          type: string
+          description: |-
+            Report start date.
+            Date in the [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339) format. You may send date or date with time. Time could be specified in seconds or milliseconds.
+             The time stands in Moscow time zone `UTC+3`.
+            Examples:
+            - `2025-06-20`
+            - `2025-06-20T23:59:59`
+            - `2025-06-20T00:00:00.12345`
+            - `2025-06-25T00:00:00`
+          example: '2026-03-17'
+        dateTo:
+          type: string
+          description: |-
+            Report end date.
+            Date in the [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339) format. You may send date or date with time. Time could be specified in seconds or milliseconds.
+             The time stands in Moscow time zone `UTC+3`.
+            Examples:
+            - `2025-06-20`
+            - `2025-06-20T23:59:59`
+            - `2025-06-20T00:00:00.12345`
+            - `2025-06-20T00:00:00`
+          example: '2026-03-20'
+        limit:
+          type: integer
+          maximum: 100000
+          default: 100000
+          description: Number of rows in the response
+          example: 21100
+          format: int64
+        rrdId:
+          type: integer
+          default: 0
+          description: |-
+            Response row ID. Required to get the report in parts.
+            Start report uploading with `"rrdid":0`. In subsequent requests, specify the `rrdId` value from the last row of the previous response.
+            Repeat the request until you get `204` response
+          format: int64
+        fields:
+          type: array
+          items:
+            type: string
+          description: List of fields that will be returned in response. If the parameter is not specified, all fields are returned
+          example:
+          - rrdId
+          - nmId
+          - documentType
+          - retailAmount
+          - acquiringFee
+          - srid
+    AcquiringReportsDetailedRes:
+      type: object
+      description: Details for acquiring expenses reports
+      properties:
+        rrdId:
+          example: 1232610467
+          type: integer
+          description: Row ID
+          format: int64
+        reportId:
+          example: 1234567
+          type: integer
+          format: int64
+          description: Report ID
+        acqDate:
+          example: '2026-03-21'
+          type: string
+          description: Operation date
+        acquiringBank:
+          example: Вайлдберриз Банк
+          type: string
+          description: Acquiring bank
+        tin:
+          example: '010101010101'
+          type: string
+          description: Taxpayer identification number
+        taxRegistrationReasonCode:
+          example: '7701123301'
+          type: string
+          description: Tax registration reason code
+        saleDate:
+          example: '2026-03-21'
+          type: string
+          description: Purchased on
+        srid:
+          example: D0.r3f80c3eec6f845c6840128b4c19986f9.0.0
+          type: string
+          description: |-
+            Order ID.
+            In the responses of the [FBS](./orders-fbs#tag/fbsAssemblyOrders), [DBW](./orders-dbw#tag/dbwAssemblyOrders), [DBS](./dbs#tag/dbsAssemblyOrders), and [In-Store Pickup](./in-store-pickup#tag/inStorePickupAssemblyOrders) assembly order methods, `srid` is `rid`
+        documentType:
+          example: Продажа
+          type: string
+          description: Purchased or returned
+        nmId:
+          example: 1234567
+          type: integer
+          description: WB item number
+          format: int64
+        retailAmount:
+          example: '367'
+          type: string
+          description: Sales on WB
+        acquiringFee:
+          example: '14.89'
+          type: string
+          description: Acquiring fee including VAT
+        acquiringFeeVat:
+          example: '4.06'
+          type: string
+          description: VAT amount
+        invoiceNumber:
+          type: string
+          description: Invoice No.
+          example: С/Ф 123
+        invoiceDate:
+          type: string
+          description: Invoice date
+          example: '2026-03-20'
+        shkId:
+          example: 1239159661
+          type: integer
+          description: Item No.
+          format: int64
+        currency:
+          type: string
+          description: Report currency
+          example: RUB
+    Response4XX:
+      type: object
+      properties:
+        title:
+          type: string
+          description: Error title
+        detail:
+          type: string
+          description: Error details
+        code:
+          type: string
+          description: Internal error code
+        requestId:
+          type: string
+          description: Request ID
+        origin:
+          type: string
+          description: WB internal service ID
+        status:
+          type: number
+          description: HTTP status code
+        statusText:
+          type: string
+          description: Text of the HTTP status code
+        timestamp:
+          type: string
+          description: Request date and time
+    GetV1AccountBalanceResponse200:
+      type: object
+      properties:
+        currency:
+          example: RUB
+          type: string
+          description: Currency
+        current:
+          example: 10196.21
+          type: number
+          description: Current seller balance
+        for_withdraw:
+          example: 6395.8
+          type: number
+          description: The money that can be withdrawn now
+    PostV1SalesReportsListResponse200:
+      type: array
+      items:
+        $ref: '#/components/schemas/SalesReportListRes'
+    PostV1SalesReportsDetailedReportIdResponse200:
+      type: array
+      items:
+        $ref: '#/components/schemas/SalesReportsDetailedRes'
+    PostV1SalesReportsDetailedResponse200:
+      type: array
+      items:
+        $ref: '#/components/schemas/SalesReportsDetailedRes'
+    PostV1AcquiringListResponse200:
+      type: array
+      items:
+        $ref: '#/components/schemas/AcquiringReportListRes'
+    PostV1AcquiringDetailedReportIdResponse200:
+      type: array
+      items:
+        $ref: '#/components/schemas/AcquiringReportsDetailedRes'
+    PostV1AcquiringDetailedResponse200:
+      type: array
+      items:
+        $ref: '#/components/schemas/AcquiringReportsDetailedRes'
+  responses:
+    '401':
+      description: Unauthorized
+      content:
+        application/problem+json:
+          schema:
+            type: object
+            properties:
+              title:
+                type: string
+                description: Error title
+              detail:
+                type: string
+                description: Error details
+              code:
+                type: string
+                description: Internal error code
+              requestId:
+                type: string
+                description: Unique request ID
+              origin:
+                type: string
+                description: WB internal service ID
+              status:
+                type: number
+                description: HTTP status code
+              statusText:
+                type: string
+                description: Text of the HTTP status code
+              timestamp:
+                type: string
+                description: Request date and time
+          example:
+            title: unauthorized
+            detail: 'token problem; token is malformed: could not base64 decode signature: illegal base64 data at input byte 84'
+            code: 07e4668e--a53a3d31f8b0-[UK-oWaVDUqNrKG]; 03bce=277; 84bd353bf-75
+            requestId: 7b80742415072fe8b6b7f7761f1d1211
+            origin: ag-marketplace
+            status: 401
+            statusText: Unauthorized
+            timestamp: '2024-09-30T06:52:38Z'
+    '402':
+      description: Payment required
+      content:
+        application/problem+json:
+          schema:
+            type: object
+            properties:
+              title:
+                type: string
+                description: Error title
+              detail:
+                type: string
+                description: Error details. The error is only returned to services from the [Solutions for business Catalog](https://dev.wildberries.ru/business-solutions)
+          example:
+            title: payment required
+            detail: wb solution for business has insufficient funds on its balance. please top up the balance in the company's personal account https://dev.wildberries.ru/company
+    '403':
+      description: Access denied
+      content:
+        application/problem+json:
+          schema:
+            type: object
+            properties:
+              title:
+                type: string
+                description: Error title
+              detail:
+                type: string
+                description: Error details
+              code:
+                type: string
+                description: Internal error code
+              requestId:
+                type: string
+                description: Request ID
+              origin:
+                type: string
+                description: WB internal service ID
+              status:
+                type: number
+                description: HTTP status code
+              statusText:
+                type: string
+                description: Text of the HTTP status code
+              timestamp:
+                type: string
+                description: Request date and time
+          examples:
+            Response403TokenCategory:
+              value:
+                status: 403
+                statusText: Forbidden
+                title: Forbidden
+                detail: scope is not allowed for this resource
+                requestId: 2dbf6fc9-bad8-4ef9-a058-c938a8553ba5
+                origin: ag-marketplace
+                timestamp: '2026-09-03T13:55:15Z'
+              description: Invalid token category
+    '429':
+      description: Too many requests
+      content:
+        application/problem+json:
+          schema:
+            type: object
+            properties:
+              title:
+                type: string
+                description: Error title
+              detail:
+                type: string
+                description: Error details
+              code:
+                type: string
+                description: Internal error code
+              requestId:
+                type: string
+                description: Unique request ID
+              origin:
+                type: string
+                description: WB internal service ID
+              status:
+                type: number
+                description: HTTP status code
+              statusText:
+                type: string
+                description: Text of the HTTP status code
+              timestamp:
+                type: string
+                description: Request date and time
+          example:
+            title: too many requests
+            detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
+            code: 07e4668e-ac2242c5c8c5-[UK-4dx7JUdskGZ]
+            requestId: 9d3c02cc698f8b041c661a7c28bed293
+            origin: ag-marketplace
+            status: 429
+            statusText: Too Many Requests
+            timestamp: '2024-09-30T06:52:38Z'
+    response400SalesReports:
+      description: Bad request
+      content:
+        application/problem+json:
+          schema:
+            required:
+            - status
+            - title
+            - detail
+            - requestId
+            - origin
+            type: object
+            properties:
+              status:
+                type: integer
+                description: HTTP status code
+                example: 400
+                format: int64
+              title:
+                type: string
+                description: Error title
+                example: GetReportDetailByPeriodNBAndNNB decode error
+              detail:
+                type: string
+                description: Error details
+                example: 'GetReportDetailByPeriodNBAndNNB decode error: Key: ''FinancialDetailedByPeriodRequestV4.DateTo'' Error:Field validation for ''DateTo'' failed on the ''required'' tag'
+              requestId:
+                type: string
+                description: Request ID
+                example: b065c204-c5f7-431b-b12c-d4c2cc6347ec
+              origin:
+                type: string
+                description: WB internal service ID
+                example: open-api-finreports
+    response400AcquiringReports:
+      description: Bad request
+      content:
+        application/problem+json:
+          schema:
+            required:
+            - status
+            - title
+            - detail
+            - requestId
+            - origin
+            type: object
+            properties:
+              status:
+                type: integer
+                description: HTTP status code
+                example: 400
+                format: int64
+              title:
+                type: string
+                description: Error title
+                example: GetAcquiringGeneralReport decode error
+              detail:
+                type: string
+                description: Error details
+                example: 'GetAcquiringGeneralReport decode error: Key: ''AcquiringGeneralReportRequestV2.DateTo'' Error:Field validation for ''DateTo'' failed on the ''required'' tag'
+              requestId:
+                type: string
+                description: Request ID
+                example: 4950c661-9056-4baa-a0ed-c7e498c4a557
+              origin:
+                type: string
+                description: WB internal service ID
+                example: open-api-finreports
+    response404SalesReports:
+      description: Not found
+      content:
+        application/problem+json:
+          schema:
+            required:
+            - status
+            - title
+            - detail
+            - requestId
+            - origin
+            type: object
+            properties:
+              status:
+                type: integer
+                description: HTTP status code
+                example: 404
+                format: int64
+              title:
+                type: string
+                description: Error title
+                example: GetDetailsByReportID error
+              detail:
+                type: string
+                description: Error details
+                example: 'GetDetailsByReportID error: generate meta key: get report data: report id not found'
+              requestId:
+                type: string
+                description: Request ID
+                example: 4565feab-860b-493c-ad8d-6eda4d1902db
+              origin:
+                type: string
+                description: WB internal service ID
+                example: open-api-finreports
+    response404AcquiringReports:
+      description: Not found
+      content:
+        application/problem+json:
+          schema:
+            required:
+            - status
+            - title
+            - detail
+            - requestId
+            - origin
+            type: object
+            properties:
+              status:
+                type: integer
+                description: HTTP status code
+                example: 404
+                format: int64
+              title:
+                type: string
+                description: Error title
+                example: GetAcquiringReportByReportID usecase error
+              detail:
+                type: string
+                description: Error details
+                example: 'GetAcquiringReportByReportID usecase error: generate meta key: get report data: report id not found'
+              requestId:
+                type: string
+                description: Request ID
+                example: b8c4a3db-2860-4df6-99dc-10602ddbc003
+              origin:
+                type: string
+                description: WB internal service ID
+                example: open-api-finreports
+    Responses400List:
+      description: Bad request
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              title:
+                type: string
+                description: Error title
+              status:
+                type: number
+                description: HTTP status code
+              detail:
+                type: string
+                description: Error details
+              requestId:
+                type: string
+                description: Unique request ID
+              origin:
+                type: string
+                description: WB internal service ID
+          examples:
+            BadSort&Orders:
+              description: Parameters sort and order cannot be specified separately
+              value:
+                title: Bad Request
+                status: 400
+                detail: sort and order must be both set or both not set
+                requestId: 41fc3b08-051d-4871-9991-6502977912ad
+                origin: docs-public-api
+            BadLimit:
+              description: Exceeded the allowed value for the limit parameter
+              value:
+                title: Bad Request
+                status: 400
+                detail: limit must be less than or equal to 50
+                requestId: 46ce9c17-4b74-46ed-abb1-e40d2b0d52ce
+                origin: docs-public-api
+    Responses400Download:
+      description: Bad request
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              title:
+                type: string
+                description: Error title
+              status:
+                type: number
+                description: HTTP status code
+              detail:
+                type: string
+                description: Error details
+              requestId:
+                type: string
+                description: Unique request ID
+              origin:
+                type: string
+                description: WB internal service ID
+          example:
+            title: Bad Request
+            status: 400
+            detail: serviceName and extension are required
+            requestId: 7c500a19-f531-4639-b0a4-53d6d296c349
+            origin: docs-public-api
+    Responses400DownloadAll:
+      description: Bad request
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              title:
+                type: string
+                description: Error title
+              status:
+                type: number
+                description: HTTP status code
+              detail:
+                type: string
+                description: Error details
+              requestId:
+                type: string
+                description: Unique request ID
+              origin:
+                type: string
+                description: WB internal service ID
+          examples:
+            badRequestBodyElement:
+              description: Incorrect request body
+              value:
+                title: Bad Request
+                status: 400
+                detail: request body must contain at least one element with serviceName and extension
+                requestId: 6c364410-625c-4493-a434-8cbe79dfbf18
+                origin: docs-public-api
+            badRequestBodyElementCount:
+              description: Exceeded the number of requested documents
+              value:
+                title: Bad Request
+                status: 400
+                detail: documents count must be less than or equal to 50
+                requestId: 0cf25b67-865e-4126-b971-1ff2e17fe84a
+                origin: docs-public-api
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: 'Wildberries API token (JWT). Create in the seller portal → Настройки → Доступ к API. Sent as `Authorization: Bearer `.'
+  examples:
+    Response403TokenCategory:
+      value:
+        status: 403
+        statusText: Forbidden
+        title: Forbidden
+        detail: scope is not allowed for this resource
+        requestId: 2dbf6fc9-bad8-4ef9-a058-c938a8553ba5
+        origin: ag-marketplace
+        timestamp: '2026-09-03T13:55:15Z'
+      description: Invalid token category
+    Response403TokenType:
+      value:
+        title: forbidden
+        detail: base token is not allowed
+        code: base token is not allowed for this path
+        requestId: 722199b2e15bbca48cc1d488a7989976
+        origin: ag-marketplace
+        status: 403
+        statusText: Forbidden
+        timestamp: '2026-05-25T02:47:09Z'
+      description: Invalid token type

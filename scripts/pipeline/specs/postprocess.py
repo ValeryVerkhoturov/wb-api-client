@@ -16,6 +16,7 @@ from ..core.naming import (
 )
 from ..core.paths import PROCESSED_DIR, SWAGGER_DIR
 from ..core.yamlio import round_trip_yaml
+from .download import LOCALES
 
 try:
     from markdownify import markdownify as _html_to_markdown
@@ -26,6 +27,10 @@ except ImportError:
     raise
 
 SECURITY_SCHEME_NAME = "BearerAuth"
+
+HTTP_METHODS = frozenset(
+    {"get", "put", "post", "delete", "options", "head", "patch", "trace"}
+)
 
 yaml = round_trip_yaml()
 
@@ -53,15 +58,7 @@ def inject_bearer_auth(spec: dict) -> None:
         if not isinstance(path_item, dict):
             continue
         for method, op in path_item.items():
-            if method not in {
-                "get",
-                "post",
-                "put",
-                "patch",
-                "delete",
-                "head",
-                "options",
-            }:
+            if method not in HTTP_METHODS:
                 continue
             if isinstance(op, dict) and "security" in op:
                 op["security"] = [{SECURITY_SCHEME_NAME: []}]
@@ -252,15 +249,7 @@ def name_inline_response_schemas(spec: dict) -> int:
         if not isinstance(path_item, dict):
             continue
         for method, op in path_item.items():
-            if method not in {
-                "get",
-                "post",
-                "put",
-                "patch",
-                "delete",
-                "head",
-                "options",
-            }:
+            if method not in HTTP_METHODS:
                 continue
             if not isinstance(op, dict):
                 continue
@@ -412,15 +401,7 @@ def drop_response_required(spec: dict) -> int:
         if not isinstance(path_item, dict):
             continue
         for method, op in path_item.items():
-            if method not in {
-                "get",
-                "post",
-                "put",
-                "patch",
-                "delete",
-                "head",
-                "options",
-            }:
+            if method not in HTTP_METHODS:
                 continue
             if isinstance(op, dict):
                 _collect_schema_refs(op.get("responses") or {}, reachable)
@@ -463,15 +444,7 @@ def rename_tags_to_module(spec: dict, module: str) -> int:
         if not isinstance(path_item, dict):
             continue
         for method, op in path_item.items():
-            if method not in {
-                "get",
-                "post",
-                "put",
-                "patch",
-                "delete",
-                "head",
-                "options",
-            }:
+            if method not in HTTP_METHODS:
                 continue
             if not isinstance(op, dict):
                 continue
@@ -490,15 +463,7 @@ def add_docs_links(spec: dict, slug: str) -> int:
         if not isinstance(path_item, dict):
             continue
         for method, op in path_item.items():
-            if method not in {
-                "get",
-                "post",
-                "put",
-                "patch",
-                "delete",
-                "head",
-                "options",
-            }:
+            if method not in HTTP_METHODS:
                 continue
             if not isinstance(op, dict):
                 continue
@@ -548,13 +513,16 @@ def process_file(src: Path, dst: Path) -> dict:
 
 
 def main() -> int:
-    src_dir = SWAGGER_DIR
-    dst_dir = PROCESSED_DIR
-
-    specs = sorted(p for p in src_dir.glob("*.yaml") if p.parent == src_dir)
-    if not specs:
-        sys.stderr.write(f"No specs found in {src_dir}. Run download-specs.py first.\n")
+    if not (SWAGGER_DIR / "ru").is_dir():
+        sys.stderr.write(
+            f"No specs found in {SWAGGER_DIR / 'ru'}. Run download-specs.py first.\n"
+        )
         return 1
+    jobs = [
+        (src_dir, PROCESSED_DIR / locale)
+        for locale, src_dir in LOCALES.items()
+        if src_dir.is_dir()
+    ]
 
     totals = {
         "arrays": 0,
@@ -570,28 +538,37 @@ def main() -> int:
         "links_absolutized": 0,
         "docs_links": 0,
     }
-    for spec_path in specs:
-        target = dst_dir / spec_path.name
-        stats = process_file(spec_path, target)
-        for k, v in stats.items():
-            totals[k] += v
-        print(
-            f"  {spec_path.name:28s} "
-            f"arrays={stats['arrays']:>2} "
-            f"integers-widened={stats['integers_widened']:>4} "
-            f"inlined-arrays={stats['inlined_arrays']:>2} "
-            f"renamed={stats['renamed_schemas']:>2} "
-            f"hoisted-responses={stats['hoisted_responses']:>3} "
-            f"required-dropped={stats['required_dropped']:>2} "
-            f"enums={stats['enums']:>2} "
-            f"tags-renamed={stats['tags_renamed']:>3} "
-            f"date-formats={stats['date_formats_dropped']:>2} "
-            f"desc-md={stats['descriptions_md']:>4} "
-            f"abs-links={stats['links_absolutized']:>4} "
-            f"docs-links={stats['docs_links']:>3}"
-        )
+    for src_dir, dst_dir in jobs:
+        specs = sorted(p for p in src_dir.glob("*.yaml") if p.parent == src_dir)
+        if not specs:
+            sys.stderr.write(
+                f"No specs found in {src_dir}. Run download-specs.py first.\n"
+            )
+            return 1
+        for spec_path in specs:
+            target = dst_dir / spec_path.name
+            stats = process_file(spec_path, target)
+            for k, v in stats.items():
+                totals[k] += v
+            print(
+                f"  {spec_path.name:28s} "
+                f"arrays={stats['arrays']:>2} "
+                f"integers-widened={stats['integers_widened']:>4} "
+                f"inlined-arrays={stats['inlined_arrays']:>2} "
+                f"renamed={stats['renamed_schemas']:>2} "
+                f"hoisted-responses={stats['hoisted_responses']:>3} "
+                f"required-dropped={stats['required_dropped']:>2} "
+                f"enums={stats['enums']:>2} "
+                f"tags-renamed={stats['tags_renamed']:>3} "
+                f"date-formats={stats['date_formats_dropped']:>2} "
+                f"desc-md={stats['descriptions_md']:>4} "
+                f"abs-links={stats['links_absolutized']:>4} "
+                f"docs-links={stats['docs_links']:>3}"
+            )
 
-    print(f"Processed {len(specs)} specs → {dst_dir} " f"(totals: {totals})")
+        print(f"Processed {len(specs)} specs → {dst_dir}")
+
+    print(f"Totals: {totals}")
     return 0
 
 

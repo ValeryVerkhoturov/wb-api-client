@@ -48,10 +48,10 @@ venv: ## Create .venv and install post-processor deps
 
 # ── pipeline ──────────────────────────────────────────────────────────────
 
-download: ## Pull swagger YAMLs from dev.wildberries.ru
+download: ## Pull swagger YAMLs (ru + en) from the specs mirror
 	$(PY) scripts/download-specs.py
 
-post-process: ## Run all post-processing passes on swaggers/
+post-process: ## Run all post-processing passes on swaggers/{ru,en}/
 	$(PY) scripts/process-specs.py
 
 generate: post-process ## Regenerate all six language clients

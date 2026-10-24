@@ -528,10 +528,10 @@ def main() -> None:
         raise SystemExit(2)
     version = sys.argv[1]
 
-    specs = sorted(SPEC_DIR.glob("*.yaml")) if SPEC_DIR.is_dir() else []
+    specs = sorted((SPEC_DIR / "ru").glob("*.yaml")) if SPEC_DIR.is_dir() else []
     if not specs:
         sys.stderr.write(
-            f"no processed specs at {SPEC_DIR} — run process-specs.py first\n"
+            f"no processed specs at {SPEC_DIR / 'ru'} — run process-specs.py first\n"
         )
         raise SystemExit(1)
 

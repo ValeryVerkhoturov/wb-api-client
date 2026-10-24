@@ -34,8 +34,8 @@ jobs:
 
       - name: Snapshot previous checksums
         run: |
-          if [[ -f swaggers/checksums.txt ]]; then
-            cp swaggers/checksums.txt /tmp/checksums.prev.txt
+          if [[ -f swaggers/ru/checksums.txt ]]; then
+            cp swaggers/ru/checksums.txt /tmp/checksums.prev.txt
           else
             : > /tmp/checksums.prev.txt
           fi
@@ -53,13 +53,13 @@ jobs:
       - name: Detect changes
         id: diff
         run: |
-          if diff -q /tmp/checksums.prev.txt swaggers/checksums.txt >/dev/null; then
+          if diff -q /tmp/checksums.prev.txt swaggers/ru/checksums.txt >/dev/null; then
             echo "changed=false" >> "$GITHUB_OUTPUT"
           else
             echo "changed=true" >> "$GITHUB_OUTPUT"
             echo "Upstream diff:"
             # tee the diff to a file so the release-notes step can include it
-            diff /tmp/checksums.prev.txt swaggers/checksums.txt \
+            diff /tmp/checksums.prev.txt swaggers/ru/checksums.txt \
               | tee /tmp/upstream-diff.txt || true
           fi
 

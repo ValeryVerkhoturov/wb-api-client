@@ -101,9 +101,12 @@ def strip_docs_link(text: str) -> str:
 
 _PORTAL_REL_LINK = re.compile(r"\]\(\.{1,2}/([^)]+)\)")
 
+_PORTAL_BARE_LINK = re.compile(r"\]\(([a-z0-9-]+#tag/[^)]+)\)")
+
 
 def absolutize(text: str) -> str:
-    return _PORTAL_REL_LINK.sub(r"](https://dev.wildberries.ru/openapi/\1)", text)
+    text = _PORTAL_REL_LINK.sub(r"](https://dev.wildberries.ru/openapi/\1)", text)
+    return _PORTAL_BARE_LINK.sub(r"](https://dev.wildberries.ru/openapi/\1)", text)
 
 
 def _schema_name(schema: dict | None) -> str:
@@ -951,11 +954,11 @@ def render_section_index(modules: list[Module], locale: str) -> str:
     return "\n".join(out).rstrip() + "\n"
 
 
-def render_sidebar(modules: list[Module]) -> str:
+def render_sidebar(modules: dict[str, list[Module]]) -> str:
 
     def items(locale: str):
         groups = [{"text": STRINGS[locale]["section"], "link": f"{base_path(locale)}/"}]
-        for m in modules:
+        for m in modules[locale]:
             groups.append(
                 {
                     "text": f"{m.title} · {m.slug}",
@@ -1038,20 +1041,30 @@ def main() -> int:
         )
         return 1
 
-    modules = load_modules(root / "swaggers" / "processed")
-    if not modules:
+    modules = {
+        "ru": load_modules(root / "swaggers" / "processed" / "ru"),
+        "en": load_modules(root / "swaggers" / "processed" / "en"),
+    }
+    if not modules["ru"]:
         sys.stderr.write("no processed specs — run process-specs.py first\n")
         return 1
+    if not modules["en"]:
+        sys.stderr.write(
+            "no processed English specs — run download-specs.py and "
+            "process-specs.py first\n"
+        )
+        return 1
 
-    index = build_index(root, modules)
+    index = build_index(root, modules["ru"])
 
     for locale in ("ru", "en"):
+        locale_modules = modules[locale]
         section = docs / base_path(locale).lstrip("/")
         if section.exists():
             shutil.rmtree(section)
 
-        write(section / "index.md", render_section_index(modules, locale))
-        for module in modules:
+        write(section / "index.md", render_section_index(locale_modules, locale))
+        for module in locale_modules:
             write(
                 section / module.slug / "index.md", render_module_index(module, locale)
             )
@@ -1069,8 +1082,8 @@ def main() -> int:
         [docs / base_path(loc).lstrip("/") for loc in ("ru", "en")] + [sidebar],
     )
 
-    total = sum(len(m.operations) for m in modules)
-    print(f"{total} operations across {len(modules)} modules → {docs}")
+    total = sum(len(m.operations) for m in modules["ru"])
+    print(f"{total} operations across {len(modules['ru'])} modules → {docs}")
     for lang in LANGS:
         found = len(index[lang])
         flag = "" if found == total else f"  ← {total - found} operations not exposed"

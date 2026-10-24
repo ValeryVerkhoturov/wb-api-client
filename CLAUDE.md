@@ -16,8 +16,10 @@ Everything under `clients/` is generated output. Do not edit it — regenerate.
 ## Pipeline
 
 ```
-download-specs.py          →  swaggers/*.yaml         (raw upstream, checksummed)
-process-specs.py           →  swaggers/processed/     (13 passes; see below)
+download-specs.py          →  swaggers/ru/*.yaml      (raw upstream ru, checksummed)
+                           →  swaggers/en/*.yaml      (raw upstream en — docs only)
+process-specs.py           →  swaggers/processed/ru/  (13 passes; see below)
+                           →  swaggers/processed/en/  (same passes, docs only)
 generate-clients.py <ver>  →  clients/<lang>/…        (openapi-generator-cli, 7 langs)
     ├── inject-secrets.py               (SecretString wrapper per lang; OneScript ships its own)
     ├── {black|prettier|gofmt|spotless|php-cs-fixer}   (canonicalize formatting)
@@ -31,12 +33,14 @@ generate-docs.py           →  wb-api-client-docs/docs/**    (endpoint referenc
 ### Endpoint reference on the docs site
 
 `scripts/generate-docs.py <wb-api-client-docs>/docs` writes one page per
-operation (305 across 13 modules, in Russian and English) plus a module index,
-a section index and the sidebar the docs site imports. It reads **both**
-`swaggers/processed/*.yaml` (summary, description, parameters, request body,
-responses) and `clients/<lang>/**` — the call examples are parsed out of the
+operation (309 across 13 modules, in Russian and English) plus a module index,
+a section index and the sidebar the docs site imports. Russian pages read
+`swaggers/processed/ru/*.yaml`, English pages read `swaggers/processed/en/*.yaml`
+(summary, description, parameters, request body, responses), and both read
+`clients/<lang>/**` — the call examples are parsed out of the
 generated method signatures, so a snippet cannot claim a method a client does
-not have. Run it with `make reference DOCS=<path>`.
+not have. Clients are generated from the Russian specs only; the English tree
+exists solely for the docs. Run it with `make reference DOCS=<path>`.
 
 Before it exits it runs the docs repo's own pinned Prettier over everything it
 wrote (its installed binary, else the same version via npx), so the generated
@@ -77,7 +81,7 @@ git -c protocol.file.allow=always submodule update --init clients/onescript
 
 `pr-check.yml` enforces the invariant on pull requests: it regenerates from scratch using the version currently baked into `clients/python/pyproject.toml`, then fails the PR if `git diff` against `swaggers/` or `clients/` is non-empty. For that check to be meaningful, generation must be deterministic — every generator config sets `hideGenerationTimestamp: true`, and the openapi-generator Docker image tag is pinned in `generate-clients.py`. Each formatter version is pinned too (black in `scripts/requirements.txt`; prettier in `templates/typescript/package.json`; google-java-format via spotless in `templates/java/pom.xml`; php-cs-fixer image tag in `generate-clients.py`; gofmt bundled with pinned `golang:1.22-alpine`). If a change makes generation non-deterministic (e.g. re-adds a timestamp), PRs will flap; fix at the source rather than skipping the check.
 
-The daily workflow uses `swaggers/checksums.txt` to decide whether upstream changed. That file is committed alongside the specs and is what makes the "release only when upstream moves" behavior work — don't hand-edit it.
+The daily workflow uses `swaggers/ru/checksums.txt` to decide whether upstream changed. That file is committed alongside the specs and is what makes the "release only when upstream moves" behavior work — don't hand-edit it.
 
 ## Auth model — non-obvious
 
@@ -171,14 +175,14 @@ Every generated client sends `ValeryVerkhoturov/wb-api-client/<lang>` on every r
 
 ## Spec source — GitLab mirror
 
-`dev.wildberries.ru` sits behind WBAAS and returns HTTP 498 with a JS challenge to non-browser clients, so specs are not pulled from the portal directly. `download-specs.py` fetches them from [wb-api-client-specs](https://gitlab.com/ValeryVerkhoturov/wb-api-client-specs) (`specs/ru/*.yaml` on `main`), a mirror of the portal specs that refreshes hourly. Do not strip the checksum step to hide download failures — daily-check depends on it.
+`dev.wildberries.ru` sits behind WBAAS and returns HTTP 498 with a JS challenge to non-browser clients, so specs are not pulled from the portal directly. `download-specs.py` fetches them from [wb-api-client-specs](https://gitlab.com/ValeryVerkhoturov/wb-api-client-specs) (`specs/ru/*.yaml` and `specs/en/*.yaml` on `main`), a mirror of the portal specs that refreshes hourly. The English tree feeds only the docs site; clients are always generated from the Russian specs. Do not strip the checksum step to hide download failures — daily-check depends on it (it watches `swaggers/ru/checksums.txt`, the Russian manifest, so an English-only spec edit does not trigger a client release).
 
 ## Local commands
 
 ```bash
 pip install -r scripts/requirements.txt            # ruamel.yaml, markdownify, requests, black, flask
 ./scripts/download-specs.py                     # pull upstream (from the wb-api-client-specs mirror)
-python  scripts/process-specs.py                    # -> swaggers/processed/
+python  scripts/process-specs.py                    # -> swaggers/processed/{ru,en}/
 ./scripts/generate-clients.py 1.20260920.0                 # -> clients/{python,typescript,go,java,php,onescript,csharp}
 make verify                                         # build + format check every language
 ```

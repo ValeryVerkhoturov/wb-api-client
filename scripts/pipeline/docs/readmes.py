@@ -262,7 +262,7 @@ def main() -> int:
         sys.stderr.write("usage: generate-readmes.py <repo root>\n")
         return 2
     root = Path(sys.argv[1]).resolve()
-    specs = load_specs(root / "swaggers" / "processed")
+    specs = load_specs(root / "swaggers" / "processed" / "ru")
     if not specs:
         sys.stderr.write("no processed specs — run process-specs.py first\n")
         return 1
