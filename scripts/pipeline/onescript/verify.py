@@ -1,23 +1,11 @@
 import os
-import subprocess
 import sys
 import tempfile
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 from ..core.paths import CLIENTS_DIR
-from .toolchain import ensure_onescript
-
-
-def check_file(binary: Path, source: Path) -> str:
-    result = subprocess.run(
-        [binary, "-check", source],
-        stdout=subprocess.PIPE,
-        stderr=subprocess.STDOUT,
-        encoding="utf-8",
-        errors="replace",
-    )
-    return result.stdout
+from .toolchain import ensure_onescript, oscript_check, oscript_run
 
 
 def main() -> None:
@@ -34,7 +22,7 @@ def main() -> None:
 
     sources = sorted((package / "src").glob("**/*.os"))
     with ThreadPoolExecutor(max_workers=os.cpu_count() or 4) as executor:
-        futures = [executor.submit(check_file, binary, source) for source in sources]
+        futures = [executor.submit(oscript_check, binary, source) for source in sources]
         report = "".join(future.result() for future in futures)
 
     failures = [line for line in report.splitlines() if "Ошибка" in line]
@@ -52,7 +40,7 @@ def main() -> None:
             "+ Строка(ТипЗнч(Новый Конфигурация())));\n",
             encoding="utf-8",
         )
-        subprocess.run([binary, loader], check=True)
+        oscript_run(binary, loader)
 
 
 if __name__ == "__main__":

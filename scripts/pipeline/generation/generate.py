@@ -5,24 +5,19 @@ import sys
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
+from ..core.docker import docker_run
 from ..core.naming import JAVA_ROOT_PATH as JAVA_GROUP_PATH
 from ..core.naming import module_slug, pascal_from_snake
 from ..core.paths import CLIENTS_DIR, CONFIG_DIR, REPO_ROOT, TEMPLATE_DIR
 from ..core.paths import PROCESSED_DIR as SPEC_DIR
 from ..core.paths import SCRATCH_DIR as SCRATCH
 from ..core.proc import in_container, run
+from ..core.python import PYTHON, SYSTEM_PYTHON, run_script
 from ..onescript.toolchain import ensure_onescript_plugin
 
 ONESCRIPT_RUNTIME = ("Конфигурация", "СекретнаяСтрока", "ТранспортHTTP", "ОтветAPI")
 OPENAPI_GENERATOR_VERSION = os.environ.get("OPENAPI_GENERATOR_VERSION", "v7.10.0")
 OPENAPI_GENERATOR_THREADS = os.environ.get("OPENAPI_GENERATOR_THREADS", "2")
-VENV_PYTHON = REPO_ROOT / ".venv/bin/python"
-PYTHON = (
-    VENV_PYTHON
-    if os.access(VENV_PYTHON, os.X_OK)
-    else Path(shutil.which("python3") or sys.executable)
-)
-SYSTEM_PYTHON = Path(shutil.which("python3") or sys.executable)
 BATCH_CONFIGS: list[str] = []
 
 
@@ -200,22 +195,9 @@ def run_batch(plugin: Path) -> None:
     print(
         f"→ {len(BATCH_CONFIGS)} generator tasks ({OPENAPI_GENERATOR_THREADS} threads)"
     )
-    run(
+    docker_run(
+        f"openapitools/openapi-generator-cli:{OPENAPI_GENERATOR_VERSION}",
         [
-            "docker",
-            "run",
-            "--rm",
-            "-u",
-            f"{os.getuid()}:{os.getgid()}",
-            "-v",
-            f"{REPO_ROOT}:/work",
-            "-v",
-            f"{plugin}:/plugin.jar:ro",
-            "-w",
-            "/work",
-            "--entrypoint",
-            "java",
-            f"openapitools/openapi-generator-cli:{OPENAPI_GENERATOR_VERSION}",
             "-cp",
             "/plugin.jar:/opt/openapi-generator/modules/openapi-generator-cli/target/openapi-generator-cli.jar",
             "org.openapitools.codegen.OpenAPIGenerator",
@@ -228,6 +210,9 @@ def run_batch(plugin: Path) -> None:
             "--",
             *BATCH_CONFIGS,
         ],
+        mounts=[f"{REPO_ROOT}:/work", f"{plugin}:/plugin.jar:ro"],
+        workdir="/work",
+        entrypoint="java",
         check=True,
         stdout=subprocess.DEVNULL,
     )
@@ -355,8 +340,8 @@ def finish_packages(slugs: list[str], version: str) -> None:
             index, encoding="utf-8"
         )
 
-    run(
-        [SYSTEM_PYTHON, REPO_ROOT / "scripts/inject-secret.py", CLIENTS_DIR], check=True
+    run_script(
+        SYSTEM_PYTHON, REPO_ROOT / "scripts/inject-secret.py", CLIENTS_DIR, check=True
     )
     shutil.copy(TEMPLATE_DIR / "go/go.mod", CLIENTS_DIR / "go/go.mod")
     write_template(
@@ -374,26 +359,18 @@ def finish_packages(slugs: list[str], version: str) -> None:
         CLIENTS_DIR / "csharp/WbApiClient.csproj",
         ("__VERSION__", version),
     )
-    run(
-        [
-            PYTHON,
-            REPO_ROOT / "scripts/gen-onescript-manifests.py",
-            REPO_ROOT,
-            version,
-        ],
+    run_script(
+        PYTHON,
+        REPO_ROOT / "scripts/gen-onescript-manifests.py",
+        REPO_ROOT,
+        version,
         check=True,
     )
 
 
-def warn_formatter(warning: str, args: list[object], **kwargs: object) -> None:
+def warn_formatter(warning: str, action) -> None:
     try:
-        run(
-            args,
-            check=True,
-            stdout=subprocess.DEVNULL,
-            stderr=subprocess.DEVNULL,
-            **kwargs,
-        )
+        action()
     except (OSError, subprocess.CalledProcessError):
         print(warning)
 
@@ -403,27 +380,16 @@ def format_go() -> None:
         return
     warn_formatter(
         "  ! go mod tidy / gofmt failed — run manually in clients/go before publish",
-        [
-            "docker",
-            "run",
-            "--rm",
-            "-u",
-            f"{os.getuid()}:{os.getgid()}",
-            "-v",
-            f"{REPO_ROOT}:/work",
-            "-w",
-            "/work/clients/go",
-            "-e",
-            "HOME=/tmp",
-            "-e",
-            "GOCACHE=/tmp/.cache/go-build",
-            "-e",
-            "GOPATH=/tmp/go",
+        lambda: docker_run(
             "golang:1.22-alpine",
-            "sh",
-            "-c",
-            "go mod tidy && gofmt -w . && gofmt -w .",
-        ],
+            ["sh", "-c", "go mod tidy && gofmt -w . && gofmt -w ."],
+            mounts=[f"{REPO_ROOT}:/work"],
+            workdir="/work/clients/go",
+            env=["HOME=/tmp", "GOCACHE=/tmp/.cache/go-build", "GOPATH=/tmp/go"],
+            check=True,
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+        ),
     )
 
 
@@ -453,25 +419,20 @@ def format_typescript() -> None:
         return
     warn_formatter(
         "  ! prettier failed — run manually in clients/typescript before publish",
-        [
-            "docker",
-            "run",
-            "--rm",
-            "-u",
-            f"{os.getuid()}:{os.getgid()}",
-            "-v",
-            f"{REPO_ROOT}:/work",
-            "-w",
-            "/work/clients/typescript",
-            "-e",
-            "HOME=/tmp",
-            "-e",
-            "npm_config_cache=/tmp/.npm",
+        lambda: docker_run(
             "node:20-alpine",
-            "sh",
-            "-c",
-            "npm install --silent --no-audit --no-fund && npx --no-install prettier --write --log-level=error 'src/**/*.ts'",
-        ],
+            [
+                "sh",
+                "-c",
+                "npm install --silent --no-audit --no-fund && npx --no-install prettier --write --log-level=error 'src/**/*.ts'",
+            ],
+            mounts=[f"{REPO_ROOT}:/work"],
+            workdir="/work/clients/typescript",
+            env=["HOME=/tmp", "npm_config_cache=/tmp/.npm"],
+            check=True,
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+        ),
     )
 
 
@@ -480,24 +441,16 @@ def format_java() -> None:
         return
     warn_formatter(
         "  ! mvn spotless:apply failed — run manually in clients/java before publish",
-        [
-            "docker",
-            "run",
-            "--rm",
-            "-u",
-            f"{os.getuid()}:{os.getgid()}",
-            "-v",
-            f"{REPO_ROOT}:/work",
-            "-w",
-            "/work/clients/java",
-            "-e",
-            "HOME=/tmp",
+        lambda: docker_run(
             "maven:3.9-eclipse-temurin-17",
-            "mvn",
-            "-q",
-            "-Duser.home=/tmp",
-            "spotless:apply",
-        ],
+            ["mvn", "-q", "-Duser.home=/tmp", "spotless:apply"],
+            mounts=[f"{REPO_ROOT}:/work"],
+            workdir="/work/clients/java",
+            env=["HOME=/tmp"],
+            check=True,
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+        ),
     )
 
 
@@ -506,26 +459,16 @@ def format_php() -> None:
         return
     warn_formatter(
         "  ! php-cs-fixer failed — run manually in clients/php before publish",
-        [
-            "docker",
-            "run",
-            "--rm",
-            "-u",
-            f"{os.getuid()}:{os.getgid()}",
-            "-v",
-            f"{REPO_ROOT}:/work",
-            "-w",
-            "/work/clients/php",
-            "-e",
-            "HOME=/tmp",
-            "-e",
-            "PHP_CS_FIXER_IGNORE_ENV=1",
+        lambda: docker_run(
             "ghcr.io/php-cs-fixer/php-cs-fixer:3-php8.3",
-            "fix",
-            "src",
-            "--rules=@PSR12",
-            "--using-cache=no",
-        ],
+            ["fix", "src", "--rules=@PSR12", "--using-cache=no"],
+            mounts=[f"{REPO_ROOT}:/work"],
+            workdir="/work/clients/php",
+            env=["HOME=/tmp", "PHP_CS_FIXER_IGNORE_ENV=1"],
+            check=True,
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+        ),
     )
 
 
@@ -534,37 +477,32 @@ def format_csharp() -> None:
     if os.environ.get("CI") == "true" and shutil.which("dotnet"):
         warn_formatter(
             warning,
-            ["dotnet", "format", "whitespace", "-v", "q"],
-            cwd=CLIENTS_DIR / "csharp",
+            lambda: run(
+                ["dotnet", "format", "whitespace", "-v", "q"],
+                check=True,
+                stdout=subprocess.DEVNULL,
+                stderr=subprocess.DEVNULL,
+                cwd=CLIENTS_DIR / "csharp",
+            ),
         )
     elif shutil.which("docker"):
         warn_formatter(
             warning,
-            [
-                "docker",
-                "run",
-                "--rm",
-                "-u",
-                f"{os.getuid()}:{os.getgid()}",
-                "-v",
-                f"{CLIENTS_DIR / 'csharp'}:/app",
-                "-w",
-                "/app",
-                "-e",
-                "HOME=/tmp",
-                "-e",
-                "DOTNET_CLI_TELEMETRY_OPTOUT=1",
-                "-e",
-                "DOTNET_NOLOGO=1",
-                "-e",
-                "NUGET_PACKAGES=/tmp/.nuget",
+            lambda: docker_run(
                 "mcr.microsoft.com/dotnet/sdk:8.0",
-                "dotnet",
-                "format",
-                "whitespace",
-                "-v",
-                "q",
-            ],
+                ["dotnet", "format", "whitespace", "-v", "q"],
+                mounts=[f"{CLIENTS_DIR / 'csharp'}:/app"],
+                workdir="/app",
+                env=[
+                    "HOME=/tmp",
+                    "DOTNET_CLI_TELEMETRY_OPTOUT=1",
+                    "DOTNET_NOLOGO=1",
+                    "NUGET_PACKAGES=/tmp/.nuget",
+                ],
+                check=True,
+                stdout=subprocess.DEVNULL,
+                stderr=subprocess.DEVNULL,
+            ),
         )
 
 
@@ -605,7 +543,7 @@ def main() -> None:
         splice_spec(spec)
     finish_packages(slugs, version)
     format_clients()
-    run([PYTHON, REPO_ROOT / "scripts/gen-readmes.py", REPO_ROOT], check=True)
+    run_script(PYTHON, REPO_ROOT / "scripts/gen-readmes.py", REPO_ROOT, check=True)
     shutil.rmtree(SCRATCH)
     print(f"Generated 7 unified client libraries at version {version}")
 

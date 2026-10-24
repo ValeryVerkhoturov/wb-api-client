@@ -7,6 +7,9 @@ from pathlib import Path
 
 import requests
 
+from ..core.docker import docker_run
+from ..core.git import clone_at
+from ..core.macos import dequarantine_and_sign
 from ..core.paths import CACHE_DIR
 from ..core.proc import run
 
@@ -97,29 +100,28 @@ def ensure_onescript() -> tuple[Path, Path]:
         binary.chmod(binary.stat().st_mode | 0o111)
 
         if platform.system() == "Darwin":
-            for command in (
-                ["xattr", "-cr", home],
-                ["codesign", "--force", "--sign", "-", binary],
-            ):
-                try:
-                    run(command, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-                except OSError:
-                    pass
-            for dylib in (home / "bin").glob("*.dylib"):
-                try:
-                    run(
-                        ["codesign", "--force", "--sign", "-", dylib],
-                        stdout=subprocess.DEVNULL,
-                        stderr=subprocess.DEVNULL,
-                    )
-                except OSError:
-                    pass
+            dequarantine_and_sign(home, binary)
 
     os.environ["ONESCRIPT_BIN"] = os.fspath(binary)
     os.environ["ONESCRIPT_HOME"] = os.fspath(home)
     ensure_onescript_package("1connector", ONESCRIPT_CONNECTOR_VERSION)
     ensure_onescript_package("jason", ONESCRIPT_JASON_VERSION)
     return binary, home
+
+
+def oscript_check(binary: Path, source: Path) -> str:
+    result = run(
+        [binary, "-check", source],
+        stdout=subprocess.PIPE,
+        stderr=subprocess.STDOUT,
+        encoding="utf-8",
+        errors="replace",
+    )
+    return result.stdout
+
+
+def oscript_run(binary: Path, script: Path) -> None:
+    run([binary, script], check=True)
 
 
 def ensure_onescript_plugin() -> Path:
@@ -131,56 +133,16 @@ def ensure_onescript_plugin() -> Path:
         src = CACHE_DIR / "onescript-codegen" / short / "src"
         shutil.rmtree(src, ignore_errors=True)
         src.mkdir(parents=True, exist_ok=True)
-        run(
-            [
-                "git",
-                "-c",
-                "advice.detachedHead=false",
-                "clone",
-                "--quiet",
-                ONESCRIPT_CODEGEN_REPO,
-                src,
-            ],
-            check=True,
-        )
-        run(
-            [
-                "git",
-                "-C",
-                src,
-                "-c",
-                "advice.detachedHead=false",
-                "checkout",
-                "--quiet",
-                ONESCRIPT_CODEGEN_REF,
-            ],
-            check=True,
-        )
+        clone_at(ONESCRIPT_CODEGEN_REPO, ONESCRIPT_CODEGEN_REF, src)
 
         maven_cache = CACHE_DIR / "onescript-codegen/m2"
         maven_cache.mkdir(parents=True, exist_ok=True)
-        run(
-            [
-                "docker",
-                "run",
-                "--rm",
-                "-u",
-                f"{os.getuid()}:{os.getgid()}",
-                "-v",
-                f"{src}:/work",
-                "-v",
-                f"{maven_cache}:/m2",
-                "-w",
-                "/work",
-                "-e",
-                "HOME=/tmp",
-                "maven:3.9-eclipse-temurin-17",
-                "mvn",
-                "-q",
-                "-Dmaven.repo.local=/m2",
-                "-DskipTests",
-                "package",
-            ],
+        docker_run(
+            "maven:3.9-eclipse-temurin-17",
+            ["mvn", "-q", "-Dmaven.repo.local=/m2", "-DskipTests", "package"],
+            mounts=[f"{src}:/work", f"{maven_cache}:/m2"],
+            workdir="/work",
+            env=["HOME=/tmp"],
             check=True,
         )
 

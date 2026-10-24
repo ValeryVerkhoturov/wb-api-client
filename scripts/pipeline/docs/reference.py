@@ -22,6 +22,7 @@ from ..core.naming import (
     snake_slug,
 )
 from ..core.paths import REPO_ROOT
+from ..core.proc import run
 from ..core.yamlio import safe_yaml
 
 yaml = safe_yaml()
@@ -1006,7 +1007,7 @@ def format_with_prettier(repo: Path, targets: list[Path]) -> None:
         *[str(t.relative_to(repo)) for t in targets],
     ]
     try:
-        subprocess.run(cmd, cwd=repo, check=True)
+        run(cmd, cwd=repo, check=True)
     except FileNotFoundError:
         sys.stderr.write(
             "prettier not runnable — install Node, or run `npm install` in "
