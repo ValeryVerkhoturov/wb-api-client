@@ -171,12 +171,12 @@ Passing the token through the wrapper is the only supported path.
 ```bash
 git submodule update --init --recursive # clients/php + clients/onescript + clients/go must be mounted
 pip install -r scripts/requirements.txt
-./scripts/download-swaggers.py          # pull YAMLs from the wb-api-client-specs mirror
-python  scripts/post-process.py         # inject Bearer auth security scheme
-./scripts/generate.py 0.0.0-local       # emit clients/{python,typescript,go,java,php,onescript,csharp}
+./scripts/download-specs.py          # pull YAMLs from the wb-api-client-specs mirror
+python  scripts/process-specs.py         # inject Bearer auth security scheme
+./scripts/generate-clients.py 0.0.0-local       # emit clients/{python,typescript,go,java,php,onescript,csharp}
 ```
 
-`generate.py` refuses to run if any submodule is missing: without the mount its
+`generate-clients.py` refuses to run if any submodule is missing: without the mount its
 output would land in an orphaned directory in this repo instead of the sibling.
 `make git-status` / `git-commit` / `git-push` / `git-pull` act on all four repos at
 once, submodules first so the recorded pointers are the new commits.

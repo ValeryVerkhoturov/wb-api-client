@@ -553,9 +553,7 @@ def main() -> int:
 
     specs = sorted(p for p in src_dir.glob("*.yaml") if p.parent == src_dir)
     if not specs:
-        sys.stderr.write(
-            f"No specs found in {src_dir}. Run download-swaggers.py first.\n"
-        )
+        sys.stderr.write(f"No specs found in {src_dir}. Run download-specs.py first.\n")
         return 1
 
     totals = {

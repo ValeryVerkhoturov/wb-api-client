@@ -341,7 +341,7 @@ def finish_packages(slugs: list[str], version: str) -> None:
         )
 
     run_script(
-        SYSTEM_PYTHON, REPO_ROOT / "scripts/inject-secret.py", CLIENTS_DIR, check=True
+        SYSTEM_PYTHON, REPO_ROOT / "scripts/inject-secrets.py", CLIENTS_DIR, check=True
     )
     shutil.copy(TEMPLATE_DIR / "go/go.mod", CLIENTS_DIR / "go/go.mod")
     write_template(
@@ -361,7 +361,7 @@ def finish_packages(slugs: list[str], version: str) -> None:
     )
     run_script(
         PYTHON,
-        REPO_ROOT / "scripts/gen-onescript-manifests.py",
+        REPO_ROOT / "scripts/generate-onescript-manifests.py",
         REPO_ROOT,
         version,
         check=True,
@@ -531,7 +531,7 @@ def main() -> None:
     specs = sorted(SPEC_DIR.glob("*.yaml")) if SPEC_DIR.is_dir() else []
     if not specs:
         sys.stderr.write(
-            f"no processed specs at {SPEC_DIR} — run post-process.py first\n"
+            f"no processed specs at {SPEC_DIR} — run process-specs.py first\n"
         )
         raise SystemExit(1)
 
@@ -543,7 +543,7 @@ def main() -> None:
         splice_spec(spec)
     finish_packages(slugs, version)
     format_clients()
-    run_script(PYTHON, REPO_ROOT / "scripts/gen-readmes.py", REPO_ROOT, check=True)
+    run_script(PYTHON, REPO_ROOT / "scripts/generate-readmes.py", REPO_ROOT, check=True)
     shutil.rmtree(SCRATCH)
     print(f"Generated 7 unified client libraries at version {version}")
 

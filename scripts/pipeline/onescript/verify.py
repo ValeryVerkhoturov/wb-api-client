@@ -15,7 +15,7 @@ def main() -> None:
 
     if not (package / "src").is_dir():
         sys.stderr.write(
-            f"no OneScript client at {package} — run ./scripts/generate.py first\n"
+            f"no OneScript client at {package} — run ./scripts/generate-clients.py first\n"
         )
         raise SystemExit(1)
     package = package.resolve()

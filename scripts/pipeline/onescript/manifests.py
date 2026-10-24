@@ -27,7 +27,7 @@ def collect_classes(src_dir: Path) -> list[tuple[str, str]]:
 
 def main() -> None:
     if len(sys.argv) != 3:
-        raise SystemExit("usage: gen-onescript-manifests.py <repo-root> <version>")
+        raise SystemExit("usage: generate-onescript-manifests.py <repo-root> <version>")
 
     repo_root = Path(sys.argv[1]).resolve()
     version = sys.argv[2]

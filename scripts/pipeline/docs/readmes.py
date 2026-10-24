@@ -261,12 +261,12 @@ def docs_url_for(spec: dict) -> str:
 
 def main() -> int:
     if len(sys.argv) != 2:
-        sys.stderr.write("usage: gen-readmes.py <repo root>\n")
+        sys.stderr.write("usage: generate-readmes.py <repo root>\n")
         return 2
     root = Path(sys.argv[1]).resolve()
     specs = load_specs(root / "swaggers" / "processed")
     if not specs:
-        sys.stderr.write("no processed specs — run post-process.py first\n")
+        sys.stderr.write("no processed specs — run process-specs.py first\n")
         return 1
 
     py_root = root / "clients" / "python"

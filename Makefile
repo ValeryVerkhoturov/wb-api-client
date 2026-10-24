@@ -1,28 +1,7 @@
-# Convenience wrappers around the scripts in scripts/. Nothing here does
-# anything the pipeline can't do directly — this is just the short-command
-# surface for day-to-day work.
-#
-# Run `make` (or `make help`) to see the list.
-
-# ── config ────────────────────────────────────────────────────────────────
-
-# Version stamped into every generated manifest. Overridable:
-#   make generate VERSION=2026.09.20
 VERSION ?= 0.0.0.dev0
-
-# Sibling repos mounted under clients/. All are committed, tagged and
-# pushed alongside the main repo — see the git-* targets below.
 SUBMODULES := php onescript go
-
-# Sibling docs site. `make reference` writes the generated endpoint pages
-# into this checkout; daily-check.yml clones it instead. Overridable:
-#   make reference DOCS=~/src/wb-api-client-docs
 DOCS ?= ../wb-api-client-docs
-
-# Prefer a venv-local python if one exists, else system python3.
 PY := $(shell test -x .venv/bin/python && echo .venv/bin/python || echo python3)
-
-# One-off Docker invocations. Reused rather than re-typed per target.
 GO_DOCKER   = docker run --rm -u $$(id -u):$$(id -g) \
                 -v $(CURDIR)/clients/go:/app -w /app \
                 -e HOME=/tmp -e GOCACHE=/tmp/.cache/go-build -e GOPATH=/tmp/go \
@@ -70,20 +49,20 @@ venv: ## Create .venv and install post-processor deps
 # ── pipeline ──────────────────────────────────────────────────────────────
 
 download: ## Pull swagger YAMLs from dev.wildberries.ru
-	$(PY) scripts/download-swaggers.py
+	$(PY) scripts/download-specs.py
 
 post-process: ## Run all post-processing passes on swaggers/
-	$(PY) scripts/post-process.py
+	$(PY) scripts/process-specs.py
 
 generate: post-process ## Regenerate all six language clients
-	$(PY) scripts/generate.py $(VERSION)
+	$(PY) scripts/generate-clients.py $(VERSION)
 
 regen: download post-process generate ## Full pipeline: download → process → generate
 
 reference: ## Regenerate the docs-site API reference into $(DOCS)
 	@test -d "$(DOCS)/docs/.vitepress" || \
 	  { echo "No docs checkout at $(DOCS) — clone wb-api-client-docs or pass DOCS=<path>"; exit 1; }
-	$(PY) scripts/gen-api-reference.py "$(DOCS)/docs"
+	$(PY) scripts/generate-docs.py "$(DOCS)/docs"
 
 # ── verification ──────────────────────────────────────────────────────────
 
@@ -251,11 +230,11 @@ clean: ## Remove generated clients/, processed swaggers, local scratch
 	@# Never `rm -rf clients/`: that deletes the .git gitfile inside each
 	@# submodule mount, silently turning it into a plain directory — after
 	@# which regeneration writes into the main repo instead of the sibling
-	@# repo. Same invariant generate.py protects.
+	@# repo. Same invariant generate-clients.py protects.
 	rm -rf clients/python clients/typescript clients/java clients/csharp clients/.tmp
 	@for sub in $(SUBMODULES); do rm -rf clients/$$sub/src; done
 	@# Go has no src/: its generated content is the slug package dirs and
 	@# go.sum (go.mod is overwritten from templates/, README.md by
-	@# gen-readmes.py). The mount's .git gitfile and LICENSE survive.
+	@# generate-readmes.py). The mount's .git gitfile and LICENSE survive.
 	rm -rf clients/go/*/ clients/go/go.sum
 	rm -rf swaggers/processed/ .venv/ .cache/

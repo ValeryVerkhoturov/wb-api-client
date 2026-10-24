@@ -1,14 +1,5 @@
 name: Publish clients
 
-# Reusable workflow. Regeneration and commit happen in daily-check.yml; by
-# the time this runs the tag already exists and `clients/<lang>` is
-# committed at that tag. This workflow is a pure publish step — download
-# the tagged source, build the language-specific package artifact, push to
-# the appropriate registry.
-#
-# Each language branch is self-contained so a broken publish for one
-# language does not block the others (fail-fast: false in the caller).
-
 on:
   workflow_call:
     inputs:
@@ -19,8 +10,6 @@ on:
         type: string
         required: true
       ref:
-        # Tag to check out. daily-check.yml passes `v<version>` so the
-        # source we publish exactly matches what's committed at that tag.
         type: string
         required: true
   workflow_dispatch:
@@ -40,9 +29,9 @@ jobs:
   publish-python:
     if: inputs.lang == 'python'
     runs-on: ubuntu-latest
-    environment: pypi              # protects the PyPI trusted-publisher config
+    environment: pypi
     permissions:
-      id-token: write              # OIDC → PyPI trusted publishing
+      id-token: write
     steps:
       - uses: actions/checkout@v4
         with:
@@ -65,7 +54,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: npm
     permissions:
-      id-token: write              # OIDC → npm trusted publishing
+      id-token: write
       contents: read
     steps:
       - uses: actions/checkout@v4
@@ -87,11 +76,6 @@ jobs:
   publish-go:
     if: inputs.lang == 'go'
     runs-on: ubuntu-latest
-    # No-op job: Go modules resolve versions directly from the sibling
-    # repo's tags — daily-check.yml already tagged wb-api-client-go, so
-    # `go get github.com/ValeryVerkhoturov/wb-api-client-go@vX.Y.Z`
-    # already works. This job exists so the matrix stays symmetric and
-    # anyone reading the workflow can see Go is intentionally handled.
     steps:
       - name: Confirm tag reachable
         run: |
@@ -102,19 +86,11 @@ jobs:
     if: inputs.lang == 'php'
     runs-on: ubuntu-latest
     environment: packagist
-    # PHP lives in a separate repo (wb-api-client-php) because Packagist
-    # requires composer.json at the ROOT of the crawled repo. The
-    # sibling repo is mounted here as the clients/php submodule; the
-    # tag was already pushed to it by daily-check.yml. This job just
-    # pings Packagist so the update is instant rather than "eventually
-    # when the crawler runs".
     steps:
       - name: Ping Packagist to refresh the package
         env:
           PACKAGIST_USERNAME: ${{ secrets.PACKAGIST_USERNAME }}
           PACKAGIST_API_TOKEN: ${{ secrets.PACKAGIST_API_TOKEN }}
-          # Full Packagist package name — must match `name` in
-          # wb-api-client-php/composer.json.
           PACKAGE: "valeryverkhoturov/wb-api-client"
         run: |
           curl -fsSL -XPOST \
@@ -140,12 +116,6 @@ jobs:
           server-password: MAVEN_PASSWORD
           gpg-private-key: ${{ secrets.MAVEN_GPG_PRIVATE_KEY }}
           gpg-passphrase: MAVEN_GPG_PASSPHRASE
-      # Pin Maven 3.9.x: ubuntu-latest now ships Maven 3.10, whose Resolver
-      # writes maven-metadata-local.xml into central-publishing-maven-plugin's
-      # staging dir. The plugin (any version up to 0.11.0) only strips
-      # maven-metadata-central-staging.xml, so the stray file lands in the
-      # bundle and Central rejects it: "Bundle has content that does NOT have
-      # a .pom file". https://github.com/mavenplugins/central-publishing-maven-plugin/issues/79
       - uses: stCarolas/setup-maven@v4.5
         with:
           maven-version: "3.9.16"
@@ -161,11 +131,6 @@ jobs:
     if: inputs.lang == 'onescript'
     runs-on: ubuntu-latest
     environment: onescript
-    # OneScript lives in a separate repo (wb-api-client-1c) mounted here as
-    # the clients/onescript submodule, so the package source only appears
-    # once the submodule is checked out. daily-check.yml commits and tags
-    # the sibling before tagging this repo, so the pointer at `ref` already
-    # resolves to the matching tree.
     steps:
       - uses: actions/checkout@v4
         with:
@@ -196,9 +161,6 @@ jobs:
       - name: Push to hub.oscript.io
         working-directory: clients/onescript
         env:
-          # opm authenticates against the hub with a GitHub token, used only to
-          # verify the pusher's identity — per `opm push --help` it needs no
-          # scopes at all, and it never touches this repository.
           GITHUB_OAUTH_TOKEN: ${{ secrets.OSCRIPT_HUB_TOKEN }}
           VERSION: ${{ inputs.version }}
         run: |

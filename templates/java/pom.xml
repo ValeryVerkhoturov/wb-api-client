@@ -120,16 +120,7 @@
             <phase>verify</phase>
             <goals><goal>sign</goal></goals>
             <configuration>
-              <!-- Pass the passphrase directly from the MAVEN_GPG_PASSPHRASE
-                   env var. Without this, maven-gpg-plugin gets no
-                   passphrase and gpg fails with "Bad passphrase".
-                   actions/setup-java's `gpg-passphrase` input only wires
-                   the env var into the KEY IMPORT step, not into the
-                   plugin's signing step. -->
               <passphrase>${env.MAVEN_GPG_PASSPHRASE}</passphrase>
-              <!-- CI runners have no tty, so gpg's default pinentry can't
-                   prompt for the passphrase. `loopback` tells gpg to read
-                   the passphrase non-interactively from the value above. -->
               <gpgArguments>
                 <arg>--pinentry-mode</arg>
                 <arg>loopback</arg>
@@ -148,10 +139,6 @@
           <autoPublish>true</autoPublish>
         </configuration>
       </plugin>
-      <!-- spotless drives google-java-format across every generated .java
-           file. Not bound to a phase so `mvn compile` stays fast for
-           day-to-day builds; formatting runs explicitly from generate.py
-           (`spotless:apply`) and from CI / Makefile (`spotless:check`). -->
       <plugin>
         <groupId>com.diffplug.spotless</groupId>
         <artifactId>spotless-maven-plugin</artifactId>

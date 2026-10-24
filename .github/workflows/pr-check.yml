@@ -16,7 +16,7 @@ concurrency:
 
 permissions:
   contents: read
-  pull-requests: write     # to leave a summary comment on failure
+  pull-requests: write
 
 jobs:
   verify:
@@ -44,14 +44,14 @@ jobs:
       - run: pip install -r scripts/requirements.txt
 
       - name: Post-process specs
-        run: python scripts/post-process.py
+        run: python scripts/process-specs.py
 
       - uses: actions/setup-dotnet@v4
         with:
           dotnet-version: "8.0.x"
 
       - name: Regenerate all seven language clients
-        run: ./scripts/generate.py "${{ steps.ver.outputs.version }}"
+        run: ./scripts/generate-clients.py "${{ steps.ver.outputs.version }}"
 
       - name: gofmt is clean
         run: |
@@ -126,8 +126,8 @@ jobs:
               echo ""
               echo "### To fix"
               echo '```bash'
-              echo "python scripts/post-process.py"
-              echo "./scripts/generate.py ${{ steps.ver.outputs.version }}"
+              echo "python scripts/process-specs.py"
+              echo "./scripts/generate-clients.py ${{ steps.ver.outputs.version }}"
               echo "git add swaggers/ clients/ && git commit"
               echo '```'
             } >> "$GITHUB_STEP_SUMMARY"
