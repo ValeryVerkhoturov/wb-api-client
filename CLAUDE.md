@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 A code-generation pipeline, not a hand-written library. The only human-authored source is:
 
-- `scripts/` — download, post-process, generate, inject-secret, gen-readmes, gen-api-reference
+- `scripts/` — the pipeline, organized by domain under `scripts/pipeline/`: `core/` (shared kernel — repo paths, spec/module/language naming, YAML IO, external-tool runners (subprocess, docker, git, python, macOS codesign)), `specs/` (download + post-process), `generation/` (generate + inject-secret), `onescript/` (toolchain, manifests, verify), `docs/` (gen-api-reference + gen-readmes). `make scripts-check` smoke-checks the kernel and enforces the house rule: no `#` comments and no docstrings under `scripts/` — the code must speak for itself. The flat `scripts/*.py` filenames below are thin CLI shims over those modules, so Makefile/CI entry points are unchanged.
 - `generator-configs/` — one YAML per target language, passed to `openapi-generator-cli`
 - `templates/` — top-level manifests (`pyproject.toml`, `package.json`, `go.mod`, `pom.xml`, `composer.json`) with `__VERSION__` placeholders, plus the one mustache override (`php/libraries/guzzle/api.mustache`)
 - `.github/workflows/` — daily upstream check + PR-drift check + reusable per-language publish
@@ -217,7 +217,7 @@ PyPI + npm trusted publishing: **the "Workflow filename" on pypi.org and npmjs.c
 - **The transport is built on [1connector](https://github.com/vbondarevsky/1connector).**
   It is the generated package's only dependency, declared in `packagedef` and pinned
   by `connectorVersion` in `generator-configs/onescript.yaml`. Keep that in step with
-  `ONESCRIPT_CONNECTOR_VERSION` in `scripts/onescript_toolchain.py`, which installs it —
+  `ONESCRIPT_CONNECTOR_VERSION` in `scripts/pipeline/onescript/toolchain.py`, which installs it —
   `ТранспортHTTP.os` opens with `#Использовать 1connector`, so the library must resolve
   even for `oscript -check`, not just at runtime. 1connector supplies query-string
   building and encoding, JSON serialisation, response parsing, retries, proxy and SSL;
@@ -228,7 +228,7 @@ PyPI + npm trusted publishing: **the "Workflow filename" on pypi.org and npmjs.c
   `-g onescript` comes from a plugin in
   [`ValeryVerkhoturov/onescript-openapi-generator`](https://github.com/ValeryVerkhoturov/onescript-openapi-generator),
   loaded next to `openapi-generator-cli.jar` on the classpath (Java merges both
-  `META-INF/services` entries). `scripts/onescript_toolchain.py` pins it **by commit**
+  `META-INF/services` entries). `scripts/pipeline/onescript/toolchain.py` pins it **by commit**
   and builds it in the Maven image, caching the jar under `.cache/`. That pin is the
   OneScript equivalent of `OPENAPI_GENERATOR_VERSION` — bump it deliberately, since it
   decides every generated name.

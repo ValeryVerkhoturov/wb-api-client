@@ -87,7 +87,11 @@ reference: ## Regenerate the docs-site API reference into $(DOCS)
 
 # ── verification ──────────────────────────────────────────────────────────
 
-verify: verify-python verify-ts verify-go verify-java verify-php verify-csharp verify-onescript gofmt black prettier spotless php-cs-fixer dotnet-format ## Build every language + fmt checks
+scripts-check: ## Smoke-check the pipeline kernel and ban `#` comments under scripts/
+	PYTHONPATH=scripts $(PY) -m pipeline.core.selfcheck
+	PYTHONPATH=scripts $(PY) -m pipeline.core.commentcheck
+
+verify: scripts-check verify-python verify-ts verify-go verify-java verify-php verify-csharp verify-onescript gofmt black prettier spotless php-cs-fixer dotnet-format ## Build every language + fmt checks
 
 verify-python: ## Build the Python wheel and import every sub-module
 	@echo "── Python ─────────────────────────────────────"
@@ -148,8 +152,8 @@ gofmt: ## Fail if any Go file needs `gofmt -w`
 	 if [ -n "$$out" ]; then echo "gofmt needed:"; echo "$$out"; exit 1; \
 	 else echo "  ✓ gofmt clean"; fi
 
-black: ## Fail if any Python file needs `black`
-	@$(PY) -m black --check --quiet clients/python && echo "  ✓ black clean"
+black: ## Fail if any Python file (clients/python or scripts/) needs `black`
+	@$(PY) -m black --check --quiet clients/python scripts && echo "  ✓ black clean"
 
 prettier: ## Fail if any TypeScript file needs `prettier`
 	@$(NODE_DOCKER) sh -c "npm install --silent --no-audit --no-fund && npx --no-install prettier --check --log-level=error 'src/**/*.ts'" \
