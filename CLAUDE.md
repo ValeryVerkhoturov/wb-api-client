@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 A code-generation pipeline, not a hand-written library. The only human-authored source is:
 
-- `scripts/` — the pipeline, organized by domain under `scripts/pipeline/`: `core/` (shared kernel — repo paths, spec/module/language naming, YAML IO, subprocess helpers; `make scripts-check` smoke-checks it), `specs/` (download + post-process), `generation/` (generate + inject-secret), `onescript/` (toolchain, manifests, verify), `docs/` (gen-api-reference + gen-readmes). The flat `scripts/*.py` filenames below are thin CLI shims over those modules, so Makefile/CI entry points are unchanged.
+- `scripts/` — the pipeline, organized by domain under `scripts/pipeline/`: `core/` (shared kernel — repo paths, spec/module/language naming, YAML IO, subprocess helpers), `specs/` (download + post-process), `generation/` (generate + inject-secret), `onescript/` (toolchain, manifests, verify), `docs/` (gen-api-reference + gen-readmes). `make scripts-check` smoke-checks the kernel and enforces the house rule: no `#` comments and no docstrings under `scripts/` — the code must speak for itself. The flat `scripts/*.py` filenames below are thin CLI shims over those modules, so Makefile/CI entry points are unchanged.
 - `generator-configs/` — one YAML per target language, passed to `openapi-generator-cli`
 - `templates/` — top-level manifests (`pyproject.toml`, `package.json`, `go.mod`, `pom.xml`, `composer.json`) with `__VERSION__` placeholders, plus the one mustache override (`php/libraries/guzzle/api.mustache`)
 - `.github/workflows/` — daily upstream check + PR-drift check + reusable per-language publish

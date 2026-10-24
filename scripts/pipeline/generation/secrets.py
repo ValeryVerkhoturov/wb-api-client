@@ -1,29 +1,4 @@
 #!/usr/bin/env python3
-"""Post-process every generated language client so the WB bearer JWT is
-stored on `Configuration` (or `ApiClient` in Java) wrapped in a
-"secret-string" type that redacts under log/print unless the caller
-explicitly asks for the raw value. Same ergonomics across all four
-languages.
-
-Per-language mechanism:
-
-  Python  — pydantic.SecretStr wraps the token; `__init__` normalizes a
-            plain str to SecretStr; the `auth_settings()` block unwraps
-            with `.get_secret_value()` when building the header.
-  TS      — a small `SecretString` class inlined in configuration.ts,
-            plus `Configuration.setAccessToken(token)` which stores the
-            SecretString and wires `this.accessToken` to a callback
-            returning `secret.exposeSecret()`. The generated request
-            builder already invokes the callback at request time.
-  Go      — Configuration gains an `AccessToken *secrecy.SecretString`
-            field (github.com/negrel/secrecy) plus a
-            `SetAccessToken(token string)` setter; the request builder
-            reads it via `.ExposeSecret()`.
-  Java    — a small `SecretString` class per sub-module; `ApiClient`
-            gains a `setBearerToken(SecretString)` overload that binds
-            to the existing `Supplier<String>` path with
-            `secret::exposeSecret`.
-"""
 from __future__ import annotations
 
 import re
@@ -33,13 +8,10 @@ from pathlib import Path
 from ..core.naming import JAVA_ROOT_PKG, JAVA_ROOT_PATH
 
 
-# ────────── Python ──────────
-
 def patch_python_configuration(text: str) -> str:
     if "SecretStr" in text:
         return text
 
-    # Widen the type hint on the __init__ parameter.
     text = re.sub(
         r"(\s+access_token: Optional\[)str(\]=None,)",
         r"\1Union[str, SecretStr]\2",
@@ -47,19 +19,18 @@ def patch_python_configuration(text: str) -> str:
         count=1,
     )
 
-    # Wrap a plain string on assignment so the field is always SecretStr.
     text = re.sub(
         r"(\n(\s+))self\.access_token = access_token\n",
         (
             r"\1if access_token is not None and not isinstance(access_token, SecretStr):"
             "\n\\2    access_token = SecretStr(access_token)"
-            r"\1self.access_token = access_token" "\n"
+            r"\1self.access_token = access_token"
+            "\n"
         ),
         text,
         count=1,
     )
 
-    # Unwrap when composing the Authorization header.
     text = re.sub(
         r"'value': 'Bearer ' \+ self\.access_token",
         "'value': 'Bearer ' + self.access_token.get_secret_value()",
@@ -67,7 +38,6 @@ def patch_python_configuration(text: str) -> str:
         count=1,
     )
 
-    # Imports: add Union to typing if missing, add pydantic SecretStr.
     text = re.sub(
         r"^(from typing import [^\n]+)$",
         lambda m: m.group(1) if "Union" in m.group(1) else m.group(1) + ", Union",
@@ -91,7 +61,9 @@ def patch_python(root: Path) -> int:
     pkg = root / "wb_api_client"
     if not pkg.is_dir():
         return 0
-    for sub in sorted(p for p in pkg.iterdir() if p.is_dir() and not p.name.startswith("_")):
+    for sub in sorted(
+        p for p in pkg.iterdir() if p.is_dir() and not p.name.startswith("_")
+    ):
         cfg = sub / "configuration.py"
         if not cfg.exists():
             continue
@@ -99,8 +71,6 @@ def patch_python(root: Path) -> int:
         n += 1
     return n
 
-
-# ────────── TypeScript ──────────
 
 _TS_SECRET_CLASS = """/**
  * Small wrapper around a string that hides its value under console.log,
@@ -143,20 +113,12 @@ def patch_typescript_configuration(text: str) -> str:
         text,
         count=1,
     )
-    # Insert setAccessToken() right after the constructor body's closing
-    # brace. Anchor on the constructor signature line, then match its
-    # body up to the first line that is exactly `    }` — the constructor's
-    # end at 4-space indent.
     text = re.sub(
         r"(constructor\(param: ConfigurationParameters[^\n]*\{\n(?:.*?\n)*?    \})",
         r"\1\n" + _TS_SETTER,
         text,
         count=1,
     )
-    # Seed a default User-Agent on baseOptions. openapi-generator's
-    # typescript-axios template doesn't accept `httpUserAgent` like the
-    # other generators do, so we inject it here. Caller-supplied
-    # baseOptions.headers still win via spread order below.
     text = re.sub(
         r"(this\.baseOptions = param\.baseOptions;)",
         r"""\1
@@ -186,8 +148,6 @@ def patch_typescript(root: Path) -> int:
         n += 1
     return n
 
-
-# ────────── Go ──────────
 
 SECRECY_IMPORT = '\t"github.com/negrel/secrecy"'
 
@@ -248,6 +208,7 @@ def patch_go_client(text: str) -> str:
             f'{indent}\tlocalVarRequest.Header.Add("Authorization", "Bearer "+c.cfg.AccessToken.ExposeSecret())\n'
             f"{indent}}}\n"
         )
+
     return _GO_AUTH_BLOCK_RE.sub(replace, text)
 
 
@@ -263,8 +224,6 @@ def patch_go(root: Path) -> int:
         n += 1
     return n
 
-
-# ────────── Java ──────────
 
 def _java_secret_string(pkg: str) -> str:
     return (
@@ -282,7 +241,7 @@ def _java_secret_string(pkg: str) -> str:
         "\n"
         "    public String exposeSecret() { return value; }\n"
         "\n"
-        "    @Override public String toString() { return \"<REDACTED>\"; }\n"
+        '    @Override public String toString() { return "<REDACTED>"; }\n'
         "}\n"
     )
 
@@ -328,8 +287,6 @@ def patch_java(root: Path) -> int:
         n += 1
     return n
 
-
-# ────────── PHP ──────────
 
 _PHP_ROOT_NS = "ValeryVerkhoturov\\WbApiClient"
 
@@ -387,14 +344,7 @@ _PHP_SETTER_METHOD = """
 
 
 def patch_php_configuration(text: str) -> str:
-    """Inject a setAccessTokenSecret() method on the generated
-    Configuration class, and replace the User-Agent default with our
-    ValeryVerkhoturov/wb-api-client/php string (openapi-generator's PHP
-    template doesn't accept the `httpUserAgent` config option like the
-    other language generators do)."""
 
-    # 1. User-Agent default. Both the property default and the docstring
-    # get updated so the type inspection stays honest.
     text = re.sub(
         r"protected \$userAgent = 'OpenAPI-Generator/[^']*';",
         "protected $userAgent = 'ValeryVerkhoturov/wb-api-client/php';",
@@ -408,7 +358,6 @@ def patch_php_configuration(text: str) -> str:
         count=1,
     )
 
-    # 2. setAccessTokenSecret setter (idempotent).
     if "setAccessTokenSecret" not in text:
         text = re.sub(
             r"(\n})\s*\Z",
@@ -419,8 +368,6 @@ def patch_php_configuration(text: str) -> str:
 
 
 def patch_php(root: Path) -> int:
-    """Drop SecretString.php into every sub-module and patch its
-    Configuration to add setAccessTokenSecret()."""
     n = 0
     src = root / "src"
     if not src.is_dir():
@@ -434,10 +381,6 @@ def patch_php(root: Path) -> int:
         n += 1
     return n
 
-
-# ────────── entry point ──────────
-
-# ────────── C# ──────────
 
 _CS_ROOT_NS = "ValeryVerkhoturov.WbApiClient"
 _CS_USER_AGENT = "ValeryVerkhoturov/wb-api-client/csharp"
@@ -469,16 +412,13 @@ def _csharp_secret_string(ns: str) -> str:
         "        public string ExposeSecret() => _value;\n\n"
         "        /// <summary>True when no value was supplied.</summary>\n"
         "        public bool IsEmpty => _value.Length == 0;\n\n"
-        "        /// <summary>Always \"&lt;REDACTED&gt;\" — never the value.</summary>\n"
-        "        public override string ToString() => \"<REDACTED>\";\n"
+        '        /// <summary>Always "&lt;REDACTED&gt;" — never the value.</summary>\n'
+        '        public override string ToString() => "<REDACTED>";\n'
         "    }\n"
         "}\n"
     )
 
 
-# The generator declares a plain auto-property. Backing it with a SecretString
-# keeps every internal read of Configuration.AccessToken working — that is what
-# builds the Authorization header — while giving callers a redacting type.
 _CS_ACCESS_TOKEN_DECL = "        public virtual string AccessToken { get; set; }"
 
 _CS_ACCESS_TOKEN_REPLACEMENT = """        private SecretString _accessToken = new SecretString(string.Empty);
@@ -511,8 +451,6 @@ def patch_csharp_configuration(text: str) -> str:
     if _CS_ACCESS_TOKEN_DECL in text:
         text = text.replace(_CS_ACCESS_TOKEN_DECL, _CS_ACCESS_TOKEN_REPLACEMENT, 1)
 
-    # The csharp generator accepts no httpUserAgent option, so the default is
-    # rewritten here — same situation as TypeScript and PHP.
     text = re.sub(
         r'UserAgent = WebUtility\.UrlEncode\("[^"]*"\);',
         f'UserAgent = "{_CS_USER_AGENT}";',
@@ -522,12 +460,6 @@ def patch_csharp_configuration(text: str) -> str:
     return text
 
 
-# openapi-generator's restsharp template names the loop variable after the
-# parameter it iterates, so a collection parameter literally called "file"
-# produces `foreach (var file in file)` — which C# rejects as CS0136, the loop
-# variable shadowing the parameter in the enclosing scope. WB's
-# communications spec has two such operations. Renaming the loop variable is
-# the smallest correct fix; the parameter keeps the name the spec gave it.
 _CS_SHADOWED_LOOP_RE = re.compile(
     r"foreach \(var (?P<name>[A-Za-z_][A-Za-z0-9_]*) in (?P=name)\)"
     r"(?P<gap>\s*\{)(?P<body>.*?)(?P<close>\n\s*\})",
@@ -536,11 +468,8 @@ _CS_SHADOWED_LOOP_RE = re.compile(
 
 
 def _rename_outside_strings(text: str, old: str, new: str) -> str:
-    """Replaces whole-word `old` with `new`, leaving string literals alone."""
     out = []
     for index, chunk in enumerate(re.split(r'("(?:[^"\\]|\\.)*")', text)):
-        # Odd indices are the captured string literals — never rewrite those,
-        # or the form-field name would change along with the variable.
         if index % 2 == 0:
             chunk = re.sub(rf"\b{re.escape(old)}\b", new, chunk)
         out.append(chunk)
@@ -560,8 +489,6 @@ def fix_csharp_shadowed_loops(text: str) -> str:
     return _CS_SHADOWED_LOOP_RE.sub(rewrite, text)
 
 
-# Base64 examples become byte[] objects whose toString() contains a random
-# identity hash. Drop those invalid example blocks so regeneration is stable.
 _CS_BYTE_ARRAY_EXAMPLE_RE = re.compile(
     r"^[ \t]*/\*\n[ \t]*<example>\[B@[0-9a-f]+</example>\n[ \t]*\*/\n",
     re.MULTILINE,
@@ -584,13 +511,17 @@ def patch_csharp(root: Path) -> int:
         if config.exists():
             config.write_text(patch_csharp_configuration(config.read_text()))
 
-        for source in sorted((sub / "Api").glob("*.cs")) if (sub / "Api").is_dir() else []:
+        for source in (
+            sorted((sub / "Api").glob("*.cs")) if (sub / "Api").is_dir() else []
+        ):
             text = source.read_text()
             fixed = fix_csharp_shadowed_loops(text)
             if fixed != text:
                 source.write_text(fixed)
 
-        for source in sorted((sub / "Model").glob("*.cs")) if (sub / "Model").is_dir() else []:
+        for source in (
+            sorted((sub / "Model").glob("*.cs")) if (sub / "Model").is_dir() else []
+        ):
             text = source.read_text()
             fixed = _CS_BYTE_ARRAY_EXAMPLE_RE.sub("", text)
             if fixed != text:

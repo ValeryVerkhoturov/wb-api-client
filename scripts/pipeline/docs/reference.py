@@ -1,31 +1,4 @@
 #!/usr/bin/env python3
-"""Generate the endpoint reference ("Справочник API") for the docs site.
-
-Writes one VitePress page per API operation into a checkout of
-wb-api-client-docs, plus a module index per spec, a section root, and the
-sidebar data file that `docs/.vitepress/config.ts` imports.
-
-Two sources, both already in this repo:
-
-  swaggers/processed/*.yaml   summary, description, params, request body,
-                              responses, rate limits, x-category, servers
-  clients/<lang>/…            the API class + method + required arguments
-                              each operation actually got in each of the
-                              seven generated clients
-
-The second one is why this lives here and not in the docs repo: the call
-examples are read off the generated code, so a snippet cannot drift from
-the client it documents. An operation missing from a client (the Python
-tree currently drops ~100 of them — see `coverage` in the run summary)
-gets no tab for that language instead of an invented one.
-
-Usage:
-    python scripts/gen-api-reference.py <path to wb-api-client-docs>/docs
-
-Everything under `<docs>/reference/api/` and `<docs>/en/reference/api/` is
-owned by this script and rewritten from scratch on every run — stale pages
-from removed operations disappear rather than lingering.
-"""
 from __future__ import annotations
 
 import json
@@ -55,8 +28,6 @@ yaml = safe_yaml()
 
 HTTP_METHODS = ("get", "post", "put", "patch", "delete")
 
-# Order of the tabs in every `::: code-group`. Matches the order the rest
-# of the site lists languages in (install snippets, quickstart, nav).
 LANGS = ("python", "typescript", "go", "java", "php", "onescript", "csharp")
 
 LANG_LABELS = {
@@ -69,16 +40,9 @@ LANG_LABELS = {
     "csharp": ("C#", "csharp"),
 }
 
-# WB moved its portal from /openapi/<module> to /en/docs/openapi/<module>.
 WB_DOCS = "https://dev.wildberries.ru/en/docs/openapi"
 
-# The placeholder the rest of the docs uses for the bearer token, per
-# locale. Kept identical to guides/quickstart.md so a reader moving
-# between the two sees the same string.
 TOKEN = {"ru": "<ваш JWT WB>", "en": "<your WB JWT>"}
-
-
-# ────────── spec model ──────────
 
 
 @dataclass
@@ -99,8 +63,8 @@ class Response:
 
 @dataclass
 class Operation:
-    module: str  # spec slug, e.g. "orders-fbs"
-    method: str  # "GET"
+    module: str
+    method: str
     path: str
     op_id: str
     summary: str
@@ -121,38 +85,27 @@ class Module:
     slug: str
     title: str
     description: str
-    portal: str  # dev.wildberries.ru/openapi/<portal>
+    portal: str
     operations: list[Operation] = field(default_factory=list)
 
 
 _PORTAL_RE = re.compile(r"https://dev\.wildberries\.ru/openapi/([a-z0-9-]+)")
 
-# The marker line specs.postprocess.add_docs_links appends to every
-# operation description so generated client docstrings link here. The docs
-# site links to itself from the meta line instead, so strip the marker.
-_DOCS_LINK_RE = re.compile(
-    rf"\s*{DOCS_LINK_LABEL}: {re.escape(DOCS_SITE)}/\S+\s*$"
-)
+_DOCS_LINK_RE = re.compile(rf"\s*{DOCS_LINK_LABEL}: {re.escape(DOCS_SITE)}/\S+\s*$")
 
 
 def strip_docs_link(text: str) -> str:
     return _DOCS_LINK_RE.sub("", text)
 
-# `](./orders-fbs#tag/…)` in a WB description — portal-relative, not ours.
+
 _PORTAL_REL_LINK = re.compile(r"\]\(\.{1,2}/([^)]+)\)")
 
 
 def absolutize(text: str) -> str:
-    """Point WB's portal-relative links at the portal.
-
-    Left alone they resolve against this site, and VitePress fails the
-    build on the resulting dead links.
-    """
     return _PORTAL_REL_LINK.sub(r"](https://dev.wildberries.ru/openapi/\1)", text)
 
 
 def _schema_name(schema: dict | None) -> str:
-    """Component name for a `$ref`, or the bare JSON type for an inline schema."""
     if not schema:
         return ""
     ref = schema.get("$ref")
@@ -177,7 +130,6 @@ def _param_type(schema: dict | None) -> str:
 
 
 def _first_content(content: dict | None) -> tuple[str, dict]:
-    """First media type of a `content` map, with its schema."""
     if not content:
         return "", {}
     media, body = next(iter(content.items()))
@@ -191,7 +143,7 @@ def load_modules(spec_dir: Path) -> list[Module]:
         with open(spec_path, encoding="utf-8") as fh:
             spec = yaml.load(fh)
 
-        slug = module_slug(spec_path.stem)  # "03-orders-fbs" → "orders-fbs"
+        slug = module_slug(spec_path.stem)
         info = spec.get("info") or {}
         raw_desc = absolutize((info.get("description") or "").strip())
         portal_match = _PORTAL_RE.search(raw_desc)
@@ -203,11 +155,7 @@ def load_modules(spec_dir: Path) -> list[Module]:
             portal=portal_match.group(1) if portal_match else slug,
         )
 
-        # `#/components/responses/401` and friends — resolved so the
-        # response table shows a description instead of a bare ref.
         shared_responses = (spec.get("components") or {}).get("responses") or {}
-        # A spec-level `servers` is the fallback for the ~1 operation that
-        # does not carry its own.
         spec_server = ((spec.get("servers") or [{}])[0] or {}).get("url", "")
 
         seen_pages: set[str] = set()
@@ -219,15 +167,12 @@ def load_modules(spec_dir: Path) -> list[Module]:
                 if method.lower() not in HTTP_METHODS or not isinstance(op, dict):
                     continue
 
-                op_server = ((op.get("servers") or item.get("servers") or [{}])[0] or {}).get(
-                    "url", spec_server
-                )
+                op_server = (
+                    (op.get("servers") or item.get("servers") or [{}])[0] or {}
+                ).get("url", spec_server)
 
                 page = page_slug(method, path)
                 if page in seen_pages:
-                    # Two operations that flatten to the same file name —
-                    # has not happened yet, but silently overwriting one
-                    # would lose a page, so disambiguate by operationId.
                     page = f"{page}-{snake_case(op['operationId']).replace('_', '-')}"
                 seen_pages.add(page)
 
@@ -250,14 +195,18 @@ def load_modules(spec_dir: Path) -> list[Module]:
                 for code, resp in (op.get("responses") or {}).items():
                     resp = resp or {}
                     if "$ref" in resp:
-                        resolved = shared_responses.get(resp["$ref"].rsplit("/", 1)[-1]) or {}
+                        resolved = (
+                            shared_responses.get(resp["$ref"].rsplit("/", 1)[-1]) or {}
+                        )
                     else:
                         resolved = resp
                     _, schema = _first_content(resolved.get("content"))
                     responses.append(
                         Response(
                             code=str(code),
-                            description=absolutize((resolved.get("description") or "").strip()),
+                            description=absolutize(
+                                (resolved.get("description") or "").strip()
+                            ),
                             schema=_schema_name(schema),
                         )
                     )
@@ -290,14 +239,6 @@ def load_modules(spec_dir: Path) -> list[Module]:
     return modules
 
 
-# ────────── binding extraction ──────────
-#
-# For each language: which API class an operation ended up on, what the
-# method is called there, and the names of its required arguments. Read
-# off the generated sources rather than re-deriving openapi-generator's
-# naming rules, so the snippets stay correct when those rules change.
-
-
 @dataclass
 class Binding:
     cls: str
@@ -310,12 +251,6 @@ def _read(path: Path) -> str:
 
 
 def _signature(text: str, open_paren: int) -> tuple[str, int]:
-    """Text between the `(` at `open_paren` and its matching `)`.
-
-    Balancing rather than `[^)]*` because generated signatures wrap across
-    lines (spotless in Java) and embed parens in defaults (`default(int?)`
-    in C#) — a line-oriented regex silently misses those methods.
-    """
     depth = 0
     for i in range(open_paren, len(text)):
         if text[i] == "(":
@@ -328,7 +263,6 @@ def _signature(text: str, open_paren: int) -> tuple[str, int]:
 
 
 def _split_params(sig: str) -> list[str]:
-    """Split an argument list on top-level commas (generics carry their own)."""
     out, depth, current = [], 0, ""
     for ch in sig:
         if ch in "<([{":
@@ -346,10 +280,10 @@ def _split_params(sig: str) -> list[str]:
 
 
 def bind_python(root: Path, slug: str) -> dict[str, Binding]:
-    """`def get_ping(self, id: …, _request_timeout…)` — the API parameters
-    are the ones before the generator's underscore-prefixed plumbing."""
     out: dict[str, Binding] = {}
-    for f in sorted((root / "clients/python/wb_api_client" / snake_slug(slug) / "api").glob("*.py")):
+    for f in sorted(
+        (root / "clients/python/wb_api_client" / snake_slug(slug) / "api").glob("*.py")
+    ):
         text = _read(f)
         cls_match = re.search(r"^class (\w+):", text, re.M)
         cls = cls_match.group(1) if cls_match else f.stem
@@ -375,13 +309,8 @@ def bind_typescript(root: Path, slug: str) -> dict[str, Binding]:
     if not api.is_file():
         return out
     text = _read(api)
-    # Only the exported classes matter; the *Fp / *AxiosParamCreator
-    # factories above them repeat every method name.
     chunks = re.split(r"^export class ", text, flags=re.M)[1:]
     for chunk in chunks:
-        # Split on any whitespace: Prettier wraps long class declarations
-        # (`export class InStorePickupApi\n  extends BaseAPI …`), so the
-        # class name may be newline-terminated rather than space-terminated.
         cls = chunk.split(None, 1)[0]
         if not cls.endswith("Api"):
             continue
@@ -397,22 +326,20 @@ def bind_typescript(root: Path, slug: str) -> dict[str, Binding]:
 
 
 def bind_go(root: Path, slug: str) -> dict[str, Binding]:
-    """Go uses a request-builder: required args go to the method, the body
-    and optional query params are setters on the returned struct."""
     out: dict[str, Binding] = {}
     for f in sorted((root / "clients/go" / snake_slug(slug)).glob("api_*.go")):
         text = _read(f)
-        for m in re.finditer(r"^func \(a \*(\w+)Service\) (\w+)\(ctx context\.Context", text, re.M):
+        for m in re.finditer(
+            r"^func \(a \*(\w+)Service\) (\w+)\(ctx context\.Context", text, re.M
+        ):
             cls, name = m.group(1), m.group(2)
             sig, _ = _signature(text, m.end() - len("(ctx context.Context"))
-            args = [p.split()[0] for p in _split_params(sig)[1:]]  # [0] is ctx
+            args = [p.split()[0] for p in _split_params(sig)[1:]]
             out.setdefault(name, Binding(cls, name, args))
     return out
 
 
 def go_request_fields(root: Path, slug: str, op_id: str) -> list[str]:
-    """Field names on `ApiXxxRequest`, minus ctx/service/path params — the
-    setters a caller chains before `.Execute()`."""
     for f in sorted((root / "clients/go" / snake_slug(slug)).glob("api_*.go")):
         text = _read(f)
         m = re.search(
@@ -433,22 +360,22 @@ def go_request_fields(root: Path, slug: str, op_id: str) -> list[str]:
 
 def bind_java(root: Path, slug: str) -> dict[str, Binding]:
     out: dict[str, Binding] = {}
-    api_dir = root / "clients/java/src/main/java" / JAVA_PKG.replace(".", "/") / snake_slug(slug) / "api"
+    api_dir = (
+        root
+        / "clients/java/src/main/java"
+        / JAVA_PKG.replace(".", "/")
+        / snake_slug(slug)
+        / "api"
+    )
     for f in sorted(api_dir.glob("*.java")):
         text = _read(f)
         cls_match = re.search(r"^public class (\w+)", text, re.M)
         cls = cls_match.group(1) if cls_match else f.stem
-        # `\s` in the return-type run, not just ` `: spotless wraps a long
-        # generic return type onto its own line, putting a newline between
-        # the type and the method name.
         for m in re.finditer(r"^  public [\w<>,\[\]\.?\s]+?(\w+)\(", text, re.M):
             name = m.group(1)
             if name.endswith(("Call", "WithHttpInfo", "Async", "ValidateBeforeCall")):
                 continue
             sig, close = _signature(text, m.end() - 1)
-            # The thin wrapper that returns the deserialized body is the
-            # one worth documenting; the *Call / *WithHttpInfo variants
-            # above are filtered by name, `ApiCallback` by signature.
             if "ApiCallback" in sig or not text[close + 1 :].lstrip().startswith(
                 "throws ApiException"
             ):
@@ -459,10 +386,10 @@ def bind_java(root: Path, slug: str) -> dict[str, Binding]:
 
 
 def bind_php(root: Path, slug: str) -> dict[str, Binding]:
-    """PHP puts generator plumbing (`$hostIndex`, `$contentType`) last, all
-    with defaults — the API parameters are the ones without."""
     out: dict[str, Binding] = {}
-    for f in sorted((root / "clients/php/src" / pascal_slug(slug) / "Api").glob("*.php")):
+    for f in sorted(
+        (root / "clients/php/src" / pascal_slug(slug) / "Api").glob("*.php")
+    ):
         text = _read(f)
         cls_match = re.search(r"^class (\w+)", text, re.M)
         cls = cls_match.group(1) if cls_match else f.stem
@@ -486,13 +413,18 @@ def bind_php(root: Path, slug: str) -> dict[str, Binding]:
 
 def bind_csharp(root: Path, slug: str) -> dict[str, Binding]:
     out: dict[str, Binding] = {}
-    for f in sorted((root / "clients/csharp/src" / pascal_slug(slug) / "Api").glob("*.cs")):
+    for f in sorted(
+        (root / "clients/csharp/src" / pascal_slug(slug) / "Api").glob("*.cs")
+    ):
         text = _read(f)
         cls_match = re.search(r"^    public partial class (\w+) :", text, re.M)
         cls = cls_match.group(1) if cls_match else f.stem
         for m in re.finditer(r"^        public [\w<>,\?\.\[\] ]+? (\w+)\(", text, re.M):
             name = m.group(1)
-            if name.endswith(("WithHttpInfo", "Async", "AsyncWithHttpInfo")) or name == cls:
+            if (
+                name.endswith(("WithHttpInfo", "Async", "AsyncWithHttpInfo"))
+                or name == cls
+            ):
                 continue
             sig, _ = _signature(text, m.end() - 1)
             args = []
@@ -508,13 +440,14 @@ def bind_csharp(root: Path, slug: str) -> dict[str, Binding]:
 
 def bind_onescript(root: Path, slug: str) -> dict[str, Binding]:
     out: dict[str, Binding] = {}
-    for f in sorted((root / "clients/onescript/src/Классы" / pascal_slug(slug)).glob("*.os")):
+    for f in sorted(
+        (root / "clients/onescript/src/Классы" / pascal_slug(slug)).glob("*.os")
+    ):
         text = _read(f)
         cls = f.stem
         for m in re.finditer(r"^Функция (\w+)\(", text, re.M):
             name = m.group(1)
             sig, _ = _signature(text, m.end() - 1)
-            # `Знач Тело` — drop the by-value modifier, keep the name.
             args = [
                 p.strip().removeprefix("Знач ").strip()
                 for p in _split_params(sig)
@@ -536,7 +469,6 @@ BINDERS = {
 
 
 def build_index(root: Path, modules: list[Module]) -> dict[str, dict[str, Binding]]:
-    """`index["python"]["<module>:<operationId>"] → Binding`."""
     index: dict[str, dict[str, Binding]] = {lang: {} for lang in LANGS}
     for module in modules:
         for lang, (binder, convert) in BINDERS.items():
@@ -546,9 +478,6 @@ def build_index(root: Path, modules: list[Module]) -> dict[str, dict[str, Bindin
                 if binding:
                     index[lang][f"{module.slug}:{op.op_id}"] = binding
     return index
-
-
-# ────────── call examples ──────────
 
 
 def snippet_python(op: Operation, b: Binding, locale: str) -> str:
@@ -661,15 +590,13 @@ def render_examples(
     for lang in LANGS:
         binding = index[lang].get(key)
         if not binding:
-            continue  # operation absent from this client — no invented tab
+            continue
 
         if lang == "python":
             code = snippet_python(op, binding, locale)
         elif lang == "typescript":
             code = snippet_typescript(op, binding, locale)
         elif lang == "go":
-            # Path params are positional; body and required query params
-            # are builder setters, so they come off the request struct.
             fields = go_request_fields(root, op.module, op.op_id)
             setters = [
                 f[0].upper() + f[1:]
@@ -695,8 +622,6 @@ def render_examples(
 
     return lines
 
-
-# ────────── page rendering ──────────
 
 STRINGS = {
     "ru": {
@@ -800,7 +725,6 @@ STRINGS = {
 
 
 def esc_cell(text: str) -> str:
-    """Make a string safe inside a markdown table cell."""
     return text.replace("|", "\\|").replace("\n", " ").strip()
 
 
@@ -809,22 +733,8 @@ def yaml_quote(text: str) -> str:
 
 
 def normalize_markdown(text: str) -> str:
-    """Make a WB description's tables survive markdown-it.
-
-    Upstream writes tables the way Redoc tolerates and markdown-it does
-    not, in two ways:
-
-    - a row is flush against the paragraph above it, so the whole table is
-      absorbed into that paragraph and renders as a row of pipes;
-    - a single cell spans several source lines (two `ping` URLs stacked in
-      one cell, say), but a markdown row has to be one line.
-
-    So: fold continuation lines back into their row with `<br>`, then give
-    every table the blank line it needs.
-    """
     lines = [line.rstrip() for line in text.split("\n")]
 
-    # ── fold multi-line cells ──
     folded: list[str] = []
     pending: str | None = None
     for line in lines:
@@ -835,13 +745,12 @@ def normalize_markdown(text: str) -> str:
                 pending = None
             continue
         if line.lstrip().startswith("|") and not line.endswith("|"):
-            pending = line  # row left open — the cell continues below
+            pending = line
             continue
         folded.append(line)
     if pending is not None:
         folded.append(pending)
 
-    # ── blank line before each table ──
     out: list[str] = []
     for line in folded:
         previous = out[-1] if out else ""
@@ -857,14 +766,10 @@ def normalize_markdown(text: str) -> str:
 
 
 def lede(op: Operation) -> str:
-    """First paragraph of the description — the page's meta description.
-
-    Stops at the first blank line so a rate-limit table never bleeds into
-    a `<meta name="description">`. Mirrors `leadParagraph()` in the docs
-    site's config.ts, which does the same for hand-written pages.
-    """
     first = op.description.split("\n\n", 1)[0]
-    first = "\n".join(line for line in first.split("\n") if not line.lstrip().startswith("|"))
+    first = "\n".join(
+        line for line in first.split("\n") if not line.lstrip().startswith("|")
+    )
     plain = re.sub(r"\[([^\]]*)\]\([^)]*\)", r"\1", first)
     plain = re.sub(r"<[^>]+>", "", plain)
     plain = re.sub(r"[`*_#>]", "", plain).replace("\n", " ")
@@ -902,7 +807,9 @@ def render_operation(
     out.append("")
 
     meta = [f"**{s['base']}:** `{op.server}`"] if op.server else []
-    meta.append(f"**{s['module']}:** [`{module.slug}`]({base_path(locale)}/{module.slug}/)")
+    meta.append(
+        f"**{s['module']}:** [`{module.slug}`]({base_path(locale)}/{module.slug}/)"
+    )
     if op.tag:
         meta.append(f"**{s['section_col']}:** {op.tag}")
     wb = f"{WB_DOCS}/{module.portal}"
@@ -995,7 +902,6 @@ def render_module_index(module: Module, locale: str) -> str:
         out.append(normalize_markdown(module.description))
         out.append("")
 
-    # Grouped by spec tag — the same grouping WB's own portal uses.
     by_tag: dict[str, list[Operation]] = {}
     for op in module.operations:
         by_tag.setdefault(op.tag, []).append(op)
@@ -1008,7 +914,9 @@ def render_module_index(module: Module, locale: str) -> str:
         out.append("| --- | --- | --- |")
         for op in ops:
             link = f"{base_path(locale)}/{module.slug}/{op.page}"
-            out.append(f"| `{op.method}` | `{op.path}` | [{esc_cell(op.summary)}]({link}) |")
+            out.append(
+                f"| `{op.method}` | `{op.path}` | [{esc_cell(op.summary)}]({link}) |"
+            )
         out.append("")
 
     return "\n".join(out).rstrip() + "\n"
@@ -1042,12 +950,7 @@ def render_section_index(modules: list[Module], locale: str) -> str:
     return "\n".join(out).rstrip() + "\n"
 
 
-# ────────── sidebar ──────────
-
-
 def render_sidebar(modules: list[Module]) -> str:
-    """A `.ts` module rather than JSON so `config.ts` gets types and the
-    import needs no resolveJsonModule."""
 
     def items(locale: str):
         groups = [{"text": STRINGS[locale]["section"], "link": f"{base_path(locale)}/"}]
@@ -1074,24 +977,14 @@ def render_sidebar(modules: list[Module]) -> str:
         "// https://github.com/ValeryVerkhoturov/wb-api-client — do not edit.\n"
         "// Sidebar for the endpoint reference: one collapsed group per API\n"
         "// module, one entry per operation.\n\n"
-        "import type { DefaultTheme } from \"vitepress\";\n\n"
+        'import type { DefaultTheme } from "vitepress";\n\n'
         "export const apiSidebar: Record<string, DefaultTheme.SidebarItem[]> =\n"
         + json.dumps(body, ensure_ascii=False, indent=2)
         + ";\n"
     )
 
 
-# ────────── formatting ──────────
-
-
 def prettier_command(repo: Path) -> list[str]:
-    """How to invoke the docs repo's own Prettier.
-
-    The version is pinned in its package.json, and the output of this
-    script has to match what `npm run format:check` there produces — so
-    prefer the repo's installed binary and fall back to the same version
-    via npx (the CI clone is shallow and has no node_modules).
-    """
     local = repo / "node_modules" / ".bin" / "prettier"
     if local.is_file():
         return [str(local)]
@@ -1106,13 +999,6 @@ def prettier_command(repo: Path) -> list[str]:
 
 
 def format_with_prettier(repo: Path, targets: list[Path]) -> None:
-    """Run Prettier over the generated tree, in place.
-
-    Not optional: these files are committed to a repo whose CI runs
-    `prettier --check .`, so emitting anything Prettier would reformat
-    means pushing a red build. Better to fail here, where the message can
-    say what is missing.
-    """
     cmd = prettier_command(repo) + [
         "--write",
         "--log-level",
@@ -1133,9 +1019,6 @@ def format_with_prettier(repo: Path, targets: list[Path]) -> None:
         raise
 
 
-# ────────── entrypoint ──────────
-
-
 def write(path: Path, content: str) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(content, encoding="utf-8")
@@ -1149,7 +1032,9 @@ def main() -> int:
     root = REPO_ROOT
     docs = Path(sys.argv[1]).resolve()
     if not (docs / ".vitepress").is_dir():
-        sys.stderr.write(f"{docs} does not look like the docs/ dir of wb-api-client-docs\n")
+        sys.stderr.write(
+            f"{docs} does not look like the docs/ dir of wb-api-client-docs\n"
+        )
         return 1
 
     modules = load_modules(root / "swaggers" / "processed")
@@ -1161,14 +1046,14 @@ def main() -> int:
 
     for locale in ("ru", "en"):
         section = docs / base_path(locale).lstrip("/")
-        # Owned wholesale by this script: wipe so removed operations do
-        # not leave orphan pages behind.
         if section.exists():
             shutil.rmtree(section)
 
         write(section / "index.md", render_section_index(modules, locale))
         for module in modules:
-            write(section / module.slug / "index.md", render_module_index(module, locale))
+            write(
+                section / module.slug / "index.md", render_module_index(module, locale)
+            )
             for op in module.operations:
                 write(
                     section / module.slug / f"{op.page}.md",

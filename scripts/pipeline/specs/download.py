@@ -1,5 +1,3 @@
-"""Download the Wildberries OpenAPI specifications and write their checksums."""
-
 import hashlib
 import sys
 import time
@@ -9,7 +7,9 @@ import requests
 from ..core.paths import SWAGGER_DIR
 
 OUT_DIR = SWAGGER_DIR
-BASE_URL = "https://gitlab.com/ValeryVerkhoturov/wb-api-client-specs/-/raw/main/specs/ru"
+BASE_URL = (
+    "https://gitlab.com/ValeryVerkhoturov/wb-api-client-specs/-/raw/main/specs/ru"
+)
 SPECS = (
     "01-general.yaml",
     "02-items.yaml",

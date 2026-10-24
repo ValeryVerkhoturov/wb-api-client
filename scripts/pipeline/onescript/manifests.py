@@ -1,31 +1,13 @@
 #!/usr/bin/env python3
-"""Build the unified OneScript package manifests.
-
-openapi-generator emits a standalone opm package per spec, each with its own
-``packagedef`` and ``lib.config``. generate.py splices the 13 trees into one
-package, so those per-spec manifests are discarded and replaced by a single
-pair built here from ``templates/onescript/``.
-
-Both manifests are a registry of ``class name -> file path``. OneScript
-resolves classes only through ``lib.config`` (not by directory convention),
-so a class missing from it is invisible to ``Новый`` no matter where the file
-sits.
-
-Usage: gen-onescript-manifests.py <repo-root> <version>
-"""
 
 import re
 import sys
 from pathlib import Path
 
-# A class file declares no name of its own — the name comes from the registry,
-# and the generator names the file after the class. Guard that assumption so a
-# generator change can't silently produce an unreachable class.
 CLASS_NAME = re.compile(r"^[^\W\d]\w*$", re.UNICODE)
 
 
 def collect_classes(src_dir: Path) -> list[tuple[str, str]]:
-    """Return (class name, POSIX path relative to the package root) pairs."""
     classes: dict[str, str] = {}
 
     for path in sorted(src_dir.rglob("*.os")):
@@ -33,9 +15,6 @@ def collect_classes(src_dir: Path) -> list[tuple[str, str]]:
         if not CLASS_NAME.match(name):
             raise SystemExit(f"not a legal BSL class name: {path}")
 
-        # BSL identifiers are case-insensitive, so two files differing only in
-        # case would register as one class and one of them would be silently
-        # unreachable.
         key = name.casefold()
         if key in classes:
             raise SystemExit(
@@ -43,8 +22,6 @@ def collect_classes(src_dir: Path) -> list[tuple[str, str]]:
             )
         classes[key] = (name, path.relative_to(src_dir.parent).as_posix())
 
-    # Sort by name so both manifests are byte-stable across runs: pr-check.yml
-    # regenerates and diffs, and rglob order is not guaranteed.
     return sorted(classes.values(), key=lambda row: row[0])
 
 

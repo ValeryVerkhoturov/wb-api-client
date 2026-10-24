@@ -1,5 +1,3 @@
-"""Subprocess plumbing shared by the generation and OneScript contexts."""
-
 import os
 import subprocess
 from pathlib import Path
@@ -12,5 +10,4 @@ def run(args: list[object], **kwargs: object) -> subprocess.CompletedProcess:
 
 
 def in_container(path: Path) -> str:
-    """Repo-local path as seen inside the `/work`-mounted Docker container."""
     return path.relative_to(REPO_ROOT).as_posix()

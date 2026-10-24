@@ -1,9 +1,5 @@
 #!/usr/bin/env python3
-"""Backwards-compatible import path — implementation moved to
-pipeline/onescript/toolchain.py. Kept so existing `from onescript_toolchain
-import …` callers (and docs referencing this filename) keep working.
-"""
-from pipeline.onescript.toolchain import (  # noqa: F401
+from pipeline.onescript.toolchain import (
     ONESCRIPT_CODEGEN_REF,
     ONESCRIPT_CODEGEN_REPO,
     ONESCRIPT_CONNECTOR_VERSION,

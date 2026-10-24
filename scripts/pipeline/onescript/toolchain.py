@@ -1,5 +1,3 @@
-"""Resolve and cache the OneScript runtime and OpenAPI Generator plugin."""
-
 import os
 import platform
 import shutil
@@ -41,7 +39,6 @@ def onescript_platform() -> str:
     else:
         raise SystemExit(f"unsupported architecture: {machine}")
 
-    # Upstream has no linux-arm64 archive; x64 runs under emulation there.
     if os_name == "linux" and arch == "arm64":
         arch = "x64"
     return f"{os_name}-{arch}"
@@ -80,7 +77,11 @@ def ensure_onescript() -> tuple[Path, Path]:
     if not os.access(binary, os.X_OK):
         print(f"→ fetching OneScript {ONESCRIPT_VERSION} ({platform_name})")
         home.mkdir(parents=True, exist_ok=True)
-        archive = CACHE_DIR / "onescript" / f"OneScript-{ONESCRIPT_VERSION}-{platform_name}.zip"
+        archive = (
+            CACHE_DIR
+            / "onescript"
+            / f"OneScript-{ONESCRIPT_VERSION}-{platform_name}.zip"
+        )
         archive_url = (
             f"https://github.com/EvilBeaver/OneScript/releases/download/v{ONESCRIPT_VERSION}/"
             f"OneScript-{ONESCRIPT_VERSION}-{platform_name}.zip"
@@ -90,15 +91,16 @@ def ensure_onescript() -> tuple[Path, Path]:
             with archive.open("wb") as output:
                 shutil.copyfileobj(response.raw, output)
 
-        # zipfile keeps the archive's UTF-8 Cyrillic entry names intact.
         with zipfile.ZipFile(archive) as distribution:
             distribution.extractall(home)
         archive.unlink()
         binary.chmod(binary.stat().st_mode | 0o111)
 
         if platform.system() == "Darwin":
-            # Clear quarantine and ad-hoc sign so Gatekeeper does not kill the binary.
-            for command in (["xattr", "-cr", home], ["codesign", "--force", "--sign", "-", binary]):
+            for command in (
+                ["xattr", "-cr", home],
+                ["codesign", "--force", "--sign", "-", binary],
+            ):
                 try:
                     run(command, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
                 except OSError:

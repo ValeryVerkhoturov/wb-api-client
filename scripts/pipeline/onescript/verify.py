@@ -1,5 +1,3 @@
-"""Compile-check every OneScript module and verify package loading."""
-
 import os
 import subprocess
 import sys
@@ -28,7 +26,9 @@ def main() -> None:
     binary, _ = ensure_onescript()
 
     if not (package / "src").is_dir():
-        sys.stderr.write(f"no OneScript client at {package} — run ./scripts/generate.py first\n")
+        sys.stderr.write(
+            f"no OneScript client at {package} — run ./scripts/generate.py first\n"
+        )
         raise SystemExit(1)
     package = package.resolve()
 
@@ -37,8 +37,6 @@ def main() -> None:
         futures = [executor.submit(check_file, binary, source) for source in sources]
         report = "".join(future.result() for future in futures)
 
-    # Keep the existing output-based policy: OneScript diagnostics, not exit codes,
-    # determine which files are reported as compile failures.
     failures = [line for line in report.splitlines() if "Ошибка" in line]
     if failures:
         print(f"  ✗ {len(failures)} file(s) failed to compile:")
@@ -51,7 +49,7 @@ def main() -> None:
         loader.write_text(
             f'#Использовать "{package}"\n'
             'Сообщить("  ✓ пакет загружается, Конфигурация доступна: " '
-            '+ Строка(ТипЗнч(Новый Конфигурация())));\n',
+            "+ Строка(ТипЗнч(Новый Конфигурация())));\n",
             encoding="utf-8",
         )
         subprocess.run([binary, loader], check=True)

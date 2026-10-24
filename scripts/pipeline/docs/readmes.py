@@ -1,15 +1,4 @@
 #!/usr/bin/env python3
-"""Generate a README.md under each generated client (Python, TypeScript,
-Go, Java). Each README shows install + shared auth setup once, then a
-per-module section with import snippet and a link to the WB dev-portal
-docs. Runs from generate.py after the four language trees are laid down.
-
-The content is derived from:
-  - swaggers/processed/*.yaml     — title + first-para description per slug
-  - clients/<lang>/…              — enumerate concrete Api class names
-
-so a spec addition surfaces automatically on the next regeneration.
-"""
 from __future__ import annotations
 
 import re
@@ -29,37 +18,31 @@ yaml = round_trip_yaml()
 
 
 def load_specs(spec_dir: Path) -> list[dict]:
-    """Return one dict per spec: slug, snake, title, blurb, docs_hint."""
     out = []
     for p in sorted(spec_dir.glob("*.yaml")):
         with open(p) as f:
             s = yaml.load(f)
-        slug = module_slug(p.stem)               # "02-items" → "items"
+        slug = module_slug(p.stem)
         snake = snake_slug(slug)
         info = s.get("info", {}) or {}
         title = info.get("title", slug)
         desc = (info.get("description") or "").strip()
-        # First non-empty line, stripped of trailing punctuation, capped
-        # at ~200 chars so tables/sections stay readable.
         blurb = _first_line(desc)
-        out.append({
-            "slug": slug,
-            "snake": snake,
-            "title": title,
-            "blurb": blurb,
-            "raw_desc": desc,
-        })
+        out.append(
+            {
+                "slug": slug,
+                "snake": snake,
+                "title": title,
+                "blurb": blurb,
+                "raw_desc": desc,
+            }
+        )
     return out
 
 
 def _first_line(md: str) -> str:
-    # Keep the full description verbatim — no truncation. Markdown
-    # list markers are preserved so bullet lists render correctly in
-    # the generated READMEs.
     return md.strip()
 
-
-# ────────── API-class enumeration ──────────
 
 def python_apis(root: Path, snake: str) -> list[str]:
     api_dir = root / "wb_api_client" / snake / "api"
@@ -67,9 +50,6 @@ def python_apis(root: Path, snake: str) -> list[str]:
         return []
     names: set[str] = set()
     for f in api_dir.glob("*.py"):
-        # post-process renames every operation's tag to the module name, so
-        # each module emits exactly one `<Module>Api` class; `\w*Api` still
-        # tolerates a bare `Api` if a future spec slips through untagged.
         for m in re.finditer(r"^class (\w*Api)\b", f.read_text(), re.M):
             names.add(m.group(1))
     return sorted(names)
@@ -79,8 +59,9 @@ def ts_apis(root: Path, slug: str) -> list[str]:
     apis: set[str] = set()
     api_dir = root / "src" / slug / "api"
     api_file = root / "src" / slug / "api.ts"
-    for f in (list(api_dir.glob("*.ts")) if api_dir.is_dir() else []) + \
-             ([api_file] if api_file.exists() else []):
+    for f in (list(api_dir.glob("*.ts")) if api_dir.is_dir() else []) + (
+        [api_file] if api_file.exists() else []
+    ):
         for m in re.finditer(r"export class (\w*Api)\b[^{]*\{", f.read_text()):
             apis.add(m.group(1))
     return sorted(apis)
@@ -92,8 +73,6 @@ def go_apis(root: Path, snake: str) -> list[str]:
         return []
     apis: set[str] = set()
     for f in pkg_dir.glob("api_*.go"):
-        # Go template uses either `XxxApi` or all-caps `XxxAPI` for
-        # interface names — accept both.
         for m in re.finditer(r"^type (\w*(?:Api|API)) interface", f.read_text(), re.M):
             apis.add(m.group(1))
     return sorted(apis)
@@ -126,8 +105,6 @@ def onescript_apis(root: Path, pascal: str) -> list[str]:
         return []
     return sorted(p.stem for p in api_dir.glob("*.os"))
 
-
-# ────────── per-language README rendering ──────────
 
 _HEADER = """# wb-api-client — {lang_display}
 
@@ -165,7 +142,7 @@ def _pysnippet(slug: str, apis: list[str]) -> str:
     return (
         f"from wb_api_client.{slug} import Configuration, ApiClient\n"
         f"from wb_api_client.{slug}.api import {api}\n\n"
-        f"cfg = Configuration(access_token=\"<your WB JWT>\")\n"
+        f'cfg = Configuration(access_token="<your WB JWT>")\n'
         f"api = {api}(ApiClient(cfg))"
     )
 
@@ -173,22 +150,18 @@ def _pysnippet(slug: str, apis: list[str]) -> str:
 def _tssnippet(slug: str, apis: list[str]) -> str:
     api = apis[0] if apis else "DefaultApi"
     return (
-        f"import {{ Configuration, {api} }} from \"@valeryverkhoturov/wb-api-client/{slug}\";\n\n"
+        f'import {{ Configuration, {api} }} from "@valeryverkhoturov/wb-api-client/{slug}";\n\n'
         f"const cfg = new Configuration({{}});\n"
-        f"cfg.setAccessToken(\"<your WB JWT>\");\n"
+        f'cfg.setAccessToken("<your WB JWT>");\n'
         f"const api = new {api}(cfg);"
     )
 
 
 def _gosnippet(snake: str, apis: list[str]) -> str:
-    # In Go each Api is exposed as an interface + Api service instance;
-    # api := client.<Api-name-without-'Api'>Api works for openapi-generator
-    # output, so we point users at the client itself rather than a
-    # standalone constructor.
     return (
-        f"import wb{snake} \"github.com/ValeryVerkhoturov/wb-api-client-go/{snake}\"\n\n"
+        f'import wb{snake} "github.com/ValeryVerkhoturov/wb-api-client-go/{snake}"\n\n'
         f"cfg := wb{snake}.NewConfiguration()\n"
-        f"cfg.SetAccessToken(\"<your WB JWT>\")\n"
+        f'cfg.SetAccessToken("<your WB JWT>")\n'
         f"client := wb{snake}.NewAPIClient(cfg)"
     )
 
@@ -201,7 +174,7 @@ def _javasnippet(snake: str, apis: list[str]) -> str:
         f"import {pkg}.SecretString;\n"
         f"import {pkg}.api.{api};\n\n"
         f"ApiClient client = new ApiClient();\n"
-        f"client.setBearerToken(new SecretString(\"<your WB JWT>\"));\n"
+        f'client.setBearerToken(new SecretString("<your WB JWT>"));\n'
         f"{api} api = new {api}(client);"
     )
 
@@ -227,7 +200,7 @@ def _cssnippet(pascal: str, apis: list[str]) -> str:
         f"using {ns}.Api;\n"
         f"using {ns}.Client;\n\n"
         f"var config = new Configuration();\n"
-        f"config.AccessTokenSecret = new SecretString(\"<your WB JWT>\");\n"
+        f'config.AccessTokenSecret = new SecretString("<your WB JWT>");\n'
         f"var api = new {api}(config);"
     )
 
@@ -235,29 +208,33 @@ def _cssnippet(pascal: str, apis: list[str]) -> str:
 def _ossnippet(pascal: str, apis: list[str]) -> str:
     api = apis[0] if apis else "Конфигурация"
     return (
-        f"#Использовать \"wb-api-client\"\n\n"
+        f'#Использовать "wb-api-client"\n\n'
         f"Настройки = Новый Конфигурация();\n"
-        f"Настройки.УстановитьТокен(\"<your WB JWT>\");\n\n"
+        f'Настройки.УстановитьТокен("<your WB JWT>");\n\n'
         f"Клиент = Новый {api}(Настройки);"
     )
 
 
-def write_readme(path: Path, header_ctx: dict, specs: list[dict],
-                 apis_fn, snippet_fn, code_fence: str, docs_url: callable) -> None:
+def write_readme(
+    path: Path,
+    header_ctx: dict,
+    specs: list[dict],
+    apis_fn,
+    snippet_fn,
+    code_fence: str,
+    docs_url: callable,
+) -> None:
     header_ctx.setdefault(
         "module_intro",
         "Each row below is a sub-module you can import independently. "
         "Import path is `{import_prefix}<slug>`.".format(**header_ctx),
     )
-    # Module table
     rows = []
     for spec in specs:
         apis = apis_fn(spec)
         apis_str = ", ".join(f"`{a}`" for a in apis) or "—"
         docs = docs_url(spec)
-        rows.append(
-            f"| [`{spec['slug']}`]({docs}) | {spec['title']} | {apis_str} |"
-        )
+        rows.append(f"| [`{spec['slug']}`]({docs}) | {spec['title']} | {apis_str} |")
     header_ctx["module_table"] = "\n".join(rows)
 
     body = [_HEADER.format(**header_ctx)]
@@ -273,12 +250,6 @@ def write_readme(path: Path, header_ctx: dict, specs: list[dict],
     path.write_text("".join(body))
 
 
-# ────────── language-specific docs-URL heuristic ──────────
-# The WB dev portal doesn't expose a machine-readable slug↔URL map, so we
-# use the mapping WB uses in the descriptions themselves (extracted from
-# the first `#/openapi/<name>` link we see, or fall back to the module
-# slug). This produces deep-links for every category.
-
 _WB_DOCS_RE = re.compile(r"https://dev\.wildberries\.ru/openapi/([a-z0-9-]+)")
 
 
@@ -287,8 +258,6 @@ def docs_url_for(spec: dict) -> str:
     portal_slug = m.group(1) if m else spec["slug"]
     return f"https://dev.wildberries.ru/openapi/{portal_slug}"
 
-
-# ────────── entrypoint ──────────
 
 def main() -> int:
     if len(sys.argv) != 2:
@@ -300,7 +269,6 @@ def main() -> int:
         sys.stderr.write("no processed specs — run post-process.py first\n")
         return 1
 
-    # ── Python ──
     py_root = root / "clients" / "python"
     write_readme(
         py_root / "README.md",
@@ -313,7 +281,7 @@ def main() -> int:
             "lang_code": "python",
             "auth_snippet": (
                 "from wb_api_client.items import Configuration, ApiClient\n\n"
-                "cfg = Configuration(access_token=\"<your WB JWT>\")\n"
+                'cfg = Configuration(access_token="<your WB JWT>")\n'
                 "client = ApiClient(cfg)"
             ),
             "import_prefix": "wb_api_client.",
@@ -325,7 +293,6 @@ def main() -> int:
         docs_url=docs_url_for,
     )
 
-    # ── TypeScript ──
     ts_root = root / "clients" / "typescript"
     write_readme(
         ts_root / "README.md",
@@ -337,9 +304,9 @@ def main() -> int:
             "expose_call": ".exposeSecret()",
             "lang_code": "ts",
             "auth_snippet": (
-                "import { Configuration } from \"@valeryverkhoturov/wb-api-client/items\";\n\n"
+                'import { Configuration } from "@valeryverkhoturov/wb-api-client/items";\n\n'
                 "const cfg = new Configuration({});\n"
-                "cfg.setAccessToken(\"<your WB JWT>\");"
+                'cfg.setAccessToken("<your WB JWT>");'
             ),
             "import_prefix": "@valeryverkhoturov/wb-api-client/",
         },
@@ -350,7 +317,6 @@ def main() -> int:
         docs_url=docs_url_for,
     )
 
-    # ── Go ──
     go_root = root / "clients" / "go"
     write_readme(
         go_root / "README.md",
@@ -362,9 +328,9 @@ def main() -> int:
             "expose_call": ".ExposeSecret()",
             "lang_code": "go",
             "auth_snippet": (
-                "import wbitems \"github.com/ValeryVerkhoturov/wb-api-client-go/items\"\n\n"
+                'import wbitems "github.com/ValeryVerkhoturov/wb-api-client-go/items"\n\n'
                 "cfg := wbitems.NewConfiguration()\n"
-                "cfg.SetAccessToken(\"<your WB JWT>\")\n"
+                'cfg.SetAccessToken("<your WB JWT>")\n'
                 "client := wbitems.NewAPIClient(cfg)"
             ),
             "import_prefix": "github.com/ValeryVerkhoturov/wb-api-client-go/",
@@ -376,7 +342,6 @@ def main() -> int:
         docs_url=docs_url_for,
     )
 
-    # ── Java ──
     ja_root = root / "clients" / "java"
     write_readme(
         ja_root / "README.md",
@@ -397,7 +362,7 @@ def main() -> int:
                 "import io.github.valeryverkhoturov.wbapi.items.ApiClient;\n"
                 "import io.github.valeryverkhoturov.wbapi.items.SecretString;\n\n"
                 "ApiClient client = new ApiClient();\n"
-                "client.setBearerToken(new SecretString(\"<your WB JWT>\"));"
+                'client.setBearerToken(new SecretString("<your WB JWT>"));'
             ),
             "import_prefix": f"{JAVA_ROOT_PKG}.",
         },
@@ -408,7 +373,6 @@ def main() -> int:
         docs_url=docs_url_for,
     )
 
-    # ── PHP ──
     ph_root = root / "clients" / "php"
     for spec in specs:
         spec["_pascal"] = pascal_from_snake(spec["snake"])
@@ -436,7 +400,6 @@ def main() -> int:
         docs_url=docs_url_for,
     )
 
-    # ── C# ──
     cs_root = root / "clients" / "csharp"
     write_readme(
         cs_root / "README.md",
@@ -450,7 +413,7 @@ def main() -> int:
             "auth_snippet": (
                 "using ValeryVerkhoturov.WbApiClient.Items.Client;\n\n"
                 "var config = new Configuration();\n"
-                "config.AccessTokenSecret = new SecretString(\"<your WB JWT>\");"
+                'config.AccessTokenSecret = new SecretString("<your WB JWT>");'
             ),
             "import_prefix": "ValeryVerkhoturov.WbApiClient.",
         },
@@ -461,7 +424,6 @@ def main() -> int:
         docs_url=docs_url_for,
     )
 
-    # ── OneScript ──
     os_root = root / "clients" / "onescript"
     write_readme(
         os_root / "README.md",
@@ -473,16 +435,11 @@ def main() -> int:
             "expose_call": ".Раскрыть()",
             "lang_code": "bsl",
             "auth_snippet": (
-                "#Использовать \"wb-api-client\"\n\n"
+                '#Использовать "wb-api-client"\n\n'
                 "Настройки = Новый Конфигурация();\n"
-                "Настройки.УстановитьТокен(\"<your WB JWT>\");"
+                'Настройки.УстановитьТокен("<your WB JWT>");'
             ),
             "import_prefix": "",
-            # OneScript has no namespaces: one #Использовать brings in every
-            # class, so categories are separated by class name rather than by
-            # import path. Model names carry the category as a prefix because
-            # 34 of them repeat across specs; API class names are unique
-            # already, so they are left as the spec's tag.
             "module_intro": (
                 "OneScript has no namespaces — a single `#Использовать` brings in "
                 "every class. Categories are separated by name rather than by import "

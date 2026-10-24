@@ -1,13 +1,3 @@
-"""Assert-based smoke checks for the shared kernel.
-
-Not a test suite — the behavioral guard for the pipeline is pr-check.yml's
-full regeneration + git-diff gate. These checks exist so a refactor of the
-shared naming/YAML helpers fails fast and locally instead of surfacing as a
-mysterious clients/ diff in CI.
-
-Run: `make scripts-check` (or `PYTHONPATH=scripts python3 -m pipeline.core.selfcheck`).
-"""
-
 import io
 
 from ..specs.postprocess import add_docs_links
@@ -29,12 +19,12 @@ def check_naming() -> None:
     assert naming.snake_case("getApiV3Orders") == "get_api_v3_orders"
     assert naming.camel_case("GetApiV3Orders") == "getApiV3Orders"
     assert naming.pascal_case("getApiV3Orders") == "GetApiV3Orders"
-    assert naming.page_slug("PATCH", "/content/v2/tag/{id}") == "patch-content-v2-tag-id"
+    assert (
+        naming.page_slug("PATCH", "/content/v2/tag/{id}") == "patch-content-v2-tag-id"
+    )
 
 
 def check_docs_link_contract() -> None:
-    """The URL post-process appends must be the page docs.reference renders —
-    including the collision-disambiguation suffix."""
     spec = {
         "paths": {
             "/content/v2/tag/{id}": {
@@ -65,7 +55,7 @@ def check_yamlio() -> None:
     assert loaded["a"] == "quoted" and loaded["b"] == [1, 2]
     out = io.StringIO()
     yaml.dump(loaded, out)
-    assert "'quoted'" in out.getvalue()  # preserve_quotes survives the round trip
+    assert "'quoted'" in out.getvalue()
     assert safe_yaml().load(text)["a"] == "quoted"
 
 

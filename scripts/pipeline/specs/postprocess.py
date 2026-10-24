@@ -1,85 +1,4 @@
 #!/usr/bin/env python3
-"""Post-process downloaded WB OpenAPI specs before code generation.
-
-Passes applied to every spec:
-
-1. `inject_bearer_auth` — WB requires a JWT in the `Authorization` header
-   for every endpoint but upstream declares no security scheme. We add a
-   global `BearerAuth` (HTTP bearer, JWT) so generated clients expose an
-   `access_token` / `accessToken` config parameter.
-
-2. `fix_untyped_arrays` — arrays missing an `items` clause make the Go
-   template emit `[]Array` (undefined) and TS fall back to `any[]`. We
-   default missing inner types to `{type: string}`.
-
-3. `widen_integer_formats` — WB omits integer formats or uses unsigned
-   formats for IDs and timestamps that exceed signed 32-bit integers. We
-   use `int64` unless the schema explicitly requests a smaller signed type.
-
-4. `inline_top_level_arrays` — WB defines schemas like `DaysV3` at the
-   root as `type: array`. Java/Go/TS templates all mishandle a `$ref` to
-   an array-at-root (Go emits `*Array`, Java calls `.validateJsonElement()`
-   on `List<>`). We inline every array-schema $ref at its use site and
-   delete the top-level entry.
-
-5. `name_inline_response_schemas` — anonymous inline schemas under 4xx/5xx
-   responses get auto-named `_409SupplyDeliverErrorData` by the generator,
-   which is an invalid Go identifier (leading digit). We hoist each inline
-   response schema to `#/components/schemas/<OperationId>Response<code>`
-   so the generator uses a stable, language-safe name.
-
-6. `sanitize_non_ascii_enums` — string enums whose values are non-ASCII
-   (e.g. `["Склад WB", "Склад продавца"]`) produce empty JS/Go/Java
-   identifiers. We add `x-enum-varnames: [Value1, Value2, ...]` so the
-   generator has a fallback ASCII name for every value.
-
-7. `htmlize_descriptions_to_markdown` — WB descriptions are HTML (with
-   `<div class="api-block">`, `<a href>`, `<strong>`, `<br>`, `<ul>`, etc.)
-   which reads badly in generated code doc-comments. Convert every
-   `description` string to Markdown so docstrings and Javadoc/JSDoc render
-   as intended.
-
-8. `absolutize_description_links` — Markdown links in descriptions point
-   at relative paths on the WB developer portal (e.g.
-   `[warehouses inventory](/openapi/reports#tag/warehousesInventoryReport)`).
-   Those don't resolve outside the portal, so we prefix them with
-   `https://dev.wildberries.ru`. Runs after the HTML→Markdown pass so it
-   sees the final link form.
-
-9. `drop_date_formats` — WB returns `""` for unset date fields (e.g.
-   `fixTariffDateFrom`, `utdUcdDate` in sales-report detail rows), which is
-   not a valid RFC3339 date. Strict date parsers in every generated
-   language then fail response deserialization (pydantic
-   `date_from_datetime_parsing`, Go `time.Time` unmarshal, Java
-   `LocalDate`). We strip `format: date` / `format: date-time` from string
-   schemas so clients type these as plain strings.
-
-10. `drop_response_required` — WB marks nearly every response field
-    `required`, but the live API omits fields at will, and every generated
-    language throws on deserialization when a "required" field is absent
-    (pydantic `model_validate`, Java `validateJsonElement`, Go
-    `UnmarshalJSON`, C# `DataMember(IsRequired)`, PHP setter null-checks).
-    We delete `required` arrays from every schema reachable from a response
-    definition so missing fields deserialize to defaults (`None` / null /
-    zero value). Request-body schemas keep their `required` lists, so
-    input validation is unaffected.
-
-11. `rename_tags_to_module` — WB tags are Russian (`Финансовые отчёты`),
-    which openapi-generator sanitizes to an empty class-name stem, so every
-    language falls back to `Api`/`DefaultApi` classes. We rewrite every
-    operation's `tags` to the module name (`Finances`, `Reports`, …), so
-    each module gets a single well-named API class (`FinancesApi`, …), and
-    stash the original tags in `x-original-tags` for the docs generator.
-
-12. `add_docs_links` — appends a `Library doc: <url>` line to every
-    operation's `description`, pointing at the operation's page on
-    https://valeryverkhoturov.github.io/wb-api-client-docs. Generators copy
-    `description` into docstrings/Javadoc/doc-comments, so every client
-    method links to its rendered docs. gen-api-reference.py strips this
-    line back out, so the docs site itself is unaffected. Runs last, after
-    the HTML→Markdown and link-absolutizing passes, so the appended line is
-    never rewritten.
-"""
 from __future__ import annotations
 
 import re
@@ -100,7 +19,7 @@ from ..core.yamlio import round_trip_yaml
 
 try:
     from markdownify import markdownify as _html_to_markdown
-except ImportError:  # pragma: no cover - installed via requirements.txt
+except ImportError:
     sys.stderr.write(
         "markdownify is required. Install with `pip install markdownify`.\n"
     )
@@ -112,15 +31,6 @@ yaml = round_trip_yaml()
 
 
 def inject_bearer_auth(spec: dict) -> None:
-    """Replace every existing security scheme with a single `BearerAuth`
-    (HTTP bearer, JWT). WB's raw spec declares a `HeaderApiKey` scheme
-    (apiKey in header) that carries the same JWT, so leaving it in place
-    would make openapi-generator emit an extra auth code path (a
-    context-value-based apiKey handler) on top of the bearer one. Since
-    we route the token via `Configuration.AccessToken` / equivalents in
-    all four languages, we drop every pre-existing scheme and rewire
-    every `security` requirement to point at BearerAuth only.
-    """
     components = spec.setdefault("components", {})
     schemes = components.setdefault("securitySchemes", {})
     existing = [name for name in schemes.keys() if name != SECURITY_SCHEME_NAME]
@@ -134,22 +44,24 @@ def inject_bearer_auth(spec: dict) -> None:
             "Настройки → Доступ к API. Sent as `Authorization: Bearer <token>`."
         ),
     }
-    # Drop every other scheme. Even if none of them are referenced anywhere
-    # below, their mere presence in components.securitySchemes makes some
-    # generators (Go) emit auth handling code for them.
     for name in existing:
         del schemes[name]
 
     spec["security"] = [{SECURITY_SCHEME_NAME: []}]
 
-    # Walk paths/operations and normalize every `security` list to the
-    # single BearerAuth entry, so per-operation overrides don't reintroduce
-    # the dropped scheme names.
     for path_item in (spec.get("paths") or {}).values():
         if not isinstance(path_item, dict):
             continue
         for method, op in path_item.items():
-            if method not in {"get", "post", "put", "patch", "delete", "head", "options"}:
+            if method not in {
+                "get",
+                "post",
+                "put",
+                "patch",
+                "delete",
+                "head",
+                "options",
+            }:
                 continue
             if isinstance(op, dict) and "security" in op:
                 op["security"] = [{SECURITY_SCHEME_NAME: []}]
@@ -170,7 +82,6 @@ def fix_untyped_arrays(node: Any) -> int:
 
 
 def widen_integer_formats(node: Any) -> int:
-    """Use int64 for integers that can exceed signed 32-bit values."""
     fixed = 0
     if isinstance(node, dict):
         fmt = node.get("format")
@@ -190,9 +101,6 @@ def widen_integer_formats(node: Any) -> int:
 
 
 def _walk_refs(node: Any, visitor):
-    """Depth-first walk. Calls visitor(parent_container, key_or_index, node)
-    for every mapping/list encountered. Visitor may mutate `parent_container[key]`.
-    """
     if isinstance(node, dict):
         for k in list(node.keys()):
             _walk_refs(node[k], visitor)
@@ -204,17 +112,10 @@ def _walk_refs(node: Any, visitor):
 
 
 def inline_top_level_arrays(spec: dict) -> int:
-    """Inline every $ref pointing at a top-level array schema, then drop
-    the array schema from components. Returns the number of schemas inlined.
-
-    After inlining, also collapses any `allOf: [array, description-only]`
-    wrapper into a plain array schema — openapi-generator's Java/Go/TS
-    templates emit a bogus `*Array` type when they see an allOf combining
-    an array-typed subschema with siblings.
-    """
     schemas = spec.get("components", {}).get("schemas", {}) or {}
     array_schemas = {
-        name: sch for name, sch in schemas.items()
+        name: sch
+        for name, sch in schemas.items()
         if isinstance(sch, dict) and sch.get("type") == "array"
     }
     if not array_schemas:
@@ -229,13 +130,10 @@ def inline_top_level_arrays(spec: dict) -> int:
             return
         ref = node.get("$ref")
         if isinstance(ref, str) and ref in target_refs:
-            name = ref[len(ref_prefix):]
+            name = ref[len(ref_prefix) :]
             parent[key] = _deep_copy_yaml(array_schemas[name])
             replaced_count[0] += 1
 
-    # Inlined array schemas can themselves contain $refs to other array
-    # schemas that were placed after the walker visited that subtree. Loop
-    # until no more replacements happen.
     while True:
         before = replaced_count[0]
         _walk_refs(spec, visit_inline)
@@ -245,15 +143,21 @@ def inline_top_level_arrays(spec: dict) -> int:
     for name in array_schemas:
         del schemas[name]
 
-    # Second pass: collapse `allOf` wrappers that contain exactly one
-    # array-typed sub-schema plus items that only carry metadata (they have
-    # no `type` / `properties` / `$ref` / composition keywords of their own).
     _collapse_array_alloofs(spec)
     return len(array_schemas)
 
 
-_METADATA_ONLY_KEYS = {"description", "title", "example", "examples", "readOnly",
-                       "writeOnly", "deprecated", "nullable", "default"}
+_METADATA_ONLY_KEYS = {
+    "description",
+    "title",
+    "example",
+    "examples",
+    "readOnly",
+    "writeOnly",
+    "deprecated",
+    "nullable",
+    "default",
+}
 
 
 def _collapse_array_alloofs(root: Any) -> None:
@@ -264,10 +168,11 @@ def _collapse_array_alloofs(root: Any) -> None:
         if not isinstance(all_of, list):
             return
         arrays = [s for s in all_of if isinstance(s, dict) and s.get("type") == "array"]
-        others = [s for s in all_of if not (isinstance(s, dict) and s.get("type") == "array")]
+        others = [
+            s for s in all_of if not (isinstance(s, dict) and s.get("type") == "array")
+        ]
         if len(arrays) != 1:
             return
-        # Every non-array sibling must be metadata-only (no schema shape).
         if not all(
             isinstance(s, dict) and set(s.keys()).issubset(_METADATA_ONLY_KEYS)
             for s in others
@@ -277,8 +182,6 @@ def _collapse_array_alloofs(root: Any) -> None:
         for sib in others:
             for k, v in sib.items():
                 merged.setdefault(k, v)
-        # Preserve any metadata keys that were on the allOf wrapper itself
-        # (e.g. `description` on the parent property).
         for k, v in node.items():
             if k == "allOf":
                 continue
@@ -289,9 +192,6 @@ def _collapse_array_alloofs(root: Any) -> None:
 
 
 def _deep_copy_yaml(node: Any) -> Any:
-    """Deep-copy ruamel yaml nodes (they aren't safe to share references
-    across the tree if a later pass mutates them).
-    """
     if isinstance(node, dict):
         return {k: _deep_copy_yaml(v) for k, v in node.items()}
     if isinstance(node, list):
@@ -303,19 +203,12 @@ _INVALID_IDENT_RE = re.compile(r"[^A-Za-z0-9]")
 
 
 def _ident(text: str) -> str:
-    """Turn arbitrary text into a PascalCase identifier fragment. Empty
-    result → 'X' so we always emit something a code generator can consume.
-    """
     parts = [p for p in _INVALID_IDENT_RE.split(text) if p]
     joined = "".join(p[:1].upper() + p[1:] for p in parts)
     return joined or "X"
 
 
 def rename_digit_prefixed_schemas(spec: dict) -> int:
-    """Rename components.schemas whose names start with (`_?<digit>`) —
-    invalid Go identifiers. WB literally has entries like `409SupplyDeliverError`
-    in its spec. Rewrite as `HttpNNN...` and update every $ref site.
-    """
     schemas = spec.get("components", {}).get("schemas", {}) or {}
     ref_prefix = "#/components/schemas/"
 
@@ -334,11 +227,9 @@ def rename_digit_prefixed_schemas(spec: dict) -> int:
     if not rename:
         return 0
 
-    # Rewrite the components map.
     for old, new in rename.items():
         schemas[new] = schemas.pop(old)
 
-    # Rewrite every $ref pointing at a renamed schema.
     old_to_new_ref = {ref_prefix + o: ref_prefix + n for o, n in rename.items()}
 
     def visit(parent, key, node):
@@ -352,11 +243,6 @@ def rename_digit_prefixed_schemas(spec: dict) -> int:
 
 
 def name_inline_response_schemas(spec: dict) -> int:
-    """Hoist inline response schemas to named components. Reason: the
-    generator auto-names inline `'409'` response bodies as `_409Foo`, which
-    is not a valid Go identifier. We give them stable names like
-    `<OperationId>Response409` first.
-    """
     components = spec.setdefault("components", {})
     schemas = components.setdefault("schemas", {})
     ref_prefix = "#/components/schemas/"
@@ -366,7 +252,15 @@ def name_inline_response_schemas(spec: dict) -> int:
         if not isinstance(path_item, dict):
             continue
         for method, op in path_item.items():
-            if method not in {"get", "post", "put", "patch", "delete", "head", "options"}:
+            if method not in {
+                "get",
+                "post",
+                "put",
+                "patch",
+                "delete",
+                "head",
+                "options",
+            }:
                 continue
             if not isinstance(op, dict):
                 continue
@@ -383,13 +277,14 @@ def name_inline_response_schemas(spec: dict) -> int:
                     if not isinstance(schema, dict):
                         continue
                     if "$ref" in schema:
-                        continue  # already named
-                    # Only hoist object/array schemas — primitives don't
-                    # need a class.
-                    if schema.get("type") not in {"object", "array"} and "properties" not in schema and "allOf" not in schema:
+                        continue
+                    if (
+                        schema.get("type") not in {"object", "array"}
+                        and "properties" not in schema
+                        and "allOf" not in schema
+                    ):
                         continue
                     name = f"{_ident(op_id)}Response{code}"
-                    # Avoid collisions if the same shape is reused.
                     base = name
                     n = 2
                     while name in schemas:
@@ -409,34 +304,17 @@ def _has_html(text: str) -> bool:
 
 
 def _clean_markdown(md: str) -> str:
-    # markdownify emits a lot of consecutive blank lines when converting
-    # nested divs; collapse runs of >2 newlines and strip trailing spaces
-    # per line so generated doc comments don't look scattered.
     md = re.sub(r"[ \t]+\n", "\n", md)
     md = re.sub(r"\n{3,}", "\n\n", md)
     return md.strip()
 
 
 def htmlize_descriptions_to_markdown(node: Any) -> int:
-    """Convert every string-valued `description` field from HTML to Markdown.
-
-    WB descriptions embed `<div>`, `<a>`, `<strong>`, `<br>`, `<ul>`/`<li>`,
-    `<code>`, `<pre>`, `<hr>` — none of which render in a Python docstring
-    or Javadoc. Converted Markdown is what OpenAPI-style tooling expects
-    and what generators will faithfully pass through into doc comments.
-    """
     converted = 0
     if isinstance(node, dict):
         for k, v in list(node.items()):
             if k == "description" and isinstance(v, str) and _has_html(v):
-                # Do NOT pass strip=["div"]: stripping the div tag also
-                # strips its block-level semantics, collapsing adjacent
-                # `<div>…</div><div>…</div>` blocks into one line with no
-                # paragraph break. markdownify's default handling of
-                # `<div>` already emits `\n\n` between blocks.
-                node[k] = _clean_markdown(
-                    _html_to_markdown(v, heading_style="ATX")
-                )
+                node[k] = _clean_markdown(_html_to_markdown(v, heading_style="ATX"))
                 converted += 1
             else:
                 converted += htmlize_descriptions_to_markdown(v)
@@ -447,9 +325,6 @@ def htmlize_descriptions_to_markdown(node: Any) -> int:
 
 
 WB_DEV_BASE = "https://dev.wildberries.ru"
-# Matches a Markdown link whose destination starts with `/` — a site-root
-# relative URL on the WB dev portal. Excludes `//host/...` protocol-relative
-# links and preserves any leading whitespace / punctuation before `[`.
 _REL_LINK_RE = re.compile(r"(\]\()(/(?!/)[^)\s]*)(\))")
 
 
@@ -471,9 +346,6 @@ def absolutize_description_links(node: Any) -> int:
 
 
 def sanitize_non_ascii_enums(node: Any) -> int:
-    """For string enums with any non-ASCII value, add x-enum-varnames so
-    generators have a valid identifier for each value.
-    """
     fixed = 0
     if isinstance(node, dict):
         enum = node.get("enum")
@@ -502,15 +374,6 @@ def sanitize_non_ascii_enums(node: Any) -> int:
 
 
 def drop_date_formats(node: Any) -> int:
-    """Remove `format: date` / `format: date-time` from string schemas.
-
-    WB returns "" for unset date fields (e.g. `fixTariffDateFrom`,
-    `utdUcdDate` in sales-report detail rows), which is not a valid RFC3339
-    date. Strict date parsers in every generated language then fail
-    response deserialization (pydantic `date_from_datetime_parsing`, Go
-    `time.Time` unmarshal, Java `LocalDate`). Typing these as plain strings
-    is the honest contract.
-    """
     fixed = 0
     if isinstance(node, dict):
         if node.get("type") == "string" and node.get("format") in ("date", "date-time"):
@@ -531,7 +394,7 @@ def _collect_schema_refs(node: Any, out: set) -> None:
     if isinstance(node, dict):
         ref = node.get("$ref")
         if isinstance(ref, str) and ref.startswith(_REF_PREFIX):
-            out.add(ref[len(_REF_PREFIX):])
+            out.add(ref[len(_REF_PREFIX) :])
         for v in node.values():
             _collect_schema_refs(v, out)
     elif isinstance(node, list):
@@ -540,17 +403,6 @@ def _collect_schema_refs(node: Any, out: set) -> None:
 
 
 def drop_response_required(spec: dict) -> int:
-    """Delete `required` arrays from every schema reachable from a response
-    definition. Missing fields then deserialize to defaults (`None` / null /
-    zero value) instead of throwing — WB marks nearly everything required
-    but omits fields at will. Request-body schemas keep their `required`
-    lists (a schema used in both a request and a response is
-    response-reachable and goes optional in both — accepted, favors
-    leniency).
-
-    Must run after `name_inline_response_schemas` so inline response bodies
-    are hoisted to components and visible to the reachability walk.
-    """
     schemas = spec.get("components", {}).get("schemas", {}) or {}
     if not schemas:
         return 0
@@ -560,7 +412,15 @@ def drop_response_required(spec: dict) -> int:
         if not isinstance(path_item, dict):
             continue
         for method, op in path_item.items():
-            if method not in {"get", "post", "put", "patch", "delete", "head", "options"}:
+            if method not in {
+                "get",
+                "post",
+                "put",
+                "patch",
+                "delete",
+                "head",
+                "options",
+            }:
                 continue
             if isinstance(op, dict):
                 _collect_schema_refs(op.get("responses") or {}, reachable)
@@ -581,9 +441,6 @@ def drop_response_required(spec: dict) -> int:
     def strip(node: Any) -> None:
         nonlocal dropped
         if isinstance(node, dict):
-            # Only schema `required` (a list of property names) — never the
-            # boolean `required` of a parameter, which the walk can't reach
-            # anyway since it stays inside schema subtrees.
             if isinstance(node.get("required"), list):
                 del node["required"]
                 dropped += 1
@@ -601,19 +458,20 @@ def drop_response_required(spec: dict) -> int:
 
 
 def rename_tags_to_module(spec: dict, module: str) -> int:
-    """Rewrite every operation's `tags` to the module name so each module
-    generates a single well-named API class (`FinancesApi`, `ReportsApi`, …)
-    instead of `Api`/`DefaultApi` — WB tags are Russian, and the generators
-    sanitize non-ASCII tag names to an empty class-name stem. The original
-    tags are preserved in `x-original-tags` for the docs generator
-    (gen-api-reference.py groups operation pages by them).
-    """
     renamed = 0
     for path_item in (spec.get("paths") or {}).values():
         if not isinstance(path_item, dict):
             continue
         for method, op in path_item.items():
-            if method not in {"get", "post", "put", "patch", "delete", "head", "options"}:
+            if method not in {
+                "get",
+                "post",
+                "put",
+                "patch",
+                "delete",
+                "head",
+                "options",
+            }:
                 continue
             if not isinstance(op, dict):
                 continue
@@ -626,39 +484,36 @@ def rename_tags_to_module(spec: dict, module: str) -> int:
 
 
 def add_docs_links(spec: dict, slug: str) -> int:
-    """Append a `Library doc: <url>` line to every operation description.
-
-    Stock openapi-generator templates copy the operation `description` into
-    docstrings (Python), doc comments (Go, TypeScript), Javadoc (Java),
-    PHPDoc, XML doc (C#) and OneScript comments, so this single spec-side
-    change surfaces a docs-site link in every generated client method.
-
-    The page path is `page_slug` from the shared kernel plus the
-    `seen_pages` disambiguation below; pipeline.docs.reference strips the
-    marker line back out so the docs pages themselves stay unchanged. For
-    PHP the link arrives through the same description — the stock template
-    override in templates/php renders `notes` into docblocks (the stock
-    template's `{{#description}}` binds to an empty field in the php
-    generator).
-    """
     linked = 0
     seen_pages: set = set()
     for path, path_item in (spec.get("paths") or {}).items():
         if not isinstance(path_item, dict):
             continue
         for method, op in path_item.items():
-            if method not in {"get", "post", "put", "patch", "delete", "head", "options"}:
+            if method not in {
+                "get",
+                "post",
+                "put",
+                "patch",
+                "delete",
+                "head",
+                "options",
+            }:
                 continue
             if not isinstance(op, dict):
                 continue
             page = page_slug(method, path)
             if page in seen_pages:
-                page = f"{page}-{snake_case(op.get('operationId', '')).replace('_', '-')}"
+                page = (
+                    f"{page}-{snake_case(op.get('operationId', '')).replace('_', '-')}"
+                )
             seen_pages.add(page)
             url = f"{DOCS_SITE}/reference/api/{slug}/{page}"
             desc = (op.get("description") or "").rstrip()
             op["description"] = (
-                f"{desc}\n\n{DOCS_LINK_LABEL}: {url}" if desc else f"{DOCS_LINK_LABEL}: {url}"
+                f"{desc}\n\n{DOCS_LINK_LABEL}: {url}"
+                if desc
+                else f"{DOCS_LINK_LABEL}: {url}"
             )
             linked += 1
     return linked
@@ -698,14 +553,25 @@ def main() -> int:
 
     specs = sorted(p for p in src_dir.glob("*.yaml") if p.parent == src_dir)
     if not specs:
-        sys.stderr.write(f"No specs found in {src_dir}. Run download-swaggers.py first.\n")
+        sys.stderr.write(
+            f"No specs found in {src_dir}. Run download-swaggers.py first.\n"
+        )
         return 1
 
-    totals = {"arrays": 0, "integers_widened": 0, "inlined_arrays": 0,
-              "renamed_schemas": 0, "hoisted_responses": 0,
-              "required_dropped": 0, "enums": 0, "tags_renamed": 0,
-              "date_formats_dropped": 0, "descriptions_md": 0,
-              "links_absolutized": 0, "docs_links": 0}
+    totals = {
+        "arrays": 0,
+        "integers_widened": 0,
+        "inlined_arrays": 0,
+        "renamed_schemas": 0,
+        "hoisted_responses": 0,
+        "required_dropped": 0,
+        "enums": 0,
+        "tags_renamed": 0,
+        "date_formats_dropped": 0,
+        "descriptions_md": 0,
+        "links_absolutized": 0,
+        "docs_links": 0,
+    }
     for spec_path in specs:
         target = dst_dir / spec_path.name
         stats = process_file(spec_path, target)
@@ -727,10 +593,7 @@ def main() -> int:
             f"docs-links={stats['docs_links']:>3}"
         )
 
-    print(
-        f"Processed {len(specs)} specs → {dst_dir} "
-        f"(totals: {totals})"
-    )
+    print(f"Processed {len(specs)} specs → {dst_dir} " f"(totals: {totals})")
     return 0
 
 
