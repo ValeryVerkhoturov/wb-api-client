@@ -87,7 +87,10 @@ reference: ## Regenerate the docs-site API reference into $(DOCS)
 
 # ── verification ──────────────────────────────────────────────────────────
 
-verify: verify-python verify-ts verify-go verify-java verify-php verify-csharp verify-onescript gofmt black prettier spotless php-cs-fixer dotnet-format ## Build every language + fmt checks
+scripts-check: ## Smoke-check the shared pipeline kernel (naming, YAML, docs-link contract)
+	PYTHONPATH=scripts $(PY) -m pipeline.core.selfcheck
+
+verify: scripts-check verify-python verify-ts verify-go verify-java verify-php verify-csharp verify-onescript gofmt black prettier spotless php-cs-fixer dotnet-format ## Build every language + fmt checks
 
 verify-python: ## Build the Python wheel and import every sub-module
 	@echo "── Python ─────────────────────────────────────"
