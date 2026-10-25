@@ -33,7 +33,7 @@ RUSTFMT_DOCKER = docker run --rm \
 
 .DEFAULT_GOAL := help
 .PHONY: help venv download post-process generate regen reference \
-        verify verify-python verify-ts verify-go verify-java verify-php \
+        test verify verify-python verify-ts verify-go verify-java verify-php \
         verify-csharp \
         verify-onescript verify-rust \
         gofmt black prettier spotless php-cs-fixer dotnet-format rustfmt clean \
@@ -78,7 +78,10 @@ scripts-check: ## Smoke-check the pipeline kernel and ban `#` comments under scr
 	PYTHONPATH=scripts $(PY) -m pipeline.core.selfcheck
 	PYTHONPATH=scripts $(PY) -m pipeline.core.commentcheck
 
-verify: scripts-check verify-python verify-ts verify-go verify-java verify-php verify-csharp verify-onescript verify-rust gofmt black prettier spotless php-cs-fixer dotnet-format rustfmt ## Build every language + fmt checks
+test: ## Run the scripts test suite (YAML fixture cases)
+	PYTHONPATH=scripts $(PY) -m pytest tests -q
+
+verify: scripts-check test verify-python verify-ts verify-go verify-java verify-php verify-csharp verify-onescript verify-rust gofmt black prettier spotless php-cs-fixer dotnet-format rustfmt ## Build every language + fmt checks
 
 verify-python: ## Build the Python wheel and import every sub-module
 	@echo "── Python ─────────────────────────────────────"
@@ -152,7 +155,7 @@ gofmt: ## Fail if any Go file needs `gofmt -w`
 	 else echo "  ✓ gofmt clean"; fi
 
 black: ## Fail if any Python file (clients/python or scripts/) needs `black`
-	@$(PY) -m black --check --quiet clients/python scripts && echo "  ✓ black clean"
+	@$(PY) -m black --check --quiet clients/python scripts tests && echo "  ✓ black clean"
 
 prettier: ## Fail if any TypeScript file needs `prettier`
 	@$(NODE_DOCKER) sh -c "npm install --silent --no-audit --no-fund && npx --no-install prettier --check --log-level=error 'src/**/*.ts'" \

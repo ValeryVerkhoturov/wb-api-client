@@ -1,0 +1,86 @@
+cases:
+  - name: python snippet
+    function: _pysnippet
+    args: ["items", ["ItemsApi"]]
+    expected: |-
+      from wb_api_client.items import Configuration, ApiClient
+      from wb_api_client.items.api import ItemsApi
+
+      cfg = Configuration(access_token="<your WB JWT>")
+      api = ItemsApi(ApiClient(cfg))
+  - name: python snippet falls back to DefaultApi
+    function: _pysnippet
+    args: ["items", []]
+    expected: |-
+      from wb_api_client.items import Configuration, ApiClient
+      from wb_api_client.items.api import DefaultApi
+
+      cfg = Configuration(access_token="<your WB JWT>")
+      api = DefaultApi(ApiClient(cfg))
+  - name: typescript snippet
+    function: _tssnippet
+    args: ["items", ["ItemsApi"]]
+    expected: |-
+      import { Configuration, ItemsApi } from "@valeryverkhoturov/wb-api-client/items";
+
+      const cfg = new Configuration({});
+      cfg.setAccessToken("<your WB JWT>");
+      const api = new ItemsApi(cfg);
+  - name: go snippet
+    function: _gosnippet
+    args: ["orders_fbs", ["OrdersFbsApi"]]
+    expected: |-
+      import wborders_fbs "github.com/ValeryVerkhoturov/wb-api-client-go/orders_fbs"
+
+      cfg := wborders_fbs.NewConfiguration()
+      cfg.SetAccessToken("<your WB JWT>")
+      client := wborders_fbs.NewAPIClient(cfg)
+  - name: java snippet
+    function: _javasnippet
+    args: ["items", ["ItemsApi"]]
+    expected: |-
+      import io.github.valeryverkhoturov.wbapi.items.ApiClient;
+      import io.github.valeryverkhoturov.wbapi.items.api.ItemsApi;
+
+      ApiClient client = new ApiClient();
+      client.setAccessToken("<your WB JWT>");
+      ItemsApi api = new ItemsApi(client);
+  - name: php snippet
+    function: _phpsnippet
+    args: ["Items", ["ItemsApi"]]
+    expected: |-
+      use ValeryVerkhoturov\WbApiClient\Items\Configuration;
+      use ValeryVerkhoturov\WbApiClient\Items\Api\ItemsApi;
+      use GuzzleHttp\Client;
+
+      $config = (new Configuration())
+          ->setAccessToken('<your WB JWT>');
+      $api = new ItemsApi(new Client(), $config);
+  - name: csharp snippet
+    function: _cssnippet
+    args: ["Items", ["ItemsApi"]]
+    expected: |-
+      using ValeryVerkhoturov.WbApiClient.Items.Api;
+      using ValeryVerkhoturov.WbApiClient.Items.Client;
+
+      var config = new Configuration();
+      config.SetAccessToken("<your WB JWT>");
+      var api = new ItemsApi(config);
+  - name: onescript snippet
+    function: _ossnippet
+    args: ["Items", ["ApiТовары"]]
+    expected: |-
+      #Использовать "wb-api-client"
+
+      Настройки = Новый Конфигурация();
+      Настройки.УстановитьТокен("<your WB JWT>");
+
+      Клиент = Новый ApiТовары(Настройки);
+  - name: rust snippet
+    function: _rustsnippet
+    args: ["items", ["items_api"]]
+    expected: |-
+      use wb_api_client::items::apis::{configuration::Configuration, items_api};
+
+      let mut cfg = Configuration::new();
+      cfg.set_access_token("<your WB JWT>");

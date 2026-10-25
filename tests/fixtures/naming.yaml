@@ -1,0 +1,53 @@
+cases:
+  - name: module slug strips numeric prefix
+    function: module_slug
+    args: ["01-general"]
+    expected: general
+  - name: module slug keeps hyphenated tail
+    function: module_slug
+    args: ["06-in-store-pickup"]
+    expected: in-store-pickup
+  - name: module class name
+    function: module_class_name
+    args: ["01-general"]
+    expected: General
+  - name: module class name hyphenated
+    function: module_class_name
+    args: ["06-in-store-pickup"]
+    expected: InStorePickup
+  - name: snake slug
+    function: snake_slug
+    args: ["orders-fbs"]
+    expected: orders_fbs
+  - name: pascal slug
+    function: pascal_slug
+    args: ["in-store-pickup"]
+    expected: InStorePickup
+  - name: pascal from snake
+    function: pascal_from_snake
+    args: ["orders_fbs"]
+    expected: OrdersFbs
+  - name: go alias
+    function: go_alias
+    args: ["orders-fbs"]
+    expected: wbordersfbs
+  - name: snake case from camel op id
+    function: snake_case
+    args: ["getApiV3Orders"]
+    expected: get_api_v3_orders
+  - name: camel case
+    function: camel_case
+    args: ["GetApiV3Orders"]
+    expected: getApiV3Orders
+  - name: pascal case
+    function: pascal_case
+    args: ["getApiV3Orders"]
+    expected: GetApiV3Orders
+  - name: page slug with path params
+    function: page_slug
+    args: ["PATCH", "/content/v2/tag/{id}"]
+    expected: patch-content-v2-tag-id
+  - name: page slug strips non-alphanumerics
+    function: page_slug
+    args: ["GET", "/api/v2/nm-report/downloads/file/{downloadId}"]
+    expected: get-api-v2-nm-report-downloads-file-downloadid
