@@ -4,19 +4,19 @@
   <img src="pics/blueberry-ascii.svg" width="320" alt="wb-api-client logo">
 </p>
 
-Auto-generated client libraries for the [Wildberries Seller API](https://dev.wildberries.ru/) in **Python**, **TypeScript**, **Go**, **Java**, **PHP**, **OneScript**, and **C#**. Specs are pulled daily from the [wb-api-client-specs](https://gitlab.com/ValeryVerkhoturov/wb-api-client-specs) mirror; when they change, new packages are cut and pushed to each language's package manager.
+Auto-generated client libraries for the [Wildberries Seller API](https://dev.wildberries.ru/) in **Python**, **TypeScript**, **Go**, **Java**, **PHP**, **OneScript**, **C#**, and **Rust**. Specs are pulled daily from the [wb-api-client-specs](https://gitlab.com/ValeryVerkhoturov/wb-api-client-specs) mirror; when they change, new packages are cut and pushed to each language's package manager.
 
 ## What's in the box
 
 - **One package per language**, with all 13 WB API categories as sub-modules: `general`, `items`, `orders_fbs`, `orders_dbw`, `dbs`, `in_store_pickup`, `orders_fbw`, `promotion`, `communications`, `rates`, `analytics`, `reports`, `finances`.
 - **Bearer JWT authorization** is injected into every spec before generation, even though upstream YAMLs omit a security scheme. All generated clients expose an `Authorization` parameter.
-- Stable-semver releases (`1.YYYYMMDD.N` — MAJOR fixed at 1, MINOR is the release date as an int, PATCH is a same-day counter) — one string covers all 7 languages so versions line up across ecosystems, and `npm/pip/mvn/composer/go get @latest` all auto-pick the highest.
+- Stable-semver releases (`1.YYYYMMDD.N` — MAJOR fixed at 1, MINOR is the release date as an int, PATCH is a same-day counter) — one string covers all 8 languages so versions line up across ecosystems, and `npm/pip/mvn/composer/go get/cargo add @latest` all auto-pick the highest.
 
 ## Repositories
 
-The project spans four repositories. This one holds the pipeline and four of the
-seven generated clients; PHP, OneScript, and Go live in their own repos, mounted
-here as git submodules under `clients/`.
+The project spans five repositories. This one holds the pipeline and four of the
+eight generated clients; PHP, OneScript, Go, and Rust live in their own repos,
+mounted here as git submodules under `clients/`.
 
 | Repository | Holds | Why separate |
 |---|---|---|
@@ -24,8 +24,9 @@ here as git submodules under `clients/`.
 | [`wb-api-client-php`](https://github.com/ValeryVerkhoturov/wb-api-client-php) | the PHP client → `clients/php` | Packagist crawls a repo root, so `composer.json` cannot sit in a subdirectory |
 | [`wb-api-client-1c`](https://github.com/ValeryVerkhoturov/wb-api-client-1c) | the OneScript client → `clients/onescript` | lets 1C/OneScript users clone just the client, or `opm install` straight from a tag |
 | [`wb-api-client-go`](https://github.com/ValeryVerkhoturov/wb-api-client-go) | the Go client → `clients/go` | Go versions modules with repo tags, so the module must sit at a repo root — a subdirectory module would need `clients/go/`-prefixed tags |
+| [`wb-api-client-rust`](https://github.com/ValeryVerkhoturov/wb-api-client-rust) | the Rust client → `clients/rust` | crates.io links the crate to a dedicated repo, and git dependencies (`wb-api-client = { git = …, tag = … }`) resolve from the repo root |
 
-All four carry the **same `v<version>` tag** for a given release. Code is generated
+All five carry the **same `v<version>` tag** for a given release. Code is generated
 here and committed into the siblings, so never edit a sibling repo directly — the
 next regeneration overwrites it.
 
@@ -136,9 +137,25 @@ model classes carry the category as a prefix (`ItemsResponse4XX`). The package
 also lives in its own repo, [`wb-api-client-1c`](https://github.com/ValeryVerkhoturov/wb-api-client-1c),
 so you can clone it at a tag instead of going through the hub.
 
+**Rust ([crates.io](https://crates.io/crates/wb-api-client)):**
+```bash
+cargo add wb-api-client
+```
+```rust
+use wb_api_client::items::apis::{configuration::Configuration, items_api};
+
+let mut cfg = Configuration::new();
+cfg.set_access_token("<your WB JWT>");   // stored in a redacting SecretString
+```
+
+One crate, thirteen modules: categories live under `wb_api_client::<snake_slug>`
+(e.g. `wb_api_client::orders_fbs::apis::orders_fbs_api`). To pin an exact release
+instead of crates.io, use a git dependency:
+`wb-api-client = { git = "https://github.com/ValeryVerkhoturov/wb-api-client-rust", tag = "v<version>" }`.
+
 ### Per-language module reference
 
-Each generated client has its own README with an install snippet, the auth block, and a per-module import + instantiate example for all 13 API categories. The seven READMEs are regenerated on every release, so they never drift from the code:
+Each generated client has its own README with an install snippet, the auth block, and a per-module import + instantiate example for all 13 API categories. The eight READMEs are regenerated on every release, so they never drift from the code:
 
 - **Python** — [`clients/python/README.md`](clients/python/README.md)
 - **TypeScript** — [`clients/typescript/README.md`](clients/typescript/README.md)
@@ -147,6 +164,7 @@ Each generated client has its own README with an install snippet, the auth block
 - **PHP** — [`ValeryVerkhoturov/wb-api-client-php`](https://github.com/ValeryVerkhoturov/wb-api-client-php#readme) (separate repo, mounted here as the `clients/php` submodule)
 - **C#** — [`clients/csharp/README.md`](clients/csharp/README.md)
 - **OneScript** — [`ValeryVerkhoturov/wb-api-client-1c`](https://github.com/ValeryVerkhoturov/wb-api-client-1c#readme) (separate repo, mounted here as the `clients/onescript` submodule)
+- **Rust** — [`ValeryVerkhoturov/wb-api-client-rust`](https://github.com/ValeryVerkhoturov/wb-api-client-rust#readme) (separate repo, mounted here as the `clients/rust` submodule)
 
 ### Secret redaction
 
@@ -161,22 +179,23 @@ In every language the bearer JWT is stored inside a "secret-string" wrapper so i
 | PHP | `SecretString` class (internal, per sub-module) | `var_dump($config)` → `'<REDACTED>'` | `->getAccessToken()` |
 | C# | `SecretString` class (per namespace, private field) | no getter on `Configuration` — set via `SetAccessToken()` only | not exposed |
 | OneScript | `СекретнаяСтрока` class | `Сообщить(Настройки.Токен())` → `СекретнаяСтрока` | `.Раскрыть()` |
+| Rust | `SecretString` struct (internal, per module) | `println!("{:?}", cfg.bearer_access_token)` → `<REDACTED>` | `.expose_secret()` |
 
 Passing the token through the wrapper is the only supported path.
 
 ## Local development
 
 ```bash
-git submodule update --init --recursive # clients/php + clients/onescript + clients/go must be mounted
+git submodule update --init --recursive # clients/php + clients/onescript + clients/go + clients/rust must be mounted
 pip install -r scripts/requirements.txt
 ./scripts/download-specs.py          # pull YAMLs from the wb-api-client-specs mirror
 python  scripts/process-specs.py         # inject Bearer auth security scheme
-./scripts/generate-clients.py 0.0.0-local       # emit clients/{python,typescript,go,java,php,onescript,csharp}
+./scripts/generate-clients.py 0.0.0-local       # emit clients/{python,typescript,go,java,php,onescript,csharp,rust}
 ```
 
 `generate-clients.py` refuses to run if any submodule is missing: without the mount its
 output would land in an orphaned directory in this repo instead of the sibling.
-`make git-status` / `git-commit` / `git-push` / `git-pull` act on all four repos at
+`make git-status` / `git-commit` / `git-push` / `git-pull` act on all five repos at
 once, submodules first so the recorded pointers are the new commits.
 
 ## How the daily release works
@@ -187,12 +206,12 @@ once, submodules first so the recorded pointers are the new commits.
 2. Diffs `swaggers/checksums.txt` against the freshly generated one.
 3. If any file changed (or `workflow_dispatch` was called with `force: true`), it commits the new specs, computes a CalVer version, tags the repo, and dispatches `publish.yml` once per language.
 
-All three sibling repos are committed, tagged and pushed **before** this one, so the
+All four sibling repos are committed, tagged and pushed **before** this one, so the
 submodule pointers recorded in the release commit already exist on their remotes —
 otherwise a fresh `git clone --recurse-submodules` fails on a ref the sibling has
 never seen.
 
-Each language branch in `publish.yml` regenerates its clients from the just-updated specs and pushes to its registry. Publish credentials live in GitHub Environments (`pypi`, `npm`, `maven-central`) and Actions secrets:
+Each language branch in `publish.yml` regenerates its clients from the just-updated specs and pushes to its registry. Publish credentials live in GitHub Environments (`pypi`, `npm`, `maven-central`, `crates-io`) and Actions secrets:
 
 ## License
 
