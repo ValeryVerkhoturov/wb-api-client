@@ -1,0 +1,194 @@
+cases:
+  - name: nested object with required marks and descriptions
+    schema:
+      type: object
+      required:
+        - id
+      properties:
+        id:
+          type: integer
+          format: int64
+          description: Идентификатор
+        meta:
+          type: object
+          properties:
+            note:
+              type: string
+    components: {}
+    expected: |-
+      - `id` `integer<int64>` (обязательно) — Идентификатор
+      - `meta` `object`
+        - `note` `string`
+  - name: ref resolved from components
+    schema:
+      $ref: "#/components/schemas/Pong"
+    components:
+      Pong:
+        type: object
+        properties:
+          id:
+            type: integer
+    expected: |-
+      - `id` `integer`
+  - name: recursive ref stops at the cycle
+    schema:
+      $ref: "#/components/schemas/Node"
+    components:
+      Node:
+        type: object
+        properties:
+          next:
+            $ref: "#/components/schemas/Node"
+          name:
+            type: string
+    expected: |-
+      - `next` `Node`
+        - ↩ рекурсивная ссылка на `Node`
+      - `name` `string`
+  - name: array of ref objects expands item fields
+    schema:
+      type: array
+      items:
+        $ref: "#/components/schemas/Row"
+    components:
+      Row:
+        type: object
+        properties:
+          cell:
+            type: string
+    expected: |-
+      - `cell` `string`
+  - name: array property shows item type and expands children
+    schema:
+      type: object
+      properties:
+        rows:
+          type: array
+          items:
+            type: object
+            properties:
+              cell:
+                type: string
+    components: {}
+    expected: |-
+      - `rows` `object[]`
+        - `cell` `string`
+  - name: allOf parts merge properties and required
+    schema:
+      allOf:
+        - $ref: "#/components/schemas/Base"
+        - type: object
+          properties:
+            extra:
+              type: string
+    components:
+      Base:
+        type: object
+        required:
+          - id
+        properties:
+          id:
+            type: integer
+    expected: |-
+      - `id` `integer` (обязательно)
+      - `extra` `string`
+  - name: oneOf renders variant names only
+    schema:
+      oneOf:
+        - $ref: "#/components/schemas/Cat"
+        - type: string
+    components:
+      Cat:
+        type: object
+    expected: |-
+      - один из вариантов: `Cat`, `string`
+  - name: depth cap emits ellipsis
+    schema:
+      $ref: "#/components/schemas/L1"
+    components:
+      L1:
+        type: object
+        properties:
+          a:
+            type: object
+            properties:
+              b:
+                type: object
+                properties:
+                  c:
+                    type: object
+                    properties:
+                      d:
+                        type: object
+                        properties:
+                          e:
+                            type: object
+                            properties:
+                              f:
+                                type: object
+                                properties:
+                                  g:
+                                    type: string
+    expected: |-
+      - `a` `object`
+        - `b` `object`
+          - `c` `object`
+            - `d` `object`
+              - `e` `object`
+                - `f` `object`
+                  - …
+  - name: empty schema yields no lines
+    schema: {}
+    components: {}
+    expected: ""
+  - name: enum values rendered inline
+    schema:
+      type: object
+      properties:
+        period:
+          type: string
+          enum:
+            - daily
+            - weekly
+          description: "Периодичность отчётов"
+    components: {}
+    expected: |-
+      - `period` `string` = `daily` | `weekly` — Периодичность отчётов
+  - name: description links absolutized, non-http links stripped to text
+    schema:
+      type: object
+      properties:
+        channel:
+          type: integer
+          description: "Канал: [Доки](./promotion), [VK](vk.ru), [site](https://example.com)"
+    components: {}
+    expected: |-
+      - `channel` `integer` — Канал: [Доки](https://dev.wildberries.ru/openapi/promotion), VK, [site](https://example.com)
+  - name: root type of a ref-to-array response
+    schema:
+      $ref: "#/components/schemas/ListResponse"
+    components:
+      ListResponse:
+        type: array
+        items:
+          $ref: "#/components/schemas/Row"
+      Row:
+        type: object
+        properties:
+          cell:
+            type: string
+    expected: |-
+      - `cell` `string`
+    root: Row[]
+  - name: root type of a plain object is empty
+    schema:
+      $ref: "#/components/schemas/Row"
+    components:
+      Row:
+        type: object
+        properties:
+          cell:
+            type: string
+    expected: |-
+      - `cell` `string`
+    root: ""

@@ -61,6 +61,7 @@ class Response:
     code: str
     description: str
     schema: str
+    schema_node: dict = field(default_factory=dict)
 
 
 @dataclass
@@ -79,6 +80,7 @@ class Operation:
     body_schema: str = ""
     body_required: bool = False
     body_type: str = ""
+    body: dict = field(default_factory=dict)
     responses: list[Response] = field(default_factory=list)
 
 
@@ -89,6 +91,7 @@ class Module:
     description: str
     portal: str
     operations: list[Operation] = field(default_factory=list)
+    components: dict = field(default_factory=dict)
 
 
 _PORTAL_RE = re.compile(r"https://dev\.wildberries\.ru/openapi/([a-z0-9-]+)")
@@ -108,6 +111,13 @@ _PORTAL_BARE_LINK = re.compile(r"\]\(([a-z0-9-]+#tag/[^)]+)\)")
 def absolutize(text: str) -> str:
     text = _PORTAL_REL_LINK.sub(r"](https://dev.wildberries.ru/openapi/\1)", text)
     return _PORTAL_BARE_LINK.sub(r"](https://dev.wildberries.ru/openapi/\1)", text)
+
+
+_NON_HTTP_LINK = re.compile(r"\[([^\]]*)\]\((?!https?://)[^)]*\)")
+
+
+def _tree_description(text: str) -> str:
+    return _NON_HTTP_LINK.sub(r"\1", esc_cell(absolutize(text)))
 
 
 def _schema_name(schema: dict | None) -> str:
@@ -141,6 +151,89 @@ def _first_content(content: dict | None) -> tuple[str, dict]:
     return media, (body or {}).get("schema") or {}
 
 
+MAX_SCHEMA_DEPTH = 6
+
+
+def _resolve_ref(schema: dict, components: dict) -> tuple[str, dict]:
+    ref = schema.get("$ref") if isinstance(schema, dict) else None
+    if isinstance(ref, str):
+        name = ref.rsplit("/", 1)[-1]
+        return name, components.get(name) or {}
+    return "", schema
+
+
+def _merge_allof(schema: dict, components: dict) -> dict:
+    parts = schema.get("allOf")
+    if not isinstance(parts, list):
+        return schema
+    merged = {k: v for k, v in schema.items() if k != "allOf"}
+    props: dict = {}
+    required: list = []
+    for part in parts:
+        if not isinstance(part, dict):
+            continue
+        _, part = _resolve_ref(part, components)
+        props.update(part.get("properties") or {})
+        required += part.get("required") or []
+    if props:
+        merged["properties"] = {**props, **(merged.get("properties") or {})}
+    if required:
+        merged["required"] = sorted(set(required) | set(merged.get("required") or []))
+    return merged
+
+
+def schema_tree_lines(
+    schema: dict, components: dict, s: dict, depth: int = 0, seen: tuple = ()
+) -> list[str]:
+    ref_name, schema = _resolve_ref(schema, components)
+    if ref_name:
+        if ref_name in seen:
+            return ["  " * depth + "- " + s["recursive"].format(name=ref_name)]
+        seen = (*seen, ref_name)
+    if not isinstance(schema, dict) or not schema:
+        return []
+    if depth >= MAX_SCHEMA_DEPTH:
+        return ["  " * depth + "- …"]
+    schema = _merge_allof(schema, components)
+    for comb in ("oneOf", "anyOf"):
+        variants = schema.get(comb)
+        if isinstance(variants, list) and variants:
+            names = ", ".join(
+                f"`{_param_type(v)}`" for v in variants if isinstance(v, dict)
+            )
+            return ["  " * depth + "- " + s["variants"].format(types=names)]
+    props = schema.get("properties")
+    if not isinstance(props, dict) or not props:
+        items = schema.get("items")
+        if schema.get("type") == "array" and isinstance(items, dict):
+            return schema_tree_lines(items, components, s, depth, seen)
+        return []
+    required = set(schema.get("required") or [])
+    lines = []
+    for name, prop in props.items():
+        if not isinstance(prop, dict):
+            prop = {}
+        enum = prop.get("enum")
+        enum_part = ""
+        if isinstance(enum, list) and enum:
+            enum_part = " = " + " | ".join(f"`{v}`" for v in enum)
+        req = f" {s['req_mark']}" if name in required else ""
+        desc = _tree_description(prop.get("description") or "")
+        lines.append(
+            f"{'  ' * depth}- `{name}` `{_param_type(prop)}`{enum_part}{req}"
+            + (f" — {desc}" if desc else "")
+        )
+        lines += schema_tree_lines(prop, components, s, depth + 1, seen)
+    return lines
+
+
+def schema_root_type(schema: dict, components: dict) -> str:
+    _, resolved = _resolve_ref(schema, components)
+    if isinstance(resolved, dict) and resolved.get("type") == "array":
+        return _param_type(resolved)
+    return ""
+
+
 def load_modules(spec_dir: Path) -> list[Module]:
     modules: list[Module] = []
 
@@ -158,6 +251,7 @@ def load_modules(spec_dir: Path) -> list[Module]:
             title=info.get("title", slug),
             description=raw_desc,
             portal=portal_match.group(1) if portal_match else slug,
+            components=(spec.get("components") or {}).get("schemas") or {},
         )
 
         shared_responses = (spec.get("components") or {}).get("responses") or {}
@@ -213,6 +307,7 @@ def load_modules(spec_dir: Path) -> list[Module]:
                                 (resolved.get("description") or "").strip()
                             ),
                             schema=_schema_name(schema),
+                            schema_node=schema,
                         )
                     )
                 responses.sort(key=lambda r: (not r.code.isdigit(), r.code))
@@ -235,6 +330,7 @@ def load_modules(spec_dir: Path) -> list[Module]:
                         body_schema=_schema_name(body_schema),
                         body_required=bool(body.get("required")),
                         body_type=body_type,
+                        body=body_schema,
                         responses=responses,
                     )
                 )
@@ -695,6 +791,10 @@ STRINGS = {
         "r_code": "Код",
         "r_desc": "Описание",
         "r_schema": "Схема",
+        "struct": "Структура",
+        "req_mark": "(обязательно)",
+        "recursive": "↩ рекурсивная ссылка на `{name}`",
+        "variants": "один из вариантов: {types}",
         "examples": "Примеры вызова",
         "examples_lede": (
             "Аргументы показаны именами параметров — подставьте свои значения. "
@@ -744,6 +844,10 @@ STRINGS = {
         "r_code": "Code",
         "r_desc": "Description",
         "r_schema": "Schema",
+        "struct": "Structure",
+        "req_mark": "(required)",
+        "recursive": "↩ recursive reference to `{name}`",
+        "variants": "one of: {types}",
         "examples": "Call examples",
         "examples_lede": (
             "Arguments are shown as parameter names — substitute your own values. "
@@ -889,6 +993,10 @@ def render_operation(
             )
         )
         out.append("")
+        tree = schema_tree_lines(op.body, module.components, s)
+        if tree:
+            out.extend(tree)
+            out.append("")
 
     if op.responses:
         out.append(f"## {s['responses']}")
@@ -899,6 +1007,15 @@ def render_operation(
             schema = f"`{r.schema}`" if r.schema else "—"
             out.append(f"| `{r.code}` | {esc_cell(r.description)} | {schema} |")
         out.append("")
+        for r in op.responses:
+            tree = schema_tree_lines(r.schema_node, module.components, s)
+            if tree:
+                root_type = schema_root_type(r.schema_node, module.components)
+                suffix = f" — `{root_type}`" if root_type else ""
+                out.append(f"**{s['struct']} `{r.code}`{suffix}:**")
+                out.append("")
+                out.extend(tree)
+                out.append("")
 
     out.append(f"## {s['examples']}")
     out.append("")
