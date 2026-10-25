@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 A code-generation pipeline, not a hand-written library. The only human-authored source is:
 
-- `scripts/` — the pipeline, organized by domain under `scripts/pipeline/`: `core/` (shared kernel — repo paths, spec/module/language naming, YAML IO, external-tool runners (subprocess, docker, git, python, macOS codesign)), `specs/` (download + postprocess), `generation/` (generate + secrets), `onescript/` (toolchain, manifests, verify), `docs/` (reference + readmes). `make scripts-check` smoke-checks the kernel and enforces the house rule: no `#` comments and no docstrings under `scripts/` — the code must speak for itself. The flat `scripts/*.py` filenames are thin CLI shims over those modules, named verb-object by what they produce: `download-specs`, `process-specs`, `generate-clients`, `generate-readmes`, `generate-docs`, `generate-onescript-manifests`, `inject-secrets`, `verify-onescript`.
+- `scripts/` — the pipeline, organized by domain under `scripts/pipeline/`: `core/` (shared kernel — repo paths, spec/module/language naming, YAML IO, external-tool runners (subprocess, docker, git, python, macOS codesign)), `specs/` (download + postprocess), `generation/` (generate + secrets), `onescript/` (toolchain, manifests, verify), `docs/` (reference + readmes). `make scripts-check` smoke-checks the kernel and enforces the house rule: no `#` comments and no docstrings under `scripts/` — the code must speak for itself. `make test` runs the pytest suite in `tests/`: data-driven YAML fixtures (`tests/fixtures/*.yaml`) of input → expected-output cases for the pipeline's pure transforms. The flat `scripts/*.py` filenames are thin CLI shims over those modules, named verb-object by what they produce: `download-specs`, `process-specs`, `generate-clients`, `generate-readmes`, `generate-docs`, `generate-onescript-manifests`, `inject-secrets`, `verify-onescript`.
 - `generator-configs/` — one YAML per target language, passed to `openapi-generator-cli`
 - `templates/` — top-level manifests (`pyproject.toml`, `package.json`, `go.mod`, `pom.xml`, `composer.json`) with `__VERSION__` placeholders, plus the one mustache override (`php/libraries/guzzle/api.mustache`)
 - `.github/workflows/` — daily upstream check + PR-drift check + reusable per-language publish
@@ -185,7 +185,7 @@ Every generated client sends `ValeryVerkhoturov/wb-api-client/<lang>` on every r
 ## Local commands
 
 ```bash
-pip install -r scripts/requirements.txt            # ruamel.yaml, markdownify, requests, black, flask
+pip install -r scripts/requirements.txt            # ruamel.yaml, markdownify, requests, black, pytest
 ./scripts/download-specs.py                     # pull upstream (from the wb-api-client-specs mirror)
 python  scripts/process-specs.py                    # -> swaggers/processed/{ru,en}/
 ./scripts/generate-clients.py 1.20260920.0                 # -> clients/{python,typescript,go,java,php,onescript,csharp}

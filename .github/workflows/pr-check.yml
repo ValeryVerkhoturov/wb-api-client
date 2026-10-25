@@ -5,6 +5,7 @@ on:
     paths:
       - "swaggers/**"
       - "scripts/**"
+      - "tests/**"
       - "generator-configs/**"
       - "templates/**"
       - "clients/**"
@@ -64,10 +65,13 @@ jobs:
           fi
 
       - name: black is clean
-        run: python -m black --check clients/python scripts
+        run: python -m black --check clients/python scripts tests
 
       - name: scripts carry no comments or docstrings
         run: PYTHONPATH=scripts python -m pipeline.core.commentcheck
+
+      - name: scripts test suite
+        run: PYTHONPATH=scripts python -m pytest tests -q
 
       - name: prettier is clean
         working-directory: clients/typescript

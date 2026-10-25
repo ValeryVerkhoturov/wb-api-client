@@ -1,0 +1,263 @@
+cases:
+  - name: bearer auth replaces all other security schemes
+    function: inject_bearer_auth
+    input:
+      paths:
+        /ping:
+          get:
+            operationId: ping
+            security:
+              - ApiKeyAuth: []
+      components:
+        securitySchemes:
+          ApiKeyAuth:
+            type: apiKey
+    expected:
+      paths:
+        /ping:
+          get:
+            operationId: ping
+            security:
+              - BearerAuth: []
+      components:
+        securitySchemes:
+          BearerAuth:
+            type: http
+            scheme: bearer
+            bearerFormat: JWT
+            description: "Wildberries API token (JWT). Create in the seller portal → Настройки → Доступ к API. Sent as `Authorization: Bearer <token>`."
+      security:
+        - BearerAuth: []
+  - name: untyped array gains string items
+    function: fix_untyped_arrays
+    input:
+      schema:
+        type: array
+      typed:
+        type: array
+        items:
+          type: integer
+    expected:
+      schema:
+        type: array
+        items:
+          type: string
+      typed:
+        type: array
+        items:
+          type: integer
+    returns: 1
+  - name: ambiguous integer formats widen to int64
+    function: widen_integer_formats
+    input:
+      plain:
+        type: integer
+      unsigned:
+        type: integer
+        format: uint64
+      unix:
+        type: integer
+        format: unix-time
+      explicit:
+        type: integer
+        format: int32
+    expected:
+      plain:
+        type: integer
+        format: int64
+      unsigned:
+        type: integer
+        format: int64
+      unix:
+        type: integer
+        format: int64
+      explicit:
+        type: integer
+        format: int32
+    returns: 3
+  - name: digit-prefixed schema renamed and refs updated
+    function: rename_digit_prefixed_schemas
+    input:
+      components:
+        schemas:
+          200Response:
+            type: object
+          Thing:
+            properties:
+              r:
+                $ref: "#/components/schemas/200Response"
+    expected:
+      components:
+        schemas:
+          Thing:
+            properties:
+              r:
+                $ref: "#/components/schemas/Http200Response"
+          Http200Response:
+            type: object
+    returns: 1
+  - name: inline response schema hoisted into components
+    function: name_inline_response_schemas
+    input:
+      paths:
+        /ping:
+          get:
+            operationId: getPing
+            responses:
+              "200":
+                content:
+                  application/json:
+                    schema:
+                      type: object
+                      properties:
+                        ok:
+                          type: boolean
+    expected:
+      paths:
+        /ping:
+          get:
+            operationId: getPing
+            responses:
+              "200":
+                content:
+                  application/json:
+                    schema:
+                      $ref: "#/components/schemas/GetPingResponse200"
+      components:
+        schemas:
+          GetPingResponse200:
+            type: object
+            properties:
+              ok:
+                type: boolean
+    returns: 1
+  - name: html description converted to markdown
+    function: htmlize_descriptions_to_markdown
+    input:
+      description: "<p>Hello <b>world</b></p>"
+    expected:
+      description: "Hello **world**"
+    returns: 1
+  - name: relative markdown link absolutized
+    function: absolutize_description_links
+    input:
+      description: "See [docs](/openapi/users) and [ext](https://example.com/x)"
+    expected:
+      description: "See [docs](https://dev.wildberries.ru/openapi/users) and [ext](https://example.com/x)"
+    returns: 1
+  - name: non-ascii enum gets x-enum-varnames
+    function: sanitize_non_ascii_enums
+    input:
+      type: string
+      enum:
+        - Москва
+        - Kazan
+    expected:
+      type: string
+      enum:
+        - Москва
+        - Kazan
+      x-enum-varnames:
+        - X
+        - Kazan
+    returns: 1
+  - name: date formats dropped, other formats kept
+    function: drop_date_formats
+    input:
+      a:
+        type: string
+        format: date-time
+      b:
+        type: string
+        format: uuid
+    expected:
+      a:
+        type: string
+      b:
+        type: string
+        format: uuid
+    returns: 1
+  - name: required dropped only on response-reachable schemas
+    function: drop_response_required
+    input:
+      paths:
+        /ping:
+          get:
+            responses:
+              "200":
+                content:
+                  application/json:
+                    schema:
+                      $ref: "#/components/schemas/Pong"
+      components:
+        schemas:
+          Pong:
+            type: object
+            required:
+              - id
+            properties:
+              id:
+                type: integer
+          Unrelated:
+            required:
+              - x
+    expected:
+      paths:
+        /ping:
+          get:
+            responses:
+              "200":
+                content:
+                  application/json:
+                    schema:
+                      $ref: "#/components/schemas/Pong"
+      components:
+        schemas:
+          Pong:
+            type: object
+            properties:
+              id:
+                type: integer
+          Unrelated:
+            required:
+              - x
+    returns: 1
+  - name: tags renamed to module with originals preserved
+    function: rename_tags_to_module
+    args: ["Items"]
+    input:
+      paths:
+        /ping:
+          get:
+            operationId: ping
+            tags:
+              - Old
+    expected:
+      paths:
+        /ping:
+          get:
+            operationId: ping
+            tags:
+              - Items
+            x-original-tags:
+              - Old
+    returns: 1
+  - name: docs link appended to description
+    function: add_docs_links
+    args: ["items"]
+    input:
+      paths:
+        /content/v2/tag/{id}:
+          patch:
+            operationId: updateTag
+            description: d1
+    expected:
+      paths:
+        /content/v2/tag/{id}:
+          patch:
+            operationId: updateTag
+            description: |-
+              d1
+
+              Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/patch-content-v2-tag-id
+    returns: 1
