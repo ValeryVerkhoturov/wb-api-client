@@ -97,7 +97,7 @@ The bearer JWT is stored inside a **secret-string wrapper** per language so it r
 | Python | `pydantic.SecretStr` | `Configuration(access_token=str_or_SecretStr)` | `.get_secret_value()` |
 | TypeScript | inlined `SecretString` class | `Configuration.setAccessToken(token)` | `.exposeSecret()` |
 | Go | `github.com/negrel/secrecy` | `Configuration.SetAccessToken(token)` | `.ExposeSecret()` |
-| Java | per-sub-module `SecretString` | `ApiClient.setBearerToken(SecretString)` | `.exposeSecret()` |
+| Java | per-sub-module `SecretString` | `ApiClient.setAccessToken(SecretString)` | `.exposeSecret()` |
 | PHP | per-sub-module `SecretString` | `Configuration::setAccessTokenSecret(SecretString)` | `->exposeSecret()` |
 | C# | per-namespace `SecretString` | `Configuration.AccessTokenSecret = new SecretString(...)` | `.ExposeSecret()` |
 | OneScript | `СекретнаяСтрока` | `Конфигурация.УстановитьТокен(строка или СекретнаяСтрока)` | `.Раскрыть()` |

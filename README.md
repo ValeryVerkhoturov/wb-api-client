@@ -86,7 +86,7 @@ import io.github.valeryverkhoturov.wbapi.items.ApiClient;
 import io.github.valeryverkhoturov.wbapi.items.api.ItemsApi;
 
 ApiClient client = new ApiClient();
-client.setBearerToken("<your WB JWT>");
+client.setAccessToken("<your WB JWT>");
 ItemsApi api = new ItemsApi(client);
 ```
 

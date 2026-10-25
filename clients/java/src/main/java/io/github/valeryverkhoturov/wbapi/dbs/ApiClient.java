@@ -379,9 +379,9 @@ public class ApiClient {
    *
    * @param bearerToken Bearer token
    */
-  public void setBearerToken(String bearerToken) {
+  public void setAccessToken(String bearerToken) {
     SecretString secret = new SecretString(bearerToken);
-    setBearerToken(secret::exposeSecret);
+    setAccessToken(secret::exposeSecret);
   }
 
   /**
@@ -389,10 +389,10 @@ public class ApiClient {
    *
    * @param tokenSupplier The supplier of bearer tokens
    */
-  public void setBearerToken(Supplier<String> tokenSupplier) {
+  public void setAccessToken(Supplier<String> tokenSupplier) {
     for (Authentication auth : authentications.values()) {
       if (auth instanceof HttpBearerAuth) {
-        ((HttpBearerAuth) auth).setBearerToken(tokenSupplier);
+        ((HttpBearerAuth) auth).setAccessToken(tokenSupplier);
         return;
       }
     }
@@ -457,15 +457,6 @@ public class ApiClient {
       }
     }
     throw new RuntimeException("No API key authentication configured!");
-  }
-
-  /**
-   * Helper method to set access token for the first OAuth2 authentication.
-   *
-   * @param accessToken Access token
-   */
-  public void setAccessToken(String accessToken) {
-    throw new RuntimeException("No OAuth2 authentication configured!");
   }
 
   /**

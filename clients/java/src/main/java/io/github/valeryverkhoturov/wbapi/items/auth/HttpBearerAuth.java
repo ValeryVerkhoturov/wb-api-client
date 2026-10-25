@@ -47,7 +47,7 @@ public class HttpBearerAuth implements Authentication {
    *
    * @param bearerToken The bearer token to send in the Authorization header
    */
-  public void setBearerToken(String bearerToken) {
+  public void setAccessToken(String bearerToken) {
     this.tokenSupplier = () -> bearerToken;
   }
 
@@ -57,7 +57,7 @@ public class HttpBearerAuth implements Authentication {
    *
    * @param tokenSupplier The supplier of bearer tokens to send in the Authorization header
    */
-  public void setBearerToken(Supplier<String> tokenSupplier) {
+  public void setAccessToken(Supplier<String> tokenSupplier) {
     this.tokenSupplier = tokenSupplier;
   }
 

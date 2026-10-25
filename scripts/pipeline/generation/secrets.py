@@ -253,17 +253,25 @@ _JAVA_BEARER_DECL = (
 )
 
 _JAVA_BEARER_REPLACEMENT = (
-    "    public void setBearerToken(String bearerToken) {\n"
+    "    public void setAccessToken(String bearerToken) {\n"
     "        SecretString secret = new SecretString(bearerToken);\n"
-    "        setBearerToken(secret::exposeSecret);\n"
+    "        setAccessToken(secret::exposeSecret);\n"
     "    }\n"
+)
+
+_JAVA_DEAD_OAUTH_SETTER_RE = re.compile(
+    r"( *)/\*\*(?:\n\1 \*[^\n]*)*\n\1 \*/\n"
+    r"\1public void setAccessToken\(String accessToken\) \{\n"
+    r'\1 +throw new RuntimeException\("No OAuth2 authentication configured!"\);\n'
+    r"\1\}\n\n?"
 )
 
 
 def patch_java_apiclient(text: str) -> str:
-    if "new SecretString(bearerToken)" in text:
-        return text
-    return text.replace(_JAVA_BEARER_DECL, _JAVA_BEARER_REPLACEMENT, 1)
+    if "new SecretString(bearerToken)" not in text:
+        text = text.replace(_JAVA_BEARER_DECL, _JAVA_BEARER_REPLACEMENT, 1)
+    text = _JAVA_DEAD_OAUTH_SETTER_RE.sub("", text)
+    return text.replace("setBearerToken", "setAccessToken")
 
 
 def patch_java(root: Path) -> int:
@@ -277,6 +285,11 @@ def patch_java(root: Path) -> int:
         api = sub / "ApiClient.java"
         if api.exists():
             api.write_text(patch_java_apiclient(api.read_text()))
+        auth = sub / "auth" / "HttpBearerAuth.java"
+        if auth.exists():
+            auth.write_text(
+                auth.read_text().replace("setBearerToken", "setAccessToken")
+            )
         n += 1
     return n
 

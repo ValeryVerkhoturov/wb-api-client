@@ -182,7 +182,7 @@ def _javasnippet(snake: str, apis: list[str]) -> str:
         f"import {pkg}.ApiClient;\n"
         f"import {pkg}.api.{api};\n\n"
         f"ApiClient client = new ApiClient();\n"
-        f'client.setBearerToken("<your WB JWT>");\n'
+        f'client.setAccessToken("<your WB JWT>");\n'
         f"{api} api = new {api}(client);"
     )
 
@@ -377,7 +377,7 @@ def main() -> int:
             "auth_snippet": (
                 "import io.github.valeryverkhoturov.wbapi.items.ApiClient;\n\n"
                 "ApiClient client = new ApiClient();\n"
-                'client.setBearerToken("<your WB JWT>");'
+                'client.setAccessToken("<your WB JWT>");'
             ),
             "import_prefix": f"{JAVA_ROOT_PKG}.",
         },

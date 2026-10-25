@@ -557,7 +557,7 @@ def snippet_java(op: Operation, b: Binding, locale: str) -> str:
         f"import {pkg}.SecretString;\n"
         f"import {pkg}.api.{b.cls};\n\n"
         f"ApiClient client = new ApiClient();\n"
-        f'client.setBearerToken(new SecretString("{TOKEN[locale]}"));\n'
+        f'client.setAccessToken(new SecretString("{TOKEN[locale]}"));\n'
         f"{b.cls} api = new {b.cls}(client);\n\n"
         f"System.out.println(api.{b.method}({call}));"
     )
