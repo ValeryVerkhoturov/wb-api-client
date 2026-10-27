@@ -19,34 +19,94 @@ tags:
     x-displayName: Campaigns
     description: ''
     x-tagKey: campaigns
+    x-description: |
+      <div class="description_auth">
+        To access the methods, use a <a href="./api-information#tag/authorization/How-to-create-a-personal-access-base-or-test-token">token</a> for the <strong>Promotion</strong> category
+      </div>
   - name: Creating Campaigns
     x-displayName: Creating Campaigns
     description: ''
     x-tagKey: creatingCampaigns
+    x-description: |
+      <div class="description_auth">
+        To access the methods, use a <a href="./api-information#tag/authorization/How-to-create-a-personal-access-base-or-test-token">token</a> for the <strong>Promotion</strong> category
+      </div>
   - name: Campaign Management
     x-displayName: Campaign Management
     description: ''
     x-tagKey: campaignManagement
+    x-description: |
+      <div class="description_auth">
+        To access the methods, use a <a href="./api-information#tag/authorization/How-to-create-a-personal-access-base-or-test-token">token</a> for the <strong>Promotion</strong> category
+      </div>
   - name: Search Clusters
     x-displayName: Search Clusters
     description: ''
     x-tagKey: searchClusters
+    x-description: |
+      <div class="description_auth">
+        To access the methods, use a <a href="./api-information#tag/authorization/How-to-create-a-personal-access-base-or-test-token">token</a> for the <strong>Promotion</strong> category
+      </div>
+
+      **Search Clusters**<br><br>
+
+      **Request cluster** is a grouped list of requests that buyers use to search for items on WB. The cluster includes:
+        - synonyms
+        - requests in different genders
+        - requests with typos
+        - different word forms
+        - phrases with similar meanings
+
+      For example, the `men t-shirt` cluster will also include requests like `mren t-shirt`, `men t-shirts with sleeves`, `man t-shirts`, and other similar phrases.<br><br>
+
+      To get clusters that have already had impressions, use the [search clusters statistics](./promotion#tag/statistics/operation/postV0NormqueryStats) method.<br><br>
+
+      You can [set](./promotion#tag/searchClusters/operation/postV0NormqueryBids) or [delete](./promotion#tag/searchClusters/operation/deleteV0NormqueryBids) bids for campaigns with custom bids. You can specify the [seller account currency](https://cmp.wildberries.ru/campaigns/finances) and bid steps in the response of the [GET /api/advert/v1/config](./promotion#tag/campaignManagement/operation/getV1Config) method. Bids are individual for each search cluster.<br><br>
+
+      **Exclusions**<br><br>
+
+      [Set minus phrases](./promotion#tag/searchClusters/operation/postV0NormquerySetMinus) to exclude request clusters from campaigns. The item will not be promoted for minus phrases.
   - name: Finances
     x-displayName: Finances
     description: ''
     x-tagKey: finances
+    x-description: |
+      <div class="description_auth">
+        To access the methods, use a <a href="./api-information#tag/authorization/How-to-create-a-personal-access-base-or-test-token">token</a> for the <strong>Promotion</strong> category
+      </div>
+
+      Using the methods in this section, you can:
+        - get information about the [balance and account](./promotion#tag/finances/operation/getV1Balance)
+        - get information about [campaign budget balances](./promotion#tag/finances/operation/postV2Budget)
+        - get the history of [costs](./promotion#tag/finances/operation/getV1Upd)
+        - get the history of [account top-ups](./promotion#tag/finances/operation/getV1Payments).
+        - [top-up of the campaign budget](./promotion#tag/finances/operation/postV1BudgetDeposit)
   - name: Media
     x-displayName: Media
     description: ''
     x-tagKey: media
+    x-description: |
+      <div class="description_auth">
+        To access the methods, use a <a href="./api-information#tag/authorization/How-to-create-a-personal-access-base-or-test-token">token</a> for the <strong>Promotion</strong> category
+      </div>
   - name: Statistics
     x-displayName: Statistics
     description: ''
     x-tagKey: statistics
+    x-description: |
+      <div class="description_auth">
+        To access the methods, use a <a href="./api-information#tag/authorization/How-to-create-a-personal-access-base-or-test-token">token</a> for the <strong>Promotion</strong> category
+      </div>
   - name: Promo Calendar
     x-displayName: Promo Calendar
     description: ''
     x-tagKey: promoCalendar
+    x-description: |
+      <div class="description_auth">
+        To access the methods, use a <a href="./api-information#tag/authorization/How-to-create-a-personal-access-base-or-test-token">token</a> for the <strong>Prices and Discounts</strong> category
+      </div>
+
+      Using these methods, you can obtain information about promos and participate in them.
 paths:
   /adv/v1/promotion/count:
     servers:
@@ -6399,6 +6459,14 @@ components:
         - origin
     Response4XX:
       type: object
+      required:
+        - title
+        - detail
+        - requestId
+        - origin
+        - status
+        - statusText
+        - timestamp
       properties:
         title:
           type: string

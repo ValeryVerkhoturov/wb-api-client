@@ -52,7 +52,7 @@ Each row below is a sub-module you can import independently. Import path is `wb_
 - как обратиться в [поддержку](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Podderzhka)
 С помощью методов этого раздела вы можете:
 - проверить [подключение к WB API](https://dev.wildberries.ru/openapi/api-information#tag/connectionCheck/operation/getPing)
-- получить [новости портала продавцов](https://dev.wildberries.ru/openapi/api-information#tag/newsApi/operation/getV2News)
+- получить [новости](https://dev.wildberries.ru/openapi/api-information#tag/newsApi/operation/getV2News) и [уведомления](https://dev.wildberries.ru/openapi/api-information#tag/newsApi/operation/getV1Notifications) портала продавцов
 - получить [информацию о продавце](https://dev.wildberries.ru/openapi/api-information#tag/sellerInformation/operation/getV1SellerInfo)
 - [управлять пользователями продавца](https://dev.wildberries.ru/openapi/api-information#tag/sellerUserManagement)
 

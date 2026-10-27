@@ -16,26 +16,110 @@ tags:
     x-displayName: Sales Funnel
     description: ''
     x-tagKey: salesFunnel
+    x-description: |
+      <div class="description_auth">
+        To access the methods, use a <a href="./api-information#tag/authorization/How-to-create-a-personal-access-base-or-test-token">token</a> for the <strong>Analytics</strong> category
+      </div>
+
+
+      <div class="description_ref">
+        You can learn how to use methods in business cases in the <a href="/en/knowledge-base/articles/019d49a3-fb9a-7c0c-9372-17d880f74ff9/sales-funnel">instructions</a> on working with <strong>Sales Funnel</strong>
+      </div>
+
+
+      Methods for getting [statistics](https://seller.wildberries.ru/content-analytics/interactive-report/main) for:
+        1. [Listings per period](./analytics#tag/salesFunnel/operation/postV3SalesFunnelProducts)
+        2. [Listings per days](./analytics#tag/salesFunnel/operation/postV3SalesFunnelProductsHistory)
+        3. [Grouped listings per days](./analytics#tag/salesFunnel/operation/postV3SalesFunnelGroupedHistory)
+
+      <div class="description_important">
+        Timezones are presented in IANA format, the current list can be viewed <a href="https://nodatime.org/TimeZones">here</a>
+      </div>
   - name: Order Feed
     x-displayName: Order Feed
     description: ''
     x-tagKey: orderFeed
+    x-description: |
+      <div class="description_auth">
+        To access the method, use a <a href="./api-information#tag/authorization/How-to-create-a-personal-access-base-or-test-token">token</a> for the <strong>Analytics</strong> category
+      </div>
+
+      [Method](./analytics#tag/orderFeed/operation/postV1OrderFeed) for getting the [Order Feed](https://seller.wildberries.ru/content-analytics/order-feed) report
   - name: Search Queries for Your Items
     x-displayName: Search Queries for Your Items
     description: ''
     x-tagKey: searchQueriesForYourItems
+    x-description: |
+      <div class="description_auth">
+        To access the methods, use a <a href="./api-information#tag/authorization/How-to-create-a-personal-access-base-or-test-token">token</a> for the <strong>Analytics</strong> category
+      </div>
+
+
+      <div class="description_ref">
+        You can learn how to use methods in business cases in the <a href="/en/knowledge-base/articles/019d49a4-0f6a-70bb-a87b-c1237a1a0714/search-queries-for-your-items">instructions</a> on working with <strong>Search Queries for Your Items</strong>
+      </div>
+
+
+      These methods can be used to get a [report on search queries for your items](https://seller.wildberries.ru/search-analytics/my-search-queries).
+
+      <div class="description_important">
+        You can use these methods only with <a href='https://seller.wildberries.ru/monetization/jam'>Jam</a> subscription
+      </div>
   - name: Stocks Report
     x-displayName: Stocks Report
     description: ''
     x-tagKey: stocksReport
+    x-description: |+
+      <div class="description_auth">
+        To access the methods, use a <a href="./api-information#tag/authorization/How-to-create-a-personal-access-base-or-test-token">token</a> for the <strong>Analytics</strong> category
+      </div>
+
+      These methods can be used to get a [report on inventory metrics](https://seller.wildberries.ru/content-analytics/history-remains).<br></br>
+      This is information from the detailed item table and the region and warehouse detail widget.<br></br> Inventory in responses of these methods is displayed for the current day.
+
+
+      <div class="description_important">
+        To get daily inventory for the period up to 3 months from the current date, use the <a href='./analytics#tag/sellerAnalyticsCsv'>Seller Analytics CSV</a> methods — the <code>STOCK_HISTORY_DAILY_CSV</code> report type
+      </div>
+
   - name: Item Rating
     x-displayName: Item Rating
     description: ''
     x-tagKey: itemRating
+    x-description: |
+      <div class="description_auth">
+        To access the method, use a <a href="./api-information#tag/authorization/How-to-create-a-personal-access-base-or-test-token">token</a> for the <strong>Analytics</strong> category
+      </div>
+
+      [Method](./analytics#tag/itemRating/operation/postV2ItemRating) for getting the [Item Rating](https://seller.wildberries.ru/content-ratings) report
   - name: Seller Analytics CSV
     x-displayName: Seller Analytics CSV
     description: ''
     x-tagKey: sellerAnalyticsCsv
+    x-description: |
+      <div class="description_auth">
+        To access the methods, use a <a href="./api-information#tag/authorization/How-to-create-a-personal-access-base-or-test-token">token</a> for the <strong>Analytics</strong> category
+      </div>
+
+
+      <div class="description_ref">
+        You can learn how to use methods in business cases in the <a href="/en/knowledge-base/articles/019d49a3-f76b-7f22-82f3-54930b8f59e8/seller-analytics-csv">instructions</a> on working with <strong>Seller Analytics CSV</strong>
+      </div>
+
+
+      To get a report:
+        1. Generate it using the method [Create the report](./analytics#tag/sellerAnalyticsCsv/operation/postV2NmReportDownloads).
+        2. Wait until the report is ready. You can check the status with the method [Get the reports list](./analytics#tag/sellerAnalyticsCsv/operation/getV2NmReportDownloads). The report is stored for 48 hours after it is ready, and it cannot be retrieved after.<br>
+        If you receive a status of FAILED, [regenerate the report](./analytics#tag/sellerAnalyticsCsv/operation/postV2NmReportDownloadsRetry).
+        3. [Download the report](./analytics#tag/sellerAnalyticsCsv/operation/getV2NmReportDownloadsFileDownloadId).
+
+      You can get a report for a maximum of one year. Inventory reports can be gotten for a maximum of 3 months
+
+      The maximum number of reports that can be generated per day is 20
+
+      <div class="description_important">
+        You can use these methods — except for inventory reports — only with <a href='https://seller.wildberries.ru/monetization/jam'>Jam</a> subscription
+      </div>
 paths:
   /api/analytics/v3/sales-funnel/products:
     servers:
@@ -6691,6 +6775,14 @@ components:
           example: false
     Response4XX:
       type: object
+      required:
+        - title
+        - detail
+        - requestId
+        - origin
+        - status
+        - statusText
+        - timestamp
       properties:
         title:
           type: string

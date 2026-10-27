@@ -28,22 +28,80 @@ tags:
     x-displayName: FBS Assembly Orders
     description: ''
     x-tagKey: fbsAssemblyOrders
+    x-description: |
+      <div class="description_auth">
+        To access the methods, use a <a href="./api-information#tag/authorization/How-to-create-a-personal-access-base-or-test-token">token</a> for the <strong>Marketplace</strong> category
+      </div>
   - name: FBS Label Identifiers
     x-displayName: FBS Label Identifiers
     description: ''
     x-tagKey: fbsLabelIdentifiers
+    x-description: |
+      <div class="description_auth">
+        To access the methods, use a <a href="./api-information#tag/authorization/How-to-create-a-personal-access-base-or-test-token">token</a> for the <strong>Marketplace</strong> category
+      </div>
+
+      With these methods, you can [get](./orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta), [delete](./orders-fbs#tag/fbsLabelIdentifiers/operation/deleteV3OrdersOrderIdMeta) and edit the label identifiers of [assembly orders](./orders-fbs#tag/fbsAssemblyOrders):
+        - [Labeling code Chestny ZNAK](./orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaSgtin)
+        - [UIN](./orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaUin)
+        - [IMEI](./orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaImei)
+        - [GTIN](./orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaGtin)
+        - [Expiration date](./orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaExpiration)
+        - [Customs declaration number](./orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaCustomsDeclaration)
+
+      Specifying label identifiers for the assembly order in the sandbox is optional
   - name: FBS Supplies
     x-displayName: FBS Supplies
     description: ''
     x-tagKey: fbsSupplies
+    x-description: |
+      <div class="description_auth">
+        To access the methods, use a <a href="./api-information#tag/authorization/How-to-create-a-personal-access-base-or-test-token">token</a> for the <strong>Marketplace</strong> category
+      </div>
+      Work order:
+      <div class="description_important">
+        Items 3-5 must be completed when delivering a supply to a pickup point
+        </div>
+
+        1. [Create a new supply](./orders-fbs#tag/fbsSupplies/operation/postV3Supplies). The ID of the created supply will be returned in the format `WB-GI-1234567`.
+        1. In the current new supply, [add assembly orders](./orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdOrders) that you will transport to the warehouse or pickup point. When adding assembly order to the supply, they will be moved to the `confirm` status — in assembly.
+        1. [Set the supply shipping method](./orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod). To do this, get the [list of supply shipping points](./orders-fbs#tag/fbsSupplies/operation/getV3FbsShippingPoints). Available only for sellers from the Russian Federation.<br>
+        
+        1. [Create a shipping unit in the supply](./orders-fbs#tag/fbsSupplies/operation/postV3SuppliesSupplyIdTrbx).
+        1. [Check the list of shipping units](./orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyIdTrbx).
+        1. [Get the shipping unit stickers](./orders-fbs#tag/fbsSupplies/operation/postV3SuppliesSupplyIdTrbxStickers), print them out and affix the stickers to the shipping units according to the orders distributed in them.
+        1. After the supply has been equipped with the necessary assembly orders, it must [be handed over for delivery](./orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdDeliver). If the supply is not handed over for delivery, accepting the first item at the pickup point will automatically close the supply. When handing over assembly order for delivery, they will automatically be assembled and moved to the `complete` status — in delivery.
+        1. For supplies from EAEU countries, add [SPOT](https://www.nalog.gov.ru/rn77/related_activities/spot) data. Get the [list of OKSM countries](./orders-fbs#tag/fbsSupplies/operation/getV3FbsDictionariesCountriesOksm) to [add SPOT data to a supply](./orders-fbs#tag/fbsSupplies/operation/putV3FbsSuppliesSupplyIdSpot). You can also [get SPOT data for a list of supplies](./orders-fbs#tag/fbsSupplies/operation/postV3FbsSuppliesSpotList) and [SPOT QR codes](./orders-fbs#tag/fbsSupplies/operation/getV3FbsSuppliesSupplyIdStickersSpot). Currently, the methods are available only to sellers from Kyrgyzstan. In the future, the methods will be available to sellers from any EAEU country except the Russian Federation. Stay tuned for updates.
+        1. If a supply was scanned at the acceptance point but still has unscanned items, after a certain time, you must deliver them again. Check [all assembly order requiring reshipment at this time](./orders-fbs#tag/fbsAssemblyOrders/operation/getV3SuppliesOrdersReshipment). [These assembly order can be transferred to another active supply](./orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdOrders). The assembly order will also be moved to the `confirm` status — in assembly.
+
+        You can also:
+        - [remove a shipping unit from the supply](./orders-fbs#tag/fbsSupplies/operation/deleteV3SuppliesSupplyIdTrbx), but only while the supply is still in assembly
+        - [get all assembly order IDs added to the supply](./orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyIdOrderIds)
+        - get information [about all the seller supplies](./orders-fbs#tag/fbsSupplies/operation/getV3Supplies) or [about a specific supply](./orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyId)
+        - [delete a supply](./orders-fbs#tag/fbsSupplies/operation/deleteV3SuppliesSupplyId) provided that it is active and not tied to any assembly orders
+        - [move assembly orders between active supplies](./orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdOrders). You cannot move an assembly order from a supply that is already closed, unless it requires reshipment
+        - [get the supply's QR code](./orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyIdBarcode) in SVG, ZPL, or PNG formats. Available only after the supply has been handed over for delivery
   - name: FBS Passes
     x-displayName: FBS Passes
     description: ''
     x-tagKey: fbsPasses
+    x-description: |
+      <div class="description_auth">
+        To access the methods, use a <a href="./api-information#tag/authorization/How-to-create-a-personal-access-base-or-test-token">token</a> for the <strong>Marketplace</strong> category
+      </div>
   - name: Auto-return Settings
     x-displayName: Auto-return Settings
     description: ''
     x-tagKey: autoreturnSettings
+    x-description: |
+      <div class="description_auth">
+        To access the methods, use a <a href="./api-information#tag/authorization/How-to-create-a-personal-access-base-or-test-token">token</a> for the <strong>Marketplace</strong> category
+      </div>
+
+      With these methods, you can manage [auto-return settings](https://seller.wildberries.ru/marketplace-settings) for small-sized items:
+        - [get](./orders-fbs#tag/autoreturnSettings/operation/getV3FbsSettingsAutoreturns) and [update](/openapi/orders-fbs#tag/autoreturnSettings/operation/getV3FbsSettingsAutoreturns) seller auto-return settings
+        - [get](./orders-fbs#tag/autoreturnSettings/operation/postV3FbsSettingsAutoreturnsItems) and [update](/openapi/orders-fbs#tag/autoreturnSettings/operation/patchV3FbsSettingsAutoreturnsItems) item auto-return settings
+        - get [list of subcategories that can not be returned to WB warehouses](/openapi/orders-fbs#tag/autoreturnSettings/operation/getV3FbsSettingsAutoreturnsSubcategoriesRestricted)
 paths:
   /api/v3/passes/offices:
     servers:
@@ -6903,6 +6961,14 @@ components:
             Error code from the DOPP — Declaration of Upcoming Supply — formation service. Returned when `"status": "failed"`. To fix the error, check the SPOT data and [add it to the supply](./orders-fbs#tag/fbsSupplies/operation/getV3FbsSuppliesSupplyIdSpot) again.
     Response4XX:
       type: object
+      required:
+        - title
+        - detail
+        - requestId
+        - origin
+        - status
+        - statusText
+        - timestamp
       properties:
         title:
           type: string

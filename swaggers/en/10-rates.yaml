@@ -16,18 +16,42 @@ tags:
     x-displayName: Fees
     description: ''
     x-tagKey: fees
+    x-description: |
+      <div class="description_auth">
+        You can get Fees with a token of any <a href="./api-information#tag/authorization/Token-categories">category</a>
+      </div>
   - name: Supply Rates
     x-displayName: Supply Rates
     description: ''
     x-tagKey: supplyRates
+    x-description: |
+      <div class="description_auth">
+        You can get Supply Rates with a token of any <a href="./api-information#tag/authorization/Token-categories">category</a>
+      </div>
+
+      Data on [supply rates](./rates#tag/supplyRates/operation/getV1AcceptanceCoefficients) fixed coefficients
   - name: Stock Rates
     x-displayName: Stock Rates
     description: ''
     x-tagKey: stockRates
+    x-description: |
+      <div class="description_auth">
+        You can get Stock Rates with a token of any <a href="./api-information#tag/authorization/Token-categories">category</a>
+      </div>
+
+      Data on current and archived rates for:
+        - [boxes](./rates#tag/stockRates/operation/getV1TariffsBox)
+        - [pallets](./rates#tag/stockRates/operation/getV1TariffsPallet)
+
+      The methods return rate coefficients that are not fixed to a specific supply
   - name: Return Cost to Seller
     x-displayName: Return Cost to Seller
     description: ''
     x-tagKey: returnCostToSeller
+    x-description: |
+      <div class="description_auth">
+        You can get Returned Cost to Seller a token of any <a href="./api-information#tag/authorization/Token-categories">category</a>
+      </div>
 paths:
   /api/v1/tariffs/commission:
     servers:

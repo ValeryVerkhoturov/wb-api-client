@@ -22,38 +22,125 @@ tags:
   x-displayName: Categories, Subcategories, and Characteristics
   description: ''
   x-tagKey: categoriesSubcategoriesAndCharacteristics
+  x-description: |+
+    <div class="description_auth">
+      To access the methods, use a <a href="./api-information#tag/authorization/How-to-create-a-personal-access-base-or-test-token">token</a> for the <strong>Content</strong> category
+    </div>
+
+
+    <div class="description_ref">
+      You can learn how to use methods in business cases in the <a href="/en/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/working-with-items">instructions</a> on <strong>working with items</strong>
+    </div>
+
 - name: Listing Items
   x-displayName: Listing Items
   description: ''
   x-tagKey: listingItems
+  x-description: |+
+    <div class="description_auth">
+      To access the methods, use a <a href="./api-information#tag/authorization/How-to-create-a-personal-access-base-or-test-token">token</a> for the <strong>Content</strong> category
+    </div>
+
+
+    <div class="description_ref">
+      You can learn how to use methods in business cases in the <a href="/en/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/working-with-items">instructions</a> on <strong>working with items</strong>
+    </div>
+
 - name: Listings
   x-displayName: Listings
   description: ''
   x-tagKey: listings
+  x-description: |+
+    <div class="description_auth">
+      To access the methods, use a <a href="./api-information#tag/authorization/How-to-create-a-personal-access-base-or-test-token">token</a> for the <strong>Content</strong> category
+    </div>
+
+
+    <div class="description_ref">
+      You can learn how to use methods in business cases in the <a href="/en/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/working-with-items">instructions</a> on <strong>working with items</strong>
+    </div>
+
 - name: Media Files
   x-displayName: Media Files
   description: ''
   x-tagKey: mediaFiles
+  x-description: |+
+    <div class="description_auth">
+      To access the methods, use a <a href="./api-information#tag/authorization/How-to-create-a-personal-access-base-or-test-token">token</a> for the <strong>Content</strong> category
+    </div>
+
+
+    <div class="description_ref">
+      You can learn how to use methods in business cases in the <a href="/en/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/working-with-items">instructions</a> on <strong>working with items</strong>
+    </div>
+
 - name: Labels
   x-displayName: Labels
   description: ''
   x-tagKey: labels
+  x-description: |
+    <div class="description_auth">
+      To access the methods, use a <a href="./api-information#tag/authorization/How-to-create-a-personal-access-base-or-test-token">token</a> for the <strong>Content</strong> category
+    </div>
+
+
+    <div class="description_ref">
+      You can learn how to use methods in business cases in the <a href="/en/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/working-with-items">instructions</a> on <strong>working with items</strong>
+    </div>
+
+
+    Service for operating with the labels of listings. Labels are designed to quickly find a listing in your user panel.
 - name: Recommendations
   x-displayName: Recommendations
   description: ''
   x-tagKey: recommendations
+  x-description: |
+    <div class="description_auth">
+      To access the methods, use a <a href="./api-information#tag/authorization/How-to-create-a-personal-access-base-or-test-token">token</a> for the <strong>Content</strong> category
+    </div>
+
+    Using these methods, you can:
+      1. [Get](./item-management#tag/recommendations/operation/postV1RecommendationsList) item recommendations list
+      2. [Set](./item-management#tag/recommendations/operation/postV1RecommendationsSet) item recommendations
+
+    <div class="description_important">
+      You can use these methods only with the <strong>Advanced</strong> or <strong>Premium</strong> rates of the <a href='https://seller.wildberries.ru/monetization/jam'>Jam</a> subscription or with the <strong>Seller Recommendations in listings</strong> option of <a href='https://seller.wildberries.ru/tariff-constructor'>Plan Builder</a>
+    </div>
 - name: Prices and Discounts
   x-displayName: Prices and Discounts
   description: ''
   x-tagKey: pricesAndDiscounts
+  x-description: "<div class=\"description_auth\">\n  To access the methods, use a <a href=\"./api-information#tag/authorization/How-to-create-a-personal-access-base-or-test-token\">token</a> for the <strong>Prices and Discounts</strong> category\n</div>\n\n\n<div class=\"description_ref\">\n  You can learn how to use methods in business cases in the <a href=\"/en/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/working-with-items\">instructions</a> on <strong>working with items</strong>\n</div>\n\n\nMethods to set prices and discounts.\n<br><br>\nWhen you update price or discounts, some item data may be not updated. For example, if you set incorrect price or discount. Check the upload status with the [processed upload state](./item-management#tag/pricesAndDiscounts/operation/getV2HistoryTasks) methods.\n<br><br>\nUpload statuses:\n  - `3` — processed, no errors in items, prices and discounts were updated\n  - `4` — canceled\n  - `5` — processed, but some items have errors. Prices and Discounts for the other items were updated. You can get errors with the [processed upload details](./item-management#tag/pricesAndDiscounts/operation/getV2HistoryGoodsTask) method.\n  - `6` — processed, but all items have errors. You can get errors with the [processed upload details](./item-management#tag/pricesAndDiscounts/operation/getV2HistoryGoodsTask) method too.\n\nIf you set discounts with [promo calendar](./promotion#tag/promoCalendar), uploads are processing. Discount will be set at promo start. This upload has status `1`, and you can get upload state and details with the [unprocessed upload state](./item-management#tag/pricesAndDiscounts/operation/getV2BufferTasks) and [unprocessed upload details](./item-management#tag/pricesAndDiscounts/operation/getV2BufferGoodsTask) methods.<br><br>\n\nYou can create listings in the [Content](./api-information#tag/authorization/Token-categories) sandbox and then edit the cards prices in the Prices and Discounts <a href='/en/sandbox'>sandbox</a>.\n\n<div class=\"description_important\">\n  There is no upload status <code>2</code>.\n</div>\n"
 - name: Seller Warehouses
   x-displayName: Seller Warehouses
   description: ''
   x-tagKey: sellerWarehouses
+  x-description: |+
+    <div class="description_auth">
+      To access the methods, use a <a href="./api-information#tag/authorization/How-to-create-a-personal-access-base-or-test-token">token</a> for the <strong>Marketplace</strong> category
+    </div>
+
+
+    <div class="description_ref">
+      You can learn how to use methods in business cases in the <a href="/en/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/working-with-items">instructions</a> on <strong>working with items</strong>
+    </div>
+
 - name: Seller Warehouses Inventory
   x-displayName: Seller Warehouses Inventory
   description: ''
   x-tagKey: sellerWarehousesInventory
+  x-description: |
+    <div class="description_auth">
+      To access the methods, use a <a href="./api-information#tag/authorization/How-to-create-a-personal-access-base-or-test-token">token</a> for the <strong>Marketplace</strong> category
+    </div>
+
+
+    <div class="description_ref">
+      You can learn how to use methods in business cases in the <a href="/en/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/working-with-items">instructions</a> on <strong>working with items</strong>
+    </div>
+
+
+    Inventory in seller warehouses
 paths:
   /content/v2/object/parent/all:
     servers:

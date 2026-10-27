@@ -18,10 +18,39 @@ tags:
     x-displayName: DBS Assembly Orders
     description: ''
     x-tagKey: dbsAssemblyOrders
+    x-description: |
+      <div class="description_auth">
+        To access the methods, use a <a href="./api-information#tag/authorization/How-to-create-a-personal-access-base-or-test-token">token</a> for the <strong>Marketplace</strong> category
+      </div>
+
+
+      <div class="description_ref">
+        You can learn how to use methods in business cases in the <a href="/en/knowledge-base/articles/019d49a3-ff7d-70ba-a872-828430b24ea1/dbs-orders">instructions</a> on working with <strong>DBS orders</strong>
+      </div>
+
+
+      **How to work:**
+      1. [Get the new order](./dbs#tag/dbsAssemblyOrders/operation/getV3DbsOrdersNew) and save it until it is ready for assembly. If you do not save the order information in advance, you will only be able to access it after the order is completed (either canceled or sold). Check the [delivery date and time](./dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersDeliveryDate).
+      2. [Transfer it for assembly](./orders-dbs?locale=ru#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusConfirm).
+      3. [Transfer to delivery](./dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusDeliver).
+      4. After the order is transferred to assembly, [buyer information](./dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersClient) (name, phone) becomes available.
+      5. After delivering the task to the buyer, you need to notify our server that the [order was accepted](./dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusReceive) by the buyer or that the [buyer declined the order](./dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusReject).
   - name: DBS Label Identifiers
     x-displayName: DBS Label Identifiers
     description: ''
     x-tagKey: dbsLabelIdentifiers
+    x-description: |
+      <div class="description_auth">
+        To access the methods, use a <a href="./api-information#tag/authorization/How-to-create-a-personal-access-base-or-test-token">token</a> for the <strong>Marketplace</strong> category
+      </div>
+
+
+      <div class="description_ref">
+        You can learn how to use methods in business cases in the <a href="/en/knowledge-base/articles/019d49a3-ff7d-70ba-a872-828430b24ea1/dbs-orders">instructions</a> on working with <strong>DBS orders</strong>
+      </div>
+
+
+      Specifying label identifiers for the assembly order in the sandbox is optional
 paths:
   /api/v3/dbs/orders/new:
     servers:
@@ -3514,6 +3543,14 @@ components:
           description: Company name
     Response4XX:
       type: object
+      required:
+        - title
+        - detail
+        - requestId
+        - origin
+        - status
+        - statusText
+        - timestamp
       properties:
         title:
           type: string

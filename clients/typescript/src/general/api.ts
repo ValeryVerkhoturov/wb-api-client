@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Общее
- * В этом разделе: - [общая информация о WB API](https://dev.wildberries.ru/openapi/api-information#tag/introduction) - как [начать работу с WB API](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Kak-nachat-rabotu-s-API) - как [авторизоваться](https://dev.wildberries.ru/openapi/api-information#tag/authorization) и [создавать токены](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token) - основные [статус-коды ответов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Status-kody-HTTP) - [лимиты запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) - как обратиться в [поддержку](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Podderzhka) С помощью методов этого раздела вы можете: - проверить [подключение к WB API](https://dev.wildberries.ru/openapi/api-information#tag/connectionCheck/operation/getPing) - получить [новости портала продавцов](https://dev.wildberries.ru/openapi/api-information#tag/newsApi/operation/getV2News) - получить [информацию о продавце](https://dev.wildberries.ru/openapi/api-information#tag/sellerInformation/operation/getV1SellerInfo) - [управлять пользователями продавца](https://dev.wildberries.ru/openapi/api-information#tag/sellerUserManagement)
+ * В этом разделе: - [общая информация о WB API](https://dev.wildberries.ru/openapi/api-information#tag/introduction) - как [начать работу с WB API](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Kak-nachat-rabotu-s-API) - как [авторизоваться](https://dev.wildberries.ru/openapi/api-information#tag/authorization) и [создавать токены](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token) - основные [статус-коды ответов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Status-kody-HTTP) - [лимиты запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) - как обратиться в [поддержку](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Podderzhka) С помощью методов этого раздела вы можете: - проверить [подключение к WB API](https://dev.wildberries.ru/openapi/api-information#tag/connectionCheck/operation/getPing) - получить [новости](https://dev.wildberries.ru/openapi/api-information#tag/newsApi/operation/getV2News) и [уведомления](https://dev.wildberries.ru/openapi/api-information#tag/newsApi/operation/getV1Notifications) портала продавцов - получить [информацию о продавце](https://dev.wildberries.ru/openapi/api-information#tag/sellerInformation/operation/getV1SellerInfo) - [управлять пользователями продавца](https://dev.wildberries.ru/openapi/api-information#tag/sellerUserManagement)
  *
  * The version of the OpenAPI document: general
  *
@@ -531,6 +531,27 @@ export interface GetUsersResponseUsersInnerInviteeInfo {
   isActive?: boolean;
 }
 /**
+ * @type GetV1Notifications403Response
+ * @export
+ */
+export type GetV1Notifications403Response =
+  | Response4XX
+  | SellerNotificationsError;
+
+/**
+ *
+ * @export
+ * @interface GetV1NotificationsResponse200
+ */
+export interface GetV1NotificationsResponse200 {
+  /**
+   * Список уведомлений
+   * @type {Array<SellerNotificationsResponse>}
+   * @memberof GetV1NotificationsResponse200
+   */
+  data?: Array<SellerNotificationsResponse>;
+}
+/**
  *
  * @export
  * @interface GetV1SellerInfo402Response
@@ -1002,6 +1023,130 @@ export interface Response4XX {
   timestamp?: string;
 }
 /**
+ *
+ * @export
+ * @interface SellerNotificationsError
+ */
+export interface SellerNotificationsError {
+  /**
+   * HTTP статус-код
+   * @type {number}
+   * @memberof SellerNotificationsError
+   */
+  status?: number;
+  /**
+   * Заголовок ошибки
+   * @type {string}
+   * @memberof SellerNotificationsError
+   */
+  title?: string;
+  /**
+   * Детали ошибки
+   * @type {string}
+   * @memberof SellerNotificationsError
+   */
+  detail?: string;
+  /**
+   * ID внутреннего сервиса WB
+   * @type {string}
+   * @memberof SellerNotificationsError
+   */
+  origin?: string;
+  /**
+   * Список ошибок
+   * @type {Array<SellerNotificationsErrorErrorsInner>}
+   * @memberof SellerNotificationsError
+   */
+  errors?: Array<SellerNotificationsErrorErrorsInner>;
+  /**
+   * Внутренний код ошибки
+   * @type {string}
+   * @memberof SellerNotificationsError
+   */
+  code?: string;
+  /**
+   * ID запроса
+   * @type {string}
+   * @memberof SellerNotificationsError
+   */
+  requestId?: string;
+}
+/**
+ *
+ * @export
+ * @interface SellerNotificationsErrorErrorsInner
+ */
+export interface SellerNotificationsErrorErrorsInner {
+  /**
+   * Параметр запроса, вызвавший ошибку
+   * @type {string}
+   * @memberof SellerNotificationsErrorErrorsInner
+   */
+  location?: string;
+  /**
+   * Описание ошибки
+   * @type {string}
+   * @memberof SellerNotificationsErrorErrorsInner
+   */
+  message?: string;
+}
+/**
+ *
+ * @export
+ * @interface SellerNotificationsResponse
+ */
+export interface SellerNotificationsResponse {
+  /**
+   * Дата и время отправки уведомления
+   * @type {string}
+   * @memberof SellerNotificationsResponse
+   */
+  date?: string;
+  /**
+   * ID уведомления
+   * @type {string}
+   * @memberof SellerNotificationsResponse
+   */
+  id?: string;
+  /**
+   *
+   * @type {SellerNotificationsResponseLinkData}
+   * @memberof SellerNotificationsResponse
+   */
+  linkData?: SellerNotificationsResponseLinkData;
+  /**
+   * Текст уведомления
+   * @type {string}
+   * @memberof SellerNotificationsResponse
+   */
+  text?: string;
+  /**
+   * Заголовок уведомления
+   * @type {string}
+   * @memberof SellerNotificationsResponse
+   */
+  title?: string;
+}
+/**
+ * Данные кнопки в уведомлении
+ * @export
+ * @interface SellerNotificationsResponseLinkData
+ */
+export interface SellerNotificationsResponseLinkData {
+  /**
+   * URL кнопки в уведомлении
+   * @type {string}
+   * @memberof SellerNotificationsResponseLinkData
+   */
+  linkHref?: string;
+  /**
+   * Текст кнопки в уведомлении
+   * @type {string}
+   * @memberof SellerNotificationsResponseLinkData
+   */
+  linkText?: string;
+}
+/**
  * Информация о подписке Джем
  * @export
  * @interface SubscriptionsJamInfo
@@ -1201,6 +1346,67 @@ export const GeneralApiAxiosParamCreator = function (
       // authentication BearerAuth required
       // http bearer authentication required
       await setBearerAuthToObject(localVarHeaderParameter, configuration);
+
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
+      let headersFromBaseOptions =
+        baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = {
+        ...localVarHeaderParameter,
+        ...headersFromBaseOptions,
+        ...options.headers,
+      };
+
+      return {
+        url: toPathString(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     * Метод возвращает список уведомлений из [профиля](https://seller.wildberries.ru) продавца на русском языке. Порядок уведомлений в ответе — от новых к старым. Доступно только для продавцов из РФ.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/general/get-api-communications-v1-notifications
+     * @summary Получить уведомления портала продавцов
+     * @param {string} [from] Фильтр по дате и времени: в ответе возвращаются только уведомления, полученные до указанной даты и времени. Указывайте значения не позднее текущих. Чтобы получить самые новые уведомления, не передавайте в запросе этот параметр. Используйте параметр для пагинации: 1. Отправьте первый запрос запрос без параметра &#x60;from&#x60;. 2. В следующих запросах передайте в параметре &#x60;from&#x60; значение &#x60;date&#x60; последнего уведомления в ответе.
+     * @param {string} [timezone] Временная зона в формате [IANA](https://nodatime.org/TimeZones)
+     * @param {number} [limit] Количество уведомлений в ответе
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getV1Notifications: async (
+      from?: string,
+      timezone?: string,
+      limit?: number,
+      options: RawAxiosRequestConfig = {},
+    ): Promise<RequestArgs> => {
+      const localVarPath = `/api/communications/v1/notifications`;
+      // use dummy base URL string because the URL constructor only accepts absolute URLs.
+      const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+
+      const localVarRequestOptions = {
+        method: "GET",
+        ...baseOptions,
+        ...options,
+      };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      // authentication BearerAuth required
+      // http bearer authentication required
+      await setBearerAuthToObject(localVarHeaderParameter, configuration);
+
+      if (from !== undefined) {
+        localVarQueryParameter["from"] = from;
+      }
+
+      if (timezone !== undefined) {
+        localVarQueryParameter["timezone"] = timezone;
+      }
+
+      if (limit !== undefined) {
+        localVarQueryParameter["limit"] = limit;
+      }
 
       setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions =
@@ -1456,8 +1662,8 @@ export const GeneralApiAxiosParamCreator = function (
       };
     },
     /**
-     * Метод позволяет получать новости портала продавцов.  Для получения успешного ответа необходимо указать один из параметров `from` или `fromID`.  За один запрос можно получить не более 100 новостей.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/general/get-api-communications-v2-news
-     * @summary Получение новостей портала продавцов
+     * Метод позволяет получать [новости](https://seller.wildberries.ru/news-v2) портала продавцов.  Для получения успешного ответа необходимо указать один из параметров `from` или `fromID`.  За один запрос можно получить не более 100 новостей.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/general/get-api-communications-v2-news
+     * @summary Получить новости портала продавцов
      * @param {string} [from] Дата, от которой необходимо выдать новости
      * @param {number} [fromID] ID новости, начиная с которой — включая её — нужно получить список новостей
      * @param {*} [options] Override http request option.
@@ -1695,6 +1901,46 @@ export const GeneralApiFp = function (configuration?: Configuration) {
         )(axios, localVarOperationServerBasePath || basePath);
     },
     /**
+     * Метод возвращает список уведомлений из [профиля](https://seller.wildberries.ru) продавца на русском языке. Порядок уведомлений в ответе — от новых к старым. Доступно только для продавцов из РФ.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/general/get-api-communications-v1-notifications
+     * @summary Получить уведомления портала продавцов
+     * @param {string} [from] Фильтр по дате и времени: в ответе возвращаются только уведомления, полученные до указанной даты и времени. Указывайте значения не позднее текущих. Чтобы получить самые новые уведомления, не передавайте в запросе этот параметр. Используйте параметр для пагинации: 1. Отправьте первый запрос запрос без параметра &#x60;from&#x60;. 2. В следующих запросах передайте в параметре &#x60;from&#x60; значение &#x60;date&#x60; последнего уведомления в ответе.
+     * @param {string} [timezone] Временная зона в формате [IANA](https://nodatime.org/TimeZones)
+     * @param {number} [limit] Количество уведомлений в ответе
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async getV1Notifications(
+      from?: string,
+      timezone?: string,
+      limit?: number,
+      options?: RawAxiosRequestConfig,
+    ): Promise<
+      (
+        axios?: AxiosInstance,
+        basePath?: string,
+      ) => AxiosPromise<GetV1NotificationsResponse200>
+    > {
+      const localVarAxiosArgs =
+        await localVarAxiosParamCreator.getV1Notifications(
+          from,
+          timezone,
+          limit,
+          options,
+        );
+      const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+      const localVarOperationServerBasePath =
+        operationServerMap["GeneralApi.getV1Notifications"]?.[
+          localVarOperationServerIndex
+        ]?.url;
+      return (axios, basePath) =>
+        createRequestFunction(
+          localVarAxiosArgs,
+          globalAxios,
+          BASE_PATH,
+          configuration,
+        )(axios, localVarOperationServerBasePath || basePath);
+    },
+    /**
      * Для доступа к методу используйте [токен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token) для категории **Вопросы и отзывы**  Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Сервисному** токену  Метод возвращает пользовательский рейтинг продавца и количество отзывов.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/general/get-api-common-v1-rating
      * @summary Получить рейтинг продавца
      * @param {*} [options] Override http request option.
@@ -1855,8 +2101,8 @@ export const GeneralApiFp = function (configuration?: Configuration) {
         )(axios, localVarOperationServerBasePath || basePath);
     },
     /**
-     * Метод позволяет получать новости портала продавцов.  Для получения успешного ответа необходимо указать один из параметров `from` или `fromID`.  За один запрос можно получить не более 100 новостей.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/general/get-api-communications-v2-news
-     * @summary Получение новостей портала продавцов
+     * Метод позволяет получать [новости](https://seller.wildberries.ru/news-v2) портала продавцов.  Для получения успешного ответа необходимо указать один из параметров `from` или `fromID`.  За один запрос можно получить не более 100 новостей.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/general/get-api-communications-v2-news
+     * @summary Получить новости портала продавцов
      * @param {string} [from] Дата, от которой необходимо выдать новости
      * @param {number} [fromID] ID новости, начиная с которой — включая её — нужно получить список новостей
      * @param {*} [options] Override http request option.
@@ -1995,6 +2241,25 @@ export const GeneralApiFactory = function (
         .then((request) => request(axios, basePath));
     },
     /**
+     * Метод возвращает список уведомлений из [профиля](https://seller.wildberries.ru) продавца на русском языке. Порядок уведомлений в ответе — от новых к старым. Доступно только для продавцов из РФ.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/general/get-api-communications-v1-notifications
+     * @summary Получить уведомления портала продавцов
+     * @param {string} [from] Фильтр по дате и времени: в ответе возвращаются только уведомления, полученные до указанной даты и времени. Указывайте значения не позднее текущих. Чтобы получить самые новые уведомления, не передавайте в запросе этот параметр. Используйте параметр для пагинации: 1. Отправьте первый запрос запрос без параметра &#x60;from&#x60;. 2. В следующих запросах передайте в параметре &#x60;from&#x60; значение &#x60;date&#x60; последнего уведомления в ответе.
+     * @param {string} [timezone] Временная зона в формате [IANA](https://nodatime.org/TimeZones)
+     * @param {number} [limit] Количество уведомлений в ответе
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getV1Notifications(
+      from?: string,
+      timezone?: string,
+      limit?: number,
+      options?: RawAxiosRequestConfig,
+    ): AxiosPromise<GetV1NotificationsResponse200> {
+      return localVarFp
+        .getV1Notifications(from, timezone, limit, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
      * Для доступа к методу используйте [токен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token) для категории **Вопросы и отзывы**  Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Сервисному** токену  Метод возвращает пользовательский рейтинг продавца и количество отзывов.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/general/get-api-common-v1-rating
      * @summary Получить рейтинг продавца
      * @param {*} [options] Override http request option.
@@ -2068,8 +2333,8 @@ export const GeneralApiFactory = function (
         .then((request) => request(axios, basePath));
     },
     /**
-     * Метод позволяет получать новости портала продавцов.  Для получения успешного ответа необходимо указать один из параметров `from` или `fromID`.  За один запрос можно получить не более 100 новостей.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/general/get-api-communications-v2-news
-     * @summary Получение новостей портала продавцов
+     * Метод позволяет получать [новости](https://seller.wildberries.ru/news-v2) портала продавцов.  Для получения успешного ответа необходимо указать один из параметров `from` или `fromID`.  За один запрос можно получить не более 100 новостей.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/general/get-api-communications-v2-news
+     * @summary Получить новости портала продавцов
      * @param {string} [from] Дата, от которой необходимо выдать новости
      * @param {number} [fromID] ID новости, начиная с которой — включая её — нужно получить список новостей
      * @param {*} [options] Override http request option.
@@ -2146,6 +2411,23 @@ export interface GeneralApiInterface {
   getPing(options?: RawAxiosRequestConfig): AxiosPromise<GetPingResponse200>;
 
   /**
+   * Метод возвращает список уведомлений из [профиля](https://seller.wildberries.ru) продавца на русском языке. Порядок уведомлений в ответе — от новых к старым. Доступно только для продавцов из РФ.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/general/get-api-communications-v1-notifications
+   * @summary Получить уведомления портала продавцов
+   * @param {string} [from] Фильтр по дате и времени: в ответе возвращаются только уведомления, полученные до указанной даты и времени. Указывайте значения не позднее текущих. Чтобы получить самые новые уведомления, не передавайте в запросе этот параметр. Используйте параметр для пагинации: 1. Отправьте первый запрос запрос без параметра &#x60;from&#x60;. 2. В следующих запросах передайте в параметре &#x60;from&#x60; значение &#x60;date&#x60; последнего уведомления в ответе.
+   * @param {string} [timezone] Временная зона в формате [IANA](https://nodatime.org/TimeZones)
+   * @param {number} [limit] Количество уведомлений в ответе
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof GeneralApiInterface
+   */
+  getV1Notifications(
+    from?: string,
+    timezone?: string,
+    limit?: number,
+    options?: RawAxiosRequestConfig,
+  ): AxiosPromise<GetV1NotificationsResponse200>;
+
+  /**
    * Для доступа к методу используйте [токен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token) для категории **Вопросы и отзывы**  Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Сервисному** токену  Метод возвращает пользовательский рейтинг продавца и количество отзывов.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/general/get-api-common-v1-rating
    * @summary Получить рейтинг продавца
    * @param {*} [options] Override http request option.
@@ -2209,8 +2491,8 @@ export interface GeneralApiInterface {
   ): AxiosPromise<GetUsersResponse>;
 
   /**
-   * Метод позволяет получать новости портала продавцов.  Для получения успешного ответа необходимо указать один из параметров `from` или `fromID`.  За один запрос можно получить не более 100 новостей.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/general/get-api-communications-v2-news
-   * @summary Получение новостей портала продавцов
+   * Метод позволяет получать [новости](https://seller.wildberries.ru/news-v2) портала продавцов.  Для получения успешного ответа необходимо указать один из параметров `from` или `fromID`.  За один запрос можно получить не более 100 новостей.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/general/get-api-communications-v2-news
+   * @summary Получить новости портала продавцов
    * @param {string} [from] Дата, от которой необходимо выдать новости
    * @param {number} [fromID] ID новости, начиная с которой — включая её — нужно получить список новостей
    * @param {*} [options] Override http request option.
@@ -2281,6 +2563,27 @@ export class GeneralApi extends BaseAPI implements GeneralApiInterface {
   public getPing(options?: RawAxiosRequestConfig) {
     return GeneralApiFp(this.configuration)
       .getPing(options)
+      .then((request) => request(this.axios, this.basePath));
+  }
+
+  /**
+   * Метод возвращает список уведомлений из [профиля](https://seller.wildberries.ru) продавца на русском языке. Порядок уведомлений в ответе — от новых к старым. Доступно только для продавцов из РФ.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/general/get-api-communications-v1-notifications
+   * @summary Получить уведомления портала продавцов
+   * @param {string} [from] Фильтр по дате и времени: в ответе возвращаются только уведомления, полученные до указанной даты и времени. Указывайте значения не позднее текущих. Чтобы получить самые новые уведомления, не передавайте в запросе этот параметр. Используйте параметр для пагинации: 1. Отправьте первый запрос запрос без параметра &#x60;from&#x60;. 2. В следующих запросах передайте в параметре &#x60;from&#x60; значение &#x60;date&#x60; последнего уведомления в ответе.
+   * @param {string} [timezone] Временная зона в формате [IANA](https://nodatime.org/TimeZones)
+   * @param {number} [limit] Количество уведомлений в ответе
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof GeneralApi
+   */
+  public getV1Notifications(
+    from?: string,
+    timezone?: string,
+    limit?: number,
+    options?: RawAxiosRequestConfig,
+  ) {
+    return GeneralApiFp(this.configuration)
+      .getV1Notifications(from, timezone, limit, options)
       .then((request) => request(this.axios, this.basePath));
   }
 
@@ -2362,8 +2665,8 @@ export class GeneralApi extends BaseAPI implements GeneralApiInterface {
   }
 
   /**
-   * Метод позволяет получать новости портала продавцов.  Для получения успешного ответа необходимо указать один из параметров `from` или `fromID`.  За один запрос можно получить не более 100 новостей.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/general/get-api-communications-v2-news
-   * @summary Получение новостей портала продавцов
+   * Метод позволяет получать [новости](https://seller.wildberries.ru/news-v2) портала продавцов.  Для получения успешного ответа необходимо указать один из параметров `from` или `fromID`.  За один запрос можно получить не более 100 новостей.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/general/get-api-communications-v2-news
+   * @summary Получить новости портала продавцов
    * @param {string} [from] Дата, от которой необходимо выдать новости
    * @param {number} [fromID] ID новости, начиная с которой — включая её — нужно получить список новостей
    * @param {*} [options] Override http request option.

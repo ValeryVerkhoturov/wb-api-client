@@ -16,14 +16,46 @@ tags:
     x-displayName: Balance
     description: ''
     x-tagKey: balance
+    x-description: |
+      <div class="description_auth">
+        To access the methods, use a <a href="./api-information#tag/authorization/How-to-create-a-personal-access-base-or-test-token">token</a> for the <strong>Finance</strong> category
+      </div>
+
+      To view your [current balance](https://seller.wildberries.ru), use the [seller balance method](./documents-and-accounting#tag/balance/operation/getV1AccountBalance).
   - name: Financial Reports
     x-displayName: Financial Reports
     description: ''
     x-tagKey: financialReports
+    x-description: |+
+      <div class="description_auth">
+        To access the methods, use a <a href="./api-information#tag/authorization/How-to-create-a-personal-access-base-or-test-token">token</a> for the <strong>Finance</strong> category
+      </div>
+
+      Methods for getting:
+        1. Sales reports [list](./documents-and-accounting#tag/financialReports/operation/postV1SalesReportsList) and details for the reports by [IDs](./documents-and-accounting#tag/financialReports/operation/postV1SalesReportsDetailedReportId) and [period](./documents-and-accounting#tag/financialReports/operation/postV1SalesReportsDetailed)
+        2. Acquiring expenses reports [list](./documents-and-accounting#tag/financialReports/operation/postV1AcquiringList) and details for the reports by [IDs](./documents-and-accounting#tag/financialReports/operation/postV1AcquiringDetailedReportId) and [period](./documents-and-accounting#tag/financialReports/operation/postV1AcquiringDetailed). The methods are available only for sellers from Russia
+
+
+      <div class="description_important">
+        You can save the report in <a href="/en/knowledge-base/articles/019d49a4-650c-7b04-9596-ba441936f9d3">Google Sheets</a>
+      </div>
+
   - name: Documents
     x-displayName: Documents
     description: ''
     x-tagKey: documents
+    x-description: |
+      <div class="description_auth">
+        To access the methods, use a <a href="./api-information#tag/authorization/How-to-create-a-personal-access-base-or-test-token">token</a> for the <strong>Documents</strong> category
+      </div>
+
+      Using these methods, you can get [seller documents](https://seller.wildberries.ru/supplementary-agreements) of various categories: acts, accounting reports, offers, letters, product lists, CCDs (Correction Calculation Documents), UPDs (Universal Transfer Documents), notifications, and so on.
+      <br><br>
+      To work with documents, first get the lists:
+      1. Of [document categories](./documents-and-accounting#tag/documents/operation/getV1DocumentsCategories)
+      2. Of [seller documents](./documents-and-accounting#tag/documents/operation/getV1DocumentsList) available for download
+
+      Then you can download [a single document](./documents-and-accounting#tag/documents/operation/getV1DocumentsDownload) or [multiple documents](./documents-and-accounting#tag/documents/operation/postV1DocumentsDownloadAll) from the list.
 paths:
   /api/v1/account/balance:
     servers:
@@ -1888,6 +1920,14 @@ components:
           example: RUB
     Response4XX:
       type: object
+      required:
+        - title
+        - detail
+        - requestId
+        - origin
+        - status
+        - statusText
+        - timestamp
       properties:
         title:
           type: string

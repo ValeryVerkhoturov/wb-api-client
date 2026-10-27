@@ -1,6 +1,6 @@
 /*
  * Общее
- * В этом разделе: - [общая информация о WB API](https://dev.wildberries.ru/openapi/api-information#tag/introduction) - как [начать работу с WB API](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Kak-nachat-rabotu-s-API) - как [авторизоваться](https://dev.wildberries.ru/openapi/api-information#tag/authorization) и [создавать токены](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token) - основные [статус-коды ответов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Status-kody-HTTP) - [лимиты запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) - как обратиться в [поддержку](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Podderzhka) С помощью методов этого раздела вы можете: - проверить [подключение к WB API](https://dev.wildberries.ru/openapi/api-information#tag/connectionCheck/operation/getPing) - получить [новости портала продавцов](https://dev.wildberries.ru/openapi/api-information#tag/newsApi/operation/getV2News) - получить [информацию о продавце](https://dev.wildberries.ru/openapi/api-information#tag/sellerInformation/operation/getV1SellerInfo) - [управлять пользователями продавца](https://dev.wildberries.ru/openapi/api-information#tag/sellerUserManagement)
+ * В этом разделе: - [общая информация о WB API](https://dev.wildberries.ru/openapi/api-information#tag/introduction) - как [начать работу с WB API](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Kak-nachat-rabotu-s-API) - как [авторизоваться](https://dev.wildberries.ru/openapi/api-information#tag/authorization) и [создавать токены](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token) - основные [статус-коды ответов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Status-kody-HTTP) - [лимиты запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) - как обратиться в [поддержку](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Podderzhka) С помощью методов этого раздела вы можете: - проверить [подключение к WB API](https://dev.wildberries.ru/openapi/api-information#tag/connectionCheck/operation/getPing) - получить [новости](https://dev.wildberries.ru/openapi/api-information#tag/newsApi/operation/getV2News) и [уведомления](https://dev.wildberries.ru/openapi/api-information#tag/newsApi/operation/getV1Notifications) портала продавцов - получить [информацию о продавце](https://dev.wildberries.ru/openapi/api-information#tag/sellerInformation/operation/getV1SellerInfo) - [управлять пользователями продавца](https://dev.wildberries.ru/openapi/api-information#tag/sellerUserManagement)
  *
  * The version of the OpenAPI document: general
  *
@@ -23,6 +23,7 @@ import io.github.valeryverkhoturov.wbapi.general.model.CreateInviteRequest;
 import io.github.valeryverkhoturov.wbapi.general.model.CreateInviteResponse;
 import io.github.valeryverkhoturov.wbapi.general.model.GetPingResponse200;
 import io.github.valeryverkhoturov.wbapi.general.model.GetUsersResponse;
+import io.github.valeryverkhoturov.wbapi.general.model.GetV1NotificationsResponse200;
 import io.github.valeryverkhoturov.wbapi.general.model.GetV1SellerInfoResponse200;
 import io.github.valeryverkhoturov.wbapi.general.model.GetV2NewsResponse200;
 import io.github.valeryverkhoturov.wbapi.general.model.PlanBuilderOptionsInfo;
@@ -436,6 +437,234 @@ public class GeneralApi {
 
     okhttp3.Call localVarCall = getPingValidateBeforeCall(_callback);
     Type localVarReturnType = new TypeToken<GetPingResponse200>() {}.getType();
+    localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+    return localVarCall;
+  }
+
+  /**
+   * Build call for getV1Notifications
+   *
+   * @param from Фильтр по дате и времени: в ответе возвращаются только уведомления, полученные до
+   *     указанной даты и времени. Указывайте значения не позднее текущих. Чтобы получить самые
+   *     новые уведомления, не передавайте в запросе этот параметр. Используйте параметр для
+   *     пагинации: 1. Отправьте первый запрос запрос без параметра &#x60;from&#x60;. 2. В следующих
+   *     запросах передайте в параметре &#x60;from&#x60; значение &#x60;date&#x60; последнего
+   *     уведомления в ответе. (optional)
+   * @param timezone Временная зона в формате [IANA](https://nodatime.org/TimeZones) (optional,
+   *     default to Europe/Moscow)
+   * @param limit Количество уведомлений в ответе (optional, default to 10)
+   * @param _callback Callback for upload/download progress
+   * @return Call to execute
+   * @throws ApiException If fail to serialize the request body object
+   * @http.response.details
+   *     <table border="1">
+   * <caption>Response Details</caption>
+   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
+   * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
+   * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
+   * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
+   * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
+   * </table>
+   */
+  public okhttp3.Call getV1NotificationsCall(
+      String from, String timezone, Long limit, final ApiCallback _callback) throws ApiException {
+    String basePath = null;
+    // Operation Servers
+    String[] localBasePaths = new String[] {"https://common-api.wildberries.ru"};
+
+    // Determine Base Path to Use
+    if (localCustomBaseUrl != null) {
+      basePath = localCustomBaseUrl;
+    } else if (localBasePaths.length > 0) {
+      basePath = localBasePaths[localHostIndex];
+    } else {
+      basePath = null;
+    }
+
+    Object localVarPostBody = null;
+
+    // create path and map variables
+    String localVarPath = "/api/communications/v1/notifications";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    if (from != null) {
+      localVarQueryParams.addAll(localVarApiClient.parameterToPair("from", from));
+    }
+
+    if (timezone != null) {
+      localVarQueryParams.addAll(localVarApiClient.parameterToPair("timezone", timezone));
+    }
+
+    if (limit != null) {
+      localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+    }
+
+    final String[] localVarAccepts = {"application/json", "application/problem+json"};
+    final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+    if (localVarAccept != null) {
+      localVarHeaderParams.put("Accept", localVarAccept);
+    }
+
+    final String[] localVarContentTypes = {};
+    final String localVarContentType =
+        localVarApiClient.selectHeaderContentType(localVarContentTypes);
+    if (localVarContentType != null) {
+      localVarHeaderParams.put("Content-Type", localVarContentType);
+    }
+
+    String[] localVarAuthNames = new String[] {"BearerAuth"};
+    return localVarApiClient.buildCall(
+        basePath,
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAuthNames,
+        _callback);
+  }
+
+  @SuppressWarnings("rawtypes")
+  private okhttp3.Call getV1NotificationsValidateBeforeCall(
+      String from, String timezone, Long limit, final ApiCallback _callback) throws ApiException {
+    return getV1NotificationsCall(from, timezone, limit, _callback);
+  }
+
+  /**
+   * Получить уведомления портала продавцов Метод возвращает список уведомлений из
+   * [профиля](https://seller.wildberries.ru) продавца на русском языке. Порядок уведомлений в
+   * ответе — от новых к старым. Доступно только для продавцов из РФ. [Лимит
+   * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
+   * на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
+   * | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1
+   * запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов |
+   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/general/get-api-communications-v1-notifications
+   *
+   * @param from Фильтр по дате и времени: в ответе возвращаются только уведомления, полученные до
+   *     указанной даты и времени. Указывайте значения не позднее текущих. Чтобы получить самые
+   *     новые уведомления, не передавайте в запросе этот параметр. Используйте параметр для
+   *     пагинации: 1. Отправьте первый запрос запрос без параметра &#x60;from&#x60;. 2. В следующих
+   *     запросах передайте в параметре &#x60;from&#x60; значение &#x60;date&#x60; последнего
+   *     уведомления в ответе. (optional)
+   * @param timezone Временная зона в формате [IANA](https://nodatime.org/TimeZones) (optional,
+   *     default to Europe/Moscow)
+   * @param limit Количество уведомлений в ответе (optional, default to 10)
+   * @return GetV1NotificationsResponse200
+   * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+   *     response body
+   * @http.response.details
+   *     <table border="1">
+   * <caption>Response Details</caption>
+   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
+   * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
+   * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
+   * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
+   * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
+   * </table>
+   */
+  public GetV1NotificationsResponse200 getV1Notifications(String from, String timezone, Long limit)
+      throws ApiException {
+    ApiResponse<GetV1NotificationsResponse200> localVarResp =
+        getV1NotificationsWithHttpInfo(from, timezone, limit);
+    return localVarResp.getData();
+  }
+
+  /**
+   * Получить уведомления портала продавцов Метод возвращает список уведомлений из
+   * [профиля](https://seller.wildberries.ru) продавца на русском языке. Порядок уведомлений в
+   * ответе — от новых к старым. Доступно только для продавцов из РФ. [Лимит
+   * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
+   * на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
+   * | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1
+   * запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов |
+   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/general/get-api-communications-v1-notifications
+   *
+   * @param from Фильтр по дате и времени: в ответе возвращаются только уведомления, полученные до
+   *     указанной даты и времени. Указывайте значения не позднее текущих. Чтобы получить самые
+   *     новые уведомления, не передавайте в запросе этот параметр. Используйте параметр для
+   *     пагинации: 1. Отправьте первый запрос запрос без параметра &#x60;from&#x60;. 2. В следующих
+   *     запросах передайте в параметре &#x60;from&#x60; значение &#x60;date&#x60; последнего
+   *     уведомления в ответе. (optional)
+   * @param timezone Временная зона в формате [IANA](https://nodatime.org/TimeZones) (optional,
+   *     default to Europe/Moscow)
+   * @param limit Количество уведомлений в ответе (optional, default to 10)
+   * @return ApiResponse&lt;GetV1NotificationsResponse200&gt;
+   * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+   *     response body
+   * @http.response.details
+   *     <table border="1">
+   * <caption>Response Details</caption>
+   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
+   * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
+   * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
+   * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
+   * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
+   * </table>
+   */
+  public ApiResponse<GetV1NotificationsResponse200> getV1NotificationsWithHttpInfo(
+      String from, String timezone, Long limit) throws ApiException {
+    okhttp3.Call localVarCall = getV1NotificationsValidateBeforeCall(from, timezone, limit, null);
+    Type localVarReturnType = new TypeToken<GetV1NotificationsResponse200>() {}.getType();
+    return localVarApiClient.execute(localVarCall, localVarReturnType);
+  }
+
+  /**
+   * Получить уведомления портала продавцов (asynchronously) Метод возвращает список уведомлений из
+   * [профиля](https://seller.wildberries.ru) продавца на русском языке. Порядок уведомлений в
+   * ответе — от новых к старым. Доступно только для продавцов из РФ. [Лимит
+   * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
+   * на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
+   * | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1
+   * запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов |
+   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/general/get-api-communications-v1-notifications
+   *
+   * @param from Фильтр по дате и времени: в ответе возвращаются только уведомления, полученные до
+   *     указанной даты и времени. Указывайте значения не позднее текущих. Чтобы получить самые
+   *     новые уведомления, не передавайте в запросе этот параметр. Используйте параметр для
+   *     пагинации: 1. Отправьте первый запрос запрос без параметра &#x60;from&#x60;. 2. В следующих
+   *     запросах передайте в параметре &#x60;from&#x60; значение &#x60;date&#x60; последнего
+   *     уведомления в ответе. (optional)
+   * @param timezone Временная зона в формате [IANA](https://nodatime.org/TimeZones) (optional,
+   *     default to Europe/Moscow)
+   * @param limit Количество уведомлений в ответе (optional, default to 10)
+   * @param _callback The callback to be executed when the API call finishes
+   * @return The request call
+   * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+   * @http.response.details
+   *     <table border="1">
+   * <caption>Response Details</caption>
+   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
+   * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
+   * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
+   * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
+   * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
+   * </table>
+   */
+  public okhttp3.Call getV1NotificationsAsync(
+      String from,
+      String timezone,
+      Long limit,
+      final ApiCallback<GetV1NotificationsResponse200> _callback)
+      throws ApiException {
+
+    okhttp3.Call localVarCall =
+        getV1NotificationsValidateBeforeCall(from, timezone, limit, _callback);
+    Type localVarReturnType = new TypeToken<GetV1NotificationsResponse200>() {}.getType();
     localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
     return localVarCall;
   }
@@ -1499,9 +1728,10 @@ public class GeneralApi {
   }
 
   /**
-   * Получение новостей портала продавцов Метод позволяет получать новости портала продавцов. Для
-   * получения успешного ответа необходимо указать один из параметров &#x60;from&#x60; или
-   * &#x60;fromID&#x60;. За один запрос можно получить не более 100 новостей. [Лимит
+   * Получить новости портала продавцов Метод позволяет получать
+   * [новости](https://seller.wildberries.ru/news-v2) портала продавцов. Для получения успешного
+   * ответа необходимо указать один из параметров &#x60;from&#x60; или &#x60;fromID&#x60;. За один
+   * запрос можно получить не более 100 новостей. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1
@@ -1531,9 +1761,10 @@ public class GeneralApi {
   }
 
   /**
-   * Получение новостей портала продавцов Метод позволяет получать новости портала продавцов. Для
-   * получения успешного ответа необходимо указать один из параметров &#x60;from&#x60; или
-   * &#x60;fromID&#x60;. За один запрос можно получить не более 100 новостей. [Лимит
+   * Получить новости портала продавцов Метод позволяет получать
+   * [новости](https://seller.wildberries.ru/news-v2) портала продавцов. Для получения успешного
+   * ответа необходимо указать один из параметров &#x60;from&#x60; или &#x60;fromID&#x60;. За один
+   * запрос можно получить не более 100 новостей. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1
@@ -1565,10 +1796,10 @@ public class GeneralApi {
   }
 
   /**
-   * Получение новостей портала продавцов (asynchronously) Метод позволяет получать новости портала
-   * продавцов. Для получения успешного ответа необходимо указать один из параметров
-   * &#x60;from&#x60; или &#x60;fromID&#x60;. За один запрос можно получить не более 100 новостей.
-   * [Лимит
+   * Получить новости портала продавцов (asynchronously) Метод позволяет получать
+   * [новости](https://seller.wildberries.ru/news-v2) портала продавцов. Для получения успешного
+   * ответа необходимо указать один из параметров &#x60;from&#x60; или &#x60;fromID&#x60;. За один
+   * запрос можно получить не более 100 новостей. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1

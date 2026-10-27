@@ -24,10 +24,29 @@ tags:
     x-displayName: DBW Assembly Orders
     description: ''
     x-tagKey: dbwAssemblyOrders
+    x-description: |
+      <div class="description_auth">
+        To access the methods, use a <a href="./api-information#tag/authorization/How-to-create-a-personal-access-base-or-test-token">token</a> for the <strong>Marketplace</strong> category
+      </div>
+
+      How to work with DBW assembly orders:
+      1. [Get a new assembly order](./orders-dbw#tag/dbwAssemblyOrders/operation/getV3DbwOrdersNew).
+      2. [Transfer it for assembly](./orders-dbw#tag/dbwAssemblyOrders/operation/patchV3DbwOrdersOrderIdConfirm).
+      3. After the assembly order is moved to assembly, [information about the courier](./orders-dbw#tag/dbwAssemblyOrders/operation/postV3DbwOrdersCourier) (phone, vehicle number) becomes available. To allow the courier to contact you, [link](./item-management#tag/sellerWarehouses/operation/putV3DbwWarehousesWarehouseIdContacts) your contacts to the warehouse. You can also [get](./item-management#tag/sellerWarehouses/operation/getV3DbwWarehousesWarehouseIdContacts) the current list of your contacts.
+      4. [Get](./orders-dbw#tag/dbwAssemblyOrders/operation/postV3DbwOrdersStickers), print, and attach the stickers.
+      5. [Transfer to delivery](./orders-dbw#tag/dbwAssemblyOrders/operation/postV3DbwOrdersStatusDeliver).
+      6. Waiting for the courier.
+      7. The courier picks up the order and delivers it to the buyer.
+      8. The buyer accepts or declines the order.
+      9. If the buyer accepts the order, the courier changes the assembly order status to `receive`. If the buyer declines, it is changed to `reject`.
   - name: DBW Label Identifiers
     x-displayName: DBW Label Identifiers
     description: ''
     x-tagKey: dbwLabelIdentifiers
+    x-description: |
+      <div class="description_auth">
+        To access the methods, use a <a href="./api-information#tag/authorization/How-to-create-a-personal-access-base-or-test-token">token</a> for the <strong>Marketplace</strong> category
+      </div>
 paths:
   /api/v3/dbw/orders/new:
     servers:
@@ -2657,6 +2676,14 @@ components:
                 example: 1234567890
     Response4XX:
       type: object
+      required:
+        - title
+        - detail
+        - requestId
+        - origin
+        - status
+        - statusText
+        - timestamp
       properties:
         title:
           type: string

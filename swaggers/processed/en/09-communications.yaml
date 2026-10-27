@@ -16,22 +16,61 @@ tags:
   x-displayName: Questions
   description: ''
   x-tagKey: questions
+  x-description: |
+    <div class="description_auth">
+      To access the methods, use a <a href="./api-information#tag/authorization/How-to-create-a-personal-access-base-or-test-token">token</a> for the <strong>Feedbacks and Questions</strong> category
+    </div>
 - name: Feedbacks
   x-displayName: Feedbacks
   description: ''
   x-tagKey: feedbacks
+  x-description: |
+    <div class="description_auth">
+      To access the methods, use a <a href="./api-information#tag/authorization/How-to-create-a-personal-access-base-or-test-token">token</a> for the <strong>Feedbacks and Questions</strong> category
+    </div>
 - name: Pinned Feedbacks
   x-displayName: Pinned Feedbacks
   description: ''
   x-tagKey: pinnedFeedbacks
+  x-description: |
+    <div class="description_auth">
+      To access the methods, use a <a href="./api-information#tag/authorization/How-to-create-a-personal-access-base-or-test-token">token</a> for the <strong>Feedbacks and Questions</strong> category
+    </div>
+
+    Use these methods for:
+      1. [Getting the list of pinned and unpinned feedbacks](./customer-communication#tag/pinnedFeedbacks/operation/getV1Pins)
+      2. [Pinning feedbacks](./customer-communication#tag/pinnedFeedbacks/operation/postV1Pins). The method is available for [Jam subscription](https://seller.wildberries.ru/monetization/jam) or **Pin a feedback** option in the [Plan Builder](https://seller.wildberries.ru/tariff-constructor)
+      3. [Unpinning feedbacks](./customer-communication#tag/pinnedFeedbacks/operation/deleteV1Pins)
+      4. [Getting pinned and unpinned feedback number](./customer-communication#tag/pinnedFeedbacks/operation/getV1PinsCount)
+      5. [Getting pinned feedback limits](./customer-communication#tag/pinnedFeedbacks/operation/getV1PinsLimits)
 - name: Buyers Chat
   x-displayName: Buyers Chat
   description: ''
   x-tagKey: buyersChat
+  x-description: |
+    <div class="description_auth">
+      To access the methods, use a <a href="./api-information#tag/authorization/How-to-create-a-personal-access-base-or-test-token">token</a> for the <strong>Buyers chat</strong> category
+    </div>
+    Buyers chat allows sellers and buyers to communicate directly.
+      <br>Buyers can ask questions about items or file reports. We recommended to respond to the messages in the chat within 10 days.
+      <br>The buyer always starts the chat. In one chat you can communicate only with one buyer.
+    <div class="description_important">
+      Processing requests for item refunds is only available in <a class="link" target="_blank" href="https://seller.wildberries.ru/chat-with-clients">the web version of buyers chat</a>.
+    </div>
+      <br>
+
+    Chat operations:
+      1. [Get a chats list](./customer-communication#tag/buyersChat/operation/getV1SellerChats). Save the chat ID in your database — this will allow you to update the chat information when receiving events.
+      2. [Get chat events](./customer-communication#tag/buyersChat/operation/getV1SellerEvents): messages. New chats will have the `isNewChat` parameter set to `true`.
+      3. [Send messages to the chat](./customer-communication#tag/buyersChat/operation/postV1SellerMessage)
 - name: Buyers Returns
   x-displayName: Buyers Returns
   description: ''
   x-tagKey: buyersReturns
+  x-description: |
+    <div class="description_auth">
+      To access the methods, use a <a href="./api-information#tag/authorization/How-to-create-a-personal-access-base-or-test-token">token</a> for the <strong>Buyers returns</strong> category
+    </div>
 paths:
   /api/v1/new-feedbacks-questions:
     servers:

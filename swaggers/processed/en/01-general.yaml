@@ -13,7 +13,7 @@ info:
     - how to contact [support](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Support)
     Use the methods in this section to:
     - check the [WB API connection](https://dev.wildberries.ru/openapi/api-information#tag/connectionCheck)
-    - get [seller portal news](https://dev.wildberries.ru/openapi/api-information#tag/newsApi/operation/getV2News)
+    - get seller portal [news](https://dev.wildberries.ru/openapi/api-information#tag/newsApi/operation/getV2News) and [notifications](https://dev.wildberries.ru/openapi/api-information#tag/newsApi/operation/getV1Notifications)
     - get [seller information](https://dev.wildberries.ru/openapi/api-information#tag/sellerInformation)
     - [manage seller users](https://dev.wildberries.ru/openapi/api-information#tag/sellerUserManagement)
 security:
@@ -23,26 +23,366 @@ tags:
   x-displayName: Introduction
   description: ''
   x-tagKey: introduction
+  x-description: |
+    The Wildberries API provides sellers with tools to manage their store and obtain real-time and statistical information via the HTTP REST API protocol.<br><br>
+
+    The main advantage of the API is the ability to automate processes through integration with the seller information systems, such as ERP, WMS, OMS, CRM. With the WB API, sellers can manage their store without manually using the website interface.<br><br>
+
+    Using the API to operate a store on Wildberries is a great way to:
+      - automate routine processes
+      - access up-to-date information
+      - optimize inventory management
+
+    The API documentation is provided in the Swagger OpenAPI format and can be used for import into other tools, such as Postman, or for generating client code in various programming languages using Swagger CodeGen.<br><br>
+
+    For manual API testing you can use:
+      - For Windows — [PostMan](https://www.postman.com)
+      - For Linux — [curl](https://curl.se)
+
+    # How to get started with the API
+
+      1. Register in the [Seller personal account](https://seller.wildberries.ru/).
+      2. Choose the integration type:
+          1. Self-integration with the WB API using your own developers or outsource specialists. For this, you can use the specifications in OpenAPI format. Methods are updated regularly, so for the integration to work properly, please monitor the [release notes](/en/release-notes).
+          2. Connecting partner services from the [Solutions for Business catalog](https://seller.wildberries.ru/auth-services). The services maintain updates for the WB API themselves.
+      3. Create an API token in the [store settings](./api-information#tag/authorization/How-to-create-a-personal-access-base-or-test-token). The token will allow you to access the WB API. The token system lets you control who interacts with your data through the API and how.
+
+
+    <div class="description_ref">
+      You can learn more about the types of the WB API integration in the knowledge base article <a href="/knowledge-base/articles/019d49a0-daa8-7cc4-81a4-af60cf43a6dd/sposoby-integratsii-svoio-reshenie-ili-gotovyi-servis">Integration Types: Custom Solution or Ready-made Service</a>
+    </div>
+
+
+    <div class="description_important">
+        Use the <a href='./api-information#tag/connectionCheck'>connection test method</a> to find out if requests are successfully reaching the API and if the API token is configured correctly
+    </div>
+
+    Practical tips:
+    - **Use the documentation**.<br>[Official WB API documentation](./api-information) will help you understand the functionality and capabilities of the API. It includes examples of possible requests and responses, a list of potential errors, rate limits, security rules, and more.
+    - **Regularly check the integration**.<br>Ensure that you are transmitting data correctly and note the responses you receive to timely update the integration. Remember the restrictions and take into account the request limits.
+    - **Test main work scenarios** in the [sandbox](/sandbox)
+    - **Keep the API token secure**.<br> Do not share it with third parties unnecessarily. Use only trusted services. If you detect suspicious activity, immediately delete and replace the token.
+    - Contact [technical support](./api-information#tag/introduction/Support) if needed.
+    - Stay updated on WB API news and changes in:
+      - [Release Notes](/en/release-notes)
+      - [Telegram channel](https://t.me/wb_api_notifications)
+      - [WB Chat channel](https://chat.wb.ru/all/019e9619-ce9e-7d5e-b08d-cc5db2297a93)
+      - [Wildberries news feed](https://seller.wildberries.ru/news-v2)
+
+    # Support
+
+    Technical support is conducted via [chats](https://seller.wildberries.ru/service-desk-v2) in the seller personal account. When creating a new chat with the support, use the **Интеграции по API** category.
+
+    # HTTP status codes
+
+    Main response status codes for requests in the WB API:
+
+    | Code | Description | How to resolve |
+    | --- | --- | --- |
+    | **200** | Success | |
+    | **204** | Deleted/Updated/Confirmed | |
+    | **400** | Bad request | Check the request syntax |
+    | **401** | Unauthorized | Check the authorization token. The token must not be:<br />• expired<br />• incorrect<br />• missing from the request |
+    | **402** | Payment required | The service has insufficient funds on its balance. The error is only returned to services from the [Solutions for business Catalog](/business-solutions) |
+    | **403** | Access denied |  Check the authorization token:<br />• The token category must match the API category.<br />• Method must be available by your token type.<br />• The token must not be generated by a deleted user.<br />• Access to the method must not be blocked.<br />• To use the [Jam](https://seller.wildberries.ru/monetization/jam) methods, check your subscription in your personal account. |
+    | **404** | Not found | Check the request URL |
+    | **409** | Status update error/Error adding label/etc | Check the request data. It must meet the service's requirements and limitations |
+    | **413** | The request body size exceeds the given limit | Reduce the number of objects in the request |
+    | **422** | Error processing request parameters/Unexpected result/etc | Check the request data. The request data must not contradict each other |
+    | **429** | Too many requests | Check the method rate limits and retry the request later |
+    | **5ХХ** | Internal service error | Service is unavailable. Retry the request later or contact WB technical support |
+
+    <div class="description_important">
+      Pay attention to the <code>details</code> field in <code>404</code> and <code>429</code> errors — we add useful information there regarding the use of methods
+    </div>
+
+    Example of an error:
+
+    ```json
+    {
+      "title": "path not found",
+      "detail": "Please consult the https://dev.wildberries.ru/openapi/api-information",
+      ...
+      "status": 404,
+      "statusText": "Not Found",
+      "timestamp": "2025-04-24T07:25:28Z"
+    }
+    ```
+
+    # Rate Limits
+
+    The WB API has request rate limits. To evenly distribute the load, the `token bucket` algorithm is used. Limits for specific API methods are specified in the documentation.<br><br>
+
+    For example:
+
+    <div class="description_limit">
+    <a href='./api-information#tag/introduction/Rate-Limits'>Request limit</a> per one seller account for all methods in the <strong>Marketplace</strong> category:
+
+    | Type | Period | Limit | Interval | Burst |
+    | --- | --- | --- | --- | --- |
+    | Personal | 1 minute | 300 requests | 200 milliseconds | 20 requests |
+    | Service | 1 minute | 300 requests | 200 milliseconds | 20 requests |
+    | Base | 1 minute | 150 requests | 200 milliseconds | 10 requests |
+    | Test | 1 minute | 150 requests | 200 milliseconds | 10 requests |
+
+    One request with <code>4XX</code> response codes is counted as 10 requests
+    </div>
+
+    - **Type** — the type of limit. Determined by the token type and authentication.
+
+    <div class="description_important">
+    The service request limit applies:<br>
+    • for requests with a service token from services in the <a href='/business-solutions'>Catalog for business solutions</a><br>
+    • for requests with a basic token with a secret from registered and authorized services that are not included in the Catalog<br><br>
+
+    The service limit applies to all tokens within a single service.
+    </div>
+
+    - **Period** — the time interval during which the maximum number of requests according to the limit can be sent.
+    - **Limit** — the maximum number of requests per period. In the example, up to 300 requests can be sent in one minute. Requests should be evenly distributed over time.
+    - **Interval** — the time gap for pauses between requests. In the example, it should be `60 seconds/300 requests` — `200 milliseconds` or `0.2 seconds`. Use the interval to evenly distribute the sending of requests.
+    - **Burst** — the maximum number of requests that can be sent simultaneously, without interval pauses. The allowed burst is also returned in the response header `X-Ratelimit-Remaining`. It appears in all response statuses except for error `429`.
+
+    `X-Ratelimit-Remaining` is the number of requests that can currently be sent without pauses. The value of `X-Ratelimit-Remaining` decreases by one after each request. If `X-Ratelimit-Remaining` is `0` and you make the next request without a delay, you will receive a `429` error in response. The value of `X-Ratelimit-Remaining` is restored over time.
+
+    <div class="description_important">
+      There are cases where one request can count as multiple requests. For example, if you send requests in the <a href="./api-information#tag/authorization/How-to-create-a-personal-access-base-or-test-token">Marketplace</a> category, a request with a <code>4XX</code> errors will count as 10 requests with other statuses. In such cases, the value of <code>X-Ratelimit-Remaining</code> will decrease by 10 units immediately.
+    </div>
+
+    If you exceed the request rate limit, you will receive a `429` error. In this case, you need to wait a short period before making the next request. To determine how long you need to wait, use the headers from the `429` response:
+
+    - `X-Ratelimit-Retry` — the number of seconds after which you can retry the request. If you attempt it earlier, you will continue to receive a `429` error.
+    - `X-Ratelimit-Limit` — the maximum allowable burst of requests, which will be replenished after `X-Ratelimit-Reset` seconds.
+    - `X-Ratelimit-Reset` — the number of seconds after which the allowable burst of requests will be restored to the maximum value specified in `X-Ratelimit-Limit`.
+
+    Response example:
+
+    ```sh
+    HTTP/1.1 429 Too Many Requests
+    ...
+    X-Ratelimit-Reset: 29
+    X-Ratelimit-Retry: 2
+    ...
+    X-Ratelimit-Limit: 10
+    ```
 - name: Authorization
   x-displayName: Authorization
   description: ''
   x-tagKey: authorization
+  x-description: |+
+    You need API token to authenticate requests. It is valid for 180 days after creation. Add the token to the `Authorization` request header.
+
+    <div class="description_important">
+      According to clause 9.9.6 of the offer, integration with the seller portal without <a href="/en">WB API</a> is prohibited.
+    </div>
+
+    # Rules for using API access tokens
+
+    <div class="description_auth">
+      The procedure and grounds for revoking access tokens are set out in the <a href="https://legal.wildberries.ru/soglashenie-o-razmeschenii-avtorizovannykh-servisov-na-platforme-wb-api/country/ru/lang/ru/">WB API Platform Access Agreement</a>.
+    </div>
+
+
+    <div class="description_ref">
+      You can learn more about tokens from the <a href="https://seller.wildberries.ru/instructions/ru/ru/material/api-integration-with-token">guide in the Help Center</a>
+    </div>
+
+
+    Four types of tokens are available for authorization:
+
+    <div class="description_limit">
+      Request limits may differ for different token types
+    </div>
+
+    1. **Personal token**
+
+    - **Purpose:** An exclusive token with advanced features. It is designed to grant access to seller data only to your own programs, including corporate (on-premise) systems hosted on your own or third-party infrastructure.<br />Advanced features mean that over time, a personal access token will provide access to additional categories of seller data that are not available with the basic token. We will announce this in the news in advance.
+    - **Suitable for:**
+      - a company's own software products or systems hosted on its own or third-party servers
+      - ready-made on-premise ERP/CRM systems, including local (packaged) versions of 1C hosted on company servers or user computers
+    - **Restrictions:** A personal access token provides access to sensitive information, so it must not be shared with third parties or used in cloud services. When creating the token, the system will display a liability warning — you must accept it to proceed.<br />You choose the token settings yourself. If you are unsure which parameters to specify, check with the developer or IT specialist responsible for the system you are connecting.
+
+    2. **Service token**
+
+    - **Purpose:** A special token for connecting a specific cloud service from the official [Catalog of business solutions](/en/business-solutions) on **Wildberries**.
+    - **Features:** Select a service from the [Catalog](/en/business-solutions) when creating the token. Then all necessary settings, including data categories and access levels, are filled in automatically. You only need to confirm the token creation and provide it to the service.
+    - **Restrictions:** Token is created for one service only and doesn't work with any other
+
+    3. **Base token**
+
+    - **Purpose:** An additional token that provides access to a limited set of seller data and is used in all cases where a service or personal access token is not suitable.
+    - **Suitable for:**
+      - testing integration on real data before launch
+      - other cases where you cannot use a service or personal access token
+    - **Restrictions:** You can only work with a limited set of data.
+
+    4. **Test token**
+
+    - **Purpose:** A special token for securely testing and debugging integrations in an isolated environment — the [WB API sandbox](/en/sandbox).
+    - **Suitable for:**
+      - developing and debugging integrations without risk to real data
+      - exploring API capabilities and experimenting with methods
+      - testing new features before launching in the production environment
+    - **Restrictions:** A test token only works with the sandbox and provides access to generated test data. Real seller data is not accessible.
+
+    <div class="description_important">
+      In some methods, you may see a section with a key icon — this section outlines usage restrictions. For example, a specific token type or the presence of a service secret in the request may be required.<br><br>
+
+      If there is no key icon section in the method, you can use it with any token type.
+    </div>
+
+    # How to create a personal access, base, or test token
+
+
+    <div class="description_ref">
+      You can learn more about creating a <strong>Service token</strong> from the <a href="https://seller.wildberries.ru/instructions/ru/ru/material/how-to-create-update-or-delete-a-wb-api-token#%D0%BA%D0%B0%D0%BA-%D1%81%D0%BE%D0%B7%D0%B4%D0%B0%D1%82%D1%8C-%D1%81%D0%B5%D1%80%D0%B2%D0%B8%D1%81%D0%BD%D1%8B%D0%B9-%D1%82%D0%BE%D0%BA%D0%B5%D0%BD">guide in the Help Center</a>
+    </div>
+
+
+    1. In your personal access account, go to the [API Integrations](https://seller.wildberries.ru/api-integrations) section.
+    2. Click **+ Create token**. A window for creating token with two tabs will open. For all token types except Service token, select the **Manual integration** tab.
+    3. Choose the token type.
+    4. For base and personal access tokens:
+      - Enter the token name
+      - Choose the method [categories](./api-information#tag/authorization/Token-categories) you will have access to with this token
+      - Set the data access level: **Read and Write** or **Read Only**
+
+    <div class="description_important">
+      Only select the categories you plan to work with. For example, if you will only upload listings, select only Content category. If someone gets your token, they will not be able to gain access to the other API categories of your store.
+    </div>
+
+    5. Optionally, add a comment to the token. For a personal access token, check the **I understand that the token should not be shared with third parties** box.
+    6. Click **Create**. A window with your token will appear.
+    7. Click the **Copy and close** button — the window will close, and the token will be copied to the clipboard. After this, you will not be able to view the token in your personal account again.
+    8. Save the token in a safe place. If you lose the token, create a new one.
+
+    <div class="description_important">
+      If you have several services (integrations) that work with different categories, create a token for each service. This will allow access to only the necessary categories, as well as more flexible and secure management of integrations.
+    </div>
+
+    # Token categories
+
+    When creating a basic or personal token, you can select the categories of methods that you will have access to:
+
+    | Category | Methods |
+    |---------------|-----------------------|
+    | Content | [Categories, Subcategories and Characteristics](./item-management#tag/categoriesSubcategoriesAndCharacteristics)<br />[Listing Items](./item-management#tag/listingItems)<br />[Listings](./item-management#tag/listings)<br />[mediaFiles](./item-management#tag/mediaFiles)<br />[Labels](./item-management#tag/labels)<br />[Recommendations](./item-management#tag/recommendations) |
+    | Analytics | [Analytics and Data](./analytics)<br />[Warehouses Inventory Report](./reports#tag/warehousesInventoryReport)<br />[Report on Items with Mandatory Labeling](./reports#tag/reportOnItemsWithMandatoryLabeling)<br />[Retention Reports](./reports#tag/retentionReports)<br />[Acceptance Expenses](./reports#tag/acceptanceExpenses)<br />[Paid Storage](./reports#tag/paidStorage)<br />[Sales by Regions](./reports#tag/salesByRegions)<br />[Share of Brand in Sales](./reports#tag/shareOfBrandInSales)<br />[Blocked Items](./reports#tag/blockedItems)<br />[Returns and Item Movement Report](./reports#tag/returnsAndItemMovementReport) |
+    | Prices and Discounts | [Prices and Discounts](./item-management#tag/pricesAndDiscounts)<br />[Promo Calendar](./promotion#tag/promoCalendar) |
+    | Marketplace | [Seller Warehouses](./item-management#tag/sellerWarehouses)<br />[Seller Warehouses Inventory](./item-management#tag/sellerWarehousesInventory)<br />[FBS Orders](./orders-fbs)<br />[DBW Orders](./orders-dbw)<br />[DBS Orders](./orders-dbs)<br />[In-Store Pickup Orders](./in-store-pickup) |
+    | Statistics | [Main Reports](./reports#tag/mainReports) |
+    | Promotion | [Campaigns](./promotion#tag/campaigns)<br />[Creating Campaigns](./promotion#tag/creatingCampaigns)<br />[Campaign Management](./promotion#tag/campaignManagement)<br />[Search Clusters](./promotion#tag/searchClusters)<br />[Finances](./promotion#tag/finances)<br />[Media](./promotion#tag/media)<br />[Statistics](./promotion#tag/statistics) |
+    | Feedbacks and Questions | [Questions](./customer-communication#tag/questions)<br />[Feedbacks](./customer-communication#tag/feedbacks)<br />[Pinned Feedback](./customer-communication#tag/pinnedFeedbacks) |
+    | Buyers Chat | [Buyers Chat](./customer-communication#tag/buyersChat) |
+    | Supplies | [FBW Supplies](./orders-fbw#tag/FBW-Supplies) |
+    | Buyers Returns | [Buyers Returns](./customer-communication#tag/buyersReturns) |
+    | Documents | [Documents](./documents-and-accounting#tag/documents) |
+    | Finance | [Balance](./documents-and-accounting#tag/balance)<br />[Financial Reports](./documents-and-accounting#tag/financialReports) |
+    | Users | [Seller User Management](./api-information#tag/sellerUserManagement) |
+
+    # About the token
+
+    The token is a JWT according to [RFC 7519](https://www.rfc-editor.org/rfc/rfc7519). To check if your token is valid and which categories of API methods are available with it, you can [decode it](/en/jwt?utm_source=dev-portal&utm_campaign=api-information&utm_content=cta-link).
+
+    <div class="description_important">
+      We recommend not to view the token using online tools so no one can take it over.
+    </div>
+
+    **Token fields**<br><br>
+
+    The token type can be determined by the list of fields from the decoded token `payload`:
+
+    | Token              | `acc` value | `for` value      | `t` value |
+    | ------------------ | -------------- | ------------------- | ------------ |
+    | Base token      | `1`            | The field is missing    | `false`      |
+    | Test token     | `2`            | The field is missing    | `true`       |
+    | Personal access token | `3`            | `self`              | `false`      |
+    | Service token    | `4`            | `asid:{Service ID}` | `false`      |
+
+    Other fields:
+
+    | **Field**       | **Type**          | **Description**                                                         |
+    | ---------- | ------------ | ---------------------------------------------------------------------------- |
+    | **id**   | UUIDv4 | Unique token ID |
+    | **s**    | uint   | Token properties bitmask |
+    | **sid**  | UUIDv4 | Wildberries seller ID|
+    | **exp**  | uint   | Token lifetime, complies with [RFC 7519: JSON Web Token (JWT)](https://www.rfc-editor.org/rfc/rfc7519#section-4.1.4) |
+
+    The remaining `payload` fields are for internal use and may be removed.<br><br>
+
+    **`s` field**<br><br>
+
+    The ```s``` field is a bitmask, an integer, each bit of which means the presence or absence of some option.<br><br>
+
+    [Learn more about bitmask](https://en.wikipedia.org/wiki/Mask_(computing))
+    <br><br>
+    **Bit values**
+
+    |**Bit position**| **Property (if bit is 1)**|
+    | ------------ |---------------------------------------|
+    | 1| Access to **Content**|
+    | 2| Access to **Analytics**|
+    | 3| Access to **Prices and discounts**|
+    | 4| Access to **Marketplace**|
+    | 5| Access to **Statistics**|
+
+    | 6| Access to **Promotion**|
+    | 7| Access to **Feedbacks and Questions**|
+    | 9| Access to **Buyers chat**|
+    | 10| Access to **Supplies**|
+    | 11| Access to **Buyers returns**|
+    | 12| Access to **Documents**|
+    | 13| Access to **Finance**|
+    | 16| Access to **Users**|
+    | 30| Read only token |
+
+
+    # Token decode
+
+    Token decoding will allow to check if the token is valid and which categories of API methods are available. You can decode the token on the [separate page](/en/jwt?utm_source=dev-portal&utm_campaign=api-information&utm_content=cta-link).
+
 - name: WB API Connection Check
   x-displayName: WB API Connection Check
   description: ''
   x-tagKey: connectionCheck
-- name: News API
-  x-displayName: News API
+  x-description: |
+    <div class="description_auth">
+       You can check connection with a token of any <a href="./api-information#tag/authorization/Token-categories">category</a>
+    </div>
+- name: Communications API
+  x-displayName: Communications API
   description: ''
   x-tagKey: newsApi
+  x-description: |
+    <div class="description_auth">
+       You can get Seller Portal [News](./api-information#tag/newsApi/operation/getV2News) and [Notifications](./api-information#tag/newsApi/operation/getV1Notifications) with a token of any <a href="./api-information#tag/authorization/Token-categories">category</a>
+    </div>
 - name: Seller Information
   x-displayName: Seller Information
   description: ''
   x-tagKey: sellerInformation
+  x-description: |
+    Using these methods, you can get:
+      - [seller information](./api-information#tag/sellerInformation/operation/getV1SellerInfo)
+      - [seller rating](./api-information#tag/sellerInformation/operation/getV1Rating)
+      - [Jam subscription information](./api-information#tag/sellerInformation/operation/getV1Subscriptions)
+      - [Plan builder options information](./api-information#tag/sellerInformation/operation/getV1TariffConstructorOptions)
 - name: Seller User Management
   x-displayName: Seller User Management
   description: ''
   x-tagKey: sellerUserManagement
+  x-description: |
+    <div class="description_auth">
+      To access the methods, use a <a href="./api-information#tag/authorization/How-to-create-a-personal-access-base-or-test-token">token</a> for the <strong>Users</strong> category
+    </div>
+
+    With these methods, you can:
+      - [Create an invitation for a user](./api-information#tag/sellerUserManagement/operation/postV1Invite) with access to the seller account
+      - [Get a list of the seller active or invited users](./api-information#tag/sellerUserManagement/operation/getV1Users)
+      - [Update user's access permissions](./api-information#tag/sellerUserManagement/operation/putV1UsersAccess) for the seller account
+      - [Revoke a user's access](./api-information#tag/sellerUserManagement/operation/deleteV1User) to the seller account
+
+    You can manage user access only with a token from the active owner of the seller account.
 paths:
   /ping:
     servers:
@@ -157,9 +497,9 @@ paths:
       - General
       security:
       - BearerAuth: []
-      summary: Getting Seller Portal News
+      summary: Get Seller Portal News
       description: |-
-        The method allows getting news from the seller portal.
+        The method allows getting [news](https://seller.wildberries.ru/news-v2) from the seller portal.
 
          To receive a successful response, one of the parameters `from` or `fromID` must be specified.
 
@@ -241,7 +581,109 @@ paths:
           $ref: '#/components/responses/429'
       x-tagKey: newsApi
       x-original-tags:
-      - News API
+      - Communications API
+  /api/communications/v1/notifications:
+    servers:
+    - url: https://common-api.wildberries.ru
+    get:
+      operationId: getV1Notifications
+      x-readonly-method: true
+      x-category: commonapi
+      tags:
+      - General
+      security:
+      - BearerAuth: []
+      summary: Get Seller Portal Notifications
+      description: |-
+        The method returns a list of notifications from the seller [account](https://seller.wildberries.ru) in Russian. The notifications in the response are ordered from newest to oldest.
+        Available only for sellers from the Russian Federation.
+
+        [Request limit](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Rate-Limits) per one seller account:
+        | Type | Period | Limit | Interval | Burst |
+        | --- | --- | --- | --- | --- |
+        | Personal | 1 min | 1 request | 1 min | 10 requests |
+        | Service | 1 min | 1 request | 1 min | 10 requests |
+        | Base with secret | 1 min | 1 request | 1 min | 10 requests |
+        | Base | 1 h | 1 request | 1 h | 1 request |
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/general/get-api-communications-v1-notifications
+      parameters:
+      - name: from
+        in: query
+        required: false
+        allowEmptyValue: true
+        description: |-
+          Filter by date and time: the response returns only notifications received before the specified date and time. Specify the values no later than the current ones.
+          To receive the newest notifications, do not pass this parameter in the request.
+          Use the parameter for pagination:
+          1. Send the first request without the 'from` parameter.
+          2. In the following requests, pass the `date` value of the last notification in the response in the `from` parameter.
+        schema:
+          type: string
+        example: '2025-02-13T11:18:09.308Z'
+      - name: timezone
+        in: query
+        required: false
+        allowEmptyValue: false
+        description: |
+          Time zone in [IANA](https://nodatime.org/TimeZones) format
+        schema:
+          type: string
+          default: Europe/Moscow
+        example: Europe/Moscow
+      - name: limit
+        in: query
+        required: false
+        allowEmptyValue: false
+        description: Number of notifications in the response
+        schema:
+          type: integer
+          format: int64
+          default: 10
+          minimum: 5
+          maximum: 100
+        example: 10
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetV1NotificationsResponse200'
+              examples:
+                SellerNotificationsExample:
+                  $ref: '#/components/examples/SellerNotificationsExample'
+        '400':
+          description: Bad request
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/SellerNotificationsError'
+              examples:
+                SellerNotifications400:
+                  $ref: '#/components/examples/SellerNotifications400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          description: Access denied
+          content:
+            application/problem+json:
+              schema:
+                oneOf:
+                - $ref: '#/components/schemas/SellerNotificationsError'
+                - $ref: '#/components/schemas/Response4XX'
+              examples:
+                SellerNotifications403NotOwner:
+                  $ref: '#/components/examples/SellerNotifications403NotOwner'
+                SellerNotifications403Country:
+                  $ref: '#/components/examples/SellerNotifications403Country'
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
+        '429':
+          $ref: '#/components/responses/429'
+      x-tagKey: newsApi
+      x-original-tags:
+      - Communications API
   /api/v1/seller-info:
     servers:
     - url: https://common-api.wildberries.ru
@@ -1695,6 +2137,74 @@ components:
           description: Request errors with specified parameters and error details
           items:
             type: string
+    SellerNotificationsResponse:
+      type: object
+      properties:
+        date:
+          type: string
+          example: '2025-02-13T11:18:09.308Z'
+          description: Date and time the notification was sent
+        id:
+          type: string
+          format: uuid
+          example: 9f70d38a-2f66-4ba6-82bd-1e513ac03b0d
+          description: Notification ID
+        linkData:
+          type: object
+          description: Notification button data
+          properties:
+            linkHref:
+              type: string
+              example: https://seller.wildberries.ru/supply-plan-upload/orders
+              description: Notification button URL
+            linkText:
+              type: string
+              example: К заказу
+              description: Notification button text
+        text:
+          type: string
+          example: Обработайте заказ...
+          description: Notification text
+        title:
+          type: string
+          example: У вас новый заказ
+          description: Notification title
+    SellerNotificationsError:
+      type: object
+      properties:
+        status:
+          type: integer
+          description: HTTP status code
+          format: int64
+        title:
+          type: string
+          description: Error title
+        detail:
+          type: string
+          description: Error details
+        origin:
+          type: string
+          description: WB internal service ID
+        errors:
+          type: array
+          description: Errors list
+          items:
+            type: object
+            properties:
+              location:
+                type: string
+                description: Request parameter that caused the error
+                example: body.name
+              message:
+                type: string
+                description: Error description
+                example: expected string
+        code:
+          type: string
+          description: Internal error code
+        requestId:
+          type: string
+          description: Request ID
     Response4XX:
       type: object
       properties:
@@ -1769,6 +2279,14 @@ components:
                     name:
                       type: string
                       description: Tag name
+    GetV1NotificationsResponse200:
+      type: object
+      properties:
+        data:
+          type: array
+          description: Notifications list
+          items:
+            $ref: '#/components/schemas/SellerNotificationsResponse'
     GetV1SellerInfoResponse200:
       type: object
       properties:
@@ -1846,6 +2364,44 @@ components:
         status: 404
         origin: options-service
         code: OPTIONS_NOT_AVAILABLE
+    SellerNotificationsExample:
+      value:
+        data:
+        - date: '2025-02-13T11:18:09.308Z'
+          id: 9f70d38a-2f66-4ba6-82bd-1e513ac03b0d
+          linkData:
+            linkHref: https://seller.wildberries.ru/supply-plan-upload/orders
+            linkText: К заказу
+          text: Обработайте заказ...
+          title: У вас новый заказ
+        - date: '2025-02-13T10:10:10.100Z'
+          id: b1e2f3a4-5b6c-4d7e-8f90-1a2b3c4d5e6f
+          text: Проверьте остатки
+          title: Остатки закончились
+    SellerNotifications400:
+      value:
+        status: 400
+        title: Validation failed
+        detail: Invalid request
+        origin: notifications-public
+        code: validationError
+        requestId: 0582f92d-abb5-4e41-8f7a-c8cd447ba551
+    SellerNotifications403NotOwner:
+      value:
+        status: 403
+        title: Access denied
+        detail: User is not the owner
+        origin: notifications-public
+        code: notOwnerError
+        requestId: 0582f92d-abb5-4e41-8f7a-c8cd447ba551
+    SellerNotifications403Country:
+      value:
+        status: 403
+        title: Access denied
+        detail: Seller is not from Russia
+        origin: notifications-public
+        code: countryError
+        requestId: 0582f92d-abb5-4e41-8f7a-c8cd447ba551
     Response403TokenCategory:
       value:
         status: 403

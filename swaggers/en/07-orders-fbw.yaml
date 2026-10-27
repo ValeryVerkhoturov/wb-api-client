@@ -18,14 +18,45 @@ tags:
     x-displayName: Information for Forming Supplies
     description: ''
     x-tagKey: informationForFormingSupplies
+    x-description: |
+      <div class="description_auth">
+        To access the methods, use a <a href="./api-information#tag/authorization/How-to-create-a-personal-access-base-or-test-token">token</a> for the <strong>Supplies</strong> category
+      </div>
+
+      Getting information for forming supplies to WB warehouses:
+        1. [Acceptance options](./orders-fbw#tag/informationForFormingSupplies/operation/postV1AcceptanceOptions)
+        2. [Warehouses list](./orders-fbw#tag/informationForFormingSupplies/operation/getV1Warehouses)
+        3. [Transit directions](./orders-fbw#tag/informationForFormingSupplies/operation/getV1TransitTariffs)
   - name: Supplies Information
     x-displayName: Supplies Information
     description: ''
     x-tagKey: suppliesInformation
+    x-description: |
+      <div class="description_auth">
+        To access the methods, use a <a href="./api-information#tag/authorization/How-to-create-a-personal-access-base-or-test-token">token</a> for the <strong>Supplies</strong> category
+      </div>
+
+      Getting information about item supplies for storage in WB warehouses:
+        1. [Supplies list](./orders-fbw#tag/suppliesInformation/operation/postV1Supplies)
+        2. [Supply details](./orders-fbw#tag/suppliesInformation/operation/getV1SuppliesId)
+        3. [Supply items](./orders-fbw#tag/suppliesInformation/operation/getV1SuppliesIdGoods)
+        4. [Supply package](./orders-fbw#tag/suppliesInformation/operation/getV1SuppliesIdPackage)
   - name: Supply Drafts
     x-displayName: Supply Drafts
     description: ''
     x-tagKey: supplyDrafts
+    x-description: |
+      <div class="description_auth">
+        To access the methods, use a <a href="./api-information#tag/authorization/How-to-create-a-personal-access-base-or-test-token">token</a> for the <strong>Supplies</strong> category
+      </div>
+
+      Methods for working with supply drafts:
+        1. [Create Draft](./orders-fbw#tag/supplyDrafts/operation/postV1Drafts)
+        2. [Add Items to Draft](./orders-fbw#tag/supplyDrafts/operation/postV1DraftsDraftIdItems)
+        3. [Drafts List](./orders-fbw#tag/supplyDrafts/operation/getV1Drafts)
+        4. [Items List in Draft](./orders-fbw#tag/supplyDrafts/operation/getV1DraftsDraftIdItems)
+        5. [Delete Items from Draft](./orders-fbw#tag/supplyDrafts/operation/deleteV1DraftsDraftIdItems)
+        6. [Delete Draft](./orders-fbw#tag/supplyDrafts/operation/deleteV1DraftsDraftId)
 paths:
   /api/v1/acceptance/options:
     servers:
@@ -2046,6 +2077,14 @@ components:
           description: Service where the error occurred
     Response4XX:
       type: object
+      required:
+        - title
+        - detail
+        - requestId
+        - origin
+        - status
+        - statusText
+        - timestamp
       properties:
         title:
           type: string

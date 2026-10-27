@@ -12,42 +12,108 @@ tags:
   x-displayName: Main Reports
   description: ''
   x-tagKey: mainReports
+  x-description: |
+    <div class="description_auth">
+      To access the methods, use a <a href="./api-information#tag/authorization/How-to-create-a-personal-access-base-or-test-token">token</a> for the <strong>Statistics</strong> category
+    </div>
+
+    You can save the main reports in <a href="/en/knowledge-base/articles/019d49a4-650c-7b04-9596-ba441936f9d3">sheets format</a>
 - name: Warehouses Inventory Report
   x-displayName: Warehouses Inventory Report
   description: ''
   x-tagKey: warehousesInventoryReport
+  x-description: |
+    <div class="description_auth">
+      To access the methods, use a <a href="./api-information#tag/authorization/How-to-create-a-personal-access-base-or-test-token">token</a> for the <strong>Analytics</strong> category
+    </div>
+
+    To get the report on [WB warehouses remains](https://seller.wildberries.ru/analytics-reports/warehouse-remains):
+      1. [Create the report](./reports#tag/warehousesInventoryReport/operation/getV1WarehouseRemains).
+      2. Wait for the report to be ready. You can [check the status](./reports#tag/warehousesInventoryReport/operation/getV1WarehouseRemainsTasksTaskIdStatus) of the report readiness. The ready report is stored for 2 hours.
+      3. [Get the report](./reports#tag/warehousesInventoryReport/operation/getV1WarehouseRemainsTasksTaskIdDownload).
 - name: Report on Items with Mandatory Labeling
   x-displayName: Report on Items with Mandatory Labeling
   description: ''
   x-tagKey: reportOnItemsWithMandatoryLabeling
+  x-description: |
+    <div class="description_auth">
+      To access the methods, use a <a href="./api-information#tag/authorization/How-to-create-a-personal-access-base-or-test-token">token</a> for the <strong>Analytics</strong> category
+    </div>
 - name: Retention Reports
   x-displayName: Retention Reports
   description: ''
   x-tagKey: retentionReports
+  x-description: |
+    <div class="description_auth">
+      To access the methods, use a <a href="./api-information#tag/authorization/How-to-create-a-personal-access-base-or-test-token">token</a> for the <strong>Analytics</strong> category
+    </div>
 - name: Acceptance Expenses
   x-displayName: Acceptance Expenses
   description: ''
   x-tagKey: acceptanceExpenses
+  x-description: |
+    <div class="description_auth">
+      To access the methods, use a <a href="./api-information#tag/authorization/How-to-create-a-personal-access-base-or-test-token">token</a> for the <strong>Analytics</strong> category
+    </div>
+
+    To get the report on [acceptance expenses](https://seller.wildberries.ru/analytics-reports/acceptance-report):
+      1. [Create the report](./reports#tag/acceptanceExpenses/operation/getV1AcceptanceReport).
+      2. Wait for the report to be ready. You can [check the status](./reports#tag/acceptanceExpenses/operation/getV1AcceptanceReportTasksTaskIdStatus) of the report readiness. The ready report is stored for 2 hours.
+      3. [Get the report](./reports#tag/acceptanceExpenses/operation/getV1AcceptanceReportTasksTaskIdDownload).
 - name: Paid Storage
   x-displayName: Paid Storage
   description: ''
   x-tagKey: paidStorage
+  x-description: |
+    <div class="description_auth">
+      To access the methods, use a <a href="./api-information#tag/authorization/How-to-create-a-personal-access-base-or-test-token">token</a> for the <strong>Analytics</strong> category
+    </div>
+
+    To get the report:
+
+      1. [Generate the report](./reports#tag/paidStorage/operation/getV1PaidStorage)
+      2. Check if the report is generated with [Check the status](./reports#tag/paidStorage/operation/getV1PaidStorageTasksTaskIdStatus) method. Generated report is available during 2 hours.
+      3. [Get the report](./reports#tag/paidStorage/operation/getV1PaidStorageTasksTaskIdDownload)
 - name: Sales by Regions
   x-displayName: Sales by Regions
   description: ''
   x-tagKey: salesByRegions
+  x-description: |
+    <div class="description_auth">
+      To access the methods, use a <a href="./api-information#tag/authorization/How-to-create-a-personal-access-base-or-test-token">token</a> for the <strong>Analytics</strong> category
+    </div>
 - name: Share of Brand in Sales
   x-displayName: Share of Brand in Sales
   description: ''
   x-tagKey: shareOfBrandInSales
+  x-description: |
+    <div class="description_auth">
+      To access the methods, use a <a href="./api-information#tag/authorization/How-to-create-a-personal-access-base-or-test-token">token</a> for the <strong>Analytics</strong> category
+    </div>
+
+    [Reports](https://seller.wildberries.ru/analytics-reports/brand-share) on the seller brand share in sales.
+
+    To [obtain a report](./reports#tag/shareOfBrandInSales/operation/getV1AnalyticsBrandShare), you will need:
+    1. [Brand names](./reports#tag/shareOfBrandInSales/operation/getV1AnalyticsBrandShareBrands).
+    2. [ID and names of categories](./reports#tag/shareOfBrandInSales/operation/getV1AnalyticsBrandShareParentSubjects).
+
+    You can get a report for a maximum of one year
 - name: Blocked Items
   x-displayName: Blocked Items
   description: ''
   x-tagKey: blockedItems
+  x-description: |
+    <div class="description_auth">
+      To access the methods, use a <a href="./api-information#tag/authorization/How-to-create-a-personal-access-base-or-test-token">token</a> for the <strong>Analytics</strong> category
+    </div>
 - name: Returns and Item Movement Report
   x-displayName: Returns and Item Movement Report
   description: ''
   x-tagKey: returnsAndItemMovementReport
+  x-description: |
+    <div class="description_auth">
+      To access the methods, use a <a href="./api-information#tag/authorization/How-to-create-a-personal-access-base-or-test-token">token</a> for the <strong>Analytics</strong> category
+    </div>
 paths:
   /api/v1/supplier/orders:
     servers:
