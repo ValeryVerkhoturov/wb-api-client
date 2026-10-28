@@ -588,6 +588,9 @@ paths:
     get:
       operationId: getV1Notifications
       x-readonly-method: true
+      x-token-types:
+      - personal
+      - service
       x-category: commonapi
       tags:
       - General
@@ -595,6 +598,10 @@ paths:
       - BearerAuth: []
       summary: Get Seller Portal Notifications
       description: |-
+        Method is [available](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Rules-for-using-API-access-tokens) by
+        **Personal** token,
+        **Service** token
+
         The method returns a list of notifications from the seller [account](https://seller.wildberries.ru) in Russian. The notifications in the response are ordered from newest to oldest.
         Available only for sellers from the Russian Federation.
 
@@ -603,8 +610,6 @@ paths:
         | --- | --- | --- | --- | --- |
         | Personal | 1 min | 1 request | 1 min | 10 requests |
         | Service | 1 min | 1 request | 1 min | 10 requests |
-        | Base with secret | 1 min | 1 request | 1 min | 10 requests |
-        | Base | 1 h | 1 request | 1 h | 1 request |
 
         Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/general/get-api-communications-v1-notifications
       parameters:

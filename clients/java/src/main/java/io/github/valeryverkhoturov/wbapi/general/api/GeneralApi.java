@@ -540,14 +540,15 @@ public class GeneralApi {
   }
 
   /**
-   * Получить уведомления портала продавцов Метод возвращает список уведомлений из
+   * Получить уведомления портала продавцов Метод
+   * [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API)
+   * по **Персональному** токену, **Сервисному** токену Метод возвращает список уведомлений из
    * [профиля](https://seller.wildberries.ru) продавца на русском языке. Порядок уведомлений в
    * ответе — от новых к старым. Доступно только для продавцов из РФ. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1
-   * запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов |
-   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * запрос | 1 мин | 10 запросов | Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/general/get-api-communications-v1-notifications
    *
    * @param from Фильтр по дате и времени: в ответе возвращаются только уведомления, полученные до
@@ -581,14 +582,15 @@ public class GeneralApi {
   }
 
   /**
-   * Получить уведомления портала продавцов Метод возвращает список уведомлений из
+   * Получить уведомления портала продавцов Метод
+   * [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API)
+   * по **Персональному** токену, **Сервисному** токену Метод возвращает список уведомлений из
    * [профиля](https://seller.wildberries.ru) продавца на русском языке. Порядок уведомлений в
    * ответе — от новых к старым. Доступно только для продавцов из РФ. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1
-   * запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов |
-   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * запрос | 1 мин | 10 запросов | Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/general/get-api-communications-v1-notifications
    *
    * @param from Фильтр по дате и времени: в ответе возвращаются только уведомления, полученные до
@@ -622,14 +624,15 @@ public class GeneralApi {
   }
 
   /**
-   * Получить уведомления портала продавцов (asynchronously) Метод возвращает список уведомлений из
+   * Получить уведомления портала продавцов (asynchronously) Метод
+   * [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API)
+   * по **Персональному** токену, **Сервисному** токену Метод возвращает список уведомлений из
    * [профиля](https://seller.wildberries.ru) продавца на русском языке. Порядок уведомлений в
    * ответе — от новых к старым. Доступно только для продавцов из РФ. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1
-   * запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов |
-   * | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * запрос | 1 мин | 10 запросов | Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/general/get-api-communications-v1-notifications
    *
    * @param from Фильтр по дате и времени: в ответе возвращаются только уведомления, полученные до
