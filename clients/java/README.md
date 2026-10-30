@@ -317,10 +317,9 @@ AnalyticsApi api = new AnalyticsApi(client);
 3. [Удержаниях](https://dev.wildberries.ru/openapi/reports#tag/retentionReports)
 4. [Операциях при приёмке](https://dev.wildberries.ru/openapi/reports#tag/acceptanceExpenses)
 5. [Платном хранении](https://dev.wildberries.ru/openapi/reports#tag/paidStorage)
-6. [Продажах по регионам](https://dev.wildberries.ru/openapi/reports#tag/salesByRegions)
-7. [Доле бренда в продажах](https://dev.wildberries.ru/openapi/reports#tag/shareOfBrandInSales)
-8. [Заблокированных карточках](https://dev.wildberries.ru/openapi/reports#tag/blockedItems)
-9. [Возвратах и перемещении товаров](https://dev.wildberries.ru/openapi/reports#tag/returnsAndItemMovementReport)
+6. [Доле бренда в продажах](https://dev.wildberries.ru/openapi/reports#tag/shareOfBrandInSales)
+7. [Заблокированных карточках](https://dev.wildberries.ru/openapi/reports#tag/blockedItems)
+8. [Возвратах и перемещении товаров](https://dev.wildberries.ru/openapi/reports#tag/returnsAndItemMovementReport)
 
 **Reference:** https://dev.wildberries.ru/openapi/reports
 

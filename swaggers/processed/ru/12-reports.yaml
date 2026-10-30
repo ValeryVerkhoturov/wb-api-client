@@ -11,10 +11,9 @@ info:
     3. [Удержаниях](https://dev.wildberries.ru/openapi/reports#tag/retentionReports)
     4. [Операциях при приёмке](https://dev.wildberries.ru/openapi/reports#tag/acceptanceExpenses)
     5. [Платном хранении](https://dev.wildberries.ru/openapi/reports#tag/paidStorage)
-    6. [Продажах по регионам](https://dev.wildberries.ru/openapi/reports#tag/salesByRegions)
-    7. [Доле бренда в продажах](https://dev.wildberries.ru/openapi/reports#tag/shareOfBrandInSales)
-    8. [Заблокированных карточках](https://dev.wildberries.ru/openapi/reports#tag/blockedItems)
-    9. [Возвратах и перемещении товаров](https://dev.wildberries.ru/openapi/reports#tag/returnsAndItemMovementReport)
+    6. [Доле бренда в продажах](https://dev.wildberries.ru/openapi/reports#tag/shareOfBrandInSales)
+    7. [Заблокированных карточках](https://dev.wildberries.ru/openapi/reports#tag/blockedItems)
+    8. [Возвратах и перемещении товаров](https://dev.wildberries.ru/openapi/reports#tag/returnsAndItemMovementReport)
   x-file-name: reports
 security:
 - BearerAuth: []
@@ -157,7 +156,7 @@ tags:
     </div>
 
     <div class="description_important">
-      Узнать больше об отчёте о заблокированных карточках можно в <a href="https://seller.wildberries.ru/instructions/ru/ru/material/hidden-items-report?categoryId=5f2162c5-069b-416d-a4e1-48da2a76e6b0#вкладка-«заблокированные-карточки»">справочном центре</a>
+      Узнать больше об отчёте о заблокированных карточках можно в <a href="https://seller.wildberries.ru/instructions/material/hidden-items-report">справочном центре</a>
     </div>
 
     [Метод](./reports#tag/blockedItems/operation/getV1AnalyticsBannedProducsBlocked) загрузки отчётов о [заблокированных карточках](https://seller.wildberries.ru/analytics-reports/banned-products)
@@ -171,10 +170,10 @@ tags:
     </div>
 
     <div class="description_important">
-      Узнать больше об отчётах о возвратах и перемещении товаров можно в <a href="https://seller.wildberries.ru/instructions/material/A-248?categoryId=5f2162c5-069b-416d-a4e1-48da2a76e6b0">справочном центре</a>
+      Узнать больше об отчётах о возвратах и перемещении товаров можно в <a href="https://seller.wildberries.ru/instructions/material/returns-and-item-transfer-perort">справочном центре</a>
     </div>
 
-    Чтобы получить отчёт о [возвратах товаров](https://seller.wildberries.ru/return-transfer-reports/active), воспользуйтесь [методом загрузки](./reports#tag/returnsAndItemMovementReport/operation/getV1AnalyticsGoodsReturn).
+    Чтобы получить отчёт о [возвратах товаров](https://seller.wildberries.ru/return-transfer-reports), воспользуйтесь [методом загрузки](./reports#tag/returnsAndItemMovementReport/operation/getV1ItemReturns).
 paths:
   /api/v1/supplier/orders:
     servers:
@@ -2035,80 +2034,11 @@ paths:
       x-tagKey: blockedItems
       x-original-tags:
       - Заблокированные карточки
-  /api/v1/analytics/goods-return:
-    servers:
-    - url: https://seller-analytics-api.wildberries.ru
-    get:
-      operationId: getV1AnalyticsGoodsReturn
-      x-readonly-method: true
-      x-category: contentanalytics
-      deprecated: true
-      security:
-      - BearerAuth: []
-      tags:
-      - Reports
-      summary: Получить отчёт
-      description: |-
-        Метод будет отключен [26 октября](https://dev.wildberries.ru/release-notes?id=577).
-
-        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-goods-return
-      parameters:
-      - name: dateFrom
-        in: query
-        required: true
-        schema:
-          type: string
-          example: '2024-08-13'
-        description: Дата начала отчётного периода
-      - name: dateTo
-        in: query
-        required: true
-        schema:
-          type: string
-          example: '2024-08-27'
-        description: Дата окончания отчётного периода
-      responses:
-        '200':
-          description: Успешно
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/GetV1AnalyticsGoodsReturnResponse200'
-        '400':
-          description: Неправильный запрос
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Http4XXResponse'
-              examples:
-                MissingDateTimeFrom:
-                  $ref: '#/components/examples/MissingDateTimeFrom'
-                MissingDateTimeTo:
-                  $ref: '#/components/examples/MissingDateTimeTo'
-                IncorrectDateTimeFrom:
-                  $ref: '#/components/examples/IncorrectDateTimeFrom'
-                IncorrectDateTimeTo:
-                  $ref: '#/components/examples/IncorrectDateTimeTo'
-                DateRangeExceeded:
-                  $ref: '#/components/examples/DateRangeExceeded'
-                DateRanges:
-                  $ref: '#/components/examples/DateRanges'
-        '401':
-          $ref: '#/components/responses/401'
-        '402':
-          $ref: '#/components/responses/402'
-        '403':
-          $ref: '#/components/responses/403'
-        '429':
-          $ref: '#/components/responses/429'
-      x-tagKey: returnsAndItemMovementReport
-      x-original-tags:
-      - Отчёт о возвратах и перемещении товаров
   /api/analytics/v1/item-returns:
     servers:
     - url: https://seller-analytics-api.wildberries.ru
     get:
-      operationId: getV1GoodsReturn
+      operationId: getV1ItemReturns
       x-readonly-method: true
       x-category: contentanalytics
       security:
@@ -2177,7 +2107,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GoodsReturn200Response'
+                $ref: '#/components/schemas/ItemReturns200Response'
               examples:
                 ReportExample:
                   $ref: '#/components/examples/ReportExample'
@@ -2211,7 +2141,7 @@ paths:
       - Отчёт о возвратах и перемещении товаров
 components:
   schemas:
-    GoodsReturn200Response:
+    ItemReturns200Response:
       type: object
       properties:
         count:
@@ -3176,106 +3106,6 @@ components:
         origin:
           type: string
           description: ID внутреннего сервиса WB
-    GetV1AnalyticsGoodsReturnResponse200:
-      type: object
-      properties:
-        report:
-          description: Отчёт
-          type: array
-          items:
-            type: object
-            properties:
-              barcode:
-                type: string
-                example: '1680063403480'
-                description: Баркод
-              brand:
-                type: string
-                example: dub
-                description: Бренд
-              completedDt:
-                type: string
-                nullable: true
-                example: '2025-03-31T11:33:53'
-                description: Дата и время выдачи возврата продавцу
-              dstOfficeAddress:
-                type: string
-                example: Жуковский Улица Маяковского 19
-                description: Адрес ПВЗ выдачи возврата
-              dstOfficeId:
-                type: integer
-                example: 310105
-                description: ID ПВЗ выдачи возврата
-                format: int64
-              expiredDt:
-                type: string
-                nullable: true
-                example: '2025-03-31T11:33:53'
-                description: Дата и время истечения срока хранения возврата
-              isStatusActive:
-                type: integer
-                example: 0
-                description: |
-                  Тип статуса возврата:
-
-                    * `0` — архивный
-                    * `1` — активный
-                enum:
-                - 0
-                - 1
-                format: int64
-              nmId:
-                type: integer
-                example: 12862181
-                description: Артикул WB
-                format: int64
-              orderDt:
-                type: string
-                example: '2024-08-26'
-                description: Дата заказа на возврат
-              orderId:
-                type: integer
-                example: 2034240826
-                description: Номер сборочного задания
-                format: int64
-              readyToReturnDt:
-                type: string
-                nullable: true
-                example: '2025-01-31T08:33:50'
-                description: Дата и время готовности возврата к выдаче
-              reason:
-                type: string
-                example: Цвет
-                description: Причина возврата
-              returnType:
-                type: string
-                example: Возврат заблокированного товара
-                description: Тип возврата
-              shkId:
-                type: integer
-                example: 23411783472
-                description: Штрихкод
-                format: int64
-              srid:
-                type: string
-                example: ad3817664d3046c5a8d55054d8be96d6
-                description: Уникальный ID заказа на возврат
-              status:
-                type: string
-                example: В пути в пвз
-                description: Статус возврата
-              stickerId:
-                type: string
-                example: '33811984302'
-                description: Стикер заказа на возврат
-              subjectName:
-                type: string
-                example: Багажные бирки
-                description: Предмет
-              techSize:
-                type: string
-                example: '0'
-                description: Размер
   parameters:
     FlagOrders:
       in: query

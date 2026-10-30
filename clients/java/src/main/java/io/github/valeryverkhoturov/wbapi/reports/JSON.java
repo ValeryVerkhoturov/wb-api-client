@@ -1,6 +1,6 @@
 /*
  * Отчёты
- * Узнать больше об отчётах можно в [справочном центре](https://seller.wildberries.ru/instructions/subcategory/5f2162c5-069b-416d-a4e1-48da2a76e6b0)  С помощью этих методов вы можете получать [основные отчёты](https://dev.wildberries.ru/openapi/reports#tag/mainReports) и отчёты о: 1. [Остатках на складах](https://dev.wildberries.ru/openapi/reports#tag/warehousesInventoryReport) 2. [Товарах с обязательной маркировкой](https://dev.wildberries.ru/openapi/reports#tag/reportOnItemsWithMandatoryLabeling) 3. [Удержаниях](https://dev.wildberries.ru/openapi/reports#tag/retentionReports) 4. [Операциях при приёмке](https://dev.wildberries.ru/openapi/reports#tag/acceptanceExpenses) 5. [Платном хранении](https://dev.wildberries.ru/openapi/reports#tag/paidStorage) 6. [Продажах по регионам](https://dev.wildberries.ru/openapi/reports#tag/salesByRegions) 7. [Доле бренда в продажах](https://dev.wildberries.ru/openapi/reports#tag/shareOfBrandInSales) 8. [Заблокированных карточках](https://dev.wildberries.ru/openapi/reports#tag/blockedItems) 9. [Возвратах и перемещении товаров](https://dev.wildberries.ru/openapi/reports#tag/returnsAndItemMovementReport)
+ * Узнать больше об отчётах можно в [справочном центре](https://seller.wildberries.ru/instructions/subcategory/5f2162c5-069b-416d-a4e1-48da2a76e6b0)  С помощью этих методов вы можете получать [основные отчёты](https://dev.wildberries.ru/openapi/reports#tag/mainReports) и отчёты о: 1. [Остатках на складах](https://dev.wildberries.ru/openapi/reports#tag/warehousesInventoryReport) 2. [Товарах с обязательной маркировкой](https://dev.wildberries.ru/openapi/reports#tag/reportOnItemsWithMandatoryLabeling) 3. [Удержаниях](https://dev.wildberries.ru/openapi/reports#tag/retentionReports) 4. [Операциях при приёмке](https://dev.wildberries.ru/openapi/reports#tag/acceptanceExpenses) 5. [Платном хранении](https://dev.wildberries.ru/openapi/reports#tag/paidStorage) 6. [Доле бренда в продажах](https://dev.wildberries.ru/openapi/reports#tag/shareOfBrandInSales) 7. [Заблокированных карточках](https://dev.wildberries.ru/openapi/reports#tag/blockedItems) 8. [Возвратах и перемещении товаров](https://dev.wildberries.ru/openapi/reports#tag/returnsAndItemMovementReport)
  *
  * The version of the OpenAPI document: reports
  *
@@ -149,12 +149,6 @@ public class JSON {
         new io.github.valeryverkhoturov.wbapi.reports.model
             .GetV1AnalyticsGoodsLabeling200ResponseReportInner.CustomTypeAdapterFactory());
     gsonBuilder.registerTypeAdapterFactory(
-        new io.github.valeryverkhoturov.wbapi.reports.model.GetV1AnalyticsGoodsReturnResponse200
-            .CustomTypeAdapterFactory());
-    gsonBuilder.registerTypeAdapterFactory(
-        new io.github.valeryverkhoturov.wbapi.reports.model
-            .GetV1AnalyticsGoodsReturnResponse200ReportInner.CustomTypeAdapterFactory());
-    gsonBuilder.registerTypeAdapterFactory(
         new io.github.valeryverkhoturov.wbapi.reports.model.GetV1AnalyticsRegionSale200Response
             .CustomTypeAdapterFactory());
     gsonBuilder.registerTypeAdapterFactory(
@@ -192,13 +186,13 @@ public class JSON {
             .GetV1WarehouseRemainsTasksTaskIdDownloadResponse200InnerWarehousesInner
             .CustomTypeAdapterFactory());
     gsonBuilder.registerTypeAdapterFactory(
-        new io.github.valeryverkhoturov.wbapi.reports.model.GoodsReturn200Response
-            .CustomTypeAdapterFactory());
-    gsonBuilder.registerTypeAdapterFactory(
-        new io.github.valeryverkhoturov.wbapi.reports.model.GoodsReturn200ResponseReportInner
-            .CustomTypeAdapterFactory());
-    gsonBuilder.registerTypeAdapterFactory(
         new io.github.valeryverkhoturov.wbapi.reports.model.Http4XXResponse
+            .CustomTypeAdapterFactory());
+    gsonBuilder.registerTypeAdapterFactory(
+        new io.github.valeryverkhoturov.wbapi.reports.model.ItemReturns200Response
+            .CustomTypeAdapterFactory());
+    gsonBuilder.registerTypeAdapterFactory(
+        new io.github.valeryverkhoturov.wbapi.reports.model.ItemReturns200ResponseReportInner
             .CustomTypeAdapterFactory());
     gsonBuilder.registerTypeAdapterFactory(
         new io.github.valeryverkhoturov.wbapi.reports.model.MeasurementPenalties

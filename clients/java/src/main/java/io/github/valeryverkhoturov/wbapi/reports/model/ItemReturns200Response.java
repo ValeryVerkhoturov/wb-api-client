@@ -1,6 +1,6 @@
 /*
  * Отчёты
- * Узнать больше об отчётах можно в [справочном центре](https://seller.wildberries.ru/instructions/subcategory/5f2162c5-069b-416d-a4e1-48da2a76e6b0)  С помощью этих методов вы можете получать [основные отчёты](https://dev.wildberries.ru/openapi/reports#tag/mainReports) и отчёты о: 1. [Остатках на складах](https://dev.wildberries.ru/openapi/reports#tag/warehousesInventoryReport) 2. [Товарах с обязательной маркировкой](https://dev.wildberries.ru/openapi/reports#tag/reportOnItemsWithMandatoryLabeling) 3. [Удержаниях](https://dev.wildberries.ru/openapi/reports#tag/retentionReports) 4. [Операциях при приёмке](https://dev.wildberries.ru/openapi/reports#tag/acceptanceExpenses) 5. [Платном хранении](https://dev.wildberries.ru/openapi/reports#tag/paidStorage) 6. [Продажах по регионам](https://dev.wildberries.ru/openapi/reports#tag/salesByRegions) 7. [Доле бренда в продажах](https://dev.wildberries.ru/openapi/reports#tag/shareOfBrandInSales) 8. [Заблокированных карточках](https://dev.wildberries.ru/openapi/reports#tag/blockedItems) 9. [Возвратах и перемещении товаров](https://dev.wildberries.ru/openapi/reports#tag/returnsAndItemMovementReport)
+ * Узнать больше об отчётах можно в [справочном центре](https://seller.wildberries.ru/instructions/subcategory/5f2162c5-069b-416d-a4e1-48da2a76e6b0)  С помощью этих методов вы можете получать [основные отчёты](https://dev.wildberries.ru/openapi/reports#tag/mainReports) и отчёты о: 1. [Остатках на складах](https://dev.wildberries.ru/openapi/reports#tag/warehousesInventoryReport) 2. [Товарах с обязательной маркировкой](https://dev.wildberries.ru/openapi/reports#tag/reportOnItemsWithMandatoryLabeling) 3. [Удержаниях](https://dev.wildberries.ru/openapi/reports#tag/retentionReports) 4. [Операциях при приёмке](https://dev.wildberries.ru/openapi/reports#tag/acceptanceExpenses) 5. [Платном хранении](https://dev.wildberries.ru/openapi/reports#tag/paidStorage) 6. [Доле бренда в продажах](https://dev.wildberries.ru/openapi/reports#tag/shareOfBrandInSales) 7. [Заблокированных карточках](https://dev.wildberries.ru/openapi/reports#tag/blockedItems) 8. [Возвратах и перемещении товаров](https://dev.wildberries.ru/openapi/reports#tag/returnsAndItemMovementReport)
  *
  * The version of the OpenAPI document: reports
  *
@@ -31,11 +31,11 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** GoodsReturn200Response */
+/** ItemReturns200Response */
 @jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     comments = "Generator version: 7.10.0")
-public class GoodsReturn200Response {
+public class ItemReturns200Response {
   public static final String SERIALIZED_NAME_COUNT = "count";
 
   @SerializedName(SERIALIZED_NAME_COUNT)
@@ -46,11 +46,11 @@ public class GoodsReturn200Response {
 
   @SerializedName(SERIALIZED_NAME_REPORT)
   @jakarta.annotation.Nullable
-  private List<GoodsReturn200ResponseReportInner> report = new ArrayList<>();
+  private List<ItemReturns200ResponseReportInner> report = new ArrayList<>();
 
-  public GoodsReturn200Response() {}
+  public ItemReturns200Response() {}
 
-  public GoodsReturn200Response count(@jakarta.annotation.Nullable Long count) {
+  public ItemReturns200Response count(@jakarta.annotation.Nullable Long count) {
     this.count = count;
     return this;
   }
@@ -69,13 +69,13 @@ public class GoodsReturn200Response {
     this.count = count;
   }
 
-  public GoodsReturn200Response report(
-      @jakarta.annotation.Nullable List<GoodsReturn200ResponseReportInner> report) {
+  public ItemReturns200Response report(
+      @jakarta.annotation.Nullable List<ItemReturns200ResponseReportInner> report) {
     this.report = report;
     return this;
   }
 
-  public GoodsReturn200Response addReportItem(GoodsReturn200ResponseReportInner reportItem) {
+  public ItemReturns200Response addReportItem(ItemReturns200ResponseReportInner reportItem) {
     if (this.report == null) {
       this.report = new ArrayList<>();
     }
@@ -89,12 +89,12 @@ public class GoodsReturn200Response {
    * @return report
    */
   @jakarta.annotation.Nullable
-  public List<GoodsReturn200ResponseReportInner> getReport() {
+  public List<ItemReturns200ResponseReportInner> getReport() {
     return report;
   }
 
   public void setReport(
-      @jakarta.annotation.Nullable List<GoodsReturn200ResponseReportInner> report) {
+      @jakarta.annotation.Nullable List<ItemReturns200ResponseReportInner> report) {
     this.report = report;
   }
 
@@ -106,9 +106,9 @@ public class GoodsReturn200Response {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GoodsReturn200Response goodsReturn200Response = (GoodsReturn200Response) o;
-    return Objects.equals(this.count, goodsReturn200Response.count)
-        && Objects.equals(this.report, goodsReturn200Response.report);
+    ItemReturns200Response itemReturns200Response = (ItemReturns200Response) o;
+    return Objects.equals(this.count, itemReturns200Response.count)
+        && Objects.equals(this.report, itemReturns200Response.report);
   }
 
   @Override
@@ -119,7 +119,7 @@ public class GoodsReturn200Response {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GoodsReturn200Response {\n");
+    sb.append("class ItemReturns200Response {\n");
     sb.append("    count: ").append(toIndentedString(count)).append("\n");
     sb.append("    report: ").append(toIndentedString(report)).append("\n");
     sb.append("}");
@@ -153,26 +153,26 @@ public class GoodsReturn200Response {
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to GoodsReturn200Response
+   * @throws IOException if the JSON Element is invalid with respect to ItemReturns200Response
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
     if (jsonElement == null) {
-      if (!GoodsReturn200Response.openapiRequiredFields
+      if (!ItemReturns200Response.openapiRequiredFields
           .isEmpty()) { // has required fields but JSON element is null
         throw new IllegalArgumentException(
             String.format(
-                "The required field(s) %s in GoodsReturn200Response is not found in the empty JSON string",
-                GoodsReturn200Response.openapiRequiredFields.toString()));
+                "The required field(s) %s in ItemReturns200Response is not found in the empty JSON string",
+                ItemReturns200Response.openapiRequiredFields.toString()));
       }
     }
 
     Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
     // check to see if the JSON string contains additional fields
     for (Map.Entry<String, JsonElement> entry : entries) {
-      if (!GoodsReturn200Response.openapiFields.contains(entry.getKey())) {
+      if (!ItemReturns200Response.openapiFields.contains(entry.getKey())) {
         throw new IllegalArgumentException(
             String.format(
-                "The field `%s` in the JSON string is not defined in the `GoodsReturn200Response` properties. JSON: %s",
+                "The field `%s` in the JSON string is not defined in the `ItemReturns200Response` properties. JSON: %s",
                 entry.getKey(), jsonElement.toString()));
       }
     }
@@ -190,7 +190,7 @@ public class GoodsReturn200Response {
 
         // validate the optional field `report` (array)
         for (int i = 0; i < jsonArrayreport.size(); i++) {
-          GoodsReturn200ResponseReportInner.validateJsonElement(jsonArrayreport.get(i));
+          ItemReturns200ResponseReportInner.validateJsonElement(jsonArrayreport.get(i));
         }
         ;
       }
@@ -201,23 +201,23 @@ public class GoodsReturn200Response {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-      if (!GoodsReturn200Response.class.isAssignableFrom(type.getRawType())) {
-        return null; // this class only serializes 'GoodsReturn200Response' and its subtypes
+      if (!ItemReturns200Response.class.isAssignableFrom(type.getRawType())) {
+        return null; // this class only serializes 'ItemReturns200Response' and its subtypes
       }
       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-      final TypeAdapter<GoodsReturn200Response> thisAdapter =
-          gson.getDelegateAdapter(this, TypeToken.get(GoodsReturn200Response.class));
+      final TypeAdapter<ItemReturns200Response> thisAdapter =
+          gson.getDelegateAdapter(this, TypeToken.get(ItemReturns200Response.class));
 
       return (TypeAdapter<T>)
-          new TypeAdapter<GoodsReturn200Response>() {
+          new TypeAdapter<ItemReturns200Response>() {
             @Override
-            public void write(JsonWriter out, GoodsReturn200Response value) throws IOException {
+            public void write(JsonWriter out, ItemReturns200Response value) throws IOException {
               JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
               elementAdapter.write(out, obj);
             }
 
             @Override
-            public GoodsReturn200Response read(JsonReader in) throws IOException {
+            public ItemReturns200Response read(JsonReader in) throws IOException {
               JsonElement jsonElement = elementAdapter.read(in);
               validateJsonElement(jsonElement);
               return thisAdapter.fromJsonTree(jsonElement);
@@ -227,18 +227,18 @@ public class GoodsReturn200Response {
   }
 
   /**
-   * Create an instance of GoodsReturn200Response given an JSON string
+   * Create an instance of ItemReturns200Response given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of GoodsReturn200Response
-   * @throws IOException if the JSON string is invalid with respect to GoodsReturn200Response
+   * @return An instance of ItemReturns200Response
+   * @throws IOException if the JSON string is invalid with respect to ItemReturns200Response
    */
-  public static GoodsReturn200Response fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, GoodsReturn200Response.class);
+  public static ItemReturns200Response fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ItemReturns200Response.class);
   }
 
   /**
-   * Convert an instance of GoodsReturn200Response to an JSON string
+   * Convert an instance of ItemReturns200Response to an JSON string
    *
    * @return JSON string
    */

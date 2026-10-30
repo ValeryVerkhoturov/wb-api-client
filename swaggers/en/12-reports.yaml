@@ -2047,172 +2047,11 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: blockedItems
-  /api/v1/analytics/goods-return:
-    servers:
-      - url: https://seller-analytics-api.wildberries.ru
-    get:
-      operationId: getV1AnalyticsGoodsReturn
-      x-readonly-method: true
-      x-category: contentanalytics
-      deprecated: true
-      security:
-        - HeaderApiKey: []
-      tags:
-        - Returns and Item Movement Report
-      summary: Get Report
-      description: |
-        The method will be disabled on [October 26](/en/release-notes?id=577)
-      parameters:
-        - name: dateFrom
-          in: query
-          required: true
-          schema:
-            type: string
-            format: date
-            example: '2024-08-13'
-          description: Beginning date of the reporting period
-        - name: dateTo
-          in: query
-          required: true
-          schema:
-            type: string
-            format: date
-            example: '2024-08-27'
-          description: End date of the reporting period
-      responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  report:
-                    description: Report
-                    type: array
-                    items:
-                      type: object
-                      properties:
-                        barcode:
-                          type: string
-                          example: '1680063403480'
-                          description: SKU
-                        brand:
-                          type: string
-                          example: dub
-                          description: Brand
-                        completedDt:
-                          type: string
-                          nullable: true
-                          example: '2025-03-31T11:33:53'
-                          description: Date and time the seller received return
-                        dstOfficeAddress:
-                          type: string
-                          example: Жуковский Улица Маяковского 19
-                          description: Address of pick-up point where the seller receives returns
-                        dstOfficeId:
-                          type: integer
-                          example: 310105
-                          description: ID of pick-up point where the seller receives returns
-                        expiredDt:
-                          type: string
-                          nullable: true
-                          example: '2025-03-31T11:33:53'
-                          description: Expiration date and time of the storage period
-                        isStatusActive:
-                          type: integer
-                          example: 0
-                          description: |
-                            Type of return status:
-
-                              * `0` — archive
-                              * `1` — active
-                          enum:
-                            - 0
-                            - 1
-                        nmId:
-                          type: integer
-                          example: 12862181
-                          description: WB item number
-                        orderDt:
-                          type: string
-                          format: date
-                          example: '2024-08-26'
-                          description: Date of the return order
-                        orderId:
-                          type: integer
-                          example: 2034240826
-                          description: Assembly order number
-                        readyToReturnDt:
-                          type: string
-                          nullable: true
-                          example: '2025-01-31T08:33:50'
-                          description: Date and time when the return is ready for delivery
-                        reason:
-                          type: string
-                          example: Цвет
-                          description: The reason for the return
-                        returnType:
-                          type: string
-                          example: Возврат заблокированного товара
-                          description: Return type
-                        shkId:
-                          type: integer
-                          example: 23411783472
-                          description: Item No.
-                        srid:
-                          type: string
-                          example: ad3817664d3046c5a8d55054d8be96d6
-                          description: The unique ID of the return order
-                        status:
-                          type: string
-                          example: В пути в пвз
-                          description: Return status
-                        stickerId:
-                          type: string
-                          example: '33811984302'
-                          description: Sticker of the return order
-                        subjectName:
-                          type: string
-                          example: Багажные бирки
-                          description: Subcategory name
-                        techSize:
-                          type: string
-                          example: '0'
-                          description: Size
-        '400':
-          description: Bad request
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/4XXResponse'
-              examples:
-                MissingDateTimeFrom:
-                  $ref: '#/components/examples/MissingDateTimeFrom'
-                MissingDateTimeTo:
-                  $ref: '#/components/examples/MissingDateTimeTo'
-                IncorrectDateTimeFrom:
-                  $ref: '#/components/examples/IncorrectDateTimeFrom'
-                IncorrectDateTimeTo:
-                  $ref: '#/components/examples/IncorrectDateTimeTo'
-                DateRangeExceeded:
-                  $ref: '#/components/examples/DateRangeExceeded'
-                DateRanges:
-                  $ref: '#/components/examples/DateRanges'
-        '401':
-          $ref: '#/components/responses/401'
-        '402':
-          $ref: '#/components/responses/402'
-        '403':
-          $ref: '#/components/responses/403'
-        '429':
-          $ref: '#/components/responses/429'
-      x-tagKey: returnsAndItemMovementReport
   /api/analytics/v1/item-returns:
     servers:
       - url: https://seller-analytics-api.wildberries.ru
     get:
-      operationId: getV1GoodsReturn
+      operationId: getV1ItemReturns
       x-readonly-method: true
       x-category: contentanalytics
       security:
@@ -2285,7 +2124,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GoodsReturn200Response'
+                $ref: '#/components/schemas/ItemReturns200Response'
               examples:
                 ReportExample:
                   $ref: '#/components/examples/ReportExample'
@@ -2317,7 +2156,7 @@ paths:
       x-tagKey: returnsAndItemMovementReport
 components:
   schemas:
-    GoodsReturn200Response:
+    ItemReturns200Response:
       type: object
       required:
         - count

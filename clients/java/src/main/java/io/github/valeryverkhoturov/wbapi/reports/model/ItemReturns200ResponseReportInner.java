@@ -1,6 +1,6 @@
 /*
  * Отчёты
- * Узнать больше об отчётах можно в [справочном центре](https://seller.wildberries.ru/instructions/subcategory/5f2162c5-069b-416d-a4e1-48da2a76e6b0)  С помощью этих методов вы можете получать [основные отчёты](https://dev.wildberries.ru/openapi/reports#tag/mainReports) и отчёты о: 1. [Остатках на складах](https://dev.wildberries.ru/openapi/reports#tag/warehousesInventoryReport) 2. [Товарах с обязательной маркировкой](https://dev.wildberries.ru/openapi/reports#tag/reportOnItemsWithMandatoryLabeling) 3. [Удержаниях](https://dev.wildberries.ru/openapi/reports#tag/retentionReports) 4. [Операциях при приёмке](https://dev.wildberries.ru/openapi/reports#tag/acceptanceExpenses) 5. [Платном хранении](https://dev.wildberries.ru/openapi/reports#tag/paidStorage) 6. [Продажах по регионам](https://dev.wildberries.ru/openapi/reports#tag/salesByRegions) 7. [Доле бренда в продажах](https://dev.wildberries.ru/openapi/reports#tag/shareOfBrandInSales) 8. [Заблокированных карточках](https://dev.wildberries.ru/openapi/reports#tag/blockedItems) 9. [Возвратах и перемещении товаров](https://dev.wildberries.ru/openapi/reports#tag/returnsAndItemMovementReport)
+ * Узнать больше об отчётах можно в [справочном центре](https://seller.wildberries.ru/instructions/subcategory/5f2162c5-069b-416d-a4e1-48da2a76e6b0)  С помощью этих методов вы можете получать [основные отчёты](https://dev.wildberries.ru/openapi/reports#tag/mainReports) и отчёты о: 1. [Остатках на складах](https://dev.wildberries.ru/openapi/reports#tag/warehousesInventoryReport) 2. [Товарах с обязательной маркировкой](https://dev.wildberries.ru/openapi/reports#tag/reportOnItemsWithMandatoryLabeling) 3. [Удержаниях](https://dev.wildberries.ru/openapi/reports#tag/retentionReports) 4. [Операциях при приёмке](https://dev.wildberries.ru/openapi/reports#tag/acceptanceExpenses) 5. [Платном хранении](https://dev.wildberries.ru/openapi/reports#tag/paidStorage) 6. [Доле бренда в продажах](https://dev.wildberries.ru/openapi/reports#tag/shareOfBrandInSales) 7. [Заблокированных карточках](https://dev.wildberries.ru/openapi/reports#tag/blockedItems) 8. [Возвратах и перемещении товаров](https://dev.wildberries.ru/openapi/reports#tag/returnsAndItemMovementReport)
  *
  * The version of the OpenAPI document: reports
  *
@@ -17,7 +17,6 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
@@ -29,16 +28,16 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** GetV1AnalyticsGoodsReturnResponse200ReportInner */
+/** ItemReturns200ResponseReportInner */
 @jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     comments = "Generator version: 7.10.0")
-public class GetV1AnalyticsGoodsReturnResponse200ReportInner {
-  public static final String SERIALIZED_NAME_BARCODE = "barcode";
+public class ItemReturns200ResponseReportInner {
+  public static final String SERIALIZED_NAME_SKU = "sku";
 
-  @SerializedName(SERIALIZED_NAME_BARCODE)
+  @SerializedName(SERIALIZED_NAME_SKU)
   @jakarta.annotation.Nullable
-  private String barcode;
+  private String sku;
 
   public static final String SERIALIZED_NAME_BRAND = "brand";
 
@@ -58,6 +57,12 @@ public class GetV1AnalyticsGoodsReturnResponse200ReportInner {
   @jakarta.annotation.Nullable
   private String dstOfficeAddress;
 
+  public static final String SERIALIZED_NAME_KIZ = "kiz";
+
+  @SerializedName(SERIALIZED_NAME_KIZ)
+  @jakarta.annotation.Nullable
+  private String kiz;
+
   public static final String SERIALIZED_NAME_DST_OFFICE_ID = "dstOfficeId";
 
   @SerializedName(SERIALIZED_NAME_DST_OFFICE_ID)
@@ -69,63 +74,6 @@ public class GetV1AnalyticsGoodsReturnResponse200ReportInner {
   @SerializedName(SERIALIZED_NAME_EXPIRED_DT)
   @jakarta.annotation.Nullable
   private String expiredDt;
-
-  /** Тип статуса возврата: * &#x60;0&#x60; — архивный * &#x60;1&#x60; — активный */
-  @JsonAdapter(IsStatusActiveEnum.Adapter.class)
-  public enum IsStatusActiveEnum {
-    NUMBER_0(0l),
-
-    NUMBER_1(1l);
-
-    private Long value;
-
-    IsStatusActiveEnum(Long value) {
-      this.value = value;
-    }
-
-    public Long getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    public static IsStatusActiveEnum fromValue(Long value) {
-      for (IsStatusActiveEnum b : IsStatusActiveEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-
-    public static class Adapter extends TypeAdapter<IsStatusActiveEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final IsStatusActiveEnum enumeration)
-          throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public IsStatusActiveEnum read(final JsonReader jsonReader) throws IOException {
-        Long value = jsonReader.nextLong();
-        return IsStatusActiveEnum.fromValue(value);
-      }
-    }
-
-    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      Long value = jsonElement.getAsLong();
-      IsStatusActiveEnum.fromValue(value);
-    }
-  }
-
-  public static final String SERIALIZED_NAME_IS_STATUS_ACTIVE = "isStatusActive";
-
-  @SerializedName(SERIALIZED_NAME_IS_STATUS_ACTIVE)
-  @jakarta.annotation.Nullable
-  private IsStatusActiveEnum isStatusActive;
 
   public static final String SERIALIZED_NAME_NM_ID = "nmId";
 
@@ -151,11 +99,11 @@ public class GetV1AnalyticsGoodsReturnResponse200ReportInner {
   @jakarta.annotation.Nullable
   private String readyToReturnDt;
 
-  public static final String SERIALIZED_NAME_REASON = "reason";
+  public static final String SERIALIZED_NAME_RETURN_REASON = "returnReason";
 
-  @SerializedName(SERIALIZED_NAME_REASON)
+  @SerializedName(SERIALIZED_NAME_RETURN_REASON)
   @jakarta.annotation.Nullable
-  private String reason;
+  private String returnReason;
 
   public static final String SERIALIZED_NAME_RETURN_TYPE = "returnType";
 
@@ -175,11 +123,11 @@ public class GetV1AnalyticsGoodsReturnResponse200ReportInner {
   @jakarta.annotation.Nullable
   private String srid;
 
-  public static final String SERIALIZED_NAME_STATUS = "status";
+  public static final String SERIALIZED_NAME_RETURN_STATUS = "returnStatus";
 
-  @SerializedName(SERIALIZED_NAME_STATUS)
+  @SerializedName(SERIALIZED_NAME_RETURN_STATUS)
   @jakarta.annotation.Nullable
-  private String status;
+  private String returnStatus;
 
   public static final String SERIALIZED_NAME_STICKER_ID = "stickerId";
 
@@ -199,30 +147,28 @@ public class GetV1AnalyticsGoodsReturnResponse200ReportInner {
   @jakarta.annotation.Nullable
   private String techSize;
 
-  public GetV1AnalyticsGoodsReturnResponse200ReportInner() {}
+  public ItemReturns200ResponseReportInner() {}
 
-  public GetV1AnalyticsGoodsReturnResponse200ReportInner barcode(
-      @jakarta.annotation.Nullable String barcode) {
-    this.barcode = barcode;
+  public ItemReturns200ResponseReportInner sku(@jakarta.annotation.Nullable String sku) {
+    this.sku = sku;
     return this;
   }
 
   /**
    * Баркод
    *
-   * @return barcode
+   * @return sku
    */
   @jakarta.annotation.Nullable
-  public String getBarcode() {
-    return barcode;
+  public String getSku() {
+    return sku;
   }
 
-  public void setBarcode(@jakarta.annotation.Nullable String barcode) {
-    this.barcode = barcode;
+  public void setSku(@jakarta.annotation.Nullable String sku) {
+    this.sku = sku;
   }
 
-  public GetV1AnalyticsGoodsReturnResponse200ReportInner brand(
-      @jakarta.annotation.Nullable String brand) {
+  public ItemReturns200ResponseReportInner brand(@jakarta.annotation.Nullable String brand) {
     this.brand = brand;
     return this;
   }
@@ -241,7 +187,7 @@ public class GetV1AnalyticsGoodsReturnResponse200ReportInner {
     this.brand = brand;
   }
 
-  public GetV1AnalyticsGoodsReturnResponse200ReportInner completedDt(
+  public ItemReturns200ResponseReportInner completedDt(
       @jakarta.annotation.Nullable String completedDt) {
     this.completedDt = completedDt;
     return this;
@@ -261,14 +207,14 @@ public class GetV1AnalyticsGoodsReturnResponse200ReportInner {
     this.completedDt = completedDt;
   }
 
-  public GetV1AnalyticsGoodsReturnResponse200ReportInner dstOfficeAddress(
+  public ItemReturns200ResponseReportInner dstOfficeAddress(
       @jakarta.annotation.Nullable String dstOfficeAddress) {
     this.dstOfficeAddress = dstOfficeAddress;
     return this;
   }
 
   /**
-   * Адрес ПВЗ выдачи возврата
+   * Адрес ПВЗ для выдачи возврата продавцу
    *
    * @return dstOfficeAddress
    */
@@ -281,14 +227,33 @@ public class GetV1AnalyticsGoodsReturnResponse200ReportInner {
     this.dstOfficeAddress = dstOfficeAddress;
   }
 
-  public GetV1AnalyticsGoodsReturnResponse200ReportInner dstOfficeId(
+  public ItemReturns200ResponseReportInner kiz(@jakarta.annotation.Nullable String kiz) {
+    this.kiz = kiz;
+    return this;
+  }
+
+  /**
+   * Код маркировки [Честного знака](https://честныйзнак.рф/)
+   *
+   * @return kiz
+   */
+  @jakarta.annotation.Nullable
+  public String getKiz() {
+    return kiz;
+  }
+
+  public void setKiz(@jakarta.annotation.Nullable String kiz) {
+    this.kiz = kiz;
+  }
+
+  public ItemReturns200ResponseReportInner dstOfficeId(
       @jakarta.annotation.Nullable Long dstOfficeId) {
     this.dstOfficeId = dstOfficeId;
     return this;
   }
 
   /**
-   * ID ПВЗ выдачи возврата
+   * ID ПВЗ для выдачи возврата продавцу
    *
    * @return dstOfficeId
    */
@@ -301,7 +266,7 @@ public class GetV1AnalyticsGoodsReturnResponse200ReportInner {
     this.dstOfficeId = dstOfficeId;
   }
 
-  public GetV1AnalyticsGoodsReturnResponse200ReportInner expiredDt(
+  public ItemReturns200ResponseReportInner expiredDt(
       @jakarta.annotation.Nullable String expiredDt) {
     this.expiredDt = expiredDt;
     return this;
@@ -321,28 +286,7 @@ public class GetV1AnalyticsGoodsReturnResponse200ReportInner {
     this.expiredDt = expiredDt;
   }
 
-  public GetV1AnalyticsGoodsReturnResponse200ReportInner isStatusActive(
-      @jakarta.annotation.Nullable IsStatusActiveEnum isStatusActive) {
-    this.isStatusActive = isStatusActive;
-    return this;
-  }
-
-  /**
-   * Тип статуса возврата: * &#x60;0&#x60; — архивный * &#x60;1&#x60; — активный
-   *
-   * @return isStatusActive
-   */
-  @jakarta.annotation.Nullable
-  public IsStatusActiveEnum getIsStatusActive() {
-    return isStatusActive;
-  }
-
-  public void setIsStatusActive(@jakarta.annotation.Nullable IsStatusActiveEnum isStatusActive) {
-    this.isStatusActive = isStatusActive;
-  }
-
-  public GetV1AnalyticsGoodsReturnResponse200ReportInner nmId(
-      @jakarta.annotation.Nullable Long nmId) {
+  public ItemReturns200ResponseReportInner nmId(@jakarta.annotation.Nullable Long nmId) {
     this.nmId = nmId;
     return this;
   }
@@ -361,8 +305,7 @@ public class GetV1AnalyticsGoodsReturnResponse200ReportInner {
     this.nmId = nmId;
   }
 
-  public GetV1AnalyticsGoodsReturnResponse200ReportInner orderDt(
-      @jakarta.annotation.Nullable String orderDt) {
+  public ItemReturns200ResponseReportInner orderDt(@jakarta.annotation.Nullable String orderDt) {
     this.orderDt = orderDt;
     return this;
   }
@@ -381,14 +324,13 @@ public class GetV1AnalyticsGoodsReturnResponse200ReportInner {
     this.orderDt = orderDt;
   }
 
-  public GetV1AnalyticsGoodsReturnResponse200ReportInner orderId(
-      @jakarta.annotation.Nullable Long orderId) {
+  public ItemReturns200ResponseReportInner orderId(@jakarta.annotation.Nullable Long orderId) {
     this.orderId = orderId;
     return this;
   }
 
   /**
-   * Номер сборочного задания
+   * ID сборочного задания
    *
    * @return orderId
    */
@@ -401,7 +343,7 @@ public class GetV1AnalyticsGoodsReturnResponse200ReportInner {
     this.orderId = orderId;
   }
 
-  public GetV1AnalyticsGoodsReturnResponse200ReportInner readyToReturnDt(
+  public ItemReturns200ResponseReportInner readyToReturnDt(
       @jakarta.annotation.Nullable String readyToReturnDt) {
     this.readyToReturnDt = readyToReturnDt;
     return this;
@@ -421,27 +363,28 @@ public class GetV1AnalyticsGoodsReturnResponse200ReportInner {
     this.readyToReturnDt = readyToReturnDt;
   }
 
-  public GetV1AnalyticsGoodsReturnResponse200ReportInner reason(
-      @jakarta.annotation.Nullable String reason) {
-    this.reason = reason;
+  public ItemReturns200ResponseReportInner returnReason(
+      @jakarta.annotation.Nullable String returnReason) {
+    this.returnReason = returnReason;
     return this;
   }
 
   /**
-   * Причина возврата
+   * Причина возврата. Поле возвращается только при &#x60;\&quot;returnType\&quot;:\&quot;Возврат
+   * неопознанного товара\&quot;&#x60;
    *
-   * @return reason
+   * @return returnReason
    */
   @jakarta.annotation.Nullable
-  public String getReason() {
-    return reason;
+  public String getReturnReason() {
+    return returnReason;
   }
 
-  public void setReason(@jakarta.annotation.Nullable String reason) {
-    this.reason = reason;
+  public void setReturnReason(@jakarta.annotation.Nullable String returnReason) {
+    this.returnReason = returnReason;
   }
 
-  public GetV1AnalyticsGoodsReturnResponse200ReportInner returnType(
+  public ItemReturns200ResponseReportInner returnType(
       @jakarta.annotation.Nullable String returnType) {
     this.returnType = returnType;
     return this;
@@ -461,8 +404,7 @@ public class GetV1AnalyticsGoodsReturnResponse200ReportInner {
     this.returnType = returnType;
   }
 
-  public GetV1AnalyticsGoodsReturnResponse200ReportInner shkId(
-      @jakarta.annotation.Nullable Long shkId) {
+  public ItemReturns200ResponseReportInner shkId(@jakarta.annotation.Nullable Long shkId) {
     this.shkId = shkId;
     return this;
   }
@@ -481,14 +423,13 @@ public class GetV1AnalyticsGoodsReturnResponse200ReportInner {
     this.shkId = shkId;
   }
 
-  public GetV1AnalyticsGoodsReturnResponse200ReportInner srid(
-      @jakarta.annotation.Nullable String srid) {
+  public ItemReturns200ResponseReportInner srid(@jakarta.annotation.Nullable String srid) {
     this.srid = srid;
     return this;
   }
 
   /**
-   * Уникальный ID заказа на возврат
+   * ID заказа на возврат
    *
    * @return srid
    */
@@ -501,27 +442,27 @@ public class GetV1AnalyticsGoodsReturnResponse200ReportInner {
     this.srid = srid;
   }
 
-  public GetV1AnalyticsGoodsReturnResponse200ReportInner status(
-      @jakarta.annotation.Nullable String status) {
-    this.status = status;
+  public ItemReturns200ResponseReportInner returnStatus(
+      @jakarta.annotation.Nullable String returnStatus) {
+    this.returnStatus = returnStatus;
     return this;
   }
 
   /**
    * Статус возврата
    *
-   * @return status
+   * @return returnStatus
    */
   @jakarta.annotation.Nullable
-  public String getStatus() {
-    return status;
+  public String getReturnStatus() {
+    return returnStatus;
   }
 
-  public void setStatus(@jakarta.annotation.Nullable String status) {
-    this.status = status;
+  public void setReturnStatus(@jakarta.annotation.Nullable String returnStatus) {
+    this.returnStatus = returnStatus;
   }
 
-  public GetV1AnalyticsGoodsReturnResponse200ReportInner stickerId(
+  public ItemReturns200ResponseReportInner stickerId(
       @jakarta.annotation.Nullable String stickerId) {
     this.stickerId = stickerId;
     return this;
@@ -541,7 +482,7 @@ public class GetV1AnalyticsGoodsReturnResponse200ReportInner {
     this.stickerId = stickerId;
   }
 
-  public GetV1AnalyticsGoodsReturnResponse200ReportInner subjectName(
+  public ItemReturns200ResponseReportInner subjectName(
       @jakarta.annotation.Nullable String subjectName) {
     this.subjectName = subjectName;
     return this;
@@ -561,8 +502,7 @@ public class GetV1AnalyticsGoodsReturnResponse200ReportInner {
     this.subjectName = subjectName;
   }
 
-  public GetV1AnalyticsGoodsReturnResponse200ReportInner techSize(
-      @jakarta.annotation.Nullable String techSize) {
+  public ItemReturns200ResponseReportInner techSize(@jakarta.annotation.Nullable String techSize) {
     this.techSize = techSize;
     return this;
   }
@@ -589,56 +529,48 @@ public class GetV1AnalyticsGoodsReturnResponse200ReportInner {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GetV1AnalyticsGoodsReturnResponse200ReportInner
-        getV1AnalyticsGoodsReturnResponse200ReportInner =
-            (GetV1AnalyticsGoodsReturnResponse200ReportInner) o;
-    return Objects.equals(this.barcode, getV1AnalyticsGoodsReturnResponse200ReportInner.barcode)
-        && Objects.equals(this.brand, getV1AnalyticsGoodsReturnResponse200ReportInner.brand)
-        && Objects.equals(
-            this.completedDt, getV1AnalyticsGoodsReturnResponse200ReportInner.completedDt)
-        && Objects.equals(
-            this.dstOfficeAddress, getV1AnalyticsGoodsReturnResponse200ReportInner.dstOfficeAddress)
-        && Objects.equals(
-            this.dstOfficeId, getV1AnalyticsGoodsReturnResponse200ReportInner.dstOfficeId)
-        && Objects.equals(this.expiredDt, getV1AnalyticsGoodsReturnResponse200ReportInner.expiredDt)
-        && Objects.equals(
-            this.isStatusActive, getV1AnalyticsGoodsReturnResponse200ReportInner.isStatusActive)
-        && Objects.equals(this.nmId, getV1AnalyticsGoodsReturnResponse200ReportInner.nmId)
-        && Objects.equals(this.orderDt, getV1AnalyticsGoodsReturnResponse200ReportInner.orderDt)
-        && Objects.equals(this.orderId, getV1AnalyticsGoodsReturnResponse200ReportInner.orderId)
-        && Objects.equals(
-            this.readyToReturnDt, getV1AnalyticsGoodsReturnResponse200ReportInner.readyToReturnDt)
-        && Objects.equals(this.reason, getV1AnalyticsGoodsReturnResponse200ReportInner.reason)
-        && Objects.equals(
-            this.returnType, getV1AnalyticsGoodsReturnResponse200ReportInner.returnType)
-        && Objects.equals(this.shkId, getV1AnalyticsGoodsReturnResponse200ReportInner.shkId)
-        && Objects.equals(this.srid, getV1AnalyticsGoodsReturnResponse200ReportInner.srid)
-        && Objects.equals(this.status, getV1AnalyticsGoodsReturnResponse200ReportInner.status)
-        && Objects.equals(this.stickerId, getV1AnalyticsGoodsReturnResponse200ReportInner.stickerId)
-        && Objects.equals(
-            this.subjectName, getV1AnalyticsGoodsReturnResponse200ReportInner.subjectName)
-        && Objects.equals(this.techSize, getV1AnalyticsGoodsReturnResponse200ReportInner.techSize);
+    ItemReturns200ResponseReportInner itemReturns200ResponseReportInner =
+        (ItemReturns200ResponseReportInner) o;
+    return Objects.equals(this.sku, itemReturns200ResponseReportInner.sku)
+        && Objects.equals(this.brand, itemReturns200ResponseReportInner.brand)
+        && Objects.equals(this.completedDt, itemReturns200ResponseReportInner.completedDt)
+        && Objects.equals(this.dstOfficeAddress, itemReturns200ResponseReportInner.dstOfficeAddress)
+        && Objects.equals(this.kiz, itemReturns200ResponseReportInner.kiz)
+        && Objects.equals(this.dstOfficeId, itemReturns200ResponseReportInner.dstOfficeId)
+        && Objects.equals(this.expiredDt, itemReturns200ResponseReportInner.expiredDt)
+        && Objects.equals(this.nmId, itemReturns200ResponseReportInner.nmId)
+        && Objects.equals(this.orderDt, itemReturns200ResponseReportInner.orderDt)
+        && Objects.equals(this.orderId, itemReturns200ResponseReportInner.orderId)
+        && Objects.equals(this.readyToReturnDt, itemReturns200ResponseReportInner.readyToReturnDt)
+        && Objects.equals(this.returnReason, itemReturns200ResponseReportInner.returnReason)
+        && Objects.equals(this.returnType, itemReturns200ResponseReportInner.returnType)
+        && Objects.equals(this.shkId, itemReturns200ResponseReportInner.shkId)
+        && Objects.equals(this.srid, itemReturns200ResponseReportInner.srid)
+        && Objects.equals(this.returnStatus, itemReturns200ResponseReportInner.returnStatus)
+        && Objects.equals(this.stickerId, itemReturns200ResponseReportInner.stickerId)
+        && Objects.equals(this.subjectName, itemReturns200ResponseReportInner.subjectName)
+        && Objects.equals(this.techSize, itemReturns200ResponseReportInner.techSize);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
-        barcode,
+        sku,
         brand,
         completedDt,
         dstOfficeAddress,
+        kiz,
         dstOfficeId,
         expiredDt,
-        isStatusActive,
         nmId,
         orderDt,
         orderId,
         readyToReturnDt,
-        reason,
+        returnReason,
         returnType,
         shkId,
         srid,
-        status,
+        returnStatus,
         stickerId,
         subjectName,
         techSize);
@@ -647,23 +579,23 @@ public class GetV1AnalyticsGoodsReturnResponse200ReportInner {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GetV1AnalyticsGoodsReturnResponse200ReportInner {\n");
-    sb.append("    barcode: ").append(toIndentedString(barcode)).append("\n");
+    sb.append("class ItemReturns200ResponseReportInner {\n");
+    sb.append("    sku: ").append(toIndentedString(sku)).append("\n");
     sb.append("    brand: ").append(toIndentedString(brand)).append("\n");
     sb.append("    completedDt: ").append(toIndentedString(completedDt)).append("\n");
     sb.append("    dstOfficeAddress: ").append(toIndentedString(dstOfficeAddress)).append("\n");
+    sb.append("    kiz: ").append(toIndentedString(kiz)).append("\n");
     sb.append("    dstOfficeId: ").append(toIndentedString(dstOfficeId)).append("\n");
     sb.append("    expiredDt: ").append(toIndentedString(expiredDt)).append("\n");
-    sb.append("    isStatusActive: ").append(toIndentedString(isStatusActive)).append("\n");
     sb.append("    nmId: ").append(toIndentedString(nmId)).append("\n");
     sb.append("    orderDt: ").append(toIndentedString(orderDt)).append("\n");
     sb.append("    orderId: ").append(toIndentedString(orderId)).append("\n");
     sb.append("    readyToReturnDt: ").append(toIndentedString(readyToReturnDt)).append("\n");
-    sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
+    sb.append("    returnReason: ").append(toIndentedString(returnReason)).append("\n");
     sb.append("    returnType: ").append(toIndentedString(returnType)).append("\n");
     sb.append("    shkId: ").append(toIndentedString(shkId)).append("\n");
     sb.append("    srid: ").append(toIndentedString(srid)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    returnStatus: ").append(toIndentedString(returnStatus)).append("\n");
     sb.append("    stickerId: ").append(toIndentedString(stickerId)).append("\n");
     sb.append("    subjectName: ").append(toIndentedString(subjectName)).append("\n");
     sb.append("    techSize: ").append(toIndentedString(techSize)).append("\n");
@@ -687,22 +619,22 @@ public class GetV1AnalyticsGoodsReturnResponse200ReportInner {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("barcode");
+    openapiFields.add("sku");
     openapiFields.add("brand");
     openapiFields.add("completedDt");
     openapiFields.add("dstOfficeAddress");
+    openapiFields.add("kiz");
     openapiFields.add("dstOfficeId");
     openapiFields.add("expiredDt");
-    openapiFields.add("isStatusActive");
     openapiFields.add("nmId");
     openapiFields.add("orderDt");
     openapiFields.add("orderId");
     openapiFields.add("readyToReturnDt");
-    openapiFields.add("reason");
+    openapiFields.add("returnReason");
     openapiFields.add("returnType");
     openapiFields.add("shkId");
     openapiFields.add("srid");
-    openapiFields.add("status");
+    openapiFields.add("returnStatus");
     openapiFields.add("stickerId");
     openapiFields.add("subjectName");
     openapiFields.add("techSize");
@@ -716,36 +648,36 @@ public class GetV1AnalyticsGoodsReturnResponse200ReportInner {
    *
    * @param jsonElement JSON Element
    * @throws IOException if the JSON Element is invalid with respect to
-   *     GetV1AnalyticsGoodsReturnResponse200ReportInner
+   *     ItemReturns200ResponseReportInner
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
     if (jsonElement == null) {
-      if (!GetV1AnalyticsGoodsReturnResponse200ReportInner.openapiRequiredFields
+      if (!ItemReturns200ResponseReportInner.openapiRequiredFields
           .isEmpty()) { // has required fields but JSON element is null
         throw new IllegalArgumentException(
             String.format(
-                "The required field(s) %s in GetV1AnalyticsGoodsReturnResponse200ReportInner is not found in the empty JSON string",
-                GetV1AnalyticsGoodsReturnResponse200ReportInner.openapiRequiredFields.toString()));
+                "The required field(s) %s in ItemReturns200ResponseReportInner is not found in the empty JSON string",
+                ItemReturns200ResponseReportInner.openapiRequiredFields.toString()));
       }
     }
 
     Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
     // check to see if the JSON string contains additional fields
     for (Map.Entry<String, JsonElement> entry : entries) {
-      if (!GetV1AnalyticsGoodsReturnResponse200ReportInner.openapiFields.contains(entry.getKey())) {
+      if (!ItemReturns200ResponseReportInner.openapiFields.contains(entry.getKey())) {
         throw new IllegalArgumentException(
             String.format(
-                "The field `%s` in the JSON string is not defined in the `GetV1AnalyticsGoodsReturnResponse200ReportInner` properties. JSON: %s",
+                "The field `%s` in the JSON string is not defined in the `ItemReturns200ResponseReportInner` properties. JSON: %s",
                 entry.getKey(), jsonElement.toString()));
       }
     }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    if ((jsonObj.get("barcode") != null && !jsonObj.get("barcode").isJsonNull())
-        && !jsonObj.get("barcode").isJsonPrimitive()) {
+    if ((jsonObj.get("sku") != null && !jsonObj.get("sku").isJsonNull())
+        && !jsonObj.get("sku").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `barcode` to be a primitive type in the JSON string but got `%s`",
-              jsonObj.get("barcode").toString()));
+              "Expected the field `sku` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("sku").toString()));
     }
     if ((jsonObj.get("brand") != null && !jsonObj.get("brand").isJsonNull())
         && !jsonObj.get("brand").isJsonPrimitive()) {
@@ -768,16 +700,19 @@ public class GetV1AnalyticsGoodsReturnResponse200ReportInner {
               "Expected the field `dstOfficeAddress` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("dstOfficeAddress").toString()));
     }
+    if ((jsonObj.get("kiz") != null && !jsonObj.get("kiz").isJsonNull())
+        && !jsonObj.get("kiz").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `kiz` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("kiz").toString()));
+    }
     if ((jsonObj.get("expiredDt") != null && !jsonObj.get("expiredDt").isJsonNull())
         && !jsonObj.get("expiredDt").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `expiredDt` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("expiredDt").toString()));
-    }
-    // validate the optional field `isStatusActive`
-    if (jsonObj.get("isStatusActive") != null && !jsonObj.get("isStatusActive").isJsonNull()) {
-      IsStatusActiveEnum.validateJsonElement(jsonObj.get("isStatusActive"));
     }
     if ((jsonObj.get("orderDt") != null && !jsonObj.get("orderDt").isJsonNull())
         && !jsonObj.get("orderDt").isJsonPrimitive()) {
@@ -793,12 +728,12 @@ public class GetV1AnalyticsGoodsReturnResponse200ReportInner {
               "Expected the field `readyToReturnDt` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("readyToReturnDt").toString()));
     }
-    if ((jsonObj.get("reason") != null && !jsonObj.get("reason").isJsonNull())
-        && !jsonObj.get("reason").isJsonPrimitive()) {
+    if ((jsonObj.get("returnReason") != null && !jsonObj.get("returnReason").isJsonNull())
+        && !jsonObj.get("returnReason").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `reason` to be a primitive type in the JSON string but got `%s`",
-              jsonObj.get("reason").toString()));
+              "Expected the field `returnReason` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("returnReason").toString()));
     }
     if ((jsonObj.get("returnType") != null && !jsonObj.get("returnType").isJsonNull())
         && !jsonObj.get("returnType").isJsonPrimitive()) {
@@ -814,12 +749,12 @@ public class GetV1AnalyticsGoodsReturnResponse200ReportInner {
               "Expected the field `srid` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("srid").toString()));
     }
-    if ((jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull())
-        && !jsonObj.get("status").isJsonPrimitive()) {
+    if ((jsonObj.get("returnStatus") != null && !jsonObj.get("returnStatus").isJsonNull())
+        && !jsonObj.get("returnStatus").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `status` to be a primitive type in the JSON string but got `%s`",
-              jsonObj.get("status").toString()));
+              "Expected the field `returnStatus` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("returnStatus").toString()));
     }
     if ((jsonObj.get("stickerId") != null && !jsonObj.get("stickerId").isJsonNull())
         && !jsonObj.get("stickerId").isJsonPrimitive()) {
@@ -848,28 +783,25 @@ public class GetV1AnalyticsGoodsReturnResponse200ReportInner {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-      if (!GetV1AnalyticsGoodsReturnResponse200ReportInner.class.isAssignableFrom(
-          type.getRawType())) {
-        return null; // this class only serializes 'GetV1AnalyticsGoodsReturnResponse200ReportInner'
-        // and its subtypes
+      if (!ItemReturns200ResponseReportInner.class.isAssignableFrom(type.getRawType())) {
+        return null; // this class only serializes 'ItemReturns200ResponseReportInner' and its
+        // subtypes
       }
       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-      final TypeAdapter<GetV1AnalyticsGoodsReturnResponse200ReportInner> thisAdapter =
-          gson.getDelegateAdapter(
-              this, TypeToken.get(GetV1AnalyticsGoodsReturnResponse200ReportInner.class));
+      final TypeAdapter<ItemReturns200ResponseReportInner> thisAdapter =
+          gson.getDelegateAdapter(this, TypeToken.get(ItemReturns200ResponseReportInner.class));
 
       return (TypeAdapter<T>)
-          new TypeAdapter<GetV1AnalyticsGoodsReturnResponse200ReportInner>() {
+          new TypeAdapter<ItemReturns200ResponseReportInner>() {
             @Override
-            public void write(JsonWriter out, GetV1AnalyticsGoodsReturnResponse200ReportInner value)
+            public void write(JsonWriter out, ItemReturns200ResponseReportInner value)
                 throws IOException {
               JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
               elementAdapter.write(out, obj);
             }
 
             @Override
-            public GetV1AnalyticsGoodsReturnResponse200ReportInner read(JsonReader in)
-                throws IOException {
+            public ItemReturns200ResponseReportInner read(JsonReader in) throws IOException {
               JsonElement jsonElement = elementAdapter.read(in);
               validateJsonElement(jsonElement);
               return thisAdapter.fromJsonTree(jsonElement);
@@ -879,21 +811,19 @@ public class GetV1AnalyticsGoodsReturnResponse200ReportInner {
   }
 
   /**
-   * Create an instance of GetV1AnalyticsGoodsReturnResponse200ReportInner given an JSON string
+   * Create an instance of ItemReturns200ResponseReportInner given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of GetV1AnalyticsGoodsReturnResponse200ReportInner
+   * @return An instance of ItemReturns200ResponseReportInner
    * @throws IOException if the JSON string is invalid with respect to
-   *     GetV1AnalyticsGoodsReturnResponse200ReportInner
+   *     ItemReturns200ResponseReportInner
    */
-  public static GetV1AnalyticsGoodsReturnResponse200ReportInner fromJson(String jsonString)
-      throws IOException {
-    return JSON.getGson()
-        .fromJson(jsonString, GetV1AnalyticsGoodsReturnResponse200ReportInner.class);
+  public static ItemReturns200ResponseReportInner fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ItemReturns200ResponseReportInner.class);
   }
 
   /**
-   * Convert an instance of GetV1AnalyticsGoodsReturnResponse200ReportInner to an JSON string
+   * Convert an instance of ItemReturns200ResponseReportInner to an JSON string
    *
    * @return JSON string
    */

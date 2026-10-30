@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Отчёты
- * Узнать больше об отчётах можно в [справочном центре](https://seller.wildberries.ru/instructions/subcategory/5f2162c5-069b-416d-a4e1-48da2a76e6b0)  С помощью этих методов вы можете получать [основные отчёты](https://dev.wildberries.ru/openapi/reports#tag/mainReports) и отчёты о: 1. [Остатках на складах](https://dev.wildberries.ru/openapi/reports#tag/warehousesInventoryReport) 2. [Товарах с обязательной маркировкой](https://dev.wildberries.ru/openapi/reports#tag/reportOnItemsWithMandatoryLabeling) 3. [Удержаниях](https://dev.wildberries.ru/openapi/reports#tag/retentionReports) 4. [Операциях при приёмке](https://dev.wildberries.ru/openapi/reports#tag/acceptanceExpenses) 5. [Платном хранении](https://dev.wildberries.ru/openapi/reports#tag/paidStorage) 6. [Продажах по регионам](https://dev.wildberries.ru/openapi/reports#tag/salesByRegions) 7. [Доле бренда в продажах](https://dev.wildberries.ru/openapi/reports#tag/shareOfBrandInSales) 8. [Заблокированных карточках](https://dev.wildberries.ru/openapi/reports#tag/blockedItems) 9. [Возвратах и перемещении товаров](https://dev.wildberries.ru/openapi/reports#tag/returnsAndItemMovementReport)
+ * Узнать больше об отчётах можно в [справочном центре](https://seller.wildberries.ru/instructions/subcategory/5f2162c5-069b-416d-a4e1-48da2a76e6b0)  С помощью этих методов вы можете получать [основные отчёты](https://dev.wildberries.ru/openapi/reports#tag/mainReports) и отчёты о: 1. [Остатках на складах](https://dev.wildberries.ru/openapi/reports#tag/warehousesInventoryReport) 2. [Товарах с обязательной маркировкой](https://dev.wildberries.ru/openapi/reports#tag/reportOnItemsWithMandatoryLabeling) 3. [Удержаниях](https://dev.wildberries.ru/openapi/reports#tag/retentionReports) 4. [Операциях при приёмке](https://dev.wildberries.ru/openapi/reports#tag/acceptanceExpenses) 5. [Платном хранении](https://dev.wildberries.ru/openapi/reports#tag/paidStorage) 6. [Доле бренда в продажах](https://dev.wildberries.ru/openapi/reports#tag/shareOfBrandInSales) 7. [Заблокированных карточках](https://dev.wildberries.ru/openapi/reports#tag/blockedItems) 8. [Возвратах и перемещении товаров](https://dev.wildberries.ru/openapi/reports#tag/returnsAndItemMovementReport)
  *
  * The version of the OpenAPI document: reports
  *
@@ -473,150 +473,6 @@ export interface GetV1AnalyticsGoodsLabeling200ResponseReportInner {
    */
   sku?: string;
 }
-/**
- *
- * @export
- * @interface GetV1AnalyticsGoodsReturnResponse200
- */
-export interface GetV1AnalyticsGoodsReturnResponse200 {
-  /**
-   * Отчёт
-   * @type {Array<GetV1AnalyticsGoodsReturnResponse200ReportInner>}
-   * @memberof GetV1AnalyticsGoodsReturnResponse200
-   */
-  report?: Array<GetV1AnalyticsGoodsReturnResponse200ReportInner>;
-}
-/**
- *
- * @export
- * @interface GetV1AnalyticsGoodsReturnResponse200ReportInner
- */
-export interface GetV1AnalyticsGoodsReturnResponse200ReportInner {
-  /**
-   * Баркод
-   * @type {string}
-   * @memberof GetV1AnalyticsGoodsReturnResponse200ReportInner
-   */
-  barcode?: string;
-  /**
-   * Бренд
-   * @type {string}
-   * @memberof GetV1AnalyticsGoodsReturnResponse200ReportInner
-   */
-  brand?: string;
-  /**
-   * Дата и время выдачи возврата продавцу
-   * @type {string}
-   * @memberof GetV1AnalyticsGoodsReturnResponse200ReportInner
-   */
-  completedDt?: string | null;
-  /**
-   * Адрес ПВЗ выдачи возврата
-   * @type {string}
-   * @memberof GetV1AnalyticsGoodsReturnResponse200ReportInner
-   */
-  dstOfficeAddress?: string;
-  /**
-   * ID ПВЗ выдачи возврата
-   * @type {number}
-   * @memberof GetV1AnalyticsGoodsReturnResponse200ReportInner
-   */
-  dstOfficeId?: number;
-  /**
-   * Дата и время истечения срока хранения возврата
-   * @type {string}
-   * @memberof GetV1AnalyticsGoodsReturnResponse200ReportInner
-   */
-  expiredDt?: string | null;
-  /**
-   * Тип статуса возврата:    * `0` — архивный   * `1` — активный
-   * @type {number}
-   * @memberof GetV1AnalyticsGoodsReturnResponse200ReportInner
-   */
-  isStatusActive?: GetV1AnalyticsGoodsReturnResponse200ReportInnerIsStatusActiveEnum;
-  /**
-   * Артикул WB
-   * @type {number}
-   * @memberof GetV1AnalyticsGoodsReturnResponse200ReportInner
-   */
-  nmId?: number;
-  /**
-   * Дата заказа на возврат
-   * @type {string}
-   * @memberof GetV1AnalyticsGoodsReturnResponse200ReportInner
-   */
-  orderDt?: string;
-  /**
-   * Номер сборочного задания
-   * @type {number}
-   * @memberof GetV1AnalyticsGoodsReturnResponse200ReportInner
-   */
-  orderId?: number;
-  /**
-   * Дата и время готовности возврата к выдаче
-   * @type {string}
-   * @memberof GetV1AnalyticsGoodsReturnResponse200ReportInner
-   */
-  readyToReturnDt?: string | null;
-  /**
-   * Причина возврата
-   * @type {string}
-   * @memberof GetV1AnalyticsGoodsReturnResponse200ReportInner
-   */
-  reason?: string;
-  /**
-   * Тип возврата
-   * @type {string}
-   * @memberof GetV1AnalyticsGoodsReturnResponse200ReportInner
-   */
-  returnType?: string;
-  /**
-   * Штрихкод
-   * @type {number}
-   * @memberof GetV1AnalyticsGoodsReturnResponse200ReportInner
-   */
-  shkId?: number;
-  /**
-   * Уникальный ID заказа на возврат
-   * @type {string}
-   * @memberof GetV1AnalyticsGoodsReturnResponse200ReportInner
-   */
-  srid?: string;
-  /**
-   * Статус возврата
-   * @type {string}
-   * @memberof GetV1AnalyticsGoodsReturnResponse200ReportInner
-   */
-  status?: string;
-  /**
-   * Стикер заказа на возврат
-   * @type {string}
-   * @memberof GetV1AnalyticsGoodsReturnResponse200ReportInner
-   */
-  stickerId?: string;
-  /**
-   * Предмет
-   * @type {string}
-   * @memberof GetV1AnalyticsGoodsReturnResponse200ReportInner
-   */
-  subjectName?: string;
-  /**
-   * Размер
-   * @type {string}
-   * @memberof GetV1AnalyticsGoodsReturnResponse200ReportInner
-   */
-  techSize?: string;
-}
-
-export const GetV1AnalyticsGoodsReturnResponse200ReportInnerIsStatusActiveEnum =
-  {
-    NUMBER_0: 0,
-    NUMBER_1: 1,
-  } as const;
-
-export type GetV1AnalyticsGoodsReturnResponse200ReportInnerIsStatusActiveEnum =
-  (typeof GetV1AnalyticsGoodsReturnResponse200ReportInnerIsStatusActiveEnum)[keyof typeof GetV1AnalyticsGoodsReturnResponse200ReportInnerIsStatusActiveEnum];
-
 /**
  *
  * @export
@@ -1179,146 +1035,6 @@ export interface GetV1WarehouseRemainsTasksTaskIdDownloadResponse200InnerWarehou
 /**
  *
  * @export
- * @interface GoodsReturn200Response
- */
-export interface GoodsReturn200Response {
-  /**
-   * Общее количество возвратов за запрашиваемый период
-   * @type {number}
-   * @memberof GoodsReturn200Response
-   */
-  count?: number;
-  /**
-   * Отчёт
-   * @type {Array<GoodsReturn200ResponseReportInner>}
-   * @memberof GoodsReturn200Response
-   */
-  report?: Array<GoodsReturn200ResponseReportInner>;
-}
-/**
- *
- * @export
- * @interface GoodsReturn200ResponseReportInner
- */
-export interface GoodsReturn200ResponseReportInner {
-  /**
-   * Баркод
-   * @type {string}
-   * @memberof GoodsReturn200ResponseReportInner
-   */
-  sku?: string;
-  /**
-   * Бренд
-   * @type {string}
-   * @memberof GoodsReturn200ResponseReportInner
-   */
-  brand?: string;
-  /**
-   * Дата и время выдачи возврата продавцу
-   * @type {string}
-   * @memberof GoodsReturn200ResponseReportInner
-   */
-  completedDt?: string | null;
-  /**
-   * Адрес ПВЗ для выдачи возврата продавцу
-   * @type {string}
-   * @memberof GoodsReturn200ResponseReportInner
-   */
-  dstOfficeAddress?: string;
-  /**
-   * Код маркировки [Честного знака](https://честныйзнак.рф/)
-   * @type {string}
-   * @memberof GoodsReturn200ResponseReportInner
-   */
-  kiz?: string | null;
-  /**
-   * ID ПВЗ для выдачи возврата продавцу
-   * @type {number}
-   * @memberof GoodsReturn200ResponseReportInner
-   */
-  dstOfficeId?: number;
-  /**
-   * Дата и время истечения срока хранения возврата
-   * @type {string}
-   * @memberof GoodsReturn200ResponseReportInner
-   */
-  expiredDt?: string | null;
-  /**
-   * Артикул WB
-   * @type {number}
-   * @memberof GoodsReturn200ResponseReportInner
-   */
-  nmId?: number;
-  /**
-   * Дата заказа на возврат
-   * @type {string}
-   * @memberof GoodsReturn200ResponseReportInner
-   */
-  orderDt?: string;
-  /**
-   * ID сборочного задания
-   * @type {number}
-   * @memberof GoodsReturn200ResponseReportInner
-   */
-  orderId?: number;
-  /**
-   * Дата и время готовности возврата к выдаче
-   * @type {string}
-   * @memberof GoodsReturn200ResponseReportInner
-   */
-  readyToReturnDt?: string | null;
-  /**
-   * Причина возврата.  Поле возвращается только при `\"returnType\":\"Возврат неопознанного товара\"`
-   * @type {string}
-   * @memberof GoodsReturn200ResponseReportInner
-   */
-  returnReason?: string;
-  /**
-   * Тип возврата
-   * @type {string}
-   * @memberof GoodsReturn200ResponseReportInner
-   */
-  returnType?: string;
-  /**
-   * Штрихкод
-   * @type {number}
-   * @memberof GoodsReturn200ResponseReportInner
-   */
-  shkId?: number;
-  /**
-   * ID заказа на возврат
-   * @type {string}
-   * @memberof GoodsReturn200ResponseReportInner
-   */
-  srid?: string;
-  /**
-   * Статус возврата
-   * @type {string}
-   * @memberof GoodsReturn200ResponseReportInner
-   */
-  returnStatus?: string;
-  /**
-   * Стикер заказа на возврат
-   * @type {string}
-   * @memberof GoodsReturn200ResponseReportInner
-   */
-  stickerId?: string;
-  /**
-   * Предмет
-   * @type {string}
-   * @memberof GoodsReturn200ResponseReportInner
-   */
-  subjectName?: string;
-  /**
-   * Размер
-   * @type {string}
-   * @memberof GoodsReturn200ResponseReportInner
-   */
-  techSize?: string;
-}
-/**
- *
- * @export
  * @interface Http4XXResponse
  */
 export interface Http4XXResponse {
@@ -1346,6 +1062,146 @@ export interface Http4XXResponse {
    * @memberof Http4XXResponse
    */
   title?: string;
+}
+/**
+ *
+ * @export
+ * @interface ItemReturns200Response
+ */
+export interface ItemReturns200Response {
+  /**
+   * Общее количество возвратов за запрашиваемый период
+   * @type {number}
+   * @memberof ItemReturns200Response
+   */
+  count?: number;
+  /**
+   * Отчёт
+   * @type {Array<ItemReturns200ResponseReportInner>}
+   * @memberof ItemReturns200Response
+   */
+  report?: Array<ItemReturns200ResponseReportInner>;
+}
+/**
+ *
+ * @export
+ * @interface ItemReturns200ResponseReportInner
+ */
+export interface ItemReturns200ResponseReportInner {
+  /**
+   * Баркод
+   * @type {string}
+   * @memberof ItemReturns200ResponseReportInner
+   */
+  sku?: string;
+  /**
+   * Бренд
+   * @type {string}
+   * @memberof ItemReturns200ResponseReportInner
+   */
+  brand?: string;
+  /**
+   * Дата и время выдачи возврата продавцу
+   * @type {string}
+   * @memberof ItemReturns200ResponseReportInner
+   */
+  completedDt?: string | null;
+  /**
+   * Адрес ПВЗ для выдачи возврата продавцу
+   * @type {string}
+   * @memberof ItemReturns200ResponseReportInner
+   */
+  dstOfficeAddress?: string;
+  /**
+   * Код маркировки [Честного знака](https://честныйзнак.рф/)
+   * @type {string}
+   * @memberof ItemReturns200ResponseReportInner
+   */
+  kiz?: string | null;
+  /**
+   * ID ПВЗ для выдачи возврата продавцу
+   * @type {number}
+   * @memberof ItemReturns200ResponseReportInner
+   */
+  dstOfficeId?: number;
+  /**
+   * Дата и время истечения срока хранения возврата
+   * @type {string}
+   * @memberof ItemReturns200ResponseReportInner
+   */
+  expiredDt?: string | null;
+  /**
+   * Артикул WB
+   * @type {number}
+   * @memberof ItemReturns200ResponseReportInner
+   */
+  nmId?: number;
+  /**
+   * Дата заказа на возврат
+   * @type {string}
+   * @memberof ItemReturns200ResponseReportInner
+   */
+  orderDt?: string;
+  /**
+   * ID сборочного задания
+   * @type {number}
+   * @memberof ItemReturns200ResponseReportInner
+   */
+  orderId?: number;
+  /**
+   * Дата и время готовности возврата к выдаче
+   * @type {string}
+   * @memberof ItemReturns200ResponseReportInner
+   */
+  readyToReturnDt?: string | null;
+  /**
+   * Причина возврата.  Поле возвращается только при `\"returnType\":\"Возврат неопознанного товара\"`
+   * @type {string}
+   * @memberof ItemReturns200ResponseReportInner
+   */
+  returnReason?: string;
+  /**
+   * Тип возврата
+   * @type {string}
+   * @memberof ItemReturns200ResponseReportInner
+   */
+  returnType?: string;
+  /**
+   * Штрихкод
+   * @type {number}
+   * @memberof ItemReturns200ResponseReportInner
+   */
+  shkId?: number;
+  /**
+   * ID заказа на возврат
+   * @type {string}
+   * @memberof ItemReturns200ResponseReportInner
+   */
+  srid?: string;
+  /**
+   * Статус возврата
+   * @type {string}
+   * @memberof ItemReturns200ResponseReportInner
+   */
+  returnStatus?: string;
+  /**
+   * Стикер заказа на возврат
+   * @type {string}
+   * @memberof ItemReturns200ResponseReportInner
+   */
+  stickerId?: string;
+  /**
+   * Предмет
+   * @type {string}
+   * @memberof ItemReturns200ResponseReportInner
+   */
+  subjectName?: string;
+  /**
+   * Размер
+   * @type {string}
+   * @memberof ItemReturns200ResponseReportInner
+   */
+  techSize?: string;
 }
 /**
  *
@@ -2757,66 +2613,6 @@ export const ReportsApiAxiosParamCreator = function (
       };
     },
     /**
-     * Метод будет отключен [26 октября](https://dev.wildberries.ru/release-notes?id=577).  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-goods-return
-     * @summary Получить отчёт
-     * @param {string} dateFrom Дата начала отчётного периода
-     * @param {string} dateTo Дата окончания отчётного периода
-     * @param {*} [options] Override http request option.
-     * @deprecated
-     * @throws {RequiredError}
-     */
-    getV1AnalyticsGoodsReturn: async (
-      dateFrom: string,
-      dateTo: string,
-      options: RawAxiosRequestConfig = {},
-    ): Promise<RequestArgs> => {
-      // verify required parameter 'dateFrom' is not null or undefined
-      assertParamExists("getV1AnalyticsGoodsReturn", "dateFrom", dateFrom);
-      // verify required parameter 'dateTo' is not null or undefined
-      assertParamExists("getV1AnalyticsGoodsReturn", "dateTo", dateTo);
-      const localVarPath = `/api/v1/analytics/goods-return`;
-      // use dummy base URL string because the URL constructor only accepts absolute URLs.
-      const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-      let baseOptions;
-      if (configuration) {
-        baseOptions = configuration.baseOptions;
-      }
-
-      const localVarRequestOptions = {
-        method: "GET",
-        ...baseOptions,
-        ...options,
-      };
-      const localVarHeaderParameter = {} as any;
-      const localVarQueryParameter = {} as any;
-
-      // authentication BearerAuth required
-      // http bearer authentication required
-      await setBearerAuthToObject(localVarHeaderParameter, configuration);
-
-      if (dateFrom !== undefined) {
-        localVarQueryParameter["dateFrom"] = dateFrom;
-      }
-
-      if (dateTo !== undefined) {
-        localVarQueryParameter["dateTo"] = dateTo;
-      }
-
-      setSearchParams(localVarUrlObj, localVarQueryParameter);
-      let headersFromBaseOptions =
-        baseOptions && baseOptions.headers ? baseOptions.headers : {};
-      localVarRequestOptions.headers = {
-        ...localVarHeaderParameter,
-        ...headersFromBaseOptions,
-        ...options.headers,
-      };
-
-      return {
-        url: toPathString(localVarUrlObj),
-        options: localVarRequestOptions,
-      };
-    },
-    /**
      * Метод будет отключен [3 ноября](https://dev.wildberries.ru/release-notes?id=590).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-region-sale
      * @summary Получить отчёт
      * @param {string} dateFrom Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;
@@ -2964,24 +2760,24 @@ export const ReportsApiAxiosParamCreator = function (
      * @summary Получить отчёт
      * @param {string} dateFrom Дата начала отчётного периода
      * @param {string} dateTo Дата окончания отчётного периода
-     * @param {GetV1GoodsReturnStatusEnum} [status] Статус возврата:   - &#x60;archive&#x60; — архивный   - &#x60;active&#x60; — активный
+     * @param {GetV1ItemReturnsStatusEnum} [status] Статус возврата:   - &#x60;archive&#x60; — архивный   - &#x60;active&#x60; — активный
      * @param {number} [limit] Количество возвратов в ответе
      * @param {number} [offset] Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getV1GoodsReturn: async (
+    getV1ItemReturns: async (
       dateFrom: string,
       dateTo: string,
-      status?: GetV1GoodsReturnStatusEnum,
+      status?: GetV1ItemReturnsStatusEnum,
       limit?: number,
       offset?: number,
       options: RawAxiosRequestConfig = {},
     ): Promise<RequestArgs> => {
       // verify required parameter 'dateFrom' is not null or undefined
-      assertParamExists("getV1GoodsReturn", "dateFrom", dateFrom);
+      assertParamExists("getV1ItemReturns", "dateFrom", dateFrom);
       // verify required parameter 'dateTo' is not null or undefined
-      assertParamExists("getV1GoodsReturn", "dateTo", dateTo);
+      assertParamExists("getV1ItemReturns", "dateTo", dateTo);
       const localVarPath = `/api/analytics/v1/item-returns`;
       // use dummy base URL string because the URL constructor only accepts absolute URLs.
       const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -4073,44 +3869,6 @@ export const ReportsApiFp = function (configuration?: Configuration) {
         )(axios, localVarOperationServerBasePath || basePath);
     },
     /**
-     * Метод будет отключен [26 октября](https://dev.wildberries.ru/release-notes?id=577).  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-goods-return
-     * @summary Получить отчёт
-     * @param {string} dateFrom Дата начала отчётного периода
-     * @param {string} dateTo Дата окончания отчётного периода
-     * @param {*} [options] Override http request option.
-     * @deprecated
-     * @throws {RequiredError}
-     */
-    async getV1AnalyticsGoodsReturn(
-      dateFrom: string,
-      dateTo: string,
-      options?: RawAxiosRequestConfig,
-    ): Promise<
-      (
-        axios?: AxiosInstance,
-        basePath?: string,
-      ) => AxiosPromise<GetV1AnalyticsGoodsReturnResponse200>
-    > {
-      const localVarAxiosArgs =
-        await localVarAxiosParamCreator.getV1AnalyticsGoodsReturn(
-          dateFrom,
-          dateTo,
-          options,
-        );
-      const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-      const localVarOperationServerBasePath =
-        operationServerMap["ReportsApi.getV1AnalyticsGoodsReturn"]?.[
-          localVarOperationServerIndex
-        ]?.url;
-      return (axios, basePath) =>
-        createRequestFunction(
-          localVarAxiosArgs,
-          globalAxios,
-          BASE_PATH,
-          configuration,
-        )(axios, localVarOperationServerBasePath || basePath);
-    },
-    /**
      * Метод будет отключен [3 ноября](https://dev.wildberries.ru/release-notes?id=590).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-region-sale
      * @summary Получить отчёт
      * @param {string} dateFrom Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;
@@ -4201,16 +3959,16 @@ export const ReportsApiFp = function (configuration?: Configuration) {
      * @summary Получить отчёт
      * @param {string} dateFrom Дата начала отчётного периода
      * @param {string} dateTo Дата окончания отчётного периода
-     * @param {GetV1GoodsReturnStatusEnum} [status] Статус возврата:   - &#x60;archive&#x60; — архивный   - &#x60;active&#x60; — активный
+     * @param {GetV1ItemReturnsStatusEnum} [status] Статус возврата:   - &#x60;archive&#x60; — архивный   - &#x60;active&#x60; — активный
      * @param {number} [limit] Количество возвратов в ответе
      * @param {number} [offset] Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    async getV1GoodsReturn(
+    async getV1ItemReturns(
       dateFrom: string,
       dateTo: string,
-      status?: GetV1GoodsReturnStatusEnum,
+      status?: GetV1ItemReturnsStatusEnum,
       limit?: number,
       offset?: number,
       options?: RawAxiosRequestConfig,
@@ -4218,10 +3976,10 @@ export const ReportsApiFp = function (configuration?: Configuration) {
       (
         axios?: AxiosInstance,
         basePath?: string,
-      ) => AxiosPromise<GoodsReturn200Response>
+      ) => AxiosPromise<ItemReturns200Response>
     > {
       const localVarAxiosArgs =
-        await localVarAxiosParamCreator.getV1GoodsReturn(
+        await localVarAxiosParamCreator.getV1ItemReturns(
           dateFrom,
           dateTo,
           status,
@@ -4231,7 +3989,7 @@ export const ReportsApiFp = function (configuration?: Configuration) {
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["ReportsApi.getV1GoodsReturn"]?.[
+        operationServerMap["ReportsApi.getV1ItemReturns"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -4848,24 +4606,6 @@ export const ReportsApiFactory = function (
         .then((request) => request(axios, basePath));
     },
     /**
-     * Метод будет отключен [26 октября](https://dev.wildberries.ru/release-notes?id=577).  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-goods-return
-     * @summary Получить отчёт
-     * @param {string} dateFrom Дата начала отчётного периода
-     * @param {string} dateTo Дата окончания отчётного периода
-     * @param {*} [options] Override http request option.
-     * @deprecated
-     * @throws {RequiredError}
-     */
-    getV1AnalyticsGoodsReturn(
-      dateFrom: string,
-      dateTo: string,
-      options?: RawAxiosRequestConfig,
-    ): AxiosPromise<GetV1AnalyticsGoodsReturnResponse200> {
-      return localVarFp
-        .getV1AnalyticsGoodsReturn(dateFrom, dateTo, options)
-        .then((request) => request(axios, basePath));
-    },
-    /**
      * Метод будет отключен [3 ноября](https://dev.wildberries.ru/release-notes?id=590).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-region-sale
      * @summary Получить отчёт
      * @param {string} dateFrom Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;
@@ -4913,22 +4653,22 @@ export const ReportsApiFactory = function (
      * @summary Получить отчёт
      * @param {string} dateFrom Дата начала отчётного периода
      * @param {string} dateTo Дата окончания отчётного периода
-     * @param {GetV1GoodsReturnStatusEnum} [status] Статус возврата:   - &#x60;archive&#x60; — архивный   - &#x60;active&#x60; — активный
+     * @param {GetV1ItemReturnsStatusEnum} [status] Статус возврата:   - &#x60;archive&#x60; — архивный   - &#x60;active&#x60; — активный
      * @param {number} [limit] Количество возвратов в ответе
      * @param {number} [offset] Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getV1GoodsReturn(
+    getV1ItemReturns(
       dateFrom: string,
       dateTo: string,
-      status?: GetV1GoodsReturnStatusEnum,
+      status?: GetV1ItemReturnsStatusEnum,
       limit?: number,
       offset?: number,
       options?: RawAxiosRequestConfig,
-    ): AxiosPromise<GoodsReturn200Response> {
+    ): AxiosPromise<ItemReturns200Response> {
       return localVarFp
-        .getV1GoodsReturn(dateFrom, dateTo, status, limit, offset, options)
+        .getV1ItemReturns(dateFrom, dateTo, status, limit, offset, options)
         .then((request) => request(axios, basePath));
     },
     /**
@@ -5299,22 +5039,6 @@ export interface ReportsApiInterface {
   ): AxiosPromise<GetV1AnalyticsGoodsLabeling200Response>;
 
   /**
-   * Метод будет отключен [26 октября](https://dev.wildberries.ru/release-notes?id=577).  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-goods-return
-   * @summary Получить отчёт
-   * @param {string} dateFrom Дата начала отчётного периода
-   * @param {string} dateTo Дата окончания отчётного периода
-   * @param {*} [options] Override http request option.
-   * @deprecated
-   * @throws {RequiredError}
-   * @memberof ReportsApiInterface
-   */
-  getV1AnalyticsGoodsReturn(
-    dateFrom: string,
-    dateTo: string,
-    options?: RawAxiosRequestConfig,
-  ): AxiosPromise<GetV1AnalyticsGoodsReturnResponse200>;
-
-  /**
    * Метод будет отключен [3 ноября](https://dev.wildberries.ru/release-notes?id=590).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-region-sale
    * @summary Получить отчёт
    * @param {string} dateFrom Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;
@@ -5358,21 +5082,21 @@ export interface ReportsApiInterface {
    * @summary Получить отчёт
    * @param {string} dateFrom Дата начала отчётного периода
    * @param {string} dateTo Дата окончания отчётного периода
-   * @param {GetV1GoodsReturnStatusEnum} [status] Статус возврата:   - &#x60;archive&#x60; — архивный   - &#x60;active&#x60; — активный
+   * @param {GetV1ItemReturnsStatusEnum} [status] Статус возврата:   - &#x60;archive&#x60; — архивный   - &#x60;active&#x60; — активный
    * @param {number} [limit] Количество возвратов в ответе
    * @param {number} [offset] Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
    * @memberof ReportsApiInterface
    */
-  getV1GoodsReturn(
+  getV1ItemReturns(
     dateFrom: string,
     dateTo: string,
-    status?: GetV1GoodsReturnStatusEnum,
+    status?: GetV1ItemReturnsStatusEnum,
     limit?: number,
     offset?: number,
     options?: RawAxiosRequestConfig,
-  ): AxiosPromise<GoodsReturn200Response>;
+  ): AxiosPromise<ItemReturns200Response>;
 
   /**
    * Метод возвращает отчёт об [удержаниях за занижение габаритов упаковки](https://seller.wildberries.ru/analytics-reports/dimensions-penalties)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 6 ч | 1 запрос | 6 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-analytics-v1-measurement-penalties
@@ -5739,26 +5463,6 @@ export class ReportsApi extends BaseAPI implements ReportsApiInterface {
   }
 
   /**
-   * Метод будет отключен [26 октября](https://dev.wildberries.ru/release-notes?id=577).  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-goods-return
-   * @summary Получить отчёт
-   * @param {string} dateFrom Дата начала отчётного периода
-   * @param {string} dateTo Дата окончания отчётного периода
-   * @param {*} [options] Override http request option.
-   * @deprecated
-   * @throws {RequiredError}
-   * @memberof ReportsApi
-   */
-  public getV1AnalyticsGoodsReturn(
-    dateFrom: string,
-    dateTo: string,
-    options?: RawAxiosRequestConfig,
-  ) {
-    return ReportsApiFp(this.configuration)
-      .getV1AnalyticsGoodsReturn(dateFrom, dateTo, options)
-      .then((request) => request(this.axios, this.basePath));
-  }
-
-  /**
    * Метод будет отключен [3 ноября](https://dev.wildberries.ru/release-notes?id=590).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-region-sale
    * @summary Получить отчёт
    * @param {string} dateFrom Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;
@@ -5810,23 +5514,23 @@ export class ReportsApi extends BaseAPI implements ReportsApiInterface {
    * @summary Получить отчёт
    * @param {string} dateFrom Дата начала отчётного периода
    * @param {string} dateTo Дата окончания отчётного периода
-   * @param {GetV1GoodsReturnStatusEnum} [status] Статус возврата:   - &#x60;archive&#x60; — архивный   - &#x60;active&#x60; — активный
+   * @param {GetV1ItemReturnsStatusEnum} [status] Статус возврата:   - &#x60;archive&#x60; — архивный   - &#x60;active&#x60; — активный
    * @param {number} [limit] Количество возвратов в ответе
    * @param {number} [offset] Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
    * @memberof ReportsApi
    */
-  public getV1GoodsReturn(
+  public getV1ItemReturns(
     dateFrom: string,
     dateTo: string,
-    status?: GetV1GoodsReturnStatusEnum,
+    status?: GetV1ItemReturnsStatusEnum,
     limit?: number,
     offset?: number,
     options?: RawAxiosRequestConfig,
   ) {
     return ReportsApiFp(this.configuration)
-      .getV1GoodsReturn(dateFrom, dateTo, status, limit, offset, options)
+      .getV1ItemReturns(dateFrom, dateTo, status, limit, offset, options)
       .then((request) => request(this.axios, this.basePath));
   }
 
@@ -6115,9 +5819,9 @@ export type GetV1DeductionsOrderEnum =
 /**
  * @export
  */
-export const GetV1GoodsReturnStatusEnum = {
+export const GetV1ItemReturnsStatusEnum = {
   Active: "active",
   Archive: "archive",
 } as const;
-export type GetV1GoodsReturnStatusEnum =
-  (typeof GetV1GoodsReturnStatusEnum)[keyof typeof GetV1GoodsReturnStatusEnum];
+export type GetV1ItemReturnsStatusEnum =
+  (typeof GetV1ItemReturnsStatusEnum)[keyof typeof GetV1ItemReturnsStatusEnum];
